@@ -22,8 +22,8 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
-{tidyverse} methods implemented by {terra} works differently depending
-on the type of Spat\* object:
+{tidyverse} methods implemented on {tidyterra} works differently
+depending on the type of Spat\* object:
 
 -   SpatVector: the methods are implemented taking advantage of the
     tidyverse implementation on {sf}. The SpatVector object is converted

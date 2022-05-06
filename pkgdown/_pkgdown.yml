@@ -3,8 +3,16 @@ url: 'https://dieghernan.github.io/tidyterra'
 figures:
   fig.retina: 2
 
+navbar:
+  type: dark
+  bg: primary
+
 template:
   bootstrap: 5
+  bslib:
+    primary: "#516a54"
+    code_font: {google: "Roboto Mono"}
+
 
 reference:
 - title: "Coercing objects"

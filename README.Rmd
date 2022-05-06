@@ -36,7 +36,7 @@ SpatVector. It also provides geoms for plotting these objects with
 
 ## Overview
 
-{tidyverse} methods implemented by {terra} works differently depending on the
+{tidyverse} methods implemented on {tidyterra} works differently depending on the
 type of Spat\* object:
 
 -   SpatVector: the methods are implemented taking advantage of the tidyverse
