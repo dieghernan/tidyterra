@@ -1,0 +1,10 @@
+pandoc: 2.14.2
+pkgdown: 2.0.3
+pkgdown_sha: ~
+articles:
+  tidyterra: tidyterra.html
+last_built: 2022-05-06T13:10Z
+urls:
+  reference: https://dieghernan.github.io/tidyterra/reference
+  article: https://dieghernan.github.io/tidyterra/articles
+
