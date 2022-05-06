@@ -1,0 +1,14 @@
+^tidyterra\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^dev$
+^revdep$
+^codemeta\.json$
+^CITATION\.cff$
+^CRAN-SUBMISSION$
+^docs$
+^pkgdown$
+^README\.Rmd$
+^tests/testthat/_snaps$
+^\.github$

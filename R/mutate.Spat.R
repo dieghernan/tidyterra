@@ -1,0 +1,98 @@
+#' Create, modify, and delete cell values/layers/attributes of Spat* objects
+#'
+#' @description
+#'
+#' `mutate()` adds new layers/attributes and preserves existing ones on a
+#' Spat* object.
+#'
+#'
+#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#'
+#' @inheritParams select
+#' @param ... [`data-masking`][dplyr::mutate] Name-value pairs. The name gives
+#'   the name of the layer/attribute in the output.
+#'
+#' @export
+#' @rdname mutate
+#' @name mutate
+#'
+#' @importFrom dplyr mutate
+#'
+#' @seealso [dplyr::mutate()]
+#'
+#' @family dplyr.methods
+#'
+#' @section  terra equivalent:
+#'
+#' Some terra methods for modifying cell values:
+#' [terra::ifel()], [terra::classify()], [terra::clamp()], [terra::app()],
+#' [terra::lapp()], [terra::tapp()]
+#'
+#' @section Methods:
+#'
+#' Implementation of the **generic** [dplyr::mutate()] function.
+#'
+#' ## SpatRaster
+#'
+#' Add new layers and preserves existing ones. The result is a
+#' SpatRaster with the same extent, resolution and crs than `.data`. Only the
+#' values (and possibly the number) of layers is modified.
+#'
+#' ## SpatVector
+#'
+#' This method relies on the implementation of [dplyr::mutate()] method on the
+#' sf package. The result is a SpatVector with the modified (and possibly
+#' renamed) attributes on the function call.
+#'
+#' @examples
+#'
+#' library(terra)
+#'
+#' # SpatRaster method
+#' f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+#' spatrast <- rast(f)
+#'
+#' mod <- spatrast %>%
+#'   mutate(exp_lyr1 = exp(tavg_04 / 10)) %>%
+#'   select(tavg_04, exp_lyr1)
+#'
+#' mod
+#' plot(mod)
+#'
+#' # SpatVector method
+#' f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+#' v <- vect(f)
+#'
+#' v %>%
+#'   mutate(cpro2 = paste0(cpro, "-CyL")) %>%
+#'   select(cpro, cpro2)
+mutate.SpatRaster <- function(.data, ...) {
+  df <- as_tbl_spat_attr(.data)
+
+  xy <- dplyr::select(df, 1:2)
+
+  values <- dplyr::select(df, -c(1:2))
+
+  values_mutate <- dplyr::mutate(values, ...)
+
+  final_df <- dplyr::bind_cols(xy, values_mutate)
+
+  # Rearrange number of layers
+  dims <- attributes(df)$dims
+  dims[3] <- ncol(values_mutate)
+  attr(final_df, "dims") <- dims
+
+  final_rast <- as_spatrast_attr(final_df)
+
+  return(final_rast)
+}
+#' @export
+#' @rdname mutate
+mutate.SpatVector <- function(.data, ...) {
+
+  # Use sf method
+  sf_obj <- sf::st_as_sf(.data)
+  mutated <- dplyr::mutate(sf_obj, ...)
+
+  return(terra::vect(mutated))
+}

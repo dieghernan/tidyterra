@@ -1,0 +1,44 @@
+Package: tidyterra
+Title: 'tidyverse' Methods for 'terra' Objects
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-8457-4658")),
+    person("Dewey", "Dunnington", role = "ctb",
+           comment = c(ORCID = "0000-0002-9415-4582", "for ggspatial code"))
+  )
+Description: Extension of the 'tidyverse' for 'SpatRaster' and
+    'SpatVector' objects of the 'terra' package. Includes also new 'geom_'
+    functions that provide a convenient way of visualizing 'terra' objects
+    with 'ggplot2'.
+License: MIT + file LICENSE
+URL: https://dieghernan.github.io/tidyterra/,
+    https://github.com/dieghernan/tidyterra
+BugReports: https://github.com/dieghernan/tidyterra/issues
+Depends: 
+    R (>= 3.6.0)
+Imports: 
+    cli (>= 3.0.0),
+    crayon,
+    dplyr,
+    ggplot2 (>= 3.1.0),
+    lifecycle,
+    magrittr,
+    rlang,
+    scales,
+    sf (>= 1.0.0),
+    terra (>= 1.5.0),
+    tibble,
+    tidyr
+Suggests: 
+    knitr,
+    maptiles,
+    rmarkdown,
+    testthat (>= 3.0.0),
+    vdiffr
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+VignetteBuilder: knitr

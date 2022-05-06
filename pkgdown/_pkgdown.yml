@@ -1,0 +1,36 @@
+url: 'https://dieghernan.github.io/tidyterra'
+
+figures:
+  fig.retina: 2
+
+template:
+  bootstrap: 5
+
+reference:
+- title: "Coercing objects"
+  desc:  Convert Spat* to other type of objects or create SpatRasters from tibbles.
+  contents:
+   - has_concept("coerce")
+- title: "dplyr methods"
+  desc:  Methods from {dplyr} implemented for Spat* objects.
+  contents:
+    - has_concept("dplyr.methods")
+- title: "tidyr methods"
+  desc:  Methods from {tidyr} implemented for Spat* objects.
+  contents:
+    - has_concept("tidyr.methods")
+- title: "ggplot2 utils"
+  desc:  Create {ggplot2} objects from Spat* objects.
+  contents:
+    - has_concept("ggplot2.utils")
+- title: "Helpers"
+  desc:  Additional set of functions provided by {tidyterra}.
+  contents:
+    - has_concept("helpers")
+- title: "Other functions"
+  desc: Miscelanea
+  contents:
+    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce"))
+- title: "About the package"
+  contents:
+    - tidyterra-package
