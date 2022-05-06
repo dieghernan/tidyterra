@@ -4,6 +4,14 @@
 # tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
+[![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
+[![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+
 <!-- badges: end -->
 
 The goal of {tidyterra} is to provide common methods of the [tidyverse
@@ -74,11 +82,11 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9000 ──
+#> -- Attaching packages ---------------------------------- tidyterra 0.0.0.9000 --
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> ✔ tibble 3.1.6     ✔ dplyr  1.0.8
-#> ✔ tidyr  1.2.0
+#> v tibble 3.1.7     v dplyr  1.0.9
+#> v tidyr  1.2.0
 
 library(terra)
 #> terra 1.5.21
@@ -189,7 +197,7 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 To cite ‘tidyterra’ in publications use:
 
 Hernangómez D (2022). *tidyterra: ‘tidyverse’ Methods for ‘terra’
-Objects*. <https://dieghernan.github.io/tidyterra/>.
+Objects*. \<URL: <https://dieghernan.github.io/tidyterra/>\>.
 
 A BibTeX entry for LaTeX users is
 
