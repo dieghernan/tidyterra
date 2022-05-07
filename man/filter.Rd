@@ -30,9 +30,6 @@ different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]
 A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-Subset cells/geometries of Spat* objects
-}
-\details{
 The \code{filter()} function is used to subset Spat* objects, retaining all
 cells/geometries that satisfy your conditions. To be retained, the
 cell/geometry must produce a value of \code{TRUE} for all conditions.

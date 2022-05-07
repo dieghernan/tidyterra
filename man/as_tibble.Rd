@@ -64,7 +64,7 @@ also noted that terra allows layers with duplicated names.
 
 In the process of coercing a SpatRaster to a tibble, tidyterra may rename
 the layers of your SpatRaster for overcoming this issue. Specifically, layers
-may be removed on the following cases:
+may be renamed on the following cases:
 \itemize{
 \item Layers with duplicated names
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or \code{y} would be

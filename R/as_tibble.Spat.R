@@ -53,7 +53,7 @@
 #'
 #' In the process of coercing a SpatRaster to a tibble, tidyterra may rename
 #' the layers of your SpatRaster for overcoming this issue. Specifically, layers
-#' may be removed on the following cases:
+#' may be renamed on the following cases:
 #'
 #' - Layers with duplicated names
 #' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` would be

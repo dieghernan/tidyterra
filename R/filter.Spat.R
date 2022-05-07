@@ -1,6 +1,6 @@
 #' Subset cells/geometries of Spat* objects
 #'
-#' @details
+#' @description
 #' The `filter()` function is used to subset Spat* objects, retaining all
 #' cells/geometries that satisfy your conditions. To be retained, the
 #' cell/geometry must produce a value of `TRUE` for all conditions.
