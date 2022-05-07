@@ -12,7 +12,10 @@ template:
   bslib:
     primary: "#516a54"
     code_font: {google: "Roboto Mono"}
-
+  opengraph:
+    twitter:
+      creator: '@dhernangomez'
+      card: summary_large_image
 
 reference:
 - title: "Coercing objects"
