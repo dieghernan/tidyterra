@@ -118,7 +118,7 @@ reserved for geographic coordinates of each cell of the raster. It should be
 also noted that terra allows layers with duplicated names.</p>
 <p>In the process of coercing a SpatRaster to a tibble, tidyterra may rename
 the layers of your SpatRaster for overcoming this issue. Specifically, layers
-may be removed on the following cases:</p><ul><li><p>Layers with duplicated names</p></li>
+may be renamed on the following cases:</p><ul><li><p>Layers with duplicated names</p></li>
 <li><p>When coercing to a tibble, if <code>xy = TRUE</code>, layers named <code>x</code> or <code>y</code> would be
 renamed.</p></li>
 <li><p>When working with tidyverse methods (i.e. <code><a href="filter.html">filter.SpatRaster()</a></code>), the
