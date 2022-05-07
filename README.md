@@ -82,11 +82,11 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> -- Attaching packages ---------------------------------- tidyterra 0.0.0.9000 --
+#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9000 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> v tibble 3.1.7     v dplyr  1.0.9
-#> v tidyr  1.2.0
+#> ✔ tibble 3.1.6     ✔ dplyr  1.0.8
+#> ✔ tidyr  1.2.0
 
 library(terra)
 #> terra 1.5.21
@@ -197,7 +197,7 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 To cite ‘tidyterra’ in publications use:
 
 Hernangómez D (2022). *tidyterra: ‘tidyverse’ Methods for ‘terra’
-Objects*. \<URL: <https://dieghernan.github.io/tidyterra/>\>.
+Objects*. <https://dieghernan.github.io/tidyterra/>.
 
 A BibTeX entry for LaTeX users is
 
