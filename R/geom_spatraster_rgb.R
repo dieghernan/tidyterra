@@ -95,16 +95,19 @@ geom_spatraster_rgb <- function(mapping = aes(),
     )
   }
 
+  layers_order <- as.integer(c(r, g, b))
+
+
   nlyrs_data <- seq_len(terra::nlyr(data))
 
   if (!all(
-    r %in% nlyrs_data,
-    g %in% nlyrs_data,
-    b %in% nlyrs_data
+    layers_order[1] %in% nlyrs_data,
+    layers_order[2] %in% nlyrs_data,
+    layers_order[3] %in% nlyrs_data
   )) {
     cli::cli_abort(paste(
       "Incorrect number of layers on r,g,b. data has",
-      nlyrs_data, "layer(s)."
+      terra::nlyr(data), "layer(s)."
     ))
   }
 
@@ -120,7 +123,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
 
 
   # Select channels
-  data <- terra::subset(data, c(r, g, b))
+  data <- terra::subset(data, layers_order)
   names(data) <- c("r", "g", "b")
 
 
@@ -131,51 +134,37 @@ geom_spatraster_rgb <- function(mapping = aes(),
   # 3. Build layer ----
   crs_terra <- pull_crs(data)
 
-  if (is.na(crs_terra)) {
-    # SpatRaster with no crs
 
-    ggplot2::layer(
-      data = tibble::tibble(
-        spatraster = list(data)
-      ),
-      mapping = mapping,
-      stat = StatTerraSpatRasterRGBDF,
-      geom = GeomTerraSpatRasterRGB,
-      position = "identity",
-      inherit.aes = FALSE,
-      show.legend = FALSE,
-      params = list(
-        na.rm = TRUE,
-        interpolate = interpolate,
-        alpha = alpha,
-        ...
-      )
+  layer_spatrast <- ggplot2::layer(
+    data = tibble::tibble(
+      spatraster = list(data)
+    ),
+    mapping = mapping,
+    stat = StatTerraSpatRasterRGB,
+    geom = GeomTerraSpatRasterRGB,
+    position = "identity",
+    inherit.aes = FALSE,
+    show.legend = FALSE,
+    params = list(
+      na.rm = TRUE,
+      # Extra params
+      crs_terra = crs_terra,
+      maxcell = maxcell,
+      interpolate = interpolate,
+      alpha = alpha,
+      ...
     )
-  } else {
-    c(
-      ggplot2::layer(
-        data = tibble::tibble(
-          spatraster = list(data)
-        ),
-        mapping = mapping,
-        stat = StatTerraSpatRasterRGB,
-        geom = GeomTerraSpatRasterRGB,
-        position = "identity",
-        inherit.aes = FALSE,
-        show.legend = FALSE,
-        params = list(
-          na.rm = TRUE,
-          # Extra params
-          crs_terra = crs_terra,
-          maxcell = maxcell,
-          interpolate = interpolate,
-          alpha = alpha,
-          ...
-        )
-      ),
-      # From ggspatial
-      # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-      # using the first layer's CRS as the base CRS for coord_sf().
+  )
+
+
+  # From ggspatial
+  # If the SpatRaster has crs add a geom_sf for training scales
+  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
+  # using the first layer's CRS as the base CRS for coord_sf().
+
+  if (!is.na(crs_terra)) {
+    layer_spatrast <- c(
+      layer_spatrast,
       ggplot2::geom_sf(
         data = sf::st_sfc(sf::st_point(),
           crs = sf::st_crs(data)
@@ -185,39 +174,14 @@ geom_spatraster_rgb <- function(mapping = aes(),
       )
     )
   }
+
+
+  layer_spatrast
 }
 
 # Stats----
 
-StatTerraSpatRasterRGBDF <- ggplot2::ggproto(
-  "StatTerraSpatRasterRGBDF",
-  ggplot2::Stat,
-  required_aes = c("spatraster", "hexcol"),
-  compute_layer = function(self, data, params, layout) {
 
-    # raster extents: ggspatial
-    extents <- lapply(data$spatraster, terra::ext)
-
-    extent <- lapply(seq_along(extents), function(i) {
-      x <- as.vector(extents[[i]])
-    })
-
-    # this needs to be directly in the data so that the position scales
-    # get trained
-    data$xmin <- vapply(extent, function(x) x["xmin"], numeric(1))
-    data$xmax <- vapply(extent, function(x) x["xmax"], numeric(1))
-    data$ymin <- vapply(extent, function(x) x["ymin"], numeric(1))
-    data$ymax <- vapply(extent, function(x) x["ymax"], numeric(1))
-
-    # Build data
-    data$spatraster <- lapply(data$spatraster, make_hexcol)
-
-    # From ggspatial
-    data <- tidyr::unnest(data, .data$spatraster)
-
-    data
-  }
-)
 
 StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
@@ -229,41 +193,48 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
     # Inspired from ggspatial
     # Make extent and project
     # Check if need to reproject
-    coord_crs <- layout$coord_params$crs
-    crs_terra <- params$crs_terra
 
-    if (is.null(coord_crs)) {
-      cli::cli_abort(
-        paste(
-          "geom_spatraster_rgb() with georeferend SpatRasters",
-          "must be used with coord_sf()."
-        ),
-        call. = TRUE
-      )
-    }
+    # On SpatRaster with crs check if need to reproject
 
-    if (!all(!is.null(crs_terra) & !is.null(coord_crs) &
-      crs_terra == coord_crs)) {
-      init_rast <- data$spatraster[[1]]
+    # Check if need to reproject
+    crs_terra <- pull_crs(params$crs_terra)
 
-      # Create template for projection
-      template <- terra::project(
-        terra::rast(init_rast),
-        pull_crs(coord_crs)
-      )
+    if (!is.na(crs_terra)) {
+      coord_crs <- layout$coord_params$crs
 
-      # Try to keep the same number of cells
-      template <- terra::spatSample(template, terra::ncell(init_rast),
-        as.raster = TRUE,
-        method = "regular"
-      )
+      if (is.null(coord_crs)) {
+        cli::cli_abort(
+          paste(
+            "geom_spatraster_rgb() with georeferenced SpatRasters",
+            "must be used with coord_sf()."
+          ),
+          call. = TRUE
+        )
+      }
 
-      # Reproject
-      proj_rast <- terra::project(init_rast, template)
+      if (!all(!is.null(crs_terra) & !is.null(coord_crs) &
+        crs_terra == coord_crs)) {
+        init_rast <- data$spatraster[[1]]
 
-      # Nest and build
+        # Create template for projection
+        template <- terra::project(
+          terra::rast(init_rast),
+          pull_crs(coord_crs)
+        )
 
-      data$spatraster <- list(proj_rast)
+        # Try to keep the same number of cells
+        template <- terra::spatSample(template, terra::ncell(init_rast),
+          as.raster = TRUE,
+          method = "regular"
+        )
+
+        # Reproject
+        proj_rast <- terra::project(init_rast, template)
+
+        # Nest and build
+
+        data$spatraster <- list(proj_rast)
+      }
     }
 
     # raster extents: ggspatial

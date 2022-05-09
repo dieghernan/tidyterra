@@ -28,7 +28,7 @@ test_that("Slice", {
 
 
   # Negative index
-  sliced <- slice(r, -(1:250))
+  sliced <- slice(r, -c(1:250))
 
   expect_s4_class(sliced, "SpatRaster")
 
@@ -460,7 +460,7 @@ test_that("Slice Rows", {
   expect_true(all(sort(unique(df$colindex)) == 1:20))
 
   # Negative index
-  sliced <- slice_rows(r, -(1:10))
+  sliced <- slice_rows(r, -c(1:10))
 
   expect_s4_class(sliced, "SpatRaster")
 
@@ -538,7 +538,7 @@ test_that("Slice Cols", {
   expect_true(all(sort(unique(df$rowindex)) == 1:20))
 
   # Negative index
-  sliced <- slice_cols(r, -(1:10))
+  sliced <- slice_cols(r, -c(1:10))
 
   expect_s4_class(sliced, "SpatRaster")
 
@@ -626,7 +626,7 @@ test_that("Slice RowCols", {
 
 
   # Negative index
-  rws <- -(10:20)
+  rws <- -c(10:20)
   cls <- -c(15:20)
 
   sliced <- slice_colrows(r, cols = cls, rows = rws)

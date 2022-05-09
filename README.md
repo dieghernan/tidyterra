@@ -82,10 +82,10 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9000 ──
+#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9001 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> ✔ tibble 3.1.6     ✔ dplyr  1.0.8
+#> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
 #> ✔ tidyr  1.2.0
 
 library(terra)
@@ -205,7 +205,7 @@ A BibTeX entry for LaTeX users is
       title = {{tidyterra}: 'tidyverse' Methods for 'terra' Objects},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.0.0.9000},
+      version = {0.0.0.9001},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.},
     }

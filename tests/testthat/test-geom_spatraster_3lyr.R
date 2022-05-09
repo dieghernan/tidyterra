@@ -382,7 +382,7 @@ test_that("geom_spatraster several layer with no CRS", {
   vdiffr::expect_doppelganger("nocrs_10: With sf", p_rast_first +
     geom_sf(data = v_sf, fill = NA))
 
-  #   # Would align only if sf/coord on the same crs
+  # Would align only if sf/coord on the same crs
 
   vdiffr::expect_doppelganger("nocrs_11: With crs and sf", p_rast_first +
     geom_sf(data = v_sf, fill = NA) +

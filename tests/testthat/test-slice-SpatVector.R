@@ -15,7 +15,7 @@ test_that("Slice", {
   expect_true(all(sliced$index == 1:3))
 
   # Negative index
-  sliced <- slice(v, -(1:3))
+  sliced <- slice(v, -c(1:3))
 
   expect_s4_class(sliced, "SpatVector")
   expect_false(any(sliced$index %in% 1:3))
