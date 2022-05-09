@@ -38,7 +38,19 @@
 is_regular_grid <- function(xy, digits = 6) {
 
   # From https://github.com/rspatial/terra/blob/master/R/rast.R
-  xyz <- as.matrix(xy)[, 1:2]
+
+  # Need to work out with tibbles
+
+  xy_df <- as.data.frame(xy)
+
+  newdf <- data.frame(
+    x = as.double(xy_df[, 1]),
+    y = as.double(xy_df[, 2])
+  )
+
+
+
+  xyz <- as.matrix(newdf)
   xyz <- matrix(as.numeric(xyz), ncol = ncol(xyz), nrow = nrow(xyz))
 
 

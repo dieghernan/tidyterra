@@ -5,7 +5,10 @@ test_that("Error check", {
   expect_error(as_spatraster(as_tbl, xycols = 2))
   expect_error(as_spatraster(as_tbl, xycols = c("x", "y")))
   expect_error(as_spatraster(as_tbl, xycols = 1:3))
-  expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
+  expect_error(as_spatraster(as.matrix(as_tbl)),
+    regexp = "should be a data.frame"
+  )
+
   expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
 })
 
@@ -87,12 +90,71 @@ test_that("Irregular grids", {
   )
 })
 
+test_that("Check with chars", {
+  df <- data.frame(
+    x_lan = seq(310, 400, by = 10),
+    y_lon = seq(510, 600, by = 10),
+    letter = rep(letters[1:5], 2)
+  )
+
+
+  newspat <- as_spatraster(df, crs = 3857)
+
+  expect_s4_class(newspat, "SpatRaster")
+
+  # Check values from table
+  df_res <- terra::as.data.frame(newspat, na.rm = TRUE, xy = FALSE)
+  df_res$letter <- as.character(df_res$letter)
+
+  expect_equal(
+    sort(unique(df$letter)),
+    sort(unique(df_res$letter))
+  )
+})
+
+test_that("Check with mixed type of cols", {
+  df <- data.frame(
+    x_lan = seq(310, 400, by = 10),
+    y_lon = seq(510, 600, by = 10),
+    val = 1:10,
+    letter = rep(letters[1:5], 2)
+  )
+
+  df$fact <- factor(df$letter, levels = c("a", "c", "e"))
+
+
+  newspat <- as_spatraster(df, crs = 3857)
+
+  expect_s4_class(newspat, "SpatRaster")
+
+  # Check values from table
+  df_res <- terra::as.data.frame(newspat, na.rm = FALSE, xy = FALSE)
+  df_res$letter <- as.character(df_res$letter)
+
+  # Keep and sort
+  df_res <- dplyr::arrange(df_res[!is.na(df_res$val), ], val)
+
+  expect_true(all(df_res$val == df$val))
+  expect_identical(df$letter, df_res$letter)
+  expect_identical(df$fact, df_res$fact)
+
+  expect_true(is.factor(df_res$fact))
+  expect_true(all(levels(df$fact) == levels(df_res$fact)))
+})
+
+
 test_that("Check internal", {
   p <- matrix(1:90, nrow = 30, ncol = 3)
   names(p) <- c("x", "y", "z")
 
   r <- terra::rast(p)
   terra::crs(r) <- pull_crs("epsg:3857")
+
+  # Test bypass
+  expect_silent(compare_spatrasters(
+    r,
+    as_spatrast_attr(r)
+  ))
 
   # From internal
   tbl <- as_tbl_spat_attr(r)

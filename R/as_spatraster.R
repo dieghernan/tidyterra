@@ -57,6 +57,12 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     return(x)
   }
 
+  if (!inherits(x, "data.frame")) {
+    cli::cli_abort(
+      "x should be a data.frame/tibble"
+    )
+  }
+
   if (length(xycols) != 2 | !is.numeric(xycols)) {
     stop("xycols should be two integers: `c(int, int)`")
   }
@@ -70,14 +76,17 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   xy_cols <- x[xycols]
   values <- x[-xycols]
 
-  x_arrange <- dplyr::bind_cols(xy_cols, values)
+  names(xy_cols) <- c("x", "y")
+  layer_names <- names(values)
 
   # Check if grid is regular
-  is_regular_grid(x_arrange, digits = digits)
+  is_regular_grid(xy_cols, digits = digits)
+
+  names(values) <- paste0("lyr", seq_len(ncol(values)))
+
+  x_arrange <- dplyr::bind_cols(xy_cols, values)
 
   # Create SpatRaster
-  x_arrange <- as.data.frame(x_arrange)
-
   # crs
   crs_attr <- attr(x, "crs")
   crs <- pull_crs(crs)
@@ -87,12 +96,70 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   if (is.na(pull_crs(crs))) crs <- NA
 
-  newrast <- terra::rast(x_arrange,
+
+  # Issue: work with layer/columns with NA
+  # Check class of columns
+  col_classes <- unlist(lapply(values, is.numeric))
+
+  # If all are numeric happy days!
+  if (all(col_classes)) {
+    newrast <- terra::rast(x_arrange,
+      crs = crs, ..., type = "xyz",
+      digits = digits
+    )
+
+    names(newrast) <- layer_names
+    return(newrast)
+  }
+
+  # If not, different strategy:
+  # a. Create a template raster with index for values
+  # b. Extract full grid and attach values
+  # c. Add values to template grid
+
+  # xyvalues plus index
+
+  xyvalind <- x_arrange[, 1:2]
+  xyvalind$valindex <- seq_len(nrow(xyvalind))
+
+
+  values_w_ind <- x_arrange[, -c(1:2)]
+  values_w_ind$valindex <- xyvalind$valindex
+
+
+  # Create template
+
+  r_temp <- terra::rast(xyvalind,
     crs = crs, ..., type = "xyz",
     digits = digits
   )
 
-  return(newrast)
+  # Expand grid
+  r_temp_df <- terra::as.data.frame(r_temp, na.rm = FALSE, xy = FALSE)
+  r_temp_df <- tibble::as_tibble(r_temp_df)
+
+  r_temp_df <- dplyr::left_join(r_temp_df, values_w_ind, by = "valindex")
+
+  values <- r_temp_df[, -1]
+
+  # Now assign values to raster
+  terra::nlyr(r_temp) <- 1
+
+  nlyrs <- ncol(values)
+
+  temp_list <- lapply(seq_len(nlyrs), function(x) {
+    terra::setValues(
+      r_temp,
+      unlist(values[, x])
+    )
+  })
+
+  # Finally unlist rasters and fix names
+  defortify <- do.call("c", temp_list)
+
+  names(defortify) <- layer_names
+
+  return(defortify)
 }
 
 #' Rebuild objects created with as_tbl_spatattr to SpatRaster
