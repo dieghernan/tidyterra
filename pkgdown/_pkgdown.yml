@@ -16,7 +16,9 @@ template:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
-
+  params:
+    ganalytics: 'G-KRDM62G8K4'
+      
 reference:
 - title: "Coercing objects"
   desc:  Convert Spat* to other type of objects or create SpatRasters from tibbles.
