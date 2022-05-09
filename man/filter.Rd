@@ -110,6 +110,7 @@ r2 \%>\%
 
 Other dplyr methods:
 \code{\link{mutate}()},
+\code{\link{pull}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 }

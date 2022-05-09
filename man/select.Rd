@@ -95,6 +95,7 @@ v \%>\% select(iso2, name2 = cpro)
 Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
+\code{\link{pull}()},
 \code{\link{slice}()}
 }
 \concept{dplyr.methods}

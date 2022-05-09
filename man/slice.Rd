@@ -242,6 +242,7 @@ If you want to slice by geographic coordinates use \code{\link[=filter.SpatRaste
 Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
+\code{\link{pull}()},
 \code{\link{select}()}
 }
 \concept{dplyr.methods}

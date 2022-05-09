@@ -79,6 +79,7 @@ v \%>\%
 
 Other dplyr methods:
 \code{\link{filter}()},
+\code{\link{pull}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 }
