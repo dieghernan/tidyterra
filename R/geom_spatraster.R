@@ -163,53 +163,38 @@ geom_spatraster <- function(mapping = aes(),
 
   crs_terra <- pull_crs(data)
 
-  if (is.na(crs_terra)) {
-    # SpatRaster with no crs
-
-    ggplot2::layer(
-      data = tibble::tibble(
-        spatraster = list(raster_list),
-        # For faceting: As factors for keeping orders
-        lyr = factor(names(data), levels = names(data))
-      ),
-      mapping = mapping,
-      stat = StatTerraSpatRasterDF,
-      geom = ggplot2::GeomRaster,
-      position = "identity",
-      inherit.aes = inherit.aes,
-      show.legend = show.legend,
-      params = list(
-        na.rm = na.rm,
-        interpolate = interpolate,
-        ...
-      )
+  # Create layer
+  layer_spatrast <- ggplot2::layer(
+    data = tibble::tibble(
+      spatraster = list(raster_list),
+      # For faceting: As factors for keeping orders
+      lyr = factor(names(data), levels = names(data))
+    ),
+    mapping = mapping,
+    stat = StatTerraSpatRaster,
+    geom = ggplot2::GeomRaster,
+    position = "identity",
+    inherit.aes = inherit.aes,
+    show.legend = show.legend,
+    params = list(
+      na.rm = na.rm,
+      # Extra params
+      crs_terra = crs_terra,
+      maxcell = maxcell,
+      interpolate = interpolate,
+      ...
     )
-  } else {
-    c(
-      ggplot2::layer(
-        data = tibble::tibble(
-          spatraster = list(raster_list),
-          # For faceting: As factors for keeping orders
-          lyr = factor(names(data), levels = names(data))
-        ),
-        mapping = mapping,
-        stat = StatTerraSpatRaster,
-        geom = ggplot2::GeomRaster,
-        position = "identity",
-        inherit.aes = inherit.aes,
-        show.legend = show.legend,
-        params = list(
-          na.rm = na.rm,
-          # Extra params
-          crs_terra = crs_terra,
-          maxcell = maxcell,
-          interpolate = interpolate,
-          ...
-        )
-      ),
-      # From ggspatial
-      # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-      # using the first layer's CRS as the base CRS for coord_sf().
+  )
+
+
+  # From ggspatial
+  # If the SpatRaster has crs add a geom_sf for training scales
+  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
+  # using the first layer's CRS as the base CRS for coord_sf().
+
+  if (!is.na(crs_terra)) {
+    layer_spatrast <- c(
+      layer_spatrast,
       ggplot2::geom_sf(
         data = sf::st_sfc(sf::st_point(),
           crs = sf::st_crs(data)
@@ -219,40 +204,10 @@ geom_spatraster <- function(mapping = aes(),
       )
     )
   }
+
+
+  layer_spatrast
 }
-
-StatTerraSpatRasterDF <- ggplot2::ggproto(
-  "StatTerraSpatRasterDF",
-  ggplot2::Stat,
-  required_aes = "spatraster",
-  default_aes = ggplot2::aes(fill = stat(value), lyr = lyr),
-  compute_layer = function(self, data, params, layout) {
-
-    # If no faceting or not single layer
-    if (nrow(data) != length(unique(data$PANEL))) {
-      message(
-        "\nWarning message:\n",
-        "Plotting ", nrow(data), " layers: ",
-        paste0("`", unique(data$layer), "`", collapse = ", "),
-        ".(geom_spatraster).",
-        "\n- Use facet_wrap(~lyr) for faceting.",
-        "\n- Use aes(fill=<name_of_layer>) ",
-        "for displaying a single layer\n"
-      )
-    }
-
-    # Build data
-    data$spatraster <- lapply(seq_len(nrow(data)), function(x) {
-      simple_df(data$spatraster[[1]][[x]])
-    })
-
-
-    # From ggspatial
-    data <- tidyr::unnest(data, .data$spatraster)
-    data
-  }
-)
-
 
 StatTerraSpatRaster <- ggplot2::ggproto(
   "StatTerraSpatRaster",
@@ -275,48 +230,51 @@ StatTerraSpatRaster <- ggplot2::ggproto(
       )
     }
 
+    # On SpatRaster with crs check if need to reproject
+
     # Check if need to reproject
-    coord_crs <- pull_crs(layout$coord_params$crs)
     crs_terra <- pull_crs(params$crs_terra)
 
-    if (is.na(coord_crs)) {
-      cli::cli_abort(
-        paste(
-          "geom_spatraster() on SpatRasters with crs",
-          "must be used with coord_sf()."
-        ),
-        call. = TRUE
-      )
+    if (!is.na(crs_terra)) {
+      coord_crs <- pull_crs(layout$coord_params$crs)
+
+      if (is.na(coord_crs)) {
+        cli::cli_abort(
+          paste(
+            "geom_spatraster() on SpatRasters with crs",
+            "must be used with coord_sf()."
+          ),
+          call. = TRUE
+        )
+      }
+
+      if (all(
+        !is.null(crs_terra),
+        !is.null(coord_crs),
+        crs_terra != coord_crs
+      )) {
+        init_rast <- unnest_spat(data$spatraster[[1]])
+
+        # Create template for projection
+        template <- terra::project(
+          terra::rast(init_rast),
+          coord_crs
+        )
+
+        # Try to keep the same number of cells
+        template <- terra::spatSample(template, terra::ncell(init_rast),
+          as.raster = TRUE,
+          method = "regular"
+        )
+
+        # Reproject
+        proj_rast <- terra::project(init_rast, template)
+
+        # Nest and build
+
+        data$spatraster <- list(nested_spat(proj_rast))
+      }
     }
-
-    if (all(
-      !is.null(crs_terra),
-      !is.null(coord_crs),
-      crs_terra != coord_crs
-    )) {
-      init_rast <- unnest_spat(data$spatraster[[1]])
-
-      # Create template for projection
-      template <- terra::project(
-        terra::rast(init_rast),
-        coord_crs
-      )
-
-      # Try to keep the same number of cells
-      template <- terra::spatSample(template, terra::ncell(init_rast),
-        as.raster = TRUE,
-        method = "regular"
-      )
-
-      # Reproject
-      proj_rast <- terra::project(init_rast, template)
-
-      # Nest and build
-
-      data$spatraster <- list(nested_spat(proj_rast))
-    }
-
-
 
 
     # Build data
