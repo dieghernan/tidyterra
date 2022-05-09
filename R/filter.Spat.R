@@ -18,6 +18,7 @@
 #' @seealso [dplyr::filter()]
 #'
 #' @family dplyr.methods
+#' @family single table verbs
 #'
 #' @importFrom dplyr filter
 #' @inheritParams select

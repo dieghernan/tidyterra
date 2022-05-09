@@ -44,6 +44,24 @@
 #'
 #' [terra::values()]
 #'
+#' @section Methods:
+#'
+#' Implementation of the **generic** [dplyr::pull()] function.
+#'
+#' ## SpatRaster
+#'
+#' When using option `na.rm = TRUE`, only cells with a value
+#' distinct to `NA` are extracted. See [terra::as.data.frame()].
+#'
+#' If `xy = TRUE` option is used, two columns names `x` and `y` (corresponding
+#' to the geographic coordinates of each cell) are available in position `1` and
+#' `2`. Hence, `pull(.data, 1)` and `pull(.data, 1, xy = TRUE)` return different
+#' result.
+#'
+#' ## SpatVector
+#'
+#' See [terra::as.data.frame()] options.
+#'
 #' @examples
 #'
 #' library(terra)

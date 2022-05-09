@@ -1,4 +1,5 @@
 Acknowledgements
+CMD
 CRS
 Coords
 EPSG
@@ -8,8 +9,10 @@ SpatRaster
 SpatRasters
 SpatVector
 Visualise
+WIP
 WKT
 behaviour
+codecov
 colour
 crs
 dieghernan
@@ -20,17 +23,19 @@ ggspatial
 github
 grDevices
 https
+internall
 io
 magrittr
+maptiles
 ortion
 proj
 purrr
 reprojected
-spatvector
 standardised
 terra
 terra’
 tibble
+tibbles
 tidyr
 tidyterra’
 tidyverse

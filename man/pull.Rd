@@ -52,6 +52,27 @@ See \strong{Examples} and section \verb{About layer names} on \code{\link[=as_ti
 \code{\link[terra:values]{terra::values()}}
 }
 
+\section{Methods}{
+
+
+Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} function.
+\subsection{SpatRaster}{
+
+When using option \code{na.rm = TRUE}, only cells with a value
+distinct to \code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
+
+If \code{xy = TRUE} option is used, two columns names \code{x} and \code{y} (corresponding
+to the geographic coordinates of each cell) are available in position \code{1} and
+\code{2}. Hence, \code{pull(.data, 1)} and \code{pull(.data, 1, xy = TRUE)} return different
+result.
+}
+
+\subsection{SpatVector}{
+
+See \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
+}
+}
+
 \examples{
 
 library(terra)

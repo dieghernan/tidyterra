@@ -51,6 +51,7 @@ Current methods and functions provided by {tidyterra} are:
 | `dplyr::mutate()`     | :heavy_check_mark:                     | :heavy_check_mark: Create /modify layers                                                                       |
 | `dplyr::filter()`     | :heavy_check_mark:                     | :heavy_check_mark: Modify cells values and (additionally) remove outer cells.                                  |
 | `dplyr::slice()`      | :heavy_check_mark:                     | :heavy_check_mark: Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`       | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `tidyr::drop_na()`    | :heavy_check_mark:                     | :heavy_check_mark: Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `ggplot2::geom_*()`   | :heavy_check_mark: `geom_spatvector()` | :heavy_check_mark: `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
@@ -82,11 +83,11 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9001 ──
+#> -- Attaching packages ---------------------------------- tidyterra 0.0.0.9002 --
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
-#> ✔ tidyr  1.2.0
+#> v tibble 3.1.7     v dplyr  1.0.9
+#> v tidyr  1.2.0
 
 library(terra)
 #> terra 1.5.21
@@ -197,7 +198,7 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 To cite ‘tidyterra’ in publications use:
 
 Hernangómez D (2022). *tidyterra: ‘tidyverse’ Methods for ‘terra’
-Objects*. <https://dieghernan.github.io/tidyterra/>.
+Objects*. \<URL: <https://dieghernan.github.io/tidyterra/>\>.
 
 A BibTeX entry for LaTeX users is
 
@@ -205,7 +206,7 @@ A BibTeX entry for LaTeX users is
       title = {{tidyterra}: 'tidyverse' Methods for 'terra' Objects},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.0.0.9001},
+      version = {0.0.0.9002},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.},
     }

@@ -244,5 +244,10 @@ Other dplyr methods:
 \code{\link{mutate}()},
 \code{\link{pull}()},
 \code{\link{select}()}
+
+Other single table verbs: 
+\code{\link{filter}()},
+\code{\link{mutate}()}
 }
 \concept{dplyr.methods}
+\concept{single table verbs}

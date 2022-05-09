@@ -113,5 +113,10 @@ Other dplyr methods:
 \code{\link{pull}()},
 \code{\link{select}()},
 \code{\link{slice}()}
+
+Other single table verbs: 
+\code{\link{mutate}()},
+\code{\link{slice}()}
 }
 \concept{dplyr.methods}
+\concept{single table verbs}
