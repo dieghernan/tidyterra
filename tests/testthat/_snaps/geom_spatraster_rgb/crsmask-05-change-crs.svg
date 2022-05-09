@@ -88,6 +88,6 @@
 <text x='631.73' y='568.52' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text x='636.62' y='568.52' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='3.31px' lengthAdjust='spacingAndGlyphs'>°</text>
 <text x='639.93' y='568.52' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='8.31px' lengthAdjust='spacingAndGlyphs'>W</text>
-<text x='67.22' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='161.46px' lengthAdjust='spacingAndGlyphs'>crs_07: change crs masked</text>
+<text x='67.22' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='143.11px' lengthAdjust='spacingAndGlyphs'>crsmask_05: change crs</text>
 </g>
 </svg>

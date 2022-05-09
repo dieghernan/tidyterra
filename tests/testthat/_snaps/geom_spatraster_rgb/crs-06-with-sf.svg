@@ -115,6 +115,6 @@
 <text x='620.94' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='4.89px' lengthAdjust='spacingAndGlyphs'>2</text>
 <text x='625.84' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='3.31px' lengthAdjust='spacingAndGlyphs'>°</text>
 <text x='629.15' y='568.61' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='8.31px' lengthAdjust='spacingAndGlyphs'>W</text>
-<text x='46.69' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='221.60px' lengthAdjust='spacingAndGlyphs'>nocrs_13: With sf reprojected masked</text>
+<text x='46.69' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='87.30px' lengthAdjust='spacingAndGlyphs'>crs_06: With sf</text>
 </g>
 </svg>
