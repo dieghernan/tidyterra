@@ -154,6 +154,7 @@ test_that("geom_spatraster_rgb with CRS", {
   )
 
   # With vector first and change proj
+  skip_on_covr()
 
   vdiffr::expect_doppelganger("crs_12: With sf first and crs", p_sf_first +
     coord_sf(crs = 4326))
@@ -317,7 +318,7 @@ test_that("geom_spatraster_rgb with no CRS", {
   vdiffr::expect_doppelganger("nocrs_09: With sf", p_rast_first_masked +
     geom_sf(data = v_sf, fill = NA))
 
-
+  skip_on_covr()
   # Would align only if sf/coord on the same crs
 
   vdiffr::expect_doppelganger("nocrs_10: With crs and sf", p_rast_first +
