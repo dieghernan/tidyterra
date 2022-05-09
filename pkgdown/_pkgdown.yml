@@ -16,9 +16,18 @@ template:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
-  params:
-    ganalytics: 'G-KRDM62G8K4'
-      
+  includes:
+      in_header: |
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-KRDM62G8K4');
+        </script>
+
 reference:
 - title: "Coercing objects"
   desc:  Convert Spat* to other type of objects or create SpatRasters from tibbles.
