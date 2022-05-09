@@ -156,12 +156,12 @@ test_that("geom_spatraster_rgb with CRS", {
   # With vector first and change proj
 
   vdiffr::expect_doppelganger("crs_12: With sf first and crs", p_sf_first +
-    coord_sf(crs = "ESRI:102003"))
+    coord_sf(crs = 4326))
 
   vdiffr::expect_doppelganger(
     "crs_13: With sf first and crs masked",
     p_sf_first_masked +
-      coord_sf(crs = "ESRI:102003")
+      coord_sf(crs = 4326)
   )
 })
 
