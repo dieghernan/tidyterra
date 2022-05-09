@@ -79,7 +79,13 @@ v \%>\%
 
 Other dplyr methods:
 \code{\link{filter}()},
+\code{\link{pull}()},
 \code{\link{select}()},
+\code{\link{slice}()}
+
+Other single table verbs: 
+\code{\link{filter}()},
 \code{\link{slice}()}
 }
 \concept{dplyr.methods}
+\concept{single table verbs}

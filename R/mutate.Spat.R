@@ -22,6 +22,8 @@
 #'
 #' @family dplyr.methods
 #'
+#' @family single table verbs
+#'
 #' @section  terra equivalent:
 #'
 #' Some terra methods for modifying cell values:
