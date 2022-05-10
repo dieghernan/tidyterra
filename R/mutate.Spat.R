@@ -3,22 +3,26 @@
 #' @description
 #'
 #' `mutate()` adds new layers/attributes and preserves existing ones on a
-#' Spat* object.
+#' Spat* object. `transmute()` adds new layers/attributes and drops existing
+#' ones. New variables overwrite existing variables of the same name. Variables
+#' can be removed by setting their value to `NULL`.
 #'
 #'
 #' @return A Spat* object  of the same class than `.data`. See **Methods**.
 #'
 #' @inheritParams select
 #' @param ... [`data-masking`][dplyr::mutate] Name-value pairs. The name gives
-#'   the name of the layer/attribute in the output.
+#'   the name of the layer/attribute in the output. See [dplyr::mutate()].
 #'
 #' @export
 #' @rdname mutate
 #' @name mutate
 #'
+#' @aliases transmute
+#'
 #' @importFrom dplyr mutate
 #'
-#' @seealso [dplyr::mutate()]
+#' @seealso [dplyr::mutate()], [dplyr::transmute()]
 #'
 #' @family dplyr.methods
 #'
@@ -32,7 +36,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::mutate()] function.
+#' Implementation of the **generics** [dplyr::mutate()], [dplyr::transmute()]
+#' functions.
 #'
 #' ## SpatRaster
 #'
@@ -40,11 +45,15 @@
 #' SpatRaster with the same extent, resolution and crs than `.data`. Only the
 #' values (and possibly the number) of layers is modified.
 #'
+#' `transmute()` would keep only the layers created with `...`.
+#'
 #' ## SpatVector
 #'
 #' This method relies on the implementation of [dplyr::mutate()] method on the
 #' sf package. The result is a SpatVector with the modified (and possibly
 #' renamed) attributes on the function call.
+#'
+#' `transmute()` would keep only the attributes created with `...`.
 #'
 #' @examples
 #'
@@ -97,4 +106,37 @@ mutate.SpatVector <- function(.data, ...) {
   mutated <- dplyr::mutate(sf_obj, ...)
 
   return(terra::vect(mutated))
+}
+#' @export
+#' @rdname mutate
+#' @importFrom dplyr transmute
+transmute.SpatRaster <- function(.data, ...) {
+  df <- as_tbl_spat_attr(.data)
+
+  xy <- dplyr::select(df, 1:2)
+
+  values <- dplyr::select(df, -c(1:2))
+
+  values_transm <- dplyr::transmute(values, ...)
+
+  final_df <- dplyr::bind_cols(xy, values_transm)
+
+  # Rearrange number of layers
+  dims <- attributes(df)$dims
+  dims[3] <- ncol(values_transm)
+  attr(final_df, "dims") <- dims
+
+  final_rast <- as_spatrast_attr(final_df)
+
+  return(final_rast)
+}
+#' @export
+#' @rdname mutate
+transmute.SpatVector <- function(.data, ...) {
+
+  # Use sf method
+  sf_obj <- sf::st_as_sf(.data)
+  transm <- dplyr::transmute(sf_obj, ...)
+
+  return(terra::vect(transm))
 }

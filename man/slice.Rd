@@ -247,7 +247,8 @@ Other dplyr methods:
 
 Other single table verbs: 
 \code{\link{filter}()},
-\code{\link{mutate}()}
+\code{\link{mutate}()},
+\code{\link{select}()}
 }
 \concept{dplyr.methods}
 \concept{single table verbs}

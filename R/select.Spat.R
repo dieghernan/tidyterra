@@ -24,6 +24,8 @@
 #'
 #' @family dplyr.methods
 #'
+#' @family single table verbs
+#'
 #' @section terra equivalent:
 #'
 #' [terra::subset()]

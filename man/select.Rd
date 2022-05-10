@@ -97,5 +97,11 @@ Other dplyr methods:
 \code{\link{mutate}()},
 \code{\link{pull}()},
 \code{\link{slice}()}
+
+Other single table verbs: 
+\code{\link{filter}()},
+\code{\link{mutate}()},
+\code{\link{slice}()}
 }
 \concept{dplyr.methods}
+\concept{single table verbs}

@@ -116,6 +116,7 @@ Other dplyr methods:
 
 Other single table verbs: 
 \code{\link{mutate}()},
+\code{\link{select}()},
 \code{\link{slice}()}
 }
 \concept{dplyr.methods}

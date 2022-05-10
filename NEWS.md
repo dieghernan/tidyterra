@@ -5,9 +5,13 @@
 -   Simplification and tests for `geom_spatraster()` and
     `geom_spatraster_rgb()`.
 
--   Add `pull()` methods.
+-   New methods:
 
+    -   `pull()`
 
+    -   `transmute()`
+
+-   Add \`\`
 
 # tidyterra 0.0.0.9000
 
