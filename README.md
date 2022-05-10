@@ -49,6 +49,7 @@ Current methods and functions provided by {tidyterra} are:
 | `tibble::as_tibble()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `dplyr::select()`     | :heavy_check_mark:                     | :heavy_check_mark: Select layers                                                                               |
 | `dplyr::mutate()`     | :heavy_check_mark:                     | :heavy_check_mark: Create /modify layers                                                                       |
+| `dplyr::transmute()`  | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `dplyr::filter()`     | :heavy_check_mark:                     | :heavy_check_mark: Modify cells values and (additionally) remove outer cells.                                  |
 | `dplyr::slice()`      | :heavy_check_mark:                     | :heavy_check_mark: Additional methods for slicing by row and column.                                           |
 | `dplyr::pull()`       | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
@@ -83,11 +84,11 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> -- Attaching packages ---------------------------------- tidyterra 0.0.0.9002 --
+#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9002 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> v tibble 3.1.7     v dplyr  1.0.9
-#> v tidyr  1.2.0
+#> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
+#> ✔ tidyr  1.2.0
 
 library(terra)
 #> terra 1.5.21
@@ -198,7 +199,7 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 To cite ‘tidyterra’ in publications use:
 
 Hernangómez D (2022). *tidyterra: ‘tidyverse’ Methods for ‘terra’
-Objects*. \<URL: <https://dieghernan.github.io/tidyterra/>\>.
+Objects*. <https://dieghernan.github.io/tidyterra/>.
 
 A BibTeX entry for LaTeX users is
 
