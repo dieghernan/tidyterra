@@ -3,26 +3,35 @@
 \name{mutate}
 \alias{mutate}
 \alias{mutate.SpatRaster}
+\alias{transmute}
 \alias{mutate.SpatVector}
+\alias{transmute.SpatRaster}
+\alias{transmute.SpatVector}
 \title{Create, modify, and delete cell values/layers/attributes of Spat* objects}
 \usage{
 \method{mutate}{SpatRaster}(.data, ...)
 
 \method{mutate}{SpatVector}(.data, ...)
+
+\method{transmute}{SpatRaster}(.data, ...)
+
+\method{transmute}{SpatVector}(.data, ...)
 }
 \arguments{
 \item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{\code{\link[dplyr:mutate]{data-masking}} Name-value pairs. The name gives
-the name of the layer/attribute in the output.}
+the name of the layer/attribute in the output. See \code{\link[dplyr:mutate]{dplyr::mutate()}}.}
 }
 \value{
 A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{mutate()} adds new layers/attributes and preserves existing ones on a
-Spat* object.
+Spat* object. \code{transmute()} adds new layers/attributes and drops existing
+ones. New variables overwrite existing variables of the same name. Variables
+can be removed by setting their value to \code{NULL}.
 }
 \section{terra equivalent}{
 
@@ -35,12 +44,15 @@ Some terra methods for modifying cell values:
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}} function.
+Implementation of the \strong{generics} \code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:mutate]{dplyr::transmute()}}
+functions.
 \subsection{SpatRaster}{
 
 Add new layers and preserves existing ones. The result is a
 SpatRaster with the same extent, resolution and crs than \code{.data}. Only the
 values (and possibly the number) of layers is modified.
+
+\code{transmute()} would keep only the layers created with \code{...}.
 }
 
 \subsection{SpatVector}{
@@ -48,6 +60,8 @@ values (and possibly the number) of layers is modified.
 This method relies on the implementation of \code{\link[dplyr:mutate]{dplyr::mutate()}} method on the
 sf package. The result is a SpatVector with the modified (and possibly
 renamed) attributes on the function call.
+
+\code{transmute()} would keep only the attributes created with \code{...}.
 }
 }
 
@@ -75,7 +89,7 @@ v \%>\%
   select(cpro, cpro2)
 }
 \seealso{
-\code{\link[dplyr:mutate]{dplyr::mutate()}}
+\code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:mutate]{dplyr::transmute()}}
 
 Other dplyr methods:
 \code{\link{filter}()},
@@ -83,8 +97,9 @@ Other dplyr methods:
 \code{\link{select}()},
 \code{\link{slice}()}
 
-Other single table verbs: 
+Other single table verbs:
 \code{\link{filter}()},
+\code{\link{select}()},
 \code{\link{slice}()}
 }
 \concept{dplyr.methods}
