@@ -28,8 +28,6 @@
 #' @examples
 #' \donttest{
 #'
-#' devtools::load_all()
-#'
 #' file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 #'
 #' library(terra)

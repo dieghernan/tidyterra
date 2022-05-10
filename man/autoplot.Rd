@@ -45,8 +45,6 @@ Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}.
 \examples{
 \donttest{
 
-devtools::load_all()
-
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)

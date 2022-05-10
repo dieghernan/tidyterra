@@ -60,7 +60,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by {tidyterra} are:
 
 | tidyverse method      | SpatVector                             | SpatRaster                                                                                                     |
-|-----------------------|-----------------------|-----------------------------------|
+|-----------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `tibble::as_tibble()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `dplyr::select()`     | :heavy_check_mark:                     | :heavy_check_mark: Select layers                                                                               |
 | `dplyr::mutate()`     | :heavy_check_mark:                     | :heavy_check_mark: Create /modify layers                                                                       |
