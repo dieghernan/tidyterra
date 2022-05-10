@@ -291,7 +291,7 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
 
     # Setup hexcol from data$hexcol
 
-    raster[cbind(nrow - y_pos, x_pos + 1)] <- alpha(
+    raster[cbind(nrow - y_pos, x_pos + 1)] <- ggplot2::alpha(
       data$hexcol,
       data$alpha
     )

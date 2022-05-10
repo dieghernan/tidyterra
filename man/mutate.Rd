@@ -97,7 +97,7 @@ Other dplyr methods:
 \code{\link{select}()},
 \code{\link{slice}()}
 
-Other single table verbs:
+Other single table verbs: 
 \code{\link{filter}()},
 \code{\link{select}()},
 \code{\link{slice}()}

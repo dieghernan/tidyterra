@@ -11,7 +11,7 @@
 
     -   `transmute()`
 
--   Add \`\`
+-   New `autoplot()` implementation for SpatRasters.
 
 # tidyterra 0.0.0.9000
 

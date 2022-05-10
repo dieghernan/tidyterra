@@ -154,6 +154,7 @@ ggplot() +
 \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}
 
 Other ggplot2 utils:
+\code{\link{autoplot}()},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{ggspatvector}},
 \code{\link{scale_fill_terrain}}

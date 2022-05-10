@@ -97,6 +97,7 @@ ggplot() +
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
 Other ggplot2 utils:
+\code{\link{autoplot}()},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}}
