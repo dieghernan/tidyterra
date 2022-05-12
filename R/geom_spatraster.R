@@ -179,7 +179,6 @@ geom_spatraster <- function(mapping = aes(),
     params = list(
       na.rm = na.rm,
       # Extra params
-      crs_terra = crs_terra,
       maxcell = maxcell,
       interpolate = interpolate,
       ...
@@ -197,7 +196,7 @@ geom_spatraster <- function(mapping = aes(),
       layer_spatrast,
       ggplot2::geom_sf(
         data = sf::st_sfc(sf::st_point(),
-          crs = sf::st_crs(data)
+          crs = crs_terra
         ),
         inherit.aes = FALSE,
         show.legend = FALSE
@@ -209,12 +208,14 @@ geom_spatraster <- function(mapping = aes(),
   layer_spatrast
 }
 
+# Stat ----
+
 StatTerraSpatRaster <- ggplot2::ggproto(
   "StatTerraSpatRaster",
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(fill = stat(value), lyr = lyr),
-  extra_params = c("crs_terra", "maxcell"),
+  extra_params = c("maxcell"),
   compute_layer = function(self, data, params, layout) {
 
     # If no faceting or not single layer
@@ -231,64 +232,87 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     }
 
     # On SpatRaster with crs check if need to reproject
+    # Extract initial raster
+    rast <- unnest_spat(data$spatraster[[1]])
 
-    # Check if need to reproject
-    crs_terra <- pull_crs(params$crs_terra)
-
-    if (!is.na(crs_terra)) {
-      coord_crs <- pull_crs(layout$coord_params$crs)
-
-      if (is.na(coord_crs)) {
-        cli::cli_abort(
-          paste(
-            "geom_spatraster() on SpatRasters with crs",
-            "must be used with coord_sf()."
-          ),
-          call. = TRUE
-        )
-      }
-
-      if (all(
-        !is.null(crs_terra),
-        !is.null(coord_crs),
-        crs_terra != coord_crs
-      )) {
-        init_rast <- unnest_spat(data$spatraster[[1]])
-
-        # Create template for projection
-        template <- terra::project(
-          terra::rast(init_rast),
-          coord_crs
-        )
-
-        # Try to keep the same number of cells
-        template <- terra::spatSample(template, terra::ncell(init_rast),
-          as.raster = TRUE,
-          method = "regular"
-        )
-
-        # Reproject
-        proj_rast <- terra::project(init_rast, template)
-
-        # Nest and build
-
-        data$spatraster <- list(nested_spat(proj_rast))
-      }
-    }
+    rast <- reproject_raster_on_stat(
+      rast,
+      pull_crs(layout$coord_params$crs)
+    )
 
 
     # Build data
-    data$spatraster <- lapply(seq_len(nrow(data)), function(x) {
-      simple_df(data$spatraster[[1]][[x]])
-    })
+    data_end <- pivot_longer_spat(rast)
+
+    data <- data[, setdiff(names(data), c("spatraster"))]
+    data_end <- dplyr::left_join(data_end, data, by = "lyr")
 
 
-    # From ggspatial
-    data <- tidyr::unnest(data, .data$spatraster)
-    data
+    data_end
   }
 )
 
+
+# Helpers ----
+# Reproject a SpatRaster with params
+
+reproject_raster_on_stat <- function(raster,
+                                     coords_crs = NA) {
+
+  # Check if need to reproject
+  crs_terra <- pull_crs(raster)
+
+  # If no CRS no reprojection
+  if (is.na(crs_terra)) {
+    return(raster)
+  }
+
+  coord_crs <- pull_crs(coords_crs)
+
+  if (is.na(coord_crs)) {
+    cli::cli_abort(
+      paste(
+        "geom_spatraster_*() on SpatRasters with crs",
+        "must be used with coord_sf()."
+      ),
+      call. = TRUE
+    )
+  }
+
+  # On equal don't needed
+  if (coord_crs == crs_terra) {
+    return(raster)
+  }
+  init_rast <- raster
+
+  # Create template for projection
+  template <- terra::project(
+    terra::rast(init_rast),
+    coord_crs
+  )
+
+  # Try to keep the same number of cells on the template
+  template <- terra::spatSample(template, terra::ncell(init_rast),
+    as.raster = TRUE,
+    method = "regular"
+  )
+
+  # Reproject
+  proj_rast <- terra::project(init_rast, template)
+
+  return(proj_rast)
+}
+
+
+pivot_longer_spat <- function(x) {
+  tb <- as_tbl_spat_attr(x)
+  tb_pivot <- tidyr::pivot_longer(tb, -c(1:2),
+    names_to = "lyr"
+  )
+  tb_pivot <- tb_pivot[order(tb_pivot$lyr), ]
+
+  tb_pivot
+}
 
 # also need a method to combine aesthetics with overriding values
 # From ggspatial
@@ -314,13 +338,6 @@ cleanup_aesthetics <- function(mapping,
   new_aes <- mapping[keepaes]
   class(new_aes) <- "uneval"
   new_aes
-}
-
-simple_df <- function(x) {
-  names(x) <- "value"
-  end <- terra::as.data.frame(x, xy = TRUE, na.rm = FALSE)
-
-  return(end)
 }
 
 resample_spat <- function(r, maxcell = 50000) {

@@ -81,7 +81,7 @@
 #' }
 geom_spatraster_rgb <- function(mapping = aes(),
                                 data,
-                                interpolate = FALSE,
+                                interpolate = TRUE,
                                 r = 1,
                                 g = 2,
                                 b = 3,
@@ -148,7 +148,6 @@ geom_spatraster_rgb <- function(mapping = aes(),
     params = list(
       na.rm = TRUE,
       # Extra params
-      crs_terra = crs_terra,
       maxcell = maxcell,
       interpolate = interpolate,
       alpha = alpha,
@@ -167,7 +166,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
       layer_spatrast,
       ggplot2::geom_sf(
         data = sf::st_sfc(sf::st_point(),
-          crs = sf::st_crs(data)
+          crs = crs_terra
         ),
         inherit.aes = FALSE,
         show.legend = FALSE
@@ -180,14 +179,11 @@ geom_spatraster_rgb <- function(mapping = aes(),
 }
 
 # Stats----
-
-
-
 StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
   ggplot2::Stat,
   required_aes = c("spatraster", "hexcol"),
-  extra_params = c("crs_terra", "maxcell"),
+  extra_params = c("maxcell"),
   compute_layer = function(self, data, params, layout) {
 
     # Inspired from ggspatial
@@ -195,69 +191,25 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
     # Check if need to reproject
 
     # On SpatRaster with crs check if need to reproject
+    # Extract initial raster
+    rast <- data$spatraster[[1]]
 
-    # Check if need to reproject
-    crs_terra <- pull_crs(params$crs_terra)
-
-    if (!is.na(crs_terra)) {
-      coord_crs <- layout$coord_params$crs
-
-      if (is.null(coord_crs)) {
-        cli::cli_abort(
-          paste(
-            "geom_spatraster_rgb() with georeferenced SpatRasters",
-            "must be used with coord_sf()."
-          ),
-          call. = TRUE
-        )
-      }
-
-      if (!all(!is.null(crs_terra) & !is.null(coord_crs) &
-        crs_terra == coord_crs)) {
-        init_rast <- data$spatraster[[1]]
-
-        # Create template for projection
-        template <- terra::project(
-          terra::rast(init_rast),
-          pull_crs(coord_crs)
-        )
-
-        # Try to keep the same number of cells
-        template <- terra::spatSample(template, terra::ncell(init_rast),
-          as.raster = TRUE,
-          method = "regular"
-        )
-
-        # Reproject
-        proj_rast <- terra::project(init_rast, template)
-
-        # Nest and build
-
-        data$spatraster <- list(proj_rast)
-      }
-    }
-
-    # raster extents: ggspatial
-    extents <- lapply(data$spatraster, terra::ext)
-
-    extent <- lapply(seq_along(extents), function(i) {
-      x <- as.vector(extents[[i]])
-    })
-
-    # this needs to be directly in the data so that the position scales
-    # get trained
-    data$xmin <- vapply(extent, function(x) x["xmin"], numeric(1))
-    data$xmax <- vapply(extent, function(x) x["xmax"], numeric(1))
-    data$ymin <- vapply(extent, function(x) x["ymin"], numeric(1))
-    data$ymax <- vapply(extent, function(x) x["ymax"], numeric(1))
+    rast <- reproject_raster_on_stat(
+      rast,
+      pull_crs(layout$coord_params$crs)
+    )
 
     # Build data
-    data$spatraster <- lapply(data$spatraster, make_hexcol)
+    data_hex <- make_hexcol(rast)
+    data <- data[1, setdiff(names(data), c("spatraster"))]
+    data_hex$tterra.index <- 1
+    data$tterra.index <- 1
 
-    # From ggspatial
-    data <- tidyr::unnest(data, .data$spatraster)
+    data_end <- dplyr::left_join(data_hex, data, by = "tterra.index")
 
-    data
+    data_end <- data_end[, setdiff(names(data_end), c("tterra.index"))]
+
+    data_end
   }
 )
 
@@ -316,13 +268,12 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
 # Create a table with the hex color of each row (hexcol)
 # On any NA then hexcol is returned as NA
 make_hexcol <- function(data) {
-  todf <- as_tbl_spat_attr(data)
+  todf <- as_tibble(data, xy = TRUE, na.rm = FALSE)
+
   todf <- todf[, 1:5]
   names(todf) <- c("x", "y", "r", "g", "b")
 
   todf$index <- seq_len(nrow(todf))
-
-
   xy <- todf[c("x", "y", "index")]
 
   values <- todf[, c("index", "r", "g", "b")]
