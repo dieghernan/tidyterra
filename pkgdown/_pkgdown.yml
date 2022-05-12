@@ -1,6 +1,7 @@
 url: 'https://dieghernan.github.io/tidyterra'
 
 figures:
+  dpi: 150
   fig.retina: 2
 
 navbar:
