@@ -12,7 +12,7 @@ Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and
 geom_spatraster_rgb(
   mapping = aes(),
   data,
-  interpolate = FALSE,
+  interpolate = TRUE,
   r = 1,
   g = 2,
   b = 3,
