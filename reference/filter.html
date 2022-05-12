@@ -161,7 +161,7 @@ produce a value of <code>TRUE</code> for all conditions.</p>
 <span class="r-in"><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="select.html">select</a></span><span class="op">(</span><span class="va">tavg_04</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="filter-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="filter-1.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Filter temps</span></span>
@@ -169,7 +169,7 @@ produce a value of <code>TRUE</code> for all conditions.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Extent is kept</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_f</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="filter-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="filter-2.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Filter temps and extent</span></span>
@@ -177,14 +177,14 @@ produce a value of <code>TRUE</code> for all conditions.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Extent has changed</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_f2</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="filter-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="filter-3.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Filter by geographic coordinates</span></span>
 <span class="r-in"><span class="va">r2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"epsg:4326"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">r2</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="filter-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="filter-4.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">r2</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu">filter</span><span class="op">(</span></span>
@@ -193,7 +193,7 @@ produce a value of <code>TRUE</code> for all conditions.</p>
 <span class="r-in">    <span class="va">y</span> <span class="op">&gt;</span> <span class="fl">42</span></span>
 <span class="r-in">  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="filter-5.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="filter-5.png" alt="" width="1094" height="676"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

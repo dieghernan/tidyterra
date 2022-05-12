@@ -200,14 +200,14 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in">  <span class="co"># You can use coord_sf</span></span>
 <span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu"><a href="scale_fill_terrain.html">scale_fill_terrain_c</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="geom_spatraster-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="geom_spatraster-1.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Display facets</span></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp_rast</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu"><a href="scale_fill_terrain.html">scale_fill_terrain_b</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="geom_spatraster-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="geom_spatraster-2.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Non spatial rasters</span></span>
@@ -218,14 +218,14 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">no_crs</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="geom_spatraster-3.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="geom_spatraster-3.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Downsample</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">no_crs</span>, maxcell <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 32</span>
-<span class="r-plt img"><img src="geom_spatraster-4.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="geom_spatraster-4.png" alt="" width="1094" height="676"></span>
 <span class="r-in"><span class="co"># }</span></span>
 <span class="r-in"></span>
 </code></pre></div>
