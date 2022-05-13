@@ -12,11 +12,13 @@ Visualise
 WIP
 WKT
 behaviour
+binwidth
 codecov
 colour
 crs
 dieghernan
 dplyr
+fullseq
 geoms
 ggplot
 ggspatial
@@ -25,11 +27,13 @@ grDevices
 https
 internall
 io
+linetype
 magrittr
 maptiles
 ortion
 proj
 purrr
+rasters
 reprojected
 standardised
 terra

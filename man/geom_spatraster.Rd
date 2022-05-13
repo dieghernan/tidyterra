@@ -79,7 +79,7 @@ When the SpatRaster does not present a crs (i.e.,
 scales.
 
 On SpatRaster that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to adjust
-the scales. That means that also the SpatRaster may be reprojected.
+the scales. That means that also the \strong{SpatRaster may be reprojected}.
 }
 
 \section{Aesthetics}{
@@ -155,6 +155,7 @@ ggplot() +
 
 Other ggplot2 utils:
 \code{\link{autoplot}()},
+\code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{ggspatvector}},
 \code{\link{scale_fill_terrain}}

@@ -11,7 +11,9 @@
 
     -   `transmute()`
 
--   New `autoplot()` implementation for SpatRasters.
+-   New geoms:
+
+    -   `geom_spatraster_contour()` family.
 
 # tidyterra 0.0.0.9000
 

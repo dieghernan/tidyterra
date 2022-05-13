@@ -98,6 +98,7 @@ ggplot() +
 
 Other ggplot2 utils:
 \code{\link{autoplot}()},
+\code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}}
