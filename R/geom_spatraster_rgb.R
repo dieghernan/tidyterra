@@ -85,7 +85,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 r = 1,
                                 g = 2,
                                 b = 3,
-                                alpha = 0.9,
+                                alpha = 1,
                                 maxcell = 500000,
                                 ...) {
   if (!inherits(data, "SpatRaster")) {
