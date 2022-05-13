@@ -57,6 +57,25 @@ Current methods and functions provided by {tidyterra} are:
 | `tidyr::replace_na()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `ggplot2::geom_*()`   | :heavy_check_mark: `geom_spatvector()` | :heavy_check_mark: `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
+## :exclamation: A note on performance
+
+{tidyterra} is conceived as a user-friendly wrapper of {terra} using the
+{tidyverse} methods and verbs. This approach therefore has a **cost in
+terms of performance**.
+
+If you are a **heavy user of {terra}** or you need to work with **big
+raster files**, {terra} is much more focused on terms of performance.
+When possible, each function of {tidyterra} references to its equivalent
+on {terra}.
+
+As a rule of thumb if your raster has less than 1.000.000 cells (i.e.
+`terra::ncell(my_raster) <- 1000000`) you are good to go with
+{tidyterra}.
+
+When plotting rasters, resampling is performed automatically (as
+`terra::plot()` does, see `maxcell` parameter). You can adjust this with
+the `maxcell` parameter.
+
 ## Installation
 
 You can install the development version of {tidyterra} like so:
@@ -84,7 +103,7 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9002 ──
+#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9003 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
 #> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
@@ -207,7 +226,7 @@ A BibTeX entry for LaTeX users is
       title = {{tidyterra}: 'tidyverse' Methods for 'terra' Objects},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.0.0.9002},
+      version = {0.0.0.9003},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.},
     }
