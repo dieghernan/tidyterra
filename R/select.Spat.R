@@ -82,24 +82,22 @@
 #'
 #' v %>% select(iso2, name2 = cpro)
 select.SpatRaster <- function(.data, ...) {
-  df <- as_tbl_spat_attr(.data)
+  # Don't need conversion to data.frame
+  raster_names <- names(.data)
 
-  # Extract coords
-  xy <- dplyr::select(df, 1:2)
+  # Create a template df for assessing results
+  df <- as.data.frame(matrix(nrow = 1, ncol = length(raster_names)))
+  names(df) <- raster_names
+  df[1, ] <- seq_len(length(raster_names))
 
-  # Extract values
-  values <- dplyr::select(df, -c(1:2))
+  result <- dplyr::select(df, ...)
 
-  values_sel <- dplyr::select(values, ...)
+  # Now translate from result to terra
 
-  final_df <- dplyr::bind_cols(xy, values_sel)
+  final_rast <- terra::subset(.data, as.integer(result))
 
-  # Rearrange number of layers
-  dims <- attributes(df)$dims
-  dims[3] <- ncol(values_sel)
-  attr(final_df, "dims") <- dims
-
-  final_rast <- as_spatrast_attr(final_df)
+  # Set new names if anything has changed
+  names(final_rast) <- names(result)
 
   return(final_rast)
 }
