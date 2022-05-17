@@ -105,4 +105,40 @@ test_that("Replace na with SpatRaster", {
   expect_true(is.na(min(tbl3$lyr_1)))
   expect_true(min(tbl3$lyr_2) == -10)
   expect_true(min(tbl3$lyr_3) == -20)
+
+  # Does not replace anything
+  tbl_norep <- tidyr::replace_na(tbl)
+
+  rep_nothing <- replace_na.SpatRaster(r)
+  expect_s4_class(rep, "SpatRaster")
+  expect_true(compare_spatrasters(r, rep))
+  tbl2_nothing <- as_tibble(rep_nothing, na.rm = FALSE)
+
+  expect_identical(tbl_norep, tbl2_nothing)
+
+  # Replace with mixed cols
+  r_char <- mutate(r, a_char = ifelse(is.na(lyr_1), NA, as.character(lyr_1)))
+
+  # For comparison
+  tbl_char <- as_tibble(r_char)
+  tbl_char$a_char <- as.character(tbl_char$a_char)
+
+  tbl_char <- tidyr::replace_na(tbl_char, list(
+    lyr_1 = 5,
+    a_char = "Char"
+  ))
+
+  r_subs <- replace_na(r_char, list(
+    lyr_1 = 5,
+    a_char = "Char"
+  ))
+
+
+
+  expect_s4_class(r_subs, "SpatRaster")
+  expect_true(compare_spatrasters(r, r_subs))
+  tbl2_mixed <- as_tibble(r_subs, na.rm = FALSE)
+  tbl2_mixed$a_char <- as.character(tbl2_mixed$a_char)
+
+  expect_identical(tbl_char, tbl2_mixed)
 })

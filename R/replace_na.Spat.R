@@ -39,13 +39,50 @@
 #'   replace_na(list(tavg_04 = 6, tavg_06 = 20)) %>%
 #'   plot()
 #'
-replace_na.SpatRaster <- function(data, replace, ...) {
-  df <- as_tbl_spat_attr(data)
+replace_na.SpatRaster <- function(data, replace = list(), ...) {
+
+  # Create template matrix
+  # Don't need conversion to data.frame
+  df <- data[1]
+  # Convert factors to chars
+  is_factor <- sapply(df, is.factor)
+  df[is_factor] <- lapply(df[is_factor], as.character)
+
+  raster_names <- names(df)
+
+  # Set NAs
+  df[1, ] <- NA
+
   # Replace NA
   df_na <- tidyr::replace_na(df, replace = replace, ...)
 
-  # Rebuild newrast
-  newrast <- as_spatrast_attr(df_na)
+  # Check the columns that have changed
+  if (all(is.na(df_na[1, ]))) {
+    # Nothing changed, return the spatraster
+    return(data)
+  }
+
+  # Get the index of changed layers
+  check_index <- as.logical(!is.na(df_na[1, ]))
+  index_cols <- seq_len(terra::nlyr(data))[check_index]
+
+  # Replace on new raster
+  newrast <- data
+
+  for (i in index_cols) {
+    # Values to replace
+    vals <- terra::as.data.frame(newrast[[i]], na.rm = FALSE)
+    vals <- unlist(vals)
+
+    is.factor(vals)
+
+    if (is.factor(vals)) vals <- as.character(vals)
+
+    new_val <- unlist(df_na[1, i])[1]
+    vals[is.na(vals)] <- new_val
+
+    terra::values(newrast[[i]]) <- vals
+  }
 
   return(newrast)
 }
