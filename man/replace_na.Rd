@@ -6,7 +6,7 @@
 \alias{replace_na.SpatVector}
 \title{Replace NAs with specified values}
 \usage{
-\method{replace_na}{SpatRaster}(data, replace, ...)
+\method{replace_na}{SpatRaster}(data, replace = list(), ...)
 
 \method{replace_na}{SpatVector}(data, replace, ...)
 }

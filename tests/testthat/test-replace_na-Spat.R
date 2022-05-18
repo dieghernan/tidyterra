@@ -128,6 +128,7 @@ test_that("Replace na with SpatRaster", {
     a_char = "Char"
   ))
 
+
   r_subs <- replace_na(r_char, list(
     lyr_1 = 5,
     a_char = "Char"

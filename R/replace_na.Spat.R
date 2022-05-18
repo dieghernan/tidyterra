@@ -41,47 +41,67 @@
 #'
 replace_na.SpatRaster <- function(data, replace = list(), ...) {
 
-  # Create template matrix
-  # Don't need conversion to data.frame
+  # If no replace return the same data
+  if (length(replace) == 0) {
+    return(data)
+  }
+
+  # Create a template df for assessing results
+  # Use only first cell for speed up
   df <- data[1]
+
   # Convert factors to chars
   is_factor <- sapply(df, is.factor)
   df[is_factor] <- lapply(df[is_factor], as.character)
-
-  raster_names <- names(df)
-
   # Set NAs
   df[1, ] <- NA
 
   # Replace NA
   df_na <- tidyr::replace_na(df, replace = replace, ...)
 
-  # Check the columns that have changed
-  if (all(is.na(df_na[1, ]))) {
-    # Nothing changed, return the spatraster
-    return(data)
-  }
-
+  # Check changed layers
   # Get the index of changed layers
   check_index <- as.logical(!is.na(df_na[1, ]))
-  index_cols <- seq_len(terra::nlyr(data))[check_index]
 
-  # Replace on new raster
+  # Replace on new raster using a loop
+  # New raster for init the loop
   newrast <- data
 
-  for (i in index_cols) {
-    # Values to replace
-    vals <- terra::as.data.frame(newrast[[i]], na.rm = FALSE)
-    vals <- unlist(vals)
 
-    is.factor(vals)
+  for (i in seq_len(terra::nlyr(newrast))) {
+    if (!check_index[i]) next
 
-    if (is.factor(vals)) vals <- as.character(vals)
+    # Modify if false
+    layer <- terra::subset(newrast, i)
 
-    new_val <- unlist(df_na[1, i])[1]
-    vals[is.na(vals)] <- new_val
+    # Different replacement based on type of layer
+    is_factor <- is.factor(dplyr::pull(layer[1]))
 
-    terra::values(newrast[[i]]) <- vals
+
+    # Check different if it is factor or not
+    if (!is_factor) {
+      layer[is.na(layer)] <- df_na[1, i]
+
+      # Assign new values
+      terra::values(newrast[[i]]) <- pull(layer, na.rm = FALSE)
+    } else {
+      # For factors
+      values <- pull(layer, na.rm = FALSE)
+      keep_levs <- levels(values)
+      to_replace <- as.character(df_na[1, i])
+
+      # From
+      # https://stackoverflow.com/questions/39126537/replace-na-in-a-factor-column
+      # New NA level and change label
+
+      new_vals <- factor(values,
+        exclude = NULL,
+        levels = c(keep_levs, NA),
+        labels = c(keep_levs, to_replace)
+      )
+
+      terra::values(newrast[[i]]) <- new_vals
+    }
   }
 
   return(newrast)

@@ -82,13 +82,17 @@
 #'
 #' v %>% select(iso2, name2 = cpro)
 select.SpatRaster <- function(.data, ...) {
-  # Don't need conversion to data.frame
-  raster_names <- names(.data)
 
   # Create a template df for assessing results
-  df <- as.data.frame(matrix(nrow = 1, ncol = length(raster_names)))
-  names(df) <- raster_names
-  df[1, ] <- seq_len(length(raster_names))
+  # Use only first cell for speed up
+  df <- as.data.frame(.data[1], na.rm = FALSE)
+
+  # Convert factors/chars to nums
+  is_numeric <- sapply(df, is.numeric)
+  df[!is_numeric] <- lapply(df[!is_numeric], as.numeric)
+
+  df[1, ] <- seq_len(ncol(df))
+
 
   result <- dplyr::select(df, ...)
 
