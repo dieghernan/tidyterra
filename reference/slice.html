@@ -200,17 +200,7 @@ See <strong>Methods</strong>.</p></dd>
 <dt>.keep_extent</dt>
 <dd><p>Should the extent of the resulting SpatRaster be kept?
 See also <code><a href="https://rdrr.io/pkg/terra/man/trim.html" class="external-link">terra::trim()</a></code>, <code><a href="https://rdrr.io/pkg/terra/man/extend.html" class="external-link">terra::extend()</a></code>.</p></dd>
-<dt>n</dt>
-<dd><p>Provide either <code>n</code>, the number of rows, or <code>prop</code>, the
-proportion of rows to select. If neither are supplied, <code>n = 1</code> will be
-used.</p>
-<p>If a negative value of <code>n</code> or <code>prop</code> is provided, the specified number or
-proportion of rows will be removed.</p>
-<p>If <code>n</code> is greater than the number of rows in the group (or <code>prop &gt; 1</code>),
-the result will be silently truncated to the group size. If the
-<code>prop</code>ortion of a group size does not yield an integer number of rows, the
-absolute value of <code>prop*nrow(.data)</code> is rounded down.</p></dd>
-<dt>prop</dt>
+<dt>n, prop</dt>
 <dd><p>Provide either <code>n</code>, the number of rows, or <code>prop</code>, the
 proportion of rows to select. If neither are supplied, <code>n = 1</code> will be
 used.</p>
