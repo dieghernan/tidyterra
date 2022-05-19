@@ -5,7 +5,8 @@
 #' Replace `NAs` on layers/attributes with specified values
 #'
 #'
-#' @inheritParams drop_na
+#' @param data A SpatRaster created with [terra::rast()] or a SpatVector
+#'   created with [terra::vect()].
 #' @param replace list of values, with one value for each layer/attribute that
 #'   has `NA` values to be replaced.
 #' @param ... Ignored

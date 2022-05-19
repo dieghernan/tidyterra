@@ -1,18 +1,15 @@
-#' Drop cells and attributes of  Spat* objects containing missing values
+#' Drop attributes of SpatVector objects containing missing values
 #'
 #' @description
-#' `r lifecycle::badge('questioning')`
-#'
-#' `drop_na()` method drops cells and attributes where any layer or column
-#' specified by ... contains a missing value.
+#' `drop_na()` method drops geometries where any attribute specified by `...`
+#'  contains a missing value.
 #'
 #'
 #' @return A Spat* object  of the same class than `.data`. See **Methods**.
 #'
-#' @param data A SpatRaster created with [terra::rast()] or a SpatVector
-#'   created with [terra::vect()].
-#' @param ... [`tidy-select`][tidyr::drop_na()]  Columns or layers to inspect
-#'   for missing values. If empty, all columns/layers are used.
+#' @param data A SpatVector created with [terra::vect()].
+#' @param ... [`tidy-select`][tidyr::drop_na()]  Attributes to inspect for
+#'   missing values. If empty, all attributes are used.
 #'
 #' @export
 #'
@@ -21,7 +18,72 @@
 #'
 #' @importFrom tidyr drop_na
 #'
-#' @seealso [tidyr::drop_na()]
+#' @seealso
+#' [tidyr::drop_na()]. `r lifecycle::badge('questioning')` A method for
+#' SpatRaster is also available, see [drop_na.SpatRaster()].
+#'
+#' @family tidyr.methods
+#'
+#'
+#' @section Methods:
+#'
+#' Implementation of the **generic** [tidyr::drop_na()] function.
+#'
+#' ## SpatVector
+#'
+#' The implementation of this method is performed on a `by-attribute` basis,
+#' meaning that `NAs` are assessed on the attributes (columns) of each vector
+#' (rows). The result is a SpatVector with potentially less geometries than the
+#' input
+#'
+#' @examples
+#'
+#' library(terra)
+#'
+#' f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+#'
+#' v <- terra::vect(f)
+#'
+#' # Add NAs
+#' v <- v %>% mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
+#'
+#' # Init
+#' plot(v, col = "red")
+#'
+#' # Mask with lyr.1
+#' v %>%
+#'   drop_na(iso2) %>%
+#'   plot(col = "red")
+drop_na.SpatVector <- function(data, ...) {
+
+  # Use sf method
+  sf_obj <- sf::st_as_sf(data)
+  dropped <- tidyr::drop_na(sf_obj, ...)
+
+  return(terra::vect(dropped))
+}
+
+#' Drop cells of SpatRaster objects containing missing values
+#'
+#' @description
+#' `r lifecycle::badge('questioning')`. See **Methods**.
+#'
+#' `drop_na()` method drops cells where any layer specified by `...` contains
+#' a missing value.
+#'
+#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#'
+#' @param data A SpatRaster created with [terra::rast()].
+#' @param ... [`tidy-select`][tidyr::drop_na()]  Layers to inspect
+#'   for missing values. If empty, all layers are used.
+#'
+#' @export
+#' @keywords internal
+#' @rdname drop_na.SpatRaster
+#'
+#' @seealso
+#'
+#' [tidyr::drop_na()], [drop_na()].
 #'
 #' @family tidyr.methods
 #'
@@ -55,13 +117,6 @@
 #' extent of the input (see [terra::resample()] for more info).
 #'
 #' Check the **Examples** to have a better understanding of this method.
-#'
-#' ## SpatVector
-#'
-#' The implementation of this method is performed on a `by-attribute` basis,
-#' meaning that `NAs` are assessed on the attributes (columns) of each vector
-#' (rows). The result is a SpatVector with potentially less geometries than the
-#' input
 #'
 #' @examples
 #'
@@ -135,15 +190,4 @@ drop_na.SpatRaster <- function(data, ...) {
   newrast <- terra::trim(end)
 
   return(newrast)
-}
-
-#' @export
-#' @rdname drop_na
-drop_na.SpatVector <- function(data, ...) {
-
-  # Use sf method
-  sf_obj <- sf::st_as_sf(data)
-  dropped <- tidyr::drop_na(sf_obj, ...)
-
-  return(terra::vect(dropped))
 }
