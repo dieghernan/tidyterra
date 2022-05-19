@@ -81,6 +81,7 @@ green and blue channel.</p>
   b <span class="op">=</span> <span class="fl">3</span>,
   alpha <span class="op">=</span> <span class="fl">1</span>,
   maxcell <span class="op">=</span> <span class="fl">5e+05</span>,
+  max_col_value <span class="op">=</span> <span class="fl">255</span>,
   <span class="va">...</span>
 <span class="op">)</span></code></pre></div>
     </div>
@@ -109,6 +110,10 @@ considered as the red (<code>r</code>), green (<code>g</code>) and blue (<code>b
 <dt>maxcell</dt>
 <dd><p>positive integer. Maximum number of cells to use for
 the plot.</p></dd>
+<dt>max_col_value</dt>
+<dd><p>Number giving the maximum of the color values range.
+When this is <code>255</code> (the default), the result is computed most efficiently.
+See <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.</p></dd>
 <dt>...</dt>
 <dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -146,8 +151,9 @@ the scales. That means that also the SpatRaster may be reprojected.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>. You can get
-also RGB tiles from the maptiles package, see <code><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">maptiles::get_tiles()</a></code>.</p>
+    <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.
+You can get also RGB tiles from the maptiles package,
+see <code><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">maptiles::get_tiles()</a></code>.</p>
 <p>Other ggplot2 utils:
 <code><a href="autoplot.html">autoplot</a>()</code>,
 <code><a href="geom_spat_contour.html">geom_spat_contour</a></code>,
@@ -180,8 +186,7 @@ also RGB tiles from the maptiles package, see <code><a href="https://rdrr.io/pkg
 <span class="r-in"></span>
 <span class="r-in"><span class="va">cyl_sf</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_read.html" class="external-link">st_read</a></span><span class="op">(</span><span class="va">vect_path</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Reading layer `cyl' from data source </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   `/Users/runner/work/_temp/Library/tidyterra/extdata/cyl.gpkg' </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   using driver `GPKG'</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `D:\a\_temp\Library\tidyterra\extdata\cyl.gpkg' using driver `GPKG'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 9 features and 3 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: MULTIPOLYGON</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
