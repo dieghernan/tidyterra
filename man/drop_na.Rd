@@ -2,66 +2,28 @@
 % Please edit documentation in R/drop_na.Spat.R
 \name{drop_na}
 \alias{drop_na}
-\alias{drop_na.SpatRaster}
 \alias{drop_na.SpatVector}
-\title{Drop cells and attributes of  Spat* objects containing missing values}
+\title{Drop attributes of SpatVector objects containing missing values}
 \usage{
-\method{drop_na}{SpatRaster}(data, ...)
-
 \method{drop_na}{SpatVector}(data, ...)
 }
 \arguments{
-\item{data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
-created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{\code{\link[tidyr:drop_na]{tidy-select}}  Columns or layers to inspect
-for missing values. If empty, all columns/layers are used.}
+\item{...}{\code{\link[tidyr:drop_na]{tidy-select}}  Attributes to inspect for
+missing values. If empty, all attributes are used.}
 }
 \value{
 A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
-
-\code{drop_na()} method drops cells and attributes where any layer or column
-specified by ... contains a missing value.
+\code{drop_na()} method drops geometries where any attribute specified by \code{...}
+contains a missing value.
 }
-\section{Feedback needed!}{
-
-
-Visit \url{https://github.com/dieghernan/tidyterra/issues}. The implementation
-of this method for SpatRaster may change in the future.
-}
-
-\section{terra equivalent}{
-
-
-\code{\link[terra:trim]{terra::trim()}}
-}
-
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:drop_na]{tidyr::drop_na()}} function.
-\subsection{SpatRaster}{
-
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
-
-Actual implementation of \verb{drop_na().SpatRaster} can be understood as a
-masking method based on the values of the layers (see \code{\link[terra:mask]{terra::mask()}}).
-
-Raster layers are considered as columns and raster cells as rows, so rows
-(cells) with any \code{NA} value on any layer would get a \code{NA} value. It is
-possible also to mask the cells (rows) based on the values of specific
-layers (columns).
-
-\code{drop_na()} would effectively remove outer cells that are \code{NA} (see
-\code{\link[terra:trim]{terra::trim()}}), so the extent of the resulting object may differ of the
-extent of the input (see \code{\link[terra:resample]{terra::resample()}} for more info).
-
-Check the \strong{Examples} to have a better understanding of this method.
-}
-
 \subsection{SpatVector}{
 
 The implementation of this method is performed on a \code{by-attribute} basis,
@@ -75,48 +37,27 @@ input
 
 library(terra)
 
+f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
-r <- rast(
-  crs = "epsg:3857",
-  extent = c(0, 10, 0, 10),
-  nlyr = 3,
-  resolution = c(2.5, 2.5)
-)
-terra::values(r) <- seq_len(ncell(r) * nlyr(r))
-
-
+v <- terra::vect(f)
 
 # Add NAs
-r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
+v <- v \%>\% mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
 
 # Init
-plot(r, nc = 3)
+plot(v, col = "red")
 
 # Mask with lyr.1
-r \%>\%
-  drop_na(lyr.1) \%>\%
-  plot(nc = 3)
-
-# Mask with lyr.2
-r \%>\%
-  drop_na(lyr.2) \%>\%
-  plot(nc = 3)
-
-# Mask with lyr.3
-r \%>\%
-  drop_na(lyr.3) \%>\%
-  plot(nc = 3)
-
-# Auto-mask all layers
-r \%>\%
-  drop_na() \%>\%
-  plot(nc = 3)
-
+v \%>\%
+  drop_na(iso2) \%>\%
+  plot(col = "red")
 }
 \seealso{
-\code{\link[tidyr:drop_na]{tidyr::drop_na()}}
+\code{\link[tidyr:drop_na]{tidyr::drop_na()}}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} A method for
+SpatRaster is also available, see \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.
 
 Other tidyr.methods: 
+\code{\link{drop_na.SpatRaster}()},
 \code{\link{replace_na}()}
 }
 \concept{tidyr.methods}

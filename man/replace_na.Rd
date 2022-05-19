@@ -11,8 +11,7 @@
 \method{replace_na}{SpatVector}(data, replace, ...)
 }
 \arguments{
-\item{data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
-created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{replace}{list of values, with one value for each layer/attribute that
 has \code{NA} values to be replaced.}
@@ -50,6 +49,7 @@ r \%>\%
 \code{\link[tidyr:replace_na]{tidyr::replace_na()}}
 
 Other tidyr.methods: 
+\code{\link{drop_na.SpatRaster}()},
 \code{\link{drop_na}()}
 }
 \concept{tidyr.methods}
