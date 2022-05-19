@@ -231,11 +231,13 @@ Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
 \code{\link{pull}()},
+\code{\link{rename}()},
 \code{\link{select}()}
 
 Other single table verbs: 
 \code{\link{filter}()},
 \code{\link{mutate}()},
+\code{\link{rename}()},
 \code{\link{select}()}
 }
 \concept{dplyr.methods}

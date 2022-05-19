@@ -1,6 +1,6 @@
 Package: tidyterra
 Title: 'tidyverse' Methods for 'terra' Objects
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),

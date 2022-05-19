@@ -11,6 +11,8 @@
 
     -   `transmute()`
 
+    -   `rename()`
+
 -   New geoms:
 
     -   `geom_spatraster_contour()` family.

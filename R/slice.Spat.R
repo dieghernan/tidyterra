@@ -1,6 +1,7 @@
 #' Subset cells/rows/columns/geometries using their positions
 #'
 #' @description
+#'
 #' `slice()` lets you index cells/rows/columns/geometries by their (integer)
 #' locations. It allows you to select, remove, and duplicate those dimensions
 #' of a Spat* object.
