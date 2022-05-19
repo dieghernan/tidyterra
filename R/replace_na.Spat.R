@@ -39,13 +39,70 @@
 #'   replace_na(list(tavg_04 = 6, tavg_06 = 20)) %>%
 #'   plot()
 #'
-replace_na.SpatRaster <- function(data, replace, ...) {
-  df <- as_tbl_spat_attr(data)
+replace_na.SpatRaster <- function(data, replace = list(), ...) {
+
+  # If no replace return the same data
+  if (length(replace) == 0) {
+    return(data)
+  }
+
+  # Create a template df for assessing results
+  # Use only first cell for speed up
+  df <- data[1]
+
+  # Convert factors to chars
+  is_factor <- sapply(df, is.factor)
+  df[is_factor] <- lapply(df[is_factor], as.character)
+  # Set NAs
+  df[1, ] <- NA
+
   # Replace NA
   df_na <- tidyr::replace_na(df, replace = replace, ...)
 
-  # Rebuild newrast
-  newrast <- as_spatrast_attr(df_na)
+  # Check changed layers
+  # Get the index of changed layers
+  check_index <- as.logical(!is.na(df_na[1, ]))
+
+  # Replace on new raster using a loop
+  # New raster for init the loop
+  newrast <- data
+
+
+  for (i in seq_len(terra::nlyr(newrast))) {
+    if (!check_index[i]) next
+
+    # Modify if false
+    layer <- terra::subset(newrast, i)
+
+    # Different replacement based on type of layer
+    is_factor <- is.factor(dplyr::pull(layer[1]))
+
+
+    # Check different if it is factor or not
+    if (!is_factor) {
+      layer[is.na(layer)] <- df_na[1, i]
+
+      # Assign new values
+      terra::values(newrast[[i]]) <- pull(layer, na.rm = FALSE)
+    } else {
+      # For factors
+      values <- pull(layer, na.rm = FALSE)
+      keep_levs <- levels(values)
+      to_replace <- as.character(df_na[1, i])
+
+      # From
+      # https://stackoverflow.com/questions/39126537/replace-na-in-a-factor-column
+      # New NA level and change label
+
+      new_vals <- factor(values,
+        exclude = NULL,
+        levels = c(keep_levs, NA),
+        labels = c(keep_levs, to_replace)
+      )
+
+      terra::values(newrast[[i]]) <- new_vals
+    }
+  }
 
   return(newrast)
 }

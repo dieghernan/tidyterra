@@ -24,7 +24,7 @@ test_that("geom_spatraster one layer with CRS", {
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
-  expect_error(ggplot_build(s), regexp = "SpatRasters with crs must be")
+  expect_warning(ggplot_build(s), regexp = "SpatRasters with crs must be")
 
 
 

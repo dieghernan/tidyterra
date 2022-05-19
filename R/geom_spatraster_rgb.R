@@ -25,9 +25,13 @@
 #' @param mapping Ignored.
 #' @param r,g,b Integer representing the number of layer of `data` to be
 #'  considered as the red (`r`), green (`g`) and blue (`b`) channel.
+#' @param max_col_value Number giving the maximum of the color values range.
+#'   When this is `255` (the default), the result is computed most efficiently.
+#'   See [grDevices::rgb()].
 #'
-#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()]. You can get
-#' also RGB tiles from the {maptiles} package, see [maptiles::get_tiles()].
+#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
+#'  You can get also RGB tiles from the {maptiles} package,
+#'  see [maptiles::get_tiles()].
 #'
 #' @section  terra equivalent:
 #'
@@ -87,6 +91,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 b = 3,
                                 alpha = 1,
                                 maxcell = 500000,
+                                max_col_value = 255,
                                 ...) {
   if (!inherits(data, "SpatRaster")) {
     stop(
@@ -111,7 +116,6 @@ geom_spatraster_rgb <- function(mapping = aes(),
     ))
   }
 
-
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
@@ -120,13 +124,12 @@ geom_spatraster_rgb <- function(mapping = aes(),
     )
   )
 
-
-
   # Select channels
   data <- terra::subset(data, layers_order)
   names(data) <- c("r", "g", "b")
 
-
+  # Remove RGB settings, better plot without it
+  terra::RGB(data) <- NULL
 
   # 2. Check if resample is needed----
   data <- resample_spat(data, maxcell)
@@ -150,6 +153,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
       # Extra params
       maxcell = maxcell,
       interpolate = interpolate,
+      max_col_value = max_col_value,
       alpha = alpha,
       ...
     )
@@ -183,7 +187,7 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
   ggplot2::Stat,
   required_aes = c("spatraster", "hexcol"),
-  extra_params = c("maxcell"),
+  extra_params = c("maxcell", "max_col_value"),
   compute_layer = function(self, data, params, layout) {
 
     # Inspired from ggspatial
@@ -200,7 +204,7 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
     )
 
     # Build data
-    data_hex <- make_hexcol(rast)
+    data_hex <- make_hexcol(rast, params$max_col_value)
     data <- data[1, setdiff(names(data), c("spatraster"))]
     data_hex$tterra.index <- 1
     data$tterra.index <- 1
@@ -267,27 +271,24 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
 
 # Create a table with the hex color of each row (hexcol)
 # On any NA then hexcol is returned as NA
-make_hexcol <- function(data) {
-  todf <- as_tibble(data, xy = TRUE, na.rm = FALSE)
+make_hexcol <- function(data, max_col_value = 255) {
 
-  todf <- todf[, 1:5]
+  # Clamp values
+  data[data > max_col_value] <- max_col_value
+  data[data < 0] <- 0
+
+  todf <- as_tibble(data, xy = TRUE, na.rm = FALSE)[, 1:5]
   names(todf) <- c("x", "y", "r", "g", "b")
 
   todf$index <- seq_len(nrow(todf))
+
+  # Split dataset for making color table
   xy <- todf[c("x", "y", "index")]
+  values <- todf[c("index", "r", "g", "b")]
 
-  values <- todf[, c("index", "r", "g", "b")]
-
-  # Drop nas with index
+  # Drop nas on color table
   full <- tidyr::drop_na(values)
-  keepind <- full$index
-
-  # Clamp and make RGB colors
-  full[full > 256] <- 256
-  full[full < 0] <- 0
-  full$index <- keepind
-
-  full$hexcol <- rgb(full$r, full$g, full$b, maxColorValue = 256)
+  full$hexcol <- rgb(full$r, full$g, full$b, maxColorValue = max_col_value)
 
 
   # Prepare output

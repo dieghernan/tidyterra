@@ -105,21 +105,34 @@
 #'   plot(nc = 3)
 #'
 drop_na.SpatRaster <- function(data, ...) {
-  df <- as_tbl_spat_attr(terra::trim(data))
+  # Don't need to convert to data.frame
+  # Create a matrix to assess results
+  m <- matrix(nrow = terra::nlyr(data), ncol = terra::nlyr(data))
+  diag(m) <- seq_len(terra::nlyr(data))
 
-  xy <- dplyr::select(df, 1:2)
+  df <- as.data.frame(m)
+  names(df) <- names(data)
+
   dropped <- tidyr::drop_na(df, ...)
 
-  xydropped <- dplyr::left_join(xy,
-    dropped,
-    by = c("x", "y")
-  )
+  # Use template to identify operations
+  if (nrow(dropped) == 0) {
+    # All dropped
+    to_mask <- seq_len(terra::nlyr(data))
+  } else {
+    to_mask <- as.integer(dropped[1, ])
+    to_mask <- to_mask[!is.na(to_mask)]
+  }
 
-  # Rebuild raster
-  newrast <- as_spatrast_attr(xydropped)
+  # Subset with a loop
+  end <- data
+  for (i in to_mask) {
+    mask <- terra::subset(data, i)
+    end <- terra::mask(end, mask)
+  }
 
   # Trim extent
-  newrast <- terra::trim(newrast)
+  newrast <- terra::trim(end)
 
   return(newrast)
 }

@@ -22,7 +22,6 @@ Imports:
     crayon,
     dplyr,
     ggplot2 (>= 3.1.0),
-    lifecycle,
     magrittr,
     rlang,
     scales,
@@ -33,6 +32,7 @@ Imports:
 Suggests: 
     isoband,
     knitr,
+    lifecycle,
     maptiles,
     rmarkdown,
     testthat (>= 3.0.0),
@@ -43,4 +43,4 @@ Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0

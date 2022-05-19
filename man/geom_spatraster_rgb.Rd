@@ -18,6 +18,7 @@ geom_spatraster_rgb(
   b = 3,
   alpha = 1,
   maxcell = 5e+05,
+  max_col_value = 255,
   ...
 )
 }
@@ -37,6 +38,10 @@ considered as the red (\code{r}), green (\code{g}) and blue (\code{b}) channel.}
 
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
+
+\item{max_col_value}{Number giving the maximum of the color values range.
+When this is \code{255} (the default), the result is computed most efficiently.
+See \code{\link[grDevices:rgb]{grDevices::rgb()}}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -108,8 +113,9 @@ ggplot(cyl_sf) +
 }
 }
 \seealso{
-\code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}. You can get
-also RGB tiles from the {maptiles} package, see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
+\code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
+You can get also RGB tiles from the {maptiles} package,
+see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
 Other ggplot2 utils:
 \code{\link{autoplot}()},
