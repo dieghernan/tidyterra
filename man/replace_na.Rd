@@ -11,7 +11,8 @@
 \method{replace_na}{SpatVector}(data, replace, ...)
 }
 \arguments{
-\item{data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{replace}{list of values, with one value for each layer/attribute that
 has \code{NA} values to be replaced.}
