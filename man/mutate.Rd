@@ -94,6 +94,7 @@ v \%>\%
 Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{pull}()},
+\code{\link{relocate}()},
 \code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}

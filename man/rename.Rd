@@ -86,6 +86,7 @@ Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
 \code{\link{pull}()},
+\code{\link{relocate}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 

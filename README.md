@@ -54,6 +54,7 @@ Current methods and functions provided by {tidyterra} are:
 | `dplyr::slice()`      | :heavy_check_mark:                     | :heavy_check_mark: Additional methods for slicing by row and column.                                           |
 | `dplyr::pull()`       | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `dplyr::rename()`     | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
+| `dplyr::relocate()`   | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `tidyr::drop_na()`    | :heavy_check_mark:                     | :heavy_check_mark: Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `ggplot2::geom_*()`   | :heavy_check_mark: `geom_spatvector()` | :heavy_check_mark: `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |

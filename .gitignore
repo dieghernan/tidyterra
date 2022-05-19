@@ -24,3 +24,4 @@ tidyterra*.tgz
 CRAN-SUBMISSION
 .github/pkg.lock
 inst/doc
+cran-comments.md
