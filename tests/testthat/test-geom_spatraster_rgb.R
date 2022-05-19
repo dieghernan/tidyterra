@@ -123,6 +123,11 @@ test_that("geom_spatraster_rgb with CRS", {
 
   vdiffr::expect_doppelganger("crs_08: With sf first and crs", p_sf_first +
     coord_sf(crs = 4326))
+
+  p_maxcol <- ggplot() +
+    geom_spatraster_rgb(data = r, max_col_value = 200)
+
+  vdiffr::expect_doppelganger("crs_09: Check maxcol", p_maxcol)
 })
 
 
@@ -256,6 +261,17 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   vdiffr::expect_doppelganger("crsmask_08: With sf first and crs", p_sf_first +
     coord_sf(crs = 4326))
+
+  # With vector first and change proj
+
+  vdiffr::expect_doppelganger("crsmask_08: With sf first and crs", p_sf_first +
+    coord_sf(crs = 4326))
+
+  # Check max_cols
+  p_maxcol <- ggplot() +
+    geom_spatraster_rgb(data = r, max_col_value = 200)
+
+  vdiffr::expect_doppelganger("crsmask_09: Check maxcol", p_maxcol)
 })
 
 test_that("geom_spatraster_rgb with no CRS", {
@@ -393,6 +409,11 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   vdiffr::expect_doppelganger("nocrs_08: With sf reprojected", p_rast_first +
     geom_sf(data = new_v, fill = NA))
+
+  p_maxcol <- ggplot() +
+    geom_spatraster_rgb(data = r, max_col_value = 200)
+
+  vdiffr::expect_doppelganger("nocrs_09: Check maxcol", p_maxcol)
 })
 
 
@@ -542,4 +563,9 @@ test_that("geom_spatraster_rgb with no CRS masked", {
     p_rast_first +
       geom_sf(data = new_v, fill = NA)
   )
+
+  p_maxcol <- ggplot() +
+    geom_spatraster_rgb(data = r, max_col_value = 200)
+
+  vdiffr::expect_doppelganger("nocrsmask_09: Check maxcol", p_maxcol)
 })

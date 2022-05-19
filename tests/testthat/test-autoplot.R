@@ -15,8 +15,8 @@ test_that("Test with cols", {
   vdiffr::expect_doppelganger("norgb_02: categorical", autoplot(r2))
 
   # No facets
-  vdiffr::expect_doppelganger("norgb_03: no facets", r
-  %>% select(1) %>%
+  vdiffr::expect_doppelganger("norgb_03: no facets", r %>%
+    select(1) %>%
     autoplot(facets = FALSE))
 
   # Change n facets
@@ -27,7 +27,8 @@ test_that("Test with cols", {
 
   vdiffr::expect_doppelganger(
     "norgb_05: four cols",
-    r %>% mutate(other = tavg_04 * 2) %>%
+    r %>%
+      mutate(other = tavg_04 * 2) %>%
       autoplot(ncol = 4)
   )
 

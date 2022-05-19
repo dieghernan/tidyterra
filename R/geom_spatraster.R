@@ -120,12 +120,16 @@ geom_spatraster <- function(mapping = aes(),
 
 
   # 1. Work with aes ----
+
+  mapping <- cleanup_aesthetics(mapping, "group")
+
   mapping <- override_aesthetics(
     mapping,
     ggplot2::aes_string(
       spatraster = "spatraster",
       # For faceting
-      lyr = "lyr"
+      lyr = "lyr",
+      group = "lyr"
     )
   )
 
@@ -156,7 +160,21 @@ geom_spatraster <- function(mapping = aes(),
   data <- resample_spat(data, maxcell)
 
   # 3. Create a nested list with each layer----
-  raster_list <- nested_spat(data)
+  raster_list <- as.list(data)
+
+  # Now create the data frame
+  data_tbl <- tibble::tibble(
+    spatraster = list(NULL),
+    # For faceting: As factors for keeping orders
+    lyr = factor(names(data), levels = names(data))
+  )
+
+  names(data_tbl$spatraster) <- names(data)
+
+  # Each layer to a row
+  for (i in seq_len(terra::nlyr(data))) {
+    data_tbl$spatraster[[i]] <- raster_list[[i]]
+  }
 
 
   # 4. Build layer ----
@@ -165,11 +183,7 @@ geom_spatraster <- function(mapping = aes(),
 
   # Create layer
   layer_spatrast <- ggplot2::layer(
-    data = tibble::tibble(
-      spatraster = list(raster_list),
-      # For faceting: As factors for keeping orders
-      lyr = factor(names(data), levels = names(data))
-    ),
+    data = data_tbl,
     mapping = mapping,
     stat = StatTerraSpatRaster,
     geom = ggplot2::GeomRaster,
@@ -214,15 +228,18 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   "StatTerraSpatRaster",
   ggplot2::Stat,
   required_aes = "spatraster",
-  default_aes = ggplot2::aes(fill = stat(value), lyr = lyr),
-  extra_params = c("maxcell"),
+  default_aes = ggplot2::aes(
+    fill = stat(value), lyr = lyr, group = lyr,
+    spatraster = stat(spatraster)
+  ),
+  extra_params = c("maxcell", "na.rm", "coord_crs"),
   compute_layer = function(self, data, params, layout) {
-
-    # If no faceting or not single layer
-    if (nrow(data) != length(unique(data$PANEL))) {
+    # warn if not using facets
+    if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
+      nly <- length(unique(data$lyr))
       message(
         "\nWarning message:\n",
-        "Plotting ", nrow(data), " layers: ",
+        "Plotting ", nly, " layers: ",
         paste0("`", unique(data$lyr), "`", collapse = ", "),
         ".(geom_spatraster).",
         "\n- Use facet_wrap(~lyr) for faceting.",
@@ -230,32 +247,46 @@ StatTerraSpatRaster <- ggplot2::ggproto(
         "for displaying a single layer\n"
       )
     }
-
-    # On SpatRaster with crs check if need to reproject
-    # Extract initial raster
-    rast <- unnest_spat(data$spatraster[[1]])
-
-    rast <- reproject_raster_on_stat(
-      rast,
-      pull_crs(layout$coord_params$crs)
+    # add coord to the params, so it can be forwarded to compute_group()
+    params$coord_crs <- pull_crs(layout$coord_params$crs)
+    ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
+      data,
+      params, layout
     )
+  },
+  compute_group = function(data, scales, coord, params,
+                           coord_crs = NA) {
 
+    # Extract raster from group
+    rast <- data$spatraster[[1]]
 
-    # Build data
+    # Reproject if needed
+    rast <- reproject_raster_on_stat(rast, coord_crs)
+
+    # To data and prepare
     data_end <- pivot_longer_spat(rast)
+    data_rest <- data
 
-    data <- data[, setdiff(names(data), c("spatraster"))]
-    data_end <- dplyr::left_join(data_end, data, by = "lyr")
+    # Don't need spatraster any more and increase size
+    # Set to NA
+    data_rest$spatraster <- NA
 
-
-    data_end
+    data <- dplyr::left_join(data_end, data_rest, by = "lyr")
+    data
   }
 )
 
 
 # Helpers ----
-# Reproject a SpatRaster with params
 
+# Remove column names
+remove_columns <- function(x, rem) {
+  tokeep <- setdiff(names(x), rem)
+  clean <- x[, tokeep]
+  clean
+}
+
+# Reproject a SpatRaster with params
 reproject_raster_on_stat <- function(raster,
                                      coords_crs = NA) {
 
@@ -297,12 +328,12 @@ reproject_raster_on_stat <- function(raster,
     method = "regular"
   )
 
+
   # Reproject
   proj_rast <- terra::project(init_rast, template)
 
   return(proj_rast)
 }
-
 
 pivot_longer_spat <- function(x) {
   tb <- as_tbl_spat_attr(x)
@@ -351,27 +382,6 @@ resample_spat <- function(r, maxcell = 50000) {
 
   return(r)
 }
-
-nested_spat <- function(r) {
-  nlyr <- terra::nlyr(r)
-  rasterlist <- lapply(seq_len(nlyr), function(x) {
-    terra::subset(r, x)
-  })
-
-  return(rasterlist)
-}
-
-
-unnest_spat <- function(r) {
-  unlisted <- lapply(seq_len(length(r)), function(x) {
-    r[[x]]
-  })
-
-  unlisted_rast <- do.call("c", unlisted)
-
-  return(unlisted_rast)
-}
-
 
 check_mixed_cols <- function(r) {
   todf <- terra::as.data.frame(r[1], xy = FALSE)

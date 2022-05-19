@@ -23,6 +23,10 @@ test_that("With SpatRaster", {
     length(pull(r2, na.rm = FALSE))
   )
 
+  expect_false(anyNA(pull(r2, na.rm = TRUE)))
+  expect_true(anyNA(pull(r2, na.rm = FALSE)))
+
+
   df2 <- as_tibble(r2)
 
   expect_true(is.factor(pull(r2, "is_fact")))
