@@ -104,6 +104,7 @@ r \%>\%
 Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
+\code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 }

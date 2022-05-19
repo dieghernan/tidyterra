@@ -94,11 +94,13 @@ v \%>\%
 Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{pull}()},
+\code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 
 Other single table verbs: 
 \code{\link{filter}()},
+\code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 }

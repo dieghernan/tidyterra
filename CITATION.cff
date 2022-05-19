@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods for ''terra'' Objects'
-version: 0.0.0.9003
+version: 0.0.0.9004
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. Includes also new 'geom_' functions that provide a convenient
   way of visualizing 'terra' objects with 'ggplot2'.
@@ -26,7 +26,7 @@ preferred-citation:
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2022'
-  version: 0.0.0.9003
+  version: 0.0.0.9004
   url: https://dieghernan.github.io/tidyterra/
   abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects
     of the 'terra' package. Includes also new 'geom_' functions that provide a convenient

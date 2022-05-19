@@ -111,11 +111,13 @@ r2 \%>\%
 Other dplyr methods:
 \code{\link{mutate}()},
 \code{\link{pull}()},
+\code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 
 Other single table verbs: 
 \code{\link{mutate}()},
+\code{\link{rename}()},
 \code{\link{select}()},
 \code{\link{slice}()}
 }

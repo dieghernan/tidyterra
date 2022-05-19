@@ -23,9 +23,6 @@ select a range of layers/attributes.}
 A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-Subset layers/attributes of Spat* objects
-}
-\details{
 Select (and optionally rename) attributes/layers in Spat* objects, using a
 concise mini-language. See \strong{Methods}.
 }
@@ -96,11 +93,13 @@ Other dplyr methods:
 \code{\link{filter}()},
 \code{\link{mutate}()},
 \code{\link{pull}()},
+\code{\link{rename}()},
 \code{\link{slice}()}
 
 Other single table verbs: 
 \code{\link{filter}()},
 \code{\link{mutate}()},
+\code{\link{rename}()},
 \code{\link{slice}()}
 }
 \concept{dplyr.methods}

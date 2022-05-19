@@ -1,6 +1,7 @@
 #' Subset layers/attributes of Spat* objects
 #'
-#' @details
+#' @description
+#'
 #' Select (and optionally rename) attributes/layers in Spat* objects, using a
 #' concise mini-language. See **Methods**.
 #'
