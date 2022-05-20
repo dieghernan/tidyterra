@@ -55,7 +55,13 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li><p><code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</p></li>
+<ul><li>
+<p>Improvements on performance:</p>
+<ul><li><p>Conversion to tibble is avoided as much as possible.</p></li>
+<li><p>Internally use <code>data.table</code> instead of tibbles.</p></li>
+<li><p>The package is compatible with <code>dtplyr</code>.</p></li>
+</ul></li>
+<li><p><code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</p></li>
 <li><p>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p></li>
 <li>
 <p>New methods:</p>
