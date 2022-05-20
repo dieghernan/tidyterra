@@ -8,6 +8,7 @@ PROJ
 SpatRaster
 SpatRasters
 SpatVector
+SpatVectors
 Visualise
 WIP
 WKT
@@ -45,3 +46,4 @@ tidyterra’
 tidyverse
 tidyverse’
 visualise
+️

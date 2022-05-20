@@ -1,8 +1,8 @@
 ---
-title: "tidyterra"
+title: "Welcome to tidyterra"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tidyterra}
+  %\VignetteIndexEntry{Welcome to tidyterra}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,13 +10,206 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center"
 )
 ```
 
-```{r setup}
+## Welcome to {tidyterra}
+
+**tidyterra** is a package that add common methods from the
+[tidyverse](https://www.tidyverse.org/) for SpatRaster and SpatVectors objects
+created with the [{terra}](https://CRAN.R-project.org/package=terra) package. It
+also adds specific`geom_spat*()` for plotting these kind of objects with
+[{ggplot2}](https://ggplot2.tidyverse.org/).
+
+### Why {tidyterra}?
+
+Spat\* objects are not like regular data frames. They are a different type of
+objects, implemented via the [S4 object system](http://adv-r.had.co.nz/S4.html),
+and have their own syntax and computation methods, implemented on the {terra}
+package.
+
+By implementing tidyverse methods for these objects, and more specifically
+{dplyr} and {tidyr} methods, a use**R** can now work more easily with Spat\*,
+just like (s)he would do with tabular data.
+
+**Note that** in terms of performance, {terra} is much more optimized for
+working for this kind of objects, so it is **recommended** also to learn a bit
+of {terra} syntax. Each function of {tidyterra} refers (when possible) to the
+corresponding equivalent on {terra}.
+
+## A note for advanced {terra} users
+
+As previously mentioned, {tidyterra} is not optimized in terms of performance.
+Specially when working with `filter()` and `mutate()` methods, it can be slow.
+
+As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000
+slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
+
+## About SpatVectors {#about}
+
+SpatVector objects are vector data. This means that they are a set of individual
+points with geographic information (i.e. location of restaurants), that can be
+also grouped to form lines (i.e. a river) and, when these lines forms a closed
+polygon, a spatial polygon (i.e. a country).
+
+{terra} can handle vector files on the S4 system. There is other alternative,
+the {sf} package, that represents the same information on a tabular way. You can
+convert easily between the two packages like this:
+
+```{r terra_sf}
+lux <- system.file("ex/lux.shp", package = "terra")
+
+spatvector <- terra::vect(lux)
+spatvector
+
+terra::plot(spatvector, main = "SpatVector", axes = TRUE)
+
+
+# To sf
+sfobj <- sf::st_as_sf(spatvector)
+head(sfobj, 3)
+
+plot(sfobj$geometry, main = "sf", axes = TRUE)
+
+# Back to terra
+
+spatvector2 <- terra::vect(sfobj)
+
+spatvector2
+```
+
+On that sense, {sf} already has its own implementation of {tidyverse} methods.
+Since converting SpatVector to sf it is straightforward with no loss of
+information, {tidyterra} is specially focused on SpatRasters. See an example of
+how to work with {terra} + {sf} + {dplyr}:
+
+```{r full_spatvector}
+library(dplyr)
+library(terra)
+library(sf)
+
+spat_summ <- spatvector2 %>%
+  # to sf
+  st_as_sf() %>%
+  # dplyr
+  group_by(ID_1) %>%
+  summarise(TOTPOP = sum(POP)) %>%
+  # back to terra
+  vect()
+
+spat_summ
+
+terra::plot(spat_summ, "TOTPOP")
+```
+
+## Get started with {tidyterra}
+
+First thing you'll notice when loading {tidyterra} is that a set of packages
+would be also loaded. You can disable the message by setting
+`Sys.setenv(tidyterra.quiet = TRUE)`.
+
+```{r setup, message=TRUE}
+# Disable message with:
+# Sys.setenv(tidyterra.quiet = TRUE)
 library(tidyterra)
 ```
 
+Currently, the following methods are available:
 
-Soon...
++------------------------------+------------------------+----------------+
+| tidyverse method             | SpatVector             | SpatRaster     |
++==============================+========================+================+
+| `tibble::as_tibble()`        | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::filter()`            | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::mutate()`            | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::pull()`              | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::relocate()`          | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::rename()`            | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::select()`            | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::slice()`             | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `dplyr::transmute()`         | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `tidyr::drop_na()`           | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+| `tidyr::replace_na()`        | ✔️                     | ✔️             |
++------------------------------+------------------------+----------------+
+
+Let's see some of them in action:
+
+```{r}
+
+f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+
+temp <- rast(f)
+
+temp
+
+mod <- temp %>%
+  select(-1) %>%
+  mutate(newcol = tavg_06 - tavg_05) %>%
+  relocate(newcol, .before = 1) %>%
+  replace_na(list(newcol = 3)) %>%
+  rename(difference = newcol)
+
+mod
+plot(mod)
+```
+
+On the previous example, we had:
+
+-   Eliminated the first layer of the raster `tavg_04`.
+
+-   Created a new layer `newcol` as the difference of the layers `tavg_05` and
+    `tavg_06.`
+
+-   Relocated `newcol`as the first layer of the SpatRaster
+
+-   Replaced the `NA` values with `0`.
+
+-   Renamed `newcol` to difference.
+
+In all the process, the essential properties of the SpatRaster (number of cells,
+columns and rows, extent, resolution and coordinate reference system) have not
+been modified. Other methods as `filter()`, `slice()` or `drop_na()` can modify
+these properties, as they would do when applied to a data frame (number of rows
+would be modified on that case).
+
+## Plotting with {ggplot2}
+
+### SpatVectors
+
+{tidyterra} allows you to plot SpatVectors with {ggplot2} using the
+`geom_spatvector()` functions:
+
+```{r}
+library(ggplot2)
+
+ggplot() +
+  geom_spatvector(data = spatvector, aes(fill = POP)) +
+  geom_spatvector_text(
+    data = spatvector, aes(label = NAME_2),
+    color = "grey90"
+  ) +
+  scale_fill_binned(labels = scales::number_format()) +
+  coord_sf(crs = 3857)
+```
+
+The underlying implementation is to take advantage of the conversion
+`terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
+`ggplot2::geom_sf()` as an endpoint for creating the layer.
+
+### SpatRasters
+
+TODO
