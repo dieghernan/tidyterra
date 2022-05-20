@@ -70,13 +70,14 @@ raster files**, {terra} is much more focused on terms of performance.
 When possible, each function of {tidyterra} references to its equivalent
 on {terra}.
 
-As a rule of thumb if your raster has less than 1.000.000 cells (i.e.
-`terra::ncell(my_raster) <- 1000000`) you are good to go with
-{tidyterra}.
+As a rule of thumb if your raster has less than 10.000.000 data slots
+counting cells and layers
+(i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
+good to go with {tidyterra}.
 
 When plotting rasters, resampling is performed automatically (as
-`terra::plot()` does, see `maxcell` parameter). You can adjust this with
-the `maxcell` parameter.
+`terra::plot()` does, see the help page). You can adjust this with the
+`maxcell` parameter.
 
 ## Installation
 

@@ -107,6 +107,18 @@ You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer o
 the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
+\section{Computed variables}{
+
+
+This geom computes internally some variables that are available for use as
+aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
+\code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
+
+\describe{
+\item{\code{lyr}}{Name of the layer.}
+}
+}
+
 \examples{
 \donttest{
 # Avg temperature on spring in Castille and Leon (Spain)

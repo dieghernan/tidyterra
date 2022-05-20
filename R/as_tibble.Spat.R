@@ -125,7 +125,10 @@ as_tbl_spat_attr <- function(x) {
 
   if (!inherits(x, "SpatRaster")) cli::cli_abort("x is not a SpatRaster")
 
-  todf <- as_tibble.SpatRaster(x, xy = TRUE, na.rm = FALSE)
+  x <- make_layer_names(x)
+
+  todf <- data.table::as.data.table(x, xy = TRUE, na.rm = FALSE)
+  todf[is.na(todf)] <- NA
 
   # Set attributes
   attr(todf, "source") <- "tbl_terra_spatraster"

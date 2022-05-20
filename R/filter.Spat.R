@@ -111,6 +111,10 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
     by = c("x", "y")
   )
 
+  # For dtplyr
+  rebuild_df <- data.table::as.data.table(rebuild_df)
+  attributes(rebuild_df) <- attributes(df)
+
   newrast <- as_spatrast_attr(rebuild_df)
 
   if (!isTRUE(.keep_extent)) newrast <- terra::trim(newrast)
