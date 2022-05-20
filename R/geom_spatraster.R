@@ -61,6 +61,16 @@
 #' You can use ` facet_wrap(~lyr)` for creating a faceted plot by each layer of
 #' the SpatRaster object. See [ggplot2::facet_wrap()] for details.
 #'
+#' @section Computed variables:
+#'
+#' This geom computes internally some variables that are available for use as
+#' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
+#' [ggplot2::after_stat()]).
+#'
+#' \describe{
+#'  \item{`lyr`}{Name of the layer.}
+#' }
+#'
 #' @export
 #' @examples
 #' \donttest{

@@ -2,7 +2,10 @@
 #'
 #' @description
 #'
-#' These geoms create contours of SpatRaster objects.
+#' These geoms create contours of SpatRaster objects.  To specify a valid
+#' surface, you should specify the layer on `aes(z = layer_name)`, otherwise all
+#' the layers would be consider for creating contours. See also **Facets**
+#' section.
 #'
 #' The underlying implementation is based on [ggplot2::geom_contour()].
 #'
@@ -37,14 +40,14 @@
 #' @section Aesthetics:
 #'
 #' `geom_spatraster_contour`() understands the following aesthetics:
-#'
+#'  - z
 #'  - alpha
 #'  - colour
 #'  - linetype
 #'  - size
 #'
 #' Additionally, `geom_spatraster_contour_filled()` understands also the
-#' following aesthetics:
+#' following aesthetics, as well as the ones listed above:
 #'  - fill
 #'
 #' Check [ggplot2::geom_contour()] for more info.
@@ -61,7 +64,7 @@
 #'    that represents bin boundaries. For contour bands, this is an ordered
 #'    factor that represents bin ranges.}
 #'  \item{`nlevel`}{Height of contour, scaled to maximum of 1.}
-#'  \item{`lyr`}{Name of the layers.}
+#'  \item{`lyr`}{Name of the layer.}
 #'  \item{`level_low`, `level_high`, `level_mid`}{(contour bands only) Lower
 #'    and upper bin boundaries for each band, as well the mid point between
 #'    the boundaries.}

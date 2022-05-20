@@ -81,7 +81,10 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 A ggplot2 layer
 }
 \description{
-These geoms create contours of SpatRaster objects.
+These geoms create contours of SpatRaster objects.  To specify a valid
+surface, you should specify the layer on \code{aes(z = layer_name)}, otherwise all
+the layers would be consider for creating contours. See also \strong{Facets}
+section.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
 }
@@ -96,6 +99,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggpl
 
 \code{geom_spatraster_contour}() understands the following aesthetics:
 \itemize{
+\item z
 \item alpha
 \item colour
 \item linetype
@@ -103,7 +107,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggpl
 }
 
 Additionally, \code{geom_spatraster_contour_filled()} understands also the
-following aesthetics:
+following aesthetics, as well as the ones listed above:
 \itemize{
 \item fill
 }
@@ -123,7 +127,7 @@ aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 that represents bin boundaries. For contour bands, this is an ordered
 factor that represents bin ranges.}
 \item{\code{nlevel}}{Height of contour, scaled to maximum of 1.}
-\item{\code{lyr}}{Name of the layers.}
+\item{\code{lyr}}{Name of the layer.}
 \item{\code{level_low}, \code{level_high}, \code{level_mid}}{(contour bands only) Lower
 and upper bin boundaries for each band, as well the mid point between
 the boundaries.}

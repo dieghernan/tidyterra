@@ -57,6 +57,10 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     return(x)
   }
 
+  # Create from dtplyr
+  if (inherits(x, "dtplyr_step")) x <- tibble::as_tibble(x)
+
+
   if (!inherits(x, "data.frame")) {
     cli::cli_abort(
       "x should be a data.frame/tibble"
@@ -171,6 +175,9 @@ as_spatrast_attr <- function(x) {
     return(x)
   }
 
+  # Create from dtplyr
+  x <- data.table::as.data.table(x)
+
   if (!isTRUE((attr(x, "source")) == "tbl_terra_spatraster")) {
     cli::cli_alert_danger(
       paste(
@@ -186,7 +193,9 @@ as_spatrast_attr <- function(x) {
   attrs <- attributes(x)
 
   # Get number of layers
-  values <- x[, -c(1:2)]
+  values <- dplyr::select(x, -c(1, 2))
+  values <- data.table::as.data.table(values)
+
 
   nlyrs <- ncol(values)
 

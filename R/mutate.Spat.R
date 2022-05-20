@@ -86,7 +86,23 @@ mutate.SpatRaster <- function(.data, ...) {
 
   values_mutate <- dplyr::mutate(values, ...)
 
+  # dtplyr
+  xy <- data.table::as.data.table(xy)
+  values_mutate <- data.table::as.data.table(values_mutate)
+
   final_df <- dplyr::bind_cols(xy, values_mutate)
+
+  # To data.table and rearrange attrs
+  final_df <- data.table::as.data.table(final_df)
+
+  # Spatial attrs
+  init_att <- attributes(df)
+  final_att <- attributes(final_df)
+
+  spat_attrs <- init_att[setdiff(names(init_att), names(final_att))]
+
+  attributes(final_df) <- c(final_att, spat_attrs)
+
 
   # Rearrange number of layers
   dims <- attributes(df)$dims
@@ -119,7 +135,23 @@ transmute.SpatRaster <- function(.data, ...) {
 
   values_transm <- dplyr::transmute(values, ...)
 
+  # dtplyr
+  xy <- data.table::as.data.table(xy)
+  values_transm <- data.table::as.data.table(values_transm)
+
+
   final_df <- dplyr::bind_cols(xy, values_transm)
+
+  # To data.table and rearrange attrs
+  final_df <- data.table::as.data.table(final_df)
+
+  # Spatial attrs
+  init_att <- attributes(df)
+  final_att <- attributes(final_df)
+
+  spat_attrs <- init_att[setdiff(names(init_att), names(final_att))]
+
+  attributes(final_df) <- c(final_att, spat_attrs)
 
   # Rearrange number of layers
   dims <- attributes(df)$dims
