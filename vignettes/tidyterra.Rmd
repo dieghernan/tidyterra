@@ -49,63 +49,6 @@ Specially when working with `filter()` and `mutate()` methods, it can be slow.
 As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000
 slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 
-## About SpatVectors {#about}
-
-SpatVector objects are vector data. This means that they are a set of individual
-points with geographic information (i.e. location of restaurants), that can be
-also grouped to form lines (i.e. a river) and, when these lines forms a closed
-polygon, a spatial polygon (i.e. a country).
-
-{terra} can handle vector files on the S4 system. There is other alternative,
-the {sf} package, that represents the same information on a tabular way. You can
-convert easily between the two packages like this:
-
-```{r terra_sf}
-lux <- system.file("ex/lux.shp", package = "terra")
-
-spatvector <- terra::vect(lux)
-spatvector
-
-terra::plot(spatvector, main = "SpatVector", axes = TRUE)
-
-
-# To sf
-sfobj <- sf::st_as_sf(spatvector)
-head(sfobj, 3)
-
-plot(sfobj$geometry, main = "sf", axes = TRUE)
-
-# Back to terra
-
-spatvector2 <- terra::vect(sfobj)
-
-spatvector2
-```
-
-On that sense, {sf} already has its own implementation of {tidyverse} methods.
-Since converting SpatVector to sf it is straightforward with no loss of
-information, {tidyterra} is specially focused on SpatRasters. See an example of
-how to work with {terra} + {sf} + {dplyr}:
-
-```{r full_spatvector}
-library(dplyr)
-library(terra)
-library(sf)
-
-spat_summ <- spatvector2 %>%
-  # to sf
-  st_as_sf() %>%
-  # dplyr
-  group_by(ID_1) %>%
-  summarise(TOTPOP = sum(POP)) %>%
-  # back to terra
-  vect()
-
-spat_summ
-
-terra::plot(spat_summ, "TOTPOP")
-```
-
 ## Get started with {tidyterra}
 
 First thing you'll notice when loading {tidyterra} is that a set of packages
@@ -141,7 +84,7 @@ Currently, the following methods are available:
 +------------------------------+------------------------+----------------+
 | `dplyr::transmute()`         | ✔️                     | ✔️             |
 +------------------------------+------------------------+----------------+
-| `tidyr::drop_na()`           | ✔️                     | ✔️             |
+| `tidyr::drop_na()`           | ✔️                     | ✔️ (questioned)|
 +------------------------------+------------------------+----------------+
 | `tidyr::replace_na()`        | ✔️                     | ✔️             |
 +------------------------------+------------------------+----------------+
@@ -176,7 +119,7 @@ On the previous example, we had:
 
 -   Relocated `newcol`as the first layer of the SpatRaster
 
--   Replaced the `NA` values with `0`.
+-   Replaced the `NA` cells on `newcol` with `3`.
 
 -   Renamed `newcol` to difference.
 
@@ -213,3 +156,61 @@ The underlying implementation is to take advantage of the conversion
 ### SpatRasters
 
 TODO
+
+
+## About SpatVectors {#about}
+
+SpatVector objects are vector data. This means that they are a set of individual
+points with geographic information (i.e. location of restaurants), that can be
+also grouped to form lines (i.e. a river) and, when these lines forms a closed
+polygon, a spatial polygon (i.e. a country).
+
+{terra} can handle vector files on the S4 system. There is other alternative,
+the {sf} package, that represents the same information on a tabular way. You can
+convert easily between the two packages like this:
+
+```{r terra_sf}
+lux <- system.file("ex/lux.shp", package = "terra")
+
+spatvector <- terra::vect(lux)
+spatvector
+
+terra::plot(spatvector, main = "SpatVector", axes = TRUE)
+
+
+# To sf
+sfobj <- sf::st_as_sf(spatvector)
+head(sfobj, 3)
+
+plot(sfobj$geometry, main = "sf", axes = TRUE)
+
+# Back to terra
+
+spatvector2 <- terra::vect(sfobj)
+
+spatvector2
+```
+
+On that sense, {sf} already has its own implementation of {tidyverse} methods.
+Since converting SpatVector to {sf} it is straightforward with no loss of
+information, {tidyterra} is specially focused on SpatRasters. See an example of
+how to work with {terra} + {sf} + {dplyr}:
+
+```{r full_spatvector}
+library(dplyr)
+library(terra)
+library(sf)
+
+spat_summ <- spatvector2 %>%
+  # to sf
+  st_as_sf() %>%
+  # dplyr
+  group_by(ID_1) %>%
+  summarise(TOTPOP = sum(POP)) %>%
+  # back to terra
+  vect()
+
+spat_summ
+
+terra::plot(spat_summ, "TOTPOP")
+```
