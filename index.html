@@ -194,8 +194,8 @@
 </h2>
 <p>{tidyterra} is conceived as a user-friendly wrapper of {terra} using the {tidyverse} methods and verbs. This approach therefore has a <strong>cost in terms of performance</strong>.</p>
 <p>If you are a <strong>heavy user of {terra}</strong> or you need to work with <strong>big raster files</strong>, {terra} is much more focused on terms of performance. When possible, each function of {tidyterra} references to its equivalent on {terra}.</p>
-<p>As a rule of thumb if your raster has less than 1.000.000 cells (i.e. <code>terra::ncell(my_raster) &lt;- 1000000</code>) you are good to go with {tidyterra}.</p>
-<p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code> does, see <code>maxcell</code> parameter). You can adjust this with the <code>maxcell</code> parameter.</p>
+<p>As a rule of thumb if your raster has less than 10.000.000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with {tidyterra}.</p>
+<p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> parameter.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
