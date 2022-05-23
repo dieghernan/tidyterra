@@ -4,11 +4,11 @@
 \name{tidyterra-package}
 \alias{tidyterra}
 \alias{tidyterra-package}
-\title{tidyterra: 'tidyverse' Methods for 'terra' Objects}
+\title{tidyterra: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.
+Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.
 }
 \seealso{
 Useful links:

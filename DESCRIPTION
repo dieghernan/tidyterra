@@ -1,6 +1,6 @@
 Package: tidyterra
-Title: 'tidyverse' Methods for 'terra' Objects
-Version: 0.0.1
+Title: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects
+Version: 0.1.0
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
@@ -8,9 +8,9 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-9415-4582", "for ggspatial code"))
   )
 Description: Extension of the 'tidyverse' for 'SpatRaster' and
-    'SpatVector' objects of the 'terra' package. Includes also new 'geom_'
-    functions that provide a convenient way of visualizing 'terra' objects
-    with 'ggplot2'.
+    'SpatVector' objects of the 'terra' package. It includes also new
+    'geom_' functions that provide a convenient way of visualizing 'terra'
+    objects with 'ggplot2'.
 License: MIT + file LICENSE
 URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra
@@ -36,6 +36,7 @@ Suggests:
     lifecycle,
     maptiles,
     rmarkdown,
+    s2,
     testthat (>= 3.0.0),
     vdiffr
 VignetteBuilder: 

@@ -2,19 +2,19 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "tidyterra",
-  "description": "Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.",
-  "name": "tidyterra: 'tidyverse' Methods for 'terra' Objects",
+  "description": "Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.",
+  "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects",
   "relatedLink": "https://dieghernan.github.io/tidyterra/",
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -110,6 +110,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "s2",
+      "name": "s2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=s2"
     },
     {
       "@type": "SoftwareApplication",
@@ -294,7 +306,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1466.988KB",
+  "fileSize": "1474.531KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -306,7 +318,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{tidyterra}: 'tidyverse' Methods for 'terra' Objects",
+      "name": "{tidyterra}: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects",
       "url": "https://dieghernan.github.io/tidyterra/"
     }
   ],

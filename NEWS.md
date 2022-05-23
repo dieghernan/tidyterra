@@ -1,3 +1,9 @@
+# tidyterra 0.1.0
+
+-   Add DOI.
+
+-   CRAN release.
+
 # tidyterra 0.0.1
 
 -   Improvements on performance:
