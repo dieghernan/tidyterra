@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9004</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,114 +114,21 @@
 <p>As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000 slots of information(i.e., <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 10e6</code>).</p>
 </div>
 <div class="section level2">
-<h2 id="about">About SpatVectors<a class="anchor" aria-label="anchor" href="#about"></a>
-</h2>
-<p>SpatVector objects are vector data. This means that they are a set of individual points with geographic information (i.e. location of restaurants), that can be also grouped to form lines (i.e. a river) and, when these lines forms a closed polygon, a spatial polygon (i.e. a country).</p>
-<p>{terra} can handle vector files on the S4 system. There is other alternative, the {sf} package, that represents the same information on a tabular way. You can convert easily between the two packages like this:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span>
-
-<span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span>
-<span class="va">spatvector</span>
-<span class="co">#&gt;  class       : SpatVector </span>
-<span class="co">#&gt;  geometry    : polygons </span>
-<span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span>
-<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt;  source      : lux.shp</span>
-<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
-<span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
-<span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span>
-<span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span>
-<span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span>
-
-<span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spatvector</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-
-
-<span class="co"># To sf</span>
-<span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">spatvector</span><span class="op">)</span></code></pre></div>
-<p><img src="tidyterra_files/figure-html/terra_sf-1.png" width="1093.75" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sfobj</span>, <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; Simple feature collection with 3 features and 6 fields</span>
-<span class="co">#&gt; Geometry type: POLYGON</span>
-<span class="co">#&gt; Dimension:     XY</span>
-<span class="co">#&gt; Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162</span>
-<span class="co">#&gt; Geodetic CRS:  WGS 84</span>
-<span class="co">#&gt;   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry</span>
-<span class="co">#&gt; 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...</span>
-<span class="co">#&gt; 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...</span>
-<span class="co">#&gt; 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">$</span><span class="va">geometry</span>, main <span class="op">=</span> <span class="st">"sf"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><img src="tidyterra_files/figure-html/terra_sf-2.png" width="1093.75" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co"># Back to terra</span>
-
-<span class="va">spatvector2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span>
-
-<span class="va">spatvector2</span>
-<span class="co">#&gt;  class       : SpatVector </span>
-<span class="co">#&gt;  geometry    : polygons </span>
-<span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span>
-<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
-<span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
-<span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span>
-<span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span>
-<span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></code></pre></div>
-<p>On that sense, {sf} already has its own implementation of {tidyverse} methods. Since converting SpatVector to sf it is straightforward with no loss of information, {tidyterra} is specially focused on SpatRasters. See an example of how to work with {terra} + {sf} + {dplyr}:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
-
-<span class="va">spat_summ</span> <span class="op">&lt;-</span> <span class="va">spatvector2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="co"># to sf</span>
-  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="co"># dplyr</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>TOTPOP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="co"># back to terra</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">spat_summ</span>
-<span class="co">#&gt;  class       : SpatVector </span>
-<span class="co">#&gt;  geometry    : polygons </span>
-<span class="co">#&gt;  dimensions  : 3, 2  (geometries, attributes)</span>
-<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="co">#&gt;  names       :  ID_1 TOTPOP</span>
-<span class="co">#&gt;  type        : &lt;num&gt;  &lt;int&gt;</span>
-<span class="co">#&gt;  values      :     1  91186</span>
-<span class="co">#&gt;                    2  71093</span>
-<span class="co">#&gt;                    3 439726</span>
-
-<span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spat_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></code></pre></div>
-<p><img src="tidyterra_files/figure-html/full_spatvector-1.png" width="1093.75" style="display: block; margin: auto;"></p>
-</div>
-<div class="section level2">
 <h2 id="get-started-with-tidyterra">Get started with {tidyterra}<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
 </h2>
 <p>First thing you’ll notice when loading {tidyterra} is that a set of packages would be also loaded. You can disable the message by setting <code>Sys.setenv(tidyterra.quiet = TRUE)</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Disable message with:</span>
 <span class="co"># Sys.setenv(tidyterra.quiet = TRUE)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span>
-<span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ────────────────────────────────── tidyterra 0.0.0.<span style="color: #BB0000;">9004</span> ──</span>
+<span class="co">#&gt; ── <span style="font-weight: bold;">Attaching packages</span> ─────────────────────────────────────── tidyterra 0.0.1 ──</span>
 <span class="co">#&gt; </span>
 <span class="co"><span style="color: #00BB00;">#&gt; Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)</span></span>
 <span class="co"><span style="color: #00BB00;">#&gt; </span></span>
-<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble</span> 3.1.7     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr </span> 1.2.0</span></code></pre></div>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble</span> 3.1.7     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr </span> 1.0.9</span>
+<span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr </span> 1.2.0</span></code></pre></div>
 <p>Currently, the following methods are available:</p>
 <table class="table">
-<colgroup>
-<col width="42%">
-<col width="34%">
-<col width="23%">
-</colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
 <th>SpatVector</th>
@@ -276,7 +183,7 @@
 <tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
-<td>✔️</td>
+<td>✔️ (questioned)</td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
@@ -286,8 +193,8 @@
 </tbody>
 </table>
 <p>Let’s see some of them in action:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span>
 <span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span>
 
 <span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span>
@@ -329,7 +236,7 @@
 <li><p>Eliminated the first layer of the raster <code>tavg_04</code>.</p></li>
 <li><p>Created a new layer <code>newcol</code> as the difference of the layers <code>tavg_05</code> and <code>tavg_06.</code></p></li>
 <li><p>Relocated <code>newcol</code>as the first layer of the SpatRaster</p></li>
-<li><p>Replaced the <code>NA</code> values with <code>0</code>.</p></li>
+<li><p>Replaced the <code>NA</code> cells on <code>newcol</code> with <code>3</code>.</p></li>
 <li><p>Renamed <code>newcol</code> to difference.</p></li>
 </ul>
 <p>In all the process, the essential properties of the SpatRaster (number of cells, columns and rows, extent, resolution and coordinate reference system) have not been modified. Other methods as <code><a href="../reference/filter.html">filter()</a></code>, <code><a href="../reference/slice.html">slice()</a></code> or <code><a href="../reference/drop_na.html">drop_na()</a></code> can modify these properties, as they would do when applied to a data frame (number of rows would be modified on that case).</p>
@@ -338,11 +245,87 @@
 <h2 id="plotting-with-ggplot2">Plotting with {ggplot2}<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
 <div class="section level3">
+<h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+</h3>
+<p>{tidyterra} provides several <code>geom_*</code> for SpatRasters. When the SpatRaster has the CRS informed (i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for adjusting the coordinates to other spatial layers:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+
+<span class="co"># A faceted SpatRaster</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/scale_fill_terrain.html">scale_fill_terrain_c</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/terraplots-1.png" width="1093.75" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="co"># Contour lines for a specific layer</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour</a></span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">temp</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>z <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span>,
+    color <span class="op">=</span> <span class="st">"black"</span>,
+    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">7.5</span>, <span class="fl">22.5</span>, <span class="fl">2.5</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span>
+    colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">hcl.colors</a></span><span class="op">(</span><span class="fl">10</span>, <span class="st">"RdBu"</span>, rev <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+    na.value <span class="op">=</span> <span class="st">"white"</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"tavg_06"</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/terraplots-2.png" width="1093.75" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="co"># Contour filled for a specific layer</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">temp</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>z <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span>,
+    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">7.5</span>, <span class="fl">22.5</span>, <span class="fl">2.5</span><span class="op">)</span>
+  <span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"tavg_06"</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/terraplots-3.png" width="1093.75" style="display: block; margin: auto;"></p>
+<p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Read a vector</span>
+
+<span class="va">f_v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span>
+<span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">f_v</span><span class="op">)</span>
+
+<span class="co"># Read a tile</span>
+<span class="va">f_rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span>
+
+<span class="va">r_rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_rgb</span><span class="op">)</span>
+
+<span class="va">rgb_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_rgb</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">v</span>, fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+
+<span class="va">rgb_plot</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/rgb-1.png" width="1093.75" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Change CRS automatically</span>
+
+<span class="va">rgb_plot</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3035</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/rgb-2.png" width="1093.75" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
 <h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
 </h3>
 <p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span>
+
+<span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span>
 
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">spatvector</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -356,9 +339,93 @@
 <p>The underlying implementation is to take advantage of the conversion <code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the layer.</p>
 </div>
 <div class="section level3">
-<h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+<h3 id="about">About SpatVectors<a class="anchor" aria-label="anchor" href="#about"></a>
 </h3>
-<p>TODO</p>
+<p>SpatVector objects are vector data. This means that they are a set of individual points with geographic information (i.e. location of restaurants), that can be also grouped to form lines (i.e. a river) and, when these lines forms a closed polygon, a spatial polygon (i.e. a country).</p>
+<p>{terra} can handle vector files on the S4 system. There is other alternative, the {sf} package, that represents the same information on a tabular way. You can convert easily between the two packages like this:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span>
+
+<span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span>
+<span class="va">spatvector</span>
+<span class="co">#&gt;  class       : SpatVector </span>
+<span class="co">#&gt;  geometry    : polygons </span>
+<span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span>
+<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt;  source      : lux.shp</span>
+<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
+<span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span>
+<span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span>
+<span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span>
+
+<span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spatvector</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/terra_sf-1.png" width="1093.75" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+
+<span class="co"># To sf</span>
+<span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">spatvector</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sfobj</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt; Simple feature collection with 3 features and 6 fields</span>
+<span class="co">#&gt; Geometry type: POLYGON</span>
+<span class="co">#&gt; Dimension:     XY</span>
+<span class="co">#&gt; Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162</span>
+<span class="co">#&gt; Geodetic CRS:  WGS 84</span>
+<span class="co">#&gt;   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry</span>
+<span class="co">#&gt; 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...</span>
+<span class="co">#&gt; 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...</span>
+<span class="co">#&gt; 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">$</span><span class="va">geometry</span>, main <span class="op">=</span> <span class="st">"sf"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/terra_sf-2.png" width="1093.75" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Back to terra</span>
+
+<span class="va">spatvector2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span>
+
+<span class="va">spatvector2</span>
+<span class="co">#&gt;  class       : SpatVector </span>
+<span class="co">#&gt;  geometry    : polygons </span>
+<span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span>
+<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
+<span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
+<span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span>
+<span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span>
+<span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></code></pre></div>
+<p>On that sense, {sf} already has its own implementation of {tidyverse} methods. Since converting SpatVector to {sf} it is straightforward with no loss of information, {tidyterra} is specially focused on SpatRasters. See an example of how to work with {terra} + {sf} + {dplyr}:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
+
+<span class="va">spat_summ</span> <span class="op">&lt;-</span> <span class="va">spatvector2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="co"># to sf</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="co"># dplyr</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>TOTPOP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
+  <span class="co"># back to terra</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">spat_summ</span>
+<span class="co">#&gt;  class       : SpatVector </span>
+<span class="co">#&gt;  geometry    : polygons </span>
+<span class="co">#&gt;  dimensions  : 3, 2  (geometries, attributes)</span>
+<span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
+<span class="co">#&gt;  names       :  ID_1 TOTPOP</span>
+<span class="co">#&gt;  type        : &lt;num&gt;  &lt;int&gt;</span>
+<span class="co">#&gt;  values      :     1  91186</span>
+<span class="co">#&gt;                    2  71093</span>
+<span class="co">#&gt;                    3 439726</span>
+
+<span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spat_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></code></pre></div>
+<p><img src="tidyterra_files/figure-html/full_spatvector-1.png" width="1093.75" style="display: block; margin: auto;"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
