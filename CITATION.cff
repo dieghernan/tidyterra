@@ -9,6 +9,7 @@ type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Utils for ''terra'' Objects'
 version: 0.1.0
+doi: 10.5281/zenodo.6572471
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
   way of visualizing 'terra' objects with 'ggplot2'.
@@ -19,18 +20,19 @@ authors:
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
   type: manual
-  title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Utils for ''terra'' Objects'
+  title: 'tidyterra: tidyverse Methods and ggplot2 Utils for terra Objects'
   authors:
   - family-names: Hernangómez
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
+  doi: 10.5281/zenodo.6572471
   year: '2022'
   version: 0.1.0
   url: https://dieghernan.github.io/tidyterra/
-  abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects
-    of the 'terra' package. It includes also new 'geom_' functions that provide a
-    convenient way of visualizing 'terra' objects with 'ggplot2'.
+  abstract: Extension of the tidyverse for SpatRaster and SpatVector objects of the
+    terra package. It includes also new geom_ functions that provide a convenient
+    way of visualizing terra objects with ggplot2.
 repository-code: https://github.com/dieghernan/tidyterra
 url: https://dieghernan.github.io/tidyterra/
 contact:

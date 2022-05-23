@@ -306,7 +306,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1474.531KB",
+  "fileSize": "1474.791KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -318,8 +318,11 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{tidyterra}: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects",
-      "url": "https://dieghernan.github.io/tidyterra/"
+      "name": "{tidyterra}: tidyverse Methods and ggplot2 Utils for terra Objects",
+      "identifier": "10.5281/zenodo.6572471",
+      "url": "https://dieghernan.github.io/tidyterra/",
+      "@id": "https://doi.org/10.5281/zenodo.6572471",
+      "sameAs": "https://doi.org/10.5281/zenodo.6572471"
     }
   ],
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/master/NEWS.md",

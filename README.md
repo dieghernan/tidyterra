@@ -8,6 +8,7 @@
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.6572471-blue)](https://doi.org/10.5281/zenodo.6572471)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -220,18 +221,21 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 
 To cite ‘tidyterra’ in publications use:
 
-Hernangómez D (2022). *tidyterra: ‘tidyverse’ Methods and ‘ggplot2’
-Utils for ‘terra’ Objects*. <https://dieghernan.github.io/tidyterra/>.
+Hernangómez D (2022). *tidyterra: tidyverse Methods and ggplot2 Utils
+for terra Objects*. <doi:10.5281/zenodo.6572471>
+<https://doi.org/10.5281/zenodo.6572471>,
+<https://dieghernan.github.io/tidyterra/>.
 
 A BibTeX entry for LaTeX users is
 
     @Manual{R-tidyterra,
-      title = {{tidyterra}: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects},
+      title = {{tidyterra}: tidyverse Methods and ggplot2 Utils for terra Objects},
+      doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2022},
       version = {0.1.0},
       url = {https://dieghernan.github.io/tidyterra/},
-      abstract = {Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.},
+      abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }
 
 ## Acknowledgements
