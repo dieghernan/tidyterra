@@ -102,10 +102,5 @@ r \%>\%
 }
 \seealso{
 \code{\link[tidyr:drop_na]{tidyr::drop_na()}}, \code{\link[=drop_na]{drop_na()}}.
-
-Other tidyr.methods: 
-\code{\link{drop_na}()},
-\code{\link{replace_na}()}
 }
-\concept{tidyr.methods}
 \keyword{internal}

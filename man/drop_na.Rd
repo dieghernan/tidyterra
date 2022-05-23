@@ -57,7 +57,6 @@ v \%>\%
 SpatRaster is also available, see \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.
 
 Other tidyr.methods: 
-\code{\link{drop_na.SpatRaster}()},
 \code{\link{replace_na}()}
 }
 \concept{tidyr.methods}

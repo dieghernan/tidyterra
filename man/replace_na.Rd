@@ -50,7 +50,6 @@ r \%>\%
 \code{\link[tidyr:replace_na]{tidyr::replace_na()}}
 
 Other tidyr.methods: 
-\code{\link{drop_na.SpatRaster}()},
 \code{\link{drop_na}()}
 }
 \concept{tidyr.methods}

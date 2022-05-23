@@ -1,11 +1,11 @@
-# tidyterra (development version)
+# tidyterra 0.0.1
 
 -   Improvements on performance:
 
-    -   Conversion to tibble is avoided as much as possible. 
-    
-    -   Internally use `data.table` instead of tibbles. 
-    
+    -   Conversion to tibble is avoided as much as possible.
+
+    -   Internally use `data.table` instead of tibbles.
+
     -   The package is compatible with `dtplyr`.
 
 -   `as_spatraster()` handles tibbles with characters and factors.
