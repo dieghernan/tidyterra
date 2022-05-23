@@ -12,5 +12,8 @@ bibentry(
   version = meta$Version,
   url = unlist(strsplit(meta$URL, ","))[1],
   abstract = abs,
-  key = "R-tidyterra"
+  key = "R-tidyterra",
+  textVersion = paste0("Hernangomez D (",year,"). _tidyterra: ",
+    gsub("'", "", meta$Title),"_. <https://doi.org/10.5281/zenodo.6572471>, <",
+    unlist(strsplit(meta$URL, ","))[1],">")
 )

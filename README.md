@@ -221,10 +221,9 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 
 To cite ‘tidyterra’ in publications use:
 
-Hernangómez D (2022). *tidyterra: tidyverse Methods and ggplot2 Utils
-for terra Objects*. <doi:10.5281/zenodo.6572471>
-<https://doi.org/10.5281/zenodo.6572471>,
-<https://dieghernan.github.io/tidyterra/>.
+Hernangomez D (2022). *tidyterra: tidyverse Methods and ggplot2 Utils
+for terra Objects*. <https://doi.org/10.5281/zenodo.6572471>,
+<https://dieghernan.github.io/tidyterra/>
 
 A BibTeX entry for LaTeX users is
 
