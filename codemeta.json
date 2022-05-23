@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.0.9004",
+  "version": "0.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22 ucrt)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
   "author": [
     {
       "@type": "Person",
@@ -294,7 +294,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1472.628KB",
+  "fileSize": "1466.988KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -313,6 +313,6 @@
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/tidyterra/blob/main/README.md",
   "contIntegration": ["https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/tidyterra"],
-  "developmentStatus": "https://www.repostatus.org/#wip",
+  "developmentStatus": "https://www.repostatus.org/#active",
   "keywords": ["ggplot-extension", "r-package", "r-spatial", "rspatial", "rstats", "rstats-package", "terra", "concept"]
 }

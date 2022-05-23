@@ -16,3 +16,5 @@
 ^tidyterra.*\.tar\.gz$
 ^tidyterra.*\.tgz$
 ^cran-comments\.md$
+^doc$
+^Meta$

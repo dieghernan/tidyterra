@@ -85,8 +85,6 @@ drop_na.SpatVector <- function(data, ...) {
 #'
 #' [tidyr::drop_na()], [drop_na()].
 #'
-#' @family tidyr.methods
-#'
 #' @section Feedback needed!:
 #'
 #' Visit <https://github.com/dieghernan/tidyterra/issues>. The implementation

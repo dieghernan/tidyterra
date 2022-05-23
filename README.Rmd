@@ -24,9 +24,9 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
-[![Project Status: WIP – Initial development is in progress, but there has not
-yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and
+is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: end -->
 
@@ -60,7 +60,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by {tidyterra} are:
 
 | tidyverse method      | SpatVector                             | SpatRaster                                                                                                     |
-|--------------------|--------------------|----------------------------------------|
+|-----------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `tibble::as_tibble()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `dplyr::select()`     | :heavy_check_mark:                     | :heavy_check_mark: Select layers                                                                               |
 | `dplyr::mutate()`     | :heavy_check_mark:                     | :heavy_check_mark: Create /modify layers                                                                       |

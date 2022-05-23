@@ -15,6 +15,8 @@
 #' @family helpers
 #' @export
 #'
+#' @return A WKT representation of the corresponding CRS.
+#'
 #' @param .data Input potentially including or representing a CRS. It could be
 #'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
 #'   [sf::st_crs()], a character (for example a proj4 string) or a integer

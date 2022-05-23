@@ -63,36 +63,24 @@ library(tidyterra)
 
 Currently, the following methods are available:
 
-+------------------------------+------------------------+----------------+
-| tidyverse method             | SpatVector             | SpatRaster     |
-+==============================+========================+================+
-| `tibble::as_tibble()`        | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::filter()`            | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::mutate()`            | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::pull()`              | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::relocate()`          | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::rename()`            | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::select()`            | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::slice()`             | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `dplyr::transmute()`         | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
-| `tidyr::drop_na()`           | ✔️                     | ✔️ (questioned)|
-+------------------------------+------------------------+----------------+
-| `tidyr::replace_na()`        | ✔️                     | ✔️             |
-+------------------------------+------------------------+----------------+
+| tidyverse method      | SpatVector | SpatRaster      |
+|-----------------------|------------|-----------------|
+| `tibble::as_tibble()` | ✔️         | ✔️              |
+| `dplyr::filter()`     | ✔️         | ✔️              |
+| `dplyr::mutate()`     | ✔️         | ✔️              |
+| `dplyr::pull()`       | ✔️         | ✔️              |
+| `dplyr::relocate()`   | ✔️         | ✔️              |
+| `dplyr::rename()`     | ✔️         | ✔️              |
+| `dplyr::select()`     | ✔️         | ✔️              |
+| `dplyr::slice()`      | ✔️         | ✔️              |
+| `dplyr::transmute()`  | ✔️         | ✔️              |
+| `tidyr::drop_na()`    | ✔️         | ✔️ (questioned) |
+| `tidyr::replace_na()` | ✔️         | ✔️              |
 
 Let's see some of them in action:
 
 ```{r}
-
+library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
@@ -131,13 +119,88 @@ would be modified on that case).
 
 ## Plotting with {ggplot2}
 
+### SpatRasters
+
+{tidyterra} provides several `geom_*` for SpatRasters. When the SpatRaster has
+the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
+`ggplot2::coord_sf()`, and may be also reprojected for adjusting the coordinates
+to other spatial layers:
+
+```{r terraplots}
+
+library(ggplot2)
+
+# A faceted SpatRaster
+
+ggplot() +
+  geom_spatraster(data = temp) +
+  facet_wrap(~lyr) +
+  scale_fill_terrain_c(direction = -1)
+
+
+# Contour lines for a specific layer
+
+ggplot() +
+  geom_spatraster(data = temp, aes(fill = tavg_06)) +
+  geom_spatraster_contour(
+    data = temp, aes(z = tavg_06),
+    color = "black",
+    breaks = seq(7.5, 22.5, 2.5)
+  ) +
+  scale_fill_gradientn(
+    colours = hcl.colors(10, "RdBu", rev = TRUE),
+    na.value = "white"
+  ) +
+  coord_sf(expand = FALSE) +
+  labs(fill = "tavg_06")
+
+
+# Contour filled for a specific layer
+
+ggplot() +
+  geom_spatraster_contour_filled(
+    data = temp, aes(z = tavg_06),
+    breaks = seq(7.5, 22.5, 2.5)
+  ) +
+  scale_fill_viridis_d() +
+  coord_sf(expand = FALSE) +
+  labs(fill = "tavg_06")
+```
+
+With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
+
+```{r rgb}
+
+# Read a vector
+
+f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+v <- vect(f_v)
+
+# Read a tile
+f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
+
+r_rgb <- rast(f_rgb)
+
+rgb_plot <- ggplot() +
+  geom_spatraster_rgb(data = r_rgb) +
+  geom_spatvector(data = v, fill = NA, size = 1)
+
+rgb_plot
+# Change CRS automatically
+
+rgb_plot +
+  coord_sf(crs = 3035)
+```
+
 ### SpatVectors
 
 {tidyterra} allows you to plot SpatVectors with {ggplot2} using the
 `geom_spatvector()` functions:
 
 ```{r}
-library(ggplot2)
+lux <- system.file("ex/lux.shp", package = "terra")
+
+spatvector <- terra::vect(lux)
 
 ggplot() +
   geom_spatvector(data = spatvector, aes(fill = POP)) +
@@ -153,12 +216,7 @@ The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
 `ggplot2::geom_sf()` as an endpoint for creating the layer.
 
-### SpatRasters
-
-TODO
-
-
-## About SpatVectors {#about}
+### About SpatVectors {#about}
 
 SpatVector objects are vector data. This means that they are a set of individual
 points with geographic information (i.e. location of restaurants), that can be

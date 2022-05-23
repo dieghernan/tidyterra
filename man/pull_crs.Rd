@@ -14,6 +14,9 @@ a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} obje
 
 \item{...}{ignored}
 }
+\value{
+A WKT representation of the corresponding CRS.
+}
 \description{
 Extract the WKT version of the CRS associated to a string, number of
 sf/Spat* object.

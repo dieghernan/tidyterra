@@ -8,9 +8,9 @@
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: end -->
 
@@ -106,7 +106,7 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.0.0.9004 ──
+#> ── Attaching packages ─────────────────────────────────────── tidyterra 0.0.1 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
 #> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
@@ -229,7 +229,7 @@ A BibTeX entry for LaTeX users is
       title = {{tidyterra}: 'tidyverse' Methods for 'terra' Objects},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.0.0.9004},
+      version = {0.0.1},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. Includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.},
     }
