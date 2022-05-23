@@ -6,10 +6,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Extension of the tidyverse for SpatRaster and
-    SpatVector objects of the terra package. Includes also new geom_
-    functions that provide a convenient way of visualizing terra objects
-    with ggplot2.">
-<title>tidyverse Methods for terra Objects • tidyterra</title>
+    SpatVector objects of the terra package. It includes also new
+    geom_ functions that provide a convenient way of visualizing terra
+    objects with ggplot2.">
+<title>tidyverse Methods and ggplot2 Utils for terra Objects • tidyterra</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -22,11 +22,11 @@
 <!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="tidyverse Methods for terra Objects">
+<meta property="og:title" content="tidyverse Methods and ggplot2 Utils for terra Objects">
 <meta property="og:description" content="Extension of the tidyverse for SpatRaster and
-    SpatVector objects of the terra package. Includes also new geom_
-    functions that provide a convenient way of visualizing terra objects
-    with ggplot2.">
+    SpatVector objects of the terra package. It includes also new
+    geom_ functions that provide a convenient way of visualizing terra
+    objects with ggplot2.">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -50,7 +50,7 @@
     
     <a class="navbar-brand me-2" href="index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -218,7 +218,7 @@
 <p>This is a basic example which shows you how to manipulate and plot SpatRaster objects:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyterra 0.0.1 ──</span>
+<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyterra 0.1.0 ──</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)</span>
 <span class="co">#&gt; ✔ tibble 3.1.7     ✔ dplyr  1.0.9</span>
@@ -319,15 +319,15 @@
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>To cite ‘tidyterra’ in publications use:</p>
-<p>Hernangómez D (2022). <em>tidyterra: ‘tidyverse’ Methods for ‘terra’ Objects</em>. <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a>.</p>
+<p>Hernangómez D (2022). <em>tidyterra: ‘tidyverse’ Methods and ‘ggplot2’ Utils for ‘terra’ Objects</em>. <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a>.</p>
 <p>A BibTeX entry for LaTeX users is</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>tidyterra,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{tidyterra}<span class="sc">:</span> <span class="st">'tidyverse'</span> Methods <span class="cf">for</span> <span class="st">'terra'</span> Objects},</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{tidyterra}<span class="sc">:</span> <span class="st">'tidyverse'</span> Methods and <span class="st">'ggplot2'</span> Utils <span class="cf">for</span> <span class="st">'terra'</span> Objects},</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2022</span>},</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">0.1</span>},</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">1.0</span>},</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>tidyterra<span class="sc">/</span>},</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Extension of the <span class="st">'tidyverse'</span> <span class="cf">for</span> <span class="st">'SpatRaster'</span> and <span class="st">'SpatVector'</span> objects of the <span class="st">'terra'</span> package. Includes also new <span class="st">'geom_'</span> functions that provide a convenient way of visualizing <span class="st">'terra'</span> objects with <span class="st">'ggplot2'</span>.},</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Extension of the <span class="st">'tidyverse'</span> <span class="cf">for</span> <span class="st">'SpatRaster'</span> and <span class="st">'SpatVector'</span> objects of the <span class="st">'terra'</span> package. It includes also new <span class="st">'geom_'</span> functions that provide a convenient way of visualizing <span class="st">'terra'</span> objects with <span class="st">'ggplot2'</span>.},</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level2">
