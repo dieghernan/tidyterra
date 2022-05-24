@@ -33,6 +33,7 @@ preferred-citation:
   abstract: Extension of the tidyverse for SpatRaster and SpatVector objects of the
     terra package. It includes also new geom_ functions that provide a convenient
     way of visualizing terra objects with ggplot2.
+repository: https://CRAN.R-project.org/package=tidyterra
 repository-code: https://github.com/dieghernan/tidyterra
 url: https://dieghernan.github.io/tidyterra/
 contact:
