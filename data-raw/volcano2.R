@@ -10,7 +10,6 @@ rast <- terra::rast("data-raw/volcano_maungawhau.asc")
 terra::crs(rast) <- pull_crs(27200)
 terra::plot(rast)
 
-usethis::use_dev_version()
 
 
 # Load DEM
