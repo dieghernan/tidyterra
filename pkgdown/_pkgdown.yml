@@ -7,7 +7,29 @@ figures:
 navbar:
   type: dark
   bg: primary
-
+  structure:
+    left:
+      - intro
+      - reference
+      - articles
+      - tutorials
+      - media
+      - news
+    right:
+      - search
+      - twitter
+      - github
+  components:
+    media:
+      text: Other media
+      menu:
+        - text: Blog posts
+        - text: Introducing tidyterra (dieghernan.github.io)
+          href: 'https://dieghernan.github.io/202205_tidyterra/'
+    twitter:
+      icon: fa-twitter
+      href: 'http://twitter.com/dhernangomez'
+      aria-label: Twitter
 template:
   bootstrap: 5
   bslib:
