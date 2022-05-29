@@ -72,7 +72,7 @@ reference:
   desc:  Additional set of functions provided by {tidyterra}.
   contents:
     - has_concept("helpers")
-- title: "Other functions"
+- title: "Other functions and datasets"
   desc: Miscelanea
   contents:
     - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce"))
