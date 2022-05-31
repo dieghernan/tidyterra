@@ -205,13 +205,13 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
 
     # Build data
     data_hex <- make_hexcol(rast, params$max_col_value)
-    data <- data[1, setdiff(names(data), c("spatraster"))]
+    data <- remove_columns(data[1, ], "spatraster")
     data_hex$tterra.index <- 1
     data$tterra.index <- 1
 
     data_end <- dplyr::left_join(data_hex, data, by = "tterra.index")
 
-    data_end <- data_end[, setdiff(names(data_end), c("tterra.index"))]
+    data_end <- remove_columns(data_end, "tterra.index")
 
     data_end
   }

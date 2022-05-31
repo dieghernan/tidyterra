@@ -89,7 +89,7 @@ select.SpatRaster <- function(.data, ...) {
   df <- as.data.frame(.data[1], na.rm = FALSE)
 
   # Convert factors/chars to nums
-  is_numeric <- sapply(df, is.numeric)
+  is_numeric <- vapply(df, is.numeric, FUN.VALUE = logical(1))
   df[!is_numeric] <- lapply(df[!is_numeric], as.numeric)
 
   df[1, ] <- seq_len(ncol(df))

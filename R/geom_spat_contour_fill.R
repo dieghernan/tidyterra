@@ -202,7 +202,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
       levels = for_levels$level
     )
 
-    path_df <- remove_columns(path_df, c("left_interval"))
+    path_df <- remove_columns(path_df, "left_interval")
 
     # Remove cols that I dont need here
     data <- remove_columns(data, c("spatraster", "group"))

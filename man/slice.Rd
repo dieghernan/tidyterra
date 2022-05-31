@@ -240,7 +240,7 @@ Other dplyr methods:
 \code{\link{rename}()},
 \code{\link{select}()}
 
-Other single table verbs:
+Other single table verbs: 
 \code{\link{filter}()},
 \code{\link{mutate}()},
 \code{\link{rename}()},
