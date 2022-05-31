@@ -135,7 +135,7 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = temp) +
   facet_wrap(~lyr) +
-  scale_fill_terrain_c(direction = -1)
+  scale_fill_topo_c(direction = -1)
 
 
 # Contour lines for a specific layer

@@ -122,6 +122,7 @@ Other ggplot2 utils:
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}},
-\code{\link{scale_fill_terrain}}
+\code{\link{scale_fill_terrain}},
+\code{\link{scale_fill_topo}}
 }
 \concept{ggplot2.utils}
