@@ -270,12 +270,12 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
     with_ties = with_ties
   )
 
-  keepcells <- sliced$cellindex
+  keepcells <- sliced$cellindex.tidyterra
 
   # Make NA cells
 
   # To NA
-  tonas <- setdiff(skeleton$cellindex, keepcells)
+  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
@@ -331,12 +331,12 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
     with_ties = with_ties
   )
 
-  keepcells <- sliced$cellindex
+  keepcells <- sliced$cellindex.tidyterra
 
   # Make NA cells
 
   # To NA
-  tonas <- setdiff(skeleton$cellindex, keepcells)
+  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
