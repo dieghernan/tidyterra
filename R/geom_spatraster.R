@@ -89,13 +89,13 @@
 #'   geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +
 #'   # You can use coord_sf
 #'   coord_sf(crs = 3857) +
-#'   scale_fill_terrain_c()
+#'   scale_fill_topo_c()
 #'
 #' # Display facets
 #' ggplot() +
 #'   geom_spatraster(data = temp_rast) +
 #'   facet_wrap(~lyr, ncol = 2) +
-#'   scale_fill_terrain_b()
+#'   scale_fill_topo_b()
 #'
 #'
 #' # Non spatial rasters

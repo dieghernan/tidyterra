@@ -51,7 +51,7 @@
 #'
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_raster) +
-#'   scale_fill_terrain_c(direction = -1) +
+#'   scale_fill_topo_c() +
 #'   labs(
 #'     title = "volcano2 SpatRaster",
 #'     subtitle = "Georeferenced",
