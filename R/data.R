@@ -14,24 +14,26 @@
 #'
 #' @name volcano2
 #' @format
-#' A matrix of 109 rows and 76 columns. Each value is the corresponding
-#' altitude in meters.
+#' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
+#' value is the corresponding altitude in meters.
 #'
 #' @source
 #'
-#' [NZ 8m Digital Elevation Model (2012)](https://data.linz.govt.nz/layer/51768-nz-8m-digital-elevation-model-2012/)
+#' [Auckland LiDAR 1m DEM (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/)
 #'
-#' 8m Digital Elevation Model (DEM) created by Geographx, primarily derived
-#' from January 2012 LINZ Topo50 20m contours
-#' (<https://data.linz.govt.nz/layer/50768-nz-contours-topo-150k/>).
+#' DEM for LiDAR data from the Auckland region captured in 2013. The original
+#' data has been downsampled to a resolution of 5m due to disk space constrains.
+#'
+#' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 #'
 #' @seealso [volcano]
 #'
 #' @note
 #'  Information needed for regenerating the original raster file:
-#'  - resolution: 8
-#'  - extent: 1756968, 1757576, 5917000, 5917872  (xmin, xmax, ymin, ymax)
-#'  - coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000 (EPSG:2193)
+#'  - resolution: `c(5, 5)`
+#'  - extent: `1756969, 1757579, 5917003, 5917873`  (xmin, xmax, ymin, ymax)
+#'  - coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
+#'    (`EPSG:2193`)
 #'
 #' @examples
 #'

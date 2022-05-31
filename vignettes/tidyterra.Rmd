@@ -135,36 +135,31 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = temp) +
   facet_wrap(~lyr) +
-  scale_fill_topo_c(direction = -1)
+  scale_fill_gradientn(
+    colours = hcl.colors(10, "RdBu", rev = TRUE),
+    na.value = "white"
+  )
 
 
 # Contour lines for a specific layer
 
-ggplot() +
-  geom_spatraster(data = temp, aes(fill = tavg_06)) +
-  geom_spatraster_contour(
-    data = temp, aes(z = tavg_06),
-    color = "black",
-    breaks = seq(7.5, 22.5, 2.5)
-  ) +
-  scale_fill_gradientn(
-    colours = hcl.colors(10, "RdBu", rev = TRUE),
-    na.value = "white"
-  ) +
-  coord_sf(expand = FALSE) +
-  labs(fill = "tavg_06")
-
-
-# Contour filled for a specific layer
+f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
+volcano2 <- rast(f_volcano)
 
 ggplot() +
-  geom_spatraster_contour_filled(
-    data = temp, aes(z = tavg_06),
-    breaks = seq(7.5, 22.5, 2.5)
-  ) +
-  scale_fill_viridis_d() +
+  geom_spatraster(data = volcano2) +
+  geom_spatraster_contour(data = volcano2, breaks = seq(80, 200, 5)) +
+  scale_fill_topo_c() +
   coord_sf(expand = FALSE) +
-  labs(fill = "tavg_06")
+  labs(fill = "elevation")
+
+
+# Contour filled
+
+ggplot() +
+  geom_spatraster_contour_filled(data = volcano2) +
+  scale_fill_terrain_d(direction = -1) +
+  labs(fill = "elevation")
 ```
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
