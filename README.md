@@ -120,7 +120,7 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.1.0.9000 ──
+#> ── Attaching packages ────────────────────────────────── tidyterra 0.1.0.9001 ──
 #> 
 #> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
 #> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
@@ -155,7 +155,7 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = rastertemp) +
   facet_wrap(~lyr, ncol = 2) +
-  scale_fill_terrain_c(labels = scales::label_number(suffix = "º")) +
+  scale_fill_topo_c(labels = scales::label_number(suffix = "º")) +
   labs(fill = "Avg temperature")
 ```
 
@@ -245,7 +245,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.1.0.9000},
+      version = {0.1.0.9001},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }
