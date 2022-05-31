@@ -2,18 +2,24 @@
 % Please edit documentation in R/scales_fill_topo.R
 \name{scale_fill_topo}
 \alias{scale_fill_topo}
-\alias{scale_fill_topo_d}
 \alias{scale_fill_topo_c}
+\alias{scale_fill_topo_b}
 \title{Hypsometric tints fill scales}
 \usage{
-scale_fill_topo_d(..., alpha = 1, direction = 1)
-
 scale_fill_topo_c(
   ...,
   alpha = 1,
   direction = 1,
   na.value = NA,
   guide = "colourbar"
+)
+
+scale_fill_topo_b(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = NA,
+  guide = "coloursteps"
 )
 }
 \arguments{

@@ -155,7 +155,11 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = rastertemp) +
   facet_wrap(~lyr, ncol = 2) +
-  scale_fill_topo_c(labels = scales::label_number(suffix = "º")) +
+  scale_fill_gradientn(
+    colors = hcl.colors(10, "RdBu", rev = TRUE),
+    na.value = NA,
+    labels = scales::label_number(suffix = "º")
+  ) +
   labs(fill = "Avg temperature")
 ```
 

@@ -39,26 +39,6 @@
 #'   geom_spatraster(data = cyl_elev) +
 #'   scale_fill_topo_b(breaks = c(100, 250, 500, 1000, 1500, 2000, 2500))
 #' }
-scale_fill_topo_d <- function(..., alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
-  }
-
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
-
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    scale_name = "terrain_fill_d",
-    palette = terrain_pal(
-      alpha = alpha,
-      direction = direction
-    ),
-    ...
-  )
-}
-
-#' @export
-#' @rdname scale_fill_topo
 scale_fill_topo_c <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "colourbar") {
   if (alpha < 0 | alpha > 1) {
@@ -69,7 +49,7 @@ scale_fill_topo_c <- function(..., alpha = 1, direction = 1,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "terrain_fill_c",
+    scale_name = "topo_fill_c",
     scales::gradient_n_pal(topo_pal(
       alpha = alpha,
       direction = direction
@@ -81,7 +61,7 @@ scale_fill_topo_c <- function(..., alpha = 1, direction = 1,
 }
 
 #' @export
-#' @rdname scale_fill_terrain
+#' @rdname scale_fill_topo
 scale_fill_topo_b <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "coloursteps") {
   if (alpha < 0 | alpha > 1) {
@@ -92,7 +72,7 @@ scale_fill_topo_b <- function(..., alpha = 1, direction = 1,
 
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "terrain_fill_c",
+    scale_name = "topo_fill_b",
     scales::gradient_n_pal(topo_pal(
       alpha = alpha,
       direction = direction
@@ -112,8 +92,14 @@ topo_pal <- function(alpha = 1, direction = 1) {
   )
 
   if (direction == 1) topocol <- rev(topocol)
+  if (alpha != 1) {
+    topocol <- adjustcolor(topocol, alpha.f = alpha)
+    topocol_pal <- grDevices::colorRampPalette(topocol, alpha = TRUE)
+  } else {
+    topocol_pal <- grDevices::colorRampPalette(topocol, alpha = FALSE)
+  }
 
-  topocol_pal <- grDevices::colorRampPalette(topocol, alpha = alpha)
+
 
   # nocov start
   function(n) {
