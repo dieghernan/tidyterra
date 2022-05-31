@@ -6,7 +6,10 @@
     -   url:
         <https://data.linz.govt.nz/layer/51768-nz-8m-digital-elevation-model-2012/data/>
 
--   Add `volcano2` dataset
+-   Add `volcano2` dataset.
+
+-   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20). Also
+    add a new parameter `na.rm`.
 
 # tidyterra 0.1.0
 

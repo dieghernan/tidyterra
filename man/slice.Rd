@@ -41,7 +41,8 @@
   n,
   prop,
   with_ties = TRUE,
-  .keep_extent = FALSE
+  .keep_extent = FALSE,
+  na.rm = TRUE
 )
 
 \method{slice_min}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE)
@@ -53,7 +54,8 @@
   n,
   prop,
   with_ties = TRUE,
-  .keep_extent = FALSE
+  .keep_extent = FALSE,
+  na.rm = TRUE
 )
 
 \method{slice_max}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE)
@@ -115,6 +117,9 @@ absolute value of \code{prop*nrow(.data)} is rounded down.}
 \item{with_ties}{Should ties be kept together? The default, \code{TRUE},
 may return more rows than you request. Use \code{FALSE} to ignore ties,
 and return the first \code{n} rows.}
+
+\item{na.rm}{Logical, should cells that present a value of \code{NA} removed when
+computing \code{slice_min()/slice_max()}?. The default is \code{TRUE}.}
 
 \item{weight_by}{Sampling weights. This must evaluate to a vector of
 non-negative numbers the same length as the input. Weights are

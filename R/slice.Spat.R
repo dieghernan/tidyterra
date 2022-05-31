@@ -60,7 +60,8 @@
 #' @param cols,rows Integer col/row values of the SpatRaster
 #' @param inverse If `TRUE`, `.data` is inverse-masked to the given selection.
 #'   See [terra::mask()].
-#'
+#' @param na.rm Logical, should cells that present a value of `NA` removed when
+#'   computing `slice_min()/slice_max()`?. The default is `TRUE`.
 #' @inheritParams dplyr::slice
 #'
 #' @section terra equivalent:
@@ -253,7 +254,8 @@ slice_tail.SpatVector <- function(.data, ..., n, prop) {
 #' @rdname slice
 #' @importFrom dplyr slice_min
 slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, .keep_extent = FALSE) {
+                                 with_ties = TRUE, .keep_extent = FALSE,
+                                 na.rm = TRUE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -264,18 +266,21 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
   # Add values
   skeleton <- dplyr::bind_cols(skeleton, values)
 
+  # Remove NAs
+  if (na.rm) skeleton <- tidyr::drop_na(skeleton)
+
   sliced <- dplyr::slice_min(skeleton,
     order_by = {{ order_by }},
     ..., n = n, prop = prop,
     with_ties = with_ties
   )
 
-  keepcells <- sliced$cellindex
+  keepcells <- sliced$cellindex.tidyterra
 
   # Make NA cells
 
   # To NA
-  tonas <- setdiff(skeleton$cellindex, keepcells)
+  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
@@ -314,7 +319,8 @@ slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
 #' @rdname slice
 #' @importFrom dplyr slice_max
 slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, .keep_extent = FALSE) {
+                                 with_ties = TRUE, .keep_extent = FALSE,
+                                 na.rm = TRUE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -325,18 +331,21 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
   # Add values
   skeleton <- dplyr::bind_cols(skeleton, values)
 
+  # Remove NAs
+  if (na.rm) skeleton <- tidyr::drop_na(skeleton)
+
   sliced <- dplyr::slice_max(skeleton,
     order_by = {{ order_by }},
     ..., n = n, prop = prop,
     with_ties = with_ties
   )
 
-  keepcells <- sliced$cellindex
+  keepcells <- sliced$cellindex.tidyterra
 
   # Make NA cells
 
   # To NA
-  tonas <- setdiff(skeleton$cellindex, keepcells)
+  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA

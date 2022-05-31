@@ -52,7 +52,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
   df <- data[1]
 
   # Convert factors to chars
-  is_factor <- sapply(df, is.factor)
+  is_factor <- vapply(df, is.factor, FUN.VALUE = logical(1))
   df[is_factor] <- lapply(df[is_factor], as.character)
   # Set NAs
   df[1, ] <- NA

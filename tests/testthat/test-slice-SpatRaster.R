@@ -3,7 +3,7 @@ test_that("Slice", {
   r <- terra::rast(m, crs = pull_crs(3857))
 
   terra::values(r) <- seq_len(terra::ncell(r))
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
 
   # No keep extent
@@ -16,7 +16,7 @@ test_that("Slice", {
 
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == 3:134))
+  expect_true(all(df$cell_index == 3:134))
 
   # Keep extent
   sliced <- slice(r, 237:289, .keep_extent = TRUE)
@@ -24,7 +24,7 @@ test_that("Slice", {
   expect_silent(compare_spatrasters(r, sliced))
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == 237:289))
+  expect_true(all(df$cell_index == 237:289))
 
 
   # Negative index
@@ -38,7 +38,7 @@ test_that("Slice", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_false(any(df$cellindex %in% 1:250))
+  expect_false(any(df$cell_index %in% 1:250))
 
 
   # Mixed rows: No keep
@@ -52,7 +52,7 @@ test_that("Slice", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(df$cellindex == c(1:80, 90:131)))
+  expect_true(all(df$cell_index == c(1:80, 90:131)))
 
   # Mixed rows: Keeps
 
@@ -63,7 +63,7 @@ test_that("Slice", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_false(any(df$cellindex %in% c(1:80, 137:234, 300:400)))
+  expect_false(any(df$cell_index %in% c(1:80, 137:234, 300:400)))
 })
 
 test_that("Slice head", {
@@ -71,7 +71,7 @@ test_that("Slice head", {
   r <- terra::rast(m, crs = pull_crs(3857))
 
   terra::values(r) <- seq_len(terra::ncell(r))
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
 
   # No keep extent
@@ -85,7 +85,7 @@ test_that("Slice head", {
 
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == 1))
+  expect_true(all(df$cell_index == 1))
 
 
 
@@ -95,7 +95,7 @@ test_that("Slice head", {
   expect_silent(compare_spatrasters(r, sliced))
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == 1:3))
+  expect_true(all(df$cell_index == 1:3))
 
   # With props: No extent
   prop <- 0.432
@@ -111,7 +111,7 @@ test_that("Slice head", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(df$cellindex == seq_len(aprox)))
+  expect_true(all(df$cell_index == seq_len(aprox)))
 
   # With props: Extent
   prop <- 0.347
@@ -124,7 +124,7 @@ test_that("Slice head", {
 
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == seq_len(aprox)))
+  expect_true(all(df$cell_index == seq_len(aprox)))
 })
 
 test_that("Slice tail", {
@@ -134,7 +134,7 @@ test_that("Slice tail", {
   totcell <- seq_len(terra::ncell(r))
 
   terra::values(r) <- totcell
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
 
   # No keep extent
@@ -148,7 +148,7 @@ test_that("Slice tail", {
 
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == rev(totcell)[1]))
+  expect_true(all(df$cell_index == rev(totcell)[1]))
 
 
 
@@ -158,7 +158,7 @@ test_that("Slice tail", {
   expect_silent(compare_spatrasters(r, sliced))
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == sort(rev(totcell)[1:3])))
+  expect_true(all(df$cell_index == sort(rev(totcell)[1:3])))
 
   # With props: No extent
   prop <- 0.432
@@ -176,7 +176,7 @@ test_that("Slice tail", {
 
   vect_comp <- sort(rev(totcell)[seq_len(aprox)])
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
 
   # With props: Extent
   prop <- 0.347
@@ -192,7 +192,7 @@ test_that("Slice tail", {
 
   vect_comp <- sort(rev(totcell)[seq_len(aprox)])
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
 })
 
 
@@ -203,7 +203,7 @@ test_that("Slice min", {
   totcell <- seq_len(terra::ncell(r))
 
   terra::values(r) <- totcell
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
   # Add another layer
   r2 <- terra::rast(r)
@@ -214,7 +214,7 @@ test_that("Slice min", {
   r <- c(r, r2)
 
   # No keep extent
-  sliced <- slice_min(r, order_by = cellindex, n = 3)
+  sliced <- slice_min(r, order_by = cell_index, n = 3)
   expect_s4_class(sliced, "SpatRaster")
 
   expect_message(compare_spatrasters(r, sliced),
@@ -224,7 +224,7 @@ test_that("Slice min", {
 
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
-  expect_true(all(df$cellindex == 1:3))
+  expect_true(all(df$cell_index == 1:3))
 
 
 
@@ -241,13 +241,13 @@ test_that("Slice min", {
 
   vect_comp <- sort(rev(totcell)[seq_len(20)])
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
 
   # With props: No extent
   prop <- 0.432
   aprox <- as.integer(prop * terra::ncell(r))
 
-  sliced <- slice_min(r, cellindex, prop = prop)
+  sliced <- slice_min(r, cell_index, prop = prop)
 
   expect_s4_class(sliced, "SpatRaster")
 
@@ -257,7 +257,7 @@ test_that("Slice min", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(df$cellindex == seq_len(aprox)))
+  expect_true(all(df$cell_index == seq_len(aprox)))
 
   # With props: Extent
   prop <- 0.347
@@ -273,7 +273,16 @@ test_that("Slice min", {
 
   vect_comp <- sort(rev(totcell)[seq_len(aprox)])
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
+
+  # Remove NAs option
+  r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
+
+
+  df1 <- as_tibble(slice_min(r3, order_by = log2, prop = .5))
+  df2 <- as_tibble(slice_min(r3, order_by = log2, prop = .5, na.rm = FALSE))
+
+  expect_false(nrow(df1) == nrow(df2))
 })
 
 
@@ -284,7 +293,7 @@ test_that("Slice max", {
   totcell <- seq_len(terra::ncell(r))
 
   terra::values(r) <- totcell
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
   # Add another layer
   r2 <- terra::rast(r)
@@ -295,7 +304,7 @@ test_that("Slice max", {
   r <- c(r, r2)
 
   # No keep extent
-  sliced <- slice_max(r, order_by = cellindex, n = 3)
+  sliced <- slice_max(r, order_by = cell_index, n = 3)
   expect_s4_class(sliced, "SpatRaster")
 
   expect_message(compare_spatrasters(r, sliced),
@@ -308,7 +317,7 @@ test_that("Slice max", {
   vect_comp <- sort(rev(totcell)[seq_len(3)])
 
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
 
 
 
@@ -323,13 +332,13 @@ test_that("Slice max", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(df$cellindex == 1:20))
+  expect_true(all(df$cell_index == 1:20))
 
   # With props: No extent
   prop <- 0.432
   aprox <- as.integer(prop * terra::ncell(r))
 
-  sliced <- slice_max(r, cellindex, prop = prop)
+  sliced <- slice_max(r, cell_index, prop = prop)
 
   expect_s4_class(sliced, "SpatRaster")
 
@@ -342,7 +351,7 @@ test_that("Slice max", {
   vect_comp <- sort(rev(totcell)[seq_len(aprox)])
 
 
-  expect_true(all(df$cellindex == vect_comp))
+  expect_true(all(df$cell_index == vect_comp))
 
   # With props: Extent
   prop <- 0.347
@@ -356,7 +365,16 @@ test_that("Slice max", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(df$cellindex == seq_len(aprox)))
+  expect_true(all(df$cell_index == seq_len(aprox)))
+
+  # Remove NAs option
+  r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
+
+
+  df1 <- as_tibble(slice_max(r3, order_by = log2, prop = .5))
+  df2 <- as_tibble(slice_max(r3, order_by = log2, prop = .5, na.rm = FALSE))
+
+  expect_false(nrow(df1) == nrow(df2))
 })
 
 
@@ -367,7 +385,7 @@ test_that("Slice sample", {
   totcell <- seq_len(terra::ncell(r))
 
   terra::values(r) <- totcell
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
   r_test <- r[1, drop = TRUE]
 
@@ -399,8 +417,8 @@ test_that("Slice sample", {
 
 
   expect_equal(
-    unique(df$cellindex),
-    df$cellindex
+    unique(df$cell_index),
+    df$cell_index
   )
 
 
@@ -415,8 +433,8 @@ test_that("Slice sample", {
 
 
   expect_equal(
-    unique(df$cellindex),
-    df$cellindex
+    unique(df$cell_index),
+    df$cell_index
   )
 })
 
@@ -426,7 +444,7 @@ test_that("Slice Rows", {
   r <- terra::rast(m, crs = pull_crs(3857))
 
   terra::values(r) <- seq_len(terra::ncell(r))
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
   # Add nrow, ncol
   sk <- as_coordinates(r)
@@ -504,7 +522,7 @@ test_that("Slice Cols", {
   r <- terra::rast(m, crs = pull_crs(3857))
 
   terra::values(r) <- seq_len(terra::ncell(r))
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
   # Add nrow, ncol
   sk <- as_coordinates(r)
@@ -582,7 +600,7 @@ test_that("Slice RowCols", {
   r <- terra::rast(m, crs = pull_crs(3857))
 
   terra::values(r) <- seq_len(terra::ncell(r))
-  names(r) <- "cellindex"
+  names(r) <- "cell_index"
 
 
   # Add nrow, ncol
