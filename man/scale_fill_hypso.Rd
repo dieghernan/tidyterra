@@ -3,11 +3,20 @@
 \name{scale_fill_hypso}
 \alias{scale_fill_hypso}
 \alias{scale_fill_hypso_d}
+\alias{scale_fill_hypso_c}
 \alias{scale_fill_hypso_b}
 \alias{hypso.colors}
 \title{Hypsometric tints fill scales}
 \usage{
 scale_fill_hypso_d(..., alpha = 1, direction = 1)
+
+scale_fill_hypso_c(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = NA,
+  guide = "colourbar"
+)
 
 scale_fill_hypso_b(
   ...,
@@ -86,6 +95,6 @@ Other ggplot2 utils:
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}},
-\code{\link{scale_fill_hypso_c}()}
+\code{\link{scale_fill_terrain}}
 }
 \concept{ggplot2.utils}

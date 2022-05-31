@@ -69,7 +69,7 @@ Other ggplot2 utils:
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}},
-\code{\link{scale_fill_hypso_c}()},
-\code{\link{scale_fill_hypso}}
+\code{\link{scale_fill_hypso}},
+\code{\link{scale_fill_terrain}}
 }
 \concept{ggplot2.utils}

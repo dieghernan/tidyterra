@@ -61,7 +61,7 @@ scale_fill_hypso_d <- function(..., alpha = 1, direction = 1) {
   )
 }
 #' @export
-#' @rdname scale_fill_terrain
+#' @rdname scale_fill_hypso
 scale_fill_hypso_c <- function(..., alpha = 1, direction = 1,
                                na.value = NA, guide = "colourbar") {
   if (alpha < 0 | alpha > 1) {
