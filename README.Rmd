@@ -5,14 +5,19 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+knitr::opts_knit$set(
+  progress = TRUE,
+  base.url = "https://raw.githubusercontent.com/dieghernan/tidyterra/main/"
+)
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  dev = "ragg_png",
   tidy = "styler",
   comment = "#>",
-  fig.path = "man/figures/README-",
+  fig.path = "img/README-",
+  warning = FALSE,
+  message = FALSE,
+  dev = "ragg_png",
+  dpi = 300,
   out.width = "100%"
 )
 ```

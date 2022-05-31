@@ -120,22 +120,8 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-#> ── Attaching packages ────────────────────────────────── tidyterra 0.1.0.9001 ──
-#> 
-#> Suppress this startup message by setting Sys.setenv(tidyterra.quiet = TRUE)
-#> ✔ tibble 3.1.7     ✔ dplyr  1.0.9
-#> ✔ tidyr  1.2.0
 
 library(terra)
-#> terra 1.5.21
-#> 
-#> Attaching package: 'terra'
-#> The following object is masked from 'package:dplyr':
-#> 
-#>     src
-#> The following object is masked from 'package:tidyr':
-#> 
-#>     extract
 
 
 # Temperatures
@@ -144,11 +130,6 @@ f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 rastertemp <- rast(f)
 
 library(ggplot2)
-#> 
-#> Attaching package: 'ggplot2'
-#> The following object is masked from 'package:terra':
-#> 
-#>     arrow
 
 # Facet all layers
 
@@ -163,7 +144,7 @@ ggplot() +
   labs(fill = "Avg temperature")
 ```
 
-<img src="man/figures/README-example-temp-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" width="100%" />
 
 ``` r
 
@@ -197,7 +178,7 @@ ggplot() +
   )
 ```
 
-<img src="man/figures/README-example-temp-2.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" width="100%" />
 
 {tidyterra} also provide a geom for plotting RGB SpatRaster tiles with
 {ggplot2}
@@ -214,7 +195,7 @@ ggplot() +
   theme_light()
 ```
 
-<img src="man/figures/README-example-tile-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%" />
 
 ``` r
 # Recognizes coord_sf()
@@ -227,7 +208,7 @@ ggplot() +
   coord_sf(crs = 3035, datum = 3035)
 ```
 
-<img src="man/figures/README-example-tile-2.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%" />
 
 ## I need your feedback
 

@@ -154,23 +154,18 @@ the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()
 
 \examples{
 \donttest{
+
 library(terra)
 
 # Raster
-f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+f <- system.file("extdata/volcano2.tif", package = "tidyterra")
 r <- rast(f)
 
 library(ggplot2)
 
 ggplot() +
-  geom_spatraster_contour(data = r) +
-  facet_wrap(~lyr)
+  geom_spatraster_contour(data = r)
 
-# Select one layer
-
-ggplot() +
-  geom_spatraster_contour(data = r, aes(z = tavg_04))
-# With aes on computed variable
 
 ggplot() +
   geom_spatraster_contour(
@@ -178,7 +173,6 @@ ggplot() +
     binwidth = 1,
     size = 0.4
   ) +
-  facet_wrap(~lyr) +
   scale_color_gradientn(
     colours = hcl.colors(20, "Inferno"),
     guide = guide_coloursteps()
@@ -187,20 +181,21 @@ ggplot() +
 
 # Filled with breaks
 ggplot() +
-  geom_spatraster_contour_filled(data = r, breaks = seq(5, 20, 2.5)) +
-  facet_wrap(~lyr)
+  geom_spatraster_contour_filled(data = r, breaks = seq(80, 200, 10)) +
+  scale_fill_hypso_d()
 
-# Both lines and contours aligned with breaks
+# Both lines and contours
 ggplot() +
   geom_spatraster_contour_filled(
-    data = r, breaks = seq(5, 20, 2.5),
+    data = r, breaks = seq(80, 200, 10),
     alpha = .7
   ) +
   geom_spatraster_contour(
-    data = r, breaks = seq(5, 20, 2.5),
-    color = "black"
+    data = r, breaks = seq(80, 200, 2.5),
+    color = "grey30",
+    size = 0.1
   ) +
-  facet_wrap(~lyr)
+  scale_fill_hypso_d()
 }
 
 }
@@ -212,7 +207,7 @@ Other ggplot2 utils:
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
 \code{\link{ggspatvector}},
-\code{\link{scale_fill_terrain}},
-\code{\link{scale_fill_topo}}
+\code{\link{scale_fill_hypso_c}()},
+\code{\link{scale_fill_hypso}}
 }
 \concept{ggplot2.utils}

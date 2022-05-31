@@ -35,7 +35,7 @@ Information needed for regenerating the original raster file:
 \examples{
 
 data("volcano2")
-filled.contour(volcano2, color.palette = terrain.colors, asp = 1)
+filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 title(main = "volcano2 data: filled contour map")
 
 # Geo-tag
@@ -50,7 +50,7 @@ library(ggplot2)
 
 ggplot() +
   geom_spatraster(data = volcano2_raster) +
-  scale_fill_terrain_c(direction = -1) +
+  scale_fill_hypso_c() +
   labs(
     title = "volcano2 SpatRaster",
     subtitle = "Georeferenced",
