@@ -8,7 +8,8 @@
 
 -   Add `volcano2` dataset.
 
--   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20).
+-   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20). Also
+    add a new parameter `na.rm`.
 
 # tidyterra 0.1.0
 

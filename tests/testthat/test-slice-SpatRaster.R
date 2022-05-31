@@ -274,6 +274,15 @@ test_that("Slice min", {
   vect_comp <- sort(rev(totcell)[seq_len(aprox)])
 
   expect_true(all(df$cell_index == vect_comp))
+
+  # Remove NAs option
+  r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
+
+
+  df1 <- as_tibble(slice_min(r3, order_by = log2, prop = .5))
+  df2 <- as_tibble(slice_min(r3, order_by = log2, prop = .5, na.rm = FALSE))
+
+  expect_false(nrow(df1) == nrow(df2))
 })
 
 
@@ -357,6 +366,15 @@ test_that("Slice max", {
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
   expect_true(all(df$cell_index == seq_len(aprox)))
+
+  # Remove NAs option
+  r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
+
+
+  df1 <- as_tibble(slice_max(r3, order_by = log2, prop = .5))
+  df2 <- as_tibble(slice_max(r3, order_by = log2, prop = .5, na.rm = FALSE))
+
+  expect_false(nrow(df1) == nrow(df2))
 })
 
 
