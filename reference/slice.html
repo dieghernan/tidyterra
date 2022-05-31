@@ -147,7 +147,8 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
   <span class="va">n</span>,
   <span class="va">prop</span>,
   with_ties <span class="op">=</span> <span class="cn">TRUE</span>,
-  .keep_extent <span class="op">=</span> <span class="cn">FALSE</span>
+  .keep_extent <span class="op">=</span> <span class="cn">FALSE</span>,
+  na.rm <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
@@ -161,7 +162,8 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
   <span class="va">n</span>,
   <span class="va">prop</span>,
   with_ties <span class="op">=</span> <span class="cn">TRUE</span>,
-  .keep_extent <span class="op">=</span> <span class="cn">FALSE</span>
+  .keep_extent <span class="op">=</span> <span class="cn">FALSE</span>,
+  na.rm <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
@@ -229,6 +231,9 @@ absolute value of <code>prop*nrow(.data)</code> is rounded down.</p></dd>
 <dd><p>Should ties be kept together? The default, <code>TRUE</code>,
 may return more rows than you request. Use <code>FALSE</code> to ignore ties,
 and return the first <code>n</code> rows.</p></dd>
+<dt>na.rm</dt>
+<dd><p>Logical, should cells that present a value of <code>NA</code> removed when
+computing <code>slice_min()/slice_max()</code>?. The default is <code>TRUE</code>.</p></dd>
 <dt>weight_by</dt>
 <dd><p>Sampling weights. This must evaluate to a vector of
 non-negative numbers the same length as the input. Weights are
