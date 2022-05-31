@@ -4,12 +4,6 @@
     <loc>https://dieghernan.github.io/tidyterra/404.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/articles/index.html</loc>
   </url>
   <url>
@@ -20,6 +14,12 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/news/index.html</loc>
@@ -40,22 +40,22 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/filter.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/filter.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/ggspatvector.html</loc>
@@ -88,10 +88,10 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/replace_na.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_terrain.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_hypso.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_topo.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_terrain.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/select.html</loc>

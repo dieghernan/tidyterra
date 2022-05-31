@@ -86,21 +86,22 @@ most up-to-date land and seabed data.</p>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A matrix of 109 rows and 76 columns. Each value is the corresponding
-altitude in meters.</p>
+    <p>A matrix of 174 rows and 122 columns. Each
+value is the corresponding altitude in meters.</p>
     </div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p><a href="https://data.linz.govt.nz/layer/51768-nz-8m-digital-elevation-model-2012/" class="external-link">NZ 8m Digital Elevation Model (2012)</a></p>
-<p>8m Digital Elevation Model (DEM) created by Geographx, primarily derived
-from January 2012 LINZ Topo50 20m contours
-(<a href="https://data.linz.govt.nz/layer/50768-nz-contours-topo-150k/" class="external-link">https://data.linz.govt.nz/layer/50768-nz-contours-topo-150k/</a>).</p>
+    <p><a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a></p>
+<p>DEM for LiDAR data from the Auckland region captured in 2013. The original
+data has been downsampled to a resolution of 5m due to disk space constrains.</p>
+<p>Data License: <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0</a></p>
     </div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
-    <p>Information needed for regenerating the original raster file:</p><ul><li><p>resolution: 8</p></li>
-<li><p>extent: 1756968, 1757576, 5917000, 5917872  (xmin, xmax, ymin, ymax)</p></li>
-<li><p>coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000 (EPSG:2193)</p></li>
+    <p>Information needed for regenerating the original raster file:</p><ul><li><p>resolution: <code>c(5, 5)</code></p></li>
+<li><p>extent: <code>1756969, 1757579, 5917003, 5917873</code>  (xmin, xmax, ymin, ymax)</p></li>
+<li><p>coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
+(<code>EPSG:2193</code>)</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -111,7 +112,7 @@ from January 2012 LINZ Topo50 20m contours
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"volcano2"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/filled.contour.html" class="external-link">filled.contour</a></span><span class="op">(</span><span class="va">volcano2</span>, color.palette <span class="op">=</span> <span class="va">terrain.colors</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/filled.contour.html" class="external-link">filled.contour</a></span><span class="op">(</span><span class="va">volcano2</span>, color.palette <span class="op">=</span> <span class="va">hypso.colors</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"volcano2 data: filled contour map"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="volcano2-1.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
@@ -127,7 +128,7 @@ from January 2012 LINZ Topo50 20m contours
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_raster</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="scale_fill_topo.html">scale_fill_topo_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span class="r-in">  <span class="fu"><a href="scale_fill_terrain.html">scale_fill_hypso_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span class="r-in">    title <span class="op">=</span> <span class="st">"volcano2 SpatRaster"</span>,</span>
 <span class="r-in">    subtitle <span class="op">=</span> <span class="st">"Georeferenced"</span>,</span>
