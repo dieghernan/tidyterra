@@ -35,10 +35,9 @@ scale_fill_whitebox_b(
 whitebox.colors(n, palette = "high_relief", alpha = 1, rev = FALSE)
 }
 \arguments{
-\item{palette}{A a valid palette name. The name is matched to the list of
-available palettes, ignoring upper vs. lower case. Values available are
-\verb{"atlas", "high_relief", "arid", "soft", "muted", "purple", "viridi", }
-\verb{"gn_yl", "pi_y_g", "bl_yl_rd", "deep"}.}
+\item{palette}{A valid palette name. The name is matched to the list of
+available palettes, ignoring upper vs. lower case. Values available are:
+\code{"atlas"}, \code{"high_relief"}, \code{"arid"}, \code{"soft"}, \code{"muted"}, \code{"purple"}, \code{"viridi"}, \code{"gn_yl"}, \code{"pi_y_g"}, \code{"bl_yl_rd"}, \code{"deep"}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale()}},
 \code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \link[ggplot2]{binned_scale} to control name, limits, breaks,
@@ -113,21 +112,29 @@ ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_whitebox_d(na.value = "gray10", palette = "soft")
 }
+
 # Display all the whitebox palettes
 
-palette <- c(
+pals <- c(
   "atlas", "high_relief", "arid", "soft", "muted", "purple",
   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
 )
 
-ncols <- 12
-for (i in palette) {
+# Helper fun for plotting
+
+ncols <- 128
+npals <- length(pals)
+opar <- par(no.readonly = TRUE)
+
+par(mfrow = c(npals, 1), mar = rep(1, 4))
+for (i in pals) {
   image(
     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-    col = whitebox.colors(ncols, i), main = i, xlab = "", ylab = "",
-    yaxt = "n"
+    col = whitebox.colors(ncols, i), main = i,
+    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
   )
 }
+par(opar)
 }
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}

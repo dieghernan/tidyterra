@@ -17,10 +17,21 @@
 #' @name scale_fill_whitebox
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
-#' @param palette A a valid palette name. The name is matched to the list of
-#'   available palettes, ignoring upper vs. lower case. Values available are
-#'   `"atlas", "high_relief", "arid", "soft", "muted", "purple", "viridi", `
-#'   `"gn_yl", "pi_y_g", "bl_yl_rd", "deep"`.
+#' @param palette A valid palette name. The name is matched to the list of
+#'   available palettes, ignoring upper vs. lower case. Values available are:
+#'
+#' ```{r, echo=FALSE, results="asis"}
+#'
+#' library(dplyr)
+#' whitebox_coltab %>%
+#'   pull(pal) %>%
+#'   unique() %>%
+#'   paste0('`"', ., '"`', collapse = ", ") %>%
+#'   paste0(".") %>%
+#'   cat()
+#'
+#'
+#' ```
 #'
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
@@ -140,21 +151,29 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #'
 #' @inheritParams hypso.colors
 #' @examples
+#'
 #' # Display all the whitebox palettes
 #'
-#' palette <- c(
+#' pals <- c(
 #'   "atlas", "high_relief", "arid", "soft", "muted", "purple",
 #'   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
 #' )
 #'
-#' ncols <- 12
-#' for (i in palette) {
+#' # Helper fun for plotting
+#'
+#' ncols <- 128
+#' npals <- length(pals)
+#' opar <- par(no.readonly = TRUE)
+#'
+#' par(mfrow = c(npals, 1), mar = rep(1, 4))
+#' for (i in pals) {
 #'   image(
 #'     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-#'     col = whitebox.colors(ncols, i), main = i, xlab = "", ylab = "",
-#'     yaxt = "n"
+#'     col = whitebox.colors(ncols, i), main = i,
+#'     ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #'   )
 #' }
+#' par(opar)
 whitebox.colors <- function(n, palette = "high_relief",
                             alpha = 1, rev = FALSE) {
   palette <- tolower(palette)
