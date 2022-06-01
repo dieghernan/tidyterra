@@ -65,9 +65,14 @@ reference:
   contents:
     - has_concept("tidyr.methods")
 - title: "ggplot2 utils"
-  desc:  Create {ggplot2} objects from Spat* objects.
+- subtitle: Geoms
+  desc:  Create {ggplot2} layers for Spat* objects.
   contents:
     - has_concept("ggplot2.utils")
+- subtitle: Scales
+  desc: Colour schemes and palettes based on hypsometric tints.
+  contents:
+    - has_concept("hypso")
 - title: "Helpers"
   desc:  Additional set of functions provided by {tidyterra}.
   contents:
@@ -75,7 +80,7 @@ reference:
 - title: "Other functions and datasets"
   desc: Miscelanea
   contents:
-    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce"))
+    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce", "hypso"))
 - title: "About the package"
   contents:
     - tidyterra-package

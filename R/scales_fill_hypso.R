@@ -4,7 +4,7 @@
 #'
 #' Implementation based on the
 #' [Wikipedia Colorimetric conventions for topographic maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
-#' Two fill scales are provided:
+#' Three fill scales are provided:
 #' - `scale_fill_hypso_d()`: For discrete values.
 #' - `scale_fill_hypso_c()`: For continuous values.
 #' - `scale_fill_hypso_b()`: For binning continuous values.
@@ -23,7 +23,7 @@
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill` aesthetics.
 #'
-#' @family ggplot2.utils
+#' @family hypso
 #'
 #' @examples
 #' \donttest{
@@ -31,17 +31,34 @@
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 #'
 #' library(terra)
-#' volcano2 <- rast(filepath)
+#' volcano2_rast <- rast(filepath)
+#'
+#' # Palette
+#' plot(volcano2_rast, col = hypso.colors(100))
 #'
 #' library(ggplot2)
 #' ggplot() +
-#'   geom_spatraster(data = volcano2) +
+#'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_hypso_c()
 #'
 #' # Binned
 #' ggplot() +
-#'   geom_spatraster(data = volcano2) +
-#'   scale_fill_hypso_b(breaks = seq(90, 200, 10))
+#'   geom_spatraster(data = volcano2_rast) +
+#'   scale_fill_hypso_b(breaks = seq(70, 200, 10))
+#'
+#' # With discrete values
+#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
+#'   breaks = c(100, 120, 130, 150, 170, 200),
+#'   labels = c(
+#'     "Very Low", "Low", "Average", "High",
+#'     "Very High"
+#'   )
+#' ))
+#'
+#'
+#' ggplot() +
+#'   geom_spatraster(data = factor, aes(fill = cats)) +
+#'   scale_fill_hypso_d(na.value = "gray10")
 #' }
 scale_fill_hypso_d <- function(..., alpha = 1, direction = 1) {
   if (alpha < 0 | alpha > 1) {

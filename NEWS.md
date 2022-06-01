@@ -11,7 +11,10 @@
 -   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20). Also
     add a new parameter `na.rm`.
 
--   Add new scale: `scale_fill_hypso_c()`
+-   Add new scales:
+
+    -   `scale_fill_hypso_c()`
+    -   `scale_fill_whitebox_c()`
 
 # tidyterra 0.1.0
 
