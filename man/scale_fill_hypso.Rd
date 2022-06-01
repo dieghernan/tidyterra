@@ -73,28 +73,40 @@ Additionally, a color palette \code{hypso.colors()} is provided. See also
 filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 
 library(terra)
-volcano2 <- rast(filepath)
+volcano2_rast <- rast(filepath)
+
+# Palette
+plot(volcano2_rast, col = hypso.colors(100))
 
 library(ggplot2)
 ggplot() +
-  geom_spatraster(data = volcano2) +
+  geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_c()
 
 # Binned
 ggplot() +
-  geom_spatraster(data = volcano2) +
-  scale_fill_hypso_b(breaks = seq(90, 200, 10))
+  geom_spatraster(data = volcano2_rast) +
+  scale_fill_hypso_b(breaks = seq(70, 200, 10))
+
+# With discrete values
+factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
+  breaks = c(100, 120, 130, 150, 170, 200),
+  labels = c(
+    "Very Low", "Low", "Average", "High",
+    "Very High"
+  )
+))
+
+
+ggplot() +
+  geom_spatraster(data = factor, aes(fill=cats)) +
+  scale_fill_hypso_d(na.value = "gray10")
 }
 }
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-Other ggplot2 utils:
-\code{\link{autoplot}()},
-\code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster_rgb}()},
-\code{\link{geom_spatraster}()},
-\code{\link{ggspatvector}},
+Other scales and palettes for hypsometric tints:
 \code{\link{scale_fill_terrain}}
 }
-\concept{ggplot2.utils}
+\concept{hypso}

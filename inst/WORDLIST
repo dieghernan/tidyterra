@@ -1,12 +1,14 @@
 Acknowledgements
 CMD
 CRS
+CodeFactor
+Colorimetric
 Coords
 DOI
 EPSG
-Geographx
 Hernangomez
-LINZ
+Hypsometric
+LiDAR
 Maungawhau
 NZGD
 ORCID
@@ -16,7 +18,6 @@ SpatRasters
 SpatVector
 SpatVectors
 Toitu
-Topo
 Visualise
 WKT
 Whenua
@@ -28,6 +29,7 @@ coord
 crs
 dieghernan
 doi
+downsampled
 dplyr
 fullseq
 geoms
@@ -36,6 +38,8 @@ ggspatial
 github
 grDevices
 https
+hypso
+hypsometric
 internall
 io
 linetype

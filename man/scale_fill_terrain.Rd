@@ -56,52 +56,40 @@ terra package (see \code{\link[terra:plot]{terra::plot()}}). Three fill scales a
 }
 \examples{
 \donttest{
-filepath <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
-
+filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 
 library(terra)
-cyl_temp <- rast(filepath)
-
-# Modify with tidyverse methods
-library(dplyr)
-continous <- cyl_temp \%>\% select(tavg_05)
+volcano2_rast <- rast(filepath)
 
 library(ggplot2)
 ggplot() +
-  geom_spatraster(data = continous) +
+  geom_spatraster(data = volcano2_rast) +
   scale_fill_terrain_c()
 
 # Binned
 ggplot() +
-  geom_spatraster(data = continous) +
-  scale_fill_terrain_b(breaks = seq(5, 20, 2.5))
+  geom_spatraster(data = volcano2_rast) +
+  scale_fill_terrain_b(breaks = seq(70, 200, 10))
 
 # With discrete values
-factor <- continous \%>\% mutate(tavg_05 = cut(tavg_05,
-  breaks = c(0, 7, 9, 11, 13, 15),
+factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
+  breaks = c(100, 120, 130, 150, 170, 200),
   labels = c(
-    "Very Cold", "Cold", "Mild", "Hot",
-    "Very Hot"
+    "Very Low", "Low", "Average", "High",
+    "Very High"
   )
 ))
 
 
-
-
 ggplot() +
-  geom_spatraster(data = factor) +
-  scale_fill_terrain_d(na.value = "gray80")
+  geom_spatraster(data = factor, aes(fill=cats)) +
+  scale_fill_terrain_d(na.value = "gray10")
 }
 }
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-Other ggplot2 utils:
-\code{\link{autoplot}()},
-\code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster_rgb}()},
-\code{\link{geom_spatraster}()},
-\code{\link{ggspatvector}},
+Other scales and palettes for hypsometric tints:
 \code{\link{scale_fill_hypso}}
 }
-\concept{ggplot2.utils}
+\concept{hypso}

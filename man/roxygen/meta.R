@@ -3,6 +3,7 @@ list(
     coerce = "Coercing objects:",
     dplyr.methods = "Other dplyr methods:",
     tidyr.method = "Other tidyr methods:",
-    ggplot2.utils = "Other ggplot2 utils:"
+    ggplot2.utils = "Other ggplot2 utils:",
+    hypso = "Other scales and palettes for hypsometric tints:"
   )
 )
