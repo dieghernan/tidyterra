@@ -14,6 +14,7 @@
 -   Add new scales:
 
     -   `scale_fill_hypso_c()`
+    -   `scale_fill_whitebox_c()`
 
 # tidyterra 0.1.0
 

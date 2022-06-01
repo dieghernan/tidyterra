@@ -4,7 +4,7 @@
 #'
 #' Implementation based on the
 #' [Wikipedia Colorimetric conventions for topographic maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
-#' Two fill scales are provided:
+#' Three fill scales are provided:
 #' - `scale_fill_hypso_d()`: For discrete values.
 #' - `scale_fill_hypso_c()`: For continuous values.
 #' - `scale_fill_hypso_b()`: For binning continuous values.

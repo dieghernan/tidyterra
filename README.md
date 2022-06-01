@@ -136,9 +136,8 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = rastertemp) +
   facet_wrap(~lyr, ncol = 2) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "RdBu", rev = TRUE),
-    na.value = NA,
+  scale_fill_whitebox_c(
+    palette = "muted",
     labels = scales::label_number(suffix = "º")
   ) +
   labs(fill = "Avg temperature")
@@ -164,9 +163,8 @@ prov <- vect(f_vect)
 ggplot() +
   geom_spatraster(data = variation) +
   geom_spatvector(data = prov, fill = NA) +
-  scale_fill_gradientn(
-    colors = hcl.colors(10, "RdBu", rev = TRUE),
-    na.value = NA,
+  scale_fill_whitebox_c(
+    palette = "deep", direction = -1,
     labels = scales::label_number(suffix = "º")
   ) +
   theme_minimal() +

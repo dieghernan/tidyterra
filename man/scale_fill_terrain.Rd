@@ -82,7 +82,7 @@ factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
 
 
 ggplot() +
-  geom_spatraster(data = factor, aes(fill=cats)) +
+  geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_terrain_d(na.value = "gray10")
 }
 }
@@ -90,6 +90,7 @@ ggplot() +
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
 Other scales and palettes for hypsometric tints:
-\code{\link{scale_fill_hypso}}
+\code{\link{scale_fill_hypso}},
+\code{\link{scale_fill_whitebox}}
 }
 \concept{hypso}

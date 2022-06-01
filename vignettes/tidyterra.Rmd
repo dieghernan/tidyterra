@@ -135,8 +135,8 @@ library(ggplot2)
 ggplot() +
   geom_spatraster(data = temp) +
   facet_wrap(~lyr) +
-  scale_fill_gradientn(
-    colours = hcl.colors(10, "RdBu", rev = TRUE),
+  scale_fill_whitebox_c(
+    palette = "muted",
     na.value = "white"
   )
 
@@ -149,7 +149,7 @@ volcano2 <- rast(f_volcano)
 ggplot() +
   geom_spatraster(data = volcano2) +
   geom_spatraster_contour(data = volcano2, breaks = seq(80, 200, 5)) +
-  scale_fill_hypso_c() +
+  scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
 
@@ -158,7 +158,7 @@ ggplot() +
 
 ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
-  scale_fill_hypso_d() +
+  scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
 ```
 
