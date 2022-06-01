@@ -128,10 +128,9 @@ MIT License. Copyright (c) 2017-2021 John Lindsay.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>palette</dt>
-<dd><p>A a valid palette name. The name is matched to the list of
-available palettes, ignoring upper vs. lower case. Values available are
-<code>"atlas", "high_relief", "arid", "soft", "muted", "purple", "viridi", </code>
-<code>"gn_yl", "pi_y_g", "bl_yl_rd", "deep"</code>.</p></dd>
+<dd><p>A valid palette name. The name is matched to the list of
+available palettes, ignoring upper vs. lower case. Values available are:
+<code>"atlas"</code>, <code>"high_relief"</code>, <code>"arid"</code>, <code>"soft"</code>, <code>"muted"</code>, <code>"purple"</code>, <code>"viridi"</code>, <code>"gn_yl"</code>, <code>"pi_y_g"</code>, <code>"bl_yl_rd"</code>, <code>"deep"</code>.</p></dd>
 <dt>...</dt>
 <dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">discrete_scale()</a></code>,
 <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">continuous_scale()</a></code>, or <a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">binned_scale</a> to control name, limits, breaks,
@@ -207,32 +206,30 @@ are ordered from darkest to lightest. If -1, the order of colors is reversed.</p
 <span class="r-in">  <span class="fu">scale_fill_whitebox_d</span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"gray10"</span>, palette <span class="op">=</span> <span class="st">"soft"</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="scale_fill_whitebox-4.png" alt="" width="1094" height="676"></span>
 <span class="r-in"><span class="co"># }</span></span>
+<span class="r-in"></span>
 <span class="r-in"><span class="co"># Display all the whitebox palettes</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">palette</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span class="r-in"><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span class="r-in">  <span class="st">"atlas"</span>, <span class="st">"high_relief"</span>, <span class="st">"arid"</span>, <span class="st">"soft"</span>, <span class="st">"muted"</span>, <span class="st">"purple"</span>,</span>
 <span class="r-in">  <span class="st">"viridi"</span>, <span class="st">"gn_yl"</span>, <span class="st">"pi_y_g"</span>, <span class="st">"bl_yl_rd"</span>, <span class="st">"deep"</span></span>
 <span class="r-in"><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">ncols</span> <span class="op">&lt;-</span> <span class="fl">12</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">palette</span><span class="op">)</span> <span class="op">{</span></span>
+<span class="r-in"><span class="co"># Helper fun for plotting</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">ncols</span> <span class="op">&lt;-</span> <span class="fl">128</span></span>
+<span class="r-in"><span class="va">npals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">length</a></span><span class="op">(</span><span class="va">pals</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">opar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">npals</span>, <span class="fl">1</span><span class="op">)</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">pals</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/image.html" class="external-link">image</a></span><span class="op">(</span></span>
 <span class="r-in">    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">1</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/coerce.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">    col <span class="op">=</span> <span class="fu">whitebox.colors</span><span class="op">(</span><span class="va">ncols</span>, <span class="va">i</span><span class="op">)</span>, main <span class="op">=</span> <span class="va">i</span>, xlab <span class="op">=</span> <span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">    yaxt <span class="op">=</span> <span class="st">"n"</span></span>
+<span class="r-in">    col <span class="op">=</span> <span class="fu">whitebox.colors</span><span class="op">(</span><span class="va">ncols</span>, <span class="va">i</span><span class="op">)</span>, main <span class="op">=</span> <span class="va">i</span>,</span>
+<span class="r-in">    ylab <span class="op">=</span> <span class="st">""</span>, xaxt <span class="op">=</span> <span class="st">"n"</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, bty <span class="op">=</span> <span class="st">"n"</span></span>
 <span class="r-in">  <span class="op">)</span></span>
 <span class="r-in"><span class="op">}</span></span>
 <span class="r-plt img"><img src="scale_fill_whitebox-5.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-6.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-7.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-8.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-9.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-10.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-11.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-12.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-13.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-14.png" alt="" width="1094" height="676"></span>
-<span class="r-plt img"><img src="scale_fill_whitebox-15.png" alt="" width="1094" height="676"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
