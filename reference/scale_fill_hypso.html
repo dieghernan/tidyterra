@@ -150,12 +150,7 @@ are ordered from darkest to lightest. If -1, the order of colors is reversed.</p
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code></p>
-<p>Other ggplot2 utils:
-<code><a href="autoplot.html">autoplot</a>()</code>,
-<code><a href="geom_spat_contour.html">geom_spat_contour</a></code>,
-<code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb</a>()</code>,
-<code><a href="geom_spatraster.html">geom_spatraster</a>()</code>,
-<code><a href="ggspatvector.html">ggspatvector</a></code>,
+<p>Other scales and palettes for hypsometric tints:
 <code><a href="scale_fill_terrain.html">scale_fill_terrain</a></code></p></div>
     </div>
 
@@ -166,19 +161,38 @@ are ordered from darkest to lightest. If -1, the order of colors is reversed.</p
 <span class="r-in"><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="va">volcano2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">volcano2_rast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Palette</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">hypso.colors</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="scale_fill_hypso-1.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span><span class="op">)</span> <span class="op">+</span></span>
+<span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_rast</span><span class="op">)</span> <span class="op">+</span></span>
 <span class="r-in">  <span class="fu">scale_fill_hypso_c</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="scale_fill_hypso-1.png" alt="" width="1094" height="676"></span>
+<span class="r-plt img"><img src="scale_fill_hypso-2.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Binned</span></span>
 <span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">scale_fill_hypso_b</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">90</span>, <span class="fl">200</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="scale_fill_hypso-2.png" alt="" width="1094" height="676"></span>
+<span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_rast</span><span class="op">)</span> <span class="op">+</span></span>
+<span class="r-in">  <span class="fu">scale_fill_hypso_b</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">70</span>, <span class="fl">200</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="scale_fill_hypso-3.png" alt="" width="1094" height="676"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># With discrete values</span></span>
+<span class="r-in"><span class="va">factor</span> <span class="op">&lt;-</span> <span class="va">volcano2_rast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="mutate.html">mutate</a></span><span class="op">(</span>cats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">elevation</span>,</span>
+<span class="r-in">  breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">120</span>, <span class="fl">130</span>, <span class="fl">150</span>, <span class="fl">170</span>, <span class="fl">200</span><span class="op">)</span>,</span>
+<span class="r-in">  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span class="r-in">    <span class="st">"Very Low"</span>, <span class="st">"Low"</span>, <span class="st">"Average"</span>, <span class="st">"High"</span>,</span>
+<span class="r-in">    <span class="st">"Very High"</span></span>
+<span class="r-in">  <span class="op">)</span></span>
+<span class="r-in"><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span class="r-in">  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">factor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="va">cats</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span class="r-in">  <span class="fu">scale_fill_hypso_d</span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"gray10"</span><span class="op">)</span></span>
+<span class="r-plt img"><img src="scale_fill_hypso-4.png" alt="" width="1094" height="676"></span>
 <span class="r-in"><span class="co"># }</span></span>
 </code></pre></div>
     </div>

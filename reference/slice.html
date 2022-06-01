@@ -107,9 +107,9 @@ locations. It allows you to select, remove, and duplicate those dimensions
 of a Spat* object.</p>
 <p><strong>If you want to slice your SpatRaster by geographic coordinates</strong> use
 <code><a href="filter.html">filter.SpatRaster()</a></code> method.</p>
-<p>It is accompanied by a number of helpers for common use cases:</p><ul><li><p><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail()</a></code> select the first or last
+<p>It is accompanied by a number of helpers for common use cases:</p><ul><li><p><code>slice_head()</code> and <code>slice_tail()</code> select the first or last
 cells/geometries.</p></li>
-<li><p><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample()</a></code> randomly selects cells/geometries.</p></li>
+<li><p><code>slice_sample()</code> randomly selects cells/geometries.</p></li>
 <li><p><code>slice_rows()</code> and <code>slice_cols()</code> allow to subset entire rows or columns,
 of a SpatRaster.</p></li>
 <li><p><code>slice_colrows()</code> subsets regions of the raster by row and column position
@@ -128,19 +128,19 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="fu">slice</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .preserve <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatRaster</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, .keep_extent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu">slice_head</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, .keep_extent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span><span class="op">)</span>
+<span class="fu">slice_head</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatRaster</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, .keep_extent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu">slice_tail</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, .keep_extent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span><span class="op">)</span>
+<span class="fu">slice_tail</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatRaster</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span>
+<span class="fu">slice_min</span><span class="op">(</span>
   <span class="va">.data</span>,
   <span class="va">order_by</span>,
   <span class="va">...</span>,
@@ -152,10 +152,10 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu">slice_min</span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatRaster</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span>
+<span class="fu">slice_max</span><span class="op">(</span>
   <span class="va">.data</span>,
   <span class="va">order_by</span>,
   <span class="va">...</span>,
@@ -167,10 +167,10 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu">slice_max</span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="co"># S3 method for SpatRaster</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span>
+<span class="fu">slice_sample</span><span class="op">(</span>
   <span class="va">.data</span>,
   <span class="va">...</span>,
   <span class="va">n</span>,
@@ -181,7 +181,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="op">)</span>
 
 <span class="co"># S3 method for SpatVector</span>
-<span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, weight_by <span class="op">=</span> <span class="cn">NULL</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu">slice_sample</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, weight_by <span class="op">=</span> <span class="cn">NULL</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="fu">slice_rows</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span>
 
@@ -332,7 +332,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Spatial sample</span></span>
 <span class="r-in"><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu">slice_sample</span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-plt img"><img src="slice-4.png" alt="" width="1094" height="676"></span>
 <span class="r-in"></span>
