@@ -1,0 +1,332 @@
+test_that("Discrete scale", {
+  d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
+
+  p <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = l))
+
+  init <- ggplot2::layer_data(p)$fill
+  p2 <- p + scale_fill_cross_blended_d()
+
+  mod <- ggplot2::layer_data(p2)$fill
+  expect_true(!any(init %in% mod))
+
+  # Alpha
+  expect_error(p + scale_fill_cross_blended_d(alpha = -1),
+    regexp = "alpha level -1 not in"
+  )
+
+  p3 <- p + scale_fill_cross_blended_d(alpha = 0.9)
+
+  mod_alpha <- ggplot2::layer_data(p3)$fill
+
+  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+
+  # Reverse also with alpha
+  expect_error(p + scale_fill_cross_blended_d(direction = 0.5),
+    regexp = "must be 1 or -1"
+  )
+
+
+
+  p4 <- p + scale_fill_cross_blended_d(
+    direction = -1,
+    alpha = 0.7
+  )
+
+  mod_alpha_rev <- ggplot2::layer_data(p4)$fill
+
+
+  expect_true(all(rev(adjustcolor(mod,
+    alpha.f = 0.7
+  )) == mod_alpha_rev))
+
+  # Change pal
+  # Create ggplot for each pal, extract colors and check
+  # that the colors are different on each plot
+
+  allpals <- unique(cross_blended_hypsometric_tints_db$pal)
+
+  # Get pals
+  allpals_end <- lapply(allpals, function(x) {
+    palplot <- p + scale_fill_cross_blended_d(
+      palette = x
+    )
+    mod_pal <- ggplot2::layer_data(palplot)$fill
+    mod_pal
+  })
+  names(allpals_end) <- allpals
+  allpals_end <- dplyr::bind_rows(allpals_end)
+
+  length_cols <- lapply(seq_len(nrow(allpals_end)), function(x) {
+    length(unique(allpals_end[x, ]))
+  })
+  length_cols <- unlist(length_cols)
+
+  expect_true(all(length(allpals) == length_cols))
+})
+
+test_that("Continous scale", {
+  d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
+
+  p <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = z))
+
+  init <- ggplot2::layer_data(p)$fill
+  p2 <- p + scale_fill_cross_blended_c()
+
+  mod <- ggplot2::layer_data(p2)$fill
+  expect_true(!any(init %in% mod))
+
+  # Alpha
+  expect_error(p + scale_fill_cross_blended_c(alpha = -1),
+    regexp = "alpha level -1 not in"
+  )
+
+  p3 <- p + scale_fill_cross_blended_c(alpha = 0.9)
+
+  mod_alpha <- ggplot2::layer_data(p3)$fill
+
+  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+
+  # Reverse also with alpha
+  expect_error(p + scale_fill_cross_blended_c(direction = 0.5),
+    regexp = "must be 1 or -1"
+  )
+
+
+
+  p4 <- p + scale_fill_cross_blended_c(
+    direction = -1,
+    alpha = 0.7
+  )
+
+  mod_alpha_rev <- ggplot2::layer_data(p4)$fill
+
+
+  expect_true(all(rev(adjustcolor(mod,
+    alpha.f = 0.7
+  )) == mod_alpha_rev))
+
+  # Change pal
+  # Create ggplot for each pal, extract colors and check
+  # that the colors are different on each plot
+
+  allpals <- unique(cross_blended_hypsometric_tints_db$pal)
+
+  # Get pals
+  allpals_end <- lapply(allpals, function(x) {
+    palplot <- p + scale_fill_cross_blended_c(
+      palette = x
+    )
+    mod_pal <- ggplot2::layer_data(palplot)$fill
+    mod_pal
+  })
+  names(allpals_end) <- allpals
+  allpals_end <- dplyr::bind_rows(allpals_end)
+
+  length_cols <- lapply(seq_len(nrow(allpals_end)), function(x) {
+    length(unique(allpals_end[x, ]))
+  })
+  length_cols <- unlist(length_cols)
+
+  expect_true(all(length(allpals) == length_cols))
+})
+
+test_that("Continous scale tint", {
+  d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
+
+  p <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = z))
+
+  p_init <- p + scale_fill_cross_blended_c()
+
+  init <- ggplot2::layer_data(p_init)$fill
+
+  # Use tint option
+  expect_error(p + scale_fill_cross_blended_c(palette = "x", as_tint = TRUE))
+
+  p2 <- p + scale_fill_cross_blended_c(as_tint = TRUE)
+
+  mod <- ggplot2::layer_data(p2)$fill
+
+  expect_true(!any(init %in% mod))
+
+  # Reverse
+  p2_rev <- p + scale_fill_cross_blended_c(as_tint = TRUE, direction = -1)
+  mod_rev <- ggplot2::layer_data(p2_rev)$fill
+  expect_true(!any(mod_rev %in% mod))
+
+  # Alpha
+  p2_alpha <- p + scale_fill_cross_blended_c(as_tint = TRUE, alpha = 0.5)
+  mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
+  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+
+  # Modify limits
+
+  p3 <- p + scale_fill_cross_blended_c(as_tint = TRUE, limits = c(20, 26))
+  mod_lims <- ggplot2::layer_data(p3)$fill
+  expect_true(!any(mod_lims %in% mod))
+  expect_true(!any(mod_lims %in% init))
+
+  # Modify also with values
+  p4 <- p + scale_fill_cross_blended_c(
+    as_tint = TRUE, values = c(21, seq(22, 25, .05)),
+    limits = c(19, 27)
+  )
+  mod_values <- ggplot2::layer_data(p4)$fill
+  expect_true(!any(mod_values %in% mod_lims))
+  expect_true(!any(mod_values %in% mod))
+  expect_true(!any(mod_values %in% init))
+})
+
+test_that("Breaking scale", {
+  d <- data.frame(
+    x = 1:10, y = 1:10,
+    z = 31:40
+  )
+
+  # Three cuts
+  br <- c(32, 37)
+
+  p_init <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = z))
+
+  p <- p_init +
+    ggplot2::scale_fill_viridis_b(breaks = br)
+
+  init <- ggplot2::layer_data(p)$fill
+  expect_true(length(unique(init)) == 3)
+
+
+
+  p2 <- p_init +
+    scale_fill_cross_blended_b(breaks = br)
+
+  mod <- ggplot2::layer_data(p2)$fill
+  expect_true(!any(init %in% mod))
+
+  expect_true(length(unique(mod)) == 3)
+
+  # Alpha
+  expect_error(p_init + scale_fill_cross_blended_b(alpha = -1),
+    regexp = "alpha level -1 not in"
+  )
+
+  p3 <- p_init + scale_fill_cross_blended_b(
+    alpha = 0.9,
+    breaks = br
+  )
+
+  mod_alpha <- ggplot2::layer_data(p3)$fill
+
+  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(length(unique(mod_alpha)) == 3)
+
+  # Reverse also with alpha
+  expect_error(p + scale_fill_cross_blended_b(direction = 0.5),
+    regexp = "must be 1 or -1"
+  )
+
+
+
+  p4 <- p_init + scale_fill_cross_blended_b(
+    direction = -1,
+    alpha = 0.7,
+    breaks = br
+  )
+
+  mod_alpha_rev <- ggplot2::layer_data(p4)$fill
+  expect_true(length(unique(mod_alpha_rev)) == 3)
+
+  # Change pal
+  # Create ggplot for each pal, extract colors and check
+  # that the colors are different on each plot
+
+  allpals <- unique(cross_blended_hypsometric_tints_db$pal)
+
+  # Get pals
+  allpals_end <- lapply(allpals, function(x) {
+    palplot <- p_init + scale_fill_cross_blended_b(
+      palette = x
+    )
+    mod_pal <- ggplot2::layer_data(palplot)$fill
+    mod_pal
+  })
+  names(allpals_end) <- allpals
+  allpals_end <- dplyr::bind_rows(allpals_end)
+
+  length_cols <- lapply(seq_len(nrow(allpals_end)), function(x) {
+    length(unique(allpals_end[x, ]))
+  })
+  length_cols <- unlist(length_cols)
+
+  expect_true(all(length(allpals) == length_cols))
+})
+
+test_that("Breaking scale tint", {
+  d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
+
+  p <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = z))
+
+  p_init <- p + scale_fill_cross_blended_b()
+
+  init <- ggplot2::layer_data(p_init)$fill
+
+  # Use tint option
+  expect_error(p + scale_fill_cross_blended_b(palette = "x", as_tint = TRUE))
+  p2 <- p + scale_fill_cross_blended_b(as_tint = TRUE)
+
+  mod <- ggplot2::layer_data(p2)$fill
+
+  expect_true(!any(init %in% mod))
+
+  # Reverse
+  p2_rev <- p + scale_fill_cross_blended_b(as_tint = TRUE, direction = -1)
+  mod_rev <- ggplot2::layer_data(p2_rev)$fill
+  expect_true(!any(mod_rev %in% mod))
+
+  # Alpha
+  p2_alpha <- p + scale_fill_cross_blended_b(as_tint = TRUE, alpha = 0.5)
+  mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
+  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+
+
+  # Modify limits
+
+  p3 <- p + scale_fill_cross_blended_b(as_tint = TRUE, limits = c(20, 26))
+  mod_lims <- ggplot2::layer_data(p3)$fill
+  expect_true(!any(mod_lims %in% mod))
+  expect_true(!any(mod_lims %in% init))
+
+  # Modify also with values
+  p4 <- p + scale_fill_cross_blended_b(
+    as_tint = TRUE, values = c(20, seq(22, 27, .05)),
+    limits = c(19, 27)
+  )
+  mod_values <- ggplot2::layer_data(p4)$fill
+  expect_true(!any(mod_values %in% mod_lims))
+  expect_true(!any(mod_values %in% mod))
+  expect_true(!any(mod_values %in% init))
+})
+
+test_that("Palette", {
+  expect_error(cross_blended.colors(20, "xx"))
+
+  # Check all palettes
+  allpals <- unique(cross_blended_hypsometric_tints_db$pal)
+
+  # Expect character(0)
+  expect_identical(cross_blended.colors(0), character(0))
+
+  for (i in seq_len(length(allpals))) {
+    pal <- allpals[i]
+    colors <- cross_blended.colors(20, pal)
+
+    expect_identical(
+      class(colors),
+      "character"
+    )
+    expect_length(colors, 20)
+  }
+})

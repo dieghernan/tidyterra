@@ -119,3 +119,78 @@ NULL
 #'   )
 #' }
 NULL
+
+#' Cross-blended Hypsometric Tints
+#'
+#' @description
+#' A tibble including the color map of
+#' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes. All the
+#' palettes includes also a definition of colors limits in terms of elevation
+#' (meters), that can be used with [ggplot2::scale_fill_gradientn()].
+#'
+#' @docType data
+#'
+#' @family datasets
+#'
+#' @name cross_blended_hypsometric_tints_db
+#' @format
+#' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
+#' `r ncol(cross_blended_hypsometric_tints_db)` columns. with the following fields:
+#' - **pal**: Name of the palette.
+#' - **limit**: Recommended elevation limit (in meters) for each color.
+#' - **r**,**g**,**b**: Value of the red, green and blue channel (RGB color
+#'   mode).
+#' - **hex**: Hex code of the color.
+#'
+#' @source
+#'
+#' Derived from Patterson, T., & Jenny, B. (2011). The Development and
+#' Rationale of Cross-blended Hypsometric Tints. *Cartographic Perspectives,*
+#' (69), 31 - 46. \doi{10.14714/CP69.20}.
+#'
+#' @details
+#'  From Patterson & Jenny (2011):
+#'
+#'    *More recently, the role and design of hypsometric tints have come under
+#'    scrutiny. One reason for this is the concern that people misread
+#'    elevation colors as climate or vegetation information. Cross-blended
+#'    hypsometric tints, introduced in 2009, are a partial solution to this
+#'    problem. They use variable lowland colors customized to match the
+#'    differing natural environments of world regions, which merge into
+#'    one another.*
+#'
+#' @seealso [scale_fill_cross_blended_c()]
+#'
+#' @examples
+#' \donttest{
+#'
+#' data("cross_blended_hypsometric_tints_db")
+#'
+#' cross_blended_hypsometric_tints_db
+#'
+#' # Select a palette
+#' warm <- cross_blended_hypsometric_tints_db %>%
+#'   filter(pal == "warm_humid")
+#'
+#' f <- system.file("extdata/asia.tif", package = "tidyterra")
+#' r <- terra::rast(f)
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot() +
+#'   geom_spatraster(data = r) +
+#'   labs(fill = "elevation")
+#'
+#' p +
+#'   scale_fill_gradientn(colors = warm$hex)
+#'
+#' # Use with limits
+#' p +
+#'   scale_fill_gradientn(
+#'     colors = warm$hex,
+#'     values = scales::rescale(warm$limit),
+#'     limit = range(warm$limit),
+#'     na.value = "lightblue"
+#'   )
+#' }
+NULL
