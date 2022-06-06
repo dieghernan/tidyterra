@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/articles/index.html</loc>
   </url>
   <url>
@@ -11,12 +17,6 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/news/index.html</loc>
@@ -37,13 +37,16 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.SpatRaster.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/filter.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html</loc>
@@ -52,10 +55,10 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/index.html</loc>
@@ -92,6 +95,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/scale_fill_whitebox.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/scale_fill_wiki.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/select.html</loc>

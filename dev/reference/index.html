@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9002</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -182,6 +182,11 @@
         <dd>Create a complete ggplot for SpatRasters</dd>
       </dl><dl><dt>
           
+          <code><a href="geom_spat_contour.html">geom_spatraster_contour()</a></code> <code><a href="geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> 
+        </dt>
+        <dd>Plot SpatRaster contours</dd>
+      </dl><dl><dt>
+          
           <code><a href="geom_spatraster.html">geom_spatraster()</a></code> 
         </dt>
         <dd>Visualise SpatRaster objects</dd>
@@ -192,18 +197,13 @@
         <dd>Visualise SpatRaster objects as images</dd>
       </dl><dl><dt>
           
-          <code><a href="geom_spat_contour.html">geom_spatraster_contour()</a></code> <code><a href="geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> 
-        </dt>
-        <dd>Plot SpatRaster contours</dd>
-      </dl><dl><dt>
-          
           <code><a href="ggspatvector.html">geom_spatvector()</a></code> <code><a href="ggspatvector.html">geom_spatvector_label()</a></code> <code><a href="ggspatvector.html">geom_spatvector_text()</a></code> 
         </dt>
         <dd>Visualise SpatVector objects</dd>
       </dl></div><div class="section level2">
       
       <h3 id="scales">Scales<a class="anchor" aria-label="anchor" href="#scales"></a></h3>
-      <p class="section-desc"></p><p>Colour schemes and palettes based on hypsometric tints.</p>
+      <p class="section-desc"></p><p>Gradient colour schemes, palettes and hypsometric tints.</p>
 
       
     </div><div id="" class="section level2">
@@ -215,7 +215,7 @@
           
           <code><a href="scale_fill_hypso.html">scale_fill_hypso_d()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_c()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_b()</a></code> <code><a href="scale_fill_hypso.html">hypso.colors()</a></code> 
         </dt>
-        <dd>Hypsometric tints fill scales</dd>
+        <dd>Gradient fill scales for representing hypsometry and bathymetry</dd>
       </dl><dl><dt>
           
           <code><a href="scale_fill_terrain.html">scale_fill_terrain_d()</a></code> <code><a href="scale_fill_terrain.html">scale_fill_terrain_c()</a></code> <code><a href="scale_fill_terrain.html">scale_fill_terrain_b()</a></code> 
@@ -225,7 +225,12 @@
           
           <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_d()</a></code> <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_c()</a></code> <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_b()</a></code> <code><a href="scale_fill_whitebox.html">whitebox.colors()</a></code> 
         </dt>
-        <dd>Hypsometric tints fill scales from WhiteboxTools</dd>
+        <dd>Gradient fill scales from WhiteboxTools color schemes</dd>
+      </dl><dl><dt>
+          
+          <code><a href="scale_fill_wiki.html">scale_fill_wiki_d()</a></code> <code><a href="scale_fill_wiki.html">scale_fill_wiki_c()</a></code> <code><a href="scale_fill_wiki.html">scale_fill_wiki_b()</a></code> <code><a href="scale_fill_wiki.html">wiki.colors()</a></code> 
+        </dt>
+        <dd>Gradient fill scales from Wikipedia color schemes</dd>
       </dl></div><div class="section level2">
       <h2 id="helpers">Helpers<a class="anchor" aria-label="anchor" href="#helpers"></a></h2>
       
@@ -264,6 +269,11 @@
       
 
       <dl><dt>
+          
+          <code><a href="hypsometric_tints_db.html">hypsometric_tints_db</a></code> 
+        </dt>
+        <dd>Hypsometric palettes database</dd>
+      </dl><dl><dt>
           
           <code><a href="volcano2.html">volcano2</a></code> 
         </dt>
