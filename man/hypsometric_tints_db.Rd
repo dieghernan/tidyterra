@@ -59,6 +59,7 @@ p +
 \code{\link[=scale_fill_hypso_c]{scale_fill_hypso_c()}}
 
 Other datasets: 
+\code{\link{cross_blended_hypsometric_tints_db}},
 \code{\link{volcano2}}
 }
 \concept{datasets}
