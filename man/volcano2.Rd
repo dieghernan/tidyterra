@@ -59,5 +59,8 @@ ggplot() +
 }
 \seealso{
 \link{volcano}
+
+Other datasets: 
+\code{\link{hypsometric_tints_db}}
 }
 \concept{datasets}

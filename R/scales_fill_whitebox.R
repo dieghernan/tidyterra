@@ -1,8 +1,8 @@
-#' Hypsometric tints fill scales from WhiteboxTools
+#' Gradient fill scales from WhiteboxTools color schemes
 #'
 #' @description
 #'
-#' Implementation of the hypsometric tinted hill shade provided by
+#' Implementation of the gradient palettes provided by
 #' [WhiteboxTools](https://github.com/jblindsay/whitebox-tools). Three fill
 #' scales are provided:
 #' - `scale_fill_whitebox_d()`: For discrete values.
@@ -38,7 +38,7 @@
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill` aesthetics.
 #'
-#' @family hypso
+#' @family gradients
 #'
 #' @source <https://github.com/jblindsay/whitebox-tools>, under
 #' MIT License. Copyright (c) 2017-2021 John Lindsay.
@@ -149,7 +149,7 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #' @export
 #' @rdname scale_fill_whitebox
 #'
-#' @inheritParams hypso.colors
+#' @inheritParams wiki.colors
 #' @examples
 #'
 #' # Display all the whitebox palettes

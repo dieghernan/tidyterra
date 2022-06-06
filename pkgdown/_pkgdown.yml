@@ -3,10 +3,10 @@ url: 'https://dieghernan.github.io/tidyterra'
 figures:
   dpi: 300
   fig.retina: 2
-  
+
 development:
   mode: auto
-  
+
 navbar:
   type: dark
   bg: primary
@@ -73,9 +73,9 @@ reference:
   contents:
     - has_concept("ggplot2.utils")
 - subtitle: Scales
-  desc: Colour schemes and palettes based on hypsometric tints.
+  desc: Gradient colour schemes, palettes and hypsometric tints.
   contents:
-    - has_concept("hypso")
+    - has_concept("gradients")
 - title: "Helpers"
   desc:  Additional set of functions provided by {tidyterra}.
   contents:
@@ -83,7 +83,7 @@ reference:
 - title: "Other functions and datasets"
   desc: Miscelanea
   contents:
-    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce", "hypso"))
+    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce", "gradients"))
 - title: "About the package"
   contents:
     - tidyterra-package

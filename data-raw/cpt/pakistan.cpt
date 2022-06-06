@@ -1,0 +1,14 @@
+# afganistan.cpt
+# author: http://commons.wikimedia.org/wiki/User:Jarke
+# source: http://fr.wikipedia.org/wiki/Fichier:Pakistan_geography_en.svg
+# licence: http://creativecommons.org/licenses/by-sa/3.0/deed.fr
+# COLOR_MODEL = RGB
+0    218 228 201  200  218 228 201 
+200  233 234 194  400  233 234 194 
+400  240 236 209  1000 240 236 209 
+1000 242 227 189  1500 242 227 189 
+1500 237 207 162  2000 237 207 162 
+2000 226 197 150  3000 226 197 150 
+3000 202 186 224  4000 202 186 224 
+4000 223 214 236  6000 223 214 236 
+6000 243 243 255  8611 243 243 255 

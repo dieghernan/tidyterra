@@ -6,7 +6,7 @@
 \alias{scale_fill_whitebox_c}
 \alias{scale_fill_whitebox_b}
 \alias{whitebox.colors}
-\title{Hypsometric tints fill scales from WhiteboxTools}
+\title{Gradient fill scales from WhiteboxTools color schemes}
 \source{
 \url{https://github.com/jblindsay/whitebox-tools}, under
 MIT License. Copyright (c) 2017-2021 John Lindsay.
@@ -65,7 +65,7 @@ The corresponding ggplot2 layer with the values applied to the
 \code{fill} aesthetics.
 }
 \description{
-Implementation of the hypsometric tinted hill shade provided by
+Implementation of the gradient palettes provided by
 \href{https://github.com/jblindsay/whitebox-tools}{WhiteboxTools}. Three fill
 scales are provided:
 \itemize{
@@ -139,8 +139,9 @@ par(opar)
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-Other scales and palettes for hypsometric tints:
+Other gradient scales and palettes for hypsometry:
 \code{\link{scale_fill_hypso}},
-\code{\link{scale_fill_terrain}}
+\code{\link{scale_fill_terrain}},
+\code{\link{scale_fill_wiki}}
 }
-\concept{hypso}
+\concept{gradients}
