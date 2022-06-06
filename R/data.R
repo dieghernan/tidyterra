@@ -60,3 +60,62 @@
 #'     fill = "Elevation (m)"
 #'   )
 NULL
+
+#' Hypsometric palettes database
+#'
+#' @description
+#' A tibble including the color map of
+#' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. All the
+#' palettes includes also a definition of colors limits in terms of elevation
+#' (meters), that can be used with [ggplot2::scale_fill_gradientn()].
+#'
+#' @docType data
+#'
+#' @family datasets
+#'
+#' @name hypsometric_tints_db
+#' @format
+#' A tibble of `r nrow(hypsometric_tints_db)` rows and
+#' `r ncol(hypsometric_tints_db)` columns. with the following fields:
+#' - **pal**: Name of the palette.
+#' - **limit**: Recommended elevation limit (in meters) for each color.
+#' - **r**,**g**,**b**: Value of the red, green and blue channel (RGB color
+#'   mode).
+#' - **hex**: Hex code of the color.
+#'
+#' @source
+#' cpt-city: <http://soliton.vm.bytemark.co.uk/pub/cpt-city/>.
+#'
+#' @seealso [scale_fill_hypso_c()]
+#'
+#' @examples
+#' \donttest{
+#' data("hypsometric_tints_db")
+#'
+#' hypsometric_tints_db
+#'
+#' # Select a palette
+#' wikicols <- hypsometric_tints_db %>%
+#'   filter(pal == "wiki-2.0")
+#'
+#' f <- system.file("extdata/asia.tif", package = "tidyterra")
+#' r <- terra::rast(f)
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot() +
+#'   geom_spatraster(data = r) +
+#'   labs(fill = "elevation")
+#'
+#' p +
+#'   scale_fill_gradientn(colors = wikicols$hex)
+#'
+#' # Use with limits
+#' p +
+#'   scale_fill_gradientn(
+#'     colors = wikicols$hex,
+#'     values = scales::rescale(wikicols$limit),
+#'     limit = range(wikicols$limit)
+#'   )
+#' }
+NULL

@@ -11,10 +11,11 @@
 -   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20). Also
     add a new parameter `na.rm`.
 
--   Add new scales:
+-   Add new gradient scales for use on hypsometry:
 
     -   `scale_fill_hypso_c()`
     -   `scale_fill_whitebox_c()`
+    -   `scale_fill_wiki_c()`
 
 # tidyterra 0.1.0
 

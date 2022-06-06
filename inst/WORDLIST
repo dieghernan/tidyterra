@@ -22,11 +22,15 @@ Visualise
 WKT
 Whenua
 WhiteboxTools
+bathymetric
+bathymetry
 behaviour
 binwidth
 codecov
 colour
+colours
 coord
+cpt
 crs
 dieghernan
 doi
@@ -39,8 +43,8 @@ ggspatial
 github
 grDevices
 https
-hypso
 hypsometric
+hypsometry
 internall
 io
 linetype
@@ -53,6 +57,8 @@ proj
 purrr
 rasters
 reprojected
+rescaled
+rlang
 standardised
 terra
 tibble

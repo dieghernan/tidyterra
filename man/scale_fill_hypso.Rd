@@ -6,29 +6,45 @@
 \alias{scale_fill_hypso_c}
 \alias{scale_fill_hypso_b}
 \alias{hypso.colors}
-\title{Hypsometric tints fill scales}
+\title{Gradient fill scales for representing hypsometry and bathymetry}
+\source{
+cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
+}
 \usage{
-scale_fill_hypso_d(..., alpha = 1, direction = 1)
+scale_fill_hypso_d(palette = "etopo1_hypso", ..., alpha = 1, direction = 1)
 
 scale_fill_hypso_c(
+  palette = "etopo1_hypso",
   ...,
   alpha = 1,
   direction = 1,
+  values = NULL,
+  limits = NULL,
+  as_tint = FALSE,
   na.value = NA,
   guide = "colourbar"
 )
 
 scale_fill_hypso_b(
+  palette = "etopo1_hypso",
   ...,
   alpha = 1,
   direction = 1,
+  values = NULL,
+  limits = NULL,
+  as_tint = FALSE,
   na.value = NA,
   guide = "coloursteps"
 )
 
-hypso.colors(n, alpha = 1, rev = FALSE)
+hypso.colors(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE)
 }
 \arguments{
+\item{palette}{A valid palette name. The name is matched to the list of
+available palettes, ignoring upper vs. lower case. See
+\link{hypsometric_tints_db} for more info. Values available are:
+\code{"c3t1"}, \code{"colombia"}, \code{"colombia_bathy"}, \code{"colombia_hypso"}, \code{"dem_poster"}, \code{"dem_print"}, \code{"dem_screen"}, \code{"etopo1"}, \code{"etopo1_bathy"}, \code{"etopo1_hypso"}, \code{"gmt_globe"}, \code{"gmt_globe_bathy"}, \code{"gmt_globe_hypso"}, \code{"moon"}, \code{"moon_bathy"}, \code{"moon_hypso"}, \code{"pakistan"}, \code{"spain"}, \code{"usgs-gswa2"}, \code{"utah_1"}, \code{"wiki-2.0"}, \code{"wiki-2.0_bathy"}, \code{"wiki-2.0_hypso"}, \code{"wiki-schwarzwald-cont"}.}
+
 \item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale()}},
 \code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \link[ggplot2]{binned_scale} to control name, limits, breaks,
 labels and so forth.}
@@ -38,6 +54,27 @@ labels and so forth.}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
+
+\item{values}{if colours should not be evenly positioned along the gradient
+this vector gives the position (between 0 and 1) for each colour in the
+\code{colours} vector. See \code{\link[scales:rescale]{rescale()}} for a convenience function
+to map an arbitrary range to between 0 and 1.}
+
+\item{limits}{One of:
+\itemize{
+\item \code{NULL} to use the default scale range
+\item A numeric vector of length two providing limits of the scale.
+Use \code{NA} to refer to the existing minimum or maximum
+\item A function that accepts the existing (automatic) limits and returns
+new limits. Also accepts rlang \link[rlang:as_function]{lambda} function
+notation.
+Note that setting limits on positional scales will \strong{remove} data outside of the limits.
+If the purpose is to zoom, use the limit argument in the coordinate system
+(see \code{\link[ggplot2:coord_cartesian]{coord_cartesian()}}).
+}}
+
+\item{as_tint}{Logical. Should the scale use predefined limits? See
+\strong{Details}.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 
@@ -55,9 +92,11 @@ The corresponding ggplot2 layer with the values applied to the
 \code{fill} aesthetics.
 }
 \description{
-Implementation based on the
-\href{https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps}{Wikipedia Colorimetric conventions for topographic maps}.
-Three fill scales are provided:
+Implementation of a selection of gradient palettes available in
+\href{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}{cpt-city}. These scales can
+act as
+\href{https://en.wikipedia.org/wiki/Hypsometric_tints}{hypsometric (or bathymetric) tints}
+using the option \code{as_tint = TRUE}. Three fill scales are provided:
 \itemize{
 \item \code{scale_fill_hypso_d()}: For discrete values.
 \item \code{scale_fill_hypso_c()}: For continuous values.
@@ -66,6 +105,30 @@ Three fill scales are provided:
 
 Additionally, a color palette \code{hypso.colors()} is provided. See also
 \code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+}
+\details{
+When using the parameter \code{as_tint = TRUE}, the position of the gradients and
+the limits of the palette are redefined. Instead of treating the color
+palette as a continuous gradient, they are rescaled to act as a hypsometric
+tint. A rough description of these tints are:
+\itemize{
+\item Blue colors: Negative values.
+\item Green colors: 0 to 1.000 values.
+\item Browns: 1000 to 4.000 values.
+\item Whites: Values higher than 4.000.
+}
+
+The following orientation would vary depending on the palette definition
+(see \link{hypsometric_tints_db} for an example on how this could be achieved).
+
+Note that the combination of the palette and \code{as_tint = TRUE} may not be
+always suitable for your specific data. For example, raster of small parts
+of the globe (and with a limited range of elevations) may not be well
+represented. As an example, a raster with a range of values on \verb{[100, 200]}
+would appear almost as an uniform color.
+
+This could be adjusted using the \code{limits}/\code{values} provided by \strong{ggplot2}.
+See \strong{Examples}.
 }
 \examples{
 \donttest{
@@ -83,10 +146,44 @@ ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_c()
 
+# Use hypsometric limits...
+ggplot() +
+  geom_spatraster(data = volcano2_rast) +
+  scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-schwarzwald-cont")
+
+# ...but not suitable for the range of the raster: adjust
+my_lims <- c(70, 200)
+ggplot() +
+  geom_spatraster(data = volcano2_rast) +
+  scale_fill_hypso_c(
+    as_tint = TRUE, palette = "wiki-schwarzwald-cont",
+    limits = my_lims
+  )
+
+# Full map with true tints
+
+f_asia <- system.file("extdata/asia.tif", package = "tidyterra")
+asia <- rast(f_asia)
+
+ggplot() +
+  geom_spatraster(data = asia) +
+  scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-2.0") +
+  labs(fill = "elevation (m)")
+
+
 # Binned
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_b(breaks = seq(70, 200, 10))
+  scale_fill_hypso_b(breaks = seq(70, 200, 25), palette = "wiki-2.0_hypso")
+
+# With limits and breaks
+ggplot() +
+  geom_spatraster(data = volcano2_rast) +
+  scale_fill_hypso_b(
+    breaks = seq(75, 200, 25), palette = "wiki-2.0_hypso",
+    as_tint = TRUE,
+    limits = c(75, 200)
+  )
 
 # With discrete values
 factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
@@ -100,14 +197,36 @@ factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
 
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
-  scale_fill_hypso_d(na.value = "gray10")
+  scale_fill_hypso_d(na.value = "gray10", palette = "dem_poster")
 }
+# Display all the cpl_city palettes
+
+pals <- unique(hypsometric_tints_db$pal)
+
+# Helper fun for plotting
+
+ncols <- 128
+rowcol <- grDevices::n2mfrow(length(pals))
+
+opar <- par(no.readonly = TRUE)
+par(mfrow = rowcol, mar = rep(1, 4))
+
+for (i in pals) {
+  image(
+    x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
+    col = hypso.colors(ncols, i), main = i,
+    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+  )
+}
+par(opar)
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
+\link{hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}},
+\code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-Other scales and palettes for hypsometric tints:
+Other gradient scales and palettes for hypsometry:
 \code{\link{scale_fill_terrain}},
-\code{\link{scale_fill_whitebox}}
+\code{\link{scale_fill_whitebox}},
+\code{\link{scale_fill_wiki}}
 }
-\concept{hypso}
+\concept{gradients}

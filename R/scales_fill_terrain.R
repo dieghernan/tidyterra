@@ -21,7 +21,7 @@
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill` aesthetics.
 #'
-#' @family hypso
+#' @family gradients
 #'
 #' @examples
 #' \donttest{
