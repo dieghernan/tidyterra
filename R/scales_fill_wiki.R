@@ -25,9 +25,10 @@
 #'
 #' @family gradients
 #'
+#' @importFrom ggplot2 alpha
+#'
 #' @examples
 #' \donttest{
-#'
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 #'
 #' library(terra)
@@ -87,13 +88,15 @@ scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
+  length_pal <- length(wiki_cols)
+
   ggplot2::continuous_scale(
     aesthetics = "fill",
     scale_name = "wiki_fill_c",
     scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
-    )(100)),
+    )(length_pal)),
     na.value = na.value,
     guide = guide,
     ...
@@ -110,13 +113,15 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
+  length_pal <- length(wiki_cols)
+
   ggplot2::binned_scale(
     aesthetics = "fill",
     scale_name = "wiki_fill_b",
     scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
-    )(100)),
+    )(length_pal)),
     na.value = na.value,
     guide = guide,
     ...
@@ -127,30 +132,32 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 #' @inheritParams grDevices::terrain.colors
 wiki.colors <- function(n, alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
-    hypsocol <- c(
-      "#3F6B48", "#5F835E", "#7F9B74", "#A0B38B", "#C0CBA1", "#E1E4B8",
-      "#EFEBC0", "#E8E1B6", "#DDD6AA", "#D3CA9D", "#CAB982", "#C3A76B",
-      "#B9985A", "#AA8753", "#AC9A7C", "#BAAE9A", "#CAC3B8", "#E0DED8",
-      "#F5F4F2"
-    )
-
-    if (rev) hypsocol <- rev(hypsocol)
-    fn_cols <- grDevices::colorRamp(hypsocol,
-      space = "Lab",
-      interpolate = "spline"
-    )
-    cols <- fn_cols(seq(0, 1, length.out = n)) / 255
-    if (alpha != 1) {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
-    } else {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3])
-    }
+    colors <- wiki_cols
+    endcols <- tidyterra_ramp(colors, n, alpha, rev)
     return(endcols)
   } else {
     character()
   }
 }
 
+# Create ramp
+# Create ramp
+tidyterra_ramp <- function(colors, n, alpha = 1, rev = FALSE) {
+  if (rev) colors <- rev(colors)
+  fn_cols <- scales::colour_ramp(colors, alpha = FALSE)
+  endcols <- fn_cols(seq(0, 1, length.out = n))
+  if (alpha != 1) endcols <- ggplot2::alpha(endcols, alpha)
+
+  return(endcols)
+}
+
+
+wiki_cols <- c(
+  "#3F6B48", "#5F835E", "#7F9B74", "#A0B38B", "#C0CBA1", "#E1E4B8",
+  "#EFEBC0", "#E8E1B6", "#DDD6AA", "#D3CA9D", "#CAB982", "#C3A76B",
+  "#B9985A", "#AA8753", "#AC9A7C", "#BAAE9A", "#CAC3B8", "#E0DED8",
+  "#F5F4F2"
+)
 
 wiki_pal <- function(alpha = 1, direction = 1) {
   # nocov start

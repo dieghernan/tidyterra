@@ -36,8 +36,8 @@ test_that("Discrete scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
+  expect_true(all(rev(alpha(mod,
+    alpha = 0.7
   )) == mod_alpha_rev))
 })
 
@@ -79,8 +79,9 @@ test_that("Continous scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
+  expect_true(all(rev(alpha(
+    mod,
+    0.7
   )) == mod_alpha_rev))
 })
 
@@ -124,7 +125,7 @@ test_that("Breaking scale", {
 
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
-  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(all(alpha(mod, 0.9) == mod_alpha))
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha

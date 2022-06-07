@@ -132,7 +132,6 @@ See \strong{Examples}.
 }
 \examples{
 \donttest{
-
 filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 
 library(terra)

@@ -69,7 +69,6 @@ Additionally, a color palette \code{wiki.colors()} is provided. See also
 }
 \examples{
 \donttest{
-
 filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 
 library(terra)
