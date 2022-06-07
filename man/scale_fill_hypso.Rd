@@ -152,7 +152,8 @@ ggplot() +
   scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-schwarzwald-cont")
 
 # ...but not suitable for the range of the raster: adjust
-my_lims <- c(70, 200)
+my_lims <- minmax(volcano2_rast) \%>\% as.integer() + c(-2, 2)
+
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_c(
@@ -182,7 +183,7 @@ ggplot() +
   scale_fill_hypso_b(
     breaks = seq(75, 200, 25), palette = "wiki-2.0_hypso",
     as_tint = TRUE,
-    limits = c(75, 200)
+    limits = my_lims
   )
 
 # With discrete values
@@ -221,7 +222,7 @@ for (i in pals) {
 par(opar)
 }
 \seealso{
-\link{hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}},
+\link{hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}}, \code{\link[terra:minmax]{terra::minmax()}},
 \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
 Other gradient scales and palettes for hypsometry:

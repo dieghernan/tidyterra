@@ -37,7 +37,7 @@
 #'
 #' ```
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
-#' [ggplot2::scale_fill_viridis_c()]
+#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill` aesthetics.
@@ -95,7 +95,8 @@
 #'   scale_fill_cross_blended_c(as_tint = TRUE, palette = "arid")
 #'
 #' # ...but not suitable for the range of the raster: adjust
-#' my_lims <- c(70, 200)
+#' my_lims <- minmax(volcano2_rast) %>% as.integer() + c(-2, 2)
+#'
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_cross_blended_c(
@@ -128,7 +129,7 @@
 #'   scale_fill_cross_blended_b(
 #'     breaks = seq(75, 200, 25), palette = "polar",
 #'     as_tint = TRUE,
-#'     limits = c(75, 200)
+#'     limits = my_lims
 #'   )
 #'
 #' # With discrete values

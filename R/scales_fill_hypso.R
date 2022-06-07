@@ -38,7 +38,7 @@
 #' ```
 #' @param as_tint Logical. Should the scale use predefined limits? See
 #'   **Details**.
-#' @seealso [hypsometric_tints_db], [terra::plot()],
+#' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
 #' [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
@@ -95,7 +95,8 @@
 #'   scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-schwarzwald-cont")
 #'
 #' # ...but not suitable for the range of the raster: adjust
-#' my_lims <- c(70, 200)
+#' my_lims <- minmax(volcano2_rast) %>% as.integer() + c(-2, 2)
+#'
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_hypso_c(
@@ -125,7 +126,7 @@
 #'   scale_fill_hypso_b(
 #'     breaks = seq(75, 200, 25), palette = "wiki-2.0_hypso",
 #'     as_tint = TRUE,
-#'     limits = c(75, 200)
+#'     limits = my_lims
 #'   )
 #'
 #' # With discrete values

@@ -1,0 +1,133 @@
+---
+title: "Gradient palettes in tidyterra"
+author: "Diego Hernangómez"
+description: >
+  A gallery of maps using the gradients provided by tidyterra.
+editor_options: 
+  markdown: 
+    wrap: 80
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  dpi = 300,
+  tidy = "styler",
+  out.width = "50%",
+  fig.show = "hold"
+)
+
+library(tidyterra)
+```
+
+This page shows a gallery of maps that can be displayed with the gradient fill
+scales included with **tidyterra**. A basic code to generate this map is:
+
+```{r, eval=FALSE}
+
+library(tidyterra)
+library(terra)
+library(ggplot2)
+
+r <- rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+ggplot() +
+  geom_spatraster(data = r) +
+  # Use the palette you like, in this case:
+  scale_fill_hypso_c() +
+  theme_void()
+```
+
+## `scale_fill_terrain_*` and `scale_fill_wiki_*`
+
+Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
+
+```{r terr_wiki, echo=FALSE}
+
+r <- terra::rast(system.file("extdata/volcano2.tif",
+  package = "tidyterra"
+))
+
+library(ggplot2)
+
+baseplot <- ggplot() +
+  geom_spatraster(data = r)
+
+ss <- baseplot +
+  scale_fill_terrain_c() +
+  labs(title = "terrain") +
+  theme_void()
+
+print(ss)
+
+
+ss <- baseplot +
+  scale_fill_wiki_c() +
+  labs(title = "wiki") +
+  theme_void()
+
+print(ss)
+```
+
+## `scale_fill_whitebox_*`
+
+Check `scale_fill_whitebox_c()` for more info.
+
+```{r whitebox, echo=FALSE}
+
+allpals <- sort(c(
+  "atlas", "high_relief", "arid", "soft", "muted", "purple",
+  "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
+))
+
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_whitebox_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void()
+
+  print(ss)
+}
+```
+
+## `scale_fill_hypso_*`
+
+Check `scale_fill_hypso_c()` for more info. These plots have been generated
+using the option `as_tint = FALSE`.
+
+```{r hypso, echo=FALSE}
+
+allpals <- sort(unique(hypsometric_tints_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_hypso_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void()
+
+  print(ss)
+}
+```
+
+## `scale_fill_cross_blended_*`
+
+Check `scale_cross_blended_hypso_c()` for more info. These plots have been
+generated using the option `as_tint = FALSE`.
+
+```{r cross, echo=FALSE}
+
+allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_cross_blended_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void()
+
+  print(ss)
+}
+```

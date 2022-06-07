@@ -1,10 +1,8 @@
 # tidyterra (development version)
 
 -   Recreate `extdata/volcano2.tif` using official DEM information from New
-    Zealand:
-
-    -   url:
-        <https://data.linz.govt.nz/layer/51768-nz-8m-digital-elevation-model-2012/data/>
+    Zealand. Source: [Auckland LiDAR 1m DEM
+    (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
 
 -   Add `volcano2` dataset.
 
