@@ -19,7 +19,7 @@ test_that("Discrete scale", {
 
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
-  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
   expect_error(p + scale_fill_hypso_d(direction = 0.5),
@@ -36,8 +36,8 @@ test_that("Discrete scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
+  expect_true(all(rev(alpha(mod,
+    alpha = 0.7
   )) == mod_alpha_rev))
 
   # Change pal
@@ -86,7 +86,7 @@ test_that("Continous scale", {
 
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
-  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
   expect_error(p + scale_fill_hypso_c(direction = 0.5),
@@ -103,8 +103,8 @@ test_that("Continous scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
+  expect_true(all(rev(alpha(mod,
+    alpha = 0.7
   )) == mod_alpha_rev))
 
   # Change pal
@@ -219,7 +219,7 @@ test_that("Breaking scale", {
 
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
-  expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
+  expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha
@@ -297,7 +297,7 @@ test_that("Breaking scale tint", {
   p3 <- p + scale_fill_hypso_b(as_tint = TRUE, limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$fill
   expect_true(!any(mod_lims %in% mod))
-  expect_true(!any(mod_lims %in% init))
+  expect_false(all(mod_lims %in% init))
 
   # Modify also with values
   p4 <- p + scale_fill_hypso_b(

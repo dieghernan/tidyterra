@@ -181,6 +181,11 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
   if (isFALSE(as_tint)) {
+    length_pal <- nrow(extract_pal(
+      tidyterra::cross_blended_hypsometric_tints_db,
+      palette = palette
+    ))
+
     ggplot2::continuous_scale(
       aesthetics = "fill",
       scale_name = "cross_blended_fill_c",
@@ -188,7 +193,7 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
         alpha = alpha,
         direction = direction,
         palette = palette
-      )(100)),
+      )(length_pal)),
       na.value = na.value,
       guide = guide,
       ...
@@ -236,6 +241,12 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
   if (isFALSE(as_tint)) {
+    length_pal <- nrow(extract_pal(
+      tidyterra::cross_blended_hypsometric_tints_db,
+      palette = palette
+    ))
+
+
     ggplot2::binned_scale(
       aesthetics = "fill",
       scale_name = "cross_blended_fill_b",
@@ -243,7 +254,7 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
         alpha = alpha,
         direction = direction,
         palette = palette
-      )(100)),
+      )(length_pal)),
       na.value = na.value,
       guide = guide,
       ...
@@ -305,30 +316,12 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
 #' par(opar)
 cross_blended.colors <- function(n, palette = "cold_humid",
                                  alpha = 1, rev = FALSE) {
-  palette <- tolower(palette)
-
-  coltab <- tidyterra::cross_blended_hypsometric_tints_db
-
-  if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
-  }
-
   if ((n <- as.integer(n[1L])) > 0) {
-    hypsocol <- coltab[coltab$pal == palette, ]
-    hypsocol <- as.character(hypsocol$hex)
-
-
-    if (rev) hypsocol <- rev(hypsocol)
-    fn_cols <- grDevices::colorRamp(hypsocol,
-      space = "Lab",
-      interpolate = "spline"
+    paltab <- extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+      palette = palette
     )
-    cols <- fn_cols(seq(0, 1, length.out = n)) / 255
-    if (alpha != 1) {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
-    } else {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3])
-    }
+    colors <- as.character(paltab$hex)
+    endcols <- tidyterra_ramp(colors, n, alpha, rev)
     return(endcols)
   } else {
     character()

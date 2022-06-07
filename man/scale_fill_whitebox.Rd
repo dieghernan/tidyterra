@@ -79,7 +79,6 @@ Additionally, a color palette \code{whitebox.colors()} is provided. See also
 }
 \examples{
 \donttest{
-
 filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 
 library(terra)
@@ -123,10 +122,11 @@ pals <- c(
 # Helper fun for plotting
 
 ncols <- 128
-npals <- length(pals)
-opar <- par(no.readonly = TRUE)
+rowcol <- grDevices::n2mfrow(length(pals))
 
-par(mfrow = c(npals, 1), mar = rep(1, 4))
+opar <- par(no.readonly = TRUE)
+par(mfrow = rowcol, mar = rep(1, 4))
+
 for (i in pals) {
   image(
     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),

@@ -45,7 +45,6 @@
 #'
 #' @examples
 #' \donttest{
-#'
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 #'
 #' library(terra)
@@ -108,6 +107,8 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
+  length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
+
   ggplot2::continuous_scale(
     aesthetics = "fill",
     scale_name = "whitebox_fill_c",
@@ -115,7 +116,7 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(100)),
+    )(length_pal)),
     na.value = na.value,
     guide = guide,
     ...
@@ -133,6 +134,9 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
+  length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
+
+
   ggplot2::binned_scale(
     aesthetics = "fill",
     scale_name = "whitebox_fill_b",
@@ -140,7 +144,7 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(100)),
+    )(length_pal)),
     na.value = na.value,
     guide = guide,
     ...
@@ -162,10 +166,11 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #' # Helper fun for plotting
 #'
 #' ncols <- 128
-#' npals <- length(pals)
-#' opar <- par(no.readonly = TRUE)
+#' rowcol <- grDevices::n2mfrow(length(pals))
 #'
-#' par(mfrow = c(npals, 1), mar = rep(1, 4))
+#' opar <- par(no.readonly = TRUE)
+#' par(mfrow = rowcol, mar = rep(1, 4))
+#'
 #' for (i in pals) {
 #'   image(
 #'     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
@@ -176,28 +181,10 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #' par(opar)
 whitebox.colors <- function(n, palette = "high_relief",
                             alpha = 1, rev = FALSE) {
-  palette <- tolower(palette)
-
-  if (!palette %in% whitebox_coltab$pal) {
-    stop("'palette' does not match any given palette")
-  }
-
   if ((n <- as.integer(n[1L])) > 0) {
-    hypsocol <- whitebox_coltab[whitebox_coltab$pal == palette, ]
-    hypsocol <- as.character(hypsocol$hex)
-
-
-    if (rev) hypsocol <- rev(hypsocol)
-    fn_cols <- grDevices::colorRamp(hypsocol,
-      space = "Lab",
-      interpolate = "spline"
-    )
-    cols <- fn_cols(seq(0, 1, length.out = n)) / 255
-    if (alpha != 1) {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
-    } else {
-      endcols <- grDevices::rgb(cols[, 1], cols[, 2], cols[, 3])
-    }
+    paltab <- extract_pal(whitebox_coltab, palette = palette)
+    colors <- as.character(paltab$hex)
+    endcols <- tidyterra_ramp(colors, n, alpha, rev)
     return(endcols)
   } else {
     character()
@@ -216,4 +203,15 @@ whitebox_pal <- function(alpha = 1, direction = 1, palette) {
     pal
   }
   # nocov end
+}
+
+extract_pal <- function(df, palette) {
+  palette <- tolower(palette)
+
+  if (!palette %in% df$pal) {
+    stop("'palette' does not match any given palette")
+  }
+
+  df <- df[df$pal == palette, ]
+  return(df)
 }
