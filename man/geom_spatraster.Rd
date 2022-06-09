@@ -88,6 +88,7 @@ the scales. That means that also the \strong{SpatRaster may be reprojected}.
 \code{geom_spatraster()} understands the following aesthetics:
 \itemize{
 \item \code{fill}
+\item \code{alpha}
 }
 
 If \code{fill} is not provided, \code{geom_spatraster()} creates a ggplot2 layer with
@@ -98,6 +99,8 @@ If \code{fill} is used, it should contain the name of one layer that is present
 on the SpatRaster (i.e.
 \verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Names of the
 layers can be retrieved using \code{names(rast)}.
+
+For \code{alpha} use computed variable. See section \strong{Computed variables}.
 }
 
 \section{Facets}{
@@ -111,10 +114,11 @@ the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()
 
 
 This geom computes internally some variables that are available for use as
-aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
+aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
 
 \describe{
+\item{\code{value}}{Values of the SpatRaster.}
 \item{\code{lyr}}{Name of the layer.}
 }
 }
