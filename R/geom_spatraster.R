@@ -45,6 +45,7 @@
 #' `geom_spatraster()` understands the following aesthetics:
 #'
 #' - `fill`
+#' - `alpha`
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a ggplot2 layer with
 #' all the layers of the SpatRaster object. Use `facet_wrap(~lyr)` to display
@@ -55,6 +56,7 @@
 #' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Names of the
 #' layers can be retrieved using `names(rast)`.
 #'
+#' For `alpha` use computed variable. See section **Computed variables**.
 #'
 #' @section Facets:
 #'
@@ -64,10 +66,11 @@
 #' @section Computed variables:
 #'
 #' This geom computes internally some variables that are available for use as
-#' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
+#' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
 #' \describe{
+#'  \item{`value`}{Values of the SpatRaster.}
 #'  \item{`lyr`}{Name of the layer.}
 #' }
 #'
