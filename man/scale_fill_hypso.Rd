@@ -6,6 +6,10 @@
 \alias{scale_fill_hypso_c}
 \alias{scale_fill_hypso_b}
 \alias{hypso.colors}
+\alias{scale_fill_hypso_tint_d}
+\alias{scale_fill_hypso_tint_c}
+\alias{scale_fill_hypso_tint_b}
+\alias{hypso.colors2}
 \title{Gradient fill scales for representing hypsometry and bathymetry}
 \source{
 cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
@@ -18,9 +22,6 @@ scale_fill_hypso_c(
   ...,
   alpha = 1,
   direction = 1,
-  values = NULL,
-  limits = NULL,
-  as_tint = FALSE,
   na.value = NA,
   guide = "colourbar"
 )
@@ -30,14 +31,42 @@ scale_fill_hypso_b(
   ...,
   alpha = 1,
   direction = 1,
-  values = NULL,
-  limits = NULL,
-  as_tint = FALSE,
   na.value = NA,
   guide = "coloursteps"
 )
 
 hypso.colors(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE)
+
+scale_fill_hypso_tint_d(
+  palette = "etopo1_hypso",
+  ...,
+  alpha = 1,
+  direction = 1
+)
+
+scale_fill_hypso_tint_c(
+  palette = "etopo1_hypso",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = NA,
+  guide = "colourbar"
+)
+
+scale_fill_hypso_tint_b(
+  palette = "etopo1_hypso",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = NA,
+  guide = "coloursteps"
+)
+
+hypso.colors2(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE)
 }
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
@@ -54,6 +83,17 @@ labels and so forth.}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
+
+\item{na.value}{Missing values will be replaced with this value.}
+
+\item{guide}{A function used to create a guide or its name. See
+\code{\link[ggplot2:guides]{guides()}} for more information.}
+
+\item{n}{the number of colors (\eqn{\ge 1}) to be in the
+    palette.}
+
+\item{rev}{logical indicating whether the ordering of the colors should
+    be reversed.}
 
 \item{values}{if colours should not be evenly positioned along the gradient
 this vector gives the position (between 0 and 1) for each colour in the
@@ -72,20 +112,6 @@ Note that setting limits on positional scales will \strong{remove} data outside 
 If the purpose is to zoom, use the limit argument in the coordinate system
 (see \code{\link[ggplot2:coord_cartesian]{coord_cartesian()}}).
 }}
-
-\item{as_tint}{Logical. Should the scale use predefined limits? See
-\strong{Details}.}
-
-\item{na.value}{Missing values will be replaced with this value.}
-
-\item{guide}{A function used to create a guide or its name. See
-\code{\link[ggplot2:guides]{guides()}} for more information.}
-
-\item{n}{the number of colors (\eqn{\ge 1}) to be in the
-    palette.}
-
-\item{rev}{logical indicating whether the ordering of the colors should
-    be reversed.}
 }
 \value{
 The corresponding ggplot2 layer with the values applied to the
@@ -93,21 +119,31 @@ The corresponding ggplot2 layer with the values applied to the
 }
 \description{
 Implementation of a selection of gradient palettes available in
-\href{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}{cpt-city}. These scales can
-act as
-\href{https://en.wikipedia.org/wiki/Hypsometric_tints}{hypsometric (or bathymetric) tints}
-using the option \code{as_tint = TRUE}. Three fill scales are provided:
+\href{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}{cpt-city}.
+
+The following fill scales and palettes are provided:
 \itemize{
 \item \code{scale_fill_hypso_d()}: For discrete values.
 \item \code{scale_fill_hypso_c()}: For continuous values.
 \item \code{scale_fill_hypso_b()}: For binning continuous values.
-}
-
-Additionally, a color palette \code{hypso.colors()} is provided. See also
+\item \code{hypso.colors()}: A gradient color palette. See also
 \code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
 }
+
+An additional set of scales is provided. These scales can act as
+\href{https://en.wikipedia.org/wiki/Hypsometric_tints}{hypsometric (or bathymetric) tints}.
+\itemize{
+\item \code{scale_fill_hypso_tint_d()}: For discrete values.
+\item \code{scale_fill_hypso_tint_c()}: For continuous values.
+\item \code{scale_fill_hypso_tint_b()}: For binning continuous values.
+\item \code{hypso.colors2()}: A gradient color palette. See also
+\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+}
+
+See \strong{Details}.
+}
 \details{
-When using the parameter \code{as_tint = TRUE}, the position of the gradients and
+On \verb{scale_fill_hypso_tint_*} palettes, the position of the gradients and
 the limits of the palette are redefined. Instead of treating the color
 palette as a continuous gradient, they are rescaled to act as a hypsometric
 tint. A rough description of these tints are:
@@ -121,13 +157,17 @@ tint. A rough description of these tints are:
 The following orientation would vary depending on the palette definition
 (see \link{hypsometric_tints_db} for an example on how this could be achieved).
 
-Note that the combination of the palette and \code{as_tint = TRUE} may not be
-always suitable for your specific data. For example, raster of small parts
-of the globe (and with a limited range of elevations) may not be well
-represented. As an example, a raster with a range of values on \verb{[100, 200]}
-would appear almost as an uniform color.
+Note that the setup of the palette may not be always suitable for your
+specific data. For example, raster of small parts of the globe (and with a
+limited range of elevations) may not be well represented. As an example, a
+raster with a range of values on \verb{[100, 200]} would appear almost as an
+uniform color.
 
 This could be adjusted using the \code{limits}/\code{values} provided by \strong{ggplot2}.
+
+\code{hypso.colors2()} provides a gradient color palette where the distance
+between colors is different depending of the type of color. In contrast,
+\code{hypso.colors()} provides an uniform gradient across colors.
 See \strong{Examples}.
 }
 \examples{
@@ -138,25 +178,29 @@ library(terra)
 volcano2_rast <- rast(filepath)
 
 # Palette
-plot(volcano2_rast, col = hypso.colors(100))
+plot(volcano2_rast, col = hypso.colors(100, palette = "wiki-2.0_hypso"))
+
+# Palette with uneven colors
+plot(volcano2_rast, col = hypso.colors2(100, palette = "wiki-2.0_hypso"))
+
 
 library(ggplot2)
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_c()
+  scale_fill_hypso_c(palette = "colombia_hypso")
 
-# Use hypsometric limits...
+# Use hypsometric  tint version...
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-schwarzwald-cont")
+  scale_fill_hypso_tint_c(palette = "colombia_hypso")
 
 # ...but not suitable for the range of the raster: adjust
 my_lims <- minmax(volcano2_rast) \%>\% as.integer() + c(-2, 2)
 
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_c(
-    as_tint = TRUE, palette = "wiki-schwarzwald-cont",
+  scale_fill_hypso_tint_c(
+    palette = "colombia_hypso",
     limits = my_lims
   )
 
@@ -167,8 +211,19 @@ asia <- rast(f_asia)
 
 ggplot() +
   geom_spatraster(data = asia) +
-  scale_fill_hypso_c(as_tint = TRUE, palette = "wiki-2.0") +
-  labs(fill = "elevation (m)")
+  scale_fill_hypso_tint_c(
+    palette = "etopo1",
+    labels = scales::label_number(),
+    breaks = c(-10000, 0, 5000, 8000),
+    guide = guide_colorbar(
+      direction = "horizontal",
+      title.position = "top",
+      barwidth = 25
+    )
+  ) +
+  labs(fill = "elevation (m)") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
 
 
 # Binned
@@ -179,9 +234,9 @@ ggplot() +
 # With limits and breaks
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_b(
-    breaks = seq(75, 200, 25), palette = "wiki-2.0_hypso",
-    as_tint = TRUE,
+  scale_fill_hypso_tint_b(
+    breaks = seq(75, 200, 25),
+    palette = "wiki-2.0_hypso",
     limits = my_lims
   )
 
@@ -194,10 +249,15 @@ factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
   )
 ))
 
-
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_hypso_d(na.value = "gray10", palette = "dem_poster")
+
+
+# Tint version
+ggplot() +
+  geom_spatraster(data = factor, aes(fill = cats)) +
+  scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 }
 # Display all the cpl_city palettes
 
@@ -215,6 +275,26 @@ for (i in pals) {
   image(
     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
     col = hypso.colors(ncols, i), main = i,
+    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+  )
+}
+par(opar)
+# Display all the cpl_city palettes on version 2
+
+pals <- unique(hypsometric_tints_db$pal)
+
+# Helper fun for plotting
+
+ncols <- 128
+rowcol <- grDevices::n2mfrow(length(pals))
+
+opar <- par(no.readonly = TRUE)
+par(mfrow = rowcol, mar = rep(1, 4))
+
+for (i in pals) {
+  image(
+    x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
+    col = hypso.colors2(ncols, i), main = i,
     ylab = "", xaxt = "n", yaxt = "n", bty = "n"
   )
 }

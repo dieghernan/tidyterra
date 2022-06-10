@@ -1,19 +1,22 @@
 year <- format(Sys.time(), "%Y")
 abs <- trimws(gsub("\\s+", " ", meta$Description))
 abs <- gsub("'", "", abs)
+doi <- "10.5281/zenodo.6572471"
 
 bibentry(
   "Manual",
   header = paste0("To cite '", meta$Package, "' in publications use:"),
   title = paste("{tidyterra}:", gsub("'", "", meta$Title)),
-  doi = "10.5281/zenodo.6572471",
+  doi = doi,
   author = c(person("Diego", "Hernangómez")),
   year = year,
   version = meta$Version,
   url = unlist(strsplit(meta$URL, ","))[1],
   abstract = abs,
   key = "R-tidyterra",
-  textVersion = paste0("Hernangomez D (",year,"). _tidyterra: ",
-    gsub("'", "", meta$Title),"_. <https://doi.org/10.5281/zenodo.6572471>, <",
-    unlist(strsplit(meta$URL, ","))[1],">")
+  textVersion = paste0(
+    "Hernangomez D (", year, "). tidyterra: ",
+    gsub("'", "", meta$Title), ". <https://doi.org/", doi, ">, <",
+    unlist(strsplit(meta$URL, ","))[1], ">"
+  )
 )

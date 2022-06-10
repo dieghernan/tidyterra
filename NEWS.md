@@ -16,6 +16,8 @@
     -   `scale_fill_wiki_c()`
     -   `scale_fill_cross_blended_c()`
 
+-   Add new asia.tif file on `extdata`.
+
 # tidyterra 0.1.0
 
 -   Add DOI.
