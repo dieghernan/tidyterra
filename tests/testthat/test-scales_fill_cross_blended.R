@@ -65,6 +65,41 @@ test_that("Discrete scale", {
   expect_true(all(length(allpals) == length_cols))
 })
 
+
+test_that("Discrete scale tint", {
+  d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
+
+  p <- ggplot2::ggplot(d) +
+    ggplot2::geom_col(aes(x, y, fill = l))
+
+  p_init <- p + scale_fill_cross_blended_d()
+
+  init <- ggplot2::layer_data(p_init)$fill
+
+  # Use tint option
+  s <- p + scale_fill_cross_blended_tint_d(palette = "x")
+  expect_error(ggplot2::ggplot_build(s))
+  expect_error(p + scale_fill_cross_blended_tint_d(alpha = -1))
+  expect_error(p + scale_fill_cross_blended_tint_d(direction = -12))
+
+  p2 <- p + scale_fill_cross_blended_tint_d()
+
+  mod <- ggplot2::layer_data(p2)$fill
+
+  expect_false(all(init %in% mod))
+
+  # Reverse
+  p2_rev <- p + scale_fill_cross_blended_tint_d(direction = -1)
+  mod_rev <- ggplot2::layer_data(p2_rev)$fill
+  expect_false(all(mod_rev %in% mod))
+
+  # Alpha
+  p2_alpha <- p + scale_fill_cross_blended_tint_d(alpha = 0.5)
+  mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
+  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+})
+
+
 test_that("Continous scale", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 
@@ -143,34 +178,35 @@ test_that("Continous scale tint", {
   init <- ggplot2::layer_data(p_init)$fill
 
   # Use tint option
-  expect_error(p + scale_fill_cross_blended_c(palette = "x", as_tint = TRUE))
+  expect_error(p + scale_fill_cross_blended_tint_c(palette = "x"))
+  expect_error(p + scale_fill_cross_blended_tint_c(alpha = -1))
+  expect_error(p + scale_fill_cross_blended_tint_c(direction = -12))
 
-  p2 <- p + scale_fill_cross_blended_c(as_tint = TRUE)
+  p2 <- p + scale_fill_cross_blended_tint_c()
 
   mod <- ggplot2::layer_data(p2)$fill
 
   expect_true(!any(init %in% mod))
 
   # Reverse
-  p2_rev <- p + scale_fill_cross_blended_c(as_tint = TRUE, direction = -1)
+  p2_rev <- p + scale_fill_cross_blended_tint_c(direction = -1)
   mod_rev <- ggplot2::layer_data(p2_rev)$fill
   expect_true(!any(mod_rev %in% mod))
 
   # Alpha
-  p2_alpha <- p + scale_fill_cross_blended_c(as_tint = TRUE, alpha = 0.5)
+  p2_alpha <- p + scale_fill_cross_blended_tint_c(alpha = 0.5)
   mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
   expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
 
   # Modify limits
-
-  p3 <- p + scale_fill_cross_blended_c(as_tint = TRUE, limits = c(20, 26))
+  p3 <- p + scale_fill_cross_blended_tint_c(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$fill
   expect_true(!any(mod_lims %in% mod))
   expect_true(!any(mod_lims %in% init))
 
   # Modify also with values
-  p4 <- p + scale_fill_cross_blended_c(
-    as_tint = TRUE, values = c(21, seq(22, 25, .05)),
+  p4 <- p + scale_fill_cross_blended_tint_c(
+    values = c(21, seq(22, 25, .05)),
     limits = c(19, 27)
   )
   mod_values <- ggplot2::layer_data(p4)$fill
@@ -274,34 +310,37 @@ test_that("Breaking scale tint", {
   init <- ggplot2::layer_data(p_init)$fill
 
   # Use tint option
-  expect_error(p + scale_fill_cross_blended_b(palette = "x", as_tint = TRUE))
-  p2 <- p + scale_fill_cross_blended_b(as_tint = TRUE)
+  expect_error(p + scale_fill_cross_blended_tint_b(palette = "x"))
+  expect_error(p + scale_fill_cross_blended_tint_b(palette = "x"))
+  expect_error(p + scale_fill_cross_blended_tint_b(alpha = -1))
+  expect_error(p + scale_fill_cross_blended_tint_b(direction = -12))
+  p2 <- p + scale_fill_cross_blended_tint_b()
 
   mod <- ggplot2::layer_data(p2)$fill
 
   expect_true(!any(init %in% mod))
 
   # Reverse
-  p2_rev <- p + scale_fill_cross_blended_b(as_tint = TRUE, direction = -1)
+  p2_rev <- p + scale_fill_cross_blended_tint_b(direction = -1)
   mod_rev <- ggplot2::layer_data(p2_rev)$fill
   expect_true(!any(mod_rev %in% mod))
 
   # Alpha
-  p2_alpha <- p + scale_fill_cross_blended_b(as_tint = TRUE, alpha = 0.5)
+  p2_alpha <- p + scale_fill_cross_blended_tint_b(alpha = 0.5)
   mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
   expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
 
 
   # Modify limits
 
-  p3 <- p + scale_fill_cross_blended_b(as_tint = TRUE, limits = c(20, 26))
+  p3 <- p + scale_fill_cross_blended_tint_b(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$fill
   expect_true(!any(mod_lims %in% mod))
-  expect_true(!any(mod_lims %in% init))
+  expect_false(all(mod_lims %in% init))
 
   # Modify also with values
-  p4 <- p + scale_fill_cross_blended_b(
-    as_tint = TRUE, values = c(20, seq(22, 27, .05)),
+  p4 <- p + scale_fill_cross_blended_tint_b(
+    values = c(20, seq(22, 27, .05)),
     limits = c(19, 27)
   )
   mod_values <- ggplot2::layer_data(p4)$fill
@@ -310,7 +349,7 @@ test_that("Breaking scale tint", {
   expect_true(!any(mod_values %in% init))
 })
 
-test_that("Palette", {
+test_that("Palettes", {
   expect_error(cross_blended.colors(20, "xx"))
 
   # Check all palettes
@@ -329,4 +368,41 @@ test_that("Palette", {
     )
     expect_length(colors, 20)
   }
+})
+
+
+test_that("Palettes2", {
+  expect_error(cross_blended.colors2(20, "xx"))
+
+  # Check all palettes
+  allpals <- unique(cross_blended_hypsometric_tints_db$pal)
+
+  # Expect character(0)
+  expect_identical(cross_blended.colors2(0), character(0))
+
+  for (i in seq_len(length(allpals))) {
+    pal <- allpals[i]
+
+    colors <- cross_blended.colors2(25, pal)
+
+    expect_identical(
+      class(colors),
+      "character"
+    )
+  }
+
+  # Check alpha and rev
+
+  col_init <- cross_blended.colors2(5)
+  col_init_alpha <- cross_blended.colors2(5, alpha = .2)
+
+  expect_equal(alpha(col_init, .2), col_init_alpha)
+
+
+  col_init_rev <- cross_blended.colors2(5, rev = TRUE)
+
+  expect_false(all(rev(col_init) == col_init_rev))
+  col_init_rev_alpha <- cross_blended.colors2(5, rev = TRUE, alpha = .5)
+
+  expect_equal(alpha(col_init_rev, .5), col_init_rev_alpha)
 })

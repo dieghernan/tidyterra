@@ -187,6 +187,35 @@ rgb_plot +
   coord_sf(crs = 3035)
 ```
 
+{tidyterra} provides selected scales that are suitable for creating hypsometric
+and bathymetric maps:
+
+```{r hypso}
+
+asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+
+asia
+
+ggplot() +
+  geom_spatraster(data = asia) +
+  scale_fill_hypso_tint_c(
+    palette = "gmt_globe",
+    labels = scales::label_number(),
+    breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
+    guide = guide_colorbar(
+      direction = "horizontal",
+      title.position = "top",
+      barwidth = 20
+    )
+  ) +
+  labs(
+    fill = "elevation (m)",
+    title = "Hypsometric map of Asia"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
 ### SpatVectors
 
 {tidyterra} allows you to plot SpatVectors with {ggplot2} using the

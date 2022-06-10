@@ -1,43 +1,41 @@
-#' Gradient fill scales for representing hypsometry and bathymetry
+#' Cross blended Hypsometric Tints fill scales
 #'
 #' @description
 #'
-#' Implementation of a selection of gradient palettes available in
-#' [cpt-city](http://soliton.vm.bytemark.co.uk/pub/cpt-city/).
+#' Implementation of the cross blended hypsometric gradients presented on
+#' \doi{10.14714/CP69.20}. The following fill scales and palettes are provided:
 #'
-#' The following fill scales and palettes are provided:
-#'
-#' - `scale_fill_hypso_d()`: For discrete values.
-#' - `scale_fill_hypso_c()`: For continuous values.
-#' - `scale_fill_hypso_b()`: For binning continuous values.
-#' - `hypso.colors()`: A gradient color palette. See also
+#' - `scale_fill_cross_blended_d()`: For discrete values.
+#' - `scale_fill_cross_blended_c()`: For continuous values.
+#' - `scale_fill_cross_blended_b()`: For binning continuous values.
+#' - `cross_blended.colors()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
 #' [hypsometric (or bathymetric) tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
-#' - `scale_fill_hypso_tint_d()`: For discrete values.
-#' - `scale_fill_hypso_tint_c()`: For continuous values.
-#' - `scale_fill_hypso_tint_b()`: For binning continuous values.
-#' - `hypso.colors2()`: A gradient color palette. See also
+#' - `scale_fill_cross_blended_tint_d()`: For discrete values.
+#' - `scale_fill_cross_blended_tint_c()`: For continuous values.
+#' - `scale_fill_cross_blended_tint_b()`: For binning continuous values.
+#' - `cross_blended.colors2()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' See **Details**.
 #'
 #' @export
 #'
-#' @name scale_fill_hypso
+#' @name scale_fill_cross_blended
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [hypsometric_tints_db] for more info. Values available are:
+#'   [cross_blended_hypsometric_tints_db] for more info. Values available are:
 #'
 #' ```{r, echo=FALSE, results="asis"}
 #'
 #' library(dplyr)
-#' hypsometric_tints_db %>%
+#' cross_blended_hypsometric_tints_db %>%
 #'   pull(pal) %>%
 #'   unique() %>%
 #'   paste0('`"', ., '"`', collapse = ", ") %>%
@@ -46,8 +44,8 @@
 #'
 #'
 #' ```
-#' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
-#' [ggplot2::scale_fill_viridis_c()]
+#' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
+#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill` aesthetics.
@@ -55,8 +53,13 @@
 #' @family gradients
 #'
 #' @source
+#' Patterson, T., & Jenny, B. (2011). The Development and
+#' Rationale of Cross-blended Hypsometric Tints. *Cartographic Perspectives,*
+#' (69), 31 - 46. \doi{10.14714/CP69.20}.
 #'
-#' cpt-city: <http://soliton.vm.bytemark.co.uk/pub/cpt-city/>.
+#' Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for Generalized
+#' Environmental Mapping.* Accessed June 10, 2022.
+#' <http://www.shadedrelief.com/hypso/hypso.html>
 #'
 #' @examples
 #' \donttest{
@@ -66,29 +69,29 @@
 #' volcano2_rast <- rast(filepath)
 #'
 #' # Palette
-#' plot(volcano2_rast, col = hypso.colors(100, palette = "wiki-2.0_hypso"))
+#' plot(volcano2_rast, col = cross_blended.colors(100, palette = "arid"))
 #'
 #' # Palette with uneven colors
-#' plot(volcano2_rast, col = hypso.colors2(100, palette = "wiki-2.0_hypso"))
+#' plot(volcano2_rast, col = cross_blended.colors2(100, palette = "arid"))
 #'
 #'
 #' library(ggplot2)
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_c(palette = "colombia_hypso")
+#'   scale_fill_cross_blended_c(palette = "cold_humid")
 #'
 #' # Use hypsometric  tint version...
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_c(palette = "colombia_hypso")
+#'   scale_fill_cross_blended_tint_c(palette = "cold_humid")
 #'
 #' # ...but not suitable for the range of the raster: adjust
 #' my_lims <- minmax(volcano2_rast) %>% as.integer() + c(-2, 2)
 #'
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_c(
-#'     palette = "colombia_hypso",
+#'   scale_fill_cross_blended_tint_c(
+#'     palette = "cold_humid",
 #'     limits = my_lims
 #'   )
 #'
@@ -99,8 +102,8 @@
 #'
 #' ggplot() +
 #'   geom_spatraster(data = asia) +
-#'   scale_fill_hypso_tint_c(
-#'     palette = "etopo1",
+#'   scale_fill_cross_blended_tint_c(
+#'     palette = "warm_humid",
 #'     labels = scales::label_number(),
 #'     breaks = c(-10000, 0, 5000, 8000),
 #'     guide = guide_colorbar(
@@ -117,38 +120,42 @@
 #' # Binned
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_b(breaks = seq(70, 200, 25), palette = "wiki-2.0_hypso")
+#'   scale_fill_cross_blended_b(breaks = seq(70, 200, 25), palette = "arid")
 #'
 #' # With limits and breaks
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_b(
+#'   scale_fill_cross_blended_tint_b(
 #'     breaks = seq(75, 200, 25),
-#'     palette = "wiki-2.0_hypso",
+#'     palette = "arid",
 #'     limits = my_lims
 #'   )
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
-#'   breaks = c(100, 120, 130, 150, 170, 200),
-#'   labels = c(
-#'     "Very Low", "Low", "Average", "High",
-#'     "Very High"
-#'   )
-#' ))
+#' factor <- volcano2_rast %>%
+#'   mutate(cats = cut(elevation,
+#'     breaks = c(100, 120, 130, 150, 170, 200),
+#'     labels = c(
+#'       "Very Low", "Low", "Average", "High",
+#'       "Very High"
+#'     )
+#'   ))
 #'
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
-#'   scale_fill_hypso_d(na.value = "gray10", palette = "dem_poster")
+#'   scale_fill_cross_blended_d(na.value = "gray10", palette = "cold_humid")
 #'
 #'
 #' # Tint version
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
-#'   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
+#'   scale_fill_cross_blended_tint_d(
+#'     na.value = "gray10",
+#'     palette = "cold_humid"
+#'   )
 #' }
-scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
-                               alpha = 1, direction = 1) {
+scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
+                                       alpha = 1, direction = 1) {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -157,8 +164,8 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_d",
-    palette = hypso_pal(
+    scale_name = "cross_blended_fill_d",
+    palette = cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -167,24 +174,24 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
   )
 }
 #' @export
-#' @rdname scale_fill_hypso
-scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
-                               alpha = 1, direction = 1,
-                               na.value = NA, guide = "colourbar") {
+#' @rdname scale_fill_cross_blended
+scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
+                                       alpha = 1, direction = 1,
+                                       na.value = NA, guide = "colourbar") {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
-  length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_c",
-    scales::gradient_n_pal(hypso_pal(
+    scale_name = "cross_blended_fill_c",
+    scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -196,23 +203,23 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
 }
 
 #' @export
-#' @rdname scale_fill_hypso
-scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
-                               alpha = 1, direction = 1,
-                               na.value = NA, guide = "coloursteps") {
+#' @rdname scale_fill_cross_blended
+scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
+                                       alpha = 1, direction = 1,
+                                       na.value = NA, guide = "coloursteps") {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
-  length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_b",
-    scales::gradient_n_pal(hypso_pal(
+    scale_name = "cross_blended_fill_b",
+    scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -223,13 +230,13 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
   )
 }
 #' @export
-#' @rdname scale_fill_hypso
+#' @rdname scale_fill_cross_blended
 #'
 #' @inheritParams wiki.colors
 #' @examples
-#' # Display all the cpl_city palettes
+#' # Display all the cross-blended palettes
 #'
-#' pals <- unique(hypsometric_tints_db$pal)
+#' pals <- unique(cross_blended_hypsometric_tints_db$pal)
 #'
 #' # Helper fun for plotting
 #'
@@ -242,15 +249,17 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
 #' for (i in pals) {
 #'   image(
 #'     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-#'     col = hypso.colors(ncols, i), main = i,
+#'     col = cross_blended.colors(ncols, i), main = i,
 #'     ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #'   )
 #' }
 #' par(opar)
-hypso.colors <- function(n, palette = "etopo1_hypso",
-                         alpha = 1, rev = FALSE) {
+cross_blended.colors <- function(n, palette = "cold_humid",
+                                 alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
-    paltab <- extract_pal(tidyterra::hypsometric_tints_db, palette = palette)
+    paltab <- extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+      palette = palette
+    )
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
     return(endcols)
@@ -260,11 +269,11 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 }
 
 #' @export
-#' @rdname scale_fill_hypso
+#' @rdname scale_fill_cross_blended
 #' @details
 #'
-#' On `scale_fill_hypso_tint_*` palettes, the position of the gradients and
-#' the limits of the palette are redefined. Instead of treating the color
+#' On `scale_fill_cross_blended_tint_*` palettes, the position of the gradients
+#' and the limits of the palette are redefined. Instead of treating the color
 #' palette as a continuous gradient, they are rescaled to act as a hypsometric
 #' tint. A rough description of these tints are:
 #' - Blue colors: Negative values.
@@ -273,7 +282,8 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 #' - Whites: Values higher than 4.000.
 #'
 #' The following orientation would vary depending on the palette definition
-#' (see [hypsometric_tints_db] for an example on how this could be achieved).
+#' (see [cross_blended_hypsometric_tints_db] for an example on how this could
+#' be achieved).
 #'
 #' Note that the setup of the palette may not be always suitable for your
 #' specific data. For example, raster of small parts of the globe (and with a
@@ -283,13 +293,13 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 #'
 #' This could be adjusted using the `limits`/`values` provided by **ggplot2**.
 #'
-#' `hypso.colors2()` provides a gradient color palette where the distance
-#' between colors is different depending of the type of color. In contrast,
-#' `hypso.colors()` provides an uniform gradient across colors.
-#' See **Examples**.
+#' `cross_blended.colors2()` provides a gradient color palette where the
+#' distance between colors is different depending of the type of color.
+#'  In contrast, `cross_blended.colors()` provides an uniform gradient across
+#'  colors. See **Examples**.
 
-scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
-                                    alpha = 1, direction = 1) {
+scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
+                                            alpha = 1, direction = 1) {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -298,8 +308,8 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_tint_fill_d",
-    palette = hypso_pal2(
+    scale_name = "cross_blended_tint_fill_d",
+    palette = cross_blended_pal2(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -309,13 +319,13 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 }
 
 #' @export
-#' @rdname scale_fill_hypso
-scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
-                                    alpha = 1, direction = 1,
-                                    values = NULL,
-                                    limits = NULL,
-                                    na.value = NA,
-                                    guide = "colourbar") {
+#' @rdname scale_fill_cross_blended
+scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
+                                            alpha = 1, direction = 1,
+                                            values = NULL,
+                                            limits = NULL,
+                                            na.value = NA,
+                                            guide = "colourbar") {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -323,7 +333,7 @@ scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
   # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
+  coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
     stop("'palette' does not match any given palette")
@@ -349,12 +359,13 @@ scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
 }
 
 #' @export
-#' @rdname scale_fill_hypso
-scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
-                                    alpha = 1, direction = 1,
-                                    values = NULL,
-                                    limits = NULL,
-                                    na.value = NA, guide = "coloursteps") {
+#' @rdname scale_fill_cross_blended
+scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
+                                            alpha = 1, direction = 1,
+                                            values = NULL,
+                                            limits = NULL,
+                                            na.value = NA,
+                                            guide = "coloursteps") {
   if (alpha < 0 | alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -362,7 +373,7 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
   if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
 
   # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
+  coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
     stop("'palette' does not match any given palette")
@@ -389,11 +400,11 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
 }
 
 #' @export
-#' @rdname scale_fill_hypso
+#' @rdname scale_fill_cross_blended
 #' @examples
-#' # Display all the cpl_city palettes on version 2
+#' # Display all the cross-blended palettes on version 2
 #'
-#' pals <- unique(hypsometric_tints_db$pal)
+#' pals <- unique(cross_blended_hypsometric_tints_db$pal)
 #'
 #' # Helper fun for plotting
 #'
@@ -406,15 +417,17 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
 #' for (i in pals) {
 #'   image(
 #'     x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-#'     col = hypso.colors2(ncols, i), main = i,
+#'     col = cross_blended.colors2(ncols, i), main = i,
 #'     ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #'   )
 #' }
 #' par(opar)
-hypso.colors2 <- function(n, palette = "etopo1_hypso",
-                          alpha = 1, rev = FALSE) {
+cross_blended.colors2 <- function(n, palette = "cold_humid",
+                                  alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
-    paltab <- extract_pal(tidyterra::hypsometric_tints_db, palette = palette)
+    paltab <- extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+      palette = palette
+    )
     colors <- as.character(paltab$hex)
     limits <- sort(as.integer(paltab$limit))
     endcols <- tidyterra_ramp2(colors, n, alpha, rev, limits)
@@ -425,23 +438,10 @@ hypso.colors2 <- function(n, palette = "etopo1_hypso",
 }
 
 # Helpers
-
-tidyterra_ramp2 <- function(colors, n, alpha = 1, rev = FALSE, limits) {
-  if (rev) colors <- rev(colors)
-  # Rescale limits
-  limits <- scales::rescale(limits)
-  fn_cols <- scales::gradient_n_pal(colors, values = limits)
-  endcols <- fn_cols(seq(0, 1, length.out = n))
-  if (alpha != 1) endcols <- ggplot2::alpha(endcols, alpha)
-
-  return(endcols)
-}
-
-
-hypso_pal <- function(alpha = 1, direction = 1, palette) {
+cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- hypso.colors(n,
+    pal <- cross_blended.colors(n,
       rev = direction != 1, alpha = alpha,
       palette = palette
     )
@@ -452,10 +452,10 @@ hypso_pal <- function(alpha = 1, direction = 1, palette) {
 }
 
 
-hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
+cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- hypso.colors2(n,
+    pal <- cross_blended.colors2(n,
       rev = direction != 1, alpha = alpha,
       palette = palette
     )

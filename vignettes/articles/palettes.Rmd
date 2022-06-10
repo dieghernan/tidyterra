@@ -96,8 +96,7 @@ for (i in allpals) {
 
 ## `scale_fill_hypso_*`
 
-Check `scale_fill_hypso_c()` for more info. These plots have been generated
-using the option `as_tint = FALSE`.
+Check `scale_fill_hypso_c()` for more info.
 
 ```{r hypso, echo=FALSE}
 
@@ -115,8 +114,7 @@ for (i in allpals) {
 
 ## `scale_fill_cross_blended_*`
 
-Check `scale_cross_blended_hypso_c()` for more info. These plots have been
-generated using the option `as_tint = FALSE`.
+Check `scale_cross_blended_hypso_c()` for more info.
 
 ```{r cross, echo=FALSE}
 

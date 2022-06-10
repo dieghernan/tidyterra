@@ -208,6 +208,40 @@ ggplot() +
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%" />
 
+{tidyterra} provides specific scales for plotting hypsometric maps with
+{ggplot2}:
+
+``` r
+asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+
+terra::plot(asia)
+```
+
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%" />
+
+``` r
+ggplot() +
+  geom_spatraster(data = asia) +
+  scale_fill_hypso_tint_c(
+    palette = "gmt_globe",
+    labels = scales::label_number(),
+    breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
+    guide = guide_colorbar(
+      direction = "horizontal",
+      title.position = "top",
+      barwidth = 20
+    )
+  ) +
+  labs(
+    fill = "elevation (m)",
+    title = "Hypsometric map of Asia"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" width="100%" />
+
 ## I need your feedback
 
 {tidyterra} is currently on development mode. Please leave your feedback
@@ -217,8 +251,8 @@ or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 
 To cite ‘tidyterra’ in publications use:
 
-Hernangomez D (2022). *tidyterra: tidyverse Methods and ggplot2 Utils
-for terra Objects*. <https://doi.org/10.5281/zenodo.6572471>,
+Hernangomez D (2022). tidyterra: tidyverse Methods and ggplot2 Utils for
+terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
 <https://dieghernan.github.io/tidyterra/>
 
 A BibTeX entry for LaTeX users is
