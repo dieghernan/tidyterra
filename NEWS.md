@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.2.0
 
 -   Recreate `extdata/volcano2.tif` using official DEM information from New
     Zealand. Source: [Auckland LiDAR 1m DEM
