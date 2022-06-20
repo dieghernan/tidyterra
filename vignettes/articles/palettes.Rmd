@@ -114,7 +114,7 @@ for (i in allpals) {
 
 ## `scale_fill_cross_blended_*`
 
-Check `scale_cross_blended_hypso_c()` for more info.
+Check `scale_fill_cross_blended_c()` for more info.
 
 ```{r cross, echo=FALSE}
 
