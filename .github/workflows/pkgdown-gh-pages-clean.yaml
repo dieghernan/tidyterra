@@ -22,7 +22,7 @@ jobs:
         with:
           extra-packages: |
             local::.
-            any::pkgdown
+            r-lib/pkgdown
           needs: website
 
       - name: Deploy package
