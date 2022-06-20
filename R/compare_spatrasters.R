@@ -74,7 +74,7 @@ compare_spatrasters <- function(x, y, digits = 6) {
   equal_crs <- terra::crs(x) == terra::crs(y)
   ext1 <- as.vector(terra::ext(x))
   ext2 <- as.vector(terra::ext(y))
-  
+
   dif_ext <- round(ext1 - ext2, digits = digits)
 
   equal_ext <- all(dif_ext == 0)
