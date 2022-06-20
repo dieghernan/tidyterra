@@ -18,7 +18,7 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,19 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+  </div>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
+    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
+    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
+  </div>
+</li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
@@ -39,6 +52,12 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
       <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="http://twitter.com/dhernangomez" aria-label="Twitter">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li class="nav-item">
   <a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
@@ -70,16 +89,25 @@ SpatRaster matrix.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
 <dd><p>A SpatRaster object</p></dd>
+
+
 <dt>as.raster</dt>
 <dd><p>If <code>TRUE</code>, the result is a SpatRaster object with three
 layers indicating the position of each cell (cell number, row and column).</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A tibble or a SpatRaster (if <code>as.raster = TRUE</code>) with the same number of
-rows (or cells) than the number of cells in <code>x</code>.
-When <code>as.raster = TRUE</code> the resulting SpatRaster has the same crs, extension
+    
+
+<p>A tibble or a SpatRaster (if <code>as.raster = TRUE</code>) with the same number of
+rows (or cells) than the number of cells in <code>x</code>.</p>
+
+
+<p>When <code>as.raster = TRUE</code> the resulting SpatRaster has the same crs, extension
 and resolution than <code>x</code></p>
+
+
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -93,12 +121,9 @@ and resolution than <code>x</code></p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.5.21</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.5.34</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'terra'</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:dplyr':</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     src</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:tidyr':</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     extract</span>
@@ -134,7 +159,7 @@ and resolution than <code>x</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> max values  :     10324,       89,      116 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">as_coordinates</span><span class="op">(</span><span class="va">r</span>, as.raster <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-plt img"><img src="as_coordinates-1.png" alt="" width="1094" height="676"></span>
+<span class="r-plt img"><img src="as_coordinates-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -147,7 +172,7 @@ and resolution than <code>x</code></p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.9000.</p>
 </div>
 
     </footer></div>
