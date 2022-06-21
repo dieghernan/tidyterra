@@ -4,7 +4,7 @@ pkgdown_sha: 5203a63f002405e99b8510debe809ff3d9f18b02
 articles:
   palettes: palettes.html
   tidyterra: tidyterra.html
-last_built: 2022-06-20T18:52Z
+last_built: 2022-06-21T09:59Z
 urls:
   reference: https://dieghernan.github.io/tidyterra/reference
   article: https://dieghernan.github.io/tidyterra/articles
