@@ -29,6 +29,10 @@ navbar:
         - text: Blog posts
         - text: Introducing tidyterra (dieghernan.github.io)
           href: 'https://dieghernan.github.io/202205_tidyterra/'
+        - text: Hillshade effects (dominicroye.github.io)
+          href: 'https://dominicroye.github.io/en/2022/hillshade-effects/'
+        - text: Plotting drought conditions (michaelpaulschramm.com)
+          href: 'https://michaelpaulschramm.com/posts/2022-07-22-drought/'
     twitter:
       icon: fa-twitter
       href: 'http://twitter.com/dhernangomez'
