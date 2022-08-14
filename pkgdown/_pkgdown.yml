@@ -33,6 +33,8 @@ navbar:
           href: 'https://dominicroye.github.io/en/2022/hillshade-effects/'
         - text: Plotting drought conditions (michaelpaulschramm.com)
           href: 'https://michaelpaulschramm.com/posts/2022-07-22-drought/'
+        - text: How to read AMSR2 sea ice data with terra (www.pmassicotte.com)
+          href: 'https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/'
     twitter:
       icon: fa-twitter
       href: 'http://twitter.com/dhernangomez'
