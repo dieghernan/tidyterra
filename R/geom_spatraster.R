@@ -250,15 +250,17 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     # warn if not using facets
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
       nly <- length(unique(data$lyr))
-      message(
-        "\nWarning message:\n",
-        "Plotting ", nly, " layers: ",
-        paste0("`", unique(data$lyr), "`", collapse = ", "),
-        ".(geom_spatraster).",
-        "\n- Use facet_wrap(~lyr) for faceting.",
-        "\n- Use aes(fill=<name_of_layer>) ",
-        "for displaying a single layer\n"
-      )
+      if (nly > 1) {
+        message(
+          "\nWarning message:\n",
+          "Plotting ", nly, " layers: ",
+          paste0("`", unique(data$lyr), "`", collapse = ", "),
+          ".(geom_spatraster).",
+          "\n- Use facet_wrap(~lyr) for faceting.",
+          "\n- Use aes(fill=<name_of_layer>) ",
+          "for displaying a single layer\n"
+        )
+      }
     }
     # add coord to the params, so it can be forwarded to compute_group()
     params$coord_crs <- pull_crs(layout$coord_params$crs)

@@ -186,7 +186,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
 StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
   ggplot2::Stat,
-  required_aes = c("spatraster"),
+  required_aes = "spatraster",
   extra_params = c("maxcell", "max_col_value", "na.rm"),
   compute_layer = function(self, data, params, layout) {
 

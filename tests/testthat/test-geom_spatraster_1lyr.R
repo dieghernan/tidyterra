@@ -268,3 +268,51 @@ test_that("geom_spatraster one layer without CRS", {
   vdiffr::expect_doppelganger("nocrs_12: With sf reprojected", p_rast_first +
     geom_sf(data = new_v, fill = NA))
 })
+
+
+test_that("geom_spatraster one facets", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  #  Import also vector
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  r <- rast(f)
+
+  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- vect(f_v)
+  v <- terra::project(v, "epsg:3035")
+  v_sf <- sf::st_as_sf(v)[1:3, ]
+
+
+  # test with vdiffr
+  skip_on_covr()
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+
+  # Facet plot
+
+  p <- ggplot() +
+    geom_spatraster(data = r) +
+    geom_sf(data = v_sf) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_01: regular", p)
+
+  # With color
+
+  p <- ggplot() +
+    geom_spatraster(data = r) +
+    geom_sf(data = v_sf, aes(color = cpro), fill = NA) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_02: color", p)
+
+  # Change crs
+
+  p <- p +
+    coord_sf(crs = 3035) +
+    scale_fill_terrain_c()
+
+  vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
+})
