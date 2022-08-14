@@ -32,12 +32,6 @@ test_that("geom_spatraster_rgb with CRS", {
   expect_error(ggplot() +
     geom_spatraster_rgb(data = r_subset))
 
-  s <- ggplot() +
-    geom_spatraster_rgb(data = r) +
-    coord_cartesian()
-
-  expect_error(ggplot_build(s))
-
   # Test color table
 
   s <- ggplot() +
@@ -146,7 +140,8 @@ test_that("geom_spatraster_rgb with CRS masked", {
   v_sf <- sf::st_as_sf(v)
 
   # Mask
-  r <- terra::mask(r, v)
+  v2 <- terra::project(v, pull_crs(r))
+  r <- terra::mask(r, v2)
 
   # Errors
   expect_error(ggplot(r) +
@@ -167,12 +162,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   expect_error(ggplot() +
     geom_spatraster_rgb(data = r_subset))
-
-  s <- ggplot() +
-    geom_spatraster_rgb(data = r) +
-    coord_cartesian()
-
-  expect_error(ggplot_build(s))
 
   # Test color table
 
@@ -432,7 +421,8 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
 
   # Mask
-  r <- terra::mask(r, v)
+  v2 <- terra::project(v, pull_crs(r))
+  r <- terra::mask(r, v2)
 
   raster_crs <- pull_crs(r)
 
@@ -568,4 +558,50 @@ test_that("geom_spatraster_rgb with no CRS masked", {
     geom_spatraster_rgb(data = r, max_col_value = 200)
 
   vdiffr::expect_doppelganger("nocrsmask_09: Check maxcol", p_maxcol)
+})
+
+test_that("geom_spatraster facets", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  #  Import also vector
+  f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
+  r <- rast(f)
+
+  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- vect(f_v)
+  v <- terra::project(v, "epsg:3035")
+  v_sf <- sf::st_as_sf(v)
+
+
+  # test with vdiffr
+  skip_on_covr()
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+
+  # Facet plot
+
+  p <- ggplot() +
+    geom_spatraster_rgb(data = r) +
+    geom_sf(data = v_sf) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_01: regular", p)
+
+  # With fill
+
+  p <- ggplot() +
+    geom_spatraster_rgb(data = r) +
+    geom_sf(data = v_sf, aes(fill = cpro)) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_02: fill", p)
+
+  # Change crs
+
+  p <- p +
+    coord_sf(crs = 25829)
+
+  vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })

@@ -186,34 +186,40 @@ geom_spatraster_rgb <- function(mapping = aes(),
 StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
   ggplot2::Stat,
-  required_aes = c("spatraster", "hexcol"),
-  extra_params = c("maxcell", "max_col_value"),
+  required_aes = c("spatraster"),
+  extra_params = c("maxcell", "max_col_value", "na.rm"),
   compute_layer = function(self, data, params, layout) {
 
-    # Inspired from ggspatial
-    # Make extent and project
-    # Check if need to reproject
+    # add coord to the params, so it can be forwarded to compute_group()
+    params$coord_crs <- pull_crs(layout$coord_params$crs)
 
-    # On SpatRaster with crs check if need to reproject
-    # Extract initial raster
+    ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
+      data,
+      params, layout
+    )
+  },
+  compute_group = function(data, scales, coord, params,
+                           coord_crs = NA,
+                           max_col_value = 255) {
+    # Extract raster from group
     rast <- data$spatraster[[1]]
 
-    rast <- reproject_raster_on_stat(
-      rast,
-      pull_crs(layout$coord_params$crs)
-    )
+    # Reproject if needed
+    rast <- reproject_raster_on_stat(rast, coord_crs)
 
-    # Build data
-    data_hex <- make_hexcol(rast, params$max_col_value)
-    data <- remove_columns(data[1, ], "spatraster")
-    data_hex$tterra.index <- 1
-    data$tterra.index <- 1
+    # To data and prepare
+    data_end <- make_hexcol(rast, max_col_value)
+    data_rest <- data
 
-    data_end <- dplyr::left_join(data_hex, data, by = "tterra.index")
+    # Add data
+    data_end$a <- 1
+    data_rest$a <- 1
 
-    data_end <- remove_columns(data_end, "tterra.index")
+    data <- dplyr::left_join(data_end, data_rest, by = "a")
 
-    data_end
+    data <- remove_columns(data, c("a", "spatraster"))
+    data$spatraster <- NA
+    data
   }
 )
 

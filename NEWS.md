@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+-   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
+
 # tidyterra 0.2.0
 
 -   Recreate `extdata/volcano2.tif` using official DEM information from New
