@@ -83,7 +83,7 @@ test_that("Test plot", {
 
   # Faceted
   p_facet <- ggplot() +
-    geom_spatraster_contour_filled(data = r, aes(fill = lyr)) +
+    geom_spatraster_contour_filled(data = r) +
     facet_wrap(~lyr)
 
   vdiffr::expect_doppelganger("03-faceted with aes", p_facet)

@@ -45,6 +45,10 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "ggplot2 authors"
     }
   ],
   "maintainer": [
@@ -312,7 +316,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2181.847KB",
+  "fileSize": "2414.195KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
