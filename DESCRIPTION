@@ -7,7 +7,7 @@ Authors@R: c(
     person("Dewey", "Dunnington", role = "ctb",
            comment = c(ORCID = "0000-0002-9415-4582", "for ggspatial code")),
     person("ggplot2 authors", role = "cph",
-           comment = "for ggspatial code")
+           comment = "for contour code")
   )
 Description: Extension of the 'tidyverse' for 'SpatRaster' and
     'SpatVector' objects of the 'terra' package. It includes also new

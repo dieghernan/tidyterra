@@ -261,7 +261,7 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
   "StatTerraSpatRasterContour",
   ggplot2::Stat,
   required_aes = "spatraster",
-  default_aes = ggplot2::aes(lyr = lyr, order = after_stat(level)),
+  default_aes = ggplot2::aes(lyr = lyr, order = ggplot2::after_stat(level)),
   extra_params = c("maxcell", "bins", "binwidth", "breaks", "na.rm"),
   setup_params = function(data, params) {
     range_lys <- lapply(data$spatraster, terra::minmax)
