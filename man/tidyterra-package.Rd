@@ -25,6 +25,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Dewey Dunnington (\href{https://orcid.org/0000-0002-9415-4582}{ORCID}) (for ggspatial code) [contributor]
+  \item ggplot2 authors (for contour code) [copyright holder]
 }
 
 }

@@ -136,80 +136,71 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
-    order = stat(level),
-    fill = stat(level),
-    lyr = lyr
+    lyr = lyr, order = ggplot2::after_stat(level),
+    fill = ggplot2::after_stat(level)
   ),
-  extra_params = c("maxcell", "bins", "binwidth", "breaks"),
+  extra_params = c("maxcell", "bins", "binwidth", "breaks", "na.rm"),
+  setup_params = function(data, params) {
+    range_lys <- lapply(data$spatraster, terra::minmax)
+    params$z.range <- range(unlist(range_lys), na.rm = TRUE, finite = TRUE)
+    params
+  },
   compute_layer = function(self, data, params, layout) {
-
-    # Need to do is on the layer for assessing breaks
-    # after projecting
-
-    # If no faceting or not single layer
-    if (nrow(data) != length(unique(data$PANEL))) {
-      message(
-        "\nWarning message:\n",
-        "Plotting ", nrow(data), " layers: ",
-        paste0("`", unique(data$lyr), "`", collapse = ", "),
-        ".(geom_spatraster_*()).",
-        "\n- Use facet_wrap(~lyr) for faceting.",
-        "\n- Use aes(z=<name_of_layer>) ",
-        "for displaying a single layer\n"
-      )
+    # warn if not using facets
+    if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
+      nly <- length(unique(data$lyr))
+      if (nly > 1) {
+        message(
+          "\nWarning message:\n",
+          "Plotting ", nly, " layers: ",
+          paste0("`", unique(data$lyr), "`", collapse = ", "),
+          ".(geom_spatraster).",
+          "\n- Use facet_wrap(~lyr) for faceting.",
+          "\n- Use aes(fill=<name_of_layer>) ",
+          "for displaying a single layer\n"
+        )
+      }
     }
-
-
-    # On SpatRaster with crs check if need to reproject
-
-    # Project on list
-    rast <- lapply(data$spatraster, function(x) {
-      reproject_raster_on_stat(
-        x,
-        pull_crs(layout$coord_params$crs)
-      )
-    })
-
-    # Prepare breaks
-    range_lys <- lapply(rast, terra::minmax)
-    z.range <- range(unlist(range_lys), na.rm = TRUE, finite = TRUE)
-
-    breaks <- contour_breaks(
-      z.range, params$bins,
-      params$binwidth,
-      params$breaks
+    # add coord to the params, so it can be forwarded to compute_group()
+    params$coord_crs <- pull_crs(layout$coord_params$crs)
+    ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
+      data,
+      params, layout
     )
-
-    # Make polygon for each layer
-    polygon_list <- lapply(rast, layer_to_polygon, breaks = breaks)
-
-    if (all(vapply(polygon_list, is.null, logical(1)))) {
-      # No contours created
-      # Return empty data frame
-      return(data.frame(matrix(ncol = 0, nrow = 0)))
-    }
-
-    path_df <- dplyr::bind_rows(polygon_list)
+  },
+  compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL,
+                           breaks = NULL, na.rm = FALSE, coord,
+                           coord_crs = NA) {
 
 
-    # Extract for levels
-    for_levels <- dplyr::distinct(
-      path_df[, c("level", "left_interval")]
-    )
+    # Extract raster from group
+    rast <- data$spatraster[[1]]
 
-    for_levels <- for_levels[order(for_levels$left_interval), ]
-    path_df$level <- ordered(path_df$level,
-      levels = for_levels$level
-    )
+    # Reproject if needed
+    rast <- reproject_raster_on_stat(rast, coord_crs)
+    # To data and prepare
+    data_end <- pivot_longer_spat(rast)
 
-    path_df <- remove_columns(path_df, "left_interval")
+    # Now adjust min and max value, since reprojection may affect vals
+    data_end$value <- pmin(max(z.range), data_end$value)
+    data_end$value <- pmax(min(z.range), data_end$value)
 
-    # Remove cols that I dont need here
-    data <- remove_columns(data, c("spatraster", "group"))
+    # Now create data with values from raster
+    names(data_end) <- c("x", "y", "lyr", "z")
+
+    # Final dataset
+    data$spatraster <- NA
+    data <- dplyr::left_join(data, data_end, by = "lyr")
 
 
-    path_df <- dplyr::left_join(path_df, data, by = "lyr")
+    # Port functions from ggplot2
+    breaks <- contour_breaks(z.range, bins, binwidth, breaks)
 
+    isobands <- xyz_to_isobands(data, breaks)
+    names(isobands) <- pretty_isoband_levels(names(isobands))
+    path_df <- iso_to_polygon(isobands, data$group[1])
+
+    path_df$level <- ordered(path_df$level, levels = names(isobands))
     path_df$level_low <- breaks[as.numeric(path_df$level)]
     path_df$level_high <- breaks[as.numeric(path_df$level) + 1]
     path_df$level_mid <- 0.5 * (path_df$level_low + path_df$level_high)
@@ -221,53 +212,18 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
 
 
 # Helpers ----
-layer_to_polygon <- function(rast, breaks) {
-  df <- as_tibble(rast, xy = TRUE, na.rm = FALSE)
-  name_layer <- names(rast)
 
-  # Get matrix from raster
+# From ggplot2
 
-  m <- terra::as.matrix(rast, wide = TRUE)
-
-  m[is.na(m)] <- NA
-
-  # Need to reverse
-  m <- m[rev(seq_len(nrow(m))), ]
-
-  iso <- isoband::isobands(
-    x = sort(unique(df$x)),
-    y = sort(unique(df$y)),
-    z = m,
+xyz_to_isobands <- function(data, breaks) {
+  isoband::isobands(
+    x = sort(unique(data$x)),
+    y = sort(unique(data$y)),
+    z = isoband_z_matrix(data),
     levels_low = breaks[-length(breaks)],
     levels_high = breaks[-1]
   )
-
-  # Data frame for ordering levels
-  df_levels <- data.frame(level = pretty_isoband_levels(names(iso)))
-
-  df_levels$left_interval <- vapply(names(iso), function(x) {
-    as.numeric(unlist(strsplit(x, ":"))[1])
-  },
-  FUN.VALUE = numeric(1), USE.NAMES = FALSE
-  )
-
-  names(iso) <- pretty_isoband_levels(names(iso))
-
-  final_df <- iso_to_polygon(iso,
-    group = name_layer,
-    name_layer = name_layer
-  )
-
-  if (is.null(final_df)) {
-    return(NULL)
-  }
-
-  final_df <- dplyr::left_join(final_df, df_levels, by = "level")
-
-  final_df
 }
-
-# From ggplot2
 
 pretty_isoband_levels <- function(isoband_levels, dig.lab = 3) {
   interval_low <- gsub(":.*$", "", isoband_levels)

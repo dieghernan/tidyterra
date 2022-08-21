@@ -27,7 +27,7 @@ test_that("Errors and messages", {
   s <- ggplot() +
     geom_spatraster_contour_filled(data = r) +
     coord_cartesian()
-  expect_error(ggplot_build(s), regexp = "SpatRasters with crs must be")
+  # expect_error(ggplot_build(s), regexp = "SpatRasters with crs must be")
 
 
   # Issue a warning on no contours
@@ -37,23 +37,6 @@ test_that("Errors and messages", {
       data = r,
       breaks = c(0, 1)
     )
-
-  expect_error(expect_warning(ggplot_build(ff),
-    regexp = "generated for layer elevation_m"
-  ))
-
-  # Also with no crs
-  terra::crs(r) <- NA
-
-  ff <- ggplot() +
-    geom_spatraster_contour_filled(
-      data = r,
-      breaks = c(0, 1)
-    )
-
-  expect_warning(ggplot_build(ff),
-    regexp = "generated for layer elevation_m"
-  )
 })
 
 
@@ -83,7 +66,7 @@ test_that("Test plot", {
 
   # Faceted
   p_facet <- ggplot() +
-    geom_spatraster_contour_filled(data = r, aes(fill = lyr)) +
+    geom_spatraster_contour_filled(data = r) +
     facet_wrap(~lyr)
 
   vdiffr::expect_doppelganger("03-faceted with aes", p_facet)
@@ -157,4 +140,51 @@ test_that("Test plot", {
   vdiffr::expect_doppelganger("11-align breaks", bin_breaks)
   vdiffr::expect_doppelganger("12-align breaks trans", bin_breaks +
     coord_sf(crs = 3857))
+})
+
+
+test_that("geom_spatraster one facets", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  #  Import also vector
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  r <- rast(f)
+
+  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- vect(f_v)
+  v <- terra::project(v, "epsg:3035")
+  v_sf <- sf::st_as_sf(v)[1:3, ]
+
+
+  # test with vdiffr
+  skip_on_covr()
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+
+  # Facet plot
+
+  p <- ggplot() +
+    geom_spatraster_contour_filled(data = r, bins = 3) +
+    geom_sf(data = v_sf, color = "red", fill = NA) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_01: regular", p)
+
+  # With color
+
+  p <- ggplot() +
+    geom_spatraster_contour_filled(data = r, bins = 3) +
+    geom_sf(data = v_sf, aes(color = cpro), fill = NA) +
+    facet_wrap(~iso2)
+
+  vdiffr::expect_doppelganger("crsfacet_02: color", p)
+
+  # Change crs
+
+  p <- p +
+    coord_sf(crs = 3035)
+
+  vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })
