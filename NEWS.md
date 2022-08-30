@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.2.1
 
 -   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
 -   Improve facetting when the plot facets are created using non-Spat\* layers.
