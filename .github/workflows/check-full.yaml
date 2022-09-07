@@ -30,9 +30,9 @@ jobs:
           #- {os: macOS-latest, r: 'devel'}
           - {os: macOS-latest, r: 'release'}
           #- {os: macOS-latest, r: 'oldrel'}
-          - {os: ubuntu-20.04, r: 'release'}
-          - {os: ubuntu-20.04, r: 'devel'}
-          - {os: ubuntu-20.04, r: 'oldrel'}
+          - {os: ubuntu-latest, r: 'release'}
+          - {os: ubuntu-latest, r: 'devel'}
+          - {os: ubuntu-latest, r: 'oldrel'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
