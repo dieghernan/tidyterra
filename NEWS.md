@@ -1,3 +1,5 @@
+# tidyterra (development version)
+
 # tidyterra 0.2.1
 
 -   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)

@@ -105,8 +105,9 @@ text_col <- function(x) {
 
 
 attach_silent <- function() {
-  silent <- isTRUE((Sys.getenv("tidyterra.quiet")) == "TRUE")
-
+  # Fix after CRAN comment
+  # silent <- isTRUE((Sys.getenv("tidyterra.quiet")) == "TRUE")
+  silent <- TRUE
   return(silent)
 }
 
