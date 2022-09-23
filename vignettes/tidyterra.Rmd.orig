@@ -7,7 +7,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  tidy = "styler",
+  dpi = 90,
+  fig.path = "./",
+  out.width = "100%"
+)
+```
 
 ## Welcome to {tidyterra}
 
@@ -47,8 +58,7 @@ First thing you'll notice when loading {tidyterra} is that a set of packages
 would be also loaded. You can disable the message by setting
 `Sys.setenv(tidyterra.quiet = TRUE)`.
 
-
-```r
+```{r setup, message=TRUE}
 # Disable message with:
 # Sys.setenv(tidyterra.quiet = TRUE)
 library(tidyterra)
@@ -72,16 +82,13 @@ Currently, the following methods are available:
 
 Let's see some of them in action:
 
-
-```r
+```{r}
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 temp
-#> Error in eval(expr, envir, enclos): object 'temp' not found
 
 mod <- temp %>%
   select(-1) %>%
@@ -89,10 +96,8 @@ mod <- temp %>%
   relocate(newcol, .before = 1) %>%
   replace_na(list(newcol = 3)) %>%
   rename(difference = newcol)
-#> Error in select(., -1): object 'temp' not found
 
 mod
-#> Error in eval(expr, envir, enclos): object 'mod' not found
 ```
 
 On the previous example, we had:
@@ -123,8 +128,7 @@ the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
 `ggplot2::coord_sf()`, and may be also reprojected for adjusting the coordinates
 to other spatial layers:
 
-
-```r
+```{r terraplots}
 
 library(ggplot2)
 
@@ -137,14 +141,12 @@ ggplot() +
     palette = "muted",
     na.value = "white"
   )
-#> Error in inherits(data, "SpatRaster"): object 'temp' not found
 
 
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 ggplot() +
   geom_spatraster(data = volcano2) +
@@ -152,7 +154,6 @@ ggplot() +
   scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
-#> Error in geom_spatraster(data = volcano2): geom_spatraster() only works with SpatRaster objects. See ?terra::vect
 
 
 # Contour filled
@@ -161,51 +162,41 @@ ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
   scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
-#> Error in geom_spatraster_contour_filled(data = volcano2): geom_spatraster_*() only works with SpatRaster objects. See ?terra::vect
 ```
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
-
-```r
+```{r rgb}
 
 # Read a vector
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
-#> Error: [vect] file does not exist:
 
 # Read a tile
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 rgb_plot <- ggplot() +
   geom_spatraster_rgb(data = r_rgb) +
   geom_spatvector(data = v, fill = NA, size = 1)
-#> Error in inherits(data, "SpatRaster"): object 'r_rgb' not found
 
 rgb_plot
-#> Error in eval(expr, envir, enclos): object 'rgb_plot' not found
 # Change CRS automatically
 
 rgb_plot +
   coord_sf(crs = 3035)
-#> Error in eval(expr, envir, enclos): object 'rgb_plot' not found
 ```
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
 
-
-```r
+```{r hypso}
 
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-#> Error: [rast] filename is empty. Provide a valid filename
 
 asia
-#> Error in eval(expr, envir, enclos): object 'asia' not found
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -225,7 +216,6 @@ ggplot() +
   ) +
   theme_minimal() +
   theme(legend.position = "bottom")
-#> Error in geom_spatraster(data = asia): object 'asia' not found
 ```
 
 ### SpatVectors
@@ -233,8 +223,7 @@ ggplot() +
 {tidyterra} allows you to plot SpatVectors with {ggplot2} using the
 `geom_spatvector()` functions:
 
-
-```r
+```{r}
 lux <- system.file("ex/lux.shp", package = "terra")
 
 spatvector <- terra::vect(lux)
@@ -248,8 +237,6 @@ ggplot() +
   scale_fill_binned(labels = scales::number_format()) +
   coord_sf(crs = 3857)
 ```
-
-<img src="./unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%" />
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
@@ -266,71 +253,26 @@ polygon, a spatial polygon (i.e. a country).
 the {sf} package, that represents the same information on a tabular way. You can
 convert easily between the two packages like this:
 
-
-```r
+```{r terra_sf}
 lux <- system.file("ex/lux.shp", package = "terra")
 
 spatvector <- terra::vect(lux)
 spatvector
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
-#>  type        : <num>    <chr> <num>    <chr> <num> <int>
-#>  values      :     1 Diekirch     1 Clervaux   312 18081
-#>                    1 Diekirch     2 Diekirch   218 32543
-#>                    1 Diekirch     3  Redange   259 18664
 
 terra::plot(spatvector, main = "SpatVector", axes = TRUE)
-```
-
-<img src="./terra_sf-1.png" alt="plot of chunk terra_sf" width="100%" />
-
-```r
 
 
 # To sf
 sfobj <- sf::st_as_sf(spatvector)
 head(sfobj, 3)
-#> Simple feature collection with 3 features and 6 fields
-#> Geometry type: POLYGON
-#> Dimension:     XY
-#> Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162
-#> Geodetic CRS:  WGS 84
-#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP
-#> 1    1 Diekirch    1 Clervaux  312 18081
-#> 2    1 Diekirch    2 Diekirch  218 32543
-#> 3    1 Diekirch    3  Redange  259 18664
-#>                         geometry
-#> 1 POLYGON ((6.026519 50.17767...
-#> 2 POLYGON ((6.178368 49.87682...
-#> 3 POLYGON ((5.881378 49.87015...
 
 plot(sfobj$geometry, main = "sf", axes = TRUE)
-```
-
-<img src="./terra_sf-2.png" alt="plot of chunk terra_sf" width="100%" />
-
-```r
 
 # Back to terra
 
 spatvector2 <- terra::vect(sfobj)
 
 spatvector2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
-#>  type        : <num>    <chr> <num>    <chr> <num> <int>
-#>  values      :     1 Diekirch     1 Clervaux   312 18081
-#>                    1 Diekirch     2 Diekirch   218 32543
-#>                    1 Diekirch     3  Redange   259 18664
 ```
 
 On that sense, {sf} already has its own implementation of {tidyverse} methods.
@@ -338,8 +280,7 @@ Since converting SpatVector to {sf} it is straightforward with no loss of
 information, {tidyterra} is specially focused on SpatRasters. See an example of
 how to work with {terra} + {sf} + {dplyr}:
 
-
-```r
+```{r full_spatvector}
 library(dplyr)
 library(terra)
 library(sf)
@@ -354,18 +295,6 @@ spat_summ <- spatvector2 %>%
   vect()
 
 spat_summ
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1 TOTPOP
-#>  type        : <num>  <int>
-#>  values      :     1  91186
-#>                    2  71093
-#>                    3 439726
 
 terra::plot(spat_summ, "TOTPOP")
 ```
-
-<img src="./full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%" />

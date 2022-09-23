@@ -2,6 +2,7 @@
 
 -   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
 -   Improve facetting when the plot facets are created using non-Spat\* layers.
+-   Precompute vignettes.
 
 # tidyterra 0.2.0
 

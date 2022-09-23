@@ -18,7 +18,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{xy}{logical. If \code{TRUE}, the coordinates of each raster cell are included}
 
-\item{na.rm}{logical. If \code{TRUE}, cells that have a NA value in at least one layer are removed}
+\item{na.rm}{logical. If \code{TRUE}, cells that have a NA value in at least one layer are removed. If the argument is set to \code{NA} only cells that have NA values in all layers are removed}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
