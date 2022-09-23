@@ -18,6 +18,9 @@ knitr::opts_chunk$set(
   fig.path = "./",
   out.width = "100%"
 )
+
+library(tidyterra)
+
 ```
 
 ## Welcome to {tidyterra}

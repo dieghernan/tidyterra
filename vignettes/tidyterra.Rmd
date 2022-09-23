@@ -78,10 +78,17 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 temp
-#> Error in eval(expr, envir, enclos): object 'temp' not found
+#> class       : SpatRaster 
+#> dimensions  : 89, 116, 3  (nrow, ncol, nlyr)
+#> resolution  : 3856.617, 3856.617  (x, y)
+#> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#> source      : cyl_temp.tif 
+#> names       :   tavg_04,   tavg_05,   tavg_06 
+#> min values  :  0.565614,  4.294102,  8.817221 
+#> max values  : 13.283829, 16.740898, 21.113781
 
 mod <- temp %>%
   select(-1) %>%
@@ -89,10 +96,19 @@ mod <- temp %>%
   relocate(newcol, .before = 1) %>%
   replace_na(list(newcol = 3)) %>%
   rename(difference = newcol)
-#> Error in select(., -1): object 'temp' not found
 
 mod
-#> Error in eval(expr, envir, enclos): object 'mod' not found
+#> class       : SpatRaster 
+#> dimensions  : 89, 116, 3  (nrow, ncol, nlyr)
+#> resolution  : 3856.617, 3856.617  (x, y)
+#> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#> sources     : memory  
+#>               memory  
+#>               memory  
+#> names       : difference,   tavg_05,   tavg_06 
+#> min values  :   2.786910,  4.294102,  8.817221 
+#> max values  :   5.408157, 16.740898, 21.113781
 ```
 
 On the previous example, we had:
@@ -137,14 +153,17 @@ ggplot() +
     palette = "muted",
     na.value = "white"
   )
-#> Error in inherits(data, "SpatRaster"): object 'temp' not found
+```
+
+<img src="./terraplots-1.png" alt="plot of chunk terraplots" width="100%" />
+
+```r
 
 
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 ggplot() +
   geom_spatraster(data = volcano2) +
@@ -152,7 +171,11 @@ ggplot() +
   scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
-#> Error in geom_spatraster(data = volcano2): geom_spatraster() only works with SpatRaster objects. See ?terra::vect
+```
+
+<img src="./terraplots-2.png" alt="plot of chunk terraplots" width="100%" />
+
+```r
 
 
 # Contour filled
@@ -161,8 +184,9 @@ ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
   scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
-#> Error in geom_spatraster_contour_filled(data = volcano2): geom_spatraster_*() only works with SpatRaster objects. See ?terra::vect
 ```
+
+<img src="./terraplots-3.png" alt="plot of chunk terraplots" width="100%" />
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
@@ -173,27 +197,29 @@ With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
-#> Error: [vect] file does not exist:
 
 # Read a tile
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
-#> Error: [rast] filename is empty. Provide a valid filename
 
 rgb_plot <- ggplot() +
   geom_spatraster_rgb(data = r_rgb) +
   geom_spatvector(data = v, fill = NA, size = 1)
-#> Error in inherits(data, "SpatRaster"): object 'r_rgb' not found
 
 rgb_plot
-#> Error in eval(expr, envir, enclos): object 'rgb_plot' not found
+```
+
+<img src="./rgb-1.png" alt="plot of chunk rgb" width="100%" />
+
+```r
 # Change CRS automatically
 
 rgb_plot +
   coord_sf(crs = 3035)
-#> Error in eval(expr, envir, enclos): object 'rgb_plot' not found
 ```
+
+<img src="./rgb-2.png" alt="plot of chunk rgb" width="100%" />
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
@@ -202,10 +228,17 @@ and bathymetric maps:
 ```r
 
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-#> Error: [rast] filename is empty. Provide a valid filename
 
 asia
-#> Error in eval(expr, envir, enclos): object 'asia' not found
+#> class       : SpatRaster 
+#> dimensions  : 367, 683, 1  (nrow, ncol, nlyr)
+#> resolution  : 14263.38, 14231.61  (x, y)
+#> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> source      : asia.tif 
+#> name        : file44bc291153f2 
+#> min value   :        -9991.472 
+#> max value   :         6156.079
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -225,8 +258,9 @@ ggplot() +
   ) +
   theme_minimal() +
   theme(legend.position = "bottom")
-#> Error in geom_spatraster(data = asia): object 'asia' not found
 ```
+
+<img src="./hypso-1.png" alt="plot of chunk hypso" width="100%" />
 
 ### SpatVectors
 
@@ -249,7 +283,7 @@ ggplot() +
   coord_sf(crs = 3857)
 ```
 
-<img src="./unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%" />
+<img src="./unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="100%" />
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
@@ -300,10 +334,14 @@ head(sfobj, 3)
 #> Dimension:     XY
 #> Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162
 #> Geodetic CRS:  WGS 84
-#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry
-#> 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...
-#> 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...
-#> 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...
+#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP
+#> 1    1 Diekirch    1 Clervaux  312 18081
+#> 2    1 Diekirch    2 Diekirch  218 32543
+#> 3    1 Diekirch    3  Redange  259 18664
+#>                         geometry
+#> 1 POLYGON ((6.026519 50.17767...
+#> 2 POLYGON ((6.178368 49.87682...
+#> 3 POLYGON ((5.881378 49.87015...
 
 plot(sfobj$geometry, main = "sf", axes = TRUE)
 ```
