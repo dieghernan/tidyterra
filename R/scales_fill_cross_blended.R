@@ -156,7 +156,7 @@
 #' }
 scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -178,7 +178,7 @@ scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
 scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
                                        na.value = NA, guide = "colourbar") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -207,7 +207,7 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
 scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
                                        na.value = NA, guide = "coloursteps") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -300,7 +300,7 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 
 scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
                                             alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -326,7 +326,7 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
                                             limits = NULL,
                                             na.value = NA,
                                             guide = "colourbar") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -366,7 +366,7 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
                                             limits = NULL,
                                             na.value = NA,
                                             guide = "coloursteps") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 

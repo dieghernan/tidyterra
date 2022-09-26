@@ -14,8 +14,8 @@ vignette: >
 **tidyterra** is a package that add common methods from the
 [tidyverse](https://www.tidyverse.org/) for SpatRaster and SpatVectors objects
 created with the [{terra}](https://CRAN.R-project.org/package=terra) package. It
-also adds specific `geom_spat*()` functions for plotting these kind of objects with
-[{ggplot2}](https://ggplot2.tidyverse.org/).
+also adds specific `geom_spat*()` functions for plotting these kind of objects
+with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ### Why {tidyterra}?
 
@@ -44,13 +44,10 @@ slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 ## Get started with {tidyterra}
 
 First thing you'll notice when loading {tidyterra} is that a set of packages
-would be also loaded. You can disable the message by setting
-`Sys.setenv(tidyterra.quiet = TRUE)`.
+would be also attached.
 
 
 ```r
-# Disable message with:
-# Sys.setenv(tidyterra.quiet = TRUE)
 library(tidyterra)
 ```
 
@@ -283,7 +280,7 @@ ggplot() +
   coord_sf(crs = 3857)
 ```
 
-<img src="./unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="100%" />
+<img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%" />
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
@@ -334,14 +331,10 @@ head(sfobj, 3)
 #> Dimension:     XY
 #> Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162
 #> Geodetic CRS:  WGS 84
-#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP
-#> 1    1 Diekirch    1 Clervaux  312 18081
-#> 2    1 Diekirch    2 Diekirch  218 32543
-#> 3    1 Diekirch    3  Redange  259 18664
-#>                         geometry
-#> 1 POLYGON ((6.026519 50.17767...
-#> 2 POLYGON ((6.178368 49.87682...
-#> 3 POLYGON ((5.881378 49.87015...
+#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry
+#> 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...
+#> 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...
+#> 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...
 
 plot(sfobj$geometry, main = "sf", axes = TRUE)
 ```

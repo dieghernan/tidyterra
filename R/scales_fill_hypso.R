@@ -149,7 +149,7 @@
 #' }
 scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -171,7 +171,7 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
 scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
                                na.value = NA, guide = "colourbar") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -200,7 +200,7 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
 scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
                                na.value = NA, guide = "coloursteps") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -290,7 +290,7 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 
 scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
                                     alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -316,7 +316,7 @@ scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
                                     limits = NULL,
                                     na.value = NA,
                                     guide = "colourbar") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -355,7 +355,7 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
                                     values = NULL,
                                     limits = NULL,
                                     na.value = NA, guide = "coloursteps") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 

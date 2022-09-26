@@ -1,5 +1,10 @@
 # tidyterra (development version)
 
+-   Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
+    packages are listed on 'Depends' and are attached before **tidyterra** when
+    `library` or `require` is called. Messages on load can be suppressed with
+    `suppressPackageStartupMessages(library(tidyterra))`.
+
 # tidyterra 0.2.1
 
 -   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)

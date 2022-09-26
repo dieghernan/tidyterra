@@ -67,7 +67,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     )
   }
 
-  if (length(xycols) != 2 | !is.numeric(xycols)) {
+  if (length(xycols) != 2 || !is.numeric(xycols)) {
     stop("xycols should be two integers: `c(int, int)`")
   }
 

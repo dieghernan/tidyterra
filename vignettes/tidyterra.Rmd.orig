@@ -28,8 +28,8 @@ library(tidyterra)
 **tidyterra** is a package that add common methods from the
 [tidyverse](https://www.tidyverse.org/) for SpatRaster and SpatVectors objects
 created with the [{terra}](https://CRAN.R-project.org/package=terra) package. It
-also adds specific `geom_spat*()` functions for plotting these kind of objects with
-[{ggplot2}](https://ggplot2.tidyverse.org/).
+also adds specific `geom_spat*()` functions for plotting these kind of objects
+with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ### Why {tidyterra}?
 
@@ -58,12 +58,9 @@ slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 ## Get started with {tidyterra}
 
 First thing you'll notice when loading {tidyterra} is that a set of packages
-would be also loaded. You can disable the message by setting
-`Sys.setenv(tidyterra.quiet = TRUE)`.
+would be also attached.
 
 ```{r setup, message=TRUE}
-# Disable message with:
-# Sys.setenv(tidyterra.quiet = TRUE)
 library(tidyterra)
 ```
 
@@ -85,7 +82,7 @@ Currently, the following methods are available:
 
 Let's see some of them in action:
 
-```{r}
+```{r simple_example}
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -101,6 +98,7 @@ mod <- temp %>%
   rename(difference = newcol)
 
 mod
+
 ```
 
 On the previous example, we had:
@@ -226,7 +224,7 @@ ggplot() +
 {tidyterra} allows you to plot SpatVectors with {ggplot2} using the
 `geom_spatvector()` functions:
 
-```{r}
+```{r, lux_ggplot}
 lux <- system.file("ex/lux.shp", package = "terra")
 
 spatvector <- terra::vect(lux)

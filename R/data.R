@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' Probably you already know the [volcano] dataset. This dataset provides updated
-#' information of Maungawhau (Mt. Eden) from
+#' Probably you already know the [volcano] dataset. This dataset provides
+#' updated information of Maungawhau (Mt. Eden) from
 #' [Toitu Te Whenua Land Information New Zealand](https://data.linz.govt.nz/),
 #' the Government's agency that provides free online access to New Zealand’s
 #' most up-to-date land and seabed data.
@@ -124,9 +124,9 @@ NULL
 #'
 #' @description
 #' A tibble including the color map of
-#' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes. All the
-#' palettes includes also a definition of colors limits in terms of elevation
-#' (meters), that can be used with [ggplot2::scale_fill_gradientn()].
+#' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes.
+#' All the palettes includes also a definition of colors limits in terms of
+#' elevation (meters), that can be used with [ggplot2::scale_fill_gradientn()].
 #'
 #' @docType data
 #'
@@ -135,7 +135,8 @@ NULL
 #' @name cross_blended_hypsometric_tints_db
 #' @format
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
-#' `r ncol(cross_blended_hypsometric_tints_db)` columns. with the following fields:
+#' `r ncol(cross_blended_hypsometric_tints_db)` columns. with the following
+#' fields:
 #' - **pal**: Name of the palette.
 #' - **limit**: Recommended elevation limit (in meters) for each color.
 #' - **r**,**g**,**b**: Value of the red, green and blue channel (RGB color

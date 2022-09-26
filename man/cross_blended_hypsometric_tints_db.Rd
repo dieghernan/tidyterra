@@ -6,7 +6,8 @@
 \title{Cross-blended Hypsometric Tints}
 \format{
 A tibble of 41 rows and
-6 columns. with the following fields:
+6 columns. with the following
+fields:
 \itemize{
 \item \strong{pal}: Name of the palette.
 \item \strong{limit}: Recommended elevation limit (in meters) for each color.
@@ -22,9 +23,9 @@ Rationale of Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,}
 }
 \description{
 A tibble including the color map of
-4 gradient palettes. All the
-palettes includes also a definition of colors limits in terms of elevation
-(meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
+4 gradient palettes.
+All the palettes includes also a definition of colors limits in terms of
+elevation (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
 }
 \details{
 From Patterson & Jenny (2011):
