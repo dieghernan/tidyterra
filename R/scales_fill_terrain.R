@@ -55,7 +55,7 @@
 #'   scale_fill_terrain_d(na.value = "gray10")
 #' }
 scale_fill_terrain_d <- function(..., alpha = 1, direction = 1) {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -76,7 +76,7 @@ scale_fill_terrain_d <- function(..., alpha = 1, direction = 1) {
 #' @rdname scale_fill_terrain
 scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "colourbar") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
@@ -99,7 +99,7 @@ scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
 #' @rdname scale_fill_terrain
 scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "coloursteps") {
-  if (alpha < 0 | alpha > 1) {
+  if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
 
