@@ -20,7 +20,7 @@ using a function."><meta property="og:image" content="https://dieghernan.github.
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,7 +82,7 @@ using a function."><meta property="og:image" content="https://dieghernan.github.
 
     <div class="ref-description section level2">
     <p><code>rename()</code> changes the names of individual layers/attributes using
-<code>new_name = old_name</code> syntax; <code>rename_with()</code> renames layers/attributes
+<code>new_name = old_name</code> syntax; <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with()</a></code> renames layers/attributes
 using a function.</p>
     </div>
 
@@ -92,13 +92,13 @@ using a function.</p>
 <span><span class="fu">rename</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatRaster</span></span>
-<span><span class="fu">rename_with</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
 <span><span class="fu">rename</span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu">rename_with</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -111,7 +111,7 @@ created with <code><a href="https://rdrr.io/pkg/terra/man/vect.html" class="exte
 <dt>...</dt>
 <dd><p>For <code>rename()</code>: <code>tidy-select</code> Use <code>new_name = old_name to rename</code>
 selected variables.</p>
-<p>For <code>rename_with()</code>: additional arguments passed onto <code>.fn</code>.</p></dd>
+<p>For <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with()</a></code>: additional arguments passed onto <code>.fn</code>.</p></dd>
 
 
 <dt>.fn</dt>
@@ -213,9 +213,9 @@ function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,          35,         35,  1,  2,  3 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,         251,        250,  1,  2,  3 </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu">rename_with</span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">toupper</span>,</span></span>
-<span class="r-in"><span>  .cols <span class="op">=</span> <span class="fu">starts_with</span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 212, 261, 6  (nrow, ncol, nlyr)</span>

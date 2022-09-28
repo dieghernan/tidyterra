@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -138,11 +138,9 @@
 <div class="section level2">
 <h2 id="get-started-with-tidyterra">Get started with {tidyterra}<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
 </h2>
-<p>First thing you’ll notice when loading {tidyterra} is that a set of packages would be also loaded. You can disable the message by setting <code>Sys.setenv(tidyterra.quiet = TRUE)</code>.</p>
+<p>First thing you’ll notice when loading {tidyterra} is that a set of packages would be also attached.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Disable message with:</span></span>
-<span><span class="co"># Sys.setenv(tidyterra.quiet = TRUE)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span></code></pre></div>
 <p>Currently, the following methods are available:</p>
 <table class="table">
 <thead><tr class="header">
@@ -379,7 +377,7 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="unnamed-chunk-8-1.png" alt="plot of chunk unnamed-chunk-8" width="100%"></p>
+<p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
 <p>The underlying implementation is to take advantage of the conversion <code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the layer.</p>
 </div>
 <div class="section level3">
@@ -417,14 +415,10 @@
 <span><span class="co">#&gt; Dimension:     XY</span></span>
 <span><span class="co">#&gt; Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162</span></span>
 <span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span><span class="co">#&gt;   ID_1   NAME_1 ID_2   NAME_2 AREA   POP</span></span>
-<span><span class="co">#&gt; 1    1 Diekirch    1 Clervaux  312 18081</span></span>
-<span><span class="co">#&gt; 2    1 Diekirch    2 Diekirch  218 32543</span></span>
-<span><span class="co">#&gt; 3    1 Diekirch    3  Redange  259 18664</span></span>
-<span><span class="co">#&gt;                         geometry</span></span>
-<span><span class="co">#&gt; 1 POLYGON ((6.026519 50.17767...</span></span>
-<span><span class="co">#&gt; 2 POLYGON ((6.178368 49.87682...</span></span>
-<span><span class="co">#&gt; 3 POLYGON ((5.881378 49.87015...</span></span>
+<span><span class="co">#&gt;   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry</span></span>
+<span><span class="co">#&gt; 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...</span></span>
+<span><span class="co">#&gt; 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...</span></span>
+<span><span class="co">#&gt; 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">$</span><span class="va">geometry</span>, main <span class="op">=</span> <span class="st">"sf"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terra_sf-2.png" alt="plot of chunk terra_sf" width="100%"></p>
