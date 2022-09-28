@@ -134,6 +134,8 @@ geom_spatraster <- function(mapping = aes(),
 
   # 1. Work with aes ----
 
+  dots <- list(...)
+
   mapping <- cleanup_aesthetics(mapping, "group")
 
   mapping <- override_aesthetics(
@@ -148,14 +150,22 @@ geom_spatraster <- function(mapping = aes(),
 
 
   # aes(fill=...) would select the layer to plot
-  # Extract value of aes(fill)
+  # Extract value of fill from aes
+  namelayer <- unname(vapply(mapping, rlang::as_label, character(1))["fill"])
 
-  if ("fill" %in% names(mapping)) {
-    namelayer <- vapply(mapping, rlang::as_label, character(1))["fill"]
-
-    if (!namelayer %in% names(data)) {
-      cli::cli_abort(paste("Layer", namelayer, "not found in data"))
-    }
+  # If provided in dots assign NULL
+  if ("fill" %in% names(dots)) {
+    mapping <- override_aesthetics(
+      mapping,
+      ggplot2::aes_string(
+        fill = "NULL"
+      )
+    )
+  } else if (is.na(namelayer)) {
+    # If not provided use default value
+    mapping <- mapping
+  } else if (namelayer %in% names(data)) {
+    # If is a layer modify data and aes
 
     # Subset by layer
     data <- terra::subset(data, namelayer)
