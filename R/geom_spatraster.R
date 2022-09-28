@@ -14,6 +14,16 @@
 #' @family ggplot2.utils
 #' @param data A SpatRaster object.
 #'
+#' @param mapping Set of aesthetic mappings created by [ggplot2::aes()] or
+#'   [ggplot2::aes_()]. See **Aesthetics** specially in the use of `fill`
+#'   aesthetic.
+#'
+#' @param na.rm If `TRUE`, the default, missing values are silently removed.
+#'   If `FALSE`, missing values are removed with a warning.
+#'
+#' @param inherit.aes If `FALSE`, overrides the default aesthetics, rather
+#'   than combining with them.
+#'
 #' @source Based on the `layer_spatial()` implementation on ggspatial package.
 #' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
 #' [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
@@ -55,6 +65,12 @@
 #' on the SpatRaster (i.e.
 #' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Names of the
 #' layers can be retrieved using `names(rast)`.
+#'
+#' Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
+#' `geom_spatraster(..., fill = <color value(s)>)` would create a layer with no
+#' mapped `fill` aesthetic.
+#'
+#' `fill` can use computed variables.
 #'
 #' For `alpha` use computed variable. See section **Computed variables**.
 #'

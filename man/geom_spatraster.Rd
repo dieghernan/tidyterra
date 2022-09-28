@@ -21,15 +21,14 @@ geom_spatraster(
 )
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{aes()}} or
-\code{\link[ggplot2:aes_]{aes_()}}. If specified and \code{inherit.aes = TRUE} (the
-default), it is combined with the default mapping at the top level of the
-plot. You must supply \code{mapping} if there is no plot mapping.}
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}} or
+\code{\link[ggplot2:aes_]{ggplot2::aes_()}}. See \strong{Aesthetics} specially in the use of \code{fill}
+aesthetic.}
 
 \item{data}{A SpatRaster object.}
 
-\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
-a warning. If \code{TRUE}, missing values are silently removed.}
+\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed.
+If \code{FALSE}, missing values are removed with a warning.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -37,10 +36,8 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 It can also be a named logical vector to finely select the aesthetics to
 display.}
 
-\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
-rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
+than combining with them.}
 
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
@@ -99,6 +96,12 @@ If \code{fill} is used, it should contain the name of one layer that is present
 on the SpatRaster (i.e.
 \verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Names of the
 layers can be retrieved using \code{names(rast)}.
+
+Using \code{geom_spatraster(..., mapping = aes(fill = NULL))} or
+\verb{geom_spatraster(..., fill = <color value(s)>)} would create a layer with no
+mapped \code{fill} aesthetic.
+
+\code{fill} can use computed variables.
 
 For \code{alpha} use computed variable. See section \strong{Computed variables}.
 }

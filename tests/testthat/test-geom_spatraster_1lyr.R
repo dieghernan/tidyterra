@@ -17,10 +17,6 @@ test_that("geom_spatraster one layer with CRS", {
     geom_spatraster(data = v), regexp = "only works with SpatRaster")
   expect_error(ggplot() +
     geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = r, aes(fill = noexist)),
-  regexp = "Layer noexist not found"
-  )
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
@@ -127,6 +123,25 @@ test_that("geom_spatraster one layer with CRS", {
 
   vdiffr::expect_doppelganger("crs_13: With sf first and crs", p_sf_first +
     coord_sf(crs = 3857))
+
+  # Suppress colors
+  r2 <- r / 100
+  nocols <- ggplot() +
+    geom_spatraster(data = r2, fill = "yellow")
+
+  vdiffr::expect_doppelganger("crs_14: suppress colors", nocols)
+  vdiffr::expect_doppelganger(
+    "crs_14: suppress colors and overlay",
+    nocols +
+      geom_spatraster(data = r, alpha = 0.8)
+  )
+  # Stat works
+  st1 <- ggplot() +
+    geom_spatraster(data = r, aes(fill = after_stat(lyr)))
+  vdiffr::expect_doppelganger(
+    "crs_15: stat works",
+    st1
+  )
 })
 
 
@@ -152,10 +167,6 @@ test_that("geom_spatraster one layer without CRS", {
     geom_spatraster(data = v), regexp = "only works with SpatRaster")
   expect_error(ggplot() +
     geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = r, aes(fill = noexist)),
-  regexp = "Layer noexist not found"
-  )
 
   # Can use other scales
   s <- ggplot() +
@@ -267,6 +278,25 @@ test_that("geom_spatraster one layer without CRS", {
 
   vdiffr::expect_doppelganger("nocrs_12: With sf reprojected", p_rast_first +
     geom_sf(data = new_v, fill = NA))
+
+  # Suppress colors
+  r2 <- r / 100
+  nocols <- ggplot() +
+    geom_spatraster(data = r2, fill = "yellow")
+
+  vdiffr::expect_doppelganger("nocrs_14: suppress colors", nocols)
+  vdiffr::expect_doppelganger(
+    "nocrs_14: suppress colors and overlay",
+    nocols +
+      geom_spatraster(data = r, alpha = 0.8)
+  )
+  # Stat works
+  st1 <- ggplot() +
+    geom_spatraster(data = r, aes(fill = after_stat(lyr)))
+  vdiffr::expect_doppelganger(
+    "nocrs_15: stat works",
+    st1
+  )
 })
 
 
