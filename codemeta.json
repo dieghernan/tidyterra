@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.1.9000",
+  "version": "0.2.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
+  "runtimePlatform": "R version 4.2.1 (2022-06-23 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -331,7 +331,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3551.303KB",
+  "fileSize": "3469.542KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

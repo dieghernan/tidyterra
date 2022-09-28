@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.2.2
 
 -   Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
     packages are listed on 'Depends' and are attached before **tidyterra** when
