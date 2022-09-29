@@ -1,3 +1,11 @@
+# tidyterra (development version)
+
+-   Now in`geom_spatraster()` is possible to de active the default `fill` of the
+    layer using `geom_spatraster(fill = NULL)` or
+    `geom_spatraster(aes(fill = NULL))`.
+
+-   `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
+
 # tidyterra 0.2.2
 
 -   Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
