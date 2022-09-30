@@ -33,10 +33,9 @@ geom_spatraster_contour_filled(
 )
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{aes()}} or
-\code{\link[ggplot2:aes_]{aes_()}}. If specified and \code{inherit.aes = TRUE} (the
-default), it is combined with the default mapping at the top level of the
-plot. You must supply \code{mapping} if there is no plot mapping.}
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}} or
+\code{\link[ggplot2:aes_]{ggplot2::aes_()}}. See \strong{Aesthetics} specially in the use of \code{fill}
+aesthetic.}
 
 \item{data}{A SpatRaster object.}
 
@@ -63,8 +62,8 @@ and returns breaks as output. A function can be created from a formula
 Overrides \code{binwidth} and \code{bins}. By default, this is a vector of length
 ten with \code{\link[=pretty]{pretty()}} breaks.}
 
-\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
-a warning. If \code{TRUE}, missing values are silently removed.}
+\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed.
+If \code{FALSE}, missing values are removed with a warning.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -72,10 +71,8 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 It can also be a named logical vector to finely select the aesthetics to
 display.}
 
-\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
-rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
+than combining with them.}
 }
 \value{
 A ggplot2 layer
