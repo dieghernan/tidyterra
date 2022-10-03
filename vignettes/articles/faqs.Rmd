@@ -1,0 +1,188 @@
+---
+title: "tidyterra FAQs"
+description: >
+  Frequently Asked Questions on the use of tidyterra.
+output:
+  html_document:
+    toc: true
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  dpi = 300,
+  tidy = "styler",
+  out.width = "100%"
+)
+```
+
+# Common questions on the use of {tidyterra}
+
+## NA values are shown in gray color
+
+This is the default behaviour produced by the **ggplot2** package. **tidyterra**
+color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
+parameter `na.value` set to `NA`, that prevents NA values to be plotted.
+
+```{r remove-nas}
+
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(geodata)
+
+# Get a raster data
+
+r <- geodata::elevation_30s("CHE", tempdir())
+
+# Default
+ggplot() +
+  geom_spatraster(data = r) +
+  labs(
+    title = "Default on ggplot2",
+    subtitle = "NA values in grey"
+  )
+
+# Modify with scales
+ggplot() +
+  geom_spatraster(data = r) +
+  scale_fill_continuous(na.value = NA) +
+  labs(
+    title = "Default colors on ggplot2",
+    subtitle = "But NAs are not plotted"
+  )
+
+# Use a different scale provided by ggplot2
+ggplot() +
+  geom_spatraster(data = r) +
+  scale_fill_viridis_c(na.value = "orange") +
+  labs(
+    title = "Use any fill_* scale of ggplot2",
+    subtitle = "Note that na.value = 'orange'"
+  )
+```
+
+## Labelling contours
+
+You can convert your SpatRaster to a `data.frame/tibble` in combination with the
+**metR** package. Use the parameter(s) `bins/binwidth/breaks` to align both
+labels and lines:
+
+```{r text-contour}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(metR)
+
+r <- geodata::elevation_30s("CHE", tempdir())
+
+r_df <- as_tibble(r, xy = TRUE)
+
+r_df
+
+ggplot() +
+  geom_spatraster_contour(data = r) +
+  geom_text_contour(
+    data = r_df, aes(x, y, z = CHE_elv_msk),
+    check_overlap = TRUE,
+    stroke = 0.2, stroke.colour = "white"
+  ) +
+  labs(
+    title = "Labelling contours",
+    width = 2,
+    x = "", y = ""
+  )
+
+# Modify number or bins
+
+ggplot() +
+  geom_spatraster_contour(
+    data = r,
+    binwidth = 1000
+  ) +
+  geom_text_contour(
+    data = r_df, aes(x, y, z = CHE_elv_msk),
+    binwidth = 1000,
+    check_overlap = TRUE,
+    size = 3,
+    stroke = 0.2, stroke.colour = "white"
+  ) +
+  labs(
+    title = "Labelling contours",
+    subtitle = "Aligning breaks",
+    width = 2,
+    x = "", y = ""
+  )
+```
+
+## Using a different color scale
+
+Since **tidyterra** leverages on **ggplot2**, please refer to **ggplot2** use of
+scales:
+
+```{r greys}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+
+
+r <- geodata::elevation_30s("CHE", tempdir())
+
+# Hillshade with grey colors
+slope <- terrain(r, "slope", unit = "radians")
+aspect <- terrain(r, "aspect", unit = "radians")
+hill <- shade(slope, aspect, 10, 340)
+
+ggplot() +
+  geom_spatraster(data = hill, show.legend = FALSE) +
+  # Note the scale, grey colours
+  scale_fill_gradientn(colours = grey(0:100 / 100), na.value = NA) +
+  labs(title = "A hillshade plot with grey colors")
+```
+
+## My map tiles are blurry
+
+This is probably related with the tile itself rather than the package. Most base tiles
+are provided in EPSG:3857, so check first if your tile has this CRS and no a different one. Not having EPSG:3857 may be an indication that the tile has been reprojected, implied some sort of sampling that causes the blurriness on your data. Also, modify
+the paramter `maxcell` to avoid resampling:
+
+```{r blurry-tile}
+
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(sf)
+library(maptiles)
+
+# Get a tile from a point on sf format
+
+p <- st_point(c(-97.09, 31.53)) %>%
+  st_sfc(crs = 4326) %>%
+  st_buffer(750)
+
+tile1 <- get_tiles(p, provider = "Stamen.Terrain", zoom = 14)
+
+
+ggplot() +
+  geom_spatraster_rgb(data = tile1) +
+  labs(title = "This is a bit blurry...")
+
+st_crs(tile1)$epsg
+
+# get tile in 3857
+p2 <- st_transform(p, 3857)
+
+
+tile2 <- get_tiles(p2, provider = "Stamen.Terrain", zoom = 14)
+
+st_crs(tile2)$epsg
+ggplot() +
+  geom_spatraster_rgb(data = tile2, maxcell = ncell(tile2) * 1.1) +
+  labs(
+    title = "See the difference?",
+    subtitle = "Init crs=3857 and maxcell modified"
+  )
+```

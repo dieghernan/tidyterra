@@ -23,6 +23,8 @@ jobs:
           extra-packages: |
             local::.
             any::pkgdown
+            any::geodata
+            any::metR
           needs: website
 
       - name: Deploy package

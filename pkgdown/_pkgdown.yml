@@ -4,9 +4,6 @@ figures:
   dpi: 300
   fig.retina: 2
 
-development:
-  mode: auto
-
 navbar:
   type: dark
   bg: primary
@@ -15,6 +12,7 @@ navbar:
       - intro
       - reference
       - articles
+      - faqs
       - tutorials
       - media
       - news
@@ -23,6 +21,9 @@ navbar:
       - twitter
       - github
   components:
+    faqs:
+      text: FAQs
+      href: 'articles/faqs.html'
     media:
       text: Other media
       menu:

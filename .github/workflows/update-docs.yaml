@@ -10,13 +10,13 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-      
+
       - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
-          
+
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
@@ -25,8 +25,10 @@ jobs:
             any::cli
             any::rcmdcheck
             any::pkgdown
+            any::geodata
+            any::metR
             dieghernan/pkgdev
-      
+
           needs: website
 
       - name: Update docs
@@ -45,7 +47,7 @@ jobs:
           git push origin || echo "No changes to commit"
 
       - uses: r-lib/actions/check-r-package@v2
- 
+
       - name: Deploy package
         run: |
           git config --local user.name "$GITHUB_ACTOR"
