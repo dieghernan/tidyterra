@@ -24,7 +24,7 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +41,12 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
@@ -115,10 +119,9 @@ Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey D
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>mapping</dt>
-<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> or
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
-default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
+<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code> or
+<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_()</a></code>. See <strong>Aesthetics</strong> specially in the use of <code>fill</code>
+aesthetic.</p></dd>
 
 
 <dt>data</dt>
@@ -126,8 +129,8 @@ plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
 
 
 <dt>na.rm</dt>
-<dd><p>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
+<dd><p>If <code>TRUE</code>, the default, missing values are silently removed.
+If <code>FALSE</code>, missing values are removed with a warning.</p></dd>
 
 
 <dt>show.legend</dt>
@@ -139,10 +142,8 @@ display.</p></dd>
 
 
 <dt>inherit.aes</dt>
-<dd><p>If <code>FALSE</code>, overrides the default aesthetics,
-rather than combining with them. This is most useful for helper functions
-that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.org/reference/borders.html" class="external-link">borders()</a></code>.</p></dd>
+<dd><p>If <code>FALSE</code>, overrides the default aesthetics, rather
+than combining with them.</p></dd>
 
 
 <dt>interpolate</dt>
@@ -200,6 +201,10 @@ properly the SpatRaster layers.</p>
 on the SpatRaster (i.e.
 <code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Names of the
 layers can be retrieved using <code>names(rast)</code>.</p>
+<p>Using <code>geom_spatraster(..., mapping = aes(fill = NULL))</code> or
+<code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> would create a layer with no
+mapped <code>fill</code> aesthetic.</p>
+<p><code>fill</code> can use computed variables.</p>
 <p>For <code>alpha</code> use computed variable. See section <strong>Computed variables</strong>.</p>
     </div>
     <div class="section level2">
