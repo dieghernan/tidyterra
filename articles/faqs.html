@@ -123,13 +123,17 @@
 
     
     
+<p>This is a compendium of questions arisen on the use of the <strong>tidyterra</strong> package and the potential solutions to it (mostly related with the use of <strong>terra</strong> and <strong>ggplot2</strong> at this stage). You can ask for help or search previous questions in the following links.</p>
+<ul>
+<li>Issues: <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link uri">https://github.com/dieghernan/tidyterra/issues</a>
+</li>
+<li>Discussions: <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link uri">https://github.com/dieghernan/tidyterra/discussions</a>
+</li>
+</ul>
 <div class="section level2">
-<h2 id="common-questions-on-the-use-of-tidyterra">Common questions on the use of {tidyterra}<a class="anchor" aria-label="anchor" href="#common-questions-on-the-use-of-tidyterra"></a>
+<h2 id="nas-remove">NA values are shown in gray color<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<div class="section level3">
-<h3 id="na-values-are-shown-in-gray-color">NA values are shown in gray color<a class="anchor" aria-label="anchor" href="#na-values-are-shown-in-gray-color"></a>
-</h3>
-<p>This is the default behaviour produced by the <strong>ggplot2</strong> package. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), has by default the parameter <code>na.value</code> set to <code>NA</code>, that prevents NA values to be plotted.</p>
+<p>This is the default behavior produced by the <strong>ggplot2</strong> package. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), has by default the parameter <code>na.value</code> set to <code>NA</code>, that prevents NA values to be plotted.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -139,7 +143,7 @@
 <span></span>
 <span><span class="co"># Get a raster data</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="st">"."</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Default</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -172,9 +176,9 @@
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/remove-nas-3.png" width="100%"></p>
 </div>
-<div class="section level3">
-<h3 id="labelling-contours">Labelling contours<a class="anchor" aria-label="anchor" href="#labelling-contours"></a>
-</h3>
+<div class="section level2">
+<h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
+</h2>
 <p>You can convert your SpatRaster to a <code>data.frame/tibble</code> in combination with the <strong>metR</strong> package. Use the parameter(s) <code>bins/binwidth/breaks</code> to align both labels and lines:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -182,30 +186,31 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eliocamp/metR" class="external-link">metR</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="st">"."</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="st">"elev"</span></span>
 <span></span>
 <span><span class="va">r_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">r</span>, xy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">r_df</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 162,288 × 3</span></span></span>
-<span><span class="co">#&gt;        x     y CHE_elv_msk</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  5.80  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  5.81  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  5.82  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  5.83  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  5.84  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  5.85  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  5.85  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  5.86  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  5.87  48.0          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  5.88  48.0          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt;        x     y  elev</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span>  5.80  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span>  5.81  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span>  5.82  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span>  5.83  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span>  5.84  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span>  5.85  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span>  5.85  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span>  5.86  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span>  5.87  48.0    <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span>  5.88  48.0    <span style="color: #BB0000;">NA</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># … with 162,278 more rows</span></span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metR/man/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">r_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">CHE_elv_msk</span><span class="op">)</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">r_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elev</span><span class="op">)</span>,</span>
 <span>    check_overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    stroke <span class="op">=</span> <span class="fl">0.2</span>, stroke.colour <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
@@ -225,7 +230,7 @@
 <span>    binwidth <span class="op">=</span> <span class="fl">1000</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/metR/man/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">r_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">CHE_elv_msk</span><span class="op">)</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">r_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elev</span><span class="op">)</span>,</span>
 <span>    binwidth <span class="op">=</span> <span class="fl">1000</span>,</span>
 <span>    check_overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
@@ -239,9 +244,9 @@
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/text-contour-2.png" width="100%"></p>
 </div>
-<div class="section level3">
-<h3 id="using-a-different-color-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#using-a-different-color-scale"></a>
-</h3>
+<div class="section level2">
+<h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
+</h2>
 <p>Since <strong>tidyterra</strong> leverages on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use of scales:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -249,7 +254,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="st">"."</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Hillshade with grey colors</span></span>
 <span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
@@ -263,10 +268,10 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"A hillshade plot with grey colors"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/greys-1.png" width="100%"></p>
 </div>
-<div class="section level3">
-<h3 id="my-map-tiles-are-blurry">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#my-map-tiles-are-blurry"></a>
-</h3>
-<p>This is probably related with the tile itself rather than the package. Most base tiles are provided in EPSG:3857, so check first if your tile has this CRS and no a different one. Not having EPSG:3857 may be an indication that the tile has been reprojected, implied some sort of sampling that causes the blurriness on your data. Also, modify the paramter <code>maxcell</code> to avoid resampling:</p>
+<div class="section level2">
+<h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
+</h2>
+<p>This is probably related with the tile itself rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so check first if your tile has this CRS and not a different one. Not having <strong>EPSG:3857</strong> may be an indication that the tile has been reprojected, implied some sort of sampling that causes the blurriness on your data. Also, modify the parameter <code>maxcell</code> to avoid resampling and force the <strong>ggplot2</strong> map to be on <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -281,11 +286,12 @@
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_buffer</a></span><span class="op">(</span><span class="fl">750</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">tile1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">get_tiles</a></span><span class="op">(</span><span class="va">p</span>, provider <span class="op">=</span> <span class="st">"Stamen.Terrain"</span>, zoom <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">tile1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">get_tiles</a></span><span class="op">(</span><span class="va">p</span>, provider <span class="op">=</span> <span class="st">"Stamen.Terrain"</span>, zoom <span class="op">=</span> <span class="fl">14</span>, cachedir <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span>
 <span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tile1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">p</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This is a bit blurry..."</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/blurry-tile-1.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -293,22 +299,101 @@
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">tile1</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span></span>
 <span><span class="co">#&gt; [1] 4326</span></span>
 <span></span>
+<span><span class="co"># The tile was in EPSG 4326</span></span>
+<span></span>
 <span><span class="co"># get tile in 3857</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">st_transform</a></span><span class="op">(</span><span class="va">p</span>, <span class="fl">3857</span><span class="op">)</span></span>
 <span></span>
 <span></span>
-<span><span class="va">tile2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">get_tiles</a></span><span class="op">(</span><span class="va">p2</span>, provider <span class="op">=</span> <span class="st">"Stamen.Terrain"</span>, zoom <span class="op">=</span> <span class="fl">14</span><span class="op">)</span></span>
+<span><span class="va">tile2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">get_tiles</a></span><span class="op">(</span><span class="va">p2</span>, provider <span class="op">=</span> <span class="st">"Stamen.Terrain"</span>, zoom <span class="op">=</span> <span class="fl">14</span>, cachedir <span class="op">=</span> <span class="st">"."</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">tile2</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span></span>
 <span><span class="co">#&gt; [1] 3857</span></span>
+<span></span>
+<span><span class="co"># Now the tile is EPSG:3857</span></span>
+<span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tile2</span>, maxcell <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">tile2</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">p</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Force crs to be 3857</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"See the difference?"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Init crs=3857 and maxcell modified"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/blurry-tile-2.png" width="100%"></p>
 </div>
+<div class="section level2">
+<h2 id="axis-degrees">Avoid degrees labeling on axis<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
+</h2>
+<p>Again, this is the <strong>ggplot2</strong> default, but can be modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="st">"."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Project to 3035</span></span>
+<span><span class="va">r2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="../reference/pull_crs.html">pull_crs</a></span><span class="op">(</span><span class="fl">3035</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Axis auto-converted to lon/lat"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"But SpatRaster is EPSG:3035"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/modify-datum-1.png" width="100%"></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="co"># Use datum</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="fu"><a href="../reference/pull_crs.html">pull_crs</a></span><span class="op">(</span><span class="va">r2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Axis on the units of the SpatRaster"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"EPSG:3035"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/modify-datum-2.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="axis-breaks">Modifying the number of breaks on axis<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
+</h2>
+<p>The best option is to pass your custom breaks to <code>ggplot2::scale_x_continous()</code> or <code>ggplot2::scale_y_continous()</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/elevation.html" class="external-link">elevation_30s</a></span><span class="op">(</span><span class="st">"CHE"</span>, <span class="st">"."</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Default axis breaks"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/breaks-1.png" width="100%"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># Modify x breaks</span></span>
+<span></span>
+<span><span class="co"># Get extent</span></span>
+<span></span>
+<span><span class="va">ext</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">ext</span><span class="op">[</span><span class="st">"xmin"</span><span class="op">]</span>, <span class="va">ext</span><span class="op">[</span><span class="st">"xmax"</span><span class="op">]</span>, length.out <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="va">br</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Three breaks"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/breaks-2.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
