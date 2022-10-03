@@ -2,28 +2,41 @@
 title: "tidyterra FAQs"
 description: >
   Frequently Asked Questions on the use of tidyterra.
-output:
-  html_document:
-    toc: true
+resource_files:
+   - vignettes/articles/CHE_elv_msk.tif
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   warning = FALSE,
   message = FALSE,
   dpi = 300,
+  cache = FALSE,
+  dev = "ragg_png",
   tidy = "styler",
   out.width = "100%"
 )
 ```
 
-# Common questions on the use of {tidyterra}
+This is a compendium of questions arisen on the use of the **tidyterra** package
+and the potential solutions to it (mostly related with the use of **terra** and
+**ggplot2** at this stage). You can ask for help or search previous questions in
+the following links.
 
-## NA values are shown in gray color
+```{r issues, echo=FALSE, results='asis'}
 
-This is the default behaviour produced by the **ggplot2** package. **tidyterra**
+link <- unlist(packageDescription("tidyterra")["BugReports"])
+cat("\n- Issues: ", link)
+dis <- gsub("issues$", "discussions", link)
+cat("\n- Discussions: ", dis)
+cat("\n")
+```
+
+## NA values are shown in gray color {#nas-remove}
+
+This is the default behavior produced by the **ggplot2** package. **tidyterra**
 color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
 parameter `na.value` set to `NA`, that prevents NA values to be plotted.
 
@@ -36,7 +49,7 @@ library(geodata)
 
 # Get a raster data
 
-r <- geodata::elevation_30s("CHE", tempdir())
+r <- geodata::elevation_30s("CHE", ".")
 
 # Default
 ggplot() +
@@ -65,7 +78,7 @@ ggplot() +
   )
 ```
 
-## Labelling contours
+## Labeling contours {#label-contour}
 
 You can convert your SpatRaster to a `data.frame/tibble` in combination with the
 **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align both
@@ -77,7 +90,8 @@ library(tidyterra)
 library(ggplot2)
 library(metR)
 
-r <- geodata::elevation_30s("CHE", tempdir())
+r <- geodata::elevation_30s("CHE", ".")
+names(r) <- "elev"
 
 r_df <- as_tibble(r, xy = TRUE)
 
@@ -86,7 +100,7 @@ r_df
 ggplot() +
   geom_spatraster_contour(data = r) +
   geom_text_contour(
-    data = r_df, aes(x, y, z = CHE_elv_msk),
+    data = r_df, aes(x, y, z = elev),
     check_overlap = TRUE,
     stroke = 0.2, stroke.colour = "white"
   ) +
@@ -104,7 +118,7 @@ ggplot() +
     binwidth = 1000
   ) +
   geom_text_contour(
-    data = r_df, aes(x, y, z = CHE_elv_msk),
+    data = r_df, aes(x, y, z = elev),
     binwidth = 1000,
     check_overlap = TRUE,
     size = 3,
@@ -118,7 +132,7 @@ ggplot() +
   )
 ```
 
-## Using a different color scale
+## Using a different color scale {#use-scale}
 
 Since **tidyterra** leverages on **ggplot2**, please refer to **ggplot2** use of
 scales:
@@ -129,7 +143,7 @@ library(tidyterra)
 library(ggplot2)
 
 
-r <- geodata::elevation_30s("CHE", tempdir())
+r <- geodata::elevation_30s("CHE", ".")
 
 # Hillshade with grey colors
 slope <- terrain(r, "slope", unit = "radians")
@@ -143,11 +157,15 @@ ggplot() +
   labs(title = "A hillshade plot with grey colors")
 ```
 
-## My map tiles are blurry
+## My map tiles are blurry {#blurry-tiles}
 
-This is probably related with the tile itself rather than the package. Most base tiles
-are provided in EPSG:3857, so check first if your tile has this CRS and no a different one. Not having EPSG:3857 may be an indication that the tile has been reprojected, implied some sort of sampling that causes the blurriness on your data. Also, modify
-the paramter `maxcell` to avoid resampling:
+This is probably related with the tile itself rather than the package. Most base
+tiles are provided in **EPSG:3857**, so check first if your tile has this CRS
+and not a different one. Not having **EPSG:3857** may be an indication that the
+tile has been reprojected, implied some sort of sampling that causes the
+blurriness on your data. Also, modify the parameter `maxcell` to avoid
+resampling and force the **ggplot2** map to be on **EPSG:3857** with
+`ggplot2::coord_sf(crs = 3857)`:
 
 ```{r blurry-tile}
 
@@ -163,26 +181,105 @@ p <- st_point(c(-97.09, 31.53)) %>%
   st_sfc(crs = 4326) %>%
   st_buffer(750)
 
-tile1 <- get_tiles(p, provider = "Stamen.Terrain", zoom = 14)
+tile1 <- get_tiles(p, provider = "Stamen.Terrain", zoom = 14, cachedir = ".")
 
 
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
+  geom_sf(data = p, fill = NA) +
   labs(title = "This is a bit blurry...")
 
 st_crs(tile1)$epsg
+
+# The tile was in EPSG 4326
 
 # get tile in 3857
 p2 <- st_transform(p, 3857)
 
 
-tile2 <- get_tiles(p2, provider = "Stamen.Terrain", zoom = 14)
+tile2 <- get_tiles(p2, provider = "Stamen.Terrain", zoom = 14, cachedir = ".")
 
 st_crs(tile2)$epsg
+
+# Now the tile is EPSG:3857
+
 ggplot() +
   geom_spatraster_rgb(data = tile2, maxcell = ncell(tile2) * 1.1) +
+  geom_sf(data = p, fill = NA) +
+  # Force crs to be 3857
+  coord_sf(crs = 3857) +
   labs(
     title = "See the difference?",
     subtitle = "Init crs=3857 and maxcell modified"
   )
+```
+
+## Avoid degrees labeling on axis {#axis-degrees}
+
+Again, this is the **ggplot2** default, but can be modified with
+`ggplot2::coord_sf(datum)` argument:
+
+```{r modify-datum}
+
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(geodata)
+
+
+r <- geodata::elevation_30s("CHE", ".")
+
+# Project to 3035
+r2 <- project(r, pull_crs(3035))
+
+ggplot() +
+  geom_spatraster(data = r2) +
+  labs(
+    title = "Axis auto-converted to lon/lat",
+    subtitle = "But SpatRaster is EPSG:3035"
+  )
+
+
+# Use datum
+
+ggplot() +
+  geom_spatraster(data = r2) +
+  coord_sf(datum = pull_crs(r2)) +
+  labs(
+    title = "Axis on the units of the SpatRaster",
+    subtitle = "EPSG:3035"
+  )
+```
+
+## Modifying the number of breaks on axis {#axis-breaks}
+
+The best option is to pass your custom breaks to `ggplot2::scale_x_continous()`
+or `ggplot2::scale_y_continous()`:
+
+```{r breaks}
+
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(geodata)
+
+
+r <- geodata::elevation_30s("CHE", ".")
+
+ggplot() +
+  geom_spatraster(data = r) +
+  labs(title = "Default axis breaks")
+
+# Modify x breaks
+
+# Get extent
+
+ext <- as.vector(ext(r))
+
+br <- seq(ext["xmin"], ext["xmax"], length.out = 3)
+
+ggplot() +
+  geom_spatraster(data = r) +
+  scale_x_continuous(breaks = br) +
+  labs(title = "Three breaks")
 ```

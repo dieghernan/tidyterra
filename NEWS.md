@@ -1,6 +1,6 @@
 # tidyterra (development version)
 
--   Now in`geom_spatraster()` is possible to de active the default `fill` of the
+-   Now in `geom_spatraster()` is possible to avoid the default `fill` of the
     layer using `geom_spatraster(fill = NULL)` or
     `geom_spatraster(aes(fill = NULL))`.
 

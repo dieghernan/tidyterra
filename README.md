@@ -247,6 +247,12 @@ ggplot() +
 {tidyterra} is currently on development mode. Please leave your feedback
 or open an issue on <https://github.com/dieghernan/tidyterra/issues>.
 
+## Need help?
+
+Check our
+[FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
+open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
+
 ## Citation
 
 To cite ‘tidyterra’ in publications use:

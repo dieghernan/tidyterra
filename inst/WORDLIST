@@ -26,7 +26,6 @@ WhiteboxTools
 asia
 bathymetric
 bathymetry
-behaviour
 binwidth
 codecov
 colour
@@ -53,6 +52,7 @@ io
 linetype
 magrittr
 maptiles
+metR
 ortion
 proj
 purrr
