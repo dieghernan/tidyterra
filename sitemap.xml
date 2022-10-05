@@ -4,12 +4,6 @@
     <loc>https://dieghernan.github.io/tidyterra/404.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/articles/faqs.html</loc>
   </url>
   <url>
@@ -26,6 +20,12 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/news/index.html</loc>
@@ -49,22 +49,22 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/filter.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/filter.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/ggspatvector.html</loc>
