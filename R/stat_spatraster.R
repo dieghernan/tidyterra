@@ -19,7 +19,6 @@
 #'
 #' `stat_spatraster()` understands the same aesthetics than `geom_spatraster()`
 #' when using `geom = "raster"` (the default):
-#' :
 #'
 #' - `fill`
 #' - `alpha`
@@ -27,7 +26,7 @@
 #' When `geom = "raster"` the `fill` parameter would behave as in
 #' `geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
 #' understand the aesthetics of the required `geom` and
-#' `aes(fill = <name_of_lyr>` would not be applicable.
+#' `aes(fill = <name_of_lyr>)` would not be applicable.
 #'
 #' Note also that mapping of aesthetics `x` and `y` is provided by default,
 #' so the user does not need to add those aesthetics on `aes()`. In all the
