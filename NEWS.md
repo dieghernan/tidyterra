@@ -10,6 +10,8 @@
 
     -   Internal: Better handling of `aes()` and layers
 
+-   Add new function `stat_spatraster()`.
+
 # tidyterra 0.2.2
 
 -   Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
