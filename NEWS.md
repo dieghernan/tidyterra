@@ -1,10 +1,16 @@
-# tidyterra (development version)
+# tidyterra (development version)I
 
--   Now in `geom_spatraster()` is possible to avoid the default `fill` of the
-    layer using `geom_spatraster(fill = NULL)` or
-    `geom_spatraster(aes(fill = NULL))`.
+-   Improvements on `geom_spatraster()`:
 
--   `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
+    -   Now in `geom_spatraster()` is possible to avoid the default `fill` of
+        the layer using `geom_spatraster(fill = NA)` or
+        `geom_spatraster(aes(fill = NULL))`.
+
+    -   `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
+
+    -   Internal: Better handling of `aes()` and layers
+
+-   Add new function `stat_spatraster()`.
 
 # tidyterra 0.2.2
 
@@ -16,7 +22,7 @@
 # tidyterra 0.2.1
 
 -   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
--   Improve facetting when the plot facets are created using non-Spat\* layers.
+-   Improve faceting when the plot facets are created using non-Spat\* layers.
 -   Precompute vignettes.
 
 # tidyterra 0.2.0

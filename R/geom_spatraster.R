@@ -151,45 +151,18 @@ geom_spatraster <- function(mapping = aes(),
   # 1. Work with aes ----
 
   dots <- list(...)
+  raster_names <- names(data)
 
-  mapping <- cleanup_aesthetics(mapping, "group")
+  prepared <- prepare_aes_spatraster(mapping, raster_names, dots)
 
-  mapping <- override_aesthetics(
-    mapping,
-    ggplot2::aes_string(
-      spatraster = "spatraster",
-      # For faceting
-      lyr = "lyr",
-      group = "lyr"
-    )
-  )
+  # Use prepared data
+  mapping <- prepared$map
 
-
-  # aes(fill=...) would select the layer to plot
-  # Extract value of fill from aes
-  namelayer <- unname(vapply(mapping, rlang::as_label, character(1))["fill"])
-
-  # If provided in dots assign NULL
-  if ("fill" %in% names(dots)) {
-    mapping <- override_aesthetics(
-      mapping,
-      ggplot2::aes_string(
-        fill = "NULL"
-      )
-    )
-  } else if (is.na(namelayer)) {
-    # If not provided use default value
-    mapping <- mapping
-  } else if (namelayer %in% names(data)) {
-    # If is a layer modify data and aes
-
-    # Subset by layer
-    data <- terra::subset(data, namelayer)
-    # Remove fill from aes, would be provided later on the Stat
-    mapping <- cleanup_aesthetics(mapping, "fill")
+  # Check if need to subset the SpatRaster
+  if (is.character(prepared$namelayer)) {
+    # Subset the layer from the data
+    data <- terra::subset(data, prepared$namelayer)
   }
-
-
   # 2. Check if resample is needed----
 
   # Check mixed types
@@ -268,7 +241,7 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
-    fill = stat(value), lyr = lyr, group = lyr,
+    lyr = lyr, group = lyr,
     spatraster = stat(spatraster)
   ),
   extra_params = c("maxcell", "na.rm", "coord_crs"),
@@ -447,4 +420,71 @@ check_mixed_cols <- function(r) {
   )
 
   return(newr)
+}
+
+
+prepare_aes_spatraster <- function(mapping = aes(),
+                                   raster_names = NA,
+                                   dots = list()) {
+  # Prepare aes for StatTerraSpatRaster
+  mapinit <- cleanup_aesthetics(mapping, "group")
+
+  mapinit <- override_aesthetics(
+    mapinit,
+    ggplot2::aes_string(
+      spatraster = "spatraster",
+      # For faceting
+      lyr = "lyr",
+      group = "lyr"
+    )
+  )
+
+  # Create first the default result object, would be overriden
+
+  result_obj <- list(
+    namelayer = FALSE,
+    map = mapinit
+  )
+
+
+  # Capture all info
+  fill_from_dots <- "fill" %in% names(dots)
+
+  # Do nothing if fill in dots
+  if (isTRUE(fill_from_dots)) {
+    return(result_obj)
+  }
+
+
+  # Extract from aes
+  fill_from_aes <- unname(vapply(mapinit, rlang::as_label, character(1))["fill"])
+  fill_not_provided <- is.na(fill_from_aes)
+  is_layer <- fill_from_aes %in% raster_names
+
+
+  # If not provided add after_stat
+  if (fill_not_provided) {
+    map_not_prov <- override_aesthetics(
+      mapinit, ggplot2::aes_string(fill = "ggplot2::after_stat(value)")
+    )
+
+    result_obj$map <- map_not_prov
+    return(result_obj)
+  }
+
+  # If it is a layer need to override the fill value and keep the namelayer
+  if (is_layer) {
+    map_layer <- override_aesthetics(
+      ggplot2::aes_string(fill = "ggplot2::after_stat(value)"),
+      mapinit
+    )
+
+
+    result_obj$map <- map_layer
+    result_obj$namelayer <- fill_from_aes
+    return(result_obj)
+  }
+
+  # Otherwise leave as it is
+  return(result_obj)
 }
