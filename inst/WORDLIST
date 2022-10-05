@@ -37,7 +37,6 @@ dieghernan
 doi
 downsampled
 dplyr
-facetting
 fullseq
 geoms
 ggplot
@@ -60,6 +59,7 @@ rasters
 reprojected
 rescaled
 rlang
+spatraster
 standardised
 terra
 tibble

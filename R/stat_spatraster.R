@@ -15,6 +15,7 @@
 #'
 #' @section Aesthetics:
 #'
+#'  ## stat_spatraster()
 #'
 #' `stat_spatraster()` understands the same aesthetics than `geom_spatraster()`
 #' when using `geom = "raster"` (the default):

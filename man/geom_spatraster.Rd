@@ -125,6 +125,7 @@ mapped \code{fill} aesthetic.
 For \code{alpha} use computed variable. See section \strong{Computed variables}.
 
 
+\subsection{stat_spatraster()}{
 
 \code{stat_spatraster()} understands the same aesthetics than \code{geom_spatraster()}
 when using \code{geom = "raster"} (the default):
@@ -143,6 +144,7 @@ Note also that mapping of aesthetics \code{x} and \code{y} is provided by defaul
 so the user does not need to add those aesthetics on \code{aes()}. In all the
 cases the aesthetics should be mapped by using computed variables. See
 section \strong{Computed variables} and \strong{Examples}.
+}
 }
 
 \section{Facets}{
