@@ -58,7 +58,7 @@
 <text x='694.94' y='307.49' style='font-size: 8.80px; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>1000</text>
 <text x='694.94' y='287.02' style='font-size: 8.80px; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>1500</text>
 <text x='694.94' y='266.55' style='font-size: 8.80px; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>2000</text>
-<text x='672.18' y='248.09' style='font-size: 11.00px; font-family: sans;' textLength='10.38px' lengthAdjust='spacingAndGlyphs'>fill</text>
+<text x='672.18' y='248.09' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
 <line x1='672.18' y1='324.93' x2='675.64' y2='324.93' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <line x1='672.18' y1='304.46' x2='675.64' y2='304.46' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <line x1='672.18' y1='283.99' x2='675.64' y2='283.99' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
