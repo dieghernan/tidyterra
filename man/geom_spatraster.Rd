@@ -129,7 +129,6 @@ For \code{alpha} use computed variable. See section \strong{Computed variables}.
 
 \code{stat_spatraster()} understands the same aesthetics than \code{geom_spatraster()}
 when using \code{geom = "raster"} (the default):
-:
 \itemize{
 \item \code{fill}
 \item \code{alpha}
@@ -138,7 +137,7 @@ when using \code{geom = "raster"} (the default):
 When \code{geom = "raster"} the \code{fill} parameter would behave as in
 \code{geom_spatraster()}. If another \code{geom} is used \code{stat_spatraster()} would
 understand the aesthetics of the required \code{geom} and
-\verb{aes(fill = <name_of_lyr>} would not be applicable.
+\verb{aes(fill = <name_of_lyr>)} would not be applicable.
 
 Note also that mapping of aesthetics \code{x} and \code{y} is provided by default,
 so the user does not need to add those aesthetics on \code{aes()}. In all the
