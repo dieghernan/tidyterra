@@ -1,5 +1,5 @@
 Package: tidyterra
-Title: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects
+Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 Version: 0.3.0
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
@@ -18,20 +18,20 @@ URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra
 BugReports: https://github.com/dieghernan/tidyterra/issues
 Depends: 
-    dplyr (>= 1.0.0),
-    R (>= 3.6.0),
-    tibble (>= 3.0.0),
-    tidyr (>= 1.0.0)
+    R (>= 3.6.0)
 Imports: 
     cli (>= 3.0.0),
     crayon,
     data.table,
+    dplyr (>= 1.0.0),
     ggplot2 (>= 3.1.0),
     magrittr,
     rlang,
     scales,
     sf (>= 1.0.0),
-    terra (>= 1.5-12)
+    terra (>= 1.5-12),
+    tibble (>= 3.0.0),
+    tidyr (>= 1.0.0)
 Suggests: 
     isoband,
     knitr,

@@ -11,8 +11,8 @@
 #' See **Examples** and section `About layer names` on [as_tibble()].
 #'
 #' @export
-#' @rdname pull
-#' @name pull
+#' @rdname pull.Spat
+#' @name pull.Spat
 #'
 #' @seealso [dplyr::pull()]
 #'
@@ -20,7 +20,7 @@
 #'
 #' @importFrom dplyr pull
 #'
-#' @inheritParams select
+#' @inheritParams select.Spat
 #' @param var A variable specified as:
 #'
 #'   - a literal layer/attribute name
@@ -93,9 +93,12 @@ pull.SpatRaster <- function(.data, var = -1, name = NULL, ...) {
 }
 
 #' @export
-#' @rdname pull
+#' @rdname pull.Spat
 pull.SpatVector <- function(.data, var = -1, name = NULL, ...) {
   var <- rlang::enquo(var)
   name <- rlang::enquo(name)
   return(dplyr::pull(as_tibble(.data, ...), !!var, !!name))
 }
+
+#' @export
+dplyr::pull

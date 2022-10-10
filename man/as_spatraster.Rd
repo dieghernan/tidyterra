@@ -61,6 +61,6 @@ newrast
 
 Coercing objects:
 \code{\link{as_coordinates}()},
-\code{\link{as_tibble}()}
+\code{\link{as_tibble.Spat}}
 }
 \concept{coerce}

@@ -204,7 +204,7 @@ st_crs(tile2)$epsg
 # Now the tile is EPSG:3857
 
 ggplot() +
-  geom_spatraster_rgb(data = tile2, maxcell = ncell(tile2) * 1.1) +
+  geom_spatraster_rgb(data = tile2, maxcell = Inf) +
   geom_sf(data = p, fill = NA) +
   # Force crs to be 3857
   coord_sf(crs = 3857) +

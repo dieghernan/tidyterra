@@ -22,7 +22,7 @@
 #'
 #' ```{r, echo=FALSE, results="asis"}
 #'
-#' library(dplyr)
+#' suppressPackageStartupMessages(library(dplyr))
 #' whitebox_coltab %>%
 #'   pull(pal) %>%
 #'   unique() %>%

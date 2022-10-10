@@ -4,7 +4,7 @@
 \name{tidyterra-package}
 \alias{tidyterra}
 \alias{tidyterra-package}
-\title{tidyterra: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects}
+\title{tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

@@ -15,8 +15,8 @@
 #'   spatial attributes are preserved.
 #'
 #' @export
-#' @rdname replace_na
-#' @name replace_na
+#' @rdname replace_na.Spat
+#' @name replace_na.Spat
 #' @importFrom tidyr replace_na
 #'
 #' @seealso [tidyr::replace_na()]
@@ -109,7 +109,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
 }
 
 #' @export
-#' @rdname replace_na
+#' @rdname replace_na.Spat
 replace_na.SpatVector <- function(data, replace, ...) {
 
   # Use sf method
@@ -118,3 +118,6 @@ replace_na.SpatVector <- function(data, replace, ...) {
 
   return(terra::vect(replaced))
 }
+
+#' @export
+tidyr::replace_na

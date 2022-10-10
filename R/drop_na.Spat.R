@@ -13,8 +13,8 @@
 #'
 #' @export
 #'
-#' @rdname drop_na
-#' @name drop_na
+#' @rdname drop_na.SpatVector
+#' @name drop_na.SpatVector
 #'
 #' @importFrom tidyr drop_na
 #'
@@ -189,3 +189,6 @@ drop_na.SpatRaster <- function(data, ...) {
 
   return(newrast)
 }
+
+#' @export
+tidyr::drop_na

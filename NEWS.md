@@ -2,6 +2,9 @@
 
 -   Package back to CRAN.
 
+-   Libraries **dplyr**, **tidyr**, **tibble** are not attached by default.
+    Needed functions are reexported instead.
+
 -   Improvements on `geom_spatraster()`:
 
     -   Now in `geom_spatraster()` is possible to avoid the default `fill` of

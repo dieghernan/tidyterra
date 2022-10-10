@@ -10,15 +10,15 @@
 #'
 #' @return A Spat* object  of the same class than `.data`. See **Methods**.
 #'
-#' @inheritParams select
+#' @inheritParams select.Spat
 #' @param ... [`data-masking`][dplyr::mutate] Name-value pairs. The name gives
 #'   the name of the layer/attribute in the output. See [dplyr::mutate()].
 #'
 #' @export
-#' @rdname mutate
-#' @name mutate
+#' @rdname mutate.Spat
+#' @name mutate.Spat
 #'
-#' @aliases transmute
+#' @aliases transmute.Spat
 #'
 #' @importFrom dplyr mutate
 #'
@@ -114,7 +114,7 @@ mutate.SpatRaster <- function(.data, ...) {
   return(final_rast)
 }
 #' @export
-#' @rdname mutate
+#' @rdname mutate.Spat
 mutate.SpatVector <- function(.data, ...) {
 
   # Use sf method
@@ -124,7 +124,7 @@ mutate.SpatVector <- function(.data, ...) {
   return(terra::vect(mutated))
 }
 #' @export
-#' @rdname mutate
+#' @rdname mutate.Spat
 #' @importFrom dplyr transmute
 transmute.SpatRaster <- function(.data, ...) {
   df <- as_tbl_spat_attr(.data)
@@ -163,7 +163,7 @@ transmute.SpatRaster <- function(.data, ...) {
   return(final_rast)
 }
 #' @export
-#' @rdname mutate
+#' @rdname mutate.Spat
 transmute.SpatVector <- function(.data, ...) {
 
   # Use sf method
@@ -172,3 +172,9 @@ transmute.SpatVector <- function(.data, ...) {
 
   return(terra::vect(transm))
 }
+
+#' @export
+dplyr::mutate
+
+#' @export
+dplyr::transmute

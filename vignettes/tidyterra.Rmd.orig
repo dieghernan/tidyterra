@@ -57,11 +57,12 @@ slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 
 ## Get started with {tidyterra}
 
-First thing you'll notice when loading {tidyterra} is that a set of packages
-would be also attached.
+Load {tidyterra} with additional libraries of the {tidyverse}:
 
 ```{r setup, message=TRUE}
 library(tidyterra)
+library(dplyr)
+library(tidyr)
 ```
 
 Currently, the following methods are available:

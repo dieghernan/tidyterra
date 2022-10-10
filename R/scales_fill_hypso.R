@@ -36,7 +36,7 @@
 #'
 #' ```{r, echo=FALSE, results="asis"}
 #'
-#' library(dplyr)
+#' suppressPackageStartupMessages(library(dplyr))
 #' hypsometric_tints_db %>%
 #'   pull(pal) %>%
 #'   unique() %>%
