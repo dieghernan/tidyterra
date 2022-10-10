@@ -37,7 +37,7 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/as_spatraster.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/as_tibble.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/autoplot.html</loc>
@@ -49,13 +49,13 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/filter.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatVector.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/filter.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html</loc>
@@ -79,25 +79,28 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/is_regular_grid.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/mutate.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/pull.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/pull.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/pull_crs.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/relocate.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/reexports.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/rename.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/relocate.Spat.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/replace_na.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/rename.Spat.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_cross_blended.html</loc>
@@ -115,10 +118,10 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_wiki.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/select.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/select.Spat.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/slice.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/slice.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/tidyterra-package.html</loc>

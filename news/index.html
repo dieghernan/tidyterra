@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,8 +80,10 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-versioni">tidyterra (development version)I<a class="anchor" aria-label="anchor" href="#tidyterra-development-versioni"></a></h2>
-<ul><li>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2>
+<ul><li><p>Package back to CRAN.</p></li>
+<li><p>Libraries <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</p></li>
+<li>
 <p>Improvements on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>:</p>
 <ul><li><p>Now in <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> is possible to avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</p></li>
 <li><p><code>aes(fill = ggplot2::after_stat())</code> now works on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>.</p></li>
@@ -129,9 +131,9 @@
 <li><p>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p></li>
 <li>
 <p>New methods:</p>
-<ul><li><p><code><a href="../reference/pull.html">pull()</a></code></p></li>
-<li><p><code><a href="../reference/mutate.html">transmute()</a></code></p></li>
-<li><p><code><a href="../reference/rename.html">rename()</a></code></p></li>
+<ul><li><p><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code></p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">transmute()</a></code></p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename()</a></code></p></li>
 </ul></li>
 <li>
 <p>New geoms:</p>
