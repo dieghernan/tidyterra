@@ -1,4 +1,6 @@
-# tidyterra (development version)I
+# tidyterra 0.3.0
+
+-   Package back to CRAN.
 
 -   Improvements on `geom_spatraster()`:
 
