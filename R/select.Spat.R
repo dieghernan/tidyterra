@@ -6,8 +6,8 @@
 #' concise mini-language. See **Methods**.
 #'
 #' @export
-#' @rdname select
-#' @name select
+#' @rdname select.Spat
+#' @name select.Spat
 #'
 #' @importFrom dplyr select
 #'
@@ -108,7 +108,7 @@ select.SpatRaster <- function(.data, ...) {
 }
 
 #' @export
-#' @rdname select
+#' @rdname select.Spat
 select.SpatVector <- function(.data, ...) {
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
@@ -116,3 +116,6 @@ select.SpatVector <- function(.data, ...) {
 
   return(terra::vect(selected))
 }
+
+#' @export
+dplyr::select

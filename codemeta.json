@@ -3,24 +3,18 @@
   "@type": "SoftwareSourceCode",
   "identifier": "tidyterra",
   "description": "Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.",
-  "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects",
-  "relatedLink": ["https://dieghernan.github.io/tidyterra/", "https://CRAN.R-project.org/package=tidyterra"],
+  "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
+  "relatedLink": "https://dieghernan.github.io/tidyterra/",
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.2.9000",
+  "version": "0.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.1 (2022-06-23)",
-  "provider": {
-    "@id": "https://cran.r-project.org",
-    "@type": "Organization",
-    "name": "Comprehensive R Archive Network (CRAN)",
-    "url": "https://cran.r-project.org"
-  },
+  "runtimePlatform": "R version 4.2.1 (2022-06-23 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -174,50 +168,11 @@
   "softwareRequirements": {
     "1": {
       "@type": "SoftwareApplication",
-      "identifier": "dplyr",
-      "name": "dplyr",
-      "version": ">= 1.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=dplyr"
-    },
-    "2": {
-      "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": ">= 3.6.0"
     },
-    "3": {
-      "@type": "SoftwareApplication",
-      "identifier": "tibble",
-      "name": "tibble",
-      "version": ">= 3.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tibble"
-    },
-    "4": {
-      "@type": "SoftwareApplication",
-      "identifier": "tidyr",
-      "name": "tidyr",
-      "version": ">= 1.0.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=tidyr"
-    },
-    "5": {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "cli",
       "name": "cli",
@@ -230,7 +185,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=cli"
     },
-    "6": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "crayon",
       "name": "crayon",
@@ -242,7 +197,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=crayon"
     },
-    "7": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -254,7 +209,20 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "8": {
+    "5": {
+      "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "version": ">= 1.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -267,7 +235,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    "9": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -279,7 +247,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "10": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -291,7 +259,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "11": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -303,7 +271,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    "12": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -316,7 +284,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "13": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -329,9 +297,35 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
+    "12": {
+      "@type": "SoftwareApplication",
+      "identifier": "tibble",
+      "name": "tibble",
+      "version": ">= 3.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
+    },
+    "13": {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyr",
+      "name": "tidyr",
+      "version": ">= 1.0.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyr"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "3277.858KB",
+  "fileSize": "3291.684KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -343,7 +337,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{tidyterra}: tidyverse Methods and ggplot2 Utils for terra Objects",
+      "name": "{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects",
       "identifier": "10.5281/zenodo.6572471",
       "url": "https://dieghernan.github.io/tidyterra/",
       "@id": "https://doi.org/10.5281/zenodo.6572471",

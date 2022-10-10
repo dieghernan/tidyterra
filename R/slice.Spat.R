@@ -28,8 +28,8 @@
 #' See **Methods** for details.
 #'
 #' @export
-#' @rdname slice
-#' @name slice
+#' @rdname slice.Spat
+#' @name slice.Spat
 #'
 #' @seealso
 #' [dplyr::slice()], [terra::spatSample()].
@@ -46,7 +46,7 @@
 #'
 #' @importFrom dplyr slice
 #'
-#' @inheritParams mutate
+#' @inheritParams mutate.Spat
 #'
 #' @param .preserve Ignored for Spat* objects
 #' @param .keep_extent Should the extent of the resulting SpatRaster be kept?
@@ -158,7 +158,7 @@ slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
   return(newrast)
 }
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
   # Use sf method
@@ -168,7 +168,7 @@ slice.SpatVector <- function(.data, ..., .preserve = FALSE) {
   return(terra::vect(sliced))
 }
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 #' @importFrom dplyr slice_head
 slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
@@ -199,7 +199,7 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_head.SpatVector <- function(.data, ..., n, prop) {
 
   # Use sf method
@@ -210,7 +210,7 @@ slice_head.SpatVector <- function(.data, ..., n, prop) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 #' @importFrom dplyr slice_tail
 slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
@@ -240,7 +240,7 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_tail.SpatVector <- function(.data, ..., n, prop) {
 
   # Use sf method
@@ -251,7 +251,7 @@ slice_tail.SpatVector <- function(.data, ..., n, prop) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 #' @importFrom dplyr slice_min
 slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE, .keep_extent = FALSE,
@@ -300,7 +300,7 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE) {
 
@@ -316,7 +316,7 @@ slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 #' @importFrom dplyr slice_max
 slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE, .keep_extent = FALSE,
@@ -365,7 +365,7 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE) {
 
@@ -381,7 +381,7 @@ slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 #' @importFrom dplyr slice_sample
 slice_sample.SpatRaster <- function(.data, ..., n, prop,
                                     weight_by = NULL, replace = FALSE,
@@ -426,7 +426,7 @@ slice_sample.SpatRaster <- function(.data, ..., n, prop,
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_sample.SpatVector <- function(.data, ..., n, prop,
                                     weight_by = NULL, replace = FALSE) {
 
@@ -440,13 +440,13 @@ slice_sample.SpatVector <- function(.data, ..., n, prop,
   return(terra::vect(sliced))
 }
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_rows <- function(.data, ...) {
   UseMethod("slice_rows")
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 
   # Create skeleton
@@ -488,13 +488,13 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_cols <- function(.data, ...) {
   UseMethod("slice_cols")
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 
   # Create skeleton
@@ -536,13 +536,13 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_colrows <- function(.data, ...) {
   UseMethod("slice_colrows")
 }
 
 #' @export
-#' @rdname slice
+#' @rdname slice.Spat
 slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
                                      .keep_extent = FALSE,
                                      inverse = FALSE) {
@@ -608,3 +608,21 @@ slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
 
   return(newrast)
 }
+
+#' @export
+dplyr::slice
+
+#' @export
+dplyr::slice_head
+
+#' @export
+dplyr::slice_max
+
+#' @export
+dplyr::slice_min
+
+#' @export
+dplyr::slice_tail
+
+#' @export
+dplyr::slice_sample

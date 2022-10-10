@@ -12,8 +12,8 @@
 #' See **Examples** and section `About layer names` on [as_tibble()].
 #'
 #' @export
-#' @rdname filter
-#' @name filter
+#' @rdname filter.Spat
+#' @name filter.Spat
 #'
 #' @seealso [dplyr::filter()]
 #'
@@ -21,7 +21,7 @@
 #' @family single table verbs
 #'
 #' @importFrom dplyr filter
-#' @inheritParams select
+#' @inheritParams select.Spat
 #' @param ... [`data-masking`][dplyr::filter] Expressions that return a logical
 #'   value, and are defined in terms of the layers/attributes in `.data`. If
 #'   multiple expressions are included, they are combined with the `&` operator.
@@ -123,7 +123,7 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 }
 
 #' @export
-#' @rdname filter
+#' @rdname filter.Spat
 filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
   # Use sf method
@@ -132,3 +132,6 @@ filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
   return(terra::vect(filtered))
 }
+
+#' @export
+dplyr::filter

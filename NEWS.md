@@ -1,4 +1,9 @@
-# tidyterra (development version)I
+# tidyterra 0.3.0
+
+-   Package back to CRAN.
+
+-   Libraries **dplyr**, **tidyr**, **tibble** are not attached by default.
+    Needed functions are reexported instead.
 
 -   Improvements on `geom_spatraster()`:
 

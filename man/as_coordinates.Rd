@@ -42,6 +42,6 @@ as_coordinates(r, as.raster = TRUE) \%>\% plot()
 
 Coercing objects:
 \code{\link{as_spatraster}()},
-\code{\link{as_tibble}()}
+\code{\link{as_tibble.Spat}}
 }
 \concept{coerce}

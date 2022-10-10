@@ -6,12 +6,12 @@
 #' using a function.
 #'
 #' @export
-#' @rdname rename
-#' @name rename
+#' @rdname rename.Spat
+#' @name rename.Spat
 #'
 #' @importFrom dplyr rename
 #'
-#' @inheritParams select
+#' @inheritParams select.Spat
 #' @inheritParams dplyr::rename
 #' @param ...
 #'   For `rename()`: `tidy-select` Use `new_name = old_name to rename`
@@ -75,7 +75,7 @@ rename.SpatRaster <- function(.data, ...) {
   return(final_rast)
 }
 
-#' @rdname rename
+#' @rdname rename.Spat
 #' @importFrom dplyr rename_with
 #' @importFrom dplyr everything
 #' @export
@@ -99,7 +99,7 @@ rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
   return(final_rast)
 }
 
-#' @rdname rename
+#' @rdname rename.Spat
 #' @export
 rename.SpatVector <- function(.data, ...) {
   # Use sf
@@ -110,7 +110,7 @@ rename.SpatVector <- function(.data, ...) {
   return(end)
 }
 
-#' @rdname rename
+#' @rdname rename.Spat
 #' @export
 rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
 
@@ -131,3 +131,9 @@ rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
 
   return(final_vect)
 }
+
+#' @export
+dplyr::rename
+
+#' @export
+dplyr::rename_with

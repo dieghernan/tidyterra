@@ -6,10 +6,10 @@
 #' as [select()] to make it easy to move blocks of layers/attributes at once.
 #'
 #' @export
-#' @rdname relocate
-#' @name relocate
+#' @rdname relocate.Spat
+#' @name relocate.Spat
 #'
-#' @inheritParams select
+#' @inheritParams select.Spat
 #' @param ... [`tidy-select`][dplyr::relocate] layers/attributes to move.
 #'
 #' @param .before,.after [`tidy-select`][dplyr::relocate] Destination of
@@ -75,7 +75,7 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
 }
 
 
-#' @rdname relocate
+#' @rdname relocate.Spat
 #' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
 
@@ -88,3 +88,6 @@ relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
 
   return(terra::vect(relocated))
 }
+
+#' @export
+dplyr::relocate

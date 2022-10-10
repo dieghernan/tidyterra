@@ -4,12 +4,12 @@
 # tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
+<!-- [![CRAN -->
+<!-- status](https://www.r-pkg.org/badges/version/tidyterra)](https://CRAN.R-project.org/package=tidyterra) -->
+<!-- [![CRAN -->
+<!-- results](https://cranchecks.info/badges/worst/tidyterra)](https://cran.r-project.org/web/checks/check_results_tidyterra.html) -->
+<!-- [![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra) -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
-[![CRAN
-results](https://cranchecks.info/badges/worst/tidyterra)](https://cran.r-project.org/web/checks/check_results_tidyterra.html)
-[![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
@@ -257,18 +257,18 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 To cite ‘tidyterra’ in publications use:
 
-Hernangomez D (2022). tidyterra: tidyverse Methods and ggplot2 Utils for
-terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
+Hernangomez D (2022). tidyterra: tidyverse Methods and ggplot2 Helpers
+for terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
 <https://dieghernan.github.io/tidyterra/>
 
 A BibTeX entry for LaTeX users is
 
     @Manual{R-tidyterra,
-      title = {{tidyterra}: tidyverse Methods and ggplot2 Utils for terra Objects},
+      title = {{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects},
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2022},
-      version = {0.2.2.9000},
+      version = {0.3.0},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }

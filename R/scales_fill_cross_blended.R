@@ -34,7 +34,7 @@
 #'
 #' ```{r, echo=FALSE, results="asis"}
 #'
-#' library(dplyr)
+#' suppressPackageStartupMessages(library(dplyr))
 #' cross_blended_hypsometric_tints_db %>%
 #'   pull(pal) %>%
 #'   unique() %>%

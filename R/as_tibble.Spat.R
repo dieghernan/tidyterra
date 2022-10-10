@@ -4,8 +4,8 @@
 #'
 #' `as_tibble()` method for SpatRaster and SpatVector.
 #'
-#' @rdname as_tibble
-#' @name as_tibble
+#' @rdname as_tibble.Spat
+#' @name as_tibble.Spat
 #'
 #' @return
 #' A tibble.
@@ -104,7 +104,7 @@ as_tibble.SpatRaster <- function(x, ...,
 }
 
 #' @export
-#' @rdname as_tibble
+#' @rdname as_tibble.Spat
 as_tibble.SpatVector <- function(x, ..., .name_repair = "unique") {
   df <- tibble::as_tibble(terra::as.data.frame(x, ...),
     .name_repair = .name_repair
@@ -188,3 +188,6 @@ make_layer_names <- function(x) {
   names(x) <- newnames
   return(x)
 }
+
+#' @export
+tibble::as_tibble
