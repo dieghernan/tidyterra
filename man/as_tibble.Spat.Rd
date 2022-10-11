@@ -104,3 +104,4 @@ Coercing objects:
 \code{\link{as_spatraster}()}
 }
 \concept{coerce}
+\concept{tibble.methods}

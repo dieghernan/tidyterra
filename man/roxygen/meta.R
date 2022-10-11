@@ -1,6 +1,7 @@
 list(
   rd_family_title = list(
     coerce = "Coercing objects:",
+    tibble.methods = "Other tibble methods:",
     dplyr.methods = "Other dplyr methods:",
     tidyr.method = "Other tidyr methods:",
     ggplot2.utils = "Other ggplot2 utils:",

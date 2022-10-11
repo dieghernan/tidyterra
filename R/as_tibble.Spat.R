@@ -31,6 +31,7 @@
 #' @seealso [tibble::as_tibble()], [terra::as.data.frame()]
 #'
 #' @family coerce
+#' @family tibble.methods
 #'
 #' @section terra equivalent:
 #'

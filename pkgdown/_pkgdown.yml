@@ -62,18 +62,21 @@ template:
         </script>
 
 reference:
-- title: "Coercing objects"
-  desc:  Convert Spat* to other type of objects or create SpatRasters from tibbles.
+- title: "tidyverse methods"
+  desc: Methods for {tidyverse} packages
+- subtitle: "tibble methods"
+  desc:  Methods from {tibble} implemented for Spat* objects.
   contents:
-   - has_concept("coerce")
-- title: "dplyr methods"
+    - has_concept("tibble.methods")
+- subtitle: "dplyr methods"
   desc:  Methods from {dplyr} implemented for Spat* objects.
   contents:
     - has_concept("dplyr.methods")
-- title: "tidyr methods"
+- subtitle: "tidyr methods"
   desc:  Methods from {tidyr} implemented for Spat* objects.
   contents:
     - has_concept("tidyr.methods")
+
 - title: "ggplot2 utils"
 - subtitle: Geoms
   desc:  Create {ggplot2} layers for Spat* objects.
@@ -85,12 +88,17 @@ reference:
     - has_concept("gradients")
 - title: "Helpers"
   desc:  Additional set of functions provided by {tidyterra}.
+- subtitle: "Coercing objects"
+  desc:  Convert Spat* to other type of objects or create SpatRasters from tibbles.
+  contents:
+   - has_concept("coerce")
+- subtitle: "Other helpers"
   contents:
     - has_concept("helpers")
-- title: "Other functions and datasets"
+- subtitle: "Other functions and datasets"
   desc: Miscelanea
   contents:
-    - lacks_concepts(c("dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce", "gradients"))
+    - lacks_concepts(c("tibble.methods", "dplyr.methods", "tidyr.methods", "ggplot2.utils", "helpers", "coerce", "gradients"))
 - title: "About the package"
   contents:
     - tidyterra-package

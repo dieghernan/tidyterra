@@ -96,7 +96,9 @@ ggplot() +
 library(maptiles)
 
 cyl_sf <- st_as_sf(cyl) %>% st_transform(3857)
-tile <- get_tiles(cyl_sf, crop = TRUE)
+sf::st_crs(cyl_sf)
+tile <- get_tiles(cyl_sf, crop = TRUE, verbose = TRUE, zoom = 7)
+terra::plotRGB(tile)
 
 unlink("inst/extdata/cyl_tile.tif")
 writeRaster(tile, "inst/extdata/cyl_tile.tif")
