@@ -32,7 +32,7 @@
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [cross_blended_hypsometric_tints_db] for more info. Values available are:
 #'
-#' ```{r, echo=FALSE, results="asis"}
+#' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
 #' cross_blended_hypsometric_tints_db %>%

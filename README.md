@@ -98,7 +98,6 @@ install.packages("tidyterra")
 You can install the development version of {tidyterra} like so:
 
 ``` r
-
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -148,7 +147,6 @@ ggplot() +
 
 ``` r
 
-
 # Create maximum differences
 
 variation <- rastertemp %>%
@@ -184,7 +182,6 @@ ggplot() +
 {ggplot2}
 
 ``` r
-
 f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 rgb_tile <- rast(f_tile)
@@ -199,7 +196,6 @@ ggplot() +
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%" />
 
 ``` r
-
 # Recognizes coord_sf()
 
 ggplot() +
@@ -216,7 +212,6 @@ ggplot() +
 {ggplot2}:
 
 ``` r
-
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
@@ -225,7 +220,6 @@ terra::plot(asia)
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%" />
 
 ``` r
-
 ggplot() +
   geom_spatraster(data = asia) +
   scale_fill_hypso_tint_c(

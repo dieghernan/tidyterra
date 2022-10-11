@@ -20,7 +20,7 @@
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. Values available are:
 #'
-#' ```{r, echo=FALSE, results="asis"}
+#' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
 #' whitebox_coltab %>%
