@@ -4,12 +4,12 @@
 # tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" align="right" height="139"/></a>
 
 <!-- badges: start -->
-<!-- [![CRAN -->
-<!-- status](https://www.r-pkg.org/badges/version/tidyterra)](https://CRAN.R-project.org/package=tidyterra) -->
-<!-- [![CRAN -->
-<!-- results](https://cranchecks.info/badges/worst/tidyterra)](https://cran.r-project.org/web/checks/check_results_tidyterra.html) -->
-<!-- [![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra) -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
+[![CRAN
+results](https://cranchecks.info/badges/worst/tidyterra)](https://cran.r-project.org/web/checks/check_results_tidyterra.html)
+[![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
