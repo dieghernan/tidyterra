@@ -47,10 +47,20 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: |
-            local::.
-            any::rcmdcheck
-            rspatial/terra
+          extra-packages: any::rcmdcheck
           needs: check
 
+      - name: Install terra from runiverse
+        run: |
+          # Enable repository from rspatial
+          options(repos = c(
+            rspatial = 'https://rspatial.r-universe.dev',
+            CRAN = 'https://cloud.r-project.org'))
+          # Download and install terra in R
+          install.packages('terra')
+
+          # Display version
+          cat(as.character(packageVersion("terra")))
+
+        shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2
