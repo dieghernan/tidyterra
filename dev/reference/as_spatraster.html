@@ -18,7 +18,7 @@ This is a wrapper of terra::rast() S4 method for data.frame."><meta property="og
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,12 @@ This is a wrapper of terra::rast() S4 method for data.frame."><meta property="og
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
@@ -123,7 +127,7 @@ on a regular grid (a low number of digits is a low precision).</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><a href="https://lifecycle.r-lib.org/articles/stages.html#questioning" class="external-link"><img src="figures/lifecycle-questioning.svg" alt="[Questioning]"></a> If no <code>crs</code> is provided and the tibble
-has been created with the method <code><a href="as_tibble.html">as_tibble.SpatRaster()</a></code>, the <code>crs</code> is
+has been created with the method <code><a href="as_tibble.Spat.html">as_tibble.SpatRaster()</a></code>, the <code>crs</code> is
 inferred from <code>attr(x, "crs")</code>.</p>
     </div>
     <div class="section level2">
@@ -138,7 +142,7 @@ inferred from <code>attr(x, "crs")</code>.</p>
     <div class="dont-index"><p><code><a href="pull_crs.html">pull_crs()</a></code></p>
 <p>Coercing objects:
 <code><a href="as_coordinates.html">as_coordinates</a>()</code>,
-<code><a href="as_tibble.html">as_tibble</a>()</code></p></div>
+<code><a href="as_tibble.Spat.html">as_tibble.Spat</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -159,7 +163,7 @@ inferred from <code>attr(x, "crs")</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> max value   :    90 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create tibble</span></span></span>
-<span class="r-in"><span><span class="va">as_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">r</span>, xy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">as_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">r</span>, xy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">as_tbl</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 90 × 3</span></span>

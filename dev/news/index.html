@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +33,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
@@ -77,8 +81,19 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li><p>Now in<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> is possible to de active the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NULL)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</p></li>
+<ul><li>Three additional palettes are included on <code><a href="../reference/scale_fill_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li></ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
+<ul><li><p>Package back to CRAN.</p></li>
+<li><p>Libraries <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</p></li>
+<li>
+<p>Improvements on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>:</p>
+<ul><li><p>Now in <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> is possible to avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</p></li>
 <li><p><code>aes(fill = ggplot2::after_stat())</code> now works on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>.</p></li>
+<li><p>Internal: Better handling of <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> and layers</p></li>
+</ul></li>
+<li><p>Add new function <code><a href="../reference/geom_spatraster.html">stat_spatraster()</a></code>.</p></li>
+<li><p>Reduce the size of external files.</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.2" id="tidyterra-022">tidyterra 0.2.2<a class="anchor" aria-label="anchor" href="#tidyterra-022"></a></h2><p class="text-muted">CRAN release: 2022-09-29</p>
@@ -86,7 +101,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2><p class="text-muted">CRAN release: 2022-09-23</p>
 <ul><li>Now <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/35" class="external-link">#35</a>)</li>
-<li>Improve facetting when the plot facets are created using non-Spat* layers.</li>
+<li>Improve faceting when the plot facets are created using non-Spat* layers.</li>
 <li>Precompute vignettes.</li>
 </ul></div>
     <div class="section level2">
@@ -120,9 +135,9 @@
 <li><p>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p></li>
 <li>
 <p>New methods:</p>
-<ul><li><p><code><a href="../reference/pull.html">pull()</a></code></p></li>
-<li><p><code><a href="../reference/mutate.html">transmute()</a></code></p></li>
-<li><p><code><a href="../reference/rename.html">rename()</a></code></p></li>
+<ul><li><p><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code></p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">transmute()</a></code></p></li>
+<li><p><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename()</a></code></p></li>
 </ul></li>
 <li>
 <p>New geoms:</p>

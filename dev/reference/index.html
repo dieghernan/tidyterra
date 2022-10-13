@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +33,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
@@ -75,9 +79,15 @@
     </div>
 
     <div class="section level2">
-      <h2 id="coercing-objects">Coercing objects<a class="anchor" aria-label="anchor" href="#coercing-objects"></a></h2>
+      <h2 id="tidyverse-methods">tidyverse methods<a class="anchor" aria-label="anchor" href="#tidyverse-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Convert Spat* to other type of objects or create SpatRasters from tibbles.</p>
+      <p class="section-desc"></p><p>Methods for {tidyverse} packages</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="tibble-methods">tibble methods<a class="anchor" aria-label="anchor" href="#tibble-methods"></a></h3>
+      <p class="section-desc"></p><p>Methods from {tibble} implemented for Spat* objects.</p>
 
       
     </div><div id="" class="section level2">
@@ -87,22 +97,12 @@
 
       <dl><dt>
           
-          <code><a href="as_coordinates.html">as_coordinates()</a></code> 
-        </dt>
-        <dd>Get cell number, row and column from a SpatRaster</dd>
-      </dl><dl><dt>
-          
-          <code><a href="as_spatraster.html">as_spatraster()</a></code> 
-        </dt>
-        <dd>Coerce a data frame to SpatRaster</dd>
-      </dl><dl><dt>
-          
-          <code><a href="as_tibble.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Coerce a Spat* object to data frames</dd>
       </dl></div><div class="section level2">
-      <h2 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h2>
       
+      <h3 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h3>
       <p class="section-desc"></p><p>Methods from {dplyr} implemented for Spat* objects.</p>
 
       
@@ -113,42 +113,42 @@
 
       <dl><dt>
           
-          <code><a href="filter.html">filter(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="filter.html">filter(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="filter.Spat.html">filter(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="filter.Spat.html">filter(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Subset cells/geometries of Spat* objects</dd>
       </dl><dl><dt>
           
-          <code><a href="mutate.html">mutate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.html">mutate(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate.html">transmute(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.html">transmute(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Create, modify, and delete cell values/layers/attributes of Spat* objects</dd>
       </dl><dl><dt>
           
-          <code><a href="pull.html">pull(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="pull.html">pull(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="pull.Spat.html">pull(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="pull.Spat.html">pull(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Extract a single layer/attribute</dd>
       </dl><dl><dt>
           
-          <code><a href="relocate.html">relocate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="relocate.html">relocate(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="relocate.Spat.html">relocate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="relocate.Spat.html">relocate(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Change layer/attribute order</dd>
       </dl><dl><dt>
           
-          <code><a href="rename.html">rename(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="rename.html">rename_with(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="rename.html">rename(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="rename.html">rename_with(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="rename.Spat.html">rename(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="rename.Spat.html">rename_with(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="rename.Spat.html">rename(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="rename.Spat.html">rename_with(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Rename layers/attributes</dd>
       </dl><dl><dt>
           
-          <code><a href="select.html">select(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="select.html">select(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="select.Spat.html">select(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="select.Spat.html">select(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Subset layers/attributes of Spat* objects</dd>
       </dl><dl><dt>
           
-          <code><a href="slice.html">slice(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_head(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice_head(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_tail(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice_tail(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_min(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice_min(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_max(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice_max(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_sample(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.html">slice_sample(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.html">slice_rows()</a></code> <code><a href="slice.html">slice_cols()</a></code> <code><a href="slice.html">slice_colrows()</a></code> 
+          <code><a href="slice.Spat.html">slice(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_rows()</a></code> <code><a href="slice.Spat.html">slice_cols()</a></code> <code><a href="slice.Spat.html">slice_colrows()</a></code> 
         </dt>
         <dd>Subset cells/rows/columns/geometries using their positions</dd>
       </dl></div><div class="section level2">
-      <h2 id="tidyr-methods">tidyr methods<a class="anchor" aria-label="anchor" href="#tidyr-methods"></a></h2>
       
+      <h3 id="tidyr-methods">tidyr methods<a class="anchor" aria-label="anchor" href="#tidyr-methods"></a></h3>
       <p class="section-desc"></p><p>Methods from {tidyr} implemented for Spat* objects.</p>
 
       
@@ -159,12 +159,12 @@
 
       <dl><dt>
           
-          <code><a href="drop_na.html">drop_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="drop_na.SpatVector.html">drop_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Drop attributes of SpatVector objects containing missing values</dd>
       </dl><dl><dt>
           
-          <code><a href="replace_na.html">replace_na(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="replace_na.html">replace_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
+          <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Replace NAs with specified values</dd>
       </dl></div><div class="section level2">
@@ -191,7 +191,7 @@
         <dd>Create a complete ggplot for SpatRasters</dd>
       </dl><dl><dt>
           
-          <code><a href="geom_spatraster.html">geom_spatraster()</a></code> 
+          <code><a href="geom_spatraster.html">geom_spatraster()</a></code> <code><a href="geom_spatraster.html">stat_spatraster()</a></code> 
         </dt>
         <dd>Visualise SpatRaster objects</dd>
       </dl><dl><dt>
@@ -251,6 +251,38 @@
       <p class="section-desc"></p><p>Additional set of functions provided by {tidyterra}.</p>
 
       
+    </div><div class="section level2">
+      
+      <h3 id="coercing-objects">Coercing objects<a class="anchor" aria-label="anchor" href="#coercing-objects"></a></h3>
+      <p class="section-desc"></p><p>Convert Spat* to other type of objects or create SpatRasters from tibbles.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="as_coordinates.html">as_coordinates()</a></code> 
+        </dt>
+        <dd>Get cell number, row and column from a SpatRaster</dd>
+      </dl><dl><dt>
+          
+          <code><a href="as_spatraster.html">as_spatraster()</a></code> 
+        </dt>
+        <dd>Coerce a data frame to SpatRaster</dd>
+      </dl><dl><dt>
+          
+          <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Coerce a Spat* object to data frames</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="other-helpers">Other helpers<a class="anchor" aria-label="anchor" href="#other-helpers"></a></h3>
+      
+
+      
     </div><div id="" class="section level2">
       
       
@@ -272,8 +304,8 @@
         </dt>
         <dd>Extract CRS on WKT format</dd>
       </dl></div><div class="section level2">
-      <h2 id="other-functions-and-datasets">Other functions and datasets<a class="anchor" aria-label="anchor" href="#other-functions-and-datasets"></a></h2>
       
+      <h3 id="other-functions-and-datasets">Other functions and datasets<a class="anchor" aria-label="anchor" href="#other-functions-and-datasets"></a></h3>
       <p class="section-desc"></p><p>Miscelanea</p>
 
       
@@ -312,7 +344,7 @@
           
           <code><a href="tidyterra-package.html">tidyterra</a></code> <code><a href="tidyterra-package.html">tidyterra-package</a></code> 
         </dt>
-        <dd>tidyterra: 'tidyverse' Methods and 'ggplot2' Utils for 'terra' Objects</dd>
+        <dd>tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects</dd>
       </dl></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>

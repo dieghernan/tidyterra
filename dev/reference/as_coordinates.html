@@ -18,7 +18,7 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,8 +35,12 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
@@ -114,10 +118,10 @@ and resolution than <code>x</code></p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="slice.html">slice.SpatRaster()</a></code></p>
+    <div class="dont-index"><p><code><a href="slice.Spat.html">slice.SpatRaster()</a></code></p>
 <p>Coercing objects:
 <code><a href="as_spatraster.html">as_spatraster</a>()</code>,
-<code><a href="as_tibble.html">as_tibble</a>()</code></p></div>
+<code><a href="as_tibble.Spat.html">as_tibble.Spat</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -125,11 +129,6 @@ and resolution than <code>x</code></p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.6.17</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'terra'</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:tidyr':</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     extract</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
