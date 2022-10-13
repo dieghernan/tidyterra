@@ -1,4 +1,4 @@
-#' Create a complete ggplot for SpatRasters
+#' Create a complete ggplot for Spat* objects
 #'
 #' `autoplot()` uses ggplot2 to draw plots as the ones produced by
 #' [terra::plot()]/[terra::plotRGB()] in a single command.
@@ -7,18 +7,32 @@
 #'
 #' @return A ggplot2 layer
 #' @family ggplot2.utils
-#' @param object A SpatRaster object.
+#' @family ggplot2.methods
+#' @param object A SpatRaster created with [terra::rast()] or a SpatVector
+#'   created with [terra::vect()].
+#' @rdname autoplot.Spat
+#' @name autoplot.Spat
 #'
-#' @rdname autoplot
-#' @name autoplot
-#'
-#' @inheritParams geom_spatraster
 #' @param rgb Logical. Should be plotted as a RGB image?
 #' @param facets Logical. Should facets be displayed?
 #' @param nrow,ncol Number of rows and columns on the facet.
-#' @param ... other arguments passed to [geom_spatraster()] or
-#'   [geom_spatraster_rgb()].
+#' @param ... other arguments passed to [geom_spatraster()],
+#'  [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
+#'
+#' @section Methods:
+#'
+#' Implementation of the **generic** [ggplot2::autoplot()] function.
+#'
+#' ## SpatRaster
+#'
+#' Uses [geom_spatraster()] when `rgb = FALSE` or [geom_spatraster_rgb()] when
+#' `rgb = TRUE`.
+#'
+#' ## SpatVector
+#'
+#' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
+#' or [geom_spatvector_label()]
 #'
 #' @export
 #' @importFrom ggplot2 autoplot
@@ -42,13 +56,20 @@
 #' system.file("extdata/cyl_tile.tif", package = "tidyterra") %>%
 #'   rast() %>%
 #'   autoplot(rgb = TRUE)
+#'
+#' #  With vectors
+#' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#' autoplot(v)
+#'
+#' v %>% autoplot(aes(fill = cpro)) +
+#'   geom_spatvector_text(aes(label = iso2)) +
+#'   coord_sf(crs = 25829)
 #' }
 autoplot.SpatRaster <- function(object,
-                                mapping = aes(),
+                                ...,
                                 rgb = FALSE,
                                 facets = TRUE,
-                                nrow = NULL, ncol = 2,
-                                ...) {
+                                nrow = NULL, ncol = 2) {
   gg <- ggplot2::ggplot()
 
 
@@ -56,14 +77,12 @@ autoplot.SpatRaster <- function(object,
     gg <- gg +
       geom_spatraster_rgb(
         data = object,
-        mapping = mapping,
         ...
       )
   } else {
     gg <- gg +
       geom_spatraster(
         data = object,
-        mapping = mapping,
         ...
       )
 
@@ -87,3 +106,14 @@ autoplot.SpatRaster <- function(object,
 
   gg
 }
+
+#' @export
+#' @name autoplot.Spat
+autoplot.SpatVector <- function(object, ...) {
+  ggplot2::ggplot(data = object) +
+    geom_spatvector(...)
+}
+
+
+#' @export
+ggplot2::autoplot

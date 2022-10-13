@@ -51,3 +51,24 @@ test_that("Test with cols", {
       ggplot2::coord_sf(crs = 3035)
   )
 })
+
+
+test_that("Test SpatVector", {
+  # test with vdiffr
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- terra::vect(f)
+
+
+  # Regular
+  vdiffr::expect_doppelganger("vector_01: regular", autoplot(v))
+
+  # Aes
+  vdiffr::expect_doppelganger("vector_02: aes", autoplot(v, aes(fill = iso2)))
+
+  # Inherit aes
+  vdiffr::expect_doppelganger("vector_03: aes", autoplot(v, aes(fill = iso2)) +
+    geom_spatvector_label(aes(label = iso2)))
+})

@@ -82,7 +82,7 @@ ggplot(cyl) +
 }
 \seealso{
 Other ggplot2 utils:
-\code{\link{autoplot}()},
+\code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},

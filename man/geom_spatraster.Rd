@@ -253,7 +253,7 @@ Alternative geoms: \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \cod
 \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
 
 Other ggplot2 utils:
-\code{\link{autoplot}()},
+\code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},

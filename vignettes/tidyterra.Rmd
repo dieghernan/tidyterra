@@ -62,20 +62,21 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method      | SpatVector                         | SpatRaster      |
-|-----------------------|------------------------------------|-----------------|
-| `tibble::as_tibble()` | ✔️                                 | ✔️              |
-| `dplyr::filter()`     | ✔️                                 | ✔️              |
-| `dplyr::mutate()`     | ✔️                                 | ✔️              |
-| `dplyr::pull()`       | ✔️                                 | ✔️              |
-| `dplyr::relocate()`   | ✔️                                 | ✔️              |
-| `dplyr::rename()`     | ✔️                                 | ✔️              |
-| `dplyr::select()`     | ✔️                                 | ✔️              |
-| `dplyr::slice()`      | ✔️                                 | ✔️              |
-| `dplyr::transmute()`  | ✔️                                 | ✔️              |
-| `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned) |
-| `tidyr::replace_na()` | ✔️                                 | ✔️              |
-| `ggplot2::fortify()`  | ✔️ to **sf** with `sf::st_as_sf()` |                 |
+| tidyverse method      | SpatVector                         | SpatRaster                    |
+|------------------------|------------------------------------|--------------------|
+| `tibble::as_tibble()` | ✔️                                 | ✔️                            |
+| `dplyr::filter()`     | ✔️                                 | ✔️                            |
+| `dplyr::mutate()`     | ✔️                                 | ✔️                            |
+| `dplyr::pull()`       | ✔️                                 | ✔️                            |
+| `dplyr::relocate()`   | ✔️                                 | ✔️                            |
+| `dplyr::rename()`     | ✔️                                 | ✔️                            |
+| `dplyr::select()`     | ✔️                                 | ✔️                            |
+| `dplyr::slice()`      | ✔️                                 | ✔️                            |
+| `dplyr::transmute()`  | ✔️                                 | ✔️                            |
+| `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned)               |
+| `tidyr::replace_na()` | ✔️                                 | ✔️                            |
+| `ggplot2::autoplot()` | ✔️                                 | ✔️                            |
+| `ggplot2::fortify()`  | ✔️ to **sf** with `sf::st_as_sf()` | ✔️ To tibble with coordinates |
 
 Let's see some of them in action:
 

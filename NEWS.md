@@ -1,5 +1,10 @@
 # tidyterra (development version)
 
+-   New **ggplot2** methods added:
+    -   Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
+
+    -   Methods for fortifying SpatRasters and SpatVectors:
+        `fortify.SpatRaster()`, `fortify.SpatVector()`.
 -   Three additional palettes are included on `hypso.colors()`: `"artic"`,
     `"meyers"` and `"nordisk-familjebok"`.
 
