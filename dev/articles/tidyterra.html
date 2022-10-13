@@ -219,6 +219,12 @@
 <td>✔️</td>
 <td>✔️</td>
 </tr>
+<tr class="even">
+<td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
+<td>✔️ to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
+</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <p>Let’s see some of them in action:</p>
@@ -327,9 +333,9 @@
 <span></span>
 <span><span class="va">r_rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_rgb</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">rgb_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">rgb_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_rgb</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">v</span>, fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
 <p><img src="rgb-1.png" alt="plot of chunk rgb" width="100%"></p>
@@ -382,14 +388,11 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
+<span><span class="va">v_lux</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">spatvector</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">spatvector</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"grey90"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">v_lux</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
@@ -401,29 +404,17 @@
 <p>SpatVector objects are vector data. This means that they are a set of individual points with geographic information (i.e. location of restaurants), that can be also grouped to form lines (i.e. a river) and, when these lines forms a closed polygon, a spatial polygon (i.e. a country).</p>
 <p>{terra} can handle vector files on the S4 system. There is other alternative, the {sf} package, that represents the same information on a tabular way. You can convert easily between the two packages like this:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
-<span><span class="va">spatvector</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  source      : lux.shp</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
-<span><span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span></span>
-<span><span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></span>
 <span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spatvector</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terra_sf-1.png" alt="plot of chunk terra_sf" width="100%"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span><span class="co"># To sf</span></span>
-<span><span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">spatvector</span><span class="op">)</span></span>
+<span><span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sfobj</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Simple feature collection with 3 features and 6 fields</span></span>
 <span><span class="co">#&gt; Geometry type: POLYGON</span></span>
@@ -441,9 +432,9 @@
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Back to terra</span></span>
 <span></span>
-<span><span class="va">spatvector2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span></span>
+<span><span class="va">lux2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector2</span></span>
+<span><span class="va">lux2</span></span>
 <span><span class="co">#&gt;  class       : SpatVector </span></span>
 <span><span class="co">#&gt;  geometry    : polygons </span></span>
 <span><span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span></span>
@@ -460,7 +451,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spat_summ</span> <span class="op">&lt;-</span> <span class="va">spatvector2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">lux_summ</span> <span class="op">&lt;-</span> <span class="va">lux2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># to sf</span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># dplyr</span></span>
@@ -469,7 +460,7 @@
 <span>  <span class="co"># back to terra</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spat_summ</span></span>
+<span><span class="va">lux_summ</span></span>
 <span><span class="co">#&gt;  class       : SpatVector </span></span>
 <span><span class="co">#&gt;  geometry    : polygons </span></span>
 <span><span class="co">#&gt;  dimensions  : 3, 2  (geometries, attributes)</span></span>
@@ -481,7 +472,7 @@
 <span><span class="co">#&gt;                    2  71093</span></span>
 <span><span class="co">#&gt;                    3 439726</span></span>
 <span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spat_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%"></p>
 </div>
 </div>

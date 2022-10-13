@@ -55,6 +55,9 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html</loc>
   </url>
   <url>
@@ -119,6 +122,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/stat_spat_coordinates.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/tidyterra-package.html</loc>
