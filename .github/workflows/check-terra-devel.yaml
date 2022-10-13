@@ -47,12 +47,8 @@ jobs:
 
       - name: Install terra from runiverse
         run: |
-          # Enable repository from rspatial
-          options(repos = c(
-            rspatial = 'https://rspatial.r-universe.dev',
-            CRAN = 'https://cloud.r-project.org'))
-          # Download and install terra in R
-          install.packages('terra')
+          # Update packages  repository from rspatial runiverse
+          update.packages(repos = 'https://rspatial.r-universe.dev')
 
           # Display version
           cat(as.character(packageVersion("terra")))
