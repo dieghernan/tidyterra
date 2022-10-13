@@ -118,9 +118,11 @@ You can get also RGB tiles from the {maptiles} package,
 see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
 Other ggplot2 utils:
-\code{\link{autoplot}()},
+\code{\link{autoplot.Spat}},
+\code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster}()},
-\code{\link{ggspatvector}}
+\code{\link{ggspatvector}},
+\code{\link{stat_spat_coordinates}()}
 }
 \concept{ggplot2.utils}

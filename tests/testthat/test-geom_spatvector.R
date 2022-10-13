@@ -35,6 +35,20 @@ test_that("geom_spatvector works as geom_sf", {
   )
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
+
+
+  # Fortify
+  build_fort <- ggplot2::ggplot(cyl) +
+    geom_spatvector(aes(fill = iso2))
+
+  layer_fort <- ggplot2::ggplot_build(build_fort)$data[[1]]
+
+  expect_identical(layer_terra, layer_fort)
+
+  build_fort_proj <- build_fort + ggplot2::coord_sf(crs = 3857)
+  layer_fort2 <- ggplot2::ggplot_build(build_fort_proj)$data[[1]]
+
+  expect_identical(layer_terra2, layer_fort2)
 })
 
 

@@ -5,23 +5,49 @@
 \alias{geom_spatvector}
 \alias{geom_spatvector_label}
 \alias{geom_spatvector_text}
+\alias{stat_spatvector}
 \title{Visualise SpatVector objects}
 \usage{
-geom_spatvector(mapping = aes(), data, na.rm = FALSE, show.legend = NA, ...)
-
-geom_spatvector_label(
+geom_spatvector(
   mapping = aes(),
-  data,
+  data = NULL,
   na.rm = FALSE,
   show.legend = NA,
   ...
 )
 
-geom_spatvector_text(
+geom_spatvector_label(
   mapping = aes(),
-  data,
+  data = NULL,
   na.rm = FALSE,
   show.legend = NA,
+  ...,
+  nudge_x = 0,
+  nudge_y = 0,
+  label.size = 0.25,
+  inherit.aes = TRUE
+)
+
+geom_spatvector_text(
+  mapping = aes(),
+  data = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  ...,
+  nudge_x = 0,
+  nudge_y = 0,
+  check_overlap = FALSE,
+  inherit.aes = TRUE
+)
+
+stat_spatvector(
+  mapping = NULL,
+  data = NULL,
+  geom = "rect",
+  position = "identity",
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
   ...
 )
 }
@@ -43,21 +69,49 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 You can also set this to one of "polygon", "line", and "point" to
 override the default legend.}
 
-\item{...}{Other arguments passed on to \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}. These are
-often aesthetics, used to set an aesthetic to a fixed value, like
-\code{colour = "red"} or \code{size = 3}.}
+\item{...}{Other arguments passed on to \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions.
+These are often aesthetics, used to set an aesthetic to a fixed value,
+like \code{colour = "red"} or \code{size = 3}.}
+
+\item{nudge_x}{Horizontal and vertical adjustment to nudge labels by.
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointly specified with \code{position}.}
+
+\item{nudge_y}{Horizontal and vertical adjustment to nudge labels by.
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointly specified with \code{position}.}
+
+\item{label.size}{Size of label border, in mm.}
+
+\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
+rather than combining with them. This is most useful for helper functions
+that define both data and aesthetics and shouldn't inherit behaviour from
+the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+
+\item{check_overlap}{If \code{TRUE}, text that overlaps previous text in the
+same layer will not be plotted. \code{check_overlap} happens at draw time and in
+the order of the data. Therefore data should be arranged by the label
+column before calling \code{geom_text()}. Note that this argument is not
+supported by \code{geom_label()}.}
+
+\item{geom}{The geometric object to use display the data}
+
+\item{position}{Position adjustment, either as a string, or the result of
+a call to a position adjustment function.}
 }
 \value{
 A ggplot2 layer
 }
 \description{
-This geom is used to visualise SpatVector objects (see \code{\link[terra:vect]{terra::vect()}}). For
-simple plots, you will only need \code{geom_spatvector()}. For text and labels,
-you can use \code{geom_spatvector_text()} and\code{ geom_spatvector_label()}.
-
-The underlying implementation is based on \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} family used to visualise SpatVector objects
+(see \code{\link[terra:vect]{terra::vect()}}).
 }
 \details{
+These functions are wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions. Since a
+\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \strong{ggplot2} treat a SpatVector
+in the same way that a \code{sf} object. A side effect is that you can use
+\code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with SpatVectors.
+
 See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }
 \section{terra equivalent}{
@@ -69,13 +123,6 @@ See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, et
 \examples{
 \donttest{
 # Create a SpatVector
-
-extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-
-cyl <- terra::vect(extfile)
-class(cyl)
-#' # Create a SpatVector
-
 extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
 cyl <- terra::vect(extfile)
@@ -83,41 +130,48 @@ class(cyl)
 
 library(ggplot2)
 
-ggplot() +
-  geom_spatvector(data = cyl)
+ggplot(cyl) +
+  geom_spatvector()
 
-# Avoid this!
-if (FALSE) {
-  # Would produce an error
 
-  ggplot(cyl) +
-    geom_spatvector()
-}
 # With params
 
-ggplot() +
-  geom_spatvector(data = cyl, aes(fill = name), color = NA) +
+ggplot(cyl) +
+  geom_spatvector(aes(fill = name), color = NA) +
   scale_fill_viridis_d() +
   coord_sf(crs = 3857)
 
 # Add labels
-ggplot() +
-  geom_spatvector(data = cyl, aes(fill = name), color = NA) +
-  geom_spatvector_text(
-    data = cyl, aes(label = iso2), fontface = "bold", size = 3,
+ggplot(cyl) +
+  geom_spatvector(aes(fill = name), color = NA) +
+  geom_spatvector_text(aes(label = iso2),
+    fontface = "bold", size = 3,
     color = "red"
   ) +
   scale_fill_viridis_d(alpha = 0.4) +
   coord_sf(crs = 3857)
+
+# You can use now geom_sf with SpatVectors!
+
+
+
+ggplot(cyl) +
+  geom_sf() +
+  labs(
+    title = paste("cyl is", as.character(class(cyl))),
+    subtitle = "With geom_sf()"
+  )
 }
 }
 \seealso{
 \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}
 
 Other ggplot2 utils:
-\code{\link{autoplot}()},
+\code{\link{autoplot.Spat}},
+\code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},
-\code{\link{geom_spatraster}()}
+\code{\link{geom_spatraster}()},
+\code{\link{stat_spat_coordinates}()}
 }
 \concept{ggplot2.utils}

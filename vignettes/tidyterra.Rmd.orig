@@ -67,19 +67,21 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method      | SpatVector | SpatRaster      |
-|-----------------------|------------|-----------------|
-| `tibble::as_tibble()` | ✔️         | ✔️              |
-| `dplyr::filter()`     | ✔️         | ✔️              |
-| `dplyr::mutate()`     | ✔️         | ✔️              |
-| `dplyr::pull()`       | ✔️         | ✔️              |
-| `dplyr::relocate()`   | ✔️         | ✔️              |
-| `dplyr::rename()`     | ✔️         | ✔️              |
-| `dplyr::select()`     | ✔️         | ✔️              |
-| `dplyr::slice()`      | ✔️         | ✔️              |
-| `dplyr::transmute()`  | ✔️         | ✔️              |
-| `tidyr::drop_na()`    | ✔️         | ✔️ (questioned) |
-| `tidyr::replace_na()` | ✔️         | ✔️              |
+| tidyverse method      | SpatVector                         | SpatRaster                    |
+|------------------------|------------------------------------|--------------------|
+| `tibble::as_tibble()` | ✔️                                 | ✔️                            |
+| `dplyr::filter()`     | ✔️                                 | ✔️                            |
+| `dplyr::mutate()`     | ✔️                                 | ✔️                            |
+| `dplyr::pull()`       | ✔️                                 | ✔️                            |
+| `dplyr::relocate()`   | ✔️                                 | ✔️                            |
+| `dplyr::rename()`     | ✔️                                 | ✔️                            |
+| `dplyr::select()`     | ✔️                                 | ✔️                            |
+| `dplyr::slice()`      | ✔️                                 | ✔️                            |
+| `dplyr::transmute()`  | ✔️                                 | ✔️                            |
+| `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned)               |
+| `tidyr::replace_na()` | ✔️                                 | ✔️                            |
+| `ggplot2::autoplot()` | ✔️                                 | ✔️                            |
+| `ggplot2::fortify()`  | ✔️ to **sf** with `sf::st_as_sf()` | ✔️ To tibble with coordinates |
 
 Let's see some of them in action:
 
@@ -180,9 +182,9 @@ f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
 
-rgb_plot <- ggplot() +
+rgb_plot <- ggplot(v) +
   geom_spatraster_rgb(data = r_rgb) +
-  geom_spatvector(data = v, fill = NA, size = 1)
+  geom_spatvector(fill = NA, size = 1)
 
 rgb_plot
 # Change CRS automatically
@@ -228,14 +230,11 @@ ggplot() +
 ```{r, lux_ggplot}
 lux <- system.file("ex/lux.shp", package = "terra")
 
-spatvector <- terra::vect(lux)
+v_lux <- terra::vect(lux)
 
-ggplot() +
-  geom_spatvector(data = spatvector, aes(fill = POP)) +
-  geom_spatvector_text(
-    data = spatvector, aes(label = NAME_2),
-    color = "grey90"
-  ) +
+ggplot(v_lux) +
+  geom_spatvector(aes(fill = POP)) +
+  geom_spatvector_text(aes(label = NAME_2), color = "grey90") +
   scale_fill_binned(labels = scales::number_format()) +
   coord_sf(crs = 3857)
 ```
@@ -256,25 +255,24 @@ the {sf} package, that represents the same information on a tabular way. You can
 convert easily between the two packages like this:
 
 ```{r terra_sf}
-lux <- system.file("ex/lux.shp", package = "terra")
+lux <- system.file("ex/lux.shp", package = "terra") %>%
+  terra::vect()
 
-spatvector <- terra::vect(lux)
-spatvector
 
-terra::plot(spatvector, main = "SpatVector", axes = TRUE)
+terra::plot(lux, main = "SpatVector", axes = TRUE)
 
 
 # To sf
-sfobj <- sf::st_as_sf(spatvector)
+sfobj <- sf::st_as_sf(lux)
 head(sfobj, 3)
 
 plot(sfobj$geometry, main = "sf", axes = TRUE)
 
 # Back to terra
 
-spatvector2 <- terra::vect(sfobj)
+lux2 <- terra::vect(sfobj)
 
-spatvector2
+lux2
 ```
 
 On that sense, {sf} already has its own implementation of {tidyverse} methods.
@@ -287,7 +285,7 @@ library(dplyr)
 library(terra)
 library(sf)
 
-spat_summ <- spatvector2 %>%
+lux_summ <- lux2 %>%
   # to sf
   st_as_sf() %>%
   # dplyr
@@ -296,7 +294,8 @@ spat_summ <- spatvector2 %>%
   # back to terra
   vect()
 
-spat_summ
+lux_summ
 
-terra::plot(spat_summ, "TOTPOP")
+terra::plot(lux_summ, "TOTPOP")
+
 ```
