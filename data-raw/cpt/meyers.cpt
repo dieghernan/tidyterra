@@ -1,0 +1,24 @@
+# An elevation scheme extracted from scan of map from
+# Meyers Konversationslexikon (1885–90)
+# http://commons.wikimedia.org/wiki/File:Meyers_b1_s0457a.jpg
+# 
+# Public domain (due to age of document) 
+#
+# Extraction by J.J. Green 2012
+# $Id: meyers.cpt,v 1.1 2012/04/02 21:04:17 jjg Exp $
+#
+# COLOR_MODEL = RGB
+-6000  91 140 164 -4000  91 140 164
+-4000 120 164 183 -2000 120 164 183
+-2000 128 173 193 -1000 128 173 193
+-1000 146 182 195  -200 146 182 195
+ -200 200 219 225     0 200 219 225
+    0 178 202 153   200 178 202 153
+  200 215 224 199   500 215 224 199
+  500 208 195 180  1000 208 195 180
+ 1000 155 115  93  2000 155 115  93
+ 2000 100  53  32  3000 100  53  32
+ 3000  43  10  11  4000  43  10  11
+B  91 140 164
+F  43  10  11
+N 255   0   0

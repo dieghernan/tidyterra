@@ -1,0 +1,24 @@
+# An elevation scheme extracted from scan "Nordisk
+# familjebok Nord-Amerika. Flod- och bergssystem"
+# http://runeberg.org/nfba/0430.html
+# 
+# Public domain (due to age of document) 
+#
+# Extraction by J.J. Green 2012
+# $Id: nordisk-familjebok.cpt,v 1.1 2012/04/02 21:04:17 jjg Exp $
+#
+# COLOR_MODEL = RGB
+-8000 108 139 141 -6000 108 139 141
+-6000 129 159 144 -4000 129 159 144
+-4000 169 182 162 -2000 169 182 162
+-2000 192 198 173  -200 192 198 173
+ -200 230 221 204     0 230 221 204
+    0 188 187 128   200 188 187 128
+  200 207 199 153   500 207 199 153
+  500 227 194 165  1000 227 194 165
+ 1000 215 158 120  2000 215 158 120
+ 2000 213 130  85  3000 213 130  85
+ 3000  93  42  19  4000  93  42  19
+B 108 139 141
+F  93  42  19 
+N 255   0   0

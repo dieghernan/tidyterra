@@ -1,3 +1,8 @@
+# tidyterra (development version)
+
+-   Three additional palettes are included on `hypso.colors()`: `"artic"`,
+    `"meyers"` and `"nordisk-familjebok"`.
+
 # tidyterra 0.3.0
 
 -   Package back to CRAN.

@@ -49,6 +49,14 @@ Load {tidyterra} with additional libraries of the {tidyverse}:
 ```r
 library(tidyterra)
 library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
 library(tidyr)
 ```
 
@@ -229,14 +237,14 @@ asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
 #> class       : SpatRaster 
-#> dimensions  : 367, 683, 1  (nrow, ncol, nlyr)
-#> resolution  : 14263.38, 14231.61  (x, y)
+#> dimensions  : 232, 432, 1  (nrow, ncol, nlyr)
+#> resolution  : 22550.66, 22512.94  (x, y)
 #> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
 #> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
 #> source      : asia.tif 
 #> name        : file44bc291153f2 
-#> min value   :        -9991.472 
-#> max value   :         6156.079
+#> min value   :        -10071.50 
+#> max value   :          6064.73
 
 ggplot() +
   geom_spatraster(data = asia) +
