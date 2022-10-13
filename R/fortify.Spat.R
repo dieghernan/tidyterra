@@ -18,7 +18,7 @@
 #' @family coerce
 #'
 #' @return [fortify.SpatVector()] returns a `sf` object and
-#'   [fortify.SpatVector()] returns a tibble. See **Methods**.
+#'   [fortify.SpatRaster()] returns a tibble. See **Methods**.
 #'
 #' @rdname fortify.Spat
 #' @name fortify.Spat

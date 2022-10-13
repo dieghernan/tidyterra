@@ -1,20 +1,20 @@
-#' Gradient fill scales from WhiteboxTools color schemes
+#' Gradient scales from WhiteboxTools color schemes
 #'
 #' @description
 #'
 #' Implementation of the gradient palettes provided by
-#' [WhiteboxTools](https://github.com/jblindsay/whitebox-tools). Three fill
+#' [WhiteboxTools](https://github.com/jblindsay/whitebox-tools). Three
 #' scales are provided:
-#' - `scale_fill_whitebox_d()`: For discrete values.
-#' - `scale_fill_whitebox_c()`: For continuous values.
-#' - `scale_fill_whitebox_b()`: For binning continuous values.
+#' - `scale_*_whitebox_d()`: For discrete values.
+#' - `scale_*_whitebox_c()`: For continuous values.
+#' - `scale_*_whitebox_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `whitebox.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' @export
 #'
-#' @name scale_fill_whitebox
+#' @name scale_whitebox
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @param palette A valid palette name. The name is matched to the list of
@@ -36,7 +36,7 @@
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
-#' `fill` aesthetics.
+#' `fill/colour` aesthetics.
 #'
 #' @family gradients
 #'
@@ -97,7 +97,29 @@ scale_fill_whitebox_d <- function(palette = "high_relief", ...,
   )
 }
 #' @export
-#' @rdname scale_fill_whitebox
+#' @rdname scale_whitebox
+scale_colour_whitebox_d <- function(palette = "high_relief", ...,
+                                    alpha = 1, direction = 1) {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = "whitebox_colour_d",
+    palette = whitebox_pal(
+      alpha = alpha,
+      direction = direction,
+      palette = palette
+    ),
+    ...
+  )
+}
+
+#' @export
+#' @rdname scale_whitebox
 scale_fill_whitebox_c <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
                                   na.value = NA, guide = "colourbar") {
@@ -124,7 +146,35 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 }
 
 #' @export
-#' @rdname scale_fill_whitebox
+#' @rdname scale_whitebox
+scale_colour_whitebox_c <- function(palette = "high_relief", ...,
+                                    alpha = 1, direction = 1,
+                                    na.value = NA, guide = "colourbar") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
+
+  ggplot2::continuous_scale(
+    aesthetics = "colour",
+    scale_name = "whitebox_colour_c",
+    scales::gradient_n_pal(whitebox_pal(
+      alpha = alpha,
+      direction = direction,
+      palette = palette
+    )(length_pal)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+
+#' @export
+#' @rdname scale_whitebox
 scale_fill_whitebox_b <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
                                   na.value = NA, guide = "coloursteps") {
@@ -150,8 +200,38 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
     ...
   )
 }
+
 #' @export
-#' @rdname scale_fill_whitebox
+#' @rdname scale_whitebox
+scale_colour_whitebox_b <- function(palette = "high_relief", ...,
+                                    alpha = 1, direction = 1,
+                                    na.value = NA, guide = "coloursteps") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
+
+
+  ggplot2::binned_scale(
+    aesthetics = "colour",
+    scale_name = "whitebox_colour_b",
+    scales::gradient_n_pal(whitebox_pal(
+      alpha = alpha,
+      direction = direction,
+      palette = palette
+    )(length_pal)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+
+#' @export
+#' @rdname scale_whitebox
 #'
 #' @inheritParams wiki.colors
 #' @examples
@@ -215,3 +295,21 @@ extract_pal <- function(df, palette) {
   df <- df[df$pal == palette, ]
   return(df)
 }
+
+
+#' @export
+#' @rdname scale_whitebox
+#' @usage NULL
+scale_color_whitebox_d <- scale_colour_whitebox_d
+
+
+#' @export
+#' @rdname scale_whitebox
+#' @usage NULL
+scale_color_whitebox_c <- scale_colour_whitebox_c
+
+
+#' @export
+#' @rdname scale_whitebox
+#' @usage NULL
+scale_color_whitebox_b <- scale_colour_whitebox_b

@@ -21,7 +21,7 @@
 #'
 #'
 #' @inheritParams geom_spatraster
-#' @inheritParams scale_fill_terrain
+#' @inheritParams scale_terrain
 #' @param mapping Ignored.
 #' @param r,g,b Integer representing the number of layer of `data` to be
 #'  considered as the red (`r`), green (`g`) and blue (`b`) channel.

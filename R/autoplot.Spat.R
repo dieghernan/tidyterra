@@ -53,9 +53,10 @@
 #'
 #' # With a tile
 #'
-#' system.file("extdata/cyl_tile.tif", package = "tidyterra") %>%
-#'   rast() %>%
-#'   autoplot(rgb = TRUE)
+#' tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") %>%
+#'   rast()
+#'
+#' autoplot(tile, rgb = TRUE)
 #'
 #' #  With vectors
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
