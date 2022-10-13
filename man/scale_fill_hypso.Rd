@@ -305,9 +305,9 @@ par(opar)
 \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_fill_cross_blended}},
-\code{\link{scale_fill_terrain}},
-\code{\link{scale_fill_whitebox}},
-\code{\link{scale_fill_wiki}}
+\code{\link{scale_cross_blended}},
+\code{\link{scale_terrain}},
+\code{\link{scale_whitebox}},
+\code{\link{scale_wiki}}
 }
 \concept{gradients}

@@ -1,27 +1,27 @@
-#' Gradient fill scales from Wikipedia color schemes
+#' Gradient scales from Wikipedia color schemes
 #'
 #' @description
 #'
 #' Implementation based on the
 #' [Wikipedia Colorimetric conventions for topographic maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
-#' Three fill scales are provided:
-#' - `scale_fill_wiki_d()`: For discrete values.
-#' - `scale_fill_wiki_c()`: For continuous values.
-#' - `scale_fill_wiki_b()`: For binning continuous values.
+#' Three scales are provided:
+#' - `scale_*_wiki_d()`: For discrete values.
+#' - `scale_*_wiki_c()`: For continuous values.
+#' - `scale_*_wiki_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `wiki.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' @export
 #'
-#' @name scale_fill_wiki
+#' @name scale_wiki
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #'
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
-#' `fill` aesthetics.
+#' `fill/colour` aesthetics.
 #'
 #' @family gradients
 #'
@@ -78,8 +78,34 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1) {
     ...
   )
 }
+
 #' @export
-#' @rdname scale_fill_wiki
+#' @rdname scale_wiki
+scale_colour_wiki_d <- function(..., alpha = 1, direction = 1) {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = "wiki_colour_d",
+    palette = wiki_pal(
+      alpha = alpha,
+      direction = direction
+    ),
+    ...
+  )
+}
+
+#' @export
+#' @rdname scale_wiki
+#' @usage NULL
+scale_color_wiki_d <- scale_colour_wiki_d
+
+#' @export
+#' @rdname scale_wiki
 scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
@@ -104,7 +130,37 @@ scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
 }
 
 #' @export
-#' @rdname scale_fill_wiki
+#' @rdname scale_wiki
+scale_colour_wiki_c <- function(..., alpha = 1, direction = 1,
+                                na.value = NA, guide = "colourbar") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  length_pal <- length(wiki_cols)
+
+  ggplot2::continuous_scale(
+    aesthetics = "colour",
+    scale_name = "wiki_colour_c",
+    scales::gradient_n_pal(wiki_pal(
+      alpha = alpha,
+      direction = direction
+    )(length_pal)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+#' @export
+#' @rdname scale_wiki
+#' @usage NULL
+scale_color_wiki_c <- scale_colour_wiki_c
+
+#' @export
+#' @rdname scale_wiki
 scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
@@ -127,8 +183,39 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
     ...
   )
 }
+
 #' @export
-#' @rdname scale_fill_wiki
+#' @rdname scale_wiki
+scale_colour_wiki_b <- function(..., alpha = 1, direction = 1,
+                                na.value = NA, guide = "coloursteps") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  length_pal <- length(wiki_cols)
+
+  ggplot2::binned_scale(
+    aesthetics = "colour",
+    scale_name = "wiki_colour_b",
+    scales::gradient_n_pal(wiki_pal(
+      alpha = alpha,
+      direction = direction
+    )(length_pal)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+#' @export
+#' @rdname scale_wiki
+#' @usage NULL
+scale_color_wiki_b <- scale_colour_wiki_b
+
+#' @export
+#' @rdname scale_wiki
 #' @inheritParams grDevices::terrain.colors
 wiki.colors <- function(n, alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {

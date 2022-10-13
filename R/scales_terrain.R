@@ -1,25 +1,25 @@
-#' Terrain colour fill scales from grDevices
+#' Terrain colour scales from grDevices
 #'
 #' @description
 #'
 #' Implementation of the classic color palettes used by default by the
-#' terra package (see [terra::plot()]). Three fill scales are provided:
+#' terra package (see [terra::plot()]):
 #'
-#' - `scale_fill_terrain_d()`: For discrete values.
-#' - `scale_fill_terrain_c()`: For continuous values.
-#' - `scale_fill_terrain_b()`: For binning continuous values.
+#' - `scale_*_terrain_d()`: For discrete values.
+#' - `scale_*_terrain_c()`: For continuous values.
+#' - `scale_*_terrain_b()`: For binning continuous values.
 #'
 #'
 #' @export
 #'
-#' @name scale_fill_terrain
+#' @name scale_terrain
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #'
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
-#' `fill` aesthetics.
+#' `fill/color` aesthetics.
 #'
 #' @family gradients
 #'
@@ -73,7 +73,28 @@ scale_fill_terrain_d <- function(..., alpha = 1, direction = 1) {
 }
 
 #' @export
-#' @rdname scale_fill_terrain
+#' @rdname scale_terrain
+scale_colour_terrain_d <- function(..., alpha = 1, direction = 1) {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = "terrain_colour_d",
+    palette = terrain_pal(
+      alpha = alpha,
+      direction = direction
+    ),
+    ...
+  )
+}
+
+
+#' @export
+#' @rdname scale_terrain
 scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
@@ -96,7 +117,31 @@ scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
 }
 
 #' @export
-#' @rdname scale_fill_terrain
+#' @rdname scale_terrain
+scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
+                                   na.value = NA, guide = "colourbar") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  ggplot2::continuous_scale(
+    aesthetics = "colour",
+    scale_name = "terrain_colour_c",
+    scales::gradient_n_pal(terrain_pal(
+      alpha = alpha,
+      direction = direction
+    )(100)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+
+#' @export
+#' @rdname scale_terrain
 scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
@@ -118,6 +163,29 @@ scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
   )
 }
 
+#' @export
+#' @rdname scale_terrain
+scale_colour_terrain_b <- function(..., alpha = 1, direction = 1,
+                                   na.value = NA, guide = "coloursteps") {
+  if (alpha < 0 || alpha > 1) {
+    stop("alpha level ", alpha, " not in [0,1]")
+  }
+
+  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+
+  ggplot2::binned_scale(
+    aesthetics = "colour",
+    scale_name = "terrain_colour_c",
+    scales::gradient_n_pal(terrain_pal(
+      alpha = alpha,
+      direction = direction
+    )(100)),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
 terrain_pal <- function(alpha = 1, direction = 1) {
   # nocov start
   function(n) {
@@ -127,3 +195,20 @@ terrain_pal <- function(alpha = 1, direction = 1) {
   }
   # nocov end
 }
+
+#' @export
+#' @rdname scale_terrain
+#' @usage NULL
+scale_color_terrain_d <- scale_colour_terrain_d
+
+
+#' @export
+#' @rdname scale_terrain
+#' @usage NULL
+scale_color_terrain_c <- scale_colour_terrain_c
+
+
+#' @export
+#' @rdname scale_terrain
+#' @usage NULL
+scale_color_terrain_b <- scale_colour_terrain_b
