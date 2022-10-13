@@ -64,6 +64,7 @@ Current methods and functions provided by {tidyterra} are:
 | `dplyr::relocate()`   | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
 | `tidyr::drop_na()`    | :heavy_check_mark:                     | :heavy_check_mark: Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
+| `ggplot2::fortify()`  | ✔️ to sf via `sf::st_as_sf()`          |                                                                                                                |
 | `ggplot2::geom_*()`   | :heavy_check_mark: `geom_spatvector()` | :heavy_check_mark: `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 ## :exclamation: A note on performance
@@ -162,9 +163,9 @@ f_vect <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
 prov <- vect(f_vect)
 
-ggplot() +
+ggplot(prov) +
   geom_spatraster(data = variation) +
-  geom_spatvector(data = prov, fill = NA) +
+  geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
     palette = "deep", direction = -1,
     labels = scales::label_number(suffix = "º")
@@ -190,10 +191,13 @@ f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 rgb_tile <- rast(f_tile)
 
 
-ggplot() +
+plot <- ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
-  geom_spatvector(data = prov, fill = NA) +
+  geom_spatvector(fill = NA) +
   theme_light()
+
+
+plot
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%" />
@@ -201,11 +205,7 @@ ggplot() +
 ``` r
 
 # Recognizes coord_sf()
-
-ggplot() +
-  geom_spatraster_rgb(data = rgb_tile) +
-  geom_spatvector(data = prov, fill = NA) +
-  theme_light() +
+plot +
   # Change crs and datum (for relabeling graticules)
   coord_sf(crs = 3035, datum = 3035)
 ```

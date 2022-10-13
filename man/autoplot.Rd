@@ -64,9 +64,11 @@ system.file("extdata/cyl_tile.tif", package = "tidyterra") \%>\%
 \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}
 
 Other ggplot2 utils:
+\code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
-\code{\link{ggspatvector}}
+\code{\link{ggspatvector}},
+\code{\link{stat_spat_coordinates}()}
 }
 \concept{ggplot2.utils}

@@ -254,8 +254,10 @@ Alternative geoms: \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \cod
 
 Other ggplot2 utils:
 \code{\link{autoplot}()},
+\code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster_rgb}()},
-\code{\link{ggspatvector}}
+\code{\link{ggspatvector}},
+\code{\link{stat_spat_coordinates}()}
 }
 \concept{ggplot2.utils}

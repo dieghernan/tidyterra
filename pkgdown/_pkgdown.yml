@@ -79,6 +79,10 @@ reference:
   desc:  Methods from {tidyr} implemented for Spat* objects.
   contents:
     - has_concept("tidyr.methods")
+- subtitle: "ggplot2 methods"
+  desc:  Methods from {ggplot2} implemented for Spat* objects.
+  contents:
+    - has_concept("ggplot2.methods")
 
 - title: "ggplot2 utils"
 - subtitle: Geoms

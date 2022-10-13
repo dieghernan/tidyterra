@@ -26,6 +26,7 @@ WhiteboxTools
 asia
 bathymetric
 bathymetry
+behaviour
 binwidth
 codecov
 colour
@@ -61,6 +62,7 @@ rescaled
 rlang
 spatraster
 standardised
+summarises
 terra
 tibble
 tibbles

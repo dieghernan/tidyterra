@@ -201,8 +201,10 @@ ggplot() +
 
 Other ggplot2 utils:
 \code{\link{autoplot}()},
+\code{\link{fortify.Spat}},
 \code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
-\code{\link{ggspatvector}}
+\code{\link{ggspatvector}},
+\code{\link{stat_spat_coordinates}()}
 }
 \concept{ggplot2.utils}
