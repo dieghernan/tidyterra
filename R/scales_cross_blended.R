@@ -350,7 +350,7 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #' @rdname scale_cross_blended
 #' @details
 #'
-#' On `scale_fill_cross_blended_tint_*` palettes, the position of the gradients
+#' On `scale_*_cross_blended_tint_*` palettes, the position of the gradients
 #' and the limits of the palette are redefined. Instead of treating the color
 #' palette as a continuous gradient, they are rescaled to act as a hypsometric
 #' tint. A rough description of these tints are:

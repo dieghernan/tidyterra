@@ -40,7 +40,7 @@ for names in the style of base R).
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \code{sf} object and
-\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a tibble. See \strong{Methods}.
+\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a tibble. See \strong{Methods}.
 }
 \description{
 Fortify SpatRasters and SpatVectors to data frames for compatibility with

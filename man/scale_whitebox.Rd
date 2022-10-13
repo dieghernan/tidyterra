@@ -167,7 +167,7 @@ par(opar)
 
 Other gradient scales and palettes for hypsometry:
 \code{\link{scale_cross_blended}},
-\code{\link{scale_fill_hypso}},
+\code{\link{scale_hypso}},
 \code{\link{scale_terrain}},
 \code{\link{scale_wiki}}
 }

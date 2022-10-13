@@ -218,7 +218,7 @@ An additional set of scales is provided. These scales can act as
 See \strong{Details}.
 }
 \details{
-On \verb{scale_fill_cross_blended_tint_*} palettes, the position of the gradients
+On \verb{scale_*_cross_blended_tint_*} palettes, the position of the gradients
 and the limits of the palette are redefined. Instead of treating the color
 palette as a continuous gradient, they are rescaled to act as a hypsometric
 tint. A rough description of these tints are:
@@ -385,7 +385,7 @@ par(opar)
 \code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_fill_hypso}},
+\code{\link{scale_hypso}},
 \code{\link{scale_terrain}},
 \code{\link{scale_whitebox}},
 \code{\link{scale_wiki}}
