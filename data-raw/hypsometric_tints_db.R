@@ -2,10 +2,10 @@
 rm(list = ls())
 library(dplyr)
 # Run all scripts
-scripts <- list.files("data-raw/cpt", pattern = ".R$", full.names = TRUE)
-for (i in scripts) {
-  suppressWarnings(source(i))
-}
+# scripts <- list.files("data-raw/cpt", pattern = ".R$", full.names = TRUE)
+# for (i in scripts) {
+#   suppressWarnings(source(i))
+# }
 
 
 library(dplyr)
@@ -132,3 +132,33 @@ par(opar)
 
 
 data(hypsometric_tints_db)
+
+devtools::load_all()
+
+library(terra)
+library(ggplot2)
+
+asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+
+terra::plot(asia)
+
+ggplot() +
+  geom_spatraster(data = asia) +
+  scale_fill_hypso_tint_c(
+    palette = "meyers",
+    labels = scales::label_number(),
+    breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
+    guide = guide_colorbar(
+      direction = "horizontal",
+      title.position = "top",
+      barwidth = 20
+    )
+  ) +
+  labs(
+    fill = "elevation (m)",
+    title = "Hypsometric map of Asia"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+dev.off()

@@ -5,7 +5,7 @@
 \alias{hypsometric_tints_db}
 \title{Hypsometric palettes database}
 \format{
-A tibble of 829 rows and
+A tibble of 1102 rows and
 6 columns. with the following fields:
 \itemize{
 \item \strong{pal}: Name of the palette.
@@ -20,7 +20,7 @@ cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
 }
 \description{
 A tibble including the color map of
-24 gradient palettes. All the
+33 gradient palettes. All the
 palettes includes also a definition of colors limits in terms of elevation
 (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
 }
