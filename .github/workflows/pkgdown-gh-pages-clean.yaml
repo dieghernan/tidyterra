@@ -5,7 +5,7 @@ name: Clean pkgdown manually
 
 jobs:
   pkgdown-gh-pages-manual:
-    runs-on: macos-latest
+    runs-on: windows-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
