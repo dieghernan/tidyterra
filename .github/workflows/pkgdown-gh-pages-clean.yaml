@@ -5,7 +5,7 @@ name: Clean pkgdown manually
 
 jobs:
   pkgdown-gh-pages-manual:
-    runs-on: windows-latest
+    runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -20,6 +20,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
+          cache-version: pkgdown
           extra-packages: |
             local::.
             any::pkgdown
