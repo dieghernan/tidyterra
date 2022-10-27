@@ -124,7 +124,11 @@
 
     
     
-<p>This is a compendium of questions arisen on the use of the <strong>tidyterra</strong> package and the potential solutions to it (mostly related with the use of <strong>terra</strong> and <strong>ggplot2</strong> at this stage). You can ask for help or search previous questions in the following links.</p>
+<p>This is a compendium of questions arisen on the use of the
+<strong>tidyterra</strong> package and the potential solutions to it
+(mostly related with the use of <strong>terra</strong> and
+<strong>ggplot2</strong> at this stage). You can ask for help or search
+previous questions in the following links.</p>
 <ul>
 <li>Issues: <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link uri">https://github.com/dieghernan/tidyterra/issues</a>
 </li>
@@ -134,7 +138,11 @@
 <div class="section level2">
 <h2 id="nas-remove">NA values are shown in gray color<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior produced by the <strong>ggplot2</strong> package. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), has by default the parameter <code>na.value</code> set to <code>NA</code>, that prevents NA values to be plotted.</p>
+<p>This is the default behavior produced by the <strong>ggplot2</strong>
+package. <strong>tidyterra</strong> color scales (i.e.,
+<code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), has by default the
+parameter <code>na.value</code> set to <code>NA</code>, that prevents NA
+values to be plotted.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -180,7 +188,10 @@
 <div class="section level2">
 <h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
 </h2>
-<p>You can convert your SpatRaster to a <code>data.frame/tibble</code> in combination with the <strong>metR</strong> package. Use the parameter(s) <code>bins/binwidth/breaks</code> to align both labels and lines:</p>
+<p>You can convert your SpatRaster to a <code>data.frame/tibble</code>
+in combination with the <strong>metR</strong> package. Use the
+parameter(s) <code>bins/binwidth/breaks</code> to align both labels and
+lines:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -248,7 +259,9 @@
 <div class="section level2">
 <h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
 </h2>
-<p>Since <strong>tidyterra</strong> leverages on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use of scales:</p>
+<p>Since <strong>tidyterra</strong> leverages on
+<strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use
+of scales:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -272,7 +285,15 @@
 <div class="section level2">
 <h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>This is probably related with the tile itself rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so check first if your tile has this CRS and not a different one. Not having <strong>EPSG:3857</strong> may be an indication that the tile has been reprojected, implied some sort of sampling that causes the blurriness on your data. Also, modify the parameter <code>maxcell</code> to avoid resampling and force the <strong>ggplot2</strong> map to be on <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
+<p>This is probably related with the tile itself rather than the
+package. Most base tiles are provided in <strong>EPSG:3857</strong>, so
+check first if your tile has this CRS and not a different one. Not
+having <strong>EPSG:3857</strong> may be an indication that the tile has
+been reprojected, implied some sort of sampling that causes the
+blurriness on your data. Also, modify the parameter <code>maxcell</code>
+to avoid resampling and force the <strong>ggplot2</strong> map to be on
+<strong>EPSG:3857</strong> with
+<code>ggplot2::coord_sf(crs = 3857)</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -327,7 +348,8 @@
 <div class="section level2">
 <h2 id="axis-degrees">Avoid degrees labeling on axis<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
 </h2>
-<p>Again, this is the <strong>ggplot2</strong> default, but can be modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
+<p>Again, this is the <strong>ggplot2</strong> default, but can be
+modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -365,7 +387,9 @@
 <div class="section level2">
 <h2 id="axis-breaks">Modifying the number of breaks on axis<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
 </h2>
-<p>The best option is to pass your custom breaks to <code>ggplot2::scale_x_continous()</code> or <code>ggplot2::scale_y_continous()</code>:</p>
+<p>The best option is to pass your custom breaks to
+<code>ggplot2::scale_x_continous()</code> or
+<code>ggplot2::scale_y_continous()</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>

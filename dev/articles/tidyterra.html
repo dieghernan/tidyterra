@@ -125,20 +125,38 @@
 <div class="section level2">
 <h2 id="welcome-to-tidyterra">Welcome to {tidyterra}<a class="anchor" aria-label="anchor" href="#welcome-to-tidyterra"></a>
 </h2>
-<p><strong>tidyterra</strong> is a package that add common methods from the <a href="https://www.tidyverse.org/" class="external-link">tidyverse</a> for SpatRaster and SpatVectors objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link">{terra}</a> package. It also adds specific <code>geom_spat*()</code> functions for plotting these kind of objects with <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a>.</p>
+<p><strong>tidyterra</strong> is a package that add common methods from
+the <a href="https://www.tidyverse.org/" class="external-link">tidyverse</a> for SpatRaster
+and SpatVectors objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link">{terra}</a> package. It
+also adds specific <code>geom_spat*()</code> functions for plotting
+these kind of objects with <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a>.</p>
 <div class="section level3">
 <h3 id="why-tidyterra">Why {tidyterra}?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
-<p>Spat* objects are not like regular data frames. They are a different type of objects, implemented via the <a href="http://adv-r.had.co.nz/S4.html" class="external-link">S4 object system</a>, and have their own syntax and computation methods, implemented on the {terra} package.</p>
-<p>By implementing tidyverse methods for these objects, and more specifically {dplyr} and {tidyr} methods, a use<strong>R</strong> can now work more easily with Spat*, just like (s)he would do with tabular data.</p>
-<p><strong>Note that</strong> in terms of performance, {terra} is much more optimized for working for this kind of objects, so it is <strong>recommended</strong> also to learn a bit of {terra} syntax. Each function of {tidyterra} refers (when possible) to the corresponding equivalent on {terra}.</p>
+<p>Spat* objects are not like regular data frames. They are a different
+type of objects, implemented via the <a href="http://adv-r.had.co.nz/S4.html" class="external-link">S4 object system</a>, and have
+their own syntax and computation methods, implemented on the {terra}
+package.</p>
+<p>By implementing tidyverse methods for these objects, and more
+specifically {dplyr} and {tidyr} methods, a use<strong>R</strong> can
+now work more easily with Spat*, just like (s)he would do with tabular
+data.</p>
+<p><strong>Note that</strong> in terms of performance, {terra} is much
+more optimized for working for this kind of objects, so it is
+<strong>recommended</strong> also to learn a bit of {terra} syntax. Each
+function of {tidyterra} refers (when possible) to the corresponding
+equivalent on {terra}.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="a-note-for-advanced-terra-users">A note for advanced {terra} users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
-<p>As previously mentioned, {tidyterra} is not optimized in terms of performance. Specially when working with <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> methods, it can be slow.</p>
-<p>As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000 slots of information(i.e., <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 10e6</code>).</p>
+<p>As previously mentioned, {tidyterra} is not optimized in terms of
+performance. Specially when working with <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> methods, it can be slow.</p>
+<p>As a rule of thumb, {tidyterra} can handle objects with less than
+10.000.000 slots of information(i.e.,
+<code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 10e6</code>).</p>
 </div>
 <div class="section level2">
 <h2 id="get-started-with-tidyterra">Get started with {tidyterra}<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
@@ -276,13 +294,22 @@
 <span><span class="co">#&gt; max values  :   5.408157, 16.740898, 21.113781</span></span></code></pre></div>
 <p>On the previous example, we had:</p>
 <ul>
-<li><p>Eliminated the first layer of the raster <code>tavg_04</code>.</p></li>
-<li><p>Created a new layer <code>newcol</code> as the difference of the layers <code>tavg_05</code> and <code>tavg_06.</code></p></li>
-<li><p>Relocated <code>newcol</code>as the first layer of the SpatRaster</p></li>
-<li><p>Replaced the <code>NA</code> cells on <code>newcol</code> with <code>3</code>.</p></li>
+<li><p>Eliminated the first layer of the raster
+<code>tavg_04</code>.</p></li>
+<li><p>Created a new layer <code>newcol</code> as the difference of the
+layers <code>tavg_05</code> and <code>tavg_06.</code></p></li>
+<li><p>Relocated <code>newcol</code>as the first layer of the
+SpatRaster</p></li>
+<li><p>Replaced the <code>NA</code> cells on <code>newcol</code> with
+<code>3</code>.</p></li>
 <li><p>Renamed <code>newcol</code> to difference.</p></li>
 </ul>
-<p>In all the process, the essential properties of the SpatRaster (number of cells, columns and rows, extent, resolution and coordinate reference system) have not been modified. Other methods as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> can modify these properties, as they would do when applied to a data frame (number of rows would be modified on that case).</p>
+<p>In all the process, the essential properties of the SpatRaster
+(number of cells, columns and rows, extent, resolution and coordinate
+reference system) have not been modified. Other methods as
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code>
+can modify these properties, as they would do when applied to a data
+frame (number of rows would be modified on that case).</p>
 </div>
 <div class="section level2">
 <h2 id="plotting-with-ggplot2">Plotting with {ggplot2}<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
@@ -290,7 +317,11 @@
 <div class="section level3">
 <h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
 </h3>
-<p>{tidyterra} provides several <code>geom_*</code> for SpatRasters. When the SpatRaster has the CRS informed (i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for adjusting the coordinates to other spatial layers:</p>
+<p>{tidyterra} provides several <code>geom_*</code> for SpatRasters.
+When the SpatRaster has the CRS informed
+(i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for
+adjusting the coordinates to other spatial layers:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -330,7 +361,8 @@
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"atlas"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terraplots-3.png" alt="plot of chunk terraplots" width="100%"></p>
-<p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:</p>
+<p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to
+your plots:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Read a vector</span></span>
@@ -355,7 +387,8 @@
 <span><span class="va">rgb_plot</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3035</span><span class="op">)</span></span></code></pre></div>
 <p><img src="rgb-2.png" alt="plot of chunk rgb" width="100%"></p>
-<p>{tidyterra} provides selected scales that are suitable for creating hypsometric and bathymetric maps:</p>
+<p>{tidyterra} provides selected scales that are suitable for creating
+hypsometric and bathymetric maps:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
@@ -394,7 +427,8 @@
 <div class="section level3">
 <h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
 </h3>
-<p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
+<p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the
+<code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
 <span></span>
@@ -406,13 +440,23 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
-<p>The underlying implementation is to take advantage of the conversion <code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the layer.</p>
+<p>The underlying implementation is to take advantage of the conversion
+<code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the
+layer.</p>
 </div>
 <div class="section level3">
 <h3 id="about">About SpatVectors<a class="anchor" aria-label="anchor" href="#about"></a>
 </h3>
-<p>SpatVector objects are vector data. This means that they are a set of individual points with geographic information (i.e. location of restaurants), that can be also grouped to form lines (i.e. a river) and, when these lines forms a closed polygon, a spatial polygon (i.e. a country).</p>
-<p>{terra} can handle vector files on the S4 system. There is other alternative, the {sf} package, that represents the same information on a tabular way. You can convert easily between the two packages like this:</p>
+<p>SpatVector objects are vector data. This means that they are a set of
+individual points with geographic information (i.e. location of
+restaurants), that can be also grouped to form lines (i.e. a river) and,
+when these lines forms a closed polygon, a spatial polygon (i.e. a
+country).</p>
+<p>{terra} can handle vector files on the S4 system. There is other
+alternative, the {sf} package, that represents the same information on a
+tabular way. You can convert easily between the two packages like
+this:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -455,7 +499,10 @@
 <span><span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span></span>
 <span><span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span></span>
 <span><span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></span></code></pre></div>
-<p>On that sense, {sf} already has its own implementation of {tidyverse} methods. Since converting SpatVector to {sf} it is straightforward with no loss of information, {tidyterra} is specially focused on SpatRasters. See an example of how to work with {terra} + {sf} + {dplyr}:</p>
+<p>On that sense, {sf} already has its own implementation of {tidyverse}
+methods. Since converting SpatVector to {sf} it is straightforward with
+no loss of information, {tidyterra} is specially focused on SpatRasters.
+See an example of how to work with {terra} + {sf} + {dplyr}:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
