@@ -1,6 +1,6 @@
 Package: tidyterra
 Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
-Version: 0.3.0.9000
+Version: 0.3.1
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),

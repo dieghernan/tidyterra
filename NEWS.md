@@ -1,7 +1,10 @@
-# tidyterra (development version)
+# tidyterra 0.3.1
 
 -   New **ggplot2** methods added:
     -   Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
+
+        -   `autoplot.SpatRaster()` now is smarter on identifying the type of
+            plot to produce. Can still be overridden with parameters.
 
     -   Methods for fortifying SpatRasters and SpatVectors:
         `fortify.SpatRaster()`, `fortify.SpatVector()`.
@@ -9,6 +12,9 @@
     `"meyers"` and `"nordisk-familjebok"`.
 -   Added colour scales to all palettes: `scale_colour_*`.
 -   Remove use of `ggplot2::aes_string()`.
+-   Adapt geom\_`spatraster_contour()` and `geom_spatraster_contour_filled()` to
+    the changes introduced in **ggplot2 (3.4.0)**, most notably the adoption of
+    `linewidth = .2`, by default.
 
 # tidyterra 0.3.0
 

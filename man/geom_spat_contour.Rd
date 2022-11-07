@@ -96,17 +96,19 @@ The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggpl
 
 \code{geom_spatraster_contour}() understands the following aesthetics:
 \itemize{
-\item z
 \item alpha
 \item colour
+\item group
 \item linetype
-\item size
+\item linewidth
+\item weight
 }
 
 Additionally, \code{geom_spatraster_contour_filled()} understands also the
 following aesthetics, as well as the ones listed above:
 \itemize{
 \item fill
+\item subgroup
 }
 
 Check \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}} for more info.

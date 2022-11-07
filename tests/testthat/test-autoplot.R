@@ -15,9 +15,14 @@ test_that("Test with cols", {
   vdiffr::expect_doppelganger("norgb_02: categorical", autoplot(r2))
 
   # No facets
-  vdiffr::expect_doppelganger("norgb_03: no facets", r %>%
+  vdiffr::expect_doppelganger("norgb_03: no facets forced", r %>%
     select(1) %>%
     autoplot(facets = FALSE))
+
+  # No facets auto
+  vdiffr::expect_doppelganger("norgb_03: no facets auto", r %>%
+    select(1) %>%
+    autoplot())
 
   # Change n facets
   vdiffr::expect_doppelganger(
@@ -32,23 +37,47 @@ test_that("Test with cols", {
       autoplot(ncol = 4)
   )
 
+  # Force to no facets
+
+  vdiffr::expect_doppelganger(
+    "norgb_06: force no facets",
+    r %>%
+      mutate(other = tavg_04 * 2) %>%
+      autoplot(ncol = 4, facets = FALSE)
+  )
+
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- terra::rast(f)
 
   vdiffr::expect_doppelganger(
     "rgb_01: regular",
+    autoplot(r)
+  )
+
+  vdiffr::expect_doppelganger(
+    "rgb_01: regular_forced",
     autoplot(r, rgb = TRUE)
   )
 
   vdiffr::expect_doppelganger(
     "rgb_02: with opts",
-    autoplot(r, rgb = TRUE, r = 3, g = 1, b = 2)
+    autoplot(r, r = 3, g = 1, b = 2)
   )
 
   vdiffr::expect_doppelganger(
     "rgb_03: change coords",
-    autoplot(r, rgb = TRUE) +
+    autoplot(r) +
       ggplot2::coord_sf(crs = 3035)
+  )
+
+  vdiffr::expect_doppelganger(
+    "rgb_04: facets does not affect",
+    autoplot(r, facets = TRUE)
+  )
+
+  vdiffr::expect_doppelganger(
+    "rgb_05: forced to non-rgb",
+    autoplot(r, facets = TRUE, rgb = FALSE)
   )
 })
 

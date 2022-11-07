@@ -27,12 +27,15 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
 
 
   # 1. Work with aes ----
+  spatraster <- NULL
+  lyr <- NULL
+
   mapping <- override_aesthetics(
     mapping,
-    ggplot2::aes_string(
-      spatraster = "spatraster",
+    ggplot2::aes(
+      spatraster = spatraster,
       # For faceting
-      lyr = "lyr"
+      lyr = lyr
     )
   )
 
@@ -90,7 +93,7 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     data = data_tbl,
     mapping = mapping,
     stat = StatTerraSpatRasterContourFill,
-    geom = ggplot2::GeomContourFilled,
+    geom = GeomSpatRasterContourFilled,
     position = "identity",
     inherit.aes = inherit.aes,
     show.legend = show.legend,
@@ -127,6 +130,19 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
   layer_spatrast
 }
 
+# Geom ----
+GeomSpatRasterContourFilled <- ggplot2::ggproto(
+  "GeomSpatRasterContourFilled",
+  ggplot2::GeomPolygon,
+  default_aes = aes(
+    colour = NA,
+    fill = "grey90",
+    linewidth = 0.2,
+    linetype = 1,
+    alpha = NA,
+    subgroup = NULL
+  )
+)
 
 # Stat ----
 
@@ -135,10 +151,13 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
-    lyr = lyr, order = ggplot2::after_stat(level),
-    fill = ggplot2::after_stat(level)
+    lyr = lyr, order = after_stat(level),
+    fill = after_stat(level)
   ),
-  extra_params = c("maxcell", "bins", "binwidth", "breaks", "na.rm"),
+  extra_params = c(
+    "maxcell", "bins", "binwidth", "breaks", "na.rm",
+    "coord_crs"
+  ),
   setup_params = function(data, params) {
     range_lys <- lapply(data$spatraster, terra::minmax)
     params$z.range <- range(unlist(range_lys), na.rm = TRUE, finite = TRUE)
@@ -153,7 +172,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
           "\nWarning message:\n",
           "Plotting ", nly, " layers: ",
           paste0("`", unique(data$lyr), "`", collapse = ", "),
-          ".(geom_spatraster).",
+          ".(geom_spatraster_contour_filled).",
           "\n- Use facet_wrap(~lyr) for faceting.",
           "\n- Use aes(fill=<name_of_layer>) ",
           "for displaying a single layer\n"
@@ -176,34 +195,41 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     # Reproject if needed
     rast <- reproject_raster_on_stat(rast, coord_crs)
     # To data and prepare
-    data_end <- pivot_longer_spat(rast)
+    prepare_iso <- pivot_longer_spat(rast)
+    # Keep initial data
+    data_rest <- data
+    # Don't need spatraster any more and increase size
+    # Set to NA
+    data_rest$spatraster <- NA
 
     # Now adjust min and max value, since reprojection may affect vals
-    data_end$value <- pmin(max(z.range), data_end$value)
-    data_end$value <- pmax(min(z.range), data_end$value)
+    prepare_iso$value <- pmin(max(z.range), prepare_iso$value)
+    prepare_iso$value <- pmax(min(z.range), prepare_iso$value)
 
     # Now create data with values from raster
-    names(data_end) <- c("x", "y", "lyr", "z")
-
-    # Final dataset
-    data$spatraster <- NA
-    data <- dplyr::left_join(data, data_end, by = "lyr")
-
+    names(prepare_iso) <- c("x", "y", "lyr", "z")
 
     # Port functions from ggplot2
     breaks <- contour_breaks(z.range, bins, binwidth, breaks)
 
-    isobands <- xyz_to_isobands(data, breaks)
+    isobands <- xyz_to_isobands(prepare_iso, breaks)
     names(isobands) <- pretty_isoband_levels(names(isobands))
-    path_df <- iso_to_polygon(isobands, data$group[1])
+    path_df <- iso_to_polygon(isobands, data_rest$group[[1]])
 
     path_df$level <- ordered(path_df$level, levels = names(isobands))
     path_df$level_low <- breaks[as.numeric(path_df$level)]
     path_df$level_high <- breaks[as.numeric(path_df$level) + 1]
     path_df$level_mid <- 0.5 * (path_df$level_low + path_df$level_high)
     path_df$nlevel <- scales::rescale_max(path_df$level_high)
+    path_df$lyr <- data_rest$lyr[[1]]
 
-    path_df
+    # Re-create data
+    # Remove group, we get that from path_df
+    data_rest <- remove_columns(data_rest, "group")
+
+    data <- dplyr::left_join(path_df, data_rest, by = "lyr")
+
+    data
   }
 )
 

@@ -242,7 +242,7 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
     lyr = lyr, group = lyr,
-    spatraster = stat(spatraster)
+    spatraster = after_stat(spatraster)
   ),
   extra_params = c("maxcell", "na.rm", "coord_crs"),
   compute_layer = function(self, data, params, layout) {

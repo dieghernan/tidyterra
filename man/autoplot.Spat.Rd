@@ -6,7 +6,7 @@
 \alias{autoplot.SpatVector}
 \title{Create a complete ggplot for Spat* objects}
 \usage{
-\method{autoplot}{SpatRaster}(object, ..., rgb = FALSE, facets = TRUE, nrow = NULL, ncol = 2)
+\method{autoplot}{SpatRaster}(object, ..., rgb = NULL, facets = NULL, nrow = NULL, ncol = 2)
 
 \method{autoplot}{SpatVector}(object, ...)
 }
@@ -17,9 +17,11 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{...}{other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} or \code{\link[=geom_spatvector]{geom_spatvector()}}.}
 
-\item{rgb}{Logical. Should be plotted as a RGB image?}
+\item{rgb}{Logical. Should be plotted as a RGB image? If \code{NULL} (the default)
+\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
 
-\item{facets}{Logical. Should facets be displayed?}
+\item{facets}{Logical. Should facets be displayed? If \code{NULL} (the default)
+\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
 
 \item{nrow, ncol}{Number of rows and columns on the facet.}
 }
@@ -39,8 +41,7 @@ Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}.
 Implementation of the \strong{generic} \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} function.
 \subsection{SpatRaster}{
 
-Uses \code{\link[=geom_spatraster]{geom_spatraster()}} when \code{rgb = FALSE} or \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} when
-\code{rgb = TRUE}.
+Uses \code{\link[=geom_spatraster]{geom_spatraster()}} or \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 }
 
 \subsection{SpatVector}{
@@ -67,7 +68,7 @@ autoplot(temp)
 tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") \%>\%
   rast()
 
-autoplot(tile, rgb = TRUE)
+autoplot(tile)
 
 #  With vectors
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

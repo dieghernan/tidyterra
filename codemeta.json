@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.0.9000",
+  "version": "0.3.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -331,7 +331,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2844.775KB",
+  "fileSize": "2550.333KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

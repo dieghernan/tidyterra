@@ -13,8 +13,10 @@
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
-#' @param rgb Logical. Should be plotted as a RGB image?
-#' @param facets Logical. Should facets be displayed?
+#' @param rgb Logical. Should be plotted as a RGB image? If `NULL` (the default)
+#'   [autoplot.SpatRaster()] would try to guess.
+#' @param facets Logical. Should facets be displayed? If `NULL` (the default)
+#'   [autoplot.SpatRaster()] would try to guess.
 #' @param nrow,ncol Number of rows and columns on the facet.
 #' @param ... other arguments passed to [geom_spatraster()],
 #'  [geom_spatraster_rgb()] or [geom_spatvector()].
@@ -26,8 +28,7 @@
 #'
 #' ## SpatRaster
 #'
-#' Uses [geom_spatraster()] when `rgb = FALSE` or [geom_spatraster_rgb()] when
-#' `rgb = TRUE`.
+#' Uses [geom_spatraster()] or [geom_spatraster_rgb()].
 #'
 #' ## SpatVector
 #'
@@ -56,7 +57,7 @@
 #' tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") %>%
 #'   rast()
 #'
-#' autoplot(tile, rgb = TRUE)
+#' autoplot(tile)
 #'
 #' #  With vectors
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -68,10 +69,12 @@
 #' }
 autoplot.SpatRaster <- function(object,
                                 ...,
-                                rgb = FALSE,
-                                facets = TRUE,
+                                rgb = NULL,
+                                facets = NULL,
                                 nrow = NULL, ncol = 2) {
   gg <- ggplot2::ggplot()
+
+  if (is.null(rgb)) rgb <- terra::has.RGB(object)
 
 
   if (rgb) {
@@ -97,6 +100,9 @@ autoplot.SpatRaster <- function(object,
       gg <- gg + scale_fill_terrain_c()
     }
   }
+
+  # Guess facets
+  if (is.null(facets)) facets <- terra::nlyr(object) > 1
 
   if (all(
     facets,
