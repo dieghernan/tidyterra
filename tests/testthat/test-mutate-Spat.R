@@ -50,7 +50,6 @@ test_that("SpatRaster mutate and check names", {
 })
 
 test_that("SpatVector", {
-
   # SpatVector method
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)

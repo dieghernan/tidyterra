@@ -15,13 +15,15 @@ test_that("geom_spatraster_rgb with CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_rgb())
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
 
   # Check with less layers
@@ -68,12 +70,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20
-    ),
-  regexp = "resampled"
+  expect_message(
+    ggplot() +
+      geom_spatraster_rgb(
+        data = r,
+        maxcell = 20
+      ),
+    regexp = "resampled"
   )
 
   p_res <- ggplot() +
@@ -146,13 +149,15 @@ test_that("geom_spatraster_rgb with CRS masked", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_rgb())
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
 
   # Check with less layers
@@ -201,12 +206,13 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20
-    ),
-  regexp = "resampled"
+  expect_message(
+    ggplot() +
+      geom_spatraster_rgb(
+        data = r,
+        maxcell = 20
+      ),
+    regexp = "resampled"
   )
 
   p_res <- ggplot() +
@@ -283,13 +289,15 @@ test_that("geom_spatraster_rgb with no CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_rgb())
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
 
   # Check with less layers
@@ -349,12 +357,13 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20
-    ),
-  regexp = "resampled"
+  expect_message(
+    ggplot() +
+      geom_spatraster_rgb(
+        data = r,
+        maxcell = 20
+      ),
+    regexp = "resampled"
   )
 
   p_res <- ggplot() +
@@ -431,13 +440,15 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_rgb())
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
 
   # Check with less layers
@@ -498,12 +509,13 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20
-    ),
-  regexp = "resampled"
+  expect_message(
+    ggplot() +
+      geom_spatraster_rgb(
+        data = r,
+        maxcell = 20
+      ),
+    regexp = "resampled"
   )
 
   p_res <- ggplot() +

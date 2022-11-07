@@ -12,17 +12,20 @@ test_that("Errors and messages", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_contour_filled())
-  expect_error(ggplot() +
-    geom_spatraster_contour_filled(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_contour_filled(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_contour_filled(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      geom_spatraster_contour_filled(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    geom_spatraster_contour_filled(data = r, aes(z = noexist)),
-  regexp = "Layer noexist not found"
+  expect_error(
+    ggplot() +
+      geom_spatraster_contour_filled(data = r, aes(z = noexist)),
+    regexp = "Layer noexist not found"
   )
   s <- ggplot() +
     geom_spatraster_contour_filled(data = r) +

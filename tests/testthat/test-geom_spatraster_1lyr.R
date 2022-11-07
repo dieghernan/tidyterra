@@ -104,12 +104,12 @@ test_that("geom_spatraster one layer with CRS", {
 
   # With vector after
   vdiffr::expect_doppelganger("crs_10: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+    geom_sf(data = v_sf, fill = NA, color = "white"))
 
   # With vector and crs after
 
   vdiffr::expect_doppelganger("crs_11: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA) +
+    geom_sf(data = v_sf, fill = NA, color = "white") +
     coord_sf(crs = "ESRI:102003"))
 
   # With vector first
@@ -263,13 +263,13 @@ test_that("geom_spatraster one layer without CRS", {
 
   # With vector
   vdiffr::expect_doppelganger("nocrs_10: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+    geom_sf(data = v_sf, fill = NA, color = "red"))
 
 
   # Would align only if sf/coord on the same crs
 
   vdiffr::expect_doppelganger("nocrs_11: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA) +
+    geom_sf(data = v_sf, fill = NA, color = "red") +
     coord_sf(crs = raster_crs))
 
   # Reproject vector

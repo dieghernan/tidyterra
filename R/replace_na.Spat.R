@@ -41,7 +41,6 @@
 #'   plot()
 #'
 replace_na.SpatRaster <- function(data, replace = list(), ...) {
-
   # If no replace return the same data
   if (length(replace) == 0) {
     return(data)
@@ -111,7 +110,6 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
 #' @export
 #' @rdname replace_na.Spat
 replace_na.SpatVector <- function(data, replace, ...) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(data)
   replaced <- tidyr::replace_na(sf_obj, replace = replace, ...)

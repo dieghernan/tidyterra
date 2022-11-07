@@ -12,12 +12,13 @@ test_that("Fortify SpatVectors", {
   # Try ggplot
   v_t <- ggplot2::ggplot(v) +
     geom_spatvector()
-  build_terra <- ggplot2::ggplot_build(v_t)
+  build_terra <- ggplot2::layer_data(v_t)
 
   v_sf <- ggplot2::ggplot(asf) +
     ggplot2::geom_sf()
 
-  build_sf <- ggplot2::ggplot_build(v_sf)
+  build_sf <- ggplot2::layer_data(v_sf)
+
 
   expect_identical(build_terra, build_sf)
 })

@@ -49,7 +49,6 @@ stat_spat_coordinates <- function(mapping = aes(), data = NULL, geom = "point",
                                   position = "identity", na.rm = FALSE,
                                   show.legend = NA, inherit.aes = TRUE,
                                   ...) {
-
   # nocov start
   ggplot2::stat_sf_coordinates(
     mapping = mapping, data = data, geom = geom,

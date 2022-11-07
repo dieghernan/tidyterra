@@ -116,7 +116,6 @@ mutate.SpatRaster <- function(.data, ...) {
 #' @export
 #' @rdname mutate.Spat
 mutate.SpatVector <- function(.data, ...) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   mutated <- dplyr::mutate(sf_obj, ...)
@@ -165,7 +164,6 @@ transmute.SpatRaster <- function(.data, ...) {
 #' @export
 #' @rdname mutate.Spat
 transmute.SpatVector <- function(.data, ...) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   transm <- dplyr::transmute(sf_obj, ...)

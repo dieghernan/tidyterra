@@ -64,7 +64,6 @@
 #'   .cols = starts_with("c")
 #' )
 rename.SpatRaster <- function(.data, ...) {
-
   # Use template
   df <- .data[1]
   df_rename <- dplyr::rename(df, ...)
@@ -80,7 +79,6 @@ rename.SpatRaster <- function(.data, ...) {
 #' @importFrom dplyr everything
 #' @export
 rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
-
   # Use template
   df <- .data[1]
   .fn <- rlang::as_function(.fn)
@@ -113,7 +111,6 @@ rename.SpatVector <- function(.data, ...) {
 #' @rdname rename.Spat
 #' @export
 rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
-
   # Use template
   df <- as_tibble(.data[1])
   .fn <- rlang::as_function(.fn)

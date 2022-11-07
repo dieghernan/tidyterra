@@ -55,7 +55,6 @@
 #'   drop_na(iso2) %>%
 #'   plot(col = "red")
 drop_na.SpatVector <- function(data, ...) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(data)
   dropped <- tidyr::drop_na(sf_obj, ...)

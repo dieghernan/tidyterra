@@ -36,7 +36,6 @@
 #' is_regular_grid(p_jitter, digits = 4)
 #'
 is_regular_grid <- function(xy, digits = 6) {
-
   # From https://github.com/rspatial/terra/blob/master/R/rast.R
 
   # Need to work out with tibbles

@@ -83,7 +83,6 @@
 #'
 #' v %>% select(iso2, name2 = cpro)
 select.SpatRaster <- function(.data, ...) {
-
   # Create a template df for assessing results
   # Use only first cell for speed up
   df <- as.data.frame(.data[1], na.rm = FALSE)

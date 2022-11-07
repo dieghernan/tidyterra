@@ -124,8 +124,6 @@
 #'   plot()
 slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
                              .keep_extent = FALSE) {
-
-
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -160,7 +158,6 @@ slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
 #' @export
 #' @rdname slice.Spat
 slice.SpatVector <- function(.data, ..., .preserve = FALSE) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice(sf_obj, ..., .preserve = .preserve)
@@ -171,7 +168,6 @@ slice.SpatVector <- function(.data, ..., .preserve = FALSE) {
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_head
 slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
-
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -201,7 +197,6 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @export
 #' @rdname slice.Spat
 slice_head.SpatVector <- function(.data, ..., n, prop) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice_head(sf_obj, ..., n = n, prop = prop)
@@ -213,7 +208,6 @@ slice_head.SpatVector <- function(.data, ..., n, prop) {
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_tail
 slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
-
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -242,7 +236,6 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @export
 #' @rdname slice.Spat
 slice_tail.SpatVector <- function(.data, ..., n, prop) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice_tail(sf_obj, ..., n = n, prop = prop)
@@ -303,7 +296,6 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
 #' @rdname slice.Spat
 slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice_min(sf_obj, ...,
@@ -368,7 +360,6 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
 #' @rdname slice.Spat
 slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
                                  with_ties = TRUE) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice_max(sf_obj, ...,
@@ -429,7 +420,6 @@ slice_sample.SpatRaster <- function(.data, ..., n, prop,
 #' @rdname slice.Spat
 slice_sample.SpatVector <- function(.data, ..., n, prop,
                                     weight_by = NULL, replace = FALSE) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   sliced <- dplyr::slice_sample(sf_obj, ...,
@@ -448,7 +438,6 @@ slice_rows <- function(.data, ...) {
 #' @export
 #' @rdname slice.Spat
 slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
-
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -496,7 +485,6 @@ slice_cols <- function(.data, ...) {
 #' @export
 #' @rdname slice.Spat
 slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
-
   # Create skeleton
   skeleton <- as_coordinates(.data)
 

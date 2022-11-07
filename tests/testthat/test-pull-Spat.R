@@ -40,9 +40,10 @@ test_that("With SpatRaster", {
   # This should change
 
   expect_false(
-    any(pull(r2, 1, xy = TRUE) ==
-      pull(r2, 1, xy = FALSE),
-    na.rm = TRUE
+    any(
+      pull(r2, 1, xy = TRUE) ==
+        pull(r2, 1, xy = FALSE),
+      na.rm = TRUE
     )
   )
 

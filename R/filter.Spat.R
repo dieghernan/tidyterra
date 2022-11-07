@@ -125,7 +125,6 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 #' @export
 #' @rdname filter.Spat
 filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   filtered <- dplyr::filter(sf_obj, ..., .preserve = .preserve)

@@ -152,7 +152,6 @@ stat_spatvector <- function(mapping = NULL,
                             show.legend = NA,
                             inherit.aes = TRUE,
                             ...) {
-
   # nocov start
   ggplot2::stat_sf(
     mapping = mapping,

@@ -75,7 +75,6 @@
 #'
 #' cat(fromsf1)
 pull_crs <- function(.data, ...) {
-
   # Spat* objects handled by crs
   if (any(
     inherits(.data, "SpatRaster"),

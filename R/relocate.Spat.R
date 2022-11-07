@@ -58,7 +58,6 @@
 #'   relocate(cyl_tile_1, .after = last_col())
 #'
 relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
-
   # With template
   df <- .data[1]
 
@@ -78,7 +77,6 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
 #' @rdname relocate.Spat
 #' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
-
   # Use sf method
   sf_obj <- sf::st_as_sf(.data)
   relocated <- dplyr::relocate(sf_obj, ...,

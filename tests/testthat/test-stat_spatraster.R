@@ -13,13 +13,15 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   # Errors
   expect_error(ggplot(r) +
     stat_spatraster())
-  expect_error(ggplot() +
-    stat_spatraster(data = v),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      stat_spatraster(data = v),
+    regexp = "only works with SpatRaster"
   )
-  expect_error(ggplot() +
-    stat_spatraster(data = 1:3),
-  regexp = "only works with SpatRaster"
+  expect_error(
+    ggplot() +
+      stat_spatraster(data = 1:3),
+    regexp = "only works with SpatRaster"
   )
 
   # test with vdiffr

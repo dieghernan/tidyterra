@@ -54,14 +54,15 @@ wiki.colors(n, alpha = 1, rev = FALSE)
 }
 \arguments{
 \item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale()}},
-\code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \link[ggplot2]{binned_scale} to control name, limits, breaks,
+\code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \code{\link[ggplot2:binned_scale]{binned_scale()}} to control name, limits, breaks,
 labels and so forth.}
 
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
 
-\item{direction}{Sets the order of colors in the scale. If 1, the default, colors
-are ordered from darkest to lightest. If -1, the order of colors is reversed.}
+\item{direction}{Sets the order of colors in the scale. If 1, the default,
+colors are ordered from darkest to lightest. If -1, the order of colors is
+reversed.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 

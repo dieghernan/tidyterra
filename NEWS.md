@@ -7,8 +7,8 @@
         `fortify.SpatRaster()`, `fortify.SpatVector()`.
 -   Three additional palettes are included on `hypso.colors()`: `"artic"`,
     `"meyers"` and `"nordisk-familjebok"`.
--   Added colour scales to all palettes: `scale_colour_*`. 
- 
+-   Added colour scales to all palettes: `scale_colour_*`.
+-   Remove use of `ggplot2::aes_string()`.
 
 # tidyterra 0.3.0
 

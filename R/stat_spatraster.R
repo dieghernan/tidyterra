@@ -91,13 +91,16 @@ stat_spatraster <- function(mapping = aes(),
   # Prepare aes for StatTerraSpatRaster
   mapping <- cleanup_aesthetics(mapping, "group")
 
+  spatraster <- NULL
+  lyr <- NULL
+
   mapping <- override_aesthetics(
     mapping,
-    ggplot2::aes_string(
-      spatraster = "spatraster",
+    ggplot2::aes(
+      spatraster = spatraster,
       # For faceting
-      lyr = "lyr",
-      group = "lyr"
+      lyr = lyr,
+      group = lyr
     )
   )
 

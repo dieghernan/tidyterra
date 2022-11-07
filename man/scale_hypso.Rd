@@ -136,14 +136,15 @@ available palettes, ignoring upper vs. lower case. See
 \code{"arctic"}, \code{"arctic_bathy"}, \code{"arctic_hypso"}, \code{"c3t1"}, \code{"colombia"}, \code{"colombia_bathy"}, \code{"colombia_hypso"}, \code{"dem_poster"}, \code{"dem_print"}, \code{"dem_screen"}, \code{"etopo1"}, \code{"etopo1_bathy"}, \code{"etopo1_hypso"}, \code{"gmt_globe"}, \code{"gmt_globe_bathy"}, \code{"gmt_globe_hypso"}, \code{"meyers"}, \code{"meyers_bathy"}, \code{"meyers_hypso"}, \code{"moon"}, \code{"moon_bathy"}, \code{"moon_hypso"}, \code{"nordisk-familjebok"}, \code{"nordisk-familjebok_bathy"}, \code{"nordisk-familjebok_hypso"}, \code{"pakistan"}, \code{"spain"}, \code{"usgs-gswa2"}, \code{"utah_1"}, \code{"wiki-2.0"}, \code{"wiki-2.0_bathy"}, \code{"wiki-2.0_hypso"}, \code{"wiki-schwarzwald-cont"}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale()}},
-\code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \link[ggplot2]{binned_scale} to control name, limits, breaks,
+\code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \code{\link[ggplot2:binned_scale]{binned_scale()}} to control name, limits, breaks,
 labels and so forth.}
 
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
 
-\item{direction}{Sets the order of colors in the scale. If 1, the default, colors
-are ordered from darkest to lightest. If -1, the order of colors is reversed.}
+\item{direction}{Sets the order of colors in the scale. If 1, the default,
+colors are ordered from darkest to lightest. If -1, the order of colors is
+reversed.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 

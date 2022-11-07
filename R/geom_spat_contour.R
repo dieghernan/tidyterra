@@ -125,7 +125,6 @@ geom_spatraster_contour <- function(mapping = NULL, data,
                                     na.rm = TRUE,
                                     show.legend = NA,
                                     inherit.aes = TRUE) {
-
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {
@@ -294,8 +293,6 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
   compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL,
                            breaks = NULL, na.rm = FALSE, coord,
                            coord_crs = NA) {
-
-
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
