@@ -16,7 +16,7 @@
 #'
 #' @param ... Other arguments passed on to [ggplot2::geom_sf()] functions.
 #'   These are often aesthetics, used to set an aesthetic to a fixed value,
-#'   like `colour = "red"` or `size = 3`.
+#'   like `colour = "red"` or `linewidth = 3`.
 #'
 #' @inheritParams ggplot2::geom_sf
 #'
@@ -62,7 +62,7 @@
 #' ggplot(cyl) +
 #'   geom_spatvector(aes(fill = name), color = NA) +
 #'   geom_spatvector_text(aes(label = iso2),
-#'     fontface = "bold", size = 3,
+#'     fontface = "bold",
 #'     color = "red"
 #'   ) +
 #'   scale_fill_viridis_d(alpha = 0.4) +

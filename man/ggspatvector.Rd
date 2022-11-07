@@ -71,7 +71,7 @@ override the default legend.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
-like \code{colour = "red"} or \code{size = 3}.}
+like \code{colour = "red"} or \code{linewidth = 3}.}
 
 \item{nudge_x, nudge_y}{Horizontal and vertical adjustment to nudge labels by.
 Useful for offsetting text from points, particularly on discrete scales.
@@ -145,7 +145,7 @@ ggplot(cyl) +
 ggplot(cyl) +
   geom_spatvector(aes(fill = name), color = NA) +
   geom_spatvector_text(aes(label = iso2),
-    fontface = "bold", size = 3,
+    fontface = "bold",
     color = "red"
   ) +
   scale_fill_viridis_d(alpha = 0.4) +

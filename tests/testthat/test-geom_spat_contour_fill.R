@@ -107,7 +107,7 @@ test_that("Test plot", {
     ) +
     geom_spatraster_contour(
       data = single, binwidth = 2,
-      color = "blue", size = 0.25
+      color = "blue", linewidth = 0.25
     ) +
     scale_fill_terrain_d()
 
@@ -120,7 +120,7 @@ test_that("Test plot", {
     geom_spatraster_contour_filled(data = single, bins = 5, alpha = 0.7) +
     geom_spatraster_contour(
       data = single, bins = 5,
-      color = "blue", size = 0.25
+      color = "blue", linewidth = 0.25
     ) +
     scale_fill_terrain_d()
 
@@ -136,7 +136,7 @@ test_that("Test plot", {
     ) +
     geom_spatraster_contour(
       data = single, breaks = seq(0, 16, 2),
-      color = "blue", size = 0.25
+      color = "blue", linewidth = 0.25
     ) +
     scale_fill_terrain_d(direction = -1)
 

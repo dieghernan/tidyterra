@@ -170,7 +170,7 @@ ggplot() +
   geom_spatraster_contour(
     data = r, aes(color = after_stat(level)),
     binwidth = 1,
-    size = 0.4
+    linewidth = 0.4
   ) +
   scale_color_gradientn(
     colours = hcl.colors(20, "Inferno"),
@@ -192,7 +192,7 @@ ggplot() +
   geom_spatraster_contour(
     data = r, breaks = seq(80, 200, 2.5),
     color = "grey30",
-    size = 0.1
+    linewidth = 0.1
   ) +
   scale_fill_hypso_d()
 }

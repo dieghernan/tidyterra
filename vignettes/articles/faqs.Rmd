@@ -1,9 +1,8 @@
 ---
 title: "tidyterra FAQs"
-description: >
+description: |
   Frequently Asked Questions on the use of tidyterra.
-resource_files:
-   - vignettes/articles/CHE_elv_msk.tif
+resource_files: vignettes/articles/CHE_elv_msk.tif
 ---
 
 ```{r setup, include = FALSE}
@@ -52,16 +51,17 @@ library(geodata)
 r <- geodata::elevation_30s("CHE", ".")
 
 # Default
-ggplot() +
-  geom_spatraster(data = r) +
+def <- ggplot() +
+  geom_spatraster(data = r)
+
+def +
   labs(
     title = "Default on ggplot2",
     subtitle = "NA values in grey"
   )
 
 # Modify with scales
-ggplot() +
-  geom_spatraster(data = r) +
+def +
   scale_fill_continuous(na.value = NA) +
   labs(
     title = "Default colors on ggplot2",
@@ -69,8 +69,7 @@ ggplot() +
   )
 
 # Use a different scale provided by ggplot2
-ggplot() +
-  geom_spatraster(data = r) +
+def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
     title = "Use any fill_* scale of ggplot2",
@@ -80,8 +79,8 @@ ggplot() +
 
 ## Labeling contours {#label-contour}
 
-You can convert your SpatRaster to a `data.frame/tibble` in combination with the
-**metR** package. Use the parameter(s) `bins/binwidth/breaks` to align both
+Thanks to `fortify.SpatRaster()` you can use your SpatRaster straight away with
+the **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align both
 labels and lines:
 
 ```{r text-contour}
@@ -93,16 +92,14 @@ library(metR)
 r <- geodata::elevation_30s("CHE", ".")
 names(r) <- "elev"
 
-r_df <- as_tibble(r, xy = TRUE)
 
-r_df
-
-ggplot() +
+ggplot(r) +
   geom_spatraster_contour(data = r) +
   geom_text_contour(
-    data = r_df, aes(x, y, z = elev),
+    aes(x, y, z = elev),
     check_overlap = TRUE,
-    stroke = 0.2, stroke.colour = "white"
+    stroke = 0.2,
+    stroke.colour = "white"
   ) +
   labs(
     title = "Labelling contours",
@@ -112,16 +109,15 @@ ggplot() +
 
 # Modify number or bins
 
-ggplot() +
+ggplot(r) +
   geom_spatraster_contour(
     data = r,
     binwidth = 1000
   ) +
   geom_text_contour(
-    data = r_df, aes(x, y, z = elev),
+    aes(x, y, z = elev),
     binwidth = 1000,
     check_overlap = TRUE,
-    size = 3,
     stroke = 0.2, stroke.colour = "white"
   ) +
   labs(
@@ -155,6 +151,36 @@ ggplot() +
   # Note the scale, grey colours
   scale_fill_gradientn(colours = grey(0:100 / 100), na.value = NA) +
   labs(title = "A hillshade plot with grey colors")
+```
+
+## Can I change the default palette of my maps?
+
+Yes, use `options("ggplot2.continuous.fill")` to modify the default colors on
+your session.
+
+```{r default}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+
+
+r <- geodata::elevation_30s("CHE", ".")
+
+p <- ggplot() +
+  geom_spatraster(data = r)
+
+
+# Set options
+tmp <- getOption("ggplot2.continuous.fill") # store current setting
+options(ggplot2.continuous.fill = scale_fill_terrain_c)
+
+p
+
+# restore previous setting
+options(ggplot2.continuous.fill = tmp)
+
+
+p
 ```
 
 ## My map tiles are blurry {#blurry-tiles}
