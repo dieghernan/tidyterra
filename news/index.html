@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,22 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.1" id="tidyterra-031">tidyterra 0.3.1<a class="anchor" aria-label="anchor" href="#tidyterra-031"></a></h2>
+<ul><li>New <strong>ggplot2</strong> methods added:
+<ul><li>
+<p>Methods for <code><a href="../reference/autoplot.Spat.html">autoplot.SpatVector()</a></code>, <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code>.</p>
+<ul><li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now is smarter on identifying the type of plot to produce. Can still be overridden with parameters.</li>
+</ul></li>
+<li><p>Methods for fortifying SpatRasters and SpatVectors: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</p></li>
+</ul></li>
+<li>Three additional palettes are included on <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
+<li>Added colour scales to all palettes: <code>scale_colour_*</code>.</li>
+<li>Remove use of <code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_string()</a></code>.</li>
+<li>Adapt geom_<code>spatraster_contour()</code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
 <ul><li><p>Package back to CRAN.</p></li>
 <li><p>Libraries <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</p></li>
 <li>
@@ -94,7 +109,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.2" id="tidyterra-022">tidyterra 0.2.2<a class="anchor" aria-label="anchor" href="#tidyterra-022"></a></h2><p class="text-muted">CRAN release: 2022-09-29</p>
-<ul><li>Changes on how <strong>dplyr</strong>, <strong>tibble</strong> and <strong>tidyr</strong> are attached. Now these packages are listed on ‘Depends’ and are attached before <strong>tidyterra</strong> when <code>library</code> or <code>require</code> is called. Messages on load can be suppressed with <code>suppressPackageStartupMessages(library(tidyterra))</code>.</li></ul></div>
+<ul><li>Changes on how <strong>dplyr</strong>, <strong>tibble</strong> and <strong>tidyr</strong> are attached. Now these packages are listed on ‘Depends’ and are attached before <strong>tidyterra</strong> when <code>library</code> or <code>require</code> is called. Messages on load can be suppressed with <code>suppressPackageStartupMessages(library(tidyterra))</code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2><p class="text-muted">CRAN release: 2022-09-23</p>
 <ul><li>Now <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/35" class="external-link">#35</a>)</li>
@@ -108,10 +124,10 @@
 <li><p>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for SpatRasters (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</p></li>
 <li>
 <p>Add new gradient scales for use on hypsometry:</p>
-<ul><li><code><a href="../reference/scale_fill_hypso.html">scale_fill_hypso_c()</a></code></li>
-<li><code><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_c()</a></code></li>
-<li><code><a href="../reference/scale_fill_wiki.html">scale_fill_wiki_c()</a></code></li>
-<li><code><a href="../reference/scale_fill_cross_blended.html">scale_fill_cross_blended_c()</a></code></li>
+<ul><li><code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code></li>
+<li><code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code></li>
+<li><code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code></li>
+<li><code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code></li>
 </ul></li>
 <li><p>Add new asia.tif file on <code>extdata</code>.</p></li>
 </ul></div>
@@ -139,11 +155,13 @@
 <li>
 <p>New geoms:</p>
 <ul><li>
-<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> family.</li></ul></li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> family.</li>
+</ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.0.9000" id="tidyterra-0009000">tidyterra 0.0.0.9000<a class="anchor" aria-label="anchor" href="#tidyterra-0009000"></a></h2>
-<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li></ul></div>
+<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+</ul></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

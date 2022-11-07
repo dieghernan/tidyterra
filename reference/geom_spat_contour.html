@@ -24,7 +24,7 @@ The underlying implementation is based on ggplot2::geom_contour()."><meta proper
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -202,13 +202,15 @@ than combining with them.</p></dd>
     
 
 
-<p><code>geom_spatraster_contour</code>() understands the following aesthetics:</p><ul><li><p>z</p></li>
-<li><p>alpha</p></li>
+<p><code>geom_spatraster_contour</code>() understands the following aesthetics:</p><ul><li><p>alpha</p></li>
 <li><p>colour</p></li>
+<li><p>group</p></li>
 <li><p>linetype</p></li>
-<li><p>size</p></li>
+<li><p>linewidth</p></li>
+<li><p>weight</p></li>
 </ul><p>Additionally, <code>geom_spatraster_contour_filled()</code> understands also the
 following aesthetics, as well as the ones listed above:</p><ul><li><p>fill</p></li>
+<li><p>subgroup</p></li>
 </ul><p>Check <code><a href="https://ggplot2.tidyverse.org/reference/geom_contour.html" class="external-link">ggplot2::geom_contour()</a></code> for more info.</p>
     </div>
     <div class="section level2">
@@ -260,10 +262,12 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_contour.html" class="external-link">ggplot2::geom_contour()</a></code></p>
 <p>Other ggplot2 utils:
-<code><a href="autoplot.html">autoplot</a>()</code>,
+<code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,
+<code><a href="fortify.Spat.html">fortify.Spat</a></code>,
 <code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb</a>()</code>,
 <code><a href="geom_spatraster.html">geom_spatraster</a>()</code>,
-<code><a href="ggspatvector.html">ggspatvector</a></code></p></div>
+<code><a href="ggspatvector.html">ggspatvector</a></code>,
+<code><a href="stat_spat_coordinates.html">stat_spat_coordinates</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -299,7 +303,7 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"><span><span class="co"># Filled with breaks</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour_filled</span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">200</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="scale_fill_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spat_contour-3.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Both lines and contours</span></span></span>
@@ -313,7 +317,7 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"><span>    color <span class="op">=</span> <span class="st">"grey30"</span>,</span></span>
 <span class="r-in"><span>    size <span class="op">=</span> <span class="fl">0.1</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="scale_fill_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spat_contour-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>

@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -168,6 +168,27 @@
         </dt>
         <dd>Replace NAs with specified values</dd>
       </dl></div><div class="section level2">
+      
+      <h3 id="ggplot-methods">ggplot2 methods<a class="anchor" aria-label="anchor" href="#ggplot-methods"></a></h3>
+      <p class="section-desc"></p><p>Methods from {ggplot2} implemented for Spat* objects.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Create a complete ggplot for Spat* objects</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Fortify Spat* Objects</dd>
+      </dl></div><div class="section level2">
       <h2 id="ggplot-utils">ggplot2 utils<a class="anchor" aria-label="anchor" href="#ggplot-utils"></a></h2>
       
       
@@ -186,9 +207,14 @@
 
       <dl><dt>
           
-          <code><a href="autoplot.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> 
+          <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Create a complete ggplot for SpatRasters</dd>
+        <dd>Create a complete ggplot for Spat* objects</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Fortify Spat* Objects</dd>
       </dl><dl><dt>
           
           <code><a href="geom_spatraster.html">geom_spatraster()</a></code> <code><a href="geom_spatraster.html">stat_spatraster()</a></code> 
@@ -206,7 +232,7 @@
         <dd>Plot SpatRaster contours</dd>
       </dl><dl><dt>
           
-          <code><a href="ggspatvector.html">geom_spatvector()</a></code> <code><a href="ggspatvector.html">geom_spatvector_label()</a></code> <code><a href="ggspatvector.html">geom_spatvector_text()</a></code> 
+          <code><a href="ggspatvector.html">geom_spatvector()</a></code> <code><a href="ggspatvector.html">geom_spatvector_label()</a></code> <code><a href="ggspatvector.html">geom_spatvector_text()</a></code> <code><a href="ggspatvector.html">stat_spatvector()</a></code> 
         </dt>
         <dd>Visualise SpatVector objects</dd>
       </dl></div><div class="section level2">
@@ -222,29 +248,29 @@
 
       <dl><dt>
           
-          <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_d()</a></code> <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_c()</a></code> <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_b()</a></code> <code><a href="scale_fill_cross_blended.html">cross_blended.colors()</a></code> <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_tint_d()</a></code> <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_tint_c()</a></code> <code><a href="scale_fill_cross_blended.html">scale_fill_cross_blended_tint_b()</a></code> <code><a href="scale_fill_cross_blended.html">cross_blended.colors2()</a></code> 
+          <code><a href="scale_cross_blended.html">scale_fill_cross_blended_d()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_d()</a></code> <code><a href="scale_cross_blended.html">scale_fill_cross_blended_c()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_c()</a></code> <code><a href="scale_cross_blended.html">scale_fill_cross_blended_b()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_b()</a></code> <code><a href="scale_cross_blended.html">cross_blended.colors()</a></code> <code><a href="scale_cross_blended.html">scale_fill_cross_blended_tint_d()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_tint_d()</a></code> <code><a href="scale_cross_blended.html">scale_fill_cross_blended_tint_c()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_tint_c()</a></code> <code><a href="scale_cross_blended.html">scale_fill_cross_blended_tint_b()</a></code> <code><a href="scale_cross_blended.html">scale_colour_cross_blended_tint_b()</a></code> <code><a href="scale_cross_blended.html">cross_blended.colors2()</a></code> 
         </dt>
-        <dd>Cross blended Hypsometric Tints fill scales</dd>
+        <dd>Cross blended Hypsometric Tints scales</dd>
       </dl><dl><dt>
           
-          <code><a href="scale_fill_hypso.html">scale_fill_hypso_d()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_c()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_b()</a></code> <code><a href="scale_fill_hypso.html">hypso.colors()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_tint_d()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_tint_c()</a></code> <code><a href="scale_fill_hypso.html">scale_fill_hypso_tint_b()</a></code> <code><a href="scale_fill_hypso.html">hypso.colors2()</a></code> 
+          <code><a href="scale_hypso.html">scale_fill_hypso_d()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_d()</a></code> <code><a href="scale_hypso.html">scale_fill_hypso_c()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_c()</a></code> <code><a href="scale_hypso.html">scale_fill_hypso_b()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_b()</a></code> <code><a href="scale_hypso.html">hypso.colors()</a></code> <code><a href="scale_hypso.html">scale_fill_hypso_tint_d()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_tint_d()</a></code> <code><a href="scale_hypso.html">scale_fill_hypso_tint_c()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_tint_c()</a></code> <code><a href="scale_hypso.html">scale_fill_hypso_tint_b()</a></code> <code><a href="scale_hypso.html">scale_colour_hypso_tint_b()</a></code> <code><a href="scale_hypso.html">hypso.colors2()</a></code> 
         </dt>
-        <dd>Gradient fill scales for representing hypsometry and bathymetry</dd>
+        <dd>Gradient scales for representing hypsometry and bathymetry</dd>
       </dl><dl><dt>
           
-          <code><a href="scale_fill_terrain.html">scale_fill_terrain_d()</a></code> <code><a href="scale_fill_terrain.html">scale_fill_terrain_c()</a></code> <code><a href="scale_fill_terrain.html">scale_fill_terrain_b()</a></code> 
+          <code><a href="scale_terrain.html">scale_fill_terrain_d()</a></code> <code><a href="scale_terrain.html">scale_colour_terrain_d()</a></code> <code><a href="scale_terrain.html">scale_fill_terrain_c()</a></code> <code><a href="scale_terrain.html">scale_colour_terrain_c()</a></code> <code><a href="scale_terrain.html">scale_fill_terrain_b()</a></code> <code><a href="scale_terrain.html">scale_colour_terrain_b()</a></code> 
         </dt>
-        <dd>Terrain colour fill scales from grDevices</dd>
+        <dd>Terrain colour scales from grDevices</dd>
       </dl><dl><dt>
           
-          <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_d()</a></code> <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_c()</a></code> <code><a href="scale_fill_whitebox.html">scale_fill_whitebox_b()</a></code> <code><a href="scale_fill_whitebox.html">whitebox.colors()</a></code> 
+          <code><a href="scale_whitebox.html">scale_fill_whitebox_d()</a></code> <code><a href="scale_whitebox.html">scale_colour_whitebox_d()</a></code> <code><a href="scale_whitebox.html">scale_fill_whitebox_c()</a></code> <code><a href="scale_whitebox.html">scale_colour_whitebox_c()</a></code> <code><a href="scale_whitebox.html">scale_fill_whitebox_b()</a></code> <code><a href="scale_whitebox.html">scale_colour_whitebox_b()</a></code> <code><a href="scale_whitebox.html">whitebox.colors()</a></code> 
         </dt>
-        <dd>Gradient fill scales from WhiteboxTools color schemes</dd>
+        <dd>Gradient scales from WhiteboxTools color schemes</dd>
       </dl><dl><dt>
           
-          <code><a href="scale_fill_wiki.html">scale_fill_wiki_d()</a></code> <code><a href="scale_fill_wiki.html">scale_fill_wiki_c()</a></code> <code><a href="scale_fill_wiki.html">scale_fill_wiki_b()</a></code> <code><a href="scale_fill_wiki.html">wiki.colors()</a></code> 
+          <code><a href="scale_wiki.html">scale_fill_wiki_d()</a></code> <code><a href="scale_wiki.html">scale_colour_wiki_d()</a></code> <code><a href="scale_wiki.html">scale_fill_wiki_c()</a></code> <code><a href="scale_wiki.html">scale_colour_wiki_c()</a></code> <code><a href="scale_wiki.html">scale_fill_wiki_b()</a></code> <code><a href="scale_wiki.html">scale_colour_wiki_b()</a></code> <code><a href="scale_wiki.html">wiki.colors()</a></code> 
         </dt>
-        <dd>Gradient fill scales from Wikipedia color schemes</dd>
+        <dd>Gradient scales from Wikipedia color schemes</dd>
       </dl></div><div class="section level2">
       <h2 id="helpers">Helpers<a class="anchor" aria-label="anchor" href="#helpers"></a></h2>
       
@@ -277,6 +303,11 @@
           <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Coerce a Spat* object to data frames</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Fortify Spat* Objects</dd>
       </dl></div><div class="section level2">
       
       <h3 id="other-helpers">Other helpers<a class="anchor" aria-label="anchor" href="#other-helpers"></a></h3>

@@ -40,7 +40,7 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/autoplot.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.html</loc>
@@ -56,6 +56,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/filter.Spat.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html</loc>
@@ -103,25 +106,28 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_cross_blended.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_hypso.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_hypso.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_terrain.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_terrain.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_whitebox.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_whitebox.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/scale_fill_wiki.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_wiki.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/select.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/slice.Spat.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/stat_spat_coordinates.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/tidyterra-package.html</loc>

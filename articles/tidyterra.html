@@ -44,7 +44,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,20 +124,38 @@
 <div class="section level2">
 <h2 id="welcome-to-tidyterra">Welcome to {tidyterra}<a class="anchor" aria-label="anchor" href="#welcome-to-tidyterra"></a>
 </h2>
-<p><strong>tidyterra</strong> is a package that add common methods from the <a href="https://www.tidyverse.org/" class="external-link">tidyverse</a> for SpatRaster and SpatVectors objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link">{terra}</a> package. It also adds specific <code>geom_spat*()</code> functions for plotting these kind of objects with <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a>.</p>
+<p><strong>tidyterra</strong> is a package that add common methods from
+the <a href="https://www.tidyverse.org/" class="external-link">tidyverse</a> for SpatRaster
+and SpatVectors objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link">{terra}</a> package. It
+also adds specific <code>geom_spat*()</code> functions for plotting
+these kind of objects with <a href="https://ggplot2.tidyverse.org/" class="external-link">{ggplot2}</a>.</p>
 <div class="section level3">
 <h3 id="why-tidyterra">Why {tidyterra}?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
-<p>Spat* objects are not like regular data frames. They are a different type of objects, implemented via the <a href="http://adv-r.had.co.nz/S4.html" class="external-link">S4 object system</a>, and have their own syntax and computation methods, implemented on the {terra} package.</p>
-<p>By implementing tidyverse methods for these objects, and more specifically {dplyr} and {tidyr} methods, a use<strong>R</strong> can now work more easily with Spat*, just like (s)he would do with tabular data.</p>
-<p><strong>Note that</strong> in terms of performance, {terra} is much more optimized for working for this kind of objects, so it is <strong>recommended</strong> also to learn a bit of {terra} syntax. Each function of {tidyterra} refers (when possible) to the corresponding equivalent on {terra}.</p>
+<p>Spat* objects are not like regular data frames. They are a different
+type of objects, implemented via the <a href="http://adv-r.had.co.nz/S4.html" class="external-link">S4 object system</a>, and have
+their own syntax and computation methods, implemented on the {terra}
+package.</p>
+<p>By implementing tidyverse methods for these objects, and more
+specifically {dplyr} and {tidyr} methods, a use<strong>R</strong> can
+now work more easily with Spat*, just like (s)he would do with tabular
+data.</p>
+<p><strong>Note that</strong> in terms of performance, {terra} is much
+more optimized for working for this kind of objects, so it is
+<strong>recommended</strong> also to learn a bit of {terra} syntax. Each
+function of {tidyterra} refers (when possible) to the corresponding
+equivalent on {terra}.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="a-note-for-advanced-terra-users">A note for advanced {terra} users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
-<p>As previously mentioned, {tidyterra} is not optimized in terms of performance. Specially when working with <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> methods, it can be slow.</p>
-<p>As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000 slots of information(i.e., <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 10e6</code>).</p>
+<p>As previously mentioned, {tidyterra} is not optimized in terms of
+performance. Specially when working with <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> methods, it can be slow.</p>
+<p>As a rule of thumb, {tidyterra} can handle objects with less than
+10.000.000 slots of information(i.e.,
+<code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 10e6</code>).</p>
 </div>
 <div class="section level2">
 <h2 id="get-started-with-tidyterra">Get started with {tidyterra}<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
@@ -149,6 +167,11 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></code></pre></div>
 <p>Currently, the following methods are available:</p>
 <table class="table">
+<colgroup>
+<col width="30%">
+<col width="45%">
+<col width="25%">
+</colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
 <th>SpatVector</th>
@@ -210,6 +233,17 @@
 <td>✔️</td>
 <td>✔️</td>
 </tr>
+<tr class="even">
+<td><code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">ggplot2::autoplot()</a></code></td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
+<td>✔️ to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
+</td>
+<td>✔️ To tibble with coordinates</td>
+</tr>
 </tbody>
 </table>
 <p>Let’s see some of them in action:</p>
@@ -251,13 +285,22 @@
 <span><span class="co">#&gt; max values  :   5.408157, 16.740898, 21.113781</span></span></code></pre></div>
 <p>On the previous example, we had:</p>
 <ul>
-<li><p>Eliminated the first layer of the raster <code>tavg_04</code>.</p></li>
-<li><p>Created a new layer <code>newcol</code> as the difference of the layers <code>tavg_05</code> and <code>tavg_06.</code></p></li>
-<li><p>Relocated <code>newcol</code>as the first layer of the SpatRaster</p></li>
-<li><p>Replaced the <code>NA</code> cells on <code>newcol</code> with <code>3</code>.</p></li>
+<li><p>Eliminated the first layer of the raster
+<code>tavg_04</code>.</p></li>
+<li><p>Created a new layer <code>newcol</code> as the difference of the
+layers <code>tavg_05</code> and <code>tavg_06.</code></p></li>
+<li><p>Relocated <code>newcol</code>as the first layer of the
+SpatRaster</p></li>
+<li><p>Replaced the <code>NA</code> cells on <code>newcol</code> with
+<code>3</code>.</p></li>
 <li><p>Renamed <code>newcol</code> to difference.</p></li>
 </ul>
-<p>In all the process, the essential properties of the SpatRaster (number of cells, columns and rows, extent, resolution and coordinate reference system) have not been modified. Other methods as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> can modify these properties, as they would do when applied to a data frame (number of rows would be modified on that case).</p>
+<p>In all the process, the essential properties of the SpatRaster
+(number of cells, columns and rows, extent, resolution and coordinate
+reference system) have not been modified. Other methods as
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code>
+can modify these properties, as they would do when applied to a data
+frame (number of rows would be modified on that case).</p>
 </div>
 <div class="section level2">
 <h2 id="plotting-with-ggplot2">Plotting with {ggplot2}<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
@@ -265,7 +308,11 @@
 <div class="section level3">
 <h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
 </h3>
-<p>{tidyterra} provides several <code>geom_*</code> for SpatRasters. When the SpatRaster has the CRS informed (i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for adjusting the coordinates to other spatial layers:</p>
+<p>{tidyterra} provides several <code>geom_*</code> for SpatRasters.
+When the SpatRaster has the CRS informed
+(i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for
+adjusting the coordinates to other spatial layers:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -275,7 +322,7 @@
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"muted"</span>,</span>
 <span>    na.value <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -291,7 +338,7 @@
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">200</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terraplots-2.png" alt="plot of chunk terraplots" width="100%"></p>
@@ -302,10 +349,11 @@
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_fill_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"atlas"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"atlas"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terraplots-3.png" alt="plot of chunk terraplots" width="100%"></p>
-<p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:</p>
+<p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to
+your plots:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Read a vector</span></span>
@@ -318,9 +366,9 @@
 <span></span>
 <span><span class="va">r_rgb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_rgb</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">rgb_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">rgb_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_rgb</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">v</span>, fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
 <p><img src="rgb-1.png" alt="plot of chunk rgb" width="100%"></p>
@@ -330,25 +378,26 @@
 <span><span class="va">rgb_plot</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3035</span><span class="op">)</span></span></code></pre></div>
 <p><img src="rgb-2.png" alt="plot of chunk rgb" width="100%"></p>
-<p>{tidyterra} provides selected scales that are suitable for creating hypsometric and bathymetric maps:</p>
+<p>{tidyterra} provides selected scales that are suitable for creating
+hypsometric and bathymetric maps:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">asia</span></span>
 <span><span class="co">#&gt; class       : SpatRaster </span></span>
-<span><span class="co">#&gt; dimensions  : 367, 683, 1  (nrow, ncol, nlyr)</span></span>
-<span><span class="co">#&gt; resolution  : 14263.38, 14231.61  (x, y)</span></span>
+<span><span class="co">#&gt; dimensions  : 232, 432, 1  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 22550.66, 22512.94  (x, y)</span></span>
 <span><span class="co">#&gt; extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)</span></span>
 <span><span class="co">#&gt; coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) </span></span>
 <span><span class="co">#&gt; source      : asia.tif </span></span>
 <span><span class="co">#&gt; name        : file44bc291153f2 </span></span>
-<span><span class="co">#&gt; min value   :        -9991.472 </span></span>
-<span><span class="co">#&gt; max value   :         6156.079</span></span>
+<span><span class="co">#&gt; min value   :        -10071.50 </span></span>
+<span><span class="co">#&gt; max value   :          6064.73</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">asia</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_fill_hypso.html">scale_fill_hypso_tint_c</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/scale_hypso.html">scale_fill_hypso_tint_c</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"gmt_globe"</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">10000</span>, <span class="op">-</span><span class="fl">5000</span>, <span class="fl">0</span>, <span class="fl">2500</span>, <span class="fl">5000</span>, <span class="fl">8000</span><span class="op">)</span>,</span>
@@ -369,52 +418,48 @@
 <div class="section level3">
 <h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
 </h3>
-<p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
+<p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the
+<code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
+<span><span class="va">v_lux</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">spatvector</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">spatvector</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"grey90"</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">v_lux</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
-<p>The underlying implementation is to take advantage of the conversion <code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the layer.</p>
+<p>The underlying implementation is to take advantage of the conversion
+<code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the
+layer.</p>
 </div>
 <div class="section level3">
 <h3 id="about">About SpatVectors<a class="anchor" aria-label="anchor" href="#about"></a>
 </h3>
-<p>SpatVector objects are vector data. This means that they are a set of individual points with geographic information (i.e. location of restaurants), that can be also grouped to form lines (i.e. a river) and, when these lines forms a closed polygon, a spatial polygon (i.e. a country).</p>
-<p>{terra} can handle vector files on the S4 system. There is other alternative, the {sf} package, that represents the same information on a tabular way. You can convert easily between the two packages like this:</p>
+<p>SpatVector objects are vector data. This means that they are a set of
+individual points with geographic information (i.e. location of
+restaurants), that can be also grouped to form lines (i.e. a river) and,
+when these lines forms a closed polygon, a spatial polygon (i.e. a
+country).</p>
+<p>{terra} can handle vector files on the S4 system. There is other
+alternative, the {sf} package, that represents the same information on a
+tabular way. You can convert easily between the two packages like
+this:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
-<span><span class="va">spatvector</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  source      : lux.shp</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
-<span><span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span></span>
-<span><span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></span>
 <span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spatvector</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terra_sf-1.png" alt="plot of chunk terra_sf" width="100%"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span><span class="co"># To sf</span></span>
-<span><span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">spatvector</span><span class="op">)</span></span>
+<span><span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sfobj</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Simple feature collection with 3 features and 6 fields</span></span>
 <span><span class="co">#&gt; Geometry type: POLYGON</span></span>
@@ -432,9 +477,9 @@
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Back to terra</span></span>
 <span></span>
-<span><span class="va">spatvector2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span></span>
+<span><span class="va">lux2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spatvector2</span></span>
+<span><span class="va">lux2</span></span>
 <span><span class="co">#&gt;  class       : SpatVector </span></span>
 <span><span class="co">#&gt;  geometry    : polygons </span></span>
 <span><span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span></span>
@@ -445,13 +490,16 @@
 <span><span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span></span>
 <span><span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span></span>
 <span><span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></span></code></pre></div>
-<p>On that sense, {sf} already has its own implementation of {tidyverse} methods. Since converting SpatVector to {sf} it is straightforward with no loss of information, {tidyterra} is specially focused on SpatRasters. See an example of how to work with {terra} + {sf} + {dplyr}:</p>
+<p>On that sense, {sf} already has its own implementation of {tidyverse}
+methods. Since converting SpatVector to {sf} it is straightforward with
+no loss of information, {tidyterra} is specially focused on SpatRasters.
+See an example of how to work with {terra} + {sf} + {dplyr}:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spat_summ</span> <span class="op">&lt;-</span> <span class="va">spatvector2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">lux_summ</span> <span class="op">&lt;-</span> <span class="va">lux2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># to sf</span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="co"># dplyr</span></span>
@@ -460,7 +508,7 @@
 <span>  <span class="co"># back to terra</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">spat_summ</span></span>
+<span><span class="va">lux_summ</span></span>
 <span><span class="co">#&gt;  class       : SpatVector </span></span>
 <span><span class="co">#&gt;  geometry    : polygons </span></span>
 <span><span class="co">#&gt;  dimensions  : 3, 2  (geometries, attributes)</span></span>
@@ -472,7 +520,7 @@
 <span><span class="co">#&gt;                    2  71093</span></span>
 <span><span class="co">#&gt;                    3 439726</span></span>
 <span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spat_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%"></p>
 </div>
 </div>
