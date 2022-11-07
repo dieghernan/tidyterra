@@ -282,7 +282,11 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour</span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="geom_spat_contour-1.png" alt="" width="2188" height="1352"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Computation failed in `stat_terra_spat_raster_contour()`</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Unsupported type S4</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in calc_limits_bbox(self$lims_method, scale_xlim, scale_ylim, params$crs,     params$default_crs):</span> Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -296,13 +300,21 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"><span>    guide <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_coloursteps.html" class="external-link">guide_coloursteps</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="geom_spat_contour-2.png" alt="" width="2188" height="1352"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Computation failed in `stat_terra_spat_raster_contour()`</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Unsupported type S4</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in calc_limits_bbox(self$lims_method, scale_xlim, scale_ylim, params$crs,     params$default_crs):</span> Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filled with breaks</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour_filled</span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">80</span>, <span class="fl">200</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="geom_spat_contour-3.png" alt="" width="2188" height="1352"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Computation failed in `stat_terra_spat_raster_contour_fill()`</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Unsupported type S4</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in calc_limits_bbox(self$lims_method, scale_xlim, scale_ylim, params$crs,     params$default_crs):</span> Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Both lines and contours</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -316,7 +328,14 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 <span class="r-in"><span>    size <span class="op">=</span> <span class="fl">0.1</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_d</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="geom_spat_contour-4.png" alt="" width="2188" height="1352"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Computation failed in `stat_terra_spat_raster_contour_fill()`</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Unsupported type S4</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Computation failed in `stat_terra_spat_raster_contour()`</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by error:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Unsupported type S4</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in calc_limits_bbox(self$lims_method, scale_xlim, scale_ylim, params$crs,     params$default_crs):</span> Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
