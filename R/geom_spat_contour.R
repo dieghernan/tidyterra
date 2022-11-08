@@ -249,11 +249,14 @@ GeomSpatRasterContour <- ggplot2::ggproto(
   default_aes = aes(
     weight = 1,
     colour = "grey35",
-    size = .2,
     linewidth = .2,
     linetype = 1,
     alpha = NA
-  )
+  ),
+  # To allow using size in ggplot2 < 3.4.0
+  non_missing_aes = "size",
+  # Tell ggplot2 to perform automatic renaming
+  rename_size = TRUE
 )
 
 # Stat ----
