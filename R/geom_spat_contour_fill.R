@@ -27,15 +27,12 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
 
 
   # 1. Work with aes ----
-  spatraster <- NULL
-  lyr <- NULL
-
   mapping <- override_aesthetics(
     mapping,
     ggplot2::aes(
-      spatraster = spatraster,
+      spatraster = .data$spatraster,
       # For faceting
-      lyr = lyr
+      lyr = .data$lyr
     )
   )
 

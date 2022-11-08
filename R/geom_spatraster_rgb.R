@@ -117,11 +117,10 @@ geom_spatraster_rgb <- function(mapping = aes(),
   }
 
   # 1. Work with aes ----
-  spatraster <- NULL
   mapping <- override_aesthetics(
     mapping,
     ggplot2::aes(
-      spatraster = spatraster
+      spatraster = .data$spatraster
     )
   )
 
