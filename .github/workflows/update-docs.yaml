@@ -39,7 +39,7 @@ jobs:
 
           pkgdev::update_docs(precompute = FALSE)
           # Regenerate svgs
-          testhat::test_local()
+          testthat::test_local()
 
         shell: Rscript {0}
 
