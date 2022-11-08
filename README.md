@@ -32,18 +32,18 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
--   SpatVector: the methods are implemented taking advantage of the
-    tidyverse implementation on {sf}. The SpatVector object is converted
-    first to sf via `sf::st_as_sf()`, then the method (or function) is
-    applied and finally the object is converted back to SpatVector with
-    `terra::vect()`. Hence, rows correspond to geometries and columns
-    correspond to attributes of the geometry.
+- SpatVector: the methods are implemented taking advantage of the
+  tidyverse implementation on {sf}. The SpatVector object is converted
+  first to sf via `sf::st_as_sf()`, then the method (or function) is
+  applied and finally the object is converted back to SpatVector with
+  `terra::vect()`. Hence, rows correspond to geometries and columns
+  correspond to attributes of the geometry.
 
--   SpatRaster: The implementation on SpatRaster objects differs, since
-    the methods could be applied to layers or to cells. {tidyterra}
-    overall approach is to treat the layers as columns of a tibble and
-    the cells as rows (i.e. `select(SpatRaster, 1)` would select the
-    first layer of a SpatRaster).
+- SpatRaster: The implementation on SpatRaster objects differs, since
+  the methods could be applied to layers or to cells. {tidyterra}
+  overall approach is to treat the layers as columns of a tibble and the
+  cells as rows (i.e. `select(SpatRaster, 1)` would select the first
+  layer of a SpatRaster).
 
 The methods implemented return the same type of object used as input,
 unless the expected behavior of the method is to return another type of
@@ -100,6 +100,7 @@ install.packages("tidyterra")
 You can install the development version of {tidyterra} like so:
 
 ``` r
+
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -149,6 +150,7 @@ ggplot() +
 
 ``` r
 
+
 # Create maximum differences
 
 variation <- rastertemp %>%
@@ -184,6 +186,7 @@ ggplot(prov) +
 {ggplot2}
 
 ``` r
+
 f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 rgb_tile <- rast(f_tile)
@@ -201,6 +204,7 @@ plot
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%" />
 
 ``` r
+
 # Recognizes coord_sf()
 plot +
   # Change crs and datum (for relabeling graticules)
@@ -213,6 +217,7 @@ plot +
 {ggplot2}:
 
 ``` r
+
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
@@ -221,6 +226,7 @@ terra::plot(asia)
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%" />
 
 ``` r
+
 ggplot() +
   geom_spatraster(data = asia) +
   scale_fill_hypso_tint_c(

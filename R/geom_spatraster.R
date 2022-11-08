@@ -427,16 +427,13 @@ prepare_aes_spatraster <- function(mapping = aes(),
   # Prepare aes for StatTerraSpatRaster
   mapinit <- cleanup_aesthetics(mapping, "group")
 
-  spatraster <- NULL
-  lyr <- NULL
-
   mapinit <- override_aesthetics(
     mapinit,
     ggplot2::aes(
-      spatraster = spatraster,
+      spatraster = .data$spatraster,
       # For faceting
-      lyr = lyr,
-      group = lyr
+      lyr = .data$lyr,
+      group = .data$lyr
     )
   )
 
@@ -462,12 +459,10 @@ prepare_aes_spatraster <- function(mapping = aes(),
   fill_not_provided <- is.na(fill_from_aes)
   is_layer <- fill_from_aes %in% raster_names
 
-
-  value <- NULL
   # If not provided add after_stat
   if (fill_not_provided) {
     map_not_prov <- override_aesthetics(
-      mapinit, ggplot2::aes(fill = after_stat(value))
+      mapinit, ggplot2::aes(fill = after_stat(.data$value))
     )
 
     result_obj$map <- map_not_prov
@@ -476,9 +471,8 @@ prepare_aes_spatraster <- function(mapping = aes(),
 
   # If it is a layer need to override the fill value and keep the namelayer
   if (is_layer) {
-    value <- NULL
     map_layer <- override_aesthetics(
-      ggplot2::aes(fill = after_stat(value)),
+      ggplot2::aes(fill = after_stat(.data$value)),
       mapinit
     )
 
