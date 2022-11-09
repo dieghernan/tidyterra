@@ -74,7 +74,6 @@ references:
     given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=cli
   version: '>= 3.0.0'
 - type: software
   title: crayon
@@ -85,7 +84,7 @@ references:
     given-names: Gábor
     email: csardi.gabor@gmail.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=crayon
+  url: https://github.com/r-lib/crayon#readme
 - type: software
   title: data.table
   abstract: 'data.table: Extension of `data.frame`'
@@ -98,7 +97,6 @@ references:
     given-names: Arun
     email: asrini@pm.me
   year: '2022'
-  url: https://CRAN.R-project.org/package=data.table
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -117,7 +115,6 @@ references:
     given-names: Kirill
     orcid: https://orcid.org/0000-0002-1416-3412
   year: '2022'
-  url: https://CRAN.R-project.org/package=dplyr
   version: '>= 1.0.0'
 - type: software
   title: ggplot2
@@ -152,7 +149,6 @@ references:
     given-names: Dewey
     orcid: https://orcid.org/0000-0002-9415-4582
   year: '2022'
-  url: https://CRAN.R-project.org/package=ggplot2
   version: '>= 3.1.0'
 - type: software
   title: magrittr
@@ -166,7 +162,6 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=magrittr
 - type: software
   title: rlang
   abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
@@ -179,7 +174,6 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=rlang
 - type: software
   title: scales
   abstract: 'scales: Scale Functions for Visualization'
@@ -191,7 +185,6 @@ references:
   - family-names: Seidel
     given-names: Dana
   year: '2022'
-  url: https://CRAN.R-project.org/package=scales
 - type: software
   title: sf
   abstract: 'sf: Simple Features for R'
@@ -214,7 +207,7 @@ references:
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2022'
-  url: https://CRAN.R-project.org/package=terra
+  url: https://rspatial.org/terra/
   version: '>= 1.5-12'
 - type: software
   title: tibble
@@ -228,7 +221,6 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=tibble
   version: '>= 3.0.0'
 - type: software
   title: tidyr
@@ -241,7 +233,6 @@ references:
   - family-names: Girlich
     given-names: Maximilian
   year: '2022'
-  url: https://CRAN.R-project.org/package=tidyr
   version: '>= 1.0.0'
 - type: software
   title: isoband
@@ -258,7 +249,7 @@ references:
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
   year: '2022'
-  url: https://CRAN.R-project.org/package=isoband
+  url: https://wilkelab.org/isoband/
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -269,7 +260,7 @@ references:
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2022'
-  url: https://CRAN.R-project.org/package=knitr
+  url: https://yihui.org/knitr/
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -283,7 +274,6 @@ references:
     email: hadley@rstudio.com
     orcid: https://orcid.org/0000-0003-4757-117X
   year: '2022'
-  url: https://CRAN.R-project.org/package=lifecycle
 - type: software
   title: maptiles
   abstract: 'maptiles: Download and Display Map Tiles'
@@ -294,7 +284,7 @@ references:
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
   year: '2022'
-  url: https://CRAN.R-project.org/package=maptiles
+  url: https://github.com/riatelab/maptiles/
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -333,7 +323,6 @@ references:
     email: rich@rstudio.com
     orcid: https://orcid.org/0000-0003-3925-190X
   year: '2022'
-  url: https://CRAN.R-project.org/package=rmarkdown
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -351,7 +340,6 @@ references:
     given-names: Ege
     email: rubak@math.aau.dk
   year: '2022'
-  url: https://CRAN.R-project.org/package=s2
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -361,7 +349,6 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=testthat
   version: '>= 3.0.0'
 - type: software
   title: tidyverse
@@ -372,7 +359,6 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
-  url: https://CRAN.R-project.org/package=tidyverse
 - type: software
   title: vdiffr
   abstract: 'vdiffr: Visual Regression Testing and Graphical Diffing'
@@ -395,4 +381,3 @@ references:
     given-names: Vaudor
     email: lise.vaudor@ens-lyon.fr
   year: '2022'
-  url: https://CRAN.R-project.org/package=vdiffr
