@@ -46,6 +46,8 @@ VignetteBuilder:
     knitr
 Config/testthat/edition: 3
 Config/testthat/parallel: true
+Config/Needs/coverage: covr
+Config/Needs/website: geodata, metR
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
