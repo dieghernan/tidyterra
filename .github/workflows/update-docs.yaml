@@ -36,10 +36,9 @@ jobs:
 
       - name: Update docs
         run: |
-
+          
+          pkgdev::precompute_vignette_all()
           pkgdev::update_docs(precompute = FALSE)
-          # Regenerate svgs
-          testthat::test_local()
 
         shell: Rscript {0}
 
