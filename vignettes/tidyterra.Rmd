@@ -111,9 +111,7 @@ mod
 #> resolution  : 3856.617, 3856.617  (x, y)
 #> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)
 #> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#> sources     : memory  
-#>               memory  
-#>               memory  
+#> source(s)   : memory
 #> names       : difference,   tavg_05,   tavg_06 
 #> min values  :   2.786910,  4.294102,  8.817221 
 #> max values  :   5.408157, 16.740898, 21.113781
