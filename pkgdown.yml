@@ -1,11 +1,11 @@
 pandoc: 2.19.2
-pkgdown: 2.0.6
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   faqs: faqs.html
   palettes: palettes.html
   tidyterra: tidyterra.html
-last_built: 2022-12-12T23:01Z
+last_built: 2022-12-29T10:41Z
 urls:
   reference: https://dieghernan.github.io/tidyterra/reference
   article: https://dieghernan.github.io/tidyterra/articles
