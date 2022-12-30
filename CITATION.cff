@@ -260,9 +260,13 @@ references:
   abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
     Grids'
   notes: Suggests
-  url: https://wilkelab.org/isoband/
+  url: https://isoband.r-lib.org
   repository: https://CRAN.R-project.org/package=isoband
   authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
   - family-names: Wilke
     given-names: Claus O.
     email: wilke@austin.utexas.edu
