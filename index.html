@@ -244,8 +244,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of {tidyterra} like so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install {tidyterra} using the <a href="https://dieghernan.r-universe.dev/ui#builds" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
@@ -316,8 +315,7 @@
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" width="100%"></p>
 <p>{tidyterra} also provide a geom for plotting RGB SpatRaster tiles with {ggplot2}</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">f_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">f_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rgb_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_tile</span><span class="op">)</span></span>
 <span></span>
@@ -339,8 +337,7 @@
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%"></p>
 <p>{tidyterra} provides specific scales for plotting hypsometric maps with {ggplot2}:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">asia</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%"></p>
@@ -380,13 +377,13 @@
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>To cite ‘tidyterra’ in publications use:</p>
-<p>Hernangomez D (2022). tidyterra: tidyverse Methods and ggplot2 Helpers for terra Objects. <a href="https://doi.org/10.5281/zenodo.6572471" class="external-link uri">https://doi.org/10.5281/zenodo.6572471</a>, <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
+<p>Hernangomez D (2023). tidyterra: tidyverse Methods and ggplot2 Helpers for terra Objects. <a href="https://doi.org/10.5281/zenodo.6572471" class="external-link uri">https://doi.org/10.5281/zenodo.6572471</a>, <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
 <p>A BibTeX entry for LaTeX users is</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>tidyterra,</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{tidyterra}<span class="sc">:</span> tidyverse Methods and ggplot2 Helpers <span class="cf">for</span> terra Objects},</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.6572471</span>},</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2022</span>},</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2023</span>},</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">3.1</span>},</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>tidyterra<span class="sc">/</span>},</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Extension of the tidyverse <span class="cf">for</span> SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},</span>
