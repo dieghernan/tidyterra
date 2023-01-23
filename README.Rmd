@@ -117,7 +117,6 @@ install.packages("tidyterra")
 You can install the development version of {tidyterra} like so:
 
 ```{r, eval=FALSE }
-
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -195,7 +194,6 @@ ggplot(prov) +
 {tidyterra} also provide a geom for plotting RGB SpatRaster tiles with {ggplot2}
 
 ```{r example-tile}
-
 f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 rgb_tile <- rast(f_tile)
@@ -219,7 +217,6 @@ plot +
 {ggplot2}:
 
 ```{r hypso}
-
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)

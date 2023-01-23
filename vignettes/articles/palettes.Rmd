@@ -28,7 +28,6 @@ This page shows a gallery of maps that can be displayed with the gradient fill
 scales included with **tidyterra**. A basic code to generate this map is:
 
 ```{r, eval=FALSE}
-
 library(tidyterra)
 library(terra)
 library(ggplot2)
@@ -47,7 +46,6 @@ ggplot() +
 Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
 
 ```{r terr_wiki, echo=FALSE}
-
 r <- terra::rast(system.file("extdata/volcano2.tif",
   package = "tidyterra"
 ))
@@ -78,7 +76,6 @@ print(ss)
 Check `scale_fill_whitebox_c()` for more info.
 
 ```{r whitebox, echo=FALSE}
-
 allpals <- sort(c(
   "atlas", "high_relief", "arid", "soft", "muted", "purple",
   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
@@ -100,7 +97,6 @@ for (i in allpals) {
 Check `scale_fill_hypso_c()` for more info.
 
 ```{r hypso, echo=FALSE}
-
 allpals <- sort(unique(hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -118,7 +114,6 @@ for (i in allpals) {
 Check `scale_fill_cross_blended_c()` for more info.
 
 ```{r cross, echo=FALSE}
-
 allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
 
 for (i in allpals) {

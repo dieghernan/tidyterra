@@ -25,7 +25,6 @@ and the potential solutions to it (mostly related with the use of **terra** and
 the following links.
 
 ```{r issues, echo=FALSE, results='asis'}
-
 link <- unlist(packageDescription("tidyterra")["BugReports"])
 cat("\n- Issues: ", link)
 dis <- gsub("issues$", "discussions", link)
@@ -40,7 +39,6 @@ color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
 parameter `na.value` set to `NA`, that prevents NA values to be plotted.
 
 ```{r remove-nas}
-
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -194,7 +192,6 @@ resampling and force the **ggplot2** map to be on **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
 
 ```{r blurry-tile}
-
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -246,7 +243,6 @@ Again, this is the **ggplot2** default, but can be modified with
 `ggplot2::coord_sf(datum)` argument:
 
 ```{r modify-datum}
-
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -283,7 +279,6 @@ The best option is to pass your custom breaks to `ggplot2::scale_x_continous()`
 or `ggplot2::scale_y_continous()`:
 
 ```{r breaks}
-
 library(terra)
 library(tidyterra)
 library(ggplot2)

@@ -100,7 +100,6 @@ install.packages("tidyterra")
 You can install the development version of {tidyterra} like so:
 
 ``` r
-
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -186,7 +185,6 @@ ggplot(prov) +
 {ggplot2}
 
 ``` r
-
 f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 rgb_tile <- rast(f_tile)
@@ -217,7 +215,6 @@ plot +
 {ggplot2}:
 
 ``` r
-
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
@@ -264,7 +261,7 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 To cite ‘tidyterra’ in publications use:
 
-Hernangomez D (2022). tidyterra: tidyverse Methods and ggplot2 Helpers
+Hernangomez D (2023). tidyterra: tidyverse Methods and ggplot2 Helpers
 for terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
 <https://dieghernan.github.io/tidyterra/>
 
@@ -274,7 +271,7 @@ A BibTeX entry for LaTeX users is
       title = {{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects},
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
-      year = {2022},
+      year = {2023},
       version = {0.3.1},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},

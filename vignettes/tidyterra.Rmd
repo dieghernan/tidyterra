@@ -147,7 +147,6 @@ to other spatial layers:
 
 
 ```r
-
 library(ggplot2)
 
 # A faceted SpatRaster
@@ -198,7 +197,6 @@ With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
 
 ```r
-
 # Read a vector
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
@@ -232,7 +230,6 @@ and bathymetric maps:
 
 
 ```r
-
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
