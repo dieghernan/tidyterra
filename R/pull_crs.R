@@ -84,6 +84,14 @@ pull_crs <- function(.data, ...) {
   }
 
   if (any(
+    inherits(.data, "sf"),
+    inherits(.data, "sfc"),
+    inherits(.data, "crs")
+  )) {
+    return(sf::st_crs(.data)$wkt)
+  }
+
+  if (any(
     is.na(.data), is.null(.data)
   )) {
     return(NA)
@@ -95,11 +103,8 @@ pull_crs <- function(.data, ...) {
     }
   }
 
-  # sf objects, characters and numerics are handled by sf
+  # Characters and numerics are handled by sf
   if (any(
-    inherits(.data, "sf"),
-    inherits(.data, "sfc"),
-    inherits(.data, "crs"),
     inherits(.data, "character"),
     inherits(.data, "numeric")
   )) {

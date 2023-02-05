@@ -1,3 +1,8 @@
+# tidyterra (development version)
+
+-   Fix a bug on `pull_crs()` that returned `"NA"` on **sf** objects with any
+    field equal to `NA` (#74).
+
 # tidyterra 0.3.1
 
 -   New **ggplot2** methods added:

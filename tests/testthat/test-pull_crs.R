@@ -26,6 +26,16 @@ test_that("Check crs", {
   expect_s3_class(sfobj2, "sf")
   sf2 <- pull_crs(sfobj2)
 
+  # On sf with columns with NA also works
+  sf_na <- sfobj2
+
+  sf_na$no_na <- "A"
+  sf_na$no_na <- NA
+
+  expect_true(any(is.na(sf_na)))
+  expect_s3_class(sf_na, "sf")
+  sf_na_check <- pull_crs(sf_na)
+
   crs <- sf::st_crs(sfobj)
 
   expect_s3_class(crs, "crs")
@@ -50,6 +60,7 @@ test_that("Check crs", {
     base,
     sfc,
     sf2,
+    sf_na_check,
     crs2,
     r2,
     v2,
