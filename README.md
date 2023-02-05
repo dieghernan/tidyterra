@@ -51,22 +51,22 @@ object, (for example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by {tidyterra} are:
 
-| tidyverse method      | SpatVector                             | SpatRaster                                                                                                     |
-|-----------------------|----------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `tibble::as_tibble()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `dplyr::select()`     | :heavy_check_mark:                     | :heavy_check_mark: Select layers                                                                               |
-| `dplyr::mutate()`     | :heavy_check_mark:                     | :heavy_check_mark: Create /modify layers                                                                       |
-| `dplyr::transmute()`  | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `dplyr::filter()`     | :heavy_check_mark:                     | :heavy_check_mark: Modify cells values and (additionally) remove outer cells.                                  |
-| `dplyr::slice()`      | :heavy_check_mark:                     | :heavy_check_mark: Additional methods for slicing by row and column.                                           |
-| `dplyr::pull()`       | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `dplyr::rename()`     | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `dplyr::relocate()`   | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `tidyr::drop_na()`    | :heavy_check_mark:                     | :heavy_check_mark: Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
-| `tidyr::replace_na()` | :heavy_check_mark:                     | :heavy_check_mark:                                                                                             |
-| `ggplot2::autoplot()` | ✔️                                     | ✔️                                                                                                             |
-| `ggplot2::fortify()`  | ✔️ to sf via `sf::st_as_sf()`          | To a tibble with coordinates.                                                                                  |
-| `ggplot2::geom_*()`   | :heavy_check_mark: `geom_spatvector()` | :heavy_check_mark: `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
+| tidyverse method      | SpatVector                    | SpatRaster                                                                                     |
+|-----------------------|-------------------------------|------------------------------------------------------------------------------------------------|
+| `tibble::as_tibble()` | ✔️                            | ✔️                                                                                             |
+| `dplyr::select()`     | ✔️                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`     | ✔️                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`  | ✔️                            | ✔️                                                                                             |
+| `dplyr::filter()`     | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`      | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`       | ✔️                            | ✔️                                                                                             |
+| `dplyr::rename()`     | ✔️                            | ✔️                                                                                             |
+| `dplyr::relocate()`   | ✔️                            | ✔️                                                                                             |
+| `tidyr::drop_na()`    | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()` | ✔️                            | ✔️                                                                                             |
+| `ggplot2::autoplot()` | ✔️                            | ✔️                                                                                             |
+| `ggplot2::fortify()`  | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
+| `ggplot2::geom_*()`   | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 ## :exclamation: A note on performance
 
@@ -104,7 +104,7 @@ remotes::install_github("dieghernan/tidyterra")
 ```
 
 Alternatively, you can install {tidyterra} using the
-[r-universe](https://dieghernan.r-universe.dev/ui#builds):
+[r-universe](https://dieghernan.r-universe.dev/tidyterra):
 
 ``` r
 # Enable this universe
@@ -272,7 +272,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.3.1},
+      version = {0.3.1.9000},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }
