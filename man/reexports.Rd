@@ -32,7 +32,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dplyr}{\code{\link[dplyr]{filter}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr:rename]{rename_with}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr:mutate]{transmute}}}
+  \item{dplyr}{\code{\link[dplyr]{filter}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr:rename]{rename_with}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{transmute}}}
 
   \item{ggplot2}{\code{\link[ggplot2]{autoplot}}, \code{\link[ggplot2]{fortify}}}
 

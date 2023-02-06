@@ -44,7 +44,7 @@ Some terra methods for modifying cell values:
 \section{Methods}{
 
 
-Implementation of the \strong{generics} \code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:mutate]{dplyr::transmute()}}
+Implementation of the \strong{generics} \code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:transmute]{dplyr::transmute()}}
 functions.
 \subsection{SpatRaster}{
 
@@ -89,7 +89,7 @@ v \%>\%
   select(cpro, cpro2)
 }
 \seealso{
-\code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:mutate]{dplyr::transmute()}}
+\code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:transmute]{dplyr::transmute()}}
 
 Other dplyr methods:
 \code{\link{filter.Spat}},

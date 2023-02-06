@@ -22,11 +22,21 @@
 #'
 #' See **Details**.
 #'
+#' Additional parameters `...` would be passed on to:
+#' - Discrete values: [ggplot2::discrete_scale()]
+#' - Continuous values: [ggplot2::continuous_scale()]
+#' - Binned continuous values: [ggplot2::binned_scale()].
+#'
+#' Note that \pkg{tidyterra} just documents a selection of these additional
+#' parameters, check the previous links to see the full range of parameters
+#' accepted by these scales.
+#'
 #' @export
 #'
 #' @name scale_cross_blended
 #'
 #' @inheritParams ggplot2::scale_fill_viridis_b
+#' @inheritParams scale_terrain
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
@@ -45,7 +55,13 @@
 #'
 #' ```
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
-#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()]
+#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
+#'
+#' See also \pkg{ggplot2} docs on additional `...` parameters:
+#'
+#' - `scale_*_terrain_d()`: For discrete values.
+#' - `scale_*_terrain_c()`: For continuous values.
+#' - `scale_*_terrain_b()`: For binning continuous values.
 #'
 #' @return The corresponding ggplot2 layer with the values applied to the
 #' `fill/colour` aesthetics.

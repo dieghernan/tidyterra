@@ -50,9 +50,69 @@ scale_colour_terrain_b(
 )
 }
 \arguments{
-\item{...}{Other arguments passed on to \code{\link[ggplot2:discrete_scale]{discrete_scale()}},
-\code{\link[ggplot2:continuous_scale]{continuous_scale()}}, or \code{\link[ggplot2:binned_scale]{binned_scale()}} to control name, limits, breaks,
-labels and so forth.}
+\item{...}{
+  Arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}, \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale}}
+  \describe{
+    \item{\code{breaks}}{One of:
+\itemize{
+\item \code{NULL} for no breaks
+\item \code{waiver()} for the default breaks (the scale limits)
+\item A character vector of breaks
+\item A function that takes the limits as input and returns breaks
+as output. Also accepts rlang \link[rlang:as_function]{lambda} function
+notation.
+}}
+    \item{\code{labels}}{One of:
+\itemize{
+\item \code{NULL} for no labels
+\item \code{waiver()} for the default labels computed by the
+transformation object
+\item A character vector giving labels (must be same length as \code{breaks})
+\item An expression vector (must be the same length as breaks). See ?plotmath for details.
+\item A function that takes the breaks as input and returns labels
+as output. Also accepts rlang \link[rlang:as_function]{lambda} function
+notation.
+}}
+    \item{\code{limits}}{One of:
+\itemize{
+\item \code{NULL} to use the default scale values
+\item A character vector that defines possible values of the scale and their
+order
+\item A function that accepts the existing (automatic) values and returns
+new ones. Also accepts rlang \link[rlang:as_function]{lambda} function
+notation.
+}}
+    \item{\code{expand}}{For position scales, a vector of range expansion constants used to add some
+padding around the data to ensure that they are placed some distance
+away from the axes. Use the convenience function \code{\link[ggplot2:expansion]{expansion()}}
+to generate the values for the \code{expand} argument. The defaults are to
+expand the scale by 5\% on each side for continuous variables, and by
+0.6 units on each side for discrete variables.}
+    \item{\code{na.translate}}{Unlike continuous scales, discrete scales can easily show
+missing values, and do so by default. If you want to remove missing values
+from a discrete scale, specify \code{na.translate = FALSE}.}
+    \item{\code{drop}}{Should unused factor levels be omitted from the scale?
+The default, \code{TRUE}, uses the levels that appear in the data;
+\code{FALSE} uses all the levels in the factor.}
+    \item{\code{minor_breaks}}{One of:
+\itemize{
+\item \code{NULL} for no minor breaks
+\item \code{waiver()} for the default breaks (one minor break between
+each major break)
+\item A numeric vector of positions
+\item A function that given the limits returns a vector of minor breaks. Also
+accepts rlang \link[rlang:as_function]{lambda} function notation.
+}}
+    \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
+may choose a slightly different number to ensure nice break labels. Will
+only have an effect if \code{breaks = waiver()}. Use \code{NULL} to use the default
+number of breaks given by the transformation.}
+    \item{\code{nice.breaks}}{Logical. Should breaks be attempted placed at nice values
+instead of exactly evenly spaced between the limits. If \code{TRUE} (default)
+the scale will ask the transformation object to create breaks, and this
+may result in a different number of breaks than requested. Ignored if
+breaks are given explicitly.}
+  }}
 
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
@@ -78,6 +138,17 @@ terra package (see \code{\link[terra:plot]{terra::plot()}}):
 \item \verb{scale_*_terrain_c()}: For continuous values.
 \item \verb{scale_*_terrain_b()}: For binning continuous values.
 }
+
+Additional parameters \code{...} would be passed on to:
+\itemize{
+\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}
+\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
+}
+
+Note that \pkg{tidyterra} just documents a selection of these additional
+parameters, check the previous links to see the full range of parameters
+accepted by these scales.
 }
 \examples{
 \donttest{
@@ -112,7 +183,13 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}} and \pkg{ggplot2} docs on
+additional \code{...} parameters:
+\itemize{
+\item \verb{scale_*_terrain_d()}: For discrete values.
+\item \verb{scale_*_terrain_c()}: For continuous values.
+\item \verb{scale_*_terrain_b()}: For binning continuous values.
+}
 
 Other gradient scales and palettes for hypsometry:
 \code{\link{scale_cross_blended}},
