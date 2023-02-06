@@ -239,17 +239,19 @@ See also <code><a href="https://rdrr.io/pkg/terra/man/trim.html" class="external
 <dt>n, prop</dt>
 <dd><p>Provide either <code>n</code>, the number of rows, or <code>prop</code>, the
 proportion of rows to select. If neither are supplied, <code>n = 1</code> will be
-used.</p>
-<p>If a negative value of <code>n</code> or <code>prop</code> is provided, the specified number or
-proportion of rows will be removed.</p>
-<p>If <code>n</code> is greater than the number of rows in the group (or <code>prop &gt; 1</code>),
-the result will be silently truncated to the group size. If the
-<code>prop</code>ortion of a group size does not yield an integer number of rows, the
-absolute value of <code>prop*nrow(.data)</code> is rounded down.</p></dd>
+used. If <code>n</code> is greater than the number of rows in the group
+(or <code>prop &gt; 1</code>), the result will be silently truncated to the group size.
+<code>prop</code> will be rounded towards zero to generate an integer number of
+rows.</p>
+<p>A negative value of <code>n</code> or <code>prop</code> will be subtracted from the group
+size. For example, <code>n = -2</code> with a group of 5 rows will select 5 - 2 = 3
+rows; <code>prop = -0.25</code> with 8 rows will select 8 * (1 - 0.25) = 6 rows.</p></dd>
 
 
 <dt>order_by</dt>
-<dd><p>Variable or function of variables to order by.</p></dd>
+<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Variable or function
+of variables to order by. To order by multiple variables, wrap them in a
+data frame or tibble.</p></dd>
 
 
 <dt>with_ties</dt>
@@ -264,9 +266,9 @@ computing <code>slice_min()/slice_max()</code>?. The default is <code>TRUE</code
 
 
 <dt>weight_by</dt>
-<dd><p>Sampling weights. This must evaluate to a vector of
-non-negative numbers the same length as the input. Weights are
-automatically standardised to sum to 1.</p></dd>
+<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Sampling weights.
+This must evaluate to a vector of non-negative numbers the same length as
+the input. Weights are automatically standardised to sum to 1.</p></dd>
 
 
 <dt>replace</dt>
