@@ -434,7 +434,10 @@ iso_to_path <- function(iso, group = 1) {
   item_id <- rep(seq_along(iso), lengths)
 
   # Add leading zeros so that groups can be properly sorted
-  groups <- paste(group, sprintf("%03d", item_id), sprintf("%03d", ids), sep = "-")
+  groups <- paste(group, sprintf("%03d", item_id),
+    sprintf("%03d", ids),
+    sep = "-"
+  )
   groups <- factor(groups)
 
   tibble::tibble(

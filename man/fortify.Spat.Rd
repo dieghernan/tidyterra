@@ -102,7 +102,10 @@ ggplot(r, maxcell = 10000) +
 
 # Or any other geom
 ggplot(r) +
-  geom_histogram(aes(x = elevation), bins = 20, fill = "lightblue", color = "black")
+  geom_histogram(aes(x = elevation),
+    bins = 20, fill = "lightblue",
+    color = "black"
+  )
 
 # Create a SpatVector
 extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")

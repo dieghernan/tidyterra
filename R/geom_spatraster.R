@@ -455,7 +455,10 @@ prepare_aes_spatraster <- function(mapping = aes(),
 
 
   # Extract from aes
-  fill_from_aes <- unname(vapply(mapinit, rlang::as_label, character(1))["fill"])
+  fill_from_aes <- unname(vapply(
+    mapinit,
+    rlang::as_label, character(1)
+  )["fill"])
   fill_not_provided <- is.na(fill_from_aes)
   is_layer <- fill_from_aes %in% raster_names
 

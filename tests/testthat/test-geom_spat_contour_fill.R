@@ -30,8 +30,6 @@ test_that("Errors and messages", {
   s <- ggplot() +
     geom_spatraster_contour_filled(data = r) +
     coord_cartesian()
-  # expect_error(ggplot_build(s), regexp = "SpatRasters with crs must be")
-
 
   # Issue a warning on no contours
 

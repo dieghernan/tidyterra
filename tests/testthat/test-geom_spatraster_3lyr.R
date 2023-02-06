@@ -83,8 +83,7 @@ test_that("geom_spatraster several layer with CRS", {
   br <- unique(round(seq(range[1], range[2], 2.5), 0))
 
   # Cut all layers
-
-  r_cat <- r %>% mutate(across(.fns = ~ cut(.x, br)))
+  r_cat <- r %>% mutate(across(everything(), ~ cut(.x, br)))
 
 
   p_cats <- ggplot() +
@@ -312,7 +311,7 @@ test_that("geom_spatraster several layer with no CRS", {
 
   # Cut all layers
 
-  r_cat <- r %>% mutate(across(.fns = ~ cut(.x, br)))
+  r_cat <- r %>% mutate(across(everything(), ~ cut(.x, br)))
 
 
   p_cats <- ggplot() +
