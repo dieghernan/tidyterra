@@ -15,7 +15,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Renviron
-revdep
 docs
 dev
 tidyterra.Rcheck/
@@ -27,3 +26,4 @@ inst/doc
 cran-comments.md
 /doc/
 /Meta/
+.Rdata
