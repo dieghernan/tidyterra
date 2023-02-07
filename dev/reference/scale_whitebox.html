@@ -191,9 +191,77 @@ available palettes, ignoring upper vs. lower case. Values available are:
 
 
 <dt>...</dt>
-<dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">discrete_scale()</a></code>,
-<code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">continuous_scale()</a></code>, or <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">binned_scale()</a></code> to control name, limits, breaks,
-labels and so forth.</p></dd>
+<dd><p>Arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale</a></code></p><dl><dt><code>breaks</code></dt>
+<dd><p>One of:</p><ul><li><p><code>NULL</code> for no breaks</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver()</a></code> for the default breaks (the scale limits)</p></li>
+<li><p>A character vector of breaks</p></li>
+<li><p>A function that takes the limits as input and returns breaks
+as output. Also accepts rlang <a href="https://rlang.r-lib.org/reference/as_function.html" class="external-link">lambda</a> function
+notation.</p></li>
+</ul></dd>
+
+    <dt><code>labels</code></dt>
+<dd><p>One of:</p><ul><li><p><code>NULL</code> for no labels</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver()</a></code> for the default labels computed by the
+transformation object</p></li>
+<li><p>A character vector giving labels (must be same length as <code>breaks</code>)</p></li>
+<li><p>An expression vector (must be the same length as breaks). See ?plotmath for details.</p></li>
+<li><p>A function that takes the breaks as input and returns labels
+as output. Also accepts rlang <a href="https://rlang.r-lib.org/reference/as_function.html" class="external-link">lambda</a> function
+notation.</p></li>
+</ul></dd>
+
+    <dt><code>limits</code></dt>
+<dd><p>One of:</p><ul><li><p><code>NULL</code> to use the default scale values</p></li>
+<li><p>A character vector that defines possible values of the scale and their
+order</p></li>
+<li><p>A function that accepts the existing (automatic) values and returns
+new ones. Also accepts rlang <a href="https://rlang.r-lib.org/reference/as_function.html" class="external-link">lambda</a> function
+notation.</p></li>
+</ul></dd>
+
+    <dt><code>expand</code></dt>
+<dd><p>For position scales, a vector of range expansion constants used to add some
+padding around the data to ensure that they are placed some distance
+away from the axes. Use the convenience function <code><a href="https://ggplot2.tidyverse.org/reference/expansion.html" class="external-link">expansion()</a></code>
+to generate the values for the <code>expand</code> argument. The defaults are to
+expand the scale by 5% on each side for continuous variables, and by
+0.6 units on each side for discrete variables.</p></dd>
+
+    <dt><code>na.translate</code></dt>
+<dd><p>Unlike continuous scales, discrete scales can easily show
+missing values, and do so by default. If you want to remove missing values
+from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
+
+    <dt><code>drop</code></dt>
+<dd><p>Should unused factor levels be omitted from the scale?
+The default, <code>TRUE</code>, uses the levels that appear in the data;
+<code>FALSE</code> uses all the levels in the factor.</p></dd>
+
+    <dt><code>minor_breaks</code></dt>
+<dd><p>One of:</p><ul><li><p><code>NULL</code> for no minor breaks</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver()</a></code> for the default breaks (one minor break between
+each major break)</p></li>
+<li><p>A numeric vector of positions</p></li>
+<li><p>A function that given the limits returns a vector of minor breaks. Also
+accepts rlang <a href="https://rlang.r-lib.org/reference/as_function.html" class="external-link">lambda</a> function notation.</p></li>
+</ul></dd>
+
+    <dt><code>n.breaks</code></dt>
+<dd><p>An integer guiding the number of major breaks. The algorithm
+may choose a slightly different number to ensure nice break labels. Will
+only have an effect if <code>breaks = waiver()</code>. Use <code>NULL</code> to use the default
+number of breaks given by the transformation.</p></dd>
+
+    <dt><code>nice.breaks</code></dt>
+<dd><p>Logical. Should breaks be attempted placed at nice values
+instead of exactly evenly spaced between the limits. If <code>TRUE</code> (default)
+the scale will ask the transformation object to create breaks, and this
+may result in a different number of breaks than requested. Ignored if
+breaks are given explicitly.</p></dd>
+
+  
+</dl></dd>
 
 
 <dt>alpha</dt>
