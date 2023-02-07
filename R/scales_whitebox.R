@@ -26,8 +26,8 @@
 #'
 #' @name scale_whitebox
 #'
-#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams scale_terrain
+#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. Values available are:
 #'

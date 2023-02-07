@@ -26,8 +26,8 @@
 #'
 #' @name scale_wiki
 #'
-#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams scale_terrain
+#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' See also \pkg{ggplot2} docs on additional `...` parameters:

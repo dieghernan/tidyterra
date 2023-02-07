@@ -35,8 +35,8 @@
 #'
 #' @name scale_cross_blended
 #'
-#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams scale_terrain
+#' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See

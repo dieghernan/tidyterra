@@ -38,9 +38,9 @@
 #'
 #' @name scale_hypso
 #'
+#' @inheritParams scale_terrain
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
-#' @inheritParams scale_terrain
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [hypsometric_tints_db] for more info. Values available are:
