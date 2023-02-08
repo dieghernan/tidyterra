@@ -26,8 +26,10 @@
 #'
 #' @name scale_wiki
 #'
+#' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams scale_terrain
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' See also \pkg{ggplot2} docs on additional `...` parameters:

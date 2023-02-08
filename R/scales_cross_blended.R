@@ -35,8 +35,10 @@
 #'
 #' @name scale_cross_blended
 #'
+#' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams scale_terrain
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
