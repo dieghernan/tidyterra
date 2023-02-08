@@ -1,17 +1,17 @@
 # Platform
 
-|field    |value                          |
-|:--------|:------------------------------|
-|version  |R version 4.2.2 (2022-10-31)   |
-|os       |macOS Big Sur ... 10.16        |
-|system   |x86_64, darwin17.0             |
-|ui       |X11                            |
-|language |(EN)                           |
-|collate  |en_US.UTF-8                    |
-|ctype    |en_US.UTF-8                    |
-|tz       |UTC                            |
-|date     |2023-02-08                     |
-|pandoc   |2.19.2 @ /usr/local/bin/pandoc |
+|field    |value                                                                 |
+|:--------|:---------------------------------------------------------------------|
+|version  |R version 4.2.2 (2022-10-31 ucrt)                                     |
+|os       |Windows Server x64 (build 20348)                                      |
+|system   |x86_64, mingw32                                                       |
+|ui       |RTerm                                                                 |
+|language |(EN)                                                                  |
+|collate  |English_United States.utf8                                            |
+|ctype    |English_United States.utf8                                            |
+|tz       |UTC                                                                   |
+|date     |2023-02-08                                                            |
+|pandoc   |2.19.2 @ C:\HOSTED~1\windows\pandoc\219~1.2\x64\PANDOC~1.2\pandoc.exe |
 
 # Dependencies
 
@@ -64,9 +64,10 @@
 
 # Revdeps
 
-## Failed to check (1)
+## Failed to check (2)
 
-|package   |version |error |warning |note |
-|:---------|:-------|:-----|:-------|:----|
-|sparrpowR |0.2.7   |1     |        |     |
+|package  |version |error |warning |note |
+|:--------|:-------|:-----|:-------|:----|
+|biomod2  |4.2-2   |1     |        |     |
+|mapSpain |0.7.0   |1     |        |1    |
 
