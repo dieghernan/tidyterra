@@ -66,8 +66,8 @@
 
 ## Failed to check (2)
 
-|package  |version |error |warning |note |
-|:--------|:-------|:-----|:-------|:----|
-|biomod2  |4.2-2   |1     |        |     |
-|mapSpain |0.7.0   |1     |        |1    |
+|package  |version |error  |warning |note |
+|:--------|:-------|:------|:-------|:----|
+|biomod2  |4.2-2   |1      |        |     |
+|[mapSpain](failures.md#mapspain)|0.7.0   |__+1__ |        |1    |
 

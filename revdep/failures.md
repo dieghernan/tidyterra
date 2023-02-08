@@ -31,10 +31,12 @@ Run `revdepcheck::revdep_details(, "mapSpain")` for more info
 
 </details>
 
-## In both
+## Newly broken
 
 *   R CMD check timed out
     
+
+## In both
 
 *   checking data for non-ASCII characters ... NOTE
     ```
