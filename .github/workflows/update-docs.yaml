@@ -44,8 +44,8 @@ jobs:
 
       - name: Commit results
         run: |
-          git config --local user.name "dieghernan"
-          git config --local user.email "dieghernan@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m 'Update docs with pkgdev' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
@@ -54,7 +54,7 @@ jobs:
 
       - name: Deploy package
         run: |
-          git config --local user.name "$GITHUB_ACTOR"
-          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE, run_dont_run = TRUE)'
 
