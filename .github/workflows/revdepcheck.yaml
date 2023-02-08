@@ -13,8 +13,8 @@ jobs:
       fail-fast: false
       matrix:
         config:
-           #- {os: windows-latest, r: 'release'}
-          - {os: macOS-latest, r: 'release'}
+           - {os: windows-latest, r: 'release'}
+           # - {os: macOS-latest, r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
