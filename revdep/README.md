@@ -10,7 +10,7 @@
 |collate  |English_United States.utf8                                            |
 |ctype    |English_United States.utf8                                            |
 |tz       |UTC                                                                   |
-|date     |2023-02-08                                                            |
+|date     |2023-02-13                                                            |
 |pandoc   |2.19.2 @ C:\HOSTED~1\windows\pandoc\219~1.2\x64\PANDOC~1.2\pandoc.exe |
 
 # Dependencies
@@ -22,7 +22,7 @@
 |cli          |3.6.0  |3.6.0      |   |
 |colorspace   |2.1-0  |2.1-0      |   |
 |cpp11        |0.4.3  |0.4.3      |   |
-|crayon       |1.5.2  |1.5.2      |   |
+|crayon       |1.5.2  |NA         |*  |
 |data.table   |1.14.6 |1.14.6     |   |
 |DBI          |1.1.3  |1.1.3      |   |
 |dplyr        |1.1.0  |1.1.0      |   |
@@ -30,7 +30,7 @@
 |fansi        |1.0.4  |1.0.4      |   |
 |farver       |2.1.1  |2.1.1      |   |
 |generics     |0.1.3  |0.1.3      |   |
-|ggplot2      |3.4.0  |3.4.0      |   |
+|ggplot2      |3.4.1  |3.4.1      |   |
 |glue         |1.6.2  |1.6.2      |   |
 |gtable       |0.3.1  |0.3.1      |   |
 |isoband      |0.2.7  |0.2.7      |   |
@@ -63,11 +63,4 @@
 |wk           |0.7.1  |0.7.1      |   |
 
 # Revdeps
-
-## Failed to check (2)
-
-|package  |version |error  |warning |note |
-|:--------|:-------|:------|:-------|:----|
-|biomod2  |4.2-2   |1      |        |     |
-|[mapSpain](failures.md#mapspain)|0.7.0   |__+1__ |        |1    |
 
