@@ -193,18 +193,6 @@
     },
     "3": {
       "@type": "SoftwareApplication",
-      "identifier": "crayon",
-      "name": "crayon",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=crayon"
-    },
-    "4": {
-      "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
       "provider": {
@@ -215,7 +203,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "5": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -228,7 +216,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "6": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -241,7 +229,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    "7": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -253,7 +241,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -265,7 +253,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "9": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -277,7 +265,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    "10": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -290,7 +278,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -303,7 +291,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -316,7 +304,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -331,7 +319,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "2924.09KB",
+  "fileSize": "2921.891KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

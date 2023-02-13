@@ -78,17 +78,6 @@ references:
   year: '2023'
   version: '>= 3.0.0'
 - type: software
-  title: crayon
-  abstract: 'crayon: Colored Terminal Output'
-  notes: Imports
-  url: https://github.com/r-lib/crayon#readme
-  repository: https://CRAN.R-project.org/package=crayon
-  authors:
-  - family-names: Csárdi
-    given-names: Gábor
-    email: csardi.gabor@gmail.com
-  year: '2023'
-- type: software
   title: data.table
   abstract: 'data.table: Extension of `data.frame`'
   notes: Imports

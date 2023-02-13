@@ -20,5 +20,4 @@ jobs:
       issue-assignees: "dieghernan"
       # Create an issue if one or more of the following
       # statuses are reported on the check report.
-      status-types: "WARNING,ERROR"
- 
+      statuses: "WARNING,ERROR"
