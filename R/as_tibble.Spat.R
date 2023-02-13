@@ -180,11 +180,11 @@ make_layer_names <- function(x) {
   newnames <- newnames[-c(1:2)]
 
   # Make new names
-  message(crayon::black("New layer names:"))
-  message(crayon::black(
+  message(cli::col_black("New layer names:"))
+  message(cli::col_black(
     paste0("`", init_names, "` -> `", newnames, "`", collapse = "\n")
   ))
-  message(crayon::black("\n"))
+  message(cli::col_black("\n"))
 
   names(x) <- newnames
   return(x)

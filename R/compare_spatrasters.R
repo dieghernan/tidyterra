@@ -60,13 +60,13 @@ compare_spatrasters <- function(x, y, digits = 6) {
 
 
     cli::cli_abort(paste(
-      crayon::bold("x"), "and",
-      crayon::bold("y"),
+      cli::style_bold("x"), "and",
+      cli::style_bold("y"),
       "must be SpatRasters.",
-      crayon::bold("x"), "is",
-      crayon::blue(paste0("<", x_class, ">")), ",",
-      crayon::bold("y"), "is",
-      crayon::blue(paste0("<", y_class, ">."))
+      cli::style_bold("x"), "is",
+      cli::col_blue(paste0("<", x_class, ">")), ",",
+      cli::style_bold("y"), "is",
+      cli::col_blue(paste0("<", y_class, ">."))
     ))
   }
 
@@ -87,7 +87,7 @@ compare_spatrasters <- function(x, y, digits = 6) {
 
   # Results
   if (!all(equal_crs, equal_ext, equal_res)) {
-    title <- crayon::bold("Results of compare_spatrasters() (tidyterra)")
+    title <- cli::style_bold("Results of compare_spatrasters() (tidyterra)")
 
     title <- paste(
       title,
@@ -96,24 +96,24 @@ compare_spatrasters <- function(x, y, digits = 6) {
     if (!equal_crs) {
       title <- paste(
         title, "  -",
-        crayon::red("crs"), "\n"
+        cli::col_red("crs"), "\n"
       )
     }
     if (!equal_ext) {
       title <- paste(
         title, "  -",
-        crayon::red("extent"), "\n"
+        cli::col_red("extent"), "\n"
       )
     }
     if (!equal_res) {
       title <- paste(
         title, "  -",
-        crayon::red("resolution"), "\n"
+        cli::col_red("resolution"), "\n"
       )
     }
 
 
-    cli::cli_alert_warning(crayon::black(title))
+    cli::cli_alert_warning(cli::col_black(title))
 
     return(invisible(FALSE))
   }
