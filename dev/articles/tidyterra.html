@@ -264,14 +264,14 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <span></span>
 <span><span class="va">temp</span></span>
 <span><span class="co">#&gt; class       : SpatRaster </span></span>
-<span><span class="co">#&gt; dimensions  : 89, 116, 3  (nrow, ncol, nlyr)</span></span>
-<span><span class="co">#&gt; resolution  : 3856.617, 3856.617  (x, y)</span></span>
-<span><span class="co">#&gt; extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span></span>
+<span><span class="co">#&gt; dimensions  : 87, 118, 3  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 3881.255, 3881.255  (x, y)</span></span>
+<span><span class="co">#&gt; extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : World_Robinson </span></span>
 <span><span class="co">#&gt; source      : cyl_temp.tif </span></span>
-<span><span class="co">#&gt; names       :   tavg_04,   tavg_05,   tavg_06 </span></span>
-<span><span class="co">#&gt; min values  :  0.565614,  4.294102,  8.817221 </span></span>
-<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.113781</span></span>
+<span><span class="co">#&gt; names       :   tavg_04,   tavg_05,  tavg_06 </span></span>
+<span><span class="co">#&gt; min values  :  1.885463,  5.817587, 10.46338 </span></span>
+<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.11378</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="va">temp</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
@@ -282,14 +282,14 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <span></span>
 <span><span class="va">mod</span></span>
 <span><span class="co">#&gt; class       : SpatRaster </span></span>
-<span><span class="co">#&gt; dimensions  : 89, 116, 3  (nrow, ncol, nlyr)</span></span>
-<span><span class="co">#&gt; resolution  : 3856.617, 3856.617  (x, y)</span></span>
-<span><span class="co">#&gt; extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span></span>
+<span><span class="co">#&gt; dimensions  : 87, 118, 3  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 3881.255, 3881.255  (x, y)</span></span>
+<span><span class="co">#&gt; extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : World_Robinson </span></span>
 <span><span class="co">#&gt; source(s)   : memory</span></span>
-<span><span class="co">#&gt; names       : difference,   tavg_05,   tavg_06 </span></span>
-<span><span class="co">#&gt; min values  :   2.786910,  4.294102,  8.817221 </span></span>
-<span><span class="co">#&gt; max values  :   5.408157, 16.740898, 21.113781</span></span></code></pre></div>
+<span><span class="co">#&gt; names       : difference,   tavg_05,  tavg_06 </span></span>
+<span><span class="co">#&gt; min values  :   2.817647,  5.817587, 10.46338 </span></span>
+<span><span class="co">#&gt; max values  :   5.307511, 16.740898, 21.11378</span></span></code></pre></div>
 <p>On the previous example, we had:</p>
 <ul>
 <li><p>Eliminated the first layer of the raster
@@ -381,7 +381,7 @@ your plots:</p>
 <code class="sourceCode R"><span><span class="co"># Change CRS automatically</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3035</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="rgb-2.png" alt="plot of chunk rgb" width="100%"></p>
 <p>{tidyterra} provides selected scales that are suitable for creating
 hypsometric and bathymetric maps:</p>

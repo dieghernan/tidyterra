@@ -136,7 +136,7 @@ and resolution than <code>x</code></p>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">as_coordinates</span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,324 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10,266 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    cellindex rowindex colindex</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>         1        1        1</span>
@@ -149,17 +149,17 @@ and resolution than <code>x</code></p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>         8        1        8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>         9        1        9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>        10        1       10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10,314 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10,256 more rows</span></span>
 <span class="r-in"><span><span class="fu">as_coordinates</span><span class="op">(</span><span class="va">r</span>, as.raster <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 89, 116, 3  (nrow, ncol, nlyr)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 3856.617, 3856.617  (x, y)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 3881.255, 3881.255  (x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : World_Robinson </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> source(s)   : memory</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> names       : cellindex, rowindex, colindex </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         1,        1,        1 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :     10324,       89,      116 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :     10266,       87,      118 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">as_coordinates</span><span class="op">(</span><span class="va">r</span>, as.raster <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="as_coordinates-1.png" alt="" width="2188" height="1352"></span>
