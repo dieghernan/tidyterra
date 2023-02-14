@@ -313,7 +313,6 @@ test_that("geom_spatraster several layer with no CRS", {
 
   r_cat <- r %>% mutate(across(everything(), ~ cut(.x, br)))
 
-
   p_cats <- ggplot() +
     geom_spatraster(data = r_cat) +
     facet_wrap(~lyr) +

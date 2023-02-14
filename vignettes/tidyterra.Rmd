@@ -89,14 +89,14 @@ temp <- rast(f)
 
 temp
 #> class       : SpatRaster 
-#> dimensions  : 89, 116, 3  (nrow, ncol, nlyr)
-#> resolution  : 3856.617, 3856.617  (x, y)
-#> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)
-#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
+#> resolution  : 3881.255, 3881.255  (x, y)
+#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
+#> coord. ref. : World_Robinson 
 #> source      : cyl_temp.tif 
-#> names       :   tavg_04,   tavg_05,   tavg_06 
-#> min values  :  0.565614,  4.294102,  8.817221 
-#> max values  : 13.283829, 16.740898, 21.113781
+#> names       :   tavg_04,   tavg_05,  tavg_06 
+#> min values  :  1.885463,  5.817587, 10.46338 
+#> max values  : 13.283829, 16.740898, 21.11378
 
 mod <- temp %>%
   select(-1) %>%
@@ -107,14 +107,14 @@ mod <- temp %>%
 
 mod
 #> class       : SpatRaster 
-#> dimensions  : 89, 116, 3  (nrow, ncol, nlyr)
-#> resolution  : 3856.617, 3856.617  (x, y)
-#> extent      : 2893583, 3340950, 2019451, 2362690  (xmin, xmax, ymin, ymax)
-#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
+#> resolution  : 3881.255, 3881.255  (x, y)
+#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
+#> coord. ref. : World_Robinson 
 #> source(s)   : memory
-#> names       : difference,   tavg_05,   tavg_06 
-#> min values  :   2.786910,  4.294102,  8.817221 
-#> max values  :   5.408157, 16.740898, 21.113781
+#> names       : difference,   tavg_05,  tavg_06 
+#> min values  :   2.817647,  5.817587, 10.46338 
+#> max values  :   5.307511, 16.740898, 21.11378
 ```
 
 On the previous example, we had:
@@ -220,7 +220,7 @@ rgb_plot
 # Change CRS automatically
 
 rgb_plot +
-  coord_sf(crs = 3035)
+  coord_sf(crs = 3857)
 ```
 
 <img src="./rgb-2.png" alt="plot of chunk rgb" width="100%" />

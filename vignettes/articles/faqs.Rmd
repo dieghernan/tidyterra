@@ -1,8 +1,6 @@
 ---
 title: "tidyterra FAQs"
-description: |
-  Frequently Asked Questions on the use of tidyterra.
-resource_files: vignettes/articles/CHE_elv_msk.tif
+description: Frequently Asked Questions on the use of tidyterra.
 ---
 
 ```{r setup, include = FALSE}
@@ -42,11 +40,12 @@ parameter `na.value` set to `NA`, that prevents NA values to be plotted.
 library(terra)
 library(tidyterra)
 library(ggplot2)
-library(geodata)
 
 # Get a raster data
 
-r <- geodata::elevation_30s("CHE", ".")
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast() %>%
+  filter(elevation > 130 & elevation < 180)
 
 # Default
 def <- ggplot() +
@@ -87,14 +86,13 @@ library(tidyterra)
 library(ggplot2)
 library(metR)
 
-r <- geodata::elevation_30s("CHE", ".")
-names(r) <- "elev"
-
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast()
 
 ggplot(r) +
   geom_spatraster_contour(data = r) +
   geom_text_contour(
-    aes(x, y, z = elev),
+    aes(x, y, z = elevation),
     check_overlap = TRUE,
     stroke = 0.2,
     stroke.colour = "white"
@@ -110,11 +108,11 @@ ggplot(r) +
 ggplot(r) +
   geom_spatraster_contour(
     data = r,
-    binwidth = 1000
+    binwidth = 25
   ) +
   geom_text_contour(
-    aes(x, y, z = elev),
-    binwidth = 1000,
+    aes(x, y, z = elevation),
+    binwidth = 25,
     check_overlap = TRUE,
     stroke = 0.2, stroke.colour = "white"
   ) +
@@ -137,7 +135,8 @@ library(tidyterra)
 library(ggplot2)
 
 
-r <- geodata::elevation_30s("CHE", ".")
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast()
 
 # Hillshade with grey colors
 slope <- terrain(r, "slope", unit = "radians")
@@ -162,7 +161,8 @@ library(tidyterra)
 library(ggplot2)
 
 
-r <- geodata::elevation_30s("CHE", ".")
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast()
 
 p <- ggplot() +
   geom_spatraster(data = r)
@@ -246,46 +246,42 @@ Again, this is the **ggplot2** default, but can be modified with
 library(terra)
 library(tidyterra)
 library(ggplot2)
-library(geodata)
 
-
-r <- geodata::elevation_30s("CHE", ".")
-
-# Project to 3035
-r2 <- project(r, pull_crs(3035))
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast()
 
 ggplot() +
-  geom_spatraster(data = r2) +
+  geom_spatraster(data = r) +
   labs(
     title = "Axis auto-converted to lon/lat",
-    subtitle = "But SpatRaster is EPSG:3035"
+    subtitle = paste("But SpatRaster is EPSG:", st_crs(r)$epsg)
   )
 
 
 # Use datum
 
 ggplot() +
-  geom_spatraster(data = r2) +
-  coord_sf(datum = pull_crs(r2)) +
+  geom_spatraster(data = r) +
+  coord_sf(datum = pull_crs(r)) +
   labs(
     title = "Axis on the units of the SpatRaster",
-    subtitle = "EPSG:3035"
+    subtitle = paste("EPSG:", st_crs(r)$epsg)
   )
 ```
 
 ## Modifying the number of breaks on axis {#axis-breaks}
 
 The best option is to pass your custom breaks to `ggplot2::scale_x_continous()`
-or `ggplot2::scale_y_continous()`:
+or `ggplot2::scale_y_continous()`. You will need to provide the breaks in
+lon/lat even if your data is projected (¿?):
 
 ```{r breaks}
 library(terra)
 library(tidyterra)
 library(ggplot2)
-library(geodata)
 
-
-r <- geodata::elevation_30s("CHE", ".")
+r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+  rast()
 
 ggplot() +
   geom_spatraster(data = r) +
@@ -295,12 +291,17 @@ ggplot() +
 
 # Get extent
 
-ext <- as.vector(ext(r))
-
-br <- seq(ext["xmin"], ext["xmax"], length.out = 3)
+ext <- r %>%
+  project("EPSG:4326", mask = TRUE) %>%
+  ext() %>%
+  as.vector()
+br_x <- seq(ext["xmin"], ext["xmax"], length.out = 3) %>% round(4)
 
 ggplot() +
   geom_spatraster(data = r) +
-  scale_x_continuous(breaks = br) +
+  scale_x_continuous(
+    expand = expansion(mult = 0.1),
+    breaks = br_x
+  ) +
   labs(title = "Three breaks")
 ```

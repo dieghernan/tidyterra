@@ -72,7 +72,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by {tidyterra} are:
 
 | tidyverse method      | SpatVector                    | SpatRaster                                                                                     |
-|-----------------|-----------------|-----------------------------------------------|
+|------------------|------------------|--------------------------------------------|
 | `tibble::as_tibble()` | ✔️                            | ✔️                                                                                             |
 | `dplyr::select()`     | ✔️                            | ✔️ Select layers                                                                               |
 | `dplyr::mutate()`     | ✔️                            | ✔️ Create /modify layers                                                                       |
@@ -210,7 +210,7 @@ plot
 # Recognizes coord_sf()
 plot +
   # Change crs and datum (for relabeling graticules)
-  coord_sf(crs = 3035, datum = 3035)
+  coord_sf(crs = 3857, datum = 3857)
 ```
 
 {tidyterra} provides specific scales for plotting hypsometric maps with
