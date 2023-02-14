@@ -191,7 +191,7 @@ rgb_plot
 # Change CRS automatically
 
 rgb_plot +
-  coord_sf(crs = 3035)
+  coord_sf(crs = 3857)
 ```
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric

@@ -206,7 +206,7 @@ plot
 # Recognizes coord_sf()
 plot +
   # Change crs and datum (for relabeling graticules)
-  coord_sf(crs = 3035, datum = 3035)
+  coord_sf(crs = 3857, datum = 3857)
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%" />
