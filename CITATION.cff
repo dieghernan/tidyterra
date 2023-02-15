@@ -383,17 +383,6 @@ references:
   year: '2023'
   version: '>= 3.0.0'
 - type: software
-  title: tidyverse
-  abstract: 'tidyverse: Easily Install and Load the ''Tidyverse'''
-  notes: Suggests
-  url: https://tidyverse.tidyverse.org
-  repository: https://CRAN.R-project.org/package=tidyverse
-  authors:
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2023'
-- type: software
   title: vdiffr
   abstract: 'vdiffr: Visual Regression Testing and Graphical Diffing'
   notes: Suggests
