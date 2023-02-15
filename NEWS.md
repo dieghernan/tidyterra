@@ -4,6 +4,7 @@
     field equal to `NA` (#74).
 -   Improve docs on `scales_*` (#73) .
 -   Remove dependency on **crayon** package (superseded) in favor of **cli**.
+-   Remove **tidyverse** from Suggests.
 
 # tidyterra 0.3.1
 
