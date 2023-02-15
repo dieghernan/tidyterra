@@ -39,7 +39,6 @@ Suggests:
     rmarkdown,
     s2,
     testthat (>= 3.0.0),
-    tidyverse,
     vdiffr
 VignetteBuilder: 
     knitr
