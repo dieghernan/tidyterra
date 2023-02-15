@@ -10,7 +10,7 @@
 |collate  |English_United States.utf8                                            |
 |ctype    |English_United States.utf8                                            |
 |tz       |UTC                                                                   |
-|date     |2023-02-13                                                            |
+|date     |2023-02-15                                                            |
 |pandoc   |2.19.2 @ C:\HOSTED~1\windows\pandoc\219~1.2\x64\PANDOC~1.2\pandoc.exe |
 
 # Dependencies
@@ -63,4 +63,10 @@
 |wk           |0.7.1  |0.7.1      |   |
 
 # Revdeps
+
+## Failed to check (1)
+
+|package |version |error |warning |note |
+|:-------|:-------|:-----|:-------|:----|
+|biomod2 |4.2-2   |1     |        |     |
 
