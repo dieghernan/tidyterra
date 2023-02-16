@@ -41,11 +41,15 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-# Get a raster data
+# Get a raster data, out beloved volcano on hi-res
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+r <- volcanotemp %>%
   rast() %>%
-  filter(elevation > 130 & elevation < 180)
+  filter(elevation > 80 & elevation < 180)
 
 # Default
 def <- ggplot() +
@@ -86,8 +90,13 @@ library(tidyterra)
 library(ggplot2)
 library(metR)
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
-  rast()
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
 
 ggplot(r) +
   geom_spatraster_contour(data = r) +
@@ -134,9 +143,13 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
-  rast()
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
 
 # Hillshade with grey colors
 slope <- terrain(r, "slope", unit = "radians")
@@ -160,9 +173,13 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
-  rast()
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
 
 p <- ggplot() +
   geom_spatraster(data = r)
@@ -206,7 +223,6 @@ p <- st_point(c(-97.09, 31.53)) %>%
 
 tile1 <- get_tiles(p, provider = "Stamen.Terrain", zoom = 14, cachedir = ".")
 
-
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
   geom_sf(data = p, fill = NA) +
@@ -246,9 +262,15 @@ Again, this is the **ggplot2** default, but can be modified with
 library(terra)
 library(tidyterra)
 library(ggplot2)
+library(sf)
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
-  rast()
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
 
 ggplot() +
   geom_spatraster(data = r) +
@@ -279,9 +301,15 @@ lon/lat even if your data is projected (¿?):
 library(terra)
 library(tidyterra)
 library(ggplot2)
+library(sf)
 
-r <- system.file("./extdata/volcano2.tif", package = "tidyterra") %>%
-  rast()
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+
+if (!file.exists(volcanotemp)) {
+  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
 
 ggplot() +
   geom_spatraster(data = r) +
@@ -295,6 +323,7 @@ ext <- r %>%
   project("EPSG:4326", mask = TRUE) %>%
   ext() %>%
   as.vector()
+
 br_x <- seq(ext["xmin"], ext["xmax"], length.out = 3) %>% round(4)
 
 ggplot() +
