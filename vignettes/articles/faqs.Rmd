@@ -315,7 +315,7 @@ ggplot() +
   geom_spatraster(data = r) +
   labs(title = "Default axis breaks")
 
-# Modify x breaks
+# Modify y breaks
 
 # Get extent
 
@@ -324,13 +324,16 @@ ext <- r %>%
   ext() %>%
   as.vector()
 
-br_x <- seq(ext["xmin"], ext["xmax"], length.out = 3) %>% round(4)
+br_y <- seq(ext["ymin"], ext["ymax"], length.out = 1000) %>%
+  pretty(n = 3) %>%
+  round(3) %>%
+  unique()
 
 ggplot() +
   geom_spatraster(data = r) +
-  scale_x_continuous(
-    expand = expansion(mult = 0.1),
-    breaks = br_x
+  scale_y_continuous(
+    expand = expansion(mult = 0.05),
+    breaks = br_y
   ) +
-  labs(title = "Three breaks")
+  labs(title = "Three breaks on y")
 ```
