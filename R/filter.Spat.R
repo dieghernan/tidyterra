@@ -51,7 +51,7 @@
 #' any case the same crs and resolution than `.data`.
 #'
 #' `x` and `y` variables (i.e. the longitude and latitude of the SpatRaster)
-#' are also available internall for filtering. See **Examples**.
+#' are also available internally for filtering. See **Examples**.
 #'
 #' ## SpatVector
 #'

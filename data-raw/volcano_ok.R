@@ -6,7 +6,7 @@ allrast <- list.files("~/R/mapslib/misc/", pattern = "^DEM_BA32.*tif", full.name
 dem_list <- lapply(allrast, terra::rast)
 dem <- do.call(merge, dem_list) %>% drop_na()
 
-dem_end <- spatSample(dem,size=500000, method = "regular", as.raster = TRUE)
+dem_end <- spatSample(dem, size = 500000, method = "regular", as.raster = TRUE)
 
 
 

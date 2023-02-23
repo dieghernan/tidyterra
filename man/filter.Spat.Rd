@@ -57,7 +57,7 @@ so the extent and number of cells may differ. The output would present in
 any case the same crs and resolution than \code{.data}.
 
 \code{x} and \code{y} variables (i.e. the longitude and latitude of the SpatRaster)
-are also available internall for filtering. See \strong{Examples}.
+are also available internally for filtering. See \strong{Examples}.
 }
 
 \subsection{SpatVector}{

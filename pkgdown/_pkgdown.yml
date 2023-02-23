@@ -39,6 +39,8 @@ navbar:
           href: 'https://michaelpaulschramm.com/posts/2022-07-22-drought/'
         - text: How to read AMSR2 sea ice data with terra (www.pmassicotte.com)
           href: 'https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/'
+        - text: Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)
+          href: 'https://lugoga.github.io/semba-quarto/posts/gebco/'
     twitter:
       icon: fa-twitter
       href: 'http://twitter.com/dhernangomez'

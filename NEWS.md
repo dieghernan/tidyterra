@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.3.2
 
 -   Fix a bug on `pull_crs()` that returned `"NA"` on **sf** objects with any
     field equal to `NA` (#74).

@@ -272,12 +272,12 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.3.1.9000},
+      version = {0.3.2},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }
 
-## Acknowledgements
+## Acknowledgement
 
 {tidyterra} ggplot2 geoms are based on
 [{ggspatial}](https://github.com/paleolimbot/ggspatial) implementation,
