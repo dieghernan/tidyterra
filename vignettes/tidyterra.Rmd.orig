@@ -69,7 +69,7 @@ library(tidyr)
 Currently, the following methods are available:
 
 | tidyverse method      | SpatVector                         | SpatRaster                    |
-|------------------------|------------------------------------|--------------------|
+|------------------------|------------------------------------|---------------------|
 | `tibble::as_tibble()` | ✔️                                 | ✔️                            |
 | `dplyr::filter()`     | ✔️                                 | ✔️                            |
 | `dplyr::mutate()`     | ✔️                                 | ✔️                            |
@@ -78,7 +78,11 @@ Currently, the following methods are available:
 | `dplyr::rename()`     | ✔️                                 | ✔️                            |
 | `dplyr::select()`     | ✔️                                 | ✔️                            |
 | `dplyr::slice()`      | ✔️                                 | ✔️                            |
-| `dplyr::transmute()`  | ✔️                                 | ✔️                            |
+| `dplyr::select()`     | ✔️                                 | ✔️                            |
+| `dplyr::slice()`      | ✔️                                 | ✔️                            |
+| `dplyr::distinct()`   | ✔️                                 |                               |
+| `dplyr::arrange() `   | ✔️                                 |                               |
+| `dplyr::glimpse()`    | ✔️                                 | ✔️                            |
 | `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned)               |
 | `tidyr::replace_na()` | ✔️                                 | ✔️                            |
 | `ggplot2::autoplot()` | ✔️                                 | ✔️                            |

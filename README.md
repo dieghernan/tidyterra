@@ -62,6 +62,9 @@ Current methods and functions provided by {tidyterra} are:
 | `dplyr::pull()`       | ✔️                            | ✔️                                                                                             |
 | `dplyr::rename()`     | ✔️                            | ✔️                                                                                             |
 | `dplyr::relocate()`   | ✔️                            | ✔️                                                                                             |
+| `dplyr::distinct()`   | ✔️                            |                                                                                                |
+| `dplyr::arrange()`    | ✔️                            |                                                                                                |
+| `dplyr::glimpse()`    | ✔️                            | ✔️                                                                                             |
 | `tidyr::drop_na()`    | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | ✔️                            | ✔️                                                                                             |
 | `ggplot2::autoplot()` | ✔️                            | ✔️                                                                                             |
@@ -272,7 +275,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.3.2},
+      version = {0.3.2.9000},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }

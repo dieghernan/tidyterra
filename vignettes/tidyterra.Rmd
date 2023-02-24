@@ -7,8 +7,6 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
 ## Welcome to {tidyterra}
 
 **tidyterra** is a package that add common methods from the
@@ -45,8 +43,7 @@ slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 
 Load {tidyterra} with additional libraries of the {tidyverse}:
 
-
-```r
+``` r
 library(tidyterra)
 library(dplyr)
 #> 
@@ -63,7 +60,7 @@ library(tidyr)
 Currently, the following methods are available:
 
 | tidyverse method      | SpatVector                         | SpatRaster                    |
-|------------------------|------------------------------------|--------------------|
+|-----------------------|------------------------------------|-------------------------------|
 | `tibble::as_tibble()` | ✔️                                 | ✔️                            |
 | `dplyr::filter()`     | ✔️                                 | ✔️                            |
 | `dplyr::mutate()`     | ✔️                                 | ✔️                            |
@@ -72,7 +69,11 @@ Currently, the following methods are available:
 | `dplyr::rename()`     | ✔️                                 | ✔️                            |
 | `dplyr::select()`     | ✔️                                 | ✔️                            |
 | `dplyr::slice()`      | ✔️                                 | ✔️                            |
-| `dplyr::transmute()`  | ✔️                                 | ✔️                            |
+| `dplyr::select()`     | ✔️                                 | ✔️                            |
+| `dplyr::slice()`      | ✔️                                 | ✔️                            |
+| `dplyr::distinct()`   | ✔️                                 |                               |
+| `dplyr::arrange()`    | ✔️                                 |                               |
+| `dplyr::glimpse()`    | ✔️                                 | ✔️                            |
 | `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned)               |
 | `tidyr::replace_na()` | ✔️                                 | ✔️                            |
 | `ggplot2::autoplot()` | ✔️                                 | ✔️                            |
@@ -80,8 +81,7 @@ Currently, the following methods are available:
 
 Let's see some of them in action:
 
-
-```r
+``` r
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -145,8 +145,7 @@ the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
 `ggplot2::coord_sf()`, and may be also reprojected for adjusting the coordinates
 to other spatial layers:
 
-
-```r
+``` r
 library(ggplot2)
 
 # A faceted SpatRaster
@@ -160,9 +159,9 @@ ggplot() +
   )
 ```
 
-<img src="./terraplots-1.png" alt="plot of chunk terraplots" width="100%" />
+<img src="./terraplots-1.png" alt="plot of chunk terraplots" width="100%"/>
 
-```r
+``` r
 
 
 # Contour lines for a specific layer
@@ -178,9 +177,9 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-<img src="./terraplots-2.png" alt="plot of chunk terraplots" width="100%" />
+<img src="./terraplots-2.png" alt="plot of chunk terraplots" width="100%"/>
 
-```r
+``` r
 
 
 # Contour filled
@@ -191,12 +190,11 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-<img src="./terraplots-3.png" alt="plot of chunk terraplots" width="100%" />
+<img src="./terraplots-3.png" alt="plot of chunk terraplots" width="100%"/>
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
-
-```r
+``` r
 # Read a vector
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
@@ -214,22 +212,21 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-<img src="./rgb-1.png" alt="plot of chunk rgb" width="100%" />
+<img src="./rgb-1.png" alt="plot of chunk rgb" width="100%"/>
 
-```r
+``` r
 # Change CRS automatically
 
 rgb_plot +
   coord_sf(crs = 3857)
 ```
 
-<img src="./rgb-2.png" alt="plot of chunk rgb" width="100%" />
+<img src="./rgb-2.png" alt="plot of chunk rgb" width="100%"/>
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
 
-
-```r
+``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
@@ -263,15 +260,14 @@ ggplot() +
   theme(legend.position = "bottom")
 ```
 
-<img src="./hypso-1.png" alt="plot of chunk hypso" width="100%" />
+<img src="./hypso-1.png" alt="plot of chunk hypso" width="100%"/>
 
 ### SpatVectors
 
 {tidyterra} allows you to plot SpatVectors with {ggplot2} using the
 `geom_spatvector()` functions:
 
-
-```r
+``` r
 lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- terra::vect(lux)
@@ -283,7 +279,7 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-<img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%" />
+<img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"/>
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
@@ -300,8 +296,7 @@ polygon, a spatial polygon (i.e. a country).
 the {sf} package, that represents the same information on a tabular way. You can
 convert easily between the two packages like this:
 
-
-```r
+``` r
 lux <- system.file("ex/lux.shp", package = "terra") %>%
   terra::vect()
 
@@ -309,9 +304,9 @@ lux <- system.file("ex/lux.shp", package = "terra") %>%
 terra::plot(lux, main = "SpatVector", axes = TRUE)
 ```
 
-<img src="./terra_sf-1.png" alt="plot of chunk terra_sf" width="100%" />
+<img src="./terra_sf-1.png" alt="plot of chunk terra_sf" width="100%"/>
 
-```r
+``` r
 
 
 # To sf
@@ -330,9 +325,9 @@ head(sfobj, 3)
 plot(sfobj$geometry, main = "sf", axes = TRUE)
 ```
 
-<img src="./terra_sf-2.png" alt="plot of chunk terra_sf" width="100%" />
+<img src="./terra_sf-2.png" alt="plot of chunk terra_sf" width="100%"/>
 
-```r
+``` r
 
 # Back to terra
 
@@ -356,8 +351,7 @@ Since converting SpatVector to {sf} it is straightforward with no loss of
 information, {tidyterra} is specially focused on SpatRasters. See an example of
 how to work with {terra} + {sf} + {dplyr}:
 
-
-```r
+``` r
 library(dplyr)
 library(terra)
 library(sf)
@@ -386,4 +380,4 @@ lux_summ
 terra::plot(lux_summ, "TOTPOP")
 ```
 
-<img src="./full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%" />
+<img src="./full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%"/>

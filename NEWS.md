@@ -1,3 +1,13 @@
+# tidyterra (development version)
+
+-   Add new methods for SpatVectors:
+
+    -   `arrange.SpatVector()`
+
+    -   `distinct.SpatVector()`
+
+-   New `glimpse()` method for SpatRaster and SpatVector.
+
 # tidyterra 0.3.2
 
 -   Fix a bug on `pull_crs()` that returned `"NA"` on **sf** objects with any

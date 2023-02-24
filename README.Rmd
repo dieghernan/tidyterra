@@ -72,7 +72,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by {tidyterra} are:
 
 | tidyverse method      | SpatVector                    | SpatRaster                                                                                     |
-|-------------------|-------------------|------------------------------------------|
+|--------------------|--------------------|----------------------------------------|
 | `tibble::as_tibble()` | ✔️                            | ✔️                                                                                             |
 | `dplyr::select()`     | ✔️                            | ✔️ Select layers                                                                               |
 | `dplyr::mutate()`     | ✔️                            | ✔️ Create /modify layers                                                                       |
@@ -82,6 +82,9 @@ Current methods and functions provided by {tidyterra} are:
 | `dplyr::pull()`       | ✔️                            | ✔️                                                                                             |
 | `dplyr::rename()`     | ✔️                            | ✔️                                                                                             |
 | `dplyr::relocate()`   | ✔️                            | ✔️                                                                                             |
+| `dplyr::distinct()`   | ✔️                            |                                                                                                |
+| `dplyr::arrange()`    | ✔️                            |                                                                                                |
+| `dplyr::glimpse()`    | ✔️                            | ✔️                                                                                             |
 | `tidyr::drop_na()`    | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | ✔️                            | ✔️                                                                                             |
 | `ggplot2::autoplot()` | ✔️                            | ✔️                                                                                             |

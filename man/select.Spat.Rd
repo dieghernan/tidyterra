@@ -90,7 +90,10 @@ v \%>\% select(iso2, name2 = cpro)
 \code{\link[dplyr:select]{dplyr::select()}}, \code{\link[terra:subset]{terra::subset()}}
 
 Other dplyr methods:
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
@@ -98,7 +101,10 @@ Other dplyr methods:
 \code{\link{slice.Spat}}
 
 Other single table verbs: 
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{slice.Spat}}

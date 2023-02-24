@@ -102,7 +102,10 @@ r \%>\%
 \code{\link[dplyr:pull]{dplyr::pull()}}
 
 Other dplyr methods:
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},

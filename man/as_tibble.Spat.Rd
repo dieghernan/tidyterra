@@ -8,7 +8,7 @@
 \usage{
 \method{as_tibble}{SpatRaster}(x, ..., xy = FALSE, na.rm = FALSE, .name_repair = "unique")
 
-\method{as_tibble}{SpatVector}(x, ..., .name_repair = "unique")
+\method{as_tibble}{SpatVector}(x, ..., geom = NULL, .name_repair = "unique")
 }
 \arguments{
 \item{x}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
@@ -31,6 +31,8 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 for names in the style of base R).
 \item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}
 }}
+
+\item{geom}{character or NULL. If not NULL, either "WKT" or "HEX", to get the geometry included in Well-Known-Text or hexadecimal notation. If \code{x} has point geometry, it can also bey "XY" to add the coordinates of each point}
 }
 \value{
 A tibble.
@@ -48,14 +50,14 @@ A tibble.
 
 
 Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} function.
-\subsection{SpatRaster}{
+\subsection{SpatRaster and SpatVector}{
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} The tibble is returned with an attribute
 including the crs of the initial object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 }
 }
 
-\section{About layer names}{
+\section{About layer/column names}{
 
 
 When coercing SpatRaster objects to data frames, \code{x} and \code{y} names are
@@ -75,6 +77,18 @@ latter would happen as well.
 
 tidyterra would display a message informing of the changes on the names of
 the layer.
+
+The same issue happens for SpatVector with names \code{geometry} (when
+\code{geom = c("WKT", "HEX")}) and \code{x}, \code{y} (when \code{geom = "XY"}). These are
+reserved names representing the geometry of the SpatVector (see
+\code{\link[terra:as.data.frame]{terra::as.data.frame()}}). If \code{geom} is not \code{NULL} then the logic described
+for SpatRaster would apply as well for the columns of the SpatVector.
+
+is a reserved name for
+}
+
+\section{About layer names}{
+
 }
 
 \examples{

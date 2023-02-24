@@ -70,7 +70,10 @@ spatrast \%>\%
 \code{\link[dplyr:relocate]{dplyr::relocate()}}
 
 Other dplyr methods:
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{rename.Spat}},

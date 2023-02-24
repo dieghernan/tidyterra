@@ -16,6 +16,27 @@ test_that("For SpatVector", {
   expect_equal(nrow(tbl_opts), nrow(tbl))
   expect_equal(tbl_opts[names(tbl)], tbl)
   expect_gt(ncol(tbl_opts), ncol(tbl))
+
+  # Renaming
+  v2 <- v
+  v2$geometry <- 1
+  res <- expect_message(dplyr::as_tibble(v2, geom = "WKT"))
+
+  expect_false(all(names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]))
+  expect_equal(setdiff(names(res), names(v2)), "geometry.1")
+
+  res <- expect_message(dplyr::as_tibble(v2, geom = "HEX"))
+  expect_false(all(names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]))
+  expect_equal(setdiff(names(res), names(v2)), "geometry.1")
+
+  # With point
+  p <- terra::centroids(v2)
+  p$x <- "A"
+  p$y <- "B"
+
+  res_p <- expect_message(dplyr::as_tibble(p, geom = "XY"))
+  expect_false(all(names(p)[seq_len(ncol(p))] == names(res_p)[seq_len(ncol(p))]))
+  expect_equal(setdiff(names(res_p), names(p)), c("x.1", "y.1"))
 })
 
 

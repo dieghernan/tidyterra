@@ -83,7 +83,10 @@ spatrast \%>\% rename_with(
 \code{\link[dplyr:rename]{dplyr::rename()}}
 
 Other dplyr methods:
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
@@ -91,7 +94,10 @@ Other dplyr methods:
 \code{\link{slice.Spat}}
 
 Other single table verbs: 
+\code{\link{arrange.Spat}},
+\code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
