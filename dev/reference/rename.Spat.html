@@ -20,7 +20,7 @@ using a function."><meta property="og:image" content="https://dieghernan.github.
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +52,7 @@ using a function."><meta property="og:image" content="https://dieghernan.github.
     <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
     <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
     <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
+    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
   </div>
 </li>
 <li class="nav-item">
@@ -96,13 +97,13 @@ using a function.</p>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatRaster</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu">everything</span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">.fn</span>, .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -166,14 +167,20 @@ function call.</p>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">dplyr::rename()</a></code></p>
 <p>Other dplyr methods:
+<code><a href="arrange.Spat.html">arrange.Spat</a></code>,
+<code><a href="distinct.Spat.html">distinct.Spat</a></code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="pull.Spat.html">pull.Spat</a></code>,
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="select.Spat.html">select.Spat</a></code>,
 <code><a href="slice.Spat.html">slice.Spat</a></code></p>
 <p>Other single table verbs: 
+<code><a href="arrange.Spat.html">arrange.Spat</a></code>,
+<code><a href="distinct.Spat.html">distinct.Spat</a></code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="select.Spat.html">select.Spat</a></code>,
 <code><a href="slice.Spat.html">slice.Spat</a></code></p></div>
@@ -213,7 +220,7 @@ function call.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">toupper</span>,</span></span>
-<span class="r-in"><span>  .cols <span class="op">=</span> <span class="fu">starts_with</span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 212, 261, 6  (nrow, ncol, nlyr)</span>

@@ -28,6 +28,9 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/news/index.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/arrange.Spat.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.html</loc>
   </url>
   <url>
@@ -44,6 +47,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/distinct.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.SpatRaster.html</loc>
@@ -68,6 +74,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.html</loc>

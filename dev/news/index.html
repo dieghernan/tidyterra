@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +48,7 @@
     <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
     <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
     <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
+    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
   </div>
 </li>
 <li class="active nav-item">
@@ -81,6 +82,15 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
+<ul><li>
+<p>Add new methods for SpatVectors:</p>
+<ul><li><p><code><a href="../reference/arrange.Spat.html">arrange.SpatVector()</a></code></p></li>
+<li><p><code><a href="../reference/distinct.Spat.html">distinct.SpatVector()</a></code></p></li>
+</ul></li>
+<li><p>New <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse()</a></code> method for SpatRaster and SpatVector.</p></li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.2" id="tidyterra-032">tidyterra 0.3.2<a class="anchor" aria-label="anchor" href="#tidyterra-032"></a></h2><p class="text-muted">CRAN release: 2023-02-24</p>
 <ul><li>Fix a bug on <code><a href="../reference/pull_crs.html">pull_crs()</a></code> that returned <code>"NA"</code> on <strong>sf</strong> objects with any field equal to <code>NA</code> (<a href="https://github.com/dieghernan/tidyterra/issues/74" class="external-link">#74</a>).</li>
 <li>Improve docs on <code>scales_*</code> (<a href="https://github.com/dieghernan/tidyterra/issues/73" class="external-link">#73</a>) .</li>
 <li>Remove dependency on <strong>crayon</strong> package (superseded) in favor of <strong>cli</strong>.</li>
