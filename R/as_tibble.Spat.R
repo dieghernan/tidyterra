@@ -71,11 +71,6 @@
 #' [terra::as.data.frame()]). If `geom` is not `NULL` then the logic described
 #' for SpatRaster would apply as well for the columns of the SpatVector.
 #'
-#'
-#' is a reserved name for
-#'
-#' @section About layer names:
-#'
 #' @examples
 #'
 #' library(terra)

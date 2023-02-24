@@ -23,9 +23,8 @@
 #' @inheritParams as_tibble.Spat
 #' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] Spat
 #'   methods.
-#' @inheritParams dplyr::glimpse
-#'
-#'
+#' @param width  Width of output: defaults to the setting of the
+#'   `width` if finite (see [dplyr::glimpse()]) or the width of the console.
 #' @section terra equivalent:
 #'
 #' `print()`

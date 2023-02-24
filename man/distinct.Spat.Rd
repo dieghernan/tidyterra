@@ -52,11 +52,11 @@ variable explicitly in the \code{...} call. See \strong{Examples}.
 library(terra)
 
 # Create a vector from data frame
-df <- tibble(
+df <- data.frame(
   A = sample(10, 100, rep = TRUE),
   B = sample(10, 100, rep = TRUE),
   lon = sample(c(0, 20), 100, replace = TRUE),
-  lat = sample(c(20, 0), 100, replace = TRUE),
+  lat = sample(c(20, 0), 100, replace = TRUE)
 )
 
 v <- vect(df, crs = pull_crs(4326))

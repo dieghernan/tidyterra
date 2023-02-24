@@ -14,6 +14,9 @@
 \item{x}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
+\item{width}{Width of output: defaults to the setting of the
+\code{width} if finite (see \code{\link[dplyr:glimpse]{dplyr::glimpse()}}) or the width of the console.}
+
 \item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} Spat
 methods.}
 }

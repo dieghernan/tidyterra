@@ -83,12 +83,6 @@ The same issue happens for SpatVector with names \code{geometry} (when
 reserved names representing the geometry of the SpatVector (see
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}). If \code{geom} is not \code{NULL} then the logic described
 for SpatRaster would apply as well for the columns of the SpatVector.
-
-is a reserved name for
-}
-
-\section{About layer names}{
-
 }
 
 \examples{

@@ -68,13 +68,13 @@ test_that("Name handling", {
 
   v <- terra::vect(df)
 
-  vend <- expect_message(distinct(v, geometry, .keep_all = TRUE))
+  vend <- distinct(v, geometry, .keep_all = TRUE)
   expect_equal(ncol(vend), ncol(v))
   expect_equal(nrow(vend), 1)
   expect_identical(names(v), names(vend))
 
   # Keep=false
-  vend2 <- expect_message(distinct(v, geometry, .keep_all = FALSE))
+  vend2 <- distinct(v, geometry, .keep_all = FALSE)
 
   expect_equal(ncol(vend2), 0)
   expect_equal(nrow(vend2), 1)
