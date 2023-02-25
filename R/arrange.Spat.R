@@ -5,8 +5,8 @@
 #' selected columns.
 #'
 #' @export
-#' @rdname arrange.Spat
-#' @name arrange.Spat
+#' @rdname arrange.SpatVector
+#' @name arrange.SpatVector
 #'
 #' @seealso [dplyr::arrange()]
 #'
@@ -15,7 +15,7 @@
 #'
 #' @importFrom dplyr arrange
 #'
-#' @inheritParams distinct.Spat
+#' @inheritParams distinct.SpatVector
 #' @param ... <[`data-masking`][dplyr::arrange]> Variables, or functions of
 #'   variables. Use [dplyr::desc()] to sort a variable in descending order.
 #' @param .by_group Ignored by this method

@@ -4,8 +4,8 @@
 #' Keep only unique/distinct rows and geometries from a SpatVector.
 #'
 #' @export
-#' @rdname distinct.Spat
-#' @name distinct.Spat
+#' @rdname distinct.SpatVector
+#' @name distinct.SpatVector
 #'
 #' @seealso [dplyr::distinct()], [terra::unique()]
 #'

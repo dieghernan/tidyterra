@@ -8,8 +8,8 @@
 #' See [dplyr::inner_join()] for details.
 #'
 #' @export
-#' @rdname mutate-joins.Spat
-#' @name mutate-joins.Spat
+#' @rdname mutate-joins.SpatVector
+#' @name mutate-joins.SpatVector
 #'
 #' @seealso [dplyr::inner_join()], [dplyr::left_join()], [dplyr::right_join()],
 #' [dplyr::full_join()], [terra::merge()]
@@ -22,7 +22,7 @@
 #' @param x A SpatVector created with [terra::vect()].
 #' @param y A data frame or other object coercible to a data frame. **If a
 #'   SpatVector of sf object** is provided it would return an error (see
-#'   [terra::intersect()] for performing spatial joins)
+#'   [terra::intersect()] for performing spatial joins).
 #'
 #' @inheritParams dplyr::full_join
 #'
@@ -31,7 +31,7 @@
 #'
 #' @section terra equivalent:
 #'
-#' [terra::unique()]
+#' [terra::merge()]
 #'
 #' @section Methods:
 #'
