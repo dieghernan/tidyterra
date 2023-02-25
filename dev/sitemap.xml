@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/articles/faqs.html</loc>
   </url>
   <url>
@@ -19,16 +25,10 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/index.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/LICENSE.html</loc>
-  </url>
-  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/news/index.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/arrange.Spat.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.html</loc>
@@ -49,7 +49,7 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/distinct.Spat.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.SpatRaster.html</loc>
@@ -64,13 +64,13 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.html</loc>
-  </url>
-  <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html</loc>
@@ -88,7 +88,7 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.Spat.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.html</loc>
