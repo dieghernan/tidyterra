@@ -139,7 +139,7 @@ dplyr::inner_join
 
 #' @importFrom dplyr left_join
 #' @export
-#' @name mutate-joins.Spat
+#' @name mutate-joins.SpatVector
 left_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                  suffix = c(".x", ".y"), ..., keep = NULL) {
   # Use sf method
@@ -179,7 +179,7 @@ dplyr::left_join
 
 #' @importFrom dplyr right_join
 #' @export
-#' @name mutate-joins.Spat
+#' @name mutate-joins.SpatVector
 right_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                   suffix = c(".x", ".y"), ..., keep = NULL) {
   # Use sf method
@@ -260,7 +260,7 @@ dplyr::right_join
 
 #' @importFrom dplyr full_join
 #' @export
-#' @name mutate-joins.Spat
+#' @name mutate-joins.SpatVector
 full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                  suffix = c(".x", ".y"), ..., keep = NULL) {
   # Use sf method
