@@ -92,11 +92,11 @@ v \%>\%
 \code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:transmute]{dplyr::transmute()}}
 
 Other dplyr methods:
-\code{\link{arrange.Spat}},
-\code{\link{distinct.Spat}},
+\code{\link{arrange.SpatVector}()},
+\code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
-\code{\link{mutate-joins.Spat}},
+\code{\link{mutate-joins.SpatVector}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
@@ -104,8 +104,8 @@ Other dplyr methods:
 \code{\link{slice.Spat}}
 
 Other single table verbs: 
-\code{\link{arrange.Spat}},
-\code{\link{distinct.Spat}},
+\code{\link{arrange.SpatVector}()},
+\code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{rename.Spat}},
