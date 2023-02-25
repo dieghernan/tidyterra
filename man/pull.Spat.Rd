@@ -106,6 +106,7 @@ Other dplyr methods:
 \code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
+\code{\link{mutate-joins.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},

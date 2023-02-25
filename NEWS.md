@@ -2,11 +2,13 @@
 
 -   Add new methods for SpatVectors:
 
+    -   `glimpse.SpatVector()`
     -   `arrange.SpatVector()`
-
     -   `distinct.SpatVector()`
+    -   `inner_join.SpatVector()`, `left_join.SpatVector()`,
+        `right_join.SpatVector()` and `full_join.SpatVector()`.
 
--   New `glimpse()` method for SpatRaster and SpatVector.
+-   New `glimpse()` method for SpatRaster.
 
 # tidyterra 0.3.2
 
@@ -20,10 +22,8 @@
 
 -   New **ggplot2** methods added:
     -   Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
-
         -   `autoplot.SpatRaster()` now is smarter on identifying the type of
             plot to produce. Can still be overridden with parameters.
-
     -   Methods for fortifying SpatRasters and SpatVectors:
         `fortify.SpatRaster()`, `fortify.SpatVector()`.
 -   Three additional palettes are included on `hypso.colors()`: `"artic"`,
@@ -37,22 +37,15 @@
 # tidyterra 0.3.0
 
 -   Package back to CRAN.
-
 -   Libraries **dplyr**, **tidyr**, **tibble** are not attached by default.
     Needed functions are reexported instead.
-
 -   Improvements on `geom_spatraster()`:
-
     -   Now in `geom_spatraster()` is possible to avoid the default `fill` of
         the layer using `geom_spatraster(fill = NA)` or
         `geom_spatraster(aes(fill = NULL))`.
-
     -   `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
-
     -   Internal: Better handling of `aes()` and layers
-
 -   Add new function `stat_spatraster()`.
-
 -   Reduce the size of external files.
 
 # tidyterra 0.2.2
@@ -73,25 +66,19 @@
 -   Recreate `extdata/volcano2.tif` using official DEM information from New
     Zealand. Source: [Auckland LiDAR 1m DEM
     (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
-
 -   Add `volcano2` dataset.
-
 -   Fix errors on `slice_min()` and `slice_max()` for SpatRasters (#20). Also
     add a new parameter `na.rm`.
-
 -   Add new gradient scales for use on hypsometry:
-
     -   `scale_fill_hypso_c()`
     -   `scale_fill_whitebox_c()`
     -   `scale_fill_wiki_c()`
     -   `scale_fill_cross_blended_c()`
-
 -   Add new asia.tif file on `extdata`.
 
 # tidyterra 0.1.0
 
 -   Add DOI.
-
 -   CRAN release.
 
 # tidyterra 0.0.1
@@ -99,9 +86,7 @@
 -   Improvements on performance:
 
     -   Conversion to tibble is avoided as much as possible.
-
     -   Internally use `data.table` instead of tibbles.
-
     -   The package is compatible with `dtplyr`.
 
 -   `as_spatraster()` handles tibbles with characters and factors.
@@ -112,9 +97,7 @@
 -   New methods:
 
     -   `pull()`
-
     -   `transmute()`
-
     -   `rename()`
 
 -   New geoms:

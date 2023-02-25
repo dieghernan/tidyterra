@@ -77,6 +77,7 @@ Other dplyr methods:
 \code{\link{arrange.Spat}},
 \code{\link{distinct.Spat}},
 \code{\link{filter.Spat}},
+\code{\link{mutate-joins.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
