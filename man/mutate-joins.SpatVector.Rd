@@ -3,9 +3,42 @@
 \name{mutate-joins.SpatVector}
 \alias{mutate-joins.SpatVector}
 \alias{inner_join.SpatVector}
+\alias{left_join.SpatVector}
+\alias{right_join.SpatVector}
+\alias{full_join.SpatVector}
 \title{Mutating joins for SpatVectors}
 \usage{
 \method{inner_join}{SpatVector}(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+)
+
+\method{left_join}{SpatVector}(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+)
+
+\method{right_join}{SpatVector}(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+)
+
+\method{full_join}{SpatVector}(
   x,
   y,
   by = NULL,
