@@ -146,6 +146,7 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct()</a></code>, <code><a href="https://rdrr.io/pkg/terra/man/unique.html" class="external-link">terra::unique()</a></code></p>
 <p>Other dplyr methods:
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
 <code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
 <code><a href="mutate-joins.SpatVector.html">mutate-joins.SpatVector</a></code>,
@@ -188,9 +189,9 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     A     B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;int&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     3     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    4     7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    8     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    5    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    9     2</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 100</span>
 <span class="r-in"><span></span></span>
@@ -200,50 +201,50 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-in"><span><span class="va">ex1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : points </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 86, 2  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 83, 2  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 0, 20, 0, 20  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     A     B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;int&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     3     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    4     7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    8     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    5    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    9     2</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 86</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 83</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Duplicates by A</span></span></span>
 <span class="r-in"><span><span class="va">ex2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">A</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">ex2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : points </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 39, 1  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 37, 1  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 0, 20, 0, 20  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     A</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 37</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Same but keeping all cols</span></span></span>
 <span class="r-in"><span><span class="va">ex2b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">A</span>, .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">ex2b</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : points </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 39, 2  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 37, 2  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 0, 20, 0, 20  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     A     B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;int&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     3     3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    4     7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    8     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    5    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    9     2</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex2b</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 39</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 37</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Unique geometries</span></span></span>

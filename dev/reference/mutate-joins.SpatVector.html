@@ -248,6 +248,7 @@ backend of <code>*_join.SpatVector()</code> is the implementation made on <span 
 <p>Other dplyr methods:
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
 <code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
@@ -255,7 +256,11 @@ backend of <code>*_join.SpatVector()</code> is the implementation made on <span 
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,
 <code><a href="select.Spat.html">select.Spat</a></code>,
-<code><a href="slice.Spat.html">slice.Spat</a></code></p></div>
+<code><a href="slice.Spat.html">slice.Spat</a></code></p>
+<p>Other two table verbs: 
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code></p>
+<p>Other joins:
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -291,8 +296,6 @@ backend of <code>*_join.SpatVector()</code> is the implementation made on <span 
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">left</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">letter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Left Join"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
 <span class="r-plt img"><img src="mutate-joins.SpatVector-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -318,15 +321,11 @@ backend of <code>*_join.SpatVector()</code> is the implementation made on <span 
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 17</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">full</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">letter</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Full Join"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
 <span class="r-plt img"><img src="mutate-joins.SpatVector-5.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check with data from df</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">full</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">letter</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion to integer range</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 7 rows containing missing values (`geom_point()`).</span>
 <span class="r-plt img"><img src="mutate-joins.SpatVector-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
