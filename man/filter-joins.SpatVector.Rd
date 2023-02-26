@@ -126,6 +126,7 @@ Other dplyr methods:
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
+\code{\link{group-by.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

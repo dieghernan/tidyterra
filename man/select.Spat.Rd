@@ -95,6 +95,7 @@ Other dplyr methods:
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
+\code{\link{group-by.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
@@ -107,6 +108,7 @@ Other single table verbs:
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
+\code{\link{group-by.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{slice.Spat}}
