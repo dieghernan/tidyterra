@@ -94,6 +94,7 @@ v \%>\%
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
+\code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{mutate-joins.SpatVector}},

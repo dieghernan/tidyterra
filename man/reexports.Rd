@@ -19,6 +19,8 @@
 \alias{left_join}
 \alias{right_join}
 \alias{full_join}
+\alias{semi_join}
+\alias{anti_join}
 \alias{mutate}
 \alias{transmute}
 \alias{pull}
@@ -40,7 +42,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{dplyr}{\code{\link[dplyr]{arrange}}, \code{\link[dplyr]{distinct}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr:mutate-joins]{full_join}}, \code{\link[dplyr]{glimpse}}, \code{\link[dplyr:mutate-joins]{inner_join}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr:rename]{rename_with}}, \code{\link[dplyr:mutate-joins]{right_join}}, \code{\link[dplyr]{select}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{transmute}}}
+  \item{dplyr}{\code{\link[dplyr:filter-joins]{anti_join}}, \code{\link[dplyr]{arrange}}, \code{\link[dplyr]{distinct}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr:mutate-joins]{full_join}}, \code{\link[dplyr]{glimpse}}, \code{\link[dplyr:mutate-joins]{inner_join}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr:rename]{rename_with}}, \code{\link[dplyr:mutate-joins]{right_join}}, \code{\link[dplyr]{select}}, \code{\link[dplyr:filter-joins]{semi_join}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{transmute}}}
 
   \item{ggplot2}{\code{\link[ggplot2]{autoplot}}, \code{\link[ggplot2]{fortify}}}
 

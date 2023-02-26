@@ -16,6 +16,7 @@
 #'
 #' @family dplyr.methods
 #' @family two table verbs
+#' @family joins
 #'
 #' @importFrom dplyr inner_join
 #'
@@ -339,3 +340,151 @@ full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
 
 #' @export
 dplyr::full_join
+
+
+#' Filtering joins for SpatVectors
+#'
+#' @description
+#' Filtering joins filter rows from `x` based on the presence or absence of
+#' matches in `y`:
+#'  - [semi_join()] return all rows from `x` with a match in `y`.
+#'  - [anti_join()] return all rows from `x` without a match in `y`.
+#'
+#' See [dplyr::semi_join()] for details.
+#'
+#' @export
+#' @rdname filter-joins.SpatVector
+#' @name filter-joins.SpatVector
+#'
+#' @seealso [dplyr::semi_join()], [dplyr::anti_join()], [terra::merge()]
+#'
+#' @family dplyr.methods
+#' @family two table verbs
+#' @family joins
+#'
+#' @importFrom dplyr semi_join
+#'
+#' @inheritParams mutate-joins.SpatVector
+#'
+#' @return A SpatVector object.
+#'
+#'
+#' @section terra equivalent:
+#'
+#' [terra::merge()]
+#'
+#' @section Methods:
+#'
+#' Implementation of the **generic** [dplyr::semi_join()] family
+#'
+#' ## SpatVector
+#'
+#' The geometry column has a sticky behavior. This means that the result would
+#' have always the geometry of `x` for the records that matches the join
+#' conditions.
+#'
+#' @examples
+#' library(terra)
+#' library(ggplot2)
+#'
+#' # Vector
+#' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#'
+#' # A data frame
+#' df <- data.frame(
+#'   cpro = sprintf("%02d", 1:10),
+#'   x = 1:10,
+#'   y = 11:20,
+#'   letter = rep_len(LETTERS[1:3], length.out = 10)
+#' )
+#'
+#' v
+#'
+#' # Semi join
+#' semi <- v %>% semi_join(df)
+#'
+#' semi
+#'
+#' autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
+#'
+#'
+#' # Anti join
+#'
+#' anti <- v %>% anti_join(df)
+#'
+#' anti
+#'
+#' autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
+#'
+semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
+  # Use sf method
+  sf_obj <- sf::st_as_sf(x)
+
+  if (inherits(y, "SpatVector")) {
+    cli::cli_abort(paste0(
+      cli::col_blue("y"),
+      " should not have class ",
+      cli::col_blue("`SpatVector`"),
+      ". For spatial_joins use ",
+      cli::col_blue("`terra::intersect(x, y)`")
+    ))
+  }
+
+  if (inherits(y, "sf")) {
+    cli::cli_abort(paste0(
+      cli::col_blue("y"),
+      " should not have class ",
+      cli::col_blue("`sf`"),
+      ". For spatial_joins use ",
+      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
+    ))
+  }
+  y <- as.data.frame(y)
+
+  joined <- dplyr::semi_join(sf_obj,
+    y = y, by = by, copy = copy, ...
+  )
+
+  return(terra::vect(joined))
+}
+
+#' @export
+dplyr::semi_join
+
+#' @importFrom dplyr anti_join
+#' @export
+#' @name filter-joins.SpatVector
+anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
+  # Use sf method
+  sf_obj <- sf::st_as_sf(x)
+
+  if (inherits(y, "SpatVector")) {
+    cli::cli_abort(paste0(
+      cli::col_blue("y"),
+      " should not have class ",
+      cli::col_blue("`SpatVector`"),
+      ". For spatial_joins use ",
+      cli::col_blue("`terra::intersect(x, y)`")
+    ))
+  }
+
+  if (inherits(y, "sf")) {
+    cli::cli_abort(paste0(
+      cli::col_blue("y"),
+      " should not have class ",
+      cli::col_blue("`sf`"),
+      ". For spatial_joins use ",
+      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
+    ))
+  }
+
+  y <- as.data.frame(y)
+  joined <- dplyr::anti_join(sf_obj,
+    y = y, by = by, copy = copy, ...
+  )
+
+  return(terra::vect(joined))
+}
+
+#' @export
+dplyr::anti_join

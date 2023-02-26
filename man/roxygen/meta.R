@@ -6,6 +6,7 @@ list(
     tidyr.method = "Other tidyr methods:",
     ggplot2.utils = "Other ggplot2 utils:",
     ggplot2.methods = "Other ggplot2 methods:",
+    joins = "Other joins:",
     gradients = "Other gradient scales and palettes for hypsometry:"
   )
 )
