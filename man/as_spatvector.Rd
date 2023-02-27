@@ -2,12 +2,24 @@
 % Please edit documentation in R/as_spatvector.R
 \name{as_spatvector}
 \alias{as_spatvector}
-\title{Coerce a data frame to SpatVector}
+\alias{as_spatvector.data.frame}
+\alias{as_spatvector.sf}
+\alias{as_spatvector.sfc}
+\alias{as_spatvector.SpatVector}
+\title{Method for coercing objects to to SpatVector}
 \usage{
-as_spatvector(x, ..., geom = c("lon", "lat"), crs = "")
+as_spatvector(x, ...)
+
+\method{as_spatvector}{data.frame}(x, ..., geom = c("lon", "lat"), crs = "")
+
+\method{as_spatvector}{sf}(x, ...)
+
+\method{as_spatvector}{sfc}(x, ...)
+
+\method{as_spatvector}{SpatVector}(x, ...)
 }
 \arguments{
-\item{x}{A tibble or data frame.}
+\item{x}{A tibble, data frame, sf or sfc object.}
 
 \item{...}{additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 
@@ -23,18 +35,20 @@ reference system. See \code{\link[=pull_crs]{pull_crs()}}. See \strong{Details}.
 A SpatVector.
 }
 \description{
-\code{as_spatvector()} turns an existing  data frame or tibble, into a SpatVector.
-This is a wrapper of \code{\link[terra:vect]{terra::vect()}} S4 method for \code{data.frame}.
+\code{as_spatvector()} turns an existing  object into a SpatVector. This is a
+wrapper of \code{\link[terra:vect]{terra::vect()}} S4 method.
 }
 \details{
-This function differs from \code{\link[terra:vect]{terra::vect()}} on the following aspects:
+This function differs from \code{\link[terra:vect]{terra::vect()}} on the following:
 \itemize{
-\item If no \code{crs} is provided and the tibble has been created with the method
-\code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}}, the \code{crs} is inferred from \code{attr(x, "crs")}.
 \item geometries with \code{NA/""} values are removed prior to conversion
 \item If \code{x} is a grouped data frame (see \code{\link[dplyr:group_by]{dplyr::group_by()}}) the grouping
 vars are transferred and a "grouped" SpatVector is created (see
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).
+\item If no \code{crs} is provided and the tibble has been created with the method
+\code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}}, the \code{crs} is inferred from \code{attr(x, "crs")}.
+\item Handles correctly the conversion of \code{EMPTY} geometries between \pkg{sf}
+and \pkg{terra}.
 }
 }
 \section{terra equivalent}{

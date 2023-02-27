@@ -1,16 +1,22 @@
-#' Coerce a data frame to SpatVector
+#' Method for coercing objects to to SpatVector
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing  data frame or tibble, into a SpatVector.
-#' This is a wrapper of [terra::vect()] S4 method for `data.frame`.
+#' `as_spatvector()` turns an existing  object into a SpatVector. This is a
+#' wrapper of [terra::vect()] S4 method.
 #'
 #' @return
 #' A SpatVector.
 #'
 #' @export
 #'
-#' @param x A tibble or data frame.
+#' @name as_spatvector
+#' @rdname as_spatvector
+#'
+#' @param x A tibble, data frame, sf or sfc object.
+#'
+#' @param ... additional arguments passed on to [terra::vect()].
+#'
 #' @param geom character. The field name(s) with the geometry data. Either
 #'   two names for x and y coordinates of points, or a single name for a single
 #'   column with WKT geometries.
@@ -19,18 +25,19 @@
 #'   and spatial object from sf or terra that includes the target coordinate
 #'   reference system. See [pull_crs()]. See **Details**.
 #'
-#' @param ... additional arguments passed on to [terra::vect()].
 #'
 #' @details
 #'
+#' This function differs from [terra::vect()] on the following:
 #'
-#' This function differs from [terra::vect()] on the following aspects:
-#' - If no `crs` is provided and the tibble has been created with the method
-#'   [as_tibble.SpatVector()], the `crs` is inferred from `attr(x, "crs")`.
 #' - geometries with `NA/""` values are removed prior to conversion
 #' - If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
 #'   vars are transferred and a "grouped" SpatVector is created (see
 #'   [group_by.SpatVector()]).
+#' - If no `crs` is provided and the tibble has been created with the method
+#'   [as_tibble.SpatVector()], the `crs` is inferred from `attr(x, "crs")`.
+#' - Handles correctly the conversion of `EMPTY` geometries between \pkg{sf}
+#'   and \pkg{terra}.
 #'
 #'
 #' @family coerce
@@ -58,19 +65,14 @@
 #' # From tibble
 #' newvect <- as_spatvector(as_tbl, geom = "geometry", crs = "epsg:3857")
 #' newvect
-
 #'
-as_spatvector <- function(x, ..., geom = c("lon", "lat"), crs = "") {
-  if (inherits(x, "SpatVector")) {
-    return(x)
-  }
+as_spatvector <- function(x, ...) {
+  UseMethod("as_spatvector")
+}
 
-  if (!inherits(x, "data.frame")) {
-    cli::cli_abort(
-      "x should be a data.frame/tibble"
-    )
-  }
-
+#' @rdname as_spatvector
+#' @export
+as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (!length(geom) %in% c(1, 2)) {
     stop("geom should be of lenght 1 or 2")
   }
@@ -108,7 +110,8 @@ as_spatvector <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 
   if (nrow(tbl) != nrow(tbl_end)) {
     message(paste0(
-      "Removed ", nrow(tbl) - nrow(tbl_end), " row(s) with empty geom column(s) <",
+      "Removed ", nrow(tbl) - nrow(tbl_end),
+      " row(s) with empty geom column(s) <",
       paste0(geom, collapse = ","), ">"
     ))
   }
@@ -130,12 +133,76 @@ as_spatvector <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (dplyr::is_grouped_df(x)) {
     vars <- dplyr::group_vars(x)
 
-    v <- group_by(v, dplyr::across(dplyr::all_of(vars)))
+    # Use manual grouping here to make the method work properly
+    v$dplyr.group_vars <- NA
+    v$dplyr.group_vars[[1]] <- paste0(vars, collapse = ",")
   }
 
   return(v)
 }
 
+#' @rdname as_spatvector
+#' @export
+as_spatvector.sf <- function(x, ...) {
+  sf_col <- attr(x, "sf_column")
+
+  # Create template with basic metadata
+  template <- as_tbl_spatvect_attr(terra::vect(x[!sf::st_is_empty(x), sf_col]))
+  attr_template <- attributes(template)
+
+
+  # Get tibble
+  tbl <- sf::st_drop_geometry(x)
+
+  # Check and manipulate empty geoms
+  gg <- as.character(sf::st_as_text(sf::st_geometry(x)))
+
+  if (any(sf::st_is_empty(x))) {
+    gtype <- tolower(attr_template$geomtype)
+
+    # Needs to be MULTI except for POINT
+    empty_geom <- switch(gtype,
+      "polygons" = "MULTIPOLYGON EMPTY",
+      "lines" = "MULTILINESTRING EMPTY",
+      "POINT EMPTY"
+    )
+
+
+    gg[sf::st_is_empty(x)] <- empty_geom
+  }
+
+  # Rebuild tibble
+  dfgeom <- data.frame(x = gg)
+  names(dfgeom) <- sf_col
+  final_tibble <- dplyr::bind_cols(tbl, dfgeom)
+
+  # Add grouping if already grouped
+  if (dplyr::is_grouped_df(x)) {
+    vars_sf <- dplyr::group_vars(x)
+    final_tibble <- dplyr::group_by(
+      final_tibble,
+      dplyr::across(dplyr::all_of(vars_sf))
+    )
+  }
+
+  rm(gg)
+
+  as_spatvector(final_tibble, geom = sf_col, crs = pull_crs(attr_template$crs))
+}
+
+#' @rdname as_spatvector
+#' @export
+as_spatvector.sfc <- function(x, ...) {
+  x_df <- sf::st_as_sf(x)
+
+  as_spatvector(x_df)
+}
+
+#' @rdname as_spatvector
+#' @export
+as_spatvector.SpatVector <- function(x, ...) {
+  return(x)
+}
 
 
 #' Rebuild objects created with as_tbl_spatvect_attr to Spatvector
@@ -177,7 +244,6 @@ as_spatvect_attr <- function(x) {
       "lines" = "MULTILINESTRING EMPTY",
       "POINT EMPTY"
     )
-
 
     gg[is.na(gg)] <- empty_geom
 

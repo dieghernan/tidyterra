@@ -2,6 +2,10 @@
 
 S3method(anti_join,SpatVector)
 S3method(arrange,SpatVector)
+S3method(as_spatvector,SpatVector)
+S3method(as_spatvector,data.frame)
+S3method(as_spatvector,sf)
+S3method(as_spatvector,sfc)
 S3method(as_tibble,SpatRaster)
 S3method(as_tibble,SpatVector)
 S3method(autoplot,SpatRaster)

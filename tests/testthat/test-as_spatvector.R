@@ -8,9 +8,8 @@ test_that("Error check", {
   expect_error(as_spatvector(as_tbl, geom = NA))
   expect_error(as_spatvector(as_tbl, geom = c("a", "b", "c")))
   expect_error(as_spatvector(as_tbl, geom = 1))
-  expect_error(as_spatvector(as.matrix(as_tbl)),
-    regexp = "should be a data.frame"
-  )
+  expect_error(as_spatvector(as.matrix(as_tbl)))
+
   expect_silent(as_spatvector(as_tbl, geom = c("x", "y"), crs = "EPSG:4326"))
 })
 
@@ -154,6 +153,107 @@ test_that("Works with grouped_df", {
   expect_identical(gr, tbl_regen)
 })
 
+test_that("Works with sf", {
+  sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+  expect_s3_class(sfobj, "sf")
+
+  fromsf <- as_spatvector(sfobj)
+
+  # Keep grouping
+  sfobj_grouped <- dplyr::group_by(sfobj, iso2, first = substr(name, 1, 1))
+
+  expect_true(dplyr::is_grouped_df(sfobj_grouped))
+
+  fromsfgrouped <- as_spatvector(sfobj_grouped)
+
+  expect_true(is_grouped_spatvector(fromsfgrouped))
+
+  expect_identical(
+    dplyr::group_data(sfobj_grouped),
+    group_data(fromsfgrouped)
+  )
+
+  # Keep geoms even with other names
+  sf2 <- sf::st_sf(x = 1, geom2 = sf::st_geometry(sfobj))
+  expect_true(attr(sf2, "sf_column") == "geom2")
+
+  fromsf2 <- as_spatvector(sf2)
+})
+
+test_that("Check sfc", {
+  sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  sfobj <- sf::st_geometry(sfobj)
+  expect_s3_class(sfobj, "sfc")
+
+  fromsf <- as_spatvector(sfobj)
+
+  expect_equal(ncol(fromsf), 0)
+})
+
+test_that("Check sf with crs null", {
+  sfobj <- sf::st_point(c(0, 0))
+  sfobj <- sf::st_sfc(sfobj)
+
+  expect_true(is.na(pull_crs(sfobj)))
+
+  fromsf <- as_spatvector(sfobj)
+
+  expect_true(is.na(pull_crs(fromsf)))
+})
+
+test_that("Check sf with empty geoms: POLYGONS", {
+  sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+  sfobj <- dplyr::bind_rows(sfobj, data.frame(a = 1))
+
+  expect_true(any(sf::st_is_empty(sfobj)))
+
+  assp <- as_spatvector(sfobj)
+
+  expect_equal(terra::geomtype(assp), "polygons")
+
+  # Can convert back to sf
+
+  expect_silent(sf::st_as_sf(assp))
+  expect_true(any(sf::st_is_empty(sf::st_as_sf(assp))))
+})
+
+test_that("Check sf with empty geoms: LINESTRINGS", {
+  sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+  sfobj <- sf::st_cast(sfobj, "MULTILINESTRING", warn = FALSE)
+  sfobj <- dplyr::bind_rows(sfobj, data.frame(a = 1))
+
+  expect_true(any(sf::st_is_empty(sfobj)))
+
+  assp <- as_spatvector(sfobj)
+
+  expect_equal(terra::geomtype(assp), "lines")
+
+  # Can convert back to sf
+
+  expect_silent(sf::st_as_sf(assp))
+  expect_true(any(sf::st_is_empty(sf::st_as_sf(assp))))
+})
+
+test_that("Check sf with empty geoms: POINTS", {
+  sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+  sfobj <- sf::st_cast(sfobj[1:2, ], "MULTIPOINT", warn = FALSE)
+  sfobj <- dplyr::bind_rows(sfobj, data.frame(a = 1))
+
+  expect_true(any(sf::st_is_empty(sfobj)))
+
+  assp <- as_spatvector(sfobj)
+
+  expect_equal(terra::geomtype(assp), "points")
+
+  # Can convert back to sf
+
+  expect_silent(sf::st_as_sf(assp))
+  expect_true(any(sf::st_is_empty(sf::st_as_sf(assp))))
+})
 
 test_that("Check internal", {
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
