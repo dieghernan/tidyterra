@@ -300,7 +300,7 @@ test_that("Check internal NULL: LINES", {
 
   pol <- terra::disagg(v[1:3, ], segments = TRUE)
   pol_wkt <- terra::geom(pol, wkt = TRUE)
-  mpol <- as.lines(v[1:3, ])
+  mpol <- terra::as.lines(v[1:3, ])
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
   # Check that we got that right
   expect_false(any(grepl("MULTI", pol_wkt)))
@@ -357,7 +357,7 @@ test_that("Check internal NULL: POINTS", {
 
   pol <- terra::centroids(terra::disagg(v[1:3, ]))
   pol_wkt <- terra::geom(pol, wkt = TRUE)
-  mpol <- as.points(v[1:3, ])
+  mpol <- terra::as.points(v[1:3, ])
   # need to aggregate
 
   mpol <- terra::aggregate(mpol, by = "iso2")
