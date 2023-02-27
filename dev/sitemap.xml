@@ -37,6 +37,9 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_spatvector.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.html</loc>
   </url>
   <url>
@@ -80,6 +83,12 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.html</loc>
