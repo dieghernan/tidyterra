@@ -88,7 +88,7 @@ Other dplyr methods:
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
 
-Other single table verbs:
+Other single table verbs: 
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
