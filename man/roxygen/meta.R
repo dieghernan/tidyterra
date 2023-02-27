@@ -7,6 +7,7 @@ list(
     ggplot2.utils = "Other ggplot2 utils:",
     ggplot2.methods = "Other ggplot2 methods:",
     joins = "Other joins:",
+    grouping = "Other grouping functions:",
     gradients = "Other gradient scales and palettes for hypsometry:"
   )
 )
