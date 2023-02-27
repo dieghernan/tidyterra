@@ -13,7 +13,7 @@
 \usage{
 \method{group_data}{SpatVector}(.data)
 
-\method{group_keys}{SpatVector}(x)
+\method{group_keys}{SpatVector}(.tbl, ...)
 
 group_rows.SpatVector(.data)
 

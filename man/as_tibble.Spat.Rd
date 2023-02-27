@@ -110,6 +110,7 @@ as_tibble(v)
 Coercing objects:
 \code{\link{as_coordinates}()},
 \code{\link{as_spatraster}()},
+\code{\link{as_spatvector}()},
 \code{\link{fortify.Spat}}
 }
 \concept{coerce}

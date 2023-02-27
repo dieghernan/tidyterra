@@ -121,6 +121,15 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
     .name_repair = .name_repair
   )
 
+  # Grouped
+  if (is_grouped_spatvector(x)) {
+    vars <- group_vars(x)
+
+    remove_gr <- df[, !grepl("dplyr.group", names(df))]
+
+    df <- dplyr::group_by(remove_gr, dplyr::across(dplyr::all_of(vars)))
+  }
+
   # Set attributes
   attr(df, "crs") <- terra::crs(x)
 
@@ -203,6 +212,40 @@ make_layer_names <- function(x) {
   return(x)
 }
 
+
+
+#' Strict internal version, returns a tibble with required attributes to
+#' rebuild a SpatVector
+#' This is the underlying object that would be handled by the tidyverse
+#' @noRd
+as_tbl_spatvect_attr <- function(x) {
+  if (isTRUE((attr(x, "source")) == "tbl_terra_spatvector")) {
+    return(x)
+  }
+
+  if (!inherits(x, "SpatVector")) cli::cli_abort("x is not a SpatVector")
+
+  x <- make_col_names(x, geom = "WKT")
+
+  todf <- as.data.frame(x, geom = "WKT")
+  todf[is.na(todf)] <- NA
+
+  # Grouped
+  if (is_grouped_spatvector(x)) {
+    vars <- group_vars(x)
+
+    remove_gr <- todf[, !grepl("dplyr.group", names(todf))]
+
+    todf <- dplyr::group_by(remove_gr, dplyr::across(dplyr::all_of(vars)))
+  }
+
+  # Set attributes
+  attr(todf, "source") <- "tbl_terra_spatvector"
+  attr(todf, "crs") <- terra::crs(x)
+  attr(todf, "geomtype") <- terra::geomtype(x)
+
+  return(todf)
+}
 
 
 # Make col names protecting geometry, since is reserved for SpatVectors

@@ -143,6 +143,7 @@ Other ggplot2 methods:
 Coercing objects:
 \code{\link{as_coordinates}()},
 \code{\link{as_spatraster}()},
+\code{\link{as_spatvector}()},
 \code{\link{as_tibble.Spat}}
 }
 \concept{coerce}

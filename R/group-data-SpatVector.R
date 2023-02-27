@@ -133,23 +133,23 @@ dplyr::group_data
 #' @export
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_keys
-group_keys.SpatVector <- function(x) {
-  tbl <- as_tibble(x)
+group_keys.SpatVector <- function(.tbl, ...) {
+  tbl <- as_tibble(.tbl)
 
   # Remove grouped columns from SpatVector
   tbl <- tbl[, !grepl("dplyr.group", names(tbl))]
 
 
-  if (is_grouped_spatvector(x)) {
+  if (is_grouped_spatvector(.tbl)) {
     # Get vars
-    vars <- group_vars(x)
+    vars <- group_vars(.tbl)
 
     # Regroup
     tbl <- group_by(tbl, dplyr::across(dplyr::all_of(vars)))
   }
 
   # Dispatch to default dplyr method
-  dplyr::group_keys(tbl)
+  dplyr::group_keys(tbl, ...)
 }
 
 #' @export
@@ -164,7 +164,7 @@ group_rows.SpatVector <- function(.data) {
 }
 
 #' @export
-dplyr::group_keys
+dplyr::group_rows
 
 #' @export
 #' @rdname group_data.SpatVector
@@ -186,7 +186,7 @@ group_indices.SpatVector <- function(.data, ...) {
 
   # Dispatch to default dplyr method
 
-  dplyr::group_indices(tbl)
+  dplyr::group_indices(tbl, ...)
 }
 
 #' @export
