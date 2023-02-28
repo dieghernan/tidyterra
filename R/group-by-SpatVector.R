@@ -117,15 +117,3 @@ ungroup.SpatVector <- function(x, ...) {
 
 #' @export
 dplyr::ungroup
-
-
-
-
-
-# Internal vars
-is_grouped_spatvector <- function(x) {
-  # Check grouping vars
-  has_signal <- any(names(x) == "dplyr.group_vars")
-
-  return(has_signal)
-}
