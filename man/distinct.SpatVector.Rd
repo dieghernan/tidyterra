@@ -110,7 +110,8 @@ Other dplyr methods:
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
-\code{\link{slice.Spat}}
+\code{\link{slice.Spat}},
+\code{\link{summarise.SpatVector}()}
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}

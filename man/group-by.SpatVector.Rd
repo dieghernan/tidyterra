@@ -59,6 +59,9 @@ SpatVectors.
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
 
+Other dplyr verbs that operate on group of rows:
+\code{\link{summarise.SpatVector}()}
+
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -71,7 +74,8 @@ Other dplyr methods:
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
-\code{\link{slice.Spat}}
+\code{\link{slice.Spat}},
+\code{\link{summarise.SpatVector}()}
 }
 \concept{dplyr.groups}
 \concept{dplyr.methods}

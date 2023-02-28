@@ -233,6 +233,14 @@ index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 If you want to slice by geographic coordinates use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
+Other single table verbs: 
+\code{\link{arrange.SpatVector}()},
+\code{\link{filter.Spat}},
+\code{\link{mutate.Spat}},
+\code{\link{rename.Spat}},
+\code{\link{select.Spat}},
+\code{\link{summarise.SpatVector}()}
+
 Other dplyr verbs that operate on rows:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -250,7 +258,9 @@ Other dplyr methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{select.Spat}}
+\code{\link{select.Spat}},
+\code{\link{summarise.SpatVector}()}
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}
+\concept{single table verbs}

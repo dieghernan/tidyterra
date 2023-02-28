@@ -17,6 +17,7 @@
 #'
 #' @seealso [dplyr::filter()]
 #'
+#' @family single table verbs
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'

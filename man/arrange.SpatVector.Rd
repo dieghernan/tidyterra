@@ -62,6 +62,14 @@ v \%>\%
 \seealso{
 \code{\link[dplyr:arrange]{dplyr::arrange()}}
 
+Other single table verbs: 
+\code{\link{filter.Spat}},
+\code{\link{mutate.Spat}},
+\code{\link{rename.Spat}},
+\code{\link{select.Spat}},
+\code{\link{slice.Spat}},
+\code{\link{summarise.SpatVector}()}
+
 Other dplyr verbs that operate on rows:
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
@@ -79,7 +87,9 @@ Other dplyr methods:
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
-\code{\link{slice.Spat}}
+\code{\link{slice.Spat}},
+\code{\link{summarise.SpatVector}()}
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}
+\concept{single table verbs}

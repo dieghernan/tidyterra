@@ -24,6 +24,7 @@
 #'
 #' @seealso [dplyr::mutate()], [dplyr::transmute()]
 #'
+#' @family single table verbs
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'

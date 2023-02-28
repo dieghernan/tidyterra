@@ -10,6 +10,7 @@
 #'
 #' @seealso [dplyr::arrange()]
 #'
+#' @family single table verbs
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'

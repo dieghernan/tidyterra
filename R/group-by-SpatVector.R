@@ -43,15 +43,17 @@ group_by.SpatVector <- function(.data, ..., .add = FALSE,
   # Use own method
   x <- .data
 
-  .data <- as_tbl_spatvect_attr(.data)
+  .data <- as_tibble(.data)
 
   # Add groups
   newgroups <- dplyr::group_by(.data, ..., .add = .add, .drop = .drop)
 
-  # Add groups metadata
-  attr(x, "group_vars") <- dplyr::group_vars(newgroups)
+  regen <- cbind(v[, 0], newgroups)
 
-  x
+  # Add groups metadata
+  attr(regen, "group_vars") <- dplyr::group_vars(newgroups)
+
+  regen
 }
 
 #' @export
