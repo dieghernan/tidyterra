@@ -41,6 +41,7 @@ as_coordinates(r, as.raster = TRUE) \%>\% plot()
 \code{\link[=slice.SpatRaster]{slice.SpatRaster()}}
 
 Coercing objects:
+\code{\link{as_sf}()},
 \code{\link{as_spatraster}()},
 \code{\link{as_spatvector}()},
 \code{\link{as_tibble.Spat}},

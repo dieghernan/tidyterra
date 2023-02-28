@@ -81,6 +81,7 @@ newvect
 
 Coercing objects:
 \code{\link{as_coordinates}()},
+\code{\link{as_sf}()},
 \code{\link{as_spatraster}()},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}}
