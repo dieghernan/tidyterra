@@ -48,7 +48,7 @@ group_by.SpatVector <- function(.data, ..., .add = FALSE,
   # Add groups
   newgroups <- dplyr::group_by(.data, ..., .add = .add, .drop = .drop)
 
-  regen <- cbind(v[, 0], newgroups)
+  regen <- cbind(x[, 0], newgroups)
 
   # Add groups metadata
   attr(regen, "group_vars") <- dplyr::group_vars(newgroups)

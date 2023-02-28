@@ -18,6 +18,8 @@ SpatRaster
 SpatRasters
 SpatVector
 SpatVectors
+Spatvector
+Summarise
 Toitu
 Visualise
 WKT
@@ -64,11 +66,13 @@ rasters
 reprojected
 rescaled
 rlang
+sfc
 spatraster
 src
 srcs
 standardised
 summarises
+summarising
 terra
 tibble
 tibbles
@@ -76,6 +80,7 @@ tidyr
 tidyterra’
 tidyverse
 tif
+unevaluated
 ungrouped
 visualise
 xmax
