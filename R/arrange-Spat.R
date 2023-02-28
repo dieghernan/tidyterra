@@ -10,8 +10,8 @@
 #'
 #' @seealso [dplyr::arrange()]
 #'
+#' @family dplyr.rows
 #' @family dplyr.methods
-#' @family single table verbs
 #'
 #' @importFrom dplyr arrange
 #'

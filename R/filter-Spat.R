@@ -17,8 +17,8 @@
 #'
 #' @seealso [dplyr::filter()]
 #'
+#' @family dplyr.rows
 #' @family dplyr.methods
-#' @family single table verbs
 #'
 #' @importFrom dplyr filter
 #' @inheritParams select.Spat

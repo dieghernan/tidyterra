@@ -11,8 +11,8 @@
 #'
 #' @seealso [dplyr::glimpse()]
 #'
+#' @family dplyr.cols
 #' @family dplyr.methods
-#' @family single table verbs
 #'
 #' @importFrom dplyr glimpse
 #'

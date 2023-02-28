@@ -82,6 +82,13 @@ spatrast \%>\% rename_with(
 \seealso{
 \code{\link[dplyr:rename]{dplyr::rename()}}
 
+Other dplyr verbs that operate on columns:
+\code{\link{glimpse.Spat}},
+\code{\link{mutate.Spat}},
+\code{\link{pull.Spat}},
+\code{\link{relocate.Spat}},
+\code{\link{select.Spat}}
+
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -95,16 +102,6 @@ Other dplyr methods:
 \code{\link{relocate.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
-
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
-\code{\link{filter.Spat}},
-\code{\link{glimpse.Spat}},
-\code{\link{group-by.SpatVector}},
-\code{\link{mutate.Spat}},
-\code{\link{select.Spat}},
-\code{\link{slice.Spat}}
 }
+\concept{dplyr.cols}
 \concept{dplyr.methods}
-\concept{single table verbs}

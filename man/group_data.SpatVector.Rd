@@ -122,9 +122,4 @@ group_data(gv2)
 
 group_indices(gv2)
 }
-\seealso{
-Other grouping functions:
-\code{\link{group-by.SpatVector}}
-}
-\concept{grouping}
 \keyword{internal}

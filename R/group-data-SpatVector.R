@@ -32,8 +32,6 @@
 #'
 #' @keywords internal
 #'
-#' @family grouping
-#'
 #' @return
 #'
 #' See the description of the function. The results are usually tibbles,

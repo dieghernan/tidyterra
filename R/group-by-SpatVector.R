@@ -16,9 +16,8 @@
 #'
 #' @seealso [dplyr::group_by()], [dplyr::ungroup()]
 #'
+#' @family dplyr.pairs
 #' @family dplyr.methods
-#' @family single table verbs
-#' @family grouping
 #'
 #' @importFrom dplyr group_by
 #'

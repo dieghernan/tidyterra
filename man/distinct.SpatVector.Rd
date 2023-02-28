@@ -93,6 +93,11 @@ terra::unique(ex3)
 \seealso{
 \code{\link[dplyr:distinct]{dplyr::distinct()}}, \code{\link[terra:unique]{terra::unique()}}
 
+Other dplyr verbs that operate on rows:
+\code{\link{arrange.SpatVector}()},
+\code{\link{filter.Spat}},
+\code{\link{slice.Spat}}
+
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
@@ -106,16 +111,6 @@ Other dplyr methods:
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
-
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
-\code{\link{filter.Spat}},
-\code{\link{glimpse.Spat}},
-\code{\link{group-by.SpatVector}},
-\code{\link{mutate.Spat}},
-\code{\link{rename.Spat}},
-\code{\link{select.Spat}},
-\code{\link{slice.Spat}}
 }
 \concept{dplyr.methods}
-\concept{single table verbs}
+\concept{dplyr.rows}

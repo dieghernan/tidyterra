@@ -16,6 +16,7 @@
 #'
 #' @seealso [dplyr::pull()]
 #'
+#' @family dplyr.cols
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr pull

@@ -9,8 +9,8 @@
 #'
 #' @seealso [dplyr::distinct()], [terra::unique()]
 #'
+#' @family dplyr.rows
 #' @family dplyr.methods
-#' @family single table verbs
 #'
 #' @importFrom dplyr distinct
 #'

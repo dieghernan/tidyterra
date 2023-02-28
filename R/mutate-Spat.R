@@ -24,9 +24,8 @@
 #'
 #' @seealso [dplyr::mutate()], [dplyr::transmute()]
 #'
+#' @family dplyr.cols
 #' @family dplyr.methods
-#'
-#' @family single table verbs
 #'
 #' @section  terra equivalent:
 #'

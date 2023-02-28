@@ -108,6 +108,11 @@ r2 \%>\%
 \seealso{
 \code{\link[dplyr:filter]{dplyr::filter()}}
 
+Other dplyr verbs that operate on rows:
+\code{\link{arrange.SpatVector}()},
+\code{\link{distinct.SpatVector}()},
+\code{\link{slice.Spat}}
+
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -121,16 +126,6 @@ Other dplyr methods:
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
-
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
-\code{\link{glimpse.Spat}},
-\code{\link{group-by.SpatVector}},
-\code{\link{mutate.Spat}},
-\code{\link{rename.Spat}},
-\code{\link{select.Spat}},
-\code{\link{slice.Spat}}
 }
 \concept{dplyr.methods}
-\concept{single table verbs}
+\concept{dplyr.rows}

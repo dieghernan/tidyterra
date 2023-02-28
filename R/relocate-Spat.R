@@ -20,6 +20,7 @@
 #'
 #' @seealso [dplyr::relocate()]
 #'
+#' @family dplyr.cols
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr relocate

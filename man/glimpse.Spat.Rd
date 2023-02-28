@@ -73,6 +73,13 @@ r \%>\%
 \seealso{
 \code{\link[dplyr:glimpse]{dplyr::glimpse()}}
 
+Other dplyr verbs that operate on columns:
+\code{\link{mutate.Spat}},
+\code{\link{pull.Spat}},
+\code{\link{relocate.Spat}},
+\code{\link{rename.Spat}},
+\code{\link{select.Spat}}
+
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -86,16 +93,6 @@ Other dplyr methods:
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
-
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
-\code{\link{filter.Spat}},
-\code{\link{group-by.SpatVector}},
-\code{\link{mutate.Spat}},
-\code{\link{rename.Spat}},
-\code{\link{select.Spat}},
-\code{\link{slice.Spat}}
 }
+\concept{dplyr.cols}
 \concept{dplyr.methods}
-\concept{single table verbs}

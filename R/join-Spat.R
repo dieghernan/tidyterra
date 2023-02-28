@@ -14,9 +14,8 @@
 #' @seealso [dplyr::inner_join()], [dplyr::left_join()], [dplyr::right_join()],
 #' [dplyr::full_join()], [terra::merge()]
 #'
+#' @family dplyr.pairs
 #' @family dplyr.methods
-#' @family two table verbs
-#' @family joins
 #'
 #' @importFrom dplyr inner_join
 #'
@@ -358,9 +357,8 @@ dplyr::full_join
 #'
 #' @seealso [dplyr::semi_join()], [dplyr::anti_join()], [terra::merge()]
 #'
+#' @family dplyr.pairs
 #' @family dplyr.methods
-#' @family two table verbs
-#' @family joins
 #'
 #' @importFrom dplyr semi_join
 #'

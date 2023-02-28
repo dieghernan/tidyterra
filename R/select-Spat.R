@@ -23,9 +23,8 @@
 #'
 #' @seealso [dplyr::select()], [terra::subset()]
 #'
+#' @family dplyr.cols
 #' @family dplyr.methods
-#'
-#' @family single table verbs
 #'
 #' @section terra equivalent:
 #'
