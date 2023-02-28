@@ -33,13 +33,13 @@ data? The default is \code{TRUE} except when \code{.data} has been previously
 grouped with \code{.drop = FALSE}. See \code{\link[dplyr:group_by_drop_default]{group_by_drop_default()}} for details.}
 }
 \value{
-A SpatVector object with an additional column \code{dplyr.group_vars}.
+A SpatVector object with an additional attribute.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 Most data operations are done on groups defined by variables. \code{\link[=group_by]{group_by()}}
-takes an existing SpatVector and creates a new variable indicating the
+adds a new attribute to an existing SpatVector indicating the
 corresponding groups. See \strong{Methods}.
 }
 \details{
@@ -50,21 +50,6 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} family functions for
 SpatVectors.
-
-Since the \code{SpatVector} class is a \strong{S4 class}, there is not a
-straightforward way to add an additional class (as \code{grouped_df}) to the
-object. Instead, the implementation on \pkg{tidyterra} consists on simply
-create a new column \code{dplyr.group_vars} where the value for the first row
-is a representation of the variables declared in \code{...} and the value for
-the rest of rows is \code{NA}.
-
-This column is used internally for deriving the requested groups on the
-subsequent operations. Hence, \code{grouped_df} class (default behaviour in
-\pkg{dplyr}) is substituted on this implementation by \code{x$dplyr.group_vars}.
-
-Note that removing \code{x$dplyr.group_vars} would cause \pkg{tidyterra} to not
-recognize the SpatVector as grouped. This is better achieved by using the
-\code{\link[=ungroup]{ungroup()}} function.
 }
 
 \examples{

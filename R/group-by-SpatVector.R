@@ -5,7 +5,7 @@
 #' `r lifecycle::badge('experimental')`
 #'
 #' Most data operations are done on groups defined by variables. [group_by()]
-#' takes an existing SpatVector and creates a new variable indicating the
+#' adds a new attribute to an existing SpatVector indicating the
 #' corresponding groups. See **Methods**.
 #'
 #'
@@ -24,27 +24,12 @@
 #' @param .data,x A SpatVector object. See **Methods**.
 #' @inheritParams dplyr::group_by
 #'
-#' @return A SpatVector object with an additional column `dplyr.group_vars`.
+#' @return A SpatVector object with an additional attribute.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_by()] family functions for
 #' SpatVectors.
-#'
-#' Since the `SpatVector` class is a **S4 class**, there is not a
-#' straightforward way to add an additional class (as `grouped_df`) to the
-#' object. Instead, the implementation on \pkg{tidyterra} consists on simply
-#' create a new column `dplyr.group_vars` where the value for the first row
-#' is a representation of the variables declared in `...` and the value for
-#' the rest of rows is `NA`.
-#'
-#' This column is used internally for deriving the requested groups on the
-#' subsequent operations. Hence, `grouped_df` class (default behaviour in
-#' \pkg{dplyr}) is substituted on this implementation by `x$dplyr.group_vars`.
-#'
-#' Note that removing `x$dplyr.group_vars` would cause \pkg{tidyterra} to not
-#' recognize the SpatVector as grouped. This is better achieved by using the
-#' [ungroup()] function.
 #'
 #'
 #' @details
@@ -56,25 +41,17 @@
 group_by.SpatVector <- function(.data, ..., .add = FALSE,
                                 .drop = dplyr::group_by_drop_default(.data)) {
   # Use own method
-  .data <- as_tibble(.data, geom = "WKT")
+  x <- .data
+
+  .data <- as_tbl_spatvect_attr(.data)
 
   # Add groups
   newgroups <- dplyr::group_by(.data, ..., .add = .add, .drop = .drop)
 
   # Add groups metadata
-  newgroups$dplyr.group_vars <- NA
-  newgroups$dplyr.group_vars[[1]] <- paste0(dplyr::group_vars(newgroups),
-    collapse = ","
-  )
+  attr(x, "group_vars") <- dplyr::group_vars(newgroups)
 
-  # TODO: Need to create a function for this on the new version
-
-  grouped <- terra::vect(newgroups, geom = "geometry", crs = attr(
-    newgroups,
-    "crs"
-  ))
-
-  grouped
+  x
 }
 
 #' @export
@@ -91,7 +68,7 @@ ungroup.SpatVector <- function(x, ...) {
 
   # If empty dots undo all groups
   if (rlang::dots_n(...) == 0L) {
-    x <- x[, !grepl("dplyr.group", names(x))]
+    attr(x, "group_vars") <- NULL
     return(x)
   }
 
@@ -105,11 +82,7 @@ ungroup.SpatVector <- function(x, ...) {
 
 
   # Add groups metadata
-  x$dplyr.group_vars <- NA
-  x$dplyr.group_vars[[1]] <- paste0(dplyr::group_vars(newgroups),
-    collapse = ","
-  )
-
+  attr(x, "group_vars") <- dplyr::group_vars(newgroups)
 
   return(x)
 }

@@ -196,16 +196,7 @@ dplyr::group_indices
 #' @importFrom dplyr group_vars
 group_vars.SpatVector <- function(x) {
   if (is_grouped_spatvector(x)) {
-    gvars <- as.vector(x$dplyr.group_vars)
-    # Remove NAs
-    gvars <- gvars[!is.na(gvars)]
-    gvars <- unlist(strsplit(gvars, ",", fixed = TRUE))
-    # If vars are corrupted for something return empty with a warning
-    if (is.null(gvars)) {
-      cli::cli_alert_warning("dplyr.group_vars column detected but is empty")
-      return(character(0))
-    }
-
+    gvars <- as.character(attr(x, "group_vars"))
     return(gvars)
   }
 

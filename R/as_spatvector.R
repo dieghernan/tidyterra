@@ -133,9 +133,8 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (dplyr::is_grouped_df(x)) {
     vars <- dplyr::group_vars(x)
 
-    # Use manual grouping here to make the method work properly
-    v$dplyr.group_vars <- NA
-    v$dplyr.group_vars[[1]] <- paste0(vars, collapse = ",")
+    # Add groups metadata
+    attr(v, "group_vars") <- vars
   }
 
   return(v)

@@ -18,31 +18,12 @@
 #'
 #' @export
 is_grouped_spatvector <- function(x) {
-  # Check grouping vars
-  has_signal <- any(names(x) == "dplyr.group_vars")
+  att <- attributes(x)
 
-  if (isFALSE(has_signal)) {
+
+  if (is.null(att$group_vars) || length(att$group_vars) < 1) {
     return(FALSE)
   }
 
-  # Check that the var field is alright
-  gvars <- as.vector(x$dplyr.group_vars)
-
-  gvars <- as.vector(x$dplyr.group_vars)
-
-  gvars_nona <- gvars[!is.na(gvars)]
-
-  ok_length <- length(gvars_nona) == 1
-  ok_type <- is.character(gvars)
-
-  # If vars are corrupted return a warning
-  if (!all(ok_length, ok_type)) {
-    cli::cli_alert_warning(paste0(
-      "dplyr.group_vars column corrupted. Can't ",
-      "create groups (Maybe use ",
-      cli::col_blue("ungroup()"), " method)"
-    ))
-  }
-
-  return(all(ok_length, ok_type))
+  return(TRUE)
 }
