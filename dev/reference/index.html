@@ -80,14 +80,8 @@
     </div>
 
     <div class="section level2">
-      <h2 id="tidyverse-methods">tidyverse methods<a class="anchor" aria-label="anchor" href="#tidyverse-methods"></a></h2>
+      <h2 id="tibble-methods">tibble methods<a class="anchor" aria-label="anchor" href="#tibble-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Methods for {tidyverse} packages</p>
-
-      
-    </div><div class="section level2">
-      
-      <h3 id="tibble-methods">tibble methods<a class="anchor" aria-label="anchor" href="#tibble-methods"></a></h3>
       <p class="section-desc"></p><p>Methods from {tibble} implemented for Spat* objects.</p>
 
       
@@ -102,9 +96,15 @@
         </dt>
         <dd>Coerce a Spat* object to data frames</dd>
       </dl></div><div class="section level2">
+      <h2 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h2>
       
-      <h3 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h3>
       <p class="section-desc"></p><p>Methods from {dplyr} implemented for Spat* objects.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="rows">Rows<a class="anchor" aria-label="anchor" href="#rows"></a></h3>
+      <p class="section-desc"></p><p>Verbs that principally operate on rows.</p>
 
       
     </div><div id="" class="section level2">
@@ -124,29 +124,30 @@
         <dd>Keep distinct/unique rows and geometries of SpatVector objects</dd>
       </dl><dl><dt>
           
-          <code><a href="filter-joins.SpatVector.html">semi_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="filter-joins.SpatVector.html">anti_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Filtering joins for SpatVectors</dd>
-      </dl><dl><dt>
-          
           <code><a href="filter.Spat.html">filter(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="filter.Spat.html">filter(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Subset cells/geometries of Spat* objects</dd>
       </dl><dl><dt>
           
+          <code><a href="slice.Spat.html">slice(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_rows()</a></code> <code><a href="slice.Spat.html">slice_cols()</a></code> <code><a href="slice.Spat.html">slice_colrows()</a></code> 
+        </dt>
+        <dd>Subset cells/rows/columns/geometries using their positions</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="columns">Columns<a class="anchor" aria-label="anchor" href="#columns"></a></h3>
+      <p class="section-desc"></p><p>Verbs that principally operate on columns.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
           <code><a href="glimpse.Spat.html">glimpse(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="glimpse.Spat.html">glimpse(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Get a glimpse of your Spat* objects</dd>
-      </dl><dl><dt>
-          
-          <code><a href="group-by.SpatVector.html">group_by(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="group-by.SpatVector.html">ungroup(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Group a SpatVector by one or more variables</dd>
-      </dl><dl><dt>
-          
-          <code><a href="mutate-joins.SpatVector.html">inner_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">left_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">right_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">full_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Mutating joins for SpatVectors</dd>
       </dl><dl><dt>
           
           <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -172,15 +173,54 @@
           <code><a href="select.Spat.html">select(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="select.Spat.html">select(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Subset layers/attributes of Spat* objects</dd>
-      </dl><dl><dt>
-          
-          <code><a href="slice.Spat.html">slice(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_head(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_tail(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_min(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_max(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_sample(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="slice.Spat.html">slice_rows()</a></code> <code><a href="slice.Spat.html">slice_cols()</a></code> <code><a href="slice.Spat.html">slice_colrows()</a></code> 
-        </dt>
-        <dd>Subset cells/rows/columns/geometries using their positions</dd>
       </dl></div><div class="section level2">
       
-      <h3 id="tidyr-methods">tidyr methods<a class="anchor" aria-label="anchor" href="#tidyr-methods"></a></h3>
+      <h3 id="groups">Groups<a class="anchor" aria-label="anchor" href="#groups"></a></h3>
+      <p class="section-desc"></p><p>Verbs that principally operate on groups of rows.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="spat-and-data-frames">Spat* and Data frames<a class="anchor" aria-label="anchor" href="#spat-and-data-frames"></a></h3>
+      <p class="section-desc"></p><p>Verbs that principally operate on pairs of Spat* and data frames.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="filter-joins.SpatVector.html">semi_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="filter-joins.SpatVector.html">anti_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Filtering joins for SpatVectors</dd>
+      </dl><dl><dt>
+          
+          <code><a href="group-by.SpatVector.html">group_by(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="group-by.SpatVector.html">ungroup(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Group a SpatVector by one or more variables</dd>
+      </dl><dl><dt>
+          
+          <code><a href="mutate-joins.SpatVector.html">inner_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">left_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">right_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">full_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Mutating joins for SpatVectors</dd>
+      </dl></div><div class="section level2">
+      <h2 id="tidyr-methods">tidyr methods<a class="anchor" aria-label="anchor" href="#tidyr-methods"></a></h2>
+      
       <p class="section-desc"></p><p>Methods from {tidyr} implemented for Spat* objects.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="missing-values">Missing values<a class="anchor" aria-label="anchor" href="#missing-values"></a></h3>
+      <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, and for handling explicit <code>NA</code>s.</p>
 
       
     </div><div id="" class="section level2">
@@ -199,8 +239,8 @@
         </dt>
         <dd>Replace NAs with specified values</dd>
       </dl></div><div class="section level2">
+      <h2 id="ggplot-methods">ggplot2 methods<a class="anchor" aria-label="anchor" href="#ggplot-methods"></a></h2>
       
-      <h3 id="ggplot-methods">ggplot2 methods<a class="anchor" aria-label="anchor" href="#ggplot-methods"></a></h3>
       <p class="section-desc"></p><p>Methods from {ggplot2} implemented for Spat* objects.</p>
 
       
@@ -237,16 +277,6 @@
       
 
       <dl><dt>
-          
-          <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Create a complete ggplot for Spat* objects</dd>
-      </dl><dl><dt>
-          
-          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Fortify Spat* Objects</dd>
-      </dl><dl><dt>
           
           <code><a href="geom_spatraster.html">geom_spatraster()</a></code> <code><a href="geom_spatraster.html">stat_spatraster()</a></code> 
         </dt>
@@ -326,6 +356,11 @@
         <dd>Get cell number, row and column from a SpatRaster</dd>
       </dl><dl><dt>
           
+          <code><a href="as_sf.html">as_sf()</a></code> 
+        </dt>
+        <dd>Coerce a SpatVector to a sf object</dd>
+      </dl><dl><dt>
+          
           <code><a href="as_spatraster.html">as_spatraster()</a></code> 
         </dt>
         <dd>Coerce a data frame to SpatRaster</dd>
@@ -371,9 +406,9 @@
         </dt>
         <dd>Extract CRS on WKT format</dd>
       </dl></div><div class="section level2">
+      <h2 id="built-in-data">Built in data<a class="anchor" aria-label="anchor" href="#built-in-data"></a></h2>
       
-      <h3 id="other-functions-and-datasets">Other functions and datasets<a class="anchor" aria-label="anchor" href="#other-functions-and-datasets"></a></h3>
-      <p class="section-desc"></p><p>Miscelanea</p>
+      
 
       
     </div><div id="" class="section level2">

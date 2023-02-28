@@ -34,6 +34,9 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_sf.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.html</loc>
   </url>
   <url>
@@ -95,6 +98,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/is_grouped_spatvector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.html</loc>
