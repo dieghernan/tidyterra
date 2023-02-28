@@ -237,6 +237,8 @@ as_tbl_spatvect_attr <- function(x) {
     remove_gr <- todf[, !grepl("dplyr.group", names(todf))]
 
     todf <- dplyr::group_by(remove_gr, dplyr::across(dplyr::all_of(vars)))
+  } else {
+    todf <- dplyr::as_tibble(todf)
   }
 
   # Set attributes

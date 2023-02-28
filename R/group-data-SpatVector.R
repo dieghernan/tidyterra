@@ -200,8 +200,9 @@ group_vars.SpatVector <- function(x) {
     # Remove NAs
     gvars <- gvars[!is.na(gvars)]
     gvars <- unlist(strsplit(gvars, ",", fixed = TRUE))
-    # If vars are corrupted for something return empty
+    # If vars are corrupted for something return empty with a warning
     if (is.null(gvars)) {
+      cli::cli_alert_warning("dplyr.group_vars column detected but is empty")
       return(character(0))
     }
 

@@ -22,6 +22,21 @@ test_that("group_data(<SpatVector>) returns a tibble", {
 })
 
 
+test_that("Ungroup_data(<SpatVector>) returns the right value", {
+  df <- dplyr::tibble(x = 1:3)
+  df_v <- dplyr::tibble(
+    x = 1:3,
+    lon = as.double(4:6),
+    lat = as.double(7:9)
+  )
+
+  df_v <- terra::vect(df_v, crs = "EPSG:4326")
+
+  expect_s4_class(df_v, "SpatVector")
+  expect_identical(group_vars(df_v), character(0))
+  expect_identical(group_vars(df_v), dplyr::group_vars(df))
+})
+
 # group_rows() and group_keys() -------------------------------------------
 
 test_that("group_rows() and group_keys() partition group_data()", {
@@ -182,4 +197,36 @@ test_that("group_rows() returns expected values", {
 
   expect_identical(group_rows(gf_v), group_rows(gf))
   expect_identical(group_rows(df_v), group_rows(df))
+})
+
+
+test_that("Test corrupted data", {
+  df <- data.frame(x = 1:2, y = 1:2)
+  df_v <- df
+  df_v$lon <- c(3:4)
+  df_v$lat <- c(5:6)
+
+  df_v <- terra::vect(df_v, crs = "EPSG:4326")
+
+  gf_v <- group_by(df_v, x, y)
+  expect_s4_class(gf_v, "SpatVector")
+
+  expect_true(is_grouped_spatvector(gf_v))
+
+  # Corrupt!
+  gf_v$dplyr.group_vars[1] <- NA
+  expect_false(is_grouped_spatvector(gf_v))
+  expect_message(is_grouped_spatvector(gf_v))
+
+  # Should return empty
+  tbl <- dplyr::as_tibble(df)
+
+  expect_identical(group_data(gf_v), dplyr::group_data(tbl))
+  expect_identical(group_keys(gf_v), dplyr::group_keys(tbl))
+  expect_identical(group_rows(gf_v), dplyr::group_rows(tbl))
+  expect_identical(group_indices(gf_v), dplyr::group_indices(tbl))
+  expect_identical(group_vars(gf_v), dplyr::group_vars(tbl))
+  expect_identical(groups(gf_v), dplyr::groups(tbl))
+  expect_identical(group_size(gf_v), dplyr::group_size(tbl))
+  expect_identical(n_groups(gf_v), dplyr::n_groups(tbl))
 })
