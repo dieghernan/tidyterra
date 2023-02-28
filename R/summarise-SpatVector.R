@@ -46,6 +46,7 @@
 #'
 #' @examples
 #' library(terra)
+#' library(ggplot2)
 #'
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'

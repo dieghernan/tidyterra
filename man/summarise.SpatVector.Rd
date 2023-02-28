@@ -61,6 +61,7 @@ geometries (with \code{dissolve = FALSE}). See \strong{Examples}.
 
 \examples{
 library(terra)
+library(ggplot2)
 
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
