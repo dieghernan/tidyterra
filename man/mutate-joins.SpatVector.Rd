@@ -198,8 +198,7 @@ ggplot(full, aes(x, y)) +
 \code{\link[dplyr:mutate-joins]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
 Other dplyr verbs that operate on pairs Spat*/data.frame:
-\code{\link{filter-joins.SpatVector}},
-\code{\link{group-by.SpatVector}}
+\code{\link{filter-joins.SpatVector}}
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},

@@ -74,10 +74,6 @@ recognize the SpatVector as grouped. This is better achieved by using the
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
 
-Other dplyr verbs that operate on pairs Spat*/data.frame:
-\code{\link{filter-joins.SpatVector}},
-\code{\link{mutate-joins.SpatVector}}
-
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
@@ -92,5 +88,5 @@ Other dplyr methods:
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
 }
+\concept{dplyr.groups}
 \concept{dplyr.methods}
-\concept{dplyr.pairs}

@@ -16,7 +16,7 @@
 #'
 #' @seealso [dplyr::group_by()], [dplyr::ungroup()]
 #'
-#' @family dplyr.pairs
+#' @family dplyr.groups
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr group_by
