@@ -227,7 +227,6 @@ right_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
 
     is_point <- any(grepl("POINT", geoms_types))
     is_line <- any(grepl("LINESTRING", geoms_types))
-    is_poly <- any(grepl("POLYGON", geoms_types))
 
     # Need MULTI for ensure conversions
     new_empty <- ifelse(is_point, "MULTIPOINT EMPTY",
@@ -310,7 +309,6 @@ full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
 
     is_point <- any(grepl("POINT", geoms_types))
     is_line <- any(grepl("LINESTRING", geoms_types))
-    is_poly <- any(grepl("POLYGON", geoms_types))
 
     # Need MULTI for ensure conversions
     new_empty <- ifelse(is_point, "MULTIPOINT EMPTY",
