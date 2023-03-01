@@ -165,6 +165,11 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <p>Load {tidyterra} with additional libraries of the {tidyverse}:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'tidyterra'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -178,9 +183,9 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <p>Currently, the following methods are available:</p>
 <table class="table">
 <colgroup>
-<col width="29%">
-<col width="44%">
-<col width="25%">
+<col width="30%">
+<col width="43%">
+<col width="26%">
 </colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
@@ -277,6 +282,10 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 </tbody>
 </table>
 <p>Let’s see some of them in action:</p>
+<div class="section level3">
+<h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+</h3>
+<p>See an example with SpatRaster objects:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
@@ -330,18 +339,55 @@ reference system) have not been modified. Other methods as
 can modify these properties, as they would do when applied to a data
 frame (number of rows would be modified on that case).</p>
 </div>
+<div class="section level3">
+<h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
+</h3>
+<p><code>tidyterra &gt;= 0.4.0</code> provides support to SpatVectors
+for most of the {dplyr} methods, so it is possible to arrange, group and
+summarise information of SpatVectors</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v_lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">v_lux</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Create categories</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>gr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">POP</span> <span class="op">/</span> <span class="fl">1000</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">gr</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Summary</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    tot_pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span>
+<span>    mean_area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Arrange</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">gr</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  class       : SpatVector </span></span>
+<span><span class="co">#&gt;  geometry    : polygons </span></span>
+<span><span class="co">#&gt;  dimensions  : 3, 4  (geometries, attributes)</span></span>
+<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
+<span><span class="co">#&gt;  names       :          gr     n tot_pop mean_area</span></span>
+<span><span class="co">#&gt;  type        :      &lt;fact&gt; &lt;int&gt;   &lt;int&gt;     &lt;num&gt;</span></span>
+<span><span class="co">#&gt;  values      :   (147,183]     2  359427       244</span></span>
+<span><span class="co">#&gt;                (40.7,76.1]     1   48187       185</span></span>
+<span><span class="co">#&gt;                (4.99,40.7]     9  194391     209.8</span></span></code></pre></div>
+<p>As in the case of SpatRaster, basic properties as the geometry and
+the CRS are preserved.</p>
+</div>
+</div>
 <div class="section level2">
 <h2 id="plotting-with-ggplot2">Plotting with {ggplot2}<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
 <div class="section level3">
-<h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+<h3 id="spatrasters-1">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters-1"></a>
 </h3>
 <p>{tidyterra} provides several <code>geom_*</code> for SpatRasters.
 When the SpatRaster has the CRS informed
 (i.e. <code>terra::crs(a_rast) != ""</code>), the geom uses
 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, and may be also reprojected for
 adjusting the coordinates to other spatial layers:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># A faceted SpatRaster</span></span>
@@ -354,7 +400,7 @@ adjusting the coordinates to other spatial layers:</p>
 <span>    na.value <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="terraplots-1.png" alt="plot of chunk terraplots" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span><span class="co"># Contour lines for a specific layer</span></span>
@@ -369,7 +415,7 @@ adjusting the coordinates to other spatial layers:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="terraplots-2.png" alt="plot of chunk terraplots" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span><span class="co"># Contour filled</span></span>
@@ -381,7 +427,7 @@ adjusting the coordinates to other spatial layers:</p>
 <p><img src="terraplots-3.png" alt="plot of chunk terraplots" width="100%"></p>
 <p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to
 your plots:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Read a vector</span></span>
 <span></span>
 <span><span class="va">f_v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
@@ -398,7 +444,7 @@ your plots:</p>
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
 <p><img src="rgb-1.png" alt="plot of chunk rgb" width="100%"></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change CRS automatically</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span> <span class="op">+</span></span>
@@ -406,7 +452,7 @@ your plots:</p>
 <p><img src="rgb-2.png" alt="plot of chunk rgb" width="100%"></p>
 <p>{tidyterra} provides selected scales that are suitable for creating
 hypsometric and bathymetric maps:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">asia</span></span>
@@ -441,112 +487,64 @@ hypsometric and bathymetric maps:</p>
 <p><img src="hypso-1.png" alt="plot of chunk hypso" width="100%"></p>
 </div>
 <div class="section level3">
-<h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
+<h3 id="spatvectors-1">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors-1"></a>
 </h3>
 <p>{tidyterra} allows you to plot SpatVectors with {ggplot2} using the
 <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> functions:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">v_lux</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">v_lux</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">POP</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
 <p>The underlying implementation is to take advantage of the conversion
-<code>terra::vect()/sf::st_as_sf()</code> (see <a href="#about"><strong>About SpatVectors</strong></a>) and use
+<code>terra::vect()/sf::st_as_sf()</code> and use
 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the
 layer.</p>
-</div>
-<div class="section level3">
-<h3 id="about">About SpatVectors<a class="anchor" aria-label="anchor" href="#about"></a>
-</h3>
-<p>SpatVector objects are vector data. This means that they are a set of
-individual points with geographic information (i.e. location of
-restaurants), that can be also grouped to form lines (i.e. a river) and,
-when these lines forms a closed polygon, a spatial polygon (i.e. a
-country).</p>
-<p>{terra} can handle vector files on the S4 system. There is other
-alternative, the {sf} package, that represents the same information on a
-tabular way. You can convert easily between the two packages like
-this:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux</span>, main <span class="op">=</span> <span class="st">"SpatVector"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="terra_sf-1.png" alt="plot of chunk terra_sf" width="100%"></p>
+<p>With {tidyterra} we can also aggregate SpatRaster at our
+convenience:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span></span>
-<span><span class="co"># To sf</span></span>
-<span><span class="va">sfobj</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">lux</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">sfobj</span>, <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Simple feature collection with 3 features and 6 fields</span></span>
-<span><span class="co">#&gt; Geometry type: POLYGON</span></span>
-<span><span class="co">#&gt; Dimension:     XY</span></span>
-<span><span class="co">#&gt; Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162</span></span>
-<span><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span><span class="co">#&gt;   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry</span></span>
-<span><span class="co">#&gt; 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...</span></span>
-<span><span class="co">#&gt; 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...</span></span>
-<span><span class="co">#&gt; 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">$</span><span class="va">geometry</span>, main <span class="op">=</span> <span class="st">"sf"</span>, axes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="terra_sf-2.png" alt="plot of chunk terra_sf" width="100%"></p>
+<code class="sourceCode R"><span><span class="co"># Dissolving</span></span>
+<span><span class="va">v_lux</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Create categories</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>gr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">POP</span> <span class="op">/</span> <span class="fl">1000</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">gr</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Summary</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    tot_pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span>
+<span>    mean_area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tot_pop</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
+<p><img src="aggregate-1.png" alt="plot of chunk aggregate" width="100%"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="co"># Back to terra</span></span>
 <span></span>
-<span><span class="va">lux2</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">lux2</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 12, 6  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
-<span><span class="co">#&gt;  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span></span>
-<span><span class="co">#&gt;  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  values      :     1 Diekirch     1 Clervaux   312 18081</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     2 Diekirch   218 32543</span></span>
-<span><span class="co">#&gt;                    1 Diekirch     3  Redange   259 18664</span></span></code></pre></div>
-<p>On that sense, {sf} already has its own implementation of {tidyverse}
-methods. Since converting SpatVector to {sf} it is straightforward with
-no loss of information, {tidyterra} is specially focused on SpatRasters.
-See an example of how to work with {terra} + {sf} + {dplyr}:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">lux_summ</span> <span class="op">&lt;-</span> <span class="va">lux2</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="co"># to sf</span></span>
-<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="co"># dplyr</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>TOTPOP <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="co"># back to terra</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">lux_summ</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 3, 2  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
-<span><span class="co">#&gt;  names       :  ID_1 TOTPOP</span></span>
-<span><span class="co">#&gt;  type        : &lt;num&gt;  &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  values      :     1  91186</span></span>
-<span><span class="co">#&gt;                    2  71093</span></span>
-<span><span class="co">#&gt;                    3 439726</span></span>
-<span></span>
-<span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lux_summ</span>, <span class="st">"TOTPOP"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%"></p>
+<span><span class="co"># Same but keeping internal boundaries</span></span>
+<span><span class="va">v_lux</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Create categories</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>gr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">POP</span> <span class="op">/</span> <span class="fl">1000</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">gr</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="co"># Summary without dissolving</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
+<span>    n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    tot_pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span>
+<span>    mean_area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span>,</span>
+<span>    .dissolve <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tot_pop</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
+<p><img src="aggregate-2.png" alt="plot of chunk aggregate" width="100%"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

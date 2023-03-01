@@ -106,10 +106,10 @@ the summary statistics that you have specified.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .by <span class="op">=</span> <span class="cn">NULL</span>, .groups <span class="op">=</span> <span class="cn">NULL</span>, dissolve <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .by <span class="op">=</span> <span class="cn">NULL</span>, .groups <span class="op">=</span> <span class="cn">NULL</span>, .dissolve <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .by <span class="op">=</span> <span class="cn">NULL</span>, .groups <span class="op">=</span> <span class="cn">NULL</span>, dissolve <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">...</span>, .by <span class="op">=</span> <span class="cn">NULL</span>, .groups <span class="op">=</span> <span class="cn">NULL</span>, .dissolve <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -136,8 +136,9 @@ on <span class="pkg">dplyr</span>.</p></dd>
 <dd><p>See <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code></p></dd>
 
 
-<dt>dissolve</dt>
-<dd><p>logical. Should borders between aggregated geometries be dissolved?</p></dd>
+<dt>.dissolve</dt>
+<dd><p>logical. Should borders between aggregated geometries
+be dissolved?</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -157,15 +158,15 @@ on <span class="pkg">dplyr</span>.</p></dd>
 
 
 <p>Similarly to the implementation on <span class="pkg">sf</span> this function can be used to
-dissolve geometries (with <code>dissolve = TRUE</code>) or create <code>MULTI</code> versions of
-geometries (with <code>dissolve = FALSE</code>). See <strong>Examples</strong>.</p>
+dissolve geometries (with <code>.dissolve = TRUE</code>) or create <code>MULTI</code> versions of
+geometries (with <code>.dissolve = FALSE</code>). See <strong>Examples</strong>.</p>
 </div>
 
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code>, <code><a href="https://rdrr.io/pkg/terra/man/aggregate.html" class="external-link">terra::aggregate()</a></code></p>
-<p>Other single table verbs:
+<p>Other single table verbs: 
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
@@ -173,9 +174,11 @@ geometries (with <code>dissolve = FALSE</code>). See <strong>Examples</strong>.<
 <code><a href="select.Spat.html">select.Spat</a></code>,
 <code><a href="slice.Spat.html">slice.Spat</a></code></p>
 <p>Other dplyr verbs that operate on group of rows:
+<code><a href="count-tally.SpatVector.html">count-tally.SpatVector</a></code>,
 <code><a href="group-by.SpatVector.html">group-by.SpatVector</a></code></p>
 <p>Other dplyr methods:
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="count-tally.SpatVector.html">count-tally.SpatVector</a></code>,
 <code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
 <code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
@@ -223,7 +226,7 @@ geometries (with <code>dissolve = FALSE</code>). See <strong>Examples</strong>.<
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Not dissolving</span></span></span>
 <span class="r-in"><span><span class="va">no_diss</span> <span class="op">&lt;-</span> <span class="va">gr_v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="va">cpro</span><span class="op">)</span><span class="op">)</span>, dissolve <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span>, mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="va">cpro</span><span class="op">)</span><span class="op">)</span>, .dissolve <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Same statistic</span></span></span>
 <span class="r-in"><span><span class="va">no_diss</span></span></span>
