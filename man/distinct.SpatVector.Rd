@@ -100,6 +100,7 @@ Other dplyr verbs that operate on rows:
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
+\code{\link{count-tally.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},

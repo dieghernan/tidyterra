@@ -26,7 +26,8 @@
 #' @param .by Ignored on this method. `r lifecycle::badge('experimental')`
 #'   on \pkg{dplyr}.
 #' @param .groups See [dplyr::summarise()]
-#' @inheritParams terra::aggregate
+#' @param .dissolve logical. Should borders between aggregated geometries
+#'   be dissolved?
 #'
 #' @importFrom dplyr summarise
 #'
@@ -41,8 +42,8 @@
 #' ## SpatVector
 #'
 #' Similarly to the implementation on \pkg{sf} this function can be used to
-#' dissolve geometries (with `dissolve = TRUE`) or create `MULTI` versions of
-#' geometries (with `dissolve = FALSE`). See **Examples**.
+#' dissolve geometries (with `.dissolve = TRUE`) or create `MULTI` versions of
+#' geometries (with `.dissolve = FALSE`). See **Examples**.
 #'
 #' @examples
 #' library(terra)
@@ -66,7 +67,7 @@
 #'
 #' # Not dissolving
 #' no_diss <- gr_v %>%
-#'   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), dissolve = FALSE)
+#'   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 #'
 #' # Same statistic
 #' no_diss
@@ -74,7 +75,7 @@
 #' autoplot(no_diss, aes(fill = start_with_s)) +
 #'   ggplot2::ggtitle("Not Dissolved")
 summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
-                                 dissolve = TRUE) {
+                                 .dissolve = TRUE) {
   # Get dfs
   df <- as_tbl_spatvect_attr(.data)
   df_summ <- dplyr::summarise(df, ..., .groups = .groups)
@@ -85,10 +86,10 @@ summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
     spatv$tterra_index <- group_indices(spatv)
     newgeom <- terra::aggregate(spatv,
       by = "tterra_index",
-      dissolve = dissolve
+      dissolve = .dissolve
     )
   } else {
-    newgeom <- terra::aggregate(spatv, dissolve = dissolve)
+    newgeom <- terra::aggregate(spatv, dissolve = .dissolve)
   }
 
   v_summ <- cbind(newgeom[, 0], df_summ)

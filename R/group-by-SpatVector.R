@@ -8,8 +8,6 @@
 #' adds a new attribute to an existing SpatVector indicating the
 #' corresponding groups. See **Methods**.
 #'
-#'
-#'
 #' @export
 #' @rdname group-by.SpatVector
 #' @name group-by.SpatVector
@@ -20,7 +18,6 @@
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr group_by
-#'
 #' @param .data,x A SpatVector object. See **Methods**.
 #' @inheritParams dplyr::group_by
 #'
@@ -37,7 +34,7 @@
 #' See **Details** on [dplyr::group_by()].
 #'
 #' @examples
-#'
+#' \donttest{
 #'
 #' library(terra)
 #' f <- system.file("ex/lux.shp", package = "terra")
@@ -83,8 +80,6 @@
 #'   ungroup() %>%
 #'   summarise(n = sum(n))
 #'
-#'
-#'
 #' # By default, group_by() overrides existing grouping
 #' by_name2_name1 %>%
 #'   group_by(ID_1, ID_2) %>%
@@ -101,41 +96,7 @@
 #' p %>%
 #'   group_by(ID_COMB = ID_1 * 100 / ID_2) %>%
 #'   relocate(ID_COMB, .before = 1)
-#'
-#'
-#' # Use also to aggregate geometries
-#' # Dissolve by default
-#'
-#' diss <- p %>%
-#'   group_by(NAME_1) %>%
-#'   summarise(mean_pop = mean(POP))
-#'
-#' diss
-#'
-#' library(ggplot2)
-#' ggplot(diss) +
-#'   geom_spatvector(aes(fill = NAME_1)) +
-#'   labs(
-#'     title = "Aggregatting SpatVectors",
-#'     subtitle = "Dissolved"
-#'   )
-#'
-#'
-#' # Opt out with dissolve = FALSE. Same data but polygons are not merged
-#'
-#' no_diss <- p %>%
-#'   group_by(NAME_1) %>%
-#'   summarise(mean_pop = mean(POP), dissolve = FALSE)
-#'
-#' no_diss
-#'
-#' ggplot(no_diss) +
-#'   geom_spatvector(aes(fill = NAME_1)) +
-#'   labs(
-#'     title = "Aggregatting SpatVectors",
-#'     subtitle = "Not Dissolved"
-#'   )
-#'
+#' }
 group_by.SpatVector <- function(.data, ..., .add = FALSE,
                                 .drop = dplyr::group_by_drop_default(.data)) {
   # Use own method

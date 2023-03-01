@@ -53,7 +53,7 @@ SpatVectors.
 }
 
 \examples{
-
+\donttest{
 
 library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
@@ -99,8 +99,6 @@ by_name2 \%>\%
   ungroup() \%>\%
   summarise(n = sum(n))
 
-
-
 # By default, group_by() overrides existing grouping
 by_name2_name1 \%>\%
   group_by(ID_1, ID_2) \%>\%
@@ -117,50 +115,18 @@ by_name2_name1 \%>\%
 p \%>\%
   group_by(ID_COMB = ID_1 * 100 / ID_2) \%>\%
   relocate(ID_COMB, .before = 1)
-
-
-# Use also to aggregate geometries
-# Dissolve by default
-
-diss <- p \%>\%
-  group_by(NAME_1) \%>\%
-  summarise(mean_pop = mean(POP))
-
-diss
-
-library(ggplot2)
-ggplot(diss) +
-  geom_spatvector(aes(fill = NAME_1)) +
-  labs(
-    title = "Aggregatting SpatVectors",
-    subtitle = "Dissolved"
-  )
-
-
-# Opt out with dissolve = FALSE. Same data but polygons are not merged
-
-no_diss <- p \%>\%
-  group_by(NAME_1) \%>\%
-  summarise(mean_pop = mean(POP), dissolve = FALSE)
-
-no_diss
-
-ggplot(no_diss) +
-  geom_spatvector(aes(fill = NAME_1)) +
-  labs(
-    title = "Aggregatting SpatVectors",
-    subtitle = "Not Dissolved"
-  )
-
+}
 }
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
 
 Other dplyr verbs that operate on group of rows:
+\code{\link{count-tally.SpatVector}},
 \code{\link{summarise.SpatVector}()}
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
+\code{\link{count-tally.SpatVector}},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},

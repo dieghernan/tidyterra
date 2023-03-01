@@ -202,6 +202,7 @@ Other dplyr verbs that operate on pairs Spat*/data.frame:
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
+\code{\link{count-tally.SpatVector}},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},

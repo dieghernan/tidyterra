@@ -5,9 +5,9 @@
 \alias{summarize.SpatVector}
 \title{Summarise each group of a SpatVector down to one geometry}
 \usage{
-\method{summarise}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, dissolve = TRUE)
+\method{summarise}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
-\method{summarize}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, dissolve = TRUE)
+\method{summarize}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 }
 \arguments{
 \item{.data}{A SpatVector}
@@ -29,7 +29,8 @@ on \pkg{dplyr}.}
 
 \item{.groups}{See \code{\link[dplyr:summarise]{dplyr::summarise()}}}
 
-\item{dissolve}{logical. Should borders between aggregated geometries be dissolved?}
+\item{.dissolve}{logical. Should borders between aggregated geometries
+be dissolved?}
 }
 \description{
 \code{summarise()} creates a new SpatVector. It returns one geometry for each
@@ -54,8 +55,8 @@ Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summa
 \subsection{SpatVector}{
 
 Similarly to the implementation on \pkg{sf} this function can be used to
-dissolve geometries (with \code{dissolve = TRUE}) or create \code{MULTI} versions of
-geometries (with \code{dissolve = FALSE}). See \strong{Examples}.
+dissolve geometries (with \code{.dissolve = TRUE}) or create \code{MULTI} versions of
+geometries (with \code{.dissolve = FALSE}). See \strong{Examples}.
 }
 }
 
@@ -81,7 +82,7 @@ autoplot(diss, aes(fill = start_with_s)) + ggplot2::ggtitle("Dissolved")
 
 # Not dissolving
 no_diss <- gr_v \%>\%
-  summarise(n = dplyr::n(), mean = mean(as.double(cpro)), dissolve = FALSE)
+  summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 
 # Same statistic
 no_diss
@@ -101,10 +102,12 @@ Other single table verbs:
 \code{\link{slice.Spat}}
 
 Other dplyr verbs that operate on group of rows:
+\code{\link{count-tally.SpatVector}},
 \code{\link{group-by.SpatVector}}
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
+\code{\link{count-tally.SpatVector}},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
