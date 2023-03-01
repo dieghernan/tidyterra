@@ -35,9 +35,107 @@
 #' @details
 #'
 #' See **Details** on [dplyr::group_by()].
+#'
 #' @examples
 #'
-#' # TODO
+#'
+#' library(terra)
+#' f <- system.file("ex/lux.shp", package = "terra")
+#' p <- vect(f)
+#'
+#'
+#' by_name1 <- p %>% group_by(NAME_1)
+#'
+#' # grouping doesn't change how the SpatVector looks
+#' by_name1
+#'
+#' # But add metadata for grouping: See the coercion to tibble
+#'
+#' # Not grouped
+#' p_tbl <- as_tibble(p)
+#' class(p_tbl)
+#' head(p_tbl, 3)
+#'
+#' # Grouped
+#' by_name1_tbl <- as_tibble(by_name1)
+#' class(by_name1_tbl)
+#' head(by_name1_tbl, 3)
+#'
+#'
+#' # It changes how it acts with the other dplyr verbs:
+#' by_name1 %>% summarise(
+#'   pop = mean(POP),
+#'   area = sum(AREA)
+#' )
+#'
+#' # Each call to summarise() removes a layer of grouping
+#' by_name2_name1 <- p %>% group_by(NAME_2, NAME_1)
+#'
+#' by_name2_name1
+#' group_data(by_name2_name1)
+#'
+#' by_name2 <- by_name2_name1 %>% summarise(n = dplyr::n())
+#' by_name2
+#' group_data(by_name2)
+#'
+#' # To removing grouping, use ungroup
+#' by_name2 %>%
+#'   ungroup() %>%
+#'   summarise(n = sum(n))
+#'
+#'
+#'
+#' # By default, group_by() overrides existing grouping
+#' by_name2_name1 %>%
+#'   group_by(ID_1, ID_2) %>%
+#'   group_vars()
+#'
+#'
+#' # Use add = TRUE to instead append
+#' by_name2_name1 %>%
+#'   group_by(ID_1, ID_2, .add = TRUE) %>%
+#'   group_vars()
+#'
+#' # You can group by expressions: this is a short-hand
+#' # for a mutate() followed by a group_by()
+#' p %>%
+#'   group_by(ID_COMB = ID_1 * 100 / ID_2) %>%
+#'   relocate(ID_COMB, .before = 1)
+#'
+#'
+#' # Use also to aggregate geometries
+#' # Dissolve by default
+#'
+#' diss <- p %>%
+#'   group_by(NAME_1) %>%
+#'   summarise(mean_pop = mean(POP))
+#'
+#' diss
+#'
+#' library(ggplot2)
+#' ggplot(diss) +
+#'   geom_spatvector(aes(fill = NAME_1)) +
+#'   labs(
+#'     title = "Aggregatting SpatVectors",
+#'     subtitle = "Dissolved"
+#'   )
+#'
+#'
+#' # Opt out with dissolve = FALSE. Same data but polygons are not merged
+#'
+#' no_diss <- p %>%
+#'   group_by(NAME_1) %>%
+#'   summarise(mean_pop = mean(POP), dissolve = FALSE)
+#'
+#' no_diss
+#'
+#' ggplot(no_diss) +
+#'   geom_spatvector(aes(fill = NAME_1)) +
+#'   labs(
+#'     title = "Aggregatting SpatVectors",
+#'     subtitle = "Not Dissolved"
+#'   )
+#'
 group_by.SpatVector <- function(.data, ..., .add = FALSE,
                                 .drop = dplyr::group_by_drop_default(.data)) {
   # Use own method
