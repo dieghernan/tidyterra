@@ -88,7 +88,7 @@
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Own implementation
   init_names <- names(.data)
-  newnames <- make_col_names(.data, geom = "WKT", messages = FALSE)
+  newnames <- make_safe_names(.data, geom = "WKT", messages = FALSE)
   end_names <- names(newnames)[seq_len(length(init_names))]
   def <- as_tibble(.data, geom = "WKT")
 
@@ -97,7 +97,6 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     after = end_names,
     changed = init_names == end_names
   )
-
   # Make geometry sticky
   if (rlang::dots_n(...) > 0) {
     dist <- dplyr::distinct(def, ..., .data$geometry, .keep_all = .keep_all)
@@ -119,14 +118,14 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     vlogi <- keep_name_list$changed[vend]
     if (any(vlogi == FALSE)) {
       message(cli::col_black("Regenerating column names:"))
-
       to_change <- keep_name_list$init[vend]
 
+      int_end <- int[int != to_change]
+      to_change_end <- to_change[int != to_change]
       message(cli::col_black(
-        paste0("`", int, "` -> `", to_change, "`", collapse = "\n")
+        paste0("`", int_end, "` -> `", to_change_end, "`", collapse = "\n")
       ))
       message(cli::col_black("\n"))
-
       names(reg) <- to_change
     }
   }

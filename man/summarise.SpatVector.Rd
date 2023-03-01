@@ -92,7 +92,7 @@ autoplot(no_diss, aes(fill = start_with_s)) +
 \seealso{
 \code{\link[dplyr:summarise]{dplyr::summarise()}}, \code{\link[terra:aggregate]{terra::aggregate()}}
 
-Other single table verbs:
+Other single table verbs: 
 \code{\link{arrange.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},

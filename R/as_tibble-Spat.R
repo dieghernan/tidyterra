@@ -93,7 +93,7 @@ as_tibble.SpatRaster <- function(x, ...,
                                  xy = FALSE,
                                  na.rm = FALSE,
                                  .name_repair = "unique") {
-  if (xy) x <- make_layer_names(x)
+  if (xy) x <- make_safe_names(x)
 
   df <- tibble::as_tibble(terra::as.data.frame(x, ..., xy = xy, na.rm = na.rm),
     .name_repair = .name_repair
@@ -113,7 +113,7 @@ as_tibble.SpatRaster <- function(x, ...,
 #' @rdname as_tibble.Spat
 as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
   if (!is.null(geom)) {
-    x <- make_col_names(x, geom = geom)
+    x <- make_safe_names(x, geom = geom)
   }
 
 
@@ -125,9 +125,7 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
 
-    remove_gr <- df[, !grepl("dplyr.group", names(df))]
-
-    df <- dplyr::group_by(remove_gr, dplyr::across(dplyr::all_of(vars)))
+    df <- dplyr::group_by(df, dplyr::across(dplyr::all_of(vars)))
   }
 
   # Set attributes
@@ -148,7 +146,7 @@ as_tbl_spat_attr <- function(x) {
 
   if (!inherits(x, "SpatRaster")) cli::cli_abort("x is not a SpatRaster")
 
-  x <- make_layer_names(x)
+  x <- make_safe_names(x)
 
   todf <- data.table::as.data.table(x, xy = TRUE, na.rm = FALSE)
   todf[is.na(todf)] <- NA
@@ -171,48 +169,6 @@ as_tbl_spat_attr <- function(x) {
   return(todf)
 }
 
-# Make layer names protecting x and y, since are reserved
-make_layer_names <- function(x) {
-  # x and y names are reserved for coords
-  init_names <- names(x)
-
-  dup_names <- length(unique(init_names)) != terra::nlyr(x)
-
-
-  if (!any(
-    "x" %in% init_names,
-    "y" %in% init_names,
-    dup_names
-  )) {
-    return(x)
-  }
-
-
-  cli::cli_alert_info(paste(
-    "Layer(s) with duplicated/reserved names detected.",
-    "See `About layer/column names` section on",
-    "`?as_tibble.SpatRaster`", "\n"
-  ))
-  cli::cli_alert_warning("Renaming layers:")
-
-  names_with_coords <- c("x", "y", init_names)
-  # Make new names
-  newnames <- make.names(names_with_coords, unique = TRUE)
-
-  newnames <- newnames[-c(1:2)]
-
-  # Make new names
-  message(cli::col_black("New layer names:"))
-  message(cli::col_black(
-    paste0("`", init_names, "` -> `", newnames, "`", collapse = "\n")
-  ))
-  message(cli::col_black("\n"))
-
-  names(x) <- newnames
-  return(x)
-}
-
-
 
 #' Strict internal version, returns a tibble with required attributes to
 #' rebuild a SpatVector
@@ -225,7 +181,7 @@ as_tbl_spatvect_attr <- function(x) {
 
   if (!inherits(x, "SpatVector")) cli::cli_abort("x is not a SpatVector")
 
-  x <- make_col_names(x, geom = "WKT")
+  x <- make_safe_names(x, geom = "WKT")
 
   todf <- as.data.frame(x, geom = "WKT")
   todf[is.na(todf)] <- NA
@@ -234,9 +190,7 @@ as_tbl_spatvect_attr <- function(x) {
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
 
-    remove_gr <- todf[, !grepl("dplyr.group", names(todf))]
-
-    todf <- dplyr::group_by(remove_gr, dplyr::across(dplyr::all_of(vars)))
+    todf <- dplyr::group_by(todf, dplyr::across(dplyr::all_of(vars)))
   } else {
     todf <- dplyr::as_tibble(todf)
   }
@@ -250,12 +204,18 @@ as_tbl_spatvect_attr <- function(x) {
 }
 
 
-# Make col names protecting geometry, since is reserved for SpatVectors
-make_col_names <- function(x, geom, messages = TRUE) {
-  # geometry name is reserved for geometry
+# Protect reserved names on coercion
+make_safe_names <- function(x, geom = NULL, messages = TRUE) {
   init_names <- names(x)
 
-  dup_names <- length(unique(init_names)) != terra::ncol(x)
+  if (inherits(x, "SpatRaster")) {
+    dup_names <- length(unique(init_names)) != terra::nlyr(x)
+    for_message <- "Layer(s)"
+    geom <- "XY"
+  } else if (inherits(x, "SpatVector")) {
+    dup_names <- length(unique(init_names)) != terra::ncol(x)
+    for_message <- "Column(s)"
+  }
 
   if (geom == "XY") {
     if (!any("x" %in% init_names, "y" %in% init_names, dup_names)) {
@@ -267,7 +227,8 @@ make_col_names <- function(x, geom, messages = TRUE) {
 
   if (messages) {
     cli::cli_alert_info(paste(
-      "Layer(s) with duplicated/reserved names detected.",
+      for_message,
+      "with duplicated/reserved names detected.",
       "See `About layer/column names` section on",
       "`?as_tibble.SpatRaster`", "\n"
     ))
@@ -288,9 +249,14 @@ make_col_names <- function(x, geom, messages = TRUE) {
   }
   # Make new names
   if (messages) {
+    names_changed <- !newnames == init_names
+
     message(cli::col_black("New column names:"))
     message(cli::col_black(
-      paste0("`", init_names, "` -> `", newnames, "`", collapse = "\n")
+      paste0("`", init_names[names_changed], "` -> `",
+        newnames[names_changed], "`",
+        collapse = "\n"
+      )
     ))
     message(cli::col_black("\n"))
   }

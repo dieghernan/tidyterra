@@ -60,9 +60,6 @@ as_sf <- function(x, ...) {
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
     sfobj <- dplyr::group_by(sfobj, dplyr::across(dplyr::all_of(vars)))
-
-    # Remove grouped columns from SpatVector
-    sfobj <- sfobj[, !grepl("dplyr.group", names(sfobj))]
   }
 
   return(sfobj)

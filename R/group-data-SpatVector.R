@@ -109,10 +109,6 @@
 group_data.SpatVector <- function(.data) {
   tbl <- as_tibble(.data)
 
-  # Remove grouped columns from SpatVector
-  tbl <- tbl[, !grepl("dplyr.group", names(tbl))]
-
-
   if (is_grouped_spatvector(.data)) {
     # Get vars
     vars <- group_vars(.data)
@@ -133,10 +129,6 @@ dplyr::group_data
 #' @importFrom dplyr group_keys
 group_keys.SpatVector <- function(.tbl, ...) {
   tbl <- as_tibble(.tbl)
-
-  # Remove grouped columns from SpatVector
-  tbl <- tbl[, !grepl("dplyr.group", names(tbl))]
-
 
   if (is_grouped_spatvector(.tbl)) {
     # Get vars
@@ -169,11 +161,6 @@ dplyr::group_rows
 #' @importFrom dplyr group_indices
 group_indices.SpatVector <- function(.data, ...) {
   tbl <- as_tibble(.data)
-
-  # Remove grouped columns from SpatVector
-  tbl <- tbl[, !grepl("dplyr.group", names(tbl))]
-
-
   if (is_grouped_spatvector(.data)) {
     # Get vars
     vars <- group_vars(.data)
@@ -211,11 +198,6 @@ dplyr::group_vars
 #' @importFrom dplyr groups
 groups.SpatVector <- function(x) {
   tbl <- as_tibble(x)
-
-  # Remove grouped columns from SpatVector
-  tbl <- tbl[, !grepl("dplyr.group", names(tbl))]
-
-
   if (is_grouped_spatvector(x)) {
     # Get vars
     vars <- group_vars(x)
