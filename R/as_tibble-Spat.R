@@ -125,7 +125,7 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
 
-    df <- dplyr::group_by(df, dplyr::across(dplyr::all_of(vars)))
+    df <- dplyr::group_by(df, across_all_of(vars))
   }
 
   # Set attributes
@@ -190,7 +190,7 @@ as_tbl_spatvect_attr <- function(x) {
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
 
-    todf <- dplyr::group_by(todf, dplyr::across(dplyr::all_of(vars)))
+    todf <- dplyr::group_by(todf, across_all_of(vars))
   } else {
     todf <- dplyr::as_tibble(todf)
   }

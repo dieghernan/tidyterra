@@ -114,7 +114,7 @@ group_data.SpatVector <- function(.data) {
     vars <- group_vars(.data)
 
     # Regroup
-    tbl <- group_by(tbl, dplyr::across(dplyr::all_of(vars)))
+    tbl <- group_by(tbl, across_all_of(vars))
   }
 
   # Dispatch to default dplyr method
@@ -135,7 +135,7 @@ group_keys.SpatVector <- function(.tbl, ...) {
     vars <- group_vars(.tbl)
 
     # Regroup
-    tbl <- group_by(tbl, dplyr::across(dplyr::all_of(vars)))
+    tbl <- group_by(tbl, across_all_of(vars))
   }
 
   # Dispatch to default dplyr method
@@ -166,7 +166,7 @@ group_indices.SpatVector <- function(.data, ...) {
     vars <- group_vars(.data)
 
     # Regroup
-    tbl <- group_by(tbl, dplyr::across(dplyr::all_of(vars)))
+    tbl <- group_by(tbl, across_all_of(vars))
   }
 
   # Dispatch to default dplyr method
@@ -203,7 +203,7 @@ groups.SpatVector <- function(x) {
     vars <- group_vars(x)
 
     # Regroup
-    tbl <- group_by(tbl, dplyr::across(dplyr::all_of(vars)))
+    tbl <- group_by(tbl, across_all_of(vars))
   }
 
   # Dispatch to default dplyr method

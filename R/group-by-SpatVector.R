@@ -136,7 +136,7 @@ ungroup.SpatVector <- function(x, ...) {
   # Regenerate grouping and use default method
   old_groups <- group_vars(x)
   tbl <- as_tibble(x)
-  g_tbl <- dplyr::group_by(tbl, dplyr::across(dplyr::all_of(old_groups)))
+  g_tbl <- dplyr::group_by(tbl, across_all_of(old_groups))
 
   # Ungroup default method
   newgroups <- dplyr::ungroup(g_tbl, ...)
@@ -150,3 +150,7 @@ ungroup.SpatVector <- function(x, ...) {
 
 #' @export
 dplyr::ungroup
+
+#' @importFrom dplyr group_by_drop_default
+#' @export
+dplyr::group_by_drop_default

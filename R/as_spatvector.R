@@ -178,10 +178,7 @@ as_spatvector.sf <- function(x, ...) {
   # Add grouping if already grouped
   if (dplyr::is_grouped_df(x)) {
     vars_sf <- dplyr::group_vars(x)
-    final_tibble <- dplyr::group_by(
-      final_tibble,
-      dplyr::across(dplyr::all_of(vars_sf))
-    )
+    final_tibble <- dplyr::group_by(final_tibble, across_all_of(vars_sf))
   }
 
   rm(gg)
@@ -255,7 +252,7 @@ as_spatvect_attr <- function(x) {
   if (dplyr::is_grouped_df(x)) {
     vars <- dplyr::group_vars(x)
 
-    v <- group_by(v, dplyr::across(dplyr::all_of(vars)))
+    v <- group_by(v, across_all_of(vars))
   }
 
   v

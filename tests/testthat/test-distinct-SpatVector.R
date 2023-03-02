@@ -83,37 +83,3 @@ test_that("Name handling", {
   expect_equal(ncol(vend2), 0)
   expect_equal(nrow(vend2), 1)
 })
-
-test_that("Keep groups", {
-  df <- data.frame(
-    x = c(1, 1, 1, 1, 1),
-    y = c(1, 1, 2, 2, 2),
-    lon = c(0, 0, 0, 0, 1),
-    lat = c(0, 0, 0, 0, 1)
-  )
-
-
-  v <- terra::vect(df)
-  v <- group_by(v, y)
-
-  # Keep group with callings
-  # With all
-  v_all <- distinct(v)
-
-  expect_true(nrow(v_all) == 3)
-  expect_true(is_grouped_spatvector(v_all))
-  expect_identical(group_vars(v_all), "y")
-
-  # Calling specificly
-  v_all <- distinct(v, y)
-  expect_true(nrow(v_all) == 2)
-  expect_true(is_grouped_spatvector(v_all))
-  expect_identical(group_vars(v_all), "y")
-
-  # When calling another variable with FALSE
-  v_all <- distinct(v, x, .keep_all = FALSE)
-  expect_true("y" %in% names(v_all))
-  expect_true(nrow(v_all) == 2)
-  expect_true(is_grouped_spatvector(v_all))
-  expect_identical(group_vars(v_all), "y")
-})

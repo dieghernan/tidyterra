@@ -59,7 +59,7 @@ as_sf <- function(x, ...) {
 
   if (is_grouped_spatvector(x)) {
     vars <- group_vars(x)
-    sfobj <- dplyr::group_by(sfobj, dplyr::across(dplyr::all_of(vars)))
+    sfobj <- dplyr::group_by(sfobj, across_all_of(vars))
   }
 
   return(sfobj)
