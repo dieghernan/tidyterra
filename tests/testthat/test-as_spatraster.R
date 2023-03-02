@@ -153,16 +153,16 @@ test_that("Check internal", {
   # Test bypass
   expect_silent(compare_spatrasters(
     r,
-    as_spatrast_attr(r)
+    as_spat_internal(r)
   ))
 
   # From internal
-  tbl <- as_tbl_spat_attr(r)
-  expect_silent(as_spatrast_attr(tbl))
+  tbl <- as_tbl_internal(r)
+  expect_silent(as_spat_internal(tbl))
 
 
 
-  r2 <- as_spatrast_attr(tbl)
+  r2 <- as_spat_internal(tbl)
 
   expect_true(compare_spatrasters(r, r2))
 
@@ -174,15 +174,5 @@ test_that("Check internal", {
   names(tbl2) <- att$names
   tbl2 <- as.data.frame(tbl2)
 
-  expect_message(as_spatrast_attr(tbl2))
-
-  r_noattr <- as_spatrast_attr(tbl2)
-
-  expect_s4_class(
-    r_noattr,
-    "SpatRaster"
-  )
-
-  expect_message(compare_spatrasters(r, r_noattr))
-  expect_false(compare_spatrasters(r, r_noattr))
+  expect_error(as_spat_internal(tbl2))
 })

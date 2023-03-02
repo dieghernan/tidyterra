@@ -24,9 +24,9 @@
 #'
 #' @seealso [dplyr::rename()]
 #'
-#' @family dplyr.methods
-#'
 #' @family single table verbs
+#' @family dplyr.cols
+#' @family dplyr.methods
 #'
 #' @section terra equivalent:
 #'

@@ -48,6 +48,11 @@ Load {tidyterra} with additional libraries of the {tidyverse}:
 
 ```r
 library(tidyterra)
+#> 
+#> Attaching package: 'tidyterra'
+#> The following object is masked from 'package:stats':
+#> 
+#>     filter
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
@@ -62,23 +67,35 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method      | SpatVector                         | SpatRaster                    |
-|------------------------|------------------------------------|--------------------|
-| `tibble::as_tibble()` | ✔️                                 | ✔️                            |
-| `dplyr::filter()`     | ✔️                                 | ✔️                            |
-| `dplyr::mutate()`     | ✔️                                 | ✔️                            |
-| `dplyr::pull()`       | ✔️                                 | ✔️                            |
-| `dplyr::relocate()`   | ✔️                                 | ✔️                            |
-| `dplyr::rename()`     | ✔️                                 | ✔️                            |
-| `dplyr::select()`     | ✔️                                 | ✔️                            |
-| `dplyr::slice()`      | ✔️                                 | ✔️                            |
-| `dplyr::transmute()`  | ✔️                                 | ✔️                            |
-| `tidyr::drop_na()`    | ✔️                                 | ✔️ (questioned)               |
-| `tidyr::replace_na()` | ✔️                                 | ✔️                            |
-| `ggplot2::autoplot()` | ✔️                                 | ✔️                            |
-| `ggplot2::fortify()`  | ✔️ to **sf** with `sf::st_as_sf()` | ✔️ To tibble with coordinates |
+| tidyverse method             | SpatVector                    | SpatRaster                                                                                     |
+|------------------------------|-------------------------------|------------------------------------------------------------------------------------------------|
+| `tibble::as_tibble()`        | ✔️                            | ✔️                                                                                             |
+| `dplyr::select()`            | ✔️                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`            | ✔️                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`         | ✔️                            | ✔️                                                                                             |
+| `dplyr::filter()`            | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`             | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`              | ✔️                            | ✔️                                                                                             |
+| `dplyr::rename()`            | ✔️                            | ✔️                                                                                             |
+| `dplyr::relocate()`          | ✔️                            | ✔️                                                                                             |
+| `dplyr::distinct()`          | ✔️                            |                                                                                                |
+| `dplyr::arrange()`           | ✔️                            |                                                                                                |
+| `dplyr::glimpse()`           | ✔️                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family | ✔️                            |                                                                                                |
+| `dplyr::summarise()`         | ✔️                            |                                                                                                |
+| `dplyr::group_by()` family   | ✔️                            |                                                                                                |
+| `dplyr::count()`, `tally()`  | ✔️                            |                                                                                                |
+| `tidyr::drop_na()`           | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::autoplot()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::fortify()`         | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
+| `ggplot2::geom_*()`          | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 Let's see some of them in action:
+
+### SpatRasters
+
+See an example with SpatRaster objects:
 
 
 ```r
@@ -135,6 +152,45 @@ columns and rows, extent, resolution and coordinate reference system) have not
 been modified. Other methods as `filter()`, `slice()` or `drop_na()` can modify
 these properties, as they would do when applied to a data frame (number of rows
 would be modified on that case).
+
+### SpatVectors
+
+`tidyterra >= 0.4.0` provides support to SpatVectors for most of the {dplyr}
+methods, so it is possible to arrange, group and summarise information of
+SpatVectors
+
+
+```r
+lux <- system.file("ex/lux.shp", package = "terra")
+
+v_lux <- vect(lux)
+
+v_lux %>%
+  # Create categories
+  mutate(gr = cut(POP / 1000, 5)) %>%
+  group_by(gr) %>%
+  # Summary
+  summarise(
+    n = n(),
+    tot_pop = sum(POP),
+    mean_area = mean(AREA)
+  ) %>%
+  # Arrange
+  arrange(desc(gr))
+#>  class       : SpatVector 
+#>  geometry    : polygons 
+#>  dimensions  : 3, 4  (geometries, attributes)
+#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#>  names       :          gr     n tot_pop mean_area
+#>  type        :      <fact> <int>   <int>     <num>
+#>  values      :   (147,183]     2  359427       244
+#>                (40.7,76.1]     1   48187       185
+#>                (4.99,40.7]     9  194391     209.8
+```
+
+As in the case of SpatRaster, basic properties as the geometry and the CRS are
+preserved.
 
 ## Plotting with {ggplot2}
 
@@ -277,7 +333,7 @@ lux <- system.file("ex/lux.shp", package = "terra")
 v_lux <- terra::vect(lux)
 
 ggplot(v_lux) +
-  geom_spatvector(aes(fill = POP)) +
+  geom_spatvector(aes(fill = POP), color = "white") +
   geom_spatvector_text(aes(label = NAME_2), color = "grey90") +
   scale_fill_binned(labels = scales::number_format()) +
   coord_sf(crs = 3857)
@@ -286,104 +342,51 @@ ggplot(v_lux) +
 <img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%" />
 
 The underlying implementation is to take advantage of the conversion
-`terra::vect()/sf::st_as_sf()` (see [**About SpatVectors**](#about)) and use
-`ggplot2::geom_sf()` as an endpoint for creating the layer.
+`terra::vect()/sf::st_as_sf()` and use `ggplot2::geom_sf()` as an endpoint for
+creating the layer.
 
-### About SpatVectors {#about}
-
-SpatVector objects are vector data. This means that they are a set of individual
-points with geographic information (i.e. location of restaurants), that can be
-also grouped to form lines (i.e. a river) and, when these lines forms a closed
-polygon, a spatial polygon (i.e. a country).
-
-{terra} can handle vector files on the S4 system. There is other alternative,
-the {sf} package, that represents the same information on a tabular way. You can
-convert easily between the two packages like this:
+With {tidyterra} we can also aggregate SpatRaster at our convenience:
 
 
 ```r
-lux <- system.file("ex/lux.shp", package = "terra") %>%
-  terra::vect()
-
-
-terra::plot(lux, main = "SpatVector", axes = TRUE)
+# Dissolving
+v_lux %>%
+  # Create categories
+  mutate(gr = cut(POP / 1000, 5)) %>%
+  group_by(gr) %>%
+  # Summary
+  summarise(
+    n = n(),
+    tot_pop = sum(POP),
+    mean_area = mean(AREA)
+  ) %>%
+  ggplot() +
+  geom_spatvector(aes(fill = tot_pop), color = "black") +
+  geom_spatvector_label(aes(label = gr)) +
+  coord_sf(crs = 3857)
 ```
 
-<img src="./terra_sf-1.png" alt="plot of chunk terra_sf" width="100%" />
+<img src="./aggregate-1.png" alt="plot of chunk aggregate" width="100%" />
 
 ```r
 
 
-# To sf
-sfobj <- sf::st_as_sf(lux)
-head(sfobj, 3)
-#> Simple feature collection with 3 features and 6 fields
-#> Geometry type: POLYGON
-#> Dimension:     XY
-#> Bounding box:  xmin: 5.746118 ymin: 49.69933 xmax: 6.315773 ymax: 50.18162
-#> Geodetic CRS:  WGS 84
-#>   ID_1   NAME_1 ID_2   NAME_2 AREA   POP                       geometry
-#> 1    1 Diekirch    1 Clervaux  312 18081 POLYGON ((6.026519 50.17767...
-#> 2    1 Diekirch    2 Diekirch  218 32543 POLYGON ((6.178368 49.87682...
-#> 3    1 Diekirch    3  Redange  259 18664 POLYGON ((5.881378 49.87015...
-
-plot(sfobj$geometry, main = "sf", axes = TRUE)
+# Same but keeping internal boundaries
+v_lux %>%
+  # Create categories
+  mutate(gr = cut(POP / 1000, 5)) %>%
+  group_by(gr) %>%
+  # Summary without dissolving
+  summarise(
+    n = n(),
+    tot_pop = sum(POP),
+    mean_area = mean(AREA),
+    .dissolve = FALSE
+  ) %>%
+  ggplot() +
+  geom_spatvector(aes(fill = tot_pop), color = "black") +
+  geom_spatvector_label(aes(label = gr)) +
+  coord_sf(crs = 3857)
 ```
 
-<img src="./terra_sf-2.png" alt="plot of chunk terra_sf" width="100%" />
-
-```r
-
-# Back to terra
-
-lux2 <- terra::vect(sfobj)
-
-lux2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
-#>  type        : <num>    <chr> <num>    <chr> <num> <int>
-#>  values      :     1 Diekirch     1 Clervaux   312 18081
-#>                    1 Diekirch     2 Diekirch   218 32543
-#>                    1 Diekirch     3  Redange   259 18664
-```
-
-On that sense, {sf} already has its own implementation of {tidyverse} methods.
-Since converting SpatVector to {sf} it is straightforward with no loss of
-information, {tidyterra} is specially focused on SpatRasters. See an example of
-how to work with {terra} + {sf} + {dplyr}:
-
-
-```r
-library(dplyr)
-library(terra)
-library(sf)
-
-lux_summ <- lux2 %>%
-  # to sf
-  st_as_sf() %>%
-  # dplyr
-  group_by(ID_1) %>%
-  summarise(TOTPOP = sum(POP)) %>%
-  # back to terra
-  vect()
-
-lux_summ
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1 TOTPOP
-#>  type        : <num>  <int>
-#>  values      :     1  91186
-#>                    2  71093
-#>                    3 439726
-
-terra::plot(lux_summ, "TOTPOP")
-```
-
-<img src="./full_spatvector-1.png" alt="plot of chunk full_spatvector" width="100%" />
+<img src="./aggregate-2.png" alt="plot of chunk aggregate" width="100%" />

@@ -84,6 +84,7 @@ cat(fromsf1)
 
 Other helpers: 
 \code{\link{compare_spatrasters}()},
+\code{\link{is_grouped_spatvector}()},
 \code{\link{is_regular_grid}()}
 }
 \concept{helpers}

@@ -39,8 +39,9 @@
 #'
 #' If you want to slice by geographic coordinates use [filter.SpatRaster()].
 #'
-#' @family dplyr.methods
 #' @family single table verbs
+#' @family dplyr.rows
+#' @family dplyr.methods
 #'
 #' @return A Spat* object  of the same class than `.data`. See **Methods**.
 #'

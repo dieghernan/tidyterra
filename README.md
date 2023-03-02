@@ -29,6 +29,9 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
+You can have a look to the documentation of the dev version in
+<https://dieghernan.github.io/tidyterra/dev/>
+
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
@@ -51,22 +54,29 @@ object, (for example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by {tidyterra} are:
 
-| tidyverse method      | SpatVector                    | SpatRaster                                                                                     |
-|-----------------------|-------------------------------|------------------------------------------------------------------------------------------------|
-| `tibble::as_tibble()` | ✔️                            | ✔️                                                                                             |
-| `dplyr::select()`     | ✔️                            | ✔️ Select layers                                                                               |
-| `dplyr::mutate()`     | ✔️                            | ✔️ Create /modify layers                                                                       |
-| `dplyr::transmute()`  | ✔️                            | ✔️                                                                                             |
-| `dplyr::filter()`     | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
-| `dplyr::slice()`      | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
-| `dplyr::pull()`       | ✔️                            | ✔️                                                                                             |
-| `dplyr::rename()`     | ✔️                            | ✔️                                                                                             |
-| `dplyr::relocate()`   | ✔️                            | ✔️                                                                                             |
-| `tidyr::drop_na()`    | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
-| `tidyr::replace_na()` | ✔️                            | ✔️                                                                                             |
-| `ggplot2::autoplot()` | ✔️                            | ✔️                                                                                             |
-| `ggplot2::fortify()`  | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
-| `ggplot2::geom_*()`   | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
+| tidyverse method             | SpatVector                    | SpatRaster                                                                                     |
+|------------------------------|-------------------------------|------------------------------------------------------------------------------------------------|
+| `tibble::as_tibble()`        | ✔️                            | ✔️                                                                                             |
+| `dplyr::select()`            | ✔️                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`            | ✔️                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`         | ✔️                            | ✔️                                                                                             |
+| `dplyr::filter()`            | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`             | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`              | ✔️                            | ✔️                                                                                             |
+| `dplyr::rename()`            | ✔️                            | ✔️                                                                                             |
+| `dplyr::relocate()`          | ✔️                            | ✔️                                                                                             |
+| `dplyr::distinct()`          | ✔️                            |                                                                                                |
+| `dplyr::arrange()`           | ✔️                            |                                                                                                |
+| `dplyr::glimpse()`           | ✔️                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family | ✔️                            |                                                                                                |
+| `dplyr::summarise()`         | ✔️                            |                                                                                                |
+| `dplyr::group_by()` family   | ✔️                            |                                                                                                |
+| `dplyr::count()`, `tally()`  | ✔️                            |                                                                                                |
+| `tidyr::drop_na()`           | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::autoplot()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::fortify()`         | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
+| `ggplot2::geom_*()`          | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 ## :exclamation: A note on performance
 
@@ -116,6 +126,8 @@ install.packages("tidyterra")
 ```
 
 ## Example
+
+### SpatRasters
 
 This is a basic example which shows you how to manipulate and plot
 SpatRaster objects:
@@ -246,6 +258,26 @@ ggplot() +
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" width="100%" />
 
+### SpatVectors
+
+This is a basic example which shows you how to manipulate and plot
+SpatVector objects:
+
+``` r
+vect(system.file("ex/lux.shp", package = "terra")) %>%
+  group_by(NAME_1) %>%
+  summarise(pop_dens = sum(POP) / sum(AREA)) %>%
+  glimpse() %>%
+  autoplot(aes(fill = pop_dens)) +
+  scale_fill_whitebox_c(palette = "pi_y_g")
+#> Rows: 3
+#> Columns: 2
+#> $ NAME_1   <chr> "Diekirch", "Grevenmacher", "Luxembourg"
+#> $ pop_dens <dbl> 80.83865, 134.90133, 485.34879
+```
+
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%" />
+
 ## I need your feedback
 
 {tidyterra} is currently on development mode. Please leave your feedback
@@ -272,7 +304,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.3.2},
+      version = {0.3.2.9000},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }

@@ -24,9 +24,9 @@
 #'
 #' @seealso [dplyr::mutate()], [dplyr::transmute()]
 #'
-#' @family dplyr.methods
-#'
 #' @family single table verbs
+#' @family dplyr.cols
+#' @family dplyr.methods
 #'
 #' @section  terra equivalent:
 #'
@@ -78,7 +78,7 @@
 #'   mutate(cpro2 = paste0(cpro, "-CyL")) %>%
 #'   select(cpro, cpro2)
 mutate.SpatRaster <- function(.data, ...) {
-  df <- as_tbl_spat_attr(.data)
+  df <- as_tbl_internal(.data)
 
   xy <- dplyr::select(df, 1:2)
 
@@ -109,7 +109,7 @@ mutate.SpatRaster <- function(.data, ...) {
   dims[3] <- ncol(values_mutate)
   attr(final_df, "dims") <- dims
 
-  final_rast <- as_spatrast_attr(final_df)
+  final_rast <- as_spat_internal(final_df)
 
   return(final_rast)
 }
@@ -126,7 +126,7 @@ mutate.SpatVector <- function(.data, ...) {
 #' @rdname mutate.Spat
 #' @importFrom dplyr transmute
 transmute.SpatRaster <- function(.data, ...) {
-  df <- as_tbl_spat_attr(.data)
+  df <- as_tbl_internal(.data)
 
   xy <- dplyr::select(df, 1:2)
 
@@ -157,7 +157,7 @@ transmute.SpatRaster <- function(.data, ...) {
   dims[3] <- ncol(values_transm)
   attr(final_df, "dims") <- dims
 
-  final_rast <- as_spatrast_attr(final_df)
+  final_rast <- as_spat_internal(final_df)
 
   return(final_rast)
 }

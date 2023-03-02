@@ -6,3 +6,6 @@
 #' @importFrom grDevices terrain.colors rgb
 #' @importFrom tibble as_tibble
 NULL
+
+#' @export
+ggplot2::aes

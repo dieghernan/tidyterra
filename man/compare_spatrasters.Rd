@@ -61,6 +61,7 @@ compare_spatrasters(x, project(x, "epsg:3035"))
 }
 \seealso{
 Other helpers: 
+\code{\link{is_grouped_spatvector}()},
 \code{\link{is_regular_grid}()},
 \code{\link{pull_crs}()}
 }

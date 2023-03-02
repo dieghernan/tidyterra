@@ -41,12 +41,12 @@
 #'
 #' Implementation of the **generic** [tibble::as_tibble()] function.
 #'
-#' ## SpatRaster
+#' ## SpatRaster and SpatVector
 #'
 #' `r lifecycle::badge('questioning')` The tibble is returned with an attribute
 #' including the crs of the initial object in WKT format (see [pull_crs()]).
 #'
-#' @section About layer names:
+#' @section About layer/column names:
 #'
 #' When coercing SpatRaster objects to data frames, `x` and `y` names are
 #' reserved for geographic coordinates of each cell of the raster. It should be
@@ -65,6 +65,11 @@
 #' tidyterra would display a message informing of the changes on the names of
 #' the layer.
 #'
+#' The same issue happens for SpatVector with names `geometry` (when
+#' `geom = c("WKT", "HEX")`) and `x`, `y` (when `geom = "XY"`). These are
+#' reserved names representing the geometry of the SpatVector (see
+#' [terra::as.data.frame()]). If `geom` is not `NULL` then the logic described
+#' for SpatRaster would apply as well for the columns of the SpatVector.
 #'
 #' @examples
 #'
@@ -88,7 +93,7 @@ as_tibble.SpatRaster <- function(x, ...,
                                  xy = FALSE,
                                  na.rm = FALSE,
                                  .name_repair = "unique") {
-  if (xy) x <- make_layer_names(x)
+  if (xy) x <- make_safe_names(x)
 
   df <- tibble::as_tibble(terra::as.data.frame(x, ..., xy = xy, na.rm = na.rm),
     .name_repair = .name_repair
@@ -106,33 +111,53 @@ as_tibble.SpatRaster <- function(x, ...,
 
 #' @export
 #' @rdname as_tibble.Spat
-as_tibble.SpatVector <- function(x, ..., .name_repair = "unique") {
-  df <- tibble::as_tibble(terra::as.data.frame(x, ...),
+as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
+  if (!is.null(geom)) {
+    x <- make_safe_names(x, geom = geom)
+  }
+
+
+  df <- tibble::as_tibble(terra::as.data.frame(x, geom = geom, ...),
     .name_repair = .name_repair
   )
+
+  # Grouped
+  if (is_grouped_spatvector(x)) {
+    vars <- group_vars(x)
+
+    df <- dplyr::group_by(df, across_all_of(vars))
+  }
+
+  # Set attributes
+  attr(df, "crs") <- terra::crs(x)
 
   return(df)
 }
 
+as_tbl_internal <- function(x) {
+  if (!inherits(x, c("SpatRaster", "SpatVector"))) {
+    cli::cli_abort("x is not a Spat* object")
+  }
+
+  if (inherits(x, "SpatRaster")) {
+    as_tbl_spat_attr(x)
+  } else {
+    as_tbl_vector_internal(x)
+  }
+}
 
 #' Strict internal version, returns a tibble with required attributes to
 #' rebuild a SpatRaster
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_spat_attr <- function(x) {
-  if (isTRUE((attr(x, "source")) == "tbl_terra_spatraster")) {
-    return(x)
-  }
-
-  if (!inherits(x, "SpatRaster")) cli::cli_abort("x is not a SpatRaster")
-
-  x <- make_layer_names(x)
+  x <- make_safe_names(x)
 
   todf <- data.table::as.data.table(x, xy = TRUE, na.rm = FALSE)
   todf[is.na(todf)] <- NA
 
   # Set attributes
-  attr(todf, "source") <- "tbl_terra_spatraster"
+  attr(todf, "source") <- "SpatRaster"
 
   attr(todf, "crs") <- terra::crs(x)
   # Extent
@@ -149,43 +174,91 @@ as_tbl_spat_attr <- function(x) {
   return(todf)
 }
 
-# Make layer names protecting x and y, since are reserved
-make_layer_names <- function(x) {
-  # x and y names are reserved for coords
+
+#' Strict internal version, returns a tibble with required attributes to
+#' rebuild a SpatVector
+#' This is the underlying object that would be handled by the tidyverse
+#' @noRd
+as_tbl_vector_internal <- function(x) {
+  x <- make_safe_names(x, geom = "WKT")
+
+  todf <- as.data.frame(x, geom = "WKT")
+  todf[is.na(todf)] <- NA
+
+  # Grouped
+  if (is_grouped_spatvector(x)) {
+    vars <- group_vars(x)
+
+    todf <- dplyr::group_by(todf, across_all_of(vars))
+  } else {
+    todf <- dplyr::as_tibble(todf)
+  }
+
+  # Set attributes
+  attr(todf, "source") <- "SpatVector"
+  attr(todf, "crs") <- terra::crs(x)
+  attr(todf, "geomtype") <- terra::geomtype(x)
+
+  return(todf)
+}
+
+
+# Protect reserved names on coercion
+make_safe_names <- function(x, geom = NULL, messages = TRUE) {
   init_names <- names(x)
 
-  dup_names <- length(unique(init_names)) != terra::nlyr(x)
+  if (inherits(x, "SpatRaster")) {
+    dup_names <- length(unique(init_names)) != terra::nlyr(x)
+    for_message <- "Layer(s)"
+    geom <- "XY"
+  } else if (inherits(x, "SpatVector")) {
+    dup_names <- length(unique(init_names)) != terra::ncol(x)
+    for_message <- "Column(s)"
+  }
 
-
-  if (!any(
-    "x" %in% init_names,
-    "y" %in% init_names,
-    dup_names
-  )) {
+  if (geom == "XY") {
+    if (!any("x" %in% init_names, "y" %in% init_names, dup_names)) {
+      return(x)
+    }
+  } else if (!any("geometry" %in% init_names, dup_names)) {
     return(x)
   }
 
+  if (messages) {
+    cli::cli_alert_info(paste(
+      for_message,
+      "with duplicated/reserved names detected.",
+      "See `About layer/column names` section on",
+      "`?as_tibble.SpatRaster`", "\n"
+    ))
+    cli::cli_alert_warning("Renaming columns:")
+  }
+  if (geom == "XY") {
+    names_with_coords <- c("x", "y", init_names)
+    # Make new names
+    newnames <- make.names(names_with_coords, unique = TRUE)
 
-  cli::cli_alert_info(paste(
-    "Layer(s) with duplicated/reserved names detected.",
-    "See `About layer names` section on",
-    "`?as_tibble.SpatRaster`", "\n"
-  ))
-  cli::cli_alert_warning("Renaming layers:")
+    newnames <- newnames[-c(1:2)]
+  } else {
+    names_with_coords <- c("geometry", init_names)
+    # Make new names
+    newnames <- make.names(names_with_coords, unique = TRUE)
 
-  names_with_coords <- c("x", "y", init_names)
+    newnames <- newnames[-c(1)]
+  }
   # Make new names
-  newnames <- make.names(names_with_coords, unique = TRUE)
+  if (messages) {
+    names_changed <- !newnames == init_names
 
-  newnames <- newnames[-c(1:2)]
-
-  # Make new names
-  message(cli::col_black("New layer names:"))
-  message(cli::col_black(
-    paste0("`", init_names, "` -> `", newnames, "`", collapse = "\n")
-  ))
-  message(cli::col_black("\n"))
-
+    message(cli::col_black("New column names:"))
+    message(cli::col_black(
+      paste0("`", init_names[names_changed], "` -> `",
+        newnames[names_changed], "`",
+        collapse = "\n"
+      )
+    ))
+    message(cli::col_black("\n"))
+  }
   names(x) <- newnames
   return(x)
 }

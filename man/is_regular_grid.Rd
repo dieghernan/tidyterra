@@ -43,6 +43,7 @@ is_regular_grid(p_jitter, digits = 4)
 
 Other helpers: 
 \code{\link{compare_spatrasters}()},
+\code{\link{is_grouped_spatvector}()},
 \code{\link{pull_crs}()}
 }
 \concept{helpers}

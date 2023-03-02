@@ -178,17 +178,6 @@ as_spatrast_attr <- function(x) {
   # Create from dtplyr
   x <- data.table::as.data.table(x)
 
-  if (!isTRUE((attr(x, "source")) == "tbl_terra_spatraster")) {
-    cli::cli_alert_danger(
-      paste(
-        "Spatial attributes may have been removed.",
-        "Check the result carefully."
-      )
-    )
-    return(as_spatraster(x))
-  }
-
-
   # Get attributes
   attrs <- attributes(x)
 

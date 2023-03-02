@@ -50,6 +50,19 @@ SpatVector. It also provides geoms for plotting these objects with
 
 ## Overview
 
+```{r echo=FALSE, results='asis'}
+tterra_v <- packageVersion("tidyterra")
+
+l <- unlist(strsplit(as.character(tterra_v), ".", fixed = TRUE))
+
+if (length(l) == 4) {
+  cat(
+    "You can have a look to the documentation of",
+    "the dev version in <https://dieghernan.github.io/tidyterra/dev/>"
+  )
+}
+```
+
 {tidyverse} methods implemented on {tidyterra} works differently depending on
 the type of Spat\* object:
 
@@ -71,22 +84,29 @@ example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by {tidyterra} are:
 
-| tidyverse method      | SpatVector                    | SpatRaster                                                                                     |
-|-------------------|-------------------|------------------------------------------|
-| `tibble::as_tibble()` | ✔️                            | ✔️                                                                                             |
-| `dplyr::select()`     | ✔️                            | ✔️ Select layers                                                                               |
-| `dplyr::mutate()`     | ✔️                            | ✔️ Create /modify layers                                                                       |
-| `dplyr::transmute()`  | ✔️                            | ✔️                                                                                             |
-| `dplyr::filter()`     | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
-| `dplyr::slice()`      | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
-| `dplyr::pull()`       | ✔️                            | ✔️                                                                                             |
-| `dplyr::rename()`     | ✔️                            | ✔️                                                                                             |
-| `dplyr::relocate()`   | ✔️                            | ✔️                                                                                             |
-| `tidyr::drop_na()`    | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
-| `tidyr::replace_na()` | ✔️                            | ✔️                                                                                             |
-| `ggplot2::autoplot()` | ✔️                            | ✔️                                                                                             |
-| `ggplot2::fortify()`  | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
-| `ggplot2::geom_*()`   | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
+| tidyverse method             | SpatVector                    | SpatRaster                                                                                     |
+|---------------------|---------------------|--------------------------------------|
+| `tibble::as_tibble()`        | ✔️                            | ✔️                                                                                             |
+| `dplyr::select()`            | ✔️                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`            | ✔️                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`         | ✔️                            | ✔️                                                                                             |
+| `dplyr::filter()`            | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`             | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`              | ✔️                            | ✔️                                                                                             |
+| `dplyr::rename()`            | ✔️                            | ✔️                                                                                             |
+| `dplyr::relocate()`          | ✔️                            | ✔️                                                                                             |
+| `dplyr::distinct()`          | ✔️                            |                                                                                                |
+| `dplyr::arrange()`           | ✔️                            |                                                                                                |
+| `dplyr::glimpse()`           | ✔️                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family | ✔️                            |                                                                                                |
+| `dplyr::summarise()`         | ✔️                            |                                                                                                |
+| `dplyr::group_by()` family   | ✔️                            |                                                                                                |
+| `dplyr::count()`, `tally()`  | ✔️                            |                                                                                                |
+| `tidyr::drop_na()`           | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::autoplot()`        | ✔️                            | ✔️                                                                                             |
+| `ggplot2::fortify()`         | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
+| `ggplot2::geom_*()`          | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 ## :exclamation: A note on performance
 
@@ -133,6 +153,8 @@ install.packages("tidyterra")
 ```
 
 ## Example
+
+### SpatRasters
 
 This is a basic example which shows you how to manipulate and plot SpatRaster
 objects:
@@ -239,6 +261,20 @@ ggplot() +
   ) +
   theme_minimal() +
   theme(legend.position = "bottom")
+```
+
+### SpatVectors
+
+This is a basic example which shows you how to manipulate and plot SpatVector
+objects:
+
+```{r spatvec }
+vect(system.file("ex/lux.shp", package = "terra")) %>%
+  group_by(NAME_1) %>%
+  summarise(pop_dens = sum(POP) / sum(AREA)) %>%
+  glimpse() %>%
+  autoplot(aes(fill = pop_dens)) +
+  scale_fill_whitebox_c(palette = "pi_y_g")
 ```
 
 ## I need your feedback
