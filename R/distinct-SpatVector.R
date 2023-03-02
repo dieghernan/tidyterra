@@ -18,7 +18,7 @@
 #' @param ... <[`data-masking`][dplyr::distinct]> Optional variables to
 #'   use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
-#'   will use all variables in the data frame. There is a special variable
+#'   will use all variables in the data frame. There is a reserved variable
 #'   name, `geometry`, that would remove duplicate geometries. See **Methods**.
 #' @inheritParams dplyr::distinct
 #' @return A SpatVector object.
@@ -34,10 +34,6 @@
 #'
 #' ## SpatVector
 #'
-#' The geometry column has a sticky behavior. This means that when passing
-#' variables to `...` the geometry information would always be always
-#' include on the evaluation.
-#'
 #' It is possible to remove duplicate geometries including the `geometry`
 #' variable explicitly in the `...` call. See **Examples**.
 #'
@@ -46,19 +42,11 @@
 #'
 #' library(terra)
 #'
-#' # Create a vector from data frame
-#' df <- data.frame(
-#'   A = sample(10, 100, rep = TRUE),
-#'   B = sample(10, 100, rep = TRUE),
-#'   lon = sample(c(0, 20), 100, replace = TRUE),
-#'   lat = sample(c(20, 0), 100, replace = TRUE)
-#' )
+#' v <- vect(system.file("ex/lux.shp", package = "terra"))
 #'
-#' v <- vect(df, crs = pull_crs(4326))
-#'
-#' v
-#' nrow(v)
-#'
+#' # Create a vector with dups
+#' v <- v[sample(seq_len(nrow(v)), 100, replace = TRUE), ]
+#' v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 #'
 #' # All duplicates
 #' ex1 <- distinct(v)
@@ -66,14 +54,13 @@
 #'
 #' nrow(ex1)
 #'
-#' # Duplicates by A
-#' ex2 <- distinct(v, A)
+#' # Duplicates by NAME_1
+#' ex2 <- distinct(v, gr)
 #' ex2
-#'
 #' nrow(ex2)
 #'
 #' # Same but keeping all cols
-#' ex2b <- distinct(v, A, .keep_all = TRUE)
+#' ex2b <- distinct(v, gr, .keep_all = TRUE)
 #' ex2b
 #' nrow(ex2b)
 #'
@@ -85,52 +72,55 @@
 #' nrow(ex3)
 #' # Same as terra::unique()
 #' terra::unique(ex3)
+#'
+#' # Unique keeping info
+#' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Own implementation
-  init_names <- names(.data)
-  newnames <- make_safe_names(.data, geom = "WKT", messages = FALSE)
-  end_names <- names(newnames)[seq_len(length(init_names))]
-  def <- as_tibble(.data, geom = "WKT")
+  a_tbl <- as_tbl_spatvect_attr(.data)
 
-  keep_name_list <- list(
-    init = init_names,
-    after = end_names,
-    changed = init_names == end_names
-  )
-  # Make geometry sticky
-  if (rlang::dots_n(...) > 0) {
-    dist <- dplyr::distinct(def, ..., .data$geometry, .keep_all = .keep_all)
+  if (rlang::dots_n(...) == 0) {
+    dist <- dplyr::distinct(a_tbl, ..., .keep_all = TRUE)
+
+    # tidyterra attributes are dropped, regenerate...
+    attr(dist, "source") <- attr(a_tbl, "source")
+    attr(dist, "crs") <- attr(a_tbl, "crs")
+    attr(dist, "geomtype") <- attr(a_tbl, "geomtype")
+
+    return(as_spatvect_attr(dist))
+  }
+
+  # Renaming based on conversion to tibble
+  names(.data) <- names(a_tbl)[seq_len(ncol(.data))]
+
+  # Add a index for identifying rows to extract
+  a_tbl$tterra_index <- seq_len(nrow(a_tbl))
+
+  # Get dots via select
+  dots_labs <- names(select(a_tbl[1, ], ...))
+
+  topass <- c("tterra_index", dots_labs)
+
+  dist <- distinct(a_tbl[, topass], ..., .keep_all = TRUE)
+
+  # And return using indexes for subsetting
+  # colnames
+  n <- names(.data)
+  if (.keep_all == FALSE) {
+    n <- n[n %in% names(dist)]
+  }
+  # Row index
+  r <- as.integer(dist$tterra_index)
+  dist_v <- .data[r, n]
+
+  # Ensure groups
+  if (dplyr::is_grouped_df(dist)) {
+    attr(dist_v, "group_vars") <- dplyr::group_vars(dist)
   } else {
-    # If no dots then pass directly
-    dist <- dplyr::distinct(def, ..., .keep_all = .keep_all)
+    attr(dist_v, "group_vars") <- NULL
   }
 
-  # Regenerate
-  reg <- terra::vect(dist, geom = "geometry", crs = attr(dist, "crs"))
-
-
-  # Regenerate names
-  after_names <- names(reg)
-  int <- intersect(end_names, after_names)
-  if (length(int) > 0) {
-    # Get vector of changes
-    vend <- match(int, keep_name_list$after)
-    vlogi <- keep_name_list$changed[vend]
-    if (any(vlogi == FALSE)) {
-      message(cli::col_black("Regenerating column names:"))
-      to_change <- keep_name_list$init[vend]
-
-      int_end <- int[int != to_change]
-      to_change_end <- to_change[int != to_change]
-      message(cli::col_black(
-        paste0("`", int_end, "` -> `", to_change_end, "`", collapse = "\n")
-      ))
-      message(cli::col_black("\n"))
-      names(reg) <- to_change
-    }
-  }
-
-  return(reg)
+  return(dist_v)
 }
 
 

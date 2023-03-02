@@ -12,7 +12,7 @@
 \item{...}{<\code{\link[dplyr:distinct]{data-masking}}> Optional variables to
 use when determining uniqueness. If there are multiple rows for a given
 combination of inputs, only the first row will be preserved. If omitted,
-will use all variables in the data frame. There is a special variable
+will use all variables in the data frame. There is a reserved variable
 name, \code{geometry}, that would remove duplicate geometries. See \strong{Methods}.}
 
 \item{.keep_all}{If \code{TRUE}, keep all variables in \code{.data}.
@@ -37,10 +37,6 @@ Keep only unique/distinct rows and geometries from a SpatVector.
 Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} function.
 \subsection{SpatVector}{
 
-The geometry column has a sticky behavior. This means that when passing
-variables to \code{...} the geometry information would always be always
-include on the evaluation.
-
 It is possible to remove duplicate geometries including the \code{geometry}
 variable explicitly in the \code{...} call. See \strong{Examples}.
 }
@@ -50,19 +46,11 @@ variable explicitly in the \code{...} call. See \strong{Examples}.
 
 library(terra)
 
-# Create a vector from data frame
-df <- data.frame(
-  A = sample(10, 100, rep = TRUE),
-  B = sample(10, 100, rep = TRUE),
-  lon = sample(c(0, 20), 100, replace = TRUE),
-  lat = sample(c(20, 0), 100, replace = TRUE)
-)
+v <- vect(system.file("ex/lux.shp", package = "terra"))
 
-v <- vect(df, crs = pull_crs(4326))
-
-v
-nrow(v)
-
+# Create a vector with dups
+v <- v[sample(seq_len(nrow(v)), 100, replace = TRUE), ]
+v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 
 # All duplicates
 ex1 <- distinct(v)
@@ -70,14 +58,13 @@ ex1
 
 nrow(ex1)
 
-# Duplicates by A
-ex2 <- distinct(v, A)
+# Duplicates by NAME_1
+ex2 <- distinct(v, gr)
 ex2
-
 nrow(ex2)
 
 # Same but keeping all cols
-ex2b <- distinct(v, A, .keep_all = TRUE)
+ex2b <- distinct(v, gr, .keep_all = TRUE)
 ex2b
 nrow(ex2b)
 
@@ -89,6 +76,9 @@ ex3
 nrow(ex3)
 # Same as terra::unique()
 terra::unique(ex3)
+
+# Unique keeping info
+distinct(v, geometry, .keep_all = TRUE)
 }
 \seealso{
 \code{\link[dplyr:distinct]{dplyr::distinct()}}, \code{\link[terra:unique]{terra::unique()}}
