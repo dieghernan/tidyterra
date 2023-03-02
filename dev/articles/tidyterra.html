@@ -183,9 +183,9 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <p>Currently, the following methods are available:</p>
 <table class="table">
 <colgroup>
-<col width="30%">
-<col width="43%">
-<col width="26%">
+<col width="19%">
+<col width="19%">
+<col width="61%">
 </colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
@@ -199,22 +199,32 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <td>✔️</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code></td>
+<td><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code></td>
 <td>✔️</td>
-<td>✔️</td>
+<td>✔️ Select layers</td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code></td>
 <td>✔️</td>
-<td>✔️</td>
+<td>✔️ Create /modify layers</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code></td>
+<td><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">dplyr::relocate()</a></code></td>
+<td><code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code></td>
+<td>✔️</td>
+<td>✔️ Modify cells values and (additionally) remove outer cells.</td>
+</tr>
+<tr class="even">
+<td><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code></td>
+<td>✔️</td>
+<td>✔️ Additional methods for slicing by row and column.</td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
@@ -224,60 +234,77 @@ performance. Specially when working with <code><a href="https://dplyr.tidyverse.
 <td>✔️</td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code></td>
+<td><code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">dplyr::relocate()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code></td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr class="odd">
-<td><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code></td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr class="even">
-<td><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code></td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
-<tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
+<tr class="odd">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> family</td>
 <td>✔️</td>
-<td>✔️ (questioned)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code></td>
+<td>✔️</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> family</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally()</a></code>
+</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
+<td>✔️</td>
+<td>✔️ Remove cell values with <code>NA</code> on any layer.
+Additionally, outer cells with <code>NA</code> are removed.</td>
+</tr>
+<tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">ggplot2::autoplot()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
-<td>✔️ to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
+<td>✔️ to sf via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
 </td>
-<td>✔️ To tibble with coordinates</td>
+<td>To a tibble with coordinates.</td>
+</tr>
+<tr class="odd">
+<td><code>ggplot2::geom_*()</code></td>
+<td>✔️ <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>
+</td>
+<td>✔️ <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and
+<code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</td>
 </tr>
 </tbody>
 </table>
