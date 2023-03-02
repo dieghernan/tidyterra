@@ -59,8 +59,8 @@
 #' # A data frame
 #' df <- data.frame(
 #'   cpro = sprintf("%02d", 1:10),
-#'   x = 1:10,
-#'   y = 11:20,
+#'   x = runif(10),
+#'   y = runif(10),
 #'   letter = rep_len(LETTERS[1:3], length.out = 10)
 #' )
 #'
@@ -102,36 +102,22 @@
 #'
 inner_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                   suffix = c(".x", ".y"), ..., keep = NULL) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined <- dplyr::inner_join(sf_obj,
-    y = y, by = by, copy = copy, suffix = suffix, ...,
+  joined_tbl <- dplyr::inner_join(x_tbl,
+    y = y, by = by,
+    copy = copy, suffix = suffix, ...,
     keep = keep
   )
 
-  return(terra::vect(joined))
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
+
+  return(joined)
 }
 
 #' @export
@@ -142,36 +128,22 @@ dplyr::inner_join
 #' @name mutate-joins.SpatVector
 left_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                  suffix = c(".x", ".y"), ..., keep = NULL) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
-
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
-  joined <- dplyr::left_join(sf_obj,
-    y = y, by = by, copy = copy, suffix = suffix, ...,
+
+  joined_tbl <- dplyr::left_join(x_tbl,
+    y = y, by = by,
+    copy = copy, suffix = suffix, ...,
     keep = keep
   )
 
-  return(terra::vect(joined))
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
+
+  return(joined)
 }
 
 #' @export
@@ -182,75 +154,22 @@ dplyr::left_join
 #' @name mutate-joins.SpatVector
 right_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                   suffix = c(".x", ".y"), ..., keep = NULL) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
-
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
-  joined <- dplyr::right_join(sf_obj,
-    y = y, by = by, copy = copy, suffix = suffix, ...,
+
+  joined_tbl <- dplyr::right_join(x_tbl,
+    y = y, by = by,
+    copy = copy, suffix = suffix, ...,
     keep = keep
   )
 
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
 
-  # Need to remove empty geometries until terra and sf are compatibles
-  # when handling empty geoms
-  if (!all(sf::st_is_empty(joined))) {
-    # Work with WKT
-    geoms <- sf::st_geometry(joined)
-    geoms_wkt <- sf::st_as_text(geoms)
-
-    # Locate empty geoms
-    empties <- sf::st_is_empty(geoms)
-
-    # Assess type to use on empties
-    geoms_types <- unique(sf::st_geometry_type(geoms[!empties]))
-
-    is_point <- any(grepl("POINT", geoms_types))
-    is_line <- any(grepl("LINESTRING", geoms_types))
-
-    # Need MULTI for ensure conversions
-    new_empty <- ifelse(is_point, "MULTIPOINT EMPTY",
-      ifelse(is_line, "MULTILINESTRING EMPTY",
-        "MULTIPOLYGON EMPTY"
-      )
-    )
-
-
-    geoms_wkt_fixed <- geoms_wkt
-    geoms_wkt_fixed[empties] <- new_empty
-
-    # Coerce with wkb
-    df <- sf::st_drop_geometry(joined)
-    df$tterra_wkt <- geoms_wkt_fixed
-
-    # Use WKT mode on terra
-    joined <- terra::vect(df, geom = "tterra_wkt", crs = pull_crs(joined))
-
-    return(joined)
-  }
-
-
-  return(terra::vect(joined))
+  return(joined)
 }
 
 #' @export
@@ -262,77 +181,22 @@ dplyr::right_join
 #' @name mutate-joins.SpatVector
 full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                  suffix = c(".x", ".y"), ..., keep = NULL) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
-
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
-  joined <- dplyr::full_join(sf_obj,
-    y = y, by = by, copy = copy, suffix = suffix, ...,
+
+  joined_tbl <- dplyr::full_join(x_tbl,
+    y = y, by = by,
+    copy = copy, suffix = suffix, ...,
     keep = keep
   )
 
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
 
-
-
-  # Need to remove empty geometries until terra and sf are compatibles
-  # when handling empty geoms
-  if (!all(sf::st_is_empty(joined))) {
-    # Work with WKT
-    geoms <- sf::st_geometry(joined)
-    geoms_wkt <- sf::st_as_text(geoms)
-
-    # Locate empty geoms
-    empties <- sf::st_is_empty(geoms)
-
-    # Assess type to use on empties
-    geoms_types <- unique(sf::st_geometry_type(geoms[!empties]))
-
-    is_point <- any(grepl("POINT", geoms_types))
-    is_line <- any(grepl("LINESTRING", geoms_types))
-
-    # Need MULTI for ensure conversions
-    new_empty <- ifelse(is_point, "MULTIPOINT EMPTY",
-      ifelse(is_line, "MULTILINESTRING EMPTY",
-        "MULTIPOLYGON EMPTY"
-      )
-    )
-
-
-    geoms_wkt_fixed <- geoms_wkt
-    geoms_wkt_fixed[empties] <- new_empty
-
-    # Coerce with wkb
-    df <- sf::st_drop_geometry(joined)
-    df$tterra_wkt <- geoms_wkt_fixed
-
-    # Use WKT mode on terra
-    joined <- terra::vect(df, geom = "tterra_wkt", crs = pull_crs(joined))
-
-    return(joined)
-  }
-
-
-  return(terra::vect(joined))
+  return(joined)
 }
 
 #' @export
@@ -389,8 +253,8 @@ dplyr::full_join
 #' # A data frame
 #' df <- data.frame(
 #'   cpro = sprintf("%02d", 1:10),
-#'   x = 1:10,
-#'   y = 11:20,
+#'   x = runif(10),
+#'   y = runif(10),
 #'   letter = rep_len(LETTERS[1:3], length.out = 10)
 #' )
 #'
@@ -413,35 +277,21 @@ dplyr::full_join
 #' autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
 #'
 semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined <- dplyr::semi_join(sf_obj,
-    y = y, by = by, copy = copy, ...
+  joined_tbl <- dplyr::semi_join(x_tbl,
+    y = y, by = by,
+    copy = copy, ...
   )
 
-  return(terra::vect(joined))
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
+
+  return(joined)
 }
 
 #' @export
@@ -451,36 +301,35 @@ dplyr::semi_join
 #' @export
 #' @name filter-joins.SpatVector
 anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(x)
-
-  if (inherits(y, "SpatVector")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`SpatVector`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, y)`")
-    ))
-  }
-
-  if (inherits(y, "sf")) {
-    cli::cli_abort(paste0(
-      cli::col_blue("y"),
-      " should not have class ",
-      cli::col_blue("`sf`"),
-      ". For spatial_joins use ",
-      cli::col_blue("`terra::intersect(x, terra::vect(y))`")
-    ))
-  }
-
+  error_spat_join(y)
+  # Use own method
+  x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
-  joined <- dplyr::anti_join(sf_obj,
-    y = y, by = by, copy = copy, ...
+
+  joined_tbl <- dplyr::anti_join(x_tbl,
+    y = y, by = by,
+    copy = copy, ...
   )
 
-  return(terra::vect(joined))
+  joined_tbl <- restore_attr(joined_tbl, x_tbl)
+  joined <- as_spat_internal(joined_tbl)
+  joined <- group_prepare_spat(joined, joined_tbl)
+
+  return(joined)
 }
 
 #' @export
 dplyr::anti_join
+
+
+error_spat_join <- function(y) {
+  if (inherits(y, c("SpatVector", "sf"))) {
+    cli::cli_abort(
+      paste0(
+        cli::col_blue("y"), " should not have class ",
+        cli::col_blue(class(y)[1]), ". For spatial_joins use ",
+        cli::col_blue("`terra::intersect(x, y)`")
+      )
+    )
+  }
+}

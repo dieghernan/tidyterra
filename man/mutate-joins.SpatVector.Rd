@@ -151,8 +151,8 @@ v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 # A data frame
 df <- data.frame(
   cpro = sprintf("\%02d", 1:10),
-  x = 1:10,
-  y = 11:20,
+  x = runif(10),
+  y = runif(10),
   letter = rep_len(LETTERS[1:3], length.out = 10)
 )
 
