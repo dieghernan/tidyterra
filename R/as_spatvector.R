@@ -210,18 +210,6 @@ as_spatvect_attr <- function(x) {
     return(x)
   }
 
-
-  if (!isTRUE((attr(x, "source")) == "SpatVector")) {
-    cli::cli_alert_danger(
-      paste(
-        "Spatial attributes may have been removed.",
-        "Check the result carefully."
-      )
-    )
-    return(as_spatvector(x, geom = "geometry"))
-  }
-
-
   # Get attributes
   attrs <- attributes(x)
 

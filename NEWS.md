@@ -6,9 +6,19 @@
     -   `arrange.SpatVector()`
     -   `distinct.SpatVector()`
     -   `inner_join.SpatVector()`, `left_join.SpatVector()`,
-        `right_join.SpatVector()` and `full_join.SpatVector()`.
+        `right_join.SpatVector()` and `full_join.SpatVector()`
+    -   `semi_join.SpatVector()` and `anti_join.SpatVector()`
+    -   `summarise.SpatVector()`
+    -   `group_by.SpatVector()`,`ungroup.SpatVector()`
+    -   `count.SpatVector()`, `tally.SpatVector()`
 
--   New `glimpse()` method for SpatRaster.
+-   New `glimpse().SpatRaster` method for SpatRaster.
+
+-   New coercing and helper functions:
+
+    -   `as_spatvector()`
+    -   `as_sf()`
+    -   `is_grouped_spatvector()`
 
 # tidyterra 0.3.2
 

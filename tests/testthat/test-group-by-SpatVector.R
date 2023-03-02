@@ -44,7 +44,6 @@ test_that("group_by(<grouped df>, add add groups", {
 
 
 test_that("joins preserve grouping", {
-  skip("When joins are revised")
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- v1[1:4, ]
   thedf <- data.frame(
@@ -58,12 +57,9 @@ test_that("joins preserve grouping", {
   expect_s4_class(g, "SpatVector")
 
   expect_equal(group_vars(inner_join(g, thedf, by = c("x"))), "x")
-  expect_equal(group_vars(left_join(g, g,
-    by = c("x", "y"),
-    relationship = "many-to-many"
-  )), "x")
-  expect_equal(group_vars(semi_join(g, g, by = c("x", "y"))), "x")
-  expect_equal(group_vars(anti_join(g, g, by = c("x", "y"))), "x")
+  expect_equal(group_vars(left_join(g, thedf, by = c("x"))), "x")
+  expect_equal(group_vars(semi_join(g, thedf, by = c("x"))), "x")
+  expect_equal(group_vars(anti_join(g, thedf[1:2, ], by = c("x"))), "x")
 })
 
 test_that("grouping by constant adds column", {

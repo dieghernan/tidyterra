@@ -150,7 +150,9 @@ dplyr::group_keys
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_rows
 group_rows.SpatVector <- function(.data) {
+  # nocov start
   group_data(.data)[[".rows"]]
+  # nocov end
 }
 
 #' @export
