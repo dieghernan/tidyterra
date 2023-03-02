@@ -105,7 +105,7 @@ test_that("can fully `ungroup()`", {
 
 
 test_that("mutate does not lose variables", {
-  df <- tibble(a = rep(1:4, 2), b = rep(1:4, each = 2), x = runif(8))
+  df <- data.frame(a = rep(1:4, 2), b = rep(1:4, each = 2), x = runif(8))
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   df <- cbind(v[seq_len(nrow(df)), 0], df)
 
@@ -113,7 +113,7 @@ test_that("mutate does not lose variables", {
 
   by_ab <- group_by(df, a, b)
   by_a <- summarise(by_ab, x = sum(x), .groups = "drop_last")
-  by_a_quartile <- group_by(by_a, quartile = ntile(x, 4))
+  by_a_quartile <- group_by(by_a, quartile = dplyr::ntile(x, 4))
 
   expect_equal(names(by_a_quartile), c("a", "b", "x", "quartile"))
 })
@@ -183,4 +183,3 @@ test_that("distinct keep groups", {
   expect_true(is_grouped_spatvector(v_all))
   expect_identical(group_vars(v_all), "y")
 })
-

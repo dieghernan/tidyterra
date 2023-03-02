@@ -71,7 +71,7 @@ test_that("Summarise handles dissolve", {
 })
 
 
-test_that("Summarise handles dissolve on groupds", {
+test_that("Summarise handles dissolve on groups", {
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   v_g <- group_by(v, SID74, SID79)
@@ -119,4 +119,187 @@ test_that("Summarise handles dissolve on groupds", {
   expect_true(dplyr::is_grouped_df(diss_df))
   expect_identical(group_data(diss_df), group_data(diss))
   expect_identical(group_data(diss_df), group_data(nodiss))
+})
+
+test_that("Check aggregation: POINTS", {
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  v <- terra::centroids(v)
+  v$gr <- rep(c("A", "B", "C"), 3)
+  v$nn <- seq_len(nrow(v))
+
+  expect_identical(terra::geomtype(v), "points")
+
+  # Ungrouped
+  # Dissolve
+  v_ds <- summarise(v, s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = TRUE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  # Non dissolved
+  v_ds <- summarise(v, s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = FALSE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  # Grouped
+  # Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = TRUE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  # No Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = FALSE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+})
+
+
+test_that("Check aggregation: POLYGONS", {
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  v$gr <- rep(c("A", "B", "C"), 3)
+  v$nn <- seq_len(nrow(v))
+
+  expect_identical(terra::geomtype(v), "polygons")
+
+
+  # Ungrouped
+  # Dissolve
+  v_ds <- summarise(v, s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = TRUE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  g_test <- g_wkt
+
+  # Non dissolved
+  v_ds <- summarise(v, s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = FALSE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  expect_false(identical(g_test, g_wkt))
+
+
+  # Grouped
+  # Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = TRUE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  g_test <- g_wkt
+
+
+  # No Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = FALSE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  expect_false(identical(g_test, g_wkt))
+})
+
+
+test_that("Check aggregation: LINES", {
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  v$gr <- rep(c("A", "B", "C"), 3)
+  v$nn <- seq_len(nrow(v))
+
+  v <- terra::as.lines(v)
+
+  expect_identical(terra::geomtype(v), "lines")
+
+
+  # Ungrouped
+  # Dissolve
+  v_ds <- summarise(v, s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = TRUE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  g_test <- g_wkt
+
+  # Non dissolved
+  v_ds <- summarise(v, s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, dissolve = FALSE)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  expect_false(identical(g_test, g_wkt))
+
+
+  # Grouped
+  # Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = TRUE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = TRUE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  g_test <- g_wkt
+
+
+  # No Dissolve
+  v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = FALSE)
+  # Terra method
+  t_ds <- terra::aggregate(v, "gr", dissolve = FALSE)
+
+  expect_equal(nrow(v_ds), 3)
+  expect_equal(nrow(t_ds), 3)
+
+  g_wkt <- terra::geom(v_ds, wkt = TRUE)
+  t_wkt <- terra::geom(t_ds, wkt = TRUE)
+  expect_identical(g_wkt, t_wkt)
+
+  expect_false(identical(g_test, g_wkt))
 })
