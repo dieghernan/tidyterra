@@ -12,7 +12,8 @@
 \item{...}{<\code{\link[dplyr:arrange]{data-masking}}> Variables, or functions of
 variables. Use \code{\link[dplyr:desc]{dplyr::desc()}} to sort a variable in descending order.}
 
-\item{.by_group}{Ignored by this method}
+\item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
+grouped SpatVectors only.}
 }
 \value{
 A SpatVector object.

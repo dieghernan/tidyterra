@@ -19,7 +19,8 @@
 #' @inheritParams distinct.SpatVector
 #' @param ... <[`data-masking`][dplyr::arrange]> Variables, or functions of
 #'   variables. Use [dplyr::desc()] to sort a variable in descending order.
-#' @param .by_group Ignored by this method
+#' @param .by_group If `TRUE`, will sort first by grouping variable. Applies to
+#'   grouped SpatVectors only.
 #'
 #' @return A SpatVector object.
 #'
@@ -59,11 +60,17 @@
 #'   mutate(area_geom = terra::expanse(v)) %>%
 #'   arrange(area_geom)
 arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  arranged <- dplyr::arrange(sf_obj, ..., .by_group = FALSE)
+  # Use own method
 
-  return(terra::vect(arranged))
+  tbl <- as_tbl_internal(.data)
+  arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group)
+
+  # Regenerate
+  arranged <- restore_attr(arranged, tbl)
+  v <- as_spat_internal(arranged)
+  v <- group_prepare_spat(v, arranged)
+
+  return(v)
 }
 
 

@@ -96,3 +96,24 @@ test_that("For SpatRaster", {
     ncol(tbl)
   )
 })
+
+
+test_that("For SpatRaster Internal", {
+  f <- system.file("extdata/cyl_temp.tif",
+    package = "tidyterra"
+  )
+
+  r <- terra::rast(f)
+
+  rr <- as_tbl_internal(r)
+  expect_s3_class(rr, "data.table")
+
+  regen <- as_spat_internal(rr)
+
+  expect_s4_class(regen, "SpatRaster")
+  expect_true(compare_spatrasters(r, regen))
+  expect_identical(
+    as_tibble(r),
+    as_tibble(regen)
+  )
+})

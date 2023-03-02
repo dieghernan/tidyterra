@@ -110,7 +110,7 @@ group_by.SpatVector <- function(.data, ..., .add = FALSE,
   regen <- cbind(x[, 0], newgroups)
 
   # Add groups metadata
-  attr(regen, "group_vars") <- dplyr::group_vars(newgroups)
+  regen <- group_prepare_spat(regen, newgroups)
 
   regen
 }
@@ -143,7 +143,7 @@ ungroup.SpatVector <- function(x, ...) {
 
 
   # Add groups metadata
-  attr(x, "group_vars") <- dplyr::group_vars(newgroups)
+  x <- group_prepare_spat(x, newgroups)
 
   return(x)
 }
@@ -154,3 +154,17 @@ dplyr::ungroup
 #' @importFrom dplyr group_by_drop_default
 #' @export
 dplyr::group_by_drop_default
+
+# Internal
+# Assign groups to a SpatVector given the info of a template
+group_prepare_spat <- function(x, template) {
+  getvars <- dplyr::group_vars(template)
+
+  if (length(getvars) == 0) {
+    attr(x, "group_vars") <- NULL
+  } else {
+    attr(x, "group_vars") <- getvars
+  }
+
+  return(x)
+}

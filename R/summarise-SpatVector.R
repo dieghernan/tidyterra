@@ -94,12 +94,8 @@ summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
 
   v_summ <- cbind(newgeom[, 0], df_summ)
 
-  # Get groups from df_sum
-  if (dplyr::is.grouped_df(df_summ)) {
-    attr(v_summ, "group_vars") <- dplyr::group_vars(df_summ)
-  } else {
-    attr(v_summ, "group_vars") <- NULL
-  }
+  # Ensure groups
+  v_summ <- group_prepare_spat(v_summ, df_summ)
 
   return(v_summ)
 }

@@ -290,7 +290,6 @@ test_that("Check internal", {
   tbl2 <- as.data.frame(tbl2)
 
   expect_error(as_spat_internal(tbl2))
-
 })
 
 

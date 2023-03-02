@@ -82,12 +82,12 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   if (rlang::dots_n(...) == 0) {
     dist <- dplyr::distinct(a_tbl, ..., .keep_all = TRUE)
 
-    # tidyterra attributes are dropped, regenerate...
-    attr(dist, "source") <- attr(a_tbl, "source")
-    attr(dist, "crs") <- attr(a_tbl, "crs")
-    attr(dist, "geomtype") <- attr(a_tbl, "geomtype")
+    # Regenerate
+    distin <- restore_attr(dist, a_tbl)
+    v <- as_spat_internal(distin)
+    v <- group_prepare_spat(v, dist)
 
-    return(as_spat_internal(dist))
+    return(v)
   }
 
   # Renaming based on conversion to tibble
@@ -114,11 +114,8 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   dist_v <- .data[r, n]
 
   # Ensure groups
-  if (dplyr::is_grouped_df(dist)) {
-    attr(dist_v, "group_vars") <- dplyr::group_vars(dist)
-  } else {
-    attr(dist_v, "group_vars") <- NULL
-  }
+  dist_v <- group_prepare_spat(dist_v, dist)
+
 
   return(dist_v)
 }

@@ -151,12 +151,6 @@ as_tbl_internal <- function(x) {
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_spat_attr <- function(x) {
-  if (isTRUE((attr(x, "source")) == "SpatRaster")) {
-    return(x)
-  }
-
-  if (!inherits(x, "SpatRaster")) cli::cli_abort("x is not a SpatRaster")
-
   x <- make_safe_names(x)
 
   todf <- data.table::as.data.table(x, xy = TRUE, na.rm = FALSE)
@@ -186,12 +180,6 @@ as_tbl_spat_attr <- function(x) {
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_vector_internal <- function(x) {
-  if (isTRUE((attr(x, "source")) == "SpatVector")) {
-    return(x)
-  }
-
-  if (!inherits(x, "SpatVector")) cli::cli_abort("x is not a SpatVector")
-
   x <- make_safe_names(x, geom = "WKT")
 
   todf <- as.data.frame(x, geom = "WKT")

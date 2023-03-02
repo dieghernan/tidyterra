@@ -93,12 +93,8 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
     out <- cbind(out[, 0], keepdf)
   }
 
-  # Preserve group
-  if (is_grouped_spatvector(x)) {
-    attr(out, "group_vars") <- group_vars(x)
-  } else {
-    attr(out, "group_vars") <- NULL
-  }
+  # Ensure groups
+  out <- group_prepare_spat(out, x)
 
 
   out
@@ -126,12 +122,8 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 
   v_summ <- cbind(newgeom[, 0], tallyed)
 
-  # Get groups from df_sum
-  if (dplyr::is.grouped_df(tallyed)) {
-    attr(v_summ, "group_vars") <- dplyr::group_vars(tallyed)
-  } else {
-    attr(v_summ, "group_vars") <- NULL
-  }
+  # Ensure groups
+  v_summ <- group_prepare_spat(v_summ, tallyed)
 
   if (sort) {
     # Arrange
