@@ -6,7 +6,7 @@
 \alias{ungroup.SpatVector}
 \title{Group a SpatVector by one or more variables}
 \usage{
-\method{group_by}{SpatVector}(.data, ..., .add = FALSE, .drop = dplyr::group_by_drop_default(.data))
+\method{group_by}{SpatVector}(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))
 
 \method{ungroup}{SpatVector}(x, ...)
 }

@@ -146,7 +146,7 @@ as_spatvector.sf <- function(x, ...) {
   sf_col <- attr(x, "sf_column")
 
   # Create template with basic metadata
-  template <- as_tbl_spatvect_attr(terra::vect(x[!sf::st_is_empty(x), sf_col]))
+  template <- as_tbl_internal(terra::vect(x[!sf::st_is_empty(x), sf_col]))
   attr_template <- attributes(template)
 
 
@@ -201,7 +201,7 @@ as_spatvector.SpatVector <- function(x, ...) {
 }
 
 
-#' Rebuild objects created with as_tbl_spatvect_attr to Spatvector
+#' Rebuild objects created with as_tbl_internal to Spatvector
 #' Strict version, used attributes for creating a template
 #' SpatVector and then transfer the values
 #' @noRd
@@ -211,7 +211,7 @@ as_spatvect_attr <- function(x) {
   }
 
 
-  if (!isTRUE((attr(x, "source")) == "tbl_terra_spatvector")) {
+  if (!isTRUE((attr(x, "source")) == "SpatVector")) {
     cli::cli_alert_danger(
       paste(
         "Spatial attributes may have been removed.",

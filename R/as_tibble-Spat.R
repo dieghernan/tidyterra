@@ -134,13 +134,24 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
   return(df)
 }
 
+as_tbl_internal <- function(x) {
+  if (!inherits(x, c("SpatRaster", "SpatVector"))) {
+    cli::cli_abort("x is not a Spat* object")
+  }
+
+  if (inherits(x, "SpatRaster")) {
+    as_tbl_spat_attr(x)
+  } else {
+    as_tbl_vector_internal(x)
+  }
+}
 
 #' Strict internal version, returns a tibble with required attributes to
 #' rebuild a SpatRaster
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_spat_attr <- function(x) {
-  if (isTRUE((attr(x, "source")) == "tbl_terra_spatraster")) {
+  if (isTRUE((attr(x, "source")) == "SpatRaster")) {
     return(x)
   }
 
@@ -152,7 +163,7 @@ as_tbl_spat_attr <- function(x) {
   todf[is.na(todf)] <- NA
 
   # Set attributes
-  attr(todf, "source") <- "tbl_terra_spatraster"
+  attr(todf, "source") <- "SpatRaster"
 
   attr(todf, "crs") <- terra::crs(x)
   # Extent
@@ -174,8 +185,8 @@ as_tbl_spat_attr <- function(x) {
 #' rebuild a SpatVector
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
-as_tbl_spatvect_attr <- function(x) {
-  if (isTRUE((attr(x, "source")) == "tbl_terra_spatvector")) {
+as_tbl_vector_internal <- function(x) {
+  if (isTRUE((attr(x, "source")) == "SpatVector")) {
     return(x)
   }
 
@@ -196,7 +207,7 @@ as_tbl_spatvect_attr <- function(x) {
   }
 
   # Set attributes
-  attr(todf, "source") <- "tbl_terra_spatvector"
+  attr(todf, "source") <- "SpatVector"
   attr(todf, "crs") <- terra::crs(x)
   attr(todf, "geomtype") <- terra::geomtype(x)
 

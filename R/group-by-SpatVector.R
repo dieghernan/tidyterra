@@ -98,7 +98,7 @@
 #'   relocate(ID_COMB, .before = 1)
 #' }
 group_by.SpatVector <- function(.data, ..., .add = FALSE,
-                                .drop = dplyr::group_by_drop_default(.data)) {
+                                .drop = group_by_drop_default(.data)) {
   # Use own method
   x <- .data
 

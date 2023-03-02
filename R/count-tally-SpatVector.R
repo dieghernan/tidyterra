@@ -74,7 +74,7 @@
 #'   geom_spatvector(aes(fill = n))
 #' }
 count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
-                             .drop = dplyr::group_by_drop_default(x),
+                             .drop = group_by_drop_default(x),
                              .dissolve = TRUE) {
   if (!missing(...)) {
     out <- group_by(x, ..., .add = TRUE, .drop = .drop)

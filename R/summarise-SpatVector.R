@@ -77,7 +77,7 @@
 summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
                                  .dissolve = TRUE) {
   # Get dfs
-  df <- as_tbl_spatvect_attr(.data)
+  df <- as_tbl_internal(.data)
   df_summ <- dplyr::summarise(df, ..., .groups = .groups)
 
   spatv <- .data

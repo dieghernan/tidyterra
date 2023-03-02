@@ -77,7 +77,7 @@
 #' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Own implementation
-  a_tbl <- as_tbl_spatvect_attr(.data)
+  a_tbl <- as_tbl_internal(.data)
 
   if (rlang::dots_n(...) == 0) {
     dist <- dplyr::distinct(a_tbl, ..., .keep_all = TRUE)
@@ -87,7 +87,7 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     attr(dist, "crs") <- attr(a_tbl, "crs")
     attr(dist, "geomtype") <- attr(a_tbl, "geomtype")
 
-    return(as_spatvect_attr(dist))
+    return(as_spat_internal(dist))
   }
 
   # Renaming based on conversion to tibble

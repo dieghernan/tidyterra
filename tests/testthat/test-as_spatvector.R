@@ -262,23 +262,23 @@ test_that("Check internal", {
 
 
   # Test bypass
-  bypass_v <- as_spatvect_attr(v)
+  bypass_v <- as_spat_internal(v)
   expect_identical(
-    as_tbl_spatvect_attr(v),
-    as_tbl_spatvect_attr(bypass_v)
+    as_tbl_internal(v),
+    as_tbl_internal(bypass_v)
   )
 
   # From internal
-  tbl <- as_tbl_spatvect_attr(v)
-  expect_silent(as_spatvect_attr(tbl))
+  tbl <- as_tbl_internal(v)
+  expect_silent(as_spat_internal(tbl))
 
 
 
-  v2 <- as_spatvect_attr(tbl)
+  v2 <- as_spat_internal(tbl)
 
   expect_identical(
-    as_tbl_spatvect_attr(v),
-    as_tbl_spatvect_attr(v2)
+    as_tbl_internal(v),
+    as_tbl_internal(v2)
   )
 
   # Now remove attribs
@@ -289,19 +289,8 @@ test_that("Check internal", {
   names(tbl2) <- att$names
   tbl2 <- as.data.frame(tbl2)
 
-  expect_message(as_spatvect_attr(tbl2))
+  expect_error(as_spat_internal(tbl2))
 
-  v_noattr <- as_spatvect_attr(tbl2)
-
-  expect_s4_class(
-    v_noattr,
-    "SpatVector"
-  )
-
-  expect_false(identical(
-    as_tbl_spatvect_attr(v),
-    as_tbl_spatvect_attr(v_noattr)
-  ))
 })
 
 
@@ -314,16 +303,16 @@ test_that("Check internal grouped", {
   gr_v <- group_by(v, gr)
 
 
-  gr_tbl <- as_tbl_spatvect_attr(gr_v)
+  gr_tbl <- as_tbl_internal(gr_v)
 
   # Regen
-  gr_tbl_regen <- as_spatvect_attr(gr_tbl)
+  gr_tbl_regen <- as_spat_internal(gr_tbl)
 
   expect_true(is_grouped_spatvector(gr_tbl_regen))
 
   expect_identical(
-    as_tbl_spatvect_attr(gr_v),
-    as_tbl_spatvect_attr(gr_tbl_regen)
+    as_tbl_internal(gr_v),
+    as_tbl_internal(gr_tbl_regen)
   )
 
   # Should match also with groups on gr_tbl
@@ -332,7 +321,7 @@ test_that("Check internal grouped", {
 
   expect_identical(
     dplyr::group_data(gr_tbl),
-    dplyr::group_data(as_tbl_spatvect_attr(gr_tbl_regen))
+    dplyr::group_data(as_tbl_internal(gr_tbl_regen))
   )
 })
 
@@ -350,7 +339,7 @@ test_that("Check internal NULL: POLYGONS", {
   expect_true(any(grepl("MULTI", mpol_wkt)))
 
   # POLYGON
-  pol_df <- as_tbl_spatvect_attr(pol)
+  pol_df <- as_tbl_internal(pol)
 
   # Add NA and "" geom
   pol_df$geometry[1:2] <- c(NA, "")
@@ -360,7 +349,7 @@ test_that("Check internal NULL: POLYGONS", {
   pol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newpol <- as_spatvect_attr(pol_df)
+  newpol <- as_spat_internal(pol_df)
   expect_equal(terra::geomtype(newpol), "polygons")
 
   # Check conversion to sf
@@ -372,7 +361,7 @@ test_that("Check internal NULL: POLYGONS", {
 
 
   # MULTIPOLYGON
-  mpol_df <- as_tbl_spatvect_attr(mpol)
+  mpol_df <- as_tbl_internal(mpol)
 
   # Add NA and "" geom
   mpol_df$geometry[1:2] <- c(NA, "")
@@ -382,7 +371,7 @@ test_that("Check internal NULL: POLYGONS", {
   mpol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newmpol <- as_spatvect_attr(mpol_df)
+  newmpol <- as_spat_internal(mpol_df)
   expect_equal(terra::geomtype(newmpol), "polygons")
 
   # Check conversion to sf
@@ -407,7 +396,7 @@ test_that("Check internal NULL: LINES", {
   expect_true(any(grepl("MULTI", mpol_wkt)))
 
   # LINESTRING
-  pol_df <- as_tbl_spatvect_attr(pol)
+  pol_df <- as_tbl_internal(pol)
 
   # Add NA and "" geom
   pol_df$geometry[1:2] <- c(NA, "")
@@ -417,7 +406,7 @@ test_that("Check internal NULL: LINES", {
   pol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newpol <- as_spatvect_attr(pol_df)
+  newpol <- as_spat_internal(pol_df)
   expect_equal(terra::geomtype(newpol), "lines")
 
   # Check conversion to sf
@@ -429,7 +418,7 @@ test_that("Check internal NULL: LINES", {
 
 
   # MULTILINESTRING
-  mpol_df <- as_tbl_spatvect_attr(mpol)
+  mpol_df <- as_tbl_internal(mpol)
 
   # Add NA and "" geom
   mpol_df$geometry[1:2] <- c(NA, "")
@@ -439,7 +428,7 @@ test_that("Check internal NULL: LINES", {
   mpol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newmpol <- as_spatvect_attr(mpol_df)
+  newmpol <- as_spat_internal(mpol_df)
   expect_equal(terra::geomtype(newmpol), "lines")
 
   # Check conversion to sf
@@ -468,7 +457,7 @@ test_that("Check internal NULL: POINTS", {
   expect_true(any(grepl("MULTI", mpol_wkt)))
 
   # POINT
-  pol_df <- as_tbl_spatvect_attr(pol)
+  pol_df <- as_tbl_internal(pol)
 
   # Add NA and "" geom
   pol_df$geometry[1:2] <- c(NA, "")
@@ -478,7 +467,7 @@ test_that("Check internal NULL: POINTS", {
   pol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newpol <- as_spatvect_attr(pol_df)
+  newpol <- as_spat_internal(pol_df)
   expect_equal(terra::geomtype(newpol), "points")
 
   # Check conversion to sf
@@ -490,7 +479,7 @@ test_that("Check internal NULL: POINTS", {
 
 
   # MULTIPOINT
-  mpol_df <- as_tbl_spatvect_attr(mpol)
+  mpol_df <- as_tbl_internal(mpol)
 
   # Add NA and "" geom
   mpol_df$geometry[1:2] <- c(NA, "")
@@ -500,7 +489,7 @@ test_that("Check internal NULL: POINTS", {
   mpol_df$is_empty[1:2] <- TRUE
 
   # Reconstruct
-  newmpol <- as_spatvect_attr(mpol_df)
+  newmpol <- as_spat_internal(mpol_df)
   expect_equal(terra::geomtype(newmpol), "points")
 
   # Check conversion to sf

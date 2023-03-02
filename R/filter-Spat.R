@@ -99,7 +99,7 @@
 #'   plot()
 filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
                               .keep_extent = TRUE) {
-  df <- as_tbl_spat_attr(.data)
+  df <- as_tbl_internal(.data)
   xy <- dplyr::select(df, 1:2)
   values <- df
 
@@ -116,7 +116,7 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
   rebuild_df <- data.table::as.data.table(rebuild_df)
   attributes(rebuild_df) <- attributes(df)
 
-  newrast <- as_spatrast_attr(rebuild_df)
+  newrast <- as_spat_internal(rebuild_df)
 
   if (!isTRUE(.keep_extent)) newrast <- terra::trim(newrast)
 

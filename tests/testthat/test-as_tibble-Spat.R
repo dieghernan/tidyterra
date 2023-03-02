@@ -46,21 +46,16 @@ test_that("For SpatVector internal", {
 
   v <- terra::vect(f)
 
-  tbl <- as_tbl_spatvect_attr(v)
+  tbl <- as_tbl_internal(v)
   expect_s3_class(tbl, "tbl")
   expect_identical(attr(tbl, "crs"), pull_crs(v))
   expect_identical(attr(tbl, "geomtype"), terra::geomtype(v))
-  expect_identical(attr(tbl, "source"), "tbl_terra_spatvector")
-
-  # Remain identical
-  tbl2 <- as_tbl_spatvect_attr(tbl)
-
-  expect_identical(tbl, tbl2)
+  expect_identical(attr(tbl, "source"), "SpatVector")
 
 
   # Any error on normal tibble
   ntibble <- as_tibble(v)
-  expect_error(as_tbl_spatvect_attr(ntibble))
+  expect_error(as_tbl_internal(ntibble))
 
 
   # Preserve groups
@@ -69,7 +64,7 @@ test_that("For SpatVector internal", {
   expect_true(is_grouped_spatvector(v_gr))
 
 
-  df_gr <- as_tbl_spatvect_attr(v_gr)
+  df_gr <- as_tbl_internal(v_gr)
   expect_s3_class(df_gr, "grouped_df")
   expect_identical(group_data(v_gr), dplyr::group_data(df_gr))
 })

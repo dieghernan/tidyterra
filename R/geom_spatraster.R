@@ -348,7 +348,7 @@ reproject_raster_on_stat <- function(raster,
 }
 
 pivot_longer_spat <- function(x) {
-  tb <- as_tbl_spat_attr(x)
+  tb <- as_tbl_internal(x)
   tb_pivot <- tidyr::pivot_longer(tb, -c(1:2),
     names_to = "lyr"
   )
