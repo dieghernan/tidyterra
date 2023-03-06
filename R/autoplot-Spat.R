@@ -83,6 +83,8 @@ autoplot.SpatRaster <- function(object,
         data = object,
         ...
       )
+    # Done, no facets or scales on RGB 
+    return(gg) 
   } else {
     gg <- gg +
       geom_spatraster(
