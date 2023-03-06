@@ -1,0 +1,7 @@
+{
+    "schedule": "weekly", 
+    "ignoredFiles": [
+        "/tests/testthat/_snaps/*"
+    ],
+    "aggressiveCompression": "true"
+}

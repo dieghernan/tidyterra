@@ -21,3 +21,4 @@
 ^img$
 ^vignettes/articles$
 ^vignettes/tidyterra\.Rmd\.orig$
+^\.imgbotconfig$
