@@ -27,7 +27,7 @@
 #'
 #' @section terra equivalent:
 #'
-#' `terra_vector[order(terra_vector$variable), ]`
+#' [terra::sort()]
 #'
 #' @section Methods:
 #'
