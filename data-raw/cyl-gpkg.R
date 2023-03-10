@@ -14,8 +14,11 @@ cyl <- cyl %>%
   ) %>%
   st_make_valid()
 
-cyl$name <- iconv(cyl$name, to='ASCII//TRANSLIT')
+p <- iconv(cyl$name, to = "ASCII//TRANSLIT")
 
+Encoding(p)
+
+cyl$name <- p
 
 unlink("inst/extdata/cyl.gpkg")
 
