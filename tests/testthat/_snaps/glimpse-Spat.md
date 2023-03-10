@@ -7,7 +7,7 @@
       Columns: 3
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
-      $ name <chr> "Ávila", "Burgos", "León", "Palencia", "Salamanca", "Segovia", "S~
+      $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
 
 ---
 
@@ -18,7 +18,7 @@
       Columns: 4
       $ iso2     <chr> "ES-AV", "ES-BU", "ES-LE", "ES-~
       $ cpro     <chr> "05", "09", "24", "34", "37", "~
-      $ name     <chr> "Ávila", "Burgos", "León", "Pal~
+      $ name     <chr> "Avila", "Burgos", "Leon", "Pal~
       $ geometry <chr> "POLYGON ((3126360.2417 2066777~
 
 # Glimpse SpatRasters

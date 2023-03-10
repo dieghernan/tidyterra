@@ -14,12 +14,24 @@ cyl <- cyl %>%
   ) %>%
   st_make_valid()
 
+p <- iconv(cyl$name, to = "ASCII//TRANSLIT")
+
+Encoding(p)
+
+cyl$name <- p
+
 unlink("inst/extdata/cyl.gpkg")
+
+# st_write(cyl, "inst/extdata/cyl.gpkg")
+
 library(terra)
 
 cyl <- vect(cyl)
 
 writeVector(cyl, "inst/extdata/cyl.gpkg", overwrite = TRUE)
+
+
+
 
 # Temps: from https://www.worldclim.org/data/worldclim21.html
 library(terra)
