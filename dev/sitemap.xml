@@ -49,6 +49,12 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.html</loc>
   </url>
   <url>
