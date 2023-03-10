@@ -2,6 +2,6 @@
     "ignoredFiles": [
         "/tests/testthat/_snaps/*"
     ],
-    compressWiki": "true",
+    "compressWiki": "true",
     "aggressiveCompression": "true"
 }
