@@ -36,7 +36,7 @@
 #'
 #' The first element of `...` should be a SpatVector. Subsequent elements may
 #' be SpatVector, sf/sfc objects or data frames:
-#'  - If subsequents SpatVectot/sf/sfc present a different CRS than the first
+#'  - If subsequent SpatVector/sf/sfc present a different CRS than the first
 #'    element, those elements would be reprojected to the CRS of the first
 #'    element with a message.
 #'  - If any element of `...` is a tibble/data frame the rows would be
@@ -84,18 +84,18 @@ bind_spat_rows <- function(..., .id = NULL) {
   if (length(dots) == 1 && is.list(dots[[1]])) {
     # If is a list unlist the first level
     dots <- dots[[1]]
-}
-    named_list <- as.character(seq_len(length(dots)))
+  }
+  named_list <- as.character(seq_len(length(dots)))
 
-    # Named lists
-    if (!is.null(names(dots))) {
-      maybe_names <- names(dots)
-      maybe_names <- maybe_names[maybe_names != ""]
-      maybe_names <- maybe_names[!is.na(maybe_names)]
-      if (length(maybe_names) == length(named_list)) {
-        named_list <- as.character(maybe_names)
-      }
+  # Named lists
+  if (!is.null(names(dots))) {
+    maybe_names <- names(dots)
+    maybe_names <- maybe_names[maybe_names != ""]
+    maybe_names <- maybe_names[!is.na(maybe_names)]
+    if (length(maybe_names) == length(named_list)) {
+      named_list <- as.character(maybe_names)
     }
+  }
 
 
   # Checks
@@ -124,7 +124,8 @@ bind_spat_rows <- function(..., .id = NULL) {
     # If tibble convert (internally) to SpatVector
     # Rest as tibble
     if (!inherits(x, "data.frame")) {
-      cli::cli_abort(paste0(cli::style_bold("In bind_spat_rows(): "),
+      cli::cli_abort(paste0(
+        cli::style_bold("In bind_spat_rows(): "),
         "Object #", i, " in ", cli::col_blue("..."),
         " is not a data.frame/tbl"
       ))
@@ -183,7 +184,8 @@ crs_compare <- function(a, b, index) {
       paste0(
         cli::style_bold("Reprojecting object #", index),
         cli::col_grey(
-          "\nObject #", index, " in ", cli::col_blue("..."), " doesn't have the same CRS than object #1"
+          "\nObject #", index, " in ", cli::col_blue("..."),
+          " doesn't have the same CRS than object #1"
         )
       )
     )
