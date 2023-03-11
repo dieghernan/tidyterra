@@ -11,6 +11,7 @@
     -   `summarise.SpatVector()`
     -   `group_by.SpatVector()`,`ungroup.SpatVector()`
     -   `count.SpatVector()`, `tally.SpatVector()`
+    -   `bind_spat_cols()`, `bind_spat_rows()`
 
 -   New `glimpse().SpatRaster` method for SpatRaster.
 

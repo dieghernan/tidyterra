@@ -143,6 +143,15 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 #' @rdname as_spatvector
 #' @export
 as_spatvector.sf <- function(x, ...) {
+  # If none is empty then can convert safely
+
+  if (!any(sf::st_is_empty(x))) {
+    v <- terra::vect(x)
+    v <- group_prepare_spat(v, x)
+    return(v)
+  }
+
+
   sf_col <- attr(x, "sf_column")
 
   # Create template with basic metadata

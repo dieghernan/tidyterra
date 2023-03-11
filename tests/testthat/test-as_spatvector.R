@@ -498,3 +498,32 @@ test_that("Check internal NULL: POINTS", {
     tosf$is_empty
   )
 })
+
+
+test_that("Keep group with NULL", {
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- sf::read_sf(f)
+  v$gr <- rep_len(c("A", "B", "C", "D"), length.out = nrow(v))
+
+  # Add null
+  vend <- dplyr::bind_rows(v, data.frame(gr = "E"))
+  pol_g <- group_by(vend, gr)
+
+  expect_s3_class(pol_g, "sf")
+  # Check that has empty geoms
+  expect_true(any(sf::st_is_empty(pol_g)))
+
+  # Has groups
+  sfg_data <- group_data(pol_g)
+
+  # Convert to spatvector
+  sv_gr <- as_spatvector(pol_g)
+
+
+  expect_identical(sfg_data, group_data(sv_gr))
+
+  # Can convert back to sf
+  back_sf <- as_sf(sv_gr)
+
+  expect_identical(group_data(sv_gr), group_data(back_sf))
+})
