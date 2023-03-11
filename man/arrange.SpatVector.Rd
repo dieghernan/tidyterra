@@ -79,7 +79,7 @@ Other dplyr verbs that operate on rows:
 Other dplyr methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count-tally.SpatVector}},
+\code{\link{count.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},

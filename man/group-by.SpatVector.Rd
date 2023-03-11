@@ -121,14 +121,14 @@ p \%>\%
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
 
 Other dplyr verbs that operate on group of rows:
-\code{\link{count-tally.SpatVector}},
+\code{\link{count.SpatVector}()},
 \code{\link{summarise.SpatVector}()}
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count-tally.SpatVector}},
+\code{\link{count.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},

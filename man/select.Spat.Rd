@@ -108,7 +108,7 @@ Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count-tally.SpatVector}},
+\code{\link{count.SpatVector}()},
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
