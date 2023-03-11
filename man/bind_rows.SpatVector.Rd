@@ -80,6 +80,15 @@ bind_spat_rows(v1, sfobj_3857)
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 
+
+# Use lists
+bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
+
+# Or named list combined with .id
+bind_spat_rows(list(
+  SpatVector = v1[1, ], sf = sfobj[1, ],
+  mtcars = mtcars[1, ]
+), .id = "source")
 }
 \seealso{
 \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}}

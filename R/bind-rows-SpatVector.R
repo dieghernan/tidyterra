@@ -73,6 +73,15 @@
 #' data("mtcars")
 #' bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #'
+#'
+#' # Use lists
+#' bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
+#'
+#' # Or named list combined with .id
+#' bind_spat_rows(list(
+#'   SpatVector = v1[1, ], sf = sfobj[1, ],
+#'   mtcars = mtcars[1, ]
+#' ), .id = "source")
 bind_spat_rows <- function(..., .id = NULL) {
   dots <- rlang::list2(...)
   # Return empty on none
