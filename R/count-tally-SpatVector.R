@@ -9,8 +9,8 @@
 #'
 #'
 #' @export
-#' @rdname count-tally.SpatVector
-#' @name count-tally.SpatVector
+#' @rdname count.SpatVector
+#' @name count.SpatVector
 #'
 #' @seealso [dplyr::count()], [dplyr::tally()]
 #'
@@ -105,7 +105,7 @@ dplyr::count
 
 #' @importFrom dplyr tally
 #' @export
-#' @name count-tally.SpatVector
+#' @name count.SpatVector
 tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   tbl <- as_tibble(x)
   spatv <- x

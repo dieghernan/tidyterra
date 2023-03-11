@@ -13,7 +13,7 @@
     -   `count.SpatVector()`, `tally.SpatVector()`
     -   `bind_spat_cols()`, `bind_spat_rows()`
 
--   New `glimpse().SpatRaster` method for SpatRaster.
+-   New `glimpse.SpatRaster()` method for SpatRaster.
 
 -   New coercing and helper functions:
 
