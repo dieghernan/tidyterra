@@ -260,6 +260,42 @@ element with a message.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Use lists</span></span></span>
+<span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">v1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, <span class="va">sfobj</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : -180, 3126360, -90, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  cpro  name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    05    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA  Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA    NA    NA</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Or named list combined with .id</span></span></span>
+<span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  SpatVector <span class="op">=</span> <span class="va">v1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, sf <span class="op">=</span> <span class="va">sfobj</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>,</span></span>
+<span class="r-in"><span>  mtcars <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="op">)</span>, .id <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="font-weight: bold;">Object #3 in </span><span style="color: #0000BB; font-weight: bold;">...</span><span style="font-weight: bold;"> is a data.frame/tbl.</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result would present empty geoms</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 15  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : -180, 3126360, -90, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : SpatVector    05    NA    NA    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        sf    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    mtcars    NA    NA    NA    21     6   160   110   3.9  2.62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  (and 5 more)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
