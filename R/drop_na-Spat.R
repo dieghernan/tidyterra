@@ -55,11 +55,16 @@
 #'   drop_na(iso2) %>%
 #'   plot(col = "red")
 drop_na.SpatVector <- function(data, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(data)
-  dropped <- tidyr::drop_na(sf_obj, ...)
+  # Use own method with index
+  asdf <- as.data.frame(data)
 
-  return(terra::vect(dropped))
+  # Using rownames instead on data.frame
+  rownames(asdf) <- seq_len(nrow(asdf))
+  dropped <- tidyr::drop_na(asdf, ...)
+
+  vend <- data[as.integer(row.names(dropped)), ]
+
+  return(vend)
 }
 
 #' Drop cells of SpatRaster objects containing missing values
