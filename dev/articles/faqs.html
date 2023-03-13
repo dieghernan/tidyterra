@@ -150,8 +150,14 @@ values to be plotted.</p>
 <span><span class="co"># Get a raster data, out beloved volcano on hi-res</span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="va">volcanotemp</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
@@ -203,9 +209,16 @@ lines:</p>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
+<span></span>
 <span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
@@ -259,9 +272,16 @@ of scales:</p>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
+<span></span>
 <span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
@@ -289,9 +309,16 @@ the default colors on your session.</p>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
+<span></span>
 <span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
@@ -388,9 +415,16 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
+<span></span>
 <span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
@@ -430,8 +464,14 @@ breaks in lon/lat even if your data is projected (¿?):</p>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true"</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>

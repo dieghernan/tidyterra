@@ -156,23 +156,28 @@ empty cells, so you may need to pass (<code>na.rm = FALSE</code>) to <code>...</
     
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> function.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> function. This is done
+by coercing the Spat* object to a tibble first (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and
+then using <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method over the tibble.</p><div class="section">
 <h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>When using option <code>na.rm = TRUE</code>, only cells with a value
+<p>When passing option <code>na.rm = TRUE</code> to <code>...</code>, only cells with a value
 distinct to <code>NA</code> are extracted. See <code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>.</p>
-<p>If <code>xy = TRUE</code> option is used, two columns names <code>x</code> and <code>y</code> (corresponding
-to the geographic coordinates of each cell) are available in position <code>1</code> and
-<code>2</code>. Hence, <code>pull(.data, 1)</code> and <code>pull(.data, 1, xy = TRUE)</code> return different
-result.</p>
+<p>If <code>xy = TRUE</code> option is passed to <code>...</code>, two columns names <code>x</code> and <code>y</code>
+(corresponding to the geographic coordinates of each cell) are available
+in position <code>1</code> and <code>2</code>. Hence, <code>pull(.data, 1)</code> and
+<code>pull(.data, 1, xy = TRUE)</code> return different result.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>See <code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> options.</p>
+<p>When passing <code>geom = "WKT"/geom = "HEX"</code> to <code>...</code>,  the geometry of the
+SpatVector can be pulled passing <code>var = geometry</code>. Similarly to SpatRaster
+method, when using <code>geom = "XY"</code> the <code>x,y</code> coordinates can be pulled with
+<code>var = x/var = y</code>. See  <code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> options.</p>
 </div>
 
     </div>
