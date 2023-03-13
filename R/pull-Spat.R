@@ -47,21 +47,26 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::pull()] function.
+#' Implementation of the **generic** [dplyr::pull()] function. This is done
+#' by coercing the Spat* object to a tibble first (see [as_tibble.Spat]) and
+#' then using [dplyr::pull()] method over the tibble.
 #'
 #' ## SpatRaster
 #'
-#' When using option `na.rm = TRUE`, only cells with a value
+#' When passing option `na.rm = TRUE` to `...`, only cells with a value
 #' distinct to `NA` are extracted. See [terra::as.data.frame()].
 #'
-#' If `xy = TRUE` option is used, two columns names `x` and `y` (corresponding
-#' to the geographic coordinates of each cell) are available in position `1` and
-#' `2`. Hence, `pull(.data, 1)` and `pull(.data, 1, xy = TRUE)` return different
-#' result.
+#' If `xy = TRUE` option is passed to `...`, two columns names `x` and `y`
+#' (corresponding to the geographic coordinates of each cell) are available
+#' in position `1` and `2`. Hence, `pull(.data, 1)` and
+#' `pull(.data, 1, xy = TRUE)` return different result.
 #'
 #' ## SpatVector
 #'
-#' See [terra::as.data.frame()] options.
+#' When passing `geom = "WKT"/geom = "HEX"` to `...`,  the geometry of the
+#' SpatVector can be pulled passing `var = geometry`. Similarly to SpatRaster
+#' method, when using `geom = "XY"` the `x,y` coordinates can be pulled with
+#' `var = x/var = y`. See  [terra::as.data.frame()] options.
 #'
 #' @examples
 #'

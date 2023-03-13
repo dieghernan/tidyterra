@@ -63,19 +63,14 @@
 #'   # With options
 #'   glimpse(xy = TRUE)
 glimpse.SpatRaster <- function(x, width = NULL, ...) {
-  init <- x
-  # Use sf method
-  dplyr::glimpse(as_tibble(init, ...), width = width)
-
+  dplyr::glimpse(as_tibble(x, ...), width = width)
   return(invisible(x))
 }
 
 #' @rdname glimpse.Spat
 #' @export
 glimpse.SpatVector <- function(x, width = NULL, ...) {
-  init <- x
-  dplyr::glimpse(as_tibble(init, ...), width = width)
-
+  dplyr::glimpse(as_tibble(x, ...), width = width)
   return(invisible(x))
 }
 

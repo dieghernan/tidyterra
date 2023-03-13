@@ -45,9 +45,8 @@ number (and possibly the name) of layers is modified.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:select]{dplyr::select()}} method on the
-sf package. The result is a SpatVector with the selected (and possibly
-renamed) attributes on the function call.
+The result is a SpatVector with the selected (and possibly renamed)
+attributes on the function call.
 }
 }
 

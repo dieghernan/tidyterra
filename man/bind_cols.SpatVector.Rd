@@ -29,9 +29,9 @@ Bind any number of SpatVector, data frames and sf object by column, making a
 wider result. This is similar to \code{do.call(cbind, dfs)}.
 
 Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to combine
-SpatVectos and data frames. \code{bind_spat_cols()} binds the rows in order in
+SpatVectors and data frames. \code{bind_spat_cols()} binds the rows in order in
 which they appear so it is easy to create meaningless results without
-realising it.
+realizing it.
 }
 \section{terra equivalent}{
 

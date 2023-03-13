@@ -5,9 +5,9 @@
 #' wider result. This is similar to `do.call(cbind, dfs)`.
 #'
 #' Where possible prefer using a [join][mutate-joins.SpatVector] to combine
-#' SpatVectos and data frames. `bind_spat_cols()` binds the rows in order in
+#' SpatVectors and data frames. `bind_spat_cols()` binds the rows in order in
 #' which they appear so it is easy to create meaningless results without
-#' realising it.
+#' realizing it.
 #'
 #' @param ... SpatVector to combine. The first argument should be a SpatVector
 #'  and each of the subsequent arguments can either be a SpatVector, a sf object

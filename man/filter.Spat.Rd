@@ -62,9 +62,8 @@ are also available internally for filtering. See \strong{Examples}.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:filter]{dplyr::filter()}} method on the
-sf package. The result is a SpatVector with all the geometries that
-produce a value of \code{TRUE} for all conditions.
+The result is a SpatVector with all the geometries that produce a value of
+\code{TRUE} for all conditions.
 }
 }
 

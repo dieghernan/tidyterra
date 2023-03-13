@@ -110,11 +110,15 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
 #' @export
 #' @rdname replace_na.Spat
 replace_na.SpatVector <- function(data, replace, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(data)
-  replaced <- tidyr::replace_na(sf_obj, replace = replace, ...)
+  # Use own method
+  tbl <- as_tibble(data)
+  replaced <- tidyr::replace_na(tbl, replace = replace, ...)
 
-  return(terra::vect(replaced))
+  # Bind and prepare
+  vend <- cbind(data[, 0], replaced)
+  vend <- group_prepare_spat(vend, replaced)
+
+  return(vend)
 }
 
 #' @export

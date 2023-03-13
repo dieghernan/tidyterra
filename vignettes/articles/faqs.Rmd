@@ -44,8 +44,14 @@ library(ggplot2)
 # Get a raster data, out beloved volcano on hi-res
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
 r <- volcanotemp %>%
   rast() %>%
@@ -92,9 +98,16 @@ library(metR)
 
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
+
 
 r <- rast(volcanotemp)
 
@@ -145,9 +158,16 @@ library(ggplot2)
 
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
+
 
 r <- rast(volcanotemp)
 
@@ -175,9 +195,16 @@ library(ggplot2)
 
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
+
 
 r <- rast(volcanotemp)
 
@@ -266,9 +293,16 @@ library(sf)
 
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
+
 
 r <- rast(volcanotemp)
 
@@ -305,8 +339,14 @@ library(sf)
 
 volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
 
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
 if (!file.exists(volcanotemp)) {
-  download.file("https://github.com/dieghernan/tidyterra/blob/main/data-raw/volcano2hires.tif?raw=true", volcanotemp, mode = "wb")
+  download.file(volcanourl, volcanotemp, mode = "wb")
 }
 
 r <- rast(volcanotemp)

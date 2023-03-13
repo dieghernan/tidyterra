@@ -75,6 +75,9 @@ test_that("With SpatVector", {
     pull(v, 1)
   )
 
+  # Expect error if trying to get without opt
+  expect_error(pull(v, geometry), "object 'geometry' not found")
+
   # With opts
   v_c <- terra::centroids(v)
   df_c <- as_tibble(v_c, geom = "XY")
@@ -83,4 +86,21 @@ test_that("With SpatVector", {
     pull(v_c, x, geom = "XY"),
     dplyr::pull(df_c, x)
   )
+
+  # Check with geometries Named
+  wktgeom <- pull(v, geometry, iso2, geom = "WKT")
+
+  expect_identical(names(wktgeom), pull(v, iso2))
+
+  thegeom <- terra::geom(v, wkt = TRUE)
+  un_wktgeom <- unname(wktgeom)
+  expect_identical(un_wktgeom, thegeom)
+
+  un_pull <- pull(v, geometry, geom = "WKT")
+  expect_identical(un_pull, thegeom)
+
+  # With hex
+  hexgeom <- pull(v[1:2, ], geometry, geom = "HEX")
+  thehexgeom <- terra::geom(v[1:2, ], hex = TRUE)
+  expect_identical(hexgeom, thehexgeom)
 })

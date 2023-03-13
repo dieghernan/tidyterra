@@ -56,9 +56,8 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::filter()] method on the
-#' sf package. The result is a SpatVector with all the geometries that
-#' produce a value of `TRUE` for all conditions.
+#' The result is a SpatVector with all the geometries that produce a value of
+#' `TRUE` for all conditions.
 #'
 #'
 #' @examples
