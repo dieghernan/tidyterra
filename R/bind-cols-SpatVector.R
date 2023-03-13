@@ -99,7 +99,14 @@ bind_spat_cols <- function(...,
 
     # First is always a SpatVector
     if (i == 1) {
-      return(as_tbl_internal(x))
+      frst <- as_tibble(x)
+
+      # Case when first is only geometry, need to add a mock var
+      if (nrow(frst) == 0) {
+        frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
+      }
+
+      return(frst)
     }
 
     # Rest of cases
@@ -119,12 +126,14 @@ bind_spat_cols <- function(...,
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)
 
-  # Restore attribs
-  endobj <- restore_attr(endobj, alltibbs[[1]])
+  # If first was geom only bind the rest
+  # Use cbind terra method
+  if (dim(template)[2] == 0) {
+    sp <- cbind(template, endobj[, -1])
+  } else {
+    sp <- cbind(template[, 0], endobj)
+  }
 
-
-  # To SpatVector
-  sp <- as_spat_internal(endobj)
 
   # Groups
   sp <- group_prepare_spat(sp, template)

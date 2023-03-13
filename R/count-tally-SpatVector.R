@@ -88,8 +88,11 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
   # Dissolve if requested
   if (.dissolve) {
     keepdf <- as_tibble(out)
-    out$tterra_index <- seq_len(nrow(out))
-    out <- terra::aggregate(out, by = "tterra_index", dissolve = TRUE)
+    var_index <- make_safe_index("tterra_index", out)
+    df <- data.frame(n = seq_len(nrow(out)))
+    names(df) <- var_index
+    out <- cbind(out, df)
+    out <- terra::aggregate(out, by = var_index, dissolve = TRUE)
     out <- cbind(out[, 0], keepdf)
   }
 
@@ -114,8 +117,11 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   tallyed <- dplyr::tally(tbl, sort = FALSE, name = name)
 
   if (is_grouped_spatvector(spatv)) {
-    spatv$tterra_index <- group_indices(spatv)
-    newgeom <- terra::aggregate(spatv, by = "tterra_index", dissolve = FALSE)
+    var_index <- make_safe_index("tterra_index", spatv)
+    df <- data.frame(n = group_indices(spatv))
+    names(df) <- var_index
+    spatv <- cbind(spatv, df)
+    newgeom <- terra::aggregate(spatv, by = var_index, dissolve = FALSE)
   } else {
     newgeom <- terra::aggregate(spatv, dissolve = FALSE)
   }

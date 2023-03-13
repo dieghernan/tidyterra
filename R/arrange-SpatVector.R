@@ -60,14 +60,19 @@
 #'   mutate(area_geom = terra::expanse(v)) %>%
 #'   arrange(area_geom)
 arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
-  # Use own method
+  # Use index
+  indexvar <- make_safe_index("tterra_index", .data)
 
-  tbl <- as_tbl_internal(.data)
+  # Use as_tibble conversion avoiding geom
+  tbl <- as_tibble(.data)
+  tbl[[indexvar]] <- seq_len(nrow(tbl))
+
   arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group)
 
   # Regenerate
-  arranged <- restore_attr(arranged, tbl)
-  v <- as_spat_internal(arranged)
+  v <- .data
+  v <- v[arranged[[indexvar]], ]
+
   v <- group_prepare_spat(v, arranged)
 
   return(v)

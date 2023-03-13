@@ -123,7 +123,6 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Ensure all are SpatVectors and add ids if required
   allspatvect <- lapply(seq_len(length(dots)), function(i) {
     x <- dots[[i]]
-    x[["tterra_index"]] <- i
 
     if (inherits(x, c("SpatVector", "sf", "sfc"))) {
       x <- crs_compare(x, template, i)
@@ -157,17 +156,20 @@ bind_spat_rows <- function(..., .id = NULL) {
 
     as_spat_internal(x)
   })
-
   binded <- do.call("rbind", allspatvect)
+
+  # Create vector of indexes identifying source of each row
+  rows_vect <- unlist(lapply(allspatvect, nrow))
+  theindex <- unlist(lapply(seq_len(length(rows_vect)), function(x) {
+    rep(x, rows_vect[x])
+  }))
+
 
   # Last bits
   geom <- binded[, 0]
   df <- as_tibble(binded)
   df[is.na(df)] <- NA
 
-  # Get index and clean
-  theindex <- as.integer(df$tterra_index)
-  df <- df[, names(df) != "tterra_index"]
 
   keep_names <- names(df)
 

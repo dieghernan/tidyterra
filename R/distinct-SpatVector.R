@@ -76,11 +76,16 @@
 #' # Unique keeping info
 #' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
-  # Own implementation
-  a_tbl <- as_tbl_internal(.data)
+  # Identify if geometry is called on dots
+  # Get dots via select
+  dots_labs <- names(select(as_tbl_internal(.data[1, ]), ...))
 
-  if (rlang::dots_n(...) == 0) {
-    dist <- dplyr::distinct(a_tbl, ..., .keep_all = TRUE)
+
+  # If call is empty or geomtry included, use internal
+  # since we need geometry column
+  if (rlang::dots_n(...) == 0 || "geometry" %in% dots_labs) {
+    a_tbl <- as_tbl_internal(.data)
+    dist <- dplyr::distinct(a_tbl, ..., .keep_all = .keep_all)
 
     # Regenerate
     distin <- restore_attr(dist, a_tbl)
@@ -90,16 +95,15 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     return(v)
   }
 
-  # Renaming based on conversion to tibble
-  names(.data) <- names(a_tbl)[seq_len(ncol(.data))]
+  # If not use indexes on regular tibble
+  a_tbl <- as_tibble(.data)
 
   # Add a index for identifying rows to extract
-  a_tbl$tterra_index <- seq_len(nrow(a_tbl))
+  index_var <- make_safe_index("tterra_index", a_tbl)
 
-  # Get dots via select
-  dots_labs <- names(select(a_tbl[1, ], ...))
+  a_tbl[[index_var]] <- seq_len(nrow(a_tbl))
 
-  topass <- c("tterra_index", dots_labs)
+  topass <- c(index_var, dots_labs)
 
   dist <- distinct(a_tbl[, topass], ..., .keep_all = TRUE)
 
@@ -109,8 +113,8 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   if (.keep_all == FALSE) {
     n <- n[n %in% names(dist)]
   }
-  # Row index
-  r <- as.integer(dist$tterra_index)
+  # Row index on initial vector
+  r <- as.integer(dist[[index_var]])
   dist_v <- .data[r, n]
 
   # Ensure groups
