@@ -82,8 +82,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li>
-<p>Add new methods for SpatVectors:</p>
+<ul><li>This release focuses heavily on SpatVectors. The improvements have been:
+<ul><li>New methods for SpatVectors:
 <ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
 <li><code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code></li>
 <li><code><a href="../reference/distinct.SpatVector.html">distinct.SpatVector()</a></code></li>
@@ -104,9 +104,11 @@
 <code><a href="../reference/bind_cols.SpatVector.html">bind_spat_cols()</a></code>, <code><a href="../reference/bind_rows.SpatVector.html">bind_spat_rows()</a></code>
 </li>
 </ul></li>
-<li><p>New <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> method for SpatRaster.</p></li>
-<li>
-<p>New coercing and helper functions:</p>
+<li>Already implemented methods now works with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code>.</li>
+<li>Internal review of code. Now the methods does not rely on <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> coercion. In fact coercion between object classes is avoided as much as possible.</li>
+</ul></li>
+<li>New <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> method for SpatRaster.</li>
+<li>Other coercing and helper functions:
 <ul><li><code><a href="../reference/as_spatvector.html">as_spatvector()</a></code></li>
 <li><code><a href="../reference/as_sf.html">as_sf()</a></code></li>
 <li><code><a href="../reference/is_grouped_spatvector.html">is_grouped_spatvector()</a></code></li>
