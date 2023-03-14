@@ -128,8 +128,11 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
     df <- dplyr::group_by(df, across_all_of(vars))
   }
 
-  # Set attributes
-  attr(df, "crs") <- terra::crs(x)
+  # Set attributes if present
+  if (!is.na(pull_crs(x))) {
+    attr(df, "crs") <- pull_crs(x)
+  }
+
 
   return(df)
 }

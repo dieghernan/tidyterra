@@ -43,9 +43,8 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::select()] method on the
-#' sf package. The result is a SpatVector with the selected (and possibly
-#' renamed) attributes on the function call.
+#' The result is a SpatVector with the selected (and possibly renamed)
+#' attributes on the function call.
 #'
 #'
 #' @examples
@@ -109,11 +108,16 @@ select.SpatRaster <- function(.data, ...) {
 #' @export
 #' @rdname select.Spat
 select.SpatVector <- function(.data, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  selected <- dplyr::select(sf_obj, ...)
+  # Use tibble method
+  tbl <- as_tibble(.data)
+  selected <- dplyr::select(tbl, ...)
 
-  return(terra::vect(selected))
+  # Bind and groups
+  vend <- cbind(.data[, 0], selected)
+
+  vend <- group_prepare_spat(vend, selected)
+
+  return(vend)
 }
 
 #' @export

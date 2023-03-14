@@ -5,9 +5,9 @@
 #' wider result. This is similar to `do.call(cbind, dfs)`.
 #'
 #' Where possible prefer using a [join][mutate-joins.SpatVector] to combine
-#' SpatVectos and data frames. `bind_spat_cols()` binds the rows in order in
+#' SpatVectors and data frames. `bind_spat_cols()` binds the rows in order in
 #' which they appear so it is easy to create meaningless results without
-#' realising it.
+#' realizing it.
 #'
 #' @param ... SpatVector to combine. The first argument should be a SpatVector
 #'  and each of the subsequent arguments can either be a SpatVector, a sf object
@@ -99,7 +99,14 @@ bind_spat_cols <- function(...,
 
     # First is always a SpatVector
     if (i == 1) {
-      return(as_tbl_internal(x))
+      frst <- as_tibble(x)
+
+      # Case when first is only geometry, need to add a mock var
+      if (nrow(frst) == 0) {
+        frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
+      }
+
+      return(frst)
     }
 
     # Rest of cases
@@ -119,15 +126,17 @@ bind_spat_cols <- function(...,
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)
 
-  # Restore attribs
-  endobj <- restore_attr(endobj, alltibbs[[1]])
+  # If first was geom only bind the rest
+  # Use cbind terra method
+  if (dim(template)[2] == 0) {
+    vend <- cbind(template, endobj[, -1])
+  } else {
+    vend <- cbind(template[, 0], endobj)
+  }
 
-
-  # To SpatVector
-  sp <- as_spat_internal(endobj)
 
   # Groups
-  sp <- group_prepare_spat(sp, template)
+  vend <- group_prepare_spat(vend, endobj)
 
-  return(sp)
+  return(vend)
 }

@@ -82,22 +82,25 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
     out <- x
   }
 
-  out <- tally(out, sort = sort, name = name)
+  vend <- tally(out, sort = sort, name = name)
 
 
   # Dissolve if requested
   if (.dissolve) {
-    keepdf <- as_tibble(out)
-    out$tterra_index <- seq_len(nrow(out))
-    out <- terra::aggregate(out, by = "tterra_index", dissolve = TRUE)
-    out <- cbind(out[, 0], keepdf)
+    keepdf <- as_tibble(vend)
+    var_index <- make_safe_index("tterra_index", keepdf)
+    df <- data.frame(n = seq_len(nrow(keepdf)))
+    names(df) <- var_index
+    vend <- cbind(vend[, 0], df)
+    vend <- terra::aggregate(vend, by = var_index, dissolve = TRUE)
+    vend <- cbind(vend[, 0], keepdf)
   }
 
   # Ensure groups
-  out <- group_prepare_spat(out, x)
+  vend <- group_prepare_spat(vend, x)
 
 
-  out
+  vend
 }
 
 #' @export
@@ -114,25 +117,28 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   tallyed <- dplyr::tally(tbl, sort = FALSE, name = name)
 
   if (is_grouped_spatvector(spatv)) {
-    spatv$tterra_index <- group_indices(spatv)
-    newgeom <- terra::aggregate(spatv, by = "tterra_index", dissolve = FALSE)
+    var_index <- make_safe_index("tterra_index", spatv)
+    df <- data.frame(n = group_indices(spatv))
+    names(df) <- var_index
+    spatv <- cbind(spatv, df)
+    newgeom <- terra::aggregate(spatv, by = var_index, dissolve = FALSE)
   } else {
     newgeom <- terra::aggregate(spatv, dissolve = FALSE)
   }
 
-  v_summ <- cbind(newgeom[, 0], tallyed)
+  vend <- cbind(newgeom[, 0], tallyed)
 
   # Ensure groups
-  v_summ <- group_prepare_spat(v_summ, tallyed)
+  vend <- group_prepare_spat(vend, tallyed)
 
   if (sort) {
     # Arrange
-    order_v <- rev(names(v_summ))[1]
-    sort_order <- as_tibble(v_summ)[[order_v]]
-    v_summ <- v_summ[order(sort_order, decreasing = TRUE), ]
+    order_v <- rev(names(vend))[1]
+    sort_order <- as_tibble(vend)[[order_v]]
+    vend <- vend[order(sort_order, decreasing = TRUE), ]
   }
 
-  v_summ
+  vend
 }
 
 

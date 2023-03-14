@@ -55,9 +55,7 @@ Rename layers of a SpatRaster.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:rename]{dplyr::rename()}} method on the
-sf package. The result is a SpatVector with the renamed attributes on the
-function call.
+The result is a SpatVector with the renamed attributes on the function call.
 }
 }
 

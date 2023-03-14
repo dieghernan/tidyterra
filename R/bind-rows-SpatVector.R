@@ -123,7 +123,6 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Ensure all are SpatVectors and add ids if required
   allspatvect <- lapply(seq_len(length(dots)), function(i) {
     x <- dots[[i]]
-    x[["tterra_index"]] <- i
 
     if (inherits(x, c("SpatVector", "sf", "sfc"))) {
       x <- crs_compare(x, template, i)
@@ -139,7 +138,7 @@ bind_spat_rows <- function(..., .id = NULL) {
         " is not a data.frame/tbl"
       ))
     }
-    cli::cli
+
     cli::cli_alert_warning(paste0(
       cli::style_bold(
         "Object #", i, " in ", cli::col_blue("..."),
@@ -157,34 +156,44 @@ bind_spat_rows <- function(..., .id = NULL) {
 
     as_spat_internal(x)
   })
+  vend <- do.call("rbind", allspatvect)
 
-  binded <- do.call("rbind", allspatvect)
-
-  # Last bits
-  geom <- binded[, 0]
-  df <- as_tibble(binded)
+  # Adjust NAs
+  df <- as_tibble(vend)
   df[is.na(df)] <- NA
 
-  # Get index and clean
-  theindex <- as.integer(df$tterra_index)
-  df <- df[, names(df) != "tterra_index"]
+  vend <- cbind(vend[, 0], df)
+
+  # Regen groups
+  vend <- group_prepare_spat(vend, template)
+
+  # If id not requested we are done
+  if (is.null(.id)) {
+    return(vend)
+  }
+
+  # Need to add a variable with id
+
+  # Create vector of indexes identifying source of each row
+  rows_vect <- unlist(lapply(allspatvect, nrow))
+  theindex <- unlist(lapply(seq_len(length(rows_vect)), function(x) {
+    rep(x, rows_vect[x])
+  }))
 
   keep_names <- names(df)
 
-  if (!is.null(.id)) {
-    df[[.id]] <- named_list[theindex]
+  df[[.id]] <- named_list[theindex]
 
-    # Rearrange if the id var has been added
-    if (!.id %in% keep_names) {
-      df <- df[, c(.id, keep_names)]
-    }
+  # Rearrange if the id var has been added
+  if (!.id %in% keep_names) {
+    df <- df[, c(.id, keep_names)]
   }
 
-  binded_regen <- cbind(geom, df)
+  vend <- cbind(vend[, 0], df)
 
-  binded <- group_prepare_spat(binded_regen, template)
+  vend <- group_prepare_spat(vend, template)
 
-  binded_regen
+  vend
 }
 
 crs_compare <- function(a, b, index) {

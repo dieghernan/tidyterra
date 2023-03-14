@@ -118,11 +118,8 @@ fortify.SpatRaster <- function(model, data, ..., .name_repair = "unique",
 #' @export
 #' @name fortify.Spat
 fortify.SpatVector <- function(model, data, ...) {
-  sf::st_as_sf(model)
+  as_sf(model)
 }
-
-
-
 
 #' @export
 ggplot2::fortify

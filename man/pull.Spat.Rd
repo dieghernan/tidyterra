@@ -55,21 +55,26 @@ See \strong{Examples} and section \verb{About layer names} on \code{\link[=as_ti
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} function. This is done
+by coercing the Spat* object to a tibble first (see \link{as_tibble.Spat}) and
+then using \code{\link[dplyr:pull]{dplyr::pull()}} method over the tibble.
 \subsection{SpatRaster}{
 
-When using option \code{na.rm = TRUE}, only cells with a value
+When passing option \code{na.rm = TRUE} to \code{...}, only cells with a value
 distinct to \code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 
-If \code{xy = TRUE} option is used, two columns names \code{x} and \code{y} (corresponding
-to the geographic coordinates of each cell) are available in position \code{1} and
-\code{2}. Hence, \code{pull(.data, 1)} and \code{pull(.data, 1, xy = TRUE)} return different
-result.
+If \code{xy = TRUE} option is passed to \code{...}, two columns names \code{x} and \code{y}
+(corresponding to the geographic coordinates of each cell) are available
+in position \code{1} and \code{2}. Hence, \code{pull(.data, 1)} and
+\code{pull(.data, 1, xy = TRUE)} return different result.
 }
 
 \subsection{SpatVector}{
 
-See \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
+When passing \code{geom = "WKT"/geom = "HEX"} to \code{...},  the geometry of the
+SpatVector can be pulled passing \code{var = geometry}. Similarly to SpatRaster
+method, when using \code{geom = "XY"} the \verb{x,y} coordinates can be pulled with
+\code{var = x/var = y}. See  \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
 }
 }
 

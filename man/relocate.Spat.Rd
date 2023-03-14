@@ -44,9 +44,7 @@ Relocate layers of a SpatRaster.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:relocate]{dplyr::relocate()}} method on the
-sf package. The result is a SpatVector with the attributes on a different
-order.
+The result is a SpatVector with the attributes on a different order.
 }
 }
 

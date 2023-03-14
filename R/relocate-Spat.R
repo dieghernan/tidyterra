@@ -39,9 +39,7 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::relocate()] method on the
-#' sf package. The result is a SpatVector with the attributes on a different
-#' order.
+#' The result is a SpatVector with the attributes on a different order.
 #'
 #' @examples
 #'
@@ -78,14 +76,19 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
 #' @rdname relocate.Spat
 #' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  relocated <- dplyr::relocate(sf_obj, ...,
+  # Use own method
+  # With template
+  df <- as_tibble(.data[1, ])
+
+  values_relocated <- dplyr::relocate(df, ...,
     .before = {{ .before }},
     .after = {{ .after }}
   )
 
-  return(terra::vect(relocated))
+  vend <- .data[, names(values_relocated)]
+  vend <- group_prepare_spat(vend, values_relocated)
+
+  return(vend)
 }
 
 #' @export

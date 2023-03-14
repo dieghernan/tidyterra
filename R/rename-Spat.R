@@ -42,9 +42,7 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::rename()] method on the
-#' sf package. The result is a SpatVector with the renamed attributes on the
-#' function call.
+#' The result is a SpatVector with the renamed attributes on the function call.
 #'
 #' @examples
 #'
@@ -100,33 +98,34 @@ rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
 #' @rdname rename.Spat
 #' @export
 rename.SpatVector <- function(.data, ...) {
-  # Use sf
-  sfobj <- dplyr::rename(sf::st_as_sf(.data), ...)
+  # Use template
+  df <- as_tibble(.data[1, ])
+  df_rename <- dplyr::rename(df, ...)
 
-  end <- terra::vect(sfobj)
+  vend <- .data
+  names(vend) <- names(df_rename)
 
-  return(end)
+  vend <- group_prepare_spat(vend, df_rename)
+
+  vend
 }
 
 #' @rdname rename.Spat
 #' @export
 rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
   # Use template
-  df <- as_tibble(.data[1])
+  df <- as_tibble(.data[1, ])
   .fn <- rlang::as_function(.fn)
   .cols <- rlang::enquo(.cols)
 
-  df_rename <- dplyr::rename_with(
-    df,
-    .fn,
-    !!.cols,
-    ...
-  )
+  df_rename <- dplyr::rename_with(df, .fn, !!.cols, ...)
 
-  final_vect <- .data
-  names(final_vect) <- names(df_rename)
+  vend <- .data
+  names(vend) <- names(df_rename)
 
-  return(final_vect)
+  vend <- group_prepare_spat(vend, df_rename)
+
+  vend
 }
 
 #' @export

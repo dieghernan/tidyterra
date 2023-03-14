@@ -13,28 +13,31 @@ test_that("bind_spat_cols() repairs names", {
   expect_snapshot(bound <- bind_spat_cols(df, df))
 
 
+  expect_s4_class(bound, "SpatVector")
 
   expect_message(
     repaired <- tibble::as_tibble(
       data.frame(
-        a = 1, b = 2, geometry = "a", a = 1, b = 2,
+        a = 1, b = 2, a = 1, b = 2,
         check.names = FALSE
       ),
       .name_repair = "unique"
     ), "New names"
   )
 
-  expect_identical(names(bound), names(repaired)[-3])
+  expect_identical(names(bound), names(repaired))
+  expect_equal(as.data.frame(bound), as.data.frame(repaired))
 })
 
 test_that("bind_spat_cols() honours .name_repair=", {
   aa <- terra::vect("POINT (0 0)")
   aa <- bind_spat_cols(aa, data.frame(a = 1))
 
+
   expect_message(res <- bind_spat_cols(
     aa, data.frame(a = 2)
   ))
-  expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...3 = 2))
+  expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))
 
   expect_error(bind_spat_cols(
     .name_repair = "check_unique",

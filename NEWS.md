@@ -1,22 +1,23 @@
 # tidyterra (development version)
 
--   Add new methods for SpatVectors:
-
-    -   `glimpse.SpatVector()`
-    -   `arrange.SpatVector()`
-    -   `distinct.SpatVector()`
-    -   `inner_join.SpatVector()`, `left_join.SpatVector()`,
-        `right_join.SpatVector()` and `full_join.SpatVector()`
-    -   `semi_join.SpatVector()` and `anti_join.SpatVector()`
-    -   `summarise.SpatVector()`
-    -   `group_by.SpatVector()`,`ungroup.SpatVector()`
-    -   `count.SpatVector()`, `tally.SpatVector()`
-    -   `bind_spat_cols()`, `bind_spat_rows()`
-
+-   This release focuses heavily on SpatVectors. The improvements have been:
+    -   New methods for SpatVectors:
+        -   `glimpse.SpatVector()`
+        -   `arrange.SpatVector()`
+        -   `distinct.SpatVector()`
+        -   `inner_join.SpatVector()`, `left_join.SpatVector()`,
+            `right_join.SpatVector()` and `full_join.SpatVector()`
+        -   `semi_join.SpatVector()` and `anti_join.SpatVector()`
+        -   `summarise.SpatVector()`
+        -   `group_by.SpatVector()`,`ungroup.SpatVector()`
+        -   `count.SpatVector()`, `tally.SpatVector()`
+        -   `bind_spat_cols()`, `bind_spat_rows()`
+    -   Already implemented methods now works with `dplyr::group_by()`.
+    -   Internal review of code. Now the methods does not rely on
+        `sf::st_as_sf()` coercion. In fact coercion between object classes is
+        avoided as much as possible.
 -   New `glimpse.SpatRaster()` method for SpatRaster.
-
--   New coercing and helper functions:
-
+-   Other coercing and helper functions:
     -   `as_spatvector()`
     -   `as_sf()`
     -   `is_grouped_spatvector()`

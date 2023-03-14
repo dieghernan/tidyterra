@@ -57,9 +57,8 @@ values (and possibly the number) of layers is modified.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:mutate]{dplyr::mutate()}} method on the
-sf package. The result is a SpatVector with the modified (and possibly
-renamed) attributes on the function call.
+The result is a SpatVector with the modified (and possibly renamed)
+attributes on the function call.
 
 \code{transmute()} would keep only the attributes created with \code{...}.
 }

@@ -49,9 +49,8 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::mutate()] method on the
-#' sf package. The result is a SpatVector with the modified (and possibly
-#' renamed) attributes on the function call.
+#' The result is a SpatVector with the modified (and possibly renamed)
+#' attributes on the function call.
 #'
 #' `transmute()` would keep only the attributes created with `...`.
 #'
@@ -116,11 +115,17 @@ mutate.SpatRaster <- function(.data, ...) {
 #' @export
 #' @rdname mutate.Spat
 mutate.SpatVector <- function(.data, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  mutated <- dplyr::mutate(sf_obj, ...)
+  # Use own method
+  tbl <- as_tibble(.data)
+  mutated <- dplyr::mutate(tbl, ...)
 
-  return(terra::vect(mutated))
+  # Bind
+  vend <- cbind(.data[, 0], mutated)
+
+  # Prepare groups
+  vend <- group_prepare_spat(vend, mutated)
+
+  return(vend)
 }
 #' @export
 #' @rdname mutate.Spat
@@ -164,11 +169,21 @@ transmute.SpatRaster <- function(.data, ...) {
 #' @export
 #' @rdname mutate.Spat
 transmute.SpatVector <- function(.data, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  transm <- dplyr::transmute(sf_obj, ...)
+  # Use own method
+  tbl <- as_tibble(.data)
+  transm <- dplyr::transmute(tbl, ...)
 
-  return(terra::vect(transm))
+  if (ncol(transm) > 0) {
+    # Bind
+    vend <- cbind(.data[, 0], transm)
+  } else {
+    vend <- .data[, 0]
+  }
+
+  # Prepare groups
+  vend <- group_prepare_spat(vend, transm)
+
+  return(vend)
 }
 
 #' @export

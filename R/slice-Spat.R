@@ -83,9 +83,11 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::slice()] method on the
-#' sf package. The result is a SpatVector where the attributes of the selected
-#' geometries are preserved.
+#' The result is a SpatVector where the attributes of the selected
+#' geometries are preserved. If `.data` is a
+#' [grouped SpatVector][is_grouped_spatvector], the operation will be performed
+#' on each group, so that (e.g.) `slice_head(df, n = 5)` will select the first
+#' five rows in each group.
 #'
 #' @examples
 #'
@@ -123,6 +125,32 @@
 #'     rows = -c(1:20, 30:50)
 #'   ) %>%
 #'   plot()
+#'
+#' # Group wise operation with SpatVectors--------------------------------------
+#' v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
+#'
+#' \donttest{
+#' glimpse(v) %>% autoplot(aes(fill = NAME_1))
+#'
+#' gv <- v %>% group_by(NAME_1)
+#' # All slice helpers operate per group, silently truncating to the group size
+#' gv %>%
+#'   slice_head(n = 1) %>%
+#'   glimpse() %>%
+#'   autoplot(aes(fill = NAME_1))
+#' gv %>%
+#'   slice_tail(n = 1) %>%
+#'   glimpse() %>%
+#'   autoplot(aes(fill = NAME_1))
+#' gv %>%
+#'   slice_min(AREA, n = 1) %>%
+#'   glimpse() %>%
+#'   autoplot(aes(fill = NAME_1))
+#' gv %>%
+#'   slice_max(AREA, n = 1) %>%
+#'   glimpse() %>%
+#'   autoplot(aes(fill = NAME_1))
+#' }
 slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
                              .keep_extent = FALSE) {
   # Create skeleton
@@ -159,11 +187,18 @@ slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
 #' @export
 #' @rdname slice.Spat
 slice.SpatVector <- function(.data, ..., .preserve = FALSE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice(sf_obj, ..., .preserve = .preserve)
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
+  sliced <- dplyr::slice(tbl, ..., .preserve = .preserve)
 
-  return(terra::vect(sliced))
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 #' @export
 #' @rdname slice.Spat
@@ -198,11 +233,19 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @export
 #' @rdname slice.Spat
 slice_head.SpatVector <- function(.data, ..., n, prop) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice_head(sf_obj, ..., n = n, prop = prop)
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
 
-  return(terra::vect(sliced))
+  sliced <- dplyr::slice_head(tbl, ..., n = n, prop = prop)
+
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 
 #' @export
@@ -237,11 +280,19 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @export
 #' @rdname slice.Spat
 slice_tail.SpatVector <- function(.data, ..., n, prop) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice_tail(sf_obj, ..., n = n, prop = prop)
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
 
-  return(terra::vect(sliced))
+  sliced <- dplyr::slice_tail(tbl, ..., n = n, prop = prop)
+
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 
 #' @export
@@ -296,16 +347,23 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
 #' @export
 #' @rdname slice.Spat
 slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice_min(sf_obj, ...,
-    order_by = {{ order_by }},
-    ..., n = n, prop = prop,
-    with_ties = with_ties
+                                 with_ties = TRUE, na_rm = FALSE) {
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
+
+  sliced <- dplyr::slice_min(tbl, ...,
+    order_by = {{ order_by }}, ..., n = n,
+    prop = prop, with_ties = with_ties, na_rm = na_rm
   )
 
-  return(terra::vect(sliced))
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 
 #' @export
@@ -360,16 +418,23 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
 #' @export
 #' @rdname slice.Spat
 slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice_max(sf_obj, ...,
-    order_by = {{ order_by }},
-    ..., n = n, prop = prop,
-    with_ties = with_ties
+                                 with_ties = TRUE, na_rm = FALSE) {
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
+
+  sliced <- dplyr::slice_max(tbl, ...,
+    order_by = {{ order_by }}, ..., n = n,
+    prop = prop, with_ties = with_ties, na_rm = na_rm
   )
 
-  return(terra::vect(sliced))
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 
 #' @export
@@ -421,14 +486,19 @@ slice_sample.SpatRaster <- function(.data, ..., n, prop,
 #' @rdname slice.Spat
 slice_sample.SpatVector <- function(.data, ..., n, prop,
                                     weight_by = NULL, replace = FALSE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  sliced <- dplyr::slice_sample(sf_obj, ...,
-    n = n, prop = prop,
-    replace = replace
-  )
+  # Use own method
+  tbl <- as_tibble(.data)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
 
-  return(terra::vect(sliced))
+  sliced <- dplyr::slice_sample(tbl, ..., n = n, prop = prop, replace = replace)
+
+  # Regenerate
+  vend <- .data[as.integer(sliced[[ind]]), ]
+
+  vend <- group_prepare_spat(vend, sliced)
+
+  vend
 }
 #' @export
 #' @rdname slice.Spat

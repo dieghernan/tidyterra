@@ -6,8 +6,8 @@
       New names:
       * `a` -> `a...1`
       * `b` -> `b...2`
-      * `a` -> `a...4`
-      * `b` -> `b...5`
+      * `a` -> `a...3`
+      * `b` -> `b...4`
 
 # bind_spat_cols() gives informative errors
 

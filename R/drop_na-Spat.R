@@ -55,11 +55,27 @@
 #'   drop_na(iso2) %>%
 #'   plot(col = "red")
 drop_na.SpatVector <- function(data, ...) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(data)
-  dropped <- tidyr::drop_na(sf_obj, ...)
+  # Use own method, no way to avoid coercion
+  tbl <- as_tbl_internal(data)
+  dropped <- tidyr::drop_na(tbl, ...)
 
-  return(terra::vect(dropped))
+  if (nrow(dropped) == 0) {
+    cli::cli_alert_warning(paste0(
+      cli::col_red("All geometries dropped."),
+      "\nReturning empty SpatVector"
+    ))
+    vend <- terra::vect("POINT EMPTY")
+    terra::crs(vend) <- pull_crs(data)
+
+    return(vend)
+  }
+
+  dropped <- restore_attr(dropped, tbl)
+
+  vend <- as_spat_internal(dropped)
+  vend <- group_prepare_spat(vend, dropped)
+
+  return(vend)
 }
 
 #' Drop cells of SpatRaster objects containing missing values

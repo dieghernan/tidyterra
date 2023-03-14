@@ -109,3 +109,31 @@ test_that("Rename SpatVectors with", {
     c("iso2", "CPRO", "name")
   )
 })
+
+
+test_that("rename preserves grouping", {
+  df <- tibble::tibble(g = 1:3, x = 3:1)
+  df <- as_spatvector(df, geom = c("g", "x"), keepgeom = TRUE)
+  gf <- group_by(df, g)
+
+  out <- rename(gf, h = g)
+  expect_equal(group_vars(out), "h")
+})
+
+test_that("arguments to rename() don't match vars_rename() arguments", {
+  df <- data.frame(a = 1, lat = 1, lon = 1)
+  df <- as_spatvector(df)
+  expect_identical(rename(df, var = a) %>% as_tibble(), tibble::tibble(var = 1))
+  expect_identical(
+    rename(group_by(df, a), var = a) %>% as_tibble(),
+    group_by(data.frame(var = 1), var)
+  )
+  expect_identical(
+    rename(df, strict = a) %>% as_tibble(),
+    tibble::tibble(strict = 1)
+  )
+  expect_identical(
+    rename(group_by(df, a), strict = a) %>% as_tibble(),
+    group_by(tibble::tibble(strict = 1), strict)
+  )
+})

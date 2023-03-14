@@ -56,9 +56,8 @@
 #'
 #' ## SpatVector
 #'
-#' This method relies on the implementation of [dplyr::filter()] method on the
-#' sf package. The result is a SpatVector with all the geometries that
-#' produce a value of `TRUE` for all conditions.
+#' The result is a SpatVector with all the geometries that produce a value of
+#' `TRUE` for all conditions.
 #'
 #'
 #' @examples
@@ -126,11 +125,19 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 #' @export
 #' @rdname filter.Spat
 filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
-  # Use sf method
-  sf_obj <- sf::st_as_sf(.data)
-  filtered <- dplyr::filter(sf_obj, ..., .preserve = .preserve)
+  # Use own method
+  tbl <- as_tibble(.data)
 
-  return(terra::vect(filtered))
+  var_index <- make_safe_index("tterra_index", tbl)
+  tbl[[var_index]] <- seq_len(nrow(tbl))
+
+  filtered <- dplyr::filter(tbl, ..., .preserve = .preserve)
+
+  vend <- .data[as.integer(filtered[[var_index]]), ]
+
+  vend <- group_prepare_spat(vend, filtered)
+
+  return(vend)
 }
 
 #' @export
