@@ -121,8 +121,5 @@ fortify.SpatVector <- function(model, data, ...) {
   as_sf(model)
 }
 
-
-
-
 #' @export
 ggplot2::fortify

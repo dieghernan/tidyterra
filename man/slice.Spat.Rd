@@ -45,7 +45,7 @@
   na.rm = TRUE
 )
 
-\method{slice_min}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE)
+\method{slice_min}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE, na_rm = FALSE)
 
 \method{slice_max}{SpatRaster}(
   .data,
@@ -58,7 +58,7 @@
   na.rm = TRUE
 )
 
-\method{slice_max}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE)
+\method{slice_max}{SpatVector}(.data, order_by, ..., n, prop, with_ties = TRUE, na_rm = FALSE)
 
 \method{slice_sample}{SpatRaster}(
   .data,
@@ -122,6 +122,11 @@ and return the first \code{n} rows.}
 \item{na.rm}{Logical, should cells that present a value of \code{NA} removed when
 computing \code{slice_min()/slice_max()}?. The default is \code{TRUE}.}
 
+\item{na_rm}{Should missing values in \code{order_by} be removed from the result?
+If \code{FALSE}, \code{NA} values are sorted to the end (like in \code{\link[dplyr:arrange]{arrange()}}), so
+they will only be included if there are insufficient non-missing values to
+reach \code{n}/\code{prop}.}
+
 \item{weight_by}{<\code{\link[dplyr:dplyr_data_masking]{data-masking}}> Sampling weights.
 This must evaluate to a vector of non-negative numbers the same length as
 the input. Weights are automatically standardised to sum to 1.}
@@ -182,9 +187,11 @@ The non-selected cells would present a value of \code{NA}.
 
 \subsection{SpatVector}{
 
-This method relies on the implementation of \code{\link[dplyr:slice]{dplyr::slice()}} method on the
-sf package. The result is a SpatVector where the attributes of the selected
-geometries are preserved.
+The result is a SpatVector where the attributes of the selected
+geometries are preserved. If \code{.data} is a
+\link[=is_grouped_spatvector]{grouped SpatVector}, the operation will be performed
+on each group, so that (e.g.) \code{slice_head(df, n = 5)} will select the first
+five rows in each group.
 }
 }
 
@@ -224,6 +231,32 @@ r \%>\%
     rows = -c(1:20, 30:50)
   ) \%>\%
   plot()
+
+# Group wise operation with SpatVectors--------------------------------------
+v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
+
+\donttest{
+glimpse(v) \%>\% autoplot(aes(fill = NAME_1))
+
+gv <- v \%>\% group_by(NAME_1)
+# All slice helpers operate per group, silently truncating to the group size
+gv \%>\%
+  slice_head(n = 1) \%>\%
+  glimpse() \%>\%
+  autoplot(aes(fill = NAME_1))
+gv \%>\%
+  slice_tail(n = 1) \%>\%
+  glimpse() \%>\%
+  autoplot(aes(fill = NAME_1))
+gv \%>\%
+  slice_min(AREA, n = 1) \%>\%
+  glimpse() \%>\%
+  autoplot(aes(fill = NAME_1))
+gv \%>\%
+  slice_max(AREA, n = 1) \%>\%
+  glimpse() \%>\%
+  autoplot(aes(fill = NAME_1))
+}
 }
 \seealso{
 \code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:sample]{terra::spatSample()}}.
