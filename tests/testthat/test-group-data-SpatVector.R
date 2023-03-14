@@ -50,7 +50,7 @@ test_that("group_rows() and group_keys() partition group_data()", {
   gf_v <- group_by(df_v, x, y)
   gd_v <- group_data(gf_v)
 
-  expect_equal(group_keys(gf_v), gd_v[1:2], ignore_attr = TRUE) # .drop attribute
+  expect_equal(group_keys(gf_v), gd_v[1:2], ignore_attr = TRUE)
   expect_equal(group_rows(gf_v), gd_v[[3]])
 
 

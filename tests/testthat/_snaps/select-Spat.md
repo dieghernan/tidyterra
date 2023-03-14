@@ -1,4 +1,4 @@
-# grouping variables preserved with a message, unless already selected
+# grouping variables preserved with a msg, unless already selected
 
     Code
       res <- select(df, x)

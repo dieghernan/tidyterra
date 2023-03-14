@@ -138,7 +138,7 @@ bind_spat_rows <- function(..., .id = NULL) {
         " is not a data.frame/tbl"
       ))
     }
-    cli::cli
+
     cli::cli_alert_warning(paste0(
       cli::style_bold(
         "Object #", i, " in ", cli::col_blue("..."),
@@ -156,7 +156,23 @@ bind_spat_rows <- function(..., .id = NULL) {
 
     as_spat_internal(x)
   })
-  binded <- do.call("rbind", allspatvect)
+  vend <- do.call("rbind", allspatvect)
+
+  # Adjust NAs
+  df <- as_tibble(vend)
+  df[is.na(df)] <- NA
+
+  vend <- cbind(vend[, 0], df)
+
+  # Regen groups
+  vend <- group_prepare_spat(vend, template)
+
+  # If id not requested we are done
+  if (is.null(.id)) {
+    return(vend)
+  }
+
+  # Need to add a variable with id
 
   # Create vector of indexes identifying source of each row
   rows_vect <- unlist(lapply(allspatvect, nrow))
@@ -164,29 +180,20 @@ bind_spat_rows <- function(..., .id = NULL) {
     rep(x, rows_vect[x])
   }))
 
-
-  # Last bits
-  geom <- binded[, 0]
-  df <- as_tibble(binded)
-  df[is.na(df)] <- NA
-
-
   keep_names <- names(df)
 
-  if (!is.null(.id)) {
-    df[[.id]] <- named_list[theindex]
+  df[[.id]] <- named_list[theindex]
 
-    # Rearrange if the id var has been added
-    if (!.id %in% keep_names) {
-      df <- df[, c(.id, keep_names)]
-    }
+  # Rearrange if the id var has been added
+  if (!.id %in% keep_names) {
+    df <- df[, c(.id, keep_names)]
   }
 
-  binded_regen <- cbind(geom, df)
+  vend <- cbind(vend[, 0], df)
 
-  binded <- group_prepare_spat(binded_regen, template)
+  vend <- group_prepare_spat(vend, template)
 
-  binded_regen
+  vend
 }
 
 crs_compare <- function(a, b, index) {

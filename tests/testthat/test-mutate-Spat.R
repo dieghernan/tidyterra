@@ -65,3 +65,17 @@ test_that("SpatVector", {
     paste0(v$cpro, "-CyL")
   )
 })
+
+
+test_that("mutate preserves grouping", {
+  df <- tibble::tibble(x = 1:2, y = 2)
+  df <- as_spatvector(df, geom = c("x", "y"), keepgeom = TRUE)
+  gf <- group_by(df, x)
+
+  out <- mutate(gf, x = 1)
+  expect_equal(group_vars(out), "x")
+  expect_equal(nrow(group_data(out)), 1)
+
+  out <- mutate(gf, z = 1)
+  expect_equal(group_data(out), group_data(gf))
+})

@@ -57,3 +57,46 @@ test_that("Filter with SpatVector", {
   expect_lt(nrow(v2), nrow(v))
   expect_s4_class(v, "SpatVector")
 })
+
+test_that("grouped filter handles indices", {
+  ir <- iris
+  ir <- terra::vect(ir,
+    geom = c("Sepal.Length", "Sepal.Width"),
+    keepgeom = TRUE
+  )
+
+  res <- ir %>%
+    group_by(Species) %>%
+    filter(Sepal.Length > 5)
+  res2 <- mutate(res, Petal = Petal.Width * Petal.Length)
+  expect_equal(nrow(res), nrow(res2))
+  expect_equal(group_rows(res), group_rows(res2))
+  expect_equal(group_keys(res), group_keys(res2))
+})
+
+
+test_that("filter() preserve order across groups", {
+  df <- data.frame(g = c(1, 2, 1, 2, 1), time = 5:1, x = 5:1)
+  df <- terra::vect(df, geom = c("x", "g"), keepgeom = TRUE)
+
+  res1 <- df %>%
+    group_by(g) %>%
+    filter(x <= 4) %>%
+    arrange(time)
+
+  res2 <- df %>%
+    group_by(g) %>%
+    arrange(time) %>%
+    filter(x <= 4)
+
+  res3 <- df %>%
+    filter(x <= 4) %>%
+    arrange(time) %>%
+    group_by(g)
+
+  expect_equal(as_tibble(res1), as_tibble(res2))
+  expect_equal(as_tibble(res1), as_tibble(res3))
+  expect_false(is.unsorted(res1$time))
+  expect_false(is.unsorted(res2$time))
+  expect_false(is.unsorted(res3$time))
+})

@@ -135,7 +135,7 @@ filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
   vend <- .data[as.integer(filtered[[var_index]]), ]
 
-  vend <- group_prepare_spat(vend, tbl)
+  vend <- group_prepare_spat(vend, filtered)
 
   return(vend)
 }

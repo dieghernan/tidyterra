@@ -89,14 +89,15 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
 
     # Regenerate
     distin <- restore_attr(dist, a_tbl)
-    v <- as_spat_internal(distin)
-    v <- group_prepare_spat(v, dist)
+    vend <- as_spat_internal(distin)
+    vend <- group_prepare_spat(vend, dist)
 
-    return(v)
+    return(vend)
   }
 
   # If not use indexes on regular tibble
   a_tbl <- as_tibble(.data)
+  keepcopy <- a_tbl
 
   # Add a index for identifying rows to extract
   index_var <- make_safe_index("tterra_index", a_tbl)
@@ -108,20 +109,23 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   dist <- distinct(a_tbl[, topass], ..., .keep_all = TRUE)
 
   # And return using indexes for subsetting
-  # colnames
-  n <- names(.data)
-  if (.keep_all == FALSE) {
-    n <- n[n %in% names(dist)]
+  row_id <- as.integer(dist[[index_var]])
+
+  dist <- dist[, names(dist) != index_var]
+
+  # Add rest of columns if requested
+  if (isTRUE(.keep_all)) {
+    misscol <- keepcopy[row_id, !names(keepcopy) %in% dots_labs]
+    dist <- dplyr::bind_cols(dist, misscol)
   }
-  # Row index on initial vector
-  r <- as.integer(dist[[index_var]])
-  dist_v <- .data[r, n]
+
+  vend <- cbind(.data[row_id, 0], dist)
 
   # Ensure groups
-  dist_v <- group_prepare_spat(dist_v, dist)
+  vend <- group_prepare_spat(vend, dist)
 
 
-  return(dist_v)
+  return(vend)
 }
 
 

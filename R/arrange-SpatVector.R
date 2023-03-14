@@ -70,12 +70,12 @@ arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
   arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group)
 
   # Regenerate
-  v <- .data
-  v <- v[arranged[[indexvar]], ]
+  vend <- .data
+  vend <- vend[arranged[[indexvar]], ]
 
-  v <- group_prepare_spat(v, arranged)
+  vend <- group_prepare_spat(vend, arranged)
 
-  return(v)
+  return(vend)
 }
 
 

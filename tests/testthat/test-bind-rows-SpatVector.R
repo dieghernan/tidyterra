@@ -111,7 +111,7 @@ test_that("bind_spat_rows() promotes integer to double", {
   expect_type(res$b, "double")
 })
 
-# Geometry  handling --------------------------------------------------------------
+# Geometry  handling ----------------------------------------------------------
 
 test_that("bind_spat_rows() return empty point", {
   empt <- bind_spat_rows()
@@ -135,7 +135,7 @@ test_that("bind_spat_rows() can bind SpatVectors and sf", {
   expect_s4_class(vend, "SpatVector")
 })
 
-# Errors and messages ------------------------------------------------------------
+# Errors and messages ----------------------------------------------------------
 
 test_that("bind_spat_rows() give informative errors", {
   expect_snapshot({

@@ -35,12 +35,9 @@ You can have a look to the documentation of the dev version in
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
-- SpatVector: the methods are implemented taking advantage of the
-  tidyverse implementation on {sf}. The SpatVector object is converted
-  first to sf via `sf::st_as_sf()`, then the method (or function) is
-  applied and finally the object is converted back to SpatVector with
-  `terra::vect()`. Hence, rows correspond to geometries and columns
-  correspond to attributes of the geometry.
+- SpatVector: the methods are implemented using `terra::as.data.frame()`
+  coercion. Rows correspond to geometries and columns correspond to
+  attributes of the geometry.
 
 - SpatRaster: The implementation on SpatRaster objects differs, since
   the methods could be applied to layers or to cells. {tidyterra}

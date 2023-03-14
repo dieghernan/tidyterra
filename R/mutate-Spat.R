@@ -173,8 +173,12 @@ transmute.SpatVector <- function(.data, ...) {
   tbl <- as_tibble(.data)
   transm <- dplyr::transmute(tbl, ...)
 
-  # Bind
-  vend <- cbind(.data[, 0], transm)
+  if (ncol(transm) > 0) {
+    # Bind
+    vend <- cbind(.data[, 0], transm)
+  } else {
+    vend <- .data[, 0]
+  }
 
   # Prepare groups
   vend <- group_prepare_spat(vend, transm)

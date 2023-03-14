@@ -102,10 +102,12 @@ rename.SpatVector <- function(.data, ...) {
   df <- as_tibble(.data[1, ])
   df_rename <- dplyr::rename(df, ...)
 
-  final_vect <- .data
-  names(final_vect) <- names(df_rename)
+  vend <- .data
+  names(vend) <- names(df_rename)
 
-  return(final_vect)
+  vend <- group_prepare_spat(vend, df_rename)
+
+  vend
 }
 
 #' @rdname rename.Spat
@@ -118,10 +120,12 @@ rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
 
   df_rename <- dplyr::rename_with(df, .fn, !!.cols, ...)
 
-  final_vect <- .data
-  names(final_vect) <- names(df_rename)
+  vend <- .data
+  names(vend) <- names(df_rename)
 
-  return(final_vect)
+  vend <- group_prepare_spat(vend, df_rename)
+
+  vend
 }
 
 #' @export

@@ -79,7 +79,7 @@ test_that("select preserves grouping", {
   expect_equal(group_vars(out), "h")
 })
 
-test_that("grouping variables preserved with a message, unless already selected", {
+test_that("grouping variables preserved with a msg, unless already selected", {
   df <- data.frame(g = 1:3, x = 3:1)
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
   df <- group_by(df, g)
@@ -110,12 +110,14 @@ test_that("grouping variables preserved with a message, unless already selected"
   expect_snapshot({
     expect_equal(
       df %>% select(a = c) %>% group_keys(),
-      tibble::tibble(b = 2, a = 3) %>% group_by(b) %>%
+      tibble::tibble(b = 2, a = 3) %>%
+        group_by(b) %>%
         group_keys()
     )
     expect_equal(
       df %>% select(b = c) %>% group_keys(),
-      tibble::tibble(a = 1, b = 3) %>% group_by(a) %>%
+      tibble::tibble(a = 1, b = 3) %>%
+        group_by(a) %>%
         group_keys()
     )
   })

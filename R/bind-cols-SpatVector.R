@@ -129,14 +129,14 @@ bind_spat_cols <- function(...,
   # If first was geom only bind the rest
   # Use cbind terra method
   if (dim(template)[2] == 0) {
-    sp <- cbind(template, endobj[, -1])
+    vend <- cbind(template, endobj[, -1])
   } else {
-    sp <- cbind(template[, 0], endobj)
+    vend <- cbind(template[, 0], endobj)
   }
 
 
   # Groups
-  sp <- group_prepare_spat(sp, template)
+  vend <- group_prepare_spat(vend, endobj)
 
-  return(sp)
+  return(vend)
 }

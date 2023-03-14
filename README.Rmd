@@ -66,12 +66,9 @@ if (length(l) == 4) {
 {tidyverse} methods implemented on {tidyterra} works differently depending on
 the type of Spat\* object:
 
--   SpatVector: the methods are implemented taking advantage of the tidyverse
-    implementation on {sf}. The SpatVector object is converted first to sf via
-    `sf::st_as_sf()`, then the method (or function) is applied and finally the
-    object is converted back to SpatVector with `terra::vect()`. Hence, rows
-    correspond to geometries and columns correspond to attributes of the
-    geometry.
+-   SpatVector: the methods are implemented using `terra::as.data.frame()`
+    coercion. Rows correspond to geometries and columns correspond to attributes
+    of the geometry.
 
 -   SpatRaster: The implementation on SpatRaster objects differs, since the
     methods could be applied to layers or to cells. {tidyterra} overall approach
@@ -85,7 +82,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by {tidyterra} are:
 
 | tidyverse method                            | SpatVector                                    | SpatRaster                                                                                     |
-|---------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+|--------------------|--------------------|----------------------------------------|
 | `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
 | `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
 | `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
