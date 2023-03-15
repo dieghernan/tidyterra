@@ -28,9 +28,15 @@
 #' Implementation of the **generic** [dplyr::group_by()] family functions for
 #' SpatVectors.
 #'
-#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a grouped SpatVector
-#' (i.e, subsetting a SpatVector like `v[1:3,1:2]`) the `groups` attribute can
-#' be corrupted. \pkg{tidyterra} would try to re-group the SpatVector.
+#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a grouped
+#' SpatVector (i.e, subsetting a SpatVector like `v[1:3,1:2]`) the `groups`
+#' attribute can be corrupted. \pkg{tidyterra} would try to re-group the
+#' SpatVector. This would be triggered the next time you use a dplyr verb on
+#' your SpatVector.
+#'
+#' Note also that some operations (as `terra::spatSample()`) would create a new
+#' SpatVector. In these cases, the result won't preserve the `groups` attribute.
+#' Use [group_by.SpatVector()] to re-group.
 #'
 #' @details
 #'

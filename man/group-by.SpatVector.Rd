@@ -51,9 +51,15 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} family functions for
 SpatVectors.
 
-\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a grouped SpatVector
-(i.e, subsetting a SpatVector like \code{v[1:3,1:2]}) the \code{groups} attribute can
-be corrupted. \pkg{tidyterra} would try to re-group the SpatVector.
+\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a grouped
+SpatVector (i.e, subsetting a SpatVector like \code{v[1:3,1:2]}) the \code{groups}
+attribute can be corrupted. \pkg{tidyterra} would try to re-group the
+SpatVector. This would be triggered the next time you use a dplyr verb on
+your SpatVector.
+
+Note also that some operations (as \code{terra::spatSample()}) would create a new
+SpatVector. In these cases, the result won't preserve the \code{groups} attribute.
+Use \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} to re-group.
 }
 
 \examples{
