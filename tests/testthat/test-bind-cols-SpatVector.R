@@ -81,19 +81,22 @@ test_that("bind_spat_cols() accepts sf", {
 
 
 test_that("bind_spat_cols respects groups", {
-  df <- data.frame(
+  df_init <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
     g = c(1, 1, 2, 2),
     x = c(1, 2, 1, 4)
   )
-  df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
+  df <- terra::vect(df_init, geom = c("g", "x"), keepgeom = TRUE)
   df <- group_by(df, e, f, g, .drop = FALSE)
   df2 <- data.frame(ss = 1:4)
   gg <- bind_spat_cols(df, df2)
-  group_size(df)
   expect_identical(group_size(df), group_size(gg))
   expect_identical(group_vars(df), group_vars(gg))
+
+  df_init <- dplyr::group_by(df_init, e, f, g, .drop = FALSE)
+  gg_df <- dplyr::bind_cols(df_init, df2)
+  expect_identical(group_vars(gg), group_vars(gg_df))
 })
 
 

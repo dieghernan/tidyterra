@@ -81,6 +81,11 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
   } else {
     out <- x
   }
+  # Get group template from dplyr method
+  template <- dplyr::count(as_tibble(x), ...,
+    sort = sort,
+    name = name, .drop = .drop
+  )
 
   vend <- tally(out, sort = sort, name = name)
 
@@ -97,7 +102,7 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
   }
 
   # Ensure groups
-  vend <- group_prepare_spat(vend, x)
+  vend <- group_prepare_spat(vend, template)
 
 
   vend

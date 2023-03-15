@@ -8,11 +8,9 @@
       df2 <- terra::vect(df2)
       (expect_error(bind_spat_rows(df1, df2, .id = 5)))
     Output
-      <error/vctrs_error_subscript_oob>
-      Error in `[[<-`:
-      ! Can't assign to columns beyond the end with non-consecutive locations.
-      i Input has size 1.
-      x Subscript `.id` contains non-consecutive location 5.
+      <error/rlang_error>
+      Error in `dplyr::bind_rows()`:
+      ! `.id` must be a single string, not the number 5.
     Code
       # invalid type
       ll <- list(data.frame(a = 1:5))

@@ -83,7 +83,7 @@ summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
   spatv <- .data
 
   if (is_grouped_spatvector(spatv)) {
-    spatv$tterra_index <- group_indices(spatv)
+    spatv$tterra_index <- group_indices(df)
     newgeom <- terra::aggregate(spatv,
       by = "tterra_index",
       dissolve = .dissolve

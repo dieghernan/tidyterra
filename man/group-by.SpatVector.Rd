@@ -39,7 +39,7 @@ A SpatVector object with an additional attribute.
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 Most data operations are done on groups defined by variables. \code{\link[=group_by]{group_by()}}
-adds a new attribute to an existing SpatVector indicating the
+adds new attributes to an existing SpatVector indicating the
 corresponding groups. See \strong{Methods}.
 }
 \details{
@@ -50,6 +50,10 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} family functions for
 SpatVectors.
+
+\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a grouped SpatVector
+(i.e, subsetting a SpatVector like \code{v[1:3,1:2]}) the \code{groups} attribute can
+be corrupted. \pkg{tidyterra} would try to re-group the SpatVector.
 }
 
 \examples{

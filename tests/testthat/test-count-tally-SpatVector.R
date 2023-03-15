@@ -49,6 +49,8 @@ test_that("output preserves grouping", {
   exp$lon <- 1:2
   exp$lat <- 1:2
   exp <- terra::vect(exp)
+  debug(count.SpatVector)
+
   expect_equal(
     df %>% count(g) %>% as_tibble(),
     exp %>% as_tibble()

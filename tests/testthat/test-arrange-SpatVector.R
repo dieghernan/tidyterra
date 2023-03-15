@@ -39,7 +39,7 @@ test_that("grouped arrange ignores group, unless requested with .by_group", {
 
   expect_equal(
     as_tibble(arrange(gf, x)),
-    as_tibble(gf[4:1, , ])
+    as_tibble(gf)[4:1, ]
   )
   expect_equal(
     as_tibble(arrange(gf, x, .by_group = TRUE)),

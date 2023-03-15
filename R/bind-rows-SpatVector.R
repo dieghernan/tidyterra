@@ -94,6 +94,7 @@ bind_spat_rows <- function(..., .id = NULL) {
     # If is a list unlist the first level
     dots <- dots[[1]]
   }
+
   named_list <- as.character(seq_len(length(dots)))
 
   # Named lists
@@ -105,7 +106,6 @@ bind_spat_rows <- function(..., .id = NULL) {
       named_list <- as.character(maybe_names)
     }
   }
-
 
   # Checks
   # Ensure first is SpatVector
@@ -120,13 +120,44 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Get templates
   template <- dots[[1]]
 
+  # First get all as tibbles
+  alltibbs <- lapply(seq_len(length(dots)), function(i) {
+    x <- dots[[i]]
+
+    # First is always a SpatVector
+    if (i == 1) {
+      frst <- as_tibble(x)
+
+      # Case when first is only geometry, need to add a mock var
+      if (nrow(frst) == 0) {
+        frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
+      }
+
+      return(frst)
+    }
+
+    # Rest of cases
+
+    if (inherits(x, "SpatVector")) {
+      return(as_tibble(x))
+    }
+
+
+    if (inherits(x, "sf")) {
+      return(sf::st_drop_geometry(x))
+    }
+
+    return(x)
+  })
+
+  # Now get all geoms
   # Ensure all are SpatVectors and add ids if required
   allspatvect <- lapply(seq_len(length(dots)), function(i) {
     x <- dots[[i]]
 
     if (inherits(x, c("SpatVector", "sf", "sfc"))) {
       x <- crs_compare(x, template, i)
-      return(x)
+      return(x[, 0])
     }
 
     # If tibble convert (internally) to SpatVector
@@ -154,44 +185,22 @@ bind_spat_rows <- function(..., .id = NULL) {
     attr(x, "crs") <- terra::crs(template)
     attr(x, "geomtype") <- terra::geomtype(template)
 
-    as_spat_internal(x)
+    as_spat_internal(x)[, 0]
   })
+
+  # Get geoms
   vend <- do.call("rbind", allspatvect)
 
-  # Adjust NAs
-  df <- as_tibble(vend)
-  df[is.na(df)] <- NA
+  # Get binded rows
+  if (length(named_list) == length(alltibbs)) {
+    names(alltibbs) <- named_list
+  }
 
-  vend <- cbind(vend[, 0], df)
+  binded <- dplyr::bind_rows(alltibbs, .id = .id)
+  vend <- cbind(vend[, 0], binded)
 
   # Regen groups
-  vend <- group_prepare_spat(vend, template)
-
-  # If id not requested we are done
-  if (is.null(.id)) {
-    return(vend)
-  }
-
-  # Need to add a variable with id
-
-  # Create vector of indexes identifying source of each row
-  rows_vect <- unlist(lapply(allspatvect, nrow))
-  theindex <- unlist(lapply(seq_len(length(rows_vect)), function(x) {
-    rep(x, rows_vect[x])
-  }))
-
-  keep_names <- names(df)
-
-  df[[.id]] <- named_list[theindex]
-
-  # Rearrange if the id var has been added
-  if (!.id %in% keep_names) {
-    df <- df[, c(.id, keep_names)]
-  }
-
-  vend <- cbind(vend[, 0], df)
-
-  vend <- group_prepare_spat(vend, template)
+  vend <- group_prepare_spat(vend, binded)
 
   vend
 }

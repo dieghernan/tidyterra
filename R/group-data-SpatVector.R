@@ -107,19 +107,8 @@
 #'
 #' group_indices(gv2)
 group_data.SpatVector <- function(.data) {
-  tbl <- as_tibble(.data)
-
-  if (is_grouped_spatvector(.data)) {
-    # Get vars
-    vars <- group_vars(.data)
-
-    # Regroup
-    tbl <- group_by(tbl, across_all_of(vars))
-  }
-
-  # Dispatch to default dplyr method
-
-  dplyr::group_data(tbl)
+  # Dispatch to dplyr
+  dplyr::group_data(tbl_for_groups(.data))
 }
 #' @export
 dplyr::group_data
@@ -128,33 +117,15 @@ dplyr::group_data
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_keys
 group_keys.SpatVector <- function(.tbl, ...) {
-  tbl <- as_tibble(.tbl)
-
-  if (is_grouped_spatvector(.tbl)) {
-    # Get vars
-    vars <- group_vars(.tbl)
-
-    # Regroup
-    tbl <- group_by(tbl, across_all_of(vars))
-  }
-
-  # Dispatch to default dplyr method
-  dplyr::group_keys(tbl, ...)
+  # Dispatch to dplyr
+  dplyr::group_keys(tbl_for_groups(.tbl, ...))
 }
 
 #' @export
 dplyr::group_keys
 
 
-#' @export
-#' @rdname group_data.SpatVector
 #' @importFrom dplyr group_rows
-group_rows.SpatVector <- function(.data) {
-  # nocov start
-  group_data(.data)[[".rows"]]
-  # nocov end
-}
-
 #' @export
 dplyr::group_rows
 
@@ -162,18 +133,8 @@ dplyr::group_rows
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_indices
 group_indices.SpatVector <- function(.data, ...) {
-  tbl <- as_tibble(.data)
-  if (is_grouped_spatvector(.data)) {
-    # Get vars
-    vars <- group_vars(.data)
-
-    # Regroup
-    tbl <- group_by(tbl, across_all_of(vars))
-  }
-
-  # Dispatch to default dplyr method
-
-  dplyr::group_indices(tbl, ...)
+  # Dispatch to dplyr
+  dplyr::group_indices(tbl_for_groups(.data), ...)
 }
 
 #' @export
@@ -184,12 +145,8 @@ dplyr::group_indices
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_vars
 group_vars.SpatVector <- function(x) {
-  if (is_grouped_spatvector(x)) {
-    gvars <- as.character(attr(x, "group_vars"))
-    return(gvars)
-  }
-
-  return(character(0))
+  # Dispatch to dplyr
+  dplyr::group_vars(tbl_for_groups(x))
 }
 
 #' @export
@@ -199,17 +156,8 @@ dplyr::group_vars
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr groups
 groups.SpatVector <- function(x) {
-  tbl <- as_tibble(x)
-  if (is_grouped_spatvector(x)) {
-    # Get vars
-    vars <- group_vars(x)
-
-    # Regroup
-    tbl <- group_by(tbl, across_all_of(vars))
-  }
-
-  # Dispatch to default dplyr method
-  dplyr::groups(tbl)
+  # Dispatch to dplyr
+  dplyr::groups(tbl_for_groups(x))
 }
 
 #' @export
@@ -219,7 +167,8 @@ dplyr::groups
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_size
 group_size.SpatVector <- function(x) {
-  lengths(group_rows(x))
+  # Dispatch to dplyr
+  dplyr::group_size(tbl_for_groups(x))
 }
 
 #' @export
@@ -232,8 +181,24 @@ dplyr::groups
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr n_groups
 n_groups.SpatVector <- function(x) {
-  nrow(group_data(x))
+  # Dispatch to dplyr
+  dplyr::n_groups(tbl_for_groups(x))
 }
 
 #' @export
 dplyr::n_groups
+
+
+# Helper
+tbl_for_groups <- function(x) {
+  df <- tibble::as_tibble(terra::as.data.frame(x))
+
+  # Grouped
+  if (is_grouped_spatvector(x)) {
+    # Add class
+    class(df) <- c("grouped_df", class(df))
+    attr(df, "groups") <- attr(x, "groups")
+  }
+
+  return(df)
+}
