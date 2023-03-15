@@ -12,9 +12,8 @@ test_that("informs if n column already present, unless overridden", {
   expect_s4_class(out, "SpatVector")
   expect_named(out, c("n", "nn"))
 
-  # not a good idea, but supported
-  expect_message(out <- count(df1, n, name = "n"), NA)
-  expect_named(out, "n")
+  # not supported
+  expect_error(count(df1, n, name = "n"))
 
   expect_message(out <- count(df1, n, name = "nn"), NA)
   expect_named(out, c("n", "nn"))
@@ -49,7 +48,6 @@ test_that("output preserves grouping", {
   exp$lon <- 1:2
   exp$lat <- 1:2
   exp <- terra::vect(exp)
-  debug(count.SpatVector)
 
   expect_equal(
     df %>% count(g) %>% as_tibble(),

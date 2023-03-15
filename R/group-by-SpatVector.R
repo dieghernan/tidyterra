@@ -158,9 +158,10 @@ group_prepare_spat <- function(x, template) {
   }
 
   # template is not df
-  # TODO
   # Gives an error
-  if (!inherits(template, "data.frame")) stop("Diego check here!")
+  # nocov start
+  if (!inherits(template, "data.frame")) stop("Using bad grouping template")
+  # nocov end
 
   if (inherits(template, "grouped_df")) {
     attr(x, "tblclass") <- "grouped_df"
