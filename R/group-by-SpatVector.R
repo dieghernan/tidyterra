@@ -5,7 +5,7 @@
 #' `r lifecycle::badge('experimental')`
 #'
 #' Most data operations are done on groups defined by variables. [group_by()]
-#' adds a new attribute to an existing SpatVector indicating the
+#' adds new attributes to an existing SpatVector indicating the
 #' corresponding groups. See **Methods**.
 #'
 #' @export
@@ -28,6 +28,15 @@
 #' Implementation of the **generic** [dplyr::group_by()] family functions for
 #' SpatVectors.
 #'
+#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a grouped
+#' SpatVector (i.e, subsetting a SpatVector like `v[1:3,1:2]`) the `groups`
+#' attribute can be corrupted. \pkg{tidyterra} would try to re-group the
+#' SpatVector. This would be triggered the next time you use a dplyr verb on
+#' your SpatVector.
+#'
+#' Note also that some operations (as `terra::spatSample()`) would create a new
+#' SpatVector. In these cases, the result won't preserve the `groups` attribute.
+#' Use [group_by.SpatVector()] to re-group.
 #'
 #' @details
 #'
@@ -127,17 +136,8 @@ ungroup.SpatVector <- function(x, ...) {
     return(x)
   }
 
-  # If empty dots undo all groups
-  if (rlang::dots_n(...) == 0L) {
-    attr(x, "group_vars") <- NULL
-    return(x)
-  }
-
-  # Regenerate grouping and use default method
-  old_groups <- group_vars(x)
-  tbl <- as_tibble(x)
-  g_tbl <- dplyr::group_by(tbl, across_all_of(old_groups))
-
+  # Template
+  g_tbl <- as_tibble(x)
   # Ungroup default method
   newgroups <- dplyr::ungroup(g_tbl, ...)
 
@@ -158,13 +158,24 @@ dplyr::group_by_drop_default
 # Internal
 # Assign groups to a SpatVector given the info of a template
 group_prepare_spat <- function(x, template) {
-  getvars <- dplyr::group_vars(template)
-
-  if (length(getvars) == 0) {
-    attr(x, "group_vars") <- NULL
-  } else {
-    attr(x, "group_vars") <- getvars
+  # x not SpatVector
+  if (!inherits(x, "SpatVector")) {
+    return(x)
   }
 
+  # template is not df
+  # Gives an error
+  # nocov start
+  if (!inherits(template, "data.frame")) stop("Using bad grouping template")
+  # nocov end
+
+  if (inherits(template, "grouped_df")) {
+    attr(x, "tblclass") <- "grouped_df"
+    attr(x, "groups") <- attr(template, "groups")
+  } else {
+    # Ungroup
+    attr(x, "tblclass") <- NULL
+    attr(x, "groups") <- NULL
+  }
   return(x)
 }

@@ -142,7 +142,7 @@
       * ..2 = 2
       i Did you forget to name an argument?
 
-# slice_helper `by` errors use correct error context and correct `by_arg`
+# slice_helper `by` errors use correct context and correct `by_arg`
 
     Code
       slice_head(gdf, n = 1, by = x)

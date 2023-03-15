@@ -94,7 +94,7 @@ test_that("bind_spat_rows respects groups", {
   df <- group_by(df, e, f, g, .drop = FALSE)
 
   gg <- bind_spat_rows(df, df)
-  expect_equal(group_size(gg), c(4L, 4L))
+  expect_equal(group_size(gg), c(4L, 4L, 0L))
 })
 
 

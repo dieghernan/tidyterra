@@ -76,6 +76,7 @@
 count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
                              .drop = group_by_drop_default(x),
                              .dissolve = TRUE) {
+  # Maybe regroup
   if (!missing(...)) {
     out <- group_by(x, ..., .add = TRUE, .drop = .drop)
   } else {
@@ -84,20 +85,31 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
 
   vend <- tally(out, sort = sort, name = name)
 
+  # Prepare a template for groups
+  template <- dplyr::count(as_tibble(x), ...,
+    sort = sort, name = name,
+    .drop = .drop
+  )
+
 
   # Dissolve if requested
   if (.dissolve) {
     keepdf <- as_tibble(vend)
+
     var_index <- make_safe_index("tterra_index", keepdf)
-    df <- data.frame(n = seq_len(nrow(keepdf)))
-    names(df) <- var_index
-    vend <- cbind(vend[, 0], df)
+    vend[[var_index]] <- seq_len(nrow(keepdf))
     vend <- terra::aggregate(vend, by = var_index, dissolve = TRUE)
     vend <- cbind(vend[, 0], keepdf)
   }
 
   # Ensure groups
-  vend <- group_prepare_spat(vend, x)
+  vend <- ungroup(vend)
+
+  # Re-group based on the template
+  if (dplyr::is_grouped_df(template)) {
+    gvars <- dplyr::group_vars(template)
+    vend <- group_by(vend, across_all_of(gvars))
+  }
 
 
   vend
@@ -110,32 +122,43 @@ dplyr::count
 #' @export
 #' @name count.SpatVector
 tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
-  tbl <- as_tibble(x)
-  spatv <- x
+  # Use terra method on ungrouped
+  if (!is_grouped_spatvector(x)) {
+    vargroup <- make_safe_index("tterra_index", x)
+    x[[vargroup]] <- "UNIQUE"
 
-  # Use tbl unsorted
-  tallyed <- dplyr::tally(tbl, sort = FALSE, name = name)
+    vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
+    # Keep aggregation only and rename
+    vend <- vend[, "agg_n"]
+    if (is.null(name)) name <- "n"
 
-  if (is_grouped_spatvector(spatv)) {
-    var_index <- make_safe_index("tterra_index", spatv)
-    df <- data.frame(n = group_indices(spatv))
-    names(df) <- var_index
-    spatv <- cbind(spatv, df)
-    newgeom <- terra::aggregate(spatv, by = var_index, dissolve = FALSE)
-  } else {
-    newgeom <- terra::aggregate(spatv, dissolve = FALSE)
+    names(vend) <- name
+    return(vend)
   }
 
-  vend <- cbind(newgeom[, 0], tallyed)
+  # Get tibble and index of rows
+  tblforindex <- as_tibble(x)
+  # Get a template
+  template <- dplyr::tally(tblforindex, sort = sort, name = name)
 
-  # Ensure groups
-  vend <- group_prepare_spat(vend, tallyed)
+  vargroup <- dplyr::group_vars(tblforindex)
+  x <- x[, vargroup]
+  vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
+  # Keep and rename
+  vend <- vend[, c(vargroup, "agg_n")]
 
   if (sort) {
-    # Arrange
-    order_v <- rev(names(vend))[1]
-    sort_order <- as_tibble(vend)[[order_v]]
-    vend <- vend[order(sort_order, decreasing = TRUE), ]
+    # Re-sort
+    vend <- vend[order(vend$agg_n, decreasing = TRUE), ]
+  }
+  names(vend) <- names(template)
+  vend <- ungroup(vend)
+
+
+  # Re-group based on the template
+  if (dplyr::is_grouped_df(template)) {
+    gvars <- dplyr::group_vars(template)
+    vend <- group_by(vend, across_all_of(gvars))
   }
 
   vend

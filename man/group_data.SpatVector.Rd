@@ -3,7 +3,6 @@
 \name{group_data.SpatVector}
 \alias{group_data.SpatVector}
 \alias{group_keys.SpatVector}
-\alias{group_rows.SpatVector}
 \alias{group_indices.SpatVector}
 \alias{group_vars.SpatVector}
 \alias{groups.SpatVector}
@@ -14,8 +13,6 @@
 \method{group_data}{SpatVector}(.data)
 
 \method{group_keys}{SpatVector}(.tbl, ...)
-
-group_rows.SpatVector(.data)
 
 \method{group_indices}{SpatVector}(.data, ...)
 

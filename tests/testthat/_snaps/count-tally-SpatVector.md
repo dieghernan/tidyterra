@@ -46,6 +46,8 @@
     Message <rlang_message>
       Storing counts in `nn`, as `n` already present in input
       i Use `name = "new_name"` to pick a new name.
+      Storing counts in `nn`, as `n` already present in input
+      i Use `name = "new_name"` to pick a new name.
     Output
        class       : SpatVector 
        geometry    : points 

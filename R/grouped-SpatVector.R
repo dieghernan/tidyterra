@@ -20,10 +20,9 @@
 is_grouped_spatvector <- function(x) {
   att <- attributes(x)
 
-
-  if (is.null(att$group_vars) || length(att$group_vars) < 1) {
-    return(FALSE)
+  if (all(att$tblclass == "grouped_df", inherits(att$groups, "tbl_df"))) {
+    return(TRUE)
   }
 
-  return(TRUE)
+  return(FALSE)
 }
