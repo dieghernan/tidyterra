@@ -10,7 +10,7 @@
 |collate  |English_United States.utf8                                            |
 |ctype    |English_United States.utf8                                            |
 |tz       |UTC                                                                   |
-|date     |2023-03-11                                                            |
+|date     |2023-03-16                                                            |
 |pandoc   |2.19.2 @ C:\HOSTED~1\windows\pandoc\219~1.2\x64\PANDOC~1.2\pandoc.exe |
 
 # Dependencies
@@ -44,10 +44,10 @@
 |R6           |2.5.1  |2.5.1      |   |
 |RColorBrewer |1.1-3  |1.1-3      |   |
 |Rcpp         |1.0.10 |1.0.10     |   |
-|rlang        |1.0.6  |1.0.6      |   |
+|rlang        |1.1.0  |1.1.0      |   |
 |s2           |1.1.2  |1.1.2      |   |
 |scales       |1.2.1  |1.2.1      |   |
-|sf           |1.0-9  |1.0-9      |   |
+|sf           |1.0-11 |1.0-11     |   |
 |stringi      |1.7.12 |1.7.12     |   |
 |stringr      |1.5.0  |1.5.0      |   |
 |terra        |1.7-18 |1.7-18     |   |
@@ -56,17 +56,18 @@
 |tidyselect   |1.2.0  |1.2.0      |   |
 |units        |0.8-1  |0.8-1      |   |
 |utf8         |1.2.3  |1.2.3      |   |
-|vctrs        |0.5.2  |0.5.2      |   |
+|vctrs        |0.6.0  |0.6.0      |   |
 |viridisLite  |0.4.1  |0.4.1      |   |
 |withr        |2.5.0  |2.5.0      |   |
 |wk           |0.7.1  |0.7.1      |   |
 
 # Revdeps
 
-## Failed to check (2)
+## Failed to check (3)
 
-|package  |version |error |warning |note |
-|:--------|:-------|:-----|:-------|:----|
-|biomod2  |4.2-2   |1     |        |     |
-|mapSpain |0.7.0   |1     |        |1    |
+|package   |version |error |warning |note |
+|:---------|:-------|:-----|:-------|:----|
+|biomod2   |4.2-2   |1     |        |     |
+|mapSpain  |0.7.0   |1     |        |1    |
+|sparrpowR |0.2.7   |1     |        |     |
 

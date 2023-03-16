@@ -41,3 +41,22 @@ Run `revdepcheck::revdep_details(, "mapSpain")` for more info
       Note: found 13138 marked UTF-8 strings
     ```
 
+# sparrpowR
+
+<details>
+
+* Version: 0.2.7
+* GitHub: https://github.com/machiela-lab/sparrpowR
+* Source code: https://github.com/cran/sparrpowR
+* Date/Publication: 2023-02-02 01:00:02 UTC
+* Number of recursive dependencies: 133
+
+Run `revdepcheck::revdep_details(, "sparrpowR")` for more info
+
+</details>
+
+## In both
+
+*   R CMD check timed out
+    
+
