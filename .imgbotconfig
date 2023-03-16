@@ -1,6 +1,7 @@
 {
     "ignoredFiles": [
-        "/tests/testthat/_snaps/*"
+        "/tests/testthat/_snaps/*",
+        "/man/figures/lifecycle*"
     ],
     "compressWiki": "true",
     "aggressiveCompression": "true"
