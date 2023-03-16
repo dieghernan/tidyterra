@@ -62,5 +62,10 @@ as_sf <- function(x, ...) {
     sfobj <- dplyr::group_by(sfobj, across_all_of(vars))
   }
 
+  if (is_rowwise_spatvector(x)) {
+    vars <- group_vars(x)
+    sfobj <- dplyr::rowwise(sfobj, vars)
+  }
+
   return(sfobj)
 }

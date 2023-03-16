@@ -99,6 +99,26 @@ test_that("bind_spat_cols respects groups", {
   expect_identical(group_vars(gg), group_vars(gg_df))
 })
 
+test_that("bind_spat_cols respects rowwise", {
+  df_init <- data.frame(
+    e = 1,
+    f = factor(c(1, 1, 2, 2), levels = 1:3),
+    g = c(1, 1, 2, 2),
+    x = c(1, 2, 1, 4)
+  )
+  df <- terra::vect(df_init, geom = c("g", "x"), keepgeom = TRUE)
+  df <- rowwise(df)
+  expect_true(is_rowwise_spatvector(df))
+  df2 <- data.frame(ss = 1:4)
+  gg <- bind_spat_cols(df, df2)
+  expect_true(is_rowwise_spatvector(gg))
+  expect_identical(group_size(df), group_size(gg))
+  expect_identical(group_vars(df), group_vars(gg))
+
+  df_init <- dplyr::rowwise(df_init)
+  gg_df <- dplyr::bind_cols(df_init, df2)
+  expect_identical(group_vars(gg), group_vars(gg_df))
+})
 
 test_that("bind_spat_cols() gives informative errors", {
   a <- terra::vect("POINT (0 0)")

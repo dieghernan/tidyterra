@@ -97,6 +97,39 @@ test_that("bind_spat_rows respects groups", {
   expect_equal(group_size(gg), c(4L, 4L, 0L))
 })
 
+test_that("bind_spat_rows respects rowwise", {
+  df_init <- data.frame(
+    e = 1,
+    f = factor(c(1, 1, 2, 2), levels = 1:3),
+    g = c(1, 1, 2, 2),
+    x = c(1, 2, 1, 4)
+  )
+  df2 <- terra::vect(df_init, geom = c("g", "x"), keepgeom = TRUE)
+  df2 <- rowwise(df2)
+  expect_true(is_rowwise_spatvector(df2))
+
+  gg <- bind_spat_rows(df2, df_init)
+  expect_true(is_rowwise_spatvector(gg))
+  expect_equal(group_size(gg), rep(1, nrow(gg)))
+  expect_equal(group_vars(gg), character(0))
+})
+
+test_that("bind_spat_rows respects named rowwise", {
+  df_init <- data.frame(
+    e = 1,
+    f = factor(c(1, 1, 2, 2), levels = 1:3),
+    g = c(1, 1, 2, 2),
+    x = c(1, 2, 1, 4)
+  )
+  df2 <- terra::vect(df_init, geom = c("g", "x"), keepgeom = TRUE)
+  df2 <- rowwise(df2, g)
+  expect_true(is_rowwise_spatvector(df2))
+
+  gg <- bind_spat_rows(df2, df_init)
+  expect_true(is_rowwise_spatvector(gg))
+  expect_equal(group_size(gg), rep(1, nrow(gg)))
+  expect_equal(group_vars(gg), "g")
+})
 
 # Column coercion --------------------------------------------------------------
 

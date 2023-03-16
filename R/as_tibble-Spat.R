@@ -131,6 +131,13 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
     dplyr::validate_grouped_df(df)
   }
 
+  # Rowwise
+  if (is_rowwise_spatvector(x)) {
+    # Add class
+    class(df) <- c("rowwise_df", class(df))
+    attr(df, "groups") <- attr(x, "groups")
+  }
+
   df <- check_regroups(df)
 
   # Set attributes if present
@@ -202,6 +209,13 @@ as_tbl_vector_internal <- function(x) {
 
     # Validate
     dplyr::validate_grouped_df(todf)
+  }
+
+  # Rowwise
+  if (is_rowwise_spatvector(x)) {
+    # Add class
+    class(todf) <- c("rowwise_df", class(todf))
+    attr(todf, "groups") <- attr(x, "groups")
   }
 
   todf <- check_regroups(todf)
@@ -286,38 +300,88 @@ tibble::as_tibble
 #'
 #' @noRd
 check_regroups <- function(x) {
-  if (!dplyr::is_grouped_df(x)) {
+  if (dplyr::is_grouped_df(x)) {
+    gvars <- dplyr::group_vars(x)
+    val_vars <- gvars %in% names(x)
+    all_vars <- all(val_vars)
+    any_var <- any(val_vars)
+
+    if (isFALSE(any_var)) {
+      cli::cli_alert_warning(paste(
+        "`group_vars()` missing on data.",
+        " Have you mixed terra and tidyterra syntax?"
+      ))
+      cli::cli_bullets(c(i = "ungrouping data"))
+      return(dplyr::ungroup(x))
+    }
+
+    if (isFALSE(all_vars)) {
+      regroup_vars <- gvars[val_vars]
+
+      ung <- dplyr::ungroup(x)
+      return(dplyr::group_by(ung, across_all_of(regroup_vars)))
+    }
+
+    # Check rows have been kept
+    dif_rows <- all(sum(group_size(x)) == nrow(x))
+
+    if (isFALSE(dif_rows)) {
+      regroup_vars <- gvars[val_vars]
+      ung <- dplyr::ungroup(x)
+      return(dplyr::group_by(ung, across_all_of(regroup_vars)))
+    }
+
     return(x)
   }
 
-  gvars <- dplyr::group_vars(x)
-  val_vars <- gvars %in% names(x)
-  all_vars <- all(val_vars)
-  any_var <- any(val_vars)
 
-  if (isFALSE(any_var)) {
-    cli::cli_alert_warning(paste(
-      "`group_vars()` missing on data.",
-      " Have you mixed terra and tidyterra syntax?"
-    ))
-    cli::cli_bullets(c(i = "ungrouping data"))
-    return(dplyr::ungroup(x))
-  }
+  if (is_rowwise_df(x)) {
+    gvars <- dplyr::group_vars(x)
 
-  if (isFALSE(all_vars)) {
-    regroup_vars <- gvars[val_vars]
+    # Does not need return vars in rowwise
 
-    ung <- dplyr::ungroup(x)
-    return(dplyr::group_by(ung, across_all_of(regroup_vars)))
-  }
+    if (identical(gvars, character(0))) {
+      # Check rows have been kept
+      dif_rows <- all(sum(group_size(x)) == nrow(x))
 
-  # Check rows have been kept
-  dif_rows <- all(sum(group_size(x)) == nrow(x))
+      if (isFALSE(dif_rows)) {
+        ung <- dplyr::ungroup(x)
+        return(dplyr::rowwise(x))
+      }
 
-  if (isFALSE(dif_rows)) {
-    regroup_vars <- gvars[val_vars]
-    ung <- dplyr::ungroup(x)
-    return(dplyr::group_by(ung, across_all_of(regroup_vars)))
+      return(x)
+    }
+
+
+    val_vars <- gvars %in% names(x)
+    all_vars <- all(val_vars)
+    any_var <- any(val_vars)
+
+    if (isFALSE(any_var)) {
+      cli::cli_alert_warning(paste(
+        "`group_vars()` missing on data.",
+        " Have you mixed terra and tidyterra syntax?"
+      ))
+      cli::cli_bullets(c(i = "ungrouping data"))
+      return(dplyr::ungroup(x))
+    }
+
+    if (isFALSE(all_vars)) {
+      regroup_vars <- gvars[val_vars]
+
+      ung <- dplyr::ungroup(x)
+      return(dplyr::rowwise(ung, regroup_vars))
+    }
+
+    # Check rows have been kept
+    dif_rows <- all(sum(group_size(x)) == nrow(x))
+
+    if (isFALSE(dif_rows)) {
+      regroup_vars <- gvars[val_vars]
+      ung <- dplyr::ungroup(x)
+      return(dplyr::rowwise(ung, regroup_vars))
+    }
+    return(x)
   }
 
   return(x)

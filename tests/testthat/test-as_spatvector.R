@@ -153,6 +153,55 @@ test_that("Works with grouped_df", {
   expect_identical(gr, tbl_regen)
 })
 
+test_that("Works with rowwise_df", {
+  as_tbl <- data.frame(
+    x = as.double(1:10),
+    y = as.double(1:10),
+    gr = rep_len(c("A", "B", "A"), length.out = 10)
+  )
+
+
+
+  gr <- dplyr::rowwise(as_tbl, gr)
+  expect_true(is_rowwise_df(gr))
+
+
+  gr_v <- as_spatvector(gr, geom = c("x", "y"), keepgeom = TRUE)
+
+  expect_true(is_rowwise_spatvector(gr_v))
+
+  # Remove attribute for comparision
+  tbl_regen <- as_tibble(gr_v)
+
+  attr(tbl_regen, "crs") <- NULL
+
+  expect_identical(gr, tbl_regen)
+})
+
+test_that("Works with unnamed rowwise_df", {
+  as_tbl <- data.frame(
+    x = as.double(1:10),
+    y = as.double(1:10),
+    gr = rep_len(c("A", "B", "A"), length.out = 10)
+  )
+
+
+
+  gr <- dplyr::rowwise(as_tbl)
+  expect_true(is_rowwise_df(gr))
+
+
+  gr_v <- as_spatvector(gr, geom = c("x", "y"), keepgeom = TRUE)
+
+  expect_true(is_rowwise_spatvector(gr_v))
+
+  # Remove attribute for comparison
+  tbl_regen <- as_tibble(gr_v)
+
+  attr(tbl_regen, "crs") <- NULL
+
+  expect_identical(gr, tbl_regen)
+})
 test_that("Works with sf", {
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
@@ -172,6 +221,20 @@ test_that("Works with sf", {
   expect_identical(
     dplyr::group_data(sfobj_grouped),
     group_data(fromsfgrouped)
+  )
+
+  # Keep rowwise
+  sfobj_rowwise <- dplyr::rowwise(sfobj)
+
+  expect_true(is_rowwise_df(sfobj_rowwise))
+
+  fromsfrowwise <- as_spatvector(sfobj_rowwise)
+
+  expect_true(is_rowwise_spatvector(fromsfrowwise))
+
+  expect_identical(
+    dplyr::group_data(sfobj_rowwise),
+    group_data(fromsfrowwise)
   )
 
   # Keep geoms even with other names
@@ -317,6 +380,37 @@ test_that("Check internal grouped", {
   # Should match also with groups on gr_tbl
 
   expect_true(dplyr::is_grouped_df(gr_tbl))
+
+  expect_identical(
+    dplyr::group_data(gr_tbl),
+    dplyr::group_data(as_tbl_internal(gr_tbl_regen))
+  )
+})
+
+test_that("Check internal rowwise", {
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- terra::vect(f)
+
+  v$gr <- rep_len(c("A", "A", "B"), length.out = nrow(v))
+
+  gr_v <- rowwise(v, gr)
+
+
+  gr_tbl <- as_tbl_internal(gr_v)
+
+  # Regen
+  gr_tbl_regen <- as_spat_internal(gr_tbl)
+
+  expect_true(is_rowwise_spatvector(gr_tbl_regen))
+
+  expect_identical(
+    as_tbl_internal(gr_v),
+    as_tbl_internal(gr_tbl_regen)
+  )
+
+  # Should match also with groups on gr_tbl
+
+  expect_true(is_rowwise_df(gr_tbl))
 
   expect_identical(
     dplyr::group_data(gr_tbl),

@@ -132,7 +132,8 @@ dplyr::group_by
 #' @name group-by.SpatVector
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
-  if (!is_grouped_spatvector(x)) {
+  getattr <- attr(x, "tblclass")
+  if (is.null(getattr) || !getattr %in% c("grouped_df", "rowwise_df")) {
     return(x)
   }
 
@@ -169,8 +170,11 @@ group_prepare_spat <- function(x, template) {
   if (!inherits(template, "data.frame")) stop("Using bad grouping template")
   # nocov end
 
-  if (inherits(template, "grouped_df")) {
+  if (dplyr::is_grouped_df(template)) {
     attr(x, "tblclass") <- "grouped_df"
+    attr(x, "groups") <- attr(template, "groups")
+  } else if (is_rowwise_df(template)) {
+    attr(x, "tblclass") <- "rowwise_df"
     attr(x, "groups") <- attr(template, "groups")
   } else {
     # Ungroup

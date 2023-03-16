@@ -109,6 +109,7 @@ Other dplyr methods:
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
+\code{\link{rowwise.SpatVector}()},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
 \code{\link{summarise.SpatVector}()}

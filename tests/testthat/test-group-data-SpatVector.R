@@ -37,6 +37,25 @@ test_that("Ungroup_data(<SpatVector>) returns the right value", {
   expect_identical(group_vars(df_v), dplyr::group_vars(df))
 })
 
+test_that("group_data(<rowwise) return the right value", {
+  df <- dplyr::tibble(x = 1:3)
+  df_v <- dplyr::tibble(
+    x = 1:3,
+    lon = as.double(4:6),
+    lat = as.double(7:9)
+  )
+
+  df_v <- terra::vect(df_v, crs = "EPSG:4326")
+  rf <- rowwise(df_v)
+  gd <- group_data(rf)
+
+  gd_test <- dplyr::group_data(dplyr::rowwise(df))
+
+  expect_s3_class(gd, "tbl_df")
+  expect_equal(gd, gd_test)
+})
+
+
 # group_rows() and group_keys() -------------------------------------------
 
 test_that("group_rows() and group_keys() partition group_data()", {
@@ -97,6 +116,14 @@ test_that("ungrouped data has 1 group, with group size = nrow()", {
   expect_equal(group_size(df_v), 30)
 })
 
+test_that("rowwise data has one group for each group", {
+  mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
+  rw <- rowwise(mtcars)
+
+  expect_true(is_rowwise_spatvector(rw))
+  expect_equal(n_groups(rw), 32)
+  expect_equal(group_size(rw), rep(1, 32))
+})
 
 
 test_that("group_size correct for grouped data", {
