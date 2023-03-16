@@ -191,7 +191,7 @@ as_spatvector.sf <- function(x, ...) {
 
   if (is_rowwise_df(x)) {
     vars <- group_vars(x)
-    final_tibble <- dplyr::rowwise(final_tibble, vars)
+    final_tibble <- dplyr::rowwise(final_tibble, dplyr::all_of(vars))
   }
 
   rm(gg)
@@ -258,7 +258,7 @@ as_spatvect_attr <- function(x) {
 
   if (is_rowwise_df(x)) {
     vars <- group_vars(x)
-    v <- rowwise(v, vars)
+    v <- rowwise(v, dplyr::all_of(vars))
   }
 
   v

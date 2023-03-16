@@ -370,7 +370,7 @@ check_regroups <- function(x) {
       regroup_vars <- gvars[val_vars]
 
       ung <- dplyr::ungroup(x)
-      return(dplyr::rowwise(ung, regroup_vars))
+      return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
     }
 
     # Check rows have been kept
@@ -379,7 +379,7 @@ check_regroups <- function(x) {
     if (isFALSE(dif_rows)) {
       regroup_vars <- gvars[val_vars]
       ung <- dplyr::ungroup(x)
-      return(dplyr::rowwise(ung, regroup_vars))
+      return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
     }
     return(x)
   }

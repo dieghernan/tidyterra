@@ -82,7 +82,7 @@ test_that("Coercion to rowwise sf works with names creating groups", {
   # Should be the same as
   sf2 <- sf::read_sf(f)
   sf2$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
-  expect_message(rwise <- dplyr::rowwise(sf2, gr) %>% summarise(a = dplyr::n()))
+  rwise <- dplyr::rowwise(sf2, gr) %>% summarise(a = dplyr::n())
   expect_s3_class(rwise, "sf")
   expect_s3_class(rwise, "grouped_df")
   expect_identical(dplyr::group_indices(as_sf), dplyr::group_indices(rwise))
