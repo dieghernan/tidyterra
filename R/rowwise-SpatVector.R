@@ -22,7 +22,7 @@
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr rowwise
-#' @param data,x A SpatVector object. See **Methods**.
+#' @param data A SpatVector object. See **Methods**.
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> Variables to be
 #'   preserved when calling [summarise.SpatVector()]. This is typically a set
 #'   of variables whose combination uniquely identify each row. See

@@ -7,7 +7,7 @@
 \method{rowwise}{SpatVector}(data, ...)
 }
 \arguments{
-\item{data, x}{A SpatVector object. See \strong{Methods}.}
+\item{data}{A SpatVector object. See \strong{Methods}.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
 preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
