@@ -130,9 +130,11 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
 
   # Make groups
-  if (dplyr::is_grouped_df(x)) {
+  if (dplyr::is_grouped_df(x) || is_rowwise_df(x)) {
     v <- group_prepare_spat(v, x)
   }
+
+
 
   return(v)
 }
@@ -185,6 +187,11 @@ as_spatvector.sf <- function(x, ...) {
   if (dplyr::is_grouped_df(x)) {
     vars_sf <- dplyr::group_vars(x)
     final_tibble <- dplyr::group_by(final_tibble, across_all_of(vars_sf))
+  }
+
+  if (is_rowwise_df(x)) {
+    vars <- group_vars(x)
+    final_tibble <- dplyr::rowwise(final_tibble, dplyr::all_of(vars))
   }
 
   rm(gg)
@@ -247,6 +254,11 @@ as_spatvect_attr <- function(x) {
     vars <- dplyr::group_vars(x)
 
     v <- group_by(v, across_all_of(vars))
+  }
+
+  if (is_rowwise_df(x)) {
+    vars <- group_vars(x)
+    v <- rowwise(v, dplyr::all_of(vars))
   }
 
   v

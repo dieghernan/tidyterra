@@ -179,3 +179,13 @@ test_that("distinct keep groups", {
   expect_true(is_grouped_spatvector(v_all))
   expect_identical(group_vars(v_all), "y")
 })
+
+test_that("ungroup.rowwise_df gives a ungrouped SpatVector", {
+  mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
+
+  res <- mtcars_v %>%
+    rowwise() %>%
+    ungroup()
+  expect_false(is_grouped_spatvector(res))
+  expect_false(is_rowwise_spatvector(res))
+})

@@ -70,6 +70,15 @@ test_that("For SpatVector internal", {
   df_gr <- as_tbl_internal(v_gr)
   expect_s3_class(df_gr, "grouped_df")
   expect_identical(group_data(v_gr), dplyr::group_data(df_gr))
+
+  # Preserve rowwise
+  v_rwwise <- rowwise(v, iso2)
+
+  expect_true(is_rowwise_spatvector(v_rwwise))
+
+  df_rw <- as_tbl_internal(v_rwwise)
+  expect_s3_class(df_rw, "rowwise_df")
+  expect_identical(group_data(v_rwwise), dplyr::group_data(df_rw))
 })
 
 test_that("For SpatRaster", {

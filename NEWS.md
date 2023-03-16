@@ -9,6 +9,7 @@
             `right_join.SpatVector()` and `full_join.SpatVector()`
         -   `semi_join.SpatVector()` and `anti_join.SpatVector()`
         -   `summarise.SpatVector()`
+        -   `rowwise.SpatVector()`
         -   `group_by.SpatVector()`,`ungroup.SpatVector()`
         -   `count.SpatVector()`, `tally.SpatVector()`
         -   `bind_spat_cols()`, `bind_spat_rows()`

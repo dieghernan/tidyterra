@@ -58,6 +58,23 @@ test_that("Filter with SpatVector", {
   expect_s4_class(v, "SpatVector")
 })
 
+test_that("filter works with rowwise data", {
+  df <- tibble::tibble(
+    First = c("string1", "string2"),
+    Second = c("Sentence with string1", "something")
+  )
+
+  df$lat <- 1
+  df$lon <- 1
+
+  df <- as_spatvector(df)
+  res <- df %>%
+    rowwise() %>%
+    filter(grepl(First, Second, fixed = TRUE))
+  expect_equal(nrow(res), 1L)
+  expect_equal(as_tibble(df[1, ]), as_tibble(ungroup(res)))
+})
+
 test_that("grouped filter handles indices", {
   ir <- iris
   ir <- terra::vect(ir,

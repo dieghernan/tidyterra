@@ -77,7 +77,7 @@
 summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
                                  .dissolve = TRUE) {
   # Get dfs
-  df <- as_tbl_internal(.data)
+  df <- as_tibble(.data)
   df_summ <- dplyr::summarise(df, ..., .groups = .groups)
 
   spatv <- .data
@@ -88,6 +88,9 @@ summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
       by = "tterra_index",
       dissolve = .dissolve
     )
+  } else if (is_rowwise_spatvector(spatv)) {
+    # Do nothing, rowwise respect rows
+    newgeom <- spatv
   } else {
     newgeom <- terra::aggregate(spatv, dissolve = .dissolve)
   }

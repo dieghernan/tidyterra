@@ -46,6 +46,35 @@ test_that("filtering joins preserve row and column order of x", {
   expect_equal(out$a, c(4L, 1L))
 })
 
+test_that("joins preserve groups", {
+  aa <- tibble::tibble(a = 1:3, lat = 1:3, lon = 1:3) %>% as_spatvector()
+  bb <- tibble::tibble(a = rep(1:4, 2), b = 1, lat = 1, lon = 1)
+  gf1 <- aa %>% group_by(a)
+  gf2 <- bb %>% group_by(b)
+
+  out <- inner_join(gf1, gf2, by = "a")
+  expect_equal(group_vars(out), "a")
+
+  semi_join(gf1, gf2, by = "a")
+  expect_equal(group_vars(out), "a")
+})
+
+test_that("rowwise group structure is updated after a join", {
+  v <- tibble::tibble(x = 1:2)
+  v$lat <- 1
+  v$lon <- 1
+
+  df1 <- as_spatvector(v)
+  df1 <- rowwise(df1)
+  df2 <- tibble::tibble(x = c(1:2, 2L))
+
+  x <- left_join(df1, df2, by = "x")
+
+  expect_true(is_rowwise_spatvector(x))
+
+  expect_identical(group_indices(x), c(1L, 2L, 3L))
+})
+
 test_that("Test errors", {
   df1 <- data.frame(a = 4:1, b = 1)
   df1 <- terra::vect(df1, c("a", "b"), keepgeom = TRUE)

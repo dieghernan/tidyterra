@@ -82,6 +82,7 @@ Currently, the following methods are available:
 | `dplyr::inner_join()` family | ✔️                            |                                                                                                |
 | `dplyr::summarise()`         | ✔️                            |                                                                                                |
 | `dplyr::group_by()` family   | ✔️                            |                                                                                                |
+| `dplyr::rowwise()`           | ✔️                            |                                                                                                |
 | `dplyr::count()`, `tally()`  | ✔️                            |                                                                                                |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
 | `tidyr::drop_na()`           | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |

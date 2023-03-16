@@ -103,7 +103,8 @@ Other single table verbs:
 
 Other dplyr verbs that operate on group of rows:
 \code{\link{count.SpatVector}()},
-\code{\link{group-by.SpatVector}}
+\code{\link{group-by.SpatVector}},
+\code{\link{rowwise.SpatVector}()}
 
 Other dplyr methods:
 \code{\link{arrange.SpatVector}()},
@@ -120,6 +121,7 @@ Other dplyr methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
+\code{\link{rowwise.SpatVector}()},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
 }

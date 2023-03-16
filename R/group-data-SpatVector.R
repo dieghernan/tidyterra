@@ -200,5 +200,12 @@ tbl_for_groups <- function(x) {
     attr(df, "groups") <- attr(x, "groups")
   }
 
+  # Grouped
+  if (is_rowwise_spatvector(x)) {
+    # Add class
+    class(df) <- c("rowwise_df", class(df))
+    attr(df, "groups") <- attr(x, "groups")
+  }
+
   return(df)
 }
