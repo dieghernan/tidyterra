@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Coerce a Spat* object to data frames</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/as_tibble.Spat.R" class="external-link"><code>R/as_tibble.Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/as_tibble-Spat.R" class="external-link"><code>R/as_tibble-Spat.R</code></a></small>
       <div class="d-none name"><code>as_tibble.Spat.Rd</code></div>
     </div>
 
@@ -91,7 +91,7 @@
 <span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, xy <span class="op">=</span> <span class="cn">FALSE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span>, .name_repair <span class="op">=</span> <span class="st">"unique"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, .name_repair <span class="op">=</span> <span class="st">"unique"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, geom <span class="op">=</span> <span class="cn">NULL</span>, .name_repair <span class="op">=</span> <span class="st">"unique"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -124,6 +124,10 @@ for names in the style of base R).</p></li>
 <li><p>A purrr-style anonymous function, see <code><a href="https://rlang.r-lib.org/reference/as_function.html" class="external-link">rlang::as_function()</a></code></p></li>
 </ul></dd>
 
+
+<dt>geom</dt>
+<dd><p>character or NULL. If not NULL, either "WKT" or "HEX", to get the geometry included in Well-Known-Text or hexadecimal notation. If <code>x</code> has point geometry, it can also be "XY" to add the coordinates of each point</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -144,7 +148,7 @@ for names in the style of base R).</p></li>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">tibble::as_tibble()</a></code> function.</p><div class="section">
-<h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster-and-spatvector">SpatRaster and SpatVector<a class="anchor" aria-label="anchor" href="#spatraster-and-spatvector"></a></h3>
 
 
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#questioning" class="external-link"><img src="figures/lifecycle-questioning.svg" alt="[Questioning]"></a> The tibble is returned with an attribute
@@ -153,7 +157,7 @@ including the crs of the initial object in WKT format (see <code><a href="pull_c
 
     </div>
     <div class="section level2">
-    <h2 id="about-layer-names">About layer names<a class="anchor" aria-label="anchor" href="#about-layer-names"></a></h2>
+    <h2 id="about-layer-column-names">About layer/column names<a class="anchor" aria-label="anchor" href="#about-layer-column-names"></a></h2>
     
 
 
@@ -169,13 +173,20 @@ renamed.</p></li>
 latter would happen as well.</p></li>
 </ul><p>tidyterra would display a message informing of the changes on the names of
 the layer.</p>
+<p>The same issue happens for SpatVector with names <code>geometry</code> (when
+<code>geom = c("WKT", "HEX")</code>) and <code>x</code>, <code>y</code> (when <code>geom = "XY"</code>). These are
+reserved names representing the geometry of the SpatVector (see
+<code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>). If <code>geom</code> is not <code>NULL</code> then the logic described
+for SpatRaster would apply as well for the columns of the SpatVector.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">tibble::as_tibble()</a></code>, <code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code></p>
 <p>Coercing objects:
 <code><a href="as_coordinates.html">as_coordinates</a>()</code>,
+<code><a href="as_sf.html">as_sf</a>()</code>,
 <code><a href="as_spatraster.html">as_spatraster</a>()</code>,
+<code><a href="as_spatvector.html">as_spatvector</a>()</code>,
 <code><a href="fortify.Spat.html">fortify.Spat</a></code></p></div>
     </div>
 
@@ -228,9 +239,9 @@ the layer.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   iso2  cpro  name      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ES-AV 05    Ávila     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ES-AV 05    Avila     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> ES-BU 09    Burgos    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ES-LE 24    León      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ES-LE 24    Leon      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> ES-P  34    Palencia  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> ES-SA 37    Salamanca </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> ES-SG 40    Segovia   </span>

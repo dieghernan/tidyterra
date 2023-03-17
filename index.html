@@ -50,7 +50,7 @@
     
     <a class="navbar-brand me-2" href="index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -129,16 +129,16 @@
 </h2>
 <p>{tidyverse} methods implemented on {tidyterra} works differently depending on the type of Spat* object:</p>
 <ul>
-<li><p>SpatVector: the methods are implemented taking advantage of the tidyverse implementation on {sf}. The SpatVector object is converted first to sf via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>, then the method (or function) is applied and finally the object is converted back to SpatVector with <code><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">terra::vect()</a></code>. Hence, rows correspond to geometries and columns correspond to attributes of the geometry.</p></li>
+<li><p>SpatVector: the methods are implemented using <code><a href="https://rdrr.io/pkg/terra/man/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of the geometry.</p></li>
 <li><p>SpatRaster: The implementation on SpatRaster objects differs, since the methods could be applied to layers or to cells. {tidyterra} overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a SpatRaster).</p></li>
 </ul>
 <p>The methods implemented return the same type of object used as input, unless the expected behavior of the method is to return another type of object, (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> would return a tibble).</p>
 <p>Current methods and functions provided by {tidyterra} are:</p>
 <table class="table">
 <colgroup>
-<col width="15%">
-<col width="20%">
-<col width="64%">
+<col width="23%">
+<col width="25%">
+<col width="51%">
 </colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
@@ -192,27 +192,79 @@
 <td>✔️</td>
 </tr>
 <tr class="even">
+<td><code><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct()</a></code></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code></td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> family</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> family</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally()</a></code>
+</td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>
+<code><a href="https://dplyr.tidyverse.org/reference/bind_cols.html" class="external-link">dplyr::bind_cols()</a></code> / <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">dplyr::bind_rows()</a></code>
+</td>
+<td>✔️ as <code><a href="reference/bind_cols.SpatVector.html">bind_spat_cols()</a></code> / <code><a href="reference/bind_rows.SpatVector.html">bind_spat_rows()</a></code>
+</td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
 <td>✔️ Remove cell values with <code>NA</code> on any layer. Additionally, outer cells with <code>NA</code> are removed.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">ggplot2::autoplot()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
 <td>✔️ to sf via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
 </td>
 <td>To a tibble with coordinates.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>ggplot2::geom_*()</code></td>
 <td>✔️ <code><a href="reference/ggspatvector.html">geom_spatvector()</a></code>
 </td>
@@ -251,6 +303,9 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
+<div class="section level3">
+<h3 id="spatrasters">SpatRasters<a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+</h3>
 <p>This is a basic example which shows you how to manipulate and plot SpatRaster objects:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -357,6 +412,24 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" width="100%"></p>
 </div>
+<div class="section level3">
+<h3 id="spatvectors">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors"></a>
+</h3>
+<p>This is a basic example which shows you how to manipulate and plot SpatVector objects:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>pop_dens <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">pop_dens</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"pi_y_g"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 3</span></span>
+<span><span class="co">#&gt; Columns: 2</span></span>
+<span><span class="co">#&gt; $ NAME_1   &lt;chr&gt; "Diekirch", "Grevenmacher", "Luxembourg"</span></span>
+<span><span class="co">#&gt; $ pop_dens &lt;dbl&gt; 80.83865, 134.90133, 485.34879</span></span></code></pre></div>
+<p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%"></p>
+</div>
+</div>
 <div class="section level2">
 <h2 id="i-need-your-feedback">I need your feedback<a class="anchor" aria-label="anchor" href="#i-need-your-feedback"></a>
 </h2>
@@ -373,15 +446,15 @@
 <p>To cite ‘tidyterra’ in publications use:</p>
 <p>Hernangomez D (2023). tidyterra: tidyverse Methods and ggplot2 Helpers for terra Objects. <a href="https://doi.org/10.5281/zenodo.6572471" class="external-link uri">https://doi.org/10.5281/zenodo.6572471</a>, <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
 <p>A BibTeX entry for LaTeX users is</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>tidyterra,</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{tidyterra}<span class="sc">:</span> tidyverse Methods and ggplot2 Helpers <span class="cf">for</span> terra Objects},</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.6572471</span>},</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2023</span>},</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">3.2</span>},</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>tidyterra<span class="sc">/</span>},</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Extension of the tidyverse <span class="cf">for</span> SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>tidyterra,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {{tidyterra}<span class="sc">:</span> tidyverse Methods and ggplot2 Helpers <span class="cf">for</span> terra Objects},</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.6572471</span>},</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2023</span>},</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">4.0</span>},</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>tidyterra<span class="sc">/</span>},</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  abstract <span class="ot">=</span> {Extension of the tidyverse <span class="cf">for</span> SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>

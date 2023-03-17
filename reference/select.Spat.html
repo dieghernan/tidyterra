@@ -18,7 +18,7 @@ concise mini-language. See Methods."><meta property="og:image" content="https://
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@ concise mini-language. See Methods."><meta property="og:image" content="https://
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Subset layers/attributes of Spat* objects</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/select.Spat.R" class="external-link"><code>R/select.Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/select-Spat.R" class="external-link"><code>R/select-Spat.R</code></a></small>
       <div class="d-none name"><code>select.Spat.Rd</code></div>
     </div>
 
@@ -142,27 +142,45 @@ number (and possibly the name) of layers is modified.</p>
 <h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>This method relies on the implementation of <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> method on the
-sf package. The result is a SpatVector with the selected (and possibly
-renamed) attributes on the function call.</p>
+<p>The result is a SpatVector with the selected (and possibly renamed)
+attributes on the function call.</p>
 </div>
 
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code>, <code><a href="https://rdrr.io/pkg/terra/man/subset.html" class="external-link">terra::subset()</a></code></p>
-<p>Other dplyr methods:
+<p>Other single table verbs: 
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
+<code><a href="rename.Spat.html">rename.Spat</a></code>,
+<code><a href="slice.Spat.html">slice.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p>
+<p>Other dplyr verbs that operate on columns:
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
+<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
+<code><a href="pull.Spat.html">pull.Spat</a></code>,
+<code><a href="relocate.Spat.html">relocate.Spat</a></code>,
+<code><a href="rename.Spat.html">rename.Spat</a></code></p>
+<p>Other dplyr methods:
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="bind_cols.SpatVector.html">bind_cols.SpatVector</a></code>,
+<code><a href="bind_rows.SpatVector.html">bind_rows.SpatVector</a></code>,
+<code><a href="count.SpatVector.html">count.SpatVector</a>()</code>,
+<code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
+<code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
+<code><a href="group-by.SpatVector.html">group-by.SpatVector</a></code>,
+<code><a href="mutate-joins.SpatVector.html">mutate-joins.SpatVector</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="pull.Spat.html">pull.Spat</a></code>,
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,
-<code><a href="slice.Spat.html">slice.Spat</a></code></p>
-<p>Other single table verbs: 
-<code><a href="filter.Spat.html">filter.Spat</a></code>,
-<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
-<code><a href="rename.Spat.html">rename.Spat</a></code>,
-<code><a href="slice.Spat.html">slice.Spat</a></code></p></div>
+<code><a href="rowwise.SpatVector.html">rowwise.SpatVector</a>()</code>,
+<code><a href="slice.Spat.html">slice.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -231,27 +249,29 @@ renamed) attributes on the function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro   name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV    05  Ávila</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV    05  Avila</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   León</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   Leon</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 2  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : cyl.gpkg</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2   name</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt;  &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV  Ávila</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV  Avila</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU Burgos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE   León</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE   Leon</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">iso2</span>, name2 <span class="op">=</span> <span class="va">cpro</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 2  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : cyl.gpkg</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2 name2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;</span>

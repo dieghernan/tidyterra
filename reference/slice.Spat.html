@@ -50,7 +50,7 @@ See Methods for details."><meta property="og:image" content="https://dieghernan.
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,7 +111,7 @@ See Methods for details."><meta property="og:image" content="https://dieghernan.
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Subset cells/rows/columns/geometries using their positions</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/slice.Spat.R" class="external-link"><code>R/slice.Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/slice-Spat.R" class="external-link"><code>R/slice-Spat.R</code></a></small>
       <div class="d-none name"><code>slice.Spat.Rd</code></div>
     </div>
 
@@ -166,7 +166,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span>, na_rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatRaster</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span></span>
@@ -181,7 +181,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">.data</span>, <span class="va">order_by</span>, <span class="va">...</span>, <span class="va">n</span>, <span class="va">prop</span>, with_ties <span class="op">=</span> <span class="cn">TRUE</span>, na_rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatRaster</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span></span>
@@ -266,6 +266,13 @@ and return the first <code>n</code> rows.</p></dd>
 computing <code>slice_min()/slice_max()</code>?. The default is <code>TRUE</code>.</p></dd>
 
 
+<dt>na_rm</dt>
+<dd><p>Should missing values in <code>order_by</code> be removed from the result?
+If <code>FALSE</code>, <code>NA</code> values are sorted to the end (like in <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange()</a></code>), so
+they will only be included if there are insufficient non-missing values to
+reach <code>n</code>/<code>prop</code>.</p></dd>
+
+
 <dt>weight_by</dt>
 <dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Sampling weights.
 This must evaluate to a vector of non-negative numbers the same length as
@@ -318,9 +325,11 @@ The non-selected cells would present a value of <code>NA</code>.</p>
 <h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>This method relies on the implementation of <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code> method on the
-sf package. The result is a SpatVector where the attributes of the selected
-geometries are preserved.</p>
+<p>The result is a SpatVector where the attributes of the selected
+geometries are preserved. If <code>.data</code> is a
+<a href="is_grouped_spatvector.html">grouped SpatVector</a>, the operation will be performed
+on each group, so that (e.g.) <code>slice_head(df, n = 5)</code> will select the first
+five rows in each group.</p>
 </div>
 
     </div>
@@ -330,18 +339,35 @@ geometries are preserved.</p>
 <p>You can get a skeleton of your SpatRaster with the cell, column and row
 index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <p>If you want to slice by geographic coordinates use <code><a href="filter.Spat.html">filter.SpatRaster()</a></code>.</p>
-<p>Other dplyr methods:
+<p>Other single table verbs: 
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
+<code><a href="rename.Spat.html">rename.Spat</a></code>,
+<code><a href="select.Spat.html">select.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p>
+<p>Other dplyr verbs that operate on rows:
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="filter.Spat.html">filter.Spat</a></code></p>
+<p>Other dplyr methods:
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="bind_cols.SpatVector.html">bind_cols.SpatVector</a></code>,
+<code><a href="bind_rows.SpatVector.html">bind_rows.SpatVector</a></code>,
+<code><a href="count.SpatVector.html">count.SpatVector</a>()</code>,
+<code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
+<code><a href="filter.Spat.html">filter.Spat</a></code>,
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
+<code><a href="group-by.SpatVector.html">group-by.SpatVector</a></code>,
+<code><a href="mutate-joins.SpatVector.html">mutate-joins.SpatVector</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="pull.Spat.html">pull.Spat</a></code>,
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,
-<code><a href="select.Spat.html">select.Spat</a></code></p>
-<p>Other single table verbs: 
-<code><a href="filter.Spat.html">filter.Spat</a></code>,
-<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
-<code><a href="rename.Spat.html">rename.Spat</a></code>,
-<code><a href="select.Spat.html">select.Spat</a></code></p></div>
+<code><a href="rowwise.SpatVector.html">rowwise.SpatVector</a>()</code>,
+<code><a href="select.Spat.html">select.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -386,6 +412,81 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-5.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Group wise operation with SpatVectors--------------------------------------</span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Gr…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echtern…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187, 1…</span>
+<span class="r-plt img"><img src="slice.Spat-6.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># All slice helpers operate per group, silently truncating to the group size</span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Diekirch", "Grevenmacher", "Luxembourg"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 6, 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Echternach", "Capellen"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 188, 185</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 18899, 48187</span>
+<span class="r-plt img"><img src="slice.Spat-7.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Diekirch", "Grevenmacher", "Luxembourg"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 12, 11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Wiltz", "Grevenmacher", "Mersch"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 263, 210, 233</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 16735, 29828, 32112</span>
+<span class="r-plt img"><img src="slice.Spat-8.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Diekirch", "Grevenmacher", "Luxembourg"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4, 7, 8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Vianden", "Remich", "Capellen"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 76, 129, 185</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5163, 22366, 48187</span>
+<span class="r-plt img"><img src="slice.Spat-9.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_1 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Diekirch", "Grevenmacher", "Luxembourg"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 12, 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Grevenmacher", "Esch-sur-Alzette"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 210, 251</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 29828, 176820</span>
+<span class="r-plt img"><img src="slice.Spat-10.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

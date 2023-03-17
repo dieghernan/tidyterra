@@ -28,7 +28,7 @@ See Examples and section About layer names on as_tibble()."><meta property="og:i
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +89,7 @@ See Examples and section About layer names on as_tibble()."><meta property="og:i
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Subset cells/geometries of Spat* objects</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/filter.Spat.R" class="external-link"><code>R/filter.Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/filter-Spat.R" class="external-link"><code>R/filter-Spat.R</code></a></small>
       <div class="d-none name"><code>filter.Spat.Rd</code></div>
     </div>
 
@@ -168,27 +168,43 @@ are also available internally for filtering. See <strong>Examples</strong>.</p>
 <h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>This method relies on the implementation of <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code> method on the
-sf package. The result is a SpatVector with all the geometries that
-produce a value of <code>TRUE</code> for all conditions.</p>
+<p>The result is a SpatVector with all the geometries that produce a value of
+<code>TRUE</code> for all conditions.</p>
 </div>
 
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code></p>
+<p>Other single table verbs: 
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
+<code><a href="rename.Spat.html">rename.Spat</a></code>,
+<code><a href="select.Spat.html">select.Spat</a></code>,
+<code><a href="slice.Spat.html">slice.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p>
+<p>Other dplyr verbs that operate on rows:
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="slice.Spat.html">slice.Spat</a></code></p>
 <p>Other dplyr methods:
+<code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
+<code><a href="bind_cols.SpatVector.html">bind_cols.SpatVector</a></code>,
+<code><a href="bind_rows.SpatVector.html">bind_rows.SpatVector</a></code>,
+<code><a href="count.SpatVector.html">count.SpatVector</a>()</code>,
+<code><a href="distinct.SpatVector.html">distinct.SpatVector</a>()</code>,
+<code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
+<code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
+<code><a href="group-by.SpatVector.html">group-by.SpatVector</a></code>,
+<code><a href="mutate-joins.SpatVector.html">mutate-joins.SpatVector</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="pull.Spat.html">pull.Spat</a></code>,
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,
+<code><a href="rowwise.SpatVector.html">rowwise.SpatVector</a>()</code>,
 <code><a href="select.Spat.html">select.Spat</a></code>,
-<code><a href="slice.Spat.html">slice.Spat</a></code></p>
-<p>Other single table verbs: 
-<code><a href="mutate.Spat.html">mutate.Spat</a></code>,
-<code><a href="rename.Spat.html">rename.Spat</a></code>,
-<code><a href="select.Spat.html">select.Spat</a></code>,
-<code><a href="slice.Spat.html">slice.Spat</a></code></p></div>
+<code><a href="slice.Spat.html">slice.Spat</a></code>,
+<code><a href="summarise.SpatVector.html">summarise.SpatVector</a>()</code></p></div>
     </div>
 
     <div class="section level2">
