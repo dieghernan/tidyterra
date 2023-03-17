@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.3.2.9000
+version: 0.4.0
 doi: 10.5281/zenodo.6572471
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
@@ -28,7 +28,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.5281/zenodo.6572471
   year: '2023'
-  version: 0.3.2.9000
+  version: 0.4.0
   url: https://dieghernan.github.io/tidyterra/
   abstract: Extension of the tidyverse for SpatRaster and SpatVector objects of the
     terra package. It includes also new geom_ functions that provide a convenient
@@ -175,10 +175,10 @@ references:
   authors:
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   year: '2023'
 - type: software
   title: scales

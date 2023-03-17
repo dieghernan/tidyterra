@@ -29,9 +29,6 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
-You can have a look to the documentation of the dev version in
-<https://dieghernan.github.io/tidyterra/dev/>
-
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
@@ -303,7 +300,7 @@ A BibTeX entry for LaTeX users is
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.3.2.9000},
+      version = {0.4.0},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }
