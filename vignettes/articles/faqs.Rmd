@@ -377,3 +377,56 @@ ggplot() +
   ) +
   labs(title = "Three breaks on y")
 ```
+
+## Plotting SpatRasters with color tables
+
+You can extract the corresponding colors with `terra::coltab()`, name them with
+the name of the corresponding factor level and use
+`ggplot2::scale_fill_manual()`:
+
+```{r coltab}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+
+# Get a SpatRaster with coltab
+r_coltab <- rast(system.file("raster/nlcd.tif", package = "spDataLarge"))
+
+has.colors(r_coltab)
+
+r_coltab
+
+# Native handling
+plot(r_coltab)
+
+
+# If we try with tidyterra we don't get the right colors
+
+ggcoltab <- ggplot() +
+  geom_spatraster(data = r_coltab)
+
+ggcoltab
+
+
+# We extract levels and colors to create a custom palette
+
+levs <- r_coltab %>% pull(levels) %>% levels()
+
+levs
+
+# Coltab by positions
+tb <- coltab(r_coltab)[[1]] %>% slice(seq_len(length(levs)))
+tb
+
+# Create named palette
+coltabpal <- grDevices::rgb(tb[, 2:5], maxColorValue = 255) %>%
+  setNames(levs)
+
+coltabpal
+
+# And apply to out initial ggplot2
+
+ggcoltab +
+  scale_fill_manual(values = coltabpal)
+
+```

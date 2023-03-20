@@ -26,6 +26,7 @@ jobs:
             local::.
             any::pkgdown
             any::metR
+            Nowosad/spDataLarge
           needs: website
 
       - name: Deploy package

@@ -43,7 +43,7 @@
     `"meyers"` and `"nordisk-familjebok"`.
 -   Added colour scales to all palettes: `scale_colour_*`.
 -   Remove use of `ggplot2::aes_string()`.
--   Adapt geom\_`spatraster_contour()` and `geom_spatraster_contour_filled()` to
+-   Adapt `geom_spatraster_contour()` and `geom_spatraster_contour_filled()` to
     the changes introduced in **ggplot2 (3.4.0)**, most notably the adoption of
     `linewidth = .2`, by default.
 
