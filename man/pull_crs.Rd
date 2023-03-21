@@ -83,6 +83,7 @@ cat(fromsf1)
 \code{\link[terra:crs]{terra::crs()}}, \code{\link[sf:st_crs]{sf::st_crs()}}
 
 Other helpers: 
+\code{\link{coltab_palette}()},
 \code{\link{compare_spatrasters}()},
 \code{\link{is_grouped_spatvector}()},
 \code{\link{is_regular_grid}()}

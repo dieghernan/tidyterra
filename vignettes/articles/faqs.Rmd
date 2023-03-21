@@ -410,7 +410,9 @@ ggcoltab
 
 # We extract levels and colors to create a custom palette
 
-levs <- r_coltab %>% pull(levels) %>% levels()
+levs <- r_coltab %>%
+  pull(levels) %>%
+  levels()
 
 levs
 
@@ -428,5 +430,4 @@ coltabpal
 
 ggcoltab +
   scale_fill_manual(values = coltabpal)
-
 ```

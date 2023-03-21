@@ -13,7 +13,8 @@
 #'  and each of the subsequent arguments can either be a SpatVector, a sf object
 #'  or a data frame. Inputs are [recycled][dplyr::bind_cols()] to the same
 #'  length, then matched by position.
-#' @inheritParams dplyr::bind_cols
+#' @param .name_repair One of `"unique"`, `"universal"`, or `"check_unique"`.
+#'   See [dplyr::bind_cols()] for Details.
 #' @return A SpatVector with the corresponding cols. The geometry and CRS
 #' would correspond to the the first SpatVector of `...`.
 #' @export
