@@ -1,4 +1,4 @@
-## code to prepare `cyl_era.tif` dataset goes here
+## code to prepare `cyl_era.tif` dataset goes here ----
 
 base <- "https://opendata.jcyl.es/ficheros/carto/a2t04_geologia/ge.geolog_cyl_litologia_"
 library(tidyverse)
@@ -91,3 +91,9 @@ rend <- rast("inst/extdata/cyl_era.tif")
 
 rend
 plot(rend)
+
+devtools::load_all()
+
+ggplot() +
+  geom_spatraster(data = rend) +
+  scale_fill_terrain_d(na.translate = FALSE)
