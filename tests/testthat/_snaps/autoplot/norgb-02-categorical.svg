@@ -219,20 +219,17 @@
 <polyline points='34.47,399.91 37.21,399.91 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='34.47,367.84 37.21,367.84 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='34.47,335.80 37.21,335.80 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
-<rect x='664.36' y='256.26' width='50.16' height='84.45' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='664.36' y='264.97' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
-<rect x='664.36' y='271.59' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='664.36' y='271.59' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #F2F2F2;' />
-<rect x='664.36' y='288.87' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='664.36' y='288.87' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #ECB176;' />
-<rect x='664.36' y='306.15' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='664.36' y='306.15' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #00A600;' />
-<rect x='664.36' y='323.43' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='664.36' y='323.43' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none;' />
-<text x='687.12' y='283.26' style='font-size: 8.80px; font-family: sans;' textLength='22.50px' lengthAdjust='spacingAndGlyphs'>(0,10]</text>
-<text x='687.12' y='300.54' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>(10,12]</text>
-<text x='687.12' y='317.82' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>(12,20]</text>
-<text x='687.12' y='335.10' style='font-size: 8.80px; font-family: sans;' textLength='12.23px' lengthAdjust='spacingAndGlyphs'>NA</text>
+<rect x='664.36' y='264.90' width='50.16' height='67.17' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='664.36' y='273.61' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
+<rect x='664.36' y='280.23' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='664.36' y='280.23' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #F2F2F2;' />
+<rect x='664.36' y='297.51' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='664.36' y='297.51' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #ECB176;' />
+<rect x='664.36' y='314.79' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='664.36' y='314.79' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #00A600;' />
+<text x='687.12' y='291.90' style='font-size: 8.80px; font-family: sans;' textLength='22.50px' lengthAdjust='spacingAndGlyphs'>(0,10]</text>
+<text x='687.12' y='309.18' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>(10,12]</text>
+<text x='687.12' y='326.46' style='font-size: 8.80px; font-family: sans;' textLength='27.40px' lengthAdjust='spacingAndGlyphs'>(12,20]</text>
 <text x='37.21' y='37.41' style='font-size: 13.20px; font-family: sans;' textLength='126.97px' lengthAdjust='spacingAndGlyphs'>norgb_02: categorical</text>
 </g>
 </svg>

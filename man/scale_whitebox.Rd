@@ -18,9 +18,23 @@
 MIT License. Copyright (c) 2017-2021 John Lindsay.
 }
 \usage{
-scale_fill_whitebox_d(palette = "high_relief", ..., alpha = 1, direction = 1)
+scale_fill_whitebox_d(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = FALSE
+)
 
-scale_colour_whitebox_d(palette = "high_relief", ..., alpha = 1, direction = 1)
+scale_colour_whitebox_d(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = FALSE
+)
 
 scale_fill_whitebox_c(
   palette = "high_relief",
@@ -103,12 +117,6 @@ away from the axes. Use the convenience function \code{\link[ggplot2:expansion]{
 to generate the values for the \code{expand} argument. The defaults are to
 expand the scale by 5\% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.}
-    \item{\code{na.translate}}{Unlike continuous scales, discrete scales can easily show
-missing values, and do so by default. If you want to remove missing values
-from a discrete scale, specify \code{na.translate = FALSE}.}
-    \item{\code{drop}}{Should unused factor levels be omitted from the scale?
-The default, \code{TRUE}, uses the levels that appear in the data;
-\code{FALSE} uses all the levels in the factor.}
     \item{\code{minor_breaks}}{One of:
 \itemize{
 \item \code{NULL} for no minor breaks
@@ -135,6 +143,12 @@ breaks are given explicitly.}
 \item{direction}{Sets the order of colors in the scale. If 1, the default,
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
+
+\item{na.translate}{Should \code{NA} values be removed from the legend? Default
+is \code{TRUE}.}
+
+\item{drop}{Should unused factor levels be omitted from the scale? The
+default (\code{FALSE}) uses all the levels in the factor.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 
@@ -245,9 +259,9 @@ See also \pkg{ggplot2} docs on additional \code{...} parameters:
 }
 
 Other gradient scales and palettes for hypsometry:
+\code{\link{scale_color_coltab}()},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_hypso}},
-\code{\link{scale_terrain}},
-\code{\link{scale_wiki}}
+\code{\link{scale_terrain}}
 }
 \concept{gradients}

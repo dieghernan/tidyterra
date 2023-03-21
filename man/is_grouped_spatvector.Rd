@@ -21,7 +21,6 @@ various metadata from a grouped SpatVector.
 }
 \seealso{
 Other helpers: 
-\code{\link{coltab_palette}()},
 \code{\link{compare_spatrasters}()},
 \code{\link{is_regular_grid}()},
 \code{\link{pull_crs}()}
