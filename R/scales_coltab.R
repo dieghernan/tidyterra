@@ -143,6 +143,9 @@ get_coltab_pal <- function(x) {
   lcats <- terra::cats(x)
   # Prepare data frame with categories
   lcats <- lapply(lcats, function(i) {
+    if (is.null(i)) {
+      return(NULL)
+    }
     df <- i[, c(1, 2)]
     names(df) <- c("id", "label")
 
@@ -154,6 +157,10 @@ get_coltab_pal <- function(x) {
   # Get cols
   cols_alpha_l <- terra::coltab(x)
   cols_alpha_l <- lapply(cols_alpha_l, function(j) {
+    if (is.null(j)) {
+      return(NULL)
+    }
+
     df <- j[, seq_len(5)]
     names(df) <- c("id", "r", "g", "b", "a")
 
@@ -167,7 +174,6 @@ get_coltab_pal <- function(x) {
 
   finaltab <- dplyr::left_join(cats_end, cols_end, by = tojoin)
 
-
   # Create palette
   colfields <- finaltab[, c("r", "g", "b", "a")]
 
@@ -176,7 +182,11 @@ get_coltab_pal <- function(x) {
   # Same length than names
   nms <- unique(finaltab[["label"]])
 
-  namedpal <- rep_len(namedpal, length(nms))
+  # Complete NAs with terrain.cols
+  if (!identical(length(namedpal), length(nms))) {
+    namedpal <- c(namedpal, terrain.colors(length(nms)))
+    namedpal <- namedpal[seq_len(length(nms))]
+  }
 
   names(namedpal) <- nms
 

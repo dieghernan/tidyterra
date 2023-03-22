@@ -15,6 +15,9 @@
 #'
 #' @param rgb Logical. Should be plotted as a RGB image? If `NULL` (the default)
 #'   [autoplot.SpatRaster()] would try to guess.
+#' @param coltab Logical. Should be plotted with the corresponding
+#'   [terra::coltab()]? If `NULL` (the default) [autoplot.SpatRaster()] would
+#'   try to guess. See also [scale_fill_coltab()].
 #' @param facets Logical. Should facets be displayed? If `NULL` (the default)
 #'   [autoplot.SpatRaster()] would try to guess.
 #' @param nrow,ncol Number of rows and columns on the facet.
@@ -59,6 +62,13 @@
 #'
 #' autoplot(tile)
 #'
+#' # With coltabs
+#'
+#' ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") %>%
+#'   rast()
+#'
+#' autoplot(ctab)
+#'
 #' #  With vectors
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' autoplot(v)
@@ -70,12 +80,12 @@
 autoplot.SpatRaster <- function(object,
                                 ...,
                                 rgb = NULL,
+                                coltab = NULL,
                                 facets = NULL,
                                 nrow = NULL, ncol = 2) {
   gg <- ggplot2::ggplot()
 
   if (is.null(rgb)) rgb <- terra::has.RGB(object)
-
 
   if (rgb) {
     gg <- gg +
@@ -85,14 +95,20 @@ autoplot.SpatRaster <- function(object,
       )
     # Done, no facets or scales on RGB
     return(gg)
-  } else {
-    gg <- gg +
-      geom_spatraster(
-        data = object,
-        ...
-      )
+  }
 
-    # Guess scale
+  gg <- gg +
+    geom_spatraster(
+      data = object,
+      ...
+    )
+
+  # Guess scale
+  if (is.null(coltab)) coltab <- any(terra::has.colors(object))
+
+  if (coltab) {
+    gg <- gg + scale_fill_coltab(data = object)
+  } else {
     todf <- terra::as.data.frame(object, na.rm = TRUE, xy = FALSE)
     first_lay <- unlist(lapply(todf, class))[1]
 
