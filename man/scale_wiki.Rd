@@ -20,7 +20,7 @@ scale_fill_wiki_d(
   alpha = 1,
   direction = 1,
   na.translate = FALSE,
-  drop = FALSE
+  drop = TRUE
 )
 
 scale_colour_wiki_d(
@@ -28,7 +28,7 @@ scale_colour_wiki_d(
   alpha = 1,
   direction = 1,
   na.translate = FALSE,
-  drop = FALSE
+  drop = TRUE
 )
 
 scale_fill_wiki_c(
@@ -133,7 +133,7 @@ is \code{TRUE}.}
 \item{na.value}{Missing values will be replaced with this value.}
 
 \item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{FALSE}) uses all the levels in the factor.}
+default (\code{TRUE}) removes unused factors.}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default,
 colors are ordered from darkest to lightest. If -1, the order of colors is

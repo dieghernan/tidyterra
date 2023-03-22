@@ -380,8 +380,8 @@ ggplot() +
 
 ## Plotting SpatRasters with color tables
 
-You can use `scale_fill_coltab()` to create a discrete fill
-scale that matches [terra::coltab()]:
+You can use `scale_fill_coltab()` to create a discrete fill scale that matches
+[terra::coltab()]:
 
 ```{r coltab}
 library(terra)
@@ -411,6 +411,4 @@ ggcoltab
 
 ggcoltab +
   scale_fill_coltab(data = r_coltab)
-
-
 ```

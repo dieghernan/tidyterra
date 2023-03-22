@@ -99,7 +99,7 @@
 scale_fill_whitebox_d <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
                                   na.translate = FALSE,
-                                  drop = FALSE) {
+                                  drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -114,8 +114,8 @@ scale_fill_whitebox_d <- function(palette = "high_relief", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -124,7 +124,7 @@ scale_fill_whitebox_d <- function(palette = "high_relief", ...,
 scale_colour_whitebox_d <- function(palette = "high_relief", ...,
                                     alpha = 1, direction = 1,
                                     na.translate = FALSE,
-                                    drop = FALSE) {
+                                    drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -139,8 +139,8 @@ scale_colour_whitebox_d <- function(palette = "high_relief", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }

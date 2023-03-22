@@ -83,7 +83,7 @@
 #' }
 scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
                               na.translate = FALSE,
-                              drop = FALSE) {
+                              drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -97,8 +97,8 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
       alpha = alpha,
       direction = direction
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -107,7 +107,7 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
 #' @rdname scale_wiki
 scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
                                 na.translate = FALSE,
-                                drop = FALSE) {
+                                drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -121,8 +121,8 @@ scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
       alpha = alpha,
       direction = direction
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }

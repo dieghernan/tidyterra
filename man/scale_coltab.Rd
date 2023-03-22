@@ -13,7 +13,7 @@ scale_fill_coltab(
   alpha = 1,
   na.translate = FALSE,
   na.value = NA,
-  drop = FALSE
+  drop = TRUE
 )
 
 scale_colour_coltab(
@@ -22,7 +22,7 @@ scale_colour_coltab(
   alpha = 1,
   na.translate = FALSE,
   na.value = NA,
-  drop = FALSE
+  drop = TRUE
 )
 
 get_coltab_pal(x)
@@ -80,7 +80,7 @@ is \code{TRUE}.}
 \item{na.value}{Missing values will be replaced with this value.}
 
 \item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{FALSE}) uses all the levels in the factor.}
+default (\code{TRUE}) removes unused factors.}
 }
 \value{
 The corresponding ggplot2 layer with the values applied to the

@@ -24,7 +24,7 @@ scale_fill_whitebox_d(
   alpha = 1,
   direction = 1,
   na.translate = FALSE,
-  drop = FALSE
+  drop = TRUE
 )
 
 scale_colour_whitebox_d(
@@ -33,7 +33,7 @@ scale_colour_whitebox_d(
   alpha = 1,
   direction = 1,
   na.translate = FALSE,
-  drop = FALSE
+  drop = TRUE
 )
 
 scale_fill_whitebox_c(
@@ -148,7 +148,7 @@ reversed.}
 is \code{TRUE}.}
 
 \item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{FALSE}) uses all the levels in the factor.}
+default (\code{TRUE}) removes unused factors.}
 
 \item{na.value}{Missing values will be replaced with this value.}
 

@@ -62,7 +62,7 @@
 scale_fill_coltab <- function(data, ..., alpha = 1,
                               na.translate = FALSE,
                               na.value = NA,
-                              drop = FALSE) {
+                              drop = TRUE) {
   getcols <- get_coltab_pal(data)
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
@@ -87,9 +87,8 @@ scale_fill_coltab <- function(data, ..., alpha = 1,
 
 #' @rdname scale_coltab
 #' @export
-scale_colour_coltab <- function(
-    data, ..., alpha = 1, na.translate = FALSE,
-    na.value = NA, drop = FALSE) {
+scale_colour_coltab <- function(data, ..., alpha = 1, na.translate = FALSE,
+                                na.value = NA, drop = TRUE) {
   getcols <- get_coltab_pal(data)
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())

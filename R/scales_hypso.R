@@ -168,7 +168,7 @@
 scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
                                na.translate = FALSE,
-                               drop = FALSE) {
+                               drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -183,8 +183,8 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -193,7 +193,7 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
 scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
                                  alpha = 1, direction = 1,
                                  na.translate = FALSE,
-                                 drop = FALSE) {
+                                 drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -208,8 +208,8 @@ scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -395,7 +395,7 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
                                     alpha = 1, direction = 1,
                                     na.translate = FALSE,
-                                    drop = FALSE) {
+                                    drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -410,8 +410,8 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -420,7 +420,7 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
                                       alpha = 1, direction = 1,
                                       na.translate = FALSE,
-                                      drop = FALSE) {
+                                      drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -435,8 +435,8 @@ scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
-    na.translate = FALSE,
-    drop = FALSE,
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }

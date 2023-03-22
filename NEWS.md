@@ -3,7 +3,7 @@
 -   New scales for plotting SpatRasters with color tables: `scale_fill_coltab()`
     and rest of family scales (`colour`).
 -   By default all the discrete scales of tidyterra now have the following
-    setup: `na.translate = FALSE, drop = FALSE`.
+    setup: `na.translate = FALSE`.
 
 # tidyterra 0.4.0
 
