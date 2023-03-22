@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.4.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,6 +82,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
+<ul><li>New scales for plotting SpatRasters with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
+<li>By default all the discrete scales of tidyterra now have the following setup: <code>na.translate = FALSE, drop = FALSE</code>.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2><p class="text-muted">CRAN release: 2023-03-17</p>
 <ul><li>This release focuses heavily on SpatVectors. The improvements have been:
 <ul><li>New methods for SpatVectors:
 <ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
@@ -134,7 +139,7 @@
 <li>Three additional palettes are included on <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
 <li>Added colour scales to all palettes: <code>scale_colour_*</code>.</li>
 <li>Remove use of <code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_string()</a></code>.</li>
-<li>Adapt geom_<code>spatraster_contour()</code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
+<li>Adapt <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
