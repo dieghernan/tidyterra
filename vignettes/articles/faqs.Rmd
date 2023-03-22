@@ -380,9 +380,8 @@ ggplot() +
 
 ## Plotting SpatRasters with color tables
 
-You can extract the corresponding colors with `terra::coltab()`, name them with
-the name of the corresponding factor level and use
-`ggplot2::scale_fill_manual()`:
+You can use `scale_fill_coltab()` to create a discrete fill
+scale that matches [terra::coltab()]:
 
 ```{r coltab}
 library(terra)
@@ -408,26 +407,10 @@ ggcoltab <- ggplot() +
 ggcoltab
 
 
-# We extract levels and colors to create a custom palette
-
-levs <- r_coltab %>%
-  pull(levels) %>%
-  levels()
-
-levs
-
-# Coltab by positions
-tb <- coltab(r_coltab)[[1]] %>% slice(seq_len(length(levs)))
-tb
-
-# Create named palette
-coltabpal <- grDevices::rgb(tb[, 2:5], maxColorValue = 255) %>%
-  setNames(levs)
-
-coltabpal
-
-# And apply to out initial ggplot2
+# But if we use scale_fill_coltab() ...
 
 ggcoltab +
-  scale_fill_manual(values = coltabpal)
+  scale_fill_coltab(data = r_coltab)
+
+
 ```
