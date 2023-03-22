@@ -508,10 +508,8 @@ breaks in lon/lat even if your data is projected (¿?):</p>
 <div class="section level2">
 <h2 id="plotting-spatrasters-with-color-tables">Plotting SpatRasters with color tables<a class="anchor" aria-label="anchor" href="#plotting-spatrasters-with-color-tables"></a>
 </h2>
-<p>You can extract the corresponding colors with
-<code><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">terra::coltab()</a></code>, name them with the name of the
-corresponding factor level and use
-<code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">ggplot2::scale_fill_manual()</a></code>:</p>
+<p>You can use <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> to create a discrete
+fill scale that matches [terra::coltab()]:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -552,44 +550,10 @@ corresponding factor level and use
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
-<span><span class="co"># We extract levels and colors to create a custom palette</span></span>
-<span></span>
-<span><span class="va">levs</span> <span class="op">&lt;-</span> <span class="va">r_coltab</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">levels</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/factors.html" class="external-link">levels</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">levs</span></span>
-<span><span class="co">#&gt; [1] "NA"         "Water"      "Developed"  "Barren"     "Forest"    </span></span>
-<span><span class="co">#&gt; [6] "Shrubland"  "Herbaceous" "Cultivated" "Wetlands"</span></span>
-<span></span>
-<span><span class="co"># Coltab by positions</span></span>
-<span><span class="va">tb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">coltab</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">levs</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">tb</span></span>
-<span><span class="co">#&gt;   value red green blue alpha</span></span>
-<span><span class="co">#&gt; 1     0 255   255  255   255</span></span>
-<span><span class="co">#&gt; 2     1  71   107  160   255</span></span>
-<span><span class="co">#&gt; 3     2 170     0    0   255</span></span>
-<span><span class="co">#&gt; 4     3 178   173  163   255</span></span>
-<span><span class="co">#&gt; 5     4 104   170   99   255</span></span>
-<span><span class="co">#&gt; 6     5 165   140   48   255</span></span>
-<span><span class="co">#&gt; 7     6 201   201  119   255</span></span>
-<span><span class="co">#&gt; 8     7 219   216   61   255</span></span>
-<span><span class="co">#&gt; 9     8 186   216  234   255</span></span>
-<span></span>
-<span><span class="co"># Create named palette</span></span>
-<span><span class="va">coltabpal</span> <span class="op">&lt;-</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="va">tb</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, maxColorValue <span class="op">=</span> <span class="fl">255</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="va">levs</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">coltabpal</span></span>
-<span><span class="co">#&gt;         NA      Water  Developed     Barren     Forest  Shrubland Herbaceous </span></span>
-<span><span class="co">#&gt;  "#FFFFFF"  "#476BA0"  "#AA0000"  "#B2ADA3"  "#68AA63"  "#A58C30"  "#C9C977" </span></span>
-<span><span class="co">#&gt; Cultivated   Wetlands </span></span>
-<span><span class="co">#&gt;  "#DBD83D"  "#BAD8EA"</span></span>
-<span></span>
-<span><span class="co"># And apply to out initial ggplot2</span></span>
+<span><span class="co"># But if we use scale_fill_coltab() ...</span></span>
 <span></span>
 <span><span class="va">ggcoltab</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">coltabpal</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-3.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
