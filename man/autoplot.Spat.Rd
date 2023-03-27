@@ -10,7 +10,7 @@
   object,
   ...,
   rgb = NULL,
-  coltab = NULL,
+  use_coltab = NULL,
   facets = NULL,
   nrow = NULL,
   ncol = 2
@@ -28,7 +28,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{rgb}{Logical. Should be plotted as a RGB image? If \code{NULL} (the default)
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
 
-\item{coltab}{Logical. Should be plotted with the corresponding
+\item{use_coltab}{Logical. Should be plotted with the corresponding
 \code{\link[terra:colors]{terra::coltab()}}? If \code{NULL} (the default) \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would
 try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 

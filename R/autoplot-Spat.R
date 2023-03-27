@@ -15,7 +15,7 @@
 #'
 #' @param rgb Logical. Should be plotted as a RGB image? If `NULL` (the default)
 #'   [autoplot.SpatRaster()] would try to guess.
-#' @param coltab Logical. Should be plotted with the corresponding
+#' @param use_coltab Logical. Should be plotted with the corresponding
 #'   [terra::coltab()]? If `NULL` (the default) [autoplot.SpatRaster()] would
 #'   try to guess. See also [scale_fill_coltab()].
 #' @param facets Logical. Should facets be displayed? If `NULL` (the default)
@@ -80,7 +80,7 @@
 autoplot.SpatRaster <- function(object,
                                 ...,
                                 rgb = NULL,
-                                coltab = NULL,
+                                use_coltab = NULL,
                                 facets = NULL,
                                 nrow = NULL, ncol = 2) {
   gg <- ggplot2::ggplot()
@@ -97,18 +97,18 @@ autoplot.SpatRaster <- function(object,
     return(gg)
   }
 
+  # Guess scale
+  if (is.null(use_coltab)) use_coltab <- any(terra::has.colors(object))
   gg <- gg +
     geom_spatraster(
       data = object,
+      use_coltab = use_coltab,
       ...
     )
 
-  # Guess scale
-  if (is.null(coltab)) coltab <- any(terra::has.colors(object))
 
-  if (coltab) {
-    gg <- gg + scale_fill_coltab(data = object)
-  } else {
+
+  if (!use_coltab) {
     todf <- terra::as.data.frame(object, na.rm = TRUE, xy = FALSE)
     first_lay <- unlist(lapply(todf, class))[1]
 

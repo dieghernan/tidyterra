@@ -113,6 +113,11 @@ test_that("Test with cols", {
     r %>%
       autoplot(ncol = 2, facets = FALSE)
   )
+  vdiffr::expect_doppelganger(
+    "coltab_6: Not use coltab",
+    r %>%
+      autoplot(ncol = 2, use_coltab = FALSE)
+  )
 })
 
 

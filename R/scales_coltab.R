@@ -139,6 +139,25 @@ get_coltab_pal <- function(x) {
     )
     return(NULL)
   }
+  # Complete layers with no coltabs
+  iter <- seq_len(terra::nlyr(x))[!terra::has.colors(x)]
+  if (length(iter) > 0 && iter > 0) {
+    for (h in iter) {
+      # Assign coltab
+      tmpr <- terra::subset(x, h)
+      vals <- as.factor(pull(tmpr))
+      terra::values(tmpr) <- vals
+      df <- as_tibble(terra::cats(tmpr)[[1]])
+
+      coltb <- data.frame(t(col2rgb(terrain.colors(nrow(df), rev = TRUE),
+        alpha = TRUE
+      )))
+      coltbend <- cbind(df[, 1], coltb)
+      terra::coltab(tmpr) <- coltbend
+      # Substitute layer
+      x[[h]] <- tmpr
+    }
+  }
 
   lcats <- terra::cats(x)
   # Prepare data frame with categories

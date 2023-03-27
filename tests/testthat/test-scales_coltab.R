@@ -25,7 +25,6 @@ test_that("Can extract a color table", {
 
   expect_identical(names(pal), l)
 
-
   cls <- dplyr::bind_rows(terra::coltab(r))
   cats <- dplyr::bind_rows(terra::cats(r))
   names(cats) <- tolower(names(cats))
@@ -52,17 +51,12 @@ test_that("Can extract a color table on several layers", {
   expect_named(pal)
 
   # Test equalities
-  l <- pull(r, era) %>% levels()
+  l2 <- pull(r, era) %>% levels()
+  l1 <- pull(r, letter) %>%
+    unique() %>%
+    sort()
 
-  expect_identical(names(pal), l)
-
-
-  cls <- dplyr::bind_rows(terra::coltab(r))
-  cats <- dplyr::bind_rows(terra::cats(r))
-  names(cats) <- tolower(names(cats))
-  end <- dplyr::left_join(cats[, c("value", "era")], cls, by = "value")
-  morecols <- rgb(end[c("red", "green", "blue", "alpha")], maxColorValue = 255)
-  expect_identical(unname(pal), morecols)
+  expect_identical(names(pal), c(l1, l2))
 })
 
 test_that("Can extract several color tables on layers", {
