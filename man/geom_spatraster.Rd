@@ -58,7 +58,7 @@ than combining with them.}
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{use_coltab}{Logical. Only applicable to SpatRasters that havea coltab
+\item{use_coltab}{Logical. Only applicable to SpatRasters that have a coltab
 (\code{\link[terra:colors]{terra::coltab()}}). Should the coltab be used on the plot? See also
 \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 

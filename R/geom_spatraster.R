@@ -30,7 +30,7 @@
 #'
 #' @param maxcell positive integer. Maximum number of cells to use for
 #'   the plot.
-#' @param use_coltab Logical. Only applicable to SpatRasters that havea coltab
+#' @param use_coltab Logical. Only applicable to SpatRasters that have a coltab
 #'   ([terra::coltab()]). Should the coltab be used on the plot? See also
 #'   [scale_fill_coltab()].
 #' @inheritParams ggplot2::geom_raster

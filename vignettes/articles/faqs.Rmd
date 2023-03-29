@@ -380,8 +380,7 @@ ggplot() +
 
 ## Plotting SpatRasters with color tables
 
-You can use `scale_fill_coltab()` to create a discrete fill scale that matches
-[terra::coltab()]:
+**tidyterra** has several ways to handle these SpatRasters:
 
 ```{r coltab}
 library(terra)
@@ -395,20 +394,42 @@ has.colors(r_coltab)
 
 r_coltab
 
-# Native handling
+# Native handling by terra packages
 plot(r_coltab)
 
 
-# If we try with tidyterra we don't get the right colors
+# A. autoplot
 
-ggcoltab <- ggplot() +
-  geom_spatraster(data = r_coltab)
+autoplot(r_coltab) + ggtitle("autoplot method")
 
-ggcoltab
+# B. geom_spatraster
+ggplot() +
+  geom_spatraster(data = r_coltab) +
+  ggtitle("geom_spatraster method")
 
+# C. Using scale_fill_coltab
 
-# But if we use scale_fill_coltab() ...
+g <- ggplot() +
+  geom_spatraster(data = r_coltab, use_coltab = FALSE)
 
-ggcoltab +
-  scale_fill_coltab(data = r_coltab)
+g
+
+# But...
+g +
+  scale_fill_coltab(data = r_coltab) +
+  ggtitle("scale_fill_coltab method")
+
+# D. Extract named colors and scale_fill_manual
+
+cols <- get_coltab_pal(r_coltab)
+
+cols
+
+scales::show_col(cols)
+
+# And now
+
+g +
+  scale_fill_manual(values = cols) +
+  ggtitle("scale_fill_manual method")
 ```
