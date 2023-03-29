@@ -30,6 +30,9 @@
 #'
 #' @param maxcell positive integer. Maximum number of cells to use for
 #'   the plot.
+#' @param use_coltab Logical. Only applicable to SpatRasters that have a coltab
+#'   ([terra::coltab()]). Should the coltab be used on the plot? See also
+#'   [scale_fill_coltab()].
 #' @inheritParams ggplot2::geom_raster
 #'
 #' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
@@ -139,6 +142,7 @@ geom_spatraster <- function(mapping = aes(),
                             inherit.aes = FALSE,
                             interpolate = FALSE,
                             maxcell = 500000,
+                            use_coltab = TRUE,
                             ...) {
   if (!inherits(data, "SpatRaster")) {
     stop(
@@ -227,6 +231,13 @@ geom_spatraster <- function(mapping = aes(),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
+    )
+  }
+
+  if (all(use_coltab, any(terra::has.colors(data)))) {
+    layer_spatrast <- c(
+      layer_spatrast,
+      scale_fill_coltab(data = data)
     )
   }
 

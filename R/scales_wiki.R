@@ -30,6 +30,8 @@
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams ggplot2::scale_fill_viridis_b
+#' @inheritParams ggplot2::continuous_scale
+#' @inheritParams scale_cross_blended
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' See also \pkg{ggplot2} docs on additional `...` parameters:
@@ -79,7 +81,9 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_wiki_d(na.value = "gray10")
 #' }
-scale_fill_wiki_d <- function(..., alpha = 1, direction = 1) {
+scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
+                              na.translate = FALSE,
+                              drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -93,13 +97,17 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1) {
       alpha = alpha,
       direction = direction
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 
 #' @export
 #' @rdname scale_wiki
-scale_colour_wiki_d <- function(..., alpha = 1, direction = 1) {
+scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
+                                na.translate = FALSE,
+                                drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -113,6 +121,8 @@ scale_colour_wiki_d <- function(..., alpha = 1, direction = 1) {
       alpha = alpha,
       direction = direction
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }

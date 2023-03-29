@@ -22,9 +22,10 @@
 #'
 #' @name scale_terrain
 #'
-#' @inheritParams ggplot2::scale_fill_viridis_b
-#'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
+#' @inheritParams scale_cross_blended
 #'
 #' @seealso
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \pkg{ggplot2} docs on
@@ -72,7 +73,9 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_terrain_d(na.value = "gray10")
 #' }
-scale_fill_terrain_d <- function(..., alpha = 1, direction = 1) {
+scale_fill_terrain_d <- function(..., alpha = 1, direction = 1,
+                                 na.translate = FALSE,
+                                 drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -86,13 +89,17 @@ scale_fill_terrain_d <- function(..., alpha = 1, direction = 1) {
       alpha = alpha,
       direction = direction
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 
 #' @export
 #' @rdname scale_terrain
-scale_colour_terrain_d <- function(..., alpha = 1, direction = 1) {
+scale_colour_terrain_d <- function(..., alpha = 1, direction = 1,
+                                   na.translate = FALSE,
+                                   drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -106,6 +113,8 @@ scale_colour_terrain_d <- function(..., alpha = 1, direction = 1) {
       alpha = alpha,
       direction = direction
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -113,7 +122,6 @@ scale_colour_terrain_d <- function(..., alpha = 1, direction = 1) {
 
 #' @export
 #' @rdname scale_terrain
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
 scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
@@ -161,7 +169,6 @@ scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
                                  na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {

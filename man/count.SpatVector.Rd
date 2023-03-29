@@ -20,7 +20,8 @@
 \arguments{
 \item{x}{A SpatVector.}
 
-\item{...}{<\code{\link[dplyr:dplyr_data_masking]{data-masking}}> Variables to group by.}
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables to group
+by.}
 
 \item{wt}{Not implemented on this method}
 

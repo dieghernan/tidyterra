@@ -380,9 +380,7 @@ ggplot() +
 
 ## Plotting SpatRasters with color tables
 
-You can extract the corresponding colors with `terra::coltab()`, name them with
-the name of the corresponding factor level and use
-`ggplot2::scale_fill_manual()`:
+**tidyterra** has several ways to handle these SpatRasters:
 
 ```{r coltab}
 library(terra)
@@ -396,37 +394,42 @@ has.colors(r_coltab)
 
 r_coltab
 
-# Native handling
+# Native handling by terra packages
 plot(r_coltab)
 
 
-# If we try with tidyterra we don't get the right colors
+# A. autoplot
 
-ggcoltab <- ggplot() +
-  geom_spatraster(data = r_coltab)
+autoplot(r_coltab) + ggtitle("autoplot method")
 
-ggcoltab
+# B. geom_spatraster
+ggplot() +
+  geom_spatraster(data = r_coltab) +
+  ggtitle("geom_spatraster method")
 
+# C. Using scale_fill_coltab
 
-# We extract levels and colors to create a custom palette
+g <- ggplot() +
+  geom_spatraster(data = r_coltab, use_coltab = FALSE)
 
-levs <- r_coltab %>% pull(levels) %>% levels()
+g
 
-levs
+# But...
+g +
+  scale_fill_coltab(data = r_coltab) +
+  ggtitle("scale_fill_coltab method")
 
-# Coltab by positions
-tb <- coltab(r_coltab)[[1]] %>% slice(seq_len(length(levs)))
-tb
+# D. Extract named colors and scale_fill_manual
 
-# Create named palette
-coltabpal <- grDevices::rgb(tb[, 2:5], maxColorValue = 255) %>%
-  setNames(levs)
+cols <- get_coltab_pal(r_coltab)
 
-coltabpal
+cols
 
-# And apply to out initial ggplot2
+scales::show_col(cols)
 
-ggcoltab +
-  scale_fill_manual(values = coltabpal)
+# And now
 
+g +
+  scale_fill_manual(values = cols) +
+  ggtitle("scale_fill_manual method")
 ```

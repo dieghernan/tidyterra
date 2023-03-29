@@ -18,6 +18,7 @@ geom_spatraster(
   inherit.aes = FALSE,
   interpolate = FALSE,
   maxcell = 5e+05,
+  use_coltab = TRUE,
   ...
 )
 
@@ -56,6 +57,10 @@ than combining with them.}
 
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
+
+\item{use_coltab}{Logical. Only applicable to SpatRasters that have a coltab
+(\code{\link[terra:colors]{terra::coltab()}}). Should the coltab be used on the plot? See also
+\code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like

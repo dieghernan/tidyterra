@@ -38,6 +38,10 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
+#' @param na.translate Should `NA` values be removed from the legend? Default
+#'   is `TRUE`.
+#' @param drop Should unused factor levels be omitted from the scale? The
+#'   default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
@@ -173,7 +177,9 @@
 #'   )
 #' }
 scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
-                                       alpha = 1, direction = 1) {
+                                       alpha = 1, direction = 1,
+                                       na.translate = FALSE,
+                                       drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -188,13 +194,16 @@ scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 #' @export
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
-                                         alpha = 1, direction = 1) {
+                                         alpha = 1, direction = 1,
+                                         na.translate = FALSE, drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -209,6 +218,8 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -394,7 +405,9 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #'  In contrast, `cross_blended.colors()` provides an uniform gradient across
 #'  colors. See **Examples**.
 scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                            alpha = 1, direction = 1) {
+                                            alpha = 1, direction = 1,
+                                            na.translate = FALSE,
+                                            drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -409,6 +422,8 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -416,7 +431,9 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 #' @export
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                              alpha = 1, direction = 1) {
+                                              alpha = 1, direction = 1,
+                                              na.translate = FALSE,
+                                              drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
     stop("alpha level ", alpha, " not in [0,1]")
   }
@@ -431,6 +448,8 @@ scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }

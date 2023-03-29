@@ -79,6 +79,45 @@ test_that("Test with cols", {
     "rgb_05: forced to non-rgb",
     autoplot(r, facets = TRUE, rgb = FALSE)
   )
+
+  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
+  r <- terra::rast(f)
+
+
+  # Regular
+  vdiffr::expect_doppelganger("coltab_01: regular", autoplot(r))
+
+  # Add another layer
+  r$another <- rep_len(letters[2:5], terra::ncell(r))
+
+  # No facets
+  vdiffr::expect_doppelganger("coltab_02: no facets forced", r %>%
+    select(1) %>%
+    autoplot(facets = FALSE))
+
+  # No facets auto
+  vdiffr::expect_doppelganger("coltab_03: no facets auto", r %>%
+    select(1) %>%
+    autoplot())
+
+
+  # Change n facets
+  vdiffr::expect_doppelganger(
+    "coltab_04: two rows",
+    autoplot(r, nrow = 2, ncol = 1)
+  )
+  # Force to no facets
+
+  vdiffr::expect_doppelganger(
+    "coltab_5: force no facets",
+    r %>%
+      autoplot(ncol = 2, facets = FALSE)
+  )
+  vdiffr::expect_doppelganger(
+    "coltab_6: Not use coltab",
+    r %>%
+      autoplot(ncol = 2, use_coltab = FALSE)
+  )
 })
 
 
