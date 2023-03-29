@@ -160,16 +160,24 @@ get_coltab_pal <- function(x) {
   }
 
   lcats <- terra::cats(x)
+  # Get active cats by layer
+  actcats <- lapply(seq_len(terra::nlyr(x)), function(p) {
+    terra::activeCat(x[[p]])
+  })
+
   # Prepare data frame with categories
-  lcats <- lapply(lcats, function(i) {
-    if (is.null(i)) {
+  lcats <- lapply(seq_len(terra::nlyr(x)), function(i) {
+    i_df <- lcats[[i]]
+    if (is.null(i_df)) {
       return(NULL)
     }
-    df <- i[, c(1, 2)]
+    actcat <- unlist(actcats[i])
+    df <- i_df[, c(1, actcat + 1)]
     names(df) <- c("id", "label")
 
     df
   })
+
   names(lcats) <- names(x)
   cats_end <- dplyr::bind_rows(lcats, .id = "layer")
 
