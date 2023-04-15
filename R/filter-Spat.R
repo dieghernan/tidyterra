@@ -119,6 +119,9 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 
   if (!isTRUE(.keep_extent)) newrast <- terra::trim(newrast)
 
+  if (any(terra::has.colors(.data))) {
+    terra::coltab(newrast) <- terra::coltab(.data)
+  }
   return(newrast)
 }
 
