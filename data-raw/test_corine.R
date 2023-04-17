@@ -1,7 +1,7 @@
 devtools::load_all()
 styler::style_pkg()
 
-
+usethis::use_test("keep_coltab")
 
 
 library(terra)

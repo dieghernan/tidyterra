@@ -104,6 +104,10 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
     }
   }
 
+  if (any(terra::has.colors(data))) {
+    terra::coltab(newrast) <- terra::coltab(data)
+  }
+
   return(newrast)
 }
 

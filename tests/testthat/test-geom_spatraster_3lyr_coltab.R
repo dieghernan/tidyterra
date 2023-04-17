@@ -76,9 +76,11 @@ test_that("geom_spatraster several layer with CRS", {
   vdiffr::expect_doppelganger("crs_03: categ w/scale disc", p_cats)
 
   # Mixed cols
+  rnum <- terra::rast(r, nlyr = 1)
+  terra::values(rnum) <- 1
+  names(rnum) <- "num"
 
-
-  r_mix1 <- r %>% mutate(num = as.integer(cut1))
+  r_mix1 <- c(r, rnum)
 
   expect_message(
     pmix1 <- ggplot() +

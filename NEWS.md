@@ -1,9 +1,11 @@
 # tidyterra (development version)
 
--   New scales for plotting SpatRasters with color tables: `scale_fill_coltab()`
-    and rest of family scales (`colour`).
+-   Support for SpatRasters with a color table
     -   `autoplot.SpatRaster()` can detect now SpatRasters with color tables.
     -   `geom_spatraster()` can detect now SpatRasters with color tables.
+    -   New scales for plotting SpatRasters with color tables:
+        `scale_fill_coltab()` and rest of family scales (`colour`).
+    -   tidyverse verbs keeps the associated `coltab` of a SpatRaster.
 -   By default all the discrete scales of tidyterra now have the following
     setup: `na.translate = FALSE`.
 
