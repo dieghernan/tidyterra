@@ -88,114 +88,122 @@ test_that("select", {
 })
 
 test_that("mutate", {
-  skip("TODO")
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
-  r2 <- mutate(r, era = dplyr::if_else(era == "Paleozoic", "Cenozoic", "Others"))
 
-  terra::coltab(r2) <- c(terra::coltab(r))
-  autoplot(r2)
-  autoplot(r)
-
-  terra::values(r2) <- "20"
-  names(r2) <- "aa"
-  # In first place
-  rend <- c(r, r2)
-  d1 <- select(rend, era)
+  # No adding new cols
+  d1 <- mutate(r, era = dplyr::if_else(era == "Paleozoic", "Cenozoic", era))
 
   expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-  # In second place
-  rend <- c(r2, r)
-  d2 <- select(rend, era)
 
-  expect_true(terra::has.colors(d2))
-  expect_identical(terra::coltab(r), terra::coltab(d2))
+  # Adding a new col
+  d2 <- mutate(r, era_new = dplyr::case_when(
+    era == "Cenozoic" ~ "Paleozoic",
+    era == "Mesozoic" ~ "Cenozoic",
+    TRUE ~ era
+  ))
 
-  # Selecting severals
-  d3 <- select(rend, aa, era)
+  expect_identical(terra::has.colors(d2), c(TRUE, FALSE))
+  expect_identical(c(terra::coltab(r), list(NULL)), terra::coltab(d2))
 
-  expect_equal(terra::has.colors(d3), c(FALSE, TRUE))
-  expect_identical(
-    terra::coltab(d3),
-    c(list(NULL), terra::coltab(r))
-  )
+  # Adding a new layer with different coltab
+  newctb <- terra::rast(r)
+  names(newctb) <- "newctb"
+  terra::values(newctb) <- as.factor(rep_len(
+    c("S", "W", "S"),
+    terra::ncell(newctb)
+  ))
+  levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
+  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
+    alpha = TRUE
+  )))
+  terra::coltab(newctb) <- coltb2
+  several <- c(r, newctb)
+  d3 <- several %>% mutate(another = "SAD")
 
+  expect_identical(terra::has.colors(d3), c(TRUE, TRUE, FALSE))
 
-  # Selecting severals with rename
-  d4 <- select(rend, f = aa, era2 = era)
+  fullctab <- c(terra::coltab(r), terra::coltab(newctb), list(NULL))
+  expect_identical(terra::coltab(d3), fullctab)
 
-  expect_equal(terra::has.colors(d4), c(FALSE, TRUE))
-  expect_identical(
-    terra::coltab(d4),
-    c(list(NULL), terra::coltab(r))
-  )
-
+  # Additional test select
+  d4 <- d3 %>% select(letter, another, era)
+  expect_identical(terra::has.colors(d4), c(TRUE, FALSE, TRUE))
+  expect_identical(terra::coltab(d4), fullctab[c(2, 3, 1)])
 
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-  vdiffr::expect_doppelganger("select1", autoplot(d1))
-  vdiffr::expect_doppelganger("select2", autoplot(d2))
-  vdiffr::expect_doppelganger("select several", autoplot(d3))
-  vdiffr::expect_doppelganger("select with rename", autoplot(d4))
+  vdiffr::expect_doppelganger("mutate1", autoplot(d1))
+  vdiffr::expect_doppelganger("mutate2", autoplot(d2))
+  vdiffr::expect_doppelganger("mutate3", autoplot(d3))
+  vdiffr::expect_doppelganger("mutate4", autoplot(d4))
 })
 
 test_that("transmute", {
-  skip("TODO")
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
-  r2 <- mutate(r, era = ifelse(era == "Paleozoic", "Cenozoic", era))
-  autoplot(r2)
 
-  terra::values(r2) <- "20"
-  names(r2) <- "aa"
-  # In first place
-  rend <- c(r, r2)
-  d1 <- select(rend, era)
+  # transmute
+  d1 <- transmute(r, era = dplyr::case_when(
+    era == "Cenozoic" ~ "Paleozoic",
+    era == "Mesozoic" ~ "Cenozoic",
+    TRUE ~ era
+  ))
 
-  expect_true(terra::has.colors(d1))
+  expect_identical(terra::has.colors(d1), TRUE)
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-  # In second place
-  rend <- c(r2, r)
-  d2 <- select(rend, era)
 
-  expect_true(terra::has.colors(d2))
-  expect_identical(terra::coltab(r), terra::coltab(d2))
+  # transmute a new var with no coltab
+  d2 <- transmute(r, era_new = dplyr::case_when(
+    era == "Cenozoic" ~ "Paleozoic",
+    era == "Mesozoic" ~ "Cenozoic",
+    TRUE ~ era
+  ))
 
-  # Selecting severals
-  d3 <- select(rend, aa, era)
+  expect_identical(terra::has.colors(d2), FALSE)
 
-  expect_equal(terra::has.colors(d3), c(FALSE, TRUE))
-  expect_identical(
-    terra::coltab(d3),
-    c(list(NULL), terra::coltab(r))
-  )
+  # Adding a new layer with different coltab
+  newctb <- terra::rast(r)
+  names(newctb) <- "newctb"
+  terra::values(newctb) <- as.factor(rep_len(
+    c("S", "W", "S"),
+    terra::ncell(newctb)
+  ))
+  levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
+  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
+    alpha = TRUE
+  )))
+  terra::coltab(newctb) <- coltb2
+  several <- c(r, newctb)
+  d3 <- several %>% transmute(letter = letter, era = era)
+
+  expect_identical(terra::has.colors(d3), c(TRUE, TRUE))
+  expect_identical(terra::coltab(d3), terra::coltab(several)[2:1])
 
 
-  # Selecting severals with rename
-  d4 <- select(rend, f = aa, era2 = era)
+  # Mix and match
 
-  expect_equal(terra::has.colors(d4), c(FALSE, TRUE))
-  expect_identical(
-    terra::coltab(d4),
-    c(list(NULL), terra::coltab(r))
-  )
+  d4 <- transmute(several, era2 = era, letter = letter, ss = "fcr")
 
+  expect_identical(terra::has.colors(d4), c(FALSE, TRUE, FALSE))
+  expect_identical(terra::coltab(d4), c(
+    list(NULL), terra::coltab(newctb),
+    list(NULL)
+  ))
 
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-  vdiffr::expect_doppelganger("select1", autoplot(d1))
-  vdiffr::expect_doppelganger("select2", autoplot(d2))
-  vdiffr::expect_doppelganger("select several", autoplot(d3))
-  vdiffr::expect_doppelganger("select with rename", autoplot(d4))
+  vdiffr::expect_doppelganger("transmute1", autoplot(d1))
+  vdiffr::expect_doppelganger("transmute2", autoplot(d2))
+  vdiffr::expect_doppelganger("transmute3", autoplot(d3))
+  vdiffr::expect_doppelganger("transmute4", autoplot(d4))
 })
 
 test_that("filter", {

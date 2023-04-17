@@ -141,7 +141,7 @@ get_coltab_pal <- function(x) {
   }
   # Complete layers with no coltabs
   iter <- seq_len(terra::nlyr(x))[!terra::has.colors(x)]
-  if (length(iter) > 0 && iter > 0) {
+  if (length(iter) > 0 && min(iter) > 0) {
     for (h in iter) {
       # Assign coltab
       tmpr <- terra::subset(x, h)

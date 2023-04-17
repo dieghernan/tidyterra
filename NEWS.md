@@ -1,6 +1,6 @@
 # tidyterra (development version)
 
--   Support for SpatRasters with a colot table
+-   Support for SpatRasters with a color table
     -   `autoplot.SpatRaster()` can detect now SpatRasters with color tables.
     -   `geom_spatraster()` can detect now SpatRasters with color tables.
     -   New scales for plotting SpatRasters with color tables:
