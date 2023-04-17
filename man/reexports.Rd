@@ -2,7 +2,7 @@
 % Please edit documentation in R/arrange-SpatVector.R, R/as_tibble-Spat.R,
 %   R/autoplot-Spat.R, R/count-tally-SpatVector.R, R/distinct-SpatVector.R,
 %   R/drop_na-Spat.R, R/filter-Spat.R, R/fortify-Spat.R, R/glimpse-Spat.R,
-%   R/group-by-SpatVector.R, R/group-data-SpatVector.R, R/join-Spat.R,
+%   R/group-by-SpatVector.R, R/group-data-SpatVector.R, R/join-SpatVector.R,
 %   R/mutate-Spat.R, R/pull-Spat.R, R/relocate-Spat.R, R/rename-Spat.R,
 %   R/replace_na-Spat.R, R/rowwise-SpatVector.R, R/select-Spat.R,
 %   R/slice-Spat.R, R/summarise-SpatVector.R, R/tidyterra-package.R

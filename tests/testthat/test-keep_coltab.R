@@ -222,7 +222,55 @@ test_that("filter", {
 })
 
 test_that("slice", {
-  skip("TODO")
+  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
+  r <- terra::rast(f)
+  expect_true(terra::has.colors(r))
+
+  # Slice
+  sl <- slice(r, 1:20)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice head
+  sl <- slice_head(r, n = 50)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice tail
+  sl <- slice_tail(r, n = 50)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+
+  # Slice min
+  sl <- slice_min(r, era, n = 50)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice max
+  sl <- slice_max(r, era, n = 50)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice sample
+  sl <- slice_sample(r, n = 50)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice rows
+  sl <- slice_rows(r, 1:3)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice cols
+  sl <- slice_cols(r, 1:3)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
+
+  # Slice rowcols
+  sl <- slice_colrows(r, rows = 1:3, cols = 1:4)
+  expect_true(terra::has.colors(sl))
+  expect_identical(terra::coltab(sl), terra::coltab(r))
 })
 
 
