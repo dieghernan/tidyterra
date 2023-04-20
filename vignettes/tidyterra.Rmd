@@ -11,7 +11,7 @@ vignette: >
 
 ## Welcome to {tidyterra}
 
-**tidyterra** is a package that add common methods from the
+**tidyterra** is a package that adds common methods from the
 [tidyverse](https://www.tidyverse.org/) for SpatRaster and SpatVectors objects
 created with the [{terra}](https://CRAN.R-project.org/package=terra) package. It
 also adds specific `geom_spat*()` functions for plotting these kind of objects
