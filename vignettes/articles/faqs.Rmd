@@ -386,6 +386,7 @@ ggplot() +
 library(terra)
 library(tidyterra)
 library(ggplot2)
+require(spDataLarge)
 
 # Get a SpatRaster with coltab
 r_coltab <- rast(system.file("raster/nlcd.tif", package = "spDataLarge"))
