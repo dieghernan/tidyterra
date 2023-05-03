@@ -8,6 +8,8 @@
     -   tidyverse verbs keeps the associated `coltab` of a SpatRaster.
 -   By default all the discrete scales of tidyterra now have the following
     setup: `na.translate = FALSE`.
+-   Enhanced `glimpse.Spat()` with meta-information on type of geometry, crs,
+    etc.
 
 # tidyterra 0.4.0
 

@@ -269,6 +269,9 @@ vect(system.file("ex/lux.shp", package = "terra")) %>%
   glimpse() %>%
   autoplot(aes(fill = pop_dens)) +
   scale_fill_whitebox_c(palette = "pi_y_g")
+#> Geometry type: Polygons
+#> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
+#> Extent (x , y) : [5° 44' 38.9045" E - 6° 31' 41.7076" E] , [49° 26' 52.1063" N - 50° 10' 53.8376" N]
 #> Rows: 3
 #> Columns: 2
 #> $ NAME_1   <chr> "Diekirch", "Grevenmacher", "Luxembourg"

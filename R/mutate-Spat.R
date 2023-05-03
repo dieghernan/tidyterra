@@ -191,7 +191,7 @@ transmute.SpatRaster <- function(.data, ...) {
     names(ctab_list_init) <- names(.data)
     namesend <- names(final_rast)
 
-    ctab_list <- ctab_list_init[names(final_rast) %in% names(.data)]
+    ctab_list <- ctab_list_init[namesend %in% names(.data)]
 
 
     # Assign coltab by layer
