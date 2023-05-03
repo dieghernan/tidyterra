@@ -177,6 +177,10 @@ Spat*. objects.</p>
 <span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS projection units: m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES-VA", "ES-ZA"</span>
@@ -189,11 +193,19 @@ Spat*. objects.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="co"># with options</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"WKT"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS projection units: m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ cpro <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "05", "09", "24", "34", "37", "40", "42", "47", "49"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ name <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> CRS projection units: m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO",…</span>
@@ -202,12 +214,18 @@ Spat*. objects.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ a        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 30, 30, 30, 30, 30, 30, 30, 30, 30</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ geometry <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "POLYGON ((3126360.2417 2066777.7545, 3125073.9752 2065007.29…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># SpatVector</span></span></span>
+<span class="r-in"><span><span class="co"># SpatRaster</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_elev.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 26,712</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Rows: 126</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Columns: 212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Layers: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Cells: 26,712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Resolution (x / y): 0.025 / 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Layers:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ elevation_m <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use on a pipeline</span></span></span>
@@ -216,11 +234,23 @@ Spat*. objects.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>b <span class="op">=</span> <span class="va">elevation_m</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="co"># With options</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span>xy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 26,712</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Rows: 126</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Columns: 212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Layers: 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Cells: 26,712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Resolution (x / y): 0.025 / 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Layers:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ elevation_m <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 26,712</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Rows: 126</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Columns: 212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Layers: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Cells: 26,712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Raster Resolution (x / y): 0.025 / 0.025</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Layers:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ x           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -7.0625, -7.0375, -7.0125, -6.9875, -6.9625, -6.9375, -6.9…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ y           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 43.22083, 43.22083, 43.22083, 43.22083, 43.22083, 43.22083…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ elevation_m <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…</span>

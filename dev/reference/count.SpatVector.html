@@ -141,9 +141,12 @@ it will use <code>nn</code>. If there's a column called <code>n</code> and <code
 
 
 <dt>.drop</dt>
-<dd><p>For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code>: if <code>FALSE</code> will include counts for empty groups
-(i.e. for levels of factors that don't exist in the data). Deprecated in
-<code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code> since it didn't actually affect the output.</p></dd>
+<dd><p>Handling of factor levels that don't appear in the data, passed
+on to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>.</p>
+<p>For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code>: if <code>FALSE</code> will include counts for empty groups (i.e. for
+levels of factors that don't exist in the data).</p>
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a> For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code>: deprecated since it
+can't actually affect the output.</p></dd>
 
 
 <dt>.dissolve</dt>
