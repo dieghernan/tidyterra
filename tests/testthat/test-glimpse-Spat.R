@@ -20,10 +20,6 @@ test_that("Stress SpatVector", {
   skip_on_cran()
   # SpatVector
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-
-  oldlm <- getOption("OutDec")
-
-  options(OutDec = ",")
   expect_snapshot(inv <- glimpse(v))
   expect_s4_class(inv, "SpatVector")
 
@@ -37,11 +33,6 @@ test_that("Stress SpatVector", {
 
   expect_snapshot(inv <- glimpse(v2))
   expect_s4_class(inv, "SpatVector")
-
-  # Restore option
-  options(OutDec = oldlm)
-
-  expect_identical(oldlm, getOption("OutDec"))
 })
 
 test_that("Geometries SpatVector", {
@@ -82,9 +73,6 @@ test_that("Stress SpatRaster", {
   # SpatRaster
   v <- terra::rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
-  oldlm <- getOption("OutDec")
-
-  options(OutDec = ",")
   expect_snapshot(inv <- glimpse(v))
   expect_s4_class(inv, "SpatRaster")
 
@@ -99,10 +87,6 @@ test_that("Stress SpatRaster", {
   expect_snapshot(inv <- glimpse(v2))
   expect_s4_class(inv, "SpatRaster")
 
-  # Restore option
-  options(OutDec = oldlm)
-
-  expect_identical(oldlm, getOption("OutDec"))
 })
 
 

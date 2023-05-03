@@ -37,7 +37,7 @@
       Geometry type: Polygons
       Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
       CRS projection units: m
-      Extent (x , y) : [2.892.687 - 3.341.372] , [2.017.622 - 2.361.600]
+      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
       Rows: 9
       Columns: 3
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
@@ -51,7 +51,7 @@
     Output
       Geometry type: Polygons
       Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-      Extent (x , y) : [7° 4' 36,6024" W - 1° 46' 58,078" W] , [40° 5' 7,7968" N - 43° 14' 11,5677" N]
+      Extent (x , y) : [7° 4' 36.6024" W - 1° 46' 58.078" W] , [40° 5' 7.7968" N - 43° 14' 11.5677" N]
       Rows: 9
       Columns: 3
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
@@ -65,7 +65,7 @@
     Output
       Geometry type: Polygons
       Projected CRS: Cartesian (Meter)
-      Extent (x , y) : [-7,076834 - -1,782799] , [40,085499 - 43,236547]
+      Extent (x , y) : [-7.076834 - -1.782799] , [40.085499 - 43.236547]
       Rows: 9
       Columns: 3
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
@@ -126,7 +126,7 @@
       Raster Columns: 118
       Raster Layers: 3
       Raster Cells: 10,266
-      Raster Resolution (x / y): 3,881.255 / 3,881.255
+      Raster Resolution (x , y): 3,881.255 , 3,881.255
       Projected CRS: World_Robinson
       CRS projection units: m
       Extent (x , y) : [ -612,335.4 -  -154,347.3] , [4,283,017.7 - 4,620,686.9]
@@ -144,7 +144,7 @@
       Raster Columns: 118
       Raster Layers: 3
       Raster Cells: 10,266
-      Raster Resolution (x / y): 3,881.255 / 3,881.255
+      Raster Resolution (x , y): 3,881.255 , 3,881.255
       Projected CRS: World_Robinson
       CRS projection units: m
       Extent (x , y) : [ -612,335.4 -  -154,347.3] , [4,283,017.7 - 4,620,686.9]
@@ -163,12 +163,12 @@
       Raster Rows: 126
       Raster Columns: 212
       Raster Layers: 1
-      Raster Cells: 26.712
-      Raster Resolution (x / y): 0,025 / 0,025
+      Raster Cells: 26,712
+      Raster Resolution (x , y): 1' 30" , 1' 30"
       Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
       Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]
       Layers:
-      $ elevation_m <dbl> 700,2969, 780,3889, 706,1250, 568,9722, 584,9028, 506,7361~
+      $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
 
 ---
 
@@ -178,12 +178,12 @@
       Raster Rows: 126
       Raster Columns: 212
       Raster Layers: 1
-      Raster Cells: 26.712
-      Raster Resolution (x / y): 0,025 / 0,025
+      Raster Cells: 26,712
+      Raster Resolution (x , y): 1' 30" , 1' 30"
       Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
       Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]
       Layers:
-      $ elevation_m <dbl> 700,2969, 780,3889, 706,1250, 568,9722, 584,9028, 506,7361~
+      $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
 
 ---
 
@@ -193,12 +193,12 @@
       Raster Rows: 126
       Raster Columns: 212
       Raster Layers: 1
-      Raster Cells: 26.712
-      Raster Resolution (x / y): 0,025 / 0,025
+      Raster Cells: 26,712
+      Raster Resolution (x , y): 0.025 , 0.025
       Projected CRS: Cartesian (Meter)
-      Extent (x , y) : [-7,07500 - -1,77500] , [40,08333 - 43,23333]
+      Extent (x , y) : [-7.07500 - -1.77500] , [40.08333 - 43.23333]
       Layers:
-      $ elevation_m <dbl> 700,2969, 780,3889, 706,1250, 568,9722, 584,9028, 506,7361~
+      $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
 
 # RGB SpatRaster
 
@@ -209,7 +209,7 @@
       Raster Columns: 261
       Raster Layers: 3
       Raster Cells: 55,332
-      Raster Resolution (x / y): 2,445.985 / 2,445.985
+      Raster Resolution (x , y): 2,445.985 , 2,445.985
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
@@ -228,7 +228,7 @@
       Raster Columns: 261
       Raster Layers: 3
       Raster Cells: 55,332
-      Raster Resolution (x / y): 2,445.985 / 2,445.985
+      Raster Resolution (x , y): 2,445.985 , 2,445.985
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
@@ -247,7 +247,7 @@
       Raster Columns: 261
       Raster Layers: 4
       Raster Cells: 55,332
-      Raster Resolution (x / y): 2,445.985 / 2,445.985
+      Raster Resolution (x , y): 2,445.985 , 2,445.985
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
@@ -267,7 +267,7 @@
       Raster Columns: 590
       Raster Layers: 1
       Raster Cells: 277,300
-      Raster Resolution (x / y): 1,000 / 1,000
+      Raster Resolution (x , y): 1,000 , 1,000
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
@@ -284,7 +284,7 @@
       Raster Columns: 590
       Raster Layers: 2
       Raster Cells: 277,300
-      Raster Resolution (x / y): 1,000 / 1,000
+      Raster Resolution (x , y): 1,000 , 1,000
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
@@ -302,7 +302,7 @@
       Raster Columns: 590
       Raster Layers: 3
       Raster Cells: 277,300
-      Raster Resolution (x / y): 1,000 / 1,000
+      Raster Resolution (x , y): 1,000 , 1,000
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
@@ -321,7 +321,7 @@
       Raster Columns: 590
       Raster Layers: 3
       Raster Cells: 277,300
-      Raster Resolution (x / y): 1,000 / 1,000
+      Raster Resolution (x , y): 1,000 , 1,000
       Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
       CRS projection units: m
       Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
@@ -368,7 +368,7 @@
       Raster Columns: 360
       Raster Layers: 1
       Raster Cells: 64,800
-      Raster Resolution (x / y): 1 / 1
+      Raster Resolution (x , y): 1 , 1
       CRS: Not Defined / Empty
       Extent (x , y) : [-180 -  180] , [ -90 -   90]
       Layers:

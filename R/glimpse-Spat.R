@@ -63,17 +63,34 @@
 #'   # With options
 #'   glimpse(xy = TRUE)
 glimpse.SpatRaster <- function(x, width = NULL, ...) {
-  big_mark <- ","
-
-  if (identical(getOption("OutDec"), ",")) big_mark <- "."
-
   # Dimensions
-  cli::cat_line("Raster Rows: ", format(terra::nrow(x), big.mark = big_mark))
-  cli::cat_line("Raster Columns: ", format(terra::ncol(x), big.mark = big_mark))
-  cli::cat_line("Raster Layers: ", format(terra::nlyr(x), big.mark = big_mark))
-  cli::cat_line("Raster Cells: ", format(terra::ncell(x), big.mark = big_mark))
-  rs <- paste(format(terra::res(x), big.mark = big_mark), collapse = " / ")
-  cli::cat_line("Raster Resolution (x / y): ", rs)
+  cli::cat_line("Raster Rows: ", format(terra::nrow(x),
+    big.mark = ",",
+    decimal.mark = "."
+  ))
+  cli::cat_line("Raster Columns: ", format(terra::ncol(x),
+    big.mark = ",",
+    decimal.mark = "."
+  ))
+  cli::cat_line("Raster Layers: ", format(terra::nlyr(x),
+    big.mark = ",",
+    decimal.mark = "."
+  ))
+  cli::cat_line("Raster Cells: ", format(terra::ncell(x),
+    big.mark = ",",
+    decimal.mark = "."
+  ))
+
+  if (isTRUE(sf::st_is_longlat(pull_crs(x)))) {
+    rs <- lapply(terra::res(x), decimal_to_degrees, type = "null")
+    rs <- paste0(unlist(rs), collapse = " , ")
+  } else {
+    rs <- paste(format(terra::res(x),
+      big.mark = ",",
+      decimal.mark = "."
+    ), collapse = " , ")
+  }
+  cli::cat_line("Raster Resolution (x , y): ", rs)
 
   # CRS
   crsnamed <- get_named_crs(x)
@@ -104,7 +121,10 @@ glimpse.SpatRaster <- function(x, width = NULL, ...) {
 
     ext_fmt <- unlist(c(lons, lats))
   } else {
-    ext_fmt <- format(ext, big.mark = big_mark, justify = "right")
+    ext_fmt <- format(ext,
+      big.mark = ",",
+      decimal.mark = ".", justify = "right"
+    )
   }
 
   xfmt <- paste(ext_fmt[c("xmin", "xmax")],
@@ -191,10 +211,10 @@ glimpse.SpatVector <- function(x, width = NULL, ...) {
 
     ext_fmt <- unlist(c(lons, lats))
   } else {
-    big_mark <- ","
-
-    if (identical(getOption("OutDec"), ",")) big_mark <- "."
-    ext_fmt <- format(ext, big.mark = big_mark, justify = "right")
+    ext_fmt <- format(ext,
+      big.mark = ",",
+      decimal.mark = ".", justify = "right"
+    )
   }
 
   xfmt <- paste(ext_fmt[c("xmin", "xmax")],
@@ -264,7 +284,8 @@ get_named_crs <- function(x) {
 
 
 # To convert lon lat from decimal to pretty
-decimal_to_degrees <- function(x, type) {
+decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
+  type <- match.arg(type)
   coordinit <- x
   x <- abs(x)
   D <- as.integer(x)
@@ -278,14 +299,26 @@ decimal_to_degrees <- function(x, type) {
     } else {
       lab <- "W"
     }
-  } else {
+  } else if (type == "lat") {
     if (coordinit > 0) {
       lab <- "N"
     } else {
       lab <- "S"
     }
+  } else {
+    lab <- NULL
   }
 
-  label <- paste0(D, "\u00b0 ", M, "' ", S, '\" ', lab)
+  if (type %in% c("lon", "lat")) {
+    label <- paste0(D, "\u00b0 ", M, "' ", S, '\" ', lab)
+  } else {
+    label <- paste0(
+      c(D, M, S),
+      c("\u00b0", "'", '\"')
+    )
+    label <- label[c(D, M, S) != 0]
+    label <- paste0(label, collapse = " ")
+  }
+
   return(label)
 }
