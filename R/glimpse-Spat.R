@@ -51,7 +51,7 @@
 #'   # with options
 #'   glimpse(geom = "WKT")
 #'
-#' # SpatVector
+#' # SpatRaster
 #' r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 #'
 #' r %>% glimpse()
@@ -63,7 +63,96 @@
 #'   # With options
 #'   glimpse(xy = TRUE)
 glimpse.SpatRaster <- function(x, width = NULL, ...) {
-  dplyr::glimpse(as_tibble(x, ...), width = width)
+  big_mark <- ","
+
+  if (identical(getOption("OutDec"), ",")) big_mark <- "."
+
+  # Dimensions
+  cli::cat_line("Raster Rows: ", format(terra::nrow(x), big.mark = big_mark))
+  cli::cat_line("Raster Columns: ", format(terra::ncol(x), big.mark = big_mark))
+  cli::cat_line("Raster Layers: ", format(terra::nlyr(x), big.mark = big_mark))
+  cli::cat_line("Raster Cells: ", format(terra::ncell(x), big.mark = big_mark))
+  rs <- paste(format(terra::res(x), big.mark = big_mark), collapse = " / ")
+  cli::cat_line("Raster Resolution (x / y): ", rs)
+
+  # CRS
+  crsnamed <- get_named_crs(x)
+
+  if (!is.na(crsnamed)) {
+    pulled_crs <- pull_crs(x)
+    if (sf::st_is_longlat(pulled_crs)) {
+      cli::cat_line("Geodetic CRS: ", crsnamed)
+    } else {
+      cli::cat_line("Projected CRS: ", crsnamed)
+      unts <- try(sf::st_crs(pulled_crs)$units, silent = TRUE)
+      if (!inherits(unts, "try-error") && !is.null(unts) && !is.na(unts)) {
+        cli::cat_line("CRS projection units: ", unts)
+      }
+    }
+  } else {
+    cli::cat_line("CRS: Not Defined / Empty")
+  }
+
+  # Extent
+  ext <- as.vector(terra::ext(x))
+  is_lonlat <- sf::st_is_longlat(pull_crs(x))
+
+  if (isTRUE(is_lonlat)) {
+    lons <- lapply(ext[c("xmin", "xmax")], decimal_to_degrees, type = "lon")
+
+    lats <- lapply(ext[c("ymin", "ymax")], decimal_to_degrees, type = "lat")
+
+    ext_fmt <- unlist(c(lons, lats))
+  } else {
+    ext_fmt <- format(ext, big.mark = big_mark, justify = "right")
+  }
+
+  xfmt <- paste(ext_fmt[c("xmin", "xmax")],
+    collapse = " - "
+  )
+  yfmt <- paste(ext_fmt[c("ymin", "ymax")],
+    collapse = " - "
+  )
+
+  extnamed <- paste0("[", xfmt, "] , [", yfmt, "]")
+  cli::cat_line("Extent (x , y) : ", extnamed)
+
+  # Check RGB
+  rgb_info <- terra::RGB(x)
+  if (!is.null(rgb_info) && length(rgb_info) >= 1) {
+    title <- paste0("Raster with ", length(rgb_info), " RGB channels: ")
+    ch_name <- names(x)[rgb_info]
+    names(ch_name) <- c(
+      "Red", "Green",
+      "Blue", "Alpha"
+    )[seq_len(length(rgb_info))]
+    ch_end <- paste0(ch_name, " (", names(ch_name), ")", collapse = ", ")
+
+    cli::cat_line(title, ch_end)
+  }
+
+  # Check coltab
+  coltab_info <- terra::has.colors(x)
+  if (any(coltab_info)) {
+    lcol <- length(coltab_info[coltab_info == TRUE])
+    title <- paste0("Raster with ", lcol, " color table in: ")
+    if (lcol > 1) title <- gsub("table", "tables", title)
+
+
+    ch_name <- names(x)[coltab_info == TRUE]
+    ch_end <- paste0(ch_name, collapse = ", ")
+
+    cli::cat_line(title, ch_end)
+  }
+
+
+  # Regular data frame (with options if provided)
+  capt <- utils::capture.output(dplyr::glimpse(as_tibble(x, ...),
+    width = width
+  ))
+  cli::cat_line("Layers:")
+  cli::cat_line(capt[-c(1:2)])
+
   return(invisible(x))
 }
 
@@ -87,13 +176,15 @@ glimpse.SpatVector <- function(x, width = NULL, ...) {
         cli::cat_line("CRS projection units: ", unts)
       }
     }
+  } else {
+    cli::cat_line("CRS: Not Defined / Empty")
   }
 
   # Extent
   ext <- as.vector(terra::ext(x))
   is_lonlat <- sf::st_is_longlat(pull_crs(x))
 
-  if (is_lonlat) {
+  if (isTRUE(is_lonlat)) {
     lons <- lapply(ext[c("xmin", "xmax")], decimal_to_degrees, type = "lon")
 
     lats <- lapply(ext[c("ymin", "ymax")], decimal_to_degrees, type = "lat")
@@ -133,8 +224,19 @@ get_named_crs <- function(x) {
   # Based in terra:::.name_or_proj4()
   pulled <- pull_crs(x)
 
-  d <- terra::crs(pulled, describe = TRUE)
+  d <- try(terra::crs(pulled, describe = TRUE), silent = TRUE)
+
+  if (inherits(d, "try-error")) {
+    return(NA)
+  }
+
   r <- terra::crs(pulled, proj = TRUE)
+
+  # nocov start
+  if (inherits(r, "try-error")) {
+    return(NA)
+  }
+  # nocov end
 
   if (!(d$name %in% c(NA, "unknown", "unnamed"))) {
     if (substr(r, 1, 13) == "+proj=longlat") {
@@ -154,8 +256,9 @@ get_named_crs <- function(x) {
     r <- try
   }
 
+  # nocov start
   if (is.na(r) || r == "" || is.null(r)) r <- NA
-
+  # nocov end
   return(r)
 }
 
