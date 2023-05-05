@@ -64,19 +64,19 @@
 #'   glimpse(xy = TRUE)
 glimpse.SpatRaster <- function(x, width = NULL, ...) {
   # Dimensions
-  cli::cat_line("Raster Rows: ", format(terra::nrow(x),
+  cli::cat_line("Rows: ", format(terra::nrow(x),
     big.mark = ",",
     decimal.mark = "."
   ))
-  cli::cat_line("Raster Columns: ", format(terra::ncol(x),
+  cli::cat_line("Columns: ", format(terra::ncol(x),
     big.mark = ",",
     decimal.mark = "."
   ))
-  cli::cat_line("Raster Layers: ", format(terra::nlyr(x),
+  cli::cat_line("Layers: ", format(terra::nlyr(x),
     big.mark = ",",
     decimal.mark = "."
   ))
-  cli::cat_line("Raster Cells: ", format(terra::ncell(x),
+  cli::cat_line("Cells: ", format(terra::ncell(x),
     big.mark = ",",
     decimal.mark = "."
   ))
@@ -90,7 +90,7 @@ glimpse.SpatRaster <- function(x, width = NULL, ...) {
       decimal.mark = "."
     ), collapse = " , ")
   }
-  cli::cat_line("Raster Resolution (x , y): ", rs)
+  cli::cat_line("Resolution (x , y): ", rs)
 
   # CRS
   crsnamed <- get_named_crs(x)
@@ -170,7 +170,10 @@ glimpse.SpatRaster <- function(x, width = NULL, ...) {
   capt <- utils::capture.output(dplyr::glimpse(as_tibble(x, ...),
     width = width
   ))
-  cli::cat_line("Layers:")
+
+  l <- ifelse(terra::nlyr(x) > 1, "Layers:", "Layer:")
+
+  cli::cat_line(l)
   cli::cat_line(capt[-c(1:2)])
 
   return(invisible(x))
@@ -228,9 +231,12 @@ glimpse.SpatVector <- function(x, width = NULL, ...) {
 
 
   cli::cat_line("Extent (x , y) : ", extnamed)
-
-  # Regular data frame (with options if provided)
-  dplyr::glimpse(as_tibble(x, ...), width = width)
+  if (ncol(x) == 0) {
+    cli::cat_line("SpatVector with no attributes (only geometries)")
+  } else {
+    # Regular data frame (with options if provided)
+    dplyr::glimpse(as_tibble(x, ...), width = width)
+  }
   return(invisible(x))
 }
 

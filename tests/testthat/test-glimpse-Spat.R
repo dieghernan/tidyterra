@@ -33,6 +33,12 @@ test_that("Stress SpatVector", {
 
   expect_snapshot(inv <- glimpse(v2))
   expect_s4_class(inv, "SpatVector")
+
+  # Geoms only
+  vnull <- v %>% select(1)
+  vnull$iso2 <- NULL
+  expect_snapshot(inv <- glimpse(vnull))
+  expect_s4_class(inv, "SpatVector")
 })
 
 test_that("Geometries SpatVector", {
@@ -86,7 +92,6 @@ test_that("Stress SpatRaster", {
 
   expect_snapshot(inv <- glimpse(v2))
   expect_s4_class(inv, "SpatRaster")
-
 })
 
 
