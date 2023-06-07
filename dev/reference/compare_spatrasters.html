@@ -151,37 +151,33 @@ compatible, plus an informative message flagging the issues found (if any).</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/crs.html" class="external-link">crs</a></span><span class="op">(</span><span class="va">y_nocrs</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">compare_spatrasters</span><span class="op">(</span><span class="va">x</span>, <span class="va">y_nocrs</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #000000; font-weight: bold;">Results of compare_spatrasters() (tidyterra)</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">The following attributes are not equal:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">crs</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Results of `tidyterra::compare_spatrasters()`: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following attributes are not equal:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> crs</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Different extent</span></span></span>
 <span class="r-in"><span><span class="fu">compare_spatrasters</span><span class="op">(</span><span class="va">x</span>, <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, , drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #000000; font-weight: bold;">Results of compare_spatrasters() (tidyterra)</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">The following attributes are not equal:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">extent</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Results of `tidyterra::compare_spatrasters()`: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following attributes are not equal:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> extent</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Different resolution</span></span></span>
 <span class="r-in"><span><span class="va">y_newres</span> <span class="op">&lt;-</span> <span class="va">x</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">res</a></span><span class="op">(</span><span class="va">y_newres</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">res</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span></span></span>
 <span class="r-in"><span><span class="fu">compare_spatrasters</span><span class="op">(</span><span class="va">x</span>, <span class="va">y_newres</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #000000; font-weight: bold;">Results of compare_spatrasters() (tidyterra)</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">The following attributes are not equal:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">resolution</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Results of `tidyterra::compare_spatrasters()`: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following attributes are not equal:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> resolution</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Everything</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">compare_spatrasters</span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="https://rdrr.io/pkg/terra/man/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"epsg:3035"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> <span style="color: #000000; font-weight: bold;">Results of compare_spatrasters() (tidyterra)</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">The following attributes are not equal:</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">crs</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">extent</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #000000;">   - </span><span style="color: #BB0000;">resolution</span><span style="color: #000000;"> </span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Results of `tidyterra::compare_spatrasters()`: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following attributes are not equal:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> crs</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> extent</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> resolution</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
