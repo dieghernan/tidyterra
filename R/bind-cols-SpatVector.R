@@ -85,9 +85,7 @@ bind_spat_cols <- function(...,
   # Ensure first is SpatVector
   if (!inherits(dots[[1]], "SpatVector")) {
     cli::cli_abort(paste(
-      "Object #1 in",
-      cli::col_blue("..."), "is not a",
-      cli::col_blue("SpatVector")
+      "Object 1 in {.arg ...} is not a {.cls SpatVector}"
     ))
   }
 

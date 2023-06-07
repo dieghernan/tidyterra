@@ -140,6 +140,9 @@ test_that("test SpatVector", {
   vdiffr::expect_doppelganger("vector_02: aes", autoplot(v, aes(fill = iso2)))
 
   # Inherit aes
-  vdiffr::expect_doppelganger("vector_03: aes inherited", autoplot(v, aes(fill = iso2)) +
-    geom_spatvector_label(aes(label = iso2)))
+  vdiffr::expect_doppelganger(
+    "vector_03: aes inherited",
+    autoplot(v, aes(fill = iso2)) +
+      geom_spatvector_label(aes(label = iso2))
+  )
 })

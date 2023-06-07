@@ -31,7 +31,7 @@
     Code
       res <- compare_spatrasters(r, fromnonatr)
     Message <cliMessage>
-      ! Results of compare_spatrasters() (tidyterra) 
+      ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
-         - crs 
+      * crs
 

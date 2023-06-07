@@ -112,7 +112,9 @@ pull_crs <- function(.data, ...) {
   }
 
   # All the rest, return empty with an alert
-
-  cli::cli_alert_warning("No wkt equivalent found. Returning NA")
+  cli::cli_alert_warning(paste(
+    "On {.fun tidyterra::pull_crs}\nNo wkt equivalent found.",
+    "Returning {.val {NA}}"
+  ))
   return(NA)
 }

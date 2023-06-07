@@ -111,9 +111,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Ensure first is SpatVector
   if (!inherits(dots[[1]], "SpatVector")) {
     cli::cli_abort(paste(
-      "Object #1 in",
-      cli::col_blue("..."), "is not a",
-      cli::col_blue("SpatVector")
+      "Object 1 in {.arg ...} is not a {.cls SpatVector}"
     ))
   }
 
@@ -163,18 +161,14 @@ bind_spat_rows <- function(..., .id = NULL) {
     # If tibble convert (internally) to SpatVector
     # Rest as tibble
     if (!inherits(x, "data.frame")) {
-      cli::cli_abort(paste0(
-        cli::style_bold("In bind_spat_rows(): "),
-        "Object #", i, " in ", cli::col_blue("..."),
-        " is not a data.frame/tbl"
+      cli::cli_abort(paste(
+        "In {.fun tidyterra::bind_spat_rows}:",
+        "object ", i, " in {.arg ...} is not a {.cls data.frame}"
       ))
     }
 
-    cli::cli_alert_warning(paste0(
-      cli::style_bold(
-        "Object #", i, " in ", cli::col_blue("..."),
-        " is a data.frame/tbl."
-      ),
+    cli::cli_alert_warning(paste(
+      "Object ", i, " in {.arg ...} is {.cls {class(x)}}",
       cli::col_grey("\nThe result would present empty geoms")
     ))
 
@@ -208,12 +202,9 @@ bind_spat_rows <- function(..., .id = NULL) {
 crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
     cli::cli_alert_warning(
-      paste0(
-        cli::style_bold("Reprojecting object #", index),
-        cli::col_grey(
-          "\nObject #", index, " in ", cli::col_blue("..."),
-          " doesn't have the same CRS than object #1"
-        )
+      paste(
+        "Reprojecting object", index, "in {.arg ...} since it",
+        " doesn't have the same CRS than object 1"
       )
     )
   }

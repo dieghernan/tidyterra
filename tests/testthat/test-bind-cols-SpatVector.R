@@ -15,14 +15,14 @@ test_that("bind_spat_cols() repairs names", {
 
   expect_s4_class(bound, "SpatVector")
 
-  expect_message(
+  expect_snapshot(
     repaired <- tibble::as_tibble(
       data.frame(
         a = 1, b = 2, a = 1, b = 2,
         check.names = FALSE
       ),
       .name_repair = "unique"
-    ), "New names"
+    )
   )
 
   expect_identical(names(bound), names(repaired))
@@ -34,7 +34,7 @@ test_that("bind_spat_cols() honours .name_repair=", {
   aa <- bind_spat_cols(aa, data.frame(a = 1))
 
 
-  expect_message(res <- bind_spat_cols(
+  expect_snapshot(res <- bind_spat_cols(
     aa, data.frame(a = 2)
   ))
   expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))

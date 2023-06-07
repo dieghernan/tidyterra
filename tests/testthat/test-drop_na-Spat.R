@@ -50,7 +50,7 @@ test_that("Return empty geom when no results", {
 
   v <- terra::vect(f)
   v$cpro <- NA
-  expect_message(empty <- drop_na(v), "All geometries dropped")
+  expect_snapshot(empty <- drop_na(v))
 
   expect_equal(ncol(empty), 0)
   expect_equal(nrow(empty), 1)
@@ -62,7 +62,7 @@ test_that("Return empty geom when no results", {
   # Does not preserve crs if not provided
   nocrs <- v
   terra::crs(nocrs) <- NA
-  expect_message(emptycrs <- drop_na(nocrs), "All geometries dropped")
+  expect_snapshot(emptycrs <- drop_na(nocrs))
 
   expect_identical(
     as.data.frame(emptycrs, geom = "WKT"),
@@ -90,8 +90,8 @@ test_that("Drop na with SpatRaster", {
 
 
 
-  expect_message(compare_spatrasters(r, all))
-  expect_false(compare_spatrasters(r, all))
+  expect_snapshot(res <- compare_spatrasters(r, all))
+  expect_false(res)
   expect_equal(
     nrow(tidyr::drop_na(tbl)),
     terra::ncell(all)
