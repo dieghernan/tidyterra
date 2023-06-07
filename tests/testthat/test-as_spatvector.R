@@ -4,10 +4,11 @@ test_that("Error check", {
     y = 1:10
   )
 
-  expect_error(as_spatvector(as_tbl))
-  expect_error(as_spatvector(as_tbl, geom = NA))
-  expect_error(as_spatvector(as_tbl, geom = c("a", "b", "c")))
-  expect_error(as_spatvector(as_tbl, geom = 1))
+  expect_snapshot(as_spatvector(as_tbl), error = TRUE)
+  expect_snapshot(as_spatvector(as_tbl, geom = NA), error = TRUE)
+  expect_snapshot(as_spatvector(as_tbl, geom = c("a", "b", "c")), error = TRUE)
+  expect_snapshot(as_spatvector(as_tbl, geom = 1), error = TRUE)
+  # Not cli error, this is thrown due to no method for this
   expect_error(as_spatvector(as.matrix(as_tbl)))
 
   expect_silent(as_spatvector(as_tbl, geom = c("x", "y"), crs = "EPSG:4326"))

@@ -5,6 +5,7 @@
 #' @importFrom rlang .data
 #' @importFrom grDevices terrain.colors rgb col2rgb
 #' @importFrom tibble as_tibble
+#' @importFrom cli qty
 NULL
 
 #' @export

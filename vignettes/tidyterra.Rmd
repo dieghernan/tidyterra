@@ -220,7 +220,10 @@ ggplot() +
   )
 ```
 
+<div class="figure">
 <img src="./terraplots-1.png" alt="plot of chunk terraplots" width="100%" />
+<p class="caption">plot of chunk terraplots</p>
+</div>
 
 ```r
 
@@ -238,7 +241,10 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
+<div class="figure">
 <img src="./terraplots-2.png" alt="plot of chunk terraplots" width="100%" />
+<p class="caption">plot of chunk terraplots</p>
+</div>
 
 ```r
 
@@ -251,7 +257,10 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
+<div class="figure">
 <img src="./terraplots-3.png" alt="plot of chunk terraplots" width="100%" />
+<p class="caption">plot of chunk terraplots</p>
+</div>
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
@@ -274,7 +283,10 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
+<div class="figure">
 <img src="./rgb-1.png" alt="plot of chunk rgb" width="100%" />
+<p class="caption">plot of chunk rgb</p>
+</div>
 
 ```r
 # Change CRS automatically
@@ -283,7 +295,10 @@ rgb_plot +
   coord_sf(crs = 3857)
 ```
 
+<div class="figure">
 <img src="./rgb-2.png" alt="plot of chunk rgb" width="100%" />
+<p class="caption">plot of chunk rgb</p>
+</div>
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
@@ -323,7 +338,10 @@ ggplot() +
   theme(legend.position = "bottom")
 ```
 
+<div class="figure">
 <img src="./hypso-1.png" alt="plot of chunk hypso" width="100%" />
+<p class="caption">plot of chunk hypso</p>
+</div>
 
 ### SpatVectors
 
@@ -343,7 +361,10 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
+<div class="figure">
 <img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%" />
+<p class="caption">plot of chunk lux_ggplot</p>
+</div>
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` and use `ggplot2::geom_sf()` as an endpoint for
@@ -370,7 +391,10 @@ v_lux %>%
   coord_sf(crs = 3857)
 ```
 
+<div class="figure">
 <img src="./aggregate-1.png" alt="plot of chunk aggregate" width="100%" />
+<p class="caption">plot of chunk aggregate</p>
+</div>
 
 ```r
 
@@ -393,4 +417,7 @@ v_lux %>%
   coord_sf(crs = 3857)
 ```
 
+<div class="figure">
 <img src="./aggregate-2.png" alt="plot of chunk aggregate" width="100%" />
+<p class="caption">plot of chunk aggregate</p>
+</div>
