@@ -228,7 +228,7 @@ element with a message.</p></li>
 <span class="r-in"><span><span class="va">sfobj_3857</span> <span class="op">&lt;-</span> <span class="fu"><a href="as_spatvector.html">as_spatvector</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:3857"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj_3857</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` since it  doesn't have the same CRS than object <span style="color: #00BB00;">1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 2, 3  (geometries, attributes)</span>
@@ -242,7 +242,7 @@ element with a message.</p></li>
 <span class="r-in"><span><span class="co"># And with data frames with a message</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj</span>, <span class="va">mtcars</span>, .id <span class="op">=</span> <span class="st">"id2"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object  3  in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result would present empty geoms</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
@@ -279,7 +279,7 @@ element with a message.</p></li>
 <span class="r-in"><span>  SpatVector <span class="op">=</span> <span class="va">v1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, sf <span class="op">=</span> <span class="va">sfobj</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>,</span></span>
 <span class="r-in"><span>  mtcars <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">)</span>, .id <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object  3  in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result would present empty geoms</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
