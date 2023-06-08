@@ -14,15 +14,15 @@ test_that("geom_spatraster several layer with CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster())
-  expect_error(ggplot() +
-    geom_spatraster(data = v), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = 1:3), error = TRUE)
 
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
-  expect_warning(ggplot_build(s), regexp = "SpatRasters with crs must be")
+  expect_snapshot(end <- ggplot_build(s))
 
   # test with vdiffr
   skip_on_cran()
@@ -34,9 +34,7 @@ test_that("geom_spatraster several layer with CRS", {
   p <- ggplot() +
     geom_spatraster(data = r)
 
-  expect_message(ggplot2::ggplot_build(p),
-    regexp = "Use facet_wrap"
-  )
+  expect_snapshot(end <- ggplot2::ggplot_build(p))
 
 
   vdiffr::expect_doppelganger("crs_01a: regular no facet", p)
@@ -99,16 +97,12 @@ test_that("geom_spatraster several layer with CRS", {
 
   r_mix1 <- r %>% mutate(char = paste("c_", round(tavg_05)))
 
-  expect_message(
-    ggplot() +
+  expect_snapshot(
+    p_mix1 <- ggplot() +
       geom_spatraster(data = r_mix1) +
-      facet_wrap(~lyr),
-    "Mixed data classes"
+      facet_wrap(~lyr) +
+      scale_fill_terrain_c()
   )
-  p_mix1 <- ggplot() +
-    geom_spatraster(data = r_mix1) +
-    facet_wrap(~lyr) +
-    scale_fill_terrain_c()
 
   vdiffr::expect_doppelganger("crs_06b: Mixed with nums", p_mix1)
 
@@ -119,37 +113,29 @@ test_that("geom_spatraster several layer with CRS", {
     mutate(char2 = paste("c_", round(tavg_06))) %>%
     select(char, char2, tavg_04)
 
-  expect_message(
-    ggplot() +
+  expect_snapshot(
+    p_mix2 <- ggplot() +
       geom_spatraster(data = r_mix2) +
-      facet_wrap(~lyr),
-    "Mixed data classes"
+      facet_wrap(~lyr) +
+      scale_fill_terrain_d()
   )
-  p_mix2 <- ggplot() +
-    geom_spatraster(data = r_mix2) +
-    facet_wrap(~lyr) +
-    scale_fill_terrain_d()
-
   vdiffr::expect_doppelganger("crs_06c: Mixed with chars", p_mix2)
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
-
-  p_res <- ggplot() +
+  expect_snapshot(p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20) +
-    facet_wrap(~lyr)
+    facet_wrap(~lyr))
 
 
   vdiffr::expect_doppelganger("crs_07: resampled", p_res)
 
   # Resampling and interpolating
-
-  p_res_int <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20, interpolate = TRUE) +
-    facet_wrap(~lyr)
-
+  expect_snapshot(
+    p_res_int <- ggplot() +
+      geom_spatraster(data = r, maxcell = 20, interpolate = TRUE) +
+      facet_wrap(~lyr)
+  )
 
   vdiffr::expect_doppelganger("crs_08: resampled interpolated", p_res_int)
 
@@ -233,11 +219,6 @@ test_that("geom_spatraster several layer with no CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster())
-  expect_error(ggplot() +
-    geom_spatraster(data = v), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
-
   s <- ggplot() +
     geom_spatraster(data = r) +
     facet_wrap(~lyr) +
@@ -254,10 +235,7 @@ test_that("geom_spatraster several layer with no CRS", {
   p <- ggplot() +
     geom_spatraster(data = r)
 
-  expect_message(ggplot2::ggplot_build(p),
-    regexp = "Use facet_wrap"
-  )
-
+  expect_snapshot(expect_message(ggplot2::ggplot_build(p)))
 
   vdiffr::expect_doppelganger("nocrs_01a: regular no facet", p)
 
@@ -326,17 +304,10 @@ test_that("geom_spatraster several layer with no CRS", {
 
   r_mix1 <- r %>% mutate(char = paste("c_", round(tavg_05)))
 
-  expect_message(
-    ggplot() +
-      geom_spatraster(data = r_mix1) +
-      facet_wrap(~lyr),
-    "Mixed data classes"
-  )
-  p_mix1 <- ggplot() +
+  expect_snapshot(p_mix1 <- ggplot() +
     geom_spatraster(data = r_mix1) +
     facet_wrap(~lyr) +
-    scale_fill_terrain_c()
-
+    scale_fill_terrain_c())
   vdiffr::expect_doppelganger("nocrs_06b: Mixed with nums", p_mix1)
 
 
@@ -346,27 +317,20 @@ test_that("geom_spatraster several layer with no CRS", {
     mutate(char2 = paste("c_", round(tavg_06))) %>%
     select(char, char2, tavg_04)
 
-  expect_message(
-    ggplot() +
-      geom_spatraster(data = r_mix2) +
-      facet_wrap(~lyr),
-    "Mixed data classes"
-  )
-  p_mix2 <- ggplot() +
+  expect_snapshot(p_mix2 <- ggplot() +
     geom_spatraster(data = r_mix2) +
     facet_wrap(~lyr) +
-    scale_fill_terrain_d()
-
+    scale_fill_terrain_d())
   vdiffr::expect_doppelganger("nocrs_06c: Mixed with chars", p_mix2)
 
   # Resampling
 
   expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
+    geom_spatraster(data = r, maxcell = 20))
 
-  p_res <- ggplot() +
+  expect_snapshot(p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20) +
-    facet_wrap(~lyr)
+    facet_wrap(~lyr))
 
 
   vdiffr::expect_doppelganger("nocrs_07: resampled", p_res)

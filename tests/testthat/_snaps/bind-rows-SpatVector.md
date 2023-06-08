@@ -3,7 +3,7 @@
     Code
       gg <- bind_spat_rows(df2, df_init)
     Message <cliMessage>
-      ! Object  2  in `...` is <data.frame> 
+      ! Object 2 in `...` is <data.frame> 
       The result would present empty geoms
 
 # bind_spat_rows respects named rowwise
@@ -11,7 +11,7 @@
     Code
       gg <- bind_spat_rows(df2, df_init)
     Message <cliMessage>
-      ! Object  2  in `...` is <data.frame> 
+      ! Object 2 in `...` is <data.frame> 
       The result would present empty geoms
 
 # bind_spat_rows() give informative errors
@@ -70,7 +70,7 @@
       df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
       (expect_message(vend3 <- bind_spat_rows(v1, v2_sf, df1)))
     Message <cliMessage>
-      ! Object  3  in `...` is <data.frame> 
+      ! Object 3 in `...` is <data.frame> 
       The result would present empty geoms
     Output
       <cliMessage: ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1

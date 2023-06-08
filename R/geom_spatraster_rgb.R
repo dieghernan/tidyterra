@@ -94,10 +94,11 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 max_col_value = 255,
                                 ...) {
   if (!inherits(data, "SpatRaster")) {
-    stop(
-      "geom_spatraster() only works with SpatRaster objects. ",
-      "See ?terra::vect"
-    )
+    cli::cli_abort(paste(
+      "{.fun tidyterra::geom_spatraster_rgb} only works with",
+      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
+      "See {.help terra::vect}"
+    ))
   }
 
   layers_order <- as.integer(c(r, g, b))

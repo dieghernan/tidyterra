@@ -13,14 +13,14 @@ test_that("geom_spatraster one layer with CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster())
-  expect_error(ggplot() +
-    geom_spatraster(data = v), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = 1:3), error = TRUE)
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
-  expect_warning(ggplot_build(s), regexp = "SpatRasters with crs must be")
+  expect_warning(ggplot_build(s), regexp = "must be used with")
 
 
 
@@ -77,19 +77,16 @@ test_that("geom_spatraster one layer with CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
-
-  p_res <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20)
+  expect_snapshot(p_res <- ggplot() +
+    geom_spatraster(data = r, maxcell = 20))
 
 
   vdiffr::expect_doppelganger("crs_07: resampled", p_res)
 
   # Resampling and interpolating
 
-  p_res_int <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
+  expect_snapshot(p_res_int <- ggplot() +
+    geom_spatraster(data = r, maxcell = 20, interpolate = TRUE))
 
 
   vdiffr::expect_doppelganger("crs_08: resampled interpolated", p_res_int)
@@ -163,10 +160,6 @@ test_that("geom_spatraster one layer without CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster())
-  expect_error(ggplot() +
-    geom_spatraster(data = v), regexp = "only works with SpatRaster")
-  expect_error(ggplot() +
-    geom_spatraster(data = 1:3), regexp = "only works with SpatRaster")
 
   # Can use other scales
   s <- ggplot() +
@@ -236,19 +229,16 @@ test_that("geom_spatraster one layer without CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
-
-  p_res <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20)
+  expect_snapshot(p_res <- ggplot() +
+    geom_spatraster(data = r, maxcell = 20))
 
 
   vdiffr::expect_doppelganger("nocrs_07: resampled", p_res)
 
   # Resampling and interpolating
 
-  p_res_int <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
+  expect_snapshot(p_res_int <- ggplot() +
+    geom_spatraster(data = r, maxcell = 20, interpolate = TRUE))
 
 
   vdiffr::expect_doppelganger("nocrs_08: resampled interpolated", p_res_int)
