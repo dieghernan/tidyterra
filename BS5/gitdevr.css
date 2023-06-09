@@ -1,0 +1,102 @@
+/* ---Images and captions figure spacing--- */
+main img {
+	max-width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.caption {
+	color: #6A788A;
+	max-width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0.5rem;
+	font-size: 90%;
+}
+/* ---Navbar tweaks--- */
+.navbar {
+	font-family: 'Inter Tight', Roboto;
+}
+.navbar-brand {
+	font-weight: 800;
+}
+#navbar {
+	font-weight: 800;
+}
+#navbar .dropdown-menu {
+	background-color: #212529 !important;
+}
+#navbar .dropdown-menu .dropdown-item {
+	color: #fff !important;
+	font-weight: 800;
+}
+#navbar .dropdown-menu .dropdown-item:hover,#navbar .dropdown-menu .dropdown-item:focus {
+	color: #6A788A !important;
+	background-color: #f8f9fa;
+}
+/* ---Footer--- */
+footer {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	background-color: #212529 !important;
+	color: #8b949e;
+	margin-bottom: 0;
+	font-family: 'Inter Tight', Roboto;
+	font-weight: 700;
+}
+footer a {
+	color: #58a6ff;
+	text-decoration: none;
+}
+footer a:hover,footer a:focus {
+	color: #8b949e;
+}
+footer .pkgdown-footer-right {
+	margin-right: auto;
+	padding-right: 1.25rem;
+}
+footer .pkgdown-footer-left {
+	margin-left: auto;
+	padding-left: 1.25rem;
+}
+@media screen and (max-width: 576px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		margin-right: .75rem;
+		margin-left: .75rem;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}
+@media (max-width:768px) and (min-width:576px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		max-width: 270px;
+	}
+}
+@media (max-width: 992px) and (min-width:768px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		max-width: 360px;
+	}
+}
+@media (max-width: 1200px) and (min-width:992px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		max-width: 480px;
+	}
+}
+@media (max-width: 1400px) and (min-width:1200px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		max-width: 570px;
+	}
+}
+@media (min-width:1400px) {
+	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
+		max-width: 660px;
+	}
+}
+/* ---Misc--- */
+blockquote {
+	border-left: solid #0969da !important;
+	font-size: 115%;
+}

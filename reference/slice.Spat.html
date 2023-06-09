@@ -16,7 +16,7 @@ of a SpatRaster.
 
 You can get a skeleton of your SpatRaster with the cell, column and row
 index with as_coordinates().
-See Methods for details."><title>Subset cells/rows/columns/geometries using their positions — slice.Spat • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><link href="../deps/Roboto_Mono-0.4.5/font.css" rel="stylesheet"><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet"><meta property="og:title" content="Subset cells/rows/columns/geometries using their positions — slice.Spat"><meta property="og:description" content="slice() lets you index cells/rows/columns/geometries by their (integer)
+See Methods for details."><title>Subset cells/rows/columns/geometries using their positions — slice.Spat • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Subset cells/rows/columns/geometries using their positions — slice.Spat"><meta property="og:description" content="slice() lets you index cells/rows/columns/geometries by their (integer)
 locations. It allows you to select, remove, and duplicate those dimensions
 of a Spat* object.
 If you want to slice your SpatRaster by geographic coordinates use
@@ -42,15 +42,15 @@ See Methods for details."><meta property="og:image" content="https://dieghernan.
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -250,9 +250,9 @@ rows; <code>prop = -0.25</code> with 8 rows will select 8 * (1 - 0.25) = 6 rows.
 
 
 <dt>order_by</dt>
-<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Variable or function
-of variables to order by. To order by multiple variables, wrap them in a
-data frame or tibble.</p></dd>
+<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Variable or
+function of variables to order by. To order by multiple variables, wrap
+them in a data frame or tibble.</p></dd>
 
 
 <dt>with_ties</dt>
@@ -274,9 +274,9 @@ reach <code>n</code>/<code>prop</code>.</p></dd>
 
 
 <dt>weight_by</dt>
-<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Sampling weights.
-This must evaluate to a vector of non-negative numbers the same length as
-the input. Weights are automatically standardised to sum to 1.</p></dd>
+<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Sampling
+weights. This must evaluate to a vector of non-negative numbers the same
+length as the input. Weights are automatically standardised to sum to 1.</p></dd>
 
 
 <dt>replace</dt>
@@ -374,7 +374,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/terra/" class="external-link">terra</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
@@ -418,6 +418,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [5° 44' 38.9045" E - 6° 31' 41.7076" E] , [49° 26' 52.1063" N - 50° 10' 53.8376" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_1   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3</span>
@@ -434,6 +437,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [5° 49' 34.4351" E - 6° 31' 41.7076" E] , [49° 32' 55.3281" N - 50° 10' 53.8376" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
@@ -448,6 +454,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [5° 44' 38.9045" E - 6° 30' 59.3468" E] , [49° 35' 13.1515" N - 50° 2' 10.7648" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
@@ -462,6 +471,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [5° 51' 7.4944" E - 6° 22' 54.1236" E] , [49° 27' 53.9456" N - 49° 59' 2.981" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
@@ -476,6 +488,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [5° 48' 37.7353" E - 6° 30' 59.3468" E] , [49° 26' 52.1063" N - 50° 10' 53.8376" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groups: NAME_1 [3]</span>
@@ -498,7 +513,8 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p></p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> using the <a href="https://dieghernan.github.io/gitdevr/" class="external-link">gitdevr</a> template.</p>
 </div>
 
     </footer></div>
