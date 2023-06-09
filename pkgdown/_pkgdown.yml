@@ -115,3 +115,7 @@ reference:
 - title: "About the package"
   contents:
     - tidyterra-package
+
+authors:
+  Diego Hernangómez:
+    href: https://dieghernan.github.io/
