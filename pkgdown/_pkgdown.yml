@@ -50,7 +50,7 @@ template:
       creator: '@dhernangomez'
       card: summary_large_image
  
- reference:
+reference:
 - title: "tibble methods"
   desc:  Methods from {tibble} implemented for Spat* objects.
   contents:
