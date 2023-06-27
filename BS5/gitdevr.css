@@ -106,4 +106,43 @@ code a:any-link {
 
 a>code {
   text-decoration: underline;
+  color: #e83e8c;
 }
+/* --- Code --- */
+code {
+font-size: 87.5%;
+    color: #e83e8c;
+    word-wrap: break-word;
+}
+
+/* --- Highlighter based in perldoc --- */
+pre code         /* Normal         */ {color:#212529}
+pre code span.al /* Alert          */ {color:#aa0000}
+pre code span.an /* Annotation     */ {color:#228B22}
+pre code span.at /* Attribute      */ {color:#658b00}
+pre code span.bn /* BaseN          */ {color:#00688B}
+pre code span.bu /* BuiltIn        */ {color:#658b00}
+pre code span.cf /* ControlFlow    */ {color:#8B008B}
+pre code span.ch /* Char           */ {color:#008080}
+pre code span.cn /* Constant       */ {color:#00688B}
+pre code span.co /* Comment        */ {color:#228B22}
+pre code span.cv /* CommentVar     */ {color:#228B22}
+pre code span.do /* Documentation  */ {color:#228B22}
+pre code span.dt /* DataType       */ {color:#008080}
+pre code span.dv /* DecVal         */ {color:#B452CD}
+pre code span.er /* Error          */ {color:#a61717; background-color: #e3d2d2}
+pre code span.ex /* Extension      */ {color:#008080}
+pre code span.fl /* Float          */ {color:#B452CD}
+pre code span.fu /* Function       */ {color:#008b45}
+pre code span.im /* Import         */ {color:#008080}
+pre code span.in /* Information    */ {color:#228B22}
+pre code span.kw /* Keyword        */ {color:#8B008B}
+pre code span.op /* Operator       */ {color:#8B008B}
+pre code span.ot /* Other          */ {color:#1e889b}
+pre code span.pp /* Preprocessor   */ {color:#1e889b}
+pre code span.sc /* SpecialChar    */ {color:#008080}
+pre code span.ss /* SpecialString  */ {color:#008080}
+pre code span.st /* String         */ {color:#008080}
+pre code span.va /* Variable       */ {color:#00688B}
+pre code span.vs /* VerbatimString */ {color:#008080}
+pre code span.wa /* Warning        */ {color:#a61717;}
