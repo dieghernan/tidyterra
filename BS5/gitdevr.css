@@ -98,3 +98,8 @@ blockquote {
 	border-left: solid #0969da !important;
 	font-size: 115%;
 }
+
+code a:any-link {
+  text-decoration: underline;
+  text-decoration-color: #6c757d;
+}
