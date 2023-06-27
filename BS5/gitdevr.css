@@ -103,3 +103,7 @@ code a:any-link {
   text-decoration: underline;
   text-decoration-color: #6c757d;
 }
+
+a>code {
+  text-decoration: underline;
+}
