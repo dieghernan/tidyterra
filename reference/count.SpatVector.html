@@ -24,7 +24,7 @@ to df %&amp;gt;% summarise(n = n())."><meta property="og:image" content="https:/
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,8 +121,7 @@ to <code>df %&gt;% summarise(n = n())</code>.</p>
 
 
 <dt>...</dt>
-<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Variables to group
-by.</p></dd>
+<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_data_masking.html" class="external-link">data-masking</a></code>&gt; Variables to group by.</p></dd>
 
 
 <dt>wt</dt>
@@ -141,12 +140,9 @@ it will use <code>nn</code>. If there's a column called <code>n</code> and <code
 
 
 <dt>.drop</dt>
-<dd><p>Handling of factor levels that don't appear in the data, passed
-on to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>.</p>
-<p>For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code>: if <code>FALSE</code> will include counts for empty groups (i.e. for
-levels of factors that don't exist in the data).</p>
-<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a> For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code>: deprecated since it
-can't actually affect the output.</p></dd>
+<dd><p>For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code>: if <code>FALSE</code> will include counts for empty groups
+(i.e. for levels of factors that don't exist in the data). Deprecated in
+<code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code> since it didn't actually affect the output.</p></dd>
 
 
 <dt>.dissolve</dt>

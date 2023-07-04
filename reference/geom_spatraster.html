@@ -28,7 +28,7 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,6 @@ can be modified.</p>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
-<span>  use_coltab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -173,12 +172,6 @@ than combining with them.</p></dd>
 <dt>maxcell</dt>
 <dd><p>positive integer. Maximum number of cells to use for
 the plot.</p></dd>
-
-
-<dt>use_coltab</dt>
-<dd><p>Logical. Only applicable to SpatRasters that have a coltab
-(<code><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
-<code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
 <dt>...</dt>
