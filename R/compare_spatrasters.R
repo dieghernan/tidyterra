@@ -55,18 +55,9 @@
 #' compare_spatrasters(x, project(x, "epsg:3035"))
 compare_spatrasters <- function(x, y, digits = 6) {
   if (!all(inherits(x, "SpatRaster"), inherits(y, "SpatRaster"))) {
-    x_class <- as.character(class(x))
-    y_class <- as.character(class(y))
-
-
     cli::cli_abort(paste(
-      cli::style_bold("x"), "and",
-      cli::style_bold("y"),
-      "must be SpatRasters.",
-      cli::style_bold("x"), "is",
-      cli::col_blue(paste0("<", x_class, ">")), ",",
-      cli::style_bold("y"), "is",
-      cli::col_blue(paste0("<", y_class, ">."))
+      "{.arg x} and {.arg y} must be {.cls SpatRaster}s.",
+      "{.arg x} is {.cls {class(x)}}, {.arg y} is {.cls {class(y)}}"
     ))
   }
 
@@ -87,33 +78,27 @@ compare_spatrasters <- function(x, y, digits = 6) {
 
   # Results
   if (!all(equal_crs, equal_ext, equal_res)) {
-    title <- cli::style_bold("Results of compare_spatrasters() (tidyterra)")
+    title <- "Results of {.fun tidyterra::compare_spatrasters}:"
 
     title <- paste(
       title,
       "\nThe following attributes are not equal:\n"
     )
+    cli::cli_alert_warning(title)
+
+    # Bullets
+    b <- vector(mode = "character")
+
     if (!equal_crs) {
-      title <- paste(
-        title, "  -",
-        cli::col_red("crs"), "\n"
-      )
+      b <- c(b, "*" = "crs")
     }
     if (!equal_ext) {
-      title <- paste(
-        title, "  -",
-        cli::col_red("extent"), "\n"
-      )
+      b <- c(b, "*" = "extent")
     }
     if (!equal_res) {
-      title <- paste(
-        title, "  -",
-        cli::col_red("resolution"), "\n"
-      )
+      b <- c(b, "*" = "resolution")
     }
-
-
-    cli::cli_alert_warning(cli::col_black(title))
+    cli::cli_bullets(b)
 
     return(invisible(FALSE))
   }

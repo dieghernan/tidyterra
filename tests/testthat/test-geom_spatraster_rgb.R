@@ -1,13 +1,12 @@
 test_that("geom_spatraster_rgb with CRS", {
   suppressWarnings(library(ggplot2))
-  suppressWarnings(library(terra))
 
   #  Import also vector
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-  r <- rast(f)
+  r <- terra::rast(f)
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- vect(f_v)
+  v <- terra::vect(f_v)
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
@@ -15,15 +14,15 @@ test_that("geom_spatraster_rgb with CRS", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_rgb())
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
 
   # Check with less layers
@@ -31,8 +30,12 @@ test_that("geom_spatraster_rgb with CRS", {
   r_subset <- terra::subset(r, 1:2)
 
 
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
+  expect_snapshot(ggplot() +
+    geom_spatraster_rgb(data = r_subset), error = TRUE)
+
+  expect_snapshot(ggplot() +
+    geom_spatraster_rgb(data = r_subset %>%
+      select(1)), error = TRUE)
 
   # Test color table
 
@@ -70,17 +73,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # Resampling
 
-  expect_message(
-    ggplot() +
+  expect_snapshot(
+    p_res <- ggplot() +
       geom_spatraster_rgb(
         data = r,
         maxcell = 20
-      ),
-    regexp = "resampled"
+      )
   )
-
-  p_res <- ggplot() +
-    geom_spatraster_rgb(data = r, maxcell = 20)
 
 
   vdiffr::expect_doppelganger("crs_03: resampled", p_res)
@@ -88,12 +87,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # Resampling and interpolating
 
-  p_res_int <- ggplot() +
-    geom_spatraster_rgb(
-      data = r, maxcell = 20,
-      interpolate = TRUE
-    )
-
+  expect_snapshot(
+    p_res_int <- ggplot() +
+      geom_spatraster_rgb(
+        data = r, maxcell = 20,
+        interpolate = TRUE
+      )
+  )
 
   vdiffr::expect_doppelganger("crs_04: resampled interpolated", p_res_int)
 
@@ -131,14 +131,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
 test_that("geom_spatraster_rgb with CRS masked", {
   suppressWarnings(library(ggplot2))
-  suppressWarnings(library(terra))
 
   #  Import also vector
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-  r <- rast(f)
+  r <- terra::rast(f)
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- vect(f_v)
+  v <- terra::vect(f_v)
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
@@ -146,27 +145,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
   v2 <- terra::project(v, pull_crs(r))
   r <- terra::mask(r, v2)
 
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
-
-  # Check with less layers
-
-  r_subset <- terra::subset(r, 1:2)
-
-
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
 
   # Test color table
 
@@ -285,20 +263,6 @@ test_that("geom_spatraster_rgb with no CRS", {
   raster_crs <- pull_crs(r)
 
   terra::crs(r) <- NA
-
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
 
   # Check with less layers
 
@@ -436,20 +400,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   raster_crs <- pull_crs(r)
 
   terra::crs(r) <- NA
-
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
 
   # Check with less layers
 

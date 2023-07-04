@@ -167,7 +167,9 @@ group_prepare_spat <- function(x, template) {
   # template is not df
   # Gives an error
   # nocov start
-  if (!inherits(template, "data.frame")) stop("Using bad grouping template")
+  if (!inherits(template, "data.frame")) {
+    cli::cli_abort("Using bad grouping template")
+  }
   # nocov end
 
   if (dplyr::is_grouped_df(template)) {

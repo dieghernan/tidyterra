@@ -66,9 +66,8 @@ is_regular_grid <- function(xy, digits = 6) {
   }
   if (q > 0) {
     cli::cli_abort(paste(
-      "x cell sizes are not regular. Try with a lower",
-      cli::col_blue("`digit`"),
-      "value."
+      "{.arg x} cell sizes are not regular.", "
+      Try with a lower {.arg digit} value."
     ))
   }
 
@@ -84,9 +83,8 @@ is_regular_grid <- function(xy, digits = 6) {
   }
   if (q > 0) {
     cli::cli_abort(paste(
-      "y cell sizes are not regular. Try with a lower",
-      cli::col_blue("`digit`"),
-      "value."
+      "{.arg y} cell sizes are not regular. Try with a lower",
+      "{.arg digit}", "value."
     ))
   }
 

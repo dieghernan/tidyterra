@@ -36,7 +36,10 @@
 #'
 as_coordinates <- function(x, as.raster = FALSE) {
   if (!inherits(x, "SpatRaster")) {
-    stop("as_coordinates() needs a SpatRaster object")
+    cli::cli_abort(paste(
+      "{.fun tidyterra::as_coordinates} needs a {.cls SpatRaster} object,",
+      "not a {.cls {class(x)}} object"
+    ))
   }
 
   # Create skeleton

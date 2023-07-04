@@ -1,4 +1,4 @@
-test_that("Test with cols", {
+test_that("Test SpatRaster", {
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -39,11 +39,14 @@ test_that("Test with cols", {
 
   # Force to no facets
 
+  forced <- r %>%
+    mutate(other = tavg_04 * 2) %>%
+    autoplot(ncol = 4, facets = FALSE)
+
+  expect_snapshot(b <- ggplot2::ggplot_build(forced))
   vdiffr::expect_doppelganger(
     "norgb_06: force no facets",
-    r %>%
-      mutate(other = tavg_04 * 2) %>%
-      autoplot(ncol = 4, facets = FALSE)
+    forced
   )
 
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
@@ -121,7 +124,7 @@ test_that("Test with cols", {
 })
 
 
-test_that("Test SpatVector", {
+test_that("test SpatVector", {
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -137,6 +140,9 @@ test_that("Test SpatVector", {
   vdiffr::expect_doppelganger("vector_02: aes", autoplot(v, aes(fill = iso2)))
 
   # Inherit aes
-  vdiffr::expect_doppelganger("vector_03: aes", autoplot(v, aes(fill = iso2)) +
-    geom_spatvector_label(aes(label = iso2)))
+  vdiffr::expect_doppelganger(
+    "vector_03: aes inherited",
+    autoplot(v, aes(fill = iso2)) +
+      geom_spatvector_label(aes(label = iso2))
+  )
 })

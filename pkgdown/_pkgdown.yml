@@ -44,12 +44,11 @@ navbar:
 template:
   package: gitdevr
   params:
-    ganalytics: G-KRDM62G8K4   
+    ganalytics: G-KRDM62G8K4
   opengraph:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
- 
 reference:
 - title: "tibble methods"
   desc:  Methods from {tibble} implemented for Spat* objects.

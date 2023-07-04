@@ -108,7 +108,7 @@ test_that("bind_spat_rows respects rowwise", {
   df2 <- rowwise(df2)
   expect_true(is_rowwise_spatvector(df2))
 
-  gg <- bind_spat_rows(df2, df_init)
+  expect_snapshot(gg <- bind_spat_rows(df2, df_init))
   expect_true(is_rowwise_spatvector(gg))
   expect_equal(group_size(gg), rep(1, nrow(gg)))
   expect_equal(group_vars(gg), character(0))
@@ -125,7 +125,7 @@ test_that("bind_spat_rows respects named rowwise", {
   df2 <- rowwise(df2, g)
   expect_true(is_rowwise_spatvector(df2))
 
-  gg <- bind_spat_rows(df2, df_init)
+  expect_snapshot(gg <- bind_spat_rows(df2, df_init))
   expect_true(is_rowwise_spatvector(gg))
   expect_equal(group_size(gg), rep(1, nrow(gg)))
   expect_equal(group_vars(gg), "g")

@@ -12,20 +12,20 @@ test_that("Errors and messages", {
   # Errors
   expect_error(ggplot(r) +
     geom_spatraster_contour_filled())
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = v),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = 1:3),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = r, aes(z = noexist)),
-    regexp = "Layer noexist not found"
+    error = TRUE
   )
   s <- ggplot() +
     geom_spatraster_contour_filled(data = r) +
@@ -38,6 +38,7 @@ test_that("Errors and messages", {
       data = r,
       breaks = c(0, 1)
     )
+  expect_snapshot(end <- ggplot_build(ff), error = TRUE)
 })
 
 
@@ -66,6 +67,10 @@ test_that("Test plot", {
   vdiffr::expect_doppelganger("02-projected", p + coord_sf(crs = 3857))
 
   # Faceted
+  # If not throw message
+  aa <- ggplot() +
+    geom_spatraster_contour_filled(data = r)
+  expect_snapshot(end <- ggplot_build(aa))
   p_facet <- ggplot() +
     geom_spatraster_contour_filled(data = r) +
     facet_wrap(~lyr)

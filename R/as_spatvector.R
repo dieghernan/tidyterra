@@ -74,17 +74,22 @@ as_spatvector <- function(x, ...) {
 #' @export
 as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (!length(geom) %in% c(1, 2)) {
-    stop("geom should be of lenght 1 or 2")
+    cli::cli_abort(paste(
+      "{.arg geom} should be of length {.val {as.integer(1)}} or",
+      "{.val {as.integer(2)}}, not {.val {length(geom)}}"
+    ))
   }
 
   if (!is.character(geom)) {
-    stop("geom should be of type <character>")
+    cli::cli_abort(paste(
+      "{.arg geom} should be a {.cls character}, not",
+      "{.cls {class(geom)}}"
+    ))
   }
 
   if (!all(geom %in% names(x))) {
-    stop(
-      paste0("Column(s) <", paste0(setdiff(geom, names(x)), collapse = ",")),
-      "> not found in x"
+    cli::cli_abort(
+      "Column{?s} {.var {setdiff(geom, names(x))}} not found in {.arg x}"
     )
   }
 
@@ -109,10 +114,9 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   tbl_end <- tidyr::drop_na(tbl, dplyr::all_of(geom))
 
   if (nrow(tbl) != nrow(tbl_end)) {
-    message(paste0(
-      "Removed ", nrow(tbl) - nrow(tbl_end),
-      " row(s) with empty geom column(s) <",
-      paste0(geom, collapse = ","), ">"
+    cli::cli_alert_warning(paste(
+      "Removed {nrow(tbl) - nrow(tbl_end)} row{?s} with empty",
+      "{.arg geom}{qty({length(geom)})} column{?s} {.val {geom}}"
     ))
   }
 

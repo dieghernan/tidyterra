@@ -1,11 +1,11 @@
 test_that("Return NULL", {
   df <- data.frame(x = 1)
-  expect_message(res <- get_coltab_pal(df), "is not a SpatVector")
+  expect_snapshot(res <- get_coltab_pal(df))
   expect_null(res)
 
   r <- terra::rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
-  expect_message(res <- get_coltab_pal(r), "does not have a color table")
+  expect_snapshot(res <- get_coltab_pal(r))
   expect_null(res)
 })
 
@@ -99,7 +99,9 @@ test_that("Discrete scale color", {
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
-  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"), alpha = TRUE)))
+  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"),
+    alpha = TRUE
+  )))
   terra::coltab(r, layer = 1) <- coltb
 
   # Get levels
@@ -118,7 +120,7 @@ test_that("Discrete scale color", {
   init <- ggplot2::layer_data(p)$colour
 
   # On null do nothing
-  expect_message(pnull <- p + scale_color_coltab(data = terra::rast()))
+  expect_snapshot(pnull <- p + scale_color_coltab(data = terra::rast()))
   modnull <- ggplot2::layer_data(pnull)$colour
 
   expect_identical(init, modnull)
@@ -143,8 +145,8 @@ test_that("Discrete scale color", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_error(p + scale_color_coltab(data = r, alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_color_coltab(data = r, alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_color_coltab(data = r, alpha = 0.9)
@@ -159,7 +161,9 @@ test_that("Discrete scale fill", {
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
-  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"), alpha = TRUE)))
+  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"),
+    alpha = TRUE
+  )))
   terra::coltab(r, layer = 1) <- coltb
 
   # Get levels
@@ -175,7 +179,7 @@ test_that("Discrete scale fill", {
   init <- ggplot2::layer_data(p)$fill
 
   # On null do nothing
-  expect_message(pnull <- p + scale_fill_coltab(data = terra::rast()))
+  expect_snapshot(pnull <- p + scale_fill_coltab(data = terra::rast()))
   modnull <- ggplot2::layer_data(pnull)$fill
 
   expect_identical(init, modnull)
@@ -200,8 +204,8 @@ test_that("Discrete scale fill", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_error(p + scale_fill_coltab(data = r, alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_fill_coltab(data = r, alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_fill_coltab(data = r, alpha = 0.9)

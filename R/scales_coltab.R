@@ -69,7 +69,7 @@ scale_fill_coltab <- function(data, ..., alpha = 1,
   }
 
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
   getcols <- ggplot2::alpha(getcols, alpha = alpha)
   if (isTRUE(na.translate)) {
@@ -95,7 +95,7 @@ scale_colour_coltab <- function(data, ..., alpha = 1, na.translate = FALSE,
   }
 
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
   getcols <- ggplot2::alpha(getcols, alpha = alpha)
   if (isTRUE(na.translate)) {
@@ -123,8 +123,9 @@ get_coltab_pal <- function(x) {
   if (!inherits(x, "SpatRaster")) {
     cli::cli_alert_info(
       paste(
-        cli::col_blue("`x`"), "is not a SpatVector\nReturning",
-        cli::col_blue("`NULL`")
+        "{.fun tidyterra::get_coltab_pal} only works with",
+        "{.cls SpatRaster} objects, not {.cls {class(x)}}.",
+        "Returning {.field NULL}"
       )
     )
     return(NULL)
@@ -132,10 +133,7 @@ get_coltab_pal <- function(x) {
 
   if (!any(terra::has.colors(x))) {
     cli::cli_alert_info(
-      paste(
-        cli::col_blue("`x`"), "does not have a color table\nReturning",
-        cli::col_blue("`NULL`")
-      )
+      "{.arg x} does not have a color table. Returning {.field NULL}",
     )
     return(NULL)
   }

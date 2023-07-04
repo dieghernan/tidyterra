@@ -2,8 +2,8 @@ test_that("Error", {
   x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
 
   # Compare with other types
-  expect_error(compare_spatrasters(x, terra::crs(x)))
-  expect_error(compare_spatrasters(1, "a"))
+  expect_snapshot(compare_spatrasters(x, terra::crs(x)), error = TRUE)
+  expect_snapshot(compare_spatrasters(1, "a"), error = TRUE)
 })
 
 
@@ -20,8 +20,8 @@ test_that("Different crs", {
   y <- x
 
   terra::crs(y) <- NA
-  expect_message(compare_spatrasters(x, y))
-  expect_false(compare_spatrasters(x, y))
+  expect_snapshot(res <- compare_spatrasters(x, y))
+  expect_false(res)
 })
 
 
@@ -30,8 +30,8 @@ test_that("Different extent", {
   y <- x[1:5, , drop = FALSE]
 
 
-  expect_message(compare_spatrasters(x, y))
-  expect_false(compare_spatrasters(x, y))
+  expect_snapshot(res <- compare_spatrasters(x, y))
+  expect_false(res)
 })
 
 
@@ -41,8 +41,8 @@ test_that("Different resolution", {
 
   terra::res(y) <- terra::res(x) / 2
 
-  expect_message(compare_spatrasters(x, y))
-  expect_false(compare_spatrasters(x, y))
+  expect_snapshot(res <- compare_spatrasters(x, y))
+  expect_false(res)
 })
 
 
@@ -51,6 +51,6 @@ test_that("All different", {
   y <- terra::project(x, "epsg:3035")
 
 
-  expect_message(compare_spatrasters(x, y))
-  expect_false(compare_spatrasters(x, y))
+  expect_snapshot(res <- compare_spatrasters(x, y))
+  expect_false(res)
 })

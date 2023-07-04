@@ -69,31 +69,31 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method             | SpatVector                    | SpatRaster                                                                                     |
-|------------------------------|-------------------------------|------------------------------------------------------------------------------------------------|
-| `tibble::as_tibble()`        | ✔️                            | ✔️                                                                                             |
-| `dplyr::select()`            | ✔️                            | ✔️ Select layers                                                                               |
-| `dplyr::mutate()`            | ✔️                            | ✔️ Create /modify layers                                                                       |
-| `dplyr::transmute()`         | ✔️                            | ✔️                                                                                             |
-| `dplyr::filter()`            | ✔️                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
-| `dplyr::slice()`             | ✔️                            | ✔️ Additional methods for slicing by row and column.                                           |
-| `dplyr::pull()`              | ✔️                            | ✔️                                                                                             |
-| `dplyr::rename()`            | ✔️                            | ✔️                                                                                             |
-| `dplyr::relocate()`          | ✔️                            | ✔️                                                                                             |
-| `dplyr::distinct()`          | ✔️                            |                                                                                                |
-| `dplyr::arrange()`           | ✔️                            |                                                                                                |
-| `dplyr::glimpse()`           | ✔️                            | ✔️                                                                                             |
-| `dplyr::inner_join()` family | ✔️                            |                                                                                                |
-| `dplyr::summarise()`         | ✔️                            |                                                                                                |
-| `dplyr::group_by()` family   | ✔️                            |                                                                                                |
-| `dplyr::rowwise()`           | ✔️                            |                                                                                                |
-| `dplyr::count()`, `tally()`  | ✔️                            |                                                                                                |
+| tidyverse method                            | SpatVector                                    | SpatRaster                                                                                     |
+|------------------|------------------|---------------------------------------------|
+| `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
+| `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`                        | ✔️                                            | ✔️                                                                                             |
+| `dplyr::filter()`                           | ✔️                                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`                            | ✔️                                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`                             | ✔️                                            | ✔️                                                                                             |
+| `dplyr::rename()`                           | ✔️                                            | ✔️                                                                                             |
+| `dplyr::relocate()`                         | ✔️                                            | ✔️                                                                                             |
+| `dplyr::distinct()`                         | ✔️                                            |                                                                                                |
+| `dplyr::arrange()`                          | ✔️                                            |                                                                                                |
+| `dplyr::glimpse()`                          | ✔️                                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family                | ✔️                                            |                                                                                                |
+| `dplyr::summarise()`                        | ✔️                                            |                                                                                                |
+| `dplyr::group_by()` family                  | ✔️                                            |                                                                                                |
+| `dplyr::rowwise()`                          | ✔️                                            |                                                                                                |
+| `dplyr::count()`, `tally()`                 | ✔️                                            |                                                                                                |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
-| `tidyr::drop_na()`           | ✔️                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
-| `tidyr::replace_na()`        | ✔️                            | ✔️                                                                                             |
-| `ggplot2::autoplot()`        | ✔️                            | ✔️                                                                                             |
-| `ggplot2::fortify()`         | ✔️ to sf via `sf::st_as_sf()` | To a tibble with coordinates.                                                                  |
-| `ggplot2::geom_*()`          | ✔️ `geom_spatvector()`        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
+| `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |
+| `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
+| `ggplot2::fortify()`                        | ✔️ to sf via `sf::st_as_sf()`                 | To a tibble with coordinates.                                                                  |
+| `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 Let's see some of them in action:
 
@@ -220,11 +220,13 @@ ggplot() +
   )
 ```
 
-<img src="./terraplots-1.png" alt="plot of chunk terraplots" width="100%" />
+<div class="figure">
+<img src="./faceted-1.png" alt="A faceted SpatRaster" width="100%" />
+<p class="caption">A faceted SpatRaster</p>
+</div>
+
 
 ```r
-
-
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -238,11 +240,13 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-<img src="./terraplots-2.png" alt="plot of chunk terraplots" width="100%" />
+<div class="figure">
+<img src="./contourlines-1.png" alt="Contour lines plot for a SpatRaster" width="100%" />
+<p class="caption">Contour lines plot for a SpatRaster</p>
+</div>
+
 
 ```r
-
-
 # Contour filled
 
 ggplot() +
@@ -251,7 +255,10 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-<img src="./terraplots-3.png" alt="plot of chunk terraplots" width="100%" />
+<div class="figure">
+<img src="./contourfilled-1.png" alt="Contour filled plot for a SpatRaster" width="100%" />
+<p class="caption">Contour filled plot for a SpatRaster</p>
+</div>
 
 With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
 
@@ -274,7 +281,10 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-<img src="./rgb-1.png" alt="plot of chunk rgb" width="100%" />
+<div class="figure">
+<img src="./rgb-1.png" alt="Plotting a RGB SpatRaster" width="100%" />
+<p class="caption">Plotting a RGB SpatRaster</p>
+</div>
 
 ```r
 # Change CRS automatically
@@ -283,7 +293,10 @@ rgb_plot +
   coord_sf(crs = 3857)
 ```
 
-<img src="./rgb-2.png" alt="plot of chunk rgb" width="100%" />
+<div class="figure">
+<img src="./rgb-2.png" alt="Changing CRS of the RGB plot" width="100%" />
+<p class="caption">Changing CRS of the RGB plot</p>
+</div>
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
@@ -323,7 +336,10 @@ ggplot() +
   theme(legend.position = "bottom")
 ```
 
-<img src="./hypso-1.png" alt="plot of chunk hypso" width="100%" />
+<div class="figure">
+<img src="./hypso-1.png" alt="Hypsometric tints" width="100%" />
+<p class="caption">Hypsometric tints</p>
+</div>
 
 ### SpatVectors
 
@@ -343,7 +359,10 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-<img src="./lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%" />
+<div class="figure">
+<img src="./lux_ggplot-1.png" alt="Plotting SpatVectors" width="100%" />
+<p class="caption">Plotting SpatVectors</p>
+</div>
 
 The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` and use `ggplot2::geom_sf()` as an endpoint for
@@ -370,7 +389,10 @@ v_lux %>%
   coord_sf(crs = 3857)
 ```
 
-<img src="./aggregate-1.png" alt="plot of chunk aggregate" width="100%" />
+<div class="figure">
+<img src="./aggregate-1.png" alt="Union of SpatVectors" width="100%" />
+<p class="caption">Union of SpatVectors</p>
+</div>
 
 ```r
 
@@ -393,4 +415,7 @@ v_lux %>%
   coord_sf(crs = 3857)
 ```
 
-<img src="./aggregate-2.png" alt="plot of chunk aggregate" width="100%" />
+<div class="figure">
+<img src="./aggregate-2.png" alt="Union of SpatVector keeping the inner borders" width="100%" />
+<p class="caption">Union of SpatVector keeping the inner borders</p>
+</div>

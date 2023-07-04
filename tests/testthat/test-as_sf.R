@@ -1,7 +1,7 @@
 test_that("Only works with SpatVector", {
   r <- terra::rast(nrows = 180 / 4, ncols = 360 / 4)
   terra::values(r) <- seq_len(terra::ncell(r))
-  expect_error(as_sf(r))
+  expect_snapshot(as_sf(r), error = TRUE)
 
   # Would work with a SpatVector
 

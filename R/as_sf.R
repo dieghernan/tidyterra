@@ -53,8 +53,9 @@
 #' group_data(a_gr_sf)
 #'
 as_sf <- function(x, ...) {
-  if (!inherits(x, "SpatVector")) cli::cli_abort("x is not a SpatVector")
-
+  if (!inherits(x, "SpatVector")) {
+    cli::cli_abort("{.arg x} is a {.cls {class(x)}} not a {.cls SpatVector}")
+  }
   sfobj <- sf::st_as_sf(x, ...)
 
   if (is_grouped_spatvector(x)) {
