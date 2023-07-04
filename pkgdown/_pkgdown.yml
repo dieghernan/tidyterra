@@ -4,9 +4,6 @@ figures:
   dpi: 300
   fig.retina: 2
 
-development:
-  mode: auto
-
 navbar:
   structure:
     left:
@@ -52,7 +49,6 @@ template:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
-
 reference:
 - title: "tibble methods"
   desc:  Methods from {tibble} implemented for Spat* objects.
