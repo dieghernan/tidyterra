@@ -28,7 +28,7 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,7 +113,6 @@ can be modified.</p>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
-<span>  use_coltab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -173,12 +172,6 @@ than combining with them.</p></dd>
 <dt>maxcell</dt>
 <dd><p>positive integer. Maximum number of cells to use for
 the plot.</p></dd>
-
-
-<dt>use_coltab</dt>
-<dd><p>Logical. Only applicable to SpatRasters that have a coltab
-(<code><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
-<code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
 <dt>...</dt>
@@ -339,7 +332,7 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">no_crs</span>, maxcell <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">32</span> cells for plotting</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 32</span>
 <span class="r-plt img"><img src="geom_spatraster-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
@@ -360,7 +353,7 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">266</span> cells for plotting</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 266</span>
 <span class="r-plt img"><img src="geom_spatraster-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Using points and labels</span></span></span>
@@ -382,8 +375,8 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>    maxcell <span class="op">=</span> <span class="fl">20</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">2067</span> cells for plotting</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">24</span> cells for plotting</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 2067</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 24</span>
 <span class="r-plt img"><img src="geom_spatraster-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

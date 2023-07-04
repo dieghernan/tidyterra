@@ -26,7 +26,7 @@ realizing it."><meta property="og:image" content="https://dieghernan.github.io/t
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -118,8 +118,9 @@ length, then matched by position.</p></dd>
 
 
 <dt>.name_repair</dt>
-<dd><p>One of <code>"unique"</code>, <code>"universal"</code>, or <code>"check_unique"</code>.
-See <code><a href="https://dplyr.tidyverse.org/reference/bind_cols.html" class="external-link">dplyr::bind_cols()</a></code> for Details.</p></dd>
+<dd><p>One of <code>"unique"</code>, <code>"universal"</code>, or
+<code>"check_unique"</code>. See <code><a href="https://vctrs.r-lib.org/reference/vec_as_names.html" class="external-link">vctrs::vec_as_names()</a></code> for the meaning of these
+options.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -250,10 +251,6 @@ would be kept.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos 0.061     1.231       b</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   Leon 0.143      1.63       c</span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">end</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> CRS projection units: m</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 6</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO"…</span>
