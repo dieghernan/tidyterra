@@ -85,10 +85,12 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
                               na.translate = FALSE,
                               drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -109,10 +111,12 @@ scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
                                 na.translate = FALSE,
                                 drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -137,10 +141,12 @@ scale_color_wiki_d <- scale_colour_wiki_d
 scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- length(wiki_cols)
 
@@ -162,10 +168,12 @@ scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
 scale_colour_wiki_c <- function(..., alpha = 1, direction = 1,
                                 na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- length(wiki_cols)
 
@@ -192,10 +200,12 @@ scale_color_wiki_c <- scale_colour_wiki_c
 scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
                               na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- length(wiki_cols)
 
@@ -217,10 +227,12 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 scale_colour_wiki_b <- function(..., alpha = 1, direction = 1,
                                 na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- length(wiki_cols)
 

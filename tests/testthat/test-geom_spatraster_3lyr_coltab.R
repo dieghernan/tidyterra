@@ -43,9 +43,7 @@ test_that("geom_spatraster several layer with CRS", {
   p <- ggplot() +
     geom_spatraster(data = r)
 
-  expect_message(ggplot2::ggplot_build(p),
-    regexp = "Use facet_wrap"
-  )
+  expect_snapshot(pp <- ggplot2::ggplot_build(p))
 
 
   vdiffr::expect_doppelganger("crs_01a: regular no facet", p)
@@ -68,10 +66,10 @@ test_that("geom_spatraster several layer with CRS", {
 
 
   # Using a categorical
-  expect_message(p_cats <- ggplot() +
+  expect_snapshot(p_cats <- ggplot() +
     geom_spatraster(data = r) +
     facet_wrap(~lyr) +
-    scale_fill_terrain_d(), "Adding another scale")
+    scale_fill_terrain_d())
 
   vdiffr::expect_doppelganger("crs_03: categ w/scale disc", p_cats)
 
@@ -82,11 +80,10 @@ test_that("geom_spatraster several layer with CRS", {
 
   r_mix1 <- c(r, rnum)
 
-  expect_message(
+  expect_snapshot(
     pmix1 <- ggplot() +
       geom_spatraster(data = r_mix1) +
-      facet_wrap(~lyr),
-    "Mixed data classes"
+      facet_wrap(~lyr)
   )
 
   vdiffr::expect_doppelganger("crs_04: Mixed with nums", pmix1)
@@ -94,9 +91,9 @@ test_that("geom_spatraster several layer with CRS", {
 
   # Resampling
 
-  expect_message(p_res <- ggplot() +
+  expect_snapshot(p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20) +
-    facet_wrap(~lyr), regexp = "resampled")
+    facet_wrap(~lyr))
 
   vdiffr::expect_doppelganger("crs_05: resampled", p_res)
 

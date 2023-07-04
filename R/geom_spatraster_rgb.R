@@ -112,8 +112,8 @@ geom_spatraster_rgb <- function(mapping = aes(),
     layers_order[3] %in% nlyrs_data
   )) {
     cli::cli_abort(paste(
-      "Incorrect number of layers on r,g,b. data has",
-      terra::nlyr(data), "layer(s)."
+      "Incorrect number of layers on {.arg {c('r','g','b')}}. data has",
+      "{terra::nlyr(data)}", "layer{?s}."
     ))
   }
 
