@@ -8,8 +8,6 @@ development:
   mode: auto
 
 navbar:
-  type: dark
-  bg: primary
   structure:
     left:
       - intro
@@ -46,25 +44,13 @@ navbar:
       href: 'http://twitter.com/dhernangomez'
       aria-label: Twitter
 template:
-  bootstrap: 5
-  bslib:
-    primary: "#516a54"
-    code_font: {google: "Roboto Mono"}
+  package: gitdevr
+  params:
+    ganalytics: G-KRDM62G8K4
   opengraph:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
-  includes:
-      in_header: |
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-KRDM62G8K4');
-        </script>
 
 reference:
 - title: "tibble methods"
