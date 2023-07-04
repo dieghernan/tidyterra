@@ -25,7 +25,6 @@ jobs:
           extra-packages: |
             local::.
             any::pkgdown
-            any::metR
           needs: website
 
       - name: Deploy package
