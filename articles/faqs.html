@@ -45,7 +45,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -504,6 +504,92 @@ breaks in lon/lat even if your data is projected (¿?):</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Three breaks on y"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/breaks-2.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="plotting-spatrasters-with-color-tables">Plotting SpatRasters with color tables<a class="anchor" aria-label="anchor" href="#plotting-spatrasters-with-color-tables"></a>
+</h2>
+<p><strong>tidyterra</strong> has several ways to handle these
+SpatRasters:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Nowosad/spData" class="external-link">spDataLarge</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get a SpatRaster with coltab</span></span>
+<span><span class="va">r_coltab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"raster/nlcd.tif"</span>, package <span class="op">=</span> <span class="st">"spDataLarge"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">has.colors</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span></span>
+<span><span class="va">r_coltab</span></span>
+<span><span class="co">#&gt; class       : SpatRaster </span></span>
+<span><span class="co">#&gt; dimensions  : 1359, 1073, 1  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 31.5303, 31.52466  (x, y)</span></span>
+<span><span class="co">#&gt; extent      : 301903.3, 335735.4, 4111244, 4154086  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : NAD83 / UTM zone 12N (EPSG:26912) </span></span>
+<span><span class="co">#&gt; source      : nlcd.tif </span></span>
+<span><span class="co">#&gt; color table : 1 </span></span>
+<span><span class="co">#&gt; categories  : levels </span></span>
+<span><span class="co">#&gt; name        :   levels </span></span>
+<span><span class="co">#&gt; min value   :    Water </span></span>
+<span><span class="co">#&gt; max value   : Wetlands</span></span>
+<span></span>
+<span><span class="co"># Native handling by terra packages</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-1.png" width="100%"></p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span></span>
+<span><span class="co"># A. autoplot</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"autoplot method"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-2.png" width="100%"></p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># B. geom_spatraster</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"geom_spatraster method"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-3.png" width="100%"></p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># C. Using scale_fill_coltab</span></span>
+<span></span>
+<span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">g</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-4.png" width="100%"></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># But...</span></span>
+<span><span class="va">g</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_coltab method"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-5.png" width="100%"></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># D. Extract named colors and scale_fill_manual</span></span>
+<span></span>
+<span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale_coltab.html">get_coltab_pal</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cols</span></span>
+<span><span class="co">#&gt;         NA      Water  Developed     Barren     Forest  Shrubland Herbaceous </span></span>
+<span><span class="co">#&gt;  "#FFFFFF"  "#476BA0"  "#AA0000"  "#B2ADA3"  "#68AA63"  "#A58C30"  "#C9C977" </span></span>
+<span><span class="co">#&gt; Cultivated   Wetlands </span></span>
+<span><span class="co">#&gt;  "#DBD83D"  "#BAD8EA"</span></span>
+<span></span>
+<span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="va">cols</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-6.png" width="100%"></p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="co"># And now</span></span>
+<span></span>
+<span><span class="va">g</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/coltab-7.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
