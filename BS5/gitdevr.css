@@ -31,6 +31,9 @@ main img {
 	color: #6A788A !important;
 	background-color: #f8f9fa;
 }
+.navbar-toggler {
+	border:none
+}
 /* ---Footer--- */
 footer {
 	width: 100vw;
