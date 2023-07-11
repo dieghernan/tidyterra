@@ -24,3 +24,4 @@
 ^\.imgbotconfig$
 ^pkgdown\.yaml$
 ^pkgdown\.yml$
+^\.lintr$
