@@ -1,3 +1,4 @@
+/* https://www.cleancss.com/css-beautify/ */
 /* ---Images and captions figure spacing--- */
 main img {
 	margin-left: auto;
@@ -32,7 +33,7 @@ main img {
 	background-color: #f8f9fa;
 }
 .navbar-toggler {
-	border:none
+	border:none 
 }
 /* ---Footer--- */
 footer {
@@ -69,53 +70,60 @@ footer .pkgdown-footer-left {
 		margin-left: .75rem;
 		padding-left: 12px;
 		padding-right: 12px;
-	}
+   }
 }
 @media (max-width:768px) and (min-width:576px) {
 	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
 		max-width: 270px;
-	}
+   }
 }
 @media (max-width: 992px) and (min-width:768px) {
 	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
 		max-width: 360px;
-	}
+   }
 }
 @media (max-width: 1200px) and (min-width:992px) {
 	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
 		max-width: 480px;
-	}
+   }
 }
 @media (max-width: 1400px) and (min-width:1200px) {
 	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
 		max-width: 570px;
-	}
+   }
 }
 @media (min-width:1400px) {
 	footer .pkgdown-footer-right,footer .pkgdown-footer-left {
 		max-width: 660px;
-	}
+   }
 }
 /* ---Misc--- */
+img.logo {
+	display:none;
+}
+.template-home img.logo {
+	display:inline;
+}
 blockquote {
 	border-left: solid #0969da !important;
 	font-size: 115%;
 }
-
-code a:any-link {
-  text-decoration: underline;
-  text-decoration-color: #6c757d;
+.pkg {
+	font-weight: bold;
 }
-
+code a:any-link {
+	text-decoration: underline;
+	text-decoration-color: #6c757d;
+}
 a>code {
-  text-decoration: underline;
-  color: #e83e8c;
+	text-decoration: underline;
+	color: #e83e8c;
 }
 /* --- Code --- */
 code {
-font-size: 87.5%;
-    color: #e83e8c;
-    word-wrap: break-word;
+	font-size: 87.5%;
+	color: #e83e8c;
+	word-wrap: break-word;
 }
 
 /* --- Highlighter based in perldoc --- */
