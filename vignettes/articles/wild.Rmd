@@ -1,0 +1,9 @@
+---
+title: "tidyterra in the wild"
+bibliography: INPUBS.bib
+nocite: '@*'
+---
+
+**{tidyterra}** package has been used in the following publications:
+
+## Publications
