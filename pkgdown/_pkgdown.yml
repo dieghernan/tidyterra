@@ -43,7 +43,9 @@ navbar:
           href: 'https://mlr-org.com/gallery/technical/2023-02-27-land-cover-classification/index.html'
         - text: -------
         - text: Books
-        - text: 'A Handful of Pixels (Hufkens, K)'
+        - text: 'Moraga, Paula. (2023). Spatial Statistics for Data Science: Theory and Practice with R. Chapman & Hall/CRC.'
+          href: 'https://www.paulamoraga.com/book-spatial/'
+        - text: 'Hufkens, K. (2023). A Handful of Pixels, big science using small data. Online'
           href: 'https://khufkens.github.io/handful_of_pixels/'
     twitter:
       icon: fa-twitter
