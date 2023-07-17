@@ -307,7 +307,8 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3235.238KB",
+  "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
+  "fileSize": "3235.309KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -329,6 +330,5 @@
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/tidyterra/blob/main/README.md",
   "contIntegration": ["https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/tidyterra"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["ggplot-extension", "r-package", "r-spatial", "rspatial", "rstats", "rstats-package", "terra", "cran", "cran-r", "r"]
+  "developmentStatus": "https://www.repostatus.org/#active"
 }

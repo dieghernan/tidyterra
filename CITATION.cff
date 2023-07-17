@@ -42,16 +42,16 @@ contact:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 keywords:
-- cran
-- cran-r
-- ggplot-extension
 - r
-- r-package
+- terra
+- ggplot-extension
 - r-spatial
 - rspatial
+- cran
+- cran-r
+- r-package
 - rstats
 - rstats-package
-- terra
 references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
