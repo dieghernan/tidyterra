@@ -39,6 +39,12 @@ navbar:
           href: 'https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/'
         - text: Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)
           href: 'https://lugoga.github.io/semba-quarto/posts/gebco/'
+        - text: Spatial Data in the mlr3 Ecosystem (mlr-org.com/)
+          href: 'https://mlr-org.com/gallery/technical/2023-02-27-land-cover-classification/index.html'
+        - text: -------
+        - text: Books
+        - text: 'A Handful of Pixels (Hufkens, K)'
+          href: 'https://khufkens.github.io/handful_of_pixels/'
     twitter:
       icon: fa-twitter
       href: 'http://twitter.com/dhernangomez'
