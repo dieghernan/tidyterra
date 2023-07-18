@@ -293,7 +293,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of {tidyterra} like so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install {tidyterra} using the <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
@@ -431,20 +431,24 @@
 <p>This is a basic example which shows you how to manipulate and plot SpatVector objects:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>pop_dens <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pop_dens <span class="op">=</span> <span class="va">POP</span> <span class="op">/</span> <span class="va">AREA</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">pop_dens</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"pi_y_g"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    fill <span class="op">=</span> <span class="st">"population per km2"</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Population density of Luxembourg"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"By commune"</span></span>
+<span>    subtitle <span class="op">=</span> <span class="st">"By canton"</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="co">#&gt; Rows: 3</span></span>
-<span><span class="co">#&gt; Columns: 2</span></span>
-<span><span class="co">#&gt; $ NAME_1   &lt;chr&gt; "Diekirch", "Grevenmacher", "Luxembourg"</span></span>
-<span><span class="co">#&gt; $ pop_dens &lt;dbl&gt; 80.83865, 134.90133, 485.34879</span></span></code></pre></div>
+<span><span class="co">#&gt; Rows: 12</span></span>
+<span><span class="co">#&gt; Columns: 7</span></span>
+<span><span class="co">#&gt; $ ID_1     &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3</span></span>
+<span><span class="co">#&gt; $ NAME_1   &lt;chr&gt; "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…</span></span>
+<span><span class="co">#&gt; $ ID_2     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11</span></span>
+<span><span class="co">#&gt; $ NAME_2   &lt;chr&gt; "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echte…</span></span>
+<span><span class="co">#&gt; $ AREA     &lt;dbl&gt; 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233</span></span>
+<span><span class="co">#&gt; $ POP      &lt;int&gt; 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…</span></span>
+<span><span class="co">#&gt; $ pop_dens &lt;dbl&gt; 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%"></p>
 </div>
 </div>

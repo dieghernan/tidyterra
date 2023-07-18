@@ -443,7 +443,11 @@ adjusting the coordinates to other spatial layers:</p>
 <span>    palette <span class="op">=</span> <span class="st">"muted"</span>,</span>
 <span>    na.value <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="terraplots-1.png" alt="plot of chunk terraplots" width="100%"></p>
+<div class="figure">
+<img src="terraplots-1.png" alt="plot of chunk terraplots" width="100%"><p class="caption">
+plot of chunk terraplots
+</p>
+</div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
@@ -458,7 +462,11 @@ adjusting the coordinates to other spatial layers:</p>
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="terraplots-2.png" alt="plot of chunk terraplots" width="100%"></p>
+<div class="figure">
+<img src="terraplots-2.png" alt="plot of chunk terraplots" width="100%"><p class="caption">
+plot of chunk terraplots
+</p>
+</div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
@@ -468,7 +476,11 @@ adjusting the coordinates to other spatial layers:</p>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"atlas"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="terraplots-3.png" alt="plot of chunk terraplots" width="100%"></p>
+<div class="figure">
+<img src="terraplots-3.png" alt="plot of chunk terraplots" width="100%"><p class="caption">
+plot of chunk terraplots
+</p>
+</div>
 <p>With {tidyterra} you can also plot RGB SpatRasters to add imagery to
 your plots:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -487,13 +499,21 @@ your plots:</p>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
-<p><img src="rgb-1.png" alt="plot of chunk rgb" width="100%"></p>
+<div class="figure">
+<img src="rgb-1.png" alt="plot of chunk rgb" width="100%"><p class="caption">
+plot of chunk rgb
+</p>
+</div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Change CRS automatically</span></span>
 <span></span>
 <span><span class="va">rgb_plot</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="rgb-2.png" alt="plot of chunk rgb" width="100%"></p>
+<div class="figure">
+<img src="rgb-2.png" alt="plot of chunk rgb" width="100%"><p class="caption">
+plot of chunk rgb
+</p>
+</div>
 <p>{tidyterra} provides selected scales that are suitable for creating
 hypsometric and bathymetric maps:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -528,7 +548,11 @@ hypsometric and bathymetric maps:</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"bottom"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="hypso-1.png" alt="plot of chunk hypso" width="100%"></p>
+<div class="figure">
+<img src="hypso-1.png" alt="plot of chunk hypso" width="100%"><p class="caption">
+plot of chunk hypso
+</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="spatvectors-1">SpatVectors<a class="anchor" aria-label="anchor" href="#spatvectors-1"></a>
@@ -545,7 +569,11 @@ hypsometric and bathymetric maps:</p>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">NAME_2</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"grey90"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"></p>
+<div class="figure">
+<img src="lux_ggplot-1.png" alt="plot of chunk lux_ggplot" width="100%"><p class="caption">
+plot of chunk lux_ggplot
+</p>
+</div>
 <p>The underlying implementation is to take advantage of the conversion
 <code>terra::vect()/sf::st_as_sf()</code> and use
 <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> as an endpoint for creating the
@@ -568,7 +596,11 @@ convenience:</p>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tot_pop</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="aggregate-1.png" alt="plot of chunk aggregate" width="100%"></p>
+<div class="figure">
+<img src="aggregate-1.png" alt="plot of chunk aggregate" width="100%"><p class="caption">
+plot of chunk aggregate
+</p>
+</div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
@@ -588,7 +620,11 @@ convenience:</p>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tot_pop</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="aggregate-2.png" alt="plot of chunk aggregate" width="100%"></p>
+<div class="figure">
+<img src="aggregate-2.png" alt="plot of chunk aggregate" width="100%"><p class="caption">
+plot of chunk aggregate
+</p>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
