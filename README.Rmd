@@ -277,7 +277,7 @@ vect(system.file("ex/lux.shp", package = "terra")) %>%
   labs(
     fill = "population per km2",
     title = "Population density of Luxembourg",
-    subtitle = "By commune"
+    subtitle = "By canton"
   )
 ```
 
