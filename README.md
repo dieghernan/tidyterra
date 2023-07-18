@@ -271,20 +271,24 @@ SpatVector objects:
 
 ``` r
 vect(system.file("ex/lux.shp", package = "terra")) %>%
-  group_by(NAME_1) %>%
-  summarise(pop_dens = sum(POP) / sum(AREA)) %>%
+  mutate(pop_dens = POP / AREA) %>%
   glimpse() %>%
   autoplot(aes(fill = pop_dens)) +
   scale_fill_whitebox_c(palette = "pi_y_g") +
   labs(
     fill = "population per km2",
     title = "Population density of Luxembourg",
-    subtitle = "By commune"
+    subtitle = "By canton"
   )
-#> Rows: 3
-#> Columns: 2
-#> $ NAME_1   <chr> "Diekirch", "Grevenmacher", "Luxembourg"
-#> $ pop_dens <dbl> 80.83865, 134.90133, 485.34879
+#> Rows: 12
+#> Columns: 7
+#> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
+#> $ NAME_1   <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…
+#> $ ID_2     <dbl> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11
+#> $ NAME_2   <chr> "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echte…
+#> $ AREA     <dbl> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233
+#> $ POP      <int> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
+#> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%" />
