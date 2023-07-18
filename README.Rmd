@@ -270,8 +270,7 @@ objects:
 
 ```{r spatvec }
 vect(system.file("ex/lux.shp", package = "terra")) %>%
-  group_by(NAME_1) %>%
-  summarise(pop_dens = sum(POP) / sum(AREA)) %>%
+  mutate(pop_dens = POP / AREA) %>%
   glimpse() %>%
   autoplot(aes(fill = pop_dens)) +
   scale_fill_whitebox_c(palette = "pi_y_g") +
