@@ -14,6 +14,7 @@ results](https://badges.cranchecks.info/worst/tidyterra.svg)](https://cran.r-pro
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/tidyterra)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.6572471-blue)](https://doi.org/10.5281/zenodo.6572471)
+[![status](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e/status.svg)](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidyterra/badge)](https://www.codefactor.io/repository/github/dieghernan/tidyterra)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively

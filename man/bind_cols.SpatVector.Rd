@@ -16,9 +16,8 @@ and each of the subsequent arguments can either be a SpatVector, a sf object
 or a data frame. Inputs are \link[dplyr:bind_cols]{recycled} to the same
 length, then matched by position.}
 
-\item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or
-\code{"check_unique"}. See \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}} for the meaning of these
-options.}
+\item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or \code{"check_unique"}.
+See \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} for Details.}
 }
 \value{
 A SpatVector with the corresponding cols. The geometry and CRS
