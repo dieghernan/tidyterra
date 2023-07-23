@@ -25,3 +25,5 @@
 ^pkgdown\.yaml$
 ^pkgdown\.yml$
 ^\.lintr$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$
