@@ -27,3 +27,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^\.lintr$
+^vignettes/welcome\.Rmd\.orig$
