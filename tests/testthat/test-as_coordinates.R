@@ -48,7 +48,7 @@ test_that("as_coordinates return a raster", {
   # With crs
   r_crs <- r
 
-  terra::crs(r_crs) <- pull_crs("epsg:3857")
+  terra::crs(r_crs) <- pull_crs("EPSG:3857")
 
   a_rast_crs <- as_coordinates(r_crs, as.raster = TRUE)
 

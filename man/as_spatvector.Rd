@@ -60,7 +60,7 @@ and \pkg{terra}.
 \examples{
 library(terra)
 
-v <- vect(matrix(1:80, ncol = 2), crs = "epsg:3857")
+v <- vect(matrix(1:80, ncol = 2), crs = "EPSG:3857")
 
 v$cat <- sample(LETTERS[1:4], size = nrow(v), replace = TRUE)
 
@@ -72,7 +72,7 @@ as_tbl <- as_tibble(v, geom = "WKT")
 as_tbl
 
 # From tibble
-newvect <- as_spatvector(as_tbl, geom = "geometry", crs = "epsg:3857")
+newvect <- as_spatvector(as_tbl, geom = "geometry", crs = "EPSG:3857")
 newvect
 
 }

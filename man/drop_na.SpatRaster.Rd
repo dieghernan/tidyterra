@@ -64,7 +64,7 @@ library(terra)
 
 
 r <- rast(
-  crs = "epsg:3857",
+  crs = "EPSG:3857",
   extent = c(0, 10, 0, 10),
   nlyr = 3,
   resolution = c(2.5, 2.5)
