@@ -8,7 +8,7 @@ test_that("geom_spatraster several layer with CRS", {
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- vect(f_v)
-  v <- terra::project(v, "epsg:3857")
+  v <- terra::project(v, "EPSG:3857")
   v_sf <- sf::st_as_sf(v)
 
   # Errors
@@ -208,7 +208,7 @@ test_that("geom_spatraster several layer with no CRS", {
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- vect(f_v)
-  v <- terra::project(v, "epsg:3857")
+  v <- terra::project(v, "EPSG:3857")
   v_sf <- sf::st_as_sf(v)
 
   # Remove CRS and save initial

@@ -12,8 +12,9 @@ results](https://badges.cranchecks.info/worst/tidyterra.svg)](https://cran.r-pro
 [![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
-[![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/)
+[![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/tidyterra)
 [![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.6572471-blue)](https://doi.org/10.5281/zenodo.6572471)
+[![status](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e/status.svg)](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidyterra/badge)](https://www.codefactor.io/repository/github/dieghernan/tidyterra)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -133,60 +134,71 @@ SpatRaster objects:
 
 ``` r
 library(tidyterra)
-
 library(terra)
 
-
 # Temperatures
-f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+rastertemp <- rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
-rastertemp <- rast(f)
+rastertemp
+#> class       : SpatRaster 
+#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
+#> resolution  : 3881.255, 3881.255  (x, y)
+#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
+#> coord. ref. : World_Robinson 
+#> source      : cyl_temp.tif 
+#> names       :   tavg_04,   tavg_05,  tavg_06 
+#> min values  :  1.885463,  5.817587, 10.46338 
+#> max values  : 13.283829, 16.740898, 21.11378
 
-library(ggplot2)
+# Rename
+rastertemp <- rastertemp %>%
+  rename(April = tavg_04, May = tavg_05, June = tavg_06)
 
 # Facet all layers
+library(ggplot2)
 
 ggplot() +
   geom_spatraster(data = rastertemp) +
   facet_wrap(~lyr, ncol = 2) +
   scale_fill_whitebox_c(
     palette = "muted",
-    labels = scales::label_number(suffix = "º")
+    labels = scales::label_number(suffix = "º"),
+    n.breaks = 12,
+    guide = guide_legend(reverse = TRUE)
   ) +
-  labs(fill = "Avg temperature")
+  labs(
+    fill = "",
+    title = "Average temperature in Castille and Leon (Spain)",
+    subtitle = "Months of April, May and June"
+  )
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" width="100%" />
 
 ``` r
 
-
-# Create maximum differences
-
+# Create maximum differences of two months
 variation <- rastertemp %>%
-  mutate(
-    diff = tavg_06 - tavg_04
-  ) %>%
-  select(var_apr_jun = diff)
+  mutate(diff = June - May) %>%
+  select(variation = diff)
 
 # Add also a overlay of a SpatVector
-f_vect <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-
-prov <- vect(f_vect)
+prov <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 ggplot(prov) +
   geom_spatraster(data = variation) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
     palette = "deep", direction = -1,
-    labels = scales::label_number(suffix = "º")
+    labels = scales::label_number(suffix = "º"),
+    n.breaks = 5
   ) +
   theme_minimal() +
   coord_sf(crs = 25830) +
   labs(
-    fill = "Difference",
+    fill = "variation",
     title = "Variation of temperature in Castille and Leon (Spain)",
-    subtitle = "(Average) temperatures in June vs. April"
+    subtitle = "Average temperatures in June vs. May"
   )
 ```
 
@@ -196,16 +208,12 @@ ggplot(prov) +
 {ggplot2}
 
 ``` r
-f_tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-
-rgb_tile <- rast(f_tile)
-
+rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
 plot <- ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
   geom_spatvector(fill = NA) +
   theme_light()
-
 
 plot
 ```
@@ -240,18 +248,21 @@ ggplot() +
   scale_fill_hypso_tint_c(
     palette = "gmt_globe",
     labels = scales::label_number(),
-    breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
+    # Further refinements
+    breaks = c(-10000, -5000, 0, 2000, 5000, 8000),
     guide = guide_colorbar(
       direction = "horizontal",
+      nrow = 1,
       title.position = "top",
-      barwidth = 20
+      barwidth = 20,
+      ticks.colour = "black",
+      ticks.linewidth = 0.3
     )
   ) +
   labs(
     fill = "elevation (m)",
     title = "Hypsometric map of Asia"
   ) +
-  theme_minimal() +
   theme(legend.position = "bottom")
 ```
 
@@ -264,18 +275,27 @@ SpatVector objects:
 
 ``` r
 vect(system.file("ex/lux.shp", package = "terra")) %>%
-  group_by(NAME_1) %>%
-  summarise(pop_dens = sum(POP) / sum(AREA)) %>%
+  mutate(pop_dens = POP / AREA) %>%
   glimpse() %>%
   autoplot(aes(fill = pop_dens)) +
-  scale_fill_whitebox_c(palette = "pi_y_g")
+  scale_fill_whitebox_c(palette = "pi_y_g") +
+  labs(
+    fill = "population per km2",
+    title = "Population density of Luxembourg",
+    subtitle = "By canton"
+  )
 #> Geometry type: Polygons
 #> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
 #> Extent (x , y) : [5° 44' 38.9045" E - 6° 31' 41.7076" E] , [49° 26' 52.1063" N - 50° 10' 53.8376" N]
-#> Rows: 3
-#> Columns: 2
-#> $ NAME_1   <chr> "Diekirch", "Grevenmacher", "Luxembourg"
-#> $ pop_dens <dbl> 80.83865, 134.90133, 485.34879
+#> Rows: 12
+#> Columns: 7
+#> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
+#> $ NAME_1   <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…
+#> $ ID_2     <dbl> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11
+#> $ NAME_2   <chr> "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echte…
+#> $ AREA     <dbl> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233
+#> $ POP      <int> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
+#> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%" />

@@ -54,7 +54,7 @@
 #' # SpatRaster method
 #'
 #' spatrast <- rast(
-#'   crs = "epsg:3857",
+#'   crs = "EPSG:3857",
 #'   nrows = 10,
 #'   ncols = 10,
 #'   extent = c(100, 200, 100, 200),

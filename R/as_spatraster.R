@@ -39,7 +39,7 @@
 #' @examples
 #' library(terra)
 #'
-#' r <- rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+#' r <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 #'
 #' r
 #'
@@ -49,7 +49,7 @@
 #' as_tbl
 #'
 #' # From tibble
-#' newrast <- as_spatraster(as_tbl, crs = "epsg:3857")
+#' newrast <- as_spatraster(as_tbl, crs = "EPSG:3857")
 #' newrast
 #'
 as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {

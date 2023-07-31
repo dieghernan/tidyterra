@@ -1,5 +1,5 @@
 test_that("Error check", {
-  r <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  r <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
   as_tbl <- dplyr::as_tibble(r, xy = TRUE)
   expect_snapshot(as_spatraster(as_tbl, xycols = 2), error = TRUE)
@@ -147,7 +147,7 @@ test_that("Check internal", {
   names(p) <- c("x", "y", "z")
 
   r <- terra::rast(p)
-  terra::crs(r) <- pull_crs("epsg:3857")
+  terra::crs(r) <- pull_crs("EPSG:3857")
 
   # Test bypass
   expect_silent(compare_spatrasters(

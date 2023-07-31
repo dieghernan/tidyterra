@@ -30,7 +30,7 @@
 #' @examples
 #' library(terra)
 #'
-#' x <- rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+#' x <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 #'
 #' # Nothing
 #' compare_spatrasters(x, x)

@@ -2,7 +2,7 @@
 
 
 asiaraw <- terra::rast("data-raw/asia.tif")
-template <- terra::project(asiaraw, "epsg:3857")
+template <- terra::project(asiaraw, "EPSG:3857")
 terra::ncell(template)
 template <- terra::spatSample(template, 100000, method = "regular", as.raster = TRUE)
 terra::ncell(template)

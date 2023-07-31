@@ -1,5 +1,5 @@
 test_that("Error", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
   # Compare with other types
   expect_snapshot(compare_spatrasters(x, terra::crs(x)), error = TRUE)
@@ -8,7 +8,7 @@ test_that("Error", {
 
 
 test_that("Equal", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
   expect_silent(compare_spatrasters(x, x))
   expect_true(compare_spatrasters(x, x))
@@ -16,7 +16,7 @@ test_that("Equal", {
 
 
 test_that("Different crs", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- x
 
   terra::crs(y) <- NA
@@ -26,7 +26,7 @@ test_that("Different crs", {
 
 
 test_that("Different extent", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- x[1:5, , drop = FALSE]
 
 
@@ -36,7 +36,7 @@ test_that("Different extent", {
 
 
 test_that("Different resolution", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- x
 
   terra::res(y) <- terra::res(x) / 2
@@ -47,7 +47,7 @@ test_that("Different resolution", {
 
 
 test_that("All different", {
-  x <- terra::rast(matrix(1:90, ncol = 3), crs = "epsg:3857")
+  x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- terra::project(x, "epsg:3035")
 
 
