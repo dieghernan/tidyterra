@@ -22,7 +22,7 @@ on:
       - main
       - master
   schedule:
-    - cron: '24 10 * * 3'
+    - cron: '38 10 * * 4'
 
 permissions:
   contents: read
@@ -52,12 +52,10 @@ jobs:
             local::.
             any::lintr
 
-      - name: Lint for comments
-        run: lintr::lint_package()
-        shell: Rscript {0}
-
-      - name: Run lintr for GitHub
-        run: lintr::sarif_output(lintr::lint_dir("."), "lintr-results.sarif")
+      - name: Run lintr
+        run: | 
+          out <- lintr::lint_package()
+          lintr::sarif_output(out, "lintr-results.sarif")
         shell: Rscript {0}
         continue-on-error: true
 
@@ -66,3 +64,4 @@ jobs:
         with:
           sarif_file: lintr-results.sarif
           wait-for-processing: true
+ 
