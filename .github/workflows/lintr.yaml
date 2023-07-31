@@ -54,8 +54,12 @@ jobs:
 
       - name: Run lintr
         run: | 
+          # Lintr package
           out <- lintr::lint_package()
+          # Create SARIF report
           lintr::sarif_output(out, "lintr-results.sarif")
+          # Display
+          out
         shell: Rscript {0}
         continue-on-error: true
 
