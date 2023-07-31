@@ -10,6 +10,7 @@ main img {
 	margin-right: auto;
 	margin-top: 0.5rem;
 	font-size: 85%;
+	width: 100%;
 }
 /* ---Navbar tweaks--- */
 .navbar {
