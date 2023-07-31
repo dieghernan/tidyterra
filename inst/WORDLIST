@@ -1,4 +1,5 @@
 Acknowledgement
+Acknowledgements
 CMD
 CRS
 CodeFactor
@@ -7,6 +8,7 @@ Coords
 DOI
 EPSG
 Hernangomez
+Hijmans
 Hypsometric
 LiDAR
 Maungawhau
@@ -20,11 +22,13 @@ SpatVector
 SpatVectors
 Spatvector
 Summarise
+Thorne
 Toitu
 Visualise
 WKT
 Whenua
 WhiteboxTools
+Wilke
 XY
 asia
 bathymetric
@@ -39,22 +43,16 @@ colours
 coord
 cpt
 crs
-dev
-dieghernan
 disaggregated
-doi
 downsampled
 dplyr
 fullseq
 geoms
 ggplot
 ggspatial
-github
 grDevices
-https
 hypsometric
 hypsometry
-io
 ish
 linetype
 linewidth
@@ -62,6 +60,7 @@ lon
 magrittr
 maptiles
 metR
+natively
 plotmath
 proj
 purrr
@@ -93,5 +92,4 @@ xmax
 xmin
 ymax
 ymin
-zenodo
 ️

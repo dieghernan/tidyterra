@@ -26,6 +26,9 @@ vignette: >
 
 
 
+<!-- tidyterra.Rmd is generated from tidyterra.Rmd.orig. Please edit that file -->
+
+
 # Summary
 
 `tidyterra` is an R [@r-project] package that allows manipulation of spatial
@@ -113,6 +116,7 @@ references its equivalent in `terra`.
 installed using the following commands in R:
 
 
+
 ```r
 install.packages("tidyterra")
 ```
@@ -120,6 +124,7 @@ install.packages("tidyterra")
 The following example demonstrates how to manipulate a `SpatRaster` object using
 the `dplyr` syntax. Additionally, it illustrates how to seamlessly plot a
 `SpatRaster` object with `ggplot2` using the `geom_spatraster()` function:
+
 
 
 ```r
@@ -133,14 +138,14 @@ rastertemp <- terra::rast(system.file("extdata/cyl_temp.tif",
 ))
 
 rastertemp
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
-#> source      : cyl_temp.tif 
-#> names       :   tavg_04,   tavg_05,  tavg_06 
-#> min values  :  1.885463,  5.817587, 10.46338 
+#> coord. ref. : World_Robinson
+#> source      : cyl_temp.tif
+#> names       :   tavg_04,   tavg_05,  tavg_06
+#> min values  :  1.885463,  5.817587, 10.46338
 #> max values  : 13.283829, 16.740898, 21.11378
 
 # Rename with the tidyverse
@@ -166,9 +171,10 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./spatraster-faceted-1.png" alt="Figure 1: Faceted map with multi-layer raster file." width="100%" />
-<p class="caption">Figure 1: Faceted map with multi-layer raster file.</p>
+<img src="./spatraster-faceted-1.png" alt="Faceted map with multi-layer raster file." width="100%" />
+<p class="caption"><b>Figure 1:</b> Faceted map with multi-layer raster file.</p>
 </div>
+
 
 
 ```r
@@ -198,13 +204,14 @@ ggplot(prov) +
 ```
 
 <div class="figure">
-<img src="./spatraster-modified-1.png" alt="Figure 2: Mapping a modified `SpatRaster` with an `SpatVector`" width="100%" />
-<p class="caption">Figure 2: Mapping a modified `SpatRaster` with an `SpatVector`</p>
+<img src="./spatraster-modified-1.png" alt="Mapping a modified `SpatRaster` with an `SpatVector`" width="100%" />
+<p class="caption"><b>Figure 2:</b> Mapping a modified `SpatRaster` with an `SpatVector`.</p>
 </div>
 
 We present also a basic example of manipulating `SpatVector` objects. In this
 example, we classify each province based on the 1833 territorial division of
 Spain [@ortiz2011organizacion]:
+
 
 
 ```r
@@ -237,8 +244,8 @@ ggplot(prov_hist) +
 ```
 
 <div class="figure">
-<img src="./spatvector-1.png" alt="Figure 3. Mapping a modified `SpatVector`" width="100%" />
-<p class="caption">Figure 3. Mapping a modified `SpatVector`</p>
+<img src="./spatvector-1.png" alt="Mapping a modified `SpatVector`" width="100%" />
+<p class="caption"><b>Figure 3:</b> Mapping a modified `SpatVector`.</p>
 </div>
 
 # Acknowledgements

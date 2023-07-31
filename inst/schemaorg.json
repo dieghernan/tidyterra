@@ -40,8 +40,8 @@
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "runtimePlatform": "R version 4.2.2 (2022-10-31 ucrt)",
-      "version": "0.3.1"
+      "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+      "version": "0.4.0"
     },
     {
       "id": "https://doi.org/10.5281/zenodo.6572471",
