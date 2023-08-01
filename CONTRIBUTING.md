@@ -18,9 +18,7 @@ bug, create an associated issue and illustrate the bug with a minimal
 ### Pull request process
 
 -   We recommend that you create a Git branch for each pull request (PR).
--   Look at the R-CMD-check build status before and after making changes. The
-    `README` should contain badges for any continuous integration services used
-    by the package.
+-   Look at the R-CMD-check build status before and after making changes. 
 -   We recommend the tidyverse [style guide](http://style.tidyverse.org). You
     can use the [styler](https://CRAN.R-project.org/package=styler) package to
     apply these styles, but please don't restyle code that has nothing to do
@@ -31,12 +29,6 @@ bug, create an associated issue and illustrate the bug with a minimal
 -   For user-facing changes, add a bullet to the top of `NEWS.md` below the
     current development version header describing the changes made followed by
     your GitHub username, and links to relevant issue(s)/PR(s).
-
-### Code of Conduct
-
-Please note that the tidyterra project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide
-by its terms.
 
 ### Prefer to Email?
 
