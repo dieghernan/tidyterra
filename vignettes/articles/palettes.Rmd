@@ -1,6 +1,5 @@
 ---
 title: "Gradient palettes in tidyterra"
-author: "Diego Hernangómez"
 description: >
   A gallery of maps using the gradients provided by tidyterra.
 editor_options: 

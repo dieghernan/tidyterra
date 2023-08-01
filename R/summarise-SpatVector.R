@@ -10,6 +10,8 @@
 #'
 #' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
 #'
+#' @return
+#' A SpatVector.
 #'
 #' @export
 #' @rdname summarise.SpatVector
