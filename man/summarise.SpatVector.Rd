@@ -32,6 +32,9 @@ on \pkg{dplyr}.}
 \item{.dissolve}{logical. Should borders between aggregated geometries
 be dissolved?}
 }
+\value{
+A SpatVector.
+}
 \description{
 \code{summarise()} creates a new SpatVector. It returns one geometry for each
 combination of grouping variables; if there are no grouping variables, the
