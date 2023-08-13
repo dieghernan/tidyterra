@@ -40,12 +40,12 @@ jobs:
 
           revdepcheck::revdep_reset()
           revdepcheck::revdep_check(num_workers = 4)
-          
-          
+
+
           revdepig <- c(
             "checks", "library", "checks.noindex", "library.noindex",
             "data.sqlite", "*.html" )
-            
+
           usethis::use_git_ignore(revdepig, directory = file.path(".", "revdep"))
 
           # Ignore this also on build
@@ -60,3 +60,4 @@ jobs:
           git add -A
           git commit -m 'revdepcheck' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
+

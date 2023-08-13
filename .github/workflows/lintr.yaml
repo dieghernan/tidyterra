@@ -53,7 +53,7 @@ jobs:
             any::lintr
 
       - name: Run lintr
-        run: | 
+        run: |
           # Lintr package
           out <- lintr::lint_package()
           # Create SARIF report
@@ -68,4 +68,4 @@ jobs:
         with:
           sarif_file: lintr-results.sarif
           wait-for-processing: true
- 
+

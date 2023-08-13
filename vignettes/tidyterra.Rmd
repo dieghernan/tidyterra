@@ -2,6 +2,8 @@
 title: "Using the tidyverse with terra objects: the tidyterra package"
 author: <a href="https://orcid.org/0000-0001-8457-4658">Diego Hernangómez <img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_24x24.png" width="16" height="16" /></a>
 date: "2023-07-18"
+description: >-
+  An introduction to the `tidyterra` **R** package.
 bibliography: paper.bib
 link-citations: yes
 editor_options:
@@ -23,12 +25,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  out.width = "100%"
+)
+```
 
-
-<!-- tidyterra.Rmd is generated from tidyterra.Rmd.orig. Please edit that file -->
-
-
-# Summary
+## Summary
 
 `tidyterra` is an R [@r-project] package that allows manipulation of spatial
 data objects as provided by the `terra` package [@R-terra], using the syntax of
@@ -54,9 +61,9 @@ chosen scales and color palettes specifically designed for map production.
 The first stable version of `tidyterra` was included on CRAN on April 24, 2022,
 and has been actively used by other packages (@R-ebvcube, @R-biomod2,
 @R-inlabru, @R-rczechia, @R-sparrpowr) and cited in academic research and
-publications (@bahlburg2023, @moraga2023) ever since.
+publications (@bahlburg2023, @moraga2023, @Leonardi2023) ever since.
 
-# Statement of need
+## Statement of need
 
 The [tidyverse](https://www.tidyverse.org/) is a compilation of R packages that
 share an underlying design philosophy, grammar, and data structures. The
@@ -95,7 +102,7 @@ designed for representing spatial phenomena [@whitebox]. Additionally, it
 implements the cross-blended hypsometric tints described by
 @Patterson_Jenny_2011.
 
-# A note on performance
+### A note on performance
 
 The development philosophy of `tidyterra` consists on adapting `terra` objects
 to data frame-like structures by performing different data transformations, that
@@ -108,15 +115,13 @@ handling this type of files.
 Note also that when possible, the help page of each function of `tidyterra`
 references its equivalent in `terra`.
 
-# Examples of use
+## Example of use
 
 `tidyterra` is available on
 [CRAN](https://CRAN.R-project.org/package=tidyterra), so it can be easily
 installed using the following commands in R:
 
-
-
-```r
+```{r eval=FALSE}
 install.packages("tidyterra")
 ```
 
@@ -124,9 +129,7 @@ The following example demonstrates how to manipulate a `SpatRaster` object using
 the `dplyr` syntax. Additionally, it illustrates how to seamlessly plot a
 `SpatRaster` object with `ggplot2` using the `geom_spatraster()` function:
 
-
-
-```r
+```{r eval=FALSE}
 library(tidyterra)
 library(tidyverse) # Load all the packages of tidyverse at once
 library(scales) # Additional library for labels
@@ -135,17 +138,6 @@ library(scales) # Additional library for labels
 rastertemp <- terra::rast(system.file("extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
-
-rastertemp
-#> class       : SpatRaster
-#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
-#> resolution  : 3881.255, 3881.255  (x, y)
-#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
-#> source      : cyl_temp.tif
-#> names       :   tavg_04,   tavg_05,  tavg_06
-#> min values  :  1.885463,  5.817587, 10.46338
-#> max values  : 13.283829, 16.740898, 21.11378
 
 # Rename with the tidyverse
 rastertemp <- rastertemp %>%
@@ -169,85 +161,20 @@ ggplot() +
   )
 ```
 
-<div class="figure">
-<img src="./spatraster-faceted-1.png" alt="Faceted map with multi-layer raster file." width="100%" />
-<p class="caption"><b>Figure 1:</b> Faceted map with multi-layer raster file.</p>
-</div>
+::: figure
+<img src="./spatraster-example-1.png" alt="Faceted map with multi-layer raster file." width="100%"/>
 
+<p class="caption">
 
+<b>Figure 1:</b> Faceted map with multi-layer raster file.
 
-```r
-# Create maximum differences of two months
-variation <- rastertemp %>%
-  mutate(diff = June - May) %>%
-  select(variation = diff)
+</p>
+:::
 
-# Add also a overlay of a SpatVector
-prov <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+The package documentation includes several examples of the use of `tidyterra`,
+and it can be accessed online at <https://dieghernan.github.io/tidyterra/>.
 
-ggplot(prov) +
-  geom_spatraster(data = variation) +
-  geom_spatvector(fill = NA) +
-  scale_fill_whitebox_c(
-    palette = "deep", direction = -1,
-    labels = label_number(suffix = "º"),
-    n.breaks = 5
-  ) +
-  theme_minimal() +
-  coord_sf(crs = 25830) +
-  labs(
-    fill = "variation",
-    title = "Variation of temperature in Castille and Leon (Spain)",
-    subtitle = "Average temperatures in June vs. May"
-  )
-```
-
-<div class="figure">
-<img src="./spatraster-modified-1.png" alt="Mapping a modified `SpatRaster` with an `SpatVector`" width="100%" />
-<p class="caption"><b>Figure 2:</b> Mapping a modified `SpatRaster` with an `SpatVector`.</p>
-</div>
-
-We present also a basic example of manipulating `SpatVector` objects. In this
-example, we classify each province based on the 1833 territorial division of
-Spain [@ortiz2011organizacion]:
-
-
-
-```r
-# Classify the regions into historic regions (1833)
-prov_hist <- prov %>%
-  mutate(
-    historical = ifelse(name %in% c("Leon", "Salamanca", "Zamora"),
-      "Region of León",
-      "Old Castile"
-    ),
-    # Reorder levels
-    historical = factor(historical,
-      levels = c("Region of León", "Old Castile")
-    )
-  ) %>%
-  # Group
-  group_by(historical) %>%
-  summarise(n_prov = n())
-
-
-ggplot(prov_hist) +
-  geom_spatvector(aes(fill = historical), color = "black") +
-  scale_fill_manual(values = c("#a90028", "grey90")) +
-  labs(
-    fill = "",
-    title = "Historic regions of Castille and Leon (Spain)",
-    subtitle = "As per the 1833 territorial division of Spain"
-  ) +
-  theme_minimal()
-```
-
-<div class="figure">
-<img src="./spatvector-1.png" alt="Mapping a modified `SpatVector`" width="100%" />
-<p class="caption"><b>Figure 3:</b> Mapping a modified `SpatVector`.</p>
-</div>
-
-# Acknowledgements
+## Acknowledgements
 
 I would like to thank Robert J. Hijmans for his advice and support in adapting
 some of the methods, as well as for the suggestions that helped us improve the
@@ -259,4 +186,4 @@ a key reference during the initial stages of the development of `tidyterra`.
 computing contours, which relies on the package `isoband` [@R-isoband] developed
 by Claus O. Wilke.
 
-# References
+## References
