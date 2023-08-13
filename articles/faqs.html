@@ -65,8 +65,8 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/xtra_faqs.html">tidyterra FAQs</a>
-    <a class="dropdown-item" href="../articles/xtra_palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
+    <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
@@ -120,8 +120,8 @@
       <img src="../logo.png" class="logo" alt=""><h1>tidyterra FAQs</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/vignettes/articles/xtra_faqs.Rmd" class="external-link"><code>vignettes/articles/xtra_faqs.Rmd</code></a></small>
-      <div class="d-none name"><code>xtra_faqs.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/vignettes/articles/faqs.Rmd" class="external-link"><code>vignettes/articles/faqs.Rmd</code></a></small>
+      <div class="d-none name"><code>faqs.Rmd</code></div>
     </div>
 
     
@@ -175,7 +175,7 @@ values to be plotted.</p>
 <span>    title <span class="op">=</span> <span class="st">"Default on ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"NA values in grey"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/remove-nas-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/remove-nas-1.png" width="100%"></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Modify with scales</span></span>
@@ -185,7 +185,7 @@ values to be plotted.</p>
 <span>    title <span class="op">=</span> <span class="st">"Default colors on ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"But NAs are not plotted"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/remove-nas-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/remove-nas-2.png" width="100%"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Use a different scale provided by ggplot2</span></span>
@@ -195,7 +195,7 @@ values to be plotted.</p>
 <span>    title <span class="op">=</span> <span class="st">"Use any fill_* scale of ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Note that na.value = 'orange'"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/remove-nas-3.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/remove-nas-3.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
@@ -238,7 +238,7 @@ lines:</p>
 <span>    width <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/text-contour-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/text-contour-1.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Modify number or bins</span></span>
@@ -260,7 +260,7 @@ lines:</p>
 <span>    width <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/text-contour-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/text-contour-2.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
@@ -298,7 +298,7 @@ of scales:</p>
 <span>  <span class="co"># Note the scale, grey colours</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span>colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">100</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span>, na.value <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"A hillshade plot with grey colors"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/greys-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/greys-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="can-i-change-the-default-palette-of-my-maps">Can I change the default palette of my maps?<a class="anchor" aria-label="anchor" href="#can-i-change-the-default-palette-of-my-maps"></a>
@@ -334,7 +334,7 @@ the default colors on your session.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ggplot2.continuous.fill <span class="op">=</span> <span class="va">scale_fill_terrain_c</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/default-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/default-1.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># restore previous setting</span></span>
@@ -342,7 +342,7 @@ the default colors on your session.</p>
 <span></span>
 <span></span>
 <span><span class="va">p</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/default-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/default-2.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
@@ -375,7 +375,7 @@ to avoid resampling and force the <strong>ggplot2</strong> map to be on
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tile1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">p</span>, fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This is a bit blurry..."</span><span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/blurry-tile-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/blurry-tile-1.png" width="100%"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">tile1</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span></span>
@@ -403,7 +403,7 @@ to avoid resampling and force the <strong>ggplot2</strong> map to be on
 <span>    title <span class="op">=</span> <span class="st">"See the difference?"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Init crs=3857 and maxcell modified"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/blurry-tile-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/blurry-tile-2.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="axis-degrees">Avoid degrees labeling on axis<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
@@ -437,7 +437,7 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span>    title <span class="op">=</span> <span class="st">"Axis auto-converted to lon/lat"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"But SpatRaster is EPSG:"</span>, <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/modify-datum-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/modify-datum-1.png" width="100%"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
@@ -450,7 +450,7 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span>    title <span class="op">=</span> <span class="st">"Axis on the units of the SpatRaster"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"EPSG:"</span>, <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/modify-datum-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/modify-datum-2.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="axis-breaks">Modifying the number of breaks on axis<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
@@ -482,7 +482,7 @@ breaks in lon/lat even if your data is projected (¿?):</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Default axis breaks"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/breaks-1.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/breaks-1.png" width="100%"></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Modify y breaks</span></span>
@@ -506,7 +506,7 @@ breaks in lon/lat even if your data is projected (¿?):</p>
 <span>    breaks <span class="op">=</span> <span class="va">br_y</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Three breaks on y"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="xtra_faqs_files/figure-html/breaks-2.png" width="100%"></p>
+<p><img src="faqs_files/figure-html/breaks-2.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
