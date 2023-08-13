@@ -8,3 +8,4 @@ jobs:
 
     steps:
       - uses: easimon/wipe-cache@main
+

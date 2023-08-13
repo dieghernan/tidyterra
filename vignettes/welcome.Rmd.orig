@@ -173,7 +173,7 @@ the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
 `ggplot2::coord_sf()`, and may be also reprojected for adjusting the coordinates
 to other spatial layers:
 
-```{r faceted, fig.cap="A faceted SpatRaster"}
+```{r faceted, fig.cap="A faceted SpatRaster", fig.asp=0.3}
 library(ggplot2)
 
 # A faceted SpatRaster

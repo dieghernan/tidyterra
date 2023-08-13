@@ -58,9 +58,6 @@ library(tidyterra)
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:terra':
-#> 
-#>     intersect, union
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
@@ -68,11 +65,6 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 library(tidyr)
-#> 
-#> Attaching package: 'tidyr'
-#> The following object is masked from 'package:terra':
-#> 
-#>     extract
 ```
 
 Currently, the following methods are available:

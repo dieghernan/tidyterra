@@ -47,4 +47,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: coverage-test-failures
-          path: ${{ runner.temp }}/packagem
+          path: ${{ runner.temp }}/package
+
