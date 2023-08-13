@@ -22,12 +22,15 @@ test_that("For SpatVector", {
   v2$geometry <- 1
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "WKT"))
 
-  expect_false(all(names(v2)[seq_len(ncol(v2))] ==
-    names(res)[seq_len(ncol(v2))]))
+  expect_false(
+    all(names(v2)[seq_len(ncol(v2))] ==
+      names(res)[seq_len(ncol(v2))])
+  )
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "HEX"))
-  expect_false(all(names(v2)[seq_len(ncol(v2))] ==
+  expect_false
+  (all(names(v2)[seq_len(ncol(v2))] ==
     names(res)[seq_len(ncol(v2))]))
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
@@ -37,8 +40,9 @@ test_that("For SpatVector", {
   p$y <- "B"
 
   expect_snapshot(res_p <- dplyr::as_tibble(p, geom = "XY"))
-  expect_false(all(names(p)[seq_len(ncol(p))] ==
-    names(res_p)[seq_len(ncol(p))]))
+  expect_false(
+    all(names(p)[seq_len(ncol(p))] == names(res_p)[seq_len(ncol(p))])
+  )
   expect_equal(setdiff(names(res_p), names(p)), c("x.1", "y.1"))
 })
 

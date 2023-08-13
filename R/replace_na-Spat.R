@@ -90,8 +90,6 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
       keep_levs <- levels(values)
       to_replace <- as.character(df_na[1, i])
 
-      # From
-      # https://stackoverflow.com/questions/39126537/replace-na-in-a-factor-column
       # New NA level and change label
 
       new_vals <- factor(values,

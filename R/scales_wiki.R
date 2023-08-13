@@ -3,7 +3,8 @@
 #' @description
 #'
 #' Implementation based on the
-#' [Wikipedia Colorimetric conventions for topographic maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
+#' [Wikipedia Colorimetric conventions for topographic
+#' maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
 #' Three scales are provided:
 #' - `scale_*_wiki_d()`: For discrete values.
 #' - `scale_*_wiki_c()`: For continuous values.

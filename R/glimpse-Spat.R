@@ -85,10 +85,13 @@ glimpse.SpatRaster <- function(x, width = NULL, ...) {
     rs <- lapply(terra::res(x), decimal_to_degrees, type = "null")
     rs <- paste0(unlist(rs), collapse = " , ")
   } else {
-    rs <- paste(format(terra::res(x),
-      big.mark = ",",
-      decimal.mark = "."
-    ), collapse = " , ")
+    rs <- paste(
+      format(terra::res(x),
+        big.mark = ",",
+        decimal.mark = "."
+      ),
+      collapse = " , "
+    )
   }
   cli::cat_line("Resolution (x , y): ", rs)
 

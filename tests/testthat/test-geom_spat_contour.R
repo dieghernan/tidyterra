@@ -37,8 +37,11 @@ test_that("Errors and messages", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour()
+  )
+
   expect_snapshot(
     ggplot() +
       geom_spatraster_contour(data = v),

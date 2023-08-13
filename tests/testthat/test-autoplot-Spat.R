@@ -15,14 +15,20 @@ test_that("Test SpatRaster", {
   vdiffr::expect_doppelganger("norgb_02: categorical", autoplot(r2))
 
   # No facets
-  vdiffr::expect_doppelganger("norgb_03: no facets forced", r %>%
-    select(1) %>%
-    autoplot(facets = FALSE))
+  vdiffr::expect_doppelganger(
+    "norgb_03: no facets forced",
+    r %>%
+      select(1) %>%
+      autoplot(facets = FALSE)
+  )
 
   # No facets auto
-  vdiffr::expect_doppelganger("norgb_03: no facets auto", r %>%
-    select(1) %>%
-    autoplot())
+  vdiffr::expect_doppelganger(
+    "norgb_03: no facets auto",
+    r %>%
+      select(1) %>%
+      autoplot()
+  )
 
   # Change n facets
   vdiffr::expect_doppelganger(
@@ -94,14 +100,20 @@ test_that("Test SpatRaster", {
   r$another <- rep_len(letters[2:5], terra::ncell(r))
 
   # No facets
-  vdiffr::expect_doppelganger("coltab_02: no facets forced", r %>%
-    select(1) %>%
-    autoplot(facets = FALSE))
+  vdiffr::expect_doppelganger(
+    "coltab_02: no facets forced",
+    r %>%
+      select(1) %>%
+      autoplot(facets = FALSE)
+  )
 
   # No facets auto
-  vdiffr::expect_doppelganger("coltab_03: no facets auto", r %>%
-    select(1) %>%
-    autoplot())
+  vdiffr::expect_doppelganger(
+    "coltab_03: no facets auto",
+    r %>%
+      select(1) %>%
+      autoplot()
+  )
 
 
   # Change n facets

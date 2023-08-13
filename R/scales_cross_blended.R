@@ -12,7 +12,8 @@
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
-#' [hypsometric (or bathymetric) tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
+#' [hypsometric (or bathymetric)
+#' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
 #' - `scale_*_cross_blended_tint_d()`: For discrete values.
 #' - `scale_*_cross_blended_tint_c()`: For continuous values.

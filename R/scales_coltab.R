@@ -147,9 +147,13 @@ get_coltab_pal <- function(x) {
       terra::values(tmpr) <- vals
       df <- as_tibble(terra::cats(tmpr)[[1]])
 
-      coltb <- data.frame(t(col2rgb(terrain.colors(nrow(df), rev = TRUE),
-        alpha = TRUE
-      )))
+      coltb <- data.frame(
+        t(
+          col2rgb(terrain.colors(nrow(df), rev = TRUE),
+            alpha = TRUE
+          )
+        )
+      )
       coltbend <- cbind(df[, 1], coltb)
       terra::coltab(tmpr) <- coltbend
       # Substitute layer

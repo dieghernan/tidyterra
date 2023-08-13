@@ -185,8 +185,9 @@ transmute.SpatRaster <- function(.data, ...) {
 
 
   # Check coltab
-  if (any(terra::has.colors(.data)) &&
-    any(names(final_rast) %in% names(.data))) {
+  if (
+    any(terra::has.colors(.data)) && any(names(final_rast) %in% names(.data))
+  ) {
     ctab_list_init <- terra::coltab(.data)
     names(ctab_list_init) <- names(.data)
     namesend <- names(final_rast)

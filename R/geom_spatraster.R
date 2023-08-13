@@ -26,7 +26,8 @@
 #'
 #' @source Based on the `layer_spatial()` implementation on ggspatial package.
 #' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-#' [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#' [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #' @param maxcell positive integer. Maximum number of cells to use for
 #'   the plot.
@@ -366,7 +367,7 @@ reproject_raster_on_stat <- function(raster,
 
 pivot_longer_spat <- function(x) {
   tb <- as_tbl_internal(x)
-  tb_pivot <- tidyr::pivot_longer(tb, -c(1:2),
+  tb_pivot <- tidyr::pivot_longer(tb, -c(1, 2),
     names_to = "lyr"
   )
   tb_pivot <- tb_pivot[order(tb_pivot$lyr), ]

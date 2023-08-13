@@ -267,13 +267,13 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     # Make new names
     newnames <- make.names(names_with_coords, unique = TRUE)
 
-    newnames <- newnames[-c(1:2)]
+    newnames <- newnames[-c(1, 2)]
   } else {
     names_with_coords <- c("geometry", init_names)
     # Make new names
     newnames <- make.names(names_with_coords, unique = TRUE)
 
-    newnames <- newnames[-c(1)]
+    newnames <- newnames[-1]
   }
   # Make new names
   if (messages) {

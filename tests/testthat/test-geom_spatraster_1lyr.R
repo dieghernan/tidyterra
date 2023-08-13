@@ -11,12 +11,20 @@ test_that("geom_spatraster one layer with CRS", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster())
-  expect_snapshot(ggplot() +
-    geom_spatraster(data = v), error = TRUE)
-  expect_snapshot(ggplot() +
-    geom_spatraster(data = 1:3), error = TRUE)
+  expect_error(
+    ggplot(r) +
+      geom_spatraster()
+  )
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster(data = v),
+    error = TRUE
+  )
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster(data = 1:3),
+    error = TRUE
+  )
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()

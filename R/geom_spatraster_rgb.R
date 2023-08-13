@@ -17,7 +17,8 @@
 #'
 #' @source Based on the `layer_spatial()` implementation on ggspatial package.
 #' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-#' [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#' [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #'
 #' @inheritParams geom_spatraster

@@ -10,8 +10,10 @@ test_that("Errors and messages", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour_filled())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour_filled()
+  )
   expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = v),
@@ -76,8 +78,11 @@ test_that("Test plot", {
     facet_wrap(~lyr)
 
   vdiffr::expect_doppelganger("03-faceted with aes", p_facet)
-  vdiffr::expect_doppelganger("04-faceted with aes and crs", p_facet +
-    coord_sf(crs = 3857))
+  vdiffr::expect_doppelganger(
+    "04-faceted with aes and crs",
+    p_facet +
+      coord_sf(crs = 3857)
+  )
 
 
   # Aes for a single layer
@@ -115,8 +120,11 @@ test_that("Test plot", {
     scale_fill_terrain_d()
 
   vdiffr::expect_doppelganger("07-align binwd", binw)
-  vdiffr::expect_doppelganger("08-align binwd trans", binw +
-    coord_sf(crs = 3857))
+  vdiffr::expect_doppelganger(
+    "08-align binwd trans",
+    binw +
+      coord_sf(crs = 3857)
+  )
 
   binn <- ggplot() +
     geom_sf(data = v_sf, fill = "grey80") +
@@ -128,8 +136,11 @@ test_that("Test plot", {
     scale_fill_terrain_d()
 
   vdiffr::expect_doppelganger("09-align bins", binn)
-  vdiffr::expect_doppelganger("10-align bins trans", binn +
-    coord_sf(crs = 3857))
+  vdiffr::expect_doppelganger(
+    "10-align bins trans",
+    binn +
+      coord_sf(crs = 3857)
+  )
 
   bin_breaks <- ggplot() +
     geom_sf(data = v_sf, fill = "grey80") +
@@ -144,8 +155,11 @@ test_that("Test plot", {
     scale_fill_terrain_d(direction = -1)
 
   vdiffr::expect_doppelganger("11-align breaks", bin_breaks)
-  vdiffr::expect_doppelganger("12-align breaks trans", bin_breaks +
-    coord_sf(crs = 3857))
+  vdiffr::expect_doppelganger(
+    "12-align breaks trans",
+    bin_breaks +
+      coord_sf(crs = 3857)
+  )
 })
 
 
