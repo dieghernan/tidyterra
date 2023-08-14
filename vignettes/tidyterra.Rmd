@@ -131,7 +131,7 @@ the `dplyr` syntax. Additionally, it illustrates how to seamlessly plot a
 
 ```{r eval=FALSE}
 library(tidyterra)
-library(dplyr) 
+library(dplyr)
 library(ggplot2)
 library(scales) # Additional library for labels
 
