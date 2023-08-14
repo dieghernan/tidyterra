@@ -131,7 +131,8 @@ the `dplyr` syntax. Additionally, it illustrates how to seamlessly plot a
 
 ```{r eval=FALSE}
 library(tidyterra)
-library(tidyverse) # Load all the packages of tidyverse at once
+library(dplyr) 
+library(ggplot2)
 library(scales) # Additional library for labels
 
 # Temperatures in Castille and Leon (selected months)

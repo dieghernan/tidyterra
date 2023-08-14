@@ -177,7 +177,7 @@ glimpse.SpatRaster <- function(x, width = NULL, ...) {
   l <- ifelse(terra::nlyr(x) > 1, "Layers:", "Layer:")
 
   cli::cat_line(l)
-  cli::cat_line(capt[-c(1:2)])
+  cli::cat_line(capt[-c(1, 2)])
 
   return(invisible(x))
 }

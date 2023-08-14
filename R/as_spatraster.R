@@ -135,7 +135,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   xyvalind$valindex <- seq_len(nrow(xyvalind))
 
 
-  values_w_ind <- x_arrange[, -c(1:2)]
+  values_w_ind <- x_arrange[, -c(1, 2)]
   values_w_ind$valindex <- xyvalind$valindex
 
 

@@ -39,7 +39,7 @@ test_that("Handle NAs", {
   blanks[8, ] <- ""
 
   expect_message(as_spatvector(blanks, geom = c("x", "y")))
-  expect_message(as_spatvector(blanks, geom = c("geom")))
+  expect_message(as_spatvector(blanks, geom = "geom"))
 })
 
 

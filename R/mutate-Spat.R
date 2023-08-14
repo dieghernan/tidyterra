@@ -81,7 +81,7 @@ mutate.SpatRaster <- function(.data, ...) {
 
   xy <- dplyr::select(df, 1:2)
 
-  values <- dplyr::select(df, -c(1:2))
+  values <- dplyr::select(df, -c(1, 2))
 
   values_mutate <- dplyr::mutate(values, ...)
 
@@ -154,7 +154,7 @@ transmute.SpatRaster <- function(.data, ...) {
 
   xy <- dplyr::select(df, 1:2)
 
-  values <- dplyr::select(df, -c(1:2))
+  values <- dplyr::select(df, -c(1, 2))
 
   values_transm <- dplyr::transmute(values, ...)
 
