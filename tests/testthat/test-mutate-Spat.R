@@ -33,9 +33,9 @@ test_that("SpatRaster mutate and check names", {
 
   # Same with layer names as x,y
   names(spatrast) <- c("x", "x", "y")
-  expect_snapshot(fixed_names2 <- dplyr::mutate(spatrast,
-    b2 = x.1 + x.2 + y.1
-  ))
+  expect_snapshot(
+    fixed_names2 <- dplyr::mutate(spatrast, b2 = x.1 + x.2 + y.1)
+  )
 
   all_eq <- all(names(fixed_names2) == make.names(
     c(
@@ -44,7 +44,7 @@ test_that("SpatRaster mutate and check names", {
       "b2"
     ),
     unique = TRUE
-  )[-c(1:2)])
+  )[-c(1, 2)])
 
   expect_true(all_eq)
 

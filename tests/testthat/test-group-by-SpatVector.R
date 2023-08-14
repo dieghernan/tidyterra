@@ -34,7 +34,7 @@ test_that("group_by(<grouped df>, add add groups", {
   out <- df %>%
     group_by(g) %>%
     group_by(x)
-  expect_equal(group_vars(out), c("x"))
+  expect_equal(group_vars(out), "x")
 
   out <- df %>%
     group_by(g) %>%
@@ -56,10 +56,10 @@ test_that("joins preserve grouping", {
   g <- group_by(v, x)
   expect_s4_class(g, "SpatVector")
 
-  expect_equal(group_vars(inner_join(g, thedf, by = c("x"))), "x")
-  expect_equal(group_vars(left_join(g, thedf, by = c("x"))), "x")
-  expect_equal(group_vars(semi_join(g, thedf, by = c("x"))), "x")
-  expect_equal(group_vars(anti_join(g, thedf[1:2, ], by = c("x"))), "x")
+  expect_equal(group_vars(inner_join(g, thedf, by = "x")), "x")
+  expect_equal(group_vars(left_join(g, thedf, by = "x")), "x")
+  expect_equal(group_vars(semi_join(g, thedf, by = "x")), "x")
+  expect_equal(group_vars(anti_join(g, thedf[1:2, ], by = "x")), "x")
 })
 
 test_that("grouping by constant adds column", {
@@ -137,10 +137,14 @@ test_that("group_by orders by groups", {
 
   expect_equal(group_data(df)$a, letters[1:4])
 
-  df <- cbind(df[, 0], data.frame(a = sample(sqrt(1:3),
-    30,
-    replace = TRUE
-  ))) %>%
+  df <- cbind(
+    df[, 0],
+    data.frame(a = sample(sqrt(1:3),
+      30,
+      replace = TRUE
+    ))
+  )
+  df <- df %>%
     group_by(a)
 
   expect_equal(group_data(df)$a, sqrt(1:3))

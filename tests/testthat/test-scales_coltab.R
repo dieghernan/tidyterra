@@ -70,9 +70,11 @@ test_that("Can extract several color tables on layers", {
   r2 <- r
   terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), 16))
   levels(r2) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
-    alpha = TRUE
-  )))
+  coltb2 <- data.frame(
+    value = 1:2,
+    t(col2rgb(c("red", "yellow"), alpha = TRUE))
+  )
+
   terra::coltab(r2) <- coltb2
   rend <- c(r, r2)
 
@@ -99,9 +101,11 @@ test_that("Discrete scale color", {
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
-  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"),
-    alpha = TRUE
-  )))
+  coltb <- data.frame(
+    value = 1:3,
+    t(col2rgb(c("red", "green", "black"), alpha = TRUE))
+  )
+
   terra::coltab(r, layer = 1) <- coltb
 
   # Get levels
@@ -161,9 +165,10 @@ test_that("Discrete scale fill", {
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
-  coltb <- data.frame(value = 1:3, t(col2rgb(c("red", "green", "black"),
-    alpha = TRUE
-  )))
+  coltb <- data.frame(
+    value = 1:3,
+    t(col2rgb(c("red", "green", "black"), alpha = TRUE))
+  )
   terra::coltab(r, layer = 1) <- coltb
 
   # Get levels

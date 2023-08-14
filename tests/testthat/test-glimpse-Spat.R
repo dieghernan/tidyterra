@@ -134,9 +134,10 @@ test_that("Coltab SpatRaster", {
 
   terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), terra::ncell(r2)))
   levels(r2) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
-    alpha = TRUE
-  )))
+  coltb2 <- data.frame(
+    value = 1:2,
+    t(col2rgb(c("red", "yellow"), alpha = TRUE))
+  )
   terra::coltab(r2) <- coltb2
   names(r2) <- "ihaveacoltab"
 

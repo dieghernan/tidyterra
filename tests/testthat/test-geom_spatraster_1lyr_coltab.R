@@ -26,12 +26,18 @@ test_that("geom_spatraster one layer coltab with CRS", {
   vdiffr::expect_doppelganger("crs_02: nocoltab", p2)
 
   # Scales
-  vdiffr::expect_doppelganger("crs_03: w/scale disc", p +
-    scale_fill_terrain_d())
+  vdiffr::expect_doppelganger(
+    "crs_03: w/scale disc",
+    p +
+      scale_fill_terrain_d()
+  )
 
   # Using facets
-  vdiffr::expect_doppelganger("crs_04: w/facets", p +
-    facet_wrap(~lyr))
+  vdiffr::expect_doppelganger(
+    "crs_04: w/facets",
+    p +
+      facet_wrap(~lyr)
+  )
 
   # Using aes
   expect_warning(ggplot() +
@@ -49,8 +55,11 @@ test_that("geom_spatraster one layer coltab with CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
+  expect_message(
+    ggplot() +
+      geom_spatraster(data = r, maxcell = 20),
+    regexp = "resampled"
+  )
 
   p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20)
@@ -71,18 +80,27 @@ test_that("geom_spatraster one layer coltab with CRS", {
   p_rast_first <- ggplot() +
     geom_spatraster(data = r)
 
-  vdiffr::expect_doppelganger("crs_08: change crs", p_rast_first +
-    coord_sf(crs = 3035))
+  vdiffr::expect_doppelganger(
+    "crs_08: change crs",
+    p_rast_first +
+      coord_sf(crs = 3035)
+  )
 
   # With vector after
-  vdiffr::expect_doppelganger("crs_9: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA, color = "black"))
+  vdiffr::expect_doppelganger(
+    "crs_9: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA, color = "black")
+  )
 
   # With vector and crs after
 
-  vdiffr::expect_doppelganger("crs_10: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA, color = "black") +
-    coord_sf(crs = "ESRI:102003"))
+  vdiffr::expect_doppelganger(
+    "crs_10: With crs and sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA, color = "black") +
+      coord_sf(crs = "ESRI:102003")
+  )
 
   # With vector first
   p_sf_first <- ggplot(v_sf) +
@@ -93,8 +111,11 @@ test_that("geom_spatraster one layer coltab with CRS", {
 
   # With vector first and change proj
 
-  vdiffr::expect_doppelganger("crs_12: With sf first and crs", p_sf_first +
-    coord_sf(crs = 3857))
+  vdiffr::expect_doppelganger(
+    "crs_12: With sf first and crs",
+    p_sf_first +
+      coord_sf(crs = 3857)
+  )
 
   # Suppress colors
   r2 <- r / 100
@@ -155,8 +176,11 @@ test_that("geom_spatraster one layer without CRS", {
   vdiffr::expect_doppelganger("nocrs_01a: regular", p)
 
 
-  vdiffr::expect_doppelganger("nocrs_01b: regular with coord_equal", p +
-    coord_equal())
+  vdiffr::expect_doppelganger(
+    "nocrs_01b: regular with coord_equal",
+    p +
+      coord_equal()
+  )
 
 
 
@@ -169,12 +193,18 @@ test_that("geom_spatraster one layer without CRS", {
       )
   )
 
-  vdiffr::expect_doppelganger("nocrs_03: w/scale disc", p +
-    scale_fill_terrain_d())
+  vdiffr::expect_doppelganger(
+    "nocrs_03: w/scale disc",
+    p +
+      scale_fill_terrain_d()
+  )
 
   # Using facets
-  vdiffr::expect_doppelganger("nocrs_04: w/facets", p +
-    facet_wrap(~lyr))
+  vdiffr::expect_doppelganger(
+    "nocrs_04: w/facets",
+    p +
+      facet_wrap(~lyr)
+  )
 
   # Using aes
   expect_warning(ggplot() +
@@ -191,8 +221,11 @@ test_that("geom_spatraster one layer without CRS", {
 
   # Resampling
 
-  expect_message(ggplot() +
-    geom_spatraster(data = r, maxcell = 20), regexp = "resampled")
+  expect_message(
+    ggplot() +
+      geom_spatraster(data = r, maxcell = 20),
+    regexp = "resampled"
+  )
 
   p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20)
@@ -213,26 +246,38 @@ test_that("geom_spatraster one layer without CRS", {
   p_rast_first <- ggplot() +
     geom_spatraster(data = r)
 
-  vdiffr::expect_doppelganger("nocrs_09: change crs", p_rast_first +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrs_09: change crs",
+    p_rast_first +
+      coord_sf(crs = raster_crs)
+  )
 
   # With vector
-  vdiffr::expect_doppelganger("nocrs_10: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA, color = "red"))
+  vdiffr::expect_doppelganger(
+    "nocrs_10: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA, color = "red")
+  )
 
 
   # Would align only if sf/coord on the same crs
 
-  vdiffr::expect_doppelganger("nocrs_11: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA, color = "red") +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrs_11: With crs and sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA, color = "red") +
+      coord_sf(crs = raster_crs)
+  )
 
   # Reproject vector
 
   new_v <- sf::st_transform(v_sf, raster_crs)
 
-  vdiffr::expect_doppelganger("nocrs_12: With sf reprojected", p_rast_first +
-    geom_sf(data = new_v, fill = NA))
+  vdiffr::expect_doppelganger(
+    "nocrs_12: With sf reprojected",
+    p_rast_first +
+      geom_sf(data = new_v, fill = NA)
+  )
 
   # Suppress colors
   r2 <- r / 100

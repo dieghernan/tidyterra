@@ -81,7 +81,7 @@ test_that("Rename SpatVectors", {
 
   expect_identical(
     names(s3),
-    c("this_first", "this_second", names(vector)[-c(1:2)])
+    c("this_first", "this_second", names(vector)[-c(1, 2)])
   )
 })
 

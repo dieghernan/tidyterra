@@ -66,10 +66,12 @@ test_that("geom_spatraster several layer with CRS", {
 
 
   # Using a categorical
-  expect_snapshot(p_cats <- ggplot() +
-    geom_spatraster(data = r) +
-    facet_wrap(~lyr) +
-    scale_fill_terrain_d())
+  expect_snapshot(
+    p_cats <- ggplot() +
+      geom_spatraster(data = r) +
+      facet_wrap(~lyr) +
+      scale_fill_terrain_d()
+  )
 
   vdiffr::expect_doppelganger("crs_03: categ w/scale disc", p_cats)
 
@@ -91,9 +93,11 @@ test_that("geom_spatraster several layer with CRS", {
 
   # Resampling
 
-  expect_snapshot(p_res <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20) +
-    facet_wrap(~lyr))
+  expect_snapshot(
+    p_res <- ggplot() +
+      geom_spatraster(data = r, maxcell = 20) +
+      facet_wrap(~lyr)
+  )
 
   vdiffr::expect_doppelganger("crs_05: resampled", p_res)
 
@@ -102,8 +106,11 @@ test_that("geom_spatraster several layer with CRS", {
     geom_spatraster(data = r) +
     facet_wrap(~lyr)
 
-  vdiffr::expect_doppelganger("crs_06: change crs", p_rast_first +
-    coord_sf(crs = "ESRI:102003"))
+  vdiffr::expect_doppelganger(
+    "crs_06: change crs",
+    p_rast_first +
+      coord_sf(crs = "ESRI:102003")
+  )
 
 
   # Mixing different types of factors

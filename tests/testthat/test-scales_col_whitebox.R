@@ -41,9 +41,9 @@ test_that("Discrete scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
 
-  expect_true(all(rev(alpha(mod,
-    alpha = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
+  )
 
   # Change pal
   # Create ggplot for each pal, extract colors and check
@@ -112,9 +112,9 @@ test_that("Continous scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
 
-  expect_true(all(rev(alpha(mod,
-    alpha = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
+  )
 
   # Change pal
   # Create ggplot for each pal, extract colors and check

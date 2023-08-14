@@ -117,9 +117,10 @@ test_that("mutate", {
     terra::ncell(newctb)
   ))
   levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
-    alpha = TRUE
-  )))
+  coltb2 <- data.frame(
+    value = 1:2,
+    t(col2rgb(c("red", "yellow"), alpha = TRUE))
+  )
   terra::coltab(newctb) <- coltb2
   several <- c(r, newctb)
   d3 <- several %>% mutate(another = "SAD")
@@ -176,9 +177,10 @@ test_that("transmute", {
     terra::ncell(newctb)
   ))
   levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"),
-    alpha = TRUE
-  )))
+  coltb2 <- data.frame(
+    value = 1:2,
+    t(col2rgb(c("red", "yellow"), alpha = TRUE))
+  )
   terra::coltab(newctb) <- coltb2
   several <- c(r, newctb)
   d3 <- several %>% transmute(letter = letter, era = era)

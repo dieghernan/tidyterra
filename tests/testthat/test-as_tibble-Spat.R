@@ -23,15 +23,16 @@ test_that("For SpatVector", {
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "WKT"))
 
   expect_false(
-    all(names(v2)[seq_len(ncol(v2))] ==
-      names(res)[seq_len(ncol(v2))])
+    all(
+      names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]
+    )
   )
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "HEX"))
-  expect_false
-  (all(names(v2)[seq_len(ncol(v2))] ==
-    names(res)[seq_len(ncol(v2))]))
+  expect_false(
+    all(names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))])
+  )
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   # With point
