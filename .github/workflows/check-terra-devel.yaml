@@ -45,13 +45,15 @@ jobs:
           cache-version: terra-devel
           extra-packages: |
             any::rcmdcheck
-            rspatial/terra
+            
           needs: check
 
       - name: Install terra from runiverse
         run: |
-          # Update packages  repository from rspatial runiverse
+          # Install terra from rspatial runiverse
           # update.packages(repos = 'https://rspatial.r-universe.dev')
+          options(repos = c(rspatial = "https://rspatial.r-universe.dev",   CRAN = "https://cloud.r-project.org"))
+          install.packages("terra", dependencies = TRUE)
 
           # Display version
           cat(as.character(packageVersion("terra")))
