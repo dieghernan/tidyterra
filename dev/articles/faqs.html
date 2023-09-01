@@ -540,13 +540,13 @@ SpatRasters:</p>
 <span></span>
 <span><span class="co"># A. autoplot</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"autoplot method"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"autoplot method"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-2.png" width="100%"></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># B. geom_spatraster</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"geom_spatraster method"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-3.png" width="100%"></p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
@@ -554,7 +554,7 @@ SpatRasters:</p>
 <span><span class="co"># C. Using scale_fill_coltab</span></span>
 <span></span>
 <span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">g</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-4.png" width="100%"></p>
@@ -587,6 +587,50 @@ SpatRasters:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">cols</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-7.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="north-arrows-and-scale-bar">North arrows and scale bar<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bar"></a>
+</h2>
+<p><strong>tidyterra</strong> does not provide these graphical objects
+for <strong>ggplot2</strong> plots. However, you can use
+<strong>ggspatial</strong> functions
+(<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and
+<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://paleolimbot.github.io/ggspatial/" class="external-link">ggspatial</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Download example file</span></span>
+<span><span class="va">volcanourl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://github.com/dieghernan/tidyterra/blob/main/"</span>,</span>
+<span>  <span class="st">"data-raw/volcano2hires.tif?raw=true"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span></span>
+<span>    which_north <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/north_arrow_orienteering.html" class="external-link">north_arrow_fancy_orienteering</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">annotation_scale</a></span><span class="op">(</span></span>
+<span>    height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.015</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>    width_hint <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>    text_cex <span class="op">=</span> <span class="fl">.8</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<p><img src="faqs_files/figure-html/northarrow-1.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
