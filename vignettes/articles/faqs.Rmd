@@ -401,17 +401,17 @@ plot(r_coltab)
 
 # A. autoplot
 
-autoplot(r_coltab) + ggtitle("autoplot method")
+autoplot(r_coltab, maxcell = Inf) + ggtitle("autoplot method")
 
 # B. geom_spatraster
 ggplot() +
-  geom_spatraster(data = r_coltab) +
+  geom_spatraster(data = r_coltab, maxcell = Inf) +
   ggtitle("geom_spatraster method")
 
 # C. Using scale_fill_coltab
 
 g <- ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE)
+  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf)
 
 g
 
@@ -433,4 +433,46 @@ scales::show_col(cols)
 g +
   scale_fill_manual(values = cols) +
   ggtitle("scale_fill_manual method")
+```
+
+## North arrows and scale bar
+
+**tidyterra** does not provide these graphical objects for **ggplot2** plots.
+However, you can use **ggspatial** functions
+(`ggspatial::annotation_north_arrow()` and `ggspatial::annotation_scale()`):
+
+```{r northarrow}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(ggspatial)
+
+volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
+if (!file.exists(volcanotemp)) {
+  download.file(volcanourl, volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
+
+autoplot(r) +
+  annotation_north_arrow(
+    which_north = TRUE,
+    pad_x = unit(0.8, "npc"),
+    pad_y = unit(0.75, "npc"),
+    style = north_arrow_fancy_orienteering()
+  ) +
+  annotation_scale(
+    height = unit(0.015, "npc"),
+    width_hint = 0.5,
+    pad_x = unit(0.07, "npc"),
+    pad_y = unit(0.07, "npc"),
+    text_cex = .8
+  )
 ```
