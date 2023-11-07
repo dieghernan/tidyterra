@@ -1,3 +1,7 @@
+# tidyterra 0.4.1
+
+-   Release for JOSS paper. No relevant changes.
+
 # tidyterra 0.4.0
 
 -   This release focuses heavily on SpatVectors. The improvements have been:

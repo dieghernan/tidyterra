@@ -316,11 +316,11 @@ for terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
 A BibTeX entry for LaTeX users is
 
     @Manual{R-tidyterra,
-      title = {{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects},
+      title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
       doi = {10.5281/zenodo.6572471},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.4.0},
+      version = {0.4.1},
       url = {https://dieghernan.github.io/tidyterra/},
       abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
     }

@@ -45,7 +45,7 @@ jobs:
           cache-version: terra-devel
           extra-packages: |
             any::rcmdcheck
-            
+
           needs: check
 
       - name: Install terra from runiverse

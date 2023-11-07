@@ -6,7 +6,7 @@ doi <- "10.5281/zenodo.6572471"
 bibentry(
   "Manual",
   header = paste0("To cite '", meta$Package, "' in publications use:"),
-  title = paste("{tidyterra}:", gsub("'", "", meta$Title)),
+  title = "Using the {tidyverse} with {terra} objects: the {tidyterra} package",
   doi = doi,
   author = c(person("Diego", "Hernangómez")),
   year = year,

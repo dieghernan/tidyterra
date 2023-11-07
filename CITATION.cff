@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.4.0
+version: 0.4.1
 doi: 10.5281/zenodo.6572471
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
@@ -20,7 +20,7 @@ authors:
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
   type: manual
-  title: 'tidyterra: tidyverse Methods and ggplot2 Helpers for terra Objects'
+  title: 'Using the tidyverse with terra objects: the tidyterra package'
   authors:
   - family-names: Hernangómez
     given-names: Diego
@@ -28,7 +28,7 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   doi: 10.5281/zenodo.6572471
   year: '2023'
-  version: 0.4.0
+  version: 0.4.1
   url: https://dieghernan.github.io/tidyterra/
   abstract: Extension of the tidyverse for SpatRaster and SpatVector objects of the
     terra package. It includes also new geom_ functions that provide a convenient
@@ -395,10 +395,10 @@ references:
   authors:
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   - family-names: Pedersen
     given-names: Thomas Lin
-    email: thomas.pedersen@rstudio.com
+    email: thomas.pedersen@posit.co
     orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Luciani
     given-names: T Jake

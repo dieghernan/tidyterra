@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16 ucrt)",
+  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -307,7 +307,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3379.3KB",
+  "fileSize": "3348.515KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -319,7 +319,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects",
+      "name": "Using the {tidyverse} with {terra} objects: the {tidyterra} package",
       "identifier": "10.5281/zenodo.6572471",
       "url": "https://dieghernan.github.io/tidyterra/",
       "@id": "https://doi.org/10.5281/zenodo.6572471",
