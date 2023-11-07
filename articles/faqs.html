@@ -47,7 +47,7 @@
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -208,7 +208,7 @@ lines:</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/eliocamp/metR" class="external-link">metR</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/metR/" class="external-link">metR</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">volcanotemp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"volcano2hires.tif"</span><span class="op">)</span></span>
 <span></span>
@@ -227,7 +227,7 @@ lines:</p>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/metR/man/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://eliocamp.github.io/metR/reference/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span>,</span>
 <span>    check_overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    stroke <span class="op">=</span> <span class="fl">0.2</span>,</span>
@@ -248,7 +248,7 @@ lines:</p>
 <span>    data <span class="op">=</span> <span class="va">r</span>,</span>
 <span>    binwidth <span class="op">=</span> <span class="fl">25</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/metR/man/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://eliocamp.github.io/metR/reference/geom_text_contour.html" class="external-link">geom_text_contour</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span>,</span>
 <span>    binwidth <span class="op">=</span> <span class="fl">25</span>,</span>
 <span>    check_overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
