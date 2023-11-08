@@ -180,7 +180,10 @@ get_coltab_pal <- function(x) {
     df
   })
 
-  names(lcats) <- names(x)
+  # Add seq to names
+  nm <- paste0(names(x), "_", seq_len(terra::nlyr(x)))
+
+  names(lcats) <- nm
   cats_end <- dplyr::bind_rows(lcats, .id = "layer")
 
   # Get cols
@@ -195,7 +198,7 @@ get_coltab_pal <- function(x) {
 
     df
   })
-  names(cols_alpha_l) <- names(x)
+  names(cols_alpha_l) <- nm
   cols_end <- dplyr::bind_rows(cols_alpha_l, .id = "layer")
 
   # Join and create

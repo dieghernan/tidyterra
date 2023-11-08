@@ -60,28 +60,37 @@ test_that("Can extract a color table on several layers", {
 })
 
 test_that("Can extract several color tables on layers", {
-  r <- terra::rast(ncols = 4, nrows = 4)
+  # Prepare colors
+  cols1 <- rainbow(3)
+  cols2 <- c("#FFA500", "#FFFF00")
 
-  terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
-  coltb <- data.frame(t(col2rgb(rainbow(4), alpha = TRUE)))
-  terra::coltab(r, layer = 1) <- coltb
-
-
+  # Prepare rasters
+  r <- terra::rast(
+    ncols = 4, nrows = 4,
+    vals = as.factor(rep_len(c("A", "B", "A", "C"), 16))
+  )
   r2 <- r
   terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), 16))
-  levels(r2) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(
-    value = 1:2,
-    t(col2rgb(c("red", "yellow"), alpha = TRUE))
-  )
 
-  terra::coltab(r2) <- coltb2
+
+  # Add coltabs
+  coltb1 <- data.frame(id = 1:3, t(col2rgb(cols1, alpha = TRUE)))
+  coltb2 <- data.frame(id = 1:2, t(col2rgb(cols2, alpha = TRUE)))
+
+
+  terra::coltab(r, layer = 1) <- coltb1
+  terra::coltab(r2, layer = 1) <- coltb2
+
   rend <- c(r, r2)
 
-  ctab1 <- get_coltab_pal(r)
-  ctab2 <- get_coltab_pal(r2)
-  ctab <- get_coltab_pal(rend)
 
+  ctab1 <- get_coltab_pal(r)
+  expect_true(all(cols1 == ctab1))
+
+  ctab2 <- get_coltab_pal(r2)
+  expect_true(all(cols2 == ctab2))
+
+  ctab <- get_coltab_pal(rend)
   expect_identical(c(ctab1, ctab2), ctab)
 })
 
