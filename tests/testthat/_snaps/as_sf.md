@@ -2,6 +2,7 @@
 
     Code
       as_sf(r)
-    Error <rlang_error>
-      `x` is a <SpatRaster> not a <SpatVector>
+    Condition
+      Error in `as_sf()`:
+      ! `x` is a <SpatRaster> not a <SpatVector>
 

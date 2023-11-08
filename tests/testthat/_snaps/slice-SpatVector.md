@@ -2,8 +2,9 @@
 
     Code
       slice(empty, 1, -1)
-    Error <rlang_error>
-      Can't compute indices.
+    Condition
+      Error in `dplyr::slice()`:
+      ! Can't compute indices.
       Caused by error:
       ! Can't subset elements with `1`.
       x Negative and positive locations can't be mixed.
@@ -13,7 +14,8 @@
 
     Code
       slice(empty, "a")
-    Error <rlang_error>
+    Condition
+      Error in `dplyr::slice()`:
       i In argument: `"a"`.
       Caused by error:
       ! Can't subset elements with `"a"`.
@@ -23,13 +25,15 @@
 
     Code
       slice(df, 1 + "")
-    Error <rlang_error>
+    Condition
+      Error in `dplyr::slice()`:
       i In argument: `1 + ""`.
       Caused by error in `1 + ""`:
       ! non-numeric argument to binary operator
     Code
       slice(group_by(df, x), 1 + "")
-    Error <rlang_error>
+    Condition
+      Error in `dplyr::slice()`:
       i In argument: `1 + ""`.
       i In group 1: `x = 1`.
       Caused by error in `1 + ""`:
@@ -39,8 +43,9 @@
 
     Code
       slice(df, 1, foo = g)
-    Error <rlib_error_dots_named>
-      Arguments in `...` must be passed by position, not name.
+    Condition
+      Error in `dplyr::slice()`:
+      ! Arguments in `...` must be passed by position, not name.
       x Problematic argument:
       * foo = g
 
@@ -48,75 +53,88 @@
 
     Code
       slice_head(df, n = "a")
-    Error <rlang_error>
-      `n` must be a round number, not the string "a".
+    Condition
+      Error in `dplyr::slice_head()`:
+      ! `n` must be a round number, not the string "a".
     Code
       slice_tail(df, n = "a")
-    Error <rlang_error>
-      `n` must be a round number, not the string "a".
+    Condition
+      Error in `dplyr::slice_tail()`:
+      ! `n` must be a round number, not the string "a".
     Code
       slice_min(df, x, n = "a")
-    Error <rlang_error>
-      `n` must be a round number, not the string "a".
+    Condition
+      Error in `dplyr::slice_min()`:
+      ! `n` must be a round number, not the string "a".
     Code
       slice_max(df, x, n = "a")
-    Error <rlang_error>
-      `n` must be a round number, not the string "a".
+    Condition
+      Error in `dplyr::slice_max()`:
+      ! `n` must be a round number, not the string "a".
     Code
       slice_sample(df, n = "a")
-    Error <rlang_error>
-      `n` must be a round number, not the string "a".
+    Condition
+      Error in `dplyr::slice_sample()`:
+      ! `n` must be a round number, not the string "a".
 
 # slice_*() checks that `n=` is explicitly named and ... is empty
 
     Code
       slice_head(df, 5)
-    Error <rlang_error>
-      `n` must be explicitly named.
+    Condition
+      Error in `slice_head()`:
+      ! `n` must be explicitly named.
       i Did you mean `slice_head(n = 5)`?
     Code
       slice_tail(df, 5)
-    Error <rlang_error>
-      `n` must be explicitly named.
+    Condition
+      Error in `slice_tail()`:
+      ! `n` must be explicitly named.
       i Did you mean `slice_tail(n = 5)`?
     Code
       slice_min(df, x, 5)
-    Error <rlang_error>
-      `n` must be explicitly named.
+    Condition
+      Error in `slice_min()`:
+      ! `n` must be explicitly named.
       i Did you mean `slice_min(n = 5)`?
     Code
       slice_max(df, x, 5)
-    Error <rlang_error>
-      `n` must be explicitly named.
+    Condition
+      Error in `slice_max()`:
+      ! `n` must be explicitly named.
       i Did you mean `slice_max(n = 5)`?
     Code
       slice_sample(df, 5)
-    Error <rlang_error>
-      `n` must be explicitly named.
+    Condition
+      Error in `slice_sample()`:
+      ! `n` must be explicitly named.
       i Did you mean `slice_sample(n = 5)`?
 
 ---
 
     Code
       slice_head(df, 5, 2)
-    Error <rlib_error_dots_nonempty>
-      `...` must be empty.
+    Condition
+      Error in `dplyr::slice_head()`:
+      ! `...` must be empty.
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
       i Did you forget to name an argument?
     Code
       slice_tail(df, 5, 2)
-    Error <rlib_error_dots_nonempty>
-      `...` must be empty.
+    Condition
+      Error in `dplyr::slice_tail()`:
+      ! `...` must be empty.
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
       i Did you forget to name an argument?
     Code
       slice_min(df, x, 5, 2)
-    Error <rlib_error_dots_nonempty>
-      `...` must be empty.
+    Condition
+      Error in `dplyr::slice_min()`:
+      ! `...` must be empty.
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
@@ -125,8 +143,9 @@
       i Did you forget to name an argument?
     Code
       slice_max(df, x, 5, 2)
-    Error <rlib_error_dots_nonempty>
-      `...` must be empty.
+    Condition
+      Error in `dplyr::slice_max()`:
+      ! `...` must be empty.
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
@@ -135,8 +154,9 @@
       i Did you forget to name an argument?
     Code
       slice_sample(df, 5, 2)
-    Error <rlib_error_dots_nonempty>
-      `...` must be empty.
+    Condition
+      Error in `dplyr::slice_sample()`:
+      ! `...` must be empty.
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
@@ -146,37 +166,44 @@
 
     Code
       slice_head(gdf, n = 1, by = x)
-    Error <rlang_error>
-      Can't supply `by` when `.data` is a grouped data frame.
+    Condition
+      Error in `dplyr::slice_head()`:
+      ! Can't supply `by` when `.data` is a grouped data frame.
     Code
       slice_tail(gdf, n = 1, by = x)
-    Error <rlang_error>
-      Can't supply `by` when `.data` is a grouped data frame.
+    Condition
+      Error in `dplyr::slice_tail()`:
+      ! Can't supply `by` when `.data` is a grouped data frame.
     Code
       slice_min(gdf, order_by = x, by = x)
-    Error <simpleError>
-      formal argument "by" matched by multiple actual arguments
+    Condition
+      Error in `dplyr::slice_min()`:
+      ! formal argument "by" matched by multiple actual arguments
     Code
       slice_max(gdf, order_by = x, by = x)
-    Error <simpleError>
-      formal argument "by" matched by multiple actual arguments
+    Condition
+      Error in `dplyr::slice_max()`:
+      ! formal argument "by" matched by multiple actual arguments
     Code
       slice_sample(gdf, n = 1, by = x)
-    Error <rlang_error>
-      Can't supply `by` when `.data` is a grouped data frame.
+    Condition
+      Error in `dplyr::slice_sample()`:
+      ! Can't supply `by` when `.data` is a grouped data frame.
 
 # slice_min/max() check size of `order_by=`
 
     Code
       slice_min(df, 1:6)
-    Error <rlang_error>
-      Can't compute indices.
+    Condition
+      Error in `dplyr::slice_min()`:
+      ! Can't compute indices.
       Caused by error:
       ! `order_by` must have size 10, not size 6.
     Code
       slice_max(df, 1:6)
-    Error <rlang_error>
-      Can't compute indices.
+    Condition
+      Error in `dplyr::slice_max()`:
+      ! Can't compute indices.
       Caused by error:
       ! `order_by` must have size 10, not size 6.
 

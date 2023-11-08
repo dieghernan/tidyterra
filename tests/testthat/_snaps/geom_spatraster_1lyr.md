@@ -2,41 +2,43 @@
 
     Code
       ggplot() + geom_spatraster(data = v)
-    Error <rlang_error>
-      `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
+    Condition
+      Error in `geom_spatraster()`:
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
 
 ---
 
     Code
       ggplot() + geom_spatraster(data = 1:3)
-    Error <rlang_error>
-      `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
+    Condition
+      Error in `geom_spatraster()`:
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
 
 ---
 
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20)
-    Message <rlang_message>
+    Message
       <SpatRaster> resampled to 24 cells for plotting
 
 ---
 
     Code
       p_res_int <- ggplot() + geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
-    Message <rlang_message>
+    Message
       <SpatRaster> resampled to 24 cells for plotting
 
 # geom_spatraster one layer without CRS
 
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20)
-    Message <rlang_message>
+    Message
       <SpatRaster> resampled to 24 cells for plotting
 
 ---
 
     Code
       p_res_int <- ggplot() + geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
-    Message <rlang_message>
+    Message
       <SpatRaster> resampled to 24 cells for plotting
 

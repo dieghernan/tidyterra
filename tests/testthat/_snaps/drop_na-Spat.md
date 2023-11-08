@@ -2,7 +2,7 @@
 
     Code
       empty <- drop_na(v)
-    Message <cliMessage>
+    Message
       ! All geometries dropped.
       Returning empty <SpatVector>
 
@@ -10,7 +10,7 @@
 
     Code
       emptycrs <- drop_na(nocrs)
-    Message <cliMessage>
+    Message
       ! All geometries dropped.
       Returning empty <SpatVector>
 
@@ -18,7 +18,7 @@
 
     Code
       res <- compare_spatrasters(r, all)
-    Message <cliMessage>
+    Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
       * extent

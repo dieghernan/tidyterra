@@ -2,6 +2,7 @@
 
     Code
       as_coordinates(v)
-    Error <rlang_error>
-      `tidyterra::as_coordinates()` needs a <SpatRaster> object, not a <matrix/array> object
+    Condition
+      Error in `as_coordinates()`:
+      ! `tidyterra::as_coordinates()` needs a <SpatRaster> object, not a <matrix/array> object
 

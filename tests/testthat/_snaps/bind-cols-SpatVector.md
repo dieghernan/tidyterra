@@ -2,7 +2,7 @@
 
     Code
       bound <- bind_spat_cols(df, df)
-    Message <rlib_message_name_repair>
+    Message
       New names:
       * `a` -> `a...1`
       * `b` -> `b...2`
@@ -14,7 +14,7 @@
     Code
       repaired <- tibble::as_tibble(data.frame(a = 1, b = 2, a = 1, b = 2,
         check.names = FALSE), .name_repair = "unique")
-    Message <rlib_message_name_repair>
+    Message
       New names:
       * `a` -> `a...1`
       * `b` -> `b...2`
@@ -25,7 +25,7 @@
 
     Code
       res <- bind_spat_cols(aa, data.frame(a = 2))
-    Message <rlib_message_name_repair>
+    Message
       New names:
       * `a` -> `a...1`
       * `a` -> `a...2`

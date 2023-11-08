@@ -2,7 +2,7 @@
 
     Code
       gg <- bind_spat_rows(df2, df_init)
-    Message <cliMessage>
+    Message
       ! Object 2 in `...` is <data.frame> 
       The result would present empty geoms
 
@@ -10,7 +10,7 @@
 
     Code
       gg <- bind_spat_rows(df2, df_init)
-    Message <cliMessage>
+    Message
       ! Object 2 in `...` is <data.frame> 
       The result would present empty geoms
 
@@ -69,7 +69,7 @@
       # different crs sf and df
       df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
       (expect_message(vend3 <- bind_spat_rows(v1, v2_sf, df1)))
-    Message <cliMessage>
+    Message
       ! Object 3 in `...` is <data.frame> 
       The result would present empty geoms
     Output

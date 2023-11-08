@@ -2,21 +2,23 @@
 
     Code
       compare_spatrasters(x, terra::crs(x))
-    Error <rlang_error>
-      `x` and `y` must be <SpatRaster>s. `x` is <SpatRaster>, `y` is <character>
+    Condition
+      Error in `compare_spatrasters()`:
+      ! `x` and `y` must be <SpatRaster>s. `x` is <SpatRaster>, `y` is <character>
 
 ---
 
     Code
       compare_spatrasters(1, "a")
-    Error <rlang_error>
-      `x` and `y` must be <SpatRaster>s. `x` is <numeric>, `y` is <character>
+    Condition
+      Error in `compare_spatrasters()`:
+      ! `x` and `y` must be <SpatRaster>s. `x` is <numeric>, `y` is <character>
 
 # Different crs
 
     Code
       res <- compare_spatrasters(x, y)
-    Message <cliMessage>
+    Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
       * crs
@@ -25,7 +27,7 @@
 
     Code
       res <- compare_spatrasters(x, y)
-    Message <cliMessage>
+    Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
       * extent
@@ -34,7 +36,7 @@
 
     Code
       res <- compare_spatrasters(x, y)
-    Message <cliMessage>
+    Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
       * resolution
@@ -43,7 +45,7 @@
 
     Code
       res <- compare_spatrasters(x, y)
-    Message <cliMessage>
+    Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
       * crs
