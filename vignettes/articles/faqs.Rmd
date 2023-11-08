@@ -248,7 +248,7 @@ p <- st_point(c(-97.09, 31.53)) %>%
   st_sfc(crs = 4326) %>%
   st_buffer(750)
 
-tile1 <- get_tiles(p, provider = "Stamen.Terrain", zoom = 14, cachedir = ".")
+tile1 <- get_tiles(p, provider = "OpenStreetMap", zoom = 14, cachedir = ".")
 
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
@@ -263,7 +263,7 @@ st_crs(tile1)$epsg
 p2 <- st_transform(p, 3857)
 
 
-tile2 <- get_tiles(p2, provider = "Stamen.Terrain", zoom = 14, cachedir = ".")
+tile2 <- get_tiles(p2, provider = "OpenStreetMap", zoom = 14, cachedir = ".")
 
 st_crs(tile2)$epsg
 
@@ -329,7 +329,8 @@ ggplot() +
 
 The best option is to pass your custom breaks to `ggplot2::scale_x_continous()`
 or `ggplot2::scale_y_continous()`. You will need to provide the breaks in
-lon/lat even if your data is projected (¿?):
+lon/lat even if your data is projected. See also
+[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622):
 
 ```{r breaks}
 library(terra)
@@ -355,7 +356,7 @@ ggplot() +
   geom_spatraster(data = r) +
   labs(title = "Default axis breaks")
 
-# Modify y breaks
+# Modify y breaks with extent projected in EPSG:4326
 
 # Get extent
 
@@ -364,16 +365,12 @@ ext <- r %>%
   ext() %>%
   as.vector()
 
-br_y <- seq(ext["ymin"], ext["ymax"], length.out = 1000) %>%
-  pretty(n = 3) %>%
-  round(3) %>%
-  unique()
 
 ggplot() +
   geom_spatraster(data = r) +
   scale_y_continuous(
     expand = expansion(mult = 0.05),
-    breaks = br_y
+    breaks = scales::breaks_pretty(n = 3)(ext[c("ymin", "ymax")])
   ) +
   labs(title = "Three breaks on y")
 ```

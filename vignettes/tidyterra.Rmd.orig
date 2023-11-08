@@ -25,7 +25,19 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  dev = "ragg_png",
+  tidy = "styler",
+  dpi = 90,
+  fig.path = "./",
+  out.width = "100%"
+)
+```
 
 ## Summary
 
@@ -128,16 +140,14 @@ references its equivalent in `terra`.
 [CRAN](https://CRAN.R-project.org/package=tidyterra), so it can be easily
 installed using the following commands in R:
 
-
-```r
+```{r install_cran, eval=FALSE}
 install.packages("tidyterra")
 ```
 
 The latest developing version is hosted in GitHub and can be installed using the
 following command in R:
 
-
-```r
+```{r install_dev, eval=FALSE}
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -145,8 +155,7 @@ The following example demonstrates how to manipulate a `SpatRaster` object using
 the `dplyr` syntax. Additionally, it illustrates how to seamlessly plot a
 `SpatRaster` object with `ggplot2` using the `geom_spatraster()` function:
 
-
-```r
+```{r spatraster-example1, fig.cap='Faceted map with multi-layer raster file.'}
 library(tidyterra)
 library(tidyverse) # Load all the packages of tidyverse at once
 library(scales) # Additional library for labels
@@ -178,18 +187,12 @@ ggplot() +
   )
 ```
 
-<div class="figure">
-<img src="./spatraster-example1-1.png" alt="Faceted map with multi-layer raster file." width="100%" />
-<p class="caption">Faceted map with multi-layer raster file.</p>
-</div>
-
 In the following example we combine a common `dplyr` workflow (`mutate` +
 `select`) and we plot the result. In this case the plot is a contour plot of the
 original `SpatRaster` using `geom_spatraster_contour_filled()`and it also
 includes an overlay of a `SpatVector` for reference:
 
-
-```r
+```{r spatraster-example2, fig.cap='Contour map of temperature variation with a SpatVector overlay'}
 # Compute the variation between April and June and apply a different palette
 incr_temp <- rastertemp %>%
   mutate(var = June - April) %>%
@@ -212,11 +215,6 @@ ggplot() +
     subtitle = "Difference between April and June"
   )
 ```
-
-<div class="figure">
-<img src="./spatraster-example2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%" />
-<p class="caption">Contour map of temperature variation with a SpatVector overlay</p>
-</div>
 
 ## Additional materials
 

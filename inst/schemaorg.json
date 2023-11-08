@@ -41,7 +41,7 @@
         "url": "https://cran.r-project.org"
       },
       "runtimePlatform": "R version 4.3.1 (2023-06-16)",
-      "version": "0.4.0.9000"
+      "version": "0.4.1.9000"
     },
     {
       "id": "https://doi.org/10.5281/zenodo.6572471",
@@ -51,7 +51,7 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "name": "{tidyterra}: tidyverse Methods and ggplot2 Helpers for terra Objects"
+      "name": "Using the {tidyverse} with {terra} objects: the {tidyterra} package"
     }
   ]
 }
