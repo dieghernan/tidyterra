@@ -312,11 +312,13 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 ## Citation
 
-To cite package ‘tidyterra’ in publications use:
+If you use this software, please cite our article in the Journal of Open
+Source Software.
 
 Hernangómez D (2023). “Using the tidyverse with terra objects: the
 tidyterra package.” *Journal of Open Source Software*, *8*(91), 5751.
-<doi:10.21105/joss.05751> <https://doi.org/10.21105/joss.05751>,
+ISSN 2475-9066, <doi:10.21105/joss.05751>
+<https://doi.org/10.21105/joss.05751>,
 <https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is
@@ -332,6 +334,7 @@ A BibTeX entry for LaTeX users is
       number = {91},
       pages = {5751},
       journal = {Journal of Open Source Software},
+      issn = {2475-9066},
     }
 
 ## Acknowledgement

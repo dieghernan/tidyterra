@@ -34,6 +34,7 @@ preferred-citation:
   volume: '8'
   issue: '91'
   journal: Journal of Open Source Software
+  issn: 2475-9066
   start: '5751'
 repository: https://CRAN.R-project.org/package=tidyterra
 repository-code: https://github.com/dieghernan/tidyterra
