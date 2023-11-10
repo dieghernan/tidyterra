@@ -10,7 +10,8 @@
     setup: `na.translate = FALSE`.
 -   Enhanced `glimpse.Spat()` with meta-information on type of geometry, crs,
     etc.
--   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package
+-   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
+-   Update citation.  
 
 # tidyterra 0.4.1
 
