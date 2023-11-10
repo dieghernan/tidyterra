@@ -12,7 +12,8 @@
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
-#' [hypsometric (or bathymetric) tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
+#' [hypsometric (or bathymetric)
+#' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
 #' - `scale_*_cross_blended_tint_d()`: For discrete values.
 #' - `scale_*_cross_blended_tint_c()`: For continuous values.
@@ -38,6 +39,10 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
+#' @param na.translate Should `NA` values be removed from the legend? Default
+#'   is `TRUE`.
+#' @param drop Should unused factor levels be omitted from the scale? The
+#'   default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #' @param palette A valid palette name. The name is matched to the list of
@@ -173,12 +178,16 @@
 #'   )
 #' }
 scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
-                                       alpha = 1, direction = 1) {
+                                       alpha = 1, direction = 1,
+                                       na.translate = FALSE,
+                                       drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -188,18 +197,23 @@ scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 #' @export
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
-                                         alpha = 1, direction = 1) {
+                                         alpha = 1, direction = 1,
+                                         na.translate = FALSE, drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -209,6 +223,8 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -219,10 +235,12 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
                                        na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
@@ -248,10 +266,12 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
                                          na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
@@ -276,10 +296,12 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
                                        na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
@@ -303,10 +325,12 @@ scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
                                          na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
@@ -394,12 +418,16 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #'  In contrast, `cross_blended.colors()` provides an uniform gradient across
 #'  colors. See **Examples**.
 scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                            alpha = 1, direction = 1) {
+                                            alpha = 1, direction = 1,
+                                            na.translate = FALSE,
+                                            drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -409,6 +437,8 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -416,12 +446,16 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 #' @export
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                              alpha = 1, direction = 1) {
+                                              alpha = 1, direction = 1,
+                                              na.translate = FALSE,
+                                              drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -431,6 +465,8 @@ scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -443,16 +479,21 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
                                             na.value = NA,
                                             guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::cross_blended_hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -483,16 +524,21 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
                                               na.value = NA,
                                               guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::cross_blended_hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -523,16 +569,21 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
                                             na.value = NA,
                                             guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::cross_blended_hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -564,16 +615,21 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
                                               na.value = NA,
                                               guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::cross_blended_hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::cross_blended_hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]

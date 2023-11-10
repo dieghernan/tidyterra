@@ -20,15 +20,19 @@ test_that("For SpatVector", {
   # Renaming
   v2 <- v
   v2$geometry <- 1
-  res <- dplyr::as_tibble(v2, geom = "WKT")
+  expect_snapshot(res <- dplyr::as_tibble(v2, geom = "WKT"))
 
-  expect_false(all(names(v2)[seq_len(ncol(v2))] ==
-    names(res)[seq_len(ncol(v2))]))
+  expect_false(
+    all(
+      names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]
+    )
+  )
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
-  res <- dplyr::as_tibble(v2, geom = "HEX")
-  expect_false(all(names(v2)[seq_len(ncol(v2))] ==
-    names(res)[seq_len(ncol(v2))]))
+  expect_snapshot(res <- dplyr::as_tibble(v2, geom = "HEX"))
+  expect_false(
+    all(names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))])
+  )
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   # With point
@@ -36,9 +40,10 @@ test_that("For SpatVector", {
   p$x <- "A"
   p$y <- "B"
 
-  res_p <- dplyr::as_tibble(p, geom = "XY")
-  expect_false(all(names(p)[seq_len(ncol(p))] ==
-    names(res_p)[seq_len(ncol(p))]))
+  expect_snapshot(res_p <- dplyr::as_tibble(p, geom = "XY"))
+  expect_false(
+    all(names(p)[seq_len(ncol(p))] == names(res_p)[seq_len(ncol(p))])
+  )
   expect_equal(setdiff(names(res_p), names(p)), c("x.1", "y.1"))
 })
 
@@ -58,7 +63,7 @@ test_that("For SpatVector internal", {
 
   # Any error on normal tibble
   ntibble <- as_tibble(v)
-  expect_error(as_tbl_internal(ntibble))
+  expect_snapshot(as_tbl_internal(ntibble), error = TRUE)
 
 
   # Preserve groups

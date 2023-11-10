@@ -1,3 +1,18 @@
+# tidyterra (development version)
+
+-   Support for SpatRasters with a color table
+    -   `autoplot.SpatRaster()` can detect now SpatRasters with color tables.
+    -   `geom_spatraster()` can detect now SpatRasters with color tables.
+    -   New scales for plotting SpatRasters with color tables:
+        `scale_fill_coltab()` and rest of family scales (`colour`).
+    -   tidyverse verbs keeps the associated `coltab` of a SpatRaster.
+-   By default all the discrete scales of tidyterra now have the following
+    setup: `na.translate = FALSE`.
+-   Enhanced `glimpse.Spat()` with meta-information on type of geometry, crs,
+    etc.
+-   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
+-   Update citation.  
+
 # tidyterra 0.4.1
 
 -   Release for JOSS paper. No relevant changes.
@@ -47,7 +62,7 @@
     `"meyers"` and `"nordisk-familjebok"`.
 -   Added colour scales to all palettes: `scale_colour_*`.
 -   Remove use of `ggplot2::aes_string()`.
--   Adapt geom\_`spatraster_contour()` and `geom_spatraster_contour_filled()` to
+-   Adapt `geom_spatraster_contour()` and `geom_spatraster_contour_filled()` to
     the changes introduced in **ggplot2 (3.4.0)**, most notably the adoption of
     `linewidth = .2`, by default.
 

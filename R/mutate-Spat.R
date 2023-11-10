@@ -81,7 +81,7 @@ mutate.SpatRaster <- function(.data, ...) {
 
   xy <- dplyr::select(df, 1:2)
 
-  values <- dplyr::select(df, -c(1:2))
+  values <- dplyr::select(df, -c(1, 2))
 
   values_mutate <- dplyr::mutate(values, ...)
 
@@ -110,6 +110,25 @@ mutate.SpatRaster <- function(.data, ...) {
 
   final_rast <- as_spat_internal(final_df)
 
+  if (any(terra::has.colors(.data))) {
+    ctab_list <- terra::coltab(.data)
+
+    # Assign coltab by layer
+    l2 <- lapply(seq_len(terra::nlyr(final_rast)), function(x) {
+      rr <- terra::subset(final_rast, x)
+      if (x <= length(ctab_list)) {
+        ctab <- ctab_list[x]
+      } else {
+        ctab <- NULL
+      }
+
+      terra::coltab(rr) <- ctab
+
+      return(rr)
+    })
+    final_rast <- do.call("c", l2)
+  }
+
   return(final_rast)
 }
 #' @export
@@ -135,7 +154,7 @@ transmute.SpatRaster <- function(.data, ...) {
 
   xy <- dplyr::select(df, 1:2)
 
-  values <- dplyr::select(df, -c(1:2))
+  values <- dplyr::select(df, -c(1, 2))
 
   values_transm <- dplyr::transmute(values, ...)
 
@@ -163,6 +182,34 @@ transmute.SpatRaster <- function(.data, ...) {
   attr(final_df, "dims") <- dims
 
   final_rast <- as_spat_internal(final_df)
+
+
+  # Check coltab
+  if (
+    any(terra::has.colors(.data)) && any(names(final_rast) %in% names(.data))
+  ) {
+    ctab_list_init <- terra::coltab(.data)
+    names(ctab_list_init) <- names(.data)
+    namesend <- names(final_rast)
+
+    ctab_list <- ctab_list_init[namesend %in% names(.data)]
+
+
+    # Assign coltab by layer
+    l2 <- lapply(seq_len(terra::nlyr(final_rast)), function(x) {
+      rr <- terra::subset(final_rast, x)
+      if (names(rr) %in% names(ctab_list)) {
+        ctab <- ctab_list[match(names(rr), names(ctab_list))]
+      } else {
+        ctab <- NULL
+      }
+
+      terra::coltab(rr) <- ctab
+      return(rr)
+    })
+    final_rast <- do.call("c", l2)
+  }
+
 
   return(final_rast)
 }

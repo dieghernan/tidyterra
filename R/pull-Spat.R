@@ -8,7 +8,7 @@
 #' You need to use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
 #' names on terra, since they refer to the geographic coordinates of the layer.
 #'
-#' See **Examples** and section `About layer names` on [as_tibble()].
+#' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
 #' @export
 #' @rdname pull.Spat

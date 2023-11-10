@@ -7,8 +7,10 @@ test_that("empty slice drops all rows", {
 
 
   expect_identical(as_tibble(slice(df)), as_tibble(df[integer(), ]))
-  expect_identical(slice(gdf) %>% as_tibble(), gdf[integer(), ] %>%
-    as_tibble())
+  expect_identical(
+    slice(gdf) %>% as_tibble(),
+    gdf[integer(), ] %>% as_tibble()
+  )
 })
 
 test_that("slicing SpatVector yields SpatVector", {

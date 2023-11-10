@@ -130,15 +130,19 @@ geom_spatraster_contour <- function(mapping = NULL, data,
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {
-    stop("Package `isoband` required. Run `install.packages('isoband')` first")
+    cli::cli_abort(paste(
+      "Package {.pkg isoband} required.",
+      "Run {.run install.packages('isoband')}"
+    ))
   }
   # nocov end
 
   if (!inherits(data, "SpatRaster")) {
-    stop(
-      "geom_spatraster_*() only works with SpatRaster objects. ",
-      "See ?terra::vect"
-    )
+    cli::cli_abort(paste(
+      "{.fun tidyterra::geom_spatraster_contour} only works with",
+      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
+      "See {.help terra::vect}"
+    ))
   }
 
 
@@ -160,7 +164,7 @@ geom_spatraster_contour <- function(mapping = NULL, data,
     namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
 
     if (!namelayer %in% names(data)) {
-      cli::cli_abort(paste("Layer", namelayer, "not found in data"))
+      cli::cli_abort(paste("Layer {.val {namelayer}} not found in {.arg data}"))
     }
 
     # Subset by layer
@@ -279,14 +283,19 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
       nly <- length(unique(data$lyr))
       if (nly > 1) {
-        message(
-          "\nWarning message:\n",
-          "Plotting ", nly, " layers: ",
-          paste0("`", unique(data$lyr), "`", collapse = ", "),
-          ".(geom_spat_contour()).",
-          "\n- Use facet_wrap(~lyr) for faceting.",
-          "\n- Use aes(fill=<name_of_layer>) ",
-          "for displaying a single layer\n"
+        cli::cli_alert_warning(paste(
+          cli::style_bold("{.fun tidyterra::geom_spat_countour}:"),
+          "Plotting {.field {nly}} overlapping layer{?s}:",
+          "{.val {unique(data$lyr)}}. Either:"
+        ))
+        cli::cli_bullets(
+          c(
+            " " = "Use {.code facet_wrap(~lyr)} for faceting or",
+            " " = paste(
+              "Use {.code aes(fill = <name_of_layer>)}",
+              "for displaying single layers"
+            )
+          )
         )
       }
     }
@@ -423,7 +432,10 @@ iso_to_path <- function(iso, group = 1) {
   lengths <- vapply(iso, function(x) length(x$x), integer(1))
 
   if (all(lengths == 0)) {
-    cli::cli_warn("Zero contours were generated")
+    cli::cli_warn(paste(
+      "In", cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
+      "Zero contours were generated"
+    ))
     return(data.frame())
   }
 

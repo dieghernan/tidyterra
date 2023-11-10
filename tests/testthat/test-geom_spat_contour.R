@@ -37,22 +37,25 @@ test_that("Errors and messages", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour())
   expect_error(
+    ggplot(r) +
+      geom_spatraster_contour()
+  )
+
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour(data = v),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour(data = 1:3),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_contour(data = r, aes(z = noexist)),
-    regexp = "Layer noexist not found"
+    error = TRUE
   )
 
   # Also with no crs
@@ -63,6 +66,7 @@ test_that("Errors and messages", {
       data = r,
       breaks = c(0, 1)
     )
+  expect_snapshot(end <- ggplot_build(ff))
 })
 
 

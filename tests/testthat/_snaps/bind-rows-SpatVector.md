@@ -1,3 +1,19 @@
+# bind_spat_rows respects rowwise
+
+    Code
+      gg <- bind_spat_rows(df2, df_init)
+    Message
+      ! Object 2 in `...` is <data.frame> 
+      The result would present empty geoms
+
+# bind_spat_rows respects named rowwise
+
+    Code
+      gg <- bind_spat_rows(df2, df_init)
+    Message
+      ! Object 2 in `...` is <data.frame> 
+      The result would present empty geoms
+
 # bind_spat_rows() give informative errors
 
     Code
@@ -18,13 +34,13 @@
     Output
       <error/rlang_error>
       Error in `bind_spat_rows()`:
-      ! Object #1 in ... is not a SpatVector
+      ! Object 1 in `...` is not a <SpatVector>
     Code
       (expect_error(bind_spat_rows(df1, ll)))
     Output
       <error/rlang_error>
       Error in `FUN()`:
-      ! In bind_spat_rows(): Object #2 in ... is not a data.frame/tbl
+      ! In `tidyterra::bind_spat_rows()`: object 2 in `...` is not a <data.frame>
 
 # bind_spat_rows() give informative message
 
@@ -35,8 +51,7 @@
       v2 <- terra::project(v[2, ], "EPSG:3857")
       (expect_message(vend <- bind_spat_rows(v1, v2)))
     Output
-      <cliMessage: ! Reprojecting object #2
-      Object #2 in ... doesn't have the same CRS than object #1
+      <cliMessage: ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1
       >
     Code
       expect_s4_class(vend, "SpatVector")
@@ -46,8 +61,7 @@
       expect_s3_class(v2_sf, "sf")
       (expect_message(vend2 <- bind_spat_rows(v1, v2_sf)))
     Output
-      <cliMessage: ! Reprojecting object #2
-      Object #2 in ... doesn't have the same CRS than object #1
+      <cliMessage: ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1
       >
     Code
       expect_s4_class(vend2, "SpatVector")
@@ -55,12 +69,11 @@
       # different crs sf and df
       df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
       (expect_message(vend3 <- bind_spat_rows(v1, v2_sf, df1)))
-    Message <cliMessage>
-      ! Object #3 in ... is a data.frame/tbl.
+    Message
+      ! Object 3 in `...` is <data.frame> 
       The result would present empty geoms
     Output
-      <cliMessage: ! Reprojecting object #2
-      Object #2 in ... doesn't have the same CRS than object #1
+      <cliMessage: ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1
       >
     Code
       expect_s4_class(vend3, "SpatVector")

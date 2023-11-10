@@ -2,15 +2,17 @@
 
     Code
       count(df1, x, name = 1)
-    Error <rlang_error>
-      `name` must be a single string, not the number 1.
+    Condition
+      Error in `dplyr::tally()`:
+      ! `name` must be a single string, not the number 1.
 
 ---
 
     Code
       count(df1, x, name = letters)
-    Error <rlang_error>
-      `name` must be a single string, not a character vector.
+    Condition
+      Error in `dplyr::tally()`:
+      ! `name` must be a single string, not a character vector.
 
 # can only explicitly chain together multiple tallies
 
@@ -43,7 +45,7 @@
        values      :     2
     Code
       df %>% count(n)
-    Message <rlang_message>
+    Message
       Storing counts in `nn`, as `n` already present in input
       i Use `name = "new_name"` to pick a new name.
       Storing counts in `nn`, as `n` already present in input

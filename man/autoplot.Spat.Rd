@@ -6,7 +6,15 @@
 \alias{autoplot.SpatVector}
 \title{Create a complete ggplot for Spat* objects}
 \usage{
-\method{autoplot}{SpatRaster}(object, ..., rgb = NULL, facets = NULL, nrow = NULL, ncol = 2)
+\method{autoplot}{SpatRaster}(
+  object,
+  ...,
+  rgb = NULL,
+  use_coltab = NULL,
+  facets = NULL,
+  nrow = NULL,
+  ncol = 2
+)
 
 \method{autoplot}{SpatVector}(object, ...)
 }
@@ -19,6 +27,10 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{rgb}{Logical. Should be plotted as a RGB image? If \code{NULL} (the default)
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
+
+\item{use_coltab}{Logical. Should be plotted with the corresponding
+\code{\link[terra:colors]{terra::coltab()}}? If \code{NULL} (the default) \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would
+try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{facets}{Logical. Should facets be displayed? If \code{NULL} (the default)
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
@@ -69,6 +81,13 @@ tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") \%>\%
   rast()
 
 autoplot(tile)
+
+# With coltabs
+
+ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") \%>\%
+  rast()
+
+autoplot(ctab)
 
 #  With vectors
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

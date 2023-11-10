@@ -96,7 +96,7 @@ test_that("Subset columns can regroup", {
 
   # Trigger rebuild with any verb
   gr_v2 <- gr_v2 %>% mutate(a = 1)
-  expect_identical(group_vars(gr_v2), c("gr"))
+  expect_identical(group_vars(gr_v2), "gr")
 
   # Same as
   gr_v_tbl <- as_tibble(gr_v)[, c("iso2", "gr")]
@@ -113,7 +113,7 @@ test_that("Subset all columns ungroup", {
   expect_true(is_grouped_spatvector(gr_v))
 
   expect_identical(group_vars(gr_v), c("gr2", "gr"))
-  gr_v2 <- gr_v[, c("iso2")]
+  gr_v2 <- gr_v[, "iso2"]
 
   # Trigger rebuild with any verb
   expect_message(gr_v2 <- gr_v2 %>% mutate(a = 1), "mixed terra and tidyterra")
@@ -132,6 +132,6 @@ test_that("Gives meaningful messages", {
 
   expect_true(is_grouped_spatvector(gr_v))
 
-  gr_v2 <- gr_v[, c("name")]
+  gr_v2 <- gr_v[, "name"]
   expect_snapshot(gr_v2 <- gr_v2 %>% mutate(a = 1))
 })

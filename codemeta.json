@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.1",
+  "version": "0.4.1.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+  "runtimePlatform": "R version 4.3.2 (2023-10-31 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -307,10 +307,11 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "3348.515KB",
+  "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
+  "fileSize": "3441.68KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
       "datePublished": "2023",
       "author": [
         {
@@ -320,15 +321,25 @@
         }
       ],
       "name": "Using the {tidyverse} with {terra} objects: the {tidyterra} package",
-      "identifier": "10.5281/zenodo.6572471",
-      "url": "https://dieghernan.github.io/tidyterra/",
-      "@id": "https://doi.org/10.5281/zenodo.6572471",
-      "sameAs": "https://doi.org/10.5281/zenodo.6572471"
+      "identifier": "10.21105/joss.05751",
+      "url": "https://doi.org/10.21105/joss.05751",
+      "pagination": "5751",
+      "@id": "https://doi.org/10.21105/joss.05751",
+      "sameAs": "https://doi.org/10.21105/joss.05751",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "91",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "8",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/master/NEWS.md",
   "readme": "https://github.com/dieghernan/tidyterra/blob/main/README.md",
   "contIntegration": ["https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/tidyterra"],
-  "developmentStatus": "https://www.repostatus.org/#active",
-  "keywords": ["ggplot-extension", "r-package", "r-spatial", "rspatial", "rstats", "rstats-package", "terra", "cran", "cran-r", "r"]
+  "developmentStatus": "https://www.repostatus.org/#active"
 }

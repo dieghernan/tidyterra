@@ -1,22 +1,17 @@
-year <- format(Sys.time(), "%Y")
-abs <- trimws(gsub("\\s+", " ", meta$Description))
-abs <- gsub("'", "", abs)
-doi <- "10.5281/zenodo.6572471"
-
 bibentry(
-  "Manual",
-  header = paste0("To cite '", meta$Package, "' in publications use:"),
+  "Article",
   title = "Using the {tidyverse} with {terra} objects: the {tidyterra} package",
-  doi = doi,
+  doi = "10.21105/joss.05751",
   author = c(person("Diego", "Hernangómez")),
-  year = year,
-  version = meta$Version,
-  url = unlist(strsplit(meta$URL, ","))[1],
-  abstract = abs,
+  year = "2023",
+  url = "https://doi.org/10.21105/joss.05751",
   key = "R-tidyterra",
-  textVersion = paste0(
-    "Hernangomez D (", year, "). tidyterra: ",
-    gsub("'", "", meta$Title), ". <https://doi.org/", doi, ">, <",
-    unlist(strsplit(meta$URL, ","))[1], ">"
+  publisher = "The Open Journal", 
+  volume = 8, 
+  number = 91, 
+  pages = 5751,
+  journal = "Journal of Open Source Software",
+  issn = "2475-9066",
+  header = "If you use this software, please cite our article in the Journal of Open Source Software."
   )
-)
+  

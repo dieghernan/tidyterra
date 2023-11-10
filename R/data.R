@@ -19,7 +19,8 @@
 #'
 #' @source
 #'
-#' [Auckland LiDAR 1m DEM (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/)
+#' [Auckland LiDAR 1m DEM
+#' (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/)
 #'
 #' DEM for LiDAR data from the Auckland region captured in 2013. The original
 #' data has been downsampled to a resolution of 5m due to disk space constrains.

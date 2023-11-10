@@ -16,8 +16,8 @@ test_that("Discrete scale", {
   expect_identical(mod, mod3)
 
   # Alpha
-  expect_error(p + scale_colour_terrain_d(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_colour_terrain_d(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_colour_terrain_d(alpha = 0.9)
@@ -27,8 +27,8 @@ test_that("Discrete scale", {
   expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_error(p + scale_colour_terrain_d(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_colour_terrain_d(direction = 0.5),
+    error = TRUE
   )
 
 
@@ -41,9 +41,9 @@ test_that("Discrete scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(adjustcolor(mod, alpha.f = 0.7)) == mod_alpha_rev)
+  )
 })
 
 
@@ -66,8 +66,8 @@ test_that("Continous scale", {
 
 
   # Alpha
-  expect_error(p + scale_colour_terrain_c(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_colour_terrain_c(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_colour_terrain_c(alpha = 0.9)
@@ -77,8 +77,8 @@ test_that("Continous scale", {
   expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_error(p + scale_colour_terrain_c(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_colour_terrain_c(direction = 0.5),
+    error = TRUE
   )
 
 
@@ -91,9 +91,9 @@ test_that("Continous scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
 
-  expect_true(all(rev(adjustcolor(mod,
-    alpha.f = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(adjustcolor(mod, alpha.f = 0.7)) == mod_alpha_rev)
+  )
 })
 
 test_that("Breaking scale", {
@@ -133,8 +133,8 @@ test_that("Breaking scale", {
 
 
   # Alpha
-  expect_error(p_init + scale_colour_terrain_b(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p_init + scale_colour_terrain_b(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p_init + scale_colour_terrain_b(
@@ -148,8 +148,8 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha
-  expect_error(p + scale_colour_terrain_b(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_colour_terrain_b(direction = 0.5),
+    error = TRUE
   )
 
 

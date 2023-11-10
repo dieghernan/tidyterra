@@ -11,8 +11,8 @@ test_that("Discrete scale", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_error(p + scale_fill_hypso_d(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_fill_hypso_d(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_fill_hypso_d(alpha = 0.9)
@@ -22,8 +22,8 @@ test_that("Discrete scale", {
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_error(p + scale_fill_hypso_d(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_fill_hypso_d(direction = 0.5),
+    error = TRUE
   )
 
 
@@ -36,9 +36,9 @@ test_that("Discrete scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(alpha(mod,
-    alpha = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
+  )
 
   # Change pal
   # Create ggplot for each pal, extract colors and check
@@ -78,9 +78,9 @@ test_that("Discrete scale tint", {
 
   # Use tint option
   s <- p + scale_fill_hypso_tint_d(palette = "x")
-  expect_error(ggplot2::ggplot_build(s))
-  expect_error(p + scale_fill_hypso_tint_d(alpha = -1))
-  expect_error(p + scale_fill_hypso_tint_d(direction = -12))
+  expect_snapshot(aa <- ggplot2::ggplot_build(s), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_d(alpha = -1), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_d(direction = -12), error = TRUE)
 
   p2 <- p + scale_fill_hypso_tint_d()
 
@@ -113,8 +113,8 @@ test_that("Continous scale", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_error(p + scale_fill_hypso_c(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p + scale_fill_hypso_c(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p + scale_fill_hypso_c(alpha = 0.9)
@@ -124,8 +124,8 @@ test_that("Continous scale", {
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_error(p + scale_fill_hypso_c(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_fill_hypso_c(direction = 0.5),
+    error = TRUE
   )
 
 
@@ -138,9 +138,9 @@ test_that("Continous scale", {
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
 
-  expect_true(all(rev(alpha(mod,
-    alpha = 0.7
-  )) == mod_alpha_rev))
+  expect_true(
+    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
+  )
 
   # Change pal
   # Create ggplot for each pal, extract colors and check
@@ -178,9 +178,9 @@ test_that("Continous scale tint", {
   init <- ggplot2::layer_data(p_init)$fill
 
   # Use tint option
-  expect_error(p + scale_fill_hypso_tint_c(palette = "x"))
-  expect_error(p + scale_fill_hypso_tint_c(alpha = -1))
-  expect_error(p + scale_fill_hypso_tint_c(direction = -12))
+  expect_snapshot(p + scale_fill_hypso_tint_c(palette = "x"), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_c(alpha = -1), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_c(direction = -12), error = TRUE)
 
   p2 <- p + scale_fill_hypso_tint_c()
 
@@ -244,8 +244,8 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod)) == 3)
 
   # Alpha
-  expect_error(p_init + scale_fill_hypso_b(alpha = -1),
-    regexp = "alpha level -1 not in"
+  expect_snapshot(p_init + scale_fill_hypso_b(alpha = -1),
+    error = TRUE
   )
 
   p3 <- p_init + scale_fill_hypso_b(
@@ -259,8 +259,8 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha
-  expect_error(p + scale_fill_hypso_b(direction = 0.5),
-    regexp = "must be 1 or -1"
+  expect_snapshot(p + scale_fill_hypso_b(direction = 0.5),
+    error = TRUE
   )
 
 
@@ -310,10 +310,10 @@ test_that("Breaking scale tint", {
   init <- ggplot2::layer_data(p_init)$fill
 
   # Use tint option
-  expect_error(p + scale_fill_hypso_tint_b(palette = "x"))
-  expect_error(p + scale_fill_hypso_tint_b(palette = "x"))
-  expect_error(p + scale_fill_hypso_tint_b(alpha = -1))
-  expect_error(p + scale_fill_hypso_tint_b(direction = -12))
+  expect_snapshot(p + scale_fill_hypso_tint_b(palette = "x"), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_b(palette = "x"), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_b(alpha = -1), error = TRUE)
+  expect_snapshot(p + scale_fill_hypso_tint_b(direction = -12), error = TRUE)
   p2 <- p + scale_fill_hypso_tint_b()
 
   mod <- ggplot2::layer_data(p2)$fill
@@ -350,7 +350,7 @@ test_that("Breaking scale tint", {
 })
 
 test_that("Palettes", {
-  expect_error(hypso.colors(20, "xx"))
+  expect_snapshot(hypso.colors(20, "xx"), error = TRUE)
 
   # Check all palettes
   allpals <- unique(hypsometric_tints_db$pal)
@@ -372,7 +372,7 @@ test_that("Palettes", {
 
 
 test_that("Palettes2", {
-  expect_error(hypso.colors2(20, "xx"))
+  expect_snapshot(hypso.colors2(20, "xx"), error = TRUE)
 
   # Check all palettes
   allpals <- unique(hypsometric_tints_db$pal)

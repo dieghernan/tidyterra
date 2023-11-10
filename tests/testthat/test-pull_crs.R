@@ -1,6 +1,6 @@
 test_that("Check crs", {
-  expect_message(pull_crs(list(1)))
-  expect_true(is.na(pull_crs(list(1))))
+  expect_snapshot(res <- pull_crs(list(1)))
+  expect_true(is.na(res))
 
   expect_true(is.na(pull_crs(NA)))
   expect_silent(is.na(pull_crs(NA)))

@@ -14,7 +14,8 @@
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
-#' [hypsometric (or bathymetric) tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
+#' [hypsometric (or bathymetric)
+#' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
 #' - `scale_*_hypso_tint_d()`: For discrete values.
 #' - `scale_*_hypso_tint_c()`: For continuous values.
@@ -41,8 +42,7 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams ggplot2::continuous_scale
+#' @inheritParams scale_cross_blended
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [hypsometric_tints_db] for more info. Values available are:
@@ -167,12 +167,16 @@
 #'   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 #' }
 scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
-                               alpha = 1, direction = 1) {
+                               alpha = 1, direction = 1,
+                               na.translate = FALSE,
+                               drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -182,18 +186,24 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 #' @export
 #' @rdname scale_hypso
 scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
-                                 alpha = 1, direction = 1) {
+                                 alpha = 1, direction = 1,
+                                 na.translate = FALSE,
+                                 drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -203,6 +213,8 @@ scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -214,10 +226,12 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
                                na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
     palette = palette
@@ -242,10 +256,12 @@ scale_colour_hypso_c <- function(palette = "etopo1_hypso", ...,
                                  alpha = 1, direction = 1,
                                  na.value = NA, guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
     palette = palette
@@ -270,10 +286,12 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
                                na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
     palette = palette
@@ -297,10 +315,12 @@ scale_colour_hypso_b <- function(palette = "etopo1_hypso", ...,
                                  alpha = 1, direction = 1,
                                  na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   length_pal <- nrow(extract_pal(tidyterra::hypsometric_tints_db,
     palette = palette
@@ -386,12 +406,16 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 #' See **Examples**.
 
 scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
-                                    alpha = 1, direction = 1) {
+                                    alpha = 1, direction = 1,
+                                    na.translate = FALSE,
+                                    drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -401,18 +425,24 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
 #' @export
 #' @rdname scale_hypso
 scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
-                                      alpha = 1, direction = 1) {
+                                      alpha = 1, direction = 1,
+                                      na.translate = FALSE,
+                                      drop = TRUE) {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
@@ -422,6 +452,8 @@ scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
       direction = direction,
       palette = palette
     ),
+    na.translate = na.translate,
+    drop = drop,
     ...
   )
 }
@@ -434,16 +466,21 @@ scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
                                     na.value = NA,
                                     guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -473,16 +510,21 @@ scale_colour_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
                                       na.value = NA,
                                       guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -512,16 +554,21 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
                                     limits = NULL,
                                     na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]
@@ -551,16 +598,21 @@ scale_colour_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
                                       limits = NULL,
                                       na.value = NA, guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
-    stop("alpha level ", alpha, " not in [0,1]")
+    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
 
-  if (!direction %in% c(-1, 1)) stop("direction must be 1 or -1")
+  if (!direction %in% c(-1, 1)) {
+    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+  }
 
   # Use pal limits
   coltab <- tidyterra::hypsometric_tints_db
 
   if (!palette %in% coltab$pal) {
-    stop("'palette' does not match any given palette")
+    cli::cli_abort(paste(
+      "{.arg palette} {.val palette} does not match any given palette.",
+      "See {.help tidyterra::hypsometric_tints_db}"
+    ))
   }
 
   hypsocol <- coltab[coltab$pal == palette, ]

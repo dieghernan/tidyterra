@@ -48,7 +48,7 @@ test_that("Remove unique geometries on specific calls", {
   expect_equal(ncol(vend), ncol(v))
   expect_equal(nrow(vend), 1)
 
-  # Keep=false
+  # Keep false
   vend2 <- distinct(v, geometry, .keep_all = FALSE)
 
   expect_equal(ncol(vend2), 0)
@@ -78,7 +78,7 @@ test_that("Name handling", {
   expect_equal(nrow(vend), 1)
   expect_identical(names(vend), c("x", "y", "geometry.1"))
 
-  # Keep=false
+  # Keep false
   expect_message(vend2 <- distinct(v, geometry, .keep_all = FALSE))
 
   expect_equal(ncol(vend2), 0)

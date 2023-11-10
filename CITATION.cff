@@ -8,8 +8,8 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.4.1
-doi: 10.5281/zenodo.6572471
+version: 0.4.1.9000
+doi: 10.21105/joss.05751
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
   way of visualizing 'terra' objects with 'ggplot2'.
@@ -19,20 +19,23 @@ authors:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
-  type: manual
+  type: article
   title: 'Using the tidyverse with terra objects: the tidyterra package'
   authors:
   - family-names: Hernangómez
     given-names: Diego
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
-  doi: 10.5281/zenodo.6572471
+  doi: 10.21105/joss.05751
   year: '2023'
-  version: 0.4.1
-  url: https://dieghernan.github.io/tidyterra/
-  abstract: Extension of the tidyverse for SpatRaster and SpatVector objects of the
-    terra package. It includes also new geom_ functions that provide a convenient
-    way of visualizing terra objects with ggplot2.
+  url: https://doi.org/10.21105/joss.05751
+  publisher:
+    name: The Open Journal
+  volume: '8'
+  issue: '91'
+  journal: Journal of Open Source Software
+  issn: 2475-9066
+  start: '5751'
 repository: https://CRAN.R-project.org/package=tidyterra
 repository-code: https://github.com/dieghernan/tidyterra
 url: https://dieghernan.github.io/tidyterra/
@@ -42,16 +45,16 @@ contact:
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
 keywords:
-- cran
-- cran-r
-- ggplot-extension
 - r
-- r-package
+- terra
+- ggplot-extension
 - r-spatial
 - rspatial
+- cran
+- cran-r
+- r-package
 - rstats
 - rstats-package
-- terra
 references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
@@ -294,10 +297,10 @@ references:
   authors:
   - family-names: Henry
     given-names: Lionel
-    email: lionel@rstudio.com
+    email: lionel@posit.co
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
   year: '2023'
 - type: software

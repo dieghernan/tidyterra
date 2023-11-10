@@ -11,17 +11,19 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(ggplot(r) +
-    stat_spatraster())
   expect_error(
+    ggplot(r) +
+      stat_spatraster()
+  )
+  expect_snapshot(
     ggplot() +
       stat_spatraster(data = v),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       stat_spatraster(data = 1:3),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
 
   # test with vdiffr
@@ -37,8 +39,11 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
 
 
   # Using facets
-  vdiffr::expect_doppelganger("crslyr1_02: w/facets", p +
-    facet_wrap(~lyr))
+  vdiffr::expect_doppelganger(
+    "crslyr1_02: w/facets",
+    p +
+      facet_wrap(~lyr)
+  )
 
   # Using aes
   expect_warning(ggplot() +
@@ -104,8 +109,11 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
 
 
   # Using facets
-  vdiffr::expect_doppelganger("nocrslyr1_02: w/facets", p +
-    facet_wrap(~lyr))
+  vdiffr::expect_doppelganger(
+    "nocrslyr1_02: w/facets",
+    p +
+      facet_wrap(~lyr)
+  )
 
   # Using aes
   expect_warning(ggplot() +

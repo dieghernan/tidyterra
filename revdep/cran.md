@@ -4,4 +4,3 @@ We checked 7 reverse dependencies (0 from CRAN + 7 from Bioconductor), comparing
 
  * We saw 0 new problems
  * We failed to check 0 packages
-

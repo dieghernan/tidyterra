@@ -2,12 +2,10 @@ test_that("Error check", {
   r <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
   as_tbl <- dplyr::as_tibble(r, xy = TRUE)
-  expect_error(as_spatraster(as_tbl, xycols = 2))
-  expect_error(as_spatraster(as_tbl, xycols = c("x", "y")))
-  expect_error(as_spatraster(as_tbl, xycols = 1:3))
-  expect_error(as_spatraster(as.matrix(as_tbl)),
-    regexp = "should be a data.frame"
-  )
+  expect_snapshot(as_spatraster(as_tbl, xycols = 2), error = TRUE)
+  expect_snapshot(as_spatraster(as_tbl, xycols = c("x", "y")), error = TRUE)
+  expect_snapshot(as_spatraster(as_tbl, xycols = 1:3), error = TRUE)
+  expect_snapshot(as_spatraster(as.matrix(as_tbl)), error = TRUE)
 
   expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
 })
@@ -50,7 +48,8 @@ test_that("Regenerate raster properly", {
   attr(noatr, "crs") <- NULL
 
   fromnonatr <- as_spatraster(noatr)
-  expect_false(compare_spatrasters(r, fromnonatr))
+  expect_snapshot(res <- compare_spatrasters(r, fromnonatr))
+  expect_false(res)
   expect_s4_class(fromnonatr, "SpatRaster")
 
   expect_true(is.na(pull_crs(fromnonatr)))

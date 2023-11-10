@@ -61,8 +61,8 @@ test_that("group_data(<rowwise) return the right value", {
 test_that("group_rows() and group_keys() partition group_data()", {
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
-  df_v$lon <- c(3:4)
-  df_v$lat <- c(5:6)
+  df_v$lon <- 3:4
+  df_v$lat <- 5:6
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 
@@ -87,8 +87,8 @@ test_that("group_indices() returns expected values", {
   gf <- group_by(df, x)
 
   df_v <- df
-  df_v$lon <- as.double(c(3:5))
-  df_v$lat <- as.double(c(6:8))
+  df_v$lon <- as.double(3:5)
+  df_v$lat <- as.double(6:8)
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
   gf_v <- group_by(df_v, x)
@@ -146,8 +146,8 @@ test_that("group_size correct for grouped data", {
 test_that("group_vars.SpatVector produces correct results for grouped", {
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
-  df_v$lon <- c(3:4)
-  df_v$lat <- c(5:6)
+  df_v$lon <- 3:4
+  df_v$lat <- 5:6
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 
@@ -168,8 +168,8 @@ test_that("group_vars.SpatVector produces correct results for grouped", {
 test_that("group_vars.SpatVector produces correct results for ungrouped", {
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
-  df_v$lon <- c(3:4)
-  df_v$lat <- c(5:6)
+  df_v$lon <- 3:4
+  df_v$lat <- 5:6
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
   expect_s4_class(df_v, "SpatVector")
@@ -186,8 +186,8 @@ test_that("group_vars.SpatVector produces correct results for ungrouped", {
 test_that("groups() returns expected values", {
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
-  df_v$lon <- c(3:4)
-  df_v$lat <- c(5:6)
+  df_v$lon <- 3:4
+  df_v$lat <- 5:6
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 
@@ -208,8 +208,8 @@ test_that("groups() returns expected values", {
 test_that("group_rows() returns expected values", {
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
-  df_v$lon <- c(3:4)
-  df_v$lat <- c(5:6)
+  df_v$lon <- 3:4
+  df_v$lat <- 5:6
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 

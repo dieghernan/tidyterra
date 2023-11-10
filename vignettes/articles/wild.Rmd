@@ -1,0 +1,11 @@
+---
+title: "tidyterra in the wild"
+description: Use of tidyterra in publications.
+bibliography: INPUBS.bib
+nocite: '@*'
+csl: apa.csl
+---
+
+**{tidyterra}** package has been used in the following publications:
+
+## Publications

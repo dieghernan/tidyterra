@@ -10,6 +10,7 @@ EPSG
 Hernangomez
 Hijmans
 Hypsometric
+JOSS
 LiDAR
 Maungawhau
 NZGD
@@ -40,9 +41,11 @@ codecov
 coercible
 colour
 colours
+coltab
 coord
 cpt
 crs
+dev
 disaggregated
 downsampled
 dplyr

@@ -1,29 +1,30 @@
 test_that("geom_spatraster_rgb with CRS", {
   suppressWarnings(library(ggplot2))
-  suppressWarnings(library(terra))
 
   #  Import also vector
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-  r <- rast(f)
+  r <- terra::rast(f)
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- vect(f_v)
+  v <- terra::vect(f_v)
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
   expect_error(
+    ggplot(r) +
+      geom_spatraster_rgb()
+  )
+  expect_snapshot(
     ggplot() +
       geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
-  expect_error(
+  expect_snapshot(
     ggplot() +
       geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
+    error = TRUE
   )
 
   # Check with less layers
@@ -31,8 +32,17 @@ test_that("geom_spatraster_rgb with CRS", {
   r_subset <- terra::subset(r, 1:2)
 
 
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster_rgb(data = r_subset),
+    error = TRUE
+  )
+
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster_rgb(data = r_subset %>% select(1)),
+    error = TRUE
+  )
 
   # Test color table
 
@@ -70,17 +80,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # Resampling
 
-  expect_message(
-    ggplot() +
+  expect_snapshot(
+    p_res <- ggplot() +
       geom_spatraster_rgb(
         data = r,
         maxcell = 20
-      ),
-    regexp = "resampled"
+      )
   )
-
-  p_res <- ggplot() +
-    geom_spatraster_rgb(data = r, maxcell = 20)
 
 
   vdiffr::expect_doppelganger("crs_03: resampled", p_res)
@@ -88,12 +94,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # Resampling and interpolating
 
-  p_res_int <- ggplot() +
-    geom_spatraster_rgb(
-      data = r, maxcell = 20,
-      interpolate = TRUE
-    )
-
+  expect_snapshot(
+    p_res_int <- ggplot() +
+      geom_spatraster_rgb(
+        data = r, maxcell = 20,
+        interpolate = TRUE
+      )
+  )
 
   vdiffr::expect_doppelganger("crs_04: resampled interpolated", p_res_int)
 
@@ -101,13 +108,19 @@ test_that("geom_spatraster_rgb with CRS", {
   p_rast_first <- ggplot() +
     geom_spatraster_rgb(data = r)
 
-  vdiffr::expect_doppelganger("crs_05: change crs", p_rast_first +
-    coord_sf(crs = 3035))
+  vdiffr::expect_doppelganger(
+    "crs_05: change crs",
+    p_rast_first +
+      coord_sf(crs = 3035)
+  )
 
 
   # With vector after
-  vdiffr::expect_doppelganger("crs_06: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+  vdiffr::expect_doppelganger(
+    "crs_06: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA)
+  )
 
   # With vector first
   p_sf_first <- ggplot(v_sf) +
@@ -118,8 +131,11 @@ test_that("geom_spatraster_rgb with CRS", {
 
   # With vector first and change proj
 
-  vdiffr::expect_doppelganger("crs_08: With sf first and crs", p_sf_first +
-    coord_sf(crs = 4326))
+  vdiffr::expect_doppelganger(
+    "crs_08: With sf first and crs",
+    p_sf_first +
+      coord_sf(crs = 4326)
+  )
 
   p_maxcol <- ggplot() +
     geom_spatraster_rgb(data = r, max_col_value = 200)
@@ -131,14 +147,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
 test_that("geom_spatraster_rgb with CRS masked", {
   suppressWarnings(library(ggplot2))
-  suppressWarnings(library(terra))
 
   #  Import also vector
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-  r <- rast(f)
+  r <- terra::rast(f)
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- vect(f_v)
+  v <- terra::vect(f_v)
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
@@ -146,27 +161,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
   v2 <- terra::project(v, pull_crs(r))
   r <- terra::mask(r, v2)
 
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
-
-  # Check with less layers
-
-  r_subset <- terra::subset(r, 1:2)
-
-
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
 
   # Test color table
 
@@ -237,13 +231,19 @@ test_that("geom_spatraster_rgb with CRS masked", {
   p_rast_first <- ggplot() +
     geom_spatraster_rgb(data = r)
 
-  vdiffr::expect_doppelganger("crsmask_05: change crs", p_rast_first +
-    coord_sf(crs = 3035))
+  vdiffr::expect_doppelganger(
+    "crsmask_05: change crs",
+    p_rast_first +
+      coord_sf(crs = 3035)
+  )
 
 
   # With vector after
-  vdiffr::expect_doppelganger("crsmask_06: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+  vdiffr::expect_doppelganger(
+    "crsmask_06: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA)
+  )
 
   # With vector first
   p_sf_first <- ggplot(v_sf) +
@@ -254,13 +254,19 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   # With vector first and change proj
 
-  vdiffr::expect_doppelganger("crsmask_08: With sf first and crs", p_sf_first +
-    coord_sf(crs = 4326))
+  vdiffr::expect_doppelganger(
+    "crsmask_08: With sf first and crs",
+    p_sf_first +
+      coord_sf(crs = 4326)
+  )
 
   # With vector first and change proj
 
-  vdiffr::expect_doppelganger("crsmask_08: With sf first and crs", p_sf_first +
-    coord_sf(crs = 4326))
+  vdiffr::expect_doppelganger(
+    "crsmask_08: With sf first and crs",
+    p_sf_first +
+      coord_sf(crs = 4326)
+  )
 
   # Check max_cols
   p_maxcol <- ggplot() +
@@ -286,27 +292,15 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   terra::crs(r) <- NA
 
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
-
   # Check with less layers
 
   r_subset <- terra::subset(r, 1:2)
 
 
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = r_subset)
+  )
 
   s <- ggplot() +
     geom_spatraster_rgb(data = r) +
@@ -388,25 +382,37 @@ test_that("geom_spatraster_rgb with no CRS", {
   p_rast_first <- ggplot() +
     geom_spatraster_rgb(data = r)
 
-  vdiffr::expect_doppelganger("nocrs_05: change crs", p_rast_first +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrs_05: change crs",
+    p_rast_first +
+      coord_sf(crs = raster_crs)
+  )
 
   # With vector
-  vdiffr::expect_doppelganger("nocrs_06: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+  vdiffr::expect_doppelganger(
+    "nocrs_06: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA)
+  )
 
   # Would align only if sf/coord on the same crs
 
-  vdiffr::expect_doppelganger("nocrs_07: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA) +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrs_07: With crs and sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA) +
+      coord_sf(crs = raster_crs)
+  )
 
   # Reproject vector
 
   new_v <- sf::st_transform(v_sf, raster_crs)
 
-  vdiffr::expect_doppelganger("nocrs_08: With sf reprojected", p_rast_first +
-    geom_sf(data = new_v, fill = NA))
+  vdiffr::expect_doppelganger(
+    "nocrs_08: With sf reprojected",
+    p_rast_first +
+      geom_sf(data = new_v, fill = NA)
+  )
 
   p_maxcol <- ggplot() +
     geom_spatraster_rgb(data = r, max_col_value = 200)
@@ -437,27 +443,15 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   terra::crs(r) <- NA
 
-  # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_rgb())
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    regexp = "only works with SpatRaster"
-  )
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    regexp = "only works with SpatRaster"
-  )
-
   # Check with less layers
 
   r_subset <- terra::subset(r, 1:2)
 
 
-  expect_error(ggplot() +
-    geom_spatraster_rgb(data = r_subset))
+  expect_error(
+    ggplot() +
+      geom_spatraster_rgb(data = r_subset)
+  )
 
   s <- ggplot() +
     geom_spatraster_rgb(data = r) +
@@ -543,18 +537,27 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   p_rast_first <- ggplot() +
     geom_spatraster_rgb(data = r)
 
-  vdiffr::expect_doppelganger("nocrsmask_05: change crs", p_rast_first +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrsmask_05: change crs",
+    p_rast_first +
+      coord_sf(crs = raster_crs)
+  )
 
   # With vector
-  vdiffr::expect_doppelganger("nocrsmask_06: With sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA))
+  vdiffr::expect_doppelganger(
+    "nocrsmask_06: With sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA)
+  )
 
   # Would align only if sf/coord on the same crs
 
-  vdiffr::expect_doppelganger("nocrsmask_07: With crs and sf", p_rast_first +
-    geom_sf(data = v_sf, fill = NA) +
-    coord_sf(crs = raster_crs))
+  vdiffr::expect_doppelganger(
+    "nocrsmask_07: With crs and sf",
+    p_rast_first +
+      geom_sf(data = v_sf, fill = NA) +
+      coord_sf(crs = raster_crs)
+  )
 
   # Reproject vector
 

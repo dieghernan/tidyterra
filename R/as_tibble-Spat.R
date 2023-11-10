@@ -151,7 +151,9 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
 
 as_tbl_internal <- function(x) {
   if (!inherits(x, c("SpatRaster", "SpatVector"))) {
-    cli::cli_abort("x is not a Spat* object")
+    cli::cli_abort(
+      "{.arg x} is not of {.cls SpatRaster} or {.cls SpatVector} object"
+    )
   }
 
   if (inherits(x, "SpatRaster")) {
@@ -255,9 +257,9 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     cli::cli_alert_info(paste(
       for_message,
       "with duplicated/reserved names detected.",
-      "See `About layer/column names` section on",
-      "`?as_tibble.SpatRaster`", "\n"
-    ))
+      "See {.strong About layer/column names} section on",
+      "{.fun tidyterra::as_tibble.SpatRaster}"
+    ), wrap = TRUE)
     cli::cli_alert_warning("Renaming columns:")
   }
   if (geom == "XY") {
@@ -265,26 +267,24 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     # Make new names
     newnames <- make.names(names_with_coords, unique = TRUE)
 
-    newnames <- newnames[-c(1:2)]
+    newnames <- newnames[-c(1, 2)]
   } else {
     names_with_coords <- c("geometry", init_names)
     # Make new names
     newnames <- make.names(names_with_coords, unique = TRUE)
 
-    newnames <- newnames[-c(1)]
+    newnames <- newnames[-1]
   }
   # Make new names
   if (messages) {
     names_changed <- !newnames == init_names
 
-    message(cli::col_black("New column names:"))
-    message(cli::col_black(
-      paste0("`", init_names[names_changed], "` -> `",
-        newnames[names_changed], "`",
-        collapse = "\n"
-      )
-    ))
-    message(cli::col_black("\n"))
+    msg <- paste0(
+      "`", init_names[names_changed], "` -> `",
+      newnames[names_changed], "`"
+    )
+
+    cli::cat_bullet(msg)
   }
   names(x) <- newnames
   return(x)
@@ -308,10 +308,10 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "`group_vars()` missing on data.",
-        " Have you mixed terra and tidyterra syntax?"
+        "{.fun tidyterra::group_vars.SpatVector} missing on data.",
+        " Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
-      cli::cli_bullets(c(i = "ungrouping data"))
+      cli::cli_bullets(c(i = "Ungrouping data"))
       return(dplyr::ungroup(x))
     }
 
@@ -359,10 +359,10 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "`group_vars()` missing on data.",
-        " Have you mixed terra and tidyterra syntax?"
+        "{.fun tidyterra::group_vars.SpatVector} missing on data.",
+        " Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
-      cli::cli_bullets(c(i = "ungrouping data"))
+      cli::cli_bullets(c(i = "Ungrouping data"))
       return(dplyr::ungroup(x))
     }
 

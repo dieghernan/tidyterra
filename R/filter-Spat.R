@@ -9,7 +9,7 @@
 #' You need to use `filter(.data, x > 42)`. Note that `x` and `y` are reserved
 #' names on terra, since they refer to the geographic coordinates of the layer.
 #'
-#' See **Examples** and section `About layer names` on [as_tibble()].
+#' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
 #' @export
 #' @rdname filter.Spat
@@ -119,6 +119,9 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 
   if (!isTRUE(.keep_extent)) newrast <- terra::trim(newrast)
 
+  if (any(terra::has.colors(.data))) {
+    terra::coltab(newrast) <- terra::coltab(.data)
+  }
   return(newrast)
 }
 

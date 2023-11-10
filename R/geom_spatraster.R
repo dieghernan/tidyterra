@@ -26,10 +26,14 @@
 #'
 #' @source Based on the `layer_spatial()` implementation on ggspatial package.
 #' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-#' [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#' [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #' @param maxcell positive integer. Maximum number of cells to use for
 #'   the plot.
+#' @param use_coltab Logical. Only applicable to SpatRasters that have a coltab
+#'   ([terra::coltab()]). Should the coltab be used on the plot? See also
+#'   [scale_fill_coltab()].
 #' @inheritParams ggplot2::geom_raster
 #'
 #' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
@@ -139,12 +143,14 @@ geom_spatraster <- function(mapping = aes(),
                             inherit.aes = FALSE,
                             interpolate = FALSE,
                             maxcell = 500000,
+                            use_coltab = TRUE,
                             ...) {
   if (!inherits(data, "SpatRaster")) {
-    stop(
-      "geom_spatraster() only works with SpatRaster objects. ",
-      "See ?terra::vect"
-    )
+    cli::cli_abort(paste(
+      "{.fun tidyterra::geom_spatraster} only works with",
+      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
+      "See {.help terra::vect}"
+    ))
   }
 
 
@@ -230,6 +236,13 @@ geom_spatraster <- function(mapping = aes(),
     )
   }
 
+  if (all(use_coltab, any(terra::has.colors(data)))) {
+    layer_spatrast <- c(
+      layer_spatrast,
+      scale_fill_coltab(data = data)
+    )
+  }
+
 
   layer_spatrast
 }
@@ -250,14 +263,19 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
       nly <- length(unique(data$lyr))
       if (nly > 1) {
-        message(
-          "\nWarning message:\n",
-          "Plotting ", nly, " layers: ",
-          paste0("`", unique(data$lyr), "`", collapse = ", "),
-          ".(geom_spatraster).",
-          "\n- Use facet_wrap(~lyr) for faceting.",
-          "\n- Use aes(fill=<name_of_layer>) ",
-          "for displaying a single layer\n"
+        cli::cli_alert_warning(paste(
+          cli::style_bold("{.fun tidyterra::geom_spatraster}:"),
+          "Plotting {.field {nly}} overlapping layer{?s}:",
+          "{.val {unique(data$lyr)}}. Either:"
+        ))
+        cli::cli_bullets(
+          c(
+            " " = "Use {.code facet_wrap(~lyr)} for faceting or",
+            " " = paste(
+              "Use {.code aes(fill = <name_of_layer>)}",
+              "for displaying single layers"
+            )
+          )
         )
       }
     }
@@ -315,8 +333,8 @@ reproject_raster_on_stat <- function(raster,
   if (is.na(coord_crs)) {
     cli::cli_abort(
       paste(
-        "geom_spatraster_*() on SpatRasters with crs",
-        "must be used with coord_sf()."
+        "{.fun geom_spatraster_*} on {.cls SpatRaster}s with crs",
+        "must be used with {.fun ggplot2::coord_sf}."
       ),
       call. = TRUE
     )
@@ -349,7 +367,7 @@ reproject_raster_on_stat <- function(raster,
 
 pivot_longer_spat <- function(x) {
   tb <- as_tbl_internal(x)
-  tb_pivot <- tidyr::pivot_longer(tb, -c(1:2),
+  tb_pivot <- tidyr::pivot_longer(tb, -c(1, 2),
     names_to = "lyr"
   )
   tb_pivot <- tb_pivot[order(tb_pivot$lyr), ]
@@ -389,7 +407,11 @@ resample_spat <- function(r, maxcell = 50000) {
       as.raster = TRUE,
       method = "regular"
     )
-    message("SpatRaster resampled to ncells = ", terra::ncell(r))
+    cli::cli_inform(paste(
+      "{.cls SpatRaster} resampled to",
+      "{.field {terra::ncell(r)}} cell{?s}",
+      "for plotting"
+    ))
   }
 
   return(r)
@@ -411,11 +433,11 @@ check_mixed_cols <- function(r) {
   extract_vars <- as.integer(which(col_classes == final))
   newr <- terra::subset(r, extract_vars)
 
-  message(
-    "Warning message:\n",
-    "Mixed data classes found on layers. Only layers of class <",
-    final, "> have been kept (geom_spatraster)"
-  )
+  cli::cli_warn("Mixed layer classes found in {.fun tidyterra::geom_spat*}.")
+  cli::cli_alert_warning(paste(
+    "Plotting only{qty(length(extract_vars))}",
+    "layer {.val {names(newr)}} of class {.cls {final}}"
+  ))
 
   return(newr)
 }

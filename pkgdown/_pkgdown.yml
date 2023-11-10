@@ -26,23 +26,13 @@ navbar:
       text: FAQs
       href: 'articles/faqs.html'
     media:
-      text: Other media
-      menu:
-        - text: Blog posts
-        - text: Introducing tidyterra (dieghernan.github.io)
-          href: 'https://dieghernan.github.io/202205_tidyterra/'
-        - text: Hillshade effects (dominicroye.github.io)
-          href: 'https://dominicroye.github.io/en/2022/hillshade-effects/'
-        - text: Plotting drought conditions (michaelpaulschramm.com)
-          href: 'https://michaelpaulschramm.com/posts/2022-07-22-drought/'
-        - text: How to read AMSR2 sea ice data with terra (www.pmassicotte.com)
-          href: 'https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/'
-        - text: Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)
-          href: 'https://lugoga.github.io/semba-quarto/posts/gebco/'
+      text: In the wild
+      href: 'articles/wild.html'
     twitter:
       icon: fa-twitter
       href: 'http://twitter.com/dhernangomez'
       aria-label: Twitter
+
 template:
   package: gitdevr
   params:
@@ -51,7 +41,6 @@ template:
     twitter:
       creator: '@dhernangomez'
       card: summary_large_image
-
 reference:
 - title: "tibble methods"
   desc:  Methods from {tibble} implemented for Spat* objects.
@@ -117,4 +106,8 @@ reference:
 - title: "About the package"
   contents:
     - tidyterra-package
+
+authors:
+  Diego Hernangómez:
+    href: https://dieghernan.github.io/
 

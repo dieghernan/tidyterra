@@ -58,7 +58,7 @@ v \%>\%
   # with options
   glimpse(geom = "WKT")
 
-# SpatVector
+# SpatRaster
 r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
 r \%>\% glimpse()

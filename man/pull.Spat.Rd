@@ -44,7 +44,7 @@ looks a little nicer in pipes and it can optionally name the output.
 You need to use \code{pull(.data, x, xy = TRUE)}. \code{x} and \code{y} are reserved
 names on terra, since they refer to the geographic coordinates of the layer.
 
-See \strong{Examples} and section \verb{About layer names} on \code{\link[=as_tibble]{as_tibble()}}.
+See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
 \section{terra equivalent}{
 

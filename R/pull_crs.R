@@ -5,7 +5,8 @@
 #' Extract the WKT version of the CRS associated to a string, number of
 #' sf/Spat* object.
 #'
-#' The [Well-known text (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
+#' The [Well-known text
+#' (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
 #' representation of coordinate reference systems (CRS) is a character string
 #' that identifies precisely the parameters of each CRS. This is the current
 #' standard used on sf and terra packages.
@@ -112,7 +113,9 @@ pull_crs <- function(.data, ...) {
   }
 
   # All the rest, return empty with an alert
-
-  cli::cli_alert_warning("No wkt equivalent found. Returning NA")
+  cli::cli_alert_warning(paste(
+    "On {.fun tidyterra::pull_crs}\nNo wkt equivalent found.",
+    "Returning {.val {NA}}"
+  ))
   return(NA)
 }

@@ -38,7 +38,7 @@ cell/geometry must produce a value of \code{TRUE} for all conditions.
 You need to use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
 names on terra, since they refer to the geographic coordinates of the layer.
 
-See \strong{Examples} and section \verb{About layer names} on \code{\link[=as_tibble]{as_tibble()}}.
+See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
 \section{Methods}{
 
