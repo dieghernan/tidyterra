@@ -1,57 +1,43 @@
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "type": "SoftwareSourceCode",
+  "author": {
+    "id": "https://orcid.org/0000-0001-8457-4658"
+  },
+  "codeRepository": "https://github.com/dieghernan/tidyterra",
+  "contributor": {
+    "id": "https://orcid.org/0000-0002-9415-4582",
+    "type": "Person",
+    "familyName": "Dunnington",
+    "givenName": "Dewey"
+  },
+  "copyrightHolder": [
     {
-      "type": "SoftwareSourceCode",
-      "author": {
-        "id": "https://orcid.org/0000-0001-8457-4658"
-      },
-      "codeRepository": "https://github.com/dieghernan/tidyterra",
-      "contributor": {
-        "id": "https://orcid.org/0000-0002-9415-4582",
-        "type": "Person",
-        "familyName": "Dunnington",
-        "givenName": "Dewey"
-      },
-      "copyrightHolder": [
-        {
-          "id": "https://orcid.org/0000-0001-8457-4658",
-          "type": "Person",
-          "email": "diego.hernangomezherrero@gmail.com",
-          "familyName": "Hernangómez",
-          "givenName": "Diego"
-        },
-        {
-          "type": "Organization",
-          "name": "ggplot2 authors"
-        }
-      ],
-      "description": "Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.",
-      "license": "https://spdx.org/licenses/MIT",
-      "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
-      "programmingLanguage": {
-        "type": "ComputerLanguage",
-        "name": "R",
-        "url": "https://r-project.org"
-      },
-      "provider": {
-        "id": "https://cran.r-project.org",
-        "type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "runtimePlatform": "R version 4.3.2 (2023-10-31 ucrt)",
-      "version": "0.4.1.9000"
+      "id": "https://orcid.org/0000-0001-8457-4658",
+      "type": "Person",
+      "email": "diego.hernangomezherrero@gmail.com",
+      "familyName": "Hernangómez",
+      "givenName": "Diego"
     },
     {
-      "id": "https://doi.org/10.5281/zenodo.6572471",
-      "type": "SoftwareSourceCode",
-      "author": {
-        "type": "Person",
-        "familyName": "Hernangómez",
-        "givenName": "Diego"
-      },
-      "name": "Using the {tidyverse} with {terra} objects: the {tidyterra} package"
+      "type": "Organization",
+      "name": "ggplot2 authors"
     }
-  ]
+  ],
+  "description": "Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.",
+  "license": "https://spdx.org/licenses/MIT",
+  "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
+  "programmingLanguage": {
+    "type": "ComputerLanguage",
+    "name": "R",
+    "url": "https://r-project.org"
+  },
+  "provider": {
+    "id": "https://cran.r-project.org",
+    "type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
+  "runtimePlatform": "R version 4.3.2 (2023-10-31 ucrt)",
+  "version": "0.4.1.9000"
 }

@@ -10,12 +10,11 @@ status](https://www.r-pkg.org/badges/version/tidyterra)](https://CRAN.R-project.
 [![CRAN
 results](https://badges.cranchecks.info/worst/tidyterra.svg)](https://cran.r-project.org/web/checks/check_results_tidyterra.html)
 [![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.05751/status.svg)](https://doi.org/10.21105/joss.05751)
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidyterra/badge)](https://www.codefactor.io/repository/github/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/tidyterra)
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.6572471-blue)](https://doi.org/10.5281/zenodo.6572471)
-[![status](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e/status.svg)](https://joss.theoj.org/papers/2d749c1db022cd5205fdae573f69721e)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -313,22 +312,26 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 ## Citation
 
-To cite ‘tidyterra’ in publications use:
+To cite package ‘tidyterra’ in publications use:
 
-Hernangomez D (2023). tidyterra: tidyverse Methods and ggplot2 Helpers
-for terra Objects. <https://doi.org/10.5281/zenodo.6572471>,
-<https://dieghernan.github.io/tidyterra/>
+Hernangómez D (2023). “Using the tidyverse with terra objects: the
+tidyterra package.” *Journal of Open Source Software*, *8*(91), 5751.
+<doi:10.21105/joss.05751> <https://doi.org/10.21105/joss.05751>,
+<https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is
 
-    @Manual{R-tidyterra,
+    @Article{R-tidyterra,
       title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
-      doi = {10.5281/zenodo.6572471},
+      doi = {10.21105/joss.05751},
       author = {Diego Hernangómez},
       year = {2023},
-      version = {0.4.1.9000},
-      url = {https://dieghernan.github.io/tidyterra/},
-      abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
+      url = {https://doi.org/10.21105/joss.05751},
+      publisher = {The Open Journal},
+      volume = {8},
+      number = {91},
+      pages = {5751},
+      journal = {Journal of Open Source Software},
     }
 
 ## Acknowledgement

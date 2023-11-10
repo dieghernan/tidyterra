@@ -308,10 +308,10 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
-  "fileSize": "3442.425KB",
+  "fileSize": "3441.981KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
       "datePublished": "2023",
       "author": [
         {
@@ -321,10 +321,21 @@
         }
       ],
       "name": "Using the {tidyverse} with {terra} objects: the {tidyterra} package",
-      "identifier": "10.5281/zenodo.6572471",
-      "url": "https://dieghernan.github.io/tidyterra/",
-      "@id": "https://doi.org/10.5281/zenodo.6572471",
-      "sameAs": "https://doi.org/10.5281/zenodo.6572471"
+      "identifier": "10.21105/joss.05751",
+      "url": "https://doi.org/10.21105/joss.05751",
+      "pagination": "5751",
+      "@id": "https://doi.org/10.21105/joss.05751",
+      "sameAs": "https://doi.org/10.21105/joss.05751",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "91",
+        "datePublished": "2023",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "8",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/master/NEWS.md",
