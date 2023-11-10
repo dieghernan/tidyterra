@@ -10,6 +10,8 @@ bibentry(
   volume = 8, 
   number = 91, 
   pages = 5751,
-  journal = "Journal of Open Source Software"
+  journal = "Journal of Open Source Software",
+  issn = "2475-9066",
+  header = "If you use this software, please cite our article in the Journal of Open Source Software."
   )
   
