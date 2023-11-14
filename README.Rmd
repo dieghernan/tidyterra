@@ -291,6 +291,9 @@ an issue on <https://github.com/dieghernan/tidyterra/issues>.
 Check our [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
+You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
+[`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
+
 ## Citation
 
 ```{r echo=FALSE, results='asis'}

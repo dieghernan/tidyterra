@@ -310,6 +310,9 @@ Check our
 [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
+You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
+[`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
+
 ## Citation
 
 If you use this software, please cite our article in the Journal of Open
