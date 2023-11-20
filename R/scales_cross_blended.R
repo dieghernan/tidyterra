@@ -237,7 +237,8 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
-                                       na.value = "transparent", guide = "colourbar") {
+                                       na.value = "transparent",
+                                       guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -268,7 +269,8 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
-                                         na.value = "transparent", guide = "colourbar") {
+                                         na.value = "transparent",
+                                         guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -298,7 +300,8 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
-                                       na.value = "transparent", guide = "coloursteps") {
+                                       na.value = "transparent",
+                                       guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -327,7 +330,8 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
-                                         na.value = "transparent", guide = "coloursteps") {
+                                         na.value = "transparent",
+                                         guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

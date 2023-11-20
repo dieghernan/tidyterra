@@ -114,7 +114,7 @@ ggplot(cyl_sf) +
 }
 \seealso{
 \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
-You can get also RGB tiles from the {maptiles} package,
+You can get also RGB tiles from the \CRANpkg{maptiles} package,
 see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
 Other ggplot2 utils:

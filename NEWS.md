@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.5.0
 
 **tidyterra** has been accepted on JOSS. Please use the result of
 `citation("tidyterra")` or the following string:

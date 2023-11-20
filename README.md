@@ -31,9 +31,6 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
-You can have a look to the documentation of the dev version in
-<https://dieghernan.github.io/tidyterra/dev/>
-
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
@@ -318,14 +315,12 @@ the tag
 
 ## Citation
 
-If you use this software, please cite our article in the Journal of Open
-Source Software.
+If you use this software, please cite our article in the [Journal of
+Open Source Software](https://joss.theoj.org/):
 
-Hernangómez D (2023). “Using the tidyverse with terra objects: the
-tidyterra package.” *Journal of Open Source Software*, *8*(91), 5751.
-ISSN 2475-9066, <doi:10.21105/joss.05751>
-<https://doi.org/10.21105/joss.05751>,
-<https://doi.org/10.21105/joss.05751>.
+> Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+> tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
+> <https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is
 

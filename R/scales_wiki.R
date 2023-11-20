@@ -226,7 +226,8 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 #' @export
 #' @rdname scale_wiki
 scale_colour_wiki_b <- function(..., alpha = 1, direction = 1,
-                                na.value = "transparent", guide = "coloursteps") {
+                                na.value = "transparent",
+                                guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

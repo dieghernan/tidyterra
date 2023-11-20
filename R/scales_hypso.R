@@ -254,7 +254,8 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
 #' @rdname scale_hypso
 scale_colour_hypso_c <- function(palette = "etopo1_hypso", ...,
                                  alpha = 1, direction = 1,
-                                 na.value = "transparent", guide = "colourbar") {
+                                 na.value = "transparent",
+                                 guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -284,7 +285,8 @@ scale_colour_hypso_c <- function(palette = "etopo1_hypso", ...,
 #' @rdname scale_hypso
 scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
                                alpha = 1, direction = 1,
-                               na.value = "transparent", guide = "coloursteps") {
+                               na.value = "transparent",
+                               guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -313,7 +315,8 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
 #' @rdname scale_hypso
 scale_colour_hypso_b <- function(palette = "etopo1_hypso", ...,
                                  alpha = 1, direction = 1,
-                                 na.value = "transparent", guide = "coloursteps") {
+                                 na.value = "transparent",
+                                 guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -552,7 +555,8 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
                                     alpha = 1, direction = 1,
                                     values = NULL,
                                     limits = NULL,
-                                    na.value = "transparent", guide = "coloursteps") {
+                                    na.value = "transparent",
+                                    guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -596,7 +600,8 @@ scale_colour_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
                                       alpha = 1, direction = 1,
                                       values = NULL,
                                       limits = NULL,
-                                      na.value = "transparent", guide = "coloursteps") {
+                                      na.value = "transparent",
+                                      guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

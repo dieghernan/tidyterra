@@ -31,7 +31,7 @@
 #'   See [grDevices::rgb()].
 #'
 #' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
-#'  You can get also RGB tiles from the {maptiles} package,
+#'  You can get also RGB tiles from the \CRANpkg{maptiles} package,
 #'  see [maptiles::get_tiles()].
 #'
 #' @section  terra equivalent:

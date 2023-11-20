@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.4.1.9000",
+  "version": "0.5.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -308,7 +308,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
-  "fileSize": "3441.735KB",
+  "fileSize": "3441.235KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

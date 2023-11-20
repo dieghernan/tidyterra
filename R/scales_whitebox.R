@@ -153,7 +153,8 @@ scale_colour_whitebox_d <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_fill_whitebox_c <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
-                                  na.value = "transparent", guide = "colourbar") {
+                                  na.value = "transparent",
+                                  guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -182,7 +183,8 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_colour_whitebox_c <- function(palette = "high_relief", ...,
                                     alpha = 1, direction = 1,
-                                    na.value = "transparent", guide = "colourbar") {
+                                    na.value = "transparent",
+                                    guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -212,7 +214,8 @@ scale_colour_whitebox_c <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_fill_whitebox_b <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
-                                  na.value = "transparent", guide = "coloursteps") {
+                                  na.value = "transparent",
+                                  guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -242,7 +245,8 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_colour_whitebox_b <- function(palette = "high_relief", ...,
                                     alpha = 1, direction = 1,
-                                    na.value = "transparent", guide = "coloursteps") {
+                                    na.value = "transparent",
+                                    guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
