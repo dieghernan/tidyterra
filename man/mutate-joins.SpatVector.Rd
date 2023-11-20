@@ -170,7 +170,7 @@ nrow(left)
 
 autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
 
-
+\donttest{
 # Right join
 right <- v \%>\% right_join(df)
 nrow(right)
@@ -191,7 +191,7 @@ autoplot(full, aes(fill = letter)) + ggtitle("Full Join")
 # Check with data from df
 ggplot(full, aes(x, y)) +
   geom_point(aes(color = letter))
-
+}
 }
 \seealso{
 \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::left_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::right_join()}},

@@ -64,6 +64,7 @@ bind_spat_rows(v1, v2)
 # column is created to link each row to its original data frame
 bind_spat_rows(v1, v2, .id = "id")
 
+\donttest{
 # Use with sf
 sfobj <- sf::st_as_sf(v2[1, ])
 
@@ -89,6 +90,7 @@ bind_spat_rows(list(
   SpatVector = v1[1, ], sf = sfobj[1, ],
   mtcars = mtcars[1, ]
 ), .id = "source")
+}
 }
 \seealso{
 \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}}

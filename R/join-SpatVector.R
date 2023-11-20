@@ -78,7 +78,7 @@
 #'
 #' autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
 #'
-#'
+#' \donttest{
 #' # Right join
 #' right <- v %>% right_join(df)
 #' nrow(right)
@@ -99,7 +99,7 @@
 #' # Check with data from df
 #' ggplot(full, aes(x, y)) +
 #'   geom_point(aes(color = letter))
-#'
+#' }
 inner_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
                                   suffix = c(".x", ".y"), ..., keep = NULL) {
   error_spat_join(y)
