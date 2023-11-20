@@ -23,7 +23,7 @@
 #' @name scale_terrain
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams scale_cross_blended
 #'
@@ -127,7 +127,7 @@ scale_colour_terrain_d <- function(..., alpha = 1, direction = 1,
 #' @export
 #' @rdname scale_terrain
 scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
-                                 na.value = NA, guide = "colourbar") {
+                                 na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -152,7 +152,7 @@ scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
 #' @export
 #' @rdname scale_terrain
 scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
-                                   na.value = NA, guide = "colourbar") {
+                                   na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -178,7 +178,7 @@ scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
 #' @export
 #' @rdname scale_terrain
 scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
-                                 na.value = NA, guide = "coloursteps") {
+                                 na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -203,7 +203,7 @@ scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
 #' @export
 #' @rdname scale_terrain
 scale_colour_terrain_b <- function(..., alpha = 1, direction = 1,
-                                   na.value = NA, guide = "coloursteps") {
+                                   na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

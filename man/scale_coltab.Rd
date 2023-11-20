@@ -12,7 +12,7 @@ scale_fill_coltab(
   ...,
   alpha = 1,
   na.translate = FALSE,
-  na.value = NA,
+  na.value = "transparent",
   drop = TRUE
 )
 
@@ -21,7 +21,7 @@ scale_colour_coltab(
   ...,
   alpha = 1,
   na.translate = FALSE,
-  na.value = NA,
+  na.value = "transparent",
   drop = TRUE
 )
 
@@ -77,7 +77,10 @@ expand the scale by 5\% on each side for continuous variables, and by
 \item{na.translate}{Should \code{NA} values be removed from the legend? Default
 is \code{TRUE}.}
 
-\item{na.value}{Missing values will be replaced with this value.}
+\item{na.value}{Missing values will be replaced with this value. By default,
+\CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
+not filled. See also
+\href{https://github.com/dieghernan/tidyterra/issues/120}{#120}.}
 
 \item{drop}{Should unused factor levels be omitted from the scale? The
 default (\code{TRUE}) removes unused factors.}

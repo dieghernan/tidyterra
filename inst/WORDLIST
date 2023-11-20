@@ -7,9 +7,9 @@ Colorimetric
 Coords
 DOI
 EPSG
-Hernangomez
 Hijmans
 Hypsometric
+ISSN
 JOSS
 LiDAR
 Maungawhau
@@ -83,7 +83,6 @@ terra
 tibble
 tibbles
 tidyr
-tidyterra’
 tidyverse
 tif
 unevaluated

@@ -18,7 +18,8 @@ results](https://badges.cranchecks.info/worst/tidyterra.svg)](https://cran.r-pro
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/tidyterra?logo=stackoverflow&label=stackoverflow%20q%26a)](https://stackoverflow.com/questions/tagged/tidyterra)
+[![Stack Exchange
+questions](https://img.shields.io/stackexchange/stackoverflow/t/tidyterra?logo=stackoverflow&label=stackoverflow%20q%26a)](https://stackoverflow.com/questions/tagged/tidyterra)
 
 <!-- badges: end -->
 
@@ -311,7 +312,8 @@ Check our
 [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
-You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
+You can also ask in [Stack Overflow](https://stackoverflow.com/) using
+the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Citation

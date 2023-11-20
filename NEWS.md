@@ -1,17 +1,27 @@
 # tidyterra (development version)
 
+**tidyterra** has been accepted on JOSS. Please use the result of
+`citation("tidyterra")` or the following string:
+
+> Hernangómez, D. (2023). "Using the tidyverse with terra objects: the tidyterra
+> package." *Journal of Open Source Software*, *8*(91), 5751. ISSN 2475-9066,
+> <https://doi.org/10.21105/joss.05751>
+
+Other changes on this version:
+
 -   Support for SpatRasters with a color table
     -   `autoplot.SpatRaster()` can detect now SpatRasters with color tables.
     -   `geom_spatraster()` can detect now SpatRasters with color tables.
     -   New scales for plotting SpatRasters with color tables:
         `scale_fill_coltab()` and rest of family scales (`colour`).
     -   tidyverse verbs keeps the associated `coltab` of a SpatRaster.
--   By default all the discrete scales of tidyterra now have the following
+-   By default all the discrete scales of **tidyterra** now have the following
     setup: `na.translate = FALSE`.
+-   By default, all the non-discrete (e.g. continuous or breaks) scales of
+    **tidyterra** have now `na.value = "transparent"` (#120).
 -   Enhanced `glimpse.Spat()` with meta-information on type of geometry, crs,
     etc.
 -   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
--   Update citation.  
 
 # tidyterra 0.4.1
 
