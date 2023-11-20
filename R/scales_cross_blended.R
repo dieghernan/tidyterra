@@ -37,10 +37,14 @@
 #' @name scale_cross_blended
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @param na.translate Should `NA` values be removed from the legend? Default
 #'   is `TRUE`.
+#' @param na.value Missing values will be replaced with this value. By default,
+#'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
+#'   not filled. See also
+#'   [#120](https://github.com/dieghernan/tidyterra/issues/120).
 #' @param drop Should unused factor levels be omitted from the scale? The
 #'   default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
@@ -233,7 +237,7 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
-                                       na.value = NA, guide = "colourbar") {
+                                       na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -264,7 +268,7 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
-                                         na.value = NA, guide = "colourbar") {
+                                         na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -294,7 +298,7 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
                                        alpha = 1, direction = 1,
-                                       na.value = NA, guide = "coloursteps") {
+                                       na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -323,7 +327,7 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
                                          alpha = 1, direction = 1,
-                                         na.value = NA, guide = "coloursteps") {
+                                         na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -476,7 +480,7 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
                                             alpha = 1, direction = 1,
                                             values = NULL,
                                             limits = NULL,
-                                            na.value = NA,
+                                            na.value = "transparent",
                                             guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
@@ -521,7 +525,7 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
                                               alpha = 1, direction = 1,
                                               values = NULL,
                                               limits = NULL,
-                                              na.value = NA,
+                                              na.value = "transparent",
                                               guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
@@ -566,7 +570,7 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
                                             alpha = 1, direction = 1,
                                             values = NULL,
                                             limits = NULL,
-                                            na.value = NA,
+                                            na.value = "transparent",
                                             guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
@@ -612,7 +616,7 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
                                               alpha = 1, direction = 1,
                                               values = NULL,
                                               limits = NULL,
-                                              na.value = NA,
+                                              na.value = "transparent",
                                               guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")

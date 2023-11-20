@@ -27,7 +27,7 @@
 #' @name scale_whitebox
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels na.value
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams scale_cross_blended
 #' @param palette A valid palette name. The name is matched to the list of
@@ -153,7 +153,7 @@ scale_colour_whitebox_d <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_fill_whitebox_c <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
-                                  na.value = NA, guide = "colourbar") {
+                                  na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -182,7 +182,7 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_colour_whitebox_c <- function(palette = "high_relief", ...,
                                     alpha = 1, direction = 1,
-                                    na.value = NA, guide = "colourbar") {
+                                    na.value = "transparent", guide = "colourbar") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -212,7 +212,7 @@ scale_colour_whitebox_c <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_fill_whitebox_b <- function(palette = "high_relief", ...,
                                   alpha = 1, direction = 1,
-                                  na.value = NA, guide = "coloursteps") {
+                                  na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -242,7 +242,7 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 #' @rdname scale_whitebox
 scale_colour_whitebox_b <- function(palette = "high_relief", ...,
                                     alpha = 1, direction = 1,
-                                    na.value = NA, guide = "coloursteps") {
+                                    na.value = "transparent", guide = "coloursteps") {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

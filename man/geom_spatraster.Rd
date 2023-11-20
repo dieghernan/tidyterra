@@ -226,7 +226,7 @@ ggplot() +
     aes(color = after_stat(value)),
     geom = "point", maxcell = 250
   ) +
-  scale_colour_viridis_c(na.value = NA) +
+  scale_colour_viridis_c(na.value = "transparent") +
   facet_wrap(~lyr)
 
 # Using points and labels
@@ -247,7 +247,7 @@ ggplot() +
     alpha = 0.85,
     maxcell = 20
   ) +
-  scale_colour_viridis_c(na.value = NA)
+  scale_colour_viridis_c(na.value = "transparent")
 }
 }
 \seealso{

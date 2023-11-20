@@ -33,11 +33,17 @@ cat("\n- Discussions: ", dis)
 cat("\n")
 ```
 
-## NA values are shown in gray color {#nas-remove}
+## `NA` values are shown in gray color {#nas-remove}
 
 This is the default behavior produced by the **ggplot2** package. **tidyterra**
 color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
-parameter `na.value` set to `NA`, that prevents NA values to be plotted.
+parameter `na.value` set to `"transparent"`, that prevents `NA` values to be
+filled[^1].
+
+[^1]: `na.value = NA` could be used as well for the same purpose in most of the
+    cases, however when the proportion of non-`NA`s is small it can produce
+    undesired results, see
+    [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 ```{r remove-nas}
 library(terra)
@@ -72,7 +78,7 @@ def +
 
 # Modify with scales
 def +
-  scale_fill_continuous(na.value = NA) +
+  scale_fill_continuous(na.value = "transparent") +
   labs(
     title = "Default colors on ggplot2",
     subtitle = "But NAs are not plotted"
@@ -182,7 +188,10 @@ hill <- shade(slope, aspect, 10, 340)
 ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE) +
   # Note the scale, grey colours
-  scale_fill_gradientn(colours = grey(0:100 / 100), na.value = NA) +
+  scale_fill_gradientn(
+    colours = grey(0:100 / 100),
+    na.value = "transparent"
+  ) +
   labs(title = "A hillshade plot with grey colors")
 ```
 

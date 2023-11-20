@@ -35,7 +35,7 @@ scale_fill_wiki_c(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "colourbar"
 )
 
@@ -43,7 +43,7 @@ scale_colour_wiki_c(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "colourbar"
 )
 
@@ -51,7 +51,7 @@ scale_fill_wiki_b(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "coloursteps"
 )
 
@@ -59,7 +59,7 @@ scale_colour_wiki_b(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "coloursteps"
 )
 
@@ -130,7 +130,10 @@ breaks are given explicitly.}
 \item{na.translate}{Should \code{NA} values be removed from the legend? Default
 is \code{TRUE}.}
 
-\item{na.value}{Missing values will be replaced with this value.}
+\item{na.value}{Missing values will be replaced with this value. By default,
+\CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
+not filled. See also
+\href{https://github.com/dieghernan/tidyterra/issues/120}{#120}.}
 
 \item{drop}{Should unused factor levels be omitted from the scale? The
 default (\code{TRUE}) removes unused factors.}

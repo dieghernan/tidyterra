@@ -41,7 +41,7 @@ scale_fill_whitebox_c(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "colourbar"
 )
 
@@ -50,7 +50,7 @@ scale_colour_whitebox_c(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "colourbar"
 )
 
@@ -59,7 +59,7 @@ scale_fill_whitebox_b(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "coloursteps"
 )
 
@@ -68,7 +68,7 @@ scale_colour_whitebox_b(
   ...,
   alpha = 1,
   direction = 1,
-  na.value = NA,
+  na.value = "transparent",
   guide = "coloursteps"
 )
 
@@ -150,7 +150,10 @@ is \code{TRUE}.}
 \item{drop}{Should unused factor levels be omitted from the scale? The
 default (\code{TRUE}) removes unused factors.}
 
-\item{na.value}{Missing values will be replaced with this value.}
+\item{na.value}{Missing values will be replaced with this value. By default,
+\CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
+not filled. See also
+\href{https://github.com/dieghernan/tidyterra/issues/120}{#120}.}
 
 \item{guide}{A function used to create a guide or its name. See
 \code{\link[ggplot2:guides]{guides()}} for more information.}
