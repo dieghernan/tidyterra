@@ -30,7 +30,7 @@ grouped SpatVector with group_by.SpatVector()."><meta property="og:image" conten
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,22 +49,15 @@ grouped SpatVector with group_by.SpatVector()."><meta property="og:image" conten
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/wild.html">In the wild</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -189,6 +182,9 @@ Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"NWBIR"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8691" W - 75° 27' 25.1202" W] , [33° 52' 55.1724" N - 36° 35' 22.7371" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…</span>
@@ -250,6 +246,9 @@ Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>mean_bir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">BIR74</span>, <span class="va">BIR79</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">mean_bir</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8691" W - 75° 27' 25.1202" W] , [33° 52' 55.1724" N - 36° 35' 22.7371" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ mean_bir <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035, …</span>
@@ -262,6 +261,9 @@ Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>mean_bir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">BIR74</span>, <span class="va">BIR79</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/is.bool.html" class="external-link">as.factor</a></span><span class="op">(</span><span class="va">id2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8691" W - 75° 27' 25.1202" W] , [33° 52' 55.1724" N - 36° 35' 22.7371" N]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 100</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groups: id2 [5]</span>

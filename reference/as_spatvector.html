@@ -20,7 +20,7 @@ wrapper of terra::vect() S4 method."><meta property="og:image" content="https://
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,22 +39,15 @@ wrapper of terra::vect() S4 method."><meta property="og:image" content="https://
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/wild.html">In the wild</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -182,8 +175,8 @@ and <span class="pkg">terra</span>.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :   cat</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    B</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create tibble</span></span></span>
 <span class="r-in"><span><span class="va">as_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">v</span>, geom <span class="op">=</span> <span class="st">"WKT"</span><span class="op">)</span></span></span>
@@ -193,15 +186,15 @@ and <span class="pkg">terra</span>.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    cat   geometry     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> D     POINT (1 41) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> D     POINT (2 42) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> A     POINT (3 43) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> C     POINT (4 44) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> D     POINT (5 45) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> B     POINT (6 46) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> D     POINT (7 47) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> B     POINT (8 48) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> A     POINT (2 42) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> B     POINT (3 43) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> B     POINT (4 44) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> A     POINT (5 45) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> C     POINT (6 46) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> B     POINT (7 47) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> D     POINT (8 48) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> A     POINT (9 49) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> B     POINT (10 50)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> A     POINT (10 50)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 30 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># From tibble</span></span></span>
@@ -215,8 +208,8 @@ and <span class="pkg">terra</span>.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :   cat</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    B</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

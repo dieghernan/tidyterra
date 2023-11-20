@@ -30,7 +30,7 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,22 +49,15 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/wild.html">In the wild</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -116,6 +109,7 @@ can be modified.</p>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
+<span>  use_coltab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -175,6 +169,12 @@ than combining with them.</p></dd>
 <dt>maxcell</dt>
 <dd><p>positive integer. Maximum number of cells to use for
 the plot.</p></dd>
+
+
+<dt>use_coltab</dt>
+<dd><p>Logical. Only applicable to SpatRasters that have a coltab
+(<code><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
+<code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
 <dt>...</dt>
@@ -335,7 +335,7 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">no_crs</span>, maxcell <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 32</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">32</span> cells for plotting</span>
 <span class="r-plt img"><img src="geom_spatraster-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
@@ -354,9 +354,9 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    geom <span class="op">=</span> <span class="st">"point"</span>, maxcell <span class="op">=</span> <span class="fl">250</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"transparent"</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 266</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">266</span> cells for plotting</span>
 <span class="r-plt img"><img src="geom_spatraster-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Using points and labels</span></span></span>
@@ -377,9 +377,9 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>    alpha <span class="op">=</span> <span class="fl">0.85</span>,</span></span>
 <span class="r-in"><span>    maxcell <span class="op">=</span> <span class="fl">20</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 2067</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> SpatRaster resampled to ncells = 24</span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"transparent"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">2067</span> cells for plotting</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">24</span> cells for plotting</span>
 <span class="r-plt img"><img src="geom_spatraster-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>

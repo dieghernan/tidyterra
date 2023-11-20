@@ -54,7 +54,7 @@ accepted by these scales."><meta property="og:image" content="https://dieghernan
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,22 +73,15 @@ accepted by these scales."><meta property="og:image" content="https://dieghernan
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/wild.html">In the wild</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -138,16 +131,30 @@ accepted by these scales.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_fill_whitebox_d</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"high_relief"</span>, <span class="va">...</span>, alpha <span class="op">=</span> <span class="fl">1</span>, direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">scale_fill_whitebox_d</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="st">"high_relief"</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  na.translate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  drop <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">scale_colour_whitebox_d</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"high_relief"</span>, <span class="va">...</span>, alpha <span class="op">=</span> <span class="fl">1</span>, direction <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu">scale_colour_whitebox_d</span><span class="op">(</span></span>
+<span>  palette <span class="op">=</span> <span class="st">"high_relief"</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  na.translate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  drop <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">scale_fill_whitebox_c</span><span class="op">(</span></span>
 <span>  palette <span class="op">=</span> <span class="st">"high_relief"</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"colourbar"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -156,7 +163,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"colourbar"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -165,7 +172,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"coloursteps"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -174,7 +181,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"coloursteps"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -232,16 +239,6 @@ to generate the values for the <code>expand</code> argument. The defaults are to
 expand the scale by 5% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.</p></dd>
 
-    <dt><code>na.translate</code></dt>
-<dd><p>Unlike continuous scales, discrete scales can easily show
-missing values, and do so by default. If you want to remove missing values
-from a discrete scale, specify <code>na.translate = FALSE</code>.</p></dd>
-
-    <dt><code>drop</code></dt>
-<dd><p>Should unused factor levels be omitted from the scale?
-The default, <code>TRUE</code>, uses the levels that appear in the data;
-<code>FALSE</code> uses all the levels in the factor.</p></dd>
-
     <dt><code>minor_breaks</code></dt>
 <dd><p>One of:</p><ul><li><p><code>NULL</code> for no minor breaks</p></li>
 <li><p><code><a href="https://ggplot2.tidyverse.org/reference/waiver.html" class="external-link">waiver()</a></code> for the default breaks (one minor break between
@@ -279,8 +276,21 @@ colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.</p></dd>
 
 
+<dt>na.translate</dt>
+<dd><p>Should <code>NA</code> values be removed from the legend? Default
+is <code>TRUE</code>.</p></dd>
+
+
+<dt>drop</dt>
+<dd><p>Should unused factor levels be omitted from the scale? The
+default (<code>TRUE</code>) removes unused factors.</p></dd>
+
+
 <dt>na.value</dt>
-<dd><p>Missing values will be replaced with this value.</p></dd>
+<dd><p>Missing values will be replaced with this value. By default,
+<a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> uses <code>na.value = "transparent"</code> so cells with <code>NA</code> are
+not filled. See also
+<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>.</p></dd>
 
 
 <dt>guide</dt>
@@ -312,10 +322,10 @@ reversed.</p></dd>
 <li><p><code>scale_*_terrain_c()</code>: For continuous values.</p></li>
 <li><p><code>scale_*_terrain_b()</code>: For binning continuous values.</p></li>
 </ul><p>Other gradient scales and palettes for hypsometry:
+<code><a href="scale_wiki.html">scale_color_coltab</a>()</code>,
 <code><a href="scale_cross_blended.html">scale_cross_blended</a></code>,
 <code><a href="scale_hypso.html">scale_hypso</a></code>,
-<code><a href="scale_terrain.html">scale_terrain</a></code>,
-<code><a href="scale_wiki.html">scale_wiki</a></code></p></div>
+<code><a href="scale_terrain.html">scale_terrain</a></code></p></div>
     </div>
 
     <div class="section level2">

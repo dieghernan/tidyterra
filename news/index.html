@@ -18,7 +18,7 @@
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,22 +37,15 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/wild.html">In the wild</a>
 </li>
 <li class="active nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -83,6 +76,26 @@
       <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.5.0" id="tidyterra-050">tidyterra 0.5.0<a class="anchor" aria-label="anchor" href="#tidyterra-050"></a></h2>
+<p><strong>tidyterra</strong> has been accepted on JOSS. Please use the result of <code>citation("tidyterra")</code> or the following string:</p>
+<blockquote>
+<p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
+</blockquote>
+<p>Other changes on this version:</p>
+<ul><li>Support for SpatRasters with a color table
+<ul><li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now SpatRasters with color tables.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can detect now SpatRasters with color tables.</li>
+<li>New scales for plotting SpatRasters with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
+<li>tidyverse verbs keeps the associated <code>coltab</code> of a SpatRaster.</li>
+</ul></li>
+<li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
+<li>By default, all the non-discrete (e.g. continuous or breaks) scales of <strong>tidyterra</strong> have now <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
+<li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, crs, etc.</li>
+<li>New messaging interface thanks to <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="tidyterra-041">tidyterra 0.4.1<a class="anchor" aria-label="anchor" href="#tidyterra-041"></a></h2>
 <ul><li>Release for JOSS paper. No relevant changes.</li>
@@ -141,7 +154,7 @@
 <li>Three additional palettes are included on <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
 <li>Added colour scales to all palettes: <code>scale_colour_*</code>.</li>
 <li>Remove use of <code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_string()</a></code>.</li>
-<li>Adapt geom_<code>spatraster_contour()</code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
+<li>Adapt <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>

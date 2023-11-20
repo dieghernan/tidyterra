@@ -18,7 +18,7 @@
       <img src="apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,22 +37,15 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="articles/palettes.html">Gradient palettes in tidyterra</a>
+    <a class="dropdown-item" href="articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="articles/welcome.html">Welcome to tidyterra</a>
   </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="articles/faqs.html">FAQs</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-other-media">Other media</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-other-media">
-    <h6 class="dropdown-header" data-toc-skip>Blog posts</h6>
-    <a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra (dieghernan.github.io)</a>
-    <a class="external-link dropdown-item" href="https://dominicroye.github.io/en/2022/hillshade-effects/">Hillshade effects (dominicroye.github.io)</a>
-    <a class="external-link dropdown-item" href="https://michaelpaulschramm.com/posts/2022-07-22-drought/">Plotting drought conditions (michaelpaulschramm.com)</a>
-    <a class="external-link dropdown-item" href="https://www.pmassicotte.com/posts/2022-08-11-how-to-read-amsr2-seaice-data/">How to read AMSR2 sea ice data with terra (www.pmassicotte.com)</a>
-    <a class="external-link dropdown-item" href="https://lugoga.github.io/semba-quarto/posts/gebco/">Getting GEBCO Bathymetry Data and glean the power of terra and tidyterra (lugoga.github.io/semba-quarto/)</a>
-  </div>
+<li class="nav-item">
+  <a class="nav-link" href="articles/wild.html">In the wild</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
@@ -103,15 +96,23 @@
       <h2 id="citation">Citation</h2>
       <p><small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/inst/CITATION" class="external-link"><code>inst/CITATION</code></a></small></p>
 
-      <p>Hernangomez D (2023). tidyterra: tidyverse Methods and ggplot2 Helpers for terra Objects. &lt;https://doi.org/10.5281/zenodo.6572471&gt;, &lt;https://dieghernan.github.io/tidyterra/&gt;</p>
-      <pre>@Manual{R-tidyterra,
+      <p>Hernangómez D (2023).
+“Using the tidyverse with terra objects: the tidyterra package.”
+<em>Journal of Open Source Software</em>, <b>8</b>(91), 5751.
+ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link">doi:10.21105/joss.05751</a>, <a href="https://doi.org/10.21105/joss.05751" class="external-link">https://doi.org/10.21105/joss.05751</a>. 
+</p>
+      <pre>@Article{R-tidyterra,
   title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
-  doi = {10.5281/zenodo.6572471},
+  doi = {10.21105/joss.05751},
   author = {Diego Hernangómez},
   year = {2023},
-  version = {0.4.1},
-  url = {https://dieghernan.github.io/tidyterra/},
-  abstract = {Extension of the tidyverse for SpatRaster and SpatVector objects of the terra package. It includes also new geom_ functions that provide a convenient way of visualizing terra objects with ggplot2.},
+  url = {https://doi.org/10.21105/joss.05751},
+  publisher = {The Open Journal},
+  volume = {8},
+  number = {91},
+  pages = {5751},
+  journal = {Journal of Open Source Software},
+  issn = {2475-9066},
 }</pre>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
