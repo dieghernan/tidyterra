@@ -78,6 +78,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
+<p><strong>tidyterra</strong> has been accepted on JOSS. Please use the result of <code>citation("tidyterra")</code> or the following string:</p>
+<blockquote>
+<p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
+</blockquote>
+<p>Other changes on this version:</p>
 <ul><li>Support for SpatRasters with a color table
 <ul><li>
 <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now SpatRasters with color tables.</li>
@@ -86,10 +91,10 @@
 <li>New scales for plotting SpatRasters with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
 <li>tidyverse verbs keeps the associated <code>coltab</code> of a SpatRaster.</li>
 </ul></li>
-<li>By default all the discrete scales of tidyterra now have the following setup: <code>na.translate = FALSE</code>.</li>
+<li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
+<li>By default, all the non-discrete (e.g. continuous or breaks) scales of <strong>tidyterra</strong> have now <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
 <li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, crs, etc.</li>
 <li>New messaging interface thanks to <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
-<li>Update citation.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="tidyterra-041">tidyterra 0.4.1<a class="anchor" aria-label="anchor" href="#tidyterra-041"></a></h2>

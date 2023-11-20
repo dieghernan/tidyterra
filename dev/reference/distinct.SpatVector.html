@@ -177,17 +177,17 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-in"><span><span class="va">ex1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 34, 7  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 36, 7  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1     NAME_1  ID_2   NAME_2  AREA   POP    gr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;      &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1   Diekirch     5    Wiltz   263 16735     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3 Luxembourg     8 Capellen   185 48187     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3 Luxembourg     8 Capellen   185 48187     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP    gr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1 Diekirch     3  Redange   259 18664     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     2 Diekirch   218 32543     B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     2 Diekirch   218 32543     A</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 36</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Duplicates by NAME_1</span></span></span>
 <span class="r-in"><span><span class="va">ex2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">gr</span><span class="op">)</span></span></span>
@@ -195,12 +195,12 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 1  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.381701, 49.46498, 50.03632  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.746118, 6.315773, 49.69933, 49.98745  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    gr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                    C</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
@@ -211,13 +211,13 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 7  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.381701, 49.46498, 50.03632  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.746118, 6.315773, 49.69933, 49.98745  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    gr  ID_1       NAME_1  ID_2   NAME_2  AREA   POP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;num&gt;        &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     B     1     Diekirch     5    Wiltz   263 16735</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    A     3   Luxembourg     8 Capellen   185 48187</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    C     2 Grevenmacher     7   Remich   129 22366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    gr  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     A     1 Diekirch     3  Redange   259 18664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    B     1 Diekirch     2 Diekirch   218 32543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    C     1 Diekirch     3  Redange   259 18664</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex2b</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
 <span class="r-in"><span></span></span>
@@ -250,9 +250,9 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1     NAME_1  ID_2   NAME_2  AREA   POP    gr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;      &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;int&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1   Diekirch     5    Wiltz   263 16735     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3 Luxembourg     8 Capellen   185 48187     B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    1   Diekirch     4  Vianden    76  5163     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1   Diekirch     3  Redange   259 18664     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    1   Diekirch     2 Diekirch   218 32543     B</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    3 Luxembourg     8 Capellen   185 48187     C</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

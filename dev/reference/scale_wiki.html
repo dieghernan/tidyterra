@@ -151,7 +151,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"colourbar"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -159,7 +159,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"colourbar"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -167,7 +167,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"coloursteps"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -175,7 +175,7 @@ accepted by these scales.</p>
 <span>  <span class="va">...</span>,</span>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  direction <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  na.value <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>  guide <span class="op">=</span> <span class="st">"coloursteps"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -259,7 +259,10 @@ is <code>TRUE</code>.</p></dd>
 
 
 <dt>na.value</dt>
-<dd><p>Missing values will be replaced with this value.</p></dd>
+<dd><p>Missing values will be replaced with this value. By default,
+<a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> uses <code>na.value = "transparent"</code> so cells with <code>NA</code> are
+not filled. See also
+<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>.</p></dd>
 
 
 <dt>drop</dt>
