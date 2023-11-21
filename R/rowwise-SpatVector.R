@@ -65,7 +65,8 @@
 #'   rowwise() %>%
 #'   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))
 #'
-#'
+#' # Additional examples
+#' \donttest{
 #' # use c_across() to more easily select many variables
 #' nb %>%
 #'   rowwise() %>%
@@ -91,6 +92,7 @@
 #'   summarise(mean_bir = mean(BIR74, BIR79)) %>%
 #'   glimpse() %>%
 #'   autoplot(aes(fill = as.factor(id2)))
+#' }
 rowwise.SpatVector <- function(data, ...) {
   # Use own method
   x <- data

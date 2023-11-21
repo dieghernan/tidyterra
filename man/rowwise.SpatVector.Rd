@@ -64,7 +64,8 @@ nb \%>\%
   rowwise() \%>\%
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))
 
-
+# Additional examples
+\donttest{
 # use c_across() to more easily select many variables
 nb \%>\%
   rowwise() \%>\%
@@ -90,6 +91,7 @@ v \%>\%
   summarise(mean_bir = mean(BIR74, BIR79)) \%>\%
   glimpse() \%>\%
   autoplot(aes(fill = as.factor(id2)))
+}
 }
 \seealso{
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}

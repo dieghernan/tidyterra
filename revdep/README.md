@@ -1,17 +1,18 @@
 # Platform
 
-|field    |value                                                                 |
-|:--------|:---------------------------------------------------------------------|
-|version  |R version 4.3.2 (2023-10-31 ucrt)                                     |
-|os       |Windows Server 2022 x64 (build 20348)                                 |
-|system   |x86_64, mingw32                                                       |
-|ui       |RTerm                                                                 |
-|language |(EN)                                                                  |
-|collate  |English_United States.utf8                                            |
-|ctype    |English_United States.utf8                                            |
-|tz       |UTC                                                                   |
-|date     |2023-11-20                                                            |
-|pandoc   |2.19.2 @ C:\HOSTED~1\windows\pandoc\219~1.2\x64\PANDOC~1.2\pandoc.exe |
+|field    |value                                    |
+|:--------|:----------------------------------------|
+|version  |R version 4.3.2 (2023-10-31 ucrt)        |
+|os       |Windows 11 x64 (build 22621)             |
+|system   |x86_64, mingw32                          |
+|ui       |RStudio                                  |
+|language |(EN)                                     |
+|collate  |Spanish_Spain.utf8                       |
+|ctype    |Spanish_Spain.utf8                       |
+|tz       |Europe/Madrid                            |
+|date     |2023-11-22                               |
+|rstudio  |2023.09.1+494 Desert Sunflower (desktop) |
+|pandoc   |2.19.2 @ C:\PROGRA~1\Pandoc\pandoc.exe   |
 
 # Dependencies
 
@@ -62,10 +63,4 @@
 |wk           |0.9.0  |0.9.0  |   |
 
 # Revdeps
-
-## Failed to check (1)
-
-|package      |version |error |warning |note |
-|:------------|:-------|:-----|:-------|:----|
-|malariaAtlas |1.5.1   |1     |        |     |
 
