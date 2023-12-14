@@ -208,7 +208,7 @@ references:
   abstract: 'sf: Simple Features for R'
   notes: Imports
   url: https://r-spatial.github.io/sf/
-  repository: https://CRAN.R-project.org/package=sf
+  repository: https://r-spatial.r-universe.dev
   authors:
   - family-names: Pebesma
     given-names: Edzer
