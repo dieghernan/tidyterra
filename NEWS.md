@@ -1,3 +1,8 @@
+# tidyterra (development version)
+
+-   Adjust tests for `as_sf()` (#124).
+
+
 # tidyterra 0.5.0
 
 **tidyterra** has been accepted on JOSS. Please use the result of
