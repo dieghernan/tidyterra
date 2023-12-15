@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.5.1
 
 -   Adjust tests for `as_sf()` (#124).
 
