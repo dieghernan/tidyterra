@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.5.0
+version: 0.5.0.9000
 doi: 10.21105/joss.05751
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
@@ -87,6 +87,9 @@ references:
   url: https://r-datatable.com
   repository: https://CRAN.R-project.org/package=data.table
   authors:
+  - family-names: Barrett
+    given-names: Tyson
+    email: t.barrett88@gmail.com
   - family-names: Dowle
     given-names: Matt
     email: mattjdowle@gmail.com
@@ -192,7 +195,11 @@ references:
   authors:
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Seidel
     given-names: Dana
   year: '2023'
@@ -201,7 +208,7 @@ references:
   abstract: 'sf: Simple Features for R'
   notes: Imports
   url: https://r-spatial.github.io/sf/
-  repository: https://CRAN.R-project.org/package=sf
+  repository: https://r-spatial.r-universe.dev
   authors:
   - family-names: Pebesma
     given-names: Edzer

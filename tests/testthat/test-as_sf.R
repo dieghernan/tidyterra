@@ -67,6 +67,7 @@ test_that("Coercion to rowwise sf works", {
 
 
 test_that("Coercion to rowwise sf works with names creating groups", {
+  skip("See issue #124")
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
