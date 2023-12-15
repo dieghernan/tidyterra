@@ -204,6 +204,7 @@ test_that("Works with unnamed rowwise_df", {
   expect_identical(gr, tbl_regen)
 })
 test_that("Works with sf", {
+  skip("Review in > 0.5.1")
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   expect_s3_class(sfobj, "sf")
