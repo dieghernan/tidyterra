@@ -64,7 +64,7 @@ references:
   - name: R Core Team
   location:
     name: Vienna, Austria
-  year: '2023'
+  year: '2024'
   institution:
     name: R Foundation for Statistical Computing
   version: '>= 3.6.0'
@@ -78,7 +78,7 @@ references:
   - family-names: Csárdi
     given-names: Gábor
     email: csardi.gabor@gmail.com
-  year: '2023'
+  year: '2024'
   version: '>= 3.0.0'
 - type: software
   title: data.table
@@ -96,7 +96,7 @@ references:
   - family-names: Srinivasan
     given-names: Arun
     email: asrini@pm.me
-  year: '2023'
+  year: '2024'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
@@ -120,7 +120,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2023'
+  year: '2024'
   version: '>= 1.0.0'
 - type: software
   title: ggplot2
@@ -156,7 +156,7 @@ references:
   - family-names: Dunnington
     given-names: Dewey
     orcid: https://orcid.org/0000-0002-9415-4582
-  year: '2023'
+  year: '2024'
   version: '>= 3.1.0'
 - type: software
   title: magrittr
@@ -171,7 +171,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2023'
+  year: '2024'
 - type: software
   title: rlang
   abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
@@ -185,7 +185,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
 - type: software
   title: scales
   abstract: 'scales: Scale Functions for Visualization'
@@ -202,19 +202,19 @@ references:
     orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Seidel
     given-names: Dana
-  year: '2023'
+  year: '2024'
 - type: software
   title: sf
   abstract: 'sf: Simple Features for R'
   notes: Imports
   url: https://r-spatial.github.io/sf/
-  repository: https://r-spatial.r-universe.dev
+  repository: https://CRAN.R-project.org/package=sf
   authors:
   - family-names: Pebesma
     given-names: Edzer
     email: edzer.pebesma@uni-muenster.de
     orcid: https://orcid.org/0000-0001-8049-7069
-  year: '2023'
+  year: '2024'
   version: '>= 1.0.0'
 - type: software
   title: terra
@@ -227,7 +227,7 @@ references:
     given-names: Robert J.
     email: r.hijmans@gmail.com
     orcid: https://orcid.org/0000-0001-5872-2872
-  year: '2023'
+  year: '2024'
   version: '>= 1.5-12'
 - type: software
   title: tibble
@@ -243,7 +243,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2023'
+  year: '2024'
   version: '>= 3.0.0'
 - type: software
   title: tidyr
@@ -260,7 +260,7 @@ references:
     email: davis@posit.co
   - family-names: Girlich
     given-names: Maximilian
-  year: '2023'
+  year: '2024'
   version: '>= 1.0.0'
 - type: software
   title: isoband
@@ -282,7 +282,7 @@ references:
     given-names: Thomas Lin
     email: thomasp85@gmail.com
     orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2023'
+  year: '2024'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -294,7 +294,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2023'
+  year: '2024'
 - type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
@@ -309,7 +309,7 @@ references:
     given-names: Hadley
     email: hadley@posit.co
     orcid: https://orcid.org/0000-0003-4757-117X
-  year: '2023'
+  year: '2024'
 - type: software
   title: maptiles
   abstract: 'maptiles: Download and Display Map Tiles'
@@ -321,7 +321,7 @@ references:
     given-names: Timothée
     email: timothee.giraud@cnrs.fr
     orcid: https://orcid.org/0000-0002-1932-3323
-  year: '2023'
+  year: '2024'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -364,7 +364,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2023'
+  year: '2024'
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -383,7 +383,7 @@ references:
   - family-names: Rubak
     given-names: Ege
     email: rubak@math.aau.dk
-  year: '2023'
+  year: '2024'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -394,7 +394,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
   version: '>= 3.0.0'
 - type: software
   title: vdiffr
@@ -419,4 +419,4 @@ references:
   - family-names: Lise
     given-names: Vaudor
     email: lise.vaudor@ens-lyon.fr
-  year: '2023'
+  year: '2024'
