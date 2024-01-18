@@ -20,6 +20,14 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Stack Exchange
 questions](https://img.shields.io/stackexchange/stackoverflow/t/tidyterra?logo=stackoverflow&label=stackoverflow%20q%26a)](https://stackoverflow.com/questions/tagged/tidyterra)
+[![Works with
+terra-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml)
+[![Works with
+sf-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-sd-devel.yaml)
+[![Works with
+ggplot2-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml)
+[![Works with dplyr and
+readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dplyr-readr.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-dplyr-readr.yaml)
 
 <!-- badges: end -->
 

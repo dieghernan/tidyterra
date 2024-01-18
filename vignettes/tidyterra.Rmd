@@ -26,6 +26,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<!-- tidyterra.Rmd is generated from welcome.Rmd.orig. Please edit that file -->
+
+
 
 
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.05751/status.svg)](https://doi.org/10.21105/joss.05751)

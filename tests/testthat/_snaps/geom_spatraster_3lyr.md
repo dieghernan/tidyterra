@@ -24,7 +24,7 @@
         Use `aes(fill = <name_of_layer>)` for displaying single layers
     Condition
       Warning:
-      Computation failed in `stat_terra_spat_raster()`.
+      Computation failed in `stat_terra_spat_raster()`
       Caused by error in `reproject_raster_on_stat()`:
       ! `geom_spatraster_*()` on <SpatRaster>s with crs must be used with `ggplot2::coord_sf()`.
 
@@ -47,9 +47,6 @@
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
       ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>
-    Condition
-      Warning:
-      The `scale_name` argument of `continuous_scale()` is deprecated as of ggplot2 3.5.0.
 
 ---
 
@@ -61,9 +58,6 @@
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
       ! Plotting only layer "char" and "char2" of class <factor>
-    Condition
-      Warning:
-      The `scale_name` argument of `discrete_scale()` is deprecated as of ggplot2 3.5.0.
 
 ---
 
@@ -98,9 +92,6 @@
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
       ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>
-    Condition
-      Warning:
-      The `scale_name` argument of `continuous_scale()` is deprecated as of ggplot2 3.5.0.
 
 ---
 
@@ -112,9 +103,6 @@
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
       ! Plotting only layer "char" and "char2" of class <factor>
-    Condition
-      Warning:
-      The `scale_name` argument of `discrete_scale()` is deprecated as of ggplot2 3.5.0.
 
 ---
 

@@ -9,7 +9,7 @@ on:
     - cron:  '00 14 * * 1,4'
   workflow_dispatch:
 
-name: Works with dplyr and readr-devel
+name: dev-version dplyr and readr
 
 jobs:
   R-CMD-check-dplyr-readr-devel:
@@ -54,8 +54,8 @@ jobs:
           install.packages(c('dplyr', 'readr'), repos = c('https://tidyverse.r-universe.dev', 'https://cloud.r-project.org'))
 
           # Display version
-          cat("dplyr ", as.character(packageVersion("dplyr")))
-          cat("readr ", as.character(packageVersion("dplyr")))
+          cat("\ndplyr ", as.character(packageVersion("dplyr")))
+          cat("\nreadr ", as.character(packageVersion("readr")))
 
         shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2

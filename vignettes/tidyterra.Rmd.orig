@@ -26,6 +26,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<!-- tidyterra.Rmd is generated from welcome.Rmd.orig. Please edit that file -->
+
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,

@@ -67,7 +67,8 @@ test_that("Coercion to rowwise sf works", {
 
 
 test_that("Coercion to rowwise sf works with names creating groups", {
-  skip("See issue #124")
+  skip_on_cran()
+
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
@@ -83,9 +84,19 @@ test_that("Coercion to rowwise sf works with names creating groups", {
   # Should be the same as
   sf2 <- sf::read_sf(f)
   sf2$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
-  rwise <- dplyr::rowwise(sf2, gr) %>% summarise(a = dplyr::n())
+  rwise <- dplyr::rowwise(sf2, gr) %>%
+    summarise(
+      a = dplyr::n(),
+      dplyr::across(geom, sf::st_union)
+    )
+
   expect_s3_class(rwise, "sf")
   expect_s3_class(rwise, "grouped_df")
-  expect_identical(dplyr::group_indices(as_sf), dplyr::group_indices(rwise))
-  expect_identical(dplyr::group_vars(as_sf), dplyr::group_vars(rwise))
+  expect_identical(
+    dplyr::group_indices(as_sf),
+    dplyr::group_indices(rwise)
+  )
+  expect_identical(
+    dplyr::group_vars(as_sf), dplyr::group_vars(rwise)
+  )
 })

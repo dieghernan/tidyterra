@@ -9,7 +9,7 @@ on:
     - cron:  '00 11 * * 2,5'
   workflow_dispatch:
 
-name: Works with terra-devel
+name: dev-version terra
 
 jobs:
   R-CMD-check-terra-devel:
@@ -56,7 +56,7 @@ jobs:
           install.packages("terra", dependencies = TRUE)
 
           # Display version
-          cat(as.character(packageVersion("terra")))
+          cat("terra ", as.character(packageVersion("terra")))
 
         shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2

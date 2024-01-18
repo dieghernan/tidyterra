@@ -9,7 +9,7 @@ on:
     - cron:  '00 18 * * 1,4'
   workflow_dispatch:
 
-name: Works with ggplot2-devel
+name: dev-version ggplot2
 
 jobs:
   R-CMD-check-ggplot2-devel:
@@ -54,7 +54,7 @@ jobs:
           install.packages('ggplot2', repos = c('https://tidyverse.r-universe.dev', 'https://cloud.r-project.org'))
 
           # Display version
-          cat(as.character(packageVersion("ggplot2")))
+          cat("ggplot2 ", as.character(packageVersion("ggplot2")))
 
         shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2

@@ -9,7 +9,7 @@ on:
     - cron:  '00 12 * * 2,5'
   workflow_dispatch:
 
-name: Works with sf-devel
+name: dev-version sf
 
 jobs:
   R-CMD-check-sf-devel:
@@ -54,7 +54,7 @@ jobs:
           install.packages('sf', repos = c('https://r-spatial.r-universe.dev', 'https://cloud.r-project.org'))
 
           # Display version
-          cat(as.character(packageVersion("sf")))
+          cat("sf ", as.character(packageVersion("sf")))
 
         shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2
