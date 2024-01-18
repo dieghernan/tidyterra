@@ -34,11 +34,11 @@
       Warning in `max()`:
       no non-missing arguments to max; returning -Inf
       Warning:
-      Computation failed in `stat_terra_spat_raster_contour_fill()`
+      Computation failed in `stat_terra_spat_raster_contour_fill()`.
       Caused by error in `UseMethod()`:
       ! no applicable method for 'left_join' applied to an object of class "list"
       Error in `calc_limits_bbox()`:
-      ! Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`
+      ! Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`.
       i Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.
 
 # Test plot

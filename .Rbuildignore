@@ -28,3 +28,4 @@
 ^CONTRIBUTING\.md$
 ^\.lintr$
 ^vignettes/welcome\.Rmd\.orig$
+^Rplots\.pdf$

@@ -31,6 +31,9 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
+You can have a look to the documentation of the dev version in
+<https://dieghernan.github.io/tidyterra/dev/>
+
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 
@@ -248,20 +251,12 @@ ggplot() +
     labels = scales::label_number(),
     # Further refinements
     breaks = c(-10000, -5000, 0, 2000, 5000, 8000),
-    guide = guide_colorbar(
-      direction = "horizontal",
-      nrow = 1,
-      title.position = "top",
-      barwidth = 20,
-      ticks.colour = "black",
-      ticks.linewidth = 0.3
-    )
+    guide = guide_colorbar(reverse = TRUE)
   ) +
   labs(
     fill = "elevation (m)",
     title = "Hypsometric map of Asia"
-  ) +
-  theme(legend.position = "bottom")
+  )
 ```
 
 <img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" width="100%" />

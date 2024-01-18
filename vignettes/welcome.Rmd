@@ -273,18 +273,6 @@ rgb_plot
 <p class="caption">Plotting a RGB SpatRaster</p>
 </div>
 
-```r
-# Change CRS automatically
-
-rgb_plot +
-  coord_sf(crs = 3857)
-```
-
-<div class="figure">
-<img src="./rgb-2.png" alt="Changing CRS of the RGB plot" width="100%" />
-<p class="caption">Changing CRS of the RGB plot</p>
-</div>
-
 {tidyterra} provides selected scales that are suitable for creating hypsometric
 and bathymetric maps:
 
@@ -294,14 +282,14 @@ asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
 #> class       : SpatRaster 
-#> dimensions  : 232, 432, 1  (nrow, ncol, nlyr)
-#> resolution  : 22550.66, 22512.94  (x, y)
+#> dimensions  : 164, 306, 1  (nrow, ncol, nlyr)
+#> resolution  : 31836.23, 31847.57  (x, y)
 #> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
 #> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
 #> source      : asia.tif 
 #> name        : file44bc291153f2 
-#> min value   :        -10071.50 
-#> max value   :          6064.73
+#> min value   :        -9558.468 
+#> max value   :         5801.927
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -309,18 +297,13 @@ ggplot() +
     palette = "gmt_globe",
     labels = scales::label_number(),
     breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
-    guide = guide_colorbar(
-      direction = "horizontal",
-      title.position = "top",
-      barwidth = 20
-    )
+    guide = guide_colorbar(reverse = TRUE)
   ) +
   labs(
     fill = "elevation (m)",
     title = "Hypsometric map of Asia"
   ) +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+  theme_minimal()
 ```
 
 <div class="figure">

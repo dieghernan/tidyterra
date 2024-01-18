@@ -230,10 +230,7 @@ rgb_plot <- ggplot(v) +
   geom_spatvector(fill = NA, size = 1)
 
 rgb_plot
-# Change CRS automatically
 
-rgb_plot +
-  coord_sf(crs = 3857)
 ```
 
 {tidyterra} provides selected scales that are suitable for creating hypsometric
@@ -250,18 +247,13 @@ ggplot() +
     palette = "gmt_globe",
     labels = scales::label_number(),
     breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
-    guide = guide_colorbar(
-      direction = "horizontal",
-      title.position = "top",
-      barwidth = 20
-    )
+    guide = guide_colorbar(reverse = TRUE)
   ) +
   labs(
     fill = "elevation (m)",
     title = "Hypsometric map of Asia"
   ) +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+  theme_minimal()
 ```
 
 ### SpatVectors

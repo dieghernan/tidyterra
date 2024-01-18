@@ -34,7 +34,7 @@
       Warning in `max()`:
       no non-missing arguments to max; returning -Inf
       Warning:
-      Computation failed in `stat_terra_spat_raster_contour()`
+      Computation failed in `stat_terra_spat_raster_contour()`.
       Caused by error in `$<-.data.frame`:
       ! replacement has 1 row, data has 0
 

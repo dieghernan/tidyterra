@@ -189,7 +189,9 @@ expand the scale by 5\% on each side for continuous variables, and by
 each major break)
 \item A numeric vector of positions
 \item A function that given the limits returns a vector of minor breaks. Also
-accepts rlang \link[rlang:as_function]{lambda} function notation.
+accepts rlang \link[rlang:as_function]{lambda} function notation. When
+the function has two arguments, it will be given the limits and major
+breaks.
 }}
     \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
 may choose a slightly different number to ensure nice break labels. Will
@@ -360,15 +362,10 @@ ggplot() +
     palette = "etopo1",
     labels = scales::label_number(),
     breaks = c(-10000, 0, 5000, 8000),
-    guide = guide_colorbar(
-      direction = "horizontal",
-      title.position = "top",
-      barwidth = 25
-    )
+    guide = guide_colorbar(reverse = TRUE)
   ) +
   labs(fill = "elevation (m)") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+  theme_minimal()
 
 
 # Binned
