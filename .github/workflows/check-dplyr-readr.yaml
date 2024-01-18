@@ -6,13 +6,13 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 11 * * 2,5'
+    - cron:  '00 14 * * 1,4'
   workflow_dispatch:
 
-name: Works with terra-devel
+name: Works with dplyr and readr-devel
 
 jobs:
-  R-CMD-check-terra-devel:
+  R-CMD-check-dplyr-readr-devel:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
@@ -42,21 +42,20 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          cache-version: terra-devel
+          cache-version: dplyr-readr-devel
           extra-packages: |
             any::rcmdcheck
 
           needs: check
 
-      - name: Install terra from runiverse
+      - name: Install dplyr readr from runiverse
         run: |
-          # Install terra from rspatial runiverse
-          # update.packages(repos = 'https://rspatial.r-universe.dev')
-          options(repos = c(rspatial = "https://rspatial.r-universe.dev",   CRAN = "https://cloud.r-project.org"))
-          install.packages("terra", dependencies = TRUE)
+          # Install packages from rspatial runiverse
+          install.packages(c('dplyr', 'readr'), repos = c('https://tidyverse.r-universe.dev', 'https://cloud.r-project.org'))
 
           # Display version
-          cat(as.character(packageVersion("terra")))
+          cat("dplyr ", as.character(packageVersion("dplyr")))
+          cat("readr ", as.character(packageVersion("dplyr")))
 
         shell: Rscript {0}
       - uses: r-lib/actions/check-r-package@v2

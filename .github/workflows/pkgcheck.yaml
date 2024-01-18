@@ -1,4 +1,4 @@
-name: pkgcheck
+name: pkgcheck - rOpenSci
 
 # This will cancel running jobs once a new run is triggered
 concurrency:

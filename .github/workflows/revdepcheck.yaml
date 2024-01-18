@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: revdepcheck
+name: Check reverse dependencies
 
 jobs:
   revdepcheck:

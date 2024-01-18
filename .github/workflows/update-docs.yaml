@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: update-docs
+name: Update docs
 
 jobs:
   update-docs:

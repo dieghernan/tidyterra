@@ -6,10 +6,10 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 12 * * 1,4'
+    - cron:  '00 18 * * 1,4'
   workflow_dispatch:
 
-name: R-CMD-check-ggplot2-devel
+name: Works with ggplot2-devel
 
 jobs:
   R-CMD-check-ggplot2-devel:
