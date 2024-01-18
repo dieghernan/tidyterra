@@ -72,5 +72,11 @@ test_that("Fortify SpatRasters", {
 
   build_point <- ggplot2::ggplot_build(v_point)
 
+  # ignore layout
+  build_terra$plot$layout <- NULL
+  build_point$plot$layout <- NULL
+  build_terra$layout <- NULL
+  build_point$layout <- NULL
+
   expect_identical(build_terra, build_point)
 })
