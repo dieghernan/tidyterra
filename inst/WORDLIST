@@ -45,7 +45,6 @@ coltab
 coord
 cpt
 crs
-dev
 disaggregated
 downsampled
 dplyr
@@ -61,13 +60,13 @@ linetype
 linewidth
 lon
 magrittr
-maptiles
 metR
 natively
 plotmath
 proj
 purrr
 rasters
+readr
 reprojected
 rescaled
 rlang

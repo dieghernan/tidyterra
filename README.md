@@ -39,9 +39,6 @@ objects with [{ggplot2}](https://ggplot2.tidyverse.org/).
 
 ## Overview
 
-You can have a look to the documentation of the dev version in
-<https://dieghernan.github.io/tidyterra/dev/>
-
 {tidyverse} methods implemented on {tidyterra} works differently
 depending on the type of Spat\* object:
 

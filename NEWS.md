@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.5.2
 
 -   Adapt tests to **ggplot2** 3.5.0 (#129) @teunbrand.
 -   Reduce package size, specially relevant in the external raster `asia.tif`.
