@@ -104,8 +104,8 @@ v \%>\% autoplot(aes(fill = cpro)) +
 Other ggplot2 utils:
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster_rgb}()},
 \code{\link{geom_spatraster}()},
+\code{\link{geom_spatraster_rgb}()},
 \code{\link{ggspatvector}},
 \code{\link{stat_spat_coordinates}()}
 
