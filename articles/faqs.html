@@ -34,8 +34,8 @@
   gtag('config', 'G-KRDM62G8K4');
 </script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet">
-<!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -44,7 +44,7 @@
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -161,7 +161,7 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="va">volcanotemp</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">elevation</span> <span class="op">&gt;</span> <span class="fl">80</span> <span class="op">&amp;</span> <span class="va">elevation</span> <span class="op">&lt;</span> <span class="fl">180</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Default</span></span>
@@ -221,7 +221,7 @@ lines:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
@@ -284,12 +284,12 @@ of scales:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Hillshade with grey colors</span></span>
-<span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
-<span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
-<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fl">340</span><span class="op">)</span></span>
+<span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
+<span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
+<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fl">340</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -324,7 +324,7 @@ the default colors on your session.</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span></span>
@@ -430,7 +430,7 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
@@ -478,7 +478,7 @@ breaks in lon/lat even if your data is projected. See also <a href="https://gith
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
@@ -491,8 +491,8 @@ breaks in lon/lat even if your data is projected. See also <a href="https://gith
 <span><span class="co"># Get extent</span></span>
 <span></span>
 <span><span class="va">ext</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span>, mask <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span>, mask <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -517,9 +517,9 @@ SpatRasters:</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Nowosad/spData" class="external-link">spDataLarge</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get a SpatRaster with coltab</span></span>
-<span><span class="va">r_coltab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"raster/nlcd.tif"</span>, package <span class="op">=</span> <span class="st">"spDataLarge"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">r_coltab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"raster/nlcd.tif"</span>, package <span class="op">=</span> <span class="st">"spDataLarge"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">has.colors</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/colors.html" class="external-link">has.colors</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span></span>
 <span><span class="va">r_coltab</span></span>
@@ -536,7 +536,7 @@ SpatRasters:</p>
 <span><span class="co">#&gt; max value   : Wetlands</span></span>
 <span></span>
 <span><span class="co"># Native handling by terra packages</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/coltab-1.png" width="100%"></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -617,7 +617,7 @@ for <strong>ggplot2</strong> plots. However, you can use
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="va">volcanourl</span>, <span class="va">volcanotemp</span>, mode <span class="op">=</span> <span class="st">"wb"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">volcanotemp</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span></span>
@@ -650,7 +650,7 @@ Details
 <span><span class="co">#&gt;  collate  English_United States.utf8</span></span>
 <span><span class="co">#&gt;  ctype    English_United States.utf8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2024-01-30</span></span>
+<span><span class="co">#&gt;  date     2024-02-06</span></span>
 <span><span class="co">#&gt;  pandoc   2.19.2 @ C:/HOSTED~1/windows/pandoc/219~1.2/x64/PANDOC~1.2/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
@@ -665,7 +665,7 @@ Details
 <span><span class="co">#&gt;  codetools     0.2-19  <span style="color: #555555;">2023-02-01</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.3.2)</span></span></span>
 <span><span class="co">#&gt;  colorspace    2.1-0   <span style="color: #555555;">2023-01-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  curl          5.2.0   <span style="color: #555555;">2023-12-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  data.table    1.14.10 <span style="color: #555555;">2023-12-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  data.table    1.15.0  <span style="color: #555555;">2024-01-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  DBI           1.2.1   <span style="color: #555555;">2024-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  desc          1.4.3   <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  digest        0.6.34  <span style="color: #555555;">2024-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -697,7 +697,7 @@ Details
 <span><span class="co">#&gt;  munsell       0.5.0   <span style="color: #555555;">2018-06-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  pillar        1.9.0   <span style="color: #555555;">2023-03-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  pkgconfig     2.0.3   <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pkgdown       2.0.7   <span style="color: #555555;">2022-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  pkgdown       2.0.7   <span style="color: #555555;">2022-12-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">any (@2.0.7)</span></span></span>
 <span><span class="co">#&gt;  plyr          1.8.9   <span style="color: #555555;">2023-10-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  png           0.1-8   <span style="color: #555555;">2022-11-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  proxy         0.4-27  <span style="color: #555555;">2022-06-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
@@ -714,20 +714,20 @@ Details
 <span><span class="co">#&gt;  s2            1.1.6   <span style="color: #555555;">2023-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  sass          0.4.8   <span style="color: #555555;">2023-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  scales        1.3.0   <span style="color: #555555;">2023-11-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">any (@1.2.2)</span></span></span>
+<span><span class="co">#&gt;  sessioninfo * 1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  sf          * 1.0-15  <span style="color: #555555;">2023-12-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  slippymath    0.3.1   <span style="color: #555555;">2019-06-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  spDataLarge * 2.1.1   <span style="color: #555555;">2024-01-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (Nowosad/spDataLarge@7222dad)</span></span></span>
+<span><span class="co">#&gt;  spDataLarge * 2.1.1   <span style="color: #555555;">2024-02-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">Github (Nowosad/spDataLarge@7222dad)</span></span></span>
 <span><span class="co">#&gt;  stringi       1.8.3   <span style="color: #555555;">2023-12-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  stringr       1.5.1   <span style="color: #555555;">2023-11-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  styler        1.10.2  <span style="color: #555555;">2023-08-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  systemfonts   1.0.5   <span style="color: #555555;">2023-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  terra       * 1.7-65  <span style="color: #555555;">2023-12-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
+<span><span class="co">#&gt;  terra       * 1.7-71  <span style="color: #555555;">2024-01-31</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  textshaping   0.3.7   <span style="color: #555555;">2023-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tibble        3.2.1   <span style="color: #555555;">2023-03-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyr         1.3.1   <span style="color: #555555;">2024-01-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyselect    1.2.0   <span style="color: #555555;">2022-10-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyterra   * 0.5.2   <span style="color: #555555;">2024-01-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  tidyterra   * 0.5.2   <span style="color: #555555;">2024-02-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  units         0.8-5   <span style="color: #555555;">2023-11-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  utf8          1.2.4   <span style="color: #555555;">2023-10-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  vctrs         0.6.5   <span style="color: #555555;">2023-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>

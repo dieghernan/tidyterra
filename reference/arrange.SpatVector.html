@@ -10,14 +10,14 @@ selected columns."><meta property="og:image" content="https://dieghernan.github.
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -93,7 +93,7 @@ selected columns.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
-<dd><p>A SpatVector created with <code><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
+<dd><p>A SpatVector created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt>...</dt>
@@ -117,7 +117,7 @@ grouped SpatVectors only.</p></dd>
     
 
 
-<p><code><a href="https://rdrr.io/pkg/terra/man/sort.html" class="external-link">terra::sort()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/sort.html" class="external-link">terra::sort()</a></code></p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -165,7 +165,7 @@ SpatVectors.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.7.65</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.7.71</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'dplyr'</span>
@@ -179,7 +179,7 @@ SpatVectors.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Single variable</span></span></span>
@@ -216,7 +216,7 @@ SpatVectors.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With new variables</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>area_geom <span class="op">=</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/expanse.html" class="external-link">expanse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>area_geom <span class="op">=</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/expanse.html" class="external-link">expanse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">area_geom</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>

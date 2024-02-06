@@ -14,14 +14,14 @@ corresponding groups. See Methods."><meta property="og:image" content="https://d
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -151,7 +151,7 @@ SpatVector (i.e, subsetting a SpatVector like <code>v[1:3,1:2]</code>) the <code
 attribute can be corrupted. <span class="pkg">tidyterra</span> would try to re-group the
 SpatVector. This would be triggered the next time you use a dplyr verb on
 your SpatVector.</p>
-<p>Note also that some operations (as <code><a href="https://rdrr.io/pkg/terra/man/sample.html" class="external-link">terra::spatSample()</a></code>) would create a new
+<p>Note also that some operations (as <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code>) would create a new
 SpatVector. In these cases, the result won't preserve the <code>groups</code> attribute.
 Use <code>group_by.SpatVector()</code> to re-group.</p>
     </div>
@@ -188,7 +188,7 @@ Use <code>group_by.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">by_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
@@ -213,7 +213,7 @@ Use <code>group_by.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span><span class="va">p_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">p_tbl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tbl_df"     "tbl"        "data.frame"</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p_tbl</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">p_tbl</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ID_1 NAME_1    ID_2 NAME_2    AREA   POP</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
@@ -225,7 +225,7 @@ Use <code>group_by.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span><span class="va">by_name1_tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="va">by_name1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">by_name1_tbl</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "grouped_df" "tbl_df"     "tbl"        "data.frame"</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">by_name1_tbl</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">by_name1_tbl</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   NAME_1 [1]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ID_1 NAME_1    ID_2 NAME_2    AREA   POP</span>
@@ -237,7 +237,7 @@ Use <code>group_by.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># It changes how it acts with the other dplyr verbs:</span></span></span>
 <span class="r-in"><span><span class="va">by_name1</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  pop <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>

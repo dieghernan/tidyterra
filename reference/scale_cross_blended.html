@@ -64,14 +64,14 @@ accepted by these scales."><meta property="og:image" content="https://dieghernan
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -448,8 +448,8 @@ colors. See <strong>Examples</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="cross_blended_hypsometric_tints_db.html">cross_blended_hypsometric_tints_db</a>, <code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code>,
-<code><a href="https://rdrr.io/pkg/terra/man/minmax.html" class="external-link">terra::minmax()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code>.</p>
+    <div class="dont-index"><p><a href="cross_blended_hypsometric_tints_db.html">cross_blended_hypsometric_tints_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>,
+<code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code>.</p>
 <p>See also <span class="pkg">ggplot2</span> docs on additional <code>...</code> parameters:</p><ul><li><p><code>scale_*_terrain_d()</code>: For discrete values.</p></li>
 <li><p><code>scale_*_terrain_c()</code>: For continuous values.</p></li>
 <li><p><code>scale_*_terrain_b()</code>: For binning continuous values.</p></li>
@@ -466,14 +466,14 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">volcano2_rast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">volcano2_rast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">filepath</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Palette</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">cross_blended.colors</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"arid"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">cross_blended.colors</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"arid"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale_cross_blended-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Palette with uneven colors</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">cross_blended.colors2</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"arid"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">cross_blended.colors2</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"arid"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="scale_cross_blended-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -490,7 +490,7 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-plt img"><img src="scale_cross_blended-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ...but not suitable for the range of the raster: adjust</span></span></span>
-<span class="r-in"><span><span class="va">my_lims</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/minmax.html" class="external-link">minmax</a></span><span class="op">(</span><span class="va">volcano2_rast</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">my_lims</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">minmax</a></span><span class="op">(</span><span class="va">volcano2_rast</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html" class="external-link">as.integer</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_rast</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -503,7 +503,7 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="co"># Full map with true tints</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f_asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_asia</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f_asia</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">asia</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -560,7 +560,7 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># Display all the cross-blended palettes</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">cross_blended_hypsometric_tints_db</span><span class="op">$</span><span class="va">pal</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">cross_blended_hypsometric_tints_db</span><span class="op">$</span><span class="va">pal</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Helper fun for plotting</span></span></span>
 <span class="r-in"><span></span></span>
@@ -571,8 +571,8 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="va">rowcol</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">pals</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/image.html" class="external-link">image</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">1</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/coerce.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/image.html" class="external-link">image</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">1</span>, z <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/coerce.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    col <span class="op">=</span> <span class="fu">cross_blended.colors</span><span class="op">(</span><span class="va">ncols</span>, <span class="va">i</span><span class="op">)</span>, main <span class="op">=</span> <span class="va">i</span>,</span></span>
 <span class="r-in"><span>    ylab <span class="op">=</span> <span class="st">""</span>, xaxt <span class="op">=</span> <span class="st">"n"</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, bty <span class="op">=</span> <span class="st">"n"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
@@ -581,7 +581,7 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Display all the cross-blended palettes on version 2</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">cross_blended_hypsometric_tints_db</span><span class="op">$</span><span class="va">pal</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">cross_blended_hypsometric_tints_db</span><span class="op">$</span><span class="va">pal</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Helper fun for plotting</span></span></span>
 <span class="r-in"><span></span></span>
@@ -592,8 +592,8 @@ colors. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="va">rowcol</span>, mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">pals</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/terra/man/image.html" class="external-link">image</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">1</span>, z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/coerce.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/image.html" class="external-link">image</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">1</span>, z <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/coerce.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">ncols</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    col <span class="op">=</span> <span class="fu">cross_blended.colors2</span><span class="op">(</span><span class="va">ncols</span>, <span class="va">i</span><span class="op">)</span>, main <span class="op">=</span> <span class="va">i</span>,</span></span>
 <span class="r-in"><span>    ylab <span class="op">=</span> <span class="st">""</span>, xaxt <span class="op">=</span> <span class="st">"n"</span>, yaxt <span class="op">=</span> <span class="st">"n"</span>, bty <span class="op">=</span> <span class="st">"n"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>

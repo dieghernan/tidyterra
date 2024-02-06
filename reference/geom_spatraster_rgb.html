@@ -16,14 +16,14 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -86,7 +86,7 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
     </div>
 
     <div class="ref-description section level2">
-    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">terra::rast()</a></code>) as
+    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>) as
 RGB images. The layers are combined such that they represent the red,
 green and blue channel.</p>
 <p>For plotting SpatRaster objects by layer values use <code><a href="geom_spatraster.html">geom_spatraster()</a></code>.</p>
@@ -169,7 +169,7 @@ to the paired geom/stat.</p></dd>
     
 
 
-<p><code><a href="https://rdrr.io/pkg/terra/man/plotRGB.html" class="external-link">terra::plotRGB()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code></p>
     </div>
     <div class="section level2">
     <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
@@ -211,7 +211,7 @@ see <code><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="exter
 <span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>

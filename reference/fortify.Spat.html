@@ -10,14 +10,14 @@ ggplot2::ggplot()."><meta property="og:image" content="https://dieghernan.github
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
@@ -92,7 +92,7 @@ ggplot2::ggplot()."><meta property="og:image" content="https://dieghernan.github
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  .name_repair <span class="op">=</span> <span class="st">"unique"</span>,</span>
-<span>  maxcell <span class="op">=</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1.1</span></span>
+<span>  maxcell <span class="op">=</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1.1</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
@@ -102,8 +102,8 @@ ggplot2::ggplot()."><meta property="og:image" content="https://dieghernan.github
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>model</dt>
-<dd><p>A SpatRaster created with <code><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
-created with <code><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
+<dd><p>A SpatRaster created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
+created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt>data</dt>
@@ -192,7 +192,7 @@ name of the layer on the SpatRaster.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get a SpatRaster</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fortified</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">fortify</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -251,7 +251,7 @@ name of the layer on the SpatRaster.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create a SpatVector</span></span></span>
 <span class="r-in"><span><span class="va">extfile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">extfile</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">extfile</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">cyl</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
