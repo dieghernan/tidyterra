@@ -96,6 +96,13 @@ references:
   - family-names: Srinivasan
     given-names: Arun
     email: asrini@pm.me
+  - family-names: Gorecki
+    given-names: Jan
+  - family-names: Chirico
+    given-names: Michael
+  - family-names: Hocking
+    given-names: Toby
+    orcid: https://orcid.org/0000-0002-3146-0865
   year: '2024'
 - type: software
   title: dplyr
