@@ -172,7 +172,7 @@ test_that("grouping is preserved", {
 
 
 test_that("`cols_vary` can adjust the resulting row ordering (#1312)", {
-  df <- tibble(x = c(1, 2), y = c(3, 4))
+  df <- tibble::tibble(x = c(1, 2), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
@@ -186,7 +186,7 @@ test_that("`cols_vary` can adjust the resulting row ordering (#1312)", {
 
   expect_identical(
     tib,
-    tibble(name = c("x", "y", "x", "y"), value = c(1, 3, 2, 4))
+    tibble::tibble(name = c("x", "y", "x", "y"), value = c(1, 3, 2, 4))
   )
 
   out <- pivot_longer(df, c(x, y), cols_vary = "slowest")
@@ -198,12 +198,12 @@ test_that("`cols_vary` can adjust the resulting row ordering (#1312)", {
 
   expect_identical(
     tib,
-    tibble(name = c("x", "x", "y", "y"), value = c(1, 2, 3, 4))
+    tibble::tibble(name = c("x", "x", "y", "y"), value = c(1, 2, 3, 4))
   )
 })
 
 test_that("`cols_vary` works with id columns not part of the pivot process", {
-  df <- tibble(id = c("a", "b"), x = c(1, 2), y = c(3, 4))
+  df <- tibble::tibble(id = c("a", "b"), x = c(1, 2), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
@@ -224,7 +224,7 @@ test_that("`cols_vary` works with id columns not part of the pivot process", {
 })
 
 test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
-  df <- tibble(id = c("a", "b"), x = c(1, NA), y = c(3, 4))
+  df <- tibble::tibble(id = c("a", "b"), x = c(1, NA), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
@@ -239,7 +239,7 @@ test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
 
   expect_identical(
     tib,
-    tibble(
+    tibble::tibble(
       id = c("a", "a", "b"),
       name = c("x", "y", "y"),
       value = c(1, 3, 4)

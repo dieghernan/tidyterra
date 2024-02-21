@@ -73,10 +73,9 @@ reference:
 - subtitle: Missing values
   description: |
     Tools for converting between implicit (absent rows) and explicit (`NA`)
-    missing values, and for handling explicit `NA`s.
+    missing values, handling explicit `NA`s and pivoting objects.
   contents:
-  - drop_na.SpatVector
-  - replace_na.Spat
+  - has_concept("tidyr.methods")
 - title: "ggplot2 methods"
   desc:  Methods from {ggplot2} implemented for Spat* objects.
   contents:
