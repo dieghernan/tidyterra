@@ -240,7 +240,7 @@
     </div><div class="section level2">
       
       <h3 id="missing-values">Missing values<a class="anchor" aria-label="anchor" href="#missing-values"></a></h3>
-      <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, handling explicit <code>NA</code>s and pivoting objects.</p>
+      <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, handling explicit <code>NA</code>s.</p>
 
       
     </div><div id="" class="section level2">
@@ -255,14 +255,30 @@
         <dd>Drop attributes of SpatVector objects containing missing values</dd>
       </dl><dl><dt>
           
-          <code><a href="pivot_longer.SpatVector.html">pivot_longer(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Pivot SpatVector from wide to long</dd>
-      </dl><dl><dt>
-          
           <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Replace NAs with specified values</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="pivoting">Pivoting<a class="anchor" aria-label="anchor" href="#pivoting"></a></h3>
+      <p class="section-desc"></p><p>Pivoting changes the representation of a rectangular Spat* object, without changing the data inside of it..</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="pivot_longer.SpatVector.html">pivot_longer(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Pivot <code>SpatVector</code> from wide to long</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pivot_wider.SpatVector.html">pivot_wider(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Pivot <code>SpatVector</code> from long to wide</dd>
       </dl></div><div class="section level2">
       <h2 id="ggplot-methods">ggplot2 methods<a class="anchor" aria-label="anchor" href="#ggplot-methods"></a></h2>
       
