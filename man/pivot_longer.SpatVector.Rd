@@ -2,7 +2,7 @@
 % Please edit documentation in R/pivot-long-SpatVector.R
 \name{pivot_longer.SpatVector}
 \alias{pivot_longer.SpatVector}
-\title{Pivot SpatVector from wide to long}
+\title{Pivot \code{SpatVector} from wide to long}
 \usage{
 \method{pivot_longer}{SpatVector}(
   data,
@@ -120,7 +120,7 @@ A SpatVector object.
 \description{
 \code{pivot_longer()} "lengthens" data, increasing the number of rows and
 decreasing the number of columns. The inverse transformation is
-\code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
 
 Learn more in \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 }
@@ -136,32 +136,34 @@ have always the geometry of \code{data}.
 }
 
 \examples{
-
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 
 nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
-# Usually this is useful for facetting, see BIR
+# Usually this is useful for faceting, see BIR
+glimpse(nc)
+
 nc_pivoted <- nc \%>\%
   pivot_longer(starts_with("BIR"),
     names_to = "year",
     values_to = "births"
   ) \%>\%
-  mutate(year = as.numeric(gsub("BIR", "19", year))) \%>\%
-  select(year, births)
+  mutate(year = as.numeric(gsub("BIR", "19", year)))
+
+glimpse(nc_pivoted)
 
 ggplot(nc_pivoted) +
   geom_spatvector(aes(fill = births)) +
   facet_wrap(~year, ncol = 1) +
   scale_fill_viridis_c(option = "cividis") +
   labs(title = "Number of births in South Carolina")
-
 }
 \seealso{
 Other tidyr methods:
 \code{\link{drop_na.SpatVector}()},
+\code{\link{pivot_wider.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

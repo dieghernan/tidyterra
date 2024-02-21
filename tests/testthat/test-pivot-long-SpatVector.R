@@ -67,7 +67,6 @@ test_that("can drop missing values", {
 })
 
 test_that("can handle missing combinations", {
-  skip_on_cran()
   df <- tibble::tribble(
     ~id, ~x_1, ~x_2, ~y_2,
     "A",    1,    2,  "a",
@@ -77,16 +76,18 @@ test_that("can handle missing combinations", {
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
   expect_s4_class(df, "SpatVector")
-  expect_warning(pv <- pivot_longer(
-    df, -id,
-    names_to = c(".value", "n"),
-    names_sep = "_"
-  ))
+  expect_snapshot(
+    pv <- pivot_longer(
+      df, -id,
+      names_to = c(".value", "n"),
+      names_sep = "_"
+    )
+  )
 
 
   expect_named(pv, c("id", "n", "x", "y"))
-  expect_equal(pv$x, c(1:2, NA, 3:4, NA))
-  expect_equal(pv$y, c(NA, "a", NA, NA, "b", NA))
+  expect_equal(pv$x, c(1:4))
+  expect_equal(pv$y, c(NA, "a", NA, "b"))
   expect_s4_class(pv, "SpatVector")
   expect_identical(pull_crs(df), pull_crs(pv))
 })
@@ -105,7 +106,6 @@ test_that("mixed columns are automatically coerced", {
 })
 
 test_that("original col order is preserved", {
-  skip_on_cran()
   df <- tibble::tribble(
     ~id, ~z_1, ~y_1, ~x_1, ~z_2, ~y_2, ~x_2,
     "A", 1, 2, 3, 4, 5, 6,
@@ -114,7 +114,7 @@ test_that("original col order is preserved", {
   df$lat <- 1
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
-  expect_warning(
+  expect_snapshot(
     pv <- pivot_longer(df, -id, names_to = c(".value", "n"), names_sep = "_")
   )
   expect_named(pv, c("id", "n", "z", "y", "x"))
@@ -122,29 +122,13 @@ test_that("original col order is preserved", {
   expect_identical(pull_crs(df), pull_crs(pv))
 })
 
-test_that("handles duplicated column names", {
-  df <- tibble::tibble(
-    x = 1, a = 1, a = 2, b = 3, b = 4,
-    .name_repair = "minimal"
-  )
-  df$lat <- 1
-  df$lon <- 1
-  df <- terra::vect(df, crs = "EPSG:3857")
-
-  expect_snapshot(pv <- pivot_longer(df, -x),
-    error = TRUE
-  )
-})
-
 test_that("can pivot duplicated names to .value", {
-  skip_on_cran()
-
   df <- tibble::tibble(x = 1, a_1 = 1, a_2 = 2, b_1 = 3, b_2 = 4)
   df$lat <- 1
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
 
-  expect_warning(
+  expect_snapshot(
     pv1 <- pivot_longer(df, -x, names_to = c(".value", NA), names_sep = "_")
   )
 

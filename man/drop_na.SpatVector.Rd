@@ -57,6 +57,7 @@ SpatRaster is also available, see \code{\link[=drop_na.SpatRaster]{drop_na.SpatR
 
 Other tidyr methods:
 \code{\link{pivot_longer.SpatVector}()},
+\code{\link{pivot_wider.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

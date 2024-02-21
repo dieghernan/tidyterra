@@ -1,9 +1,9 @@
-#' Pivot SpatVector from wide to long
+#' Pivot `SpatVector` from wide to long
 #'
 #' @description
 #' `pivot_longer()` "lengthens" data, increasing the number of rows and
 #' decreasing the number of columns. The inverse transformation is
-#' [tidyr::pivot_wider()]
+#' [pivot_wider.SpatVector()]
 #'
 #' Learn more in [tidyr::pivot_wider()].
 #'
@@ -33,28 +33,29 @@
 #' have always the geometry of `data`.
 #'
 #' @examples
-#'
 #' library(dplyr)
 #' library(tidyr)
 #' library(ggplot2)
 #'
 #' nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 #'
-#' # Usually this is useful for facetting, see BIR
+#' # Usually this is useful for faceting, see BIR
+#' glimpse(nc)
+#'
 #' nc_pivoted <- nc %>%
 #'   pivot_longer(starts_with("BIR"),
 #'     names_to = "year",
 #'     values_to = "births"
 #'   ) %>%
-#'   mutate(year = as.numeric(gsub("BIR", "19", year))) %>%
-#'   select(year, births)
+#'   mutate(year = as.numeric(gsub("BIR", "19", year)))
+#'
+#' glimpse(nc_pivoted)
 #'
 #' ggplot(nc_pivoted) +
 #'   geom_spatvector(aes(fill = births)) +
 #'   facet_wrap(~year, ncol = 1) +
 #'   scale_fill_viridis_c(option = "cividis") +
 #'   labs(title = "Number of births in South Carolina")
-#'
 pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
                                     names_to = "name", names_prefix = NULL,
                                     names_sep = NULL, names_pattern = NULL,
@@ -63,22 +64,27 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
                                     values_to = "value", values_drop_na = FALSE,
                                     values_ptypes = NULL,
                                     values_transform = NULL) {
-  # Add an index
-  data$tterrageom <- seq_len(nrow(data))
+  # as tibble with attrbs
+  tbl <- as_tbl_internal(data)
 
-  # Pivot with tibble
-  tbl <- as_tibble(data)
+  att <- attributes(tbl)
 
-  # Keep geom
-  data <- ungroup(data)
-  geom_only <- as_tbl_internal(data["tterrageom"])
+  # Intercept cols using a template
+  template <- dplyr::ungroup(tbl[1, ])
+  template <- dplyr::select(template, {{ cols }})
+  new_cols <- names(template)
+  if ("geometry" %in% new_cols) {
+    cli::cli_alert_warning(
+      "Ommiting {.val geometry} column from {.arg cols} argument."
+    )
 
-
+    new_cols <- setdiff(new_cols, "geometry")
+  }
 
 
   pivoted <- tidyr::pivot_longer(
-    data = tbl, cols = {{ cols }}, ...,
-    cols_vary = cols_vary,
+    data = tbl, cols = dplyr::all_of(new_cols),
+    ..., cols_vary = cols_vary,
     names_to = names_to,
     names_prefix = names_prefix,
     names_sep = names_sep,
@@ -92,28 +98,23 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
     values_transform = values_transform
   )
 
-  # Remove geometry if produced
-  pivoted <- pivoted[setdiff(names(pivoted), "geometry")]
-
-  if (!"tterrageom" %in% names(pivoted)) {
+  # nocov start
+  if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(
-      "Can't pivot {.val geometry} of the {.cls SpatVector} with these args"
+      paste0(
+        "Can't rebuild the {.cls SpatVector}, ",
+        "{.val geometry} column lost after pivoting"
+      )
     )
   }
+  # nocov end
 
   # Reconstruct table
-  sv_tab <- dplyr::left_join(pivoted, geom_only, by = "tterrageom")
+  attr(pivoted, "source") <- att$source
+  attr(pivoted, "crs") <- att$crs
+  attr(pivoted, "geomtype") <- att$geomtype
 
-  # Remove the tterra_index
-  sv_tab <- sv_tab[setdiff(names(sv_tab), "tterrageom")]
+  sv <- as_spat_internal(pivoted)
 
-  # Reconvert safely
-
-  attr(sv_tab, "crs") <- pull_crs(data)
-  attr(sv_tab, "geomtype") <- terra::geomtype(data)
-  attr(sv_tab, "source") <- "SpatVector"
-
-  sv_end <- as_spat_internal(sv_tab)
-
-  return(sv_end)
+  return(sv)
 }

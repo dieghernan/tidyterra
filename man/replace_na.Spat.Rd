@@ -51,6 +51,7 @@ r \%>\%
 
 Other tidyr methods:
 \code{\link{drop_na.SpatVector}()},
-\code{\link{pivot_longer.SpatVector}()}
+\code{\link{pivot_longer.SpatVector}()},
+\code{\link{pivot_wider.SpatVector}()}
 }
 \concept{tidyr.methods}

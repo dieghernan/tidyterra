@@ -1,7 +1,7 @@
 # tidyterra (development version)
 
 -   New methods for SpatVectors:
-    -   `pivot_longer.SpatVector()`
+    -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`
 
 # tidyterra 0.5.2
 
