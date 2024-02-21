@@ -9,7 +9,7 @@
   ...,
   id_cols = NULL,
   id_expand = FALSE,
-  names_from = name,
+  names_from = "name",
   names_prefix = "",
   names_sep = "_",
   names_glue = NULL,
@@ -17,7 +17,7 @@
   names_vary = "fastest",
   names_expand = FALSE,
   names_repair = "check_unique",
-  values_from = value,
+  values_from = "value",
   values_fill = NULL,
   values_fn = NULL,
   unused_fn = NULL
