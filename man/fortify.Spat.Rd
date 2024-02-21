@@ -68,7 +68,7 @@ It is possible to convert the fortified object onto a SpatRaster again with
 
 \subsection{SpatVector}{
 
-Return a \code{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Return a \CRANpkg{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
 }
 }
 

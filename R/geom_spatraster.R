@@ -10,7 +10,7 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
-#' @return A ggplot2 layer
+#' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #' @param data A SpatRaster object.
 #'
@@ -61,9 +61,9 @@
 #' - `fill`
 #' - `alpha`
 #'
-#' If `fill` is not provided, `geom_spatraster()` creates a ggplot2 layer with
-#' all the layers of the SpatRaster object. Use `facet_wrap(~lyr)` to display
-#' properly the SpatRaster layers.
+#' If `fill` is not provided, `geom_spatraster()` creates a \CRANpkg{ggplot2}
+#' layer with all the layers of the SpatRaster object. Use `facet_wrap(~lyr)`
+#' to display properly the SpatRaster layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
 #' on the SpatRaster (i.e.

@@ -17,8 +17,8 @@
 #'   on a regular grid (a low number of digits is a low precision).
 #'
 #' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-#'   and spatial object from sf or terra that includes the target coordinate
-#'   reference system. See [pull_crs()]. See **Details**.
+#'   and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+#'   target coordinate reference system. See [pull_crs()]. See **Details**.
 #'
 #' @param ... additional arguments passed on to [terra::rast()].
 #'

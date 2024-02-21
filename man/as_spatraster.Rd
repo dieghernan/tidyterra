@@ -15,8 +15,8 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 the columns that hold the x and y coordinates.}
 
 \item{crs}{A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-and spatial object from sf or terra that includes the target coordinate
-reference system. See \code{\link[=pull_crs]{pull_crs()}}. See \strong{Details}.}
+and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}}. See \strong{Details}.}
 
 \item{digits}{integer to set the precision for detecting whether points are
 on a regular grid (a low number of digits is a low precision).}

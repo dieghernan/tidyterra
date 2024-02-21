@@ -6,7 +6,7 @@
 \alias{as_spatvector.sf}
 \alias{as_spatvector.sfc}
 \alias{as_spatvector.SpatVector}
-\title{Method for coercing objects to to SpatVector}
+\title{Method for coercing objects to SpatVector}
 \usage{
 as_spatvector(x, ...)
 
@@ -19,7 +19,7 @@ as_spatvector(x, ...)
 \method{as_spatvector}{SpatVector}(x, ...)
 }
 \arguments{
-\item{x}{A tibble, data frame, sf or sfc object.}
+\item{x}{A \CRANpkg{tibble}, data frame, \CRANpkg{sf} or \code{sfc} object.}
 
 \item{...}{additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 
@@ -35,7 +35,7 @@ reference system. See \code{\link[=pull_crs]{pull_crs()}}. See \strong{Details}.
 A SpatVector.
 }
 \description{
-\code{as_spatvector()} turns an existing  object into a SpatVector. This is a
+\code{as_spatvector()} turns an existing  object into a \code{SpatVector}. This is a
 wrapper of \code{\link[terra:vect]{terra::vect()}} S4 method.
 }
 \details{

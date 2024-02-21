@@ -89,6 +89,7 @@ Currently, the following methods are available:
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
 | `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |
+| `tidyr::pivot_longer()`                     | ️                                               | ✔️                                                                                           |
 | `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
 | `ggplot2::fortify()`                        | ✔️ to sf via `sf::st_as_sf()`                 | To a tibble with coordinates.                                                                  |
 | `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |

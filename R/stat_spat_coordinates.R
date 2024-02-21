@@ -10,7 +10,7 @@
 #'
 #' @export
 #' @family ggplot2.utils
-#' @return A ggplot2 layer
+#' @return A \CRANpkg{ggplot2} layer
 #' @keywords internal
 #'
 #'

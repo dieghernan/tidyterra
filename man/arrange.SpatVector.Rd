@@ -2,7 +2,7 @@
 % Please edit documentation in R/arrange-SpatVector.R
 \name{arrange.SpatVector}
 \alias{arrange.SpatVector}
-\title{Order SpatVectors using column values}
+\title{Order \code{SpatVectors} using column values}
 \usage{
 \method{arrange}{SpatVector}(.data, ..., .by_group = FALSE)
 }
@@ -13,16 +13,16 @@
 variables. Use \code{\link[dplyr:desc]{dplyr::desc()}} to sort a variable in descending order.}
 
 \item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
-grouped SpatVectors only.}
+grouped \code{SpatVectors} only.}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
-\code{arrange()} orders the geometries of a SpatVector by the values of
+\code{arrange()} orders the geometries of a \code{SpatVector} by the values of
 selected columns.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:sort]{terra::sort()}}
@@ -32,7 +32,7 @@ selected columns.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:arrange]{dplyr::arrange()}} function for
-SpatVectors.
+\code{SpatVectors}.
 }
 
 \examples{

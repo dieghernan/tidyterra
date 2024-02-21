@@ -100,7 +100,7 @@ position adjustment function. Use the latter if you need to change the
 settings of the adjustment.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
 Wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} family used to visualise SpatVector objects

@@ -19,7 +19,7 @@
 \method{autoplot}{SpatVector}(object, ...)
 }
 \arguments{
-\item{object}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{object}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
@@ -38,10 +38,10 @@ try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 \item{nrow, ncol}{Number of rows and columns on the facet.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
-\code{autoplot()} uses ggplot2 to draw plots as the ones produced by
+\code{autoplot()} uses \CRANpkg{ggplot2} to draw plots as the ones produced by
 \code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{terra::plotRGB()}} in a single command.
 }
 \details{

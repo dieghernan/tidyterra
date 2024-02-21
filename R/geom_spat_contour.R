@@ -26,7 +26,7 @@
 #'   Overrides `binwidth` and `bins`. By default, this is a vector of length
 #'   ten with [pretty()] breaks.
 #'
-#' @return A ggplot2 layer
+#' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #' @seealso  [ggplot2::geom_contour()]
 #'

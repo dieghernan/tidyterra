@@ -1,14 +1,14 @@
 #' Create a complete ggplot for Spat* objects
 #'
-#' `autoplot()` uses ggplot2 to draw plots as the ones produced by
+#' `autoplot()` uses \CRANpkg{ggplot2} to draw plots as the ones produced by
 #' [terra::plot()]/[terra::plotRGB()] in a single command.
 #'
 #' Implementation of [ggplot2::autoplot()].
 #'
-#' @return A ggplot2 layer
+#' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #' @family ggplot2.methods
-#' @param object A SpatRaster created with [terra::rast()] or a SpatVector
+#' @param object A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat

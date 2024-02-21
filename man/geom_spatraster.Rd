@@ -72,7 +72,7 @@ for SpatRaster are \code{"raster"} (the default), \code{"point"},\code{"text"} a
 \code{"label"}.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
 This geom is used to visualise SpatRaster objects (see \code{\link[terra:rast]{terra::rast()}}). The
@@ -112,9 +112,9 @@ the scales. That means that also the \strong{SpatRaster may be reprojected}.
 \item \code{alpha}
 }
 
-If \code{fill} is not provided, \code{geom_spatraster()} creates a ggplot2 layer with
-all the layers of the SpatRaster object. Use \code{facet_wrap(~lyr)} to display
-properly the SpatRaster layers.
+If \code{fill} is not provided, \code{geom_spatraster()} creates a \CRANpkg{ggplot2}
+layer with all the layers of the SpatRaster object. Use \code{facet_wrap(~lyr)}
+to display properly the SpatRaster layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
 on the SpatRaster (i.e.

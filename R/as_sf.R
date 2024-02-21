@@ -1,10 +1,10 @@
-#' Coerce a SpatVector to a sf object
+#' Coerce a SpatVector to a \CRANpkg{sf} object
 #'
 #' @description
 #'
-#' `as_sf()` turns a SpatVector to sf. This is a wrapper of [sf::st_as_sf()]
-#' with the particularity that the groups created with [group_by()] are
-#' preserved.
+#' [as_sf()] turns a SpatVector to \CRANpkg{sf}. This is a wrapper of
+#' [sf::st_as_sf()] with the particularity that the groups created with
+#' [group_by()] are preserved.
 #'
 #' @return
 #' A sf object.

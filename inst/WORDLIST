@@ -45,6 +45,8 @@ coltab
 coord
 cpt
 crs
+de
+dev
 disaggregated
 downsampled
 dplyr
@@ -64,6 +66,7 @@ metR
 natively
 plotmath
 proj
+ptype
 purrr
 rasters
 readr

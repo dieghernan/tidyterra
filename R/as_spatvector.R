@@ -1,8 +1,8 @@
-#' Method for coercing objects to to SpatVector
+#' Method for coercing objects to SpatVector
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing  object into a SpatVector. This is a
+#' `as_spatvector()` turns an existing  object into a `SpatVector`. This is a
 #' wrapper of [terra::vect()] S4 method.
 #'
 #' @return
@@ -13,7 +13,7 @@
 #' @name as_spatvector
 #' @rdname as_spatvector
 #'
-#' @param x A tibble, data frame, sf or sfc object.
+#' @param x A \CRANpkg{tibble}, data frame, \CRANpkg{sf} or `sfc` object.
 #'
 #' @param ... additional arguments passed on to [terra::vect()].
 #'

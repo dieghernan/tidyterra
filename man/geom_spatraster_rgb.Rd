@@ -49,7 +49,7 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
 This geom is used to visualise SpatRaster objects (see \code{\link[terra:rast]{terra::rast()}}) as

@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_sf.R
 \name{as_sf}
 \alias{as_sf}
-\title{Coerce a SpatVector to a sf object}
+\title{Coerce a SpatVector to a \CRANpkg{sf} object}
 \usage{
 as_sf(x, ...)
 }
@@ -15,9 +15,9 @@ as_sf(x, ...)
 A sf object.
 }
 \description{
-\code{as_sf()} turns a SpatVector to sf. This is a wrapper of \code{\link[sf:st_as_sf]{sf::st_as_sf()}}
-with the particularity that the groups created with \code{\link[=group_by]{group_by()}} are
-preserved.
+\code{\link[=as_sf]{as_sf()}} turns a SpatVector to \CRANpkg{sf}. This is a wrapper of
+\code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
+\code{\link[=group_by]{group_by()}} are preserved.
 }
 \examples{
 library(terra)
