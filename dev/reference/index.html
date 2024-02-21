@@ -8,17 +8,17 @@
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@
           
           <code><a href="arrange.SpatVector.html">arrange(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Order SpatVectors using column values</dd>
+        <dd>Order <code>SpatVectors</code> using column values</dd>
       </dl><dl><dt>
           
           <code><a href="distinct.SpatVector.html">distinct(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -240,7 +240,7 @@
     </div><div class="section level2">
       
       <h3 id="missing-values">Missing values<a class="anchor" aria-label="anchor" href="#missing-values"></a></h3>
-      <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, and for handling explicit <code>NA</code>s.</p>
+      <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, handling explicit <code>NA</code>s and pivoting objects.</p>
 
       
     </div><div id="" class="section level2">
@@ -253,6 +253,11 @@
           <code><a href="drop_na.SpatVector.html">drop_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
         <dd>Drop attributes of SpatVector objects containing missing values</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pivot_longer.SpatVector.html">pivot_longer(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Pivot SpatVector from wide to long</dd>
       </dl><dl><dt>
           
           <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -383,7 +388,7 @@
           
           <code><a href="as_sf.html">as_sf()</a></code> 
         </dt>
-        <dd>Coerce a SpatVector to a sf object</dd>
+        <dd>Coerce a SpatVector to a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object</dd>
       </dl><dl><dt>
           
           <code><a href="as_spatraster.html">as_spatraster()</a></code> 
@@ -393,7 +398,7 @@
           
           <code><a href="as_spatvector.html">as_spatvector()</a></code> 
         </dt>
-        <dd>Method for coercing objects to to SpatVector</dd>
+        <dd>Method for coercing objects to SpatVector</dd>
       </dl><dl><dt>
           
           <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 

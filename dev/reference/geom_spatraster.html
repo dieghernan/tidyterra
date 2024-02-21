@@ -20,17 +20,17 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.css" rel="stylesheet"></head><body>
+</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet"><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" class="d-inline-block me-1">
+      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.2.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,8 +90,8 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
     </div>
 
     <div class="ref-description section level2">
-    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">terra::rast()</a></code>). The
-geom is designed for visualise the object by layers, as <code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code> does.</p>
+    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>). The
+geom is designed for visualise the object by layers, as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does.</p>
 <p>For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
 <code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
@@ -173,7 +173,7 @@ the plot.</p></dd>
 
 <dt>use_coltab</dt>
 <dd><p>Logical. Only applicable to SpatRasters that have a coltab
-(<code><a href="https://rdrr.io/pkg/terra/man/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
+(<code><a href="https://rspatial.github.io/terra/reference/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
 <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
@@ -194,14 +194,14 @@ for SpatRaster are <code>"raster"</code> (the default), <code>"point"</code>,<co
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A ggplot2 layer</p>
+<p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent">terra equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
     
 
 
-<p><code><a href="https://rdrr.io/pkg/terra/man/plot.html" class="external-link">terra::plot()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code></p>
     </div>
     <div class="section level2">
     <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
@@ -221,9 +221,9 @@ the scales. That means that also the <strong>SpatRaster may be reprojected</stro
 
 <p><code>geom_spatraster()</code> understands the following aesthetics:</p><ul><li><p><code>fill</code></p></li>
 <li><p><code>alpha</code></p></li>
-</ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a ggplot2 layer with
-all the layers of the SpatRaster object. Use <code>facet_wrap(~lyr)</code> to display
-properly the SpatRaster layers.</p>
+</ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a>
+layer with all the layers of the SpatRaster object. Use <code>facet_wrap(~lyr)</code>
+to display properly the SpatRaster layers.</p>
 <p>If <code>fill</code> is used, it should contain the name of one layer that is present
 on the SpatRaster (i.e.
 <code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Names of the
@@ -298,12 +298,12 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span><span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">temp_rast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">temp_rast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">file_path</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Display a single layer</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">temp_rast</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">temp_rast</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tavg_04" "tavg_05" "tavg_06"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -323,8 +323,8 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Non spatial rasters</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">no_crs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/terra/man/rast.html" class="external-link">rast</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="cn">NA</span>, extent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>, nlyr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">no_crs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="cn">NA</span>, extent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>, nlyr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -372,7 +372,7 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">stat_spatraster</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    data <span class="op">=</span> <span class="va">r_single</span>,</span></span>
-<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/terra/man/math-generics.html" class="external-link">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/math-generics.html" class="external-link">round</a></span><span class="op">(</span><span class="va">value</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    geom <span class="op">=</span> <span class="st">"label"</span>,</span></span>
 <span class="r-in"><span>    alpha <span class="op">=</span> <span class="fl">0.85</span>,</span></span>
 <span class="r-in"><span>    maxcell <span class="op">=</span> <span class="fl">20</span></span></span>
