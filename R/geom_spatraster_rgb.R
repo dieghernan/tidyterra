@@ -11,7 +11,7 @@
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
 #'
-#' @return A ggplot2 layer
+#' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #' @param data A SpatRaster object.
 #'

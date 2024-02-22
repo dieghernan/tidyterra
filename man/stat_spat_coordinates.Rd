@@ -50,7 +50,7 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 \item{...}{Other arguments passed on to \code{\link[ggplot2:stat_sf_coordinates]{ggplot2::stat_sf_coordinates()}}.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
 \code{stat_spat_coordinates()} extracts the coordinates from SpatVector objects

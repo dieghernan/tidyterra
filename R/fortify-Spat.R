@@ -47,7 +47,7 @@
 #'
 #' ## SpatVector
 #'
-#' Return a `sf` object than can be used with [ggplot2::geom_sf()].
+#' Return a \CRANpkg{sf} object than can be used with [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{

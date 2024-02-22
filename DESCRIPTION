@@ -1,6 +1,6 @@
 Package: tidyterra
 Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
-Version: 0.5.2
+Version: 0.5.2.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
@@ -39,6 +39,7 @@ Suggests:
     rmarkdown,
     s2,
     testthat (>= 3.0.0),
+    vctrs,
     vdiffr
 VignetteBuilder: 
     knitr

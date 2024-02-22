@@ -1,39 +1,40 @@
-#' Coerce a Spat* object to data frames
+#' Coerce a `SpatVector` or `SpatRaster` object to data frames
 #'
 #' @description
 #'
-#' `as_tibble()` method for SpatRaster and SpatVector.
+#' [as_tibble()] methods for `SpatRaster` and `SpatVector` objects.
 #'
 #' @rdname as_tibble.Spat
 #' @name as_tibble.Spat
 #'
 #' @return
-#' A tibble.
+#' A [tibble][tibble::tibble()].
 #'
-#' @param x A SpatRaster created with [terra::rast()] or a SpatVector
+#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @inheritParams terra::as.data.frame
-#' @param ... Arguments passed on to [terra::as.data.frame()]
+#' @param ... Arguments passed on to [terra::as.data.frame()].
 #' @param .name_repair Treatment of problematic column names:
-#'   * `"minimal"`: No name repair or checks, beyond basic existence,
-#'   * `"unique"`: Make sure names are unique and not empty,
+#'   * `"minimal"`: No name repair or checks, beyond basic existence.
+#'   * `"unique"`: Make sure names are unique and not empty.
 #'   * `"check_unique"`: (default value), no name repair, but check they are
-#'     `unique`,
-#'   * `"universal"`: Make the names `unique` and syntactic
+#'     `unique`.
+#'   * `"universal"`: Make the names `unique` and syntactic.
 #'   * a function: apply custom name repair (e.g., `.name_repair = make.names`
-#'     for names in the style of base R).
-#'   * A purrr-style anonymous function, see [rlang::as_function()]
+#'     for names in the style of base **R**).
+#'   * A purrr-style anonymous function, see [rlang::as_function()].
 #'
 #' @export
 #' @importFrom terra as.data.frame
 #' @importFrom tibble as_tibble
+#' @importFrom tibble tibble
 #'
 #' @seealso [tibble::as_tibble()], [terra::as.data.frame()]
 #'
 #' @family coerce
 #' @family tibble.methods
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::as.data.frame()]
 #'
@@ -41,35 +42,34 @@
 #'
 #' Implementation of the **generic** [tibble::as_tibble()] function.
 #'
-#' ## SpatRaster and SpatVector
+#' ## `SpatRaster` and `SpatVector`
 #'
-#' `r lifecycle::badge('questioning')` The tibble is returned with an attribute
-#' including the crs of the initial object in WKT format (see [pull_crs()]).
+#' The tibble is returned with an attribute including the crs of the initial
+#' object in WKT format (see [pull_crs()]).
 #'
 #' @section About layer/column names:
 #'
-#' When coercing SpatRaster objects to data frames, `x` and `y` names are
+#' When coercing `SpatRaster` objects to data frames, `x` and `y` names are
 #' reserved for geographic coordinates of each cell of the raster. It should be
-#' also noted that terra allows layers with duplicated names.
+#' also noted that \CRANpkg{terra} allows layers with duplicated names.
 #'
-#' In the process of coercing a SpatRaster to a tibble, tidyterra may rename
-#' the layers of your SpatRaster for overcoming this issue. Specifically, layers
-#' may be renamed on the following cases:
-#'
-#' - Layers with duplicated names
+#' In the process of coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra}
+#' may rename the layers of your `SpatRaster` for overcoming this issue.
+#' Specifically, layers may be renamed on the following cases:#'
+#' - Layers with duplicated names.
 #' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` would be
 #'   renamed.
 #' - When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
 #'   latter would happen as well.
 #'
-#' tidyterra would display a message informing of the changes on the names of
-#' the layer.
+#' \CRANpkg{tidyterra} would display a message informing of the changes on the
+#' names of the layer.
 #'
-#' The same issue happens for SpatVector with names `geometry` (when
+#' The same issue happens for `SpatVector` with names `geometry` (when
 #' `geom = c("WKT", "HEX")`) and `x`, `y` (when `geom = "XY"`). These are
-#' reserved names representing the geometry of the SpatVector (see
+#' reserved names representing the geometry of the `SpatVector` (see
 #' [terra::as.data.frame()]). If `geom` is not `NULL` then the logic described
-#' for SpatRaster would apply as well for the columns of the SpatVector.
+#' for `SpatRaster` would apply as well for the columns of the `SpatVector`.
 #'
 #' @examples
 #'

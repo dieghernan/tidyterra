@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.5.2
+version: 0.5.2.9000
 doi: 10.21105/joss.05751
 abstract: Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of
   the 'terra' package. It includes also new 'geom_' functions that provide a convenient
@@ -403,6 +403,23 @@ references:
     email: hadley@posit.co
   year: '2024'
   version: '>= 3.0.0'
+- type: software
+  title: vctrs
+  abstract: 'vctrs: Vector Helpers'
+  notes: Suggests
+  url: https://vctrs.r-lib.org/
+  repository: https://CRAN.R-project.org/package=vctrs
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+  year: '2024'
 - type: software
   title: vdiffr
   abstract: 'vdiffr: Visual Regression Testing and Graphical Diffing'

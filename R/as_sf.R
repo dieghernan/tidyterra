@@ -1,23 +1,24 @@
-#' Coerce a SpatVector to a sf object
+#' Coerce a `SpatVector` to a \CRANpkg{sf} object
 #'
 #' @description
 #'
-#' `as_sf()` turns a SpatVector to sf. This is a wrapper of [sf::st_as_sf()]
-#' with the particularity that the groups created with [group_by()] are
-#' preserved.
+#' [as_sf()] turns a `SpatVector` to \CRANpkg{sf}. This is a wrapper of
+#' [sf::st_as_sf()] with the particularity that the groups created with
+#' [group_by.SpatVector()] are preserved.
 #'
 #' @return
-#' A sf object.
+#' A \CRANpkg{sf} object.
 #'
 #' @export
 #'
-#' @param x A SpatVector.
+#' @param x A `SpatVector`.
 #'
 #' @param ... additional arguments passed on to [sf::st_as_sf()].
 #'
 #' @family coerce
 #'
 #' @examples
+#'
 #' library(terra)
 #'
 #' f <- system.file("extdata/cyl.gpkg", package = "tidyterra")

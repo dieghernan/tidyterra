@@ -3,7 +3,7 @@
 \name{bind_cols.SpatVector}
 \alias{bind_cols.SpatVector}
 \alias{bind_spat_cols}
-\title{Bind multiple SpatVectors and data frames by column}
+\title{Bind multiple \code{SpatVector} \code{sf} and data frames objects by column}
 \usage{
 bind_spat_cols(
   ...,
@@ -11,28 +11,28 @@ bind_spat_cols(
 )
 }
 \arguments{
-\item{...}{SpatVector to combine. The first argument should be a SpatVector
-and each of the subsequent arguments can either be a SpatVector, a sf object
-or a data frame. Inputs are \link[dplyr:bind_cols]{recycled} to the same
-length, then matched by position.}
+\item{...}{Objects to combine. The first argument should be a \code{SpatVector}
+and each of the subsequent arguments can either be a \code{SpatVector}, a \code{sf}
+object or a data frame. Inputs are \link[dplyr:bind_cols]{recycled} to the
+same length, then matched by position.}
 
 \item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or \code{"check_unique"}.
-See \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} for Details.}
+See \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} for \strong{Details}.}
 }
 \value{
-A SpatVector with the corresponding cols. The geometry and CRS
-would correspond to the the first SpatVector of \code{...}.
+A \code{SpatVector} with the corresponding cols. The geometry and CRS
+would correspond to the the first \code{SpatVector} of \code{...}.
 }
 \description{
-Bind any number of SpatVector, data frames and sf object by column, making a
-wider result. This is similar to \code{do.call(cbind, dfs)}.
+Bind any number of \code{SpatVector}, data frames and \code{sf} object by column,
+making a wider result. This is similar to \code{do.call(cbind, dfs)}.
 
 Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to combine
-SpatVectors and data frames. \code{bind_spat_cols()} binds the rows in order in
-which they appear so it is easy to create meaningless results without
-realizing it.
+\code{SpatVector} and data frames objects. \code{bind_spat_cols()} binds the rows in
+order in which they appear so it is easy to create meaningless results
+without realizing it.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{cbind()} method
@@ -42,9 +42,9 @@ realizing it.
 
 
 Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function for
-SpatVectors. Note that for the second and subsequent arguments on \code{...} the
-geometry would not be \code{cbind}ed, and only the data frame (-ish) columns
-would be kept.
+\code{SpatVector} objects. Note that for the second and subsequent arguments on
+\code{...} the geometry would not be \code{cbind}ed, and only the data frame (-ish)
+columns would be kept.
 }
 
 \examples{

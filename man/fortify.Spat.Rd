@@ -26,14 +26,14 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
-\item \code{"minimal"}: No name repair or checks, beyond basic existence,
-\item \code{"unique"}: Make sure names are unique and not empty,
+\item \code{"minimal"}: No name repair or checks, beyond basic existence.
+\item \code{"unique"}: Make sure names are unique and not empty.
 \item \code{"check_unique"}: (default value), no name repair, but check they are
-\code{unique},
-\item \code{"universal"}: Make the names \code{unique} and syntactic
+\code{unique}.
+\item \code{"universal"}: Make the names \code{unique} and syntactic.
 \item a function: apply custom name repair (e.g., \code{.name_repair = make.names}
-for names in the style of base R).
-\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}
+for names in the style of base \strong{R}).
+\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}.
 }}
 
 \item{maxcell}{positive integer. Maximum number of cells to use for the plot.}
@@ -68,7 +68,7 @@ It is possible to convert the fortified object onto a SpatRaster again with
 
 \subsection{SpatVector}{
 
-Return a \code{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Return a \CRANpkg{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
 }
 }
 

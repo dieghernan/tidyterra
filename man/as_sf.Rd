@@ -2,24 +2,25 @@
 % Please edit documentation in R/as_sf.R
 \name{as_sf}
 \alias{as_sf}
-\title{Coerce a SpatVector to a sf object}
+\title{Coerce a \code{SpatVector} to a \CRANpkg{sf} object}
 \usage{
 as_sf(x, ...)
 }
 \arguments{
-\item{x}{A SpatVector.}
+\item{x}{A \code{SpatVector}.}
 
 \item{...}{additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
-A sf object.
+A \CRANpkg{sf} object.
 }
 \description{
-\code{as_sf()} turns a SpatVector to sf. This is a wrapper of \code{\link[sf:st_as_sf]{sf::st_as_sf()}}
-with the particularity that the groups created with \code{\link[=group_by]{group_by()}} are
-preserved.
+\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \CRANpkg{sf}. This is a wrapper of
+\code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}} are preserved.
 }
 \examples{
+
 library(terra)
 
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")

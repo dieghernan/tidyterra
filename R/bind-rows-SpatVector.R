@@ -1,19 +1,19 @@
-#' Bind multiple SpatVectors and data frames by row
+#' Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
 #'
 #' @description
-#' Bind any number of SpatVector, data frames and sf object by row, making a
-#' longer result. This is similar to `do.call(rbind, dfs)`, but the output
-#' will contain all columns that appear in any of the inputs.
+#' Bind any number of `SpatVector`, data frames and `sf/sfc` object by row,
+#' making a longer result. This is similar to `do.call(rbind, dfs)`, but the
+#' output will contain all columns that appear in any of the inputs.
 #'
-#' @param ... SpatVector to combine. The first argument should be a SpatVector
-#'  and each of the subsequent arguments can either be a SpatVector, a sf object
-#'  or a data frame. Columns are matched by name, and any missing columns will
-#'  be filled with `NA`.
+#' @param ... Objects to combine. The first argument should be a `SpatVector`
+#'  and each of the subsequent arguments can either be a `SpatVector`, a
+#'  `sf/sfc` object or a data frame. Columns are matched by name, and any
+#'  missing columns will be filled with `NA`.
 #' @param .id The name of an optional identifier column. Provide a string to
 #'   create an output column that identifies each input. The column will use
 #'   names if available, otherwise it will use positions.
 #'
-#' @return A SpatVector of the same type as the first element of `...`.
+#' @return A `SpatVector` of the same type as the first element of `...`.
 #' @aliases bind.Spat
 #' @export
 #'
@@ -25,19 +25,19 @@
 #'
 #' @seealso [dplyr::bind_rows()]
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `rbind()` method
 #'
 #' @section Methods:
 #'
 #' Implementation of the [dplyr::bind_rows()] function for
-#' SpatVectors.
+#' `SpatVector` objects.
 #'
-#' The first element of `...` should be a SpatVector. Subsequent elements may
-#' be SpatVector, sf/sfc objects or data frames:
-#'  - If subsequent SpatVector/sf/sfc present a different CRS than the first
-#'    element, those elements would be reprojected to the CRS of the first
+#' The first element of `...` should be a `SpatVector`. Subsequent elements may
+#' be `SpatVector`, `sf/sfc` objects or data frames:
+#'  - If subsequent `SpatVector/sf/sfc` objects present a different CRS than the
+#'    first element, those elements would be reprojected to the CRS of the first
 #'    element with a message.
 #'  - If any element of `...` is a tibble/data frame the rows would be
 #'    `cbind`ed with empty geometries with a message.

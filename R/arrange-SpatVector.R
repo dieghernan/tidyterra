@@ -1,8 +1,8 @@
-#' Order SpatVectors using column values
+#' Order a `SpatVector` using column values
 #'
 #' @description
-#' `arrange()` orders the geometries of a SpatVector by the values of
-#' selected columns.
+#' [arrange.SpatVector()] orders the geometries of a `SpatVector` by the
+#' values of selected columns.
 #'
 #' @export
 #' @rdname arrange.SpatVector
@@ -16,23 +16,25 @@
 #'
 #' @importFrom dplyr arrange
 #'
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Variables, or
+#'   functions of variables. Use [`desc()`][dplyr::desc()] to sort a variable in
+#'   descending order.
+#'
 #' @inheritParams distinct.SpatVector
-#' @param ... <[`data-masking`][dplyr::arrange]> Variables, or functions of
-#'   variables. Use [dplyr::desc()] to sort a variable in descending order.
 #' @param .by_group If `TRUE`, will sort first by grouping variable. Applies to
-#'   grouped SpatVectors only.
+#'   grouped `SpatVectors` only (see [group_by.SpatVector()]).
 #'
-#' @return A SpatVector object.
+#' @return A `SpatVector` object.
 #'
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::sort()]
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::arrange()] function for
-#' SpatVectors.
+#' `SpatVector` class.
 #'
 #'
 #' @examples

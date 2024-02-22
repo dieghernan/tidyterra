@@ -75,7 +75,7 @@ display.}
 than combining with them.}
 }
 \value{
-A ggplot2 layer
+A \CRANpkg{ggplot2} layer
 }
 \description{
 These geoms create contours of SpatRaster objects.  To specify a valid

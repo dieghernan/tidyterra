@@ -1,22 +1,24 @@
-#' Bind multiple SpatVectors and data frames by column
+#' Bind multiple `SpatVector` `sf` and data frames objects by column
 #'
 #' @description
-#' Bind any number of SpatVector, data frames and sf object by column, making a
-#' wider result. This is similar to `do.call(cbind, dfs)`.
+#' Bind any number of `SpatVector`, data frames and `sf` object by column,
+#' making a wider result. This is similar to `do.call(cbind, dfs)`.
 #'
 #' Where possible prefer using a [join][mutate-joins.SpatVector] to combine
-#' SpatVectors and data frames. `bind_spat_cols()` binds the rows in order in
-#' which they appear so it is easy to create meaningless results without
-#' realizing it.
+#' `SpatVector` and data frames objects. `bind_spat_cols()` binds the rows in
+#' order in which they appear so it is easy to create meaningless results
+#' without realizing it.
 #'
-#' @param ... SpatVector to combine. The first argument should be a SpatVector
-#'  and each of the subsequent arguments can either be a SpatVector, a sf object
-#'  or a data frame. Inputs are [recycled][dplyr::bind_cols()] to the same
-#'  length, then matched by position.
+#' @param ... Objects to combine. The first argument should be a `SpatVector`
+#'  and each of the subsequent arguments can either be a `SpatVector`, a `sf`
+#'  object or a data frame. Inputs are [recycled][dplyr::bind_cols()] to the
+#'  same length, then matched by position.
 #' @param .name_repair One of `"unique"`, `"universal"`, or `"check_unique"`.
-#'   See [dplyr::bind_cols()] for Details.
-#' @return A SpatVector with the corresponding cols. The geometry and CRS
-#' would correspond to the the first SpatVector of `...`.
+#'   See [dplyr::bind_cols()] for **Details**.
+#'
+#' @return A `SpatVector` with the corresponding cols. The geometry and CRS
+#' would correspond to the the first `SpatVector` of `...`.
+#'
 #' @export
 #' @family dplyr.pairs
 #' @family dplyr.methods
@@ -26,16 +28,16 @@
 #'
 #' @seealso [dplyr::bind_cols()]
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `cbind()` method
 #'
 #' @section Methods:
 #'
 #' Implementation of the [dplyr::bind_rows()] function for
-#' SpatVectors. Note that for the second and subsequent arguments on `...` the
-#' geometry would not be `cbind`ed, and only the data frame (-ish) columns
-#' would be kept.
+#' `SpatVector` objects. Note that for the second and subsequent arguments on
+#' `...` the geometry would not be `cbind`ed, and only the data frame (-ish)
+#' columns would be kept.
 #'
 #' @examples
 #' library(terra)

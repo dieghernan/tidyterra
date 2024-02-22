@@ -2,34 +2,42 @@
 % Please edit documentation in R/compare_spatrasters.R
 \name{compare_spatrasters}
 \alias{compare_spatrasters}
-\title{Compare attributes of two SpatRasters}
+\title{Compare attributes of two \code{SpatRaster} objects}
 \usage{
 compare_spatrasters(x, y, digits = 6)
 }
 \arguments{
-\item{x, y}{SpatRaster objects}
+\item{x, y}{\code{SpatRaster} objects}
 
 \item{digits}{Integer to set the precision for comparing the extent and
 the resolution.}
 }
 \value{
-A invisible logical \code{TRUE/FALSE} indicating if the SpatRasters are
+A invisible logical \code{TRUE/FALSE} indicating if the \code{SpatRaster} objects are
 compatible, plus an informative message flagging the issues found (if any).
 }
 \description{
-Two SpatRasters are compatible (in terms of combining layers) if the
-crs, extent and resolution are similar. In those cases you can combine
-the SpatRasters simply as \code{c(x, y)}.
+Two \code{SpatRaster} objects are compatible (in terms of combining layers) if the
+crs, extent and resolution are similar. In those cases you can combine the
+objects simply as \code{c(x, y)}.
 
 This function compares those attributes informing of the results. See
 \strong{Solving issues} section for minimal guidance.
 }
+\section{\CRANpkg{terra} equivalent}{
+
+
+\code{\link[terra:identical]{terra::identical()}}
+}
+
 \section{Solving issues}{
 
-
-On \strong{non-equal crs}, try \code{\link[terra:project]{terra::project()}}. On \strong{non-equal extent} try
-\code{\link[terra:resample]{terra::resample()}}. On \strong{non-equal resolution} you can try
-\code{\link[terra:resample]{terra::resample()}}, \code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disaggregate]{terra::disagg()}}.
+\itemize{
+\item On \strong{non-equal crs}, try \code{\link[terra:project]{terra::project()}}.
+\item On \strong{non-equal extent} try \code{\link[terra:resample]{terra::resample()}}.
+\item On \strong{non-equal resolution} you can try \code{\link[terra:resample]{terra::resample()}},
+\code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disaggregate]{terra::disagg()}}.
+}
 }
 
 \examples{
@@ -58,6 +66,7 @@ compare_spatrasters(x, y_newres)
 # Everything
 
 compare_spatrasters(x, project(x, "epsg:3035"))
+
 }
 \seealso{
 Other helpers: 
