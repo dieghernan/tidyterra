@@ -8,21 +8,26 @@
 A tibble of 41 rows and
 6 columns. with the following
 fields:
-\itemize{
-\item \strong{pal}: Name of the palette.
-\item \strong{limit}: Recommended elevation limit (in meters) for each color.
-\item \strong{r},\strong{g},\strong{b}: Value of the red, green and blue channel (RGB color
-mode).
-\item \strong{hex}: Hex code of the color.
+
+\describe{
+\item{pal}{ Name of the palette.}
+\item{limit}{Recommended elevation limit (in meters) for each color.}
+\item{r}{Value of the red channel (RGB color mode)}
+\item{g}{Value of the green channel (RGB color mode)}
+\item{b}{Value of the blue channel (RGB color mode)}
+\item{hex}{ Hex code of the color.}
 }
 }
 \source{
-Derived from Patterson, T., & Jenny, B. (2011). The Development and
-Rationale of Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,}
-(69), 31 - 46. \doi{10.14714/CP69.20}.
+Derived from:
+\itemize{
+\item Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69),
+31 - 46. \doi{10.14714/CP69.20}.
+}
 }
 \description{
-A tibble including the color map of
+A \link[tibble:tibble]{tibble} including the color map of
 4 gradient palettes.
 All the palettes includes also a definition of colors limits in terms of
 elevation (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.

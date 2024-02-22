@@ -1,7 +1,7 @@
-#' Keep distinct/unique rows and geometries of SpatVector objects
+#' Keep distinct/unique rows and geometries of `SpatVector` objects
 #'
 #' @description
-#' Keep only unique/distinct rows and geometries from a SpatVector.
+#' Keep only unique/distinct rows and geometries from a `SpatVector`.
 #'
 #' @export
 #' @rdname distinct.SpatVector
@@ -14,17 +14,17 @@
 #'
 #' @importFrom dplyr distinct
 #'
-#' @param .data A SpatVector created with [terra::vect()].
+#' @param .data A `SpatVector` created with [terra::vect()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables to
 #'   use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
 #'   will use all variables in the data frame. There is a reserved variable
 #'   name, `geometry`, that would remove duplicate geometries. See **Methods**.
 #' @inheritParams dplyr::distinct
-#' @return A SpatVector object.
+#' @return A `SpatVector` object.
 #'
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::unique()]
 #'
@@ -32,7 +32,7 @@
 #'
 #' Implementation of the **generic** [dplyr::distinct()] function.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' It is possible to remove duplicate geometries including the `geometry`
 #' variable explicitly in the `...` call. See **Examples**.

@@ -22,13 +22,15 @@
 #'   longer format.
 #' @inheritParams tidyr::pivot_longer
 #'
-#' @return A SpatVector object.
+#' @return A `SpatVector` object.
+#'
+#' @seealso [tidyr::pivot_longer()]
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::pivot_longer()] function.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' The geometry column has a sticky behavior. This means that the result would
 #' have always the geometry of `data`.
@@ -103,6 +105,9 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
 
   return(sv)
 }
+
+#' @export
+tidyr::pivot_longer
 
 # Helper for removing safely the "geometry" argument from tidyselect expression
 # Returns a vector of characters

@@ -26,38 +26,39 @@ knitr::opts_chunk$set(
 ## Welcome to {tidyterra}
 
 **tidyterra** is a package that adds common methods from the
-[tidyverse](https://www.tidyverse.org/) for SpatRaster and SpatVectors objects
-created with the [{terra}](https://CRAN.R-project.org/package=terra) package. It
-also adds specific `geom_spat*()` functions for plotting these kind of objects
-with [{ggplot2}](https://ggplot2.tidyverse.org/).
+[**tidyverse**](https://www.tidyverse.org/) for `SpatRaster` and `SpatVectors`
+objects created with the [**terra**](https://CRAN.R-project.org/package=terra)
+package. It also adds specific `geom_spat*()` functions for plotting these kind
+of objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
 
-### Why {tidyterra}?
+### Why **tidyterra**?
 
-Spat\* objects are not like regular data frames. They are a different type of
+`Spat*` objects are not like regular data frames. They are a different type of
 objects, implemented via the [S4 object system](http://adv-r.had.co.nz/S4.html),
-and have their own syntax and computation methods, implemented on the {terra}
+and have their own syntax and computation methods, implemented on the **terra**
 package.
 
-By implementing tidyverse methods for these objects, and more specifically
-{dplyr} and {tidyr} methods, a use**R** can now work more easily with Spat\*,
-just like (s)he would do with tabular data.
+By implementing **tidyverse** methods for these objects, and more specifically
+**dplyr** and **tidyr** methods, a use**R** can now work more easily with
+`Spat*` objects, just like (s)he would do with tabular data.
 
-**Note that** in terms of performance, {terra} is much more optimized for
+**Note that** in terms of performance, **terra** is much more optimized for
 working for this kind of objects, so it is **recommended** also to learn a bit
-of {terra} syntax. Each function of {tidyterra} refers (when possible) to the
-corresponding equivalent on {terra}.
+of **terra** syntax. Each function of **tidyterra** refers (when possible) to
+the corresponding equivalent on **terra**.
 
-## A note for advanced {terra} users
+## A note for advanced **terra** users
 
-As previously mentioned, {tidyterra} is not optimized in terms of performance.
+As previously mentioned, **tidyterra** is not optimized in terms of performance.
 Specially when working with `filter()` and `mutate()` methods, it can be slow.
 
-As a rule of thumb, {tidyterra} can handle objects with less than 10.000.000
-slots of information(i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
+As a rule of thumb, **tidyterra** can handle objects with less than 10.000.000
+slots of information (i.e.,
+`terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 
-## Get started with {tidyterra}
+## Get started with **tidyterra**
 
-Load {tidyterra} with additional libraries of the {tidyverse}:
+Load **tidyterra** with additional libraries of the **tidyverse**:
 
 ```{r setup, message=TRUE}
 library(tidyterra)
@@ -67,8 +68,8 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method                            | SpatVector                                    | SpatRaster                                                                                     |
-|------------------|------------------|---------------------------------------------|
+| tidyverse method                            | `SpatVector`                                  | `SpatRaster`                                                                                   |
+|---------------------|-----------------------|------------------------------------|
 | `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
 | `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
 | `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
@@ -89,17 +90,18 @@ Currently, the following methods are available:
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
 | `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |
-| `tidyr::pivot_longer()`                     | ✔️ ️                                             |️                                                                                           |
-| `tidyr::pivot_wider()`                      | ️✔️                                              | ️                                                                                           |
+| `tidyr::fill()`                             | ✔️                                            |                                                                                                |
+| `tidyr::pivot_longer()`                     | ✔️                                            |                                                                                                |
+| `tidyr::pivot_wider()`                      | ✔️                                            |                                                                                                |
 | `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
-| `ggplot2::fortify()`                        | ✔️ to sf via `sf::st_as_sf()`                 | To a tibble with coordinates.                                                                  |
+| `ggplot2::fortify()`                        | ✔️ to **sf** via `sf::st_as_sf()`             | To a **tibble** with coordinates.                                                              |
 | `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 Let's see some of them in action:
 
-### SpatRasters
+### `SpatRasters`
 
-See an example with SpatRaster objects:
+See an example with `SpatRaster` objects:
 
 ```{r simple_example}
 library(terra)
@@ -124,25 +126,25 @@ On the previous example, we had:
 -   Eliminated the first layer of the raster `tavg_04`.
 
 -   Created a new layer `newcol` as the difference of the layers `tavg_05` and
-    `tavg_06.`
+    `tavg_06`.
 
--   Relocated `newcol`as the first layer of the SpatRaster
+-   Relocated `newcol` as the first layer of the `SpatRaster`.
 
 -   Replaced the `NA` cells on `newcol` with `3`.
 
 -   Renamed `newcol` to difference.
 
-In all the process, the essential properties of the SpatRaster (number of cells,
-columns and rows, extent, resolution and coordinate reference system) have not
-been modified. Other methods as `filter()`, `slice()` or `drop_na()` can modify
-these properties, as they would do when applied to a data frame (number of rows
-would be modified on that case).
+In all the process, the essential properties of the `SpatRaster` (number of
+cells, columns and rows, extent, resolution and coordinate reference system)
+have not been modified. Other methods as `filter()`, `slice()` or `drop_na()`
+can modify these properties, as they would do when applied to a data frame
+(number of rows would be modified on that case).
 
 ### SpatVectors
 
-`tidyterra >= 0.4.0` provides support to SpatVectors for most of the {dplyr}
-methods, so it is possible to arrange, group and summarise information of
-SpatVectors
+`tidyterra >= 0.4.0` provides support to `SpatVectors` for most of the **dplyr**
+and **tidyr** methods, so it is possible to arrange, group and summarise
+information of `SpatVectors`
 
 ```{r newpatv-methods}
 lux <- system.file("ex/lux.shp", package = "terra")
@@ -163,15 +165,15 @@ v_lux %>%
   arrange(desc(gr))
 ```
 
-As in the case of SpatRaster, basic properties as the geometry and the CRS are
+As in the case of `SpatRaster`, basic properties as the geometry and the CRS are
 preserved.
 
-## Plotting with {ggplot2}
+## Plotting with **ggplot2**
 
-### SpatRasters
+### `SpatRasters`
 
-{tidyterra} provides several `geom_*` for SpatRasters. When the SpatRaster has
-the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
+**tidyterra** provides several `geom_*` for `SpatRasters`. When the `SpatRaster`
+has the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
 `ggplot2::coord_sf()`, and may be also reprojected for adjusting the coordinates
 to other spatial layers:
 
@@ -214,7 +216,8 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-With {tidyterra} you can also plot RGB SpatRasters to add imagery to your plots:
+With **tidyterra** you can also plot RGB `SpatRasters` to add imagery to your
+plots:
 
 ```{r rgb, fig.cap =c("Plotting a RGB SpatRaster", "Changing CRS of the RGB plot")}
 # Read a vector
@@ -235,8 +238,8 @@ rgb_plot
 
 ```
 
-{tidyterra} provides selected scales that are suitable for creating hypsometric
-and bathymetric maps:
+**tidyterra** provides selected scales that are suitable for creating
+hypsometric and bathymetric maps:
 
 ```{r hypso, fig.cap="Hypsometric tints"}
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
@@ -258,9 +261,9 @@ ggplot() +
   theme_minimal()
 ```
 
-### SpatVectors
+### `SpatVectors`
 
-{tidyterra} allows you to plot SpatVectors with {ggplot2} using the
+**tidyterra** allows you to plot `SpatVectors` with **ggplot2** using the
 `geom_spatvector()` functions:
 
 ```{r, lux_ggplot, fig.cap="Plotting SpatVectors"}
@@ -279,7 +282,7 @@ The underlying implementation is to take advantage of the conversion
 `terra::vect()/sf::st_as_sf()` and use `ggplot2::geom_sf()` as an endpoint for
 creating the layer.
 
-With {tidyterra} we can also aggregate SpatRaster at our convenience:
+With **tidyterra** we can also aggregate `SpatVectors` at our convenience:
 
 ```{r aggregate, fig.cap=c("Union of SpatVectors", "Union of SpatVector keeping the inner borders")}
 # Dissolving

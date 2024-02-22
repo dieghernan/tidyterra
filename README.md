@@ -35,10 +35,13 @@ The goal of **tidyterra** is to provide common methods of the
 [**tidyverse** packages](https://www.tidyverse.org/packages/) for
 objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package:
-SpatRaster and SpatVector. It also provides geoms for plotting these
-objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
+`SpatRaster` and `SpatVector`. It also provides `geoms` for plotting
+these objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ## Overview
+
+Full manual of the most recent release of **tidyterra** on **CRAN** is
+online: <https://dieghernan.github.io/tidyterra/>
 
 You can have a look to the documentation of the dev version in
 <https://dieghernan.github.io/tidyterra/dev/>
@@ -62,33 +65,34 @@ object, (for example, `as_tibble()` would return a `tibble`).
 
 Current methods and functions provided by **tidyterra** are:
 
-| tidyverse method                            | `SpatVector`                                  | `SpatRaster`                                                                                   |     |
-|---------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|-----|
-| `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |     |
-| `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |     |
-| `dplyr::transmute()`                        | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::filter()`                           | ✔️                                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |     |
-| `dplyr::slice()`                            | ✔️                                            | ✔️ Additional methods for slicing by row and column.                                           |     |
-| `dplyr::pull()`                             | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::rename()`                           | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::relocate()`                         | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::distinct()`                         | ✔️                                            |                                                                                                |     |
-| `dplyr::arrange()`                          | ✔️                                            |                                                                                                |     |
-| `dplyr::glimpse()`                          | ✔️                                            | ✔️                                                                                             |     |
-| `dplyr::inner_join()` family                | ✔️                                            |                                                                                                |     |
-| `dplyr::summarise()`                        | ✔️                                            |                                                                                                |     |
-| `dplyr::group_by()` family                  | ✔️                                            |                                                                                                |     |
-| `dplyr::rowwise()`                          | ✔️                                            |                                                                                                |     |
-| `dplyr::count()`, `tally()`                 | ✔️                                            |                                                                                                |     |
-| `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |     |
-| `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |     |
-| `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |     |
-| `tidyr::pivot_longer()`                     | ✔️                                            |                                                                                                |     |
-| `tidyr::pivot_wider()`                      | ✔️                                            |                                                                                                |     |
-| `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |     |
-| `ggplot2::fortify()`                        | ✔️ to **sf** via `sf::st_as_sf()`             | To a **tibble** with coordinates.                                                              |     |
-| `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |     |
+| tidyverse method                            | `SpatVector`                                  | `SpatRaster`                                                                                   |
+|---------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
+| `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`                        | ✔️                                            | ✔️                                                                                             |
+| `dplyr::filter()`                           | ✔️                                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`                            | ✔️                                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`                             | ✔️                                            | ✔️                                                                                             |
+| `dplyr::rename()`                           | ✔️                                            | ✔️                                                                                             |
+| `dplyr::relocate()`                         | ✔️                                            | ✔️                                                                                             |
+| `dplyr::distinct()`                         | ✔️                                            |                                                                                                |
+| `dplyr::arrange()`                          | ✔️                                            |                                                                                                |
+| `dplyr::glimpse()`                          | ✔️                                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family                | ✔️                                            |                                                                                                |
+| `dplyr::summarise()`                        | ✔️                                            |                                                                                                |
+| `dplyr::group_by()` family                  | ✔️                                            |                                                                                                |
+| `dplyr::rowwise()`                          | ✔️                                            |                                                                                                |
+| `dplyr::count()`, `tally()`                 | ✔️                                            |                                                                                                |
+| `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
+| `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |
+| `tidyr::fill()`                             | ✔️                                            |                                                                                                |
+| `tidyr::pivot_longer()`                     | ✔️                                            |                                                                                                |
+| `tidyr::pivot_wider()`                      | ✔️                                            |                                                                                                |
+| `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
+| `ggplot2::fortify()`                        | ✔️ to **sf** via `sf::st_as_sf()`             | To a **tibble** with coordinates.                                                              |
+| `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
 
 ## :exclamation: A note on performance
 
@@ -306,8 +310,7 @@ vect(system.file("ex/lux.shp", package = "terra")) %>%
 
 ## I need your feedback
 
-**tidyterra** is currently on development mode. Please leave your
-feedback or open an issue on
+Please leave your feedback or open an issue on
 <https://github.com/dieghernan/tidyterra/issues>.
 
 ## Need help?

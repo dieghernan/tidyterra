@@ -1,41 +1,68 @@
-#' Drop attributes of SpatVector objects containing missing values
+#' Drop attributes of `Spat*` objects containing missing values
 #'
 #' @description
-#' `drop_na()` method drops geometries where any attribute specified by `...`
-#'  contains a missing value.
+#' - `SpatVector`: `drop_na()` method drops geometries where any attribute
+#' specified by `...` contains a missing value.
+#' - `SpatRaster`: `drop_na()` method drops cells where any layer specified by
+#' `...` contains a missing value.
 #'
 #'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object of the same class than `data`. See **Methods**.
 #'
-#' @param data A SpatVector created with [terra::vect()].
+#' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
+#'   [terra:.rast()].
 #' @param ... [`tidy-select`][tidyr::drop_na()]  Attributes to inspect for
 #'   missing values. If empty, all attributes are used.
 #'
 #' @export
 #'
-#' @rdname drop_na.SpatVector
-#' @name drop_na.SpatVector
+#' @rdname drop_na.Spat
+#' @name drop_na.Spat
 #'
 #' @importFrom tidyr drop_na
 #'
-#' @seealso
-#' [tidyr::drop_na()]. `r lifecycle::badge('questioning')` A method for
-#' SpatRaster is also available, see [drop_na.SpatRaster()].
-#'
+#' @seealso [tidyr::drop_na()]
 #' @family tidyr.missing
 #' @family tidyr.methods
+#'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::trim()]
 #'
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::drop_na()] function.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' The implementation of this method is performed on a `by-attribute` basis,
 #' meaning that `NAs` are assessed on the attributes (columns) of each vector
-#' (rows). The result is a SpatVector with potentially less geometries than the
-#' input
+#' (rows). The result is a `SpatVector` with potentially less geometries than
+#' the input.
+#'
+#' ## `SpatRaster`
+#'
+#' `r lifecycle::badge('questioning')`
+#'
+#' Actual implementation of `drop_na().SpatRaster` can be understood as a
+#' masking method based on the values of the layers (see [terra::mask()]).
+#'
+#' Raster layers are considered as columns and raster cells as rows, so rows
+#' (cells) with any `NA` value on any layer would get a `NA` value. It is
+#' possible also to mask the cells (rows) based on the values of specific
+#' layers (columns).
+#'
+#' `drop_na()` would effectively remove outer cells that are `NA` (see
+#' [terra::trim()]), so the extent of the resulting object may differ of the
+#' extent of the input (see [terra::resample()] for more info).
+#'
+#' Check the **Examples** to have a better understanding of this method.
+#'
+#' ### Feedback needed!
+#'
+#' Visit <https://github.com/dieghernan/tidyterra/issues>. The implementation
+#' of this method for `SpatRaster` may change in the future.
 #'
 #' @examples
 #'
@@ -79,64 +106,14 @@ drop_na.SpatVector <- function(data, ...) {
   return(vend)
 }
 
-#' Drop cells of SpatRaster objects containing missing values
-#'
-#' @description
-#' `r lifecycle::badge('questioning')`. See **Methods**.
-#'
-#' `drop_na()` method drops cells where any layer specified by `...` contains
-#' a missing value.
-#'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
-#'
-#' @param data A SpatRaster created with [terra::rast()].
-#' @param ... [`tidy-select`][tidyr::drop_na()]  Layers to inspect
-#'   for missing values. If empty, all layers are used.
-#'
+
 #' @export
-#' @keywords internal
-#' @rdname drop_na.SpatRaster
-#'
-#' @seealso
-#'
-#' [tidyr::drop_na()], [drop_na()].
-#'
-#' @section Feedback needed!:
-#'
-#' Visit <https://github.com/dieghernan/tidyterra/issues>. The implementation
-#' of this method for SpatRaster may change in the future.
-#'
-#' @section  terra equivalent:
-#'
-#' [terra::trim()]
-#'
-#' @section Methods:
-#'
-#' Implementation of the **generic** [tidyr::drop_na()] function.
-#'
-#' ## SpatRaster
-#'
-#' `r lifecycle::badge('questioning')`
-#'
-#' Actual implementation of `drop_na().SpatRaster` can be understood as a
-#' masking method based on the values of the layers (see [terra::mask()]).
-#'
-#' Raster layers are considered as columns and raster cells as rows, so rows
-#' (cells) with any `NA` value on any layer would get a `NA` value. It is
-#' possible also to mask the cells (rows) based on the values of specific
-#' layers (columns).
-#'
-#' `drop_na()` would effectively remove outer cells that are `NA` (see
-#' [terra::trim()]), so the extent of the resulting object may differ of the
-#' extent of the input (see [terra::resample()] for more info).
-#'
-#' Check the **Examples** to have a better understanding of this method.
+#' @rdname drop_na.Spat
 #'
 #' @examples
+#' # SpatRaster method
 #'
-#' library(terra)
-#'
-#'
+#' \donttest{
 #' r <- rast(
 #'   crs = "EPSG:3857",
 #'   extent = c(0, 10, 0, 10),
@@ -172,7 +149,7 @@ drop_na.SpatVector <- function(data, ...) {
 #' r %>%
 #'   drop_na() %>%
 #'   plot(nc = 3)
-#'
+#' }
 drop_na.SpatRaster <- function(data, ...) {
   # Don't need to convert to data.frame
   # Create a matrix to assess results

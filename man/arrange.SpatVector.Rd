@@ -7,7 +7,7 @@
 \method{arrange}{SpatVector}(.data, ..., .by_group = FALSE)
 }
 \arguments{
-\item{.data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{.data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables, or
 functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable in

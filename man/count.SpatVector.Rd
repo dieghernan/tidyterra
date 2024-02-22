@@ -3,7 +3,7 @@
 \name{count.SpatVector}
 \alias{count.SpatVector}
 \alias{tally.SpatVector}
-\title{Count the observations in each SpatVector group}
+\title{Count the observations in each \code{SpatVector} group}
 \usage{
 \method{count}{SpatVector}(
   x,
@@ -18,7 +18,7 @@
 \method{tally}{SpatVector}(x, wt = NULL, sort = FALSE, name = NULL)
 }
 \arguments{
-\item{x}{A SpatVector.}
+\item{x}{A \code{SpatVector}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables to group
 by.}
@@ -46,16 +46,18 @@ can't actually affect the output.}
 be dissolved?}
 }
 \value{
-A SpatVector object with an additional attribute.
+A \code{SpatVector} object with an additional attribute.
 }
 \description{
 \code{count()} lets you quickly count the unique values of one or more variables:
-\code{df \%>\% count(a, b)} is roughly equivalent to
+\itemize{
+\item \code{df \%>\% count(a, b)} is roughly equivalent to
 \code{df \%>\% group_by(a, b) \%>\% summarise(n = n())}.
-\code{count()} is paired with \code{tally()}, a lower-level helper that is equivalent
+\item \code{count()} is paired with \code{tally()}, a lower-level helper that is equivalent
 to \code{df \%>\% summarise(n = n())}.
 }
-\section{terra equivalent}{
+}
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:aggregate]{terra::aggregate()}}
@@ -65,7 +67,7 @@ to \code{df \%>\% summarise(n = n())}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} family functions for
-SpatVectors.
+\code{SpatVectors}.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.

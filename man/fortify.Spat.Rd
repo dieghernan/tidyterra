@@ -4,7 +4,7 @@
 \alias{fortify.Spat}
 \alias{fortify.SpatRaster}
 \alias{fortify.SpatVector}
-\title{Fortify Spat* Objects}
+\title{Fortify \verb{Spat*} Objects}
 \usage{
 \method{fortify}{SpatRaster}(
   model,
@@ -17,7 +17,7 @@
 \method{fortify}{SpatVector}(model, data, ...)
 }
 \arguments{
-\item{model}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{model}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{data}{Not used by this method.}
@@ -39,34 +39,34 @@ for names in the style of base \strong{R}).
 \item{maxcell}{positive integer. Maximum number of cells to use for the plot.}
 }
 \value{
-\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \code{sf} object and
-\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a tibble. See \strong{Methods}.
+\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \CRANpkg{sf} object and
+\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \CRANpkg{tibble}. See \strong{Methods}.
 }
 \description{
-Fortify SpatRasters and SpatVectors to data frames for compatibility with
+Fortify \code{SpatRasters} and \code{SpatVectors} to data frames for compatibility with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
 Return a tibble than can be used with \verb{ggplot2::geom_*} like
 \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, etc.
 
 The resulting tibble includes the coordinates on the columns \verb{x,y}. The
 values of each layer are included as additional columns named as per the
-name of the layer on the SpatRaster.
+name of the layer on the \code{SpatRaster}.
 
-The CRS of the SpatRaster can be retrieved with
+The CRS of the \code{SpatRaster} can be retrieved with
 \verb{attr(<fortifiedSpatRaster>, "crs")}.
 
-It is possible to convert the fortified object onto a SpatRaster again with
+It is possible to convert the fortified object onto a \code{SpatRaster} again with
 \code{\link[=as_spatraster]{as_spatraster()}}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 Return a \CRANpkg{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
 }

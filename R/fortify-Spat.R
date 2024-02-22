@@ -1,10 +1,10 @@
-#' Fortify Spat* Objects
+#' Fortify `Spat*` Objects
 #'
-#' Fortify SpatRasters and SpatVectors to data frames for compatibility with
+#' Fortify `SpatRasters` and `SpatVectors` to data frames for compatibility with
 #' [ggplot2::ggplot()].
 #'
 #'
-#' @param model A SpatRaster created with [terra::rast()] or a SpatVector
+#' @param model A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @param data Not used by this method.
 #' @param maxcell positive integer. Maximum number of cells to use for the plot.
@@ -17,8 +17,8 @@
 #' @family ggplot2.methods
 #' @family coerce
 #'
-#' @return [fortify.SpatVector()] returns a `sf` object and
-#'   [fortify.SpatRaster()] returns a tibble. See **Methods**.
+#' @return [fortify.SpatVector()] returns a \CRANpkg{sf} object and
+#'   [fortify.SpatRaster()] returns a \CRANpkg{tibble}. See **Methods**.
 #'
 #' @rdname fortify.Spat
 #' @name fortify.Spat
@@ -30,22 +30,22 @@
 #'
 #' Implementation of the **generic** [ggplot2::fortify()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
 #' Return a tibble than can be used with `ggplot2::geom_*` like
 #' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
 #'
 #' The resulting tibble includes the coordinates on the columns `x,y`. The
 #' values of each layer are included as additional columns named as per the
-#' name of the layer on the SpatRaster.
+#' name of the layer on the `SpatRaster`.
 #'
-#' The CRS of the SpatRaster can be retrieved with
+#' The CRS of the `SpatRaster` can be retrieved with
 #' `attr(<fortifiedSpatRaster>, "crs")`.
 #'
-#' It is possible to convert the fortified object onto a SpatRaster again with
+#' It is possible to convert the fortified object onto a `SpatRaster` again with
 #' [as_spatraster()].
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' Return a \CRANpkg{sf} object than can be used with [ggplot2::geom_sf()].
 #'

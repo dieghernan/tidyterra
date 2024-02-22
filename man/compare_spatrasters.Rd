@@ -69,6 +69,8 @@ compare_spatrasters(x, project(x, "epsg:3035"))
 
 }
 \seealso{
+\code{\link[terra:identical]{terra::identical()}}
+
 Other helpers: 
 \code{\link{is_grouped_spatvector}()},
 \code{\link{is_regular_grid}()},

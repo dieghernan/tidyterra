@@ -1,11 +1,11 @@
-#' Count the observations in each SpatVector group
+#' Count the observations in each `SpatVector` group
 #'
 #' @description
 #' `count()` lets you quickly count the unique values of one or more variables:
-#' `df %>% count(a, b)` is roughly equivalent to
-#' `df %>% group_by(a, b) %>% summarise(n = n())`.
-#' `count()` is paired with `tally()`, a lower-level helper that is equivalent
-#' to `df %>% summarise(n = n())`.
+#' - `df %>% count(a, b)` is roughly equivalent to
+#'   `df %>% group_by(a, b) %>% summarise(n = n())`.
+#' - `count()` is paired with `tally()`, a lower-level helper that is equivalent
+#'    to `df %>% summarise(n = n())`.
 #'
 #'
 #' @export
@@ -19,21 +19,21 @@
 #'
 #' @importFrom dplyr count
 #'
-#' @param x A SpatVector.
+#' @param x A `SpatVector`.
 #' @param wt Not implemented on this method
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'
-#' @return A SpatVector object with an additional attribute.
+#' @return A `SpatVector` object with an additional attribute.
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::aggregate()]
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::count()] family functions for
-#' SpatVectors.
+#' `SpatVectors`.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].
