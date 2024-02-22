@@ -74,13 +74,13 @@ ggplot2::ggplot()."><meta property="og:image" content="https://dieghernan.github
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Fortify Spat* Objects</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Fortify <code>Spat*</code> Objects</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/fortify-Spat.R" class="external-link"><code>R/fortify-Spat.R</code></a></small>
       <div class="d-none name"><code>fortify.Spat.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
-    <p>Fortify SpatRasters and SpatVectors to data frames for compatibility with
+    <p>Fortify <code>SpatRasters</code> and <code>SpatVectors</code> to data frames for compatibility with
 <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>.</p>
     </div>
 
@@ -102,7 +102,7 @@ ggplot2::ggplot()."><meta property="og:image" content="https://dieghernan.github
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>model</dt>
-<dd><p>A SpatRaster created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
+<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
 created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
@@ -134,8 +134,8 @@ for names in the style of base <strong>R</strong>).</p></li>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p><code>fortify.SpatVector()</code> returns a <code>sf</code> object and
-<code>fortify.SpatRaster()</code> returns a tibble. See <strong>Methods</strong>.</p>
+<p><code>fortify.SpatVector()</code> returns a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object and
+<code>fortify.SpatRaster()</code> returns a <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -143,22 +143,22 @@ for names in the style of base <strong>R</strong>).</p></li>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code> function.</p><div class="section">
-<h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
 <p>Return a tibble than can be used with <code>ggplot2::geom_*</code> like
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">ggplot2::geom_point()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, etc.</p>
 <p>The resulting tibble includes the coordinates on the columns <code>x,y</code>. The
 values of each layer are included as additional columns named as per the
-name of the layer on the SpatRaster.</p>
-<p>The CRS of the SpatRaster can be retrieved with
+name of the layer on the <code>SpatRaster</code>.</p>
+<p>The CRS of the <code>SpatRaster</code> can be retrieved with
 <code>attr(&lt;fortifiedSpatRaster&gt;, "crs")</code>.</p>
-<p>It is possible to convert the fortified object onto a SpatRaster again with
+<p>It is possible to convert the fortified object onto a <code>SpatRaster</code> again with
 <code><a href="as_spatraster.html">as_spatraster()</a></code>.</p>
 </div>
 
 <div class="section">
-<h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
 <p>Return a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object than can be used with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>

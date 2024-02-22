@@ -121,10 +121,11 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <strong>tidyterra</strong> is to provide common methods of the <a href="https://www.tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong> packages</a> for objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package: SpatRaster and SpatVector. It also provides geoms for plotting these objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
+<p>The goal of <strong>tidyterra</strong> is to provide common methods of the <a href="https://www.tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong> packages</a> for objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package: <code>SpatRaster</code> and <code>SpatVector</code>. It also provides <code>geoms</code> for plotting these objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
+<p>Full manual of the most recent release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
 <p>You can have a look to the documentation of the dev version in <a href="https://dieghernan.github.io/tidyterra/dev/" class="uri">https://dieghernan.github.io/tidyterra/dev/</a></p>
 <p><strong>tidyverse</strong> methods implemented on <strong>tidyterra</strong> works differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
@@ -136,100 +137,84 @@
 <table class="table">
 <colgroup>
 <col width="23%">
-<col width="24%">
-<col width="49%">
-<col width="2%">
+<col width="25%">
+<col width="51%">
 </colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
 <th><code>SpatVector</code></th>
 <th><code>SpatRaster</code></th>
-<th></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td><code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">tibble::as_tibble()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code></td>
 <td>✔️</td>
 <td>✔️ Select layers</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code></td>
 <td>✔️</td>
 <td>✔️ Create /modify layers</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code></td>
 <td>✔️</td>
 <td>✔️ Modify cells values and (additionally) remove outer cells.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code></td>
 <td>✔️</td>
 <td>✔️ Additional methods for slicing by row and column.</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">dplyr::rename()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">dplyr::relocate()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">dplyr::distinct()</a></code></td>
 <td>✔️</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code></td>
 <td>✔️</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>
 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> family</td>
 <td>✔️</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code></td>
 <td>✔️</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -237,12 +222,10 @@
 <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> family</td>
 <td>✔️</td>
 <td></td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code></td>
 <td>✔️</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -250,7 +233,6 @@
 <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally()</a></code>
 </td>
 <td>✔️</td>
-<td></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -260,51 +242,48 @@
 <td>✔️ as <code><a href="reference/bind_cols.SpatVector.html">bind_spat_cols()</a></code> / <code><a href="reference/bind_rows.SpatVector.html">bind_spat_rows()</a></code>
 </td>
 <td></td>
-<td></td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
 <td>✔️ Remove cell values with <code>NA</code> on any layer. Additionally, outer cells with <code>NA</code> are removed.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
 <tr class="odd">
+<td><code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">tidyr::fill()</a></code></td>
+<td>✔️</td>
+<td></td>
+</tr>
+<tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code></td>
 <td>✔️</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code></td>
 <td>✔️</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">ggplot2::autoplot()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
 <td>✔️ to <strong>sf</strong> via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
 </td>
 <td>To a <strong>tibble</strong> with coordinates.</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>ggplot2::geom_*()</code></td>
 <td>✔️ <code><a href="reference/ggspatvector.html">geom_spatvector()</a></code>
 </td>
 <td>✔️ <code><a href="reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +305,7 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <strong>tidyterra</strong> like so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install <strong>tidyterra</strong> using the <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
@@ -485,7 +464,7 @@
 <div class="section level2">
 <h2 id="i-need-your-feedback">I need your feedback<a class="anchor" aria-label="anchor" href="#i-need-your-feedback"></a>
 </h2>
-<p><strong>tidyterra</strong> is currently on development mode. Please leave your feedback or open an issue on <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link uri">https://github.com/dieghernan/tidyterra/issues</a>.</p>
+<p>Please leave your feedback or open an issue on <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link uri">https://github.com/dieghernan/tidyterra/issues</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="need-help">Need help?<a class="anchor" aria-label="anchor" href="#need-help"></a>

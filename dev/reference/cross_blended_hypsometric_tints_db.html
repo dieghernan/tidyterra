@@ -84,7 +84,7 @@ elevation (meters), that can be used with ggplot2::scale_fill_gradientn()."><met
     </div>
 
     <div class="ref-description section level2">
-    <p>A tibble including the color map of
+    <p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> including the color map of
 4 gradient palettes.
 All the palettes includes also a definition of colors limits in terms of
 elevation (meters), that can be used with <code><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">ggplot2::scale_fill_gradientn()</a></code>.</p>
@@ -95,19 +95,34 @@ elevation (meters), that can be used with <code><a href="https://ggplot2.tidyver
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
     <p>A tibble of 41 rows and
 6 columns. with the following
-fields:</p><ul><li><p><strong>pal</strong>: Name of the palette.</p></li>
-<li><p><strong>limit</strong>: Recommended elevation limit (in meters) for each color.</p></li>
-<li><p><strong>r</strong>,<strong>g</strong>,<strong>b</strong>: Value of the red, green and blue channel (RGB color
-mode).</p></li>
-<li><p><strong>hex</strong>: Hex code of the color.</p></li>
-</ul></div>
+fields:</p>
+<dl><dt>pal</dt>
+<dd><p>Name of the palette.</p></dd>
+
+<dt>limit</dt>
+<dd><p>Recommended elevation limit (in meters) for each color.</p></dd>
+
+<dt>r</dt>
+<dd><p>Value of the red channel (RGB color mode)</p></dd>
+
+<dt>g</dt>
+<dd><p>Value of the green channel (RGB color mode)</p></dd>
+
+<dt>b</dt>
+<dd><p>Value of the blue channel (RGB color mode)</p></dd>
+
+<dt>hex</dt>
+<dd><p>Hex code of the color.</p></dd>
+
+
+</dl></div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p>Derived from Patterson, T., &amp; Jenny, B. (2011). The Development and
-Rationale of Cross-blended Hypsometric Tints. <em>Cartographic Perspectives,</em>
-(69), 31 - 46. <a href="https://doi.org/10.14714/CP69.20" class="external-link">doi:10.14714/CP69.20</a>
-.</p>
-    </div>
+    <p>Derived from:</p><ul><li><p>Patterson, T., &amp; Jenny, B. (2011). The Development and Rationale of
+Cross-blended Hypsometric Tints. <em>Cartographic Perspectives,</em> (69),
+31 - 46. <a href="https://doi.org/10.14714/CP69.20" class="external-link">doi:10.14714/CP69.20</a>
+.</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>From Patterson &amp; Jenny (2011):</p>

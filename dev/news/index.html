@@ -78,10 +78,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li>New methods for SpatVectors:
+<ul><li>New methods for <code>SpatVectors</code>:
 <ul><li>
-<code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code>
-</li>
+<code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code>.</li>
+<li>
+<code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code>.</li>
 </ul></li>
 </ul></div>
     <div class="section level2">
@@ -100,13 +101,13 @@
 <p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
 </blockquote>
 <p>Other changes on this version:</p>
-<ul><li>Support for SpatRasters with a color table
+<ul><li>Support for <code>SpatRasters</code> with a color table
 <ul><li>
-<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now SpatRasters with color tables.</li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now <code>SpatRasters</code> with color tables.</li>
 <li>
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can detect now SpatRasters with color tables.</li>
-<li>New scales for plotting SpatRasters with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
-<li>tidyverse verbs keeps the associated <code>coltab</code> of a SpatRaster.</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can detect now <code>SpatRasters</code> with color tables.</li>
+<li>New scales for plotting <code>SpatRasters</code> with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
+<li>tidyverse verbs keeps the associated <code>coltab</code> of a <code>SpatRaster</code>.</li>
 </ul></li>
 <li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
 <li>By default, all the non-discrete (e.g. continuous or breaks) scales of <strong>tidyterra</strong> have now <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
@@ -119,8 +120,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2><p class="text-muted">CRAN release: 2023-03-17</p>
-<ul><li>This release focuses heavily on SpatVectors. The improvements have been:
-<ul><li>New methods for SpatVectors:
+<ul><li>This release focuses heavily on <code>SpatVectors</code>. The improvements have been:
+<ul><li>New methods for <code>SpatVectors</code>:
 <ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
 <li><code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code></li>
 <li><code><a href="../reference/distinct.SpatVector.html">distinct.SpatVector()</a></code></li>
@@ -145,7 +146,7 @@
 <li>Already implemented methods now works with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code>.</li>
 <li>Internal review of code. Now the methods does not rely on <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> coercion. In fact coercion between object classes is avoided as much as possible.</li>
 </ul></li>
-<li>New <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> method for SpatRaster.</li>
+<li>New <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> method for <code>SpatRaster</code>.</li>
 <li>Other coercing and helper functions:
 <ul><li><code><a href="../reference/as_spatvector.html">as_spatvector()</a></code></li>
 <li><code><a href="../reference/as_sf.html">as_sf()</a></code></li>
@@ -166,7 +167,7 @@
 <ul><li>
 <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now is smarter on identifying the type of plot to produce. Can still be overridden with parameters.</li>
 </ul></li>
-<li>Methods for fortifying SpatRasters and SpatVectors: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
+<li>Methods for fortifying <code>SpatRasters</code> and <code>SpatVectors</code>: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
 </ul></li>
 <li>Three additional palettes are included on <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
 <li>Added colour scales to all palettes: <code>scale_colour_*</code>.</li>
@@ -175,7 +176,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
-<ul><li>Package back to CRAN.</li>
+<ul><li>Package back to <strong>CRAN</strong>.</li>
 <li>Libraries <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</li>
 <li>Improvements on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>:
 <ul><li>Now in <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> is possible to avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</li>
@@ -200,27 +201,28 @@
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2><p class="text-muted">CRAN release: 2022-06-21</p>
 <ul><li>Recreate <code>extdata/volcano2.tif</code> using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
 <li>Add <code>volcano2</code> dataset.</li>
-<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for SpatRasters (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</li>
+<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRasters</code> (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</li>
 <li>Add new gradient scales for use on hypsometry:
 <ul><li><code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code></li>
 <li><code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code></li>
 <li><code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code></li>
 <li><code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code></li>
 </ul></li>
-<li>Add new asia.tif file on <code>extdata</code>.</li>
+<li>Add new <code>asia.tif</code> file on <code>extdata</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="tidyterra-010">tidyterra 0.1.0<a class="anchor" aria-label="anchor" href="#tidyterra-010"></a></h2><p class="text-muted">CRAN release: 2022-05-24</p>
 <ul><li>Add DOI.</li>
-<li>CRAN release.</li>
+<li>
+<strong>CRAN</strong> release.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="tidyterra-001">tidyterra 0.0.1<a class="anchor" aria-label="anchor" href="#tidyterra-001"></a></h2>
 <ul><li>
 <p>Improvements on performance:</p>
-<ul><li>Conversion to tibble is avoided as much as possible.</li>
-<li>Internally use <code>data.table</code> instead of tibbles.</li>
-<li>The package is compatible with <code>dtplyr</code>.</li>
+<ul><li>Conversion to <strong>tibble</strong> is avoided as much as possible.</li>
+<li>Internally use <code>data.tables</code> instead of <code>tibbles</code>.</li>
+<li>The package is compatible with <strong>dtplyr</strong>.</li>
 </ul></li>
 <li><p><code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</p></li>
 <li><p>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p></li>
@@ -235,10 +237,6 @@
 <ul><li>
 <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> family.</li>
 </ul></li>
-</ul></div>
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.0.0.9000" id="tidyterra-0009000">tidyterra 0.0.0.9000<a class="anchor" aria-label="anchor" href="#tidyterra-0009000"></a></h2>
-<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
