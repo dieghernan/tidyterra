@@ -50,10 +50,12 @@ r \%>\%
 \code{\link[tidyr:replace_na]{tidyr::replace_na()}}
 
 Other tidyr verbs for handling missing values:
-\code{\link{drop_na.SpatVector}()}
+\code{\link{drop_na.Spat}},
+\code{\link{fill.SpatVector}()}
 
 Other tidyr methods:
-\code{\link{drop_na.SpatVector}()},
+\code{\link{drop_na.Spat}},
+\code{\link{fill.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()}
 }

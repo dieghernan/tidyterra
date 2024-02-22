@@ -21,6 +21,8 @@
 #' @family helpers
 #' @export
 #'
+#'
+#' @seealso [terra::identical()]
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::identical()]

@@ -32,19 +32,20 @@
 #' @inheritParams pivot_longer.SpatVector
 #' @inheritParams tidyr::pivot_wider
 #'
-#' @return A SpatVector object.
+#' @seealso [tidyr::pivot_wider()]
+#'
+#' @return A `SpatVector` object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::pivot_wider()] function.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' The geometry column has a sticky behavior. This means that the result would
 #' have always the geometry of `data`.
 #'
 #' @examples
-#'
 #'
 #' library(dplyr)
 #' library(tidyr)
@@ -126,6 +127,8 @@ pivot_wider.SpatVector <- function(data,
   return(sv)
 }
 
+#' @export
+tidyr::pivot_wider
 
 # Based on tidyr:::select_wider_id_cols
 # Retuns always a character vector

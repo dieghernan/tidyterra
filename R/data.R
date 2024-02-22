@@ -76,13 +76,17 @@ NULL
 #'
 #' @name hypsometric_tints_db
 #' @format
-#' A tibble of `r nrow(hypsometric_tints_db)` rows and
+#' A [tibble][tibble::tibble()] of `r nrow(hypsometric_tints_db)` rows and
 #' `r ncol(hypsometric_tints_db)` columns. with the following fields:
-#' - **pal**: Name of the palette.
-#' - **limit**: Recommended elevation limit (in meters) for each color.
-#' - **r**,**g**,**b**: Value of the red, green and blue channel (RGB color
-#'   mode).
-#' - **hex**: Hex code of the color.
+#'
+#' \describe{
+#'   \item{pal}{ Name of the palette.}
+#'   \item{limit}{Recommended elevation limit (in meters) for each color.}
+#'   \item{r}{Value of the red channel (RGB color mode)}
+#'   \item{g}{Value of the green channel (RGB color mode)}
+#'   \item{b}{Value of the blue channel (RGB color mode)}
+#'   \item{hex}{ Hex code of the color.}
+#' }
 #'
 #' @source
 #' cpt-city: <http://soliton.vm.bytemark.co.uk/pub/cpt-city/>.
@@ -124,7 +128,7 @@ NULL
 #' Cross-blended Hypsometric Tints
 #'
 #' @description
-#' A tibble including the color map of
+#' A [tibble][tibble::tibble()] including the color map of
 #' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes.
 #' All the palettes includes also a definition of colors limits in terms of
 #' elevation (meters), that can be used with [ggplot2::scale_fill_gradientn()].
@@ -138,28 +142,33 @@ NULL
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
 #' `r ncol(cross_blended_hypsometric_tints_db)` columns. with the following
 #' fields:
-#' - **pal**: Name of the palette.
-#' - **limit**: Recommended elevation limit (in meters) for each color.
-#' - **r**,**g**,**b**: Value of the red, green and blue channel (RGB color
-#'   mode).
-#' - **hex**: Hex code of the color.
+#'
+#' \describe{
+#'   \item{pal}{ Name of the palette.}
+#'   \item{limit}{Recommended elevation limit (in meters) for each color.}
+#'   \item{r}{Value of the red channel (RGB color mode)}
+#'   \item{g}{Value of the green channel (RGB color mode)}
+#'   \item{b}{Value of the blue channel (RGB color mode)}
+#'   \item{hex}{ Hex code of the color.}
+#' }
 #'
 #' @source
 #'
-#' Derived from Patterson, T., & Jenny, B. (2011). The Development and
-#' Rationale of Cross-blended Hypsometric Tints. *Cartographic Perspectives,*
-#' (69), 31 - 46. \doi{10.14714/CP69.20}.
+#' Derived from:
+#' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
+#'   31 - 46. \doi{10.14714/CP69.20}.
 #'
 #' @details
 #'  From Patterson & Jenny (2011):
 #'
 #'    *More recently, the role and design of hypsometric tints have come under
-#'    scrutiny. One reason for this is the concern that people misread
-#'    elevation colors as climate or vegetation information. Cross-blended
-#'    hypsometric tints, introduced in 2009, are a partial solution to this
-#'    problem. They use variable lowland colors customized to match the
-#'    differing natural environments of world regions, which merge into
-#'    one another.*
+#'     scrutiny. One reason for this is the concern that people misread
+#'     elevation colors as climate or vegetation information. Cross-blended
+#'     hypsometric tints, introduced in 2009, are a partial solution to this
+#'     problem. They use variable lowland colors customized to match the
+#'     differing natural environments of world regions, which merge into
+#'     one another.*
 #'
 #' @seealso [scale_fill_cross_blended_c()]
 #'

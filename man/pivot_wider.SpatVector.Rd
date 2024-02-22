@@ -124,7 +124,7 @@ This is similar to grouping by the \code{id_cols} then summarizing the
 unused columns using \code{unused_fn}.}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
 \code{\link[=pivot_wider]{pivot_wider()}} "widens" a \code{SpatVector}, increasing the number of columns and
@@ -135,7 +135,7 @@ decreasing the number of rows. The inverse transformation is
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}} function.
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would
 have always the geometry of \code{data}.
@@ -143,7 +143,6 @@ have always the geometry of \code{data}.
 }
 
 \examples{
-
 
 library(dplyr)
 library(tidyr)
@@ -166,11 +165,14 @@ nc_long \%>\%
 
 }
 \seealso{
+\code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
+
 Other tidyr verbs for pivoting:
 \code{\link{pivot_longer.SpatVector}()}
 
 Other tidyr methods:
-\code{\link{drop_na.SpatVector}()},
+\code{\link{drop_na.Spat}},
+\code{\link{fill.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }

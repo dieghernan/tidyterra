@@ -4,7 +4,7 @@
 \alias{filter.Spat}
 \alias{filter.SpatRaster}
 \alias{filter.SpatVector}
-\title{Subset cells/geometries of Spat* objects}
+\title{Subset cells/geometries of \verb{Spat*} objects}
 \usage{
 \method{filter}{SpatRaster}(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
@@ -20,23 +20,24 @@ multiple expressions are included, they are combined with the \code{&} operator.
 Only cells/geometries for which all conditions evaluate to \code{TRUE} are kept.
 See \strong{Methods}.}
 
-\item{.preserve}{Ignored for Spat* objects.}
+\item{.preserve}{Ignored for \verb{Spat*} objects.}
 
-\item{.keep_extent}{Should the extent of the resulting SpatRaster be kept? On
-\code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be
+\item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
+On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be
 different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
 }
 \value{
-A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-The \code{filter()} function is used to subset Spat* objects, retaining all
+The \code{filter()} function is used to subset \verb{Spat*} objects, retaining all
 cells/geometries that satisfy your conditions. To be retained, the
 cell/geometry must produce a value of \code{TRUE} for all conditions.
 
-\strong{It is possible to filter a SpatRaster by its geographic coordinates}.
+\strong{It is possible to filter a \code{SpatRaster} by its geographic coordinates}.
 You need to use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
-names on terra, since they refer to the geographic coordinates of the layer.
+names on \CRANpkg{terra}, since they refer to the geographic coordinates of
+the layer.
 
 See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
@@ -44,25 +45,25 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
 Cells that do not fulfill the conditions on \code{...} are returned with value
-\code{NA}. On a multi-layer SpatRaster the \code{NA} is propagated across all the
+\code{NA}. On a multi-layer \code{SpatRaster} the \code{NA} is propagated across all the
 layers.
 
-If \code{.keep_extent = TRUE} the returning SpatRaster has the same crs, extent,
+If \code{.keep_extent = TRUE} the returning \code{SpatRaster} has the same crs, extent,
 resolution and hence the same number of cells than \code{.data}. If
 \code{.keep_extent = FALSE} the outer \code{NA} cells are trimmed with \code{\link[terra:trim]{terra::trim()}},
 so the extent and number of cells may differ. The output would present in
 any case the same crs and resolution than \code{.data}.
 
-\code{x} and \code{y} variables (i.e. the longitude and latitude of the SpatRaster)
+\code{x} and \code{y} variables (i.e. the longitude and latitude of the \code{SpatRaster})
 are also available internally for filtering. See \strong{Examples}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-The result is a SpatVector with all the geometries that produce a value of
+The result is a \code{SpatVector} with all the geometries that produce a value of
 \code{TRUE} for all conditions.
 }
 }

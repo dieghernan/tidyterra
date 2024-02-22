@@ -115,7 +115,7 @@ to implicit missing values, and should generally be used only when missing
 values in \code{data} were created by its structure.}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
 \code{pivot_longer()} "lengthens" data, increasing the number of rows and
@@ -128,7 +128,7 @@ Learn more in \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} function.
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would
 have always the geometry of \code{data}.
@@ -161,11 +161,14 @@ ggplot(nc_pivoted) +
   labs(title = "Number of births in South Carolina")
 }
 \seealso{
+\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}
+
 Other tidyr verbs for pivoting:
 \code{\link{pivot_wider.SpatVector}()}
 
 Other tidyr methods:
-\code{\link{drop_na.SpatVector}()},
+\code{\link{drop_na.Spat}},
+\code{\link{fill.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
