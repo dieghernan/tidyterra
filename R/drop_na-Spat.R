@@ -22,6 +22,7 @@
 #' [tidyr::drop_na()]. `r lifecycle::badge('questioning')` A method for
 #' SpatRaster is also available, see [drop_na.SpatRaster()].
 #'
+#' @family tidyr.missing
 #' @family tidyr.methods
 #'
 #'

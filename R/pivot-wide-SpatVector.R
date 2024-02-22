@@ -8,6 +8,7 @@
 #' @export
 #' @importFrom tidyr pivot_wider
 #'
+#' @family tidyr.pivot
 #' @family tidyr.methods
 #'
 #' @rdname pivot_wider.SpatVector
@@ -85,44 +86,23 @@ pivot_wider.SpatVector <- function(data,
   att <- attributes(tbl)
 
 
-  # Handle col names as character vectors ----
+  # Intercept cols using a template
   tmpl <- dplyr::ungroup(tbl[1, ])
-  nmfrom <- names(dplyr::select(tmpl, {{ names_from }}))
-
-  if ("geometry" %in% nmfrom) {
-    cli::cli_alert_warning(
-      "Ommiting {.val geometry} column from {.arg names_from} argument."
-    )
-
-    nmfrom <- setdiff(nmfrom, "geometry")
-  }
-
-  vfrom <- names(dplyr::select(tmpl, {{ values_from }}))
-
-  if ("geometry" %in% vfrom) {
-    cli::cli_alert_warning(
-      "Ommiting {.val geometry} column from {.arg values_from} argument."
-    )
-
-    vfrom <- setdiff(vfrom, "geometry")
-  }
+  names_from_char <- remove_geom_col(tmpl, {{ names_from }}, "names_from")
+  values_from_char <- remove_geom_col(tmpl, {{ values_from }}, "values_from")
+  id_cols_char <- tt_sel_wider_id_cols(
+    tmpl, {{ id_cols }},
+    names_from_char, values_from_char
+  )
 
   pivoted <- tidyr::pivot_wider(tbl,
     ...,
-    id_cols = {{ id_cols }},
-    id_expand = id_expand,
-    names_from = dplyr::all_of(nmfrom),
-    names_prefix = names_prefix,
-    names_sep = names_sep,
-    names_glue = names_glue,
-    names_sort = names_sort,
-    names_vary = names_vary,
-    names_expand = names_expand,
-    names_repair = names_repair,
-    values_from = dplyr::all_of(vfrom),
-    values_fill = values_fill,
-    values_fn = values_fn,
-    unused_fn = unused_fn
+    id_cols = dplyr::all_of(id_cols_char), id_expand = id_expand,
+    names_from = dplyr::all_of(names_from_char), names_prefix = names_prefix,
+    names_sep = names_sep, names_glue = names_glue, names_sort = names_sort,
+    names_vary = names_vary, names_expand = names_expand,
+    names_repair = names_repair, values_from = dplyr::all_of(values_from_char),
+    values_fill = values_fill, values_fn = values_fn, unused_fn = unused_fn
   )
 
   # nocov start
@@ -144,4 +124,29 @@ pivot_wider.SpatVector <- function(data,
   sv <- as_spat_internal(pivoted)
 
   return(sv)
+}
+
+
+# Based on tidyr:::select_wider_id_cols
+# Retuns always a character vector
+tt_sel_wider_id_cols <- function(data,
+                                 id_cols = NULL,
+                                 names_from_cols = character(),
+                                 values_from_cols = character()) {
+  id_cols_quo <- rlang::enquo(id_cols)
+
+  # Remove known non-id-cols so they are never selected
+  data <- data[setdiff(names(data), c(names_from_cols, values_from_cols))]
+
+
+  if (rlang::quo_is_null(id_cols_quo)) {
+    # Default selects everything in `data` after non-id-cols have been removed
+    idnm <- names(data)
+  } else {
+    idnm <- names(dplyr::select(data, {{ id_cols }}))
+  }
+  # geometry is top-level var always
+  idnm <- unique(c("geometry", idnm))
+
+  idnm
 }

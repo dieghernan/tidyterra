@@ -4,29 +4,29 @@
 \alias{bind_rows.SpatVector}
 \alias{bind_spat_rows}
 \alias{bind.Spat}
-\title{Bind multiple SpatVectors and data frames by row}
+\title{Bind multiple \code{SpatVector}, \code{sf/sfc} and data frames objects by row}
 \usage{
 bind_spat_rows(..., .id = NULL)
 }
 \arguments{
-\item{...}{SpatVector to combine. The first argument should be a SpatVector
-and each of the subsequent arguments can either be a SpatVector, a sf object
-or a data frame. Columns are matched by name, and any missing columns will
-be filled with \code{NA}.}
+\item{...}{Objects to combine. The first argument should be a \code{SpatVector}
+and each of the subsequent arguments can either be a \code{SpatVector}, a
+\code{sf/sfc} object or a data frame. Columns are matched by name, and any
+missing columns will be filled with \code{NA}.}
 
 \item{.id}{The name of an optional identifier column. Provide a string to
 create an output column that identifies each input. The column will use
 names if available, otherwise it will use positions.}
 }
 \value{
-A SpatVector of the same type as the first element of \code{...}.
+A \code{SpatVector} of the same type as the first element of \code{...}.
 }
 \description{
-Bind any number of SpatVector, data frames and sf object by row, making a
-longer result. This is similar to \code{do.call(rbind, dfs)}, but the output
-will contain all columns that appear in any of the inputs.
+Bind any number of \code{SpatVector}, data frames and \code{sf/sfc} object by row,
+making a longer result. This is similar to \code{do.call(rbind, dfs)}, but the
+output will contain all columns that appear in any of the inputs.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{rbind()} method
@@ -36,13 +36,13 @@ will contain all columns that appear in any of the inputs.
 
 
 Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function for
-SpatVectors.
+\code{SpatVector} objects.
 
-The first element of \code{...} should be a SpatVector. Subsequent elements may
-be SpatVector, sf/sfc objects or data frames:
+The first element of \code{...} should be a \code{SpatVector}. Subsequent elements may
+be \code{SpatVector}, \code{sf/sfc} objects or data frames:
 \itemize{
-\item If subsequent SpatVector/sf/sfc present a different CRS than the first
-element, those elements would be reprojected to the CRS of the first
+\item If subsequent \code{SpatVector/sf/sfc} objects present a different CRS than the
+first element, those elements would be reprojected to the CRS of the first
 element with a message.
 \item If any element of \code{...} is a tibble/data frame the rows would be
 \code{cbind}ed with empty geometries with a message.

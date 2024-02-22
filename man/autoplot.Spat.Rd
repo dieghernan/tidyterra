@@ -4,7 +4,7 @@
 \alias{autoplot.Spat}
 \alias{autoplot.SpatRaster}
 \alias{autoplot.SpatVector}
-\title{Create a complete ggplot for Spat* objects}
+\title{Create a complete ggplot for \verb{Spat*} objects}
 \usage{
 \method{autoplot}{SpatRaster}(
   object,
@@ -45,18 +45,18 @@ A \CRANpkg{ggplot2} layer
 \code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{terra::plotRGB()}} in a single command.
 }
 \details{
-Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}.
+Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} method.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
 Uses \code{\link[=geom_spatraster]{geom_spatraster()}} or \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 Uses \code{\link[=geom_spatvector]{geom_spatvector()}}. Labels can be placed with \code{\link[=geom_spatvector_text]{geom_spatvector_text()}}
 or \code{\link[=geom_spatvector_label]{geom_spatvector_label()}}

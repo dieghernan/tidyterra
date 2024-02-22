@@ -1,20 +1,20 @@
-#' Get cell number, row and column from a SpatRaster
+#' Get cell number, row and column from a `SpatRaster`
 #'
 #' @description
 #'
 #' `as_coordinates()` can be used to obtain the position of each cell on the
-#' SpatRaster matrix.
+#' `SpatRaster` matrix.
 #'
-#' @param x A SpatRaster object
-#' @param as.raster If `TRUE`, the result is a SpatRaster object with three
+#' @param x A `SpatRaster` object
+#' @param as.raster If `TRUE`, the result is a `SpatRaster` object with three
 #'   layers indicating the position of each cell (cell number, row and column).
 #'
 #' @return
-#' A tibble or a SpatRaster (if `as.raster = TRUE`) with the same number of
-#' rows (or cells) than the number of cells in `x`.
+#' A [tibble][tibble::tibble()] or a `SpatRaster` (if `as.raster = TRUE`) with
+#' the same number of rows (or cells) than the number of cells in `x`.
 #'
-#' When `as.raster = TRUE` the resulting SpatRaster has the same crs, extension
-#' and resolution than `x`
+#' When `as.raster = TRUE` the resulting `SpatRaster` has the same crs,
+#' extension and resolution than `x`
 #'
 #' @family coerce
 #' @export

@@ -11,7 +11,7 @@
 \method{glimpse}{SpatVector}(x, width = NULL, ...)
 }
 \arguments{
-\item{x}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{width}{Width of output: defaults to the setting of the

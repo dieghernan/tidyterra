@@ -4,17 +4,17 @@
 \alias{as_tibble.Spat}
 \alias{as_tibble.SpatRaster}
 \alias{as_tibble.SpatVector}
-\title{Coerce a Spat* object to data frames}
+\title{Coerce a \code{SpatVector} or \code{SpatRaster} object to data frames}
 \usage{
 \method{as_tibble}{SpatRaster}(x, ..., xy = FALSE, na.rm = FALSE, .name_repair = "unique")
 
 \method{as_tibble}{SpatVector}(x, ..., geom = NULL, .name_repair = "unique")
 }
 \arguments{
-\item{x}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{Arguments passed on to \code{\link[terra:as.data.frame]{terra::as.data.frame()}}}
+\item{...}{Arguments passed on to \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.}
 
 \item{xy}{logical. If \code{TRUE}, the coordinates of each raster cell are included}
 
@@ -22,25 +22,25 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
-\item \code{"minimal"}: No name repair or checks, beyond basic existence,
-\item \code{"unique"}: Make sure names are unique and not empty,
+\item \code{"minimal"}: No name repair or checks, beyond basic existence.
+\item \code{"unique"}: Make sure names are unique and not empty.
 \item \code{"check_unique"}: (default value), no name repair, but check they are
-\code{unique},
-\item \code{"universal"}: Make the names \code{unique} and syntactic
+\code{unique}.
+\item \code{"universal"}: Make the names \code{unique} and syntactic.
 \item a function: apply custom name repair (e.g., \code{.name_repair = make.names}
-for names in the style of base R).
-\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}
+for names in the style of base \strong{R}).
+\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}.
 }}
 
 \item{geom}{character or NULL. If not NULL, either "WKT" or "HEX", to get the geometry included in Well-Known-Text or hexadecimal notation. If \code{x} has point geometry, it can also be "XY" to add the coordinates of each point}
 }
 \value{
-A tibble.
+A \link[tibble:tibble]{tibble}.
 }
 \description{
-\code{as_tibble()} method for SpatRaster and SpatVector.
+\code{\link[=as_tibble]{as_tibble()}} methods for \code{SpatRaster} and \code{SpatVector} objects.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}
@@ -50,39 +50,39 @@ A tibble.
 
 
 Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} function.
-\subsection{SpatRaster and SpatVector}{
+\subsection{\code{SpatRaster} and \code{SpatVector}}{
 
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} The tibble is returned with an attribute
-including the crs of the initial object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
+The tibble is returned with an attribute including the crs of the initial
+object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 }
 }
 
 \section{About layer/column names}{
 
 
-When coercing SpatRaster objects to data frames, \code{x} and \code{y} names are
+When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} names are
 reserved for geographic coordinates of each cell of the raster. It should be
-also noted that terra allows layers with duplicated names.
+also noted that \CRANpkg{terra} allows layers with duplicated names.
 
-In the process of coercing a SpatRaster to a tibble, tidyterra may rename
-the layers of your SpatRaster for overcoming this issue. Specifically, layers
-may be renamed on the following cases:
+In the process of coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra}
+may rename the layers of your \code{SpatRaster} for overcoming this issue.
+Specifically, layers may be renamed on the following cases:#'
 \itemize{
-\item Layers with duplicated names
+\item Layers with duplicated names.
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or \code{y} would be
 renamed.
 \item When working with tidyverse methods (i.e. \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}), the
 latter would happen as well.
 }
 
-tidyterra would display a message informing of the changes on the names of
-the layer.
+\CRANpkg{tidyterra} would display a message informing of the changes on the
+names of the layer.
 
-The same issue happens for SpatVector with names \code{geometry} (when
+The same issue happens for \code{SpatVector} with names \code{geometry} (when
 \code{geom = c("WKT", "HEX")}) and \code{x}, \code{y} (when \code{geom = "XY"}). These are
-reserved names representing the geometry of the SpatVector (see
+reserved names representing the geometry of the \code{SpatVector} (see
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}). If \code{geom} is not \code{NULL} then the logic described
-for SpatRaster would apply as well for the columns of the SpatVector.
+for \code{SpatRaster} would apply as well for the columns of the \code{SpatVector}.
 }
 
 \examples{

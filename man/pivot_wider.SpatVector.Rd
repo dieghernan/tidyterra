@@ -166,9 +166,13 @@ nc_long \%>\%
 
 }
 \seealso{
+Other tidyr verbs for pivoting:
+\code{\link{pivot_longer.SpatVector}()}
+
 Other tidyr methods:
 \code{\link{drop_na.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}
+\concept{tidyr.pivot}

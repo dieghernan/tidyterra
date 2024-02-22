@@ -15,7 +15,7 @@
 #' @importFrom dplyr distinct
 #'
 #' @param .data A SpatVector created with [terra::vect()].
-#' @param ... <[`data-masking`][dplyr::distinct]> Optional variables to
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables to
 #'   use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
 #'   will use all variables in the data frame. There is a reserved variable

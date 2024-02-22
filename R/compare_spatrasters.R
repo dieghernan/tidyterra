@@ -1,31 +1,36 @@
-#' Compare attributes of two SpatRasters
+#' Compare attributes of two `SpatRaster` objects
 #'
 #' @description
 #'
-#' Two SpatRasters are compatible (in terms of combining layers) if the
-#' crs, extent and resolution are similar. In those cases you can combine
-#' the SpatRasters simply as `c(x, y)`.
+#' Two `SpatRaster` objects are compatible (in terms of combining layers) if the
+#' crs, extent and resolution are similar. In those cases you can combine the
+#' objects simply as `c(x, y)`.
 #'
 #' This function compares those attributes informing of the results. See
 #' **Solving issues** section for minimal guidance.
 #'
 #' @return
-#' A invisible logical `TRUE/FALSE` indicating if the SpatRasters are
+#' A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects are
 #' compatible, plus an informative message flagging the issues found (if any).
 #'
 #'
-#' @param x,y SpatRaster objects
+#' @param x,y `SpatRaster` objects
 #' @param digits Integer to set the precision for comparing the extent and
 #'   the resolution.
 #'
 #' @family helpers
 #' @export
 #'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::identical()]
+#'
 #' @section Solving issues:
 #'
-#' On **non-equal crs**, try [terra::project()]. On **non-equal extent** try
-#' [terra::resample()]. On **non-equal resolution** you can try
-#' [terra::resample()], [terra::aggregate()] or [terra::disagg()].
+#' - On **non-equal crs**, try [terra::project()].
+#' - On **non-equal extent** try [terra::resample()].
+#' - On **non-equal resolution** you can try [terra::resample()],
+#'   [terra::aggregate()] or [terra::disagg()].
 #'
 #' @examples
 #' library(terra)
@@ -53,6 +58,7 @@
 #' # Everything
 #'
 #' compare_spatrasters(x, project(x, "epsg:3035"))
+#'
 compare_spatrasters <- function(x, y, digits = 6) {
   if (!all(inherits(x, "SpatRaster"), inherits(y, "SpatRaster"))) {
     cli::cli_abort(paste(

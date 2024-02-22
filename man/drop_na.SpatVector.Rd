@@ -55,9 +55,13 @@ v \%>\%
 \code{\link[tidyr:drop_na]{tidyr::drop_na()}}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}} A method for
 SpatRaster is also available, see \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.
 
+Other tidyr verbs for handling missing values:
+\code{\link{replace_na.Spat}}
+
 Other tidyr methods:
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}
+\concept{tidyr.missing}

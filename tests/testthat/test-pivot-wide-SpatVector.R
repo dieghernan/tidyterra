@@ -150,7 +150,7 @@ test_that("error when overwriting existing column", {
       names_repair = "unique"
     )
   )
-  expect_named(out, c("a...1", "a...3", "b"))
+  expect_named(out, c("a...2", "a...3", "b"))
   expect_s4_class(out, "SpatVector")
   expect_identical(pull_crs(df), pull_crs(out))
 })
@@ -216,5 +216,109 @@ test_that("can use `names_expand` to get sorted and expanded column names", {
   expect_identical(
     tib,
     tibble::tibble(x_c = na, x_d = 2, y_c = na, y_d = na, NA_c = 1, NA_d = na)
+  )
+})
+
+
+test_that("can fill only implicit missings from `names_expand`", {
+  name1 <- factor(c(NA, "x"), levels = c("x", "y"))
+  df <- tibble::tibble(name1 = name1, name2 = c("c", "d"), value = c(1, NA))
+  df$lat <- 1
+  df$lon <- 1
+
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  res <- pivot_wider(
+    data = df,
+    names_from = c(name1, name2),
+    names_expand = TRUE,
+    values_fill = list(value = 0)
+  )
+
+  expect_s4_class(res, "SpatVector")
+  res_df <- as_tibble(res)
+  attr(res_df, "crs") <- NULL
+
+  # But not the explicit missing!
+  expect_identical(
+    res_df,
+    tibble::tibble(
+      x_c = 0, x_d = NA_real_, y_c = 0, y_d = 0, NA_c = 1,
+      NA_d = 0
+    )
+  )
+})
+
+test_that("can override default keys, geometry sticky", {
+  df <- tibble::tribble(
+    ~row, ~name, ~var, ~value,
+    1, "Sam", "age", 10,
+    2, "Sam", "height", 1.5,
+    3, "Bob", "age", 20,
+  )
+
+  df$lat <- 1
+  df$lon <- 1
+
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  pv <- pivot_wider(df, id_cols = name, names_from = var, values_from = value)
+  expect_equal(nrow(pv), 2)
+  expect_s4_class(pv, "SpatVector")
+})
+
+test_that("`id_cols = everything()` excludes `names_from` and `values_from`", {
+  df <- tibble::tibble(key = "x", name = "a", value = 1L)
+  df$lat <- 1
+  df$lon <- 1
+
+  df <- terra::vect(df, crs = "EPSG:3857")
+  res <- pivot_wider(df, id_cols = dplyr::everything())
+  expect_s4_class(res, "SpatVector")
+
+  res_tbl <- as_tibble(res)
+  attr(res_tbl, "crs") <- NULL
+
+  expect_identical(
+    res_tbl,
+    tibble::tibble(key = "x", a = 1L)
+  )
+})
+
+
+test_that("`id_expand` generates sorted rows even if no expansion is done", {
+  df <- tibble::tibble(id = c(2, 1), name = c("a", "b"), value = c(1, 2))
+  df$lat <- 1
+  df$lon <- 1
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  res <- pivot_wider(df, id_expand = TRUE)
+  expect_identical(res$id, c(1, 2))
+})
+
+test_that("`id_expand` does a cartesian expansion of `id_cols`", {
+  df <- tibble::tibble(
+    id1 = c(1, 2), id2 = c(3, 4), name = c("a", "b"),
+    value = c(1, 2)
+  )
+  df$lat <- 1
+  df$lon <- 1
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  res <- pivot_wider(df, id_expand = TRUE)
+  expect_s4_class(res, "SpatVector")
+
+  res_tbl <- as_tibble(res)
+  attr(res_tbl, "crs") <- NULL
+
+
+  expect_identical(
+    res_tbl,
+    tibble::tibble(
+      id1 = c(1, 1, 2, 2),
+      id2 = c(3, 4, 3, 4),
+      a = c(1, NA, NA, NA),
+      b = c(NA, NA, NA, 2),
+    )
   )
 })

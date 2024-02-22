@@ -2,25 +2,26 @@
 % Please edit documentation in R/arrange-SpatVector.R
 \name{arrange.SpatVector}
 \alias{arrange.SpatVector}
-\title{Order \code{SpatVectors} using column values}
+\title{Order a \code{SpatVector} using column values}
 \usage{
 \method{arrange}{SpatVector}(.data, ..., .by_group = FALSE)
 }
 \arguments{
 \item{.data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{<\code{\link[dplyr:arrange]{data-masking}}> Variables, or functions of
-variables. Use \code{\link[dplyr:desc]{dplyr::desc()}} to sort a variable in descending order.}
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables, or
+functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable in
+descending order.}
 
 \item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
-grouped \code{SpatVectors} only.}
+grouped \code{SpatVectors} only (see \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).}
 }
 \value{
 A \code{SpatVector} object.
 }
 \description{
-\code{arrange()} orders the geometries of a \code{SpatVector} by the values of
-selected columns.
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}} orders the geometries of a \code{SpatVector} by the
+values of selected columns.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -32,7 +33,7 @@ selected columns.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:arrange]{dplyr::arrange()}} function for
-\code{SpatVectors}.
+\code{SpatVector} class.
 }
 
 \examples{

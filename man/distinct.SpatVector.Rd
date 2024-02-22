@@ -9,7 +9,7 @@
 \arguments{
 \item{.data}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{<\code{\link[dplyr:distinct]{data-masking}}> Optional variables to
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Optional variables to
 use when determining uniqueness. If there are multiple rows for a given
 combination of inputs, only the first row will be preserved. If omitted,
 will use all variables in the data frame. There is a reserved variable

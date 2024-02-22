@@ -2,26 +2,26 @@
 % Please edit documentation in R/as_coordinates.R
 \name{as_coordinates}
 \alias{as_coordinates}
-\title{Get cell number, row and column from a SpatRaster}
+\title{Get cell number, row and column from a \code{SpatRaster}}
 \usage{
 as_coordinates(x, as.raster = FALSE)
 }
 \arguments{
-\item{x}{A SpatRaster object}
+\item{x}{A \code{SpatRaster} object}
 
-\item{as.raster}{If \code{TRUE}, the result is a SpatRaster object with three
+\item{as.raster}{If \code{TRUE}, the result is a \code{SpatRaster} object with three
 layers indicating the position of each cell (cell number, row and column).}
 }
 \value{
-A tibble or a SpatRaster (if \code{as.raster = TRUE}) with the same number of
-rows (or cells) than the number of cells in \code{x}.
+A \link[tibble:tibble]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
+the same number of rows (or cells) than the number of cells in \code{x}.
 
-When \code{as.raster = TRUE} the resulting SpatRaster has the same crs, extension
-and resolution than \code{x}
+When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same crs,
+extension and resolution than \code{x}
 }
 \description{
 \code{as_coordinates()} can be used to obtain the position of each cell on the
-SpatRaster matrix.
+\code{SpatRaster} matrix.
 }
 \examples{
 

@@ -1,15 +1,17 @@
-#' Create a complete ggplot for Spat* objects
+#' Create a complete ggplot for `Spat*` objects
 #'
 #' `autoplot()` uses \CRANpkg{ggplot2} to draw plots as the ones produced by
 #' [terra::plot()]/[terra::plotRGB()] in a single command.
 #'
-#' Implementation of [ggplot2::autoplot()].
+#' Implementation of [ggplot2::autoplot()] method.
 #'
 #' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #' @family ggplot2.methods
+#'
 #' @param object A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
+#'
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
@@ -20,6 +22,7 @@
 #'   try to guess. See also [scale_fill_coltab()].
 #' @param facets Logical. Should facets be displayed? If `NULL` (the default)
 #'   [autoplot.SpatRaster()] would try to guess.
+#'
 #' @param nrow,ncol Number of rows and columns on the facet.
 #' @param ... other arguments passed to [geom_spatraster()],
 #'  [geom_spatraster_rgb()] or [geom_spatvector()].
@@ -29,11 +32,11 @@
 #'
 #' Implementation of the **generic** [ggplot2::autoplot()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
 #' Uses [geom_spatraster()] or [geom_spatraster_rgb()].
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
 #' or [geom_spatvector_label()]

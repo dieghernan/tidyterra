@@ -161,9 +161,13 @@ ggplot(nc_pivoted) +
   labs(title = "Number of births in South Carolina")
 }
 \seealso{
+Other tidyr verbs for pivoting:
+\code{\link{pivot_wider.SpatVector}()}
+
 Other tidyr methods:
 \code{\link{drop_na.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}
+\concept{tidyr.pivot}

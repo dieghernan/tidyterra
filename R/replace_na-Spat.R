@@ -21,6 +21,7 @@
 #'
 #' @seealso [tidyr::replace_na()]
 #'
+#' @family tidyr.missing
 #' @family tidyr.methods
 #'
 #' @section  terra equivalent:

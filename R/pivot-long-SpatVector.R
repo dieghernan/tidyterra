@@ -10,6 +10,7 @@
 #' @export
 #' @importFrom tidyr pivot_longer
 #'
+#' @family tidyr.pivot
 #' @family tidyr.methods
 #'
 #' @rdname pivot_longer.SpatVector
@@ -70,32 +71,16 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
   att <- attributes(tbl)
 
   # Intercept cols using a template
-  template <- dplyr::ungroup(tbl[1, ])
-  template <- dplyr::select(template, {{ cols }})
-  new_cols <- names(template)
-  if ("geometry" %in% new_cols) {
-    cli::cli_alert_warning(
-      "Ommiting {.val geometry} column from {.arg cols} argument."
-    )
-
-    new_cols <- setdiff(new_cols, "geometry")
-  }
-
+  tmpl <- dplyr::ungroup(tbl[1, ])
+  cols_char <- remove_geom_col(tmpl, {{ cols }}, "cols")
 
   pivoted <- tidyr::pivot_longer(
-    data = tbl, cols = dplyr::all_of(new_cols),
-    ..., cols_vary = cols_vary,
-    names_to = names_to,
-    names_prefix = names_prefix,
-    names_sep = names_sep,
-    names_pattern = names_pattern,
-    names_ptypes = names_ptypes,
-    names_transform = names_transform,
-    names_repair = names_repair,
-    values_to = values_to,
-    values_drop_na = values_drop_na,
-    values_ptypes = values_ptypes,
-    values_transform = values_transform
+    data = tbl, cols = dplyr::all_of(cols_char), ..., cols_vary = cols_vary,
+    names_to = names_to, names_prefix = names_prefix, names_sep = names_sep,
+    names_pattern = names_pattern, names_ptypes = names_ptypes,
+    names_transform = names_transform, names_repair = names_repair,
+    values_to = values_to, values_drop_na = values_drop_na,
+    values_ptypes = values_ptypes, values_transform = values_transform
   )
 
   # nocov start
@@ -117,4 +102,21 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
   sv <- as_spat_internal(pivoted)
 
   return(sv)
+}
+
+# Helper for removing safely the "geometry" argument from tidyselect expression
+# Returns a vector of characters
+remove_geom_col <- function(data, exp, var_name = "any") {
+  nm <- dplyr::select(data, {{ exp }})
+
+  sel_names <- names(nm)
+  if ("geometry" %in% sel_names) {
+    cli::cli_alert_warning(
+      "Ommiting {.val geometry} column from {.arg {var_name}} argument."
+    )
+
+    sel_names <- setdiff(sel_names, "geometry")
+  }
+
+  sel_names
 }

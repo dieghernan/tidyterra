@@ -230,3 +230,153 @@ test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
     )
   )
 })
+
+
+# Helpers ----
+test_that("Check tidyselect: var1:var10", {
+  tbl <- tibble::tibble(
+    a = 1,
+    geometry = "1",
+    gy = 1,
+    char = "1",
+    s = 1,
+    a2 = NA,
+    eom = "fun"
+  )
+
+  ## No message
+  expect_silent(out <- remove_geom_col(tbl, gy:s, "test_that"))
+  expect_type(out, "character")
+  expect_length(out, 3)
+  expect_identical(out, c("gy", "char", "s"))
+
+  ## Message
+  expect_snapshot(out <- remove_geom_col(tbl, a:char, "test_that"))
+  expect_type(out, "character")
+  expect_length(out, 3)
+  expect_identical(out, c("a", "gy", "char"))
+})
+
+test_that("Check tidyselect: start_with", {
+  tbl <- tibble::tibble(
+    a = 1,
+    geometry = "1",
+    gy = 1,
+    char = "1",
+    s = 1,
+    a2 = NA,
+    eom = "fun"
+  )
+
+  ## No message
+  expect_silent(out <- remove_geom_col(
+    tbl, dplyr::starts_with("a"),
+    "test_that"
+  ))
+  expect_type(out, "character")
+  expect_length(out, 2)
+  expect_identical(out, c("a", "a2"))
+
+  ## Message
+  expect_snapshot(out <- remove_geom_col(
+    tbl, dplyr::starts_with("g"),
+    "test_that"
+  ))
+
+  expect_type(out, "character")
+  expect_length(out, 1)
+  expect_identical(out, "gy")
+})
+
+test_that("Check tidyselect: ends_with", {
+  tbl <- tibble::tibble(
+    a = 1,
+    geometry = "1",
+    gy = 1,
+    char = "1",
+    s = 1,
+    a2 = NA,
+    eom = "fun"
+  )
+
+  ## No message
+  expect_silent(out <- remove_geom_col(
+    tbl, dplyr::ends_with("m"),
+    "test_that"
+  ))
+  expect_type(out, "character")
+  expect_length(out, 1)
+  expect_identical(out, c("eom"))
+
+  ## Message
+  expect_snapshot(out <- remove_geom_col(
+    tbl, dplyr::ends_with("y"),
+    "test_that"
+  ))
+
+  expect_type(out, "character")
+  expect_length(out, 1)
+  expect_identical(out, "gy")
+})
+
+test_that("Check tidyselect: ends_with", {
+  tbl <- tibble::tibble(
+    a = 1,
+    geometry = "1",
+    gy = 1,
+    char = "1",
+    s = 1,
+    a2 = NA,
+    eom = "fun"
+  )
+
+  ## No message
+  expect_silent(out <- remove_geom_col(
+    tbl, dplyr::ends_with("m"),
+    "test_that"
+  ))
+  expect_type(out, "character")
+  expect_length(out, 1)
+  expect_identical(out, c("eom"))
+
+  ## Message
+  expect_snapshot(out <- remove_geom_col(
+    tbl, dplyr::ends_with("y"),
+    "test_that"
+  ))
+
+  expect_type(out, "character")
+  expect_length(out, 1)
+  expect_identical(out, "gy")
+})
+
+test_that("Check tidyselect: whereis", {
+  tbl <- tibble::tibble(
+    a = 1,
+    geometry = "1",
+    gy = 1,
+    char = "1",
+    s = 1,
+    a2 = NA,
+    eom = "fun"
+  )
+
+  ## No message
+  expect_silent(out <- remove_geom_col(
+    tbl, dplyr::where(is.numeric),
+    "test_that"
+  ))
+  expect_type(out, "character")
+  expect_length(out, 3)
+  expect_identical(out, c("a", "gy", "s"))
+
+  ## Message
+  expect_snapshot(out <- remove_geom_col(
+    tbl, dplyr::where(is.character),
+    "test_that"
+  ))
+
+  expect_type(out, "character")
+  expect_length(out, 2)
+  expect_identical(out, c("char", "eom"))
+})

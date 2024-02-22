@@ -49,9 +49,13 @@ r \%>\%
 \seealso{
 \code{\link[tidyr:replace_na]{tidyr::replace_na()}}
 
+Other tidyr verbs for handling missing values:
+\code{\link{drop_na.SpatVector}()}
+
 Other tidyr methods:
 \code{\link{drop_na.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()}
 }
 \concept{tidyr.methods}
+\concept{tidyr.missing}

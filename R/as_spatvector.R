@@ -1,19 +1,20 @@
-#' Method for coercing objects to SpatVector
+#' Method for coercing objects to `SpatVector`
 #'
 #' @description
 #'
 #' `as_spatvector()` turns an existing  object into a `SpatVector`. This is a
-#' wrapper of [terra::vect()] S4 method.
+#' wrapper of [terra::vect()] S4 method for signature `data.frame`.
 #'
 #' @return
-#' A SpatVector.
+#' A `SpatVector`.
 #'
 #' @export
 #'
 #' @name as_spatvector
 #' @rdname as_spatvector
 #'
-#' @param x A \CRANpkg{tibble}, data frame, \CRANpkg{sf} or `sfc` object.
+#' @param x A [tibble][tibble::tibble()], data frame or \CRANpkg{sf} object of
+#'  class [`sf`][sf::st_read()] or [`sfc`][sf::st_sfc()].
 #'
 #' @param ... additional arguments passed on to [terra::vect()].
 #'
@@ -23,19 +24,20 @@
 #'
 #' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
 #'   and spatial object from sf or terra that includes the target coordinate
-#'   reference system. See [pull_crs()]. See **Details**.
+#'   reference system. See [pull_crs()] and **Details**.
 #'
 #'
 #' @details
 #'
 #' This function differs from [terra::vect()] on the following:
 #'
-#' - geometries with `NA/""` values are removed prior to conversion
+#' - geometries with `NA` or `""` values are removed prior to conversion
 #' - If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
-#'   vars are transferred and a "grouped" SpatVector is created (see
+#'   vars are transferred and a "grouped" `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
 #' - If no `crs` is provided and the tibble has been created with the method
-#'   [as_tibble.SpatVector()], the `crs` is inferred from `attr(x, "crs")`.
+#'   [as_tibble.SpatVector()], the `crs` is inferred from
+#'   [`attr(x, "crs")`][attr()].
 #' - Handles correctly the conversion of `EMPTY` geometries between \pkg{sf}
 #'   and \pkg{terra}.
 #'
@@ -44,7 +46,7 @@
 #'
 #' @seealso [pull_crs()]
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::vect()]
 #'
