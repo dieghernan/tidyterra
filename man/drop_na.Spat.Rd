@@ -12,7 +12,7 @@
 }
 \arguments{
 \item{data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}} or a \code{SpatRaster}
-\code{\link[=terra:.rast]{terra:.rast()}}.}
+\code{\link[terra:rast]{terra::rast()}}.}
 
 \item{...}{\code{\link[tidyr:drop_na]{tidy-select}}  Attributes to inspect for
 missing values. If empty, all attributes are used.}

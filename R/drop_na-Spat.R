@@ -10,7 +10,7 @@
 #' @return A `Spat*` object of the same class than `data`. See **Methods**.
 #'
 #' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
-#'   [terra:.rast()].
+#'   [terra::rast()].
 #' @param ... [`tidy-select`][tidyr::drop_na()]  Attributes to inspect for
 #'   missing values. If empty, all attributes are used.
 #'
