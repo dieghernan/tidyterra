@@ -90,7 +90,7 @@
           
           <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Coerce a Spat* object to data frames</dd>
+        <dd>Coerce a <code>SpatVector</code> or <code>SpatRaster</code> object to data frames</dd>
       </dl></div><div class="section level2">
       <h2 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h2>
       
@@ -112,7 +112,7 @@
           
           <code><a href="arrange.SpatVector.html">arrange(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Order <code>SpatVectors</code> using column values</dd>
+        <dd>Order a <code>SpatVector</code> using column values</dd>
       </dl><dl><dt>
           
           <code><a href="distinct.SpatVector.html">distinct(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -215,12 +215,12 @@
           
           <code><a href="bind_cols.SpatVector.html">bind_spat_cols()</a></code> 
         </dt>
-        <dd>Bind multiple SpatVectors and data frames by column</dd>
+        <dd>Bind multiple <code>SpatVector</code> <code>sf</code> and data frames objects by column</dd>
       </dl><dl><dt>
           
           <code><a href="bind_rows.SpatVector.html">bind_spat_rows()</a></code> 
         </dt>
-        <dd>Bind multiple SpatVectors and data frames by row</dd>
+        <dd>Bind multiple <code>SpatVector</code>, <code>sf/sfc</code> and data frames objects by row</dd>
       </dl><dl><dt>
           
           <code><a href="filter-joins.SpatVector.html">semi_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="filter-joins.SpatVector.html">anti_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -294,7 +294,7 @@
           
           <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Create a complete ggplot for Spat* objects</dd>
+        <dd>Create a complete ggplot for <code>Spat*</code> objects</dd>
       </dl><dl><dt>
           
           <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -399,27 +399,27 @@
           
           <code><a href="as_coordinates.html">as_coordinates()</a></code> 
         </dt>
-        <dd>Get cell number, row and column from a SpatRaster</dd>
+        <dd>Get cell number, row and column from a <code>SpatRaster</code></dd>
       </dl><dl><dt>
           
           <code><a href="as_sf.html">as_sf()</a></code> 
         </dt>
-        <dd>Coerce a SpatVector to a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object</dd>
+        <dd>Coerce a <code>SpatVector</code> to a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object</dd>
       </dl><dl><dt>
           
           <code><a href="as_spatraster.html">as_spatraster()</a></code> 
         </dt>
-        <dd>Coerce a data frame to SpatRaster</dd>
+        <dd>Coerce a data frame to <code>SpatRaster</code></dd>
       </dl><dl><dt>
           
           <code><a href="as_spatvector.html">as_spatvector()</a></code> 
         </dt>
-        <dd>Method for coercing objects to SpatVector</dd>
+        <dd>Method for coercing objects to <code>SpatVector</code></dd>
       </dl><dl><dt>
           
           <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="as_tibble.Spat.html">as_tibble(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Coerce a Spat* object to data frames</dd>
+        <dd>Coerce a <code>SpatVector</code> or <code>SpatRaster</code> object to data frames</dd>
       </dl><dl><dt>
           
           <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -440,7 +440,7 @@
           
           <code><a href="compare_spatrasters.html">compare_spatrasters()</a></code> 
         </dt>
-        <dd>Compare attributes of two SpatRasters</dd>
+        <dd>Compare attributes of two <code>SpatRaster</code> objects</dd>
       </dl><dl><dt>
           
           <code><a href="is_regular_grid.html">is_regular_grid()</a></code> 

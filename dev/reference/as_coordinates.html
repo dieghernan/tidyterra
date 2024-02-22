@@ -74,14 +74,14 @@ SpatRaster matrix."><meta property="og:image" content="https://dieghernan.github
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Get cell number, row and column from a SpatRaster</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Get cell number, row and column from a <code>SpatRaster</code></h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/as_coordinates.R" class="external-link"><code>R/as_coordinates.R</code></a></small>
       <div class="d-none name"><code>as_coordinates.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
     <p><code>as_coordinates()</code> can be used to obtain the position of each cell on the
-SpatRaster matrix.</p>
+<code>SpatRaster</code> matrix.</p>
     </div>
 
     <div class="section level2">
@@ -92,11 +92,11 @@ SpatRaster matrix.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>A SpatRaster object</p></dd>
+<dd><p>A <code>SpatRaster</code> object</p></dd>
 
 
 <dt>as.raster</dt>
-<dd><p>If <code>TRUE</code>, the result is a SpatRaster object with three
+<dd><p>If <code>TRUE</code>, the result is a <code>SpatRaster</code> object with three
 layers indicating the position of each cell (cell number, row and column).</p></dd>
 
 </dl></div>
@@ -104,12 +104,12 @@ layers indicating the position of each cell (cell number, row and column).</p></
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A tibble or a SpatRaster (if <code>as.raster = TRUE</code>) with the same number of
-rows (or cells) than the number of cells in <code>x</code>.</p>
+<p>A <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a> or a <code>SpatRaster</code> (if <code>as.raster = TRUE</code>) with
+the same number of rows (or cells) than the number of cells in <code>x</code>.</p>
 
 
-<p>When <code>as.raster = TRUE</code> the resulting SpatRaster has the same crs, extension
-and resolution than <code>x</code></p>
+<p>When <code>as.raster = TRUE</code> the resulting <code>SpatRaster</code> has the same crs,
+extension and resolution than <code>x</code></p>
 
 
     </div>
