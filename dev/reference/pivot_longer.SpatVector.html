@@ -266,11 +266,11 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Usually this is useful for faceting, see BIR</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">nc</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8691" W - 75° 27' 25.1202" W] , [33° 52' 55.1724" N - 36° 35' 22.7371" N]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 100 x 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.114, 0.061, 0.143, 0.070, 0.153, 0.097, 0.062, 0.091, 0.11…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ PERIMETER <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.442, 1.231, 1.630, 2.968, 2.206, 1.670, 1.547, 1.284, 1.42…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1827, 1828, 1831, 1832, 1833, 1834, 1835, 1836, 1837, …</span>
@@ -281,10 +281,7 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ CRESS_ID  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5, 3, 86, 27, 66, 46, 15, 37, 93, 85, 17, 79, 39, 73, 91, 42…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR74     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035,…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ SID74     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 0, 5, 1, 9, 7, 0, 0, 4, 1, 2, 16, 4, 4, 4, 18, 3, 4, 1, 1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR79     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1364, 542, 3616, 830, 1606, 1838, 350, 594, 1190, 2038, 1253…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ SID79     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 3, 6, 2, 3, 5, 2, 2, 2, 5, 2, 5, 4, 4, 6, 17, 4, 7, 1, 0,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR79   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369,…</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 4 more variables : NWBIR74 &lt;dbl&gt;, BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">nc_pivoted</span> <span class="op">&lt;-</span> <span class="va">nc</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"BIR"</span><span class="op">)</span>,</span></span>
@@ -294,11 +291,11 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"BIR"</span>, <span class="st">"19"</span>, <span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">nc_pivoted</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8708" W - 75° 27' 25.1208" W] , [33° 52' 55.1712" N - 36° 35' 22.7364" N]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 200 x 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.114, 0.114, 0.061, 0.061, 0.143, 0.143, 0.070, 0.070, 0.15…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ PERIMETER <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.442, 1.442, 1.231, 1.231, 1.630, 1.630, 2.968, 2.968, 2.20…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1825, 1827, 1827, 1828, 1828, 1831, 1831, 1832, 1832, …</span>
@@ -309,10 +306,7 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ CRESS_ID  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5, 5, 3, 3, 86, 86, 27, 27, 66, 66, 46, 46, 15, 15, 37, 37, …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ SID74     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 1, 0, 0, 5, 5, 1, 1, 9, 9, 7, 7, 0, 0, 0, 0, 4, 4, 1, 1, …</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10, 10, 10, 10, 208, 208, 123, 123, 1066, 1066, 954, 954, 11…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ SID79     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0, 0, 3, 3, 6, 6, 2, 2, 3, 3, 5, 5, 2, 2, 2, 2, 2, 2, 5, 5, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR79   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19, 19, 12, 12, 260, 260, 145, 145, 1197, 1197, 1237, 1237, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ year      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1974, 1979, 1974, 1979, 1974, 1979, 1974, 1979, 1974, 1979, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ births    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 1364, 487, 542, 3188, 3616, 508, 830, 1421, 1606, 1452…</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 4 more variables : SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;, year &lt;dbl&gt;, births &lt;dbl&gt;</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">nc_pivoted</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">births</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>

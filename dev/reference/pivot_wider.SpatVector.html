@@ -280,11 +280,11 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"BIR"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"label"</span>, values_to <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">label</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8708" W - 75° 27' 25.1208" W] , [33° 52' 55.1712" N - 36° 35' 22.7364" N]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 400 x 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ label <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "BIR74", "NWBIR74", "BIR79", "NWBIR79", "BIR74", "NWBIR74", "BIR…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ n     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 10, 1364, 19, 487, 10, 542, 12, 3188, 208, 3616, 260, 508,…</span>
 <span class="r-in"><span></span></span>
@@ -293,11 +293,11 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-in"><span><span class="va">nc_long</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">label</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: Polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Extent (x , y) : [84° 19' 25.8708" W - 75° 27' 25.1208" W] , [33° 52' 55.1712" N - 36° 35' 22.7364" N]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 100 x 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR74   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035, 4…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR79   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1364, 542, 3616, 830, 1606, 1838, 350, 594, 1190, 2038, 1253, …</span>
