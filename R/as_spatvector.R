@@ -47,7 +47,7 @@
 #' @seealso
 #'
 #' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
-#' and [terra:.crs()].
+#' and [terra:;crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
