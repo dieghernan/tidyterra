@@ -46,7 +46,7 @@ names on terra, since they refer to the geographic coordinates of the layer.
 
 See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:values]{terra::values()}}

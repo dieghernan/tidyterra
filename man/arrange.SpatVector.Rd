@@ -14,7 +14,7 @@ functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable 
 descending order.}
 
 \item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
-grouped \code{SpatVectors} only (see \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).}
+grouped \code{SpatVector} only (see \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).}
 }
 \value{
 A \code{SpatVector} object.

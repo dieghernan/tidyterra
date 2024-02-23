@@ -52,7 +52,9 @@
 #'   ) %>%
 #'   mutate(year = as.numeric(gsub("BIR", "19", year)))
 #'
-#' glimpse(nc_pivoted)
+#' nc_pivoted %>%
+#'   relocate(year, births) %>%
+#'   glimpse()
 #'
 #' ggplot(nc_pivoted) +
 #'   geom_spatvector(aes(fill = births)) +

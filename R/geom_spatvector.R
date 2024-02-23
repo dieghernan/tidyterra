@@ -31,7 +31,7 @@
 #'
 #' See [ggplot2::geom_sf()] for details on aesthetics, etc.
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
 #'

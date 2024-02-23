@@ -33,7 +33,7 @@ Spat* object. \code{transmute()} adds new layers/attributes and drops existing
 ones. New variables overwrite existing variables of the same name. Variables
 can be removed by setting their value to \code{NULL}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 Some terra methods for modifying cell values:

@@ -3,18 +3,18 @@
 \docType{data}
 \name{volcano2}
 \alias{volcano2}
-\title{Updated Topographic Information on Auckland's Maungawhau Volcano}
+\title{Updated topographic information on Auckland's Maungawhau volcano}
 \format{
 A matrix of 174 rows and 122 columns. Each
 value is the corresponding altitude in meters.
 }
 \source{
-\href{https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/}{Auckland LiDAR 1m DEM (2013)}
+\href{https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/}{Auckland LiDAR 1m DEM (2013)}.
 
 DEM for LiDAR data from the Auckland region captured in 2013. The original
 data has been downsampled to a resolution of 5m due to disk space constrains.
 
-Data License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}
+Data License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
 }
 \description{
 Probably you already know the \link{volcano} dataset. This dataset provides

@@ -20,7 +20,7 @@ same length, then matched by position.}
 See \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} for \strong{Details}.}
 }
 \value{
-A \code{SpatVector} with the corresponding cols. The geometry and CRS
+A \code{SpatVector} with the corresponding columns. The geometry and CRS
 would correspond to the the first \code{SpatVector} of \code{...}.
 }
 \description{

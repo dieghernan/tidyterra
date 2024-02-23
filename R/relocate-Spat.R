@@ -25,7 +25,7 @@
 #'
 #' @importFrom dplyr relocate
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `terra::subset(data, c("name_layer", "name_other_layer"))`
 #'

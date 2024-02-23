@@ -37,7 +37,7 @@ Keep only unique/distinct rows and geometries from a \code{SpatVector}.
 Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} function.
 \subsection{\code{SpatVector}}{
 
-It is possible to remove duplicate geometries including the \code{geometry}
+It is possible to remove duplicate geometries including the geometry
 variable explicitly in the \code{...} call. See \strong{Examples}.
 }
 }

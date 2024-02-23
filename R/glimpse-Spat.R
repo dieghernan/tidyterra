@@ -24,8 +24,8 @@
 #' @inheritParams tibble::print.tbl_df
 #' @param width Width of output: defaults to the setting of the width option
 #'   (if finite) or the width of the console. See [dplyr::glimpse()].
-#' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] Spat
-#'   methods.
+#' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods
+#' for `SpatRaster` and `SpatVector`. See [as_tibble.SpatRaster()].
 #' @param n Maximum number of rows to show.
 #'
 #' @section \CRANpkg{terra} equivalent:
@@ -371,10 +371,17 @@ tterra_body <- function(x, width = cli::console_width(), n = 10, ...) {
     nms <- ifelse(ncol(extra_cols) == 1, "variable", "variables")
     if (init_type == "SpatRaster") nms <- gsub("variable", "layer", nms)
     full <- paste(
-      "# ", cli::symbol$info,
       format(ncol(extra_cols), big.mark = ".", decimal.mark = ","),
       "more", nms, ":", extra_text
     )
-    cli::cli_text(tterra_head_style(full))
+    nm2 <- ifelse(init_type == "SpatVector", "columns", "layers")
+
+    hint <- paste0("Use `tidyterra::glimpse(n = ...)` to see more ", nm2)
+
+    # For wrapping
+    cli::cli_bullets(c(
+      "i" = tterra_head_style(full),
+      "i" = tterra_head_style(hint)
+    ))
   }
 }

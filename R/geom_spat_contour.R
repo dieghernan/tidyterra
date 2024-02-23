@@ -30,7 +30,7 @@
 #' @family ggplot2.utils
 #' @seealso  [ggplot2::geom_contour()]
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' [terra::contour()]
 #'

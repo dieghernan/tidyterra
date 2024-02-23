@@ -11,9 +11,9 @@ A \link[tibble:tibble]{tibble} of 1102 rows and
 \describe{
 \item{pal}{ Name of the palette.}
 \item{limit}{Recommended elevation limit (in meters) for each color.}
-\item{r}{Value of the red channel (RGB color mode)}
-\item{g}{Value of the green channel (RGB color mode)}
-\item{b}{Value of the blue channel (RGB color mode)}
+\item{r}{Value of the red channel (RGB color mode).}
+\item{g}{Value of the green channel (RGB color mode).}
+\item{b}{Value of the blue channel (RGB color mode).}
 \item{hex}{ Hex code of the color.}
 }
 }

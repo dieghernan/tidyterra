@@ -22,7 +22,7 @@
 #'
 #' @inheritParams distinct.SpatVector
 #' @param .by_group If `TRUE`, will sort first by grouping variable. Applies to
-#'   grouped `SpatVectors` only (see [group_by.SpatVector()]).
+#'   grouped `SpatVector` only (see [group_by.SpatVector()]).
 #'
 #' @return A `SpatVector` object.
 #'

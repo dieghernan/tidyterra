@@ -66,7 +66,7 @@ matches in \code{y}:
 
 See \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} for details.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:merge]{terra::merge()}}

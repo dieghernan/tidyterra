@@ -166,7 +166,7 @@ index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 See \strong{Methods} for details.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:subset]{terra::subset()}}, \code{\link[terra:sample]{terra::spatSample()}}

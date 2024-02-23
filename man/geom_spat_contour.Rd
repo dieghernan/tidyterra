@@ -85,7 +85,7 @@ section.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:contour]{terra::contour()}}

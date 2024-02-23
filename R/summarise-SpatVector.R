@@ -33,7 +33,7 @@
 #'
 #' @importFrom dplyr summarise
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::aggregate()]
 #'

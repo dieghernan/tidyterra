@@ -114,7 +114,7 @@ in the same way that a \code{sf} object. A side effect is that you can use
 
 See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:plot]{terra::plot()}}

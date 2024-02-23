@@ -11,8 +11,8 @@
 #'
 #' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
 #'   [terra::rast()].
-#' @param ... [`tidy-select`][tidyr::drop_na()]  Attributes to inspect for
-#'   missing values. If empty, all attributes are used.
+#' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]>  Attributes to inspect
+#'   for missing values. If empty, all attributes are used.
 #'
 #' @export
 #'

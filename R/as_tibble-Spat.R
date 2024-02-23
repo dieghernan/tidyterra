@@ -55,11 +55,11 @@
 #'
 #' In the process of coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra}
 #' may rename the layers of your `SpatRaster` for overcoming this issue.
-#' Specifically, layers may be renamed on the following cases:#'
-#' - Layers with duplicated names.
-#' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` would be
+#' Specifically, layers may be renamed on the following cases:
+#' * Layers with duplicated names.
+#' * When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` would be
 #'   renamed.
-#' - When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
+#' * When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
 #'   latter would happen as well.
 #'
 #' \CRANpkg{tidyterra} would display a message informing of the changes on the

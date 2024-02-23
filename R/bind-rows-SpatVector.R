@@ -1,7 +1,7 @@
 #' Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
 #'
 #' @description
-#' Bind any number of `SpatVector`, data frames and `sf/sfc` object by row,
+#' Bind any number of `SpatVector`, data frames and `sf/sfc` objects by row,
 #' making a longer result. This is similar to `do.call(rbind, dfs)`, but the
 #' output will contain all columns that appear in any of the inputs.
 #'

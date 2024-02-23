@@ -26,7 +26,7 @@ spatial attributes are preserved.
 \description{
 Replace \code{NAs} on layers/attributes with specified values
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 Use \verb{r[is.na(r)] <- <replacement>}

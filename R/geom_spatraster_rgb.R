@@ -34,7 +34,7 @@
 #'  You can get also RGB tiles from the \CRANpkg{maptiles} package,
 #'  see [maptiles::get_tiles()].
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()]
 #'

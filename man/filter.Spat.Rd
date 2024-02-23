@@ -14,11 +14,11 @@
 \item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{\code{\link[dplyr:filter]{data-masking}} Expressions that return a logical
-value, and are defined in terms of the layers/attributes in \code{.data}. If
-multiple expressions are included, they are combined with the \code{&} operator.
-Only cells/geometries for which all conditions evaluate to \code{TRUE} are kept.
-See \strong{Methods}.}
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Expressions that
+return a logical value, and are defined in terms of the layers/attributes
+in \code{.data}. If multiple expressions are included, they are combined with
+the \code{&} operator. Only cells/geometries for which all conditions evaluate
+to \code{TRUE} are kept. See \strong{Methods}.}
 
 \item{.preserve}{Ignored for \verb{Spat*} objects.}
 

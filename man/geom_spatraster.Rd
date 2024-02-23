@@ -3,7 +3,7 @@
 \name{geom_spatraster}
 \alias{geom_spatraster}
 \alias{stat_spatraster}
-\title{Visualise SpatRaster objects}
+\title{Visualise \code{SpatRaster} objects}
 \source{
 Based on the \code{layer_spatial()} implementation on ggspatial package.
 Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and
@@ -86,7 +86,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2
 \code{stat_spatraster()} is provided as a complementary function, so the \code{geom}
 can be modified.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:plot]{terra::plot()}}

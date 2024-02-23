@@ -5,8 +5,16 @@
 #' Extract the WKT version of the CRS associated to a string, number of
 #' sf/Spat* object.
 #'
-#' The [Well-known text
-#' (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
+#' The
+#'
+#' ```{r, echo=FALSE, results='asis'}
+#' full_url <- paste0("[Well-known text (WKT)](",
+#'                    "https://en.wikipedia.org/wiki/Well-known_text_",
+#'                    "representation_of_coordinate_reference_systems)")
+#'
+#' cat(full_url)
+#'
+#' ```
 #' representation of coordinate reference systems (CRS) is a character string
 #' that identifies precisely the parameters of each CRS. This is the current
 #' standard used on sf and terra packages.

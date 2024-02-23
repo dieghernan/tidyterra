@@ -21,7 +21,8 @@ A WKT representation of the corresponding CRS.
 Extract the WKT version of the CRS associated to a string, number of
 sf/Spat* object.
 
-The \href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
+The
+\href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
 representation of coordinate reference systems (CRS) is a character string
 that identifies precisely the parameters of each CRS. This is the current
 standard used on sf and terra packages.

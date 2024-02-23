@@ -29,7 +29,7 @@
 #' @return A SpatVector object.
 #'
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::merge()]
 #'
@@ -229,7 +229,7 @@ dplyr::full_join
 #' @return A SpatVector object.
 #'
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::merge()]
 #'

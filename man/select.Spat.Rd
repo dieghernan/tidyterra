@@ -26,7 +26,7 @@ A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 Select (and optionally rename) attributes/layers in Spat* objects, using a
 concise mini-language. See \strong{Methods}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:subset]{terra::subset()}}

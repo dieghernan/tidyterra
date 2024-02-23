@@ -27,7 +27,7 @@ A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 Use \code{relocate()} to change layer/attribute positions, using the same syntax
 as \code{\link[=select]{select()}} to make it easy to move blocks of layers/attributes at once.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{terra::subset(data, c("name_layer", "name_other_layer"))}

@@ -17,8 +17,8 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{width}{Width of output: defaults to the setting of the width option
 (if finite) or the width of the console. See \code{\link[dplyr:glimpse]{dplyr::glimpse()}}.}
 
-\item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} Spat
-methods.}
+\item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} methods
+for \code{SpatRaster} and \code{SpatVector}. See \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}.}
 
 \item{n}{Maximum number of rows to show.}
 }

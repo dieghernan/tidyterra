@@ -117,7 +117,7 @@ joins.
 
 See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:merge]{terra::merge()}}

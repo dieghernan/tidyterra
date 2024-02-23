@@ -38,7 +38,7 @@ A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
 \code{new_name = old_name} syntax; \code{rename_with()} renames layers/attributes
 using a function.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \verb{names(Spat*) <- c("a", "b", "c")}

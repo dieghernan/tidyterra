@@ -7,7 +7,7 @@
 as_coordinates(x, as.raster = FALSE)
 }
 \arguments{
-\item{x}{A \code{SpatRaster} object}
+\item{x}{A \code{SpatRaster} object.}
 
 \item{as.raster}{If \code{TRUE}, the result is a \code{SpatRaster} object with three
 layers indicating the position of each cell (cell number, row and column).}

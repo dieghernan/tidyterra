@@ -26,10 +26,10 @@ and are only recorded when they change.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} function.
+Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} function for \code{SpatVector}.
 }
 
-\section{Grouped \code{SpatVector}s}{
+\section{Grouped \code{SpatVector}}{
 
 
 With grouped \code{SpatVector} created by \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}, \code{fill()} will

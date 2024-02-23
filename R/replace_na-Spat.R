@@ -24,7 +24,7 @@
 #' @family tidyr.missing
 #' @family tidyr.methods
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' Use `r[is.na(r)] <- <replacement>`
 #'

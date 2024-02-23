@@ -65,7 +65,7 @@
 #'   computing `slice_min()/slice_max()`?. The default is `TRUE`.
 #' @inheritParams dplyr::slice
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::subset()], [terra::spatSample()]
 #'

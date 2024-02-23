@@ -22,7 +22,10 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{data}{Not used by this method.}
 
-\item{...}{other arguments passed to methods}
+\item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
+often aesthetics, used to set an aesthetic to a fixed value, like
+\code{colour = "red"} or \code{size = 3}. They may also be parameters
+to the paired geom/stat.}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
@@ -36,31 +39,32 @@ for names in the style of base \strong{R}).
 \item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}.
 }}
 
-\item{maxcell}{positive integer. Maximum number of cells to use for the plot.}
+\item{maxcell}{positive integer. Maximum number of cells to use for
+the plot.}
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \CRANpkg{sf} object and
 \code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \CRANpkg{tibble}. See \strong{Methods}.
 }
 \description{
-Fortify \code{SpatRasters} and \code{SpatVectors} to data frames for compatibility with
-\code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
+Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provide
+native compatibility with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} function.
+Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} method.
 \subsection{\code{SpatRaster}}{
 
 Return a tibble than can be used with \verb{ggplot2::geom_*} like
 \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, etc.
 
-The resulting tibble includes the coordinates on the columns \verb{x,y}. The
+The resulting tibble includes the coordinates on the columns \verb{x, y}. The
 values of each layer are included as additional columns named as per the
 name of the layer on the \code{SpatRaster}.
 
 The CRS of the \code{SpatRaster} can be retrieved with
-\verb{attr(<fortifiedSpatRaster>, "crs")}.
+\code{attr(fortifiedSpatRaster, "crs")}.
 
 It is possible to convert the fortified object onto a \code{SpatRaster} again with
 \code{\link[=as_spatraster]{as_spatraster()}}.

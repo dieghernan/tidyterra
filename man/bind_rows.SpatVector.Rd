@@ -22,7 +22,7 @@ names if available, otherwise it will use positions.}
 A \code{SpatVector} of the same type as the first element of \code{...}.
 }
 \description{
-Bind any number of \code{SpatVector}, data frames and \code{sf/sfc} object by row,
+Bind any number of \code{SpatVector}, data frames and \code{sf/sfc} objects by row,
 making a longer result. This is similar to \code{do.call(rbind, dfs)}, but the
 output will contain all columns that appear in any of the inputs.
 }

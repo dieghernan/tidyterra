@@ -34,7 +34,7 @@
 #'
 #' ## `SpatVector`
 #'
-#' It is possible to remove duplicate geometries including the `geometry`
+#' It is possible to remove duplicate geometries including the geometry
 #' variable explicitly in the `...` call. See **Examples**.
 #'
 #'

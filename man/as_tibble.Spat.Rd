@@ -66,7 +66,7 @@ also noted that \CRANpkg{terra} allows layers with duplicated names.
 
 In the process of coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra}
 may rename the layers of your \code{SpatRaster} for overcoming this issue.
-Specifically, layers may be renamed on the following cases:#'
+Specifically, layers may be renamed on the following cases:
 \itemize{
 \item Layers with duplicated names.
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or \code{y} would be

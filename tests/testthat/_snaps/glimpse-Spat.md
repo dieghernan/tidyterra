@@ -43,7 +43,8 @@
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", ~
       $ cpro <chr> "05", "09", "24", "34", "37", "40",~
     Message
-      # i 1 more variable : name <chr>
+      i 1 more variable : name <chr>
+      i Use `tidyterra::glimpse(n = ...)` to see more columns
 
 ---
 
@@ -58,7 +59,8 @@
       
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", ~
     Message
-      # i 2 more variables : cpro <chr>, name <chr>
+      i 2 more variables : cpro <chr>, name <chr>
+      i Use `tidyterra::glimpse(n = ...)` to see more columns
 
 # Stress SpatVector
 
@@ -206,7 +208,8 @@
       
       $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
     Message
-      # i 2 more layers : tavg_05 <dbl>, tavg_06 <dbl>
+      i 2 more layers : tavg_05 <dbl>, tavg_06 <dbl>
+      i Use `tidyterra::glimpse(n = ...)` to see more layers
 
 ---
 
@@ -222,7 +225,8 @@
       $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
       $ tavg_05 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
     Message
-      # i 1 more layer : tavg_06 <dbl>
+      i 1 more layer : tavg_06 <dbl>
+      i Use `tidyterra::glimpse(n = ...)` to see more layers
 
 # Stress SpatRaster
 

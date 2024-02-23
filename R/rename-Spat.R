@@ -28,7 +28,7 @@
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `names(Spat*) <- c("a", "b", "c")`
 #'

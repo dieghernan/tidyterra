@@ -27,7 +27,7 @@
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::subset()]
 #'

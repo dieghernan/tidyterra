@@ -31,20 +31,23 @@
 #'
 #' This function differs from [terra::vect()] on the following:
 #'
-#' - geometries with `NA` or `""` values are removed prior to conversion
-#' - If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
+#' * geometries with `NA` or `""` values are removed prior to conversion
+#' * If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
 #'   vars are transferred and a "grouped" `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
-#' - If no `crs` is provided and the tibble has been created with the method
+#' * If no `crs` is provided and the tibble has been created with the method
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
-#' - Handles correctly the conversion of `EMPTY` geometries between \pkg{sf}
-#'   and \pkg{terra}.
+#' * Handles correctly the conversion of `EMPTY` geometries between
+#'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #'
 #' @family coerce
 #'
-#' @seealso [pull_crs()]
+#' @seealso
+#'
+#' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
+#' and [terra:.crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

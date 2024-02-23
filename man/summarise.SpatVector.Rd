@@ -45,7 +45,7 @@ the summary statistics that you have specified.
 
 \code{summarise.SpatVector()} and \code{summarize.SpatVector()} are synonyms
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:aggregate]{terra::aggregate()}}

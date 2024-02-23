@@ -1,4 +1,4 @@
-#' Updated Topographic Information on Auckland's Maungawhau Volcano
+#' Updated topographic information on Auckland's Maungawhau volcano
 #'
 #' @description
 #'
@@ -20,12 +20,12 @@
 #' @source
 #'
 #' [Auckland LiDAR 1m DEM
-#' (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/)
+#' (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
 #'
 #' DEM for LiDAR data from the Auckland region captured in 2013. The original
 #' data has been downsampled to a resolution of 5m due to disk space constrains.
 #'
-#' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+#' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 #'
 #' @seealso [volcano]
 #'
@@ -82,9 +82,9 @@ NULL
 #' \describe{
 #'   \item{pal}{ Name of the palette.}
 #'   \item{limit}{Recommended elevation limit (in meters) for each color.}
-#'   \item{r}{Value of the red channel (RGB color mode)}
-#'   \item{g}{Value of the green channel (RGB color mode)}
-#'   \item{b}{Value of the blue channel (RGB color mode)}
+#'   \item{r}{Value of the red channel (RGB color mode).}
+#'   \item{g}{Value of the green channel (RGB color mode).}
+#'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{ Hex code of the color.}
 #' }
 #'
@@ -125,7 +125,7 @@ NULL
 #' }
 NULL
 
-#' Cross-blended Hypsometric Tints
+#' Cross-blended hypsometric tints
 #'
 #' @description
 #' A [tibble][tibble::tibble()] including the color map of
@@ -146,9 +146,9 @@ NULL
 #' \describe{
 #'   \item{pal}{ Name of the palette.}
 #'   \item{limit}{Recommended elevation limit (in meters) for each color.}
-#'   \item{r}{Value of the red channel (RGB color mode)}
-#'   \item{g}{Value of the green channel (RGB color mode)}
-#'   \item{b}{Value of the blue channel (RGB color mode)}
+#'   \item{r}{Value of the red channel (RGB color mode).}
+#'   \item{g}{Value of the green channel (RGB color mode).}
+#'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{ Hex code of the color.}
 #' }
 #'

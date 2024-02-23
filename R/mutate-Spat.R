@@ -28,7 +28,7 @@
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' Some terra methods for modifying cell values:
 #' [terra::ifel()], [terra::classify()], [terra::clamp()], [terra::app()],

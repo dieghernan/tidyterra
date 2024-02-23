@@ -60,7 +60,7 @@ For plotting SpatRaster objects by layer values use \code{\link[=geom_spatraster
 
 The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:plotRGB]{terra::plotRGB()}}

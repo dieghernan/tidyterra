@@ -1,4 +1,4 @@
-#' Visualise SpatRaster objects
+#' Visualise `SpatRaster` objects
 #'
 #' @description
 #'
@@ -39,7 +39,7 @@
 #' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
 #' [ggplot2::facet_wrap()]
 #'
-#' @section  terra equivalent:
+#' @section  \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
 #'

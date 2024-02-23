@@ -14,8 +14,8 @@
 \item{data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}} or a \code{SpatRaster}
 \code{\link[terra:rast]{terra::rast()}}.}
 
-\item{...}{\code{\link[tidyr:drop_na]{tidy-select}}  Attributes to inspect for
-missing values. If empty, all attributes are used.}
+\item{...}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}>  Attributes to inspect
+for missing values. If empty, all attributes are used.}
 }
 \value{
 A \verb{Spat*} object of the same class than \code{data}. See \strong{Methods}.
