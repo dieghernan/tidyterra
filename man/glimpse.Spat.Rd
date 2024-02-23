@@ -4,21 +4,23 @@
 \alias{glimpse.Spat}
 \alias{glimpse.SpatRaster}
 \alias{glimpse.SpatVector}
-\title{Get a glimpse of your Spat* objects}
+\title{Get a nice glimpse of your \verb{Spat*} objects}
 \usage{
-\method{glimpse}{SpatRaster}(x, width = NULL, ...)
+\method{glimpse}{SpatRaster}(x, width = NULL, ..., n = NULL)
 
-\method{glimpse}{SpatVector}(x, width = NULL, ...)
+\method{glimpse}{SpatVector}(x, width = NULL, ..., n = NULL)
 }
 \arguments{
 \item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{width}{Width of output: defaults to the setting of the
-\code{width} if finite (see \code{\link[dplyr:glimpse]{dplyr::glimpse()}}) or the width of the console.}
+\item{width}{Width of output: defaults to the setting of the width option
+(if finite) or the width of the console. See \code{\link[dplyr:glimpse]{dplyr::glimpse()}}.}
 
 \item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} Spat
 methods.}
+
+\item{n}{Maximum number of rows to show.}
 }
 \value{
 original \code{x} is (invisibly) returned, allowing \code{glimpse()} to
@@ -27,9 +29,9 @@ be used within a data pipeline.
 \description{
 \code{glimpse()} is like a transposed version of \code{\link[=print]{print()}}: layers/columns run
 down the  page, and data runs across. This makes it possible to see every
-layer/column in a Spat* object.
+layer/column in a \verb{Spat*} object.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{print()}
@@ -39,7 +41,7 @@ layer/column in a Spat* object.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:glimpse]{dplyr::glimpse()}} function for
-Spat*. objects.
+\verb{Spat*}. objects.
 }
 
 \examples{
@@ -49,7 +51,7 @@ library(terra)
 # SpatVector
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-v \%>\% glimpse(width = 200)
+v \%>\% glimpse(n = 2)
 
 # Use on a pipeline
 v \%>\%
@@ -71,7 +73,7 @@ r \%>\%
   glimpse(xy = TRUE)
 }
 \seealso{
-\code{\link[dplyr:glimpse]{dplyr::glimpse()}}
+\code{\link[tibble:formatting]{tibble::print.tbl_df()}}
 
 Other dplyr verbs that operate on columns:
 \code{\link{mutate.Spat}},

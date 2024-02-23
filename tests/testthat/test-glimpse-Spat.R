@@ -13,6 +13,10 @@ test_that("Glimpse SpatVectors", {
 
   # With opts
   expect_snapshot(glimpse(v, geom = "WKT", width = 50))
+
+  skip_if_not_installed("vctrs")
+  expect_snapshot(glimpse(v, width = 50, n = 2))
+  expect_snapshot(glimpse(v, width = 50, n = 1))
 })
 
 
@@ -69,8 +73,12 @@ test_that("Glimpse SpatRasters", {
 
   expect_snapshot(glimpse(r))
 
+  skip_if_not_installed("vctrs")
+
   # With opts
   expect_snapshot(glimpse(r, xy = TRUE, width = 50))
+  expect_snapshot(glimpse(r, width = 50, n = 1))
+  expect_snapshot(glimpse(r, width = 50, n = 2))
 })
 
 
@@ -91,6 +99,12 @@ test_that("Stress SpatRaster", {
   terra::crs(v2) <- "local"
 
   expect_snapshot(inv <- glimpse(v2))
+  expect_s4_class(inv, "SpatRaster")
+
+  # Empty
+  empt <- terra::rast()
+  empt$bb <- empt$lyr.1
+  expect_snapshot(inv <- glimpse(empt))
   expect_s4_class(inv, "SpatRaster")
 })
 

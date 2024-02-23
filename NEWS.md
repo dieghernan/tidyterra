@@ -3,6 +3,12 @@
 -   New methods for `SpatVectors`:
     -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
     -   `fill.SpatVector()`.
+-   `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
+    using.
+-    `?tibble::print.tbl_df` approach for the header and the footer. The body is
+    still displayed transposed as of `dplyr::glimpse()`. See
+    `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for
+    examples.
 
 # tidyterra 0.5.2
 
@@ -160,3 +166,4 @@ Other changes on this version:
 -   New geoms:
 
     -   `geom_spatraster_contour()` family.
+

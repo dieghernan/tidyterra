@@ -3,12 +3,12 @@
     Code
       glimpse(v)
     Output
-      Geometry type: Polygons
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -18,28 +18,59 @@
     Code
       glimpse(v, geom = "WKT", width = 50)
     Output
-      Geometry type: Polygons
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 9
-      Columns: 4
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2     <chr> "ES-AV", "ES-BU", "ES-LE", "ES-~
       $ cpro     <chr> "05", "09", "24", "34", "37", "~
       $ name     <chr> "Avila", "Burgos", "Leon", "Pal~
       $ geometry <chr> "POLYGON ((3126360.2417 2066777~
+
+---
+
+    Code
+      glimpse(v, width = 50, n = 2)
+    Output
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
+      $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", ~
+      $ cpro <chr> "05", "09", "24", "34", "37", "40",~
+    Message
+      # i 1 more variable : name <chr>
+
+---
+
+    Code
+      glimpse(v, width = 50, n = 1)
+    Output
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
+      $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", ~
+    Message
+      # i 2 more variables : cpro <chr>, name <chr>
 
 # Stress SpatVector
 
     Code
       inv <- glimpse(v)
     Output
-      Geometry type: Polygons
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -49,11 +80,11 @@
     Code
       inv <- glimpse(v2)
     Output
-      Geometry type: Polygons
-      Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-      Extent (x , y) : [7° 4' 36.6024" W - 1° 46' 58.078" W] , [40° 5' 7.7968" N - 43° 14' 11.5677" N]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
+      #  Extent (x / y) : ([7° 4' 36.6" W / 1° 46' 58.08" W] , [40° 5' 7.8" N / 43° 14' 11.57" N])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -63,11 +94,11 @@
     Code
       inv <- glimpse(v2)
     Output
-      Geometry type: Polygons
-      Projected CRS: Cartesian (Meter)
-      Extent (x , y) : [-7.076834 - -1.782799] , [40.085499 - 43.236547]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: Cartesian (Meter)
+      #  Extent (x / y) : ([-7.076834 / -1.782799] , [40.085499 / 43.236547])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -77,10 +108,12 @@
     Code
       inv <- glimpse(vnull)
     Output
-      Geometry type: Polygons
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
+      #  A SpatVector 9 x 0
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       SpatVector with no attributes (only geometries)
 
 # Geometries SpatVector
@@ -88,12 +121,12 @@
     Code
       glimpse(v)
     Output
-      Geometry type: Polygons
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Polygons
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -103,12 +136,12 @@
     Code
       glimpse(l)
     Output
-      Geometry type: Lines
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 9
-      Columns: 3
+      #  A SpatVector 9 x 3
+      #  Geometry type: Lines
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES~
       $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
       $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S~
@@ -118,12 +151,12 @@
     Code
       glimpse(p)
     Output
-      Geometry type: Points
-      Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
-      CRS projection units: m
-      Extent (x , y) : [2,892,687 - 3,341,372] , [2,017,622 - 2,361,600]
-      Rows: 1,492
-      Columns: 3
+      #  A SpatVector 1,492 x 3
+      #  Geometry type: Points
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+      
       $ iso2 <chr> "ES-AV", "ES-AV", "ES-AV", "ES-AV", "ES-AV", "ES-AV", "ES-AV", "E~
       $ cpro <chr> "05", "05", "05", "05", "05", "05", "05", "05", "05", "05", "05",~
       $ name <chr> "Avila", "Avila", "Avila", "Avila", "Avila", "Avila", "Avila", "A~
@@ -133,15 +166,12 @@
     Code
       glimpse(r)
     Output
-      Rows: 87
-      Columns: 118
-      Layers: 3
-      Cells: 10,266
-      Resolution (x , y): 3,881.255 , 3,881.255
-      Projected CRS: World_Robinson
-      CRS projection units: m
-      Extent (x , y) : [ -612,335.4 -  -154,347.3] , [4,283,017.7 - 4,620,686.9]
-      Layers:
+      #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
+      #  Resolution (x / y): (3,881.255 / 3,881.255)
+      #  Projected CRS: World_Robinson
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
+      
       $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
       $ tavg_05 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
       $ tavg_06 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
@@ -151,34 +181,59 @@
     Code
       glimpse(r, xy = TRUE, width = 50)
     Output
-      Rows: 87
-      Columns: 118
-      Layers: 3
-      Cells: 10,266
-      Resolution (x , y): 3,881.255 , 3,881.255
-      Projected CRS: World_Robinson
-      CRS projection units: m
-      Extent (x , y) : [ -612,335.4 -  -154,347.3] , [4,283,017.7 - 4,620,686.9]
-      Layers:
+      #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
+      #  Resolution (x / y): (3,881.255 / 3,881.255)
+      #  Projected CRS: World_Robinson
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
+      
       $ x       <dbl> -610394.8, -606513.5, -602632.2,~
       $ y       <dbl> 4618746, 4618746, 4618746, 46187~
       $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
       $ tavg_05 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
       $ tavg_06 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
 
+---
+
+    Code
+      glimpse(r, width = 50, n = 1)
+    Output
+      #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
+      #  Resolution (x / y): (3,881.255 / 3,881.255)
+      #  Projected CRS: World_Robinson
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
+      
+      $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
+    Message
+      # i 2 more layers : tavg_05 <dbl>, tavg_06 <dbl>
+
+---
+
+    Code
+      glimpse(r, width = 50, n = 2)
+    Output
+      #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
+      #  Resolution (x / y): (3,881.255 / 3,881.255)
+      #  Projected CRS: World_Robinson
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
+      
+      $ tavg_04 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
+      $ tavg_05 <dbl> NA, NA, NA, NA, NA, NA, NA, NA, ~
+    Message
+      # i 1 more layer : tavg_06 <dbl>
+
 # Stress SpatRaster
 
     Code
       inv <- glimpse(v)
     Output
-      Rows: 126
-      Columns: 212
-      Layers: 1
-      Cells: 26,712
-      Resolution (x , y): 1' 30" , 1' 30"
-      Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-      Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]
-      Layer:
+      #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
+      #  Resolution (x / y): (1' 30" , 1' 30")
+      #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
+      #  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
+      
       $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
 
 ---
@@ -186,14 +241,11 @@
     Code
       inv <- glimpse(v2)
     Output
-      Rows: 126
-      Columns: 212
-      Layers: 1
-      Cells: 26,712
-      Resolution (x , y): 1' 30" , 1' 30"
-      Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-      Extent (x , y) : [7° 4' 30" W - 1° 46' 30" W] , [40° 4' 60" N - 43° 13' 60" N]
-      Layer:
+      #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
+      #  Resolution (x / y): (1' 30" , 1' 30")
+      #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
+      #  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
+      
       $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
 
 ---
@@ -201,31 +253,37 @@
     Code
       inv <- glimpse(v2)
     Output
-      Rows: 126
-      Columns: 212
-      Layers: 1
-      Cells: 26,712
-      Resolution (x , y): 0.025 , 0.025
-      Projected CRS: Cartesian (Meter)
-      Extent (x , y) : [-7.07500 - -1.77500] , [40.08333 - 43.23333]
-      Layer:
+      #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
+      #  Resolution (x / y): (0.025 / 0.025)
+      #  Projected CRS: Cartesian (Meter)
+      #  Extent (x / y) : ([-7.07500 / -1.77500] , [40.08333 / 43.23333])
+      
       $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361~
+
+---
+
+    Code
+      inv <- glimpse(empt)
+    Output
+      #  A SpatRaster 180 x 360 x 2 layers (64,800 cells)
+      #  Resolution (x / y): (1° , 1°)
+      #  Geodetic CRS: lon/lat WGS 84
+      #  Extent (x / y) : ([180° 0' 0" W / 180° 0' 0" E] , [90° 0' 0" S / 90° 0' 0" N])
+      
+      SpatRaster with no values
 
 # RGB SpatRaster
 
     Code
       inv <- glimpse(v)
     Output
-      Rows: 212
-      Columns: 261
-      Layers: 3
-      Cells: 55,332
-      Resolution (x , y): 2,445.985 , 2,445.985
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
-      Raster with 3 RGB channels: cyl_tile_1 (Red), cyl_tile_2 (Green), cyl_tile_3 (Blue)
-      Layers:
+      #  A SpatRaster 212 x 261 x 3 layers (55,332 cells)
+      #  Resolution (x / y): (2,445.985 / 2,445.985)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -812,067.0 /  -173,664.9] , [4,852,834.1 / 5,371,382.9])
+      #  SpatRaster with 3 RGB channels: cyl_tile_1 (Red), cyl_tile_2 (Green), cyl_tile_3 (Blue)
+      
       $ cyl_tile_1 <int> 217, 234, 217, 217, 242, 200, 197, 197, 217, 209, 213, 205,~
       $ cyl_tile_2 <int> 229, 235, 229, 229, 239, 153, 180, 187, 229, 226, 228, 225,~
       $ cyl_tile_3 <int> 206, 224, 206, 206, 233, 169, 194, 193, 206, 198, 202, 194,~
@@ -235,16 +293,13 @@
     Code
       inv <- glimpse(v)
     Output
-      Rows: 212
-      Columns: 261
-      Layers: 3
-      Cells: 55,332
-      Resolution (x , y): 2,445.985 , 2,445.985
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
-      Raster with 3 RGB channels: cyl_tile_2 (Red), cyl_tile_3 (Green), cyl_tile_1 (Blue)
-      Layers:
+      #  A SpatRaster 212 x 261 x 3 layers (55,332 cells)
+      #  Resolution (x / y): (2,445.985 / 2,445.985)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -812,067.0 /  -173,664.9] , [4,852,834.1 / 5,371,382.9])
+      #  SpatRaster with 3 RGB channels: cyl_tile_2 (Red), cyl_tile_3 (Green), cyl_tile_1 (Blue)
+      
       $ cyl_tile_1 <int> 217, 234, 217, 217, 242, 200, 197, 197, 217, 209, 213, 205,~
       $ cyl_tile_2 <int> 229, 235, 229, 229, 239, 153, 180, 187, 229, 226, 228, 225,~
       $ cyl_tile_3 <int> 206, 224, 206, 206, 233, 169, 194, 193, 206, 198, 202, 194,~
@@ -254,16 +309,13 @@
     Code
       inv <- glimpse(v)
     Output
-      Rows: 212
-      Columns: 261
-      Layers: 4
-      Cells: 55,332
-      Resolution (x , y): 2,445.985 , 2,445.985
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -812,067.0 -  -173,664.9] , [4,852,834.1 - 5,371,382.9]
-      Raster with 4 RGB channels: aa (Red), cyl_tile_3 (Green), cyl_tile_2 (Blue), cyl_tile_1 (Alpha)
-      Layers:
+      #  A SpatRaster 212 x 261 x 4 layers (55,332 cells)
+      #  Resolution (x / y): (2,445.985 / 2,445.985)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -812,067.0 /  -173,664.9] , [4,852,834.1 / 5,371,382.9])
+      #  SpatRaster with 4 RGB channels: aa (Red), cyl_tile_3 (Green), cyl_tile_2 (Blue), cyl_tile_1 (Alpha)
+      
       $ cyl_tile_1 <int> 217, 234, 217, 217, 242, 200, 197, 197, 217, 209, 213, 205,~
       $ cyl_tile_2 <int> 229, 235, 229, 229, 239, 153, 180, 187, 229, 226, 228, 225,~
       $ cyl_tile_3 <int> 206, 224, 206, 206, 233, 169, 194, 193, 206, 198, 202, 194,~
@@ -274,16 +326,13 @@
     Code
       inv <- glimpse(v)
     Output
-      Rows: 470
-      Columns: 590
-      Layers: 1
-      Cells: 277,300
-      Resolution (x , y): 1,000 , 1,000
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
-      Raster with 1 color table in: era
-      Layer:
+      #  A SpatRaster 470 x 590 x 1 layer (277,300 cells)
+      #  Resolution (x / y): (1,000 / 1,000)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -787,640.9 /  -197,640.9] , [4,878,097.0 / 5,348,097.0])
+      #  SpatRaster with 1 color table in: era
+      
       $ era <fct> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
 
 ---
@@ -291,16 +340,13 @@
     Code
       inv <- glimpse(end)
     Output
-      Rows: 470
-      Columns: 590
-      Layers: 2
-      Cells: 277,300
-      Resolution (x , y): 1,000 , 1,000
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
-      Raster with 1 color table in: era
-      Layers:
+      #  A SpatRaster 470 x 590 x 2 layers (277,300 cells)
+      #  Resolution (x / y): (1,000 / 1,000)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -787,640.9 /  -197,640.9] , [4,878,097.0 / 5,348,097.0])
+      #  SpatRaster with 1 color table in: era
+      
       $ nocoltab <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
       $ era      <fct> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
 
@@ -309,16 +355,13 @@
     Code
       inv <- glimpse(twocoltabs)
     Output
-      Rows: 470
-      Columns: 590
-      Layers: 3
-      Cells: 277,300
-      Resolution (x , y): 1,000 , 1,000
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
-      Raster with 2 color tables in: era, ihaveacoltab
-      Layers:
+      #  A SpatRaster 470 x 590 x 3 layers (277,300 cells)
+      #  Resolution (x / y): (1,000 / 1,000)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -787,640.9 /  -197,640.9] , [4,878,097.0 / 5,348,097.0])
+      #  SpatRaster with 2 color tables in: era, ihaveacoltab
+      
       $ nocoltab     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
       $ era          <fct> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
       $ ihaveacoltab <fct> S, W, S, S, W, S, S, W, S, S, W, S, S, W, S, S, W, S, S, ~
@@ -328,16 +371,13 @@
     Code
       glimpse(terra::subset(twocoltabs, c(1, 3, 2)))
     Output
-      Rows: 470
-      Columns: 590
-      Layers: 3
-      Cells: 277,300
-      Resolution (x , y): 1,000 , 1,000
-      Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
-      CRS projection units: m
-      Extent (x , y) : [ -787,640.9 -  -197,640.9] , [4,878,097.0 - 5,348,097.0]
-      Raster with 2 color tables in: ihaveacoltab, era
-      Layers:
+      #  A SpatRaster 470 x 590 x 3 layers (277,300 cells)
+      #  Resolution (x / y): (1,000 / 1,000)
+      #  Projected CRS: WGS 84 / Pseudo-Mercator (EPSG:3857)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([ -787,640.9 /  -197,640.9] , [4,878,097.0 / 5,348,097.0])
+      #  SpatRaster with 2 color tables in: ihaveacoltab, era
+      
       $ nocoltab     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
       $ ihaveacoltab <fct> S, W, S, S, W, S, S, W, S, S, W, S, S, W, S, S, W, S, S, ~
       $ era          <fct> NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N~
@@ -375,14 +415,11 @@
     Code
       glimpse(r)
     Output
-      Rows: 180
-      Columns: 360
-      Layers: 1
-      Cells: 64,800
-      Resolution (x , y): 1 , 1
-      CRS: Not Defined / Empty
-      Extent (x , y) : [-180 -  180] , [ -90 -   90]
-      Layer:
+      #  A SpatRaster 180 x 360 x 1 layer (64,800 cells)
+      #  Resolution (x / y): (1 / 1)
+      #  CRS: Not Defined / Empty
+      #  Extent (x / y) : ([-180 /  180] , [ -90 /   90])
+      
       $ lyr.1 <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
 
 ---
@@ -390,10 +427,10 @@
     Code
       glimpse(v)
     Output
-      Geometry type: Points
-      CRS: Not Defined / Empty
-      Extent (x , y) : [-179.5 -  179.5] , [ -89.5 -   89.5]
-      Rows: 64,800
-      Columns: 1
+      #  A SpatVector 64,800 x 1
+      #  Geometry type: Points
+      #  CRS: Not Defined / Empty
+      #  Extent (x / y) : ([-179.5 /  179.5] , [ -89.5 /   89.5])
+      
       $ lyr.1 <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
 
