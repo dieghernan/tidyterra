@@ -139,8 +139,8 @@ vars are transferred and a "grouped" <code>SpatVector</code> is created (see
 <li><p>If no <code>crs</code> is provided and the tibble has been created with the method
 <code><a href="as_tibble.Spat.html">as_tibble.SpatVector()</a></code>, the <code>crs</code> is inferred from
 <code><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr(x, "crs")</a></code>.</p></li>
-<li><p>Handles correctly the conversion of <code>EMPTY</code> geometries between <span class="pkg">sf</span>
-and <span class="pkg">terra</span>.</p></li>
+<li><p>Handles correctly the conversion of <code>EMPTY</code> geometries between
+<a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> and <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a>.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -151,7 +151,8 @@ and <span class="pkg">terra</span>.</p></li>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="pull_crs.html">pull_crs()</a></code></p>
+    <div class="dont-index"><p><code><a href="pull_crs.html">pull_crs()</a></code> for retrieving crs, and the corresponding utils <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>
+and <code>terra:.crs()</code>.</p>
 <p>Coercing objects:
 <code><a href="as_coordinates.html">as_coordinates</a>()</code>,
 <code><a href="as_sf.html">as_sf</a>()</code>,
