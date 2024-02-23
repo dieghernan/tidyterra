@@ -292,11 +292,11 @@ vect(system.file("ex/lux.shp", package = "terra")) %>%
     title = "Population density of Luxembourg",
     subtitle = "By canton"
   )
-#> Geometry type: Polygons
-#> Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> Extent (x , y) : [5° 44' 38.9045" E - 6° 31' 41.7076" E] , [49° 26' 52.1063" N - 50° 10' 53.8376" N]
-#> Rows: 12
-#> Columns: 7
+#> #  A SpatVector 12 x 7
+#> #  Geometry type: Polygons
+#> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
+#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> 
 #> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
 #> $ NAME_1   <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…
 #> $ ID_2     <dbl> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11
