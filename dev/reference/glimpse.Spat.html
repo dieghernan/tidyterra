@@ -90,10 +90,10 @@ layer/column in a <code>Spat*</code> object.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for SpatRaster</span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span>, n <span class="op">=</span> <span class="fl">10</span>, max_extra_cols <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for SpatVector</span></span>
-<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span>, n <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">x</span>, width <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span>, n <span class="op">=</span> <span class="fl">10</span>, max_extra_cols <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -115,6 +115,11 @@ for <code>SpatRaster</code> and <code>SpatVector</code>. See <code><a href="as_t
 
 <dt>n</dt>
 <dd><p>Maximum number of rows to show.</p></dd>
+
+
+<dt>max_extra_cols</dt>
+<dd><p>Number of extra columns or layers to print abbreviated
+information for, if <code>n</code> is too small for the <code>Spat*</code> object.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -185,8 +190,8 @@ be used within a data pipeline.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ cpro <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "05", "09", "24", "34", "37", "40", "42", "47", "49"</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #555555;">1 more variable : name &lt;chr&gt;</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #555555;">Use `tidyterra::glimpse(n = ...)` to see more columns</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 1 more variable : name &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ Use `tidyterra::glimpse(n = ...)` to see more columns</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use on a pipeline</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
@@ -243,8 +248,6 @@ be used within a data pipeline.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ x           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> -7.0625, -7.0375, -7.0125, -6.9875, -6.9625, -6.9375, -6.9…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ y           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 43.22083, 43.22083, 43.22083, 43.22083, 43.22083, 43.22083…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ elevation_m <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ b           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 7.002969, 7.803889, 7.061250, 5.689722, 5.849028, 5.067361…</span>
 </code></pre></div>
