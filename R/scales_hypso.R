@@ -125,8 +125,13 @@
 #'     guide = guide_colorbar(reverse = TRUE)
 #'   ) +
 #'   labs(fill = "elevation (m)") +
-#'   theme_minimal()
-#'
+#'   theme(
+#'     legend.position = "bottom",
+#'     legend.title.position = "top",
+#'     legend.key.width = rel(3),
+#'     legend.ticks = element_line(colour = "black", linewidth = 0.3),
+#'     legend.direction = "horizontal"
+#'   ) #'
 #'
 #' # Binned
 #' ggplot() +
@@ -175,7 +180,6 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_d",
     palette = hypso_pal(
       alpha = alpha,
       direction = direction,
@@ -202,7 +206,6 @@ scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_d",
     palette = hypso_pal(
       alpha = alpha,
       direction = direction,
@@ -234,8 +237,7 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_c",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -265,8 +267,7 @@ scale_colour_hypso_c <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_c",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -295,8 +296,7 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_b",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -325,8 +325,7 @@ scale_colour_hypso_b <- function(palette = "etopo1_hypso", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_b",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -417,7 +416,6 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_tint_fill_d",
     palette = hypso_pal2(
       alpha = alpha,
       direction = direction,
@@ -444,7 +442,6 @@ scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "hypso_tint_colour_d",
     palette = hypso_pal2(
       alpha = alpha,
       direction = direction,

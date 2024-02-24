@@ -95,7 +95,6 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "wiki_fill_d",
     palette = wiki_pal(
       alpha = alpha,
       direction = direction
@@ -121,7 +120,6 @@ scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "wiki_colour_d",
     palette = wiki_pal(
       alpha = alpha,
       direction = direction
@@ -153,8 +151,7 @@ scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "wiki_fill_c",
-    scales::gradient_n_pal(wiki_pal(
+    palette = scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
     )(length_pal)),
@@ -180,8 +177,7 @@ scale_colour_wiki_c <- function(..., alpha = 1, direction = 1,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "wiki_colour_c",
-    scales::gradient_n_pal(wiki_pal(
+    palette = scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
     )(length_pal)),
@@ -212,8 +208,7 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "wiki_fill_b",
-    scales::gradient_n_pal(wiki_pal(
+    palette = scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
     )(length_pal)),
@@ -240,8 +235,7 @@ scale_colour_wiki_b <- function(..., alpha = 1, direction = 1,
 
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "wiki_colour_b",
-    scales::gradient_n_pal(wiki_pal(
+    palette = scales::gradient_n_pal(wiki_pal(
       alpha = alpha,
       direction = direction
     )(length_pal)),

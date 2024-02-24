@@ -86,7 +86,6 @@ scale_fill_terrain_d <- function(..., alpha = 1, direction = 1,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "terrain_fill_d",
     palette = terrain_pal(
       alpha = alpha,
       direction = direction
@@ -112,7 +111,6 @@ scale_colour_terrain_d <- function(..., alpha = 1, direction = 1,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "terrain_colour_d",
     palette = terrain_pal(
       alpha = alpha,
       direction = direction
@@ -139,8 +137,7 @@ scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "terrain_fill_c",
-    scales::gradient_n_pal(terrain_pal(
+    palette = scales::gradient_n_pal(terrain_pal(
       alpha = alpha,
       direction = direction
     )(100)),
@@ -165,8 +162,7 @@ scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "terrain_colour_c",
-    scales::gradient_n_pal(terrain_pal(
+    palette = scales::gradient_n_pal(terrain_pal(
       alpha = alpha,
       direction = direction
     )(100)),
@@ -192,8 +188,7 @@ scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
 
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "terrain_fill_c",
-    scales::gradient_n_pal(terrain_pal(
+    palette = scales::gradient_n_pal(terrain_pal(
       alpha = alpha,
       direction = direction
     )(100)),
@@ -218,8 +213,7 @@ scale_colour_terrain_b <- function(..., alpha = 1, direction = 1,
 
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "terrain_colour_c",
-    scales::gradient_n_pal(terrain_pal(
+    palette = scales::gradient_n_pal(terrain_pal(
       alpha = alpha,
       direction = direction
     )(100)),

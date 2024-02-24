@@ -164,7 +164,7 @@ as_tbl_internal <- function(x) {
 }
 
 #' Strict internal version, returns a tibble with required attributes to
-#' rebuild a SpatRaster
+#' rebuild a `SpatRaster`
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_spat_attr <- function(x) {
@@ -193,7 +193,7 @@ as_tbl_spat_attr <- function(x) {
 
 
 #' Strict internal version, returns a tibble with required attributes to
-#' rebuild a SpatVector
+#' rebuild a `SpatVector`
 #' This is the underlying object that would be handled by the tidyverse
 #' @noRd
 as_tbl_vector_internal <- function(x) {

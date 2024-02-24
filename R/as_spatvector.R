@@ -23,8 +23,8 @@
 #'   column with WKT geometries.
 #'
 #' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-#'   and spatial object from sf or terra that includes the target coordinate
-#'   reference system. See [pull_crs()] and **Details**.
+#'   and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+#'   target coordinate reference system. See [pull_crs()] and **Details**.
 #'
 #'
 #' @details
@@ -47,7 +47,7 @@
 #' @seealso
 #'
 #' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
-#' and [terra:;crs()].
+#' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -223,9 +223,9 @@ as_spatvector.SpatVector <- function(x, ...) {
 }
 
 
-#' Rebuild objects created with as_tbl_internal to Spatvector
+#' Rebuild objects created with as_tbl_internal to `SpatVector`
 #' Strict version, used attributes for creating a template
-#' SpatVector and then transfer the values
+#' `SpatVector` and then transfer the values
 #' @noRd
 as_spatvect_attr <- function(x) {
   if (inherits(x, "SpatVector")) {

@@ -29,8 +29,8 @@ two names for x and y coordinates of points, or a single name for a single
 column with WKT geometries.}
 
 \item{crs}{A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-and spatial object from sf or terra that includes the target coordinate
-reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
+and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
 }
 \value{
 A \code{SpatVector}.
@@ -80,7 +80,7 @@ newvect
 }
 \seealso{
 \code{\link[=pull_crs]{pull_crs()}} for retrieving crs, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
-and \code{\link[terra::crs]{terra::crs()}}.
+and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
 \code{\link{as_coordinates}()},

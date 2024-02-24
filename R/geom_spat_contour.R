@@ -1,8 +1,8 @@
-#' Plot SpatRaster contours
+#' Plot `SpatRaster` contours
 #'
 #' @description
 #'
-#' These geoms create contours of SpatRaster objects.  To specify a valid
+#' These geoms create contours of `SpatRaster` objects.  To specify a valid
 #' surface, you should specify the layer on `aes(z = layer_name)`, otherwise all
 #' the layers would be consider for creating contours. See also **Facets**
 #' section.

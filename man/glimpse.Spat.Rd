@@ -6,9 +6,9 @@
 \alias{glimpse.SpatVector}
 \title{Get a nice glimpse of your \verb{Spat*} objects}
 \usage{
-\method{glimpse}{SpatRaster}(x, width = NULL, ..., n = NULL)
+\method{glimpse}{SpatRaster}(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
-\method{glimpse}{SpatVector}(x, width = NULL, ..., n = NULL)
+\method{glimpse}{SpatVector}(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 }
 \arguments{
 \item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
@@ -21,6 +21,9 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 for \code{SpatRaster} and \code{SpatVector}. See \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}.}
 
 \item{n}{Maximum number of rows to show.}
+
+\item{max_extra_cols}{Number of extra columns or layers to print abbreviated
+information for, if \code{n} is too small for the \verb{Spat*} object.}
 }
 \value{
 original \code{x} is (invisibly) returned, allowing \code{glimpse()} to

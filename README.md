@@ -271,6 +271,13 @@ ggplot() +
   labs(
     fill = "elevation (m)",
     title = "Hypsometric map of Asia"
+  ) +
+  theme(
+    legend.position = "bottom",
+    legend.title.position = "top",
+    legend.key.width = rel(3),
+    legend.ticks = element_line(colour = "black", linewidth = 0.3),
+    legend.direction = "horizontal"
   )
 ```
 

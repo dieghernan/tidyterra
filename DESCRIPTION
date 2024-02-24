@@ -23,7 +23,7 @@ Imports:
     cli (>= 3.0.0),
     data.table,
     dplyr (>= 1.0.0),
-    ggplot2 (>= 3.1.0),
+    ggplot2 (>= 3.5.0),
     magrittr,
     rlang,
     scales,

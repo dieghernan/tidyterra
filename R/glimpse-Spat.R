@@ -25,7 +25,9 @@
 #' @param width Width of output: defaults to the setting of the width option
 #'   (if finite) or the width of the console. See [dplyr::glimpse()].
 #' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods
-#' for `SpatRaster` and `SpatVector`. See [as_tibble.SpatRaster()].
+#'   for `SpatRaster` and `SpatVector`. See [as_tibble.SpatRaster()].
+#' @param max_extra_cols Number of extra columns or layers to print abbreviated
+#'   information for, if `n` is too small for the `Spat*` object.
 #' @param n Maximum number of rows to show.
 #'
 #' @section \CRANpkg{terra} equivalent:
@@ -66,7 +68,8 @@
 #'   mutate(b = elevation_m / 100) %>%
 #'   # With options
 #'   glimpse(xy = TRUE)
-glimpse.SpatRaster <- function(x, width = NULL, ..., n = NULL) {
+glimpse.SpatRaster <- function(x, width = NULL, ..., n = 10,
+                               max_extra_cols = 20) {
   # Class
   nr <- format(terra::nrow(x), big.mark = ",", decimal.mark = ".")
   nc <- format(terra::ncol(x), big.mark = ",", decimal.mark = ".")
@@ -98,7 +101,7 @@ glimpse.SpatRaster <- function(x, width = NULL, ..., n = NULL) {
   if (!terra::hasValues(x)) {
     cli::cat_line("SpatRaster with no values")
   } else {
-    tterra_body(x, ..., width = width, n = n)
+    tterra_body(x, ..., width = width, n = n, max_extra_cols = max_extra_cols)
   }
 
 
@@ -107,7 +110,8 @@ glimpse.SpatRaster <- function(x, width = NULL, ..., n = NULL) {
 
 #' @rdname glimpse.Spat
 #' @export
-glimpse.SpatVector <- function(x, width = NULL, ..., n = NULL) {
+glimpse.SpatVector <- function(x, width = NULL, ..., n = 10,
+                               max_extra_cols = 20) {
   # Class
   nr <- format(terra::nrow(x), big.mark = ",", decimal.mark = ".")
   nc <- format(terra::ncol(x), big.mark = ",", decimal.mark = ".")
@@ -127,7 +131,7 @@ glimpse.SpatVector <- function(x, width = NULL, ..., n = NULL) {
     cli::cat_line("SpatVector with no attributes (only geometries)")
   } else {
     # Manipulate tibble format (with options if provided)
-    tterra_body(x, ..., width = width, n = n)
+    tterra_body(x, ..., width = width, n = n, max_extra_cols = max_extra_cols)
   }
   return(invisible(x))
 }
@@ -332,11 +336,18 @@ tterra_header_string_ctab <- function(x) {
 }
 
 # Body from tbl
-tterra_body <- function(x, width = cli::console_width(), n = 10, ...) {
+tterra_body <- function(x, width = cli::console_width(), n = 10, ...,
+                        max_extra_cols = 20) {
   init_type <- class(x)
-  x <- as_tibble(x, ...)
+  # Need just a small subset for printing, improve speed
+  max_rows <- min(terra::nrow(x), 30)
+
+  x <- as_tibble(x[seq_len(max_rows), ], ...)
   if (!is.numeric(n)) n <- 10
   n <- max(1, n)
+
+  if (!is.numeric(max_extra_cols)) n <- 20
+  max_extra_cols <- max(1, max_extra_cols)
 
   extra_cols <- NULL
 
@@ -365,23 +376,37 @@ tterra_body <- function(x, width = cli::console_width(), n = 10, ...) {
       paste0("<", aa, ">")
     }, character(1))
 
-    extra_text <- paste(names(extra_text), extra_text, collapse = ", ")
+    # Check if we hit extra cols
 
+    dots_extra <- ""
+    if (length(extra_text) > max_extra_cols) {
+      extra_text <- extra_text[seq_len(max_extra_cols)]
+      dots_extra <- ", ..."
+    }
+
+    extra_text <- paste(names(extra_text), extra_text, collapse = ", ")
+    extra_text <- paste0(extra_text, dots_extra)
     # Full message
     nms <- ifelse(ncol(extra_cols) == 1, "variable", "variables")
     if (init_type == "SpatRaster") nms <- gsub("variable", "layer", nms)
     full <- paste(
+      "#", cli::symbol$info,
       format(ncol(extra_cols), big.mark = ".", decimal.mark = ","),
       "more", nms, ":", extra_text
     )
+
+    full <- cli::ansi_strwrap(full, exdent = 3)
+    cli::cat_line(tterra_head_style(full))
+
+
     nm2 <- ifelse(init_type == "SpatVector", "columns", "layers")
 
-    hint <- paste0("Use `tidyterra::glimpse(n = ...)` to see more ", nm2)
+    hint <- paste0(
+      "# ", cli::symbol$info,
+      " Use `tidyterra::glimpse(n = ...)` to see more ", nm2
+    )
 
-    # For wrapping
-    cli::cli_bullets(c(
-      "i" = tterra_head_style(full),
-      "i" = tterra_head_style(hint)
-    ))
+    hint <- cli::ansi_strwrap(hint, exdent = 3)
+    cli::cat_line(tterra_head_style(hint))
   }
 }

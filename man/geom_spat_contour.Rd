@@ -4,7 +4,7 @@
 \alias{geom_spat_contour}
 \alias{geom_spatraster_contour}
 \alias{geom_spatraster_contour_filled}
-\title{Plot SpatRaster contours}
+\title{Plot \code{SpatRaster} contours}
 \usage{
 geom_spatraster_contour(
   mapping = NULL,
@@ -78,7 +78,7 @@ than combining with them.}
 A \CRANpkg{ggplot2} layer
 }
 \description{
-These geoms create contours of SpatRaster objects.  To specify a valid
+These geoms create contours of \code{SpatRaster} objects.  To specify a valid
 surface, you should specify the layer on \code{aes(z = layer_name)}, otherwise all
 the layers would be consider for creating contours. See also \strong{Facets}
 section.

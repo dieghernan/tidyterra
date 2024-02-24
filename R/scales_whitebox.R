@@ -110,7 +110,6 @@ scale_fill_whitebox_d <- function(palette = "high_relief", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "whitebox_fill_d",
     palette = whitebox_pal(
       alpha = alpha,
       direction = direction,
@@ -137,7 +136,6 @@ scale_colour_whitebox_d <- function(palette = "high_relief", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "whitebox_colour_d",
     palette = whitebox_pal(
       alpha = alpha,
       direction = direction,
@@ -167,8 +165,7 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "whitebox_fill_c",
-    scales::gradient_n_pal(whitebox_pal(
+    palette = scales::gradient_n_pal(whitebox_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -197,8 +194,7 @@ scale_colour_whitebox_c <- function(palette = "high_relief", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "whitebox_colour_c",
-    scales::gradient_n_pal(whitebox_pal(
+    palette = scales::gradient_n_pal(whitebox_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -229,8 +225,7 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "whitebox_fill_b",
-    scales::gradient_n_pal(whitebox_pal(
+    palette = scales::gradient_n_pal(whitebox_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -260,8 +255,7 @@ scale_colour_whitebox_b <- function(palette = "high_relief", ...,
 
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "whitebox_colour_b",
-    scales::gradient_n_pal(whitebox_pal(
+    palette = scales::gradient_n_pal(whitebox_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
