@@ -2,71 +2,71 @@
 #'
 #' @description
 #'
-#' This geom is used to visualise SpatRaster objects (see [terra::rast()]). The
+#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]). The
 #' geom is designed for visualise the object by layers, as [terra::plot()] does.
 #'
-#' For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
+#' For plotting `SpatRaster` objects as map tiles (i.e. RGB `SpatRaster`), use
 #' [geom_spatraster_rgb()].
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
 #' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
-#' @param data A SpatRaster object.
+#' @param data A `SpatRaster` object.
 #'
-#' @param mapping Set of aesthetic mappings created by [ggplot2::aes()] or
-#'   [ggplot2::aes_()]. See **Aesthetics** specially in the use of `fill`
-#'   aesthetic.
+#' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
+#'   **Aesthetics** specially in the use of `fill` aesthetic.
 #'
-#' @param na.rm If `TRUE`, the default, missing values are silently removed.
-#'   If `FALSE`, missing values are removed with a warning.
+#' @param na.rm If `TRUE`, the default, missing values are silently removed. If
+#'   `FALSE`, missing values are removed with a warning.
 #'
 #' @param inherit.aes If `FALSE`, overrides the default aesthetics, rather
 #'   than combining with them.
 #'
-#' @source Based on the `layer_spatial()` implementation on ggspatial package.
-#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-#' [ggspatial
-#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
-#'
 #' @param maxcell positive integer. Maximum number of cells to use for
 #'   the plot.
-#' @param use_coltab Logical. Only applicable to SpatRasters that have a coltab
-#'   ([terra::coltab()]). Should the coltab be used on the plot? See also
+#'
+#' @param use_coltab Logical. Only applicable to `SpatRasters` that have a
+#'   [coltab][terra::coltab()]. Should the coltab be used on the plot? See also
 #'   [scale_fill_coltab()].
+#'
 #' @inheritParams ggplot2::geom_raster
+#'
+#' @source
+#' Based on the `layer_spatial()` implementation on \CRANpkg{ggspatial} package.
+#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
 #' [ggplot2::facet_wrap()]
 #'
-#' @section  \CRANpkg{terra} equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
 #'
 #' @section Coords:
 #'
-#' When the SpatRaster does not present a crs (i.e.,
+#' When the `SpatRaster` does not present a crs (i.e.,
 #' `terra::crs(rast) == ""`) the geom does not make any assumption on the
 #' scales.
 #'
-#' On SpatRaster that have a crs, the geom uses [ggplot2::coord_sf()] to adjust
-#' the scales. That means that also the **SpatRaster may be reprojected**.
-#'
+#' On `SpatRaster` that have a crs, the geom uses [ggplot2::coord_sf()] to
+#' adjust the scales. That means that also the
+#' **SpatRaster may be reprojected**.
 #'
 #' @section Aesthetics:
 #'
-#'
 #' `geom_spatraster()` understands the following aesthetics:
 #'
-#' - `fill`
-#' - `alpha`
+#'  - [`fill`][ggplot2::aes_colour_fill_alpha]
+#'  - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a \CRANpkg{ggplot2}
-#' layer with all the layers of the SpatRaster object. Use `facet_wrap(~lyr)`
-#' to display properly the SpatRaster layers.
+#' layer with all the layers of the `SpatRaster` object. Use `facet_wrap(~lyr)`
+#' to display properly the `SpatRaster` layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
-#' on the SpatRaster (i.e.
+#' on the `SpatRaster` (i.e.
 #' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Names of the
 #' layers can be retrieved using `names(rast)`.
 #'
@@ -81,7 +81,7 @@
 #' @section Facets:
 #'
 #' You can use ` facet_wrap(~lyr)` for creating a faceted plot by each layer of
-#' the SpatRaster object. See [ggplot2::facet_wrap()] for details.
+#' the `SpatRaster` object. See [ggplot2::facet_wrap()] for details.
 #'
 #' @section Computed variables:
 #'
@@ -89,10 +89,8 @@
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
-#' \describe{
-#'  \item{`value`}{Values of the SpatRaster.}
-#'  \item{`lyr`}{Name of the layer.}
-#' }
+#'  - `after_stat(value)`: Values of the `SpatRaster.`
+#'  - `after_stat(lyr)`: Name of the layer.
 #'
 #' @export
 #' @examples

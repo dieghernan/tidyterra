@@ -102,8 +102,11 @@ test_that("Stress SpatRaster", {
   expect_s4_class(inv, "SpatRaster")
 
   # Empty
-  skip_on_covr()
-  empt <- terra::rast()
+  empt <- terra::rast(
+    xmin = -25, xmax = 15, ymin = -80, ymax = 10,
+    resolution = 10
+  )
+  empt <- terra::project(empt, "ESRI:54030")
   empt$bb <- empt$lyr.1
   expect_snapshot(inv <- glimpse(empt))
   expect_s4_class(inv, "SpatRaster")

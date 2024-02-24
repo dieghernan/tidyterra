@@ -263,10 +263,11 @@
     Code
       inv <- glimpse(empt)
     Output
-      #  A SpatRaster 180 x 360 x 2 layers (64,800 cells)
-      #  Resolution (x / y): (1° , 1°)
-      #  Geodetic CRS: lon/lat WGS 84 (CRS84) (OGC:CRS84)
-      #  Extent (x / y) : ([180° 0' 0" W / 180° 0' 0" E] , [90° 0' 0" S / 90° 0' 0" N])
+      #  A SpatRaster 9 x 4 x 2 layers (36 cells)
+      #  Resolution (x / y): (987,385.4 / 987,385.4)
+      #  Projected CRS: World_Robinson (ESRI:54030)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([-2,361,760 /  1,587,782] , [-7,816,949 /  1,069,519])
       
       SpatRaster with no values
 

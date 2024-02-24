@@ -41,7 +41,7 @@
 #' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 #' [terra::as.data.frame()].
 #'
-#' @section  \CRANpkg{terra} equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::values()]
 #'

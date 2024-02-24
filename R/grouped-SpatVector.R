@@ -1,17 +1,17 @@
-#' A grouped SpatVector.
+#' A grouped `SpatVector`
 #'
 #' @description
-#' The easiest way to create a grouped SpatVector is to call the
-#' `group_by()` method on a Spatvector: this will take care of capturing
+#' The easiest way to create a grouped `SpatVector` is to call the
+#' `group_by()` method on a `SpatVector`: this will take care of capturing
 #' the unevaluated expressions for you. See [group_by.SpatVector()] for details.
 #'
 #' This function is the adapted version of [dplyr::is_grouped_df()].
 #'
-#' See also [group_data.SpatVector()] for the accessor functions that retrieve
-#' various metadata from a grouped SpatVector.
+#' See also [group_data.SpatVector()] for the accessory functions that retrieve
+#' various metadata from a grouped `SpatVector`.
 #'
 #' @keywords internal
-#' @param x a SpatVector.
+#' @param x a `SpatVector`.
 #'
 #'
 #' @family helpers

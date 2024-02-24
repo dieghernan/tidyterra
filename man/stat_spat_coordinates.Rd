@@ -21,7 +21,7 @@ stat_spat_coordinates(
 at the top level of the plot. You must supply \code{mapping} if there is no plot
 mapping.}
 
-\item{data}{A SpatVector object, see \code{\link[terra:vect]{terra::vect()}}.}
+\item{data}{A \code{SpatVector} object, see \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{geom}{The geometric object to use to display the data, either as a
 \code{ggproto} \code{Geom} subclass or as a string naming the geom stripped of the

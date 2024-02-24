@@ -6,7 +6,7 @@
 \alias{geom_spatvector_label}
 \alias{geom_spatvector_text}
 \alias{stat_spatvector}
-\title{Visualise SpatVector objects}
+\title{Visualise \code{SpatVector} objects}
 \usage{
 geom_spatvector(
   mapping = aes(),
@@ -57,7 +57,7 @@ stat_spatvector(
 at the top level of the plot. You must supply \code{mapping} if there is no plot
 mapping.}
 
-\item{data}{A SpatVector object, see \code{\link[terra:vect]{terra::vect()}}.}
+\item{data}{A \code{SpatVector} object, see \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{na.rm}{If \code{FALSE}, the default, missing values are removed with
 a warning. If \code{TRUE}, missing values are silently removed.}
@@ -103,14 +103,14 @@ settings of the adjustment.}
 A \CRANpkg{ggplot2} layer
 }
 \description{
-Wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} family used to visualise SpatVector objects
-(see \code{\link[terra:vect]{terra::vect()}}).
+Wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} family used to visualise \code{SpatVector}
+objects (see \code{\link[terra:vect]{terra::vect()}}).
 }
 \details{
 These functions are wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions. Since a
-\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \strong{ggplot2} treat a SpatVector
-in the same way that a \code{sf} object. A side effect is that you can use
-\code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with SpatVectors.
+\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \CRANpkg{ggplot2} treat a
+\code{SpatVector} in the same way that a \CRANpkg{sf} object. A side effect is
+that you can use \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with \code{SpatVectors}.
 
 See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }

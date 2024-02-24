@@ -1,4 +1,4 @@
-#' Mutating joins for SpatVectors
+#' Mutating joins for `SpatVector` objects
 #'
 #' @description
 #' Mutating joins add columns from `y` to `x`, matching observations based on
@@ -19,14 +19,14 @@
 #'
 #' @importFrom dplyr inner_join
 #'
-#' @param x A SpatVector created with [terra::vect()].
+#' @param x A `SpatVector` created with [terra::vect()].
 #' @param y A data frame or other object coercible to a data frame. **If a
-#'   SpatVector of sf object** is provided it would return an error (see
+#'   `SpatVector` of `sf` object** is provided it would return an error (see
 #'   [terra::intersect()] for performing spatial joins).
 #'
 #' @inheritParams dplyr::full_join
 #'
-#' @return A SpatVector object.
+#' @return A `SpatVector` object.
 #'
 #'
 #' @section \CRANpkg{terra} equivalent:
@@ -37,7 +37,7 @@
 #'
 #' Implementation of the **generic** [dplyr::inner_join()] family
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' The geometry column has a sticky behavior. This means that the result would
 #' have always the geometry of `x` for the records that matches the join

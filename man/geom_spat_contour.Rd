@@ -33,11 +33,10 @@ geom_spatraster_contour_filled(
 )
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}} or
-\code{\link[ggplot2:aes_]{ggplot2::aes_()}}. See \strong{Aesthetics} specially in the use of \code{fill}
-aesthetic.}
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
+\strong{Aesthetics} specially in the use of \code{fill} aesthetic.}
 
-\item{data}{A SpatRaster object.}
+\item{data}{A \code{SpatRaster} object.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -47,9 +46,9 @@ to the paired geom/stat.}
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{bins}{Number of contour bins. Overridden by \code{binwidth}.}
+\item{bins}{Number of contour bins. Overridden by \code{breaks}.}
 
-\item{binwidth}{The width of the contour bins. Overridden by \code{breaks}.}
+\item{binwidth}{The width of the contour bins. Overridden by \code{bins}.}
 
 \item{breaks}{One of:
 \itemize{
@@ -62,8 +61,8 @@ and returns breaks as output. A function can be created from a formula
 Overrides \code{binwidth} and \code{bins}. By default, this is a vector of length
 ten with \code{\link[=pretty]{pretty()}} breaks.}
 
-\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed.
-If \code{FALSE}, missing values are removed with a warning.}
+\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed. If
+\code{FALSE}, missing values are removed with a warning.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -96,19 +95,18 @@ The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggpl
 
 \code{geom_spatraster_contour}() understands the following aesthetics:
 \itemize{
-\item alpha
-\item colour
-\item group
-\item linetype
-\item linewidth
-\item weight
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{colour}}
+\item \code{\link[ggplot2:aes_group_order]{group}}
+\item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
+\item \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}}
 }
 
 Additionally, \code{geom_spatraster_contour_filled()} understands also the
 following aesthetics, as well as the ones listed above:
 \itemize{
-\item fill
-\item subgroup
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
+\item \code{subgroup}
 }
 
 Check \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}} for more info.
@@ -120,35 +118,35 @@ Check \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}} for more info.
 This geom computes internally some variables that are available for use as
 aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 \code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
-
-\describe{
-\item{\code{level}}{Height of contour. For contour lines, this is numeric vector
-that represents bin boundaries. For contour bands, this is an ordered
-factor that represents bin ranges.}
-\item{\code{nlevel}}{Height of contour, scaled to maximum of 1.}
-\item{\code{lyr}}{Name of the layer.}
-\item{\code{level_low}, \code{level_high}, \code{level_mid}}{(contour bands only) Lower
-and upper bin boundaries for each band, as well the mid point between
-the boundaries.}
+\itemize{
+\item \code{after_stat(lyr)}: Name of the layer.
+\item \code{after_stat(level)}: Height of contour. For contour lines, this is numeric
+vector that represents bin boundaries. For contour bands, this is an
+ordered factor that represents bin ranges.
+\item \code{after_stat(nlevel)}: Height of contour, scaled to maximum of 1.
+\item \code{after_stat(level_low)}, \code{after_stat(level_high)},
+\code{after_stat(level_mid)}: (contour bands only) Lower and upper bin
+boundaries for each band, as well the mid point between the boundaries.
 }
 }
 
 \section{Coords}{
 
 
-When the SpatRaster does not present a crs (i.e.,
+When the \code{SpatRaster} does not present a crs (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On SpatRaster that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to adjust
-the scales. That means that also the \strong{SpatRaster may be reprojected}.
+On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+adjust the scales. That means that also the
+\strong{SpatRaster may be reprojected}.
 }
 
 \section{Facets}{
 
 
 You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer of
-the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \examples{

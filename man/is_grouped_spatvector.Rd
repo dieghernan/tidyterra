@@ -2,22 +2,22 @@
 % Please edit documentation in R/grouped-SpatVector.R
 \name{is_grouped_spatvector}
 \alias{is_grouped_spatvector}
-\title{A grouped SpatVector.}
+\title{A grouped \code{SpatVector}}
 \usage{
 is_grouped_spatvector(x)
 }
 \arguments{
-\item{x}{a SpatVector.}
+\item{x}{a \code{SpatVector}.}
 }
 \description{
-The easiest way to create a grouped SpatVector is to call the
-\code{group_by()} method on a Spatvector: this will take care of capturing
+The easiest way to create a grouped \code{SpatVector} is to call the
+\code{group_by()} method on a \code{SpatVector}: this will take care of capturing
 the unevaluated expressions for you. See \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} for details.
 
 This function is the adapted version of \code{\link[dplyr:grouped_df]{dplyr::is_grouped_df()}}.
 
-See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the accessor functions that retrieve
-various metadata from a grouped SpatVector.
+See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the accessory functions that retrieve
+various metadata from a grouped \code{SpatVector}.
 }
 \seealso{
 Other helpers: 

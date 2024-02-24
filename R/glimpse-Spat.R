@@ -22,6 +22,7 @@
 #'
 #' @inheritParams as_tibble.Spat
 #' @inheritParams tibble::print.tbl_df
+#'
 #' @param width Width of output: defaults to the setting of the width option
 #'   (if finite) or the width of the console. See [dplyr::glimpse()].
 #' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods

@@ -11,10 +11,10 @@
 \method{anti_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 }
 \arguments{
-\item{x}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. \strong{If a
-SpatVector of sf object} is provided it would return an error (see
+\code{SpatVector} of \code{sf} object} is provided it would return an error (see
 \code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
