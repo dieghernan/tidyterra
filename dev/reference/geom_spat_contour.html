@@ -125,13 +125,12 @@ section.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>mapping</dt>
-<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code> or
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_()</a></code>. See <strong>Aesthetics</strong> specially in the use of <code>fill</code>
-aesthetic.</p></dd>
+<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. See
+<strong>Aesthetics</strong> specially in the use of <code>fill</code> aesthetic.</p></dd>
 
 
 <dt>data</dt>
-<dd><p>A SpatRaster object.</p></dd>
+<dd><p>A <code>SpatRaster</code> object.</p></dd>
 
 
 <dt>...</dt>
@@ -147,11 +146,11 @@ the plot.</p></dd>
 
 
 <dt>bins</dt>
-<dd><p>Number of contour bins. Overridden by <code>binwidth</code>.</p></dd>
+<dd><p>Number of contour bins. Overridden by <code>breaks</code>.</p></dd>
 
 
 <dt>binwidth</dt>
-<dd><p>The width of the contour bins. Overridden by <code>breaks</code>.</p></dd>
+<dd><p>The width of the contour bins. Overridden by <code>bins</code>.</p></dd>
 
 
 <dt>breaks</dt>
@@ -164,8 +163,8 @@ ten with <code><a href="https://rdrr.io/r/base/pretty.html" class="external-link
 
 
 <dt>na.rm</dt>
-<dd><p>If <code>TRUE</code>, the default, missing values are silently removed.
-If <code>FALSE</code>, missing values are removed with a warning.</p></dd>
+<dd><p>If <code>TRUE</code>, the default, missing values are silently removed. If
+<code>FALSE</code>, missing values are removed with a warning.</p></dd>
 
 
 <dt>show.legend</dt>
@@ -199,15 +198,14 @@ than combining with them.</p></dd>
     
 
 
-<p><code>geom_spatraster_contour</code>() understands the following aesthetics:</p><ul><li><p>alpha</p></li>
-<li><p>colour</p></li>
-<li><p>group</p></li>
-<li><p>linetype</p></li>
-<li><p>linewidth</p></li>
-<li><p>weight</p></li>
+<p><code>geom_spatraster_contour</code>() understands the following aesthetics:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">colour</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_group_order.html" class="external-link">group</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html" class="external-link">linetype</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html" class="external-link">linewidth</a></code></p></li>
 </ul><p>Additionally, <code>geom_spatraster_contour_filled()</code> understands also the
-following aesthetics, as well as the ones listed above:</p><ul><li><p>fill</p></li>
-<li><p>subgroup</p></li>
+following aesthetics, as well as the ones listed above:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
+<li><p><code>subgroup</code></p></li>
 </ul><p>Check <code><a href="https://ggplot2.tidyverse.org/reference/geom_contour.html" class="external-link">ggplot2::geom_contour()</a></code> for more info.</p>
     </div>
     <div class="section level2">
@@ -217,35 +215,26 @@ following aesthetics, as well as the ones listed above:</p><ul><li><p>fill</p></
 
 <p>This geom computes internally some variables that are available for use as
 aesthetics, using (for example) <code>aes(color = after_stat(&lt;computed&gt;))</code> (see
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p>
-<dl><dt><code>level</code></dt>
-<dd><p>Height of contour. For contour lines, this is numeric vector
-that represents bin boundaries. For contour bands, this is an ordered
-factor that represents bin ranges.</p></dd>
-
-<dt><code>nlevel</code></dt>
-<dd><p>Height of contour, scaled to maximum of 1.</p></dd>
-
-<dt><code>lyr</code></dt>
-<dd><p>Name of the layer.</p></dd>
-
-<dt><code>level_low</code>, <code>level_high</code>, <code>level_mid</code></dt>
-<dd><p>(contour bands only) Lower
-and upper bin boundaries for each band, as well the mid point between
-the boundaries.</p></dd>
-
-
-</dl></div>
+<code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>
+<li><p><code>after_stat(level)</code>: Height of contour. For contour lines, this is numeric
+vector that represents bin boundaries. For contour bands, this is an
+ordered factor that represents bin ranges.</p></li>
+<li><p><code>after_stat(nlevel)</code>: Height of contour, scaled to maximum of 1.</p></li>
+<li><p><code>after_stat(level_low)</code>, <code>after_stat(level_high)</code>,
+<code>after_stat(level_mid)</code>: (contour bands only) Lower and upper bin
+boundaries for each band, as well the mid point between the boundaries.</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
     
 
 
-<p>When the SpatRaster does not present a crs (i.e.,
+<p>When the <code>SpatRaster</code> does not present a crs (i.e.,
 <code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
 scales.</p>
-<p>On SpatRaster that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to adjust
-the scales. That means that also the <strong>SpatRaster may be reprojected</strong>.</p>
+<p>On <code>SpatRaster</code> that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
+adjust the scales. That means that also the
+<strong>SpatRaster may be reprojected</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="facets">Facets<a class="anchor" aria-label="anchor" href="#facets"></a></h2>
@@ -253,7 +242,7 @@ the scales. That means that also the <strong>SpatRaster may be reprojected</stro
 
 
 <p>You can use <code> facet_wrap(~lyr)</code> for creating a faceted plot by each layer of
-the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
+the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

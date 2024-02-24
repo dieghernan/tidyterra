@@ -80,16 +80,16 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Visualise SpatRaster objects as images</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Visualise <code>SpatRaster</code> objects as images</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/geom_spatraster_rgb.R" class="external-link"><code>R/geom_spatraster_rgb.R</code></a></small>
       <div class="d-none name"><code>geom_spatraster_rgb.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
-    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>) as
+    <p>This geom is used to visualise <code>SpatRaster</code> objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>) as
 RGB images. The layers are combined such that they represent the red,
 green and blue channel.</p>
-<p>For plotting SpatRaster objects by layer values use <code><a href="geom_spatraster.html">geom_spatraster()</a></code>.</p>
+<p>For plotting <code>SpatRaster</code> objects by layer values use <code><a href="geom_spatraster.html">geom_spatraster()</a></code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
     </div>
 
@@ -111,9 +111,8 @@ green and blue channel.</p>
 
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p>Based on the <code>layer_spatial()</code> implementation on ggspatial package.
-Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and
-<a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link">ggspatial contributors</a>.</p>
+    <p>Based on the <code>layer_spatial()</code> implementation on <a href="https://CRAN.R-project.org/package=ggspatial" class="external-link"><span class="pkg">ggspatial</span></a> package.
+Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link">ggspatial contributors</a>.</p>
     </div>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
@@ -122,7 +121,7 @@ Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey D
 
 
 <dt>data</dt>
-<dd><p>A SpatRaster object.</p></dd>
+<dd><p>A <code>SpatRaster</code> object.</p></dd>
 
 
 <dt>interpolate</dt>
@@ -172,17 +171,6 @@ to the paired geom/stat.</p></dd>
 <p><code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code></p>
     </div>
     <div class="section level2">
-    <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
-    
-
-
-<p>When the SpatRaster does not present a crs (i.e.,
-<code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
-scales.</p>
-<p>On SpatRaster that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to adjust
-the scales. That means that also the SpatRaster may be reprojected.</p>
-    </div>
-    <div class="section level2">
     <h2 id="aesthetics">Aesthetics<a class="anchor" aria-label="anchor" href="#aesthetics"></a></h2>
     
 
@@ -190,9 +178,21 @@ the scales. That means that also the SpatRaster may be reprojected.</p>
 <p>No <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> is required. In fact, <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> will be ignored.</p>
     </div>
     <div class="section level2">
+    <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
+    
+
+
+<p>When the <code>SpatRaster</code> does not present a crs (i.e.,
+<code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
+scales.</p>
+<p>On <code>SpatRaster</code> that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
+adjust the scales. That means that also the
+<strong>SpatRaster may be reprojected</strong>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.
-You can get also RGB tiles from the <a href="https://CRAN.R-project.org/package=maptiles" class="external-link"><span class="pkg">maptiles</span></a> package,
+    <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.</p>
+<p>You can get also RGB tiles from the <a href="https://CRAN.R-project.org/package=maptiles" class="external-link"><span class="pkg">maptiles</span></a> package,
 see <code><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">maptiles::get_tiles()</a></code>.</p>
 <p>Other ggplot2 utils:
 <code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,

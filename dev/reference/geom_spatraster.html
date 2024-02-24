@@ -90,9 +90,9 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
     </div>
 
     <div class="ref-description section level2">
-    <p>This geom is used to visualise SpatRaster objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>). The
+    <p>This geom is used to visualise <code>SpatRaster</code> objects (see <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>). The
 geom is designed for visualise the object by layers, as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does.</p>
-<p>For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
+<p>For plotting <code>SpatRaster</code> objects as map tiles (i.e. RGB <code>SpatRaster</code>), use
 <code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
 <p><code>stat_spatraster()</code> is provided as a complementary function, so the <code>geom</code>
@@ -127,25 +127,23 @@ can be modified.</p>
 
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
-    <p>Based on the <code>layer_spatial()</code> implementation on ggspatial package.
-Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and
-<a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link">ggspatial contributors</a>.</p>
+    <p>Based on the <code>layer_spatial()</code> implementation on <a href="https://CRAN.R-project.org/package=ggspatial" class="external-link"><span class="pkg">ggspatial</span></a> package.
+Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link">ggspatial contributors</a>.</p>
     </div>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>mapping</dt>
-<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code> or
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_()</a></code>. See <strong>Aesthetics</strong> specially in the use of <code>fill</code>
-aesthetic.</p></dd>
+<dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. See
+<strong>Aesthetics</strong> specially in the use of <code>fill</code> aesthetic.</p></dd>
 
 
 <dt>data</dt>
-<dd><p>A SpatRaster object.</p></dd>
+<dd><p>A <code>SpatRaster</code> object.</p></dd>
 
 
 <dt>na.rm</dt>
-<dd><p>If <code>TRUE</code>, the default, missing values are silently removed.
-If <code>FALSE</code>, missing values are removed with a warning.</p></dd>
+<dd><p>If <code>TRUE</code>, the default, missing values are silently removed. If
+<code>FALSE</code>, missing values are removed with a warning.</p></dd>
 
 
 <dt>show.legend</dt>
@@ -172,8 +170,8 @@ the plot.</p></dd>
 
 
 <dt>use_coltab</dt>
-<dd><p>Logical. Only applicable to SpatRasters that have a coltab
-(<code><a href="https://rspatial.github.io/terra/reference/colors.html" class="external-link">terra::coltab()</a></code>). Should the coltab be used on the plot? See also
+<dd><p>Logical. Only applicable to <code>SpatRasters</code> that have a
+coltab. Should the coltab be used on the plot? See also
 <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
@@ -208,24 +206,25 @@ for SpatRaster are <code>"raster"</code> (the default), <code>"point"</code>,<co
     
 
 
-<p>When the SpatRaster does not present a crs (i.e.,
+<p>When the <code>SpatRaster</code> does not present a crs (i.e.,
 <code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
 scales.</p>
-<p>On SpatRaster that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to adjust
-the scales. That means that also the <strong>SpatRaster may be reprojected</strong>.</p>
+<p>On <code>SpatRaster</code> that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
+adjust the scales. That means that also the
+<strong>SpatRaster may be reprojected</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="aesthetics">Aesthetics<a class="anchor" aria-label="anchor" href="#aesthetics"></a></h2>
     
 
 
-<p><code>geom_spatraster()</code> understands the following aesthetics:</p><ul><li><p><code>fill</code></p></li>
-<li><p><code>alpha</code></p></li>
+<p><code>geom_spatraster()</code> understands the following aesthetics:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
 </ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a>
-layer with all the layers of the SpatRaster object. Use <code>facet_wrap(~lyr)</code>
-to display properly the SpatRaster layers.</p>
+layer with all the layers of the <code>SpatRaster</code> object. Use <code>facet_wrap(~lyr)</code>
+to display properly the <code>SpatRaster</code> layers.</p>
 <p>If <code>fill</code> is used, it should contain the name of one layer that is present
-on the SpatRaster (i.e.
+on the <code>SpatRaster</code> (i.e.
 <code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Names of the
 layers can be retrieved using <code>names(rast)</code>.</p>
 <p>Using <code>geom_spatraster(..., mapping = aes(fill = NULL))</code> or
@@ -258,7 +257,7 @@ section <strong>Computed variables</strong> and <strong>Examples</strong>.</p>
 
 
 <p>You can use <code> facet_wrap(~lyr)</code> for creating a faceted plot by each layer of
-the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
+the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
     </div>
     <div class="section level2">
     <h2 id="computed-variables">Computed variables<a class="anchor" aria-label="anchor" href="#computed-variables"></a></h2>
@@ -267,15 +266,9 @@ the SpatRaster object. See <code><a href="https://ggplot2.tidyverse.org/referenc
 
 <p>This geom computes internally some variables that are available for use as
 aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p>
-<dl><dt><code>value</code></dt>
-<dd><p>Values of the SpatRaster.</p></dd>
-
-<dt><code>lyr</code></dt>
-<dd><p>Name of the layer.</p></dd>
-
-
-</dl></div>
+<code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(value)</code>: Values of the <code>SpatRaster.</code></p></li>
+<li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>,
