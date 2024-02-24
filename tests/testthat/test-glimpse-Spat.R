@@ -102,6 +102,7 @@ test_that("Stress SpatRaster", {
   expect_s4_class(inv, "SpatRaster")
 
   # Empty
+  skip_on_covr()
   empt <- terra::rast()
   empt$bb <- empt$lyr.1
   expect_snapshot(inv <- glimpse(empt))
