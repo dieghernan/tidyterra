@@ -71,7 +71,7 @@ reference:
 - subtitle: Pivoting
   description: |
     Pivoting changes the representation of a `SpatVector` object, without
-    changing the data inside of it..
+    changing the data inside of it.
   contents: has_concept("tidyr.pivot")
 - subtitle: Missing values
   description: |
