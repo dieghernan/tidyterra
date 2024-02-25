@@ -7,7 +7,7 @@
 #' can be modified.
 #'
 #' @param geom The geometric object to use display the data. Recommended `geom`
-#'   for SpatRaster are `"raster"` (the default), `"point"`,`"text"` and
+#'   for `SpatRaster` are `"raster"` (the default), `"point"`,`"text"` and
 #'   `"label"`.
 #' @seealso Alternative geoms: [ggplot2::geom_point()], [ggplot2::geom_label()],
 #'   [ggplot2::geom_text()].

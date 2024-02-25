@@ -4,26 +4,26 @@
 \alias{select.Spat}
 \alias{select.SpatRaster}
 \alias{select.SpatVector}
-\title{Subset layers/attributes of Spat* objects}
+\title{Subset layers/attributes of \verb{Spat*} objects}
 \usage{
 \method{select}{SpatRaster}(.data, ...)
 
 \method{select}{SpatVector}(.data, ...)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{\code{\link[dplyr:select]{tidy-select}} One or more unquoted expressions
-separated by commas. Layer/attribute names can be used as if they were
-positions in the Spat* object, so expressions like x:y can be used to
-select a range of layers/attributes.}
+\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more unquoted
+expressions separated by commas. Layer/attribute names can be used as if
+they were positions in the \verb{Spat*} object, so expressions like \code{x:y} can
+be used to select a range of layers/attributes.}
 }
 \value{
-A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-Select (and optionally rename) attributes/layers in Spat* objects, using a
+Select (and optionally rename) attributes/layers in \verb{Spat*} objects, using a
 concise mini-language. See \strong{Methods}.
 }
 \section{\CRANpkg{terra} equivalent}{
@@ -36,16 +36,16 @@ concise mini-language. See \strong{Methods}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
-Select (and rename) layers of a SpatRaster. The result is a
-SpatRaster with the same extent, resolution and crs than \code{.data}. Only the
+Select (and rename) layers of a \code{SpatRaster}. The result is a
+\code{SpatRaster} with the same extent, resolution and crs than \code{.data}. Only the
 number (and possibly the name) of layers is modified.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-The result is a SpatVector with the selected (and possibly renamed)
+The result is a \code{SpatVector} with the selected (and possibly renamed)
 attributes on the function call.
 }
 }

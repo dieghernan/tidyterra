@@ -80,7 +80,7 @@ scales.
 
 On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
-\strong{SpatRaster may be reprojected}.
+\strong{\code{SpatRaster} may be reprojected}.
 }
 
 \examples{

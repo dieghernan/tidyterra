@@ -17,21 +17,24 @@
 \method{rename_with}{SpatVector}(.data, .fn, .cols = everything(), ...)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{For \code{rename()}: \code{tidy-select} Use \verb{new_name = old_name to rename}
-selected variables.
-
-For \code{rename_with()}: additional arguments passed onto \code{.fn}.}
+\item{...}{Depending on the function:
+\itemize{
+\item For \verb{rename.Spat*()}: <\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}>.
+Use \code{new_name = old_name} to rename selected variables.
+\item For \code{rename_with()}: additional arguments passed onto \code{.fn}.
+}}
 
 \item{.fn}{A function used to transform the selected \code{.cols}. Should
 return a character vector the same length as the input.}
 
-\item{.cols}{\code{tidy-select} Columns to rename; defaults to all columns.}
+\item{.cols}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Columns to rename;
+defaults to all columns.}
 }
 \value{
-A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{rename()} changes the names of individual layers/attributes using
@@ -48,14 +51,15 @@ using a function.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
-Rename layers of a SpatRaster.
+Rename layers of a \code{SpatRaster}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-The result is a SpatVector with the renamed attributes on the function call.
+The result is a \code{SpatVector} with the renamed attributes on the function
+call.
 }
 }
 

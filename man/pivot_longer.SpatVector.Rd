@@ -23,7 +23,7 @@
 )
 }
 \arguments{
-\item{data}{A SpatVector to pivot.}
+\item{data}{A \code{SpatVector} to pivot.}
 
 \item{cols}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> Columns to pivot into
 longer format.}

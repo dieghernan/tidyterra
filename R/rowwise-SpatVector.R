@@ -1,16 +1,14 @@
-#' Group SpatVector by rows
+#' Group `SpatVector` objects by rows
 #'
 #' @description
 #'
-#' `r lifecycle::badge('experimental')`
-#'
-#' `rowwise()` allows you to compute on a SpatVector a row-at-a-time.
+#' `rowwise()` allows you to compute on a `SpatVector` a row-at-a-time.
 #' This is most useful when a vectorised function doesn't exist.
 #'
-#' Most dplyr verbs implementation in \pkg{tidyterra} preserve row-wise
-#' grouping, with the exception of [summarise.SpatVector()]. You can explicitly
-#' ungroup with [ungroup.SpatVector()] or [as_tibble()], or convert to a
-#' grouped SpatVector with [group_by.SpatVector()].
+#' Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
+#' row-wise grouping, with the exception of [summarise.SpatVector()]. You can
+#' explicitly ungroup with [ungroup.SpatVector()] or [as_tibble()], or convert
+#' to a grouped `SpatVector` with [group_by.SpatVector()].
 #'
 #' @export
 #' @rdname rowwise.SpatVector
@@ -22,28 +20,28 @@
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr rowwise
-#' @param data A SpatVector object. See **Methods**.
+#' @param data A `SpatVector` object. See **Methods**.
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> Variables to be
 #'   preserved when calling [summarise.SpatVector()]. This is typically a set
 #'   of variables whose combination uniquely identify each row. See
 #'   [dplyr::rowwise()].
 #'
-#' @return A SpatVector object with an additional attribute.
+#' @return The same `SpatVector` object with an additional attribute.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::rowwise()] function for
-#' SpatVectors.
+#' `SpatVector` objects.
 #'
-#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a row-wise
-#' SpatVector (i.e, subsetting a SpatVector like `v[1:3,1:2]`) the `groups`
-#' attribute can be corrupted. \pkg{tidyterra} would try to re-generate the
-#' SpatVector. This would be triggered the next time you use a dplyr verb on
-#' your SpatVector.
+#' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax** on a
+#' row-wise `SpatVector` (i.e, subsetting a `SpatVector` like `v[1:3,1:2]`) the
+#' `groups` attribute can be corrupted. \CRANpkg{tidyterra} would try to
+#' re-generate the `SpatVector`. This would be triggered the next time you use
+#' a \CRANpkg{dplyr} verb on your `SpatVector`.
 #'
 #' Note also that some operations (as `terra::spatSample()`) would create a new
-#' SpatVector. In these cases, the result won't preserve the `groups` attribute.
-#' Use [rowwise.SpatVector()] to re-group.
+#' `SpatVector`. In these cases, the result won't preserve the `groups`
+#' attribute. Use [rowwise.SpatVector()] to re-group.
 #'
 #' @details
 #'

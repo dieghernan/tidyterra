@@ -66,7 +66,7 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 
 \item{geom}{The geometric object to use display the data. Recommended \code{geom}
-for SpatRaster are \code{"raster"} (the default), \code{"point"},\code{"text"} and
+for \code{SpatRaster} are \code{"raster"} (the default), \code{"point"},\code{"text"} and
 \code{"label"}.}
 }
 \value{
@@ -100,7 +100,7 @@ scales.
 
 On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
-\strong{SpatRaster may be reprojected}.
+\strong{\code{SpatRaster} may be reprojected}.
 }
 
 \section{Aesthetics}{

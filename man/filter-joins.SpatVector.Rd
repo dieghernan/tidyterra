@@ -4,7 +4,7 @@
 \alias{filter-joins.SpatVector}
 \alias{semi_join.SpatVector}
 \alias{anti_join.SpatVector}
-\title{Filtering joins for SpatVectors}
+\title{Filtering joins for \code{SpatVectors}}
 \usage{
 \method{semi_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 
@@ -54,7 +54,7 @@ it is a potentially expensive operation so you must opt into it.}
 \item{...}{Other parameters passed onto methods.}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
 Filtering joins filter rows from \code{x} based on the presence or absence of
@@ -76,7 +76,7 @@ See \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} family
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would
 have always the geometry of \code{x} for the records that matches the join

@@ -17,7 +17,7 @@
 #' @name pivot_longer.SpatVector
 #'
 #'
-#' @param data A SpatVector to pivot.
+#' @param data A `SpatVector` to pivot.
 #' @param cols <[`tidy-select`][tidyr::tidyr_tidy_select]> Columns to pivot into
 #'   longer format.
 #' @inheritParams tidyr::pivot_longer

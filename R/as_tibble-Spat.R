@@ -89,9 +89,7 @@
 #'
 #' as_tibble(v)
 #'
-as_tibble.SpatRaster <- function(x, ...,
-                                 xy = FALSE,
-                                 na.rm = FALSE,
+as_tibble.SpatRaster <- function(x, ..., xy = FALSE, na.rm = FALSE,
                                  .name_repair = "unique") {
   if (xy) x <- make_safe_names(x)
 

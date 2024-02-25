@@ -53,7 +53,7 @@
 #'
 #' On `SpatRaster` that have a crs, the geom uses [ggplot2::coord_sf()] to
 #' adjust the scales. That means that also the
-#' **SpatRaster may be reprojected**.
+#' **`SpatRaster` may be reprojected**.
 #'
 #' @section Aesthetics:
 #'

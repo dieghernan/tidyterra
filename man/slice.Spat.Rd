@@ -85,7 +85,7 @@ slice_colrows(.data, ...)
 \method{slice_colrows}{SpatRaster}(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{\code{\link[dplyr:slice]{data-masking}} Integer row values. Provide

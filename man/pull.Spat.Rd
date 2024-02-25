@@ -11,13 +11,13 @@
 \method{pull}{SpatVector}(.data, var = -1, name = NULL, ...)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{var}{A variable specified as:
 \itemize{
-\item a literal layer/attribute name
-\item a positive integer, giving the position counting from the left
+\item a literal layer/attribute name.
+\item a positive integer, giving the position counting from the left.
 \item a negative integer, giving the position counting from the right.
 }
 
@@ -27,20 +27,20 @@ column you've created most recently).}
 \item{name}{An optional parameter that specifies the column to be used as
 names for a named vector. Specified in a similar manner as \code{var}.}
 
-\item{...}{Arguments passed on to \code{\link[=as_tibble]{as_tibble()}}}
+\item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}}
 }
 \value{
 A vector the same number of cells/geometries as \code{.data}.
 
-On SpatRasters, note that the default (\code{na.rm = FALSE}) would remove
+On \code{SpatRasters}, note that the default (\code{na.rm = FALSE}) would remove
 empty cells, so you may need to pass (\code{na.rm = FALSE}) to \code{...}. See
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 }
 \description{
-\code{pull()} is similar to $ on a data frame. It's mostly useful because it
+\code{pull()} is similar to \code{$} on a data frame. It's mostly useful because it
 looks a little nicer in pipes and it can optionally name the output.
 
-\strong{It is possible to extract the geographic coordinates of a SpatRaster}.
+\strong{It is possible to extract the geographic coordinates of a \code{SpatRaster}}.
 You need to use \code{pull(.data, x, xy = TRUE)}. \code{x} and \code{y} are reserved
 names on terra, since they refer to the geographic coordinates of the layer.
 
@@ -56,9 +56,9 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} function. This is done
-by coercing the Spat* object to a tibble first (see \link{as_tibble.Spat}) and
+by coercing the \verb{Spat*} object to a tibble first (see \link{as_tibble.Spat}) and
 then using \code{\link[dplyr:pull]{dplyr::pull()}} method over the tibble.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
 When passing option \code{na.rm = TRUE} to \code{...}, only cells with a value
 distinct to \code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
@@ -69,12 +69,12 @@ in position \code{1} and \code{2}. Hence, \code{pull(.data, 1)} and
 \code{pull(.data, 1, xy = TRUE)} return different result.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 When passing \code{geom = "WKT"/geom = "HEX"} to \code{...},  the geometry of the
-SpatVector can be pulled passing \code{var = geometry}. Similarly to SpatRaster
-method, when using \code{geom = "XY"} the \verb{x,y} coordinates can be pulled with
-\code{var = x/var = y}. See  \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
+\code{SpatVector} can be pulled passing \code{var = geometry}. Similarly to
+\code{SpatRaster} method, when using \code{geom = "XY"} the \verb{x,y} coordinates can be
+pulled with \code{var = x/var = y}. See  \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
 }
 }
 

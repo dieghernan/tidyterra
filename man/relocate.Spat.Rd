@@ -11,21 +11,23 @@
 \method{relocate}{SpatVector}(.data, ..., .before = NULL, .after = NULL)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{\code{\link[dplyr:relocate]{tidy-select}} layers/attributes to move.}
+\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> layers/attributes to
+move.}
 
-\item{.before, .after}{\code{\link[dplyr:relocate]{tidy-select}} Destination of
-layers/attributes selected by \code{...}. Supplying neither will move
+\item{.before, .after}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Destination
+of layers/attributes selected by \code{...}. Supplying neither will move
 layers/attributes to the left-hand side; specifying both is an error.}
 }
 \value{
-A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 Use \code{relocate()} to change layer/attribute positions, using the same syntax
-as \code{\link[=select]{select()}} to make it easy to move blocks of layers/attributes at once.
+as \code{\link{select.Spat}} to make it easy to move blocks of
+layers/attributes at once.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -37,14 +39,14 @@ as \code{\link[=select]{select()}} to make it easy to move blocks of layers/attr
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:relocate]{dplyr::relocate()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
-Relocate layers of a SpatRaster.
+Relocate layers of a \code{SpatRaster}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-The result is a SpatVector with the attributes on a different order.
+The result is a \code{SpatVector} with the attributes on a different order.
 }
 }
 

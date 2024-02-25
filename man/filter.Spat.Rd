@@ -11,7 +11,7 @@
 \method{filter}{SpatVector}(.data, ..., .preserve = FALSE)
 }
 \arguments{
-\item{.data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Expressions that

@@ -1,17 +1,17 @@
-#' Replace NAs with specified values
+#' Replace `NA`s with specified values
 #'
 #' @description
 #'
-#' Replace `NAs` on layers/attributes with specified values
+#' Replace `NA` values on layers/attributes with specified values
 #'
 #'
-#' @param data A SpatRaster created with [terra::rast()] or a SpatVector
+#' @param data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @param replace list of values, with one value for each layer/attribute that
 #'   has `NA` values to be replaced.
 #' @param ... Ignored
 #'
-#' @return A Spat* object  of the same class than `data`. Geometries and
+#' @return A `Spat*` object  of the same class than `data`. Geometries and
 #'   spatial attributes are preserved.
 #'
 #' @export

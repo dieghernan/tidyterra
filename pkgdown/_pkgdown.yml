@@ -43,11 +43,12 @@ template:
       card: summary_large_image
 
 reference:
-- title: tibble methods
-  desc: Methods from {tibble} implemented for Spat* objects.
+- title: '**tibble** methods'
+  desc: Methods from **tibble** implemented for `Spat*` objects.
   contents: has_concept("tibble.methods")
+
 - title: dplyr methods
-  desc: Methods from {dplyr} implemented for Spat* objects.
+  desc: Methods from **dplyr** implemented for `Spat*` objects.
 - subtitle: Rows
   desc: |
     Verbs that principally operate on rows.
@@ -60,39 +61,45 @@ reference:
   desc: |
     Verbs that principally operate on groups of rows.
   contents: has_concept("dplyr.groups")
-- subtitle: Spat* and Data frames
+- subtitle: '`SpatVector` and Data frames'
   desc: |
-    Verbs that principally operate on pairs of Spat* and data frames.
+    Verbs that principally operate on pairs of `Spat*` and data frames.
   contents: has_concept("dplyr.pairs")
+
 - title: tidyr methods
-  desc: Methods from {tidyr} implemented for Spat* objects.
+  desc: Methods from **tidyr** implemented for `Spat*` objects.
+- subtitle: Pivoting
+  description: |
+    Pivoting changes the representation of a `SpatVector` object, without
+    changing the data inside of it..
+  contents: has_concept("tidyr.pivot")
 - subtitle: Missing values
   description: |
     Tools for converting between implicit (absent rows) and explicit (`NA`)
     missing values, handling explicit `NA`s.
   contents: has_concept("tidyr.missing")
-- subtitle: Pivoting
-  description: |
-    Pivoting changes the representation of a rectangular Spat* object, without
-    changing the data inside of it..
-  contents: has_concept("tidyr.pivot")
+
 - title: ggplot2 methods
-  desc: Methods from {ggplot2} implemented for Spat* objects.
+  desc: Methods from **ggplot2** implemented for `Spat*` objects.
   contents: has_concept("ggplot2.methods")
+
 - title: ggplot2 utils
 - subtitle: Geoms
-  desc: Create {ggplot2} layers for Spat* objects.
+  desc: Create **ggplot2** layers for `Spat*` objects.
   contents: starts_with("geom_")
 - subtitle: Scales
   desc: Gradient colour schemes, palettes and hypsometric tints.
   contents: starts_with("scale_")
+
 - title: Helpers
-  desc: Additional set of functions provided by {tidyterra}.
+  desc: Additional set of functions provided by **tidyterra**.
 - subtitle: Coercing objects
-  desc: Convert Spat* to other type of objects or create SpatRasters from tibbles.
+  desc: |
+    Convert Spat* to other type of objects or create `SpatRasters` from tibbles.
   contents: has_concept("coerce")
 - subtitle: Other helpers
   contents: has_concept("helpers")
+
 - title: Built in data
   contents: has_concept("datasets")
 - title: About the package

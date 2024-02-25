@@ -203,7 +203,7 @@ full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
 dplyr::full_join
 
 
-#' Filtering joins for SpatVectors
+#' Filtering joins for `SpatVectors`
 #'
 #' @description
 #' Filtering joins filter rows from `x` based on the presence or absence of
@@ -226,7 +226,7 @@ dplyr::full_join
 #'
 #' @inheritParams mutate-joins.SpatVector
 #'
-#' @return A SpatVector object.
+#' @return A `SpatVector` object.
 #'
 #'
 #' @section \CRANpkg{terra} equivalent:
@@ -237,7 +237,7 @@ dplyr::full_join
 #'
 #' Implementation of the **generic** [dplyr::semi_join()] family
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' The geometry column has a sticky behavior. This means that the result would
 #' have always the geometry of `x` for the records that matches the join
