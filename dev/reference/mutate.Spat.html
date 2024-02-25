@@ -78,14 +78,14 @@ can be removed by setting their value to NULL."><meta property="og:image" conten
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Create, modify, and delete cell values/layers/attributes of Spat* objects</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Create, modify, and delete cell values/layers/attributes of <code>Spat*</code> objects</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/mutate-Spat.R" class="external-link"><code>R/mutate-Spat.R</code></a></small>
       <div class="d-none name"><code>mutate.Spat.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
     <p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> adds new layers/attributes and preserves existing ones on a
-Spat* object. <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code> adds new layers/attributes and drops existing
+<code>Spat*</code> object. <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code> adds new layers/attributes and drops existing
 ones. New variables overwrite existing variables of the same name. Variables
 can be removed by setting their value to <code>NULL</code>.</p>
     </div>
@@ -108,27 +108,27 @@ can be removed by setting their value to <code>NULL</code>.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
-<dd><p>A SpatRaster created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
+<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
 created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt>...</dt>
-<dd><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">data-masking</a></code> Name-value pairs. The name gives
-the name of the layer/attribute in the output. See <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>.</p></dd>
+<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Name-value pairs.
+The name gives the name of the layer/attribute in the output.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A Spat* object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
+<p>A <code>Spat*</code> object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
     
 
 
-<p>Some terra methods for modifying cell values:
+<p>Some <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> methods for modifying cell values:
 <code><a href="https://rspatial.github.io/terra/reference/ifelse.html" class="external-link">terra::ifel()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/classify.html" class="external-link">terra::classify()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/clamp.html" class="external-link">terra::clamp()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/app.html" class="external-link">terra::app()</a></code>,
 <code><a href="https://rspatial.github.io/terra/reference/lapp.html" class="external-link">terra::lapp()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/tapp.html" class="external-link">terra::tapp()</a></code></p>
     </div>
@@ -137,22 +137,22 @@ the name of the layer/attribute in the output. See <code><a href="https://dplyr.
     
 
 
-<p>Implementation of the <strong>generics</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code>
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code>
 functions.</p><div class="section">
-<h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
 <p>Add new layers and preserves existing ones. The result is a
-SpatRaster with the same extent, resolution and crs than <code>.data</code>. Only the
+<code>SpatRaster</code> with the same extent, resolution and crs than <code>.data</code>. Only the
 values (and possibly the number) of layers is modified.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code> would keep only the layers created with <code>...</code>.</p>
 </div>
 
 <div class="section">
-<h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a SpatVector with the modified (and possibly renamed)
+<p>The result is a <code>SpatVector</code> with the modified (and possibly renamed)
 attributes on the function call.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code> would keep only the attributes created with <code>...</code>.</p>
 </div>
@@ -160,8 +160,12 @@ attributes on the function call.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code></p>
-<p>Other single table verbs: 
+    <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code> methods.</p>
+<p><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> provides several ways to modify <code>Spat*</code> objects:</p><ul><li><p><code><a href="https://rspatial.github.io/terra/reference/ifelse.html" class="external-link">terra::ifel()</a></code>.</p></li>
+<li><p><code><a href="https://rspatial.github.io/terra/reference/classify.html" class="external-link">terra::classify()</a></code>.</p></li>
+<li><p><code><a href="https://rspatial.github.io/terra/reference/clamp.html" class="external-link">terra::clamp()</a></code>.</p></li>
+<li><p><code><a href="https://rspatial.github.io/terra/reference/app.html" class="external-link">terra::app()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/lapp.html" class="external-link">terra::lapp()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/tapp.html" class="external-link">terra::tapp()</a></code>.</p></li>
+</ul><p>Other single table verbs: 
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="filter.Spat.html">filter.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,

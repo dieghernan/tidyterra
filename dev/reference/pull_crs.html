@@ -96,7 +96,7 @@ sf/Spat* object.</p>
 <a href="https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems" class="external-link">Well-known text (WKT)</a>
 representation of coordinate reference systems (CRS) is a character string
 that identifies precisely the parameters of each CRS. This is the current
-standard used on sf and terra packages.</p>
+standard used on <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> and <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> packages.</p>
     </div>
 
     <div class="section level2">
@@ -109,8 +109,8 @@ standard used on sf and terra packages.</p>
     <dl><dt>.data</dt>
 <dd><p>Input potentially including or representing a CRS. It could be
 a <code>sf/sfc</code> object, a <code>SpatRaster/SpatVector</code> object, a <code>crs</code> object from
-<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character (for example a proj4 string) or a integer
-(representing an EPSG code).</p></dd>
+<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">proj4 string</a>) or a
+integer (representing an <a href="https://epsg.io/" class="external-link">EPSG</a> code).</p></dd>
 
 
 <dt>...</dt>
@@ -125,10 +125,10 @@ a <code>sf/sfc</code> object, a <code>SpatRaster/SpatVector</code> object, a <co
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Although the WKT representation is the same, sf and terra slightly differs.
-For example, a sf user could do:</p>
+    <p>Although the WKT representation is the same, <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> and <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a>
+API slightly differs. For example, <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> can do:</p>
 <p><code>sf::st_transform(x, 25830)</code></p>
-<p>While a terra user needs to:</p>
+<p>While <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> equivalent is:</p>
 <p><code>terra::project(bb, "epsg:25830")</code></p>
 <p>Knowing the WKT would help to smooth workflows when working with different
 packages and object types.</p>
@@ -142,7 +142,8 @@ packages and object types.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rspatial.github.io/terra/reference/crs.html" class="external-link">terra::crs()</a></code>, <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code></p>
+    <div class="dont-index"><p><code><a href="https://rspatial.github.io/terra/reference/crs.html" class="external-link">terra::crs()</a></code>, <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code> for knowing how these packages handle
+CRS definitions.</p>
 <p>Other helpers: 
 <code><a href="compare_spatrasters.html">compare_spatrasters</a>()</code>,
 <code><a href="is_grouped_spatvector.html">is_grouped_spatvector</a>()</code>,

@@ -74,13 +74,13 @@ concise mini-language. See Methods."><meta property="og:image" content="https://
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Subset layers/attributes of Spat* objects</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Subset layers/attributes of <code>Spat*</code> objects</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/R/select-Spat.R" class="external-link"><code>R/select-Spat.R</code></a></small>
       <div class="d-none name"><code>select.Spat.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
-    <p>Select (and optionally rename) attributes/layers in Spat* objects, using a
+    <p>Select (and optionally rename) attributes/layers in <code>Spat*</code> objects, using a
 concise mini-language. See <strong>Methods</strong>.</p>
     </div>
 
@@ -96,22 +96,22 @@ concise mini-language. See <strong>Methods</strong>.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
-<dd><p>A SpatRaster created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
+<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
 created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt>...</dt>
-<dd><p><code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">tidy-select</a></code> One or more unquoted expressions
-separated by commas. Layer/attribute names can be used as if they were
-positions in the Spat* object, so expressions like x:y can be used to
-select a range of layers/attributes.</p></dd>
+<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; One or more unquoted
+expressions separated by commas. Layer/attribute names can be used as if
+they were positions in the <code>Spat*</code> object, so expressions like <code>x:y</code> can
+be used to select a range of layers/attributes.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A Spat* object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
+<p>A <code>Spat*</code> object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -126,19 +126,19 @@ select a range of layers/attributes.</p></dd>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> function.</p><div class="section">
-<h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Select (and rename) layers of a SpatRaster. The result is a
-SpatRaster with the same extent, resolution and crs than <code>.data</code>. Only the
+<p>Select (and rename) layers of a <code>SpatRaster</code>. The result is a
+<code>SpatRaster</code> with the same extent, resolution and crs than <code>.data</code>. Only the
 number (and possibly the name) of layers is modified.</p>
 </div>
 
 <div class="section">
-<h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a SpatVector with the selected (and possibly renamed)
+<p>The result is a <code>SpatVector</code> with the selected (and possibly renamed)
 attributes on the function call.</p>
 </div>
 

@@ -76,9 +76,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="tibble-methods">tibble methods<a class="anchor" aria-label="anchor" href="#tibble-methods"></a></h2>
+      <h2 id="-tibble-methods"><strong>tibble</strong> methods<a class="anchor" aria-label="anchor" href="#-tibble-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Methods from {tibble} implemented for Spat* objects.</p>
+      <p class="section-desc"></p><p>Methods from <strong>tibble</strong> implemented for <code>Spat*</code> objects.</p>
 
       
     </div><div id="" class="section level2">
@@ -94,7 +94,7 @@
       </dl></div><div class="section level2">
       <h2 id="dplyr-methods">dplyr methods<a class="anchor" aria-label="anchor" href="#dplyr-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Methods from {dplyr} implemented for Spat* objects.</p>
+      <p class="section-desc"></p><p>Methods from <strong>dplyr</strong> implemented for <code>Spat*</code> objects.</p>
 
       
     </div><div class="section level2">
@@ -148,7 +148,7 @@
           
           <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">mutate(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="mutate.Spat.html">transmute(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Create, modify, and delete cell values/layers/attributes of Spat* objects</dd>
+        <dd>Create, modify, and delete cell values/layers/attributes of <code>Spat*</code> objects</dd>
       </dl><dl><dt>
           
           <code><a href="pull.Spat.html">pull(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="pull.Spat.html">pull(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -168,7 +168,7 @@
           
           <code><a href="select.Spat.html">select(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="select.Spat.html">select(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Subset layers/attributes of Spat* objects</dd>
+        <dd>Subset layers/attributes of <code>Spat*</code> objects</dd>
       </dl></div><div class="section level2">
       
       <h3 id="groups">Groups<a class="anchor" aria-label="anchor" href="#groups"></a></h3>
@@ -194,7 +194,7 @@
           
           <code><a href="rowwise.SpatVector.html">rowwise(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Group SpatVector by rows</dd>
+        <dd>Group <code>SpatVector</code> objects by rows</dd>
       </dl><dl><dt>
           
           <code><a href="summarise.SpatVector.html">summarise(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="summarise.SpatVector.html">summarize(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -202,8 +202,8 @@
         <dd>Summarise each group of a SpatVector down to one geometry</dd>
       </dl></div><div class="section level2">
       
-      <h3 id="spat-and-data-frames">Spat* and Data frames<a class="anchor" aria-label="anchor" href="#spat-and-data-frames"></a></h3>
-      <p class="section-desc"></p><p>Verbs that principally operate on pairs of Spat* and data frames.</p>
+      <h3 id="-spatvector-and-data-frames"><code>SpatVector</code> and Data frames<a class="anchor" aria-label="anchor" href="#-spatvector-and-data-frames"></a></h3>
+      <p class="section-desc"></p><p>Verbs that principally operate on pairs of <code>Spat*</code> and data frames.</p>
 
       
     </div><div id="" class="section level2">
@@ -225,7 +225,7 @@
           
           <code><a href="filter-joins.SpatVector.html">semi_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="filter-joins.SpatVector.html">anti_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Filtering joins for SpatVectors</dd>
+        <dd>Filtering joins for <code>SpatVectors</code></dd>
       </dl><dl><dt>
           
           <code><a href="mutate-joins.SpatVector.html">inner_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">left_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">right_join(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="mutate-joins.SpatVector.html">full_join(<i>&lt;SpatVector&gt;</i>)</a></code> 
@@ -234,10 +234,31 @@
       </dl></div><div class="section level2">
       <h2 id="tidyr-methods">tidyr methods<a class="anchor" aria-label="anchor" href="#tidyr-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Methods from {tidyr} implemented for Spat* objects.</p>
+      <p class="section-desc"></p><p>Methods from <strong>tidyr</strong> implemented for <code>Spat*</code> objects.</p>
 
       
     </div><div class="section level2">
+      
+      <h3 id="pivoting">Pivoting<a class="anchor" aria-label="anchor" href="#pivoting"></a></h3>
+      <p class="section-desc"></p><p>Pivoting changes the representation of a <code>SpatVector</code> object, without changing the data inside of it..</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="pivot_longer.SpatVector.html">pivot_longer(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Pivot <code>SpatVector</code> from wide to long</dd>
+      </dl><dl><dt>
+          
+          <code><a href="pivot_wider.SpatVector.html">pivot_wider(<i>&lt;SpatVector&gt;</i>)</a></code> 
+        </dt>
+        <dd>Pivot <code>SpatVector</code> from long to wide</dd>
+      </dl></div><div class="section level2">
       
       <h3 id="missing-values">Missing values<a class="anchor" aria-label="anchor" href="#missing-values"></a></h3>
       <p class="section-desc"></p><p>Tools for converting between implicit (absent rows) and explicit (<code>NA</code>) missing values, handling explicit <code>NA</code>s.</p>
@@ -262,32 +283,11 @@
           
           <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="replace_na.Spat.html">replace_na(<i>&lt;SpatVector&gt;</i>)</a></code> 
         </dt>
-        <dd>Replace NAs with specified values</dd>
-      </dl></div><div class="section level2">
-      
-      <h3 id="pivoting">Pivoting<a class="anchor" aria-label="anchor" href="#pivoting"></a></h3>
-      <p class="section-desc"></p><p>Pivoting changes the representation of a rectangular Spat* object, without changing the data inside of it..</p>
-
-      
-    </div><div id="" class="section level2">
-      
-      
-      
-
-      <dl><dt>
-          
-          <code><a href="pivot_longer.SpatVector.html">pivot_longer(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Pivot <code>SpatVector</code> from wide to long</dd>
-      </dl><dl><dt>
-          
-          <code><a href="pivot_wider.SpatVector.html">pivot_wider(<i>&lt;SpatVector&gt;</i>)</a></code> 
-        </dt>
-        <dd>Pivot <code>SpatVector</code> from long to wide</dd>
+        <dd>Replace <code>NA</code>s with specified values</dd>
       </dl></div><div class="section level2">
       <h2 id="ggplot-methods">ggplot2 methods<a class="anchor" aria-label="anchor" href="#ggplot-methods"></a></h2>
       
-      <p class="section-desc"></p><p>Methods from {ggplot2} implemented for Spat* objects.</p>
+      <p class="section-desc"></p><p>Methods from <strong>ggplot2</strong> implemented for <code>Spat*</code> objects.</p>
 
       
     </div><div id="" class="section level2">
@@ -314,7 +314,7 @@
     </div><div class="section level2">
       
       <h3 id="geoms">Geoms<a class="anchor" aria-label="anchor" href="#geoms"></a></h3>
-      <p class="section-desc"></p><p>Create {ggplot2} layers for Spat* objects.</p>
+      <p class="section-desc"></p><p>Create <strong>ggplot2</strong> layers for <code>Spat*</code> objects.</p>
 
       
     </div><div id="" class="section level2">
@@ -386,13 +386,13 @@
       </dl></div><div class="section level2">
       <h2 id="helpers">Helpers<a class="anchor" aria-label="anchor" href="#helpers"></a></h2>
       
-      <p class="section-desc"></p><p>Additional set of functions provided by {tidyterra}.</p>
+      <p class="section-desc"></p><p>Additional set of functions provided by <strong>tidyterra</strong>.</p>
 
       
     </div><div class="section level2">
       
       <h3 id="coercing-objects">Coercing objects<a class="anchor" aria-label="anchor" href="#coercing-objects"></a></h3>
-      <p class="section-desc"></p><p>Convert Spat* to other type of objects or create SpatRasters from tibbles.</p>
+      <p class="section-desc"></p><p>Convert Spat* to other type of objects or create <code>SpatRasters</code> from tibbles.</p>
 
       
     </div><div id="" class="section level2">
