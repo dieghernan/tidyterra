@@ -148,11 +148,11 @@ have not been modified. Other methods as `filter()`, `slice()` or `drop_na()`
 can modify these properties, as they would do when applied to a data frame
 (number of rows would be modified on that case).
 
-### SpatVectors
+### `SpatVectors`
 
 `tidyterra >= 0.4.0` provides support to `SpatVectors` for most of the **dplyr**
 and **tidyr** methods, so it is possible to arrange, group and summarise
-information of `SpatVectors`
+information of `SpatVectors`.
 
 
 ```r

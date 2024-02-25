@@ -1,5 +1,5 @@
 # -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.5.0.9000
+# CITATION file created with {cffr} R package, v0.5.0
 # See also: https://docs.ropensci.org/cffr/
 # -----------------------------------------------------------
  
@@ -62,10 +62,11 @@ references:
   url: https://www.R-project.org/
   authors:
   - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2024'
   institution:
     name: R Foundation for Statistical Computing
-    address: Vienna, Austria
-  year: '2024'
   version: '>= 3.6.0'
 - type: software
   title: cli
