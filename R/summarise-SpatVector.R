@@ -1,4 +1,4 @@
-#' Summarise each group of a SpatVector down to one geometry
+#' Summarise each group of a `SpatVector` down to one geometry
 #'
 #' @description
 #' `summarise()` creates a new SpatVector. It returns one geometry for each
