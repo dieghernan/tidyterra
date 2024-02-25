@@ -74,7 +74,7 @@
 #' - `scale_*_terrain_c()`: For continuous values.
 #' - `scale_*_terrain_b()`: For binning continuous values.
 #'
-#' @return 
+#' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values
 #' applied to the `fill/colour` aesthetics.
 #'

@@ -11,9 +11,9 @@
 #' factor with [get_coltab_pal()].
 #'
 #' Additional parameters `...` would be passed on to
-#' [ggplot2::discrete_scale()]. Note that \CRANpkg{tidyterra} just 
+#' [ggplot2::discrete_scale()]. Note that \CRANpkg{tidyterra} just
 #' documents a selection of these additional parameters, check
-#' [ggplot2::discrete_scale()] to see the full range of parameters 
+#' [ggplot2::discrete_scale()] to see the full range of parameters
 #' accepted by this scale.
 #' @export
 #'
@@ -28,7 +28,7 @@
 #' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
 #'   [ggplot2::scale_fill_manual()],
 #'
-#' @return 
+#' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values
 #' applied to the `fill/colour` aesthetics.
 #'

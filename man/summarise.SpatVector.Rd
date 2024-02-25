@@ -3,7 +3,7 @@
 \name{summarise.SpatVector}
 \alias{summarise.SpatVector}
 \alias{summarize.SpatVector}
-\title{Summarise each group of a SpatVector down to one geometry}
+\title{Summarise each group of a \code{SpatVector} down to one geometry}
 \usage{
 \method{summarise}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 

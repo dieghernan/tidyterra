@@ -22,7 +22,7 @@
 \alias{scale_color_cross_blended_tint_c}
 \alias{scale_color_cross_blended_b}
 \alias{scale_color_cross_blended_tint_b}
-\title{Cross blended Hypsometric Tints scales}
+\title{Cross blended hypsometric tints scales}
 \source{
 Patterson, T., & Jenny, B. (2011). The Development and
 Rationale of Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,}
@@ -256,8 +256,8 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 }}
 }
 \value{
-The corresponding ggplot2 layer with the values applied to the
-\code{fill/colour} aesthetics.
+The corresponding \CRANpkg{ggplot2} layer with the values
+applied to the \code{fill/colour} aesthetics.
 }
 \description{
 Implementation of the cross blended hypsometric gradients presented on
@@ -289,9 +289,9 @@ Additional parameters \code{...} would be passed on to:
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-Note that \pkg{tidyterra} just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales.
+Note that \CRANpkg{tidyterra} just documents a selection
+of these additional parameters, check the previous links to see
+the full range of parameters accepted by these scales.
 }
 \details{
 On \verb{scale_*_cross_blended_tint_*} palettes, the position of the gradients
@@ -460,7 +460,7 @@ par(opar)
 \link{cross_blended_hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}},
 \code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}.
 
-See also \pkg{ggplot2} docs on additional \code{...} parameters:
+See also \CRANpkg{ggplot2} docs on additional \code{...} parameters:
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.
