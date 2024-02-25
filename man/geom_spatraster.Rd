@@ -73,8 +73,9 @@ for SpatRaster are \code{"raster"} (the default), \code{"point"},\code{"text"} a
 A \CRANpkg{ggplot2} layer
 }
 \description{
-This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}). The
-geom is designed for visualise the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
+This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}).
+The geom is designed for visualise the object by layers, as \code{\link[terra:plot]{terra::plot()}}
+does.
 
 For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster}), use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.

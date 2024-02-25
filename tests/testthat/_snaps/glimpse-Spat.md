@@ -433,3 +433,52 @@
       
       $ lyr.1 <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
 
+# Long geoms
+
+    Code
+      glimpse(a_rast, n = NULL, max_extra_cols = NULL)
+    Output
+      #  A SpatRaster 20 x 20 x 31 layers (400 cells)
+      #  Resolution (x / y): (18 /  9)
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([-180 /  180] , [ -90 /   90])
+      
+      $ initial_name   <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_a  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_b  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_c  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_d  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_e  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_f  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_g  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_h  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_i  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_j  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_k  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_l  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_m  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_n  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname1_o  <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname2__a <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname2__b <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname2__c <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      $ A_longname2__d <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1~
+      # i 11 more layers : A_longname2__e <dbl>, ...
+      # i Use `tidyterra::glimpse(n = ...)` to see more layers
+
+---
+
+    Code
+      glimpse(a_rast, n = -1, max_extra_cols = -1)
+    Output
+      #  A SpatRaster 20 x 20 x 31 layers (400 cells)
+      #  Resolution (x / y): (18 /  9)
+      #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+      #  CRS projection units: meter <m>
+      #  Extent (x / y) : ([-180 /  180] , [ -90 /   90])
+      
+      $ initial_name <dbl> 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 100~
+      # i 30 more layers : A_longname1_a <dbl>, ...
+      # i Use `tidyterra::glimpse(n = ...)` to see more layers
+

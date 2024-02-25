@@ -3,8 +3,18 @@
 #' @description
 #'
 #' Implementation based on the
-#' [Wikipedia Colorimetric conventions for topographic
-#' maps](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps).
+#'
+#' ```{r, echo=FALSE, results='asis'}
+#' full_url <- paste0(
+#'   "[Wikipedia Colorimetric conventions for topographic ",
+#'   "maps](https://en.wikipedia.org/wiki/Wikipedia:",
+#'   "WikiProject_Maps/Conventions/Topographic_maps)."
+#' )
+#'
+#' cat(full_url)
+#'
+#' ```
+#'
 #' Three scales are provided:
 #' - `scale_*_wiki_d()`: For discrete values.
 #' - `scale_*_wiki_c()`: For continuous values.

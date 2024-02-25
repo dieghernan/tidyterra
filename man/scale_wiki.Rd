@@ -160,6 +160,7 @@ The corresponding ggplot2 layer with the values applied to the
 \description{
 Implementation based on the
 \href{https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps}{Wikipedia Colorimetric conventions for topographic maps}.
+
 Three scales are provided:
 \itemize{
 \item \verb{scale_*_wiki_d()}: For discrete values.

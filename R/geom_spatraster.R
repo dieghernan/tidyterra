@@ -2,8 +2,9 @@
 #'
 #' @description
 #'
-#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]). The
-#' geom is designed for visualise the object by layers, as [terra::plot()] does.
+#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]).
+#' The geom is designed for visualise the object by layers, as [terra::plot()]
+#' does.
 #'
 #' For plotting `SpatRaster` objects as map tiles (i.e. RGB `SpatRaster`), use
 #' [geom_spatraster_rgb()].
