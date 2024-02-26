@@ -52,17 +52,17 @@
 <text x='497.39' y='568.69' text-anchor='middle' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='7.82px' lengthAdjust='spacingAndGlyphs'>-3</text>
 <text x='607.35' y='568.69' text-anchor='middle' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='7.82px' lengthAdjust='spacingAndGlyphs'>-2</text>
 <rect x='672.18' y='239.38' width='42.34' height='101.73' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='672.18' y='248.09' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
 <image width='17.28' height='86.40' x='672.18' y='254.71' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAEsCAYAAAACUNnVAAAAmElEQVQ4ja2UQRLDMAgDd3hk/tnX5agcknFaCoa0vnkMCEnGsL12GQhDYDpPwoDrpBFlRDWi/9Wu6AHC9FkLYLrzlhD3oJ3mDvRHRYy7IC8A7bCK8gpWKYDzeQVArDcDyD2YAnSofZvzaOA6Q7Oahp/dmRuVTQ0xU5TGP2o8Waool1obVuv1q8qP9xPvg633XlGLDtfIhNUBcBeA5ss0BXMAAAAASUVORK5CYII='/>
+<polyline points='686.01,320.06 689.46,320.06 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='686.01,297.84 689.46,297.84 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='686.01,275.61 689.46,275.61 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='675.64,320.06 672.18,320.06 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='675.64,297.84 672.18,297.84 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
+<polyline points='675.64,275.61 672.18,275.61 ' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='694.94' y='323.09' style='font-size: 8.80px; font-family: sans;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>900</text>
 <text x='694.94' y='300.86' style='font-size: 8.80px; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>1200</text>
 <text x='694.94' y='278.64' style='font-size: 8.80px; font-family: sans;' textLength='19.58px' lengthAdjust='spacingAndGlyphs'>1500</text>
-<text x='672.18' y='248.09' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
-<line x1='672.18' y1='320.06' x2='675.64' y2='320.06' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='672.18' y1='297.84' x2='675.64' y2='297.84' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='672.18' y1='275.61' x2='675.64' y2='275.61' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='686.01' y1='320.06' x2='689.46' y2='320.06' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='686.01' y1='297.84' x2='689.46' y2='297.84' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
-<line x1='686.01' y1='275.61' x2='689.46' y2='275.61' style='stroke-width: 0.38; stroke: #FFFFFF; stroke-linecap: butt;' />
 <text x='20.20' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='195.94px' lengthAdjust='spacingAndGlyphs'>nocrs_08: resampled interpolated</text>
 </g>
 </svg>

@@ -10,3 +10,6 @@ NULL
 
 #' @export
 ggplot2::aes
+
+#' @export
+ggplot2::after_stat

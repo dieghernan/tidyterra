@@ -1,8 +1,8 @@
-#' Grouping metadata for SpatVectors
+#' Grouping metadata for `SpatVector` objects
 #'
 #' @description
-#' This collection of functions accesses data about grouped SpatVectors in
-#' various ways:
+#' This collection of functions accesses data about grouped `SpatVector` objects
+#' in various ways:
 #'
 #' * [group_data()] returns a tibble that defines the grouping structure.
 #'   The columns give the values of the grouping variables. The last column,
@@ -27,7 +27,7 @@
 #'
 #' See [dplyr::group_data()].
 #'
-#' @param .data,.tbl,x A SpatVector.
+#' @param .data,.tbl,x A `SpatVector`.
 #' @inheritParams dplyr::group_data
 #'
 #' @keywords internal
@@ -35,7 +35,7 @@
 #' @return
 #'
 #' See the description of the function. The results are usually tibbles,
-#' lists or vectors. These functions does not return SpatVector objects.
+#' lists or vectors. These functions does not return `SpatVector` objects.
 #'
 #' @rdname group_data.SpatVector
 #' @name group_data.SpatVector

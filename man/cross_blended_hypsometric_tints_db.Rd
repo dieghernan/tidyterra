@@ -3,7 +3,7 @@
 \docType{data}
 \name{cross_blended_hypsometric_tints_db}
 \alias{cross_blended_hypsometric_tints_db}
-\title{Cross-blended Hypsometric Tints}
+\title{Cross-blended hypsometric tints}
 \format{
 A tibble of 41 rows and
 6 columns. with the following
@@ -12,9 +12,9 @@ fields:
 \describe{
 \item{pal}{ Name of the palette.}
 \item{limit}{Recommended elevation limit (in meters) for each color.}
-\item{r}{Value of the red channel (RGB color mode)}
-\item{g}{Value of the green channel (RGB color mode)}
-\item{b}{Value of the blue channel (RGB color mode)}
+\item{r}{Value of the red channel (RGB color mode).}
+\item{g}{Value of the green channel (RGB color mode).}
+\item{b}{Value of the blue channel (RGB color mode).}
 \item{hex}{ Hex code of the color.}
 }
 }

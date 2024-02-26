@@ -24,11 +24,11 @@
 #'
 #' @importFrom dplyr filter
 #' @inheritParams select.Spat
-#' @param ... [`data-masking`][dplyr::filter] Expressions that return a logical
-#'   value, and are defined in terms of the layers/attributes in `.data`. If
-#'   multiple expressions are included, they are combined with the `&` operator.
-#'   Only cells/geometries for which all conditions evaluate to `TRUE` are kept.
-#'   See **Methods**.
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Expressions that
+#'   return a logical value, and are defined in terms of the layers/attributes
+#'   in `.data`. If multiple expressions are included, they are combined with
+#'   the `&` operator. Only cells/geometries for which all conditions evaluate
+#'   to `TRUE` are kept. See **Methods**.
 #' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   On `FALSE`, [terra::trim()] is called so the extent of the result may be

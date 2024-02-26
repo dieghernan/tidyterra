@@ -13,14 +13,14 @@
 #'
 #' @inheritParams select.Spat
 #' @inheritParams dplyr::rename
-#' @param ...
-#'   For `rename()`: `tidy-select` Use `new_name = old_name to rename`
-#'   selected variables.
+#' @param ... Depending on the function:
+#'   - For `rename.Spat*()`: <[`tidy-select`][dplyr::dplyr_tidy_select]>.
+#'     Use `new_name = old_name` to rename selected variables.
+#'   - For `rename_with()`: additional arguments passed onto `.fn`.
+#' @param .cols	<[`tidy-select`][dplyr::dplyr_tidy_select]> Columns to rename;
+#'   defaults to all columns.
 #'
-#'   For `rename_with()`: additional arguments passed onto `.fn`.
-#' @param .cols	`tidy-select` Columns to rename; defaults to all columns.
-#'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
 #'
 #' @seealso [dplyr::rename()]
 #'
@@ -28,7 +28,7 @@
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `names(Spat*) <- c("a", "b", "c")`
 #'
@@ -36,13 +36,14 @@
 #'
 #' Implementation of the **generic** [dplyr::rename()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
-#' Rename layers of a SpatRaster.
+#' Rename layers of a `SpatRaster`.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' The result is a SpatVector with the renamed attributes on the function call.
+#' The result is a `SpatVector` with the renamed attributes on the function
+#' call.
 #'
 #' @examples
 #'

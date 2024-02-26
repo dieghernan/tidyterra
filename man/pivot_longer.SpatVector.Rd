@@ -23,7 +23,7 @@
 )
 }
 \arguments{
-\item{data}{A SpatVector to pivot.}
+\item{data}{A \code{SpatVector} to pivot.}
 
 \item{cols}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> Columns to pivot into
 longer format.}
@@ -152,7 +152,9 @@ nc_pivoted <- nc \%>\%
   ) \%>\%
   mutate(year = as.numeric(gsub("BIR", "19", year)))
 
-glimpse(nc_pivoted)
+nc_pivoted \%>\%
+  relocate(year, births) \%>\%
+  glimpse()
 
 ggplot(nc_pivoted) +
   geom_spatvector(aes(fill = births)) +

@@ -60,7 +60,8 @@ newrast
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}}
+\code{\link[=pull_crs]{pull_crs()}} for retrieving crs, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
+and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
 \code{\link{as_coordinates}()},

@@ -39,7 +39,7 @@
 #' ## `SpatVector`
 #'
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
-#' or [geom_spatvector_label()]
+#' or [geom_spatvector_label()].
 #'
 #' @export
 #' @importFrom ggplot2 autoplot

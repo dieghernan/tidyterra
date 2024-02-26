@@ -2,11 +2,10 @@
 % Please edit documentation in R/geom_spatraster_rgb.R
 \name{geom_spatraster_rgb}
 \alias{geom_spatraster_rgb}
-\title{Visualise SpatRaster objects as images}
+\title{Visualise \code{SpatRaster} objects as images}
 \source{
-Based on the \code{layer_spatial()} implementation on ggspatial package.
-Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and
-\href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
+Based on the \code{layer_spatial()} implementation on \CRANpkg{ggspatial} package.
+Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
 }
 \usage{
 geom_spatraster_rgb(
@@ -25,7 +24,7 @@ geom_spatraster_rgb(
 \arguments{
 \item{mapping}{Ignored.}
 
-\item{data}{A SpatRaster object.}
+\item{data}{A \code{SpatRaster} object.}
 
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
@@ -52,35 +51,36 @@ to the paired geom/stat.}
 A \CRANpkg{ggplot2} layer
 }
 \description{
-This geom is used to visualise SpatRaster objects (see \code{\link[terra:rast]{terra::rast()}}) as
+This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as
 RGB images. The layers are combined such that they represent the red,
 green and blue channel.
 
-For plotting SpatRaster objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
+For plotting \code{SpatRaster} objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:plotRGB]{terra::plotRGB()}}
-}
-
-\section{Coords}{
-
-
-When the SpatRaster does not present a crs (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption on the
-scales.
-
-On SpatRaster that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to adjust
-the scales. That means that also the SpatRaster may be reprojected.
 }
 
 \section{Aesthetics}{
 
 
 No \code{aes()} is required. In fact, \code{aes()} will be ignored.
+}
+
+\section{Coords}{
+
+
+When the \code{SpatRaster} does not present a crs (i.e.,
+\code{terra::crs(rast) == ""}) the geom does not make any assumption on the
+scales.
+
+On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+adjust the scales. That means that also the
+\strong{\code{SpatRaster} may be reprojected}.
 }
 
 \examples{
@@ -114,6 +114,7 @@ ggplot(cyl_sf) +
 }
 \seealso{
 \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
+
 You can get also RGB tiles from the \CRANpkg{maptiles} package,
 see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 

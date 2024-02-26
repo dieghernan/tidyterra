@@ -5,7 +5,7 @@
 \alias{scale_fill_coltab}
 \alias{scale_colour_coltab}
 \alias{get_coltab_pal}
-\title{Discrete scales based in the color table of a SpatRaster}
+\title{Discrete scales based in the color table of a \code{SpatRaster}}
 \usage{
 scale_fill_coltab(
   data,
@@ -28,8 +28,8 @@ scale_colour_coltab(
 get_coltab_pal(x)
 }
 \arguments{
-\item{data, x}{A SpatRaster with one or several color tables. See
-\code{\link[terra:colors]{terra::has.colors()}}.}
+\item{data, x}{A \code{SpatRaster} with one or several color tables.
+See \code{\link[terra:colors]{terra::has.colors()}}.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale}}
@@ -86,22 +86,24 @@ not filled. See also
 default (\code{TRUE}) removes unused factors.}
 }
 \value{
-The corresponding ggplot2 layer with the values applied to the
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} aesthetics.
 }
 \description{
-Some categorical SpatRaster may have an associated color table. This
-function extract those values. These functions generates scales and vector
-of colors based on the color table \code{\link[terra:colors]{terra::coltab()}} associated to a
-SpatRaster.
+Some categorical \code{SpatRaster} objects may have an associated color table.
+This function extract those values. These functions generates scales and
+vector of colors based on the color table \code{\link[terra:colors]{terra::coltab()}} associated to a
+\code{SpatRaster}.
 
 You can also get a vector of colors named with the corresponding
 factor with \code{\link[=get_coltab_pal]{get_coltab_pal()}}.
 
 Additional parameters \code{...} would be passed on to
-\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}. Note that \pkg{tidyterra} just documents a
-selection of these additional parameters, check the previous link to see the
-full range of parameters accepted by this scale.
+\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full
+range of parameters accepted.
 }
 \examples{
 library(terra)

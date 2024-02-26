@@ -6,7 +6,7 @@
 \alias{left_join.SpatVector}
 \alias{right_join.SpatVector}
 \alias{full_join.SpatVector}
-\title{Mutating joins for SpatVectors}
+\title{Mutating joins for \code{SpatVector} objects}
 \usage{
 \method{inner_join}{SpatVector}(
   x,
@@ -49,10 +49,10 @@
 )
 }
 \arguments{
-\item{x}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. \strong{If a
-SpatVector of sf object} is provided it would return an error (see
+\code{SpatVector} of \code{sf} object} is provided it would return an error (see
 \code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -108,7 +108,7 @@ inequality conditions.
 }}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
 Mutating joins add columns from \code{y} to \code{x}, matching observations based on
@@ -117,7 +117,7 @@ joins.
 
 See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:merge]{terra::merge()}}
@@ -127,7 +127,7 @@ See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} family
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would
 have always the geometry of \code{x} for the records that matches the join
@@ -137,8 +137,7 @@ Note that for \code{\link[=right_join]{right_join()}} and \code{\link[=full_join
 empty geometries (since \code{y} is expected to be a data frame with no
 geometries). Although this kind of joining operations may not be common on
 spatial manipulation, it is possible that the function crashes, since
-handling of \code{EMPTY} geometries differs on \pkg{terra} and \pkg{sf} (the
-backend of \verb{*_join.SpatVector()} is the implementation made on \pkg{sf}).
+handling of \code{EMPTY} geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
 }
 }
 

@@ -24,7 +24,7 @@
 )
 }
 \arguments{
-\item{data}{A SpatVector to pivot.}
+\item{data}{A \code{SpatVector} to pivot.}
 
 \item{...}{Additional arguments passed on to methods.}
 

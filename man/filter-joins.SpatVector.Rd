@@ -4,17 +4,17 @@
 \alias{filter-joins.SpatVector}
 \alias{semi_join.SpatVector}
 \alias{anti_join.SpatVector}
-\title{Filtering joins for SpatVectors}
+\title{Filtering joins for \code{SpatVector} objects}
 \usage{
 \method{semi_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 
 \method{anti_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 }
 \arguments{
-\item{x}{A SpatVector created with \code{\link[terra:vect]{terra::vect()}}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. \strong{If a
-SpatVector of sf object} is provided it would return an error (see
+\code{SpatVector} of \code{sf} object} is provided it would return an error (see
 \code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -54,7 +54,7 @@ it is a potentially expensive operation so you must opt into it.}
 \item{...}{Other parameters passed onto methods.}
 }
 \value{
-A SpatVector object.
+A \code{SpatVector} object.
 }
 \description{
 Filtering joins filter rows from \code{x} based on the presence or absence of
@@ -66,7 +66,7 @@ matches in \code{y}:
 
 See \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} for details.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:merge]{terra::merge()}}
@@ -76,7 +76,7 @@ See \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} family
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would
 have always the geometry of \code{x} for the records that matches the join

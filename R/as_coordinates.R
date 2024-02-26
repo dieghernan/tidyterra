@@ -5,7 +5,7 @@
 #' `as_coordinates()` can be used to obtain the position of each cell on the
 #' `SpatRaster` matrix.
 #'
-#' @param x A `SpatRaster` object
+#' @param x A `SpatRaster` object.
 #' @param as.raster If `TRUE`, the result is a `SpatRaster` object with three
 #'   layers indicating the position of each cell (cell number, row and column).
 #'

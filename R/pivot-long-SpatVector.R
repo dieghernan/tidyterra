@@ -17,7 +17,7 @@
 #' @name pivot_longer.SpatVector
 #'
 #'
-#' @param data A SpatVector to pivot.
+#' @param data A `SpatVector` to pivot.
 #' @param cols <[`tidy-select`][tidyr::tidyr_tidy_select]> Columns to pivot into
 #'   longer format.
 #' @inheritParams tidyr::pivot_longer
@@ -52,7 +52,9 @@
 #'   ) %>%
 #'   mutate(year = as.numeric(gsub("BIR", "19", year)))
 #'
-#' glimpse(nc_pivoted)
+#' nc_pivoted %>%
+#'   relocate(year, births) %>%
+#'   glimpse()
 #'
 #' ggplot(nc_pivoted) +
 #'   geom_spatvector(aes(fill = births)) +

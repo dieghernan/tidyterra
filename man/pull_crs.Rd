@@ -9,8 +9,8 @@ pull_crs(.data, ...)
 \arguments{
 \item{.data}{Input potentially including or representing a CRS. It could be
 a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a proj4 string) or a integer
-(representing an EPSG code).}
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
+integer (representing an \href{https://epsg.io/}{EPSG} code).}
 
 \item{...}{ignored}
 }
@@ -21,18 +21,19 @@ A WKT representation of the corresponding CRS.
 Extract the WKT version of the CRS associated to a string, number of
 sf/Spat* object.
 
-The \href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
+The
+\href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
 representation of coordinate reference systems (CRS) is a character string
 that identifies precisely the parameters of each CRS. This is the current
-standard used on sf and terra packages.
+standard used on \CRANpkg{sf} and \CRANpkg{terra} packages.
 }
 \details{
-Although the WKT representation is the same, sf and terra slightly differs.
-For example, a sf user could do:
+Although the WKT representation is the same, \CRANpkg{sf} and \CRANpkg{terra}
+API slightly differs. For example, \CRANpkg{sf} can do:
 
 \code{sf::st_transform(x, 25830)}
 
-While a terra user needs to:
+While \CRANpkg{sf} equivalent is:
 
 \code{terra::project(bb, "epsg:25830")}
 
@@ -80,7 +81,8 @@ all(
 cat(fromsf1)
 }
 \seealso{
-\code{\link[terra:crs]{terra::crs()}}, \code{\link[sf:st_crs]{sf::st_crs()}}
+\code{\link[terra:crs]{terra::crs()}}, \code{\link[sf:st_crs]{sf::st_crs()}} for knowing how these packages handle
+CRS definitions.
 
 Other helpers: 
 \code{\link{compare_spatrasters}()},

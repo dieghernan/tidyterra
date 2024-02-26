@@ -1,13 +1,13 @@
 #' Fortify `Spat*` Objects
 #'
-#' Fortify `SpatRasters` and `SpatVectors` to data frames for compatibility with
-#' [ggplot2::ggplot()].
+#' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provide
+#' native compatibility with [ggplot2::ggplot()].
 #'
 #'
 #' @param model A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @param data Not used by this method.
-#' @param maxcell positive integer. Maximum number of cells to use for the plot.
+#' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::fortify
 #' @inheritParams as_tibble.Spat
 #' @importFrom ggplot2 fortify
@@ -28,19 +28,19 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [ggplot2::fortify()] function.
+#' Implementation of the **generic** [ggplot2::fortify()] method.
 #'
 #' ## `SpatRaster`
 #'
 #' Return a tibble than can be used with `ggplot2::geom_*` like
 #' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
 #'
-#' The resulting tibble includes the coordinates on the columns `x,y`. The
+#' The resulting tibble includes the coordinates on the columns `x, y`. The
 #' values of each layer are included as additional columns named as per the
 #' name of the layer on the `SpatRaster`.
 #'
 #' The CRS of the `SpatRaster` can be retrieved with
-#' `attr(<fortifiedSpatRaster>, "crs")`.
+#' `attr(fortifiedSpatRaster, "crs")`.
 #'
 #' It is possible to convert the fortified object onto a `SpatRaster` again with
 #' [as_spatraster()].

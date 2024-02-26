@@ -25,15 +25,14 @@
 #'
 #' See **Details**.
 #'
-#'
 #' Additional parameters `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()]
-#' - Continuous values: [ggplot2::continuous_scale()]
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' Note that \pkg{tidyterra} just documents a selection of these additional
-#' parameters, check the previous links to see the full range of parameters
-#' accepted by these scales.
+#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of parameters accepted by these scales.
 #'
 #' @export
 #'
@@ -62,13 +61,14 @@
 #' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
 #' [ggplot2::scale_fill_viridis_c()]
 #'
-#' See also \pkg{ggplot2} docs on additional `...` parameters:
+#' See also \CRANpkg{ggplot2} docs on additional `...` parameters:
 #'
 #' - `scale_*_terrain_d()`: For discrete values.
 #' - `scale_*_terrain_c()`: For continuous values.
 #' - `scale_*_terrain_b()`: For binning continuous values.
 #'
-#' @return The corresponding ggplot2 layer with the values applied to the
+#' @return
+#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
 #' @family gradients
@@ -125,8 +125,13 @@
 #'     guide = guide_colorbar(reverse = TRUE)
 #'   ) +
 #'   labs(fill = "elevation (m)") +
-#'   theme_minimal()
-#'
+#'   theme(
+#'     legend.position = "bottom",
+#'     legend.title.position = "top",
+#'     legend.key.width = rel(3),
+#'     legend.ticks = element_line(colour = "black", linewidth = 0.3),
+#'     legend.direction = "horizontal"
+#'   ) #'
 #'
 #' # Binned
 #' ggplot() +
@@ -175,7 +180,6 @@ scale_fill_hypso_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_d",
     palette = hypso_pal(
       alpha = alpha,
       direction = direction,
@@ -202,7 +206,6 @@ scale_colour_hypso_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_d",
     palette = hypso_pal(
       alpha = alpha,
       direction = direction,
@@ -234,8 +237,7 @@ scale_fill_hypso_c <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_c",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -265,8 +267,7 @@ scale_colour_hypso_c <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_c",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -295,8 +296,7 @@ scale_fill_hypso_b <- function(palette = "etopo1_hypso", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "hypso_fill_b",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -325,8 +325,7 @@ scale_colour_hypso_b <- function(palette = "etopo1_hypso", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "hypso_colour_b",
-    scales::gradient_n_pal(hypso_pal(
+    palette = scales::gradient_n_pal(hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -391,18 +390,17 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 #' (see [hypsometric_tints_db] for an example on how this could be achieved).
 #'
 #' Note that the setup of the palette may not be always suitable for your
-#' specific data. For example, raster of small parts of the globe (and with a
-#' limited range of elevations) may not be well represented. As an example, a
-#' raster with a range of values on `[100, 200]` would appear almost as an
-#' uniform color.
-#'
-#' This could be adjusted using the `limits`/`values` provided by **ggplot2**.
+#' specific data. For example, a `SpatRaster` of small parts of the globe (and
+#' with a limited range of elevations) may not be well represented. As an
+#' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
+#' almost as an uniform color. This could be adjusted using the
+#' `limits`/`values` parameters.
 #'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,
-#' `hypso.colors()` provides an uniform gradient across colors.
-#' See **Examples**.
-
+#' `hypso.colors()` provides an uniform gradient across colors. See
+#' **Examples**.
+#'
 scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
                                     alpha = 1, direction = 1,
                                     na.translate = FALSE,
@@ -417,7 +415,6 @@ scale_fill_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "hypso_tint_fill_d",
     palette = hypso_pal2(
       alpha = alpha,
       direction = direction,
@@ -444,7 +441,6 @@ scale_colour_hypso_tint_d <- function(palette = "etopo1_hypso", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "hypso_tint_colour_d",
     palette = hypso_pal2(
       alpha = alpha,
       direction = direction,

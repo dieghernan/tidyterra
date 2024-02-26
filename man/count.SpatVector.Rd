@@ -67,7 +67,7 @@ to \code{df \%>\% summarise(n = n())}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} family functions for
-\code{SpatVectors}.
+\code{SpatVector} objects.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.

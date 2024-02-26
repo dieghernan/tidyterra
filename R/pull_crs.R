@@ -5,13 +5,24 @@
 #' Extract the WKT version of the CRS associated to a string, number of
 #' sf/Spat* object.
 #'
-#' The [Well-known text
-#' (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
+#' The
+#'
+#' ```{r, echo=FALSE, results='asis'}
+#' full_url <- paste0("[Well-known text (WKT)](",
+#'                    "https://en.wikipedia.org/wiki/Well-known_text_",
+#'                    "representation_of_coordinate_reference_systems)")
+#'
+#' cat(full_url)
+#'
+#' ```
 #' representation of coordinate reference systems (CRS) is a character string
 #' that identifies precisely the parameters of each CRS. This is the current
-#' standard used on sf and terra packages.
+#' standard used on \CRANpkg{sf} and \CRANpkg{terra} packages.
 #'
-#' @seealso [terra::crs()], [sf::st_crs()]
+#' @seealso
+#'
+#' [terra::crs()], [sf::st_crs()] for knowing how these packages handle
+#' CRS definitions.
 #'
 #' @family helpers
 #' @export
@@ -20,19 +31,20 @@
 #'
 #' @param .data Input potentially including or representing a CRS. It could be
 #'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
-#'   [sf::st_crs()], a character (for example a proj4 string) or a integer
-#'   (representing an EPSG code).
+#'   [sf::st_crs()], a character (for example a [proj4
+#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
+#'   integer (representing an [EPSG](https://epsg.io/) code).
 #'
 #' @param ... ignored
 #'
 #' @details
 #'
-#' Although the WKT representation is the same, sf and terra slightly differs.
-#' For example, a sf user could do:
+#' Although the WKT representation is the same, \CRANpkg{sf} and \CRANpkg{terra}
+#' API slightly differs. For example, \CRANpkg{sf} can do:
 #'
 #' `sf::st_transform(x, 25830)`
 #'
-#' While a terra user needs to:
+#' While \CRANpkg{sf} equivalent is:
 #'
 #' `terra::project(bb, "epsg:25830")`
 #'
@@ -42,6 +54,7 @@
 #' @section Internals:
 #'
 #' This is a thin wrapper of [sf::st_crs()] and [terra::crs()].
+#'
 #' @examples
 #'
 #' # sf objects

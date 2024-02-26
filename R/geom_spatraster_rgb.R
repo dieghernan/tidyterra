@@ -1,25 +1,23 @@
-#' Visualise SpatRaster objects as images
+#' Visualise `SpatRaster` objects as images
 #'
 #' @description
 #'
-#' This geom is used to visualise SpatRaster objects (see [terra::rast()]) as
+#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]) as
 #' RGB images. The layers are combined such that they represent the red,
 #' green and blue channel.
 #'
-#' For plotting SpatRaster objects by layer values use [geom_spatraster()].
+#' For plotting `SpatRaster` objects by layer values use [geom_spatraster()].
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
 #'
 #' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
-#' @param data A SpatRaster object.
 #'
-#' @source Based on the `layer_spatial()` implementation on ggspatial package.
-#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-#' [ggspatial
+#' @source
+#' Based on the `layer_spatial()` implementation on \CRANpkg{ggspatial} package.
+#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
 #' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
-#'
 #'
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
@@ -30,30 +28,21 @@
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
 #'
-#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
+#' @seealso
+#' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
+#'
 #'  You can get also RGB tiles from the \CRANpkg{maptiles} package,
 #'  see [maptiles::get_tiles()].
 #'
-#' @section  terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()]
 #'
-#' @section Coords:
-#'
-#' When the SpatRaster does not present a crs (i.e.,
-#' `terra::crs(rast) == ""`) the geom does not make any assumption on the
-#' scales.
-#'
-#' On SpatRaster that have a crs, the geom uses [ggplot2::coord_sf()] to adjust
-#' the scales. That means that also the SpatRaster may be reprojected.
-#'
+#' @inheritSection geom_spatraster Coords
 #'
 #' @section Aesthetics:
 #'
-#'
 #' No `aes()` is required. In fact, `aes()` will be ignored.
-#'
-#'
 #'
 #' @export
 #' @examples

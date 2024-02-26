@@ -1,4 +1,4 @@
-#' Cross blended Hypsometric Tints scales
+#' Cross blended hypsometric tints scales
 #'
 #' @description
 #'
@@ -24,13 +24,13 @@
 #' See **Details**.
 #'
 #' Additional parameters `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()]
-#' - Continuous values: [ggplot2::continuous_scale()]
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' Note that \pkg{tidyterra} just documents a selection of these additional
-#' parameters, check the previous links to see the full range of parameters
-#' accepted by these scales.
+#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of parameters accepted by these scales.
 #'
 #' @export
 #'
@@ -45,10 +45,12 @@
 #'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
 #'   not filled. See also
 #'   [#120](https://github.com/dieghernan/tidyterra/issues/120).
+#'
 #' @param drop Should unused factor levels be omitted from the scale? The
 #'   default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
+#'
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [cross_blended_hypsometric_tints_db] for more info. Values available are:
@@ -68,25 +70,27 @@
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
 #'
-#' See also \pkg{ggplot2} docs on additional `...` parameters:
+#' See also \CRANpkg{ggplot2} docs on additional `...` parameters:
 #'
 #' - `scale_*_terrain_d()`: For discrete values.
 #' - `scale_*_terrain_c()`: For continuous values.
 #' - `scale_*_terrain_b()`: For binning continuous values.
 #'
-#' @return The corresponding ggplot2 layer with the values applied to the
+#' @return
+#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
 #' @family gradients
 #'
 #' @source
-#' Patterson, T., & Jenny, B. (2011). The Development and
-#' Rationale of Cross-blended Hypsometric Tints. *Cartographic Perspectives,*
-#' (69), 31 - 46. \doi{10.14714/CP69.20}.
 #'
-#' Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for Generalized
-#' Environmental Mapping.* Accessed June 10, 2022.
-#' <http://www.shadedrelief.com/hypso/hypso.html>
+#' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31 -
+#'   46. \doi{10.14714/CP69.20}.
+#'
+#' - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
+#'   Generalized Environmental Mapping.* Accessed June 10, 2022.
+#'   <http://www.shadedrelief.com/hypso/hypso.html>
 #'
 #' @examples
 #' \donttest{
@@ -136,7 +140,13 @@
 #'     guide = guide_colorbar(reverse = TRUE)
 #'   ) +
 #'   labs(fill = "elevation (m)") +
-#'   theme_minimal()
+#'   theme(
+#'     legend.position = "bottom",
+#'     legend.title.position = "top",
+#'     legend.key.width = rel(3),
+#'     legend.ticks = element_line(colour = "black", linewidth = 0.3),
+#'     legend.direction = "horizontal"
+#'   )
 #'
 #' # Binned
 #' ggplot() +
@@ -189,7 +199,6 @@ scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "cross_blended_fill_d",
     palette = cross_blended_pal(
       alpha = alpha,
       direction = direction,
@@ -215,7 +224,6 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "cross_blended_colour_d",
     palette = cross_blended_pal(
       alpha = alpha,
       direction = direction,
@@ -247,8 +255,7 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "fill",
-    scale_name = "cross_blended_fill_c",
-    scales::gradient_n_pal(cross_blended_pal(
+    palette = scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -279,8 +286,7 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
 
   ggplot2::continuous_scale(
     aesthetics = "colour",
-    scale_name = "cross_blended_colour_c",
-    scales::gradient_n_pal(cross_blended_pal(
+    palette = scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -309,8 +315,7 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "fill",
-    scale_name = "cross_blended_fill_b",
-    scales::gradient_n_pal(cross_blended_pal(
+    palette = scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -339,8 +344,7 @@ scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
   ))
   ggplot2::binned_scale(
     aesthetics = "colour",
-    scale_name = "cross_blended_colour_b",
-    scales::gradient_n_pal(cross_blended_pal(
+    palette = scales::gradient_n_pal(cross_blended_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
@@ -408,17 +412,17 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #' be achieved).
 #'
 #' Note that the setup of the palette may not be always suitable for your
-#' specific data. For example, raster of small parts of the globe (and with a
-#' limited range of elevations) may not be well represented. As an example, a
-#' raster with a range of values on `[100, 200]` would appear almost as an
-#' uniform color.
-#'
-#' This could be adjusted using the `limits`/`values` provided by **ggplot2**.
+#' specific data. For example, a `SpatRaster` of small parts of the globe (and
+#' with a limited range of elevations) may not be well represented. As an
+#' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
+#' almost as an uniform color. This could be adjusted using the
+#' `limits`/`values` parameters.
 #'
 #' `cross_blended.colors2()` provides a gradient color palette where the
 #' distance between colors is different depending of the type of color.
-#'  In contrast, `cross_blended.colors()` provides an uniform gradient across
-#'  colors. See **Examples**.
+#' In contrast, `cross_blended.colors()` provides an uniform gradient across
+#' colors. See **Examples**.
+#'
 scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
                                             alpha = 1, direction = 1,
                                             na.translate = FALSE,
@@ -433,7 +437,6 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    scale_name = "cross_blended_tint_fill_d",
     palette = cross_blended_pal2(
       alpha = alpha,
       direction = direction,
@@ -461,7 +464,6 @@ scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    scale_name = "cross_blended_tint_colour_d",
     palette = cross_blended_pal2(
       alpha = alpha,
       direction = direction,

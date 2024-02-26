@@ -29,8 +29,8 @@ two names for x and y coordinates of points, or a single name for a single
 column with WKT geometries.}
 
 \item{crs}{A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-and spatial object from sf or terra that includes the target coordinate
-reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
+and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
 }
 \value{
 A \code{SpatVector}.
@@ -49,8 +49,8 @@ vars are transferred and a "grouped" \code{SpatVector} is created (see
 \item If no \code{crs} is provided and the tibble has been created with the method
 \code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}}, the \code{crs} is inferred from
 \code{\link[=attr]{attr(x, "crs")}}.
-\item Handles correctly the conversion of \code{EMPTY} geometries between \pkg{sf}
-and \pkg{terra}.
+\item Handles correctly the conversion of \code{EMPTY} geometries between
+\CRANpkg{sf} and \CRANpkg{terra}.
 }
 }
 \section{\CRANpkg{terra} equivalent}{
@@ -79,7 +79,8 @@ newvect
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}}
+\code{\link[=pull_crs]{pull_crs()}} for retrieving crs, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
+and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
 \code{\link{as_coordinates}()},

@@ -13,7 +13,7 @@
 \alias{scale_colour_wiki_b}
 \alias{scale_color_wiki_b}
 \alias{wiki.colors}
-\title{Gradient scales from Wikipedia color schemes}
+\title{Gradient scales from \strong{Wikipedia} color schemes}
 \usage{
 scale_fill_wiki_d(
   ...,
@@ -111,7 +111,9 @@ expand the scale by 5\% on each side for continuous variables, and by
 each major break)
 \item A numeric vector of positions
 \item A function that given the limits returns a vector of minor breaks. Also
-accepts rlang \link[rlang:as_function]{lambda} function notation.
+accepts rlang \link[rlang:as_function]{lambda} function notation. When
+the function has two arguments, it will be given the limits and major
+breaks.
 }}
     \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
 may choose a slightly different number to ensure nice break labels. Will
@@ -152,12 +154,13 @@ reversed.}
     be reversed.}
 }
 \value{
-The corresponding ggplot2 layer with the values applied to the
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} aesthetics.
 }
 \description{
 Implementation based on the
 \href{https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Maps/Conventions/Topographic_maps}{Wikipedia Colorimetric conventions for topographic maps}.
+
 Three scales are provided:
 \itemize{
 \item \verb{scale_*_wiki_d()}: For discrete values.
@@ -170,14 +173,14 @@ Additionally, a color palette \code{wiki.colors()} is provided. See also
 
 Additional parameters \code{...} would be passed on to:
 \itemize{
-\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}
-\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-Note that \pkg{tidyterra} just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales.
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+see the full range of parameters accepted by these scales.
 }
 \examples{
 \donttest{
@@ -217,7 +220,7 @@ ggplot() +
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-See also \pkg{ggplot2} docs on additional \code{...} parameters:
+See also \CRANpkg{ggplot2} docs on additional \code{...} parameters:
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.

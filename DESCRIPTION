@@ -23,7 +23,7 @@ Imports:
     cli (>= 3.0.0),
     data.table,
     dplyr (>= 1.0.0),
-    ggplot2 (>= 3.1.0),
+    ggplot2 (>= 3.5.0),
     magrittr,
     rlang,
     scales,
@@ -45,7 +45,7 @@ VignetteBuilder:
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, metR, dieghernan/gitdevr, ragg, styler,
-    Nowosad/spDataLarge, ggspatial
+    Nowosad/spDataLarge, ggspatial, cpp11
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8

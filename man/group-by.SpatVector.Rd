@@ -4,14 +4,14 @@
 \alias{group-by.SpatVector}
 \alias{group_by.SpatVector}
 \alias{ungroup.SpatVector}
-\title{Group a SpatVector by one or more variables}
+\title{Group a \code{SpatVector} by one or more variables}
 \usage{
 \method{group_by}{SpatVector}(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))
 
 \method{ungroup}{SpatVector}(x, ...)
 }
 \arguments{
-\item{.data, x}{A SpatVector object. See \strong{Methods}.}
+\item{.data, x}{A \code{SpatVector} object. See \strong{Methods}.}
 
 \item{...}{In \code{group_by()}, variables or computations to group by.
 Computations are always done on the ungrouped data frame.
@@ -33,14 +33,12 @@ data? The default is \code{TRUE} except when \code{.data} has been previously
 grouped with \code{.drop = FALSE}. See \code{\link[dplyr:group_by_drop_default]{group_by_drop_default()}} for details.}
 }
 \value{
-A SpatVector object with an additional attribute.
+A \code{SpatVector} object with an additional attribute.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-Most data operations are done on groups defined by variables. \code{\link[=group_by]{group_by()}}
-adds new attributes to an existing SpatVector indicating the
-corresponding groups. See \strong{Methods}.
+Most data operations are done on groups defined by variables.
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}} adds new attributes to an existing \code{SpatVector}
+indicating the corresponding groups. See \strong{Methods}.
 }
 \details{
 See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
@@ -49,17 +47,17 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} family functions for
-SpatVectors.
+\code{SpatVector} objects.
 
-\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a grouped
-SpatVector (i.e, subsetting a SpatVector like \code{v[1:3,1:2]}) the \code{groups}
-attribute can be corrupted. \pkg{tidyterra} would try to re-group the
-SpatVector. This would be triggered the next time you use a dplyr verb on
-your SpatVector.
+\strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax} on a
+grouped \code{SpatVector} (i.e, subsetting a \code{SpatVector} like \code{v[1:3,1:2]}) the
+\code{groups} attribute can be corrupted. \CRANpkg{tidyterra} would try to
+re-group the \code{SpatVector}. This would be triggered the next time you use a
+\CRANpkg{dplyr} verb on your \code{SpatVector}.
 
 Note also that some operations (as \code{terra::spatSample()}) would create a new
-SpatVector. In these cases, the result won't preserve the \code{groups} attribute.
-Use \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} to re-group.
+\code{SpatVector}. In these cases, the result won't preserve the \code{groups}
+attribute. Use \code{\link[=group_by]{group_by()}} to re-group.
 }
 
 \examples{

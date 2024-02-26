@@ -4,14 +4,14 @@
 \alias{replace_na.Spat}
 \alias{replace_na.SpatRaster}
 \alias{replace_na.SpatVector}
-\title{Replace NAs with specified values}
+\title{Replace \code{NA}s with specified values}
 \usage{
 \method{replace_na}{SpatRaster}(data, replace = list(), ...)
 
 \method{replace_na}{SpatVector}(data, replace, ...)
 }
 \arguments{
-\item{data}{A SpatRaster created with \code{\link[terra:rast]{terra::rast()}} or a SpatVector
+\item{data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{replace}{list of values, with one value for each layer/attribute that
@@ -20,13 +20,13 @@ has \code{NA} values to be replaced.}
 \item{...}{Ignored}
 }
 \value{
-A Spat* object  of the same class than \code{data}. Geometries and
+A \verb{Spat*} object  of the same class than \code{data}. Geometries and
 spatial attributes are preserved.
 }
 \description{
-Replace \code{NAs} on layers/attributes with specified values
+Replace \code{NA} values on layers/attributes with specified values
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 Use \verb{r[is.na(r)] <- <replacement>}

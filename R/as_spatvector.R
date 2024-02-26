@@ -23,28 +23,31 @@
 #'   column with WKT geometries.
 #'
 #' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
-#'   and spatial object from sf or terra that includes the target coordinate
-#'   reference system. See [pull_crs()] and **Details**.
+#'   and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
+#'   target coordinate reference system. See [pull_crs()] and **Details**.
 #'
 #'
 #' @details
 #'
 #' This function differs from [terra::vect()] on the following:
 #'
-#' - geometries with `NA` or `""` values are removed prior to conversion
-#' - If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
+#' * geometries with `NA` or `""` values are removed prior to conversion
+#' * If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
 #'   vars are transferred and a "grouped" `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
-#' - If no `crs` is provided and the tibble has been created with the method
+#' * If no `crs` is provided and the tibble has been created with the method
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
-#' - Handles correctly the conversion of `EMPTY` geometries between \pkg{sf}
-#'   and \pkg{terra}.
+#' * Handles correctly the conversion of `EMPTY` geometries between
+#'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #'
 #' @family coerce
 #'
-#' @seealso [pull_crs()]
+#' @seealso
+#'
+#' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
+#' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -220,9 +223,9 @@ as_spatvector.SpatVector <- function(x, ...) {
 }
 
 
-#' Rebuild objects created with as_tbl_internal to Spatvector
+#' Rebuild objects created with as_tbl_internal to `SpatVector`
 #' Strict version, used attributes for creating a template
-#' SpatVector and then transfer the values
+#' `SpatVector` and then transfer the values
 #' @noRd
 as_spatvect_attr <- function(x) {
   if (inherits(x, "SpatVector")) {

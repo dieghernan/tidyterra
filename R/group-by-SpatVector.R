@@ -1,12 +1,10 @@
-#' Group a SpatVector by one or more variables
+#' Group a `SpatVector` by one or more variables
 #'
 #' @description
 #'
-#' `r lifecycle::badge('experimental')`
-#'
-#' Most data operations are done on groups defined by variables. [group_by()]
-#' adds new attributes to an existing SpatVector indicating the
-#' corresponding groups. See **Methods**.
+#' Most data operations are done on groups defined by variables.
+#' [group_by.SpatVector()] adds new attributes to an existing `SpatVector`
+#' indicating the corresponding groups. See **Methods**.
 #'
 #' @export
 #' @rdname group-by.SpatVector
@@ -18,25 +16,25 @@
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr group_by
-#' @param .data,x A SpatVector object. See **Methods**.
+#' @param .data,x A `SpatVector` object. See **Methods**.
 #' @inheritParams dplyr::group_by
 #'
-#' @return A SpatVector object with an additional attribute.
+#' @return A `SpatVector` object with an additional attribute.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_by()] family functions for
-#' SpatVectors.
+#' `SpatVector` objects.
 #'
-#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a grouped
-#' SpatVector (i.e, subsetting a SpatVector like `v[1:3,1:2]`) the `groups`
-#' attribute can be corrupted. \pkg{tidyterra} would try to re-group the
-#' SpatVector. This would be triggered the next time you use a dplyr verb on
-#' your SpatVector.
+#' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax** on a
+#' grouped `SpatVector` (i.e, subsetting a `SpatVector` like `v[1:3,1:2]`) the
+#' `groups` attribute can be corrupted. \CRANpkg{tidyterra} would try to
+#' re-group the `SpatVector`. This would be triggered the next time you use a
+#' \CRANpkg{dplyr} verb on your `SpatVector`.
 #'
 #' Note also that some operations (as `terra::spatSample()`) would create a new
-#' SpatVector. In these cases, the result won't preserve the `groups` attribute.
-#' Use [group_by.SpatVector()] to re-group.
+#' `SpatVector`. In these cases, the result won't preserve the `groups`
+#' attribute. Use [group_by()] to re-group.
 #'
 #' @details
 #'

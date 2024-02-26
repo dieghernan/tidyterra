@@ -1,8 +1,8 @@
-#' Subset layers/attributes of Spat* objects
+#' Subset layers/attributes of `Spat*` objects
 #'
 #' @description
 #'
-#' Select (and optionally rename) attributes/layers in Spat* objects, using a
+#' Select (and optionally rename) attributes/layers in `Spat*` objects, using a
 #' concise mini-language. See **Methods**.
 #'
 #' @export
@@ -11,15 +11,14 @@
 #'
 #' @importFrom dplyr select
 #'
-#'
-#' @param .data A SpatRaster created with [terra::rast()] or a SpatVector
+#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
-#' @param ... [`tidy-select`][dplyr::select] One or more unquoted expressions
-#'   separated by commas. Layer/attribute names can be used as if they were
-#'   positions in the Spat* object, so expressions like x:y can be used to
-#'   select a range of layers/attributes.
+#' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> One or more unquoted
+#'   expressions separated by commas. Layer/attribute names can be used as if
+#'   they were positions in the `Spat*` object, so expressions like `x:y` can
+#'   be used to select a range of layers/attributes.
 #'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
 #'
 #' @seealso [dplyr::select()], [terra::subset()]
 #'
@@ -27,7 +26,7 @@
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::subset()]
 #'
@@ -35,15 +34,15 @@
 #'
 #' Implementation of the **generic** [dplyr::select()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
-#' Select (and rename) layers of a SpatRaster. The result is a
-#' SpatRaster with the same extent, resolution and crs than `.data`. Only the
-#' number (and possibly the name) of layers is modified.
+#' Select (and rename) layers of a `SpatRaster`. The result is a `SpatRaster`
+#' with the same extent, resolution and crs than `.data`. Only the number (and
+#' possibly the name) of layers is modified.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' The result is a SpatVector with the selected (and possibly renamed)
+#' The result is a `SpatVector` with the selected (and possibly renamed)
 #' attributes on the function call.
 #'
 #'

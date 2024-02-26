@@ -7,21 +7,25 @@
 #' can be modified.
 #'
 #' @param geom The geometric object to use display the data. Recommended `geom`
-#'   for SpatRaster are `"raster"` (the default), `"point"`,`"text"` and
+#'   for `SpatRaster` are `"raster"` (the default), `"point"`,`"text"` and
 #'   `"label"`.
-#' @seealso Alternative geoms: [ggplot2::geom_point()], [ggplot2::geom_label()],
-#'   [ggplot2::geom_text()].
+#' @seealso
+#'
+#' Recommended `geoms`:
+#' - [ggplot2::geom_point()].
+#' - [ggplot2::geom_label()].
+#' - [ggplot2::geom_text()].
 #'
 #'
 #' @section Aesthetics:
 #'
-#'  ## stat_spatraster()
+#'  ## `stat_spatraster()`
 #'
 #' `stat_spatraster()` understands the same aesthetics than `geom_spatraster()`
 #' when using `geom = "raster"` (the default):
 #'
-#' - `fill`
-#' - `alpha`
+#'  - [`fill`][ggplot2::aes_colour_fill_alpha]
+#'  - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' When `geom = "raster"` the `fill` parameter would behave as in
 #' `geom_spatraster()`. If another `geom` is used `stat_spatraster()` would

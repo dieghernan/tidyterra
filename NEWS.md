@@ -1,14 +1,15 @@
 # tidyterra (development version)
 
--   New methods for `SpatVectors`:
+-   Requires **ggplot2** (\>= 3.5.0).
+-   New methods for `SpatVector` objects:
     -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
     -   `fill.SpatVector()`.
 -   `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
-    using.
--    `?tibble::print.tbl_df` approach for the header and the footer. The body is
-    still displayed transposed as of `dplyr::glimpse()`. See
+    using `?tibble::print.tbl_df` approach for the header and the footer. The
+    body is still displayed transposed as of `dplyr::glimpse()`. See
     `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for
     examples.
+-   Tidy documentation.
 
 # tidyterra 0.5.2
 
@@ -30,10 +31,12 @@
 
 Other changes on this version:
 
--   Support for `SpatRasters` with a color table
-    -   `autoplot.SpatRaster()` can detect now `SpatRasters` with color tables.
-    -   `geom_spatraster()` can detect now `SpatRasters` with color tables.
-    -   New scales for plotting `SpatRasters` with color tables:
+-   Support for `SpatRaster` objects with a color table
+    -   `autoplot.SpatRaster()` can detect now `SpatRaster` objects with color
+        tables.
+    -   `geom_spatraster()` can detect now `SpatRaster` objects with color
+        tables.
+    -   New scales for plotting `SpatRaster` objects with color tables:
         `scale_fill_coltab()` and rest of family scales (`colour`).
     -   tidyverse verbs keeps the associated `coltab` of a `SpatRaster`.
 -   By default all the discrete scales of **tidyterra** now have the following
@@ -50,8 +53,9 @@ Other changes on this version:
 
 # tidyterra 0.4.0
 
--   This release focuses heavily on `SpatVectors`. The improvements have been:
-    -   New methods for `SpatVectors`:
+-   This release focuses heavily on `SpatVector` objects. The improvements have
+    been:
+    -   New methods for `SpatVector`:
         -   `glimpse.SpatVector()`
         -   `arrange.SpatVector()`
         -   `distinct.SpatVector()`
@@ -87,7 +91,7 @@ Other changes on this version:
     -   Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
         -   `autoplot.SpatRaster()` now is smarter on identifying the type of
             plot to produce. Can still be overridden with parameters.
-    -   Methods for fortifying `SpatRasters` and `SpatVectors`:
+    -   Methods for fortifying `SpatRaster` and `SpatVector` objects:
         `fortify.SpatRaster()`, `fortify.SpatVector()`.
 -   Three additional palettes are included on `hypso.colors()`: `"artic"`,
     `"meyers"` and `"nordisk-familjebok"`.
@@ -130,8 +134,8 @@ Other changes on this version:
     Zealand. Source: [Auckland LiDAR 1m DEM
     (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
 -   Add `volcano2` dataset.
--   Fix errors on `slice_min()` and `slice_max()` for `SpatRasters` (#20). Also
-    add a new parameter `na.rm`.
+-   Fix errors on `slice_min()` and `slice_max()` for `SpatRaster` objects
+    (#20). Also add a new parameter `na.rm`.
 -   Add new gradient scales for use on hypsometry:
     -   `scale_fill_hypso_c()`
     -   `scale_fill_whitebox_c()`
@@ -147,23 +151,15 @@ Other changes on this version:
 # tidyterra 0.0.1
 
 -   Improvements on performance:
-
     -   Conversion to **tibble** is avoided as much as possible.
     -   Internally use `data.tables` instead of `tibbles`.
     -   The package is compatible with **dtplyr**.
-
 -   `as_spatraster()` handles tibbles with characters and factors.
-
 -   Simplification and tests for `geom_spatraster()` and
     `geom_spatraster_rgb()`.
-
 -   New methods:
-
     -   `pull()`
     -   `transmute()`
     -   `rename()`
-
 -   New geoms:
-
     -   `geom_spatraster_contour()` family.
-

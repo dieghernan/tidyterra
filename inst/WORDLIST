@@ -19,10 +19,7 @@ PROJ
 Precompute
 RCzechia
 SpatRaster
-SpatRasters
 SpatVector
-SpatVectors
-Spatvector
 Summarise
 Thorne
 Toitu
@@ -58,14 +55,11 @@ fullseq
 geoms
 ggplot
 ggspatial
-grDevices
 hypsometric
 hypsometry
 inlabru
 ish
 isoband
-linetype
-linewidth
 lon
 magrittr
 metR
@@ -81,7 +75,6 @@ reprojected
 rescaled
 rlang
 sparrpowR
-spatraster
 src
 srcs
 standardised

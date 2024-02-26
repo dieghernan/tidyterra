@@ -102,7 +102,11 @@ test_that("Stress SpatRaster", {
   expect_s4_class(inv, "SpatRaster")
 
   # Empty
-  empt <- terra::rast()
+  empt <- terra::rast(
+    xmin = -25, xmax = 15, ymin = -80, ymax = 10,
+    resolution = 10
+  )
+  empt <- terra::project(empt, "ESRI:54030")
   empt$bb <- empt$lyr.1
   expect_snapshot(inv <- glimpse(empt))
   expect_s4_class(inv, "SpatRaster")
@@ -191,4 +195,27 @@ test_that("NA crs", {
   expect_true(is.na(pull_crs(v)))
 
   expect_snapshot(glimpse(v))
+})
+
+
+test_that("Long geoms", {
+  a_rast <- terra::rast(ncol = 20, nrow = 20, crs = "EPSG:3035")
+  cc <- c(
+    paste0(c("A_longname1_"), letters[seq_len(15)]),
+    paste0(c("A_longname2__"), letters[seq_len(15)])
+  )
+
+  # Add layer over layer here
+  terra::values(a_rast) <- 1000
+  names(a_rast) <- "initial_name"
+  cc <- c(
+    paste0(c("A_longname1_"), letters[seq_len(15)]),
+    paste0(c("A_longname2__"), letters[seq_len(15)])
+  )
+  for (nm in cc) {
+    a_rast[[nm]] <- 1000
+  }
+
+  expect_snapshot(glimpse(a_rast, n = NULL, max_extra_cols = NULL))
+  expect_snapshot(glimpse(a_rast, n = -1, max_extra_cols = -1))
 })

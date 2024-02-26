@@ -1,18 +1,18 @@
-#' Create, modify, and delete cell values/layers/attributes of Spat* objects
+#' Create, modify, and delete cell values/layers/attributes of `Spat*` objects
 #'
 #' @description
 #'
 #' `mutate()` adds new layers/attributes and preserves existing ones on a
-#' Spat* object. `transmute()` adds new layers/attributes and drops existing
+#' `Spat*` object. `transmute()` adds new layers/attributes and drops existing
 #' ones. New variables overwrite existing variables of the same name. Variables
 #' can be removed by setting their value to `NULL`.
 #'
 #'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
 #'
 #' @inheritParams select.Spat
-#' @param ... [`data-masking`][dplyr::mutate] Name-value pairs. The name gives
-#'   the name of the layer/attribute in the output. See [dplyr::mutate()].
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Name-value pairs.
+#'   The name gives the name of the layer/attribute in the output.
 #'
 #' @export
 #' @rdname mutate.Spat
@@ -22,34 +22,43 @@
 #'
 #' @importFrom dplyr mutate
 #'
-#' @seealso [dplyr::mutate()], [dplyr::transmute()]
+#' @seealso
+#'
+#' [dplyr::mutate()], [dplyr::transmute()] methods.
+#'
+#' \CRANpkg{terra} provides several ways to modify `Spat*` objects:
+#'
+#' - [terra::ifel()].
+#' - [terra::classify()].
+#' - [terra::clamp()].
+#' - [terra::app()], [terra::lapp()], [terra::tapp()].
 #'
 #' @family single table verbs
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'
-#' @section  terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
-#' Some terra methods for modifying cell values:
+#' Some \CRANpkg{terra} methods for modifying cell values:
 #' [terra::ifel()], [terra::classify()], [terra::clamp()], [terra::app()],
 #' [terra::lapp()], [terra::tapp()]
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generics** [dplyr::mutate()], [dplyr::transmute()]
+#' Implementation of the **generic** [dplyr::mutate()], [dplyr::transmute()]
 #' functions.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
 #' Add new layers and preserves existing ones. The result is a
-#' SpatRaster with the same extent, resolution and crs than `.data`. Only the
+#' `SpatRaster` with the same extent, resolution and crs than `.data`. Only the
 #' values (and possibly the number) of layers is modified.
 #'
 #' `transmute()` would keep only the layers created with `...`.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' The result is a SpatVector with the modified (and possibly renamed)
+#' The result is a `SpatVector` with the modified (and possibly renamed)
 #' attributes on the function call.
 #'
 #' `transmute()` would keep only the attributes created with `...`.

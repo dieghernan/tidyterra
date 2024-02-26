@@ -3,11 +3,10 @@
 \name{geom_spatraster}
 \alias{geom_spatraster}
 \alias{stat_spatraster}
-\title{Visualise SpatRaster objects}
+\title{Visualise \code{SpatRaster} objects}
 \source{
-Based on the \code{layer_spatial()} implementation on ggspatial package.
-Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and
-\href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
+Based on the \code{layer_spatial()} implementation on \CRANpkg{ggspatial} package.
+Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
 }
 \usage{
 geom_spatraster(
@@ -34,14 +33,13 @@ stat_spatraster(
 )
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}} or
-\code{\link[ggplot2:aes_]{ggplot2::aes_()}}. See \strong{Aesthetics} specially in the use of \code{fill}
-aesthetic.}
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
+\strong{Aesthetics} specially in the use of \code{fill} aesthetic.}
 
-\item{data}{A SpatRaster object.}
+\item{data}{A \code{SpatRaster} object.}
 
-\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed.
-If \code{FALSE}, missing values are removed with a warning.}
+\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed. If
+\code{FALSE}, missing values are removed with a warning.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -58,9 +56,9 @@ than combining with them.}
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{use_coltab}{Logical. Only applicable to SpatRasters that have a coltab
-(\code{\link[terra:colors]{terra::coltab()}}). Should the coltab be used on the plot? See also
-\code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+\item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
+an associated \link[terra:colors]{coltab}. Should the coltab be used on the
+plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -68,17 +66,18 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 
 \item{geom}{The geometric object to use display the data. Recommended \code{geom}
-for SpatRaster are \code{"raster"} (the default), \code{"point"},\code{"text"} and
+for \code{SpatRaster} are \code{"raster"} (the default), \code{"point"},\code{"text"} and
 \code{"label"}.}
 }
 \value{
 A \CRANpkg{ggplot2} layer
 }
 \description{
-This geom is used to visualise SpatRaster objects (see \code{\link[terra:rast]{terra::rast()}}). The
-geom is designed for visualise the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
+This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}).
+The geom is designed for visualise the object by layers, as \code{\link[terra:plot]{terra::plot()}}
+does.
 
-For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
+For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster}), use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}.
@@ -86,7 +85,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2
 \code{stat_spatraster()} is provided as a complementary function, so the \code{geom}
 can be modified.
 }
-\section{terra equivalent}{
+\section{\CRANpkg{terra} equivalent}{
 
 
 \code{\link[terra:plot]{terra::plot()}}
@@ -95,12 +94,13 @@ can be modified.
 \section{Coords}{
 
 
-When the SpatRaster does not present a crs (i.e.,
+When the \code{SpatRaster} does not present a crs (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On SpatRaster that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to adjust
-the scales. That means that also the \strong{SpatRaster may be reprojected}.
+On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+adjust the scales. That means that also the
+\strong{\code{SpatRaster} may be reprojected}.
 }
 
 \section{Aesthetics}{
@@ -108,16 +108,16 @@ the scales. That means that also the \strong{SpatRaster may be reprojected}.
 
 \code{geom_spatraster()} understands the following aesthetics:
 \itemize{
-\item \code{fill}
-\item \code{alpha}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
 If \code{fill} is not provided, \code{geom_spatraster()} creates a \CRANpkg{ggplot2}
-layer with all the layers of the SpatRaster object. Use \code{facet_wrap(~lyr)}
-to display properly the SpatRaster layers.
+layer with all the layers of the \code{SpatRaster} object. Use \code{facet_wrap(~lyr)}
+to display properly the \code{SpatRaster} layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
-on the SpatRaster (i.e.
+on the \code{SpatRaster} (i.e.
 \verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Names of the
 layers can be retrieved using \code{names(rast)}.
 
@@ -130,13 +130,13 @@ mapped \code{fill} aesthetic.
 For \code{alpha} use computed variable. See section \strong{Computed variables}.
 
 
-\subsection{stat_spatraster()}{
+\subsection{\code{stat_spatraster()}}{
 
 \code{stat_spatraster()} understands the same aesthetics than \code{geom_spatraster()}
 when using \code{geom = "raster"} (the default):
 \itemize{
-\item \code{fill}
-\item \code{alpha}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
 When \code{geom = "raster"} the \code{fill} parameter would behave as in
@@ -155,7 +155,7 @@ section \strong{Computed variables} and \strong{Examples}.
 
 
 You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer of
-the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \section{Computed variables}{
@@ -164,10 +164,9 @@ the SpatRaster object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()
 This geom computes internally some variables that are available for use as
 aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
-
-\describe{
-\item{\code{value}}{Values of the SpatRaster.}
-\item{\code{lyr}}{Name of the layer.}
+\itemize{
+\item \code{after_stat(value)}: Values of the \code{SpatRaster.}
+\item \code{after_stat(lyr)}: Name of the layer.
 }
 }
 
@@ -254,8 +253,12 @@ ggplot() +
 \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}},
 \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}
 
-Alternative geoms: \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}},
-\code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
+Recommended \code{geoms}:
+\itemize{
+\item \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}.
+\item \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}.
+\item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
+}
 
 Other ggplot2 utils:
 \code{\link{autoplot.Spat}},

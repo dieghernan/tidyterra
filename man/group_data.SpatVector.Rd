@@ -8,7 +8,7 @@
 \alias{groups.SpatVector}
 \alias{group_size.SpatVector}
 \alias{n_groups.SpatVector}
-\title{Grouping metadata for SpatVectors}
+\title{Grouping metadata for \code{SpatVector} objects}
 \usage{
 \method{group_data}{SpatVector}(.data)
 
@@ -25,18 +25,18 @@
 \method{n_groups}{SpatVector}(x)
 }
 \arguments{
-\item{.data, .tbl, x}{A SpatVector.}
+\item{.data, .tbl, x}{A \code{SpatVector}.}
 
 \item{...}{Use of \code{...} is now deprecated; please use \code{group_by()} first
 instead.}
 }
 \value{
 See the description of the function. The results are usually tibbles,
-lists or vectors. These functions does not return SpatVector objects.
+lists or vectors. These functions does not return \code{SpatVector} objects.
 }
 \description{
-This collection of functions accesses data about grouped SpatVectors in
-various ways:
+This collection of functions accesses data about grouped \code{SpatVector} objects
+in various ways:
 \itemize{
 \item \code{\link[=group_data]{group_data()}} returns a tibble that defines the grouping structure.
 The columns give the values of the grouping variables. The last column,

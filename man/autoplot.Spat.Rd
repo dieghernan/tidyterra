@@ -59,7 +59,7 @@ Uses \code{\link[=geom_spatraster]{geom_spatraster()}} or \code{\link[=geom_spat
 \subsection{\code{SpatVector}}{
 
 Uses \code{\link[=geom_spatvector]{geom_spatvector()}}. Labels can be placed with \code{\link[=geom_spatvector_text]{geom_spatvector_text()}}
-or \code{\link[=geom_spatvector_label]{geom_spatvector_label()}}
+or \code{\link[=geom_spatvector_label]{geom_spatvector_label()}}.
 }
 }
 

@@ -11,7 +11,7 @@
 \alias{scale_color_terrain_d}
 \alias{scale_color_terrain_c}
 \alias{scale_color_terrain_b}
-\title{Terrain colour scales from grDevices}
+\title{Terrain colour scales from \pkg{grDevices}}
 \usage{
 scale_fill_terrain_d(
   ...,
@@ -107,7 +107,9 @@ expand the scale by 5\% on each side for continuous variables, and by
 each major break)
 \item A numeric vector of positions
 \item A function that given the limits returns a vector of minor breaks. Also
-accepts rlang \link[rlang:as_function]{lambda} function notation.
+accepts rlang \link[rlang:as_function]{lambda} function notation. When
+the function has two arguments, it will be given the limits and major
+breaks.
 }}
     \item{\code{n.breaks}}{An integer guiding the number of major breaks. The algorithm
 may choose a slightly different number to ensure nice break labels. Will
@@ -142,12 +144,12 @@ not filled. See also
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 }
 \value{
-The corresponding ggplot2 layer with the values applied to the
-\code{fill/color} aesthetics.
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
+\code{fill/colour} aesthetics.
 }
 \description{
 Implementation of the classic color palettes used by default by the
-terra package (see \code{\link[terra:plot]{terra::plot()}}):
+\CRANpkg{terra} package (see \code{\link[terra:plot]{terra::plot()}}):
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.
@@ -156,14 +158,14 @@ terra package (see \code{\link[terra:plot]{terra::plot()}}):
 
 Additional parameters \code{...} would be passed on to:
 \itemize{
-\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}
-\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-Note that \pkg{tidyterra} just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales.
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+see the full range of parameters accepted by these scales.
 }
 \examples{
 \donttest{
@@ -198,8 +200,8 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}} and \pkg{ggplot2} docs on
-additional \code{...} parameters:
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2} docs
+on additional \code{...} parameters:
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.

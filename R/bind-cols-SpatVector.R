@@ -16,7 +16,7 @@
 #' @param .name_repair One of `"unique"`, `"universal"`, or `"check_unique"`.
 #'   See [dplyr::bind_cols()] for **Details**.
 #'
-#' @return A `SpatVector` with the corresponding cols. The geometry and CRS
+#' @return A `SpatVector` with the corresponding columns. The geometry and CRS
 #' would correspond to the the first `SpatVector` of `...`.
 #'
 #' @export

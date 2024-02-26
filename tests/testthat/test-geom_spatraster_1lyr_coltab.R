@@ -131,10 +131,10 @@ test_that("geom_spatraster one layer coltab with CRS", {
   # Stat does not work with this
   st1 <- ggplot() +
     geom_spatraster(data = r, aes(fill = after_stat(lyr)))
-  vdiffr::expect_doppelganger(
-    "crs_15: stat works",
-    st1
-  )
+
+  expect_snapshot(lydata <- layer_data(st1))
+  # No fill
+  expect_true(is.na(unique(lydata$fill)))
 })
 
 
@@ -293,10 +293,10 @@ test_that("geom_spatraster one layer without CRS", {
   # Stat works
   st1 <- ggplot() +
     geom_spatraster(data = r, aes(fill = after_stat(lyr)))
-  vdiffr::expect_doppelganger(
-    "nocrs_15: stat works",
-    st1
-  )
+  # Stat does not produce fill
+  expect_snapshot(lydata <- layer_data(st1))
+  # No fill
+  expect_true(is.na(unique(lydata$fill)))
 })
 
 

@@ -1,10 +1,10 @@
 #' Extract a single layer/attribute
 #'
 #' @description
-#' `pull()` is similar to $ on a data frame. It's mostly useful because it
+#' `pull()` is similar to `$` on a data frame. It's mostly useful because it
 #' looks a little nicer in pipes and it can optionally name the output.
 #'
-#' **It is possible to extract the geographic coordinates of a SpatRaster**.
+#' **It is possible to extract the geographic coordinates of a `SpatRaster`**.
 #' You need to use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
 #' names on terra, since they refer to the geographic coordinates of the layer.
 #'
@@ -24,8 +24,8 @@
 #' @inheritParams select.Spat
 #' @param var A variable specified as:
 #'
-#'   - a literal layer/attribute name
-#'   - a positive integer, giving the position counting from the left
+#'   - a literal layer/attribute name.
+#'   - a positive integer, giving the position counting from the left.
 #'   - a negative integer, giving the position counting from the right.
 #'
 #' The default returns the last layer/attribute (on the assumption that's the
@@ -33,25 +33,25 @@
 #'
 #' @param name An optional parameter that specifies the column to be used as
 #'   names for a named vector. Specified in a similar manner as `var`.
-#' @param ...  Arguments passed on to [as_tibble()]
+#' @param ...  Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat]
 #'
 #' @return A vector the same number of cells/geometries as `.data`.
 #'
-#' On SpatRasters, note that the default (`na.rm = FALSE`) would remove
+#' On `SpatRaster` objects, note that the default (`na.rm = FALSE`) would remove
 #' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 #' [terra::as.data.frame()].
 #'
-#' @section  terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::values()]
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::pull()] function. This is done
-#' by coercing the Spat* object to a tibble first (see [as_tibble.Spat]) and
+#' by coercing the `Spat*` object to a tibble first (see [as_tibble.Spat]) and
 #' then using [dplyr::pull()] method over the tibble.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
 #' When passing option `na.rm = TRUE` to `...`, only cells with a value
 #' distinct to `NA` are extracted. See [terra::as.data.frame()].
@@ -61,12 +61,12 @@
 #' in position `1` and `2`. Hence, `pull(.data, 1)` and
 #' `pull(.data, 1, xy = TRUE)` return different result.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
 #' When passing `geom = "WKT"/geom = "HEX"` to `...`,  the geometry of the
-#' SpatVector can be pulled passing `var = geometry`. Similarly to SpatRaster
-#' method, when using `geom = "XY"` the `x,y` coordinates can be pulled with
-#' `var = x/var = y`. See  [terra::as.data.frame()] options.
+#' `SpatVector` can be pulled passing `var = geometry`. Similarly to
+#' `SpatRaster` method, when using `geom = "XY"` the `x,y` coordinates can be
+#' pulled with `var = x/var = y`. See  [terra::as.data.frame()] options.
 #'
 #' @examples
 #'

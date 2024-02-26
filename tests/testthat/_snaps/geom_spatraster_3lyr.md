@@ -24,7 +24,7 @@
         Use `aes(fill = <name_of_layer>)` for displaying single layers
     Condition
       Warning:
-      Computation failed in `stat_terra_spat_raster()`
+      Computation failed in `stat_terra_spat_raster()`.
       Caused by error in `reproject_raster_on_stat()`:
       ! `geom_spatraster_*()` on <SpatRaster>s with crs must be used with `ggplot2::coord_sf()`.
 

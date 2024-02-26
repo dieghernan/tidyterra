@@ -2,12 +2,12 @@
 % Please edit documentation in R/rowwise-SpatVector.R
 \name{rowwise.SpatVector}
 \alias{rowwise.SpatVector}
-\title{Group SpatVector by rows}
+\title{Group \code{SpatVector} objects by rows}
 \usage{
 \method{rowwise}{SpatVector}(data, ...)
 }
 \arguments{
-\item{data}{A SpatVector object. See \strong{Methods}.}
+\item{data}{A \code{SpatVector} object. See \strong{Methods}.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
 preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
@@ -15,18 +15,16 @@ of variables whose combination uniquely identify each row. See
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.}
 }
 \value{
-A SpatVector object with an additional attribute.
+The same \code{SpatVector} object with an additional attribute.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-\code{rowwise()} allows you to compute on a SpatVector a row-at-a-time.
+\code{rowwise()} allows you to compute on a \code{SpatVector} a row-at-a-time.
 This is most useful when a vectorised function doesn't exist.
 
-Most dplyr verbs implementation in \pkg{tidyterra} preserve row-wise
-grouping, with the exception of \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. You can explicitly
-ungroup with \code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}}, or convert to a
-grouped SpatVector with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
+Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
+row-wise grouping, with the exception of \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. You can
+explicitly ungroup with \code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}}, or convert
+to a grouped \code{SpatVector} with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }
 \details{
 See \strong{Details} on \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
@@ -35,17 +33,17 @@ See \strong{Details} on \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:rowwise]{dplyr::rowwise()}} function for
-SpatVectors.
+\code{SpatVector} objects.
 
-\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a row-wise
-SpatVector (i.e, subsetting a SpatVector like \code{v[1:3,1:2]}) the \code{groups}
-attribute can be corrupted. \pkg{tidyterra} would try to re-generate the
-SpatVector. This would be triggered the next time you use a dplyr verb on
-your SpatVector.
+\strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax} on a
+row-wise \code{SpatVector} (i.e, subsetting a \code{SpatVector} like \code{v[1:3,1:2]}) the
+\code{groups} attribute can be corrupted. \CRANpkg{tidyterra} would try to
+re-generate the \code{SpatVector}. This would be triggered the next time you use
+a \CRANpkg{dplyr} verb on your \code{SpatVector}.
 
 Note also that some operations (as \code{terra::spatSample()}) would create a new
-SpatVector. In these cases, the result won't preserve the \code{groups} attribute.
-Use \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} to re-group.
+\code{SpatVector}. In these cases, the result won't preserve the \code{groups}
+attribute. Use \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} to re-group.
 }
 
 \examples{

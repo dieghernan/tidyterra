@@ -3,20 +3,22 @@
 #' @description
 #'
 #' Use `relocate()` to change layer/attribute positions, using the same syntax
-#' as [select()] to make it easy to move blocks of layers/attributes at once.
+#' as [`select.Spat`][select.Spat] to make it easy to move blocks of
+#' layers/attributes at once.
 #'
 #' @export
 #' @rdname relocate.Spat
 #' @name relocate.Spat
 #'
 #' @inheritParams select.Spat
-#' @param ... [`tidy-select`][dplyr::relocate] layers/attributes to move.
+#' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> layers/attributes to
+#'   move.
 #'
-#' @param .before,.after [`tidy-select`][dplyr::relocate] Destination of
-#'   layers/attributes selected by `...`. Supplying neither will move
+#' @param .before,.after <[`tidy-select`][dplyr::dplyr_tidy_select]> Destination
+#'   of layers/attributes selected by `...`. Supplying neither will move
 #'   layers/attributes to the left-hand side; specifying both is an error.
 #'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
 #'
 #' @seealso [dplyr::relocate()]
 #'
@@ -25,7 +27,7 @@
 #'
 #' @importFrom dplyr relocate
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' `terra::subset(data, c("name_layer", "name_other_layer"))`
 #'
@@ -33,13 +35,13 @@
 #'
 #' Implementation of the **generic** [dplyr::relocate()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
-#' Relocate layers of a SpatRaster.
+#' Relocate layers of a `SpatRaster`.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' The result is a SpatVector with the attributes on a different order.
+#' The result is a `SpatVector` with the attributes on a different order.
 #'
 #' @examples
 #'

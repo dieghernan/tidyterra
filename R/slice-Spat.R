@@ -2,27 +2,24 @@
 #'
 #' @description
 #'
-#' `slice()` lets you index cells/rows/columns/geometries by their (integer)
-#' locations. It allows you to select, remove, and duplicate those dimensions
-#' of a Spat* object.
+#' `slice()` methods lets you index cells/rows/columns/geometries by their
+#' (integer) locations. It allows you to select, remove, and duplicate those
+#' dimensions of a `Spat*` object.
 #'
-#' **If you want to slice your SpatRaster by geographic coordinates** use
+#' **If you want to slice your `SpatRaster` by geographic coordinates** use
 #' [filter.SpatRaster()] method.
 #'
 #' It is accompanied by a number of helpers for common use cases:
 #'
 #' - `slice_head()` and `slice_tail()` select the first or last
-#'    cells/geometries.
-#'
+#'   cells/geometries.
 #' - `slice_sample()` randomly selects cells/geometries.
-#'
 #' - `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
-#'   of a SpatRaster.
+#'   of a `SpatRaster`.
+#' - `slice_colrows()` subsets regions of the `SpatRaster` by row and column
+#'   position of a `SpatRaster`.
 #'
-#' - `slice_colrows()` subsets regions of the raster by row and column position
-#'   of a SpatRaster.
-#'
-#' You can get a skeleton of your SpatRaster with the cell, column and row
+#' You can get a skeleton of your `SpatRaster` with the cell, column and row
 #' index with [as_coordinates()].
 #'
 #' See **Methods** for details.
@@ -34,7 +31,7 @@
 #' @seealso
 #' [dplyr::slice()], [terra::spatSample()].
 #'
-#' You can get a skeleton of your SpatRaster with the cell, column and row
+#' You can get a skeleton of your `SpatRaster` with the cell, column and row
 #' index with [as_coordinates()].
 #'
 #' If you want to slice by geographic coordinates use [filter.SpatRaster()].
@@ -43,29 +40,30 @@
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'
-#' @return A Spat* object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
 #'
 #' @importFrom dplyr slice
 #'
 #' @inheritParams mutate.Spat
 #'
-#' @param .preserve Ignored for Spat* objects
-#' @param .keep_extent Should the extent of the resulting SpatRaster be kept?
+#' @param .preserve Ignored for `Spat*` objects.
+#' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   See also [terra::trim()], [terra::extend()].
-#' @param ... [`data-masking`][dplyr::slice] Integer row values. Provide
-#'   either positive values to keep, or negative values to drop.
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
+#'   Provide either positive values to keep, or negative values to drop.
 #'
 #'   The values provided must be either all positive or all negative. Indices
-#'   beyond the number of rows in the input are silently ignored.
-#'   See **Methods**.
-#' @param cols,rows Integer col/row values of the SpatRaster
+#'   beyond the number of rows in the input are silently ignored. See
+#'   **Methods**.
+#'
+#' @param cols,rows Integer col/row values of the `SpatRaster`
 #' @param inverse If `TRUE`, `.data` is inverse-masked to the given selection.
 #'   See [terra::mask()].
 #' @param na.rm Logical, should cells that present a value of `NA` removed when
 #'   computing `slice_min()/slice_max()`?. The default is `TRUE`.
 #' @inheritParams dplyr::slice
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::subset()], [terra::spatSample()]
 #'
@@ -73,21 +71,21 @@
 #'
 #' Implementation of the **generic** [dplyr::slice()] function.
 #'
-#' ## SpatRaster
+#' ## `SpatRaster`
 #'
-#' The result is a SpatRaster with the crs and resolution of the input and
+#' The result is a `SpatRaster` with the crs and resolution of the input and
 #' where cell values of the selected cells/columns/rows are preserved.
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
 #' The non-selected cells would present a value of `NA`.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' The result is a SpatVector where the attributes of the selected
+#' The result is a `SpatVector` where the attributes of the selected
 #' geometries are preserved. If `.data` is a
-#' [grouped SpatVector][is_grouped_spatvector], the operation will be performed
-#' on each group, so that (e.g.) `slice_head(df, n = 5)` will select the first
-#' five rows in each group.
+#' [grouped][is_grouped_spatvector] `SpatVector`, the operation will be
+#' performed on each group, so that (e.g.) `slice_head(df, n = 5)` will select
+#' the first five rows in each group.
 #'
 #' @examples
 #'

@@ -1,6 +1,6 @@
-#' Extract coordinates from SpatVector objects
+#' Extract coordinates from `SpatVector` objects
 #'
-#' `stat_spat_coordinates()` extracts the coordinates from SpatVector objects
+#' `stat_spat_coordinates()` extracts the coordinates from `SpatVector` objects
 #' and summarises them to one pair of coordinates (x and y) per geometry.
 #'
 #' Wrapper of [ggplot2::stat_sf_coordinates()].

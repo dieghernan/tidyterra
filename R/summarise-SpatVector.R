@@ -1,17 +1,17 @@
-#' Summarise each group of a SpatVector down to one geometry
+#' Summarise each group of a `SpatVector` down to one geometry
 #'
 #' @description
-#' `summarise()` creates a new SpatVector. It returns one geometry for each
+#' `summarise()` creates a new `SpatVector`. It returns one geometry for each
 #' combination of grouping variables; if there are no grouping variables, the
 #' output will have a single geometry summarising all observations in the input
-#' and combining all the geometries of the SpatVector. It will contain one
+#' and combining all the geometries of the `SpatVector`. It will contain one
 #' column for each grouping variable and one column for each of
 #' the summary statistics that you have specified.
 #'
 #' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
 #'
 #' @return
-#' A SpatVector.
+#' A `SpatVector`.
 #'
 #' @export
 #' @rdname summarise.SpatVector
@@ -23,17 +23,18 @@
 #' @family dplyr.groups
 #' @family dplyr.methods
 #'
-#' @param .data A SpatVector
+#' @param .data A `SpatVector`.
+#'
 #' @inheritParams dplyr::summarise
-#' @param .by Ignored on this method. `r lifecycle::badge('experimental')`
-#'   on \pkg{dplyr}.
+#' @param .by Ignored on this method (`r lifecycle::badge('experimental')`
+#'   on \CRANpkg{dplyr}).
 #' @param .groups See [dplyr::summarise()]
 #' @param .dissolve logical. Should borders between aggregated geometries
 #'   be dissolved?
 #'
 #' @importFrom dplyr summarise
 #'
-#' @section terra equivalent:
+#' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::aggregate()]
 #'
@@ -41,9 +42,9 @@
 #'
 #' Implementation of the **generic** [dplyr::summarise()] function.
 #'
-#' ## SpatVector
+#' ## `SpatVector`
 #'
-#' Similarly to the implementation on \pkg{sf} this function can be used to
+#' Similarly to the implementation on \CRANpkg{sf} this function can be used to
 #' dissolve geometries (with `.dissolve = TRUE`) or create `MULTI` versions of
 #' geometries (with `.dissolve = FALSE`). See **Examples**.
 #'

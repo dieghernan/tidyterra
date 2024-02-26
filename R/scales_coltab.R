@@ -1,33 +1,39 @@
-#' Discrete scales based in the color table of a SpatRaster
+#' Discrete scales based in the color table of a `SpatRaster`
 #'
 #' @description
 #'
-#' Some categorical SpatRaster may have an associated color table. This
-#' function extract those values. These functions generates scales and vector
-#' of colors based on the color table [terra::coltab()] associated to a
-#' SpatRaster.
+#' Some categorical `SpatRaster` objects may have an associated color table.
+#' This function extract those values. These functions generates scales and
+#' vector of colors based on the color table [terra::coltab()] associated to a
+#' `SpatRaster`.
 #'
 #' You can also get a vector of colors named with the corresponding
 #' factor with [get_coltab_pal()].
 #'
 #' Additional parameters `...` would be passed on to
-#' [ggplot2::discrete_scale()]. Note that \pkg{tidyterra} just documents a
-#' selection of these additional parameters, check the previous link to see the
-#' full range of parameters accepted by this scale.
+#' [ggplot2::discrete_scale()].
+#'
+#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' additional parameters, check [ggplot2::discrete_scale()] to see the full
+#' range of parameters accepted.
+#'
 #' @export
 #'
 #' @name scale_coltab
 #' @rdname scale_coltab
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#'
 #' @inheritParams scale_cross_blended
-#' @param data,x A SpatRaster with one or several color tables. See
-#'   [terra::has.colors()].
+#'
+#' @param data,x A `SpatRaster` with one or several color tables.
+#'   See [terra::has.colors()].
 #'
 #' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
 #'   [ggplot2::scale_fill_manual()],
 #'
-#' @return The corresponding ggplot2 layer with the values applied to the
+#' @return
+#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
 #' @examples

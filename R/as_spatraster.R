@@ -34,7 +34,10 @@
 #'
 #' @family coerce
 #'
-#' @seealso [pull_crs()]
+#' @seealso
+#'
+#' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
+#' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -178,9 +181,10 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   return(defortify)
 }
 
-#' Rebuild objects created with as_tbl_spatattr to SpatRaster
+#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`
 #' Strict version, used attributes for creating a template
-#' SpatRaster and then transfer the values
+#' `SpatRaster` and then transfer the values
+#'
 #' @noRd
 as_spatrast_attr <- function(x) {
   if (inherits(x, "SpatRaster")) {

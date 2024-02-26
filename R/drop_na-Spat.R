@@ -11,8 +11,8 @@
 #'
 #' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
 #'   [terra::rast()].
-#' @param ... [`tidy-select`][tidyr::drop_na()]  Attributes to inspect for
-#'   missing values. If empty, all attributes are used.
+#' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]>  Attributes to inspect
+#'   for missing values. If empty, all attributes are used.
 #'
 #' @export
 #'
@@ -48,9 +48,9 @@
 #' Actual implementation of `drop_na().SpatRaster` can be understood as a
 #' masking method based on the values of the layers (see [terra::mask()]).
 #'
-#' Raster layers are considered as columns and raster cells as rows, so rows
-#' (cells) with any `NA` value on any layer would get a `NA` value. It is
-#' possible also to mask the cells (rows) based on the values of specific
+#' `SpatRaster` layers are considered as columns and `SpatRaster` cells as rows,
+#' so rows (cells) with any `NA` value on any layer would get a `NA` value. It
+#' is possible also to mask the cells (rows) based on the values of specific
 #' layers (columns).
 #'
 #' `drop_na()` would effectively remove outer cells that are `NA` (see
