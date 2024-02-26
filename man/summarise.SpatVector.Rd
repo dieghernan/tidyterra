@@ -104,12 +104,12 @@ Other single table verbs:
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
 
-Other dplyr verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link{count.SpatVector}()},
 \code{\link{group-by.SpatVector}},
 \code{\link{rowwise.SpatVector}()}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

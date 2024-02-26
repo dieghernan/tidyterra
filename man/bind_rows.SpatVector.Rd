@@ -95,12 +95,12 @@ bind_spat_rows(list(
 \seealso{
 \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}}
 
-Other dplyr verbs that operate on pairs Spat*/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{mutate-joins.SpatVector}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{count.SpatVector}()},

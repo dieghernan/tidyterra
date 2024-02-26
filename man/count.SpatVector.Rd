@@ -112,12 +112,12 @@ p \%>\%
 \seealso{
 \code{\link[dplyr:count]{dplyr::count()}}, \code{\link[dplyr:count]{dplyr::tally()}}
 
-Other dplyr verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link{group-by.SpatVector}},
 \code{\link{rowwise.SpatVector}()},
 \code{\link{summarise.SpatVector}()}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

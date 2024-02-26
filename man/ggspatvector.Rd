@@ -166,7 +166,7 @@ ggplot(cyl) +
 \seealso{
 \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

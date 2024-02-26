@@ -77,12 +77,12 @@ try(bind_spat_cols(sv, sfobj))
 \seealso{
 \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}
 
-Other dplyr verbs that operate on pairs Spat*/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_rows.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{mutate-joins.SpatVector}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{count.SpatVector}()},

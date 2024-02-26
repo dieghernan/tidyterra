@@ -118,7 +118,7 @@ ggplot(cyl_sf) +
 You can get also RGB tiles from the \CRANpkg{maptiles} package,
 see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

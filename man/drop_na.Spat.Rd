@@ -133,11 +133,11 @@ r \%>\%
 \seealso{
 \code{\link[tidyr:drop_na]{tidyr::drop_na()}}
 
-Other tidyr verbs for handling missing values:
+Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link{fill.SpatVector}()},
 \code{\link{replace_na.Spat}}
 
-Other tidyr methods:
+Other \CRANpkg{tidyr} methods:
 \code{\link{fill.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},

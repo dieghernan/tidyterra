@@ -83,12 +83,12 @@ distinct(v, geometry, .keep_all = TRUE)
 \seealso{
 \code{\link[dplyr:distinct]{dplyr::distinct()}}, \code{\link[terra:unique]{terra::unique()}}
 
-Other dplyr verbs that operate on rows:
+Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link{arrange.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{slice.Spat}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

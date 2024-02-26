@@ -71,11 +71,11 @@ lux_blnk \%>\%
 \seealso{
 \code{\link[tidyr:fill]{tidyr::fill()}}
 
-Other tidyr verbs for handling missing values:
+Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link{drop_na.Spat}},
 \code{\link{replace_na.Spat}}
 
-Other tidyr methods:
+Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
 \code{\link{pivot_longer.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},

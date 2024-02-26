@@ -165,10 +165,10 @@ ggplot(nc_pivoted) +
 \seealso{
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}
 
-Other tidyr verbs for pivoting:
+Other \CRANpkg{tidyr} verbs for pivoting:
 \code{\link{pivot_wider.SpatVector}()}
 
-Other tidyr methods:
+Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
 \code{\link{fill.SpatVector}()},
 \code{\link{pivot_wider.SpatVector}()},

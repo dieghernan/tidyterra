@@ -199,7 +199,7 @@ ggplot() +
 \seealso{
 \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spatraster}()},

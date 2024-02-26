@@ -133,7 +133,7 @@ ggplot(cyl) +
 \code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \link{as_tibble.Spat}, \code{\link[=as_spatraster]{as_spatraster()}},
 \code{\link[ggplot2:fortify]{ggplot2::fortify()}}.
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster}()},
@@ -141,7 +141,7 @@ Other ggplot2 utils:
 \code{\link{ggspatvector}},
 \code{\link{stat_spat_coordinates}()}
 
-Other ggplot2 methods:
+Other \CRANpkg{ggplot2} methods:
 \code{\link{autoplot.Spat}}
 
 Coercing objects:

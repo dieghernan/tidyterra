@@ -260,7 +260,7 @@ Recommended \code{geoms}:
 \item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
 }
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

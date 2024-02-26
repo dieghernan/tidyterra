@@ -69,14 +69,14 @@ spatrast \%>\%
 \seealso{
 \code{\link[dplyr:relocate]{dplyr::relocate()}}
 
-Other dplyr verbs that operate on columns:
+Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

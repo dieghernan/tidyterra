@@ -121,12 +121,12 @@ autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
 \seealso{
 \code{\link[dplyr:filter-joins]{dplyr::semi_join()}}, \code{\link[dplyr:filter-joins]{dplyr::anti_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
-Other dplyr verbs that operate on pairs Spat*/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{mutate-joins.SpatVector}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

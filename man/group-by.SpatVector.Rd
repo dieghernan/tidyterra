@@ -128,12 +128,12 @@ p \%>\%
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
 
-Other dplyr verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link{count.SpatVector}()},
 \code{\link{rowwise.SpatVector}()},
 \code{\link{summarise.SpatVector}()}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},

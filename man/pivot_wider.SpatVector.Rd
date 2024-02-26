@@ -167,10 +167,10 @@ nc_long \%>\%
 \seealso{
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
 
-Other tidyr verbs for pivoting:
+Other \CRANpkg{tidyr} verbs for pivoting:
 \code{\link{pivot_longer.SpatVector}()}
 
-Other tidyr methods:
+Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
 \code{\link{fill.SpatVector}()},
 \code{\link{pivot_longer.SpatVector}()},

@@ -101,7 +101,7 @@ v \%>\% autoplot(aes(fill = cpro)) +
 \seealso{
 \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}
 
-Other ggplot2 utils:
+Other \CRANpkg{ggplot2} utils:
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link{geom_spatraster}()},
@@ -109,7 +109,7 @@ Other ggplot2 utils:
 \code{\link{ggspatvector}},
 \code{\link{stat_spat_coordinates}()}
 
-Other ggplot2 methods:
+Other \CRANpkg{ggplot2} methods:
 \code{\link{fortify.Spat}}
 }
 \concept{ggplot2.methods}

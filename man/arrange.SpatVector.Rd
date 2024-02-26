@@ -72,12 +72,12 @@ Other single table verbs:
 \code{\link{slice.Spat}},
 \code{\link{summarise.SpatVector}()}
 
-Other dplyr verbs that operate on rows:
+Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link{distinct.SpatVector}()},
 \code{\link{filter.Spat}},
 \code{\link{slice.Spat}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{count.SpatVector}()},

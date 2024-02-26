@@ -196,12 +196,12 @@ ggplot(full, aes(x, y)) +
 \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::left_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::right_join()}},
 \code{\link[dplyr:mutate-joins]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
-Other dplyr verbs that operate on pairs Spat*/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{filter-joins.SpatVector}}
 
-Other dplyr methods:
+Other \CRANpkg{dplyr} methods:
 \code{\link{arrange.SpatVector}()},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
