@@ -38,9 +38,9 @@ concise mini-language. See \strong{Methods}.
 Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} function.
 \subsection{\code{SpatRaster}}{
 
-Select (and rename) layers of a \code{SpatRaster}. The result is a
-\code{SpatRaster} with the same extent, resolution and crs than \code{.data}. Only the
-number (and possibly the name) of layers is modified.
+Select (and rename) layers of a \code{SpatRaster}. The result is a \code{SpatRaster}
+with the same extent, resolution and crs than \code{.data}. Only the number (and
+possibly the name) of layers is modified.
 }
 
 \subsection{\code{SpatVector}}{

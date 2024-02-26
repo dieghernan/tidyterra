@@ -1,8 +1,8 @@
 #' Grouping metadata for `SpatVector` objects
 #'
 #' @description
-#' This collection of functions accesses data about grouped `SpatVectors` in
-#' various ways:
+#' This collection of functions accesses data about grouped `SpatVector` objects
+#' in various ways:
 #'
 #' * [group_data()] returns a tibble that defines the grouping structure.
 #'   The columns give the values of the grouping variables. The last column,

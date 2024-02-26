@@ -6,6 +6,6 @@ csl: apa.csl
 nocite: '@*'
 ---
 
-**{tidyterra}** package has been used in the following publications:
+**tidyterra** package has been used in the following publications:
 
 ## Publications

@@ -33,7 +33,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::count()] family functions for
-#' `SpatVectors`.
+#' `SpatVector` objects.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].

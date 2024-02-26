@@ -61,8 +61,9 @@ object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 
 
 When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} names are
-reserved for geographic coordinates of each cell of the raster. It should be
-also noted that \CRANpkg{terra} allows layers with duplicated names.
+reserved for geographic coordinates of each cell of the \code{SpatRaster} It
+should be also noted that \CRANpkg{terra} allows layers with duplicated
+names.
 
 In the process of coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra}
 may rename the layers of your \code{SpatRaster} for overcoming this issue.

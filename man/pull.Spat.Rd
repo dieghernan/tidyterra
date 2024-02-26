@@ -32,7 +32,7 @@ names for a named vector. Specified in a similar manner as \code{var}.}
 \value{
 A vector the same number of cells/geometries as \code{.data}.
 
-On \code{SpatRasters}, note that the default (\code{na.rm = FALSE}) would remove
+On \code{SpatRaster} objects, note that the default (\code{na.rm = FALSE}) would remove
 empty cells, so you may need to pass (\code{na.rm = FALSE}) to \code{...}. See
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 }

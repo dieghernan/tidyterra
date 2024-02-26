@@ -26,11 +26,11 @@
 #' Implementation of the **generic** [dplyr::group_by()] family functions for
 #' `SpatVector` objects.
 #'
-#' **When mixing** \pkg{terra} **and** \pkg{dplyr} **syntax** on a grouped
-#' `SpatVector` (i.e, subsetting a `SpatVector` like `v[1:3,1:2]`) the `groups`
-#' attribute can be corrupted. \pkg{tidyterra} would try to re-group the
-#' `SpatVector`. This would be triggered the next time you use a \CRANpkg{dplyr}
-#' verb on your `SpatVector`.
+#' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax** on a
+#' grouped `SpatVector` (i.e, subsetting a `SpatVector` like `v[1:3,1:2]`) the
+#' `groups` attribute can be corrupted. \CRANpkg{tidyterra} would try to
+#' re-group the `SpatVector`. This would be triggered the next time you use a
+#' \CRANpkg{dplyr} verb on your `SpatVector`.
 #'
 #' Note also that some operations (as `terra::spatSample()`) would create a new
 #' `SpatVector`. In these cases, the result won't preserve the `groups`

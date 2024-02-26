@@ -95,9 +95,9 @@ def +
 
 ## Labeling contours {#label-contour}
 
-Thanks to `fortify.SpatRaster()` you can use your SpatRaster straight away with
-the **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align both
-labels and lines:
+Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
+with the **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align
+both labels and lines:
 
 ```{r text-contour}
 library(terra)
@@ -387,9 +387,9 @@ ggplot() +
   labs(title = "Three breaks on y")
 ```
 
-## Plotting SpatRasters with color tables
+## Plotting a `SpatRaster` with color tables
 
-**tidyterra** has several ways to handle these SpatRasters:
+**tidyterra** has several ways to handle these `SpatRaster` objects:
 
 ```{r coltab}
 library(terra)
@@ -486,15 +486,17 @@ autoplot(r) +
   )
 ```
 
-
 ## Session info
 
 <details>
-  <summary>Details</summary>
+
+<summary>Details</summary>
+
 ```{r session, echo=FALSE}
 if (!require("sessioninfo")) {
   install.packages("sessioninfo")
 }
 sessioninfo::session_info()
 ```
+
 </details>

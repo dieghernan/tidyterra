@@ -86,23 +86,24 @@ not filled. See also
 default (\code{TRUE}) removes unused factors.}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values
-applied to the \code{fill/colour} aesthetics.
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
+\code{fill/colour} aesthetics.
 }
 \description{
-Some categorical \code{SpatRasters} may have an associated color table. This
-function extract those values. These functions generates scales and vector
-of colors based on the color table \code{\link[terra:colors]{terra::coltab()}} associated to a
+Some categorical \code{SpatRaster} objects may have an associated color table.
+This function extract those values. These functions generates scales and
+vector of colors based on the color table \code{\link[terra:colors]{terra::coltab()}} associated to a
 \code{SpatRaster}.
 
 You can also get a vector of colors named with the corresponding
 factor with \code{\link[=get_coltab_pal]{get_coltab_pal()}}.
 
 Additional parameters \code{...} would be passed on to
-\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}. Note that \CRANpkg{tidyterra} just
-documents a selection of these additional parameters, check
-\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full range of parameters
-accepted by this scale.
+\code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full
+range of parameters accepted.
 }
 \examples{
 library(terra)

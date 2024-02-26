@@ -88,16 +88,16 @@ slice_colrows(.data, ...)
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{\code{\link[dplyr:slice]{data-masking}} Integer row values. Provide
-either positive values to keep, or negative values to drop.
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Integer row values.
+Provide either positive values to keep, or negative values to drop.
 
 The values provided must be either all positive or all negative. Indices
-beyond the number of rows in the input are silently ignored.
-See \strong{Methods}.}
+beyond the number of rows in the input are silently ignored. See
+\strong{Methods}.}
 
-\item{.preserve}{Ignored for Spat* objects}
+\item{.preserve}{Ignored for \verb{Spat*} objects.}
 
-\item{.keep_extent}{Should the extent of the resulting SpatRaster be kept?
+\item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
 See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
 
 \item{n, prop}{Provide either \code{n}, the number of rows, or \code{prop}, the
@@ -134,20 +134,20 @@ length as the input. Weights are automatically standardised to sum to 1.}
 \item{replace}{Should sampling be performed with (\code{TRUE}) or without
 (\code{FALSE}, the default) replacement.}
 
-\item{cols, rows}{Integer col/row values of the SpatRaster}
+\item{cols, rows}{Integer col/row values of the \code{SpatRaster}}
 
 \item{inverse}{If \code{TRUE}, \code{.data} is inverse-masked to the given selection.
 See \code{\link[terra:mask]{terra::mask()}}.}
 }
 \value{
-A Spat* object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-\code{slice()} lets you index cells/rows/columns/geometries by their (integer)
-locations. It allows you to select, remove, and duplicate those dimensions
-of a Spat* object.
+\code{slice()} methods lets you index cells/rows/columns/geometries by their
+(integer) locations. It allows you to select, remove, and duplicate those
+dimensions of a \verb{Spat*} object.
 
-\strong{If you want to slice your SpatRaster by geographic coordinates} use
+\strong{If you want to slice your \code{SpatRaster} by geographic coordinates} use
 \code{\link[=filter.SpatRaster]{filter.SpatRaster()}} method.
 
 It is accompanied by a number of helpers for common use cases:
@@ -156,12 +156,12 @@ It is accompanied by a number of helpers for common use cases:
 cells/geometries.
 \item \code{slice_sample()} randomly selects cells/geometries.
 \item \code{slice_rows()} and \code{slice_cols()} allow to subset entire rows or columns,
-of a SpatRaster.
-\item \code{slice_colrows()} subsets regions of the raster by row and column position
-of a SpatRaster.
+of a \code{SpatRaster}.
+\item \code{slice_colrows()} subsets regions of the \code{SpatRaster} by row and column
+position of a \code{SpatRaster}.
 }
 
-You can get a skeleton of your SpatRaster with the cell, column and row
+You can get a skeleton of your \code{SpatRaster} with the cell, column and row
 index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 See \strong{Methods} for details.
@@ -176,22 +176,22 @@ See \strong{Methods} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} function.
-\subsection{SpatRaster}{
+\subsection{\code{SpatRaster}}{
 
-The result is a SpatRaster with the crs and resolution of the input and
+The result is a \code{SpatRaster} with the crs and resolution of the input and
 where cell values of the selected cells/columns/rows are preserved.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
 The non-selected cells would present a value of \code{NA}.
 }
 
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-The result is a SpatVector where the attributes of the selected
+The result is a \code{SpatVector} where the attributes of the selected
 geometries are preserved. If \code{.data} is a
-\link[=is_grouped_spatvector]{grouped SpatVector}, the operation will be performed
-on each group, so that (e.g.) \code{slice_head(df, n = 5)} will select the first
-five rows in each group.
+\link[=is_grouped_spatvector]{grouped} \code{SpatVector}, the operation will be
+performed on each group, so that (e.g.) \code{slice_head(df, n = 5)} will select
+the first five rows in each group.
 }
 }
 
@@ -261,7 +261,7 @@ gv \%>\%
 \seealso{
 \code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:sample]{terra::spatSample()}}.
 
-You can get a skeleton of your SpatRaster with the cell, column and row
+You can get a skeleton of your \code{SpatRaster} with the cell, column and row
 index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 If you want to slice by geographic coordinates use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.

@@ -47,8 +47,7 @@
 #' empty geometries (since `y` is expected to be a data frame with no
 #' geometries). Although this kind of joining operations may not be common on
 #' spatial manipulation, it is possible that the function crashes, since
-#' handling of `EMPTY` geometries differs on \pkg{terra} and \pkg{sf} (the
-#' backend of `*_join.SpatVector()` is the implementation made on \pkg{sf}).
+#' handling of `EMPTY` geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
 #'
 #' @examples
 #' library(terra)
@@ -203,7 +202,7 @@ full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
 dplyr::full_join
 
 
-#' Filtering joins for `SpatVectors`
+#' Filtering joins for `SpatVector` objects
 #'
 #' @description
 #' Filtering joins filter rows from `x` based on the presence or absence of

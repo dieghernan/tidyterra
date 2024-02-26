@@ -10,7 +10,7 @@
 \method{summarize}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 }
 \arguments{
-\item{.data}{A SpatVector}
+\item{.data}{A \code{SpatVector}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Name-value pairs of
 summary functions. The name will be the name of the variable in the result.
@@ -24,8 +24,8 @@ The value can be:
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Returning values with size 0 or >1 was
 deprecated as of 1.1.0. Please use \code{\link[dplyr:reframe]{reframe()}} for this instead.}
 
-\item{.by}{Ignored on this method. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-on \pkg{dplyr}.}
+\item{.by}{Ignored on this method (\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+on \CRANpkg{dplyr}).}
 
 \item{.groups}{See \code{\link[dplyr:summarise]{dplyr::summarise()}}}
 
@@ -33,13 +33,13 @@ on \pkg{dplyr}.}
 be dissolved?}
 }
 \value{
-A SpatVector.
+A \code{SpatVector}.
 }
 \description{
-\code{summarise()} creates a new SpatVector. It returns one geometry for each
+\code{summarise()} creates a new \code{SpatVector}. It returns one geometry for each
 combination of grouping variables; if there are no grouping variables, the
 output will have a single geometry summarising all observations in the input
-and combining all the geometries of the SpatVector. It will contain one
+and combining all the geometries of the \code{SpatVector}. It will contain one
 column for each grouping variable and one column for each of
 the summary statistics that you have specified.
 
@@ -55,9 +55,9 @@ the summary statistics that you have specified.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} function.
-\subsection{SpatVector}{
+\subsection{\code{SpatVector}}{
 
-Similarly to the implementation on \pkg{sf} this function can be used to
+Similarly to the implementation on \CRANpkg{sf} this function can be used to
 dissolve geometries (with \code{.dissolve = TRUE}) or create \code{MULTI} versions of
 geometries (with \code{.dissolve = FALSE}). See \strong{Examples}.
 }

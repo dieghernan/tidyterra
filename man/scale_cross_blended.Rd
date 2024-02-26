@@ -24,13 +24,14 @@
 \alias{scale_color_cross_blended_tint_b}
 \title{Cross blended hypsometric tints scales}
 \source{
-Patterson, T., & Jenny, B. (2011). The Development and
-Rationale of Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,}
-(69), 31 - 46. \doi{10.14714/CP69.20}.
-
-Patterson, T. (2004). \emph{Using Cross-blended Hypsometric Tints for Generalized
-Environmental Mapping.} Accessed June 10, 2022.
+\itemize{
+\item Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69), 31 -
+46. \doi{10.14714/CP69.20}.
+\item Patterson, T. (2004). \emph{Using Cross-blended Hypsometric Tints for
+Generalized Environmental Mapping.} Accessed June 10, 2022.
 \url{http://www.shadedrelief.com/hypso/hypso.html}
+}
 }
 \usage{
 scale_fill_cross_blended_d(
@@ -256,8 +257,8 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 }}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values
-applied to the \code{fill/colour} aesthetics.
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
+\code{fill/colour} aesthetics.
 }
 \description{
 Implementation of the cross blended hypsometric gradients presented on
@@ -284,14 +285,14 @@ See \strong{Details}.
 
 Additional parameters \code{...} would be passed on to:
 \itemize{
-\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}
-\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-Note that \CRANpkg{tidyterra} just documents a selection
-of these additional parameters, check the previous links to see
-the full range of parameters accepted by these scales.
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+see the full range of parameters accepted by these scales.
 }
 \details{
 On \verb{scale_*_cross_blended_tint_*} palettes, the position of the gradients
@@ -310,12 +311,11 @@ The following orientation would vary depending on the palette definition
 be achieved).
 
 Note that the setup of the palette may not be always suitable for your
-specific data. For example, raster of small parts of the globe (and with a
-limited range of elevations) may not be well represented. As an example, a
-raster with a range of values on \verb{[100, 200]} would appear almost as an
-uniform color.
-
-This could be adjusted using the \code{limits}/\code{values} provided by \strong{ggplot2}.
+specific data. For example, a \code{SpatRaster} of small parts of the globe (and
+with a limited range of elevations) may not be well represented. As an
+example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would appear
+almost as an uniform color. This could be adjusted using the
+\code{limits}/\code{values} parameters.
 
 \code{cross_blended.colors2()} provides a gradient color palette where the
 distance between colors is different depending of the type of color.

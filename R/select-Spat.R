@@ -36,9 +36,9 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Select (and rename) layers of a `SpatRaster`. The result is a
-#' `SpatRaster` with the same extent, resolution and crs than `.data`. Only the
-#' number (and possibly the name) of layers is modified.
+#' Select (and rename) layers of a `SpatRaster`. The result is a `SpatRaster`
+#' with the same extent, resolution and crs than `.data`. Only the number (and
+#' possibly the name) of layers is modified.
 #'
 #' ## `SpatVector`
 #'

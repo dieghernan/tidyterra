@@ -50,8 +50,9 @@
 #' @section About layer/column names:
 #'
 #' When coercing `SpatRaster` objects to data frames, `x` and `y` names are
-#' reserved for geographic coordinates of each cell of the raster. It should be
-#' also noted that \CRANpkg{terra} allows layers with duplicated names.
+#' reserved for geographic coordinates of each cell of the `SpatRaster` It
+#' should be also noted that \CRANpkg{terra} allows layers with duplicated
+#' names.
 #'
 #' In the process of coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra}
 #' may rename the layers of your `SpatRaster` for overcoming this issue.

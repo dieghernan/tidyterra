@@ -56,9 +56,9 @@ than combining with them.}
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{use_coltab}{Logical. Only applicable to \code{SpatRasters} that have a
-\link[terra:colors]{coltab}. Should the coltab be used on the plot? See also
-\code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+\item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
+an associated \link[terra:colors]{coltab}. Should the coltab be used on the
+plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -130,13 +130,13 @@ mapped \code{fill} aesthetic.
 For \code{alpha} use computed variable. See section \strong{Computed variables}.
 
 
-\subsection{stat_spatraster()}{
+\subsection{\code{stat_spatraster()}}{
 
 \code{stat_spatraster()} understands the same aesthetics than \code{geom_spatraster()}
 when using \code{geom = "raster"} (the default):
 \itemize{
-\item \code{fill}
-\item \code{alpha}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
+\item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
 When \code{geom = "raster"} the \code{fill} parameter would behave as in
@@ -253,8 +253,12 @@ ggplot() +
 \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}},
 \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}
 
-Alternative geoms: \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}},
-\code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
+Recommended \code{geoms}:
+\itemize{
+\item \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}.
+\item \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}.
+\item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
+}
 
 Other ggplot2 utils:
 \code{\link{autoplot.Spat}},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/stat_spat_coordinates.R
 \name{stat_spat_coordinates}
 \alias{stat_spat_coordinates}
-\title{Extract coordinates from SpatVector objects}
+\title{Extract coordinates from \code{SpatVector} objects}
 \usage{
 stat_spat_coordinates(
   mapping = aes(),
@@ -53,7 +53,7 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 A \CRANpkg{ggplot2} layer
 }
 \description{
-\code{stat_spat_coordinates()} extracts the coordinates from SpatVector objects
+\code{stat_spat_coordinates()} extracts the coordinates from \code{SpatVector} objects
 and summarises them to one pair of coordinates (x and y) per geometry.
 }
 \details{

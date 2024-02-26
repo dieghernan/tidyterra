@@ -18,6 +18,8 @@ ORCID
 PROJ
 Precompute
 RCzechia
+SpatRaster
+SpatVector
 Summarise
 Thorne
 Toitu
@@ -53,14 +55,11 @@ fullseq
 geoms
 ggplot
 ggspatial
-grDevices
 hypsometric
 hypsometry
 inlabru
 ish
 isoband
-linetype
-linewidth
 lon
 magrittr
 metR
@@ -76,7 +75,6 @@ reprojected
 rescaled
 rlang
 sparrpowR
-spatraster
 src
 srcs
 standardised

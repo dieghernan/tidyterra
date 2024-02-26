@@ -137,8 +137,7 @@ Note that for \code{\link[=right_join]{right_join()}} and \code{\link[=full_join
 empty geometries (since \code{y} is expected to be a data frame with no
 geometries). Although this kind of joining operations may not be common on
 spatial manipulation, it is possible that the function crashes, since
-handling of \code{EMPTY} geometries differs on \pkg{terra} and \pkg{sf} (the
-backend of \verb{*_join.SpatVector()} is the implementation made on \pkg{sf}).
+handling of \code{EMPTY} geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
 }
 }
 

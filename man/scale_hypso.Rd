@@ -250,7 +250,7 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 }}
 }
 \value{
-The corresponding ggplot2 layer with the values applied to the
+The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} aesthetics.
 }
 \description{
@@ -280,14 +280,14 @@ See \strong{Details}.
 
 Additional parameters \code{...} would be passed on to:
 \itemize{
-\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}
-\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}
+\item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
+\item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-Note that \pkg{tidyterra} just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales.
+\strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
+additional parameters, check the \CRANpkg{ggplot2} functions listed above to
+see the full range of parameters accepted by these scales.
 }
 \details{
 On \verb{scale_*_hypso_tint_*} palettes, the position of the gradients and
@@ -305,17 +305,16 @@ The following orientation would vary depending on the palette definition
 (see \link{hypsometric_tints_db} for an example on how this could be achieved).
 
 Note that the setup of the palette may not be always suitable for your
-specific data. For example, raster of small parts of the globe (and with a
-limited range of elevations) may not be well represented. As an example, a
-raster with a range of values on \verb{[100, 200]} would appear almost as an
-uniform color.
-
-This could be adjusted using the \code{limits}/\code{values} provided by \strong{ggplot2}.
+specific data. For example, a \code{SpatRaster} of small parts of the globe (and
+with a limited range of elevations) may not be well represented. As an
+example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would appear
+almost as an uniform color. This could be adjusted using the
+\code{limits}/\code{values} parameters.
 
 \code{hypso.colors2()} provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,
-\code{hypso.colors()} provides an uniform gradient across colors.
-See \strong{Examples}.
+\code{hypso.colors()} provides an uniform gradient across colors. See
+\strong{Examples}.
 }
 \examples{
 \donttest{
@@ -451,7 +450,7 @@ par(opar)
 \link{hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}}, \code{\link[terra:minmax]{terra::minmax()}},
 \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-See also \pkg{ggplot2} docs on additional \code{...} parameters:
+See also \CRANpkg{ggplot2} docs on additional \code{...} parameters:
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.

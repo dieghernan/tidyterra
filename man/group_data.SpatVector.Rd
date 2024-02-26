@@ -35,8 +35,8 @@ See the description of the function. The results are usually tibbles,
 lists or vectors. These functions does not return \code{SpatVector} objects.
 }
 \description{
-This collection of functions accesses data about grouped \code{SpatVectors} in
-various ways:
+This collection of functions accesses data about grouped \code{SpatVector} objects
+in various ways:
 \itemize{
 \item \code{\link[=group_data]{group_data()}} returns a tibble that defines the grouping structure.
 The columns give the values of the grouping variables. The last column,

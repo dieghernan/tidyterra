@@ -37,7 +37,7 @@
 #'
 #' @return A vector the same number of cells/geometries as `.data`.
 #'
-#' On `SpatRasters`, note that the default (`na.rm = FALSE`) would remove
+#' On `SpatRaster` objects, note that the default (`na.rm = FALSE`) would remove
 #' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 #' [terra::as.data.frame()].
 #'

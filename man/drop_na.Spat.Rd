@@ -53,9 +53,9 @@ the input.
 Actual implementation of \verb{drop_na().SpatRaster} can be understood as a
 masking method based on the values of the layers (see \code{\link[terra:mask]{terra::mask()}}).
 
-Raster layers are considered as columns and raster cells as rows, so rows
-(cells) with any \code{NA} value on any layer would get a \code{NA} value. It is
-possible also to mask the cells (rows) based on the values of specific
+\code{SpatRaster} layers are considered as columns and \code{SpatRaster} cells as rows,
+so rows (cells) with any \code{NA} value on any layer would get a \code{NA} value. It
+is possible also to mask the cells (rows) based on the values of specific
 layers (columns).
 
 \code{drop_na()} would effectively remove outer cells that are \code{NA} (see

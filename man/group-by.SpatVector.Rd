@@ -49,11 +49,11 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} family functions for
 \code{SpatVector} objects.
 
-\strong{When mixing} \pkg{terra} \strong{and} \pkg{dplyr} \strong{syntax} on a grouped
-\code{SpatVector} (i.e, subsetting a \code{SpatVector} like \code{v[1:3,1:2]}) the \code{groups}
-attribute can be corrupted. \pkg{tidyterra} would try to re-group the
-\code{SpatVector}. This would be triggered the next time you use a \CRANpkg{dplyr}
-verb on your \code{SpatVector}.
+\strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax} on a
+grouped \code{SpatVector} (i.e, subsetting a \code{SpatVector} like \code{v[1:3,1:2]}) the
+\code{groups} attribute can be corrupted. \CRANpkg{tidyterra} would try to
+re-group the \code{SpatVector}. This would be triggered the next time you use a
+\CRANpkg{dplyr} verb on your \code{SpatVector}.
 
 Note also that some operations (as \code{terra::spatSample()}) would create a new
 \code{SpatVector}. In these cases, the result won't preserve the \code{groups}

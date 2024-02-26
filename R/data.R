@@ -30,7 +30,7 @@
 #' @seealso [volcano]
 #'
 #' @note
-#'  Information needed for regenerating the original raster file:
+#'  Information needed for regenerating the original `SpatRaster` file:
 #'  - resolution: `c(5, 5)`
 #'  - extent: `1756969, 1757579, 5917003, 5917873`  (xmin, xmax, ymin, ymax)
 #'  - coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000

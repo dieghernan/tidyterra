@@ -4,7 +4,7 @@
 \alias{filter-joins.SpatVector}
 \alias{semi_join.SpatVector}
 \alias{anti_join.SpatVector}
-\title{Filtering joins for \code{SpatVectors}}
+\title{Filtering joins for \code{SpatVector} objects}
 \usage{
 \method{semi_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 
