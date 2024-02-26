@@ -143,11 +143,11 @@ grouped with <code>.drop = FALSE</code>. See <code><a href="https://dplyr.tidyve
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> family functions for
 <code>SpatVector</code> objects.</p>
-<p><strong>When mixing</strong> <span class="pkg">terra</span> <strong>and</strong> <span class="pkg">dplyr</span> <strong>syntax</strong> on a grouped
-<code>SpatVector</code> (i.e, subsetting a <code>SpatVector</code> like <code>v[1:3,1:2]</code>) the <code>groups</code>
-attribute can be corrupted. <span class="pkg">tidyterra</span> would try to re-group the
-<code>SpatVector</code>. This would be triggered the next time you use a <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a>
-verb on your <code>SpatVector</code>.</p>
+<p><strong>When mixing</strong> <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> <strong>and</strong> <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> <strong>syntax</strong> on a
+grouped <code>SpatVector</code> (i.e, subsetting a <code>SpatVector</code> like <code>v[1:3,1:2]</code>) the
+<code>groups</code> attribute can be corrupted. <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> would try to
+re-group the <code>SpatVector</code>. This would be triggered the next time you use a
+<a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verb on your <code>SpatVector</code>.</p>
 <p>Note also that some operations (as <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code>) would create a new
 <code>SpatVector</code>. In these cases, the result won't preserve the <code>groups</code>
 attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> to re-group.</p>

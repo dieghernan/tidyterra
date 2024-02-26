@@ -173,9 +173,9 @@ the plot.</p></dd>
 
 
 <dt>use_coltab</dt>
-<dd><p>Logical. Only applicable to <code>SpatRasters</code> that have a
-coltab. Should the coltab be used on the plot? See also
-<code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
+<dd><p>Logical. Only applicable to <code>SpatRaster</code> objects that have
+an associated coltab. Should the coltab be used on the
+plot? See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
 <dt>...</dt>
@@ -237,12 +237,12 @@ mapped <code>fill</code> aesthetic.</p>
 <p>For <code>alpha</code> use computed variable. See section <strong>Computed variables</strong>.</p>
 
 <div class="section">
-<h3 id="stat-spatraster-">stat_spatraster()<a class="anchor" aria-label="anchor" href="#stat-spatraster-"></a></h3>
+<h3 id="stat-spatraster-"><code>stat_spatraster()</code><a class="anchor" aria-label="anchor" href="#stat-spatraster-"></a></h3>
 
 
 <p><code>stat_spatraster()</code> understands the same aesthetics than <code>geom_spatraster()</code>
-when using <code>geom = "raster"</code> (the default):</p><ul><li><p><code>fill</code></p></li>
-<li><p><code>alpha</code></p></li>
+when using <code>geom = "raster"</code> (the default):</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
 </ul><p>When <code>geom = "raster"</code> the <code>fill</code> parameter would behave as in
 <code>geom_spatraster()</code>. If another <code>geom</code> is used <code>stat_spatraster()</code> would
 understand the aesthetics of the required <code>geom</code> and
@@ -276,9 +276,10 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>,
 <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code></p>
-<p>Alternative geoms: <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">ggplot2::geom_point()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_label()</a></code>,
-<code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_text()</a></code>.</p>
-<p>Other ggplot2 utils:
+<p>Recommended <code>geoms</code>:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">ggplot2::geom_point()</a></code>.</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_label()</a></code>.</p></li>
+<li><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">ggplot2::geom_text()</a></code>.</p></li>
+</ul><p>Other ggplot2 utils:
 <code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,
 <code><a href="fortify.Spat.html">fortify.Spat</a></code>,
 <code><a href="geom_spat_contour.html">geom_spat_contour</a></code>,

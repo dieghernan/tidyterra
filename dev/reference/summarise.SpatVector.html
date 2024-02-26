@@ -90,10 +90,10 @@ summarise.SpatVector() and summarize.SpatVector() are synonyms"><meta property="
     </div>
 
     <div class="ref-description section level2">
-    <p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise()</a></code> creates a new SpatVector. It returns one geometry for each
+    <p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise()</a></code> creates a new <code>SpatVector</code>. It returns one geometry for each
 combination of grouping variables; if there are no grouping variables, the
 output will have a single geometry summarising all observations in the input
-and combining all the geometries of the SpatVector. It will contain one
+and combining all the geometries of the <code>SpatVector</code>. It will contain one
 column for each grouping variable and one column for each of
 the summary statistics that you have specified.</p>
 <p><code>summarise.SpatVector()</code> and <code>summarize.SpatVector()</code> are synonyms</p>
@@ -111,7 +111,7 @@ the summary statistics that you have specified.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
-<dd><p>A SpatVector</p></dd>
+<dd><p>A <code>SpatVector</code>.</p></dd>
 
 
 <dt>...</dt>
@@ -124,8 +124,8 @@ deprecated as of 1.1.0. Please use <code><a href="https://dplyr.tidyverse.org/re
 
 
 <dt>.by</dt>
-<dd><p>Ignored on this method. <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="[Experimental]"></a>
-on <span class="pkg">dplyr</span>.</p></dd>
+<dd><p>Ignored on this method (<a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="[Experimental]"></a>
+on <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a>).</p></dd>
 
 
 <dt>.groups</dt>
@@ -141,7 +141,7 @@ be dissolved?</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A SpatVector.</p>
+<p>A <code>SpatVector</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -156,10 +156,10 @@ be dissolved?</p></dd>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code> function.</p><div class="section">
-<h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>Similarly to the implementation on <span class="pkg">sf</span> this function can be used to
+<p>Similarly to the implementation on <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> this function can be used to
 dissolve geometries (with <code>.dissolve = TRUE</code>) or create <code>MULTI</code> versions of
 geometries (with <code>.dissolve = FALSE</code>). See <strong>Examples</strong>.</p>
 </div>

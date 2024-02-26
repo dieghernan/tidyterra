@@ -79,16 +79,15 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
 <ul><li>Requires <strong>ggplot2</strong> (&gt;= 3.5.0).</li>
-<li>New methods for <code>SpatVectors</code>:
+<li>New methods for <code>SpatVector</code> objects:
 <ul><li>
 <code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code>.</li>
 <li>
 <code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code>.</li>
 </ul></li>
 <li>
-<code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now displays information using.</li>
-<li>
-<code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as of <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
+<code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now displays information using <code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as of <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
+<li>Tidy documentation.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.2" id="tidyterra-052">tidyterra 0.5.2<a class="anchor" aria-label="anchor" href="#tidyterra-052"></a></h2><p class="text-muted">CRAN release: 2024-01-19</p>
@@ -106,12 +105,12 @@
 <p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
 </blockquote>
 <p>Other changes on this version:</p>
-<ul><li>Support for <code>SpatRasters</code> with a color table
+<ul><li>Support for <code>SpatRaster</code> objects with a color table
 <ul><li>
-<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now <code>SpatRasters</code> with color tables.</li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can detect now <code>SpatRaster</code> objects with color tables.</li>
 <li>
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can detect now <code>SpatRasters</code> with color tables.</li>
-<li>New scales for plotting <code>SpatRasters</code> with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can detect now <code>SpatRaster</code> objects with color tables.</li>
+<li>New scales for plotting <code>SpatRaster</code> objects with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
 <li>tidyverse verbs keeps the associated <code>coltab</code> of a <code>SpatRaster</code>.</li>
 </ul></li>
 <li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
@@ -125,8 +124,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2><p class="text-muted">CRAN release: 2023-03-17</p>
-<ul><li>This release focuses heavily on <code>SpatVectors</code>. The improvements have been:
-<ul><li>New methods for <code>SpatVectors</code>:
+<ul><li>This release focuses heavily on <code>SpatVector</code> objects. The improvements have been:
+<ul><li>New methods for <code>SpatVector</code>:
 <ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
 <li><code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code></li>
 <li><code><a href="../reference/distinct.SpatVector.html">distinct.SpatVector()</a></code></li>
@@ -172,7 +171,7 @@
 <ul><li>
 <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now is smarter on identifying the type of plot to produce. Can still be overridden with parameters.</li>
 </ul></li>
-<li>Methods for fortifying <code>SpatRasters</code> and <code>SpatVectors</code>: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
+<li>Methods for fortifying <code>SpatRaster</code> and <code>SpatVector</code> objects: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
 </ul></li>
 <li>Three additional palettes are included on <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
 <li>Added colour scales to all palettes: <code>scale_colour_*</code>.</li>
@@ -206,7 +205,7 @@
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2><p class="text-muted">CRAN release: 2022-06-21</p>
 <ul><li>Recreate <code>extdata/volcano2.tif</code> using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
 <li>Add <code>volcano2</code> dataset.</li>
-<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRasters</code> (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</li>
+<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRaster</code> objects (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</li>
 <li>Add new gradient scales for use on hypsometry:
 <ul><li><code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code></li>
 <li><code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code></li>
@@ -223,22 +222,20 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="tidyterra-001">tidyterra 0.0.1<a class="anchor" aria-label="anchor" href="#tidyterra-001"></a></h2>
-<ul><li>
-<p>Improvements on performance:</p>
+<ul><li>Improvements on performance:
 <ul><li>Conversion to <strong>tibble</strong> is avoided as much as possible.</li>
 <li>Internally use <code>data.tables</code> instead of <code>tibbles</code>.</li>
 <li>The package is compatible with <strong>dtplyr</strong>.</li>
 </ul></li>
-<li><p><code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</p></li>
-<li><p>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p></li>
 <li>
-<p>New methods:</p>
+<code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</li>
+<li>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</li>
+<li>New methods:
 <ul><li><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code></li>
 <li><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code></li>
 <li><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename()</a></code></li>
 </ul></li>
-<li>
-<p>New geoms:</p>
+<li>New geoms:
 <ul><li>
 <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> family.</li>
 </ul></li>

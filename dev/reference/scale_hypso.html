@@ -20,14 +20,14 @@ grDevices::terrain.colors() for details.
 
 See Details.
 Additional parameters ... would be passed on to:
-Discrete values: ggplot2::discrete_scale()
-Continuous values: ggplot2::continuous_scale()
+Discrete values: ggplot2::discrete_scale().
+Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
-Note that tidyterra just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales."><title>Gradient scales for representing hypsometry and bathymetry — scale_hypso • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Gradient scales for representing hypsometry and bathymetry — scale_hypso"><meta property="og:description" content="Implementation of a selection of gradient palettes available in
+Note that tidyterra just documents a selection of these
+additional parameters, check the ggplot2 functions listed above to
+see the full range of parameters accepted by these scales."><title>Gradient scales for representing hypsometry and bathymetry — scale_hypso • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Gradient scales for representing hypsometry and bathymetry — scale_hypso"><meta property="og:description" content="Implementation of a selection of gradient palettes available in
 cpt-city.
 The following scales and palettes are provided:
 scale_*_hypso_d(): For discrete values.
@@ -48,14 +48,14 @@ grDevices::terrain.colors() for details.
 
 See Details.
 Additional parameters ... would be passed on to:
-Discrete values: ggplot2::discrete_scale()
-Continuous values: ggplot2::continuous_scale()
+Discrete values: ggplot2::discrete_scale().
+Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
-Note that tidyterra just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+Note that tidyterra just documents a selection of these
+additional parameters, check the ggplot2 functions listed above to
+see the full range of parameters accepted by these scales."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
@@ -148,12 +148,12 @@ accepted by these scales."><meta property="og:image" content="https://dieghernan
 <li><p><code>hypso.colors2()</code>: A gradient color palette. See also
 <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">grDevices::terrain.colors()</a></code> for details.</p></li>
 </ul><p>See <strong>Details</strong>.</p>
-<p>Additional parameters <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code></p></li>
-<li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code></p></li>
+<p>Additional parameters <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
+<li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code>.</p></li>
 <li><p>Binned continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale()</a></code>.</p></li>
-</ul><p>Note that <span class="pkg">tidyterra</span> just documents a selection of these additional
-parameters, check the previous links to see the full range of parameters
-accepted by these scales.</p>
+</ul><p><strong>Note that</strong> <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> just documents a selection of these
+additional parameters, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
+see the full range of parameters accepted by these scales.</p>
     </div>
 
     <div class="section level2">
@@ -416,7 +416,7 @@ If the purpose is to zoom, use the limit argument in the coordinate system
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>The corresponding ggplot2 layer with the values applied to the
+<p>The corresponding <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer with the values applied to the
 <code>fill/colour</code> aesthetics.</p>
     </div>
     <div class="section level2">
@@ -431,21 +431,21 @@ tint. A rough description of these tints are:</p><ul><li><p>Blue colors: Negativ
 </ul><p>The following orientation would vary depending on the palette definition
 (see <a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for an example on how this could be achieved).</p>
 <p>Note that the setup of the palette may not be always suitable for your
-specific data. For example, raster of small parts of the globe (and with a
-limited range of elevations) may not be well represented. As an example, a
-raster with a range of values on <code>[100, 200]</code> would appear almost as an
-uniform color.</p>
-<p>This could be adjusted using the <code>limits</code>/<code>values</code> provided by <strong>ggplot2</strong>.</p>
+specific data. For example, a <code>SpatRaster</code> of small parts of the globe (and
+with a limited range of elevations) may not be well represented. As an
+example, a <code>SpatRaster</code> with a range of values on <code>[100, 200]</code> would appear
+almost as an uniform color. This could be adjusted using the
+<code>limits</code>/<code>values</code> parameters.</p>
 <p><code>hypso.colors2()</code> provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,
-<code>hypso.colors()</code> provides an uniform gradient across colors.
-See <strong>Examples</strong>.</p>
+<code>hypso.colors()</code> provides an uniform gradient across colors. See
+<strong>Examples</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="hypsometric_tints_db.html">hypsometric_tints_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>,
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code></p>
-<p>See also <span class="pkg">ggplot2</span> docs on additional <code>...</code> parameters:</p><ul><li><p><code>scale_*_terrain_d()</code>: For discrete values.</p></li>
+<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> parameters:</p><ul><li><p><code>scale_*_terrain_d()</code>: For discrete values.</p></li>
 <li><p><code>scale_*_terrain_c()</code>: For continuous values.</p></li>
 <li><p><code>scale_*_terrain_b()</code>: For binning continuous values.</p></li>
 </ul><p>Other gradient scales and palettes for hypsometry:

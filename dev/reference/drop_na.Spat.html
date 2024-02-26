@@ -155,9 +155,9 @@ the input.</p>
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#questioning" class="external-link"><img src="figures/lifecycle-questioning.svg" alt="[Questioning]"></a></p>
 <p>Actual implementation of <code>drop_na().SpatRaster</code> can be understood as a
 masking method based on the values of the layers (see <code><a href="https://rspatial.github.io/terra/reference/mask.html" class="external-link">terra::mask()</a></code>).</p>
-<p>Raster layers are considered as columns and raster cells as rows, so rows
-(cells) with any <code>NA</code> value on any layer would get a <code>NA</code> value. It is
-possible also to mask the cells (rows) based on the values of specific
+<p><code>SpatRaster</code> layers are considered as columns and <code>SpatRaster</code> cells as rows,
+so rows (cells) with any <code>NA</code> value on any layer would get a <code>NA</code> value. It
+is possible also to mask the cells (rows) based on the values of specific
 layers (columns).</p>
 <p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> would effectively remove outer cells that are <code>NA</code> (see
 <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>), so the extent of the resulting object may differ of the
