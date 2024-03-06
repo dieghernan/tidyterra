@@ -133,9 +133,10 @@ Alternatively, you can install **tidyterra** using the
 [r-universe](https://dieghernan.r-universe.dev/tidyterra):
 
 ``` r
-install.packages(“tidyterra”, repos = c(
-  “https://dieghernan.r-universe.dev”,
-  “https://cloud.r-project.org”
+# Enable this universe
+install.packages("tidyterra", repos = c(
+  "https://dieghernan.r-universe.dev",
+  "https://cloud.r-project.org"
 ))
 ```
 
