@@ -307,12 +307,14 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of <strong>tidyterra</strong> like so:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install <strong>tidyterra</strong> using the <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">install.packages</span>(“tidyterra”, <span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  “https<span class="sc">:</span><span class="er">//</span>dieghernan.r<span class="sc">-</span>universe.dev”,</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  “https<span class="sc">:</span><span class="er">//</span>cloud.r<span class="sc">-</span>project.org”</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
+<span>  <span class="st">"https://cloud.r-project.org"</span></span>
+<span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
