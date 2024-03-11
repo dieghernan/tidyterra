@@ -23,7 +23,7 @@ questions](https://img.shields.io/stackexchange/stackoverflow/t/tidyterra?logo=s
 [![Works with
 terra-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml)
 [![Works with
-sf-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-sd-devel.yaml)
+sf-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml)
 [![Works with
 ggplot2-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml)
 [![Works with dplyr and
@@ -338,7 +338,7 @@ Open Source Software](https://joss.theoj.org/):
 > tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
 > <https://doi.org/10.21105/joss.05751>.
 
-A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is:
 
     @Article{R-tidyterra,
       title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},

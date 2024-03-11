@@ -44,7 +44,7 @@ questions](https://img.shields.io/stackexchange/stackoverflow/t/tidyterra?logo=s
 [![Works with
 terra-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml)
 [![Works with
-sf-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-sd-devel.yaml)
+sf-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml)
 [![Works with
 ggplot2-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml)
 [![Works with dplyr and
@@ -97,7 +97,7 @@ example, `as_tibble()` would return a `tibble`).
 Current methods and functions provided by **tidyterra** are:
 
 | tidyverse method                            | `SpatVector`                                  | `SpatRaster`                                                                                   |
-|--------------------|--------------------|----------------------------------------|
+|---------------------|---------------------|---------------------------------------|
 | `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
 | `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
 | `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
@@ -320,7 +320,7 @@ Software](https://joss.theoj.org/):
 > package. *Journal of Open Source Software*, *8*(91), 5751,
 > <https://doi.org/10.21105/joss.05751>.
 
-A BibTeX entry for LaTeX users is
+A BibTeX entry for LaTeX users is:
 
 ```{r echo=FALSE, comment=""}
 toBibtex(citation("tidyterra"))

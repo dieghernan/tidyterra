@@ -6,6 +6,35 @@ csl: apa.csl
 nocite: '@*'
 ---
 
-**tidyterra** package has been used in the following publications:
+Please cite **tidyterra** as:
+
+Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra
+package. *Journal of Open Source Software*, *8*(91), 5751,
+<https://doi.org/10.21105/joss.05751>.
+
+A BibTeX entry for LaTeX users is:
+
+``` bib
+@article{Hernangómez2023,
+  doi = {10.21105/joss.05751},
+  url = {https://doi.org/10.21105/joss.05751},
+  year = {2023},
+  publisher = {The Open Journal},
+  volume = {8},
+  number = {91},
+  pages = {5751},
+  author = {Diego Hernangómez},
+  title = {Using the tidyverse with terra objects: the tidyterra package},
+  journal = {Journal of Open Source Software}
+}
+```
+
+**tidyterra** package has been used in the following publications[^1].
+
+[^1]: Sadly not all the publications has used the **tidyterra**
+    [doi:10.21105/joss.05751](https://doi.org/10.21105/joss.05751) so the number
+    of citations of **tidyterra** in several databases is much lower. This list
+    of publications include pieces of work produced with **tidyterra** even if
+    the package has not been correctly referenced.
 
 ## Publications
