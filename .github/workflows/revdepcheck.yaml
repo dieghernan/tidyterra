@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: Check reverse dependencies
+name: revdepcheck
 
 jobs:
   revdepcheck:
@@ -13,8 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-           - {os: windows-latest, r: 'release'}
-           # - {os: macOS-latest, r: 'release'}
+          - {os: ubuntu-latest, r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -29,9 +28,14 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
+          cache-version: revdep
           extra-packages: |
             local::.
             any::usethis
+            any::BiocManager
+            any::BiocVersion
+            any::devtools
+            any::remotes
             r-lib/revdepcheck
           needs: check
 
@@ -60,4 +64,3 @@ jobs:
           git add -A
           git commit -m 'revdepcheck' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
-
