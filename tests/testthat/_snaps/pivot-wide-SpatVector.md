@@ -30,6 +30,6 @@
     Output
       <error/vctrs_error_subscript_oob>
       Error in `pivot_wider()`:
-      ! Can't subset columns that don't exist.
+      ! Can't select columns that don't exist.
       x Column `name` doesn't exist.
 
