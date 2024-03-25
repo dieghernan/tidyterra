@@ -17,10 +17,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is a compendium of questions arisen on the use of the **tidyterra** package
-and the potential solutions to it (mostly related with the use of **terra** and
-**ggplot2** at this stage). You can ask for help or search previous questions in
-the following links.
+This is a compendium of [questions
+arisen](https://github.com/dieghernan/tidyterra/discussions) on the use of the
+**tidyterra** package and the potential solutions to it (mostly related with the
+use of **terra** and **ggplot2** at this stage). You can ask for help or search
+previous questions in the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
@@ -51,7 +52,7 @@ library(tidyterra)
 library(ggplot2)
 
 # Get a raster data, out beloved volcano on hi-res
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -105,7 +106,7 @@ library(tidyterra)
 library(ggplot2)
 library(metR)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -165,7 +166,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -205,7 +206,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -303,7 +304,7 @@ library(tidyterra)
 library(ggplot2)
 library(sf)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -350,7 +351,7 @@ library(tidyterra)
 library(ggplot2)
 library(sf)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -395,10 +396,9 @@ ggplot() +
 library(terra)
 library(tidyterra)
 library(ggplot2)
-require(spDataLarge)
 
 # Get a SpatRaster with coltab
-r_coltab <- rast(system.file("raster/nlcd.tif", package = "spDataLarge"))
+r_coltab <- rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
 
 has.colors(r_coltab)
 
@@ -440,7 +440,7 @@ scales::show_col(cols)
 # And now
 
 g +
-  scale_fill_manual(values = cols) +
+  scale_fill_manual(values = cols, na.value = "transparent", na.translate = FALSE) +
   ggtitle("scale_fill_manual method")
 ```
 
@@ -456,7 +456,7 @@ library(tidyterra)
 library(ggplot2)
 library(ggspatial)
 
-volcanotemp <- file.path(tempdir(), "volcano2hires.tif")
+volcanotemp <- "volcano2hires.tif"
 
 # Download example file
 volcanourl <- paste0(
@@ -489,40 +489,45 @@ autoplot(r) +
 ## How to overlay a `SpatRaster` over a RGB tile
 
 This is quite straightforward, just use `geom_spatraster_rgb()` and after that
-command just create your layer. The next example showcases three potential
-approaches using continuous and discrete scales, as well as an alternative with
-`geom_spatraster_contour_filled()`:
+command just create your layer:
 
-```{r overlays}
+```{r overlay_cont}
 library(terra)
 library(tidyterra)
 library(ggplot2)
 library(sf)
+# Get example data
 library(maptiles)
 library(geodata)
-library(patchwork)
 
 
 # Area of interest
-aoi <- gadm(country = "CHE", path = tempdir(), level = 0) %>%
+aoi <- gadm(country = "CHE", path = ".", level = 0) %>%
   project("EPSG:3857")
 
 # Tile
 rgb_tile <- get_tiles(aoi,
   crop = TRUE, provider = "Esri.WorldShadedRelief",
-  zoom = 8, project = FALSE
+  zoom = 8, project = FALSE, cachedir = "."
 )
 
 # Clim (mean prec)
-clim <- worldclim_country("CHE", var = "prec", path = tempdir()) %>%
+clim <- worldclim_country("CHE", var = "prec", path = ".") %>%
   project(rgb_tile) %>%
   mask(aoi) %>%
   terra::mean()
 
-# Plots
+# Labels
+cap_lab <- paste0(
+  c(
+    "Tiles © Esri - Source: Esri",
+    "Data: © Copyright 2020-2022, worldclim.org."
+  ),
+  collapse = "\n"
+)
+tit_lab <- "Average precipitation in Switzerland"
 
-# Continuous
-p1 <- ggplot(aoi) +
+ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
@@ -532,12 +537,19 @@ p1 <- ggplot(aoi) +
   ) +
   coord_sf(expand = FALSE) +
   labs(
-    subtitle = "Continuous",
-    fill = "Precipitation"
+    title = tit_lab,
+    subtitle = "With continuous overlay",
+    fill = "Precipitation",
+    caption = cap_lab
   )
+```
 
+We can create another variations with binned legends and filled contours (see
+`geom_spatraster_contour_filled()`):
+
+```{r overlay_alt}
 # Binned
-p2 <- ggplot(aoi) +
+ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
@@ -548,36 +560,27 @@ p2 <- ggplot(aoi) +
   ) +
   coord_sf(expand = FALSE) +
   labs(
-    subtitle = "Discrete",
-    fill = "Precipitation"
+    title = tit_lab,
+    subtitle = "With overlay: binned legend",
+    fill = "Precipitation",
+    caption = cap_lab
   )
-
 
 # Filled contour
-p3 <- ggplot(aoi) +
+ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster_contour_filled(data = clim, , bins = 5) +
+  geom_spatraster_contour_filled(data = clim, bins = 4) +
   geom_spatvector(fill = NA) +
   coord_sf(expand = FALSE) +
-  scale_fill_whitebox_d(palette = "deep", alpha = 0.5) +
+  scale_fill_whitebox_d(
+    palette = "deep", alpha = 0.5,
+    guide = guide_legend(reverse = TRUE)
+  ) +
   labs(
-    subtitle = "Filled contour",
-    fill = "Precipitation (mm.)"
-  )
-
-
-# Final plot
-(p1 / p2 / p3) +
-  plot_annotation(
-    title = "Average precipitation in Switzerland",
-    subtitle = "Shaded relief overlay",
-    caption = paste0(
-      c(
-        "Tiles © Esri - Source: Esri",
-        "Data: © Copyright 2020-2022, worldclim.org."
-      ),
-      collapse = "\n"
-    )
+    title = tit_lab,
+    subtitle = "With overlay and filled contour",
+    fill = "Precipitation (mm.)",
+    caption = cap_lab
   )
 ```
 
