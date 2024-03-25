@@ -486,6 +486,101 @@ autoplot(r) +
   )
 ```
 
+## How to overlay a `SpatRaster` over a RGB tile
+
+This is quite straightforward, just use `geom_spatraster_rgb()` and after that
+command just create your layer. The next example showcases three potential
+approaches using continuous and discrete scales, as well as an alternative with
+`geom_spatraster_contour_filled()`:
+
+```{r overlays}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(sf)
+library(maptiles)
+library(geodata)
+library(patchwork)
+
+
+# Area of interest
+aoi <- gadm(country = "CHE", path = tempdir(), level = 0) %>%
+  project("EPSG:3857")
+
+# Tile
+rgb_tile <- get_tiles(aoi,
+  crop = TRUE, provider = "Esri.WorldShadedRelief",
+  zoom = 8, project = FALSE
+)
+
+# Clim (mean prec)
+clim <- worldclim_country("CHE", var = "prec", path = tempdir()) %>%
+  project(rgb_tile) %>%
+  mask(aoi) %>%
+  terra::mean()
+
+# Plots
+
+# Continuous
+p1 <- ggplot(aoi) +
+  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
+  geom_spatraster(data = clim) +
+  geom_spatvector(fill = NA) +
+  scale_fill_whitebox_c(
+    palette = "deep", alpha = 0.5,
+    labels = scales::label_number(suffix = " mm.")
+  ) +
+  coord_sf(expand = FALSE) +
+  labs(
+    subtitle = "Continuous",
+    fill = "Precipitation"
+  )
+
+# Binned
+p2 <- ggplot(aoi) +
+  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
+  geom_spatraster(data = clim) +
+  geom_spatvector(fill = NA) +
+  scale_fill_whitebox_b(
+    palette = "deep", alpha = 0.5,
+    n.breaks = 4,
+    labels = scales::label_number(suffix = " mm.")
+  ) +
+  coord_sf(expand = FALSE) +
+  labs(
+    subtitle = "Discrete",
+    fill = "Precipitation"
+  )
+
+
+# Filled contour
+p3 <- ggplot(aoi) +
+  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
+  geom_spatraster_contour_filled(data = clim, , bins = 5) +
+  geom_spatvector(fill = NA) +
+  coord_sf(expand = FALSE) +
+  scale_fill_whitebox_d(palette = "deep", alpha = 0.5) +
+  labs(
+    subtitle = "Filled contour",
+    fill = "Precipitation (mm.)"
+  )
+
+
+# Final plot
+(p1 / p2 / p3) +
+  plot_annotation(
+    title = "Average precipitation in Switzerland",
+    subtitle = "Shaded relief overlay",
+    caption = paste0(
+      c(
+        "Tiles © Esri - Source: Esri",
+        "Data: © Copyright 2020-2022, worldclim.org."
+      ),
+      collapse = "\n"
+    )
+  )
+```
+
 ## Session info
 
 <details>

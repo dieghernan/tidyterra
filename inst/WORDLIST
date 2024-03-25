@@ -46,6 +46,7 @@ crs
 de
 dev
 disaggregated
+doi
 downsampled
 downup
 dplyr
@@ -60,6 +61,7 @@ hypsometry
 inlabru
 ish
 isoband
+joss
 lon
 magrittr
 metR
