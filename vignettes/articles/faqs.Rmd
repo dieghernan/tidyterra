@@ -440,8 +440,10 @@ scales::show_col(cols)
 # And now
 
 g +
-  scale_fill_manual(values = cols, na.value = "transparent", 
-    na.translate = FALSE) +
+  scale_fill_manual(
+    values = cols, na.value = "transparent",
+    na.translate = FALSE
+  ) +
   ggtitle("scale_fill_manual method")
 ```
 
