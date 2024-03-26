@@ -138,8 +138,8 @@ the plot.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p><code>fortify.SpatVector()</code> returns a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object and
-<code>fortify.SpatRaster()</code> returns a <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a>. See <strong>Methods</strong>.</p>
+<p><code>fortify.SpatVector()</code> returns a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object and
+<code>fortify.SpatRaster()</code> returns a <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></code>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -165,7 +165,7 @@ name of the layer on the <code>SpatRaster</code>.</p>
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>Return a <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> object than can be used with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>
+<p>Return a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object than can be used with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>
 </div>
 
     </div>
@@ -196,54 +196,84 @@ name of the layer on the <code>SpatRaster</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get a SpatRaster</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fortified</span> <span class="op">&lt;-</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">fortify</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fortified</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 21,228 × 3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           x        y elevation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1<span style="text-decoration: underline;">756</span>972. 5<span style="text-decoration: underline;">917</span>870.      80.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 1<span style="text-decoration: underline;">756</span>976. 5<span style="text-decoration: underline;">917</span>870.      80.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1<span style="text-decoration: underline;">756</span>982. 5<span style="text-decoration: underline;">917</span>870.      80.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1<span style="text-decoration: underline;">756</span>986. 5<span style="text-decoration: underline;">917</span>870.      80.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 1<span style="text-decoration: underline;">756</span>992. 5<span style="text-decoration: underline;">917</span>870.      81.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 1<span style="text-decoration: underline;">756</span>996. 5<span style="text-decoration: underline;">917</span>870.      81.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 1<span style="text-decoration: underline;">757</span>002. 5<span style="text-decoration: underline;">917</span>870.      81.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 1<span style="text-decoration: underline;">757</span>006. 5<span style="text-decoration: underline;">917</span>870.      80.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 1<span style="text-decoration: underline;">757</span>012. 5<span style="text-decoration: underline;">917</span>870.      79.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 1<span style="text-decoration: underline;">757</span>016. 5<span style="text-decoration: underline;">917</span>870.      77.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21,218 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 23,166 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        x     y elevation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  175. -<span style="color: #BB0000;">36.9</span>        <span style="color: #BB0000;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 23,156 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># The crs is an attribute of the fortified SpatRaster</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">fortified</span>, <span class="st">"crs"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PROJCRS[\"NZGD2000 / New Zealand Transverse Mercator 2000\",\n    BASEGEOGCRS[\"NZGD2000\",\n        DATUM[\"New Zealand Geodetic Datum 2000\",\n            ELLIPSOID[\"GRS 1980\",6378137,298.257222101,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        ID[\"EPSG\",4167]],\n    CONVERSION[\"New Zealand Transverse Mercator 2000\",\n        METHOD[\"Transverse Mercator\",\n            ID[\"EPSG\",9807]],\n        PARAMETER[\"Latitude of natural origin\",0,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8801]],\n        PARAMETER[\"Longitude of natural origin\",173,\n            ANGLEUNIT[\"degree\",0.0174532925199433],\n            ID[\"EPSG\",8802]],\n        PARAMETER[\"Scale factor at natural origin\",0.9996,\n            SCALEUNIT[\"unity\",1],\n            ID[\"EPSG\",8805]],\n        PARAMETER[\"False easting\",1600000,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",10000000,\n            LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"northing (N)\",north,\n            ORDER[1],\n            LENGTHUNIT[\"metre\",1]],\n        AXIS[\"easting (E)\",east,\n            ORDER[2],\n            LENGTHUNIT[\"metre\",1]],\n    USAGE[\n        SCOPE[\"Engineering survey, topographic mapping.\"],\n        AREA[\"New Zealand - North Island, South Island, Stewart Island - onshore.\"],\n        BBOX[-47.33,166.37,-34.1,178.63]],\n    ID[\"EPSG\",2193]]"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GEOGCRS[\"WGS 84\",\n    ENSEMBLE[\"World Geodetic System 1984 ensemble\",\n        MEMBER[\"World Geodetic System 1984 (Transit)\"],\n        MEMBER[\"World Geodetic System 1984 (G730)\"],\n        MEMBER[\"World Geodetic System 1984 (G873)\"],\n        MEMBER[\"World Geodetic System 1984 (G1150)\"],\n        MEMBER[\"World Geodetic System 1984 (G1674)\"],\n        MEMBER[\"World Geodetic System 1984 (G1762)\"],\n        MEMBER[\"World Geodetic System 1984 (G2139)\"],\n        ELLIPSOID[\"WGS 84\",6378137,298.257223563,\n            LENGTHUNIT[\"metre\",1]],\n        ENSEMBLEACCURACY[2.0]],\n    PRIMEM[\"Greenwich\",0,\n        ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[ellipsoidal,2],\n        AXIS[\"geodetic latitude (Lat)\",north,\n            ORDER[1],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        AXIS[\"geodetic longitude (Lon)\",east,\n            ORDER[2],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n    USAGE[\n        SCOPE[\"Horizontal component of 3D system.\"],\n        AREA[\"World.\"],\n        BBOX[-90,-180,90,180]],\n    ID[\"EPSG\",4326]]"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Back to a SpatRaster with</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="as_spatraster.html">as_spatraster</a></span><span class="op">(</span><span class="va">fortified</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 174, 122, 1  (nrow, ncol, nlyr)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 5, 5  (x, y)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 1756969, 1757579, 5917003, 5917873  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000 (EPSG:2193) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 162, 143, 1  (nrow, ncol, nlyr)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 4.916776e-05, 4.916772e-05  (x, y)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 174.7611, 174.7682, -36.87992, -36.87195  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> source(s)   : memory</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> name        : elevation </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min value   :  76.26222 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max value   : 195.55420 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min value   :  76.56599 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max value   : 195.50436 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can now use a SpatRaster with raster, contours, etc.</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Use here the raster with resample</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, maxcell <span class="op">=</span> <span class="fl">10000</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="co"># Need the aes parameters</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_raster</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, fill <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="co"># Adjust the coords</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html" class="external-link">coord_equal</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB;">&lt;SpatRaster&gt;</span> resampled to <span style="color: #00BB00;">10080</span> cells for plotting</span>
+<span class="r-in"><span><span class="co"># Use here the SpatRaster as a regular object</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="va">mean</span>, bins <span class="op">=</span> <span class="fl">30</span>, color <span class="op">=</span> <span class="st">"white"</span>, linewidth <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="st">"#80146E"</span>, <span class="st">"#804AA4"</span>, <span class="st">"#6771B8"</span>, <span class="st">"#379BC2"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"#3ABCBF"</span>, <span class="st">"#79D4B8"</span>, <span class="st">"white"</span>, <span class="st">"#FCEE88"</span>,</span></span>
+<span class="r-in"><span>      <span class="st">"#F8C34B"</span>, <span class="st">"#F7A72B"</span>, <span class="st">"#F4792D"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      <span class="fl">0</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="fl">0.85</span>,</span></span>
+<span class="r-in"><span>      <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="fl">1</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="co"># Give spatial flavor to axis</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html" class="external-link">coord_fixed</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">174.761</span>, <span class="fl">174.769</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">36.88</span>, <span class="op">-</span><span class="fl">36.872</span><span class="op">)</span>, expand <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    name <span class="op">=</span> <span class="st">""</span>, n.breaks <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      accuracy <span class="op">=</span> <span class="fl">0.001</span>,</span></span>
+<span class="r-in"><span>      suffix <span class="op">=</span> <span class="st">"°"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    name <span class="op">=</span> <span class="st">""</span>, n.breaks <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      accuracy <span class="op">=</span> <span class="fl">0.001</span>,</span></span>
+<span class="r-in"><span>      suffix <span class="op">=</span> <span class="st">"°"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 975 rows containing non-finite outside the scale range</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> (`stat_summary_hex()`).</span>
 <span class="r-plt img"><img src="fortify.Spat-1.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Or any other geom</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -251,6 +281,7 @@ name of the layer on the <code>SpatRaster</code>.</p>
 <span class="r-in"><span>    bins <span class="op">=</span> <span class="fl">20</span>, fill <span class="op">=</span> <span class="st">"lightblue"</span>,</span></span>
 <span class="r-in"><span>    color <span class="op">=</span> <span class="st">"black"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 975 rows containing non-finite outside the scale range (`stat_bin()`).</span>
 <span class="r-plt img"><img src="fortify.Spat-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Create a SpatVector</span></span></span>
@@ -277,16 +308,18 @@ name of the layer on the <code>SpatRaster</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 2892687 ymin: 2017622 xmax: 3341372 ymax: 2361600</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Projected CRS: ETRS89-extended / LAEA Europe</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    iso2 cpro       name                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 ES-AV   05      Avila POLYGON ((3126360 2066778, ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 ES-BU   09     Burgos MULTIPOLYGON (((3276731 226...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 ES-LE   24       Leon POLYGON ((3049427 2233673, ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  ES-P   34   Palencia MULTIPOLYGON (((3175411 229...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 ES-SA   37  Salamanca POLYGON ((3042661 2138939, ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 ES-SG   40    Segovia POLYGON ((3126360 2066778, ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7 ES-SO   42      Soria POLYGON ((3194084 2154251, ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8 ES-VA   47 Valladolid MULTIPOLYGON (((3158120 216...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9 ES-ZA   49     Zamora POLYGON ((3042661 2138939, ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   iso2  cpro  name                                                      geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                               <span style="color: #949494; font-style: italic;">&lt;GEOMETRY [m]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ES-AV 05    Avila      POLYGON ((3126360 2066778, 3125074 2065007, 3124303 20…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> ES-BU 09    Burgos     MULTIPOLYGON (((3276731 2262326, 3275910 2265723, 3270…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> ES-LE 24    Leon       POLYGON ((3049427 2233673, 3049069 2234201, 3047819 22…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> ES-P  34    Palencia   MULTIPOLYGON (((3175411 2291868, 3175606 2293658, 3177…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> ES-SA 37    Salamanca  POLYGON ((3042661 2138939, 3043434 2140279, 3046345 21…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> ES-SG 40    Segovia    POLYGON ((3126360 2066778, 3124037 2067928, 3118421 20…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> ES-SO 42    Soria      POLYGON ((3194084 2154251, 3194362 2156613, 3195482 21…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> ES-VA 47    Valladolid MULTIPOLYGON (((3158120 2161552, 3155455 2155198, 3149…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> ES-ZA 49    Zamora     POLYGON ((3042661 2138939, 3040851 2133391, 3038188 21…</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Now you can use geom_sf()</span></span></span>
 <span class="r-in"><span></span></span>
