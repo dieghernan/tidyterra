@@ -370,7 +370,7 @@ ggplot() +
     legend.key.width = rel(3),
     legend.ticks = element_line(colour = "black", linewidth = 0.3),
     legend.direction = "horizontal"
-  ) #'
+  )
 
 # Binned
 ggplot() +

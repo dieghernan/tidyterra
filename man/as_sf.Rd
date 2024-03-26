@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_sf.R
 \name{as_sf}
 \alias{as_sf}
-\title{Coerce a \code{SpatVector} to a \CRANpkg{sf} object}
+\title{Coerce a \code{SpatVector} to a \code{\link[sf:sf]{sf}} object}
 \usage{
 as_sf(x, ...)
 }
@@ -12,11 +12,12 @@ as_sf(x, ...)
 \item{...}{additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
-A \CRANpkg{sf} object.
+A \code{\link[sf:sf]{sf}} object object with an additional \code{tbl_df} class, for
+pretty printing method.
 }
 \description{
-\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \CRANpkg{sf}. This is a wrapper of
-\code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
+\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \code{\link[sf:sf]{sf}} object. This is a wrapper
+of \code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} are preserved.
 }
 \examples{

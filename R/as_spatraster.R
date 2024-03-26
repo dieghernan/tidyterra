@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `as_spatraster()` turns an existing  data frame or [tibble][tibble::tibble()]
+#' `as_spatraster()` turns an existing  data frame or [`tibble`][tibble::tibble]
 #' into a `SpatRaster`. This is a wrapper of [terra::rast()] S4 method for
 #' signature `data.frame`.
 #'
@@ -11,7 +11,7 @@
 #'
 #' @export
 #'
-#' @param x A [tibble][tibble::tibble()] or data frame.
+#' @param x A [`tibble`][tibble::tibble()] or data frame.
 #' @param xycols A vector of integers of length 2 determining the position of
 #'   the columns that hold the x and y coordinates.
 #'

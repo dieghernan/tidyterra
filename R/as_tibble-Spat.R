@@ -8,7 +8,7 @@
 #' @name as_tibble.Spat
 #'
 #' @return
-#' A [tibble][tibble::tibble()].
+#' A [`tibble`][tibble::tibble()].
 #'
 #' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].

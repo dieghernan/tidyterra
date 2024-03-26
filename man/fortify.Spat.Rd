@@ -43,8 +43,8 @@ for names in the style of base \strong{R}).
 the plot.}
 }
 \value{
-\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \CRANpkg{sf} object and
-\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \CRANpkg{tibble}. See \strong{Methods}.
+\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \code{\link[sf:sf]{sf}} object and
+\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \code{\link[tibble:tibble]{tibble}}. See \strong{Methods}.
 }
 \description{
 Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provide
@@ -72,7 +72,7 @@ It is possible to convert the fortified object onto a \code{SpatRaster} again wi
 
 \subsection{\code{SpatVector}}{
 
-Return a \CRANpkg{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Return a \code{\link[sf:sf]{sf}} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
 }
 }
 
@@ -81,7 +81,8 @@ Return a \CRANpkg{sf} object than can be used with \code{\link[ggplot2:ggsf]{ggp
 
 # Get a SpatRaster
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") \%>\%
-  terra::rast()
+  terra::rast() \%>\%
+  terra::project("EPSG:4326")
 
 fortified <- ggplot2::fortify(r)
 
@@ -97,12 +98,40 @@ as_spatraster(fortified)
 # You can now use a SpatRaster with raster, contours, etc.
 library(ggplot2)
 
-# Use here the raster with resample
-ggplot(r, maxcell = 10000) +
-  # Need the aes parameters
-  geom_raster(aes(x, y, fill = elevation)) +
-  # Adjust the coords
-  coord_equal()
+# Use here the SpatRaster as a regular object
+ggplot(r, aes(x, y, z = elevation)) +
+  stat_summary_hex(fun = mean, bins = 30, color = "white", linewidth = 0.1) +
+  scale_fill_gradientn(
+    colours = c(
+      "#80146E", "#804AA4", "#6771B8", "#379BC2",
+      "#3ABCBF", "#79D4B8", "white", "#FCEE88",
+      "#F8C34B", "#F7A72B", "#F4792D"
+    ),
+    values = c(
+      0, 0.01, 0.02, 0.1, 0.3, 0.6, 0.8, 0.85,
+      0.9, 0.95, 1
+    )
+  ) +
+  # Give spatial flavor to axis
+  coord_fixed(
+    xlim = c(174.761, 174.769),
+    ylim = c(-36.88, -36.872), expand = TRUE
+  ) +
+  scale_x_continuous(
+    name = "", n.breaks = 5,
+    labels = scales::label_number(
+      accuracy = 0.001,
+      suffix = "°"
+    )
+  ) +
+  scale_y_continuous(
+    name = "", n.breaks = 5,
+    labels = scales::label_number(
+      accuracy = 0.001,
+      suffix = "°"
+    )
+  )
+
 
 # Or any other geom
 ggplot(r) +

@@ -19,8 +19,8 @@ as_spatvector(x, ...)
 \method{as_spatvector}{SpatVector}(x, ...)
 }
 \arguments{
-\item{x}{A \link[tibble:tibble]{tibble}, data frame or \CRANpkg{sf} object of
-class \code{\link[sf:st_read]{sf}} or \code{\link[sf:sfc]{sfc}}.}
+\item{x}{A \code{\link[tibble:tibble]{tibble}}, data frame or \CRANpkg{sf} object of
+class \code{\link[sf:sf]{sf}} or \code{\link[sf:sfc]{sfc}}.}
 
 \item{...}{additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 

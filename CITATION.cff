@@ -273,6 +273,25 @@ references:
   year: '2024'
   version: '>= 1.0.0'
 - type: software
+  title: hexbin
+  abstract: 'hexbin: Hexagonal Binning Routines'
+  notes: Suggests
+  url: https://github.com/edzer/hexbin
+  repository: https://CRAN.R-project.org/package=hexbin
+  authors:
+  - family-names: Carr
+    given-names: Dan
+    email: dcarr@voxel.galaxy.gmu.edu
+  - family-names: Lewin-Koh
+    given-names: ported by Nicholas
+  - family-names: Maechler
+    given-names: Martin
+    email: maechler@stat.math.ethz.ch
+  - family-names: Sarkar
+    given-names: contains copies of lattice functions written by Deepayan
+    email: deepayan.sarkar@r-project.org
+  year: '2024'
+- type: software
   title: isoband
   abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
     Grids'

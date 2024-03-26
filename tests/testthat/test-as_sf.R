@@ -22,7 +22,14 @@ test_that("Coercion to normal sf works", {
   sf_def <- sf::st_as_sf(v)
   as_sf <- as_sf(v)
 
-  expect_identical(sf_def, as_sf)
+  # But with tibble conversion
+  expect_s3_class(as_sf, "tbl_df")
+  expect_false(inherits(sf_def, "tbl_df"))
+
+  # So we must check against
+  sf_def_tbl <- sf::st_as_sf(as_tibble(sf_def))
+
+  expect_identical(sf_def_tbl, as_sf)
 })
 
 

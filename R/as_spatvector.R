@@ -13,8 +13,8 @@
 #' @name as_spatvector
 #' @rdname as_spatvector
 #'
-#' @param x A [tibble][tibble::tibble()], data frame or \CRANpkg{sf} object of
-#'  class [`sf`][sf::st_read()] or [`sfc`][sf::st_sfc()].
+#' @param x A [`tibble`][tibble::tibble], data frame or \CRANpkg{sf} object of
+#'  class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
 #'
 #' @param ... additional arguments passed on to [terra::vect()].
 #'

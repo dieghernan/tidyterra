@@ -9,6 +9,8 @@
     body is still displayed transposed as of `dplyr::glimpse()`. See
     `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for
     examples.
+-   `as_sf()` converts a SpatVector to a sf object with an additional `tbl_df`
+    class for pretty printing.
 -   Tidy documentation.
 
 # tidyterra 0.5.2

@@ -76,7 +76,7 @@ NULL
 #'
 #' @name hypsometric_tints_db
 #' @format
-#' A [tibble][tibble::tibble()] of `r nrow(hypsometric_tints_db)` rows and
+#' A [`tibble`][tibble::tibble()] of `r nrow(hypsometric_tints_db)` rows and
 #' `r ncol(hypsometric_tints_db)` columns. with the following fields:
 #'
 #' \describe{
@@ -128,7 +128,7 @@ NULL
 #' Cross-blended hypsometric tints
 #'
 #' @description
-#' A [tibble][tibble::tibble()] including the color map of
+#' A [`tibble`][tibble::tibble()] including the color map of
 #' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes.
 #' All the palettes includes also a definition of colors limits in terms of
 #' elevation (meters), that can be used with [ggplot2::scale_fill_gradientn()].

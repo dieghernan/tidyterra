@@ -5,6 +5,8 @@ test_that("Fortify SpatVectors", {
 
   # Compare
   asf <- sf::st_as_sf(v)
+  # We added new classes
+  class(asf) <- class(fort)
 
   expect_identical(fort, asf)
 

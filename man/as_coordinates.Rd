@@ -13,7 +13,7 @@ as_coordinates(x, as.raster = FALSE)
 layers indicating the position of each cell (cell number, row and column).}
 }
 \value{
-A \link[tibble:tibble]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
+A \code{\link[tibble:tibble]{tibble}} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
 the same number of rows (or cells) than the number of cells in \code{x}.
 
 When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same crs,

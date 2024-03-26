@@ -109,8 +109,8 @@ objects (see \code{\link[terra:vect]{terra::vect()}}).
 \details{
 These functions are wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions. Since a
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \CRANpkg{ggplot2} treat a
-\code{SpatVector} in the same way that a \CRANpkg{sf} object. A side effect is
-that you can use \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with \code{SpatVector} objects.
+\code{SpatVector} in the same way that a \code{\link[sf:sf]{sf}} object. A side effect
+is that you can use \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with \code{SpatVector} objects.
 
 See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }

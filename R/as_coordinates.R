@@ -10,7 +10,7 @@
 #'   layers indicating the position of each cell (cell number, row and column).
 #'
 #' @return
-#' A [tibble][tibble::tibble()] or a `SpatRaster` (if `as.raster = TRUE`) with
+#' A [`tibble`][tibble::tibble()] or a `SpatRaster` (if `as.raster = TRUE`) with
 #' the same number of rows (or cells) than the number of cells in `x`.
 #'
 #' When `as.raster = TRUE` the resulting `SpatRaster` has the same crs,

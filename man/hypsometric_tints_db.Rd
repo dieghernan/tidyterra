@@ -5,7 +5,7 @@
 \alias{hypsometric_tints_db}
 \title{Hypsometric palettes database}
 \format{
-A \link[tibble:tibble]{tibble} of 1102 rows and
+A \code{\link[tibble:tibble]{tibble}} of 1102 rows and
 6 columns. with the following fields:
 
 \describe{

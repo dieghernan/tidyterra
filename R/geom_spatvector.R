@@ -24,8 +24,8 @@
 #'
 #' These functions are wrappers of [ggplot2::geom_sf()] functions. Since a
 #' [fortify.SpatVector()] method is provided, \CRANpkg{ggplot2} treat a
-#' `SpatVector` in the same way that a \CRANpkg{sf} object. A side effect is
-#' that you can use [ggplot2::geom_sf()] directly with `SpatVector` objects.
+#' `SpatVector` in the same way that a [`sf`][sf::st_sf] object. A side effect
+#' is that you can use [ggplot2::geom_sf()] directly with `SpatVector` objects.
 #'
 #' See [ggplot2::geom_sf()] for details on aesthetics, etc.
 #'
