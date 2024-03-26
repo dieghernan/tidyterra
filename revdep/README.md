@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-03-21                                             |
+|date     |2024-03-26                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -47,7 +47,7 @@
 |rlang        |1.1.3  |1.1.3      |   |
 |s2           |1.1.6  |1.1.6      |   |
 |scales       |1.3.0  |1.3.0      |   |
-|sf           |1.0-15 |1.0-15     |   |
+|sf           |1.0-16 |1.0-16     |   |
 |stringi      |1.8.3  |1.8.3      |   |
 |stringr      |1.5.1  |1.5.1      |   |
 |terra        |1.7-71 |1.7-71     |   |
