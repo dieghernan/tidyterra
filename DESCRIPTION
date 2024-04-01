@@ -46,7 +46,7 @@ VignetteBuilder:
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, metR, dieghernan/gitdevr, ragg, styler,
-    ggspatial, cpp11
+    ggspatial, cpp11, remotes
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
