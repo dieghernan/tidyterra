@@ -25,7 +25,7 @@
 #' @rdname fortify.Spat
 #' @name fortify.Spat
 #'
-#' @seealso [sf::st_as_sf()], [as_tibble.Spat], [as_spatraster()],
+#' @seealso [sf::st_as_sf()], [`as_tibble.Spat`], [as_spatraster()],
 #'   [ggplot2::fortify()].
 #'
 #' @section Methods:

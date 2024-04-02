@@ -1,7 +1,7 @@
 #' Order a `SpatVector` using column values
 #'
 #' @description
-#' [arrange.SpatVector()] orders the geometries of a `SpatVector` by the
+#' `arrange.SpatVector()` orders the geometries of a `SpatVector` by the
 #' values of selected columns.
 #'
 #' @export

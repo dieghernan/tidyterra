@@ -587,6 +587,73 @@ ggplot(aoi) +
   )
 ```
 
+## Hexagonal grids (and other `geoms`)
+
+By concept the cells of a `SpatRaster` are rectangular, so it is not possible to
+create a `SpatRaster` with i.e. hexagonal cells.
+
+But it is possible to create a plot with hexagonal cells thanks to
+`fortify.SpatRaster()` and `stat_summary_hex()`. Additional work is needed to
+adjust the final plot, specifically it is needed also to use `coord_sf()`:
+
+```{r hex_grid}
+library(terra)
+library(tidyterra)
+library(ggplot2)
+
+volcanotemp <- "volcano2hires.tif"
+
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
+if (!file.exists(volcanotemp)) {
+  download.file(volcanourl, volcanotemp, mode = "wb")
+}
+
+r <- rast(volcanotemp)
+
+# With hex grid
+ggplot(r, aes(x, y, z = elevation)) +
+  stat_summary_hex(
+    fun = mean, color = NA, linewidth = 0,
+    # Bins size determines the number of cells displayed
+    bins = 30
+  ) +
+  coord_sf(crs = pull_crs(r)) +
+  labs(
+    title = "Hexagonal SpatRaster",
+    subtitle = "Using fortify (implicit) and stat_summary_hex",
+    x = NULL, y = NULL
+  )
+```
+
+Note that there is no need to make a direct call to `fortify.SpatRaster()`,
+since this function is implicitly invoked by **ggplot2** when using
+`ggplot(data = a_spatraster)`.
+
+Thanks to this extension mechanism, it is possible to use additional `geoms` and
+`stats` provided by **ggplot2**:
+
+```{r alt_points}
+# Point plot
+ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
+  geom_point(aes(size = elevation, alpha = elevation),
+    fill = "darkblue",
+    color = "grey50", shape = 21
+  ) +
+  coord_sf(crs = pull_crs(r)) +
+  scale_radius(range = c(1, 5)) +
+  scale_alpha(range = c(0.01, 1)) +
+  labs(
+    title = "SpatRaster as points",
+    subtitle = "Using fortify (implicit)",
+    x = NULL, y = NULL
+  )
+```
+
 ## Session info
 
 <details>

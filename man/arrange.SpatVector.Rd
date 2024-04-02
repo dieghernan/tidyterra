@@ -20,7 +20,7 @@ grouped \code{SpatVector} only (see \code{\link[=group_by.SpatVector]{group_by.S
 A \code{SpatVector} object.
 }
 \description{
-\code{\link[=arrange.SpatVector]{arrange.SpatVector()}} orders the geometries of a \code{SpatVector} by the
+\code{arrange.SpatVector()} orders the geometries of a \code{SpatVector} by the
 values of selected columns.
 }
 \section{\CRANpkg{terra} equivalent}{

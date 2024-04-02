@@ -159,7 +159,7 @@ ggplot(cyl) +
 
 }
 \seealso{
-\code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \link{as_tibble.Spat}, \code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \code{\link{as_tibble.Spat}}, \code{\link[=as_spatraster]{as_spatraster()}},
 \code{\link[ggplot2:fortify]{ggplot2::fortify()}}.
 
 Other \CRANpkg{ggplot2} utils:
