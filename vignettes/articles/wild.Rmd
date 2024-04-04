@@ -24,7 +24,7 @@ A BibTeX entry for LaTeX users is:
   number = {91},
   pages = {5751},
   author = {Diego Hernangómez},
-  title = {Using the tidyverse with terra objects: the tidyterra package},
+  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
   journal = {Journal of Open Source Software}
 }
 ```
