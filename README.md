@@ -38,6 +38,29 @@ objects created with the
 `SpatRaster` and `SpatVector`. It also provides `geoms` for plotting
 these objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
 
+Please cite **tidyterra** as:
+
+> Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+> tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
+> <https://doi.org/10.21105/joss.05751>.
+
+A BibTeX entry for LaTeX users is:
+
+``` bib
+@article{Hernangómez2023,
+  doi = {10.21105/joss.05751},
+  url = {https://doi.org/10.21105/joss.05751},
+  year = {2023},
+  publisher = {The Open Journal},
+  volume = {8},
+  number = {91},
+  pages = {5751},
+  author = {Diego Hernangómez},
+  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
+  journal = {Journal of Open Source Software}
+}
+```
+
 ## Overview
 
 Full manual of the most recent release of **tidyterra** on **CRAN** is
@@ -328,31 +351,6 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
-
-## Citation
-
-If you use this software, please cite our article in the [Journal of
-Open Source Software](https://joss.theoj.org/):
-
-> Hernangómez, D., (2023). Using the tidyverse with terra objects: the
-> tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
-> <https://doi.org/10.21105/joss.05751>.
-
-A BibTeX entry for LaTeX users is:
-
-    @Article{R-tidyterra,
-      title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},
-      doi = {10.21105/joss.05751},
-      author = {Diego Hernangómez},
-      year = {2023},
-      url = {https://doi.org/10.21105/joss.05751},
-      publisher = {The Open Journal},
-      volume = {8},
-      number = {91},
-      pages = {5751},
-      journal = {Journal of Open Source Software},
-      issn = {2475-9066},
-    }
 
 ## Acknowledgement
 

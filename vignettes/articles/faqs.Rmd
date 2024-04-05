@@ -26,13 +26,9 @@ previous questions in the following links.
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
-```{r issues, echo=FALSE, results='asis'}
-link <- unlist(packageDescription("tidyterra")["BugReports"])
-cat("\n- Issues: ", link)
-dis <- gsub("issues$", "discussions", link)
-cat("\n- Discussions: ", dis)
-cat("\n")
-```
+-   Report a Bug [[link](https://github.com/dieghernan/tidyterra/issues)].
+-   Ask a question
+    [[link](https://github.com/dieghernan/tidyterra/discussions)].
 
 ## `NA` values are shown in gray color {#nas-remove}
 
@@ -668,3 +664,4 @@ sessioninfo::session_info()
 ```
 
 </details>
+
