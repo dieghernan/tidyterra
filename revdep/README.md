@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-03-26                                             |
+|date     |2024-04-11                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -22,7 +22,7 @@
 |cli          |3.6.2  |3.6.2      |   |
 |colorspace   |2.1-0  |2.1-0      |   |
 |cpp11        |0.4.7  |0.4.7      |   |
-|data.table   |1.15.2 |1.15.2     |   |
+|data.table   |1.15.4 |1.15.4     |   |
 |DBI          |1.2.2  |1.2.2      |   |
 |dplyr        |1.1.4  |1.1.4      |   |
 |e1071        |1.7-14 |1.7-14     |   |
@@ -36,7 +36,7 @@
 |labeling     |0.4.3  |0.4.3      |   |
 |lifecycle    |1.0.4  |1.0.4      |   |
 |magrittr     |2.0.3  |2.0.3      |   |
-|munsell      |0.5.0  |0.5.0      |   |
+|munsell      |0.5.1  |0.5.1      |   |
 |pillar       |1.9.0  |1.9.0      |   |
 |pkgconfig    |2.0.3  |2.0.3      |   |
 |proxy        |0.4-27 |0.4-27     |   |
