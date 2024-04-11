@@ -34,6 +34,7 @@ navbar:
       aria-label: Twitter
 
 template:
+  bootstrap: 5
   package: gitdevr
   params:
     ganalytics: G-KRDM62G8K4
