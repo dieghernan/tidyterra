@@ -243,11 +243,6 @@
     },
     "6": {
       "@type": "SoftwareApplication",
-      "identifier": "grid",
-      "name": "grid"
-    },
-    "7": {
-      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "provider": {
@@ -258,7 +253,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -270,7 +265,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "9": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -282,7 +277,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    "10": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -295,7 +290,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "11": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -308,7 +303,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "12": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -321,7 +316,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "13": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -337,7 +332,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
-  "fileSize": "2148.565KB",
+  "fileSize": "2148.627KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

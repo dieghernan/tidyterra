@@ -144,7 +144,8 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
   required_aes = c("x", "y"),
   default_aes = aes(
     weight = 1, label = "a", colour = "grey35", linewidth = .2,
-    size = 3.88, linetype = 1, alpha = NA, family = "sans",
+    # Reduce base size, align with scales
+    size = 3.88 * 0.8, linetype = 1, alpha = NA, family = "sans",
     fontface = 1
   ),
   handle_na = function(self, data, params) {

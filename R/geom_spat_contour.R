@@ -92,10 +92,10 @@
 #'   geom_spatraster_contour(data = r)
 #'
 #'
-# Labelled
+#' # Labelled
 #' ggplot() +
 #'   geom_spatraster_contour_text(
-#'     data = r, breaks = c(100, 120, 150),
+#'     data = r, breaks = c(110, 130, 160, 190),
 #'     color = "grey10", family = "serif"
 #'   )
 #'

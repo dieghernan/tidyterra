@@ -24,7 +24,6 @@ Imports:
     data.table,
     dplyr (>= 1.0.0),
     ggplot2 (>= 3.5.0),
-    grid,
     magrittr,
     rlang,
     scales,
