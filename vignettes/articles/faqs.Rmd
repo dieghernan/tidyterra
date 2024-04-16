@@ -92,15 +92,12 @@ def +
 
 ## Labeling contours {#label-contour}
 
-Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
-with the **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align
-both labels and lines:
+Use `geom_spatraster_contour_text()`:
 
 ```{r text-contour}
 library(terra)
 library(tidyterra)
 library(ggplot2)
-library(metR)
 
 volcanotemp <- "volcano2hires.tif"
 
@@ -118,37 +115,51 @@ if (!file.exists(volcanotemp)) {
 r <- rast(volcanotemp)
 
 ggplot(r) +
-  geom_spatraster_contour(data = r) +
-  geom_text_contour(
-    aes(x, y, z = elevation),
-    check_overlap = TRUE,
-    stroke = 0.2,
-    stroke.colour = "white"
-  ) +
-  labs(
-    title = "Labelling contours",
-    width = 2,
-    x = "", y = ""
-  )
+  geom_spatraster_contour_text(data = r) +
+  labs(title = "Labelling contours")
 
-# Modify number or bins
+
+# With options and aes
+
+# Use a labeller function so only selected breaks are labelled
+labeller <- function(labs) {
+  # Must return a function
+  function(x) {
+    x[!x %in% labs] <- NA
+    scales::label_comma(suffix = " m.")(x)
+  }
+}
+
+# Common labels across ggplot
+
+labs <- c(70, 120, 170, 190)
 
 ggplot(r) +
-  geom_spatraster_contour(
-    data = r,
-    binwidth = 25
+  geom_spatraster_contour_text(
+    data = r, aes(
+      linewidth = after_stat(level),
+      size = after_stat(level),
+      color = after_stat(level)
+    ),
+    family = "mono", binwidth = 5,
+    # Just label some isolines
+    label_format = labeller(labs = labs)
   ) +
-  geom_text_contour(
-    aes(x, y, z = elevation),
-    binwidth = 25,
-    check_overlap = TRUE,
-    stroke = 0.2, stroke.colour = "white"
+  scale_linewidth_continuous(range = c(0.2, 0.5), breaks = labs) +
+  scale_color_gradient(low = "grey50", high = "grey10", breaks = labs) +
+  scale_size_continuous(range = c(2, 3), breaks = labs) +
+  # Integrate scales
+  guides(
+    linewidth = guide_legend("meters"),
+    size = guide_legend("meters"),
+    color = guide_legend("meters")
   ) +
+  # Theme and titles
+  theme_bw() +
+  theme(text = element_text(family = "mono")) +
   labs(
     title = "Labelling contours",
-    subtitle = "Aligning breaks",
-    width = 2,
-    x = "", y = ""
+    subtitle = "With options: b/w plot"
   )
 ```
 
@@ -664,4 +675,3 @@ sessioninfo::session_info()
 ```
 
 </details>
-

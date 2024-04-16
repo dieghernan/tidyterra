@@ -4,13 +4,15 @@
 -   New methods for `SpatVector` objects:
     -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
     -   `fill.SpatVector()`.
+-   New geoms `geom_spatraster_contour_text()` implemented on top of
+    `isoband::isolines_grob()`.
 -   `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
     using `?tibble::print.tbl_df` approach for the header and the footer. The
     body is still displayed transposed as of `dplyr::glimpse()`. See
     `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for
     examples.
--   `as_sf()` converts a SpatVector to a sf object with an additional `tbl_df`
-    class for pretty printing.
+-   `as_sf()` converts a `SpatVector` to a `sf` object with an additional
+    `tbl_df` class for pretty printing.
 -   Tidy documentation.
 
 # tidyterra 0.5.2
@@ -81,7 +83,7 @@ Other changes on this version:
 
 # tidyterra 0.3.2
 
--   Fix a bug on `pull_crs()` that returned `"NA"` on **sf** objects with any
+-   Fix a bug on `pull_crs()` that returned `"NA"` on `sf` objects with any
     field equal to `NA` (#74).
 -   Improve docs on `scales_*` (#73) .
 -   Remove dependency on **crayon** package (superseded) in favor of **cli**.

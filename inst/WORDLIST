@@ -34,6 +34,7 @@ bathymetry
 behaviour
 binwidth
 biomod
+centimetres
 cli
 codecov
 coercible
@@ -61,11 +62,14 @@ hypsometry
 inlabru
 ish
 isoband
+isolines
 joss
 lon
 magrittr
 metR
+millimetres
 natively
+picas
 plotmath
 proj
 ptype
