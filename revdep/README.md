@@ -1,17 +1,18 @@
 # Platform
 
-|field    |value                                                  |
-|:--------|:------------------------------------------------------|
-|version  |R version 4.3.3 (2024-02-29)                           |
-|os       |Ubuntu 22.04.4 LTS                                     |
-|system   |x86_64, linux-gnu                                      |
-|ui       |X11                                                    |
-|language |(EN)                                                   |
-|collate  |C.UTF-8                                                |
-|ctype    |C.UTF-8                                                |
-|tz       |UTC                                                    |
-|date     |2024-04-11                                             |
-|pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
+|field    |value                                    |
+|:--------|:----------------------------------------|
+|version  |R version 4.3.3 (2024-02-29 ucrt)        |
+|os       |Windows 11 x64 (build 22631)             |
+|system   |x86_64, mingw32                          |
+|ui       |RStudio                                  |
+|language |(EN)                                     |
+|collate  |Spanish_Spain.utf8                       |
+|ctype    |Spanish_Spain.utf8                       |
+|tz       |Europe/Madrid                            |
+|date     |2024-04-18                               |
+|rstudio  |2023.12.1+402 Ocean Storm (desktop)      |
+|pandoc   |3.1.12.2 @ C:\PROGRA~1\Pandoc\pandoc.exe |
 
 # Dependencies
 
@@ -62,10 +63,4 @@
 |wk           |0.9.1  |0.9.1      |   |
 
 # Revdeps
-
-## Failed to check (1)
-
-|package |version |error |warning |note |
-|:-------|:-------|:-----|:-------|:----|
-|ebvcube |?       |      |        |     |
 
