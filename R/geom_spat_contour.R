@@ -9,17 +9,28 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_contour()].
 #'
+#' `r lifecycle::badge("experimental")` `geom_spatraster_contour_text()` creates
+#' labeled contours and it is implemented on top of [isoband::isolines_grob()].
+#'
 #' @export
 #'
 #' @rdname geom_spat_contour
 #' @name geom_spat_contour
+#' @order 1
 #'
 #' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::geom_contour
+#' @inheritParams ggplot2::geom_text
 #'
 #' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
-#' @seealso  [ggplot2::geom_contour()]
+#' @seealso
+#' [ggplot2::geom_contour()].
+#'
+#' The \CRANpkg{metR} package also provides a set of alternative functions:
+#' - `metR::geom_contour2()`.
+#' - `metR::geom_text_contour()` and `metR::geom_label_contour()`.
+#' - `metR::geom_contour_tanaka()`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -30,24 +41,32 @@
 #'
 #' @section Aesthetics:
 #'
-#' `geom_spatraster_contour`() understands the following aesthetics:
+#' `geom_spatraster_contour()` / `geom_spatraster_contour_text()` understands
+#'  the following aesthetics:
 #'  - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'  - [`colour`][ggplot2::aes_colour_fill_alpha]
 #'  - [`group`][ggplot2::aes_group_order]
 #'  - [`linetype`][ggplot2::aes_linetype_size_shape]
 #'  - [`linewidth`][ggplot2::aes_linetype_size_shape]
+#'  - Additionally, `geom_spatraster_contour_text()` understands:
+#'    - [`size`][ggplot2::aes_linetype_size_shape]
+#'    - `label`
+#'    - `family`
+#'    - `fontface`
 #'
 #' Additionally, `geom_spatraster_contour_filled()` understands also the
 #' following aesthetics, as well as the ones listed above:
 #'  - [`fill`][ggplot2::aes_colour_fill_alpha]
 #'  - `subgroup`
 #'
-#' Check [ggplot2::geom_contour()] for more info.
+#' Check [ggplot2::geom_contour()] for more info on contours and
+#' `vignette("ggplot2-specs", package = "ggplot2")` for an overview of the
+#' aesthetics.
 #'
 #'
 #' @section Computed variables:
 #'
-#' This geom computes internally some variables that are available for use as
+#' These geom computes internally some variables that are available for use as
 #' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
 #' [ggplot2::after_stat()]).
 #'
@@ -59,6 +78,10 @@
 #'  - `after_stat(level_low)`, `after_stat(level_high)`,
 #'    `after_stat(level_mid)`: (contour bands only) Lower and upper bin
 #'    boundaries for each band, as well the mid point between the boundaries.
+#'
+#' @section Dropped variables:
+#' - `z`: After contouring, the `z` values of individual data points are no
+#'   longer available.
 #'
 #' @examples
 #' \donttest{
@@ -73,6 +96,14 @@
 #'
 #' ggplot() +
 #'   geom_spatraster_contour(data = r)
+#'
+#'
+#' # Labelled
+#' ggplot() +
+#'   geom_spatraster_contour_text(
+#'     data = r, breaks = c(110, 130, 160, 190),
+#'     color = "grey10", family = "serif"
+#'   )
 #'
 #'
 #' ggplot() +
@@ -333,6 +364,9 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     data_rest <- remove_columns(data_rest, "group")
 
     data <- dplyr::left_join(path_df, data_rest, by = "lyr")
+
+    # Final cleanup
+    data <- remove_columns(data, ".size")
 
     data
   }

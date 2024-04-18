@@ -92,15 +92,13 @@ def +
 
 ## Labeling contours {#label-contour}
 
-Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
-with the **metR** package. Use the parameter(s) `bins/binwidth/breaks` to align
-both labels and lines:
+Use `geom_spatraster_contour_text()`
+[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental):
 
 ```{r text-contour}
 library(terra)
 library(tidyterra)
 library(ggplot2)
-library(metR)
 
 volcanotemp <- "volcano2hires.tif"
 
@@ -117,38 +115,112 @@ if (!file.exists(volcanotemp)) {
 
 r <- rast(volcanotemp)
 
+ggplot() +
+  geom_spatraster_contour_text(data = r) +
+  labs(title = "Labelling contours")
+
+
+# With options and aes
+
+# Use a labeller function so only selected breaks are labelled
+labeller <- function(labs) {
+  # Must return a function
+  function(x) {
+    x[!x %in% labs] <- NA
+    scales::label_comma(suffix = " m.")(x)
+  }
+}
+
+# Common labels across ggplot
+
+labs <- c(100, 140, 180)
+
 ggplot(r) +
-  geom_spatraster_contour(data = r) +
-  geom_text_contour(
-    aes(x, y, z = elevation),
-    check_overlap = TRUE,
-    stroke = 0.2,
-    stroke.colour = "white"
+  geom_spatraster_contour_text(
+    data = r, aes(
+      linewidth = after_stat(level),
+      size = after_stat(level),
+      color = after_stat(level)
+    ),
+    breaks = seq(80, 200, 10),
+    # Just label some isolines
+    label_format = labeller(labs = labs),
+    family = "mono",
+    fontface = "bold"
   ) +
+  scale_linewidth_continuous(range = c(0.1, 0.5), breaks = labs) +
+  scale_color_gradient(low = "grey50", high = "grey10", breaks = labs) +
+  scale_size_continuous(range = c(2, 3), breaks = labs) +
+  # Integrate scales
+  guides(
+    linewidth = guide_legend("meters"),
+    size = guide_legend("meters"),
+    color = guide_legend("meters")
+  ) +
+  # Theme and titles
+  theme_bw() +
+  theme(text = element_text(family = "mono")) +
   labs(
     title = "Labelling contours",
-    width = 2,
-    x = "", y = ""
+    subtitle = "With options: b/w plot"
   )
+```
 
-# Modify number or bins
+### Other alternatives
 
-ggplot(r) +
+Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
+with the **metR** package (see [Hexagonal grids (and other geoms)]). Use the
+parameter(s) `bins/binwidth/breaks` to align both labels and lines:
+
+```{r metr}
+library(metR)
+br <- seq(80, 200, 10)
+labs <- c(100, 140, 180)
+
+# Replicate previous map with tidyterra + metR strategy
+ggplot(r, aes(x, y)) +
   geom_spatraster_contour(
     data = r,
-    binwidth = 25
+    aes(
+      linewidth = after_stat(level),
+      color = after_stat(level)
+    ),
+    breaks = br,
+    # Don't inherit fortified aes
+    inherit.aes = FALSE
   ) +
   geom_text_contour(
-    aes(x, y, z = elevation),
-    binwidth = 25,
+    aes(
+      z = elevation, color = after_stat(level),
+      size = after_stat(level)
+    ),
+    breaks = br,
+    # Text options
     check_overlap = TRUE,
-    stroke = 0.2, stroke.colour = "white"
+    label.placer = label_placer_minmax(),
+    stroke = 0.3,
+    stroke.colour = "white",
+    family = "mono",
+    fontface = "bold",
+    key_glyph = "path"
   ) +
+  scale_linewidth_continuous(range = c(0.1, 0.5), breaks = labs) +
+  scale_color_gradient(low = "grey50", high = "grey10", breaks = labs) +
+  scale_size_continuous(range = c(2, 3), breaks = labs) +
+  # Integrate scales
+  guides(
+    linewidth = guide_legend("meters"),
+    size = guide_legend("meters"),
+    color = guide_legend("meters")
+  ) +
+  # Theme and titles
+  theme_bw() +
+  theme(text = element_text(family = "mono")) +
   labs(
     title = "Labelling contours",
-    subtitle = "Aligning breaks",
-    width = 2,
-    x = "", y = ""
+    subtitle = "tidyterra and metR: b/w plot",
+    x = "",
+    y = ""
   )
 ```
 
@@ -650,6 +722,77 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   )
 ```
 
+### tidyterra and metR
+
+**metR** is a package that also provides **ggplot2** extensions, mainly focused
+on the analysis of meteorological fields. As shown previously (see [Labeling
+contours](#label-contour)) it is possible to use both packages to provide rich
+plots. This section shows some demos.
+
+```{r metr_demo}
+# load libraries and files
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(metR)
+
+volcanotemp <- "volcano2hires.tif"
+
+# Download example file
+volcanourl <- paste0(
+  "https://github.com/dieghernan/tidyterra/blob/main/",
+  "data-raw/volcano2hires.tif?raw=true"
+)
+
+if (!file.exists(volcanotemp)) {
+  download.file(volcanourl, volcanotemp, mode = "wb")
+}
+
+
+r <- rast(volcanotemp)
+```
+
+#### `metR::geom_contour_tanaka()`
+
+```{r tanaka}
+ggplot(r, aes(x, y)) +
+  geom_spatraster(data = r, inherit.aes = FALSE) +
+  geom_contour_tanaka(aes(z = elevation), breaks = seq(70, 200, 5)) +
+  scale_fill_viridis_c(option = "magma") +
+  labs(x = "", y = "", title = "tidyterra and metR: tanaka contours")
+
+# Using geom_spatraster_contour_filled
+ggplot(r, aes(x, y)) +
+  geom_spatraster_contour_filled(
+    data = r, inherit.aes = FALSE,
+    breaks = seq(60, 200, 20)
+  ) +
+  geom_contour_tanaka(aes(z = elevation),
+    breaks = seq(70, 200, 5),
+    sun.angle = -90, dark = "gray50"
+  ) +
+  scale_fill_viridis_d(option = "cividis") +
+  labs(
+    x = "", y = "", title = "tidyterra and metR: tanaka contours",
+    subtitle = "with geom_contour_filled"
+  )
+```
+
+#### `metR::geom_relief()`
+
+```{r hill}
+ggplot(r, aes(x, y)) +
+  geom_relief(aes(z = elevation)) +
+  geom_spatraster(
+    data = r, inherit.aes = FALSE,
+    aes(alpha = after_stat(value))
+  ) +
+  scale_fill_cross_blended_c(breaks = seq(100, 200, 20)) +
+  scale_alpha(range = c(1, 0.25)) +
+  guides(alpha = "none", fill = guide_legend(reverse = TRUE)) +
+  labs(x = "", y = "", title = "tidyterra and metR: reliefs")
+```
+
 ## Session info
 
 <details>
@@ -664,4 +807,3 @@ sessioninfo::session_info()
 ```
 
 </details>
-

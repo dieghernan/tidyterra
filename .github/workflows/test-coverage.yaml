@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main, master]
 
-name: Test coverage with codecov
+name: Codecov coverage
 
 jobs:
   test-coverage:

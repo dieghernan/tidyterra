@@ -1,5 +1,6 @@
 #' @export
 #' @rdname geom_spat_contour
+#' @order 3
 #'
 geom_spatraster_contour_filled <- function(mapping = NULL, data,
                                            ...,

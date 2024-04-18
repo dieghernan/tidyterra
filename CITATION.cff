@@ -1,7 +1,7 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v1.0.0
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
-# -----------------------------------------------------------
+# --------------------------------------------
  
 cff-version: 1.2.0
 message: 'To cite package "tidyterra" in publications use:'
@@ -466,3 +466,4 @@ references:
     given-names: Vaudor
     email: lise.vaudor@ens-lyon.fr
   year: '2024'
+
