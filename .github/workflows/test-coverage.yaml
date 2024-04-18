@@ -10,7 +10,7 @@ name: Codecov coverage
 
 jobs:
   test-coverage:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
