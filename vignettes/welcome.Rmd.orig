@@ -1,5 +1,6 @@
 ---
 title: "Welcome to tidyterra"
+subtitle: "First steps with the tidyterra package"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Welcome to tidyterra}

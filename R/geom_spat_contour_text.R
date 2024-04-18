@@ -29,7 +29,7 @@ geom_spatraster_contour_text <- function(
 
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster_contour} only works with",
+      "{.fun tidyterra::geom_spatraster_contour_text} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
       "See {.help terra::vect}"
     ))
@@ -256,7 +256,7 @@ df_to_isolines <- function(path_df) {
     lst <- list(rename = list(
       x = df$x,
       y = df$y,
-      id = df$piece2
+      id = as.integer(df$piece2)
     ))
     names(lst) <- x
     lst

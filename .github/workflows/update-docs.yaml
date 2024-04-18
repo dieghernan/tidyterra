@@ -28,8 +28,6 @@ jobs:
             any::cli
             any::rcmdcheck
             any::pkgdown
-            any::metR
-            Nowosad/spDataLarge
             dieghernan/pkgdev
 
           needs: website

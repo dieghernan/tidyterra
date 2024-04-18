@@ -261,7 +261,14 @@ ggplot() +
 
 }
 \seealso{
-\code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}
+\code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
+
+The \CRANpkg{metR} package also provides a set of alternative functions:
+\itemize{
+\item \code{metR::geom_contour2()}.
+\item \code{metR::geom_text_contour()} and \code{metR::geom_label_contour()}.
+\item \code{metR::geom_contour_tanaka()}.
+}
 
 Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},

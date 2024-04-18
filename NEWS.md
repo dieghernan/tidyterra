@@ -4,8 +4,9 @@
 -   New methods for `SpatVector` objects:
     -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
     -   `fill.SpatVector()`.
--   New geoms `geom_spatraster_contour_text()` implemented on top of
-    `isoband::isolines_grob()`.
+-   New geom `geom_spatraster_contour_text()` implemented on top of
+    `isoband::isolines_grob()`
+    [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 -   `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
     using `?tibble::print.tbl_df` approach for the header and the footer. The
     body is still displayed transposed as of `dplyr::glimpse()`. See
