@@ -169,8 +169,8 @@ ggplot(r) +
 ### Other alternatives
 
 Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
-with the **metR** package (see [Hexagonal grids (and other geoms)]). Use the
-parameter(s) `bins/binwidth/breaks` to align both labels and lines:
+with the **metR** package (see [Hexagonal grids and other geoms](#fort)). 
+Use the parameter(s) `bins/binwidth/breaks` to align both labels and lines:
 
 ```{r metr}
 library(metR)
@@ -655,7 +655,7 @@ ggplot(aoi) +
   )
 ```
 
-## Hexagonal grids (and other `geoms`)
+## Hexagonal grids (and other `geoms`) {#fort}
 
 By concept the cells of a `SpatRaster` are rectangular, so it is not possible to
 create a `SpatRaster` with i.e. hexagonal cells.
