@@ -28,9 +28,9 @@
 #' [ggplot2::geom_contour()].
 #'
 #' The \CRANpkg{metR} package also provides a set of alternative functions:
-#' - `metR::geom_contour2()`.
-#' - `metR::geom_text_contour()` and `metR::geom_label_contour()`.
-#' - `metR::geom_contour_tanaka()`.
+#' - [metR::geom_contour2()].
+#' - [metR::geom_text_contour()] and [metR::geom_label_contour()].
+#' - [metR::geom_contour_tanaka()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -48,11 +48,11 @@
 #'  - [`group`][ggplot2::aes_group_order]
 #'  - [`linetype`][ggplot2::aes_linetype_size_shape]
 #'  - [`linewidth`][ggplot2::aes_linetype_size_shape]
-#'  - Additionally, `geom_spatraster_contour_text()` understands:
-#'    - [`size`][ggplot2::aes_linetype_size_shape]
-#'    - `label`
-#'    - `family`
-#'    - `fontface`
+#' `geom_spatraster_contour_text()` understands also:
+#' - [`size`][ggplot2::aes_linetype_size_shape]
+#' - `label`
+#' - `family`
+#' - `fontface`
 #'
 #' Additionally, `geom_spatraster_contour_filled()` understands also the
 #' following aesthetics, as well as the ones listed above:
