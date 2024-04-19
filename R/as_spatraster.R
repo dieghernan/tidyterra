@@ -88,6 +88,20 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   xycols <- as.integer(xycols)
 
+  # Check if is fortified pivoted and widen it
+  if (isTRUE(attr(x, "pvt_fort"))) {
+    initcrs <- attr(x, "crs")
+    x <- x[, 1:4]
+
+    # lyrs
+    names(x) <- c("x", "y", "name", "value")
+    x <- tidyr::pivot_wider(x)
+
+    attr(x, "crs") <- initcrs
+  }
+
+
+
   # To tibble
   x <- tibble::as_tibble(x)
 
@@ -178,7 +192,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   names(defortify) <- layer_names
 
-  return(defortify)
+  defortify
 }
 
 #' Rebuild objects created with as_tbl_spatattr to `SpatRaster`
@@ -226,5 +240,5 @@ as_spatrast_attr <- function(x) {
   defortify <- do.call("c", temp_list)
   names(defortify) <- names(values)
 
-  return(defortify)
+  defortify
 }

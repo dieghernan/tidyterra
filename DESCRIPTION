@@ -37,6 +37,7 @@ Suggests:
     knitr,
     lifecycle,
     maptiles,
+    metR,
     rmarkdown,
     s2,
     testthat (>= 3.0.0),
@@ -46,7 +47,7 @@ VignetteBuilder:
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler,
-    ggspatial, cpp11, remotes, metR
+    ggspatial, cpp11, remotes
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
