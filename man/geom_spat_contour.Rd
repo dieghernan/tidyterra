@@ -139,13 +139,11 @@ the following aesthetics:
 \item \code{\link[ggplot2:aes_group_order]{group}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}}
-\item Additionally, \code{geom_spatraster_contour_text()} understands:
-\itemize{
+\code{geom_spatraster_contour_text()} understands also:
 \item \code{\link[ggplot2:aes_linetype_size_shape]{size}}
 \item \code{label}
 \item \code{family}
 \item \code{fontface}
-}
 }
 
 Additionally, \code{geom_spatraster_contour_filled()} understands also the
@@ -265,9 +263,9 @@ ggplot() +
 
 The \CRANpkg{metR} package also provides a set of alternative functions:
 \itemize{
-\item \code{metR::geom_contour2()}.
-\item \code{metR::geom_text_contour()} and \code{metR::geom_label_contour()}.
-\item \code{metR::geom_contour_tanaka()}.
+\item \code{\link[metR:geom_contour2]{metR::geom_contour2()}}.
+\item \code{\link[metR:geom_text_contour]{metR::geom_text_contour()}} and \code{\link[metR:geom_text_contour]{metR::geom_label_contour()}}.
+\item \code{\link[metR:geom_contour_tanaka]{metR::geom_contour_tanaka()}}.
 }
 
 Other \CRANpkg{ggplot2} utils:
