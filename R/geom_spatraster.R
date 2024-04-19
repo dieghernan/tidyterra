@@ -408,15 +408,14 @@ resample_spat <- function(r, maxcell = 50000) {
     )
     cli::cli_inform(paste(
       "{.cls SpatRaster} resampled to",
-      "{.field {terra::ncell(r)}} cell{?s}",
-      "for plotting"
+      "{.field {terra::ncell(r)}} cell{?s}."
     ))
   }
 
   return(r)
 }
 
-check_mixed_cols <- function(r) {
+check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
   todf <- terra::as.data.frame(r[1], xy = FALSE)
   col_classes <- unlist(lapply(todf, class))
 
@@ -432,7 +431,7 @@ check_mixed_cols <- function(r) {
   extract_vars <- as.integer(which(col_classes == final))
   newr <- terra::subset(r, extract_vars)
 
-  cli::cli_warn("Mixed layer classes found in {.fun tidyterra::geom_spat*}.")
+  cli::cli_warn("Mixed layer classes found in {.fun {fn}}.")
   cli::cli_alert_warning(paste(
     "Plotting only{qty(length(extract_vars))}",
     "layer {.val {names(newr)}} of class {.cls {final}}"

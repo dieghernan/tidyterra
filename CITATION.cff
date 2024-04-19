@@ -352,6 +352,18 @@ references:
     orcid: https://orcid.org/0000-0002-1932-3323
   year: '2024'
 - type: software
+  title: metR
+  abstract: 'metR: Tools for Easier Analysis of Meteorological Fields'
+  notes: Suggests
+  url: https://eliocamp.github.io/metR/
+  repository: https://CRAN.R-project.org/package=metR
+  authors:
+  - family-names: Campitelli
+    given-names: Elio
+    email: elio.campitelli@cima.fcen.uba.ar
+    orcid: https://orcid.org/0000-0002-7742-9230
+  year: '2024'
+- type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
   notes: Suggests

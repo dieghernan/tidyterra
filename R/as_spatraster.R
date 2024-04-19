@@ -88,6 +88,20 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   xycols <- as.integer(xycols)
 
+  # Check if is fortified pivoted and widen it
+  if (isTRUE(attr(x, "pvt_fort"))) {
+    initcrs <- attr(x, "crs")
+    x <- x[, 1:4]
+
+    # lyrs
+    names(x) <- c("x", "y", "name", "value")
+    x <- tidyr::pivot_wider(x)
+
+    attr(x, "crs") <- initcrs
+  }
+
+
+
   # To tibble
   x <- tibble::as_tibble(x)
 

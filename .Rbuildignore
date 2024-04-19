@@ -29,3 +29,4 @@
 ^\.lintr$
 ^vignettes/welcome\.Rmd\.orig$
 ^Rplots\.pdf$
+^codecov\.yml$

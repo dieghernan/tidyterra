@@ -14,7 +14,11 @@
     examples.
 -   `as_sf()` converts a `SpatVector` to a `sf` object with an additional
     `tbl_df` class for pretty printing.
+-   `fortify.SpatRaster()` gains a new argument `pivot` that allows better
+    integration with other **ggplot2** geoms when pivoting. This is a wrapper of
+    `tidyr::pivot_longer()`.
 -   Tidy documentation.
+-   **metR** added to Suggests.
 
 # tidyterra 0.5.2
 

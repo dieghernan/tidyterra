@@ -82,3 +82,49 @@ test_that("Fortify SpatRasters", {
 
   expect_identical(build_terra, build_point)
 })
+
+test_that("Fortify SpatRasters pivot", {
+  r <- terra::rast(system.file("extdata/cyl_temp.tif",
+    package = "tidyterra"
+  ))
+
+  fort <- fortify(r, pivot = TRUE)
+
+  expect_equal(ncol(fort), 4)
+  expect_equal(names(fort), c("x", "y", "lyr", "value"))
+
+  # Can go back to SpatRaster
+  back <- as_spatraster(fort)
+
+  expect_true(compare_spatrasters(r, back))
+  expect_identical(names(r), names(back))
+
+  # Complain on mixed
+  fort2 <- dplyr::mutate(back, char = "a")
+  expect_snapshot(aa <- fortify(fort2, pivot = TRUE))
+
+  expect_identical(unique(aa$lyr), names(back))
+  # What about with no CRS?
+
+  r_no <- r
+
+  terra::crs(r_no) <- ""
+
+  fort_no <- ggplot2::fortify(r_no, pivot = TRUE)
+  # Back!
+  back_no <- as_spatraster(fort_no)
+  expect_true(compare_spatrasters(r_no, back_no))
+
+
+  # Try resample
+  fort_res <- ggplot2::fortify(r, maxcell = 10, pivot = TRUE)
+
+  expect_lt(nrow(fort_res), nrow(fort))
+
+  # Try ggplot
+  v_t <- ggplot2::ggplot(r, maxcell = 10, pivot = TRUE) +
+    ggplot2::geom_point(aes(x, y)) +
+    ggplot2::facet_wrap(~lyr)
+
+  build_terra <- ggplot2::ggplot_build(v_t)
+})
