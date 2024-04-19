@@ -35,7 +35,7 @@
     Code
       p_res <- ggplot() + geom_spatraster_rgb(data = r, maxcell = 20)
     Message
-      <SpatRaster> resampled to 25 cells for plotting
+      <SpatRaster> resampled to 25 cells.
 
 ---
 
@@ -43,5 +43,5 @@
       p_res_int <- ggplot() + geom_spatraster_rgb(data = r, maxcell = 20,
         interpolate = TRUE)
     Message
-      <SpatRaster> resampled to 25 cells for plotting
+      <SpatRaster> resampled to 25 cells.
 

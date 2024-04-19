@@ -192,7 +192,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   names(defortify) <- layer_names
 
-  return(defortify)
+  defortify
 }
 
 #' Rebuild objects created with as_tbl_spatattr to `SpatRaster`
@@ -240,5 +240,5 @@ as_spatrast_attr <- function(x) {
   defortify <- do.call("c", temp_list)
   names(defortify) <- names(values)
 
-  return(defortify)
+  defortify
 }

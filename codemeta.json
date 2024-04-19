@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.3 (2024-02-29)",
+  "runtimePlatform": "R version 4.3.3 (2024-02-29 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -344,7 +344,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "r-package", "rstats", "rstats-package", "cran", "cran-r"],
-  "fileSize": "2253.229KB",
+  "fileSize": "2289.583KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

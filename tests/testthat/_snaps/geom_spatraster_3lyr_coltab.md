@@ -31,5 +31,5 @@
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20) + facet_wrap(~lyr)
     Message
-      <SpatRaster> resampled to 24 cells for plotting
+      <SpatRaster> resampled to 24 cells.
 

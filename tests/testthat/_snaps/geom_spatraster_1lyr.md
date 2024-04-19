@@ -19,26 +19,26 @@
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20)
     Message
-      <SpatRaster> resampled to 24 cells for plotting
+      <SpatRaster> resampled to 24 cells.
 
 ---
 
     Code
       p_res_int <- ggplot() + geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
     Message
-      <SpatRaster> resampled to 24 cells for plotting
+      <SpatRaster> resampled to 24 cells.
 
 # geom_spatraster one layer without CRS
 
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20)
     Message
-      <SpatRaster> resampled to 24 cells for plotting
+      <SpatRaster> resampled to 24 cells.
 
 ---
 
     Code
       p_res_int <- ggplot() + geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
     Message
-      <SpatRaster> resampled to 24 cells for plotting
+      <SpatRaster> resampled to 24 cells.
 
