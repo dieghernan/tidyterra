@@ -30,10 +30,10 @@
   /* Clipboard --------------------------*/
 
   function changeTooltipMessage(element, msg) {
-    var tooltipOriginalTitle=element.getAttribute('data-bs-original-title');
-    element.setAttribute('data-bs-original-title', msg);
+    var tooltipOriginalTitle=element.getAttribute('data-original-title');
+    element.setAttribute('data-original-title', msg);
     $(element).tooltip('show');
-    element.setAttribute('data-bs-original-title', tooltipOriginalTitle);
+    element.setAttribute('data-original-title', tooltipOriginalTitle);
   }
 
   if(ClipboardJS.isSupported()) {
@@ -60,7 +60,7 @@
         e.clearSelection();
       });
 
-      clipboard.on('error', function(e) {
+      clipboard.on('error', function() {
         changeTooltipMessage(e.trigger,'Press Ctrl+C or Command+C to copy');
       });
 
