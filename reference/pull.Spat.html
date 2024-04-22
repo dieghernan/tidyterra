@@ -4,7 +4,7 @@ looks a little nicer in pipes and it can optionally name the output.
 It is possible to extract the geographic coordinates of a SpatRaster.
 You need to use pull(.data, x, xy = TRUE). x and y are reserved
 names on terra, since they refer to the geographic coordinates of the layer.
-See Examples and section About layer names on as_tibble.Spat()."><title>Extract a single layer/attribute — pull.Spat • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Extract a single layer/attribute — pull.Spat"><meta property="og:description" content="pull() is similar to $ on a data frame. It's mostly useful because it
+See Examples and section About layer names on as_tibble.Spat()."><title>Extract a single layer/attribute — pull.Spat • tidyterra</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Extract a single layer/attribute — pull.Spat"><meta property="og:description" content="pull() is similar to $ on a data frame. It's mostly useful because it
 looks a little nicer in pipes and it can optionally name the output.
 It is possible to extract the geographic coordinates of a SpatRaster.
 You need to use pull(.data, x, xy = TRUE). x and y are reserved
@@ -25,10 +25,10 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
     <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">
-      <img src="../favicon-32x32.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
+      <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.5.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,8 +47,8 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a>
     <a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a>
-    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
     <a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a>
+    <a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a>
   </div>
 </li>
 <li class="nav-item">
@@ -88,9 +88,9 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
     </div>
 
     <div class="ref-description section level2">
-    <p><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code> is similar to $ on a data frame. It's mostly useful because it
+    <p><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code> is similar to <code>$</code> on a data frame. It's mostly useful because it
 looks a little nicer in pipes and it can optionally name the output.</p>
-<p><strong>It is possible to extract the geographic coordinates of a SpatRaster</strong>.
+<p><strong>It is possible to extract the geographic coordinates of a <code>SpatRaster</code></strong>.
 You need to use <code>pull(.data, x, xy = TRUE)</code>. <code>x</code> and <code>y</code> are reserved
 names on terra, since they refer to the geographic coordinates of the layer.</p>
 <p>See <strong>Examples</strong> and section <strong>About layer names</strong> on <code><a href="as_tibble.Spat.html">as_tibble.Spat()</a></code>.</p>
@@ -108,13 +108,13 @@ names on terra, since they refer to the geographic coordinates of the layer.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>.data</dt>
-<dd><p>A SpatRaster created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a SpatVector
+<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
 created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt>var</dt>
-<dd><p>A variable specified as:</p><ul><li><p>a literal layer/attribute name</p></li>
-<li><p>a positive integer, giving the position counting from the left</p></li>
+<dd><p>A variable specified as:</p><ul><li><p>a literal layer/attribute name.</p></li>
+<li><p>a positive integer, giving the position counting from the left.</p></li>
 <li><p>a negative integer, giving the position counting from the right.</p></li>
 </ul><p>The default returns the last layer/attribute (on the assumption that's the
 column you've created most recently).</p></dd>
@@ -126,7 +126,7 @@ names for a named vector. Specified in a similar manner as <code>var</code>.</p>
 
 
 <dt>...</dt>
-<dd><p>Arguments passed on to <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code></p></dd>
+<dd><p>Arguments passed on to <code><a href="as_tibble.Spat.html">as_tibble.Spat()</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -136,12 +136,12 @@ names for a named vector. Specified in a similar manner as <code>var</code>.</p>
 <p>A vector the same number of cells/geometries as <code>.data</code>.</p>
 
 
-<p>On SpatRasters, note that the default (<code>na.rm = FALSE</code>) would remove
+<p>On <code>SpatRaster</code> objects, note that the default (<code>na.rm = FALSE</code>) would remove
 empty cells, so you may need to pass (<code>na.rm = FALSE</code>) to <code>...</code>. See
 <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>.</p>
     </div>
     <div class="section level2">
-    <h2 id="terra-equivalent">terra equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
+    <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
     
 
 
@@ -153,9 +153,9 @@ empty cells, so you may need to pass (<code>na.rm = FALSE</code>) to <code>...</
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> function. This is done
-by coercing the Spat* object to a tibble first (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and
+by coercing the <code>Spat*</code> object to a tibble first (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and
 then using <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method over the tibble.</p><div class="section">
-<h3 id="spatraster">SpatRaster<a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
 <p>When passing option <code>na.rm = TRUE</code> to <code>...</code>, only cells with a value
@@ -167,26 +167,26 @@ in position <code>1</code> and <code>2</code>. Hence, <code>pull(.data, 1)</code
 </div>
 
 <div class="section">
-<h3 id="spatvector">SpatVector<a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
 <p>When passing <code>geom = "WKT"/geom = "HEX"</code> to <code>...</code>,  the geometry of the
-SpatVector can be pulled passing <code>var = geometry</code>. Similarly to SpatRaster
-method, when using <code>geom = "XY"</code> the <code>x,y</code> coordinates can be pulled with
-<code>var = x/var = y</code>. See  <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> options.</p>
+<code>SpatVector</code> can be pulled passing <code>var = geometry</code>. Similarly to
+<code>SpatRaster</code> method, when using <code>geom = "XY"</code> the <code>x,y</code> coordinates can be
+pulled with <code>var = x/var = y</code>. See  <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> options.</p>
 </div>
 
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code></p>
-<p>Other dplyr verbs that operate on columns:
+<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verbs that operate on columns:
 <code><a href="glimpse.Spat.html">glimpse.Spat</a></code>,
 <code><a href="mutate.Spat.html">mutate.Spat</a></code>,
 <code><a href="relocate.Spat.html">relocate.Spat</a></code>,
 <code><a href="rename.Spat.html">rename.Spat</a></code>,
 <code><a href="select.Spat.html">select.Spat</a></code></p>
-<p>Other dplyr methods:
+<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> methods:
 <code><a href="arrange.SpatVector.html">arrange.SpatVector</a>()</code>,
 <code><a href="bind_cols.SpatVector.html">bind_cols.SpatVector</a></code>,
 <code><a href="bind_rows.SpatVector.html">bind_rows.SpatVector</a></code>,

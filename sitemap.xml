@@ -82,10 +82,10 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatRaster.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.html</loc>
   </url>
   <url>
-    <loc>https://dieghernan.github.io/tidyterra/reference/drop_na.SpatVector.html</loc>
+    <loc>https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.html</loc>
@@ -137,6 +137,12 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/pull.Spat.html</loc>

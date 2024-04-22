@@ -188,6 +188,19 @@ code {
 	word-wrap: break-word;
 }
 
+/* --- Inherited args --- */
+
+.template-reference-topic dt code {
+	font-weight: 700;
+	font-family: var(--bs-body-font-family);
+	font-size: var(--bs-body-font-size);
+	color: var(--bs-body-color);
+	text-align: var(--bs-body-text-align);
+	background-color: var(--bs-body-bg);
+	padding: 0;
+	border-radius: 0;
+}
+
 /* --- Highlighter based in perldoc --- */
 pre {
 	background-color: #f4f4f5
