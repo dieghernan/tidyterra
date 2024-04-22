@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.6.0
 
 -   Requires **ggplot2** (\>= 3.5.0).
 -   New methods for `SpatVector` objects:
