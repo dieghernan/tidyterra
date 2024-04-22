@@ -34,5 +34,5 @@ ncell(xtraclip)
 
 unlink("data-raw/holyroodpark.tif")
 unlink("vignettes/articles/holyroodpark.tif")
-writeRaster(final_rast, "data-raw/holyroodpark.tif")
-writeRaster(final_rast, "vignettes/articles/holyroodpark.tif")
+writeRaster(xtraclip, "data-raw/holyroodpark.tif")
+writeRaster(xtraclip, "vignettes/articles/holyroodpark.tif")

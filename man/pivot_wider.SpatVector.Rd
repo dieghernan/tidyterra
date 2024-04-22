@@ -143,26 +143,30 @@ have always the geometry of \code{data}.
 }
 
 \examples{
-
+\donttest{
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-names(nc)
-# Pivot longer
-nc_long <- nc \%>\%
-  pivot_longer(contains("BIR"), names_to = "label", values_to = "n") \%>\%
-  select(label:n) \%>\%
+# Add extra row with info
+xtra <- cyl \%>\%
+  slice(c(2, 3)) \%>\%
+  mutate(
+    label = "extra",
+    value = TRUE
+  ) \%>\%
+  rbind(cyl, .) \%>\%
   glimpse()
 
-
-# Undo
-nc_long \%>\%
-  pivot_wider(names_from = label, values_from = n) \%>\%
-  glimpse()
-
+# Pivot by geom
+xtra \%>\%
+  pivot_wider(
+    id_cols = iso2:name, values_from = value,
+    names_from = label
+  )
+}
 }
 \seealso{
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}

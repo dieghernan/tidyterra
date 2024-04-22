@@ -299,7 +299,7 @@ blurriness on your data. Also, modify the parameter `maxcell` to avoid
 resampling and force the **ggplot2** map to be on **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
 
-```{r blurry-tile}
+```{r blurry-tile, fig.show='hold'}
 library(terra)
 library(tidyterra)
 library(ggplot2)

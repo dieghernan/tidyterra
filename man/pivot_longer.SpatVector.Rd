@@ -136,31 +136,35 @@ have always the geometry of \code{data}.
 }
 
 \examples{
+\donttest{
+
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(terra)
 
-nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+temp <- rast((system.file("extdata/cyl_temp.tif", package = "tidyterra")))
+cyl <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra")) \%>\%
+  project(temp)
 
-# Usually this is useful for faceting, see BIR
-glimpse(nc)
+# Add average temp
 
-nc_pivoted <- nc \%>\%
-  pivot_longer(starts_with("BIR"),
-    names_to = "year",
-    values_to = "births"
-  ) \%>\%
-  mutate(year = as.numeric(gsub("BIR", "19", year)))
-
-nc_pivoted \%>\%
-  relocate(year, births) \%>\%
+temps <- terra::extract(temp, cyl, fun = "mean", na.rm = TRUE, xy = TRUE)
+cyl_temp <- cbind(cyl, temps) \%>\%
   glimpse()
 
-ggplot(nc_pivoted) +
-  geom_spatvector(aes(fill = births)) +
-  facet_wrap(~year, ncol = 1) +
-  scale_fill_viridis_c(option = "cividis") +
-  labs(title = "Number of births in South Carolina")
+# And pivot long for plot
+cyl_temp \%>\%
+  pivot_longer(
+    cols = tavg_04:tavg_06,
+    names_to = "label",
+    values_to = "temp"
+  ) \%>\%
+  ggplot() +
+  geom_spatvector(aes(fill = temp)) +
+  facet_wrap(~label, ncol = 1) +
+  scale_fill_whitebox_c(palette = "muted")
+}
 }
 \seealso{
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}
