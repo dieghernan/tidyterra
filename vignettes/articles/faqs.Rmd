@@ -30,14 +30,39 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 -   Ask a question
     [[link](https://github.com/dieghernan/tidyterra/discussions)].
 
+### Example data
+
+#### Source
+
+This article uses a sample of **LiDAR for Scotland Phase 5 - DSM** provided by
+[The Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/). This
+data is made available under the [Open Government Licence
+v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
+#### About the file
+
+The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park, Edinburgh
+(Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park), including [Arthur's
+Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct volcano, pretty
+much as the famous [Maungawhau / Mount
+Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano represented
+in `datasets::volcano`.
+
+[^1]: Digital Elevation Model, representing the elevation of the corresponding
+    area.
+
+The original file has been cropped and down-sampled for demo purposes,
+`holyroodpark.tif` is available online in
+<https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder.
+
 ## `NA` values are shown in gray color {#nas-remove}
 
 This is the default behavior produced by the **ggplot2** package. **tidyterra**
 color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
 parameter `na.value` set to `"transparent"`, that prevents `NA` values to be
-filled[^1].
+filled[^2].
 
-[^1]: `na.value = NA` could be used as well for the same purpose in most of the
+[^2]: `na.value = NA` could be used as well for the same purpose in most of the
     cases, however when the proportion of non-`NA`s is small it can produce
     undesired results, see
     [#120](https://github.com/dieghernan/tidyterra/issues/120).
@@ -47,19 +72,10 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-# Get a raster data, out beloved volcano on hi-res
-volcanotemp <- "volcano2hires.tif"
+# Get a raster data from Holyrood Park, Edinburgh
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-r <- volcanotemp %>%
+r <- holyrood %>%
   rast() %>%
   filter(elevation > 80 & elevation < 180)
 
@@ -100,20 +116,9 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 ggplot() +
   geom_spatraster_contour_text(data = r) +
@@ -133,7 +138,7 @@ labeller <- function(labs) {
 
 # Common labels across ggplot
 
-labs <- c(100, 140, 180)
+labs <- c(100, 140, 180, 220)
 
 ggplot(r) +
   geom_spatraster_contour_text(
@@ -142,7 +147,7 @@ ggplot(r) +
       size = after_stat(level),
       color = after_stat(level)
     ),
-    breaks = seq(80, 200, 10),
+    breaks = seq(100, 250, 10),
     # Just label some isolines
     label_format = labeller(labs = labs),
     family = "mono",
@@ -169,13 +174,13 @@ ggplot(r) +
 ### Other alternatives
 
 Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
-with the **metR** package (see [Hexagonal grids and other geoms](#fort)). 
-Use the parameter(s) `bins/binwidth/breaks` to align both labels and lines:
+with the **metR** package (see [Hexagonal grids and other geoms](#fort)). Use
+the parameter(s) `bins/binwidth/breaks` to align both labels and lines:
 
 ```{r metr}
 library(metR)
-br <- seq(80, 200, 10)
-labs <- c(100, 140, 180)
+br <- seq(100, 250, 10)
+labs <- c(100, 140, 180, 220)
 
 # Replicate previous map with tidyterra + metR strategy
 ggplot(r, aes(x, y)) +
@@ -234,20 +239,9 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 # Hillshade with grey colors
 slope <- terrain(r, "slope", unit = "radians")
@@ -274,20 +268,9 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 p <- ggplot() +
   geom_spatraster(data = r)
@@ -324,16 +307,17 @@ library(sf)
 library(maptiles)
 
 # Get a tile from a point on sf format
-
-p <- st_point(c(-97.09, 31.53)) %>%
+p <- st_point(c(-3.166011, 55.945235)) %>%
   st_sfc(crs = 4326) %>%
-  st_buffer(750)
+  st_buffer(500)
 
-tile1 <- get_tiles(p, provider = "OpenStreetMap", zoom = 14, cachedir = ".")
+tile1 <- get_tiles(p,
+  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+  crop = TRUE
+)
 
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
-  geom_sf(data = p, fill = NA) +
   labs(title = "This is a bit blurry...")
 
 st_crs(tile1)$epsg
@@ -344,7 +328,10 @@ st_crs(tile1)$epsg
 p2 <- st_transform(p, 3857)
 
 
-tile2 <- get_tiles(p2, provider = "OpenStreetMap", zoom = 14, cachedir = ".")
+tile2 <- get_tiles(p2,
+  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+  crop = TRUE
+)
 
 st_crs(tile2)$epsg
 
@@ -352,7 +339,6 @@ st_crs(tile2)$epsg
 
 ggplot() +
   geom_spatraster_rgb(data = tile2, maxcell = Inf) +
-  geom_sf(data = p, fill = NA) +
   # Force crs to be 3857
   coord_sf(crs = 3857) +
   labs(
@@ -372,20 +358,9 @@ library(tidyterra)
 library(ggplot2)
 library(sf)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 ggplot() +
   geom_spatraster(data = r) +
@@ -419,19 +394,9 @@ library(tidyterra)
 library(ggplot2)
 library(sf)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 ggplot() +
   geom_spatraster(data = r) +
@@ -449,11 +414,11 @@ ext <- r %>%
 
 ggplot() +
   geom_spatraster(data = r) +
-  scale_y_continuous(
+  scale_x_continuous(
     expand = expansion(mult = 0.05),
-    breaks = scales::breaks_pretty(n = 3)(ext[c("ymin", "ymax")])
+    breaks = scales::breaks_pretty(n = 3)(ext[c("xmin", "xmax")])
   ) +
-  labs(title = "Three breaks on y")
+  labs(title = "Three breaks on x (¿?)")
 ```
 
 ## Plotting a `SpatRaster` with color tables
@@ -527,19 +492,9 @@ library(tidyterra)
 library(ggplot2)
 library(ggspatial)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 autoplot(r) +
   annotation_north_arrow(
@@ -669,19 +624,9 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 
 # With hex grid
 ggplot(r, aes(x, y, z = elevation)) +
@@ -736,20 +681,9 @@ library(tidyterra)
 library(ggplot2)
 library(metR)
 
-volcanotemp <- "volcano2hires.tif"
+holyrood <- "holyroodpark.tif"
 
-# Download example file
-volcanourl <- paste0(
-  "https://github.com/dieghernan/tidyterra/blob/main/",
-  "data-raw/volcano2hires.tif?raw=true"
-)
-
-if (!file.exists(volcanotemp)) {
-  download.file(volcanourl, volcanotemp, mode = "wb")
-}
-
-
-r <- rast(volcanotemp)
+r <- rast(holyrood)
 ```
 
 #### `metR::geom_contour_tanaka()`
@@ -757,7 +691,7 @@ r <- rast(volcanotemp)
 ```{r tanaka}
 ggplot(r, aes(x, y)) +
   geom_spatraster(data = r, inherit.aes = FALSE) +
-  geom_contour_tanaka(aes(z = elevation), breaks = seq(70, 200, 5)) +
+  geom_contour_tanaka(aes(z = elevation), breaks = seq(0, 250, 25)) +
   scale_fill_viridis_c(option = "magma") +
   labs(x = "", y = "", title = "tidyterra and metR: tanaka contours")
 
@@ -765,10 +699,10 @@ ggplot(r, aes(x, y)) +
 ggplot(r, aes(x, y)) +
   geom_spatraster_contour_filled(
     data = r, inherit.aes = FALSE,
-    breaks = seq(60, 200, 20)
+    breaks = seq(0, 250, 50)
   ) +
   geom_contour_tanaka(aes(z = elevation),
-    breaks = seq(70, 200, 5),
+    breaks = seq(0, 250, 10),
     sun.angle = -90, dark = "gray50"
   ) +
   scale_fill_viridis_d(option = "cividis") +
@@ -787,7 +721,7 @@ ggplot(r, aes(x, y)) +
     data = r, inherit.aes = FALSE,
     aes(alpha = after_stat(value))
   ) +
-  scale_fill_cross_blended_c(breaks = seq(100, 200, 20)) +
+  scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
   scale_alpha(range = c(1, 0.25)) +
   guides(alpha = "none", fill = guide_legend(reverse = TRUE)) +
   labs(x = "", y = "", title = "tidyterra and metR: reliefs")

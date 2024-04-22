@@ -6,12 +6,15 @@ CodeFactor
 Colorimetric
 Coords
 DOI
+DSM
 EPSG
 Hijmans
+Holyrood
 Hypsometric
 ISSN
 JOSS
 LiDAR
+Licence
 Maungawhau
 NZGD
 ORCID
@@ -45,7 +48,6 @@ coord
 cpt
 crs
 de
-dev
 disaggregated
 doi
 downsampled
