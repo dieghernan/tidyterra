@@ -253,7 +253,9 @@ have always the geometry of <code>data</code>.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'tidyr'</span>
@@ -261,63 +263,44 @@ have always the geometry of <code>data</code>.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     extract</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">nc</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"shape/nc.shp"</span>, package <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">temp</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Usually this is useful for faceting, see BIR</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">nc</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 100 x 14</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.114, 0.061, 0.143, 0.070, 0.153, 0.097, 0.062, 0.091, 0.11…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ PERIMETER <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.442, 1.231, 1.630, 2.968, 2.206, 1.670, 1.547, 1.284, 1.42…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1827, 1828, 1831, 1832, 1833, 1834, 1835, 1836, 1837, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_ID   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1827, 1828, 1831, 1832, 1833, 1834, 1835, 1836, 1837, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Ashe", "Alleghany", "Surry", "Currituck", "Northampton", "H…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ FIPS      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "37009", "37005", "37171", "37053", "37131", "37091", "37029…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ FIPSNO    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 37009, 37005, 37171, 37053, 37131, 37091, 37029, 37073, 3718…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CRESS_ID  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5, 3, 86, 27, 66, 46, 15, 37, 93, 85, 17, 79, 39, 73, 91, 42…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR74     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035,…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ SID74     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 0, 5, 1, 9, 7, 0, 0, 4, 1, 2, 16, 4, 4, 4, 18, 3, 4, 1, 1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 4 more variables : NWBIR74 &lt;dbl&gt;, BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ Use `tidyterra::glimpse(n = ...)` to see more columns</span></span>
+<span class="r-in"><span><span class="co"># Add average temp</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">nc_pivoted</span> <span class="op">&lt;-</span> <span class="va">nc</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"BIR"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>    names_to <span class="op">=</span> <span class="st">"year"</span>,</span></span>
-<span class="r-in"><span>    values_to <span class="op">=</span> <span class="st">"births"</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"BIR"</span>, <span class="st">"19"</span>, <span class="va">year</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">nc_pivoted</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">births</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">temps</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/extract.html" class="external-link">extract</a></span><span class="op">(</span><span class="va">temp</span>, <span class="va">cyl</span>, fun <span class="op">=</span> <span class="st">"mean"</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, xy <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cyl_temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">cyl</span>, <span class="va">temps</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 200 x 14</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 9 x 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Projected CRS: World_Robinson</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  CRS projection units: meter &lt;m&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ year      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1974, 1979, 1974, 1979, 1974, 1979, 1974, 1979, 1974, 1979, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ births    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 1364, 487, 542, 3188, 3616, 508, 830, 1421, 1606, 1452…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 0.114, 0.114, 0.061, 0.061, 0.143, 0.143, 0.070, 0.070, 0.15…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ PERIMETER <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1.442, 1.442, 1.231, 1.231, 1.630, 1.630, 2.968, 2.968, 2.20…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1825, 1827, 1827, 1828, 1828, 1831, 1831, 1832, 1832, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CNTY_ID   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1825, 1825, 1827, 1827, 1828, 1828, 1831, 1831, 1832, 1832, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Ashe", "Ashe", "Alleghany", "Alleghany", "Surry", "Surry", …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ FIPS      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "37009", "37009", "37005", "37005", "37171", "37171", "37053…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ FIPSNO    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 37009, 37009, 37005, 37005, 37171, 37171, 37053, 37053, 3713…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ CRESS_ID  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5, 5, 3, 3, 86, 86, 27, 27, 66, 66, 46, 46, 15, 15, 37, 37, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 4 more variables : SID74 &lt;dbl&gt;, NWBIR74 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ Use `tidyterra::glimpse(n = ...)` to see more columns</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", …</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ cpro    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "05", "09", "24", "34", "37", "40", "42", "47", "49"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ name    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia",…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ ID      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 2, 3, 4, 5, 6, 7, 8, 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ tavg_04 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 8.098067, 8.405818, 7.566549, 8.558559, 9.593332, 8.727293, 7.…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ tavg_05 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 11.84584, 12.07354, 11.09056, 12.11431, 13.00844, 12.35747, 11…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ tavg_06 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 16.64684, 16.14488, 15.51468, 16.45461, 17.55421, 17.05671, 16…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">nc_pivoted</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">births</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">year</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>option <span class="op">=</span> <span class="st">"cividis"</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Number of births in South Carolina"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># And pivot long for plot</span></span></span>
+<span class="r-in"><span><span class="va">cyl_temp</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    cols <span class="op">=</span> <span class="va">tavg_04</span><span class="op">:</span><span class="va">tavg_06</span>,</span></span>
+<span class="r-in"><span>    names_to <span class="op">=</span> <span class="st">"label"</span>,</span></span>
+<span class="r-in"><span>    values_to <span class="op">=</span> <span class="st">"temp"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="ggspatvector.html">geom_spatvector</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">temp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">label</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"muted"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="pivot_longer.SpatVector-1.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
