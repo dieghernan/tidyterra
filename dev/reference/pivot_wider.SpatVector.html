@@ -22,7 +22,7 @@ pivot_longer.SpatVector().'><meta property="og:image" content="https://diegherna
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -264,45 +264,51 @@ have always the geometry of <code>data</code>.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">nc</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"shape/nc.shp"</span>, package <span class="op">=</span> <span class="st">"sf"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">nc</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "AREA"      "PERIMETER" "CNTY_"     "CNTY_ID"   "NAME"      "FIPS"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "FIPSNO"    "CRESS_ID"  "BIR74"     "SID74"     "NWBIR74"   "BIR79"    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "SID79"     "NWBIR79"  </span>
-<span class="r-in"><span><span class="co"># Pivot longer</span></span></span>
-<span class="r-in"><span><span class="va">nc_long</span> <span class="op">&lt;-</span> <span class="va">nc</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"BIR"</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"label"</span>, values_to <span class="op">=</span> <span class="st">"n"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">label</span><span class="op">:</span><span class="va">n</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="co"># Add extra row with info</span></span></span>
+<span class="r-in"><span><span class="va">xtra</span> <span class="op">&lt;-</span> <span class="va">cyl</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    label <span class="op">=</span> <span class="st">"extra"</span>,</span></span>
+<span class="r-in"><span>    value <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">cyl</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 400 x 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 11 x 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  CRS projection units: meter &lt;m&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ label <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "BIR74", "NWBIR74", "BIR79", "NWBIR79", "BIR74", "NWBIR74", "BIR…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ n     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 10, 1364, 19, 487, 10, 542, 12, 3188, 208, 3616, 260, 508,…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ iso2  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "E…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ cpro  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "05", "09", "24", "34", "37", "40", "42", "47", "49", "09", "24"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ label <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, "extra", "extra"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ value <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> NA, NA, NA, NA, NA, NA, NA, NA, NA, TRUE, TRUE</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Undo</span></span></span>
-<span class="r-in"><span><span class="va">nc_long</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">label</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 100 x 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat NAD27 (EPSG:4267)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR74   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035, 4…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ BIR79   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1364, 542, 3616, 830, 1606, 1838, 350, 594, 1190, 2038, 1253, …</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR79 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369, 1…</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Pivot by geom</span></span></span>
+<span class="r-in"><span><span class="va">xtra</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    id_cols <span class="op">=</span> <span class="va">iso2</span><span class="op">:</span><span class="va">name</span>, values_from <span class="op">=</span> <span class="va">value</span>,</span></span>
+<span class="r-in"><span>    names_from <span class="op">=</span> <span class="va">label</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 5  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro   name        NA     extra</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;logical&gt; &lt;logical&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV    05  Avila      &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos      &lt;NA&gt;      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   Leon      &lt;NA&gt;      TRUE</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

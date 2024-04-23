@@ -20,7 +20,7 @@ objects (see terra::vect())."><meta property="og:image" content="https://diegher
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.5.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.6.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -188,16 +188,29 @@ supported by <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.ht
 
 
 <dt>geom</dt>
-<dd><p>The geometric object to use to display the data, either as a
-<code>ggproto</code> <code>Geom</code> subclass or as a string naming the geom stripped of the
-<code>geom_</code> prefix (e.g. <code>"point"</code> rather than <code>"geom_point"</code>)</p></dd>
+<dd><p>The geometric object to use to display the data for this layer.
+When using a <code>stat_*()</code> function to construct a layer, the <code>geom</code> argument
+can be used to override the default coupling between stats and geoms. The
+<code>geom</code> argument accepts the following:</p><ul><li><p>A <code>Geom</code> ggproto subclass, for example <code>GeomPoint</code>.</p></li>
+<li><p>A string naming the geom. To give the geom as a string, strip the
+function name of the <code>geom_</code> prefix. For example, to use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point()</a></code>,
+give the geom as <code>"point"</code>.</p></li>
+<li><p>For more information and other ways to specify the geom, see the
+layer geom documentation.</p></li>
+</ul></dd>
 
 
 <dt>position</dt>
-<dd><p>Position adjustment, either as a string naming the adjustment
-(e.g. <code>"jitter"</code> to use <code>position_jitter</code>), or the result of a call to a
-position adjustment function. Use the latter if you need to change the
-settings of the adjustment.</p></dd>
+<dd><p>A position adjustment to use on the data for this layer. This
+can be used in various ways, including to prevent overplotting and
+improving the display. The <code>position</code> argument accepts the following:</p><ul><li><p>The result of calling a position function, such as <code><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html" class="external-link">position_jitter()</a></code>.
+This method allows for passing extra arguments to the position.</p></li>
+<li><p>A string naming the position adjustment. To give the position as a
+string, strip the function name of the <code>position_</code> prefix. For example,
+to use <code><a href="https://ggplot2.tidyverse.org/reference/position_jitter.html" class="external-link">position_jitter()</a></code>, give the position as <code>"jitter"</code>.</p></li>
+<li><p>For more information and other ways to specify the position, see the
+layer position documentation.</p></li>
+</ul></dd>
 
 </dl></div>
     <div class="section level2">
