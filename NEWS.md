@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+-   Fix tests.
+
 # tidyterra 0.6.0
 
 -   Requires **ggplot2** (\>= 3.5.0).

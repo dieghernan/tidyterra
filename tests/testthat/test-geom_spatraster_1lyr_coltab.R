@@ -134,7 +134,7 @@ test_that("geom_spatraster one layer coltab with CRS", {
 
   expect_snapshot(lydata <- layer_data(st1))
   # No fill
-  expect_true(is.na(unique(lydata$fill)))
+  expect_identical(unique(lydata$fill), "transparent")
 })
 
 
@@ -296,7 +296,7 @@ test_that("geom_spatraster one layer without CRS", {
   # Stat does not produce fill
   expect_snapshot(lydata <- layer_data(st1))
   # No fill
-  expect_true(is.na(unique(lydata$fill)))
+  expect_identical(unique(lydata$fill), "transparent")
 })
 
 
