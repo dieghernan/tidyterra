@@ -433,6 +433,18 @@
       
       $ lyr.1 <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1~
 
+---
+
+    Code
+      glimpse(r1)
+    Output
+      #  A SpatRaster 4 x 3 x 1 layer (12 cells)
+      #  Resolution (x / y): (1 / 1)
+      #  CRS: Not Defined / Empty
+      #  Extent (x / y) : ([0 / 3] , [0 / 4])
+      
+      $ lyr.1 <int> 1, 2, 3, 2, 3, 1, 3, 1, 2, 1, 2, 3
+
 # Long geoms
 
     Code

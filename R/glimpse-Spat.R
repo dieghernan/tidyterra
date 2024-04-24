@@ -147,6 +147,9 @@ dplyr::glimpse
 get_named_crs <- function(x) {
   # Based in terra:::.name_or_proj4()
   pulled <- pull_crs(x)
+  if (is.na(pulled)) {
+    return(NA)
+  }
 
   d <- try(terra::crs(pulled, describe = TRUE), silent = TRUE)
 

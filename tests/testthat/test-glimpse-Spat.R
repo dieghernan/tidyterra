@@ -195,6 +195,10 @@ test_that("NA crs", {
   expect_true(is.na(pull_crs(v)))
 
   expect_snapshot(glimpse(v))
+
+  # Error detected in #148
+  r1 <- terra::rast(matrix(rep(1:3, 4), nrow = 4))
+  expect_snapshot(glimpse(r1))
 })
 
 
