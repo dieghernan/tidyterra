@@ -50,7 +50,7 @@ slots of information (i.e.,
 Load **tidyterra** with additional libraries of the **tidyverse**:
 
 
-```r
+``` r
 library(tidyterra)
 library(dplyr)
 library(tidyr)
@@ -94,7 +94,7 @@ Let's see some of them in action:
 See an example with `SpatRaster` objects:
 
 
-```r
+``` r
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -110,6 +110,9 @@ temp
 #> names       :   tavg_04,   tavg_05,  tavg_06 
 #> min values  :  1.885463,  5.817587, 10.46338 
 #> max values  : 13.283829, 16.740898, 21.11378
+```
+
+``` r
 
 mod <- temp %>%
   select(-1) %>%
@@ -156,7 +159,7 @@ and **tidyr** methods, so it is possible to arrange, group and summarise
 information of `SpatVectors`.
 
 
-```r
+``` r
 lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- vect(lux)
@@ -198,7 +201,7 @@ has the CRS informed (i.e. `terra::crs(a_rast) != ""`), the geom uses
 to other spatial layers:
 
 
-```r
+``` r
 library(ggplot2)
 
 # A faceted SpatRaster
@@ -218,7 +221,7 @@ ggplot() +
 </div>
 
 
-```r
+``` r
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -238,7 +241,7 @@ ggplot() +
 </div>
 
 
-```r
+``` r
 # Contour filled
 
 ggplot() +
@@ -256,7 +259,7 @@ With **tidyterra** you can also plot RGB `SpatRasters` to add imagery to your
 plots:
 
 
-```r
+``` r
 # Read a vector
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
@@ -283,7 +286,7 @@ rgb_plot
 hypsometric and bathymetric maps:
 
 
-```r
+``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
@@ -296,6 +299,9 @@ asia
 #> name        : file44bc291153f2 
 #> min value   :        -9558.468 
 #> max value   :         5801.927
+```
+
+``` r
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -330,7 +336,7 @@ ggplot() +
 `geom_spatvector()` functions:
 
 
-```r
+``` r
 lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- terra::vect(lux)
@@ -354,7 +360,7 @@ creating the layer.
 With **tidyterra** we can also aggregate `SpatVectors` at our convenience:
 
 
-```r
+``` r
 # Dissolving
 v_lux %>%
   # Create categories
@@ -377,7 +383,7 @@ v_lux %>%
 <p class="caption">Union of SpatVectors</p>
 </div>
 
-```r
+``` r
 
 
 # Same but keeping internal boundaries

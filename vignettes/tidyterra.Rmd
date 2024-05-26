@@ -136,7 +136,7 @@ references its equivalent in **terra**.
 installed using the following commands in **R**:
 
 
-```r
+``` r
 install.packages("tidyterra")
 ```
 
@@ -145,7 +145,7 @@ The latest developing version is hosted in
 following command in **R**:
 
 
-```r
+``` r
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -154,7 +154,7 @@ the **dplyr** syntax. Additionally, it illustrates how to seamlessly plot a
 `SpatRaster` object with **ggplot2** using the `geom_spatraster()` function:
 
 
-```r
+``` r
 library(tidyterra)
 library(tidyverse) # Load all the packages of tidyverse at once
 library(scales) # Additional library for labels
@@ -197,7 +197,7 @@ the original `SpatRaster` using `geom_spatraster_contour_filled()`and it also
 includes an overlay of a `SpatVector` for reference:
 
 
-```r
+``` r
 # Compute the variation between April and June and apply a different palette
 incr_temp <- rastertemp %>%
   mutate(var = June - April) %>%
