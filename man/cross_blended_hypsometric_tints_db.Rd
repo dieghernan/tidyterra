@@ -80,6 +80,7 @@ p +
 \code{\link[=scale_fill_cross_blended_c]{scale_fill_cross_blended_c()}}
 
 Other datasets: 
+\code{\link{grass_db}},
 \code{\link{hypsometric_tints_db}},
 \code{\link{volcano2}}
 }
