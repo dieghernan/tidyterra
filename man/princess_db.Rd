@@ -30,8 +30,8 @@ data("princess_db")
 princess_db
 
 # Select a palette
-mulan <- princess_db \%>\%
-  filter(pal == "mulan")
+maori <- princess_db \%>\%
+  filter(pal == "maori")
 
 f <- system.file("extdata/volcano2.tif", package = "tidyterra")
 r <- terra::rast(f)
@@ -43,7 +43,7 @@ p <- ggplot() +
   labs(fill = "elevation")
 
 p +
-  scale_fill_gradientn(colors = mulan$hex)
+  scale_fill_gradientn(colors = maori$hex)
 }
 }
 \seealso{
