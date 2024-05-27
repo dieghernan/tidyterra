@@ -327,7 +327,7 @@ extract_pal <- function(df, palette) {
   }
 
   df <- df[df$pal == palette, ]
-  return(df)
+  df
 }
 
 

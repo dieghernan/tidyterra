@@ -473,7 +473,7 @@ scale_color_grass_b <- scale_colour_grass_b
 grass.colors <- function(n, palette = "viridis",
                          alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
-    paltab <- extract_pal(grass_db, palette = palette)
+    paltab <- extract_pal(tidyterra::grass_db, palette = palette)
     colors <- as.character(paltab$hex)
     if (anyNA(paltab$limit)) {
       endcols <- tidyterra_ramp(colors, n, alpha, rev)
