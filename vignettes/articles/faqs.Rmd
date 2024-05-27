@@ -278,7 +278,7 @@ p <- ggplot() +
 
 # Set options
 tmp <- getOption("ggplot2.continuous.fill") # store current setting
-options(ggplot2.continuous.fill = scale_fill_terrain_c)
+options(ggplot2.continuous.fill = scale_fill_grass_c)
 
 p
 

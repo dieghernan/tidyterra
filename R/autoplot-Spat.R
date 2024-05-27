@@ -112,13 +112,13 @@ autoplot.SpatRaster <- function(object,
 
 
   if (!use_coltab) {
-    todf <- terra::as.data.frame(object, na.rm = TRUE, xy = FALSE)
+    todf <- terra::as.data.frame(object[1, ], na.rm = TRUE, xy = FALSE)
     first_lay <- unlist(lapply(todf, class))[1]
 
     if (first_lay %in% c("character", "factor")) {
-      gg <- gg + scale_fill_terrain_d()
+      gg <- gg + scale_fill_grass_d()
     } else {
-      gg <- gg + scale_fill_terrain_c()
+      gg <- gg + scale_fill_grass_c()
     }
   }
 

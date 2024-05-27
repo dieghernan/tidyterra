@@ -10,7 +10,7 @@ init <- readLines(paste0(
 init
 
 
-tratapal <- init[-c(17)] %>%
+tratapal <- init[] %>%
   gsub("   ", " ", .) %>%
   gsub("  ", " ", .) %>%
   gsub("  ", " ", .) %>%

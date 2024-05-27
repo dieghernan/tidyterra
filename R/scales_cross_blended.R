@@ -70,11 +70,7 @@
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
 #'
-#' See also \CRANpkg{ggplot2} docs on additional `...` parameters:
-#'
-#' - `scale_*_terrain_d()`: For discrete values.
-#' - `scale_*_terrain_c()`: For continuous values.
-#' - `scale_*_terrain_b()`: For binning continuous values.
+#' See also \CRANpkg{ggplot2} docs on additional `...` parameters.
 #'
 #' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the

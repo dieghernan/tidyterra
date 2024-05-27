@@ -111,14 +111,13 @@
 #'   geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +
 #'   # You can use coord_sf
 #'   coord_sf(crs = 3857) +
-#'   scale_fill_hypso_c()
+#'   scale_fill_grass_c(palette = "celsius")
 #'
 #' # Display facets
 #' ggplot() +
 #'   geom_spatraster(data = temp_rast) +
 #'   facet_wrap(~lyr, ncol = 2) +
-#'   scale_fill_hypso_b()
-#'
+#'   scale_fill_grass_b(palette = "celsius", breaks = seq(0, 20, 2.5))
 #'
 #' # Non spatial rasters
 #'

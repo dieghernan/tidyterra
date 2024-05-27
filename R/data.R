@@ -210,9 +210,9 @@ NULL
 #'
 #' @description
 #' A [`tibble`][tibble::tibble()] including the color map of
-#' `r length(unique(grass_db$pal))` gradient palettes.
-#' Some palettes includes also a definition of colors limitsthat can be used
-#' with [ggplot2::scale_fill_gradientn()].
+#' `r length(unique(grass_db$pal))` gradient palettes. Some palettes includes
+#' also a definition of colors limits that can be used with
+#' [ggplot2::scale_fill_gradientn()].
 #'
 #' @docType data
 #'
@@ -248,12 +248,12 @@ NULL
 #' <https://grass.osgeo.org>.
 #'
 #' @details
-#' Summary of palettes provided, description and recommeded use:
+#' Summary of palettes provided, description and recommended use:
 #'
 #' ```{r child = "man/chunks/grassdec.Rmd"}
 #' ```
 #'
-#' @seealso [scale_fill_cross_grass_c()]
+#' @seealso [scale_fill_grass_c()]
 #'
 #' @examples
 #' \donttest{

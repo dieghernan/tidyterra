@@ -5,7 +5,7 @@
 \alias{grass_db}
 \title{GRASS color tables}
 \format{
-A tibble of 2919 rows and 6 columns. with
+A tibble of 2920 rows and 6 columns. with
 the following fields:
 
 \describe{
@@ -23,12 +23,12 @@ also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRAS
 }
 \description{
 A \code{\link[tibble:tibble]{tibble}} including the color map of
-51 gradient palettes.
-Some palettes includes also a definition of colors limitsthat can be used
-with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
+51 gradient palettes. Some palettes includes
+also a definition of colors limits that can be used with
+\code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
 }
 \details{
-Summary of palettes provided, description and recommeded use:\tabular{llll}{
+Summary of palettes provided, description and recommended use:\tabular{llll}{
    \strong{palette} \tab \strong{use} \tab \strong{description} \tab \strong{range} \cr
    \code{aspect} \tab General \tab aspect oriented grey colors \tab  \cr
    \code{aspectcolr} \tab General \tab aspect oriented rainbow colors \tab 0 to 360 \cr
@@ -39,7 +39,7 @@ Summary of palettes provided, description and recommeded use:\tabular{llll}{
    \code{byr} \tab General \tab blue through yellow to red \tab  \cr
    \code{celsius} \tab General \tab blue to red for degree Celsius temperature \tab -80 to 80 \cr
    \code{corine} \tab Land Cover \tab EU Corine land cover colors \tab 111 to 995 \cr
-   \code{curvature} \tab General \tab for terrain curvatures (from v.surf.rst and r.slope.aspect) \tab -0.1 to 0.1 \cr
+   \code{curvature} \tab General \tab for terrain curvatures \tab -0.1 to 0.1 \cr
    \code{differences} \tab General \tab differences oriented colors \tab  \cr
    \code{elevation} \tab Topography \tab maps relative ranges of raster values to elevation color ramp \tab  \cr
    \code{etopo2} \tab Topography \tab colors for ETOPO2 worldwide bathymetry/topography \tab -11000 to 8850 \cr
@@ -74,7 +74,7 @@ Summary of palettes provided, description and recommeded use:\tabular{llll}{
    \code{ryg} \tab General \tab red through yellow to green \tab  \cr
    \code{sepia} \tab General \tab yellowish-brown through to white \tab  \cr
    \code{slope} \tab General \tab r.slope.aspect-type slope colors for raster values 0-90 \tab 0 to 90 \cr
-   \code{soilmoisture} \tab Natural \tab soilmoisture color table (0.0-1.0) \tab 0 to 1 \cr
+   \code{soilmoisture} \tab Natural \tab soil moisture color table (0.0-1.0) \tab 0 to 1 \cr
    \code{srtm} \tab Topography \tab color palette for Shuttle Radar Topography Mission elevation \tab -11000 to 8850 \cr
    \code{srtm_plus} \tab Topography \tab color palette for Shuttle Radar Topography Mission elevation (with seafloor colors) \tab -11000 to 8850 \cr
    \code{terrain} \tab Topography \tab global elevation color table covering -11000 to +8850m \tab -11000 to 8850 \cr
@@ -127,7 +127,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 \url{https://grass.osgeo.org}.
 }
 \seealso{
-\code{\link[=scale_fill_cross_grass_c]{scale_fill_cross_grass_c()}}
+\code{\link[=scale_fill_grass_c]{scale_fill_grass_c()}}
 
 Other datasets: 
 \code{\link{cross_blended_hypsometric_tints_db}},

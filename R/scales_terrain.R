@@ -2,8 +2,7 @@
 #'
 #' @description
 #'
-#' Implementation of the classic color palettes used by default by the
-#' \CRANpkg{terra} package (see [terra::plot()]):
+#' Implementation of the classic color palette [terrain.colors()]:
 #'
 #' - `scale_*_terrain_d()`: For discrete values.
 #' - `scale_*_terrain_c()`: For continuous values.
@@ -29,11 +28,7 @@
 #'
 #' @seealso
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
-#' on additional `...` parameters:
-#'
-#' - `scale_*_terrain_d()`: For discrete values.
-#' - `scale_*_terrain_c()`: For continuous values.
-#' - `scale_*_terrain_b()`: For binning continuous values.
+#' on additional `...` parameters.
 #'
 #'
 #'

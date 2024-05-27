@@ -7,7 +7,7 @@ init <- readLines(paste0(
   "lib/gis/colors/", pal
 ))
 
-init
+head(init, n = 10)
 
 
 tratapal <- init[-c(1:7)] %>%
