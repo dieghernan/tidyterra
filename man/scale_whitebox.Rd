@@ -256,17 +256,14 @@ par(opar)
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
 
-See also \CRANpkg{ggplot2} docs on additional \code{...} parameters:
-\itemize{
-\item \verb{scale_*_terrain_d()}: For discrete values.
-\item \verb{scale_*_terrain_c()}: For continuous values.
-\item \verb{scale_*_terrain_b()}: For binning continuous values.
-}
+See also \CRANpkg{ggplot2} docs on additional \code{...} parameters.
 
 Other gradient scales and palettes for hypsometry:
 \code{\link{scale_color_coltab}()},
 \code{\link{scale_cross_blended}},
+\code{\link{scale_grass}},
 \code{\link{scale_hypso}},
+\code{\link{scale_princess}},
 \code{\link{scale_terrain}}
 }
 \concept{gradients}

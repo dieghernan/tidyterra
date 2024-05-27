@@ -65,7 +65,7 @@ NULL
 #' Hypsometric palettes database
 #'
 #' @description
-#' A tibble including the color map of
+#' A [`tibble`][tibble::tibble()] including the color map of
 #' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. All the
 #' palettes includes also a definition of colors limits in terms of elevation
 #' (meters), that can be used with [ggplot2::scale_fill_gradientn()].
@@ -203,5 +203,139 @@ NULL
 #'     limit = range(warm$limit),
 #'     na.value = "lightblue"
 #'   )
+#' }
+NULL
+
+#' GRASS color tables
+#'
+#' @description
+#' A [`tibble`][tibble::tibble()] including the color map of
+#' `r length(unique(grass_db$pal))` gradient palettes. Some palettes includes
+#' also a definition of colors limits that can be used with
+#' [ggplot2::scale_fill_gradientn()].
+#'
+#' @docType data
+#'
+#' @family datasets
+#'
+#' @name grass_db
+#' @format
+#' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns. with
+#' the following fields:
+#'
+#' \describe{
+#'   \item{pal}{ Name of the palette.}
+#'   \item{limit}{(Optional) limit for each color.}
+#'   \item{r}{Value of the red channel (RGB color mode).}
+#'   \item{g}{Value of the green channel (RGB color mode).}
+#'   \item{b}{Value of the blue channel (RGB color mode).}
+#'   \item{hex}{ Hex code of the color.}
+#' }
+#'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::map.pal()]
+#'
+#' @source
+#'
+#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
+#' also [r.color - GRASS GIS
+#' Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
+#'
+#' @references
+#' GRASS Development Team (2024). *Geographic Resources Analysis Support System
+#' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
+#' <https://grass.osgeo.org>.
+#'
+#' @details
+#' Summary of palettes provided, description and recommended use:
+#'
+#' ```{r child = "man/chunks/grassdec.Rmd"}
+#' ```
+#'
+#' @seealso [scale_fill_grass_c()]
+#'
+#' @examples
+#' \donttest{
+#' data("grass_db")
+#'
+#' grass_db
+#' # Select a palette
+#'
+#' srtm_plus <- grass_db %>%
+#'   filter(pal == "srtm_plus")
+#'
+#' f <- system.file("extdata/asia.tif", package = "tidyterra")
+#' r <- terra::rast(f)
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot() +
+#'   geom_spatraster(data = r) +
+#'   labs(fill = "elevation")
+#'
+#' p +
+#'   scale_fill_gradientn(colors = srtm_plus$hex)
+#'
+#' # Use with limits
+#' p +
+#'   scale_fill_gradientn(
+#'     colors = srtm_plus$hex,
+#'     values = scales::rescale(srtm_plus$limit),
+#'     limit = range(srtm_plus$limit),
+#'     na.value = "lightblue"
+#'   )
+#' }
+NULL
+
+#' Princess palettes database
+#'
+#' @description
+#' A [`tibble`][tibble::tibble()] including the color map of
+#' `r length(unique(princess_db$pal))` gradient palettes.
+#'
+#' @docType data
+#'
+#' @family datasets
+#'
+#' @name princess_db
+#' @format
+#' A [`tibble`][tibble::tibble()] of `r nrow(princess_db)` rows and
+#' `r ncol(princess_db)` columns. with the following fields:
+#'
+#' \describe{
+#'   \item{pal}{ Name of the palette.}
+#'   \item{r}{Value of the red channel (RGB color mode).}
+#'   \item{g}{Value of the green channel (RGB color mode).}
+#'   \item{b}{Value of the blue channel (RGB color mode).}
+#'   \item{hex}{ Hex code of the color.}
+#' }
+#'
+#' @source
+#' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.
+#'
+#' @seealso [scale_fill_princess_c()]
+#'
+#' @examples
+#' \donttest{
+#' data("princess_db")
+#'
+#' princess_db
+#'
+#' # Select a palette
+#' maori <- princess_db %>%
+#'   filter(pal == "maori")
+#'
+#' f <- system.file("extdata/volcano2.tif", package = "tidyterra")
+#' r <- terra::rast(f)
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot() +
+#'   geom_spatraster(data = r) +
+#'   labs(fill = "elevation")
+#'
+#' p +
+#'   scale_fill_gradientn(colors = maori$hex)
 #' }
 NULL

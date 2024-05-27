@@ -148,8 +148,7 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} aesthetics.
 }
 \description{
-Implementation of the classic color palettes used by default by the
-\CRANpkg{terra} package (see \code{\link[terra:plot]{terra::plot()}}):
+Implementation of the classic color palette \code{\link[=terrain.colors]{terrain.colors()}}:
 \itemize{
 \item \verb{scale_*_terrain_d()}: For discrete values.
 \item \verb{scale_*_terrain_c()}: For continuous values.
@@ -201,17 +200,14 @@ ggplot() +
 }
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2} docs
-on additional \code{...} parameters:
-\itemize{
-\item \verb{scale_*_terrain_d()}: For discrete values.
-\item \verb{scale_*_terrain_c()}: For continuous values.
-\item \verb{scale_*_terrain_b()}: For binning continuous values.
-}
+on additional \code{...} parameters.
 
 Other gradient scales and palettes for hypsometry:
 \code{\link{scale_color_coltab}()},
 \code{\link{scale_cross_blended}},
+\code{\link{scale_grass}},
 \code{\link{scale_hypso}},
+\code{\link{scale_princess}},
 \code{\link{scale_whitebox}}
 }
 \concept{gradients}

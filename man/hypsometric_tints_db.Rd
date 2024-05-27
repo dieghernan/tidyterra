@@ -21,7 +21,7 @@ A \code{\link[tibble:tibble]{tibble}} of 1102 rows and
 cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
 }
 \description{
-A tibble including the color map of
+A \code{\link[tibble:tibble]{tibble}} including the color map of
 33 gradient palettes. All the
 palettes includes also a definition of colors limits in terms of elevation
 (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
@@ -62,6 +62,8 @@ p +
 
 Other datasets: 
 \code{\link{cross_blended_hypsometric_tints_db}},
+\code{\link{grass_db}},
+\code{\link{princess_db}},
 \code{\link{volcano2}}
 }
 \concept{datasets}

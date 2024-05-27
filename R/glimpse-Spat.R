@@ -186,7 +186,7 @@ get_named_crs <- function(x) {
   # nocov start
   if (is.na(r) || r == "" || is.null(r)) r <- NA
   # nocov end
-  return(r)
+  r
 }
 
 

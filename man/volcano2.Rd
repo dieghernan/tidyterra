@@ -62,6 +62,8 @@ ggplot() +
 
 Other datasets: 
 \code{\link{cross_blended_hypsometric_tints_db}},
-\code{\link{hypsometric_tints_db}}
+\code{\link{grass_db}},
+\code{\link{hypsometric_tints_db}},
+\code{\link{princess_db}}
 }
 \concept{datasets}

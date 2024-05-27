@@ -8,6 +8,8 @@ Coords
 DOI
 DSM
 EPSG
+ETOPO
+Geospatial
 Hijmans
 Holyrood
 Hypsometric
@@ -32,6 +34,7 @@ Whenua
 WhiteboxTools
 Wilke
 XY
+aesthethics
 bathymetric
 bathymetry
 behaviour
@@ -48,6 +51,7 @@ coord
 cpt
 crs
 de
+dev
 disaggregated
 doi
 downsampled
@@ -56,9 +60,12 @@ dplyr
 dtplyr
 ebvcuve
 fullseq
+geom's
 geoms
 ggplot
+ggproto
 ggspatial
+grey
 hypsometric
 hypsometry
 inlabru
@@ -80,8 +87,10 @@ rasterVis
 rasters
 readr
 reprojected
+resamp
 rescaled
 rlang
+rst
 sparrpowR
 src
 srcs
@@ -97,9 +106,11 @@ tidyverse
 unevaluated
 ungroup
 ungrouped
+unmapped
 updown
 uri
 vectorised
+viridis
 visualise
 xmax
 xmin

@@ -187,6 +187,9 @@ rastertemp
 #> names       :   tavg_04,   tavg_05,  tavg_06 
 #> min values  :  1.885463,  5.817587, 10.46338 
 #> max values  : 13.283829, 16.740898, 21.11378
+```
+
+``` r
 
 # Rename
 rastertemp <- rastertemp %>%

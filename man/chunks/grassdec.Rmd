@@ -1,0 +1,89 @@
+```{r include=FALSE}
+library(dplyr)
+``` 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+grass_desc <- tibble::tribble(
+  ~palette, ~use, ~description,
+  "aspect", "General", "aspect oriented grey colors",
+  "aspectcolr", "General", "aspect oriented rainbow colors",
+  "bcyr", "General", "blue through cyan through yellow to red",
+  "bgyr", "General", "blue through green through yellow to red",
+  "blues", "General", "white to blue",
+  "byg", "General", "blue through yellow to green",
+  "byr", "General", "blue through yellow to red",
+  "celsius", "General", "blue to red for degree Celsius temperature",
+  "corine", "Land Cover", "EU Corine land cover colors",
+  "curvature", "General", "for terrain curvatures",
+  "differences", "General", "differences oriented colors",
+  "elevation", "Topography", "maps relative ranges of raster values to elevation color ramp",
+  "etopo2", "Topography", "colors for ETOPO2 worldwide bathymetry/topography",
+  "evi", "Natural", "enhanced vegetative index colors",
+  "fahrenheit", "Temperature", "blue to red for Fahrenheit temperature",
+  "forest_cover", "Natural", "percentage of forest cover",
+  "gdd", "Natural", "accumulated growing degree days",
+  "grass", "General", "GRASS GIS green (perceptually uniform)",
+  "greens", "General", "white to green",
+  "grey", "General", "grey scale",
+  "grey.eq", "General", "histogram-equalized grey scale",
+  "grey.log", "General", "histogram logarithmic transformed grey scale",
+  "grey1.0", "General", "grey scale for raster values between 0.0-1.0",
+  "grey255", "General", "grey scale for raster values between 0-255",
+  "gyr", "General", "green through yellow to red",
+  "haxby", "Topography", "relative colors for bathymetry or topography",
+  "inferno", "General", "perceptually uniform sequential color table inferno",
+  "kelvin", "Temperature", "blue to red for temperature in Kelvin scale",
+  "magma", "General", "perceptually uniform sequential color table magma",
+  "ndvi", "Natural", "Normalized Difference Vegetation Index colors",
+  "ndwi", "Natural", "Normalized Difference Water Index colors",
+  "nlcd", "Land Cover", "US National Land Cover Dataset colors",
+  "oranges", "General", "white to orange",
+  "plasma", "General", "perceptually uniform sequential color table plasma",
+  "population", "Human", "color table covering human population classification breaks",
+  "population_dens", "Human", "color table covering human population density classification breaks",
+  "precipitation", "Climate", "precipitation color table (0..2000mm)",
+  "precipitation_daily", "Climate", "precipitation color table (0..1000mm)",
+  "precipitation_monthly", "Climate", "precipitation color table (0..1000mm)",
+  "rainbow", "General", "rainbow color table",
+  "ramp", "General", "color ramp",
+  "random", "General", "random color table",
+  "reds", "General", "white to red",
+  "roygbiv", "General", NA,
+  "rstcurv", "General", "terrain curvature (from r.resamp.rst)",
+  "ryb", "General", "red through yellow to blue",
+  "ryg", "General", "red through yellow to green",
+  "sepia", "General", "yellowish-brown through to white",
+  "slope", "General", "r.slope.aspect-type slope colors for raster values 0-90",
+  "soilmoisture", "Natural", "soil moisture color table (0.0-1.0)",
+  "srtm", "Topography", "color palette for Shuttle Radar Topography Mission elevation",
+  "srtm_plus", "Topography", "color palette for Shuttle Radar Topography Mission elevation (with seafloor colors)",
+  "terrain", "Topography", "global elevation color table covering -11000 to +8850m",
+  "viridis", "General", "perceptually uniform sequential color table viridis",
+  "water", "Natural", "water depth",
+  "wave", "General", "color wave"
+)
+initscipen <- getOption("scipen")
+options(scipen = 15)
+allpals <- tidyterra::grass_db %>%
+  group_by(pal) %>%
+  summarise(
+    min_l = min(limit),
+    max_l = max(limit)
+  ) %>%
+  mutate(range = ifelse(is.na(min_l),
+    NA,
+    paste0(min_l, " to ", max_l)
+  )) %>%
+  select(palette = pal, range)
+
+options(scipen = initscipen)
+
+final_tab <- grass_desc %>%
+  inner_join(allpals) %>%
+  mutate(palette = paste0("`", palette, "`"))
+final_tab[is.na(final_tab)] <- ""
+
+nms <- paste0("**", colnames(final_tab), "**")
+
+knitr::kable(final_tab, col.names = nms)
+```

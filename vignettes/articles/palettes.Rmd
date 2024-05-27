@@ -125,15 +125,52 @@ for (i in allpals) {
 }
 ```
 
+## `scale_fill_grass_*`
+
+Check `scale_fill_grass_c()` for more info. Plots produced using
+`use_grass_range = FALSE`.
+
+```{r grass, echo=FALSE}
+allpals <- sort(unique(grass_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_grass_c(palette = i, use_grass_range = FALSE) +
+    labs(title = paste0(i)) +
+    theme_void()
+
+  print(ss)
+}
+```
+
+## `scale_fill_princess_*`
+
+Check `scale_fill_princess_c()` for more info.
+
+```{r princess, echo=FALSE}
+allpals <- sort(unique(princess_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_princess_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void()
+
+  print(ss)
+}
+```
 
 ## Session info
 
 <details>
-  <summary>Details</summary>
+
+<summary>Details</summary>
+
 ```{r session, echo=FALSE}
 if (!require("sessioninfo")) {
   install.packages("sessioninfo")
 }
 sessioninfo::session_info()
 ```
+
 </details>
