@@ -132,6 +132,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 Other datasets: 
 \code{\link{cross_blended_hypsometric_tints_db}},
 \code{\link{hypsometric_tints_db}},
+\code{\link{princess_db}},
 \code{\link{volcano2}}
 }
 \concept{datasets}

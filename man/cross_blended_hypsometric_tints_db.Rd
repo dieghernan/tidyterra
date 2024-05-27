@@ -82,6 +82,7 @@ p +
 Other datasets: 
 \code{\link{grass_db}},
 \code{\link{hypsometric_tints_db}},
+\code{\link{princess_db}},
 \code{\link{volcano2}}
 }
 \concept{datasets}

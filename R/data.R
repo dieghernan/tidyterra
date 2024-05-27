@@ -287,3 +287,55 @@ NULL
 #'   )
 #' }
 NULL
+
+#' Princess palettes database
+#'
+#' @description
+#' A [`tibble`][tibble::tibble()] including the color map of
+#' `r length(unique(princess_db$pal))` gradient palettes.
+#'
+#' @docType data
+#'
+#' @family datasets
+#'
+#' @name princess_db
+#' @format
+#' A [`tibble`][tibble::tibble()] of `r nrow(princess_db)` rows and
+#' `r ncol(princess_db)` columns. with the following fields:
+#'
+#' \describe{
+#'   \item{pal}{ Name of the palette.}
+#'   \item{r}{Value of the red channel (RGB color mode).}
+#'   \item{g}{Value of the green channel (RGB color mode).}
+#'   \item{b}{Value of the blue channel (RGB color mode).}
+#'   \item{hex}{ Hex code of the color.}
+#' }
+#'
+#' @source
+#' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.
+#'
+#' @seealso [scale_fill_princess_c()]
+#'
+#' @examples
+#' \donttest{
+#' data("princess_db")
+#'
+#' princess_db
+#'
+#' # Select a palette
+#' mulan <- princess_db %>%
+#'   filter(pal == "mulan")
+#'
+#' f <- system.file("extdata/volcano2.tif", package = "tidyterra")
+#' r <- terra::rast(f)
+#'
+#' library(ggplot2)
+#'
+#' p <- ggplot() +
+#'   geom_spatraster(data = r) +
+#'   labs(fill = "elevation")
+#'
+#' p +
+#'   scale_fill_gradientn(colors = mulan$hex)
+#' }
+NULL

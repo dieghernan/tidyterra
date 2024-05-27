@@ -226,6 +226,7 @@ Other gradient scales and palettes for hypsometry:
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},
+\code{\link{scale_princess}},
 \code{\link{scale_terrain}},
 \code{\link{scale_whitebox}}
 }

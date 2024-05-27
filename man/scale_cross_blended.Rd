@@ -466,6 +466,7 @@ Other gradient scales and palettes for hypsometry:
 \code{\link{scale_color_coltab}()},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},
+\code{\link{scale_princess}},
 \code{\link{scale_terrain}},
 \code{\link{scale_whitebox}}
 }
