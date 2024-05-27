@@ -145,6 +145,9 @@
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/princess_db.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html</loc>
   </url>
   <url>
@@ -176,6 +179,9 @@
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.html</loc>
