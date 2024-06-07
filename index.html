@@ -49,7 +49,7 @@
       <img src="apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -349,8 +349,9 @@
 <span><span class="co">#&gt; source      : cyl_temp.tif </span></span>
 <span><span class="co">#&gt; names       :   tavg_04,   tavg_05,  tavg_06 </span></span>
 <span><span class="co">#&gt; min values  :  1.885463,  5.817587, 10.46338 </span></span>
-<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.11378</span></span>
-<span></span>
+<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.11378</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Rename</span></span>
 <span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>April <span class="op">=</span> <span class="va">tavg_04</span>, May <span class="op">=</span> <span class="va">tavg_05</span>, June <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span></span>
@@ -373,7 +374,7 @@
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" width="100%"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Create maximum differences of two months</span></span>
 <span><span class="va">variation</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -400,7 +401,7 @@
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" width="100%"></p>
 <p><strong>tidyterra</strong> also provide a geom for plotting RGB <code>SpatRaster</code> tiles with <strong>ggplot2</strong></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rgb_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">prov</span><span class="op">)</span> <span class="op">+</span></span>
@@ -410,7 +411,7 @@
 <span></span>
 <span><span class="va">plot</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Recognizes coord_sf()</span></span>
 <span><span class="va">plot</span> <span class="op">+</span></span>
@@ -418,12 +419,12 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span>, datum <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%"></p>
 <p><strong>tidyterra</strong> provides specific scales for plotting hypsometric maps with <strong>ggplot2</strong>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">asia</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%"></p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">asia</span><span class="op">)</span> <span class="op">+</span></span>
@@ -452,7 +453,7 @@
 <code>SpatVectors</code><a class="anchor" aria-label="anchor" href="#spatvectors"></a>
 </h3>
 <p>This is a basic example which shows you how to manipulate and plot <code>SpatVector</code> objects:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>pop_dens <span class="op">=</span> <span class="va">POP</span> <span class="op">/</span> <span class="va">AREA</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>

@@ -32,7 +32,7 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -179,10 +179,31 @@ plot? See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.
 
 
 <dt>...</dt>
-<dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code>. These are
-often aesthetics, used to set an aesthetic to a fixed value, like
-<code>colour = "red"</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</p></dd>
+<dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code>'s <code>params</code> argument. These
+arguments broadly fall into one of 4 categories below. Notably, further
+arguments to the <code>position</code> argument, or aesthetics that are required
+can <em>not</em> be passed through <code>...</code>. Unknown arguments that are not part
+of the 4 categories below are ignored.</p><ul><li><p>Static aesthetics that are not mapped to a scale, but are at a fixed
+value and apply to the layer as a whole. For example, <code>colour = "red"</code>
+or <code>linewidth = 3</code>. The geom's documentation has an <strong>Aesthetics</strong>
+section that lists the available options. The 'required' aesthetics
+cannot be passed on to the <code>params</code>. Please note that while passing
+unmapped aesthetics as vectors is technically possible, the order and
+required length is not guaranteed to be parallel to the input data.</p></li>
+<li><p>When constructing a layer using
+a <code>stat_*()</code> function, the <code>...</code> argument can be used to pass on
+parameters to the <code>geom</code> part of the layer. An example of this is
+<code>stat_density(geom = "area", outline.type = "both")</code>. The geom's
+documentation lists which parameters it can accept.</p></li>
+<li><p>Inversely, when constructing a layer using a
+<code>geom_*()</code> function, the <code>...</code> argument can be used to pass on parameters
+to the <code>stat</code> part of the layer. An example of this is
+<code>geom_area(stat = "density", adjust = 0.5)</code>. The stat's documentation
+lists which parameters it can accept.</p></li>
+<li><p>The <code>key_glyph</code> argument of <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code> may also be passed on through
+<code>...</code>. This can be one of the functions described as
+<a href="https://ggplot2.tidyverse.org/reference/draw_key.html" class="external-link">key glyphs</a>, to change the display of the layer in the legend.</p></li>
+</ul></dd>
 
 
 <dt>geom</dt>
@@ -307,16 +328,15 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span>  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp_rast</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">tavg_04</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="co"># You can use coord_sf</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_c</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_grass.html">scale_fill_grass_c</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"celsius"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spatraster-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Display facets</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp_rast</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">lyr</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="scale_hypso.html">scale_fill_hypso_b</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_grass.html">scale_fill_grass_b</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"celsius"</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">2.5</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spatraster-2.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Non spatial rasters</span></span></span>
 <span class="r-in"><span></span></span>

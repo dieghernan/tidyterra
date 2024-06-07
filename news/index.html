@@ -18,7 +18,7 @@
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,6 +76,17 @@
       <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.1" id="tidyterra-061">tidyterra 0.6.1<a class="anchor" aria-label="anchor" href="#tidyterra-061"></a></h2>
+<ul><li>Add new scales:
+<ul><li>
+<code>grass_db</code> and <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> family. This is an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, that is the default palette for <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<code>&gt; 1.7.78</code>).</li>
+<li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now uses also <code>grass_db</code> as the default palette.</li>
+<li>Add <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> scale family.</li>
+</ul></li>
+<li>Fix tests.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.0" id="tidyterra-060">tidyterra 0.6.0<a class="anchor" aria-label="anchor" href="#tidyterra-060"></a></h2><p class="text-muted">CRAN release: 2024-04-22</p>
 <ul><li>Requires <strong>ggplot2</strong> (&gt;= 3.5.0).</li>

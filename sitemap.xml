@@ -112,6 +112,9 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/grass_db.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.html</loc>
   </url>
   <url>
@@ -145,6 +148,9 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/princess_db.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/pull.Spat.html</loc>
   </url>
   <url>
@@ -172,7 +178,13 @@
     <loc>https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.html</loc>
   </url>
   <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_grass.html</loc>
+  </url>
+  <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/scale_hypso.html</loc>
+  </url>
+  <url>
+    <loc>https://dieghernan.github.io/tidyterra/reference/scale_princess.html</loc>
   </url>
   <url>
     <loc>https://dieghernan.github.io/tidyterra/reference/scale_terrain.html</loc>
