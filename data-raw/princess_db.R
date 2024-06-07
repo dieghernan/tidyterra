@@ -13,7 +13,7 @@ princess_db <- list(
     "#ffeb94",
     "#ffca35"
   ),
-  blues = c(
+  ella = c(
     "#d7eaf6",
     "#b1def5",
     "#8cc5e8",
@@ -34,21 +34,21 @@ princess_db <- list(
     "#d2487a",
     "#f8cb49"
   ),
-  sea = c(
+  denmark = c(
     "#a497c4",
     "#594597",
     "#c6e8be",
     "#53b288",
     "#378d68"
   ),
-  golden = c(
+  france = c(
     "#feefb5",
     "#f7e4a6",
     "#ffe67f",
     "#f8d562",
     "#f0be4d"
   ),
-  night = c(
+  arabia = c(
     "#bcebe4",
     "#96d8e1",
     "#65c5c8",
@@ -69,14 +69,14 @@ princess_db <- list(
     "#314e88",
     "#7c404a"
   ),
-  south = c(
+  neworleans = c(
     "#f8f3cd",
     "#dae4c7",
     "#bdd395",
     "#8aac66",
     "#769a8c"
   ),
-  violet = c(
+  punz = c(
     "#fadee4",
     "#daafd2",
     "#9c8cbd",
@@ -90,14 +90,14 @@ princess_db <- list(
     "#071720",
     "#01060b"
   ),
-  snowflake = c(
+  cold = c(
     "#d5d9ea",
     "#86b3cb",
     "#82d4ed",
     "#3abae3",
     "#0c77a8"
   ),
-  purple = c(
+  norge = c(
     "#a42384",
     "#7dbbb0",
     "#1d318b",

@@ -76,7 +76,7 @@ princess.colors(n, palette = "snow", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. Values available are:
-\code{"snow"}, \code{"blues"}, \code{"bell"}, \code{"aura"}, \code{"sea"}, \code{"golden"}, \code{"night"}, \code{"america"}, \code{"asia"}, \code{"south"}, \code{"violet"}, \code{"scotland"}, \code{"snowflake"}, \code{"purple"}, \code{"maori"}.}
+\code{"snow"}, \code{"ella"}, \code{"bell"}, \code{"aura"}, \code{"denmark"}, \code{"france"}, \code{"arabia"}, \code{"america"}, \code{"asia"}, \code{"neworleans"}, \code{"punz"}, \code{"scotland"}, \code{"cold"}, \code{"norge"}, \code{"maori"}.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}, \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale}}
@@ -211,7 +211,7 @@ ggplot() +
 # Binned
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "sea")
+  scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "denmark")
 
 # With discrete values
 factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,

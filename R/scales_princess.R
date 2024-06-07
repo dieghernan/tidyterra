@@ -76,7 +76,7 @@
 #' # Binned
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "sea")
+#'   scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "denmark")
 #'
 #' # With discrete values
 #' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
