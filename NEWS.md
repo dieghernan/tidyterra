@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.6.1
 
 -   Add new scales:
     -   `grass_db` and `scale_fill_grass_c()` family. This is an implementation

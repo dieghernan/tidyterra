@@ -2,7 +2,7 @@
 
 |field    |value                                    |
 |:--------|:----------------------------------------|
-|version  |R version 4.3.3 (2024-02-29 ucrt)        |
+|version  |R version 4.4.0 (2024-04-24 ucrt)        |
 |os       |Windows 11 x64 (build 22631)             |
 |system   |x86_64, mingw32                          |
 |ui       |RStudio                                  |
@@ -10,29 +10,29 @@
 |collate  |Spanish_Spain.utf8                       |
 |ctype    |Spanish_Spain.utf8                       |
 |tz       |Europe/Madrid                            |
-|date     |2024-04-22                               |
-|rstudio  |2023.12.1+402 Ocean Storm (desktop)      |
+|date     |2024-06-07                               |
+|rstudio  |2024.04.1+748 Chocolate Cosmos (desktop) |
 |pandoc   |3.1.12.2 @ C:\PROGRA~1\Pandoc\pandoc.exe |
 
 # Dependencies
 
 |package      |old    |new    |Δ  |
 |:------------|:------|:------|:--|
-|tidyterra    |0.5.2  |0.6.0  |*  |
+|tidyterra    |0.6.0  |0.6.1  |*  |
 |classInt     |0.4-10 |0.4-10 |   |
 |cli          |3.6.2  |3.6.2  |   |
 |colorspace   |2.1-0  |2.1-0  |   |
 |cpp11        |0.4.7  |0.4.7  |   |
 |data.table   |1.15.4 |1.15.4 |   |
-|DBI          |1.2.2  |1.2.2  |   |
+|DBI          |1.2.3  |1.2.3  |   |
 |dplyr        |1.1.4  |1.1.4  |   |
 |e1071        |1.7-14 |1.7-14 |   |
 |fansi        |1.0.6  |1.0.6  |   |
-|farver       |2.1.1  |2.1.1  |   |
+|farver       |2.1.2  |2.1.2  |   |
 |generics     |0.1.3  |0.1.3  |   |
-|ggplot2      |3.5.0  |3.5.0  |   |
+|ggplot2      |3.5.1  |3.5.1  |   |
 |glue         |1.7.0  |1.7.0  |   |
-|gtable       |0.3.4  |0.3.4  |   |
+|gtable       |0.3.5  |0.3.5  |   |
 |isoband      |0.2.7  |0.2.7  |   |
 |labeling     |0.4.3  |0.4.3  |   |
 |lifecycle    |1.0.4  |1.0.4  |   |
@@ -45,13 +45,13 @@
 |R6           |2.5.1  |2.5.1  |   |
 |RColorBrewer |1.1-3  |1.1-3  |   |
 |Rcpp         |1.0.12 |1.0.12 |   |
-|rlang        |1.1.3  |1.1.3  |   |
+|rlang        |1.1.4  |1.1.4  |   |
 |s2           |1.1.6  |1.1.6  |   |
 |scales       |1.3.0  |1.3.0  |   |
 |sf           |1.0-16 |1.0-16 |   |
-|stringi      |1.8.3  |1.8.3  |   |
+|stringi      |1.8.4  |1.8.4  |   |
 |stringr      |1.5.1  |1.5.1  |   |
-|terra        |1.7-71 |1.7-71 |   |
+|terra        |1.7-78 |1.7-78 |   |
 |tibble       |3.2.1  |3.2.1  |   |
 |tidyr        |1.3.1  |1.3.1  |   |
 |tidyselect   |1.2.1  |1.2.1  |   |
