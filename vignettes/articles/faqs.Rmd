@@ -423,7 +423,16 @@ ggplot() +
 
 ## Plotting a `SpatRaster` with color tables
 
-**tidyterra** has several ways to handle these `SpatRaster` objects:
+**tidyterra** has several ways to handle these `SpatRaster` objects. We use the
+file `clc_edinburgh.tif`, available online in
+<https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder,
+representing the information of the Corine Land Cover Dataset (2018) for the
+city of Edinburgh[^3].
+
+[^3]: The original file has been cropped, the numeric values have been converted
+    to their corresponding labels and factors, and it is has been added the
+    corresponding color table as of
+    <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.
 
 ```{r coltab}
 library(terra)
@@ -431,7 +440,7 @@ library(tidyterra)
 library(ggplot2)
 
 # Get a SpatRaster with coltab
-r_coltab <- rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
+r_coltab <- rast("clc_edinburgh.tif")
 
 has.colors(r_coltab)
 
@@ -443,17 +452,22 @@ plot(r_coltab)
 
 # A. autoplot
 
-autoplot(r_coltab, maxcell = Inf) + ggtitle("autoplot method")
+autoplot(r_coltab, maxcell = Inf) +
+  guides(fill = guide_legend(ncol = 1)) +
+  ggtitle("autoplot method")
 
 # B. geom_spatraster
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf) +
+  guides(fill = guide_legend(ncol = 1)) +
   ggtitle("geom_spatraster method")
 
 # C. Using scale_fill_coltab
 
 g <- ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf)
+  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
+  guides(fill = guide_legend(ncol = 1))
+
 
 g
 

@@ -95,6 +95,8 @@ rm(list = ls())
 
 rend <- rast("inst/extdata/cyl_era.tif")
 
+coltab(rend)
+
 rend
 plot(rend)
 
