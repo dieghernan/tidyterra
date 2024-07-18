@@ -9,9 +9,9 @@ on:
           - strong
           - most
   
-  name: r-devel reverse dependency check
-  
-  jobs:
+name: r-devel reverse dependency check
+
+jobs:
     revdep_check:
       name: Reverse check ${{ inputs.which }} dependents
       uses: r-devel/recheck/.github/workflows/recheck.yml@v1
