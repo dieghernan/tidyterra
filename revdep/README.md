@@ -2,7 +2,7 @@
 
 |field    |value                                                  |
 |:--------|:------------------------------------------------------|
-|version  |R version 4.4.0 (2024-04-24)                           |
+|version  |R version 4.4.1 (2024-06-14)                           |
 |os       |Ubuntu 22.04.4 LTS                                     |
 |system   |x86_64, linux-gnu                                      |
 |ui       |X11                                                    |
@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-06-13                                             |
+|date     |2024-07-18                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -19,7 +19,7 @@
 |:------------|:------|:------|:--|
 |tidyterra    |0.6.1  |0.6.1  |NA |
 |classInt     |0.4-10 |0.4-10 |NA |
-|cli          |3.6.2  |3.6.2  |NA |
+|cli          |3.6.3  |3.6.3  |NA |
 |colorspace   |2.1-0  |2.1-0  |NA |
 |cpp11        |0.4.7  |0.4.7  |NA |
 |data.table   |1.15.4 |1.15.4 |NA |
@@ -43,9 +43,9 @@
 |purrr        |1.0.2  |1.0.2  |NA |
 |R6           |2.5.1  |2.5.1  |NA |
 |RColorBrewer |1.1-3  |1.1-3  |NA |
-|Rcpp         |1.0.12 |1.0.12 |NA |
+|Rcpp         |1.0.13 |1.0.13 |NA |
 |rlang        |1.1.4  |1.1.4  |NA |
-|s2           |1.1.6  |1.1.6  |NA |
+|s2           |1.1.7  |1.1.7  |NA |
 |scales       |1.3.0  |1.3.0  |NA |
 |sf           |1.0-16 |1.0-16 |NA |
 |stringi      |1.8.4  |1.8.4  |NA |
@@ -59,13 +59,13 @@
 |vctrs        |0.6.5  |0.6.5  |NA |
 |viridisLite  |0.4.2  |0.4.2  |NA |
 |withr        |3.0.0  |3.0.0  |NA |
-|wk           |0.9.1  |0.9.1  |NA |
+|wk           |0.9.2  |0.9.2  |NA |
 
 # Revdeps
 
 ## Failed to check (1)
 
-|package |version |error |warning |note |
-|:-------|:-------|:-----|:-------|:----|
-|ebvcube |?       |      |        |     |
+|package      |version |error |warning |note |
+|:------------|:-------|:-----|:-------|:----|
+|malariaAtlas |1.6.1   |1     |        |     |
 
