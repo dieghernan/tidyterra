@@ -12,6 +12,7 @@ results](https://badges.cranchecks.info/worst/tidyterra.svg)](https://cran.r-pro
 [![Downloads](https://cranlogs.r-pkg.org/badges/tidyterra)](https://CRAN.R-project.org/package=tidyterra)
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.05751/status.svg)](https://doi.org/10.21105/joss.05751)
 [![R-CMD-check](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml)
+[![R-hub](https://github.com/dieghernan/tidyterra/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/tidyterra/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/tidyterra/branch/main/graph/badge.svg?token=blvDmRjcfb)](https://app.codecov.io/gh/dieghernan/tidyterra)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidyterra/badge)](https://www.codefactor.io/repository/github/dieghernan/tidyterra)
 [![r-universe](https://dieghernan.r-universe.dev/badges/tidyterra)](https://dieghernan.r-universe.dev/tidyterra)
@@ -184,9 +185,6 @@ rastertemp
 #> names       :   tavg_04,   tavg_05,  tavg_06 
 #> min values  :  1.885463,  5.817587, 10.46338 
 #> max values  : 13.283829, 16.740898, 21.11378
-```
-
-``` r
 
 # Rename
 rastertemp <- rastertemp %>%
