@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-07-18                                             |
+|date     |2024-08-09                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -20,7 +20,7 @@
 |tidyterra    |0.6.1  |0.6.1  |NA |
 |classInt     |0.4-10 |0.4-10 |NA |
 |cli          |3.6.3  |3.6.3  |NA |
-|colorspace   |2.1-0  |2.1-0  |NA |
+|colorspace   |2.1-1  |2.1-1  |NA |
 |cpp11        |0.4.7  |0.4.7  |NA |
 |data.table   |1.15.4 |1.15.4 |NA |
 |DBI          |1.2.3  |1.2.3  |NA |
@@ -58,14 +58,8 @@
 |utf8         |1.2.4  |1.2.4  |NA |
 |vctrs        |0.6.5  |0.6.5  |NA |
 |viridisLite  |0.4.2  |0.4.2  |NA |
-|withr        |3.0.0  |3.0.0  |NA |
+|withr        |3.0.1  |3.0.1  |NA |
 |wk           |0.9.2  |0.9.2  |NA |
 
 # Revdeps
-
-## Failed to check (1)
-
-|package      |version |error |warning |note |
-|:------------|:-------|:-----|:-------|:----|
-|malariaAtlas |1.6.1   |1     |        |     |
 
