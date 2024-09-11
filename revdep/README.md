@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-08-09                                             |
+|date     |2024-09-11                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -21,8 +21,8 @@
 |classInt     |0.4-10 |0.4-10 |NA |
 |cli          |3.6.3  |3.6.3  |NA |
 |colorspace   |2.1-1  |2.1-1  |NA |
-|cpp11        |0.4.7  |0.4.7  |NA |
-|data.table   |1.15.4 |1.15.4 |NA |
+|cpp11        |0.5.0  |0.5.0  |NA |
+|data.table   |1.16.0 |1.16.0 |NA |
 |DBI          |1.2.3  |1.2.3  |NA |
 |dplyr        |1.1.4  |1.1.4  |NA |
 |e1071        |1.7-14 |1.7-14 |NA |
@@ -47,7 +47,7 @@
 |rlang        |1.1.4  |1.1.4  |NA |
 |s2           |1.1.7  |1.1.7  |NA |
 |scales       |1.3.0  |1.3.0  |NA |
-|sf           |1.0-16 |1.0-16 |NA |
+|sf           |1.0-17 |1.0-17 |NA |
 |stringi      |1.8.4  |1.8.4  |NA |
 |stringr      |1.5.1  |1.5.1  |NA |
 |terra        |1.7-78 |1.7-78 |NA |
@@ -59,7 +59,13 @@
 |vctrs        |0.6.5  |0.6.5  |NA |
 |viridisLite  |0.4.2  |0.4.2  |NA |
 |withr        |3.0.1  |3.0.1  |NA |
-|wk           |0.9.2  |0.9.2  |NA |
+|wk           |0.9.3  |0.9.3  |NA |
 
 # Revdeps
+
+## Failed to check (1)
+
+|package |version |error |warning |note |
+|:-------|:-------|:-----|:-------|:----|
+|ebvcube |?       |      |        |     |
 
