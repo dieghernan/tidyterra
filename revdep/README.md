@@ -3,14 +3,14 @@
 |field    |value                                                  |
 |:--------|:------------------------------------------------------|
 |version  |R version 4.4.1 (2024-06-14)                           |
-|os       |Ubuntu 22.04.4 LTS                                     |
+|os       |Ubuntu 22.04.5 LTS                                     |
 |system   |x86_64, linux-gnu                                      |
 |ui       |X11                                                    |
 |language |(EN)                                                   |
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-09-11                                             |
+|date     |2024-10-07                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -25,12 +25,12 @@
 |data.table   |1.16.0 |1.16.0 |NA |
 |DBI          |1.2.3  |1.2.3  |NA |
 |dplyr        |1.1.4  |1.1.4  |NA |
-|e1071        |1.7-14 |1.7-14 |NA |
+|e1071        |1.7-16 |1.7-16 |NA |
 |fansi        |1.0.6  |1.0.6  |NA |
 |farver       |2.1.2  |2.1.2  |NA |
 |generics     |0.1.3  |0.1.3  |NA |
 |ggplot2      |3.5.1  |3.5.1  |NA |
-|glue         |1.7.0  |1.7.0  |NA |
+|glue         |1.8.0  |1.8.0  |NA |
 |gtable       |0.3.5  |0.3.5  |NA |
 |isoband      |0.2.7  |0.2.7  |NA |
 |labeling     |0.4.3  |0.4.3  |NA |
@@ -62,10 +62,4 @@
 |wk           |0.9.3  |0.9.3  |NA |
 
 # Revdeps
-
-## Failed to check (1)
-
-|package |version |error |warning |note |
-|:-------|:-------|:-----|:-------|:----|
-|ebvcube |?       |      |        |     |
 
