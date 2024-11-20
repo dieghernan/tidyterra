@@ -93,6 +93,7 @@ references:
   - family-names: Barrett
     given-names: Tyson
     email: t.barrett88@gmail.com
+    orcid: https://orcid.org/0000-0002-2137-1391
   - family-names: Dowle
     given-names: Matt
     email: mattjdowle@gmail.com
@@ -103,9 +104,13 @@ references:
     given-names: Jan
   - family-names: Chirico
     given-names: Michael
+    orcid: https://orcid.org/0000-0003-0787-087X
   - family-names: Hocking
     given-names: Toby
     orcid: https://orcid.org/0000-0002-3146-0865
+  - family-names: Schwendinger
+    given-names: Benjamin
+    orcid: https://orcid.org/0000-0003-3315-8114
   year: '2024'
   doi: 10.32614/CRAN.package.data.table
 - type: software
@@ -297,12 +302,12 @@ references:
     given-names: Dan
     email: dcarr@voxel.galaxy.gmu.edu
   - family-names: Lewin-Koh
-    given-names: ported by Nicholas
+    given-names: Nicholas
   - family-names: Maechler
     given-names: Martin
     email: maechler@stat.math.ethz.ch
   - family-names: Sarkar
-    given-names: contains copies of lattice functions written by Deepayan
+    given-names: Deepayan
     email: deepayan.sarkar@r-project.org
   year: '2024'
   doi: 10.32614/CRAN.package.hexbin
@@ -379,7 +384,7 @@ references:
   authors:
   - family-names: Campitelli
     given-names: Elio
-    email: elio.campitelli@cima.fcen.uba.ar
+    email: eliocampitelli@gmail.com
     orcid: https://orcid.org/0000-0002-7742-9230
   year: '2024'
   doi: 10.32614/CRAN.package.metR
