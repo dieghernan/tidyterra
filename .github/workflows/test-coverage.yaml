@@ -4,9 +4,10 @@ on:
   push:
     branches: [main, master]
   pull_request:
-    branches: [main, master]
 
 name: test-coverage
+
+permissions: read-all
 
 jobs:
   test-coverage:
@@ -24,19 +25,43 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::covr
+          extra-packages: any::covr, any::xml2
           needs: coverage
 
       - name: Test coverage
         run: |
-          token <- Sys.getenv("CODECOV_TOKEN", "")
-          covr::codecov(
+          cov <- covr::package_coverage(
             quiet = FALSE,
             clean = FALSE,
-            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package"),
-            token = if (token != "") token
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
           )
+          covr::to_cobertura(cov)
         shell: Rscript {0}
+
+      - name: Create Junit Report
+        if: always()
+        run: |
+          testthat::test_local(reporter = testthat::JunitReporter$new("./junit.xml"))
+        shell: Rscript {0}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          # Fail if error if not on PR, or if on PR and token is given
+          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+          file: ./junit.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v4
+        with:
+          # Fail if error if not on PR, or if on PR and token is given
+          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+          file: ./cobertura.xml
+          plugin: noop
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Show testthat output
         if: always()
