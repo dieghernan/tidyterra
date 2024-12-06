@@ -494,6 +494,53 @@ g +
   ggtitle("scale_fill_manual method")
 ```
 
+## Use with gganimate {#gganimate}
+
+Sure! See an example (thanks [\@frzambra](https://github.com/frzambra)):
+
+```{r gganimate, eval=FALSE}
+library(gganimate)
+library(tidyterra)
+library(geodata)
+library(ggplot2)
+
+temp <- worldclim_country("chile", "tavg", path = ".", )
+
+chl_cont <- gadm("Chile", level = 0, path = ".", ) %>%
+  disagg()
+
+# Mainland only
+chl_cont <- chl_cont[which.max(expanse(chl_cont)), ]
+
+
+temp_m <- crop(temp, chl_cont, mask = TRUE)
+names(temp_m) <- month.name
+
+
+anim <- ggplot() +
+  geom_spatraster(data = temp_m, maxcell = 100) +
+  scale_fill_viridis_c(
+    option = "inferno", na.value = "transparent",
+    labels = scales::label_number(suffix = "º C")
+  ) +
+  transition_manual(lyr) +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank()
+  ) +
+  labs(
+    title = "Avg temp Chile: {current_frame}",
+    fill = ""
+  )
+
+gganimate::animate(anim, duration = 12, rewind = TRUE)
+```
+
+```{r include_gif, echo=FALSE, out.width="50%", out.height="50%"}
+knitr::include_graphics("chile_temp.gif")
+```
+
 ## North arrows and scale bar
 
 **tidyterra** does not provide these graphical objects for **ggplot2** plots.
