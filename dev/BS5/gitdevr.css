@@ -1,8 +1,8 @@
-/*! 
-    * Copyright 2022 gitdevr Skin Author 
-	* Licensed under MIT 
-	* Beautify: https://www.freeformatter.com/css-beautifier.html 
-	* Minify: https://www.freeformatter.com/css-minifier.html 
+/*!
+    * Copyright 2022 gitdevr Skin Author
+	* Licensed under MIT
+	* Beautify: https://www.freeformatter.com/css-beautifier.html
+	* Minify: https://www.freeformatter.com/css-minifier.html
 */
 /* ---Images and captions figure spacing--- */
 main img {
@@ -65,6 +65,10 @@ main img {
 
 .navbar-toggler {
 	border: none
+}
+
+.algolia-autocomplete .aa-dropdown-menu {
+    color: #22272e;
 }
 
 /* ---Footer--- */
