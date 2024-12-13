@@ -4,6 +4,7 @@
 \alias{fortify.Spat}
 \alias{fortify.SpatRaster}
 \alias{fortify.SpatVector}
+\alias{fortify.SpatGraticule}
 \title{Fortify \verb{Spat*} Objects}
 \usage{
 \method{fortify}{SpatRaster}(
@@ -16,6 +17,8 @@
 )
 
 \method{fortify}{SpatVector}(model, data, ...)
+
+\method{fortify}{SpatGraticule}(model, data, ...)
 }
 \arguments{
 \item{model}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}

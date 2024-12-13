@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+-   Add (limited) support for `SpatGraticule` (see `terra::graticule()`) #155.
+
 # tidyterra 0.6.1
 
 -   Add new scales:

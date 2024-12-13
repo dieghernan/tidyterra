@@ -3,7 +3,7 @@
 #' @description
 #'
 #' Implementation of a selection of gradient palettes available in
-#' [cpt-city](http://soliton.vm.bytemark.co.uk/pub/cpt-city/).
+#' [cpt-city](http://seaviewsensing.com/pub/cpt-city/).
 #'
 #' The following scales and palettes are provided:
 #'
@@ -71,7 +71,7 @@
 #'
 #' @source
 #'
-#' cpt-city: <http://soliton.vm.bytemark.co.uk/pub/cpt-city/>.
+#' cpt-city: <http://seaviewsensing.com/pub/cpt-city/>.
 #'
 #' @examples
 #' \donttest{

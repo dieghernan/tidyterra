@@ -166,4 +166,10 @@ fortify.SpatVector <- function(model, data, ...) {
 }
 
 #' @export
+#' @name fortify.Spat
+fortify.SpatGraticule <- function(model, data, ...) {
+  as_sf(terra::vect(model))
+}
+
+#' @export
 ggplot2::fortify
