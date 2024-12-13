@@ -89,7 +89,7 @@ NULL
 #' }
 #'
 #' @source
-#' cpt-city: <http://soliton.vm.bytemark.co.uk/pub/cpt-city/>.
+#' cpt-city: <http://seaviewsensing.com/pub/cpt-city/>.
 #'
 #' @seealso [scale_fill_hypso_c()]
 #'

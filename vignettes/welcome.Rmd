@@ -178,11 +178,11 @@ v_lux %>%
 #>  dimensions  : 3, 4  (geometries, attributes)
 #>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :          gr     n tot_pop mean_area
-#>  type        :      <fact> <int>   <int>     <num>
-#>  values      :   (147,183]     2  359427       244
-#>                (40.7,76.1]     1   48187       185
-#>                (4.99,40.7]     9  194391     209.8
+#>  names       :          gr     n   tot_pop mean_area
+#>  type        :      <fact> <int>     <num>     <num>
+#>  values      :   (147,183]     2 3.594e+05       244
+#>                (40.7,76.1]     1 4.819e+04       185
+#>                (4.99,40.7]     9 1.944e+05     209.8
 ```
 
 As in the case of `SpatRaster`, basic properties as the geometry and the CRS are

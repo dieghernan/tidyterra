@@ -67,6 +67,9 @@ A BibTeX entry for LaTeX users is:
 Full manual of the most recent release of **tidyterra** on **CRAN** is
 online: <https://dieghernan.github.io/tidyterra/>
 
+You can have a look to the documentation of the dev version in
+<https://dieghernan.github.io/tidyterra/dev/>
+
 **tidyverse** methods implemented on **tidyterra** works differently
 depending on the type of `Spat*` object:
 
@@ -329,7 +332,7 @@ vect(system.file("ex/lux.shp", package = "terra")) %>%
 #> $ ID_2     <dbl> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11
 #> $ NAME_2   <chr> "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echte…
 #> $ AREA     <dbl> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233
-#> $ POP      <int> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
+#> $ POP      <dbl> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 

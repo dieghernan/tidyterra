@@ -24,7 +24,7 @@
 \alias{scale_color_hypso_tint_b}
 \title{Gradient scales for representing hypsometry and bathymetry}
 \source{
-cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
+cpt-city: \url{http://seaviewsensing.com/pub/cpt-city/}.
 }
 \usage{
 scale_fill_hypso_d(
@@ -255,7 +255,7 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 }
 \description{
 Implementation of a selection of gradient palettes available in
-\href{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}{cpt-city}.
+\href{http://seaviewsensing.com/pub/cpt-city/}{cpt-city}.
 
 The following scales and palettes are provided:
 \itemize{

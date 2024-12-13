@@ -128,3 +128,31 @@ test_that("Fortify SpatRasters pivot", {
 
   build_terra <- ggplot2::ggplot_build(v_t)
 })
+
+test_that("Fortify SpatGraticule", {
+  skip_if_not_installed("terra", minimum_version = "1.8.5")
+  v <- terra::graticule()
+
+  fort <- fortify(v)
+
+  # Compare
+  asf <- sf::st_as_sf(terra::vect(v))
+  # We added new classes
+  class(asf) <- class(fort)
+
+  expect_identical(fort, asf)
+
+
+  # Try ggplot
+  v_t <- ggplot2::ggplot(v) +
+    geom_spatvector()
+  build_terra <- ggplot2::layer_data(v_t)
+
+  v_sf <- ggplot2::ggplot(asf) +
+    ggplot2::geom_sf()
+
+  build_sf <- ggplot2::layer_data(v_sf)
+
+
+  expect_identical(build_terra, build_sf)
+})

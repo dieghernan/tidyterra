@@ -18,7 +18,7 @@ A \code{\link[tibble:tibble]{tibble}} of 1102 rows and
 }
 }
 \source{
-cpt-city: \url{http://soliton.vm.bytemark.co.uk/pub/cpt-city/}.
+cpt-city: \url{http://seaviewsensing.com/pub/cpt-city/}.
 }
 \description{
 A \code{\link[tibble:tibble]{tibble}} including the color map of
