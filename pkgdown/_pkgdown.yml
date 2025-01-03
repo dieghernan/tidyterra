@@ -21,6 +21,7 @@ navbar:
       - search
       - twitter
       - github
+      - donate
   components:
     faqs:
       text: FAQs
@@ -29,9 +30,13 @@ navbar:
       text: In the wild
       href: articles/wild.html
     twitter:
-      icon: fa-twitter
-      href: http://twitter.com/dhernangomez
-      aria-label: Twitter
+      icon: fa-brands fa-x-twitter
+      href: https://x.com/dhernangomez
+      aria-label: X (formerly Twitter)
+    donate:
+      icon: fa-hand-holding-dollar
+      href: https://ko-fi.com/dieghernan
+      aria-label: Buy me a coffee
 
 template:
   bootstrap: 5
