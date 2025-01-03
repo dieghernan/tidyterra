@@ -60,7 +60,7 @@
 #' This option may be useful when using several `geom_*` and for faceting, see
 #' **Examples**.
 #'
-#' ## `SpatVector`
+#' ## `SpatVector` and `SpatGraticule`
 #'
 #' Return a [`sf`][sf::st_sf] object than can be used with [ggplot2::geom_sf()].
 #'
@@ -168,6 +168,17 @@ fortify.SpatVector <- function(model, data, ...) {
 #' @export
 #' @name fortify.Spat
 fortify.SpatGraticule <- function(model, data, ...) {
+  # nocov start
+  tvers <- packageVersion("terra")
+  if (tvers < "1.8.5") {
+    msg <- paste(
+      "Need {.pkg terra} {.strong 1.8.5} or later for ",
+      "{.fn fortify.SpatGraticule} method. Current {.pkg terra} ",
+      "version is  {.strong {tvers}}"
+    )
+    cli::cli_abort(msg)
+  }
+  # nocov end
   as_sf(terra::vect(model))
 }
 

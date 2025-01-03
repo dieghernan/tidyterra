@@ -113,7 +113,7 @@ This option may be useful when using several \verb{geom_*} and for faceting, see
 \strong{Examples}.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{SpatVector} and \code{SpatGraticule}}{
 
 Return a \code{\link[sf:sf]{sf}} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
 }
