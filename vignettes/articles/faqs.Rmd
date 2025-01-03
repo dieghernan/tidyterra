@@ -299,7 +299,7 @@ blurriness on your data. Also, modify the parameter `maxcell` to avoid
 resampling and force the **ggplot2** map to be on **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
 
-```{r blurry-tile, fig.show='hold'}
+```{r blurry-tile, fig.show='hold', out.width="50%"}
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -318,7 +318,8 @@ tile1 <- get_tiles(p,
 
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
-  labs(title = "This is a bit blurry...")
+  labs(title = "This is a bit blurry...") +
+  theme_void()
 
 st_crs(tile1)$epsg
 
@@ -341,10 +342,8 @@ ggplot() +
   geom_spatraster_rgb(data = tile2, maxcell = Inf) +
   # Force crs to be 3857
   coord_sf(crs = 3857) +
-  labs(
-    title = "See the difference?",
-    subtitle = "Init crs=3857 and maxcell modified"
-  )
+  labs(title = "...compared with this one") +
+  theme_void()
 ```
 
 ## Avoid degrees labeling on axis {#axis-degrees}
