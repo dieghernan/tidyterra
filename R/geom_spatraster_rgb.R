@@ -21,6 +21,7 @@
 #'
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
+#' @inheritParams terra::plotRGB
 #' @param mapping Ignored.
 #' @param r,g,b Integer representing the number of layer of `data` to be
 #'  considered as the red (`r`), green (`g`) and blue (`b`) channel.
@@ -82,7 +83,9 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 alpha = 1,
                                 maxcell = 500000,
                                 max_col_value = 255,
-                                ...) {
+                                ...,
+                                stretch = NULL,
+                                zlim = NULL) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_rgb} only works with",
@@ -107,6 +110,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
     ))
   }
 
+
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
@@ -124,6 +128,13 @@ geom_spatraster_rgb <- function(mapping = aes(),
 
   # 2. Check if resample is needed----
   data <- resample_spat(data, maxcell)
+
+  # stretch and clamp
+
+  data <- zlim_strecth(data,
+    zlim = zlim, stretch = stretch,
+    max_col_value = max_col_value
+  )
 
   # 3. Build layer ----
   crs_terra <- pull_crs(data)
@@ -289,4 +300,27 @@ make_hexcol <- function(data, max_col_value = 255) {
   # Prepare output
   df <- dplyr::left_join(xy, full[c("hexcol", "index")], by = "index")
   return(df[c("x", "y", "hexcol")])
+}
+
+# Strecth and clamp
+zlim_strecth <- function(x, zlim = NULL, stretch = NULL, max_col_value = 255) {
+  if (all(is.null(zlim), is.null(stretch))) {
+    return(x)
+  }
+
+  if (all(!is.null(zlim), length(zlim) >= 2)) {
+    zlim <- sort(zlim)[1:2]
+    x <- terra::clamp(x, zlim[1], zlim[2], values = TRUE)
+  }
+
+  if (!is.null(stretch)) {
+    if (all(stretch == "lin", length(zlim) == 2)) {
+      x <- terra::stretch(x, smin = zlim[1], smax = zlim[2])
+    } else if (stretch == "lin") {
+      x <- terra::stretch(x, minq = 0.02, maxq = 0.98)
+    } else if (stretch == "hist") {
+      x <- terra::stretch(x, histeq = TRUE, scale = max_col_value)
+    }
+  }
+  x
 }

@@ -457,3 +457,18 @@ test_that("geom_spatraster several layer with no CRS", {
     st1
   )
 })
+
+test_that("Warn in RGB tile", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  file_path <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
+  tile <- rast(file_path)
+
+  expect_true(has.RGB(tile))
+
+  expect_snapshot(
+    p <- ggplot() +
+      geom_spatraster(data = tile)
+  )
+})

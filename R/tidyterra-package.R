@@ -6,6 +6,7 @@
 #' @importFrom grDevices terrain.colors rgb col2rgb grey
 #' @importFrom tibble as_tibble
 #' @importFrom cli qty
+#' @importFrom utils packageVersion
 NULL
 
 #' @export

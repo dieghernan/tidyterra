@@ -620,3 +620,51 @@ test_that("geom_spatraster facets", {
 
   vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })
+
+test_that("stretch and zlim", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
+  r <- rast(f)
+
+
+  # test with vdiffr
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+
+  # Regular plot
+
+  p <- ggplot() +
+    geom_spatraster_rgb(data = r)
+
+  vdiffr::expect_doppelganger("crsstretch_01: regular", p)
+
+  # Use zlim
+
+  p2 <- ggplot() +
+    geom_spatraster_rgb(data = r, zlim = c(100, 150))
+
+  vdiffr::expect_doppelganger("crsstretch_02: zlim", p2)
+
+  # Use zlim and lin
+
+  p3 <- ggplot() +
+    geom_spatraster_rgb(data = r, zlim = c(100, 150), stretch = "lin")
+
+  vdiffr::expect_doppelganger("crsstretch_03: zlim_lin", p3)
+
+  # Use lin
+
+  p4 <- ggplot() +
+    geom_spatraster_rgb(data = r, stretch = "lin")
+
+  vdiffr::expect_doppelganger("crsstretch_04: zlim_lin", p4)
+  # Use hist
+
+  p5 <- ggplot() +
+    geom_spatraster_rgb(data = r, stretch = "hist")
+
+  vdiffr::expect_doppelganger("crsstretch_05: hist", p5)
+})

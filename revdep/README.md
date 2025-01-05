@@ -3,14 +3,14 @@
 |field    |value                                                  |
 |:--------|:------------------------------------------------------|
 |version  |R version 4.4.2 (2024-10-31)                           |
-|os       |Ubuntu 22.04.5 LTS                                     |
+|os       |Ubuntu 24.04.1 LTS                                     |
 |system   |x86_64, linux-gnu                                      |
 |ui       |X11                                                    |
 |language |(EN)                                                   |
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2024-12-13                                             |
+|date     |2025-01-05                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
@@ -37,7 +37,7 @@
 |lifecycle    |1.0.4    |1.0.4      |   |
 |magrittr     |2.0.3    |2.0.3      |   |
 |munsell      |0.5.1    |0.5.1      |   |
-|pillar       |1.9.0    |1.9.0      |   |
+|pillar       |1.10.0   |1.10.0     |   |
 |pkgconfig    |2.0.3    |2.0.3      |   |
 |proxy        |0.4-27   |0.4-27     |   |
 |purrr        |1.0.2    |1.0.2      |   |

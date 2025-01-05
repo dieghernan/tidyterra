@@ -151,6 +151,14 @@ geom_spatraster <- function(mapping = aes(),
     ))
   }
 
+  # Kindly warn in RGB
+  if (terra::has.RGB(data)) {
+    cli::cli_alert_warning(paste(
+      "RGB specification detected. Maybe use",
+      cli::style_bold("{.fun tidyterra::geom_spatraster_rgb}:"),
+      "instead?"
+    ))
+  }
 
   # 1. Work with aes ----
 

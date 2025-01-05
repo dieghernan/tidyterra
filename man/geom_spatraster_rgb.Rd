@@ -18,7 +18,9 @@ geom_spatraster_rgb(
   alpha = 1,
   maxcell = 5e+05,
   max_col_value = 255,
-  ...
+  ...,
+  stretch = NULL,
+  zlim = NULL
 )
 }
 \arguments{
@@ -69,6 +71,10 @@ lists which parameters it can accept.
 \code{...}. This can be one of the functions described as
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
+
+\item{stretch}{character. Option to stretch the values to increase contrast: "lin" (linear) or "hist" (histogram). The linear stretch uses \code{\link[terra]{stretch}} with arguments \code{minq=0.02} and \code{maxq=0.98}}
+
+\item{zlim}{numeric vector of length 2. Range of values to plot (optional). If this is set, and \code{stretch="lin"} is used, then the values are stretched within the range of \code{zlim}. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast}
 }
 \value{
 A \CRANpkg{ggplot2} layer

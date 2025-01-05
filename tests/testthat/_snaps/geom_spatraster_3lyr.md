@@ -111,3 +111,10 @@
     Message
       <SpatRaster> resampled to 24 cells.
 
+# Warn in RGB tile
+
+    Code
+      p <- ggplot() + geom_spatraster(data = tile)
+    Message
+      ! RGB specification detected. Maybe use `tidyterra::geom_spatraster_rgb()`: instead?
+
