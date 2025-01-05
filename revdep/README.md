@@ -1,18 +1,17 @@
 # Platform
 
-|field    |value                                    |
-|:--------|:----------------------------------------|
-|version  |R version 4.4.2 (2024-10-31 ucrt)        |
-|os       |Windows 11 x64 (build 26100)             |
-|system   |x86_64, mingw32                          |
-|ui       |RStudio                                  |
-|language |(EN)                                     |
-|collate  |Spanish_Spain.utf8                       |
-|ctype    |Spanish_Spain.utf8                       |
-|tz       |Europe/Madrid                            |
-|date     |2025-01-05                               |
-|rstudio  |2024.12.0+467 Kousa Dogwood (desktop)    |
-|pandoc   |3.1.12.2 @ C:\PROGRA~1\Pandoc\pandoc.exe |
+|field    |value                                                  |
+|:--------|:------------------------------------------------------|
+|version  |R version 4.4.2 (2024-10-31)                           |
+|os       |Ubuntu 24.04.1 LTS                                     |
+|system   |x86_64, linux-gnu                                      |
+|ui       |X11                                                    |
+|language |(EN)                                                   |
+|collate  |C.UTF-8                                                |
+|ctype    |C.UTF-8                                                |
+|tz       |UTC                                                    |
+|date     |2025-01-05                                             |
+|pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 
 # Dependencies
 
@@ -66,13 +65,7 @@
 
 ## Failed to check (1)
 
-|package        |version |error |warning |note |
-|:--------------|:-------|:-----|:-------|:----|
-|disaggregation |0.4.0   |1     |        |1    |
-
-## New problems (1)
-
-|package |version |error  |warning |note |
-|:-------|:-------|:------|:-------|:----|
-|[ebvcube](problems.md#ebvcube)|0.3.3   |__+1__ |        |1    |
+|package |version |error |warning |note |
+|:-------|:-------|:-----|:-------|:----|
+|ebvcube |?       |      |        |     |
 
