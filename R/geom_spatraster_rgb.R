@@ -308,9 +308,9 @@ zlim_strecth <- function(x, zlim = NULL, stretch = NULL, max_col_value = 255) {
     return(x)
   }
 
-  if (!is.null(zlim) & length(zlim) >= 2) {
+  if (all(!is.null(zlim), length(zlim) >= 2)) {
     zlim <- sort(zlim)[1:2]
-    x <- clamp(x, zlim[1], zlim[2], values = TRUE)
+    x <- terra::clamp(x, zlim[1], zlim[2], values = TRUE)
   }
 
   if (!is.null(stretch)) {
