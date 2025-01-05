@@ -54,6 +54,9 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
 <ul><li>Add (limited) support for <code>SpatGraticule</code> (see <code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>) <a href="https://github.com/dieghernan/tidyterra/issues/155" class="external-link">#155</a>.</li>
+<li>New arguments in <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>: <code>stretch</code> and <code>zlim</code>. See <code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code> for clarification.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> suggests <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> when a <code>SpatRaster</code> with RGB specification is detected (<code><a href="https://rspatial.github.io/terra/reference/RGB.html" class="external-link">terra::has.RGB()</a></code> is <code>TRUE</code>)</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.1" id="tidyterra-061">tidyterra 0.6.1<a class="anchor" aria-label="anchor" href="#tidyterra-061"></a></h2><p class="text-muted">CRAN release: 2024-06-08</p>
