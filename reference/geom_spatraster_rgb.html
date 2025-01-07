@@ -23,7 +23,7 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +45,9 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/dhernangomez" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
       </ul></div>
 
 
@@ -79,7 +80,9 @@ green and blue channel.</p>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  max_col_value <span class="op">=</span> <span class="fl">255</span>,</span>
-<span>  <span class="va">...</span></span>
+<span>  <span class="va">...</span>,</span>
+<span>  stretch <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  zlim <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -152,6 +155,14 @@ lists which parameters it can accept.</p></li>
 <code>...</code>. This can be one of the functions described as
 <a href="https://ggplot2.tidyverse.org/reference/draw_key.html" class="external-link">key glyphs</a>, to change the display of the layer in the legend.</p></li>
 </ul></dd>
+
+
+<dt id="arg-stretch">stretch<a class="anchor" aria-label="anchor" href="#arg-stretch"></a></dt>
+<dd><p>character. Option to stretch the values to increase contrast: "lin" (linear) or "hist" (histogram). The linear stretch uses <code><a href="https://rspatial.github.io/terra/reference/stretch.html" class="external-link">stretch</a></code> with arguments <code>minq=0.02</code> and <code>maxq=0.98</code></p></dd>
+
+
+<dt id="arg-zlim">zlim<a class="anchor" aria-label="anchor" href="#arg-zlim"></a></dt>
+<dd><p>numeric vector of length 2. Range of values to plot (optional). If this is set, and <code>stretch="lin"</code> is used, then the values are stretched within the range of <code>zlim</code>. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast</p></dd>
 
 </dl></div>
     <div class="section level2">

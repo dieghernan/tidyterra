@@ -15,7 +15,7 @@
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,8 +37,9 @@
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/dhernangomez" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
       </ul></div>
 
 
@@ -154,11 +155,11 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 34, 7  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt; &lt;int&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     Diekirch     5      Wiltz   263 16735     A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2 Grevenmacher     6 Echternach   188 18899     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3   Luxembourg     8   Capellen   185 48187     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt;     &lt;num&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    3   Luxembourg     8   Capellen   185 4.819e+04     A</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 34</span>
@@ -187,11 +188,11 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 7  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA   POP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     A     1     Diekirch     5      Wiltz   263 16735</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    C     2 Grevenmacher     6 Echternach   188 18899</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    B     1     Diekirch     1   Clervaux   312 18081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA       POP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt;     &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     A     1     Diekirch     5      Wiltz   263 1.674e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    C     2 Grevenmacher     6 Echternach   188  1.89e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    B     1     Diekirch     1   Clervaux   312 1.808e+04</span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ex2b</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
 <span class="r-in"><span></span></span>
@@ -222,11 +223,11 @@ variable explicitly in the <code>...</code> call. See <strong>Examples</strong>.
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 12, 7  (geometries, attributes)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt; &lt;int&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     Diekirch     5      Wiltz   263 16735     A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2 Grevenmacher     6 Echternach   188 18899     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3   Luxembourg     8   Capellen   185 48187     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;        &lt;chr&gt; &lt;num&gt;      &lt;chr&gt; &lt;num&gt;     &lt;num&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    3   Luxembourg     8   Capellen   185 4.819e+04     A</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

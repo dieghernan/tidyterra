@@ -49,7 +49,7 @@ See Methods for details."><meta property="og:image" content="https://dieghernan.
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.6.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,8 +71,9 @@ See Methods for details."><meta property="og:image" content="https://dieghernan.
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
-<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/dhernangomez" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
       </ul></div>
 
 
@@ -398,7 +399,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Diekirch", "Redange", "Vianden", "Wiltz", "Echtern…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187, 1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187, 1…</span>
 <span class="r-plt img"><img src="slice.Spat-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">gv</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
@@ -418,7 +419,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 6, 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Echternach", "Capellen"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 188, 185</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 18899, 48187</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 18081, 18899, 48187</span>
 <span class="r-plt img"><img src="slice.Spat-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
@@ -435,7 +436,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 12, 11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Wiltz", "Grevenmacher", "Mersch"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 263, 210, 233</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 16735, 29828, 32112</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 16735, 29828, 32112</span>
 <span class="r-plt img"><img src="slice.Spat-8.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
@@ -452,7 +453,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 4, 7, 8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Vianden", "Remich", "Capellen"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 76, 129, 185</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 5163, 22366, 48187</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5163, 22366, 48187</span>
 <span class="r-plt img"><img src="slice.Spat-9.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
@@ -469,7 +470,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ ID_2   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1, 12, 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NAME_2 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Clervaux", "Grevenmacher", "Esch-sur-Alzette"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312, 210, 251</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 18081, 29828, 176820</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 18081, 29828, 176820</span>
 <span class="r-plt img"><img src="slice.Spat-10.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
