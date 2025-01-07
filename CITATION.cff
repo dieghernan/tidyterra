@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.6.1.9000
+version: 0.6.2
 doi: 10.21105/joss.05751
 identifiers:
 - type: doi

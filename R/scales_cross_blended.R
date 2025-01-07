@@ -86,7 +86,7 @@
 #'
 #' - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
 #'   Generalized Environmental Mapping.* Accessed June 10, 2022.
-#'   <http://www.shadedrelief.com/hypso/hypso.html>
+#'   <https://www.shadedrelief.com/hypso/hypso.html>
 #'
 #' @examples
 #' \donttest{

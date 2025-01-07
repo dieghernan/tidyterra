@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 0.6.2
 
 -   Add (limited) support for `SpatGraticule` (see `terra::graticule()`) #155.
 -   New arguments in `geom_spatraster_rgb()`: `stretch` and `zlim`. See
