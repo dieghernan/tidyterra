@@ -1,6 +1,6 @@
 Package: tidyterra
 Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
-Version: 0.6.2
+Version: 0.6.2.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
@@ -37,7 +37,6 @@ Suggests:
     knitr,
     lifecycle,
     maptiles,
-    metR,
     rmarkdown,
     s2,
     testthat (>= 3.0.0),
@@ -46,7 +45,7 @@ Suggests:
 VignetteBuilder: 
     knitr
 Config/Needs/coverage: covr
-Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler,
+Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,
     ggspatial, cpp11, remotes, gganimate, gifski
 Config/testthat/edition: 3
 Config/testthat/parallel: true

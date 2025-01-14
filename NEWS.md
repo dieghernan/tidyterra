@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+-   Remove **metR** from Suggests.
+
 # tidyterra 0.6.2
 
 -   Add (limited) support for `SpatGraticule` (see `terra::graticule()`) #155.

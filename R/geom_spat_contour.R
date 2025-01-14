@@ -28,9 +28,9 @@
 #' [ggplot2::geom_contour()].
 #'
 #' The \CRANpkg{metR} package also provides a set of alternative functions:
-#' - [metR::geom_contour2()].
-#' - [metR::geom_text_contour()] and [metR::geom_label_contour()].
-#' - [metR::geom_contour_tanaka()].
+#' - `metR::geom_contour2()`.
+#' - `metR::geom_text_contour()` and `metR::geom_label_contour()`.
+#' - `metR::geom_contour_tanaka()`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

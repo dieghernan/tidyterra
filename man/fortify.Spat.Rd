@@ -147,30 +147,6 @@ ggplot(r) +
     color = "black"
   )
 
-# ... and other packages
-# Use metR with facets
-library(metR)
-temp <- terra::rast(system.file("extdata/cyl_temp.tif",
-  package = "tidyterra"
-))
-brks <- seq(0, 21, 3) # Fix breaks!
-
-# Pivot option for faceting
-ggplot(temp, aes(x, y), pivot = TRUE) +
-  # tidyterra, don't inherit aes
-  geom_spatraster_contour_filled(
-    data = temp, inherit.aes = FALSE,
-    breaks = brks
-  ) +
-  # metR
-  geom_contour_tanaka(aes(z = value), breaks = brks) +
-  facet_wrap(~lyr, nrow = 1) +
-  scale_fill_whitebox_d(palette = "muted") +
-  theme_minimal() +
-  labs(
-    title = "tidyterra + metR", subtitle = "Facets",
-    fill = "temp (°C)", x = "", y = ""
-  )
 
 # Create a SpatVector
 extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")

@@ -286,9 +286,9 @@ ggplot() +
 
 The \CRANpkg{metR} package also provides a set of alternative functions:
 \itemize{
-\item \code{\link[metR:geom_contour2]{metR::geom_contour2()}}.
-\item \code{\link[metR:geom_text_contour]{metR::geom_text_contour()}} and \code{\link[metR:geom_text_contour]{metR::geom_label_contour()}}.
-\item \code{\link[metR:geom_contour_tanaka]{metR::geom_contour_tanaka()}}.
+\item \code{metR::geom_contour2()}.
+\item \code{metR::geom_text_contour()} and \code{metR::geom_label_contour()}.
+\item \code{metR::geom_contour_tanaka()}.
 }
 
 Other \CRANpkg{ggplot2} utils:

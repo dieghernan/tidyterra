@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 0.6.2
+version: 0.6.2.9000
 doi: 10.21105/joss.05751
 identifiers:
 - type: doi
@@ -375,19 +375,6 @@ references:
     orcid: https://orcid.org/0000-0002-1932-3323
   year: '2025'
   doi: 10.32614/CRAN.package.maptiles
-- type: software
-  title: metR
-  abstract: 'metR: Tools for Easier Analysis of Meteorological Fields'
-  notes: Suggests
-  url: https://eliocamp.github.io/metR/
-  repository: https://CRAN.R-project.org/package=metR
-  authors:
-  - family-names: Campitelli
-    given-names: Elio
-    email: eliocampitelli@gmail.com
-    orcid: https://orcid.org/0000-0002-7742-9230
-  year: '2025'
-  doi: 10.32614/CRAN.package.metR
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
