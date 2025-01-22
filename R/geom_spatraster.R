@@ -428,6 +428,8 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
 
   # If all the same class then do nothing
   if (length(unique(col_classes)) == 1) {
+    # If is factor use combineLevels (terra >= 1.8-10)
+    if (col_classes[1] == "factor") r <- terra::combineLevels(r)
     return(r)
   }
 
@@ -443,6 +445,9 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
     "Plotting only{qty(length(extract_vars))}",
     "layer {.val {names(newr)}} of class {.cls {final}}"
   ))
+
+  # If is factor use combineLevels (terra >= 1.8-10)
+  if (final == "factor") r <- terra::combineLevels(newr)
 
   return(newr)
 }

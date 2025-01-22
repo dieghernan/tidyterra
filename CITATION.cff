@@ -255,7 +255,7 @@ references:
     orcid: https://orcid.org/0000-0001-5872-2872
   year: '2025'
   doi: 10.32614/CRAN.package.terra
-  version: '>= 1.5-12'
+  version: '>= 1.8-10'
 - type: software
   title: tibble
   abstract: 'tibble: Simple Data Frames'

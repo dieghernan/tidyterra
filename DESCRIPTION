@@ -28,7 +28,7 @@ Imports:
     rlang,
     scales,
     sf (>= 1.0.0),
-    terra (>= 1.5-12),
+    terra (>= 1.8-10),
     tibble (>= 3.0.0),
     tidyr (>= 1.0.0)
 Suggests: 
