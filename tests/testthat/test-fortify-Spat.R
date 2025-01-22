@@ -201,6 +201,12 @@ test_that("Fortify SpatRasters pivot factor", {
   # In fortify is ok as well
   lev_ok <- fortify(s_r_f, pivot = TRUE)
   expect_identical(levels(lev_ok$value), as.character(seq(1, 5)))
+
+  # And we still remove things
+  rchar <- select(terra::rast(s_r_f), 1)
+  rchar[] <- rep(c(1, 2, 3, 4), 25)
+  s_r_f_mix <- c(s_r_f, rchar)
+  expect_snapshot(end <- check_mixed_cols(s_r_f_mix))
 })
 
 test_that("Fortify SpatGraticule", {
