@@ -224,6 +224,52 @@ test_that("geom_spatraster several layer with CRS", {
     "crs_15: stat works",
     st1
   )
+
+  # Check factors
+
+  set.seed(1234)
+  # https://stackoverflow.com/questions/79340152/
+  r1 <- terra::rast(
+    nrows = 10, ncols = 10, xmin = 0, xmax = 10,
+    ymin = 0, ymax = 10
+  )
+  r1[] <- runif(terra::ncell(r1), min = 1, max = 5)
+
+  r2 <- terra::rast(
+    nrows = 10, ncols = 10, xmin = 0, xmax = 10,
+    ymin = 0, ymax = 10
+  )
+  r2[] <- runif(terra::ncell(r2), min = 1, max = 5)
+
+  # Combine rasters into a stack
+  s <- c(r1 / r1, r1 / r2, r2 / r1, r2 / r2)
+  names(s) <- c("r1/r1", "r1/r2", "r2/r1", "r2/r2")
+
+  # Reclassify the raster stack
+  # Define reclassification matrix
+  m_rc <- matrix(
+    c(
+      0, 0.5, 1,
+      0.5, 0.9, 2,
+      0.9, 1.1, 3,
+      1.1, 2, 4,
+      2, max(terra::global(s, max, na.rm = TRUE)$max), 5
+    ),
+    ncol = 3, byrow = TRUE
+  )
+
+  # Apply reclassification
+  s_r <- terra::classify(s, m_rc)
+  s_r_f <- terra::as.factor(s_r)
+
+  fcts <- ggplot() +
+    geom_spatraster(data = s_r_f) +
+    facet_wrap(~lyr)
+  vdiffr::expect_doppelganger(
+    "crs_16: Combine levels",
+    fcts
+  )
+  set.seed(NULL)
 })
 
 
