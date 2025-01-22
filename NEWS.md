@@ -3,7 +3,7 @@
 -   Minimal version of **terra** required is `1.8-10`.
 -   Remove **metR** from Suggests.
 -   Improve handling of factors when several layers have different levels. This
-    is done using terra::combineLevels() (**terra** \>= `1.8-10`). See
+    is done using `terra::combineLevels()` (**terra** \>= `1.8-10`). See
     <https://stackoverflow.com/questions/79340152>.
 
 # tidyterra 0.6.2
