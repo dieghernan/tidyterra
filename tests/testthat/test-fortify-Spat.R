@@ -155,7 +155,7 @@ test_that("Fortify SpatRasters pivot factor", {
       0.5, 0.9, 2,
       0.9, 1.1, 3,
       1.1, 2, 4,
-      2, max(terra::global(s, max, na.rm = T)$max), 5
+      2, max(terra::global(s, max, na.rm = TRUE)$max), 5
     ),
     ncol = 3, byrow = TRUE
   )
