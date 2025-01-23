@@ -480,8 +480,8 @@ scale_fill_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_gradientn(...,
     colors = hexcol,
@@ -524,8 +524,8 @@ scale_colour_hypso_tint_c <- function(palette = "etopo1_hypso", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_gradientn(...,
     colors = hexcol,
@@ -569,8 +569,8 @@ scale_fill_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_stepsn(
     ...,
@@ -614,8 +614,8 @@ scale_colour_hypso_tint_b <- function(palette = "etopo1_hypso", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_stepsn(
     ...,
