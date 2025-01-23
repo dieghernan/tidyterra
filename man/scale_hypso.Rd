@@ -311,6 +311,11 @@ example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would a
 almost as an uniform color. This could be adjusted using the
 \code{limits}/\code{values} parameters.
 
+When passing \code{limits} parameter to \verb{scale_*_hypso_tint_*} the colors would
+be restricted of those specified by this parameter, keeping the distribution
+of the tint. You can combine this with \code{oob} (i.e.
+\code{oob = scales::oob_squish}) to avoid blank pixels in the plot.
+
 \code{hypso.colors2()} provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,
 \code{hypso.colors()} provides an uniform gradient across colors. See
@@ -335,20 +340,6 @@ ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_c(palette = "colombia_hypso")
 
-# Use hypsometric  tint version...
-ggplot() +
-  geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_tint_c(palette = "colombia_hypso")
-
-# ...but not suitable for the range of the raster: adjust
-my_lims <- minmax(volcano2_rast) \%>\% as.integer() + c(-2, 2)
-
-ggplot() +
-  geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_tint_c(
-    palette = "colombia_hypso",
-    limits = my_lims
-  )
 
 # Full map with true tints
 
@@ -377,13 +368,12 @@ ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_b(breaks = seq(70, 200, 25), palette = "wiki-2.0_hypso")
 
-# With limits and breaks
+# With breaks
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
-  scale_fill_hypso_tint_b(
+  scale_fill_hypso_b(
     breaks = seq(75, 200, 25),
-    palette = "wiki-2.0_hypso",
-    limits = my_lims
+    palette = "wiki-2.0_hypso"
   )
 
 # With discrete values

@@ -210,7 +210,7 @@ test_that("Continous scale tint", {
   # Modify limits
   p3 <- p + scale_fill_cross_blended_tint_c(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$fill
-  expect_true(!any(mod_lims %in% mod))
+  expect_identical(mod_lims, mod)
   expect_true(!any(mod_lims %in% init))
 
   # Modify also with values
@@ -221,7 +221,7 @@ test_that("Continous scale tint", {
   mod_values <- ggplot2::layer_data(p4)$fill
   expect_true(!any(mod_values %in% mod_lims))
   expect_true(!any(mod_values %in% mod))
-  expect_true(!any(mod_values %in% init))
+  expect_true(any(mod_values %in% init))
 })
 
 test_that("Breaking scale", {

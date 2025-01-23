@@ -82,6 +82,11 @@
 #' `use_grass_range` argument, When `FALSE` the color scales would be mapped
 #' to the range of values of the `color/fill` aesthethics, See **Examples**.
 #'
+#' When passing `limits` parameter the colors would be restricted of those
+#' specified by this parameter, keeping the distribution of the palette. You can
+#' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
+#' pixels in the plot.
+#'
 #' @examples
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -239,8 +244,8 @@ scale_fill_grass_c <- function(palette = "viridis", ...,
   } else {
     if (is.null(values)) values <- hypsocol$limit
     # Reescale
-    res <- scales::rescale(values)
     if (is.null(limits)) limits <- range(values)
+    res <- scales::rescale(values, from = limits)
   }
 
   ggplot2::scale_fill_gradientn(...,
@@ -292,8 +297,8 @@ scale_colour_grass_c <- function(palette = "viridis", ...,
   } else {
     if (is.null(values)) values <- hypsocol$limit
     # Reescale
-    res <- scales::rescale(values)
     if (is.null(limits)) limits <- range(values)
+    res <- scales::rescale(values, from = limits)
   }
 
   ggplot2::scale_colour_gradientn(...,
@@ -350,8 +355,8 @@ scale_fill_grass_b <- function(palette = "viridis", ...,
   } else {
     if (is.null(values)) values <- hypsocol$limit
     # Reescale
-    res <- scales::rescale(values)
     if (is.null(limits)) limits <- range(values)
+    res <- scales::rescale(values, from = limits)
   }
 
   ggplot2::scale_fill_stepsn(
@@ -404,8 +409,8 @@ scale_colour_grass_b <- function(palette = "viridis", ...,
   } else {
     if (is.null(values)) values <- hypsocol$limit
     # Reescale
-    res <- scales::rescale(values)
     if (is.null(limits)) limits <- range(values)
+    res <- scales::rescale(values, from = limits)
   }
 
   ggplot2::scale_color_stepsn(
