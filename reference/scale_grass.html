@@ -332,6 +332,10 @@ not filled. See also
 <a href="grass_db.html">grass_db</a>). However, it is possible to modify this behaviour with the
 <code>use_grass_range</code> argument, When <code>FALSE</code> the color scales would be mapped
 to the range of values of the <code>color/fill</code> aesthethics, See <strong>Examples</strong>.</p>
+<p>When passing <code>limits</code> parameter the colors would be restricted of those
+specified by this parameter, keeping the distribution of the palette. You can
+combine this with <code>oob</code> (i.e. <code>oob = scales::oob_squish</code>) to avoid blank
+pixels in the plot.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>

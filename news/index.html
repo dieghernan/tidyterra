@@ -56,6 +56,14 @@
 <ul><li>Minimal version of <strong>terra</strong> required is <code>1.8-10</code>.</li>
 <li>Remove <strong>metR</strong> from Suggests.</li>
 <li>Improve handling of factors when several layers have different levels. This is done using <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> (<strong>terra</strong> &gt;= <code>1.8-10</code>). See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
+<li>Now <code>scales</code> that uses limits truncate the legend when <code>limits</code> parameter is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>). Scales impacted:
+<ul><li>
+<code>scale_*_cross_blended_tint_c</code> and <code>scale_*_cross_blended_tint_b</code>.</li>
+<li>
+<code>scale_*_hypso_tint_c</code> and <code>scale_*_hypso_tint_b</code>.</li>
+<li>
+<code>scale_*_grass_c</code> and <code>scale_*_grass_b</code>.</li>
+</ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>
