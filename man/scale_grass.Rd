@@ -225,6 +225,11 @@ Some palettes are mapped by default to a specific range of values (see
 \link{grass_db}). However, it is possible to modify this behaviour with the
 \code{use_grass_range} argument, When \code{FALSE} the color scales would be mapped
 to the range of values of the \code{color/fill} aesthethics, See \strong{Examples}.
+
+When passing \code{limits} parameter the colors would be restricted of those
+specified by this parameter, keeping the distribution of the palette. You can
+combine this with \code{oob} (i.e. \code{oob = scales::oob_squish}) to avoid blank
+pixels in the plot.
 }
 \section{\CRANpkg{terra} equivalent}{
 

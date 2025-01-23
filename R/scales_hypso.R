@@ -392,6 +392,12 @@ hypso.colors <- function(n, palette = "etopo1_hypso",
 #' almost as an uniform color. This could be adjusted using the
 #' `limits`/`values` parameters.
 #'
+#' When passing `limits` parameter to `scale_*_hypso_tint_*` the colors would
+#' be restricted of those specified by this parameter, keeping the distribution
+#' of the tint. You can combine this with `oob` (i.e.
+#' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
+#'
+#'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,
 #' `hypso.colors()` provides an uniform gradient across colors. See

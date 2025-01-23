@@ -201,7 +201,7 @@ test_that("Continous scale tint", {
   # Modify limits
   p3 <- p + scale_fill_hypso_tint_c(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$fill
-  expect_true(!any(mod_lims %in% mod))
+  expect_identical(mod_lims, mod)
   expect_true(!any(mod_lims %in% init))
 
   # Modify also with values
@@ -212,7 +212,7 @@ test_that("Continous scale tint", {
   mod_values <- ggplot2::layer_data(p4)$fill
   expect_true(!any(mod_values %in% mod_lims))
   expect_true(!any(mod_values %in% mod))
-  expect_true(!any(mod_values %in% init))
+  expect_true(any(mod_values %in% init))
 })
 
 test_that("Breaking scale", {
@@ -405,4 +405,40 @@ test_that("Palettes2", {
   col_init_rev_alpha <- hypso.colors2(5, rev = TRUE, alpha = .5)
 
   expect_equal(alpha(col_init_rev, .5), col_init_rev_alpha)
+})
+
+test_that("PR 165", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  #  Import also vector
+  f <- system.file("extdata/asia.tif", package = "tidyterra")
+  r <- rast(f)
+
+
+  p1 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_hypso_tint_c(palette = "gmt_globe")
+
+  wlims1 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_hypso_tint_c(
+      palette = "gmt_globe",
+      oob = scales::oob_squish,
+      limits = c(-1000, 50)
+    )
+
+  wlims2 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_hypso_tint_c(
+      palette = "gmt_globe",
+      oob = scales::oob_squish,
+      limits = c(-9000, 50)
+    )
+
+
+  # Scales
+  vdiffr::expect_doppelganger("pr165_01: nolims", p1)
+  vdiffr::expect_doppelganger("pr165_02: lims1", wlims1)
+  vdiffr::expect_doppelganger("pr165_03: lims1", wlims2)
 })
