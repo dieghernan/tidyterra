@@ -92,20 +92,6 @@
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_hypso_c(palette = "colombia_hypso")
 #'
-#' # Use hypsometric  tint version...
-#' ggplot() +
-#'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_c(palette = "colombia_hypso")
-#'
-#' # ...but not suitable for the range of the raster: adjust
-#' my_lims <- minmax(volcano2_rast) %>% as.integer() + c(-2, 2)
-#'
-#' ggplot() +
-#'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_c(
-#'     palette = "colombia_hypso",
-#'     limits = my_lims
-#'   )
 #'
 #' # Full map with true tints
 #'
@@ -134,13 +120,12 @@
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_hypso_b(breaks = seq(70, 200, 25), palette = "wiki-2.0_hypso")
 #'
-#' # With limits and breaks
+#' # With breaks
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_hypso_tint_b(
+#'   scale_fill_hypso_b(
 #'     breaks = seq(75, 200, 25),
-#'     palette = "wiki-2.0_hypso",
-#'     limits = my_lims
+#'     palette = "wiki-2.0_hypso"
 #'   )
 #'
 #' # With discrete values

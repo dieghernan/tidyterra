@@ -107,20 +107,6 @@
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_cross_blended_c(palette = "cold_humid")
 #'
-#' # Use hypsometric  tint version...
-#' ggplot() +
-#'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_cross_blended_tint_c(palette = "cold_humid")
-#'
-#' # ...but not suitable for the range of the raster: adjust
-#' my_lims <- minmax(volcano2_rast) %>% as.integer() + c(-2, 2)
-#'
-#' ggplot() +
-#'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_cross_blended_tint_c(
-#'     palette = "cold_humid",
-#'     limits = my_lims
-#'   )
 #'
 #' # Full map with true tints
 #'
@@ -149,13 +135,12 @@
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_cross_blended_b(breaks = seq(70, 200, 25), palette = "arid")
 #'
-#' # With limits and breaks
+#' # With breaks
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
-#'   scale_fill_cross_blended_tint_b(
+#'   scale_fill_cross_blended_b(
 #'     breaks = seq(75, 200, 25),
-#'     palette = "arid",
-#'     limits = my_lims
+#'     palette = "arid"
 #'   )
 #'
 #' # With discrete values
