@@ -317,6 +317,11 @@ example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would a
 almost as an uniform color. This could be adjusted using the
 \code{limits}/\code{values} parameters.
 
+When passing \code{limits} parameter to \verb{scale_*_cross_blended_tint_*} the
+colors would be restricted of those specified by this parameter, keeping the
+distribution of the tint. You can combine this with \code{oob} (i.e.
+\code{oob = scales::oob_squish}) to avoid blank pixels in the plot.
+
 \code{cross_blended.colors2()} provides a gradient color palette where the
 distance between colors is different depending of the type of color.
 In contrast, \code{cross_blended.colors()} provides an uniform gradient across

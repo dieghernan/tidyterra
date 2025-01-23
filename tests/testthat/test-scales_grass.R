@@ -184,7 +184,7 @@ test_that("Continous scale no range", {
   p3 <- p + scale_color_grass_c(limits = c(20, 26), palette = "etopo2")
   mod_lims <- ggplot2::layer_data(p3)$colour
   expect_true(!any(mod_lims %in% mod))
-  expect_true(!any(mod_lims %in% init))
+  expect_identical(mod_lims, init)
 
   # Modify also with values
   p4 <- p + scale_colour_grass_c(
@@ -524,7 +524,7 @@ test_that("Continous scale fill no range", {
   p3 <- p + scale_fill_grass_c(limits = c(20, 26), palette = "etopo2")
   mod_lims <- ggplot2::layer_data(p3)$fill
   expect_true(!any(mod_lims %in% mod))
-  expect_true(!any(mod_lims %in% init))
+  expect_identical(mod_lims, init)
 
   # Modify also with values
   p4 <- p + scale_fill_grass_c(
@@ -711,4 +711,41 @@ test_that("Palettes", {
     )
     expect_length(colors, 20)
   }
+})
+
+test_that("PR 165", {
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  #  Import also vector
+  f <- system.file("extdata/asia.tif", package = "tidyterra")
+  r <- rast(f)
+
+
+  p1 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_grass_c(palette = "srtm_plus")
+
+  wlims1 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_grass_c(
+      palette = "srtm_plus",
+      limits = c(-9000, 50),
+      oob = scales::squish
+    )
+
+  wlims2 <- ggplot() +
+    geom_spatraster(data = r) +
+    scale_fill_grass_c(
+      palette = "srtm_plus",
+      limits = c(-1, 2000),
+      oob = scales::squish
+    )
+
+
+
+  # Scales
+  vdiffr::expect_doppelganger("pr165_01: nolims", p1)
+  vdiffr::expect_doppelganger("pr165_02: lims1", wlims1)
+  vdiffr::expect_doppelganger("pr165_03: lims1", wlims2)
 })

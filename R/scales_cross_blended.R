@@ -414,6 +414,11 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #' almost as an uniform color. This could be adjusted using the
 #' `limits`/`values` parameters.
 #'
+#' When passing `limits` parameter to `scale_*_cross_blended_tint_*` the
+#' colors would be restricted of those specified by this parameter, keeping the
+#' distribution of the tint. You can combine this with `oob` (i.e.
+#' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
+#'
 #' `cross_blended.colors2()` provides a gradient color palette where the
 #' distance between colors is different depending of the type of color.
 #' In contrast, `cross_blended.colors()` provides an uniform gradient across
@@ -503,8 +508,8 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_gradientn(...,
     colors = hexcol,
@@ -548,8 +553,8 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_gradientn(...,
     colors = hexcol,
@@ -593,8 +598,8 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_stepsn(
     ...,
@@ -639,8 +644,8 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 
   if (is.null(values)) values <- hypsocol$limit
   # Reescale
-  res <- scales::rescale(values)
   if (is.null(limits)) limits <- range(values)
+  res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_stepsn(
     ...,

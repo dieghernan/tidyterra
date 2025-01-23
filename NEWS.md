@@ -5,6 +5,11 @@
 -   Improve handling of factors when several layers have different levels. This
     is done using `terra::combineLevels()` (**terra** \>= `1.8-10`). See
     <https://stackoverflow.com/questions/79340152>.
+-   Now `scales` that uses limits truncate the legend when `limits` parameter is
+    provided (#165 \@Fan-iX). Scales impacted:
+    -   `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
+    -   `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
+    -   `scale_*_grass_c` and `scale_*_grass_b`.
 
 # tidyterra 0.6.2
 
