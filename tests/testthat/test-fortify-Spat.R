@@ -104,6 +104,20 @@ test_that("Fortify SpatRasters pivot", {
   expect_snapshot(aa <- fortify(fort2, pivot = TRUE))
 
   expect_identical(unique(aa$lyr), names(back))
+
+  # No complain in double and integer (treated all as numeric)
+  # https://stackoverflow.com/questions/79292989
+
+  m <- matrix(c(1:24, NA), nrow = 5, ncol = 5)
+  n <- matrix(rep(5, time = 25), nrow = 5, ncol = 5)
+
+  db_int <- terra::rast(c(A = terra::rast(m), B = terra::rast(n)))
+  expect_identical(terra::is.int(db_int), c(TRUE, FALSE))
+  expect_silent(db_int_f <- fortify(db_int, pivot = TRUE))
+
+  expect_equal(nrow(db_int_f), terra::ncell(db_int) * terra::nlyr(db_int))
+  expect_identical(unique(db_int_f$lyr), names(db_int))
+
   # What about with no CRS?
 
   r_no <- r

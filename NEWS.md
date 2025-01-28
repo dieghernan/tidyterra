@@ -10,6 +10,11 @@
     -   `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
     -   `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
     -   `scale_*_grass_c` and `scale_*_grass_b`.
+-   Now `geom_spatraster()` (and overall pivoting of `SpatRaster` is less strict
+    with different layer classes: if several layers can be defined as numeric
+    (i.e. `double`, `integer` and `numeric`) the pivoting (and therefore the
+    plot) can be performed. This is consistent with `tidyr::pivot_longer()`
+    behaviour (<https://stackoverflow.com/questions/79292989>).
 
 # tidyterra 0.6.2
 
