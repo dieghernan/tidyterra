@@ -64,6 +64,7 @@
 <li>
 <code>scale_*_grass_c</code> and <code>scale_*_grass_b</code>.</li>
 </ul></li>
+<li>Now <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> (and overall pivoting of <code>SpatRaster</code> is less strict with different layer classes: if several layers can be defined as numeric (i.e. <code>double</code>, <code>integer</code> and <code>numeric</code>) the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behaviour (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>
