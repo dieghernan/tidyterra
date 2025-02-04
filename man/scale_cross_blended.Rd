@@ -29,8 +29,7 @@
 Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69), 31 -
 46. \doi{10.14714/CP69.20}.
 \item Patterson, T. (2004). \emph{Using Cross-blended Hypsometric Tints for
-Generalized Environmental Mapping.} Accessed June 10, 2022.
-\url{https://www.shadedrelief.com/hypso/hypso.html}
+Generalized Environmental Mapping.} Online, Accessed June 10, 2022.
 }
 }
 \usage{
