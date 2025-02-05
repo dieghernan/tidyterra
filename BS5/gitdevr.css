@@ -185,6 +185,12 @@ a>code {
 	color: #e83e8c;
 }
 
+.ctb_avatar {
+    border: 1px solid;
+    border-radius: 50%;
+    border-color: var(--bs-dark) !important;
+}
+
 /* --- Code --- */
 code {
 	font-size: 87.5%;
