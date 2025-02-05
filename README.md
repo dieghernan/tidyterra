@@ -366,7 +366,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 All contributions to this project are gratefully acknowledged using the
 [`allcontributors` package](https://github.com/ropensci/allcontributors)
-following the [all-contributors](https://allcontributors.org)
+following the [allcontributors](https://allcontributors.org)
 specification. Contributions of any kind are welcome!
 
 ### Code
@@ -384,12 +384,6 @@ specification. Contributions of any kind are welcome!
 <img src="https://avatars.githubusercontent.com/u/61686936?v=4" width="100px;" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/commits?author=Fan-iX">Fan-iX</a>
-</td>
-<td align="center">
-<a href="https://github.com/ImgBotApp">
-<img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100px;" alt=""/>
-</a><br>
-<a href="https://github.com/dieghernan/tidyterra/commits?author=ImgBotApp">ImgBotApp</a>
 </td>
 <td align="center">
 <a href="https://github.com/teunbrand">
@@ -455,6 +449,12 @@ specification. Contributions of any kind are welcome!
 </tr>
 <tr>
 <td align="center">
+<a href="https://github.com/github-actions">
+<img src="https://avatars.githubusercontent.com/in/15368?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Agithub-actions">github-actions</a>
+</td>
+<td align="center">
 <a href="https://github.com/nipnipj">
 <img src="https://avatars.githubusercontent.com/u/36553373?u=9c85f7711bfbe6e6bc8d43b82e71bfff4afea295&v=4" width="100px;" alt=""/>
 </a><br>
@@ -496,14 +496,14 @@ specification. Contributions of any kind are welcome!
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AYingjie4Science">Yingjie4Science</a>
 </td>
+</tr>
+<tr>
 <td align="center">
 <a href="https://github.com/mikejohnson51">
 <img src="https://avatars.githubusercontent.com/u/30052272?u=afe36efb60f13e0e79b4f6d4c0722fcefd70f227&v=4" width="100px;" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Amikejohnson51">mikejohnson51</a>
 </td>
-</tr>
-<tr>
 <td align="center">
 <a href="https://github.com/danbebber">
 <img src="https://avatars.githubusercontent.com/u/43315728?v=4" width="100px;" alt=""/>
@@ -546,14 +546,14 @@ specification. Contributions of any kind are welcome!
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ABeedmoser">Beedmoser</a>
 </td>
+</tr>
+<tr>
 <td align="center">
 <a href="https://github.com/claudehspencer">
 <img src="https://avatars.githubusercontent.com/u/80803051?u=ae30b91def3323ef0118ad0ee1701cf43b9a6fd8&v=4" width="100px;" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aclaudehspencer">claudehspencer</a>
 </td>
-</tr>
-<tr>
 <td align="center">
 <a href="https://github.com/Maschette">
 <img src="https://avatars.githubusercontent.com/u/14663215?u=93694159d02e924e6413bd067d7746f1d16d64c1&v=4" width="100px;" alt=""/>
