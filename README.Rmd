@@ -327,3 +327,286 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation, by
 [Dewey Dunnington](https://github.com/paleolimbot) and [**ggspatial**
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+
+## Contributors
+
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+All contributions to this project are gratefully acknowledged using the [`allcontributors` package](https://github.com/ropensci/allcontributors) following the [all-contributors](https://allcontributors.org) specification. Contributions of any kind are welcome!
+
+### Code
+
+<table>
+
+<tr>
+<td align="center">
+<a href="https://github.com/dieghernan">
+<img src="https://avatars.githubusercontent.com/u/25656809?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=dieghernan">dieghernan</a>
+</td>
+<td align="center">
+<a href="https://github.com/Fan-iX">
+<img src="https://avatars.githubusercontent.com/u/61686936?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=Fan-iX">Fan-iX</a>
+</td>
+<td align="center">
+<a href="https://github.com/ImgBotApp">
+<img src="https://avatars.githubusercontent.com/u/31427850?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=ImgBotApp">ImgBotApp</a>
+</td>
+<td align="center">
+<a href="https://github.com/teunbrand">
+<img src="https://avatars.githubusercontent.com/u/49372158?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=teunbrand">teunbrand</a>
+</td>
+</tr>
+
+</table>
+
+
+### Issue Authors
+
+<table>
+
+<tr>
+<td align="center">
+<a href="https://github.com/Nowosad">
+<img src="https://avatars.githubusercontent.com/u/3457131?u=ac9868e95f6639c502440548e8bf4462cd96072a&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ANowosad">Nowosad</a>
+</td>
+<td align="center">
+<a href="https://github.com/schonhose">
+<img src="https://avatars.githubusercontent.com/u/16422?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aschonhose">schonhose</a>
+</td>
+<td align="center">
+<a href="https://github.com/DidDrog11">
+<img src="https://avatars.githubusercontent.com/u/52014150?u=320a51516b7b8fd62d683f762768c8436b7ba3bb&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ADidDrog11">DidDrog11</a>
+</td>
+<td align="center">
+<a href="https://github.com/sraul1">
+<img src="https://avatars.githubusercontent.com/u/34610504?u=1ea2fba0b4e2ae3bc3e099bd4025dc10f8028870&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Asraul1">sraul1</a>
+</td>
+<td align="center">
+<a href="https://github.com/aloboa">
+<img src="https://avatars.githubusercontent.com/u/6074054?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aaloboa">aloboa</a>
+</td>
+<td align="center">
+<a href="https://github.com/kadyb">
+<img src="https://avatars.githubusercontent.com/u/35004826?u=dcf17deb757e4972f25196a557f5f1be816080d9&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Akadyb">kadyb</a>
+</td>
+<td align="center">
+<a href="https://github.com/Shrubner">
+<img src="https://avatars.githubusercontent.com/u/72216154?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AShrubner">Shrubner</a>
+</td>
+<td align="center">
+<a href="https://github.com/kdizzard">
+<img src="https://avatars.githubusercontent.com/u/51372362?u=5eede2df98ca7449253ce1717f1bccd5a36366d2&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Akdizzard">kdizzard</a>
+</td>
+</tr>
+
+
+<tr>
+<td align="center">
+<a href="https://github.com/nipnipj">
+<img src="https://avatars.githubusercontent.com/u/36553373?u=9c85f7711bfbe6e6bc8d43b82e71bfff4afea295&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Anipnipj">nipnipj</a>
+</td>
+<td align="center">
+<a href="https://github.com/tigerwang1998">
+<img src="https://avatars.githubusercontent.com/u/50581765?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Atigerwang1998">tigerwang1998</a>
+</td>
+<td align="center">
+<a href="https://github.com/Edward62">
+<img src="https://avatars.githubusercontent.com/u/13036812?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AEdward62">Edward62</a>
+</td>
+<td align="center">
+<a href="https://github.com/kongdd">
+<img src="https://avatars.githubusercontent.com/u/9815742?u=6c17cfc0a3886df323a893ef778ad5a7f3aed9e3&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Akongdd">kongdd</a>
+</td>
+<td align="center">
+<a href="https://github.com/rhgof">
+<img src="https://avatars.githubusercontent.com/u/1822102?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Arhgof">rhgof</a>
+</td>
+<td align="center">
+<a href="https://github.com/pvjeetze">
+<img src="https://avatars.githubusercontent.com/u/50408549?u=30d3981bd227b38124619b23d3d308be177d44f3&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Apvjeetze">pvjeetze</a>
+</td>
+<td align="center">
+<a href="https://github.com/Yingjie4Science">
+<img src="https://avatars.githubusercontent.com/u/40079217?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AYingjie4Science">Yingjie4Science</a>
+</td>
+<td align="center">
+<a href="https://github.com/mikejohnson51">
+<img src="https://avatars.githubusercontent.com/u/30052272?u=afe36efb60f13e0e79b4f6d4c0722fcefd70f227&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Amikejohnson51">mikejohnson51</a>
+</td>
+</tr>
+
+
+<tr>
+<td align="center">
+<a href="https://github.com/danbebber">
+<img src="https://avatars.githubusercontent.com/u/43315728?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Adanbebber">danbebber</a>
+</td>
+<td align="center">
+<a href="https://github.com/elgabbas">
+<img src="https://avatars.githubusercontent.com/u/7375051?u=13ef03baeec131c55939c15e00902eaf342e52bd&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aelgabbas">elgabbas</a>
+</td>
+<td align="center">
+<a href="https://github.com/edzer">
+<img src="https://avatars.githubusercontent.com/u/520851?u=9bc892c3523be428dc211f2ccbcf04e8e0e564ff&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aedzer">edzer</a>
+</td>
+<td align="center">
+<a href="https://github.com/GuiSPinto">
+<img src="https://avatars.githubusercontent.com/u/40064751?u=872a05c1deb4eaa6f2dd05b9b064d0c94509a6d7&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AGuiSPinto">GuiSPinto</a>
+</td>
+<td align="center">
+<a href="https://github.com/zzzqiii">
+<img src="https://avatars.githubusercontent.com/u/78252314?u=90f3a78d1c8847b6ce3c1b23cec4270efc5859fd&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Azzzqiii">zzzqiii</a>
+</td>
+<td align="center">
+<a href="https://github.com/mengjiezhang4ds">
+<img src="https://avatars.githubusercontent.com/u/42457418?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Amengjiezhang4ds">mengjiezhang4ds</a>
+</td>
+<td align="center">
+<a href="https://github.com/Beedmoser">
+<img src="https://avatars.githubusercontent.com/u/121089493?u=d705904d97eccc58745785cb970c412fc4b92f40&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ABeedmoser">Beedmoser</a>
+</td>
+<td align="center">
+<a href="https://github.com/claudehspencer">
+<img src="https://avatars.githubusercontent.com/u/80803051?u=ae30b91def3323ef0118ad0ee1701cf43b9a6fd8&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Aclaudehspencer">claudehspencer</a>
+</td>
+</tr>
+
+
+<tr>
+<td align="center">
+<a href="https://github.com/Maschette">
+<img src="https://avatars.githubusercontent.com/u/14663215?u=93694159d02e924e6413bd067d7746f1d16d64c1&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AMaschette">Maschette</a>
+</td>
+<td align="center">
+<a href="https://github.com/frzambra">
+<img src="https://avatars.githubusercontent.com/u/4713428?u=3a6000597be82740157048e5fb8f3603f0078b24&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Afrzambra">frzambra</a>
+</td>
+<td align="center">
+<a href="https://github.com/toihr">
+<img src="https://avatars.githubusercontent.com/u/25961872?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Atoihr">toihr</a>
+</td>
+<td align="center">
+<a href="https://github.com/Breeze-Hu">
+<img src="https://avatars.githubusercontent.com/u/173059909?v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ABreeze-Hu">Breeze-Hu</a>
+</td>
+</tr>
+
+</table>
+
+
+### Issue Contributors
+
+<table>
+
+<tr>
+<td align="center">
+<a href="https://github.com/twest820">
+<img src="https://avatars.githubusercontent.com/u/9359341?u=067bab84856d1b06445ad551c87649d627861a4a&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3Atwest820">twest820</a>
+</td>
+<td align="center">
+<a href="https://github.com/stantis">
+<img src="https://avatars.githubusercontent.com/u/10036109?u=e6f65c277e0fb791f19a8a1f9be818808179c696&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3Astantis">stantis</a>
+</td>
+<td align="center">
+<a href="https://github.com/rhijmans">
+<img src="https://avatars.githubusercontent.com/u/11481397?u=c7520bbc8ee90abe741324e8c6a2f2051932dea3&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3Arhijmans">rhijmans</a>
+</td>
+<td align="center">
+<a href="https://github.com/HRodenhizer">
+<img src="https://avatars.githubusercontent.com/u/38510539?u=2997ccf8300fd08f5b4f92f7e84da46cd17d8d4b&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3AHRodenhizer">HRodenhizer</a>
+</td>
+<td align="center">
+<a href="https://github.com/Rapsodia86">
+<img src="https://avatars.githubusercontent.com/u/55965799?u=ef741f415ccab7b92a433d71fa44a274c6cf7273&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3ARapsodia86">Rapsodia86</a>
+</td>
+<td align="center">
+<a href="https://github.com/rsbivand">
+<img src="https://avatars.githubusercontent.com/u/10198404?u=130e1eda9687fabcf3606cbcbcfea79708207f7e&v=4" width="100px;" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+commenter%3Arsbivand">rsbivand</a>
+</td>
+</tr>
+
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
