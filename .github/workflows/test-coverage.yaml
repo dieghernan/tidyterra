@@ -30,29 +30,35 @@ jobs:
 
       - name: Test coverage
         run: |
+          # Need to config junit on working dir to locate it
+          wdir <- file.path(normalizePath(getwd(), winslash = "/"))
+          junfile <- file.path(wdir, "junit.xml")
+
+          # And get the name
+          pkgname <- as.character(unname(read.dcf("DESCRIPTION", "Package")))
+
+          # Create junit code as character
+          junreport <- paste0(
+            "testthat::test_package('",
+            pkgname, "', reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
+          )
+
           cov <- covr::package_coverage(
             quiet = FALSE,
             clean = FALSE,
-            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+            type = "none",
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"),
+              winslash = "/"
+            ), "package"),
+            code = junreport
           )
+
+          # Show results
+          print(cov)
+
+          # Generate files for upload in the working dir
           covr::to_cobertura(cov)
         shell: Rscript {0}
-
-      - name: Create Junit Report
-        if: always()
-        run: |
-          test_out <- path.expand(file.path(getwd(), "junit.xml"))
-          testthat::test_local(reporter = testthat::JunitReporter$new(test_out))
-        shell: Rscript {0}
-
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
-        with:
-          # Fail if error if not on PR, or if on PR and token is given
-          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
-          file: ./junit.xml
-          token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v5
@@ -62,6 +68,15 @@ jobs:
           files: ./cobertura.xml
           plugins: noop
           disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          # Fail if error if not on PR, or if on PR and token is given
+          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+          file: ./junit.xml
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Show testthat output
