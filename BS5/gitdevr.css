@@ -68,7 +68,7 @@ main img {
 }
 
 .algolia-autocomplete .aa-dropdown-menu {
-    color: #22272e;
+	color: #22272e;
 }
 
 /* ---Footer--- */
@@ -185,10 +185,17 @@ a>code {
 	color: #e83e8c;
 }
 
-.ctb_avatar {
-    border: 1px solid;
-    border-radius: 50%;
-    border-color: var(--bs-dark) !important;
+/* ---allcontributors package--- */
+
+.allctb-avatar {
+	border: 1px solid;
+	border-radius: 50%;
+	border-color: var(--bs-primary) !important;
+	max-width: 100px;
+}
+
+table.allctb-table td {
+	border-color: transparent;
 }
 
 /* --- Code --- */
