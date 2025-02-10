@@ -726,7 +726,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 **metR** is a package that also provides **ggplot2** extensions, mainly focused
 on the analysis of meteorological fields. As shown previously (see [Labeling
 contours](#label-contour)) it is possible to use both packages to provide rich
-plots. This section shows some demos.
+plots.
 
 ```{r metr_demo}
 # load libraries and files
@@ -739,34 +739,6 @@ holyrood <- "holyroodpark.tif"
 
 r <- rast(holyrood)
 ```
-
-#### `metR::geom_contour_tanaka()`
-
-```{r tanaka}
-ggplot(r, aes(x, y)) +
-  geom_spatraster(data = r, inherit.aes = FALSE) +
-  geom_contour_tanaka(aes(z = elevation), breaks = seq(0, 250, 25)) +
-  scale_fill_viridis_c(option = "magma") +
-  labs(x = "", y = "", title = "tidyterra and metR: tanaka contours")
-
-# Using geom_spatraster_contour_filled
-ggplot(r, aes(x, y)) +
-  geom_spatraster_contour_filled(
-    data = r, inherit.aes = FALSE,
-    breaks = seq(0, 250, 50)
-  ) +
-  geom_contour_tanaka(aes(z = elevation),
-    breaks = seq(0, 250, 10),
-    sun.angle = -90, dark = "gray50"
-  ) +
-  scale_fill_viridis_d(option = "cividis") +
-  labs(
-    x = "", y = "", title = "tidyterra and metR: tanaka contours",
-    subtitle = "with geom_contour_filled"
-  )
-```
-
-#### `metR::geom_relief()`
 
 ```{r hill}
 ggplot(r, aes(x, y)) +
