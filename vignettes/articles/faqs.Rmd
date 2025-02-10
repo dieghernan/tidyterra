@@ -382,12 +382,20 @@ ggplot() +
 
 ## Modifying the number of breaks on axis {#axis-breaks}
 
-The best option is to pass your custom breaks to `ggplot2::scale_x_continous()`
-or `ggplot2::scale_y_continous()`. You will need to provide the breaks in
-lon/lat even if your data is projected. See also
-[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622):
+This is a long-standing issue in **ggplot2** (see
+[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622)) that is
+fixed in versions \> 3.5.1 (in development at the moment of writing). Use
+
+``` R
+scale_x_continuous(breaks = scales::pretty_breaks(n = 3)
+```
 
 ```{r breaks}
+# Need ggplot2 > 3.5.1 (dev version at the moment of writing)
+pak::pak("tidyverse/ggplot2")
+
+packageVersion("ggplot2")
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -401,23 +409,13 @@ ggplot() +
   geom_spatraster(data = r) +
   labs(title = "Default axis breaks")
 
-# Modify y breaks with extent projected in EPSG:4326
-
-# Get extent
-
-ext <- r %>%
-  project("EPSG:4326", mask = TRUE) %>%
-  ext() %>%
-  as.vector()
-
+# Modify breaks on x and y
 
 ggplot() +
   geom_spatraster(data = r) +
-  scale_x_continuous(
-    expand = expansion(mult = 0.05),
-    breaks = scales::breaks_pretty(n = 3)(ext[c("xmin", "xmax")])
-  ) +
-  labs(title = "Three breaks on x (¿?)")
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 3)) +
+  scale_y_continuous(breaks = scales::pretty_breaks(n = 3)) +
+  labs(title = "Try to get three breaks on x and y (¿?)")
 ```
 
 ## Plotting a `SpatRaster` with color tables
