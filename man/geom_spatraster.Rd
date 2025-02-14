@@ -18,6 +18,7 @@ geom_spatraster(
   interpolate = FALSE,
   maxcell = 5e+05,
   use_coltab = TRUE,
+  mask_projection = FALSE,
   ...
 )
 
@@ -59,6 +60,10 @@ the plot.}
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
 an associated \link[terra:colors]{coltab}. Should the coltab be used on the
 plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+
+\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas outside the input extent.
+For example, to avoid data wrapping around the date-line. This is passed to
+\code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
 arguments broadly fall into one of 4 categories below. Notably, further
