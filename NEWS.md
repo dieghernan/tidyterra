@@ -1,7 +1,7 @@
 # tidyterra (development version)
 
 -   New parameters in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`
-    avoid `SpatRaster`to wrapping around on some projections (see #115 and #160,
+    avoid `SpatRaster`to wrapping around on some projections (see #115 and #169,
     by \@dramanica).
 
 # tidyterra 0.7.0
