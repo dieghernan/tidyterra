@@ -88,6 +88,7 @@ can be modified.</p>
 <span>  interpolate <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  use_coltab <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -153,6 +154,14 @@ the plot.</p></dd>
 <dd><p>Logical. Only applicable to <code>SpatRaster</code> objects that have
 an associated coltab. Should the coltab be used on the
 plot? See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
+
+
+<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
+<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

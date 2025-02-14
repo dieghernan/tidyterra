@@ -79,6 +79,7 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">geom_spatraster_contour</span><span class="op">(</span></span>
 <span>  mapping <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">data</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  bins <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -108,6 +109,7 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 <span><span class="fu">geom_spatraster_contour_filled</span><span class="op">(</span></span>
 <span>  mapping <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">data</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  bins <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -130,6 +132,14 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A <code>SpatRaster</code> object.</p></dd>
+
+
+<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
+<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

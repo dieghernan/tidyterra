@@ -80,6 +80,7 @@ green and blue channel.</p>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  max_col_value <span class="op">=</span> <span class="fl">255</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  stretch <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  zlim <span class="op">=</span> <span class="cn">NULL</span></span>
@@ -127,6 +128,14 @@ the plot.</p></dd>
 <dd><p>Number giving the maximum of the color values range.
 When this is <code>255</code> (the default), the result is computed most efficiently.
 See <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.</p></dd>
+
+
+<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
+<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
