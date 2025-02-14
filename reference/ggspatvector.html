@@ -17,7 +17,7 @@ objects (see terra::vect())."><meta property="og:image" content="https://diegher
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +77,7 @@ objects (see <code><a href="https://rspatial.github.io/terra/reference/vect.html
 <span>  <span class="va">...</span>,</span>
 <span>  nudge_x <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  nudge_y <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  label.size <span class="op">=</span> <span class="fl">0.25</span>,</span>
+<span>  linewidth <span class="op">=</span> <span class="fl">0.25</span>,</span>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -137,16 +137,6 @@ override the default legend.</p></dd>
 <dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like <code>colour = "red"</code> or <code>linewidth = 3</code>.</p></dd>
-
-
-<dt id="arg-nudge-x-nudge-y">nudge_x, nudge_y<a class="anchor" aria-label="anchor" href="#arg-nudge-x-nudge-y"></a></dt>
-<dd><p>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointly specified with <code>position</code>.</p></dd>
-
-
-<dt id="arg-label-size">label.size<a class="anchor" aria-label="anchor" href="#arg-label-size"></a></dt>
-<dd><p>Size of label border, in mm.</p></dd>
 
 
 <dt id="arg-inherit-aes">inherit.aes<a class="anchor" aria-label="anchor" href="#arg-inherit-aes"></a></dt>

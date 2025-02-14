@@ -27,7 +27,7 @@ labeled contours and it is implemented on top of isoband::isolines_grob()."><met
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,6 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">geom_spatraster_contour</span><span class="op">(</span></span>
 <span>  mapping <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">data</span>,</span>
-<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  bins <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -87,7 +86,8 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 <span>  breaks <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">geom_spatraster_contour_text</span><span class="op">(</span></span>
@@ -103,13 +103,13 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 <span>  label_placer <span class="op">=</span> <span class="fu">isoband</span><span class="fu">::</span><span class="fu"><a href="https://isoband.r-lib.org/reference/label_placer.html" class="external-link">label_placer_minmax</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">geom_spatraster_contour_filled</span><span class="op">(</span></span>
 <span>  mapping <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">data</span>,</span>
-<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  bins <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -117,7 +117,8 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 <span>  breaks <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -132,14 +133,6 @@ labeled contours and it is implemented on top of <code><a href="https://isoband.
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A <code>SpatRaster</code> object.</p></dd>
-
-
-<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
-<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
-outside the input extent.
-For example, to avoid data wrapping around the date-line in Equal Area
-projections. This parameter is passed to
-<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -202,12 +195,22 @@ ten with <code><a href="https://rdrr.io/r/base/pretty.html" class="external-link
 <code>NA</code>, the default, includes if any aesthetics are mapped.
 <code>FALSE</code> never includes, and <code>TRUE</code> always includes.
 It can also be a named logical vector to finely select the aesthetics to
-display.</p></dd>
+display. To include legend keys for all levels, even
+when no data exists, use <code>TRUE</code>.  If <code>NA</code>, all levels are shown in legend,
+but unobserved levels are omitted.</p></dd>
 
 
 <dt id="arg-inherit-aes">inherit.aes<a class="anchor" aria-label="anchor" href="#arg-inherit-aes"></a></dt>
 <dd><p>If <code>FALSE</code>, overrides the default aesthetics, rather
 than combining with them.</p></dd>
+
+
+<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
+<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg-size-unit">size.unit<a class="anchor" aria-label="anchor" href="#arg-size-unit"></a></dt>

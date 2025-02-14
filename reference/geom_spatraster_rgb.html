@@ -23,7 +23,7 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
       <img src="../apple-touch-icon-180x180.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,10 +80,10 @@ green and blue channel.</p>
 <span>  alpha <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  maxcell <span class="op">=</span> <span class="fl">5e+05</span>,</span>
 <span>  max_col_value <span class="op">=</span> <span class="fl">255</span>,</span>
-<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  stretch <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  zlim <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  zlim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mask_projection <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -130,14 +130,6 @@ When this is <code>255</code> (the default), the result is computed most efficie
 See <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.</p></dd>
 
 
-<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
-<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
-outside the input extent.
-For example, to avoid data wrapping around the date-line in Equal Area
-projections. This parameter is passed to
-<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
-
-
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code>'s <code>params</code> argument. These
 arguments broadly fall into one of 4 categories below. Notably, further
@@ -172,6 +164,14 @@ lists which parameters it can accept.</p></li>
 
 <dt id="arg-zlim">zlim<a class="anchor" aria-label="anchor" href="#arg-zlim"></a></dt>
 <dd><p>numeric vector of length 2. Range of values to plot (optional). If this is set, and <code>stretch="lin"</code> is used, then the values are stretched within the range of <code>zlim</code>. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast</p></dd>
+
+
+<dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
+<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
