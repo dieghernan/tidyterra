@@ -1,13 +1,14 @@
 Package: tidyterra
 Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
-Version: 0.7.0
+Version: 0.7.0.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
     person("Dewey", "Dunnington", role = "ctb",
            comment = c(ORCID = "0000-0002-9415-4582", "for ggspatial code")),
     person("ggplot2 authors", role = "cph",
-           comment = "for contour code")
+           comment = "for contour code"),
+    person("Andrea", "Manica", role = "ctb")
   )
 Description: Extension of the 'tidyverse' for 'SpatRaster' and
     'SpatVector' objects of the 'terra' package. It includes also new

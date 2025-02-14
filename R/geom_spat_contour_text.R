@@ -16,7 +16,8 @@ geom_spatraster_contour_text <- function(
     breaks = NULL, size.unit = "mm",
     label_format = scales::label_number(),
     label_placer = isoband::label_placer_minmax(),
-    na.rm = TRUE, show.legend = NA, inherit.aes = TRUE) {
+    na.rm = TRUE, show.legend = NA, inherit.aes = TRUE,
+    mask_projection = FALSE) {
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {
@@ -111,6 +112,7 @@ geom_spatraster_contour_text <- function(
       label_format = label_format,
       # Extra params
       maxcell = maxcell,
+      mask_projection = mask_projection,
       ...
     )
   )

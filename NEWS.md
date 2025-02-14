@@ -1,3 +1,9 @@
+# tidyterra (development version)
+
+-   New parameters in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`
+    avoid `SpatRaster`to wrapping around on some projections (see #115 and #160,
+    by \@dramanica).
+
 # tidyterra 0.7.0
 
 -   Minimal version of **terra** required is `1.8-10`.

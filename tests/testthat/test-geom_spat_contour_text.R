@@ -174,6 +174,58 @@ test_that("Test plot", {
     p_more_aes +
       coord_sf(crs = 3035)
   )
+
+
+  # Check wrap
+
+  asia <- terra::rast(system.file("extdata/asia.tif", package = "tidyterra"))
+  asia <- terra::project(asia, "EPSG:4326")
+  terra::ext(asia) <- c(-180, 180, -90, 90)
+
+  # With false
+  p <- ggplot() +
+    geom_spatraster_contour_text(
+      data = asia,
+      binwidth = 500,
+      mask_projection = FALSE
+    ) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "07-Wrap",
+    p
+  )
+
+  # With true
+  p <- ggplot() +
+    geom_spatraster_contour_text(
+      data = asia,
+      binwidth = 500,
+      mask_projection = TRUE
+    ) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "08-No Wrap",
+    p
+  )
+
+  # Facet
+  a2 <- asia / 2
+  names(a2) <- "other"
+  end <- c(asia, a2)
+
+  p <- ggplot() +
+    geom_spatraster_contour_text(
+      data = end,
+      binwidth = 500,
+      mask_projection = TRUE
+    ) +
+    facet_wrap(~lyr) +
+    coord_sf(crs = "+proj=eqearth")
+
+  vdiffr::expect_doppelganger(
+    "09-No Wrap facet",
+    p
+  )
 })
 
 

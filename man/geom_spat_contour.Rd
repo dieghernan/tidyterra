@@ -11,7 +11,6 @@
 geom_spatraster_contour(
   mapping = NULL,
   data,
-  mask_projection = FALSE,
   ...,
   maxcell = 5e+05,
   bins = NULL,
@@ -19,7 +18,8 @@ geom_spatraster_contour(
   breaks = NULL,
   na.rm = TRUE,
   show.legend = NA,
-  inherit.aes = TRUE
+  inherit.aes = TRUE,
+  mask_projection = FALSE
 )
 
 geom_spatraster_contour_text(
@@ -35,13 +35,13 @@ geom_spatraster_contour_text(
   label_placer = isoband::label_placer_minmax(),
   na.rm = TRUE,
   show.legend = NA,
-  inherit.aes = TRUE
+  inherit.aes = TRUE,
+  mask_projection = FALSE
 )
 
 geom_spatraster_contour_filled(
   mapping = NULL,
   data,
-  mask_projection = FALSE,
   ...,
   maxcell = 5e+05,
   bins = NULL,
@@ -49,7 +49,8 @@ geom_spatraster_contour_filled(
   breaks = NULL,
   na.rm = TRUE,
   show.legend = NA,
-  inherit.aes = TRUE
+  inherit.aes = TRUE,
+  mask_projection = FALSE
 )
 }
 \arguments{
@@ -57,12 +58,6 @@ geom_spatraster_contour_filled(
 \strong{Aesthetics} specially in the use of \code{fill} aesthetic.}
 
 \item{data}{A \code{SpatRaster} object.}
-
-\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas
-outside the input extent.
-For example, to avoid data wrapping around the date-line in Equal Area
-projections. This parameter is passed to
-\code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
 arguments broadly fall into one of 4 categories below. Notably, further
@@ -117,10 +112,18 @@ ten with \code{\link[=pretty]{pretty()}} breaks.}
 \code{NA}, the default, includes if any aesthetics are mapped.
 \code{FALSE} never includes, and \code{TRUE} always includes.
 It can also be a named logical vector to finely select the aesthetics to
-display.}
+display. To include legend keys for all levels, even
+when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
+but unobserved levels are omitted.}
 
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
 than combining with them.}
+
+\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+\code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{size.unit}{How the \code{size} aesthetic is interpreted: as millimetres
 (\code{"mm"}, default), points (\code{"pt"}), centimetres (\code{"cm"}), inches (\code{"in"}),

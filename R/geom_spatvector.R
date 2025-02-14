@@ -100,7 +100,7 @@ geom_spatvector_label <- function(mapping = aes(),
                                   ...,
                                   nudge_x = 0,
                                   nudge_y = 0,
-                                  label.size = 0.25,
+                                  linewidth = 0.25,
                                   inherit.aes = TRUE) {
   ggplot2::geom_sf_label(
     mapping = mapping,
@@ -108,7 +108,7 @@ geom_spatvector_label <- function(mapping = aes(),
     ...,
     nudge_x = nudge_x,
     nudge_y = nudge_y,
-    label.size = label.size,
+    linewidth = linewidth,
     na.rm = na.rm,
     show.legend = show.legend,
     inherit.aes = inherit.aes

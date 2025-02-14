@@ -141,6 +141,20 @@ test_that("geom_spatraster_rgb with CRS", {
     geom_spatraster_rgb(data = r, max_col_value = 200)
 
   vdiffr::expect_doppelganger("crs_09: Check maxcol", p_maxcol)
+
+  # Check wrap
+  r2 <- terra::project(r, "EPSG:4326")
+  terra::ext(r2) <- c(-180, 180, -90, 90)
+
+  p <- ggplot() +
+    geom_spatraster_rgb(data = r2) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger("crs_10: No wrap", p)
+
+  p <- ggplot() +
+    geom_spatraster_rgb(data = r2, mask_projection = TRUE) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger("crs_11: Wrap", p)
 })
 
 

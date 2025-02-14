@@ -172,6 +172,30 @@ test_that("geom_spatraster one layer with CRS", {
     "crs_15: stat works",
     st1
   )
+
+  # Check wrap
+
+  asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+  asia <- project(asia, "EPSG:4326")
+  ext(asia) <- c(-180, 180, -90, 90)
+
+  # With false
+  p <- ggplot() +
+    geom_spatraster(data = asia, mask_projection = FALSE) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "crs_16: Wrap",
+    p
+  )
+
+  # With true
+  p <- ggplot() +
+    geom_spatraster(data = asia, mask_projection = TRUE) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "crs_17: No Wrap",
+    p
+  )
 })
 
 

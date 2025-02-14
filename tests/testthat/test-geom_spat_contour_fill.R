@@ -160,6 +160,48 @@ test_that("Test plot", {
     bin_breaks +
       coord_sf(crs = 3857)
   )
+
+  # Check wrap
+
+  asia <- terra::rast(system.file("extdata/asia.tif", package = "tidyterra"))
+  asia <- terra::project(asia, "EPSG:4326")
+  terra::ext(asia) <- c(-180, 180, -90, 90)
+
+  # With false
+  p <- ggplot() +
+    geom_spatraster_contour_filled(
+      data = asia,
+      mask_projection = FALSE
+    ) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "13-Wrap",
+    p
+  )
+
+  # With true
+  p <- ggplot() +
+    geom_spatraster_contour_filled(data = asia, mask_projection = TRUE) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "14: No Wrap",
+    p
+  )
+
+  # Facet
+  a2 <- asia / 2
+  names(a2) <- "other"
+  end <- c(asia, a2)
+
+  p <- ggplot() +
+    geom_spatraster_contour_filled(data = end, mask_projection = TRUE) +
+    facet_wrap(~lyr) +
+    coord_sf(crs = "+proj=eqearth")
+
+  vdiffr::expect_doppelganger(
+    "15-No Wrap facet",
+    p
+  )
 })
 
 

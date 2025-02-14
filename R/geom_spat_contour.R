@@ -138,7 +138,6 @@
 #' }
 #'
 geom_spatraster_contour <- function(mapping = NULL, data,
-                                    mask_projection = FALSE,
                                     ...,
                                     maxcell = 500000,
                                     bins = NULL,
@@ -146,7 +145,8 @@ geom_spatraster_contour <- function(mapping = NULL, data,
                                     breaks = NULL,
                                     na.rm = TRUE,
                                     show.legend = NA,
-                                    inherit.aes = TRUE) {
+                                    inherit.aes = TRUE,
+                                    mask_projection = FALSE) {
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {

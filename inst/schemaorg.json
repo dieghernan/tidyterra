@@ -5,12 +5,19 @@
     "id": "https://orcid.org/0000-0001-8457-4658"
   },
   "codeRepository": "https://github.com/dieghernan/tidyterra",
-  "contributor": {
-    "id": "https://orcid.org/0000-0002-9415-4582",
-    "type": "Person",
-    "familyName": "Dunnington",
-    "givenName": "Dewey"
-  },
+  "contributor": [
+    {
+      "id": "https://orcid.org/0000-0002-9415-4582",
+      "type": "Person",
+      "familyName": "Dunnington",
+      "givenName": "Dewey"
+    },
+    {
+      "type": "Person",
+      "familyName": "Manica",
+      "givenName": "Andrea"
+    }
+  ],
   "copyrightHolder": [
     {
       "id": "https://orcid.org/0000-0001-8457-4658",
@@ -39,5 +46,5 @@
     "url": "https://cran.r-project.org"
   },
   "runtimePlatform": "R version 4.4.2 (2024-10-31 ucrt)",
-  "version": "0.7.0"
+  "version": "0.7.0.9000"
 }

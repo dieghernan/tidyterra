@@ -270,6 +270,38 @@ test_that("geom_spatraster several layer with CRS", {
     fcts
   )
   set.seed(NULL)
+
+  # Check wrap
+
+  asia <- terra::rast(system.file("extdata/asia.tif", package = "tidyterra"))
+  asia <- terra::project(asia, "EPSG:4326")
+  terra::ext(asia) <- c(-180, 180, -90, 90)
+  a2 <- asia / 2
+  names(a2) <- "other"
+  end <- c(asia, a2)
+
+  # With false
+  p <- ggplot() +
+    geom_spatraster(
+      data = end,
+      mask_projection = FALSE
+    ) +
+    facet_wrap(~lyr) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "crs_17: Wrap",
+    p
+  )
+
+  # With true
+  p <- ggplot() +
+    geom_spatraster(data = end, mask_projection = TRUE) +
+    facet_wrap(~lyr) +
+    coord_sf(crs = "+proj=eqearth")
+  vdiffr::expect_doppelganger(
+    "crs_18: No Wrap",
+    p
+  )
 })
 
 

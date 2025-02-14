@@ -24,7 +24,7 @@ geom_spatvector_label(
   ...,
   nudge_x = 0,
   nudge_y = 0,
-  label.size = 0.25,
+  linewidth = 0.25,
   inherit.aes = TRUE
 )
 
@@ -72,12 +72,6 @@ override the default legend.}
 \item{...}{Other arguments passed on to \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like \code{colour = "red"} or \code{linewidth = 3}.}
-
-\item{nudge_x, nudge_y}{Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointly specified with \code{position}.}
-
-\item{label.size}{Size of label border, in mm.}
 
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions

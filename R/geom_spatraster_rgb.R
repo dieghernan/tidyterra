@@ -82,10 +82,10 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 alpha = 1,
                                 maxcell = 500000,
                                 max_col_value = 255,
-                                mask_projection = FALSE,
                                 ...,
                                 stretch = NULL,
-                                zlim = NULL) {
+                                zlim = NULL,
+                                mask_projection = FALSE) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_rgb} only works with",

@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/tidyterra",
   "issueTracker": "https://github.com/dieghernan/tidyterra/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.7.0",
+  "version": "0.7.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -36,6 +36,11 @@
       "givenName": "Dewey",
       "familyName": "Dunnington",
       "@id": "https://orcid.org/0000-0002-9415-4582"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Andrea",
+      "familyName": "Manica"
     }
   ],
   "copyrightHolder": [
@@ -332,7 +337,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2428.867KB",
+  "fileSize": "2426.226KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
