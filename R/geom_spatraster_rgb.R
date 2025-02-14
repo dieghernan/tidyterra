@@ -28,7 +28,6 @@
 #' @param max_col_value Number giving the maximum of the color values range.
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
-#'
 #' @seealso
 #' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
 #'
@@ -83,6 +82,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
                                 alpha = 1,
                                 maxcell = 500000,
                                 max_col_value = 255,
+                                mask_projection = FALSE,
                                 ...,
                                 stretch = NULL,
                                 zlim = NULL) {
@@ -157,6 +157,7 @@ geom_spatraster_rgb <- function(mapping = aes(),
       interpolate = interpolate,
       max_col_value = max_col_value,
       alpha = alpha,
+      mask_projection = mask_projection,
       ...
     )
   )
@@ -189,7 +190,7 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
   "StatTerraSpatRasterRGB",
   ggplot2::Stat,
   required_aes = "spatraster",
-  extra_params = c("maxcell", "max_col_value", "na.rm"),
+  extra_params = c("maxcell", "max_col_value", "na.rm", "mask_projection"),
   compute_layer = function(self, data, params, layout) {
     # add coord to the params, so it can be forwarded to compute_group()
     params$coord_crs <- pull_crs(layout$coord_params$crs)
@@ -201,12 +202,13 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
   },
   compute_group = function(data, scales, coord, params,
                            coord_crs = NA,
-                           max_col_value = 255) {
+                           max_col_value = 255,
+                           mask_projection = FALSE) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
     # Reproject if needed
-    rast <- reproject_raster_on_stat(rast, coord_crs)
+    rast <- reproject_raster_on_stat(rast, coord_crs, mask = mask_projection)
 
     # To data and prepare
     data_end <- make_hexcol(rast, max_col_value)

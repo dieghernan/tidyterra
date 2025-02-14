@@ -18,6 +18,7 @@ geom_spatraster_rgb(
   alpha = 1,
   maxcell = 5e+05,
   max_col_value = 255,
+  mask_projection = FALSE,
   ...,
   stretch = NULL,
   zlim = NULL
@@ -43,6 +44,12 @@ the plot.}
 \item{max_col_value}{Number giving the maximum of the color values range.
 When this is \code{255} (the default), the result is computed most efficiently.
 See \code{\link[grDevices:rgb]{grDevices::rgb()}}.}
+
+\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
+\code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
 arguments broadly fall into one of 4 categories below. Notably, further

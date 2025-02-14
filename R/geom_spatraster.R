@@ -31,6 +31,12 @@
 #'   an associated [coltab][terra::coltab()]. Should the coltab be used on the
 #'   plot? See also [scale_fill_coltab()].
 #'
+#' @param mask_projection logical, defaults to FALSE. If TRUE, mask out areas
+#' outside the input extent.
+#' For example, to avoid data wrapping around the date-line in Equal Area
+#' projections. This parameter is passed to
+#' [terra::project()] when reprojecting the `SpatRaster`.
+#'
 #' @inheritParams ggplot2::geom_raster
 #'
 #' @source
@@ -142,6 +148,7 @@ geom_spatraster <- function(mapping = aes(),
                             interpolate = FALSE,
                             maxcell = 500000,
                             use_coltab = TRUE,
+                            mask_projection = FALSE,
                             ...) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
@@ -219,6 +226,7 @@ geom_spatraster <- function(mapping = aes(),
       # Extra params
       maxcell = maxcell,
       interpolate = interpolate,
+      mask_projection = mask_projection,
       ...
     )
   )
@@ -263,7 +271,7 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     lyr = lyr, group = lyr,
     spatraster = after_stat(spatraster)
   ),
-  extra_params = c("maxcell", "na.rm", "coord_crs"),
+  extra_params = c("maxcell", "na.rm", "coord_crs", "mask_projection"),
   compute_layer = function(self, data, params, layout) {
     # warn if not using facets
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
@@ -293,12 +301,12 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     )
   },
   compute_group = function(data, scales, coord, params,
-                           coord_crs = NA) {
+                           coord_crs = NA, mask_projection = FALSE) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
     # Reproject if needed
-    rast <- reproject_raster_on_stat(rast, coord_crs)
+    rast <- reproject_raster_on_stat(rast, coord_crs, mask = mask_projection)
 
     # To data and prepare
     data_end <- pivot_longer_spat(rast)
@@ -325,7 +333,8 @@ remove_columns <- function(x, rem) {
 
 # Reproject a SpatRaster with params
 reproject_raster_on_stat <- function(raster,
-                                     coords_crs = NA) {
+                                     coords_crs = NA,
+                                     mask = FALSE) {
   # Check if need to reproject
   crs_terra <- pull_crs(raster)
 
@@ -355,7 +364,8 @@ reproject_raster_on_stat <- function(raster,
   # Create template for projection
   template <- terra::project(
     terra::rast(init_rast),
-    coord_crs
+    coord_crs,
+    mask = mask
   )
 
   # Try to keep the same number of cells on the template
@@ -366,7 +376,7 @@ reproject_raster_on_stat <- function(raster,
 
 
   # Reproject
-  proj_rast <- terra::project(init_rast, template)
+  proj_rast <- terra::project(init_rast, template, mask = mask)
 
   return(proj_rast)
 }
