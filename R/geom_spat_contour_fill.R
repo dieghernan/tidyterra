@@ -3,6 +3,7 @@
 #' @order 3
 #'
 geom_spatraster_contour_filled <- function(mapping = NULL, data,
+                                           mask_projection = FALSE,
                                            ...,
                                            maxcell = 500000,
                                            bins = NULL,
@@ -106,6 +107,7 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
       breaks = breaks,
       # Extra params
       maxcell = maxcell,
+      mask_projection = mask_projection,
       ...
     )
   )
@@ -195,12 +197,12 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
   },
   compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL,
                            breaks = NULL, na.rm = FALSE, coord,
-                           coord_crs = NA) {
+                           coord_crs = NA, mask_projection = FALSE) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
     # Reproject if needed
-    rast <- reproject_raster_on_stat(rast, coord_crs)
+    rast <- reproject_raster_on_stat(rast, coord_crs, mask = mask_projection)
     # To data and prepare
     prepare_iso <- pivot_longer_spat(rast)
     # Keep initial data

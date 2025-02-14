@@ -61,8 +61,10 @@ the plot.}
 an associated \link[terra:colors]{coltab}. Should the coltab be used on the
 plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
-\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas outside the input extent.
-For example, to avoid data wrapping around the date-line. This is passed to
+\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas
+outside the input extent.
+For example, to avoid data wrapping around the date-line in Equal Area
+projections. This parameter is passed to
 \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
