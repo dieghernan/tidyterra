@@ -334,6 +334,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 
 
+
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
@@ -350,6 +351,12 @@ All contributions to this project are gratefully acknowledged using the [`allcon
 <img src="https://avatars.githubusercontent.com/u/25656809?v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/commits?author=dieghernan">dieghernan</a>
+</td>
+<td align="center">
+<a href="https://github.com/dramanica">
+<img src="https://avatars.githubusercontent.com/u/3873428?v=4" width="100px;" class="allctb-avatar" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=dramanica">dramanica</a>
 </td>
 <td align="center">
 <a href="https://github.com/Fan-iX">
@@ -606,6 +613,7 @@ All contributions to this project are gratefully acknowledged using the [`allcon
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 
 

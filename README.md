@@ -380,6 +380,12 @@ specification. Contributions of any kind are welcome!
 <a href="https://github.com/dieghernan/tidyterra/commits?author=dieghernan">dieghernan</a>
 </td>
 <td align="center">
+<a href="https://github.com/dramanica">
+<img src="https://avatars.githubusercontent.com/u/3873428?v=4" width="100px;" class="allctb-avatar" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/commits?author=dramanica">dramanica</a>
+</td>
+<td align="center">
 <a href="https://github.com/Fan-iX">
 <img src="https://avatars.githubusercontent.com/u/61686936?v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
