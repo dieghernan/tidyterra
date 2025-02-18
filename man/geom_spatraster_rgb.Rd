@@ -77,11 +77,10 @@ lists which parameters it can accept.
 
 \item{zlim}{numeric vector of length 2. Range of values to plot (optional). If this is set, and \code{stretch="lin"} is used, then the values are stretched within the range of \code{zlim}. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast}
 
-\item{mask_projection}{logical, defaults to FALSE. If TRUE, mask out areas
-outside the input extent.
-For example, to avoid data wrapping around the date-line in Equal Area
-projections. This parameter is passed to
-\code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
+\item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
+areas outside the input extent. For example, to avoid data wrapping
+around the date-line in Equal Area projections. This parameter is passed
+to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 }
 \value{
 A \CRANpkg{ggplot2} layer
