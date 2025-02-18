@@ -62,7 +62,7 @@ can be modified."><meta property="og:image" content="https://dieghernan.github.i
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Visualise <code>SpatRaster</code> objects</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/geom_spatraster.R" class="external-link"><code>R/geom_spatraster.R</code></a>, <a href="https://github.com/dieghernan/tidyterra/blob/main/R/stat_spatraster.R" class="external-link"><code>R/stat_spatraster.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/rgbmaxmin/R/geom_spatraster.R" class="external-link"><code>R/geom_spatraster.R</code></a>, <a href="https://github.com/dieghernan/tidyterra/blob/rgbmaxmin/R/stat_spatraster.R" class="external-link"><code>R/stat_spatraster.R</code></a></small>
       <div class="d-none name"><code>geom_spatraster.Rd</code></div>
     </div>
 
@@ -157,11 +157,10 @@ plot? See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.
 
 
 <dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
-<dd><p>logical, defaults to FALSE. If TRUE, mask out areas
-outside the input extent.
-For example, to avoid data wrapping around the date-line in Equal Area
-projections. This parameter is passed to
-<code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
+<dd><p>logical, defaults to <code>FALSE</code>. If <code>TRUE</code>, mask out
+areas outside the input extent. For example, to avoid data wrapping
+around the date-line in Equal Area projections. This parameter is passed
+to <code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
