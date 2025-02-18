@@ -31,11 +31,10 @@
 #'   an associated [coltab][terra::coltab()]. Should the coltab be used on the
 #'   plot? See also [scale_fill_coltab()].
 #'
-#' @param mask_projection logical, defaults to FALSE. If TRUE, mask out areas
-#' outside the input extent.
-#' For example, to avoid data wrapping around the date-line in Equal Area
-#' projections. This parameter is passed to
-#' [terra::project()] when reprojecting the `SpatRaster`.
+#' @param mask_projection logical, defaults to `FALSE`. If `TRUE`, mask out
+#'   areas outside the input extent. For example, to avoid data wrapping
+#'   around the date-line in Equal Area projections. This parameter is passed
+#'   to [terra::project()] when reprojecting the `SpatRaster`.
 #'
 #' @inheritParams ggplot2::geom_raster
 #'
