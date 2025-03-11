@@ -492,7 +492,7 @@ specification. Contributions of any kind are welcome!
 </td>
 <td align="center">
 <a href="https://github.com/Yingjie4Science">
-<img src="https://avatars.githubusercontent.com/u/40079217?v=4" width="100px;" class="allctb-avatar" alt=""/>
+<img src="https://avatars.githubusercontent.com/u/40079217?u=eda9b7c0b6c80fa516200100e096070be70c15cd&v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3AYingjie4Science">Yingjie4Science</a>
 </td>
@@ -577,6 +577,12 @@ specification. Contributions of any kind are welcome!
 <img src="https://avatars.githubusercontent.com/u/173059909?v=4" width="100px;" class="allctb-avatar" alt=""/>
 </a><br>
 <a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3ABreeze-Hu">Breeze-Hu</a>
+</td>
+<td align="center">
+<a href="https://github.com/beausoleilmo">
+<img src="https://avatars.githubusercontent.com/u/15717151?u=70313b000154e39e8bafde752843e39ca7d33508&v=4" width="100px;" class="allctb-avatar" alt=""/>
+</a><br>
+<a href="https://github.com/dieghernan/tidyterra/issues?q=is%3Aissue+author%3Abeausoleilmo">beausoleilmo</a>
 </td>
 </tr>
 </table>
