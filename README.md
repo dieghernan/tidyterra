@@ -147,7 +147,8 @@ install.packages("tidyterra")
 You can install the development version of **tidyterra** like so:
 
 ``` r
-remotes::install_github("dieghernan/tidyterra")
+# install.packages("pak")
+pak::pak("dieghernan/tidyterra")
 ```
 
 Alternatively, you can install **tidyterra** using the
