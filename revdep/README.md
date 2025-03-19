@@ -2,15 +2,15 @@
 
 |field    |value                                                  |
 |:--------|:------------------------------------------------------|
-|version  |R version 4.4.2 (2024-10-31)                           |
-|os       |Ubuntu 24.04.1 LTS                                     |
+|version  |R version 4.4.3 (2025-02-28)                           |
+|os       |Ubuntu 24.04.2 LTS                                     |
 |system   |x86_64, linux-gnu                                      |
 |ui       |X11                                                    |
 |language |(EN)                                                   |
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2025-02-18                                             |
+|date     |2025-03-19                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 |quarto   |NA                                                     |
 
@@ -22,8 +22,8 @@
 |classInt     |0.4-11 |0.4-11     |   |
 |cli          |3.6.4  |3.6.4      |   |
 |colorspace   |2.1-1  |2.1-1      |   |
-|cpp11        |0.5.1  |0.5.1      |   |
-|data.table   |1.16.4 |1.16.4     |   |
+|cpp11        |0.5.2  |0.5.2      |   |
+|data.table   |1.17.0 |1.17.0     |   |
 |DBI          |1.2.3  |1.2.3      |   |
 |dplyr        |1.1.4  |1.1.4      |   |
 |e1071        |1.7-16 |1.7-16     |   |
@@ -51,11 +51,11 @@
 |sf           |1.0-19 |1.0-19     |   |
 |stringi      |1.8.4  |1.8.4      |   |
 |stringr      |1.5.1  |1.5.1      |   |
-|terra        |1.8-21 |1.8-21     |   |
+|terra        |1.8-29 |1.8-29     |   |
 |tibble       |3.2.1  |3.2.1      |   |
 |tidyr        |1.3.1  |1.3.1      |   |
 |tidyselect   |1.2.1  |1.2.1      |   |
-|units        |0.8-5  |0.8-5      |   |
+|units        |0.8-7  |0.8-7      |   |
 |utf8         |1.2.4  |1.2.4      |   |
 |vctrs        |0.6.5  |0.6.5      |   |
 |viridisLite  |0.4.2  |0.4.2      |   |
