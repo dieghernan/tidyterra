@@ -1,0 +1,417 @@
+/*!
+    * Copyright 2022 gitdevr Skin Author
+	* Licensed under MIT
+	* Beautify: https://www.freeformatter.com/css-beautifier.html
+	* Minify: https://www.freeformatter.com/css-minifier.html
+*/
+/* ---Images and captions figure spacing--- */
+main img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.caption,
+.figure {
+	color: #6A788A;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0.5rem;
+	font-size: 85%;
+	width: 100%;
+}
+
+/* ---Navbar tweaks--- */
+.navbar {
+	font-family: 'Inter Tight', Roboto;
+}
+
+.navbar-brand {
+	font-weight: 800;
+	color: #fff;
+}
+
+.navbar .text-muted {
+	color: #c6ced8 !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+	color: #fff;
+}
+
+#navbar {
+	font-weight: 800;
+}
+
+#navbar .dropdown-menu {
+	background-color: #212529 !important;
+}
+
+#navbar .dropdown-menu .dropdown-item {
+	color: #fff !important;
+	font-weight: 800;
+}
+
+#navbar .nav-link:hover,
+#navbar .nav-link:focus {
+	color: #6A788A !important;
+}
+
+#navbar .dropdown-menu .dropdown-item:hover,
+#navbar .dropdown-menu .dropdown-item:focus {
+	color: #6A788A !important;
+	background-color: #f8f9fa;
+}
+
+.navbar-toggler {
+	border: none
+}
+
+.algolia-autocomplete .aa-dropdown-menu {
+	color: #22272e;
+}
+
+/* ---Footer--- */
+footer {
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	background-color: #212529 !important;
+	color: #8b949e;
+	margin-bottom: 0;
+	font-family: 'Inter Tight', Roboto;
+	font-weight: 700;
+}
+
+footer a {
+	color: #58a6ff;
+	text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+	color: #8b949e;
+}
+
+footer .pkgdown-footer-right {
+	margin-right: auto;
+	padding-right: 1.25rem;
+}
+
+footer .pkgdown-footer-left {
+	margin-left: auto;
+	padding-left: 1.25rem;
+}
+
+@media screen and (max-width: 576px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		margin-right: .75rem;
+		margin-left: .75rem;
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}
+
+@media (max-width:768px) and (min-width:576px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		max-width: 270px;
+	}
+}
+
+@media (max-width: 992px) and (min-width:768px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		max-width: 360px;
+	}
+}
+
+@media (max-width: 1200px) and (min-width:992px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		max-width: 480px;
+	}
+}
+
+@media (max-width: 1400px) and (min-width:1200px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		max-width: 570px;
+	}
+}
+
+@media (min-width:1400px) {
+
+	footer .pkgdown-footer-right,
+	footer .pkgdown-footer-left {
+		max-width: 660px;
+	}
+}
+
+/* ---Misc--- */
+img.logo {
+	display: none;
+}
+
+.template-home img.logo {
+	display: inline;
+}
+
+blockquote {
+	border-left: solid #0969da !important;
+	font-size: 115%;
+}
+
+.pkg {
+	font-weight: bold;
+}
+
+code a:any-link {
+	text-decoration: underline;
+	text-decoration-color: #6c757d;
+}
+
+a>code {
+	text-decoration: underline;
+	color: #e83e8c;
+}
+
+/* ---allcontributors package--- */
+
+.allctb-avatar {
+	border: 1px solid;
+	border-radius: 50%;
+	border-color: var(--bs-primary) !important;
+	max-width: 100px;
+}
+
+table.allctb-table td {
+	border-color: transparent;
+}
+
+/* --- Code --- */
+code {
+	font-size: 87.5%;
+	color: #e83e8c;
+	word-wrap: break-word;
+}
+
+/* --- Inherited args --- */
+
+.template-reference-topic dt code {
+	font-weight: 700;
+	font-family: var(--bs-body-font-family);
+	font-size: var(--bs-body-font-size);
+	color: var(--bs-body-color);
+	text-align: var(--bs-body-text-align);
+	background-color: var(--bs-body-bg);
+	padding: 0;
+	border-radius: 0;
+}
+
+/* --- Highlighter based in perldoc --- */
+pre {
+	background-color: #f4f4f5
+}
+
+pre code
+
+/* Normal - pygments.n */
+	{
+	color: #212529
+}
+
+pre code span.al
+
+/* Alert - pygments.gr */
+	{
+	color: #aa0000
+}
+
+pre code span.an
+
+/* Annotation - pygments.c1 */
+	{
+	color: #228B22
+}
+
+pre code span.at
+
+/* Attribute */
+	{}
+
+pre code span.bn
+
+/* BaseN */
+	{}
+
+pre code span.bu
+
+/* BuiltIn */
+	{}
+
+pre code span.cf
+
+/* ControlFlow */
+	{}
+
+pre code span.ch
+
+/* Char - pygments.s2 */
+	{
+	color: #CD5555
+}
+
+pre code span.cn
+
+/* Constant - pygments.nb */
+	{
+	color: #658b00
+}
+
+pre code span.co
+
+/* Comment - pygments.c1 */
+	{
+	color: #228B22
+}
+
+pre code span.cv
+
+/* CommentVar - pygments.c1 */
+	{
+	color: #228B22
+}
+
+pre code span.do
+
+/* Documentation - pygments.c1 */
+	{
+	color: #228B22
+}
+
+pre code span.dt
+
+/* DataType */
+	{}
+
+pre code span.dv
+
+/* DecVal - pygments.m */
+	{
+	color: #B452CD
+}
+
+pre code span.er
+
+/* Error - pygments.gr */
+	{
+	color: #aa0000
+}
+
+pre code span.ex
+
+/* Extension */
+	{}
+
+pre code span.fl
+
+/* Float - pygments.m */
+	{
+	color: #B452CD
+}
+
+pre code span.fu
+
+/* Function - pygments.n */
+	{
+	color: #212529
+}
+
+pre code span.im
+
+/* Import */
+	{}
+
+pre code span.in
+
+/* Information - pygments.gp */
+	{
+	color: #555555
+}
+
+pre code span.kw
+
+/* Keyword - pygments.k */
+	{
+	color: #8B008B;
+	font-weight: bold
+}
+
+pre code span.op
+
+/* Operator - pygments.o */
+	{}
+
+pre code span.ot
+
+/* Other - pygments.sx */
+	{
+	color: #cb6c20
+}
+
+pre code span.pp
+
+/* Preprocessor */
+	{}
+
+pre code span.sc
+
+/* SpecialChar - pygments.s2 */
+	{
+	color: #CD5555
+}
+
+pre code span.ss
+
+/* SpecialString - pygments.s2 */
+	{
+	color: #CD5555
+}
+
+pre code span.st
+
+/* String - pygments.s2 */
+	{
+	color: #CD5555
+}
+
+pre code span.va
+
+/* Variable - pygments.n */
+	{
+	color: #212529
+}
+
+pre code span.vs
+
+/* VerbatimString - pygments.s2 */
+	{
+	color: #CD5555
+}
+
+pre code span.wa
+
+/* Warning - pygments.gr */
+	{
+	color: #aa0000
+}
