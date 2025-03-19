@@ -31,12 +31,4 @@ A BibTeX entry for LaTeX users is:
 
 <p><span class="__dimensions_badge_embed__" data-doi="10.21105/joss.05751" data-legend="always" data-style="small_circle"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
-**tidyterra** package has been used in the following publications[^1].
-
-[^1]: Sadly not all the publications has used the **tidyterra**
-    [doi:10.21105/joss.05751](https://doi.org/10.21105/joss.05751) so the number
-    of citations of **tidyterra** in several databases is much lower. This list
-    of publications include pieces of work produced with **tidyterra** even if
-    the package has not been correctly referenced.
-
 ## Publications

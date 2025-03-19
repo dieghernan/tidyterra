@@ -67,7 +67,7 @@ since.
 
 ## Statement of need
 
-The [**tidyverse**](https://www.tidyverse.org/){.uri} is a compilation of **R**
+The [**tidyverse**](https://www.tidyverse.org/) is a compilation of **R**
 packages that share an underlying design philosophy, grammar, and data
 structures. The packages within the tidyverse are widely used by **R** users for
 tidying, transforming, and visualizing data.
