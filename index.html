@@ -124,9 +124,9 @@
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
 <table class="table">
 <colgroup>
-<col width="23%">
-<col width="25%">
-<col width="51%">
+<col width="33%">
+<col width="33%">
+<col width="33%">
 </colgroup>
 <thead><tr class="header">
 <th>tidyverse method</th>
@@ -372,12 +372,12 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">25830</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    fill <span class="op">=</span> <span class="st">"variation"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castille and Leon (Spain)"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Average temperatures in June vs. May"</span></span>
+<span>    fill <span class="op">=</span> <span class="st">"Variation"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Variation of Temperature in Castile and León (Spain)"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Average Temperatures: June vs. May"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" width="100%"></p>
-<p><strong>tidyterra</strong> also provide a geom for plotting RGB <code>SpatRaster</code> tiles with <strong>ggplot2</strong></p>
+<p><strong>tidyterra</strong> also provides a geom for plotting RGB <code>SpatRaster</code> tiles with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rgb_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -390,9 +390,9 @@
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="co"># Recognizes coord_sf()</span></span>
+<span><span class="co"># Automatically recognizes and applies coord_sf() for spatial data.</span></span>
 <span><span class="va">plot</span> <span class="op">+</span></span>
-<span>  <span class="co"># Change crs and datum (for relabeling graticules)</span></span>
+<span>  <span class="co"># Change the CRS and datum (useful for relabeling graticules).</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span>, datum <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%"></p>
 <p><strong>tidyterra</strong> provides specific scales for plotting hypsometric maps with <strong>ggplot2</strong>:</p>
