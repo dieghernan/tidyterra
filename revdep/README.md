@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2025-03-19                                             |
+|date     |2025-03-30                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 |quarto   |NA                                                     |
 
@@ -48,8 +48,8 @@
 |rlang        |1.1.5  |1.1.5      |   |
 |s2           |1.1.7  |1.1.7      |   |
 |scales       |1.3.0  |1.3.0      |   |
-|sf           |1.0-19 |1.0-19     |   |
-|stringi      |1.8.4  |1.8.4      |   |
+|sf           |1.0-20 |1.0-20     |   |
+|stringi      |1.8.7  |1.8.7      |   |
 |stringr      |1.5.1  |1.5.1      |   |
 |terra        |1.8-29 |1.8-29     |   |
 |tibble       |3.2.1  |3.2.1      |   |
