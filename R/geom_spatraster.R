@@ -362,8 +362,8 @@ reproject_raster_on_stat <- function(raster,
 
   # Create template for projection
   template <- terra::project(
-    terra::rast(init_rast),
-    coord_crs,
+    x = init_rast,
+    y = coord_crs,
     mask = mask
   )
 
