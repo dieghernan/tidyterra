@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2025-03-30                                             |
+|date     |2025-04-06                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 |quarto   |NA                                                     |
 
@@ -38,7 +38,7 @@
 |lifecycle    |1.0.4  |1.0.4      |   |
 |magrittr     |2.0.3  |2.0.3      |   |
 |munsell      |0.5.1  |0.5.1      |   |
-|pillar       |1.10.1 |1.10.1     |   |
+|pillar       |1.10.2 |1.10.2     |   |
 |pkgconfig    |2.0.3  |2.0.3      |   |
 |proxy        |0.4-27 |0.4-27     |   |
 |purrr        |1.0.4  |1.0.4      |   |
@@ -51,7 +51,7 @@
 |sf           |1.0-20 |1.0-20     |   |
 |stringi      |1.8.7  |1.8.7      |   |
 |stringr      |1.5.1  |1.5.1      |   |
-|terra        |1.8-29 |1.8-29     |   |
+|terra        |1.8-42 |1.8-42     |   |
 |tibble       |3.2.1  |3.2.1      |   |
 |tidyr        |1.3.1  |1.3.1      |   |
 |tidyselect   |1.2.1  |1.2.1      |   |
