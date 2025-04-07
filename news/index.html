@@ -48,11 +48,11 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/v0.7.1/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2><p class="text-muted">CRAN release: 2025-04-07</p>
 <ul><li>New parameters in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code> avoid <code>SpatRaster</code> to wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
 <li>Fix an old bug exposed after <strong>terra 1.8-42</strong>: Plots crash when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> (or with implicit change of CRS due to other <code>sf/Spat*</code> objects).</li>
 </ul></div>
