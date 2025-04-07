@@ -1,8 +1,8 @@
-# tidyterra (development version)
+# tidyterra 0.7.1
 
 -   New parameters in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`
-    avoid `SpatRaster`to wrapping around on some projections (see #115 and #169,
-    by \@dramanica).
+    avoid `SpatRaster` to wrapping around on some projections (see #115 and
+    #169, by \@dramanica).
 -   Fix an old bug exposed after **terra 1.8-42**: Plots crash when using
     `ggplot2::facet_wrap()` in combination with `coord_sf()` (or with implicit
     change of CRS due to other `sf/Spat*` objects).
