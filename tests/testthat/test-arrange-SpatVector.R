@@ -1,4 +1,5 @@
 test_that("Arrange with SpatVector", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -14,6 +15,7 @@ test_that("Arrange with SpatVector", {
 })
 
 test_that("Arrange with 2 vars SpatVector", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v$area_end <- terra::expanse(v)
@@ -33,6 +35,7 @@ test_that("Arrange with 2 vars SpatVector", {
 # From dplyr
 
 test_that("grouped arrange ignores group, unless requested with .by_group", {
+  skip_on_cran()
   df <- data.frame(g = c(2, 1, 2, 1), x = 4:1)
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
   gf <- group_by(df, g)
@@ -48,6 +51,7 @@ test_that("grouped arrange ignores group, unless requested with .by_group", {
 })
 
 test_that("arrange updates the grouping structure", {
+  skip_on_cran()
   df <- data.frame(g = c(2, 2, 1, 1), x = c(1, 3, 2, 4))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 

@@ -1,6 +1,6 @@
 Package: tidyterra
 Title: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
-Version: 0.7.1
+Version: 0.7.1.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
@@ -49,7 +49,7 @@ Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,
     ggspatial, cpp11, remotes, gganimate, gifski
 Config/testthat/edition: 3
-Config/testthat/parallel: true
+Config/testthat/parallel: false
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

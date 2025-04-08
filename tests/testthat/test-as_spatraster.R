@@ -1,4 +1,5 @@
 test_that("Error check", {
+  skip_on_cran()
   r <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
   as_tbl <- dplyr::as_tibble(r, xy = TRUE)
@@ -13,6 +14,7 @@ test_that("Error check", {
 
 
 test_that("Regenerate raster properly", {
+  skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
 
@@ -57,6 +59,7 @@ test_that("Regenerate raster properly", {
 
 
 test_that("Irregular grids", {
+  skip_on_cran()
   p <- matrix(1:90, nrow = 30, ncol = 3)
   names(p) <- c("x", "y", "z")
 
@@ -90,6 +93,7 @@ test_that("Irregular grids", {
 })
 
 test_that("Check with chars", {
+  skip_on_cran()
   df <- data.frame(
     x_lan = seq(310, 400, by = 10),
     y_lon = seq(510, 600, by = 10),
@@ -112,6 +116,7 @@ test_that("Check with chars", {
 })
 
 test_that("Check with mixed type of cols", {
+  skip_on_cran()
   df <- data.frame(
     x_lan = seq(310, 400, by = 10),
     y_lon = seq(510, 600, by = 10),
@@ -143,6 +148,7 @@ test_that("Check with mixed type of cols", {
 
 
 test_that("Check internal", {
+  skip_on_cran()
   p <- matrix(1:90, nrow = 30, ncol = 3)
   names(p) <- c("x", "y", "z")
 

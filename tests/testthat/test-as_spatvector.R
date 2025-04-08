@@ -1,4 +1,5 @@
 test_that("Error check", {
+  skip_on_cran()
   as_tbl <- data.frame(
     x = 1:10,
     y = 1:10
@@ -16,6 +17,7 @@ test_that("Error check", {
 
 
 test_that("Handle NAs", {
+  skip_on_cran()
   as_tbl <- data.frame(
     x = 1:10,
     y = 1:10,
@@ -44,6 +46,7 @@ test_that("Handle NAs", {
 
 
 test_that("Regenerate vector properly with WKT", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -87,6 +90,7 @@ test_that("Regenerate vector properly with WKT", {
 })
 
 test_that("Regenerate vector properly with lon,lat", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v <- terra::centroids(v)
@@ -130,6 +134,7 @@ test_that("Regenerate vector properly with lon,lat", {
 })
 
 test_that("Works with grouped_df", {
+  skip_on_cran()
   as_tbl <- data.frame(
     x = as.double(1:10),
     y = as.double(1:10),
@@ -155,6 +160,7 @@ test_that("Works with grouped_df", {
 })
 
 test_that("Works with rowwise_df", {
+  skip_on_cran()
   as_tbl <- data.frame(
     x = as.double(1:10),
     y = as.double(1:10),
@@ -180,6 +186,7 @@ test_that("Works with rowwise_df", {
 })
 
 test_that("Works with unnamed rowwise_df", {
+  skip_on_cran()
   as_tbl <- data.frame(
     x = as.double(1:10),
     y = as.double(1:10),
@@ -204,6 +211,7 @@ test_that("Works with unnamed rowwise_df", {
   expect_identical(gr, tbl_regen)
 })
 test_that("Works with sf", {
+  skip_on_cran()
   skip_on_cran()
 
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -248,6 +256,7 @@ test_that("Works with sf", {
 })
 
 test_that("Check sfc", {
+  skip_on_cran()
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   sfobj <- sf::st_geometry(sfobj)
   expect_s3_class(sfobj, "sfc")
@@ -258,6 +267,7 @@ test_that("Check sfc", {
 })
 
 test_that("Check sf with crs null", {
+  skip_on_cran()
   sfobj <- sf::st_point(c(0, 0))
   sfobj <- sf::st_sfc(sfobj)
 
@@ -269,6 +279,7 @@ test_that("Check sf with crs null", {
 })
 
 test_that("Check sf with empty geoms: POLYGONS", {
+  skip_on_cran()
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   sfobj <- dplyr::bind_rows(sfobj, data.frame(a = 1))
@@ -286,6 +297,7 @@ test_that("Check sf with empty geoms: POLYGONS", {
 })
 
 test_that("Check sf with empty geoms: LINESTRINGS", {
+  skip_on_cran()
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   sfobj <- sf::st_cast(sfobj, "MULTILINESTRING", warn = FALSE)
@@ -304,6 +316,7 @@ test_that("Check sf with empty geoms: LINESTRINGS", {
 })
 
 test_that("Check sf with empty geoms: POINTS", {
+  skip_on_cran()
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   sfobj <- sf::st_cast(sfobj[1:2, ], "MULTIPOINT", warn = FALSE)
@@ -322,6 +335,7 @@ test_that("Check sf with empty geoms: POINTS", {
 })
 
 test_that("Check internal", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -360,6 +374,7 @@ test_that("Check internal", {
 
 
 test_that("Check internal grouped", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -391,6 +406,7 @@ test_that("Check internal grouped", {
 })
 
 test_that("Check internal rowwise", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -423,6 +439,7 @@ test_that("Check internal rowwise", {
 
 
 test_that("Check internal NULL: POLYGONS", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -480,6 +497,7 @@ test_that("Check internal NULL: POLYGONS", {
 
 
 test_that("Check internal NULL: LINES", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -537,6 +555,7 @@ test_that("Check internal NULL: LINES", {
 
 
 test_that("Check internal NULL: POINTS", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -598,6 +617,7 @@ test_that("Check internal NULL: POINTS", {
 
 
 test_that("Keep group with NULL", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- sf::read_sf(f)
   v$gr <- rep_len(c("A", "B", "C", "D"), length.out = nrow(v))
