@@ -1,5 +1,5 @@
 test_that("For SpatVector", {
- skip_on_cran()
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -49,7 +49,7 @@ test_that("For SpatVector", {
 })
 
 test_that("For SpatVector internal", {
- skip_on_cran()
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -89,7 +89,7 @@ test_that("For SpatVector internal", {
 })
 
 test_that("For SpatRaster", {
- skip_on_cran()
+  skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif",
     package = "tidyterra"
   )
@@ -119,7 +119,7 @@ test_that("For SpatRaster", {
 
 
 test_that("For SpatRaster Internal", {
- skip_on_cran()
+  skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif",
     package = "tidyterra"
   )

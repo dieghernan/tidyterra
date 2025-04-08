@@ -1,4 +1,5 @@
 test_that("Summarise gives the same results than default method", {
+  skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nogroup <- summarise(v,
@@ -34,6 +35,7 @@ test_that("Summarise gives the same results than default method", {
 })
 
 test_that("Summarise preserve CRS", {
+  skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nogroup <- summarise(v,
@@ -45,6 +47,7 @@ test_that("Summarise preserve CRS", {
 })
 
 test_that("Summarise handles dissolve", {
+  skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   diss <- summarise(v,
@@ -72,6 +75,7 @@ test_that("Summarise handles dissolve", {
 
 
 test_that("Summarise handles dissolve on groups", {
+  skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   v_g <- group_by(v, SID74, SID79)
@@ -122,6 +126,7 @@ test_that("Summarise handles dissolve on groups", {
 })
 
 test_that("Check aggregation: POINTS", {
+  skip_on_cran()
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- terra::centroids(v)
   v$gr <- rep(c("A", "B", "C"), 3)
@@ -176,6 +181,7 @@ test_that("Check aggregation: POINTS", {
 
 
 test_that("Check aggregation: POLYGONS", {
+  skip_on_cran()
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep(c("A", "B", "C"), 3)
   v$nn <- seq_len(nrow(v))
@@ -240,6 +246,7 @@ test_that("Check aggregation: POLYGONS", {
 
 
 test_that("Check aggregation: LINES", {
+  skip_on_cran()
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep(c("A", "B", "C"), 3)
   v$nn <- seq_len(nrow(v))

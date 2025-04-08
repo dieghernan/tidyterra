@@ -1,5 +1,7 @@
 # Adapted from dplyr
 test_that("empty slice drops all rows", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 1, 2), x = 1:3)
   df <- as_spatvector(df, geom = c("g", "x"), keepgeom = TRUE)
   expect_s4_class(df, "SpatVector")
@@ -14,6 +16,8 @@ test_that("empty slice drops all rows", {
 })
 
 test_that("slicing SpatVector yields SpatVector", {
+  skip_on_cran()
+
   df <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   sliced <- slice(df, 1)
@@ -28,6 +32,8 @@ test_that("slicing SpatVector yields SpatVector", {
 })
 
 test_that("slice keeps positive indices, ignoring out of range", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
 
   df <- as_spatvector(df, geom = c("g", "id"), keepgeom = TRUE)
@@ -42,6 +48,8 @@ test_that("slice keeps positive indices, ignoring out of range", {
 })
 
 test_that("slice drops negative indices, ignoring out of range", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
 
   df <- as_spatvector(df, geom = c("g", "id"), keepgeom = TRUE)
@@ -56,6 +64,8 @@ test_that("slice drops negative indices, ignoring out of range", {
 })
 
 test_that("slice errors if positive and negative indices mixed", {
+  skip_on_cran()
+
   empty <- terra::vect("POINT EMPTY")
   expect_snapshot(error = TRUE, {
     slice(empty, 1, -1)
@@ -63,6 +73,8 @@ test_that("slice errors if positive and negative indices mixed", {
 })
 
 test_that("slice ignores 0 and NA", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
 
   df <- as_spatvector(df, geom = c("g", "id"), keepgeom = TRUE)
@@ -83,6 +95,8 @@ test_that("slice ignores 0 and NA", {
 
 
 test_that("slice errors if index is not numeric", {
+  skip_on_cran()
+
   empty <- terra::vect("POINT EMPTY")
   expect_snapshot(error = TRUE, {
     slice(empty, "a")
@@ -90,6 +104,8 @@ test_that("slice errors if index is not numeric", {
 })
 
 test_that("slice preserves groups if requested", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
 
   df <- as_spatvector(df, geom = c("g", "id"), keepgeom = TRUE)
@@ -100,6 +116,8 @@ test_that("slice preserves groups if requested", {
 })
 
 test_that("slice handles zero-row and zero-column inputs", {
+  skip_on_cran()
+
   df <- terra::vect("POINT EMPTY")
   expect_equal(slice(df, 1) %>% as_tibble(), tibble::tibble())
 
@@ -108,6 +126,8 @@ test_that("slice handles zero-row and zero-column inputs", {
 })
 
 test_that("user errors are correctly labelled", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:3)
   df$a <- df$x
   df$b <- df$a
@@ -119,6 +139,8 @@ test_that("user errors are correctly labelled", {
 })
 
 test_that("`...` can't be named", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = 1, x = 1)
   df <- as_spatvector(df, geom = c("x", "g"), keepgeom = TRUE)
 
@@ -130,6 +152,8 @@ test_that("`...` can't be named", {
 
 
 test_that("can group transiently using `.by`", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(1, 1, 2), x = c(1, 2, 3))
   df <- as_spatvector(df, geom = c("x", "g"), keepgeom = TRUE)
 
@@ -143,6 +167,8 @@ test_that("can group transiently using `.by`", {
 
 
 test_that("transient grouping orders by first appearance", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = c(2, 1, 2, 0), x = c(4, 2, 8, 5))
   df <- as_spatvector(df, geom = c("x", "g"), keepgeom = TRUE)
   out <- slice(df, which(x == max(x)), .by = g)
@@ -155,6 +181,8 @@ test_that("transient grouping orders by first appearance", {
 # Slice variants ----------------------------------------------------------
 
 test_that("slice_helpers() call get_slice_size()", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1)
   df$a <- 1
   df$b <- 2
@@ -172,6 +200,8 @@ test_that("slice_helpers() call get_slice_size()", {
 
 test_that("functions silently truncate results", {
   # only test positive n because get_slice_size() converts all others
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:5)
   df$a <- 1
   df$b <- 2
@@ -185,6 +215,8 @@ test_that("functions silently truncate results", {
 })
 
 test_that("slice helpers with n = 0 return no rows", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:5)
   df$a <- 1
   df$b <- 2
@@ -197,6 +229,8 @@ test_that("slice helpers with n = 0 return no rows", {
 })
 
 test_that("slice_*() doesn't look for `n` in data", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:10, n = 10:1, g = rep(1:2, each = 5))
   df <- as_spatvector(df, geom = c("x", "n"), keepgeom = TRUE)
   expect_error(slice_max(df, order_by = n), NA)
@@ -210,6 +244,8 @@ test_that("slice_*() doesn't look for `n` in data", {
 })
 
 test_that("slice_*() checks that `n=` is explicitly named and ... is empty", {
+  skip_on_cran()
+
   # i.e. that every function calls check_slice_dots()
   df <- data.frame(x = 1:10)
   df$a <- 1
@@ -234,6 +270,8 @@ test_that("slice_*() checks that `n=` is explicitly named and ... is empty", {
 
 
 test_that("slice_helper `by` errors use correct context and correct `by_arg`", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1)
   df$a <- 1
   df$b <- 2
@@ -253,6 +291,8 @@ test_that("slice_helper `by` errors use correct context and correct `by_arg`", {
 # slice_min/slice_max -----------------------------------------------------
 
 test_that("min and max return ties by default", {
+  skip_on_cran()
+
   df <- tibble::tibble(id = 1:5, x = c(1, 1, 1, 2, 2))
   df$a <- 1
   df$b <- 2
@@ -265,6 +305,8 @@ test_that("min and max return ties by default", {
 })
 
 test_that("min and max reorder results", {
+  skip_on_cran()
+
   df <- data.frame(id = 1:4, x = c(2, 3, 1, 2))
   df$a <- 1
   df$b <- 2
@@ -278,6 +320,8 @@ test_that("min and max reorder results", {
 })
 
 test_that("min and max include NAs when appropriate", {
+  skip_on_cran()
+
   df <- tibble::tibble(id = 1:3, x = c(1, NA, NA))
   df$a <- 1
   df$b <- 2
@@ -294,6 +338,7 @@ test_that("min and max include NAs when appropriate", {
 })
 
 test_that("min and max ignore NA's when requested", {
+  skip_on_cran()
   df <- tibble::tibble(id = 1:4, x = c(2, NA, 1, 2))
   df$a <- 1
   df$b <- 2
@@ -313,6 +358,7 @@ test_that("min and max ignore NA's when requested", {
 })
 
 test_that("slice_min/max() count from back with negative n/prop", {
+  skip_on_cran()
   df <- tibble::tibble(id = 1:4, x = c(2, 3, 1, 4))
   df$a <- 1
   df$b <- 2
@@ -339,6 +385,7 @@ test_that("slice_min/max() count from back with negative n/prop", {
 })
 
 test_that("slice_min/max() can order by multiple variables", {
+  skip_on_cran()
   df <- tibble::tibble(id = 1:4, x = 1, y = c(1, 4, 2, 3))
   df$a <- 1
   df$b <- 2
@@ -349,6 +396,7 @@ test_that("slice_min/max() can order by multiple variables", {
 })
 
 test_that("slice_min/max() check size of `order_by=`", {
+  skip_on_cran()
   df <- data.frame(x = 1:10)
   df$a <- 1
   df$b <- 2
@@ -364,6 +412,7 @@ test_that("slice_min/max() check size of `order_by=`", {
 # slice_sample ------------------------------------------------------------
 
 test_that("slice_sample() can increase rows if replace = TRUE", {
+  skip_on_cran()
   df <- tibble::tibble(x = 1:10)
   df$a <- 1
   df$b <- 2
@@ -374,6 +423,7 @@ test_that("slice_sample() can increase rows if replace = TRUE", {
 
 
 test_that("slice_sample() handles positive n= and prop=", {
+  skip_on_cran()
   df <- tibble::tibble(a = 1, b = 1)
   df <- as_spatvector(df, geom = c("a", "b"), keepgeom = TRUE)
   gf <- group_by(df, a)
@@ -388,6 +438,7 @@ test_that("slice_sample() handles positive n= and prop=", {
 })
 
 test_that("slice_sample() handles negative n= and prop= ", {
+  skip_on_cran()
   df <- tibble::tibble(a = 1:2)
   df$ff <- 1
   df$gg <- 2
@@ -402,6 +453,7 @@ test_that("slice_sample() handles negative n= and prop= ", {
 })
 
 test_that("slice_sample() works with `by`", {
+  skip_on_cran()
   df <- tibble::tibble(g = c(2, 2, 2, 1), x = c(1, 2, 3, 1))
   df$ff <- 1
   df$gg <- 2
@@ -412,6 +464,7 @@ test_that("slice_sample() works with `by`", {
 # slice_head/slice_tail ---------------------------------------------------
 
 test_that("slice_head/slice_tail keep positive values", {
+  skip_on_cran()
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
   df$ff <- 1
   df$gg <- 2
@@ -427,6 +480,7 @@ test_that("slice_head/slice_tail keep positive values", {
 })
 
 test_that("slice_head/tail() count from back with negative n/prop", {
+  skip_on_cran()
   df <- tibble::tibble(id = 1:4, x = c(2, 3, 1, 4))
   df$ff <- 1
   df$gg <- 2
@@ -454,6 +508,7 @@ test_that("slice_head/tail() count from back with negative n/prop", {
 })
 
 test_that("slice_head/slice_tail drop from opposite end when n/prop negative", {
+  skip_on_cran()
   df <- tibble::tibble(g = c(1, 2, 2, 3, 3, 3), id = 1:6)
   df$ff <- 1
   df$gg <- 2
@@ -469,6 +524,7 @@ test_that("slice_head/slice_tail drop from opposite end when n/prop negative", {
 })
 
 test_that("slice_head/slice_tail handle infinite n/prop", {
+  skip_on_cran()
   df <- tibble::tibble(x = 1)
   df$ff <- 1
   df$gg <- 2
@@ -498,6 +554,7 @@ test_that("slice_head/slice_tail handle infinite n/prop", {
 })
 
 test_that("slice_head/slice_tail work with `by`", {
+  skip_on_cran()
   df <- tibble::tibble(g = c(2, 2, 2, 1), x = c(1, 2, 3, 1))
   df$ff <- 1
   df$gg <- 2

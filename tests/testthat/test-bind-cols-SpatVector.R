@@ -1,5 +1,7 @@
 # Adapted from dplyr
 test_that("bind_spat_cols() handles empty argument", {
+  skip_on_cran()
+
   expect_equal(
     as.data.frame(bind_spat_cols(), geom = "WKT"),
     data.frame(geometry = "POINT EMPTY")
@@ -8,6 +10,8 @@ test_that("bind_spat_cols() handles empty argument", {
 
 
 test_that("bind_spat_cols() repairs names", {
+  skip_on_cran()
+
   df <- data.frame(a = 1, b = 2)
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)
   expect_snapshot(bound <- bind_spat_cols(df, df))
@@ -30,6 +34,8 @@ test_that("bind_spat_cols() repairs names", {
 })
 
 test_that("bind_spat_cols() honours .name_repair=", {
+  skip_on_cran()
+
   aa <- terra::vect("POINT (0 0)")
   aa <- bind_spat_cols(aa, data.frame(a = 1))
 
@@ -46,6 +52,8 @@ test_that("bind_spat_cols() honours .name_repair=", {
 })
 
 test_that("bind_spat_cols() accepts NULL", {
+  skip_on_cran()
+
   df1 <- data.frame(a = 1:10, b = 1:10)
   df2 <- data.frame(c = 1:10, d = 1:10)
 
@@ -63,6 +71,8 @@ test_that("bind_spat_cols() accepts NULL", {
 })
 
 test_that("bind_spat_cols() accepts sf", {
+  skip_on_cran()
+
   df1 <- data.frame(a = 1:10, b = 1:10)
 
   df1 <- terra::vect(df1,
@@ -81,6 +91,8 @@ test_that("bind_spat_cols() accepts sf", {
 
 
 test_that("bind_spat_cols respects groups", {
+  skip_on_cran()
+
   df_init <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
@@ -100,6 +112,8 @@ test_that("bind_spat_cols respects groups", {
 })
 
 test_that("bind_spat_cols respects rowwise", {
+  skip_on_cran()
+
   df_init <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
@@ -121,6 +135,8 @@ test_that("bind_spat_cols respects rowwise", {
 })
 
 test_that("bind_spat_cols() gives informative errors", {
+  skip_on_cran()
+
   a <- terra::vect("POINT (0 0)")
   a <- bind_spat_cols(a, data.frame(a = 1))
   expect_snapshot({

@@ -1,4 +1,6 @@
 test_that("distinct equivalent to terra unique", {
+  skip_on_cran()
+
   df <- data.frame(
     x = c(1, 1, 1, 1),
     y = c(1, 1, 2, 2),
@@ -16,6 +18,8 @@ test_that("distinct equivalent to terra unique", {
 })
 
 test_that("distinct for single column works as expected", {
+  skip_on_cran()
+
   df <- data.frame(
     x = c(1, 1, 1, 1),
     y = c(1, 1, 2, 2),
@@ -33,6 +37,8 @@ test_that("distinct for single column works as expected", {
 
 
 test_that("Remove unique geometries on specific calls", {
+  skip_on_cran()
+
   df <- data.frame(
     x = c(1, 1, 1, 1),
     y = c(1, 1, 2, 2),
@@ -56,6 +62,8 @@ test_that("Remove unique geometries on specific calls", {
 })
 
 test_that("Name handling", {
+  skip_on_cran()
+
   df <- data.frame(
     x = c(1, 1, 1, 1),
     y = c(1, 1, 2, 2),
@@ -86,6 +94,8 @@ test_that("Name handling", {
 })
 
 test_that("distinct doesn't duplicate columns", {
+  skip_on_cran()
+
   df <- data.frame(a = 1:3, b = 4:6)
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)
 
@@ -94,6 +104,8 @@ test_that("distinct doesn't duplicate columns", {
 })
 
 test_that("grouped distinct always includes group cols", {
+  skip_on_cran()
+
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 
@@ -105,6 +117,8 @@ test_that("grouped distinct always includes group cols", {
 })
 
 test_that("empty grouped distinct equivalent to empty ungrouped", {
+  skip_on_cran()
+
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 
@@ -120,6 +134,8 @@ test_that("empty grouped distinct equivalent to empty ungrouped", {
 })
 
 test_that("distinct adds grouping variables to front if missing", {
+  skip_on_cran()
+
   d <- data.frame(x = 1:2, y = 3:4)
   d <- terra::vect(d, geom = c("x", "y"), keepgeom = TRUE)
 
@@ -128,6 +144,8 @@ test_that("distinct adds grouping variables to front if missing", {
 })
 
 test_that("distinct preserves grouping", {
+  skip_on_cran()
+
   df <- data.frame(x = c(1, 1, 2, 2), y = c(1, 1, 2, 2))
   df <- terra::vect(df, geom = c("x", "y"), keepgeom = TRUE)
   gf <- group_by(df, x)

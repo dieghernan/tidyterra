@@ -1,6 +1,8 @@
 # group_data --------------------------------------------------------------
 
 test_that("group_data(<SpatVector>) returns a tibble", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = 1:3)
   df_v <- dplyr::tibble(
     x = 1:3,
@@ -23,6 +25,8 @@ test_that("group_data(<SpatVector>) returns a tibble", {
 
 
 test_that("Ungroup_data(<SpatVector>) returns the right value", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = 1:3)
   df_v <- dplyr::tibble(
     x = 1:3,
@@ -38,6 +42,8 @@ test_that("Ungroup_data(<SpatVector>) returns the right value", {
 })
 
 test_that("group_data(<rowwise) return the right value", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = 1:3)
   df_v <- dplyr::tibble(
     x = 1:3,
@@ -59,6 +65,8 @@ test_that("group_data(<rowwise) return the right value", {
 # group_rows() and group_keys() -------------------------------------------
 
 test_that("group_rows() and group_keys() partition group_data()", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
   df_v$lon <- 3:4
@@ -83,6 +91,8 @@ test_that("group_rows() and group_keys() partition group_data()", {
 
 
 test_that("group_indices() returns expected values", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = c("b", "a", "b"))
   gf <- group_by(df, x)
 
@@ -105,6 +115,8 @@ test_that("group_indices() returns expected values", {
 # group_size --------------------------------------------------------------
 
 test_that("ungrouped data has 1 group, with group size = nrow()", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = rep(1:3, each = 10), y = rep(1:6, each = 5))
   df_v <- df
   df_v$lon <- as.double(seq(0, 1, length.out = nrow(df_v)))
@@ -117,6 +129,8 @@ test_that("ungrouped data has 1 group, with group size = nrow()", {
 })
 
 test_that("rowwise data has one group for each group", {
+  skip_on_cran()
+
   mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
   rw <- rowwise(mtcars)
 
@@ -127,6 +141,8 @@ test_that("rowwise data has one group for each group", {
 
 
 test_that("group_size correct for grouped data", {
+  skip_on_cran()
+
   df <- dplyr::tibble(x = rep(1:3, each = 10), y = rep(1:6, each = 5))
   df_v <- df
   df_v$lon <- as.double(seq(0, 1, length.out = nrow(df_v)))
@@ -144,6 +160,8 @@ test_that("group_size correct for grouped data", {
 # group_vars ----------------------------------------------------------------
 
 test_that("group_vars.SpatVector produces correct results for grouped", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
   df_v$lon <- 3:4
@@ -166,6 +184,8 @@ test_that("group_vars.SpatVector produces correct results for grouped", {
 
 
 test_that("group_vars.SpatVector produces correct results for ungrouped", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
   df_v$lon <- 3:4
@@ -184,6 +204,8 @@ test_that("group_vars.SpatVector produces correct results for ungrouped", {
 
 
 test_that("groups() returns expected values", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
   df_v$lon <- 3:4
@@ -206,6 +228,8 @@ test_that("groups() returns expected values", {
 
 
 test_that("group_rows() returns expected values", {
+  skip_on_cran()
+
   df <- data.frame(x = 1:2, y = 1:2)
   df_v <- df
   df_v$lon <- 3:4

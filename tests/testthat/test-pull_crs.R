@@ -12,6 +12,7 @@ test_that("Check crs", {
   expect_silent(is.na(pull_crs("")))
 
   expect_error(pull_crs("Some string"))
+  skip_on_cran()
 
   # Base for comparison
   base <- pull_crs(4326)

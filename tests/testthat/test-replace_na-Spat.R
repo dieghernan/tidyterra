@@ -1,4 +1,5 @@
 test_that("Replace NA with SpatVectors", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -56,6 +57,7 @@ test_that("Replace NA with SpatVectors", {
 
 
 test_that("Replace na with SpatRaster", {
+  skip_on_cran()
   r <- terra::rast(
     extent = c(0, 10, 0, 10),
     nlyr = 3,

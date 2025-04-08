@@ -1,4 +1,6 @@
 test_that("can pivot all cols to long", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:2, y = 3:4)
   df$lat <- 1
   df$lon <- 1
@@ -18,6 +20,8 @@ test_that("can pivot all cols to long", {
 })
 
 test_that("values interleaved correctly", {
+  skip_on_cran()
+
   df <- tibble::tibble(
     x = c(1, 2),
     y = c(10, 20),
@@ -37,6 +41,8 @@ test_that("values interleaved correctly", {
 
 
 test_that("preserves original keys", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:2, y = 2, z = 1:2)
   df$lat <- 1
   df$lon <- 1
@@ -52,6 +58,8 @@ test_that("preserves original keys", {
 })
 
 test_that("can drop missing values", {
+  skip_on_cran()
+
   df <- data.frame(x = c(1, NA), y = c(NA, 2))
   df$lat <- 1
   df$lon <- 1
@@ -67,6 +75,8 @@ test_that("can drop missing values", {
 })
 
 test_that("can handle missing combinations", {
+  skip_on_cran()
+
   df <- tibble::tribble(
     ~id, ~x_1, ~x_2, ~y_2,
     "A",    1,    2,  "a",
@@ -93,6 +103,8 @@ test_that("can handle missing combinations", {
 })
 
 test_that("mixed columns are automatically coerced", {
+  skip_on_cran()
+
   df <- data.frame(x = factor("a"), y = factor("b"))
   df$lat <- 1
   df$lon <- 1
@@ -106,6 +118,8 @@ test_that("mixed columns are automatically coerced", {
 })
 
 test_that("original col order is preserved", {
+  skip_on_cran()
+
   df <- tibble::tribble(
     ~id, ~z_1, ~y_1, ~x_1, ~z_2, ~y_2, ~x_2,
     "A", 1, 2, 3, 4, 5, 6,
@@ -123,6 +137,8 @@ test_that("original col order is preserved", {
 })
 
 test_that("can pivot duplicated names to .value", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1, a_1 = 1, a_2 = 2, b_1 = 3, b_2 = 4)
   df$lat <- 1
   df$lon <- 1
@@ -141,6 +157,8 @@ test_that("can pivot duplicated names to .value", {
 
 
 test_that("grouping is preserved", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = 1, x1 = 1, x2 = 2)
   df$lat <- 1
   df$lon <- 1
@@ -156,6 +174,8 @@ test_that("grouping is preserved", {
 
 
 test_that("`cols_vary` can adjust the resulting row ordering (#1312)", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = c(1, 2), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
@@ -187,6 +207,8 @@ test_that("`cols_vary` can adjust the resulting row ordering (#1312)", {
 })
 
 test_that("`cols_vary` works with id columns not part of the pivot process", {
+  skip_on_cran()
+
   df <- tibble::tibble(id = c("a", "b"), x = c(1, 2), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
@@ -208,6 +230,8 @@ test_that("`cols_vary` works with id columns not part of the pivot process", {
 })
 
 test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
+  skip_on_cran()
+
   df <- tibble::tibble(id = c("a", "b"), x = c(1, NA), y = c(3, 4))
   df$lat <- 1
   df$lon <- 1
@@ -234,6 +258,8 @@ test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
 
 # Helpers ----
 test_that("Check tidyselect: var1:var10", {
+  skip_on_cran()
+
   tbl <- tibble::tibble(
     a = 1,
     geometry = "1",
@@ -258,6 +284,8 @@ test_that("Check tidyselect: var1:var10", {
 })
 
 test_that("Check tidyselect: start_with", {
+  skip_on_cran()
+
   tbl <- tibble::tibble(
     a = 1,
     geometry = "1",
@@ -289,6 +317,8 @@ test_that("Check tidyselect: start_with", {
 })
 
 test_that("Check tidyselect: ends_with", {
+  skip_on_cran()
+
   tbl <- tibble::tibble(
     a = 1,
     geometry = "1",
@@ -320,6 +350,8 @@ test_that("Check tidyselect: ends_with", {
 })
 
 test_that("Check tidyselect: ends_with", {
+  skip_on_cran()
+
   tbl <- tibble::tibble(
     a = 1,
     geometry = "1",
@@ -351,6 +383,8 @@ test_that("Check tidyselect: ends_with", {
 })
 
 test_that("Check tidyselect: whereis", {
+  skip_on_cran()
+
   tbl <- tibble::tibble(
     a = 1,
     geometry = "1",

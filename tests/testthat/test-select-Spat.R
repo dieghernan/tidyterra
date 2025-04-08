@@ -1,4 +1,5 @@
 test_that("SpatRaster select: Geographic", {
+  skip_on_cran()
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
@@ -16,6 +17,7 @@ test_that("SpatRaster select: Geographic", {
 })
 
 test_that("SpatRaster select and rename: Geographic", {
+  skip_on_cran()
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
@@ -34,6 +36,7 @@ test_that("SpatRaster select and rename: Geographic", {
 })
 
 test_that("SpatRaster select: Non Geographic", {
+  skip_on_cran()
   raster <- terra::rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 2)
   values <- seq_len(terra::ncell(raster) * terra::nlyr(raster))
   terra::values(raster) <- values
@@ -53,6 +56,7 @@ test_that("SpatRaster select: Non Geographic", {
 
 
 test_that("SpatVector select and rename", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -69,6 +73,7 @@ test_that("SpatVector select and rename", {
 
 
 test_that("select preserves grouping", {
+  skip_on_cran()
   df <- data.frame(g = 1:3, x = 3:1)
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
   expect_s4_class(df, "SpatVector")
@@ -80,6 +85,7 @@ test_that("select preserves grouping", {
 })
 
 test_that("grouping variables preserved with a msg, unless already selected", {
+  skip_on_cran()
   df <- data.frame(g = 1:3, x = 3:1)
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
   df <- group_by(df, g)

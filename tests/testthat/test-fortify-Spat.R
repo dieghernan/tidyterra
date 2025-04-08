@@ -1,4 +1,6 @@
 test_that("Fortify SpatVectors", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   fort <- fortify(v)
@@ -27,6 +29,8 @@ test_that("Fortify SpatVectors", {
 
 
 test_that("Fortify SpatRasters", {
+  skip_on_cran()
+
   r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
 
   fort <- fortify(r)
@@ -84,6 +88,8 @@ test_that("Fortify SpatRasters", {
 })
 
 test_that("Fortify SpatRasters pivot", {
+  skip_on_cran()
+
   r <- terra::rast(system.file("extdata/cyl_temp.tif",
     package = "tidyterra"
   ))
@@ -144,6 +150,8 @@ test_that("Fortify SpatRasters pivot", {
 })
 
 test_that("Fortify SpatRasters pivot factor", {
+  skip_on_cran()
+
   # https://stackoverflow.com/questions/79340152/
   r1 <- terra::rast(
     nrows = 10, ncols = 10, xmin = 0, xmax = 10,
@@ -224,6 +232,8 @@ test_that("Fortify SpatRasters pivot factor", {
 })
 
 test_that("Fortify SpatGraticule", {
+  skip_on_cran()
+
   skip_if_not_installed("terra", minimum_version = "1.8.5")
   v <- terra::graticule()
 

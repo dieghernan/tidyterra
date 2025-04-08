@@ -1,5 +1,7 @@
 # Adapted from dplyr
 test_that("group_by() with .add = TRUE adds groups", {
+  skip_on_cran()
+
   df1 <- data.frame(x = rep(1:3, each = 10), y = rep(1:6, each = 5))
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v1 <- v1[sample(seq_len(nrow(v1)), nrow(df1), replace = TRUE), ]
@@ -20,6 +22,8 @@ test_that("group_by() with .add = TRUE adds groups", {
 })
 
 test_that("group_by(<grouped df>, add add groups", {
+  skip_on_cran()
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- v1[1:4, ]
   thedf <- data.frame(
@@ -44,6 +48,8 @@ test_that("group_by(<grouped df>, add add groups", {
 
 
 test_that("joins preserve grouping", {
+  skip_on_cran()
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- v1[1:4, ]
   thedf <- data.frame(
@@ -63,6 +69,8 @@ test_that("joins preserve grouping", {
 })
 
 test_that("grouping by constant adds column", {
+  skip_on_cran()
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   grouped <- group_by(v1, "cyl") %>% summarise(foo = dplyr::n())
   expect_equal(names(grouped), c('"cyl"', "foo"))
@@ -70,6 +78,8 @@ test_that("grouping by constant adds column", {
 })
 
 test_that("can partially `ungroup()`", {
+  skip_on_cran()
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   gdf <- group_by(v1, cpro, iso2)
 
@@ -84,6 +94,8 @@ test_that("can partially `ungroup()`", {
 })
 
 test_that("can fully `ungroup()`", {
+  skip_on_cran()
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
   expect_identical(
@@ -101,6 +113,8 @@ test_that("can fully `ungroup()`", {
 
 
 test_that("mutate does not lose variables", {
+  skip_on_cran()
+
   df <- data.frame(a = rep(1:4, 2), b = rep(1:4, each = 2), x = runif(8))
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   df <- cbind(v[seq_len(nrow(df)), 0], df)
@@ -116,6 +130,8 @@ test_that("mutate does not lose variables", {
 
 
 test_that("group_by orders by groups", {
+  skip_on_cran()
+
   df <- data.frame(a = sample(1:4, 30, replace = TRUE))
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   df <- cbind(v[df$a, 0], df) %>% group_by(a)
@@ -151,6 +167,8 @@ test_that("group_by orders by groups", {
 })
 
 test_that("distinct keep groups", {
+  skip_on_cran()
+
   df <- data.frame(
     x = c(1, 1, 1, 1, 1),
     y = c(1, 1, 2, 2, 2),
@@ -185,6 +203,8 @@ test_that("distinct keep groups", {
 })
 
 test_that("ungroup.rowwise_df gives a ungrouped SpatVector", {
+  skip_on_cran()
+
   mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
 
   res <- mtcars_v %>%

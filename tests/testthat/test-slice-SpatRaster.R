@@ -1,4 +1,5 @@
 test_that("Slice", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -67,6 +68,7 @@ test_that("Slice", {
 })
 
 test_that("Slice head", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -128,6 +130,7 @@ test_that("Slice head", {
 })
 
 test_that("Slice tail", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -197,6 +200,7 @@ test_that("Slice tail", {
 
 
 test_that("Slice min", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -287,6 +291,7 @@ test_that("Slice min", {
 
 
 test_that("Slice max", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -379,6 +384,7 @@ test_that("Slice max", {
 
 
 test_that("Slice sample", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -440,6 +446,7 @@ test_that("Slice sample", {
 
 
 test_that("Slice Rows", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -518,6 +525,7 @@ test_that("Slice Rows", {
 })
 
 test_that("Slice Cols", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 
@@ -596,6 +604,7 @@ test_that("Slice Cols", {
 })
 
 test_that("Slice RowCols", {
+  skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)
   r <- terra::rast(m, crs = pull_crs(3857))
 

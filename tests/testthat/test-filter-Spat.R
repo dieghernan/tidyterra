@@ -1,4 +1,6 @@
 test_that("Filter with SpatRaster keeping extent", {
+  skip_on_cran()
+
   r <- terra::rast(nrows = 5, ncols = 5, xmin = 0, xmax = 1, ymin = 0, ymax = 1)
   terra::values(r) <- c(-10:0, 1, 1, 1, 0:10)
 
@@ -26,6 +28,8 @@ test_that("Filter with SpatRaster keeping extent", {
 
 
 test_that("Filter with SpatRaster non keeping extent", {
+  skip_on_cran()
+
   r <- terra::rast(nrows = 5, ncols = 5, xmin = 0, xmax = 1, ymin = 0, ymax = 1)
   terra::values(r) <- c(-10:0, 1, 1, 1, 0:10)
 
@@ -49,6 +53,8 @@ test_that("Filter with SpatRaster non keeping extent", {
 })
 
 test_that("Filter with SpatVector", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -59,6 +65,8 @@ test_that("Filter with SpatVector", {
 })
 
 test_that("filter works with rowwise data", {
+  skip_on_cran()
+
   df <- tibble::tibble(
     First = c("string1", "string2"),
     Second = c("Sentence with string1", "something")
@@ -76,6 +84,8 @@ test_that("filter works with rowwise data", {
 })
 
 test_that("grouped filter handles indices", {
+  skip_on_cran()
+
   ir <- iris
   ir <- terra::vect(ir,
     geom = c("Sepal.Length", "Sepal.Width"),
@@ -93,6 +103,8 @@ test_that("grouped filter handles indices", {
 
 
 test_that("filter() preserve order across groups", {
+  skip_on_cran()
+
   df <- data.frame(g = c(1, 2, 1, 2, 1), time = 5:1, x = 5:1)
   df <- terra::vect(df, geom = c("x", "g"), keepgeom = TRUE)
 

@@ -1,4 +1,6 @@
 test_that("Errors and messages", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -45,6 +47,8 @@ test_that("Errors and messages", {
 
 
 test_that("Test plot", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -206,6 +210,8 @@ test_that("Test plot", {
 
 
 test_that("geom_spatraster one facets", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 

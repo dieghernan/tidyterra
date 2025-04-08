@@ -369,6 +369,8 @@ test_that("Breaking scale tint", {
 
 
 test_that("PR 165", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
