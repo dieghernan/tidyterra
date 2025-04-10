@@ -1,4 +1,6 @@
 test_that("Groups are kept with project", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
 
@@ -14,6 +16,8 @@ test_that("Groups are kept with project", {
 })
 
 test_that("Groups are kept with casting", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
 
@@ -30,6 +34,8 @@ test_that("Groups are kept with casting", {
 
 
 test_that("Aggregate can regroup", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
 
@@ -49,6 +55,8 @@ test_that("Aggregate can regroup", {
 
 
 test_that("Slicing can regroup", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
 
@@ -69,6 +77,8 @@ test_that("Slicing can regroup", {
 })
 
 test_that("SpatSample does not regroup", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
 
@@ -83,6 +93,8 @@ test_that("SpatSample does not regroup", {
 })
 
 test_that("Subset columns can regroup", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
   v$gr2 <- rep_len(c("F", "E"), nrow(v))
@@ -105,6 +117,8 @@ test_that("Subset columns can regroup", {
 })
 
 test_that("Subset all columns ungroup", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("B", "A", "C", "B"), nrow(v))
   v$gr2 <- rep_len(c("F", "E"), nrow(v))
@@ -127,6 +141,8 @@ test_that("Subset all columns ungroup", {
 })
 
 test_that("Gives meaningful messages", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   gr_v <- group_by(v, iso2) %>% terra::centroids()
 

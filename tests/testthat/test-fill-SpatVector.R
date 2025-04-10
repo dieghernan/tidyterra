@@ -1,4 +1,6 @@
 test_that("all missings left unchanged", {
+  skip_on_cran()
+
   df <- tibble(
     lgl = c(NA, NA),
     int = c(NA_integer_, NA),
@@ -24,6 +26,8 @@ test_that("all missings left unchanged", {
 })
 
 test_that("missings are filled correctly", {
+  skip_on_cran()
+
   # filled down from last non-missing
   df <- tibble(x = c(NA, 1, NA, 2, NA, NA))
   df$lat <- 1
@@ -47,6 +51,8 @@ test_that("missings are filled correctly", {
 })
 
 test_that("missings filled down for each atomic vector", {
+  skip_on_cran()
+
   df <- tibble(
     lgl = c(TRUE, NA),
     int = c(1L, NA),
@@ -70,6 +76,8 @@ test_that("missings filled down for each atomic vector", {
 })
 
 test_that("missings filled up for each vector", {
+  skip_on_cran()
+
   df <- tibble(
     lgl = c(NA, TRUE),
     int = c(NA, 1L),
@@ -92,6 +100,8 @@ test_that("missings filled up for each vector", {
 })
 
 test_that("NaN is treated as missing (#982)", {
+  skip_on_cran()
+
   df <- tibble(x = c(1, NaN, 2))
   df$lat <- 1
   df$lon <- 1
@@ -107,6 +117,8 @@ test_that("NaN is treated as missing (#982)", {
 })
 
 test_that("fill preserves attributes", {
+  skip_on_cran()
+
   df <- tibble(x = factor(c(NA, "a", NA)))
 
   df$lat <- 1
@@ -123,6 +135,8 @@ test_that("fill preserves attributes", {
 })
 
 test_that("fill respects grouping", {
+  skip_on_cran()
+
   df <- tibble(x = c(1, 1, 2), y = c(1, NA, NA))
   df$lat <- 1
   df$lon <- 1

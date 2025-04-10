@@ -1,4 +1,6 @@
 test_that("geom_spatraster one layer with CRS", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -200,6 +202,8 @@ test_that("geom_spatraster one layer with CRS", {
 
 
 test_that("geom_spatraster one layer without CRS", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -380,6 +384,8 @@ test_that("geom_spatraster one layer without CRS", {
 
 
 test_that("geom_spatraster one facets", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 

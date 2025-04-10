@@ -1,5 +1,7 @@
 # Test coltab is kept on SpatRaster methods
 test_that("drop_na", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -19,6 +21,8 @@ test_that("drop_na", {
 })
 
 test_that("replace_na", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -38,6 +42,8 @@ test_that("replace_na", {
 # Dplyr methods
 
 test_that("select", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -88,6 +94,8 @@ test_that("select", {
 })
 
 test_that("mutate", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -145,6 +153,8 @@ test_that("mutate", {
 })
 
 test_that("transmute", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -209,6 +219,8 @@ test_that("transmute", {
 })
 
 test_that("filter", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -224,6 +236,8 @@ test_that("filter", {
 })
 
 test_that("slice", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -277,6 +291,8 @@ test_that("slice", {
 
 
 test_that("rename", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -292,6 +308,8 @@ test_that("rename", {
 })
 
 test_that("relocate", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))

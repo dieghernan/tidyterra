@@ -1,4 +1,5 @@
 test_that("rowwise status preserved by major verbs", {
+  skip_on_cran()
   v <- tibble::tibble(x = 1:5, y = 5:1)
   v$lat <- 1
   v$lon <- 1
@@ -45,6 +46,7 @@ test_that("rowwise status preserved by major verbs", {
 
 
 test_that("rowwise nature preserved by subsetting ops", {
+  skip_on_cran()
   v <- tibble::tibble(x = 1:5, y = 1:5)
   v$lat <- 1
   v$lon <- 1
@@ -71,6 +73,7 @@ test_that("rowwise nature preserved by subsetting ops", {
 
 
 test_that("rowwise captures group_vars", {
+  skip_on_cran()
   df <- tibble::tibble(g = 1:2, x = 1:2)
   df <- as_spatvector(df, geom = c("g", "x"), keepgeom = TRUE)
 
@@ -95,6 +98,7 @@ test_that("rowwise captures group_vars", {
 
 
 test_that("can re-rowwise", {
+  skip_on_cran()
   v <- tibble::tibble(x = 1:5, y = 1:5)
   v$lat <- 1
   v$lon <- 1
@@ -107,6 +111,7 @@ test_that("can re-rowwise", {
 })
 
 test_that("Error handling", {
+  skip_on_cran()
   v <- tibble::tibble(x = 1:5, y = 1:5)
   v$lat <- 1
   v$lon <- 1

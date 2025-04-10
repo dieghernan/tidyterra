@@ -1,4 +1,6 @@
 test_that("geom_spatraster several layer with CRS", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -308,6 +310,8 @@ test_that("geom_spatraster several layer with CRS", {
 
 
 test_that("geom_spatraster several layer with no CRS", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -537,6 +541,8 @@ test_that("geom_spatraster several layer with no CRS", {
 })
 
 test_that("Warn in RGB tile", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 

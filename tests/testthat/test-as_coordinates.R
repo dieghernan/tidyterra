@@ -1,9 +1,11 @@
 test_that("as_coordinates errors", {
+  skip_on_cran()
   v <- volcano
   expect_snapshot(as_coordinates(v), error = TRUE)
 })
 
 test_that("as_coordinates return a skeleton", {
+  skip_on_cran()
   v <- volcano
 
   r <- terra::rast(t(v))
@@ -38,6 +40,7 @@ test_that("as_coordinates return a skeleton", {
 
 
 test_that("as_coordinates return a raster", {
+  skip_on_cran()
   v <- volcano
   r <- terra::rast(t(v))
 

@@ -1,4 +1,6 @@
 test_that("geom_spatvector works as geom_sf", {
+  skip_on_cran()
+
   extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   cyl <- terra::vect(extfile)
@@ -53,6 +55,8 @@ test_that("geom_spatvector works as geom_sf", {
 
 
 test_that("geom_spatvector_text works as geom_sf", {
+  skip_on_cran()
+
   extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   cyl <- terra::vect(extfile)
@@ -92,6 +96,8 @@ test_that("geom_spatvector_text works as geom_sf", {
 })
 
 test_that("geom_spatvector_label works as geom_sf", {
+  skip_on_cran()
+
   extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   cyl <- terra::vect(extfile)

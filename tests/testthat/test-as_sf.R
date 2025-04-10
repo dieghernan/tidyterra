@@ -1,4 +1,5 @@
 test_that("Only works with SpatVector", {
+  skip_on_cran()
   r <- terra::rast(nrows = 180 / 4, ncols = 360 / 4)
   terra::values(r) <- seq_len(terra::ncell(r))
   expect_snapshot(as_sf(r), error = TRUE)
@@ -16,6 +17,7 @@ test_that("Only works with SpatVector", {
 
 
 test_that("Coercion to normal sf works", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -34,6 +36,7 @@ test_that("Coercion to normal sf works", {
 
 
 test_that("Coercion to grouped sf works", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v$gr <- c("C", "A", "A", "B", "A", "B", "B")
@@ -51,6 +54,7 @@ test_that("Coercion to grouped sf works", {
 
 
 test_that("Coercion to rowwise sf works", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   v$gr <- c("C", "A", "A", "B", "A", "B", "B")

@@ -1,4 +1,6 @@
 test_that("SpatRaster mutate", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   spatrast <- terra::rast(f)
 
@@ -11,6 +13,8 @@ test_that("SpatRaster mutate", {
 
 
 test_that("SpatRaster mutate and check names", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
   init <- terra::rast(f)
@@ -52,6 +56,8 @@ test_that("SpatRaster mutate and check names", {
 })
 
 test_that("SpatVector", {
+  skip_on_cran()
+
   # SpatVector method
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
@@ -68,6 +74,8 @@ test_that("SpatVector", {
 
 
 test_that("mutate preserves grouping", {
+  skip_on_cran()
+
   df <- tibble::tibble(x = 1:2, y = 2)
   df <- as_spatvector(df, geom = c("x", "y"), keepgeom = TRUE)
   gf <- group_by(df, x)

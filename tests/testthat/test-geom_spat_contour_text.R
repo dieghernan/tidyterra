@@ -1,4 +1,6 @@
 test_that("keep_mid_true drops leading/trailing FALSE", {
+  skip_on_cran()
+
   # From ggplot2
   expect_equal(keep_mid_true(c(FALSE, FALSE)), c(FALSE, FALSE))
   expect_equal(
@@ -44,6 +46,8 @@ test_that("rebuild isolines", {
   expect_identical(isolines, isoreb)
 })
 test_that("aes iso", {
+  skip_on_cran()
+
   df <- data.frame(
     level = 1,
     # aes
@@ -58,6 +62,8 @@ test_that("aes iso", {
 })
 
 test_that("Errors and messages", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -103,6 +109,8 @@ test_that("Errors and messages", {
 
 
 test_that("Test plot", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -230,6 +238,8 @@ test_that("Test plot", {
 
 
 test_that("geom_spatraster one facets", {
+  skip_on_cran()
+
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 

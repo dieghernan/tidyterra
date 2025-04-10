@@ -1,6 +1,8 @@
 # Adapted from dplyr
 
 test_that("bind_spat_rows() handles simple inputs", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1:2, y = letters[1:2], lat = 1:2, lon = 1:2)
   df2 <- data.frame(x = 3:4, y = letters[3:4], lat = 1:2, lon = 1:2)
   df1 <- terra::vect(df1)
@@ -10,6 +12,8 @@ test_that("bind_spat_rows() handles simple inputs", {
 })
 
 test_that("bind_spat_rows() handles simple inputs with CRS", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1:2, y = letters[1:2], lat = 1:2, lon = 1:2)
   df2 <- data.frame(x = 3:4, y = letters[3:4], lat = 1:2, lon = 1:2)
   df1 <- terra::vect(df1, crs = "EPSG:4326")
@@ -19,6 +23,8 @@ test_that("bind_spat_rows() handles simple inputs with CRS", {
 })
 
 test_that("bind_spat_rows() reorders columns to match first df", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1, y = 2)
   df2 <- data.frame(y = 1, x = 2)
   df1 <- terra::vect(df1, geom = c("x", "y"), keepgeom = TRUE)
@@ -28,6 +34,8 @@ test_that("bind_spat_rows() reorders columns to match first df", {
 })
 
 test_that("bind_spat_rows() returns union of columns", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1, lat = 1, lon = 1)
   df2 <- data.frame(y = 2, lat = 1, lon = 1)
   df1 <- terra::vect(df1)
@@ -38,6 +46,8 @@ test_that("bind_spat_rows() returns union of columns", {
 })
 
 test_that("bind_spat_rows() returns union of columns with CRS", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1, lat = 1, lon = 1)
   df2 <- data.frame(y = 2, lat = 1, lon = 1)
   df1 <- terra::vect(df1, crs = "EPSG:4326")
@@ -49,6 +59,8 @@ test_that("bind_spat_rows() returns union of columns with CRS", {
 
 
 test_that("bind_spat_rows() creates a column of identifiers", {
+  skip_on_cran()
+
   df1 <- data.frame(x = 1:2, lat = 1:2, lon = 1:2)
   df2 <- data.frame(x = 3, lat = 1, lon = 1)
   df1 <- terra::vect(df1, crs = "EPSG:4326")
@@ -84,6 +96,8 @@ test_that("bind_spat_rows() creates a column of identifiers", {
 
 
 test_that("bind_spat_rows respects groups", {
+  skip_on_cran()
+
   df <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
@@ -98,6 +112,8 @@ test_that("bind_spat_rows respects groups", {
 })
 
 test_that("bind_spat_rows respects rowwise", {
+  skip_on_cran()
+
   df_init <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
@@ -115,6 +131,8 @@ test_that("bind_spat_rows respects rowwise", {
 })
 
 test_that("bind_spat_rows respects named rowwise", {
+  skip_on_cran()
+
   df_init <- data.frame(
     e = 1,
     f = factor(c(1, 1, 2, 2), levels = 1:3),
@@ -134,6 +152,8 @@ test_that("bind_spat_rows respects named rowwise", {
 # Column coercion --------------------------------------------------------------
 
 test_that("bind_spat_rows() promotes integer to double", {
+  skip_on_cran()
+
   df1 <- data.frame(a = 1L, b = 1L)
   df2 <- data.frame(a = 1, b = 1L)
 
@@ -147,6 +167,8 @@ test_that("bind_spat_rows() promotes integer to double", {
 # Geometry  handling ----------------------------------------------------------
 
 test_that("bind_spat_rows() return empty point", {
+  skip_on_cran()
+
   empt <- bind_spat_rows()
   expect_identical(
     as_tibble(empt, geom = "WKT"),
@@ -155,12 +177,16 @@ test_that("bind_spat_rows() return empty point", {
 })
 
 test_that("bind_spat_rows() can bind SpatVectors", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   expect_silent(vend <- bind_spat_rows(v[1, ], v[2, ]))
   expect_s4_class(vend, "SpatVector")
 })
 
 test_that("bind_spat_rows() can bind SpatVectors and sf", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   sf2 <- as_sf(v[2, ])
 
@@ -171,6 +197,8 @@ test_that("bind_spat_rows() can bind SpatVectors and sf", {
 # Errors and messages ----------------------------------------------------------
 
 test_that("bind_spat_rows() give informative errors", {
+  skip_on_cran()
+
   expect_snapshot({
     "invalid .id"
     df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
@@ -189,6 +217,8 @@ test_that("bind_spat_rows() give informative errors", {
 
 
 test_that("bind_spat_rows() give informative message", {
+  skip_on_cran()
+
   expect_snapshot({
     "different crs SpatVector"
     v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

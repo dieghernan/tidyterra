@@ -2,6 +2,8 @@
 # count -------------------------------------------------------------------
 
 test_that("informs if n column already present, unless overridden", {
+  skip_on_cran()
+
   df1 <- data.frame(n = c(1, 1, 2, 2, 2))
   df1$lon <- df1$n
   df1$lat <- df1$n
@@ -30,6 +32,8 @@ test_that("informs if n column already present, unless overridden", {
 })
 
 test_that("name must be string", {
+  skip_on_cran()
+
   df1 <- data.frame(x = c(1, 1, 2, 2, 2))
   df1$lon <- df1$x
   df1$lat <- df1$x
@@ -40,6 +44,8 @@ test_that("name must be string", {
 })
 
 test_that("output preserves grouping", {
+  skip_on_cran()
+
   df <- data.frame(g = c(1, 2, 2, 2))
   df$lon <- 1:4
   df$lat <- 1:4
@@ -61,6 +67,8 @@ test_that("output preserves grouping", {
 })
 
 test_that("output preserves class & attributes where possible", {
+  skip_on_cran()
+
   df <- data.frame(g = c(1, 2, 2, 2))
   df$lon <- 1:4
   df$lat <- 1:4
@@ -80,6 +88,8 @@ test_that("output preserves class & attributes where possible", {
 })
 
 test_that("can only explicitly chain together multiple tallies", {
+  skip_on_cran()
+
   expect_snapshot({
     df <- data.frame(g = c(1, 1, 2, 2), n = 1:4)
     df$lat <- 1:4
@@ -98,6 +108,8 @@ test_that("can only explicitly chain together multiple tallies", {
 # tally -------------------------------------------------------------------
 
 test_that("tally can sort output", {
+  skip_on_cran()
+
   gf <- group_by(data.frame(x = c(1, 1, 2, 2, 2)), x)
   gf$lon <- 1:5
   gf$lat <- 1:5
@@ -109,6 +121,8 @@ test_that("tally can sort output", {
 })
 
 test_that("tally() drops last group", {
+  skip_on_cran()
+
   df <- data.frame(x = 1, y = 2, z = 3)
   df <- terra::vect(df, c("x", "y"), keepgeom = TRUE)
 
@@ -117,6 +131,8 @@ test_that("tally() drops last group", {
 })
 
 test_that("count Check aggregation: POINTS", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- terra::centroids(v)
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
@@ -194,6 +210,8 @@ test_that("count Check aggregation: POINTS", {
 })
 
 test_that("count Check aggregation: POLYGONS", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
   v$nn <- seq_len(nrow(v))
@@ -271,6 +289,8 @@ test_that("count Check aggregation: POLYGONS", {
 
 
 test_that("count Check aggregation: LINES", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
   v$nn <- seq_len(nrow(v))
@@ -351,6 +371,8 @@ test_that("count Check aggregation: LINES", {
 
 
 test_that("tally Check aggregation: POINTS", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- terra::centroids(v)
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
@@ -393,6 +415,8 @@ test_that("tally Check aggregation: POINTS", {
 })
 
 test_that("tally Check aggregation: POLYGONS", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
   v$nn <- seq_len(nrow(v))
@@ -435,6 +459,8 @@ test_that("tally Check aggregation: POLYGONS", {
 
 
 test_that("tally Check aggregation: LINES", {
+  skip_on_cran()
+
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
   v$nn <- seq_len(nrow(v))

@@ -1,3 +1,5 @@
+# tidyterra (development version)
+
 # tidyterra 0.7.1
 
 -   New parameters in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`

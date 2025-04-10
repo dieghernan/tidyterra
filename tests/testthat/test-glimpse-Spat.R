@@ -1,4 +1,6 @@
 test_that("Glimpse SpatVectors", {
+  skip_on_cran()
+
   # SpatVector
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
@@ -61,6 +63,8 @@ test_that("Geometries SpatVector", {
 
 
 test_that("Glimpse SpatRasters", {
+  skip_on_cran()
+
   # SpatRaster
   r <- terra::rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
@@ -182,6 +186,8 @@ test_that("Test formats", {
 
 
 test_that("NA crs", {
+  skip_on_cran()
+
   r <- terra::rast()
   terra::crs(r) <- NA
   terra::values(r) <- 1
@@ -203,6 +209,8 @@ test_that("NA crs", {
 
 
 test_that("Long geoms", {
+  skip_on_cran()
+
   a_rast <- terra::rast(ncol = 20, nrow = 20, crs = "EPSG:3035")
   cc <- c(
     paste0(c("A_longname1_"), letters[seq_len(15)]),

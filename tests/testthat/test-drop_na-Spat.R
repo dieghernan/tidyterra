@@ -1,4 +1,6 @@
 test_that("Drop na with SpatVectors", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -26,6 +28,8 @@ test_that("Drop na with SpatVectors", {
 
 
 test_that("groups are preserved", {
+  skip_on_cran()
+
   df <- data.frame(g = c("A", "A", "B"), x = c(1, 2, NA), y = c("a", NA, "b"))
   df$lon <- seq_len(nrow(df))
   df$lat <- df$lon
@@ -44,6 +48,8 @@ test_that("groups are preserved", {
 })
 
 test_that("Return empty geom when no results", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl.gpkg",
     package = "tidyterra"
   )
@@ -72,6 +78,8 @@ test_that("Return empty geom when no results", {
 })
 
 test_that("Drop na with SpatRaster", {
+  skip_on_cran()
+
   r <- terra::rast(
     extent = c(0, 10, 0, 10),
     nlyr = 3,

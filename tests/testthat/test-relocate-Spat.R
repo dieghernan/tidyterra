@@ -1,4 +1,5 @@
 test_that("SpatRaster", {
+  skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   spatrast <- terra::rast(f)
 
@@ -23,6 +24,7 @@ test_that("SpatRaster", {
 
 
 test_that("SpatVector", {
+  skip_on_cran()
   # SpatVector method
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)

@@ -1,4 +1,5 @@
 test_that("Rename SpatRasters", {
+  skip_on_cran()
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
@@ -25,6 +26,7 @@ test_that("Rename SpatRasters", {
 })
 
 test_that("Rename SpatRasters with", {
+  skip_on_cran()
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
@@ -59,6 +61,7 @@ test_that("Rename SpatRasters with", {
 
 
 test_that("Rename SpatVectors", {
+  skip_on_cran()
   file <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   vector <- terra::vect(file)
 
@@ -86,6 +89,7 @@ test_that("Rename SpatVectors", {
 })
 
 test_that("Rename SpatVectors with", {
+  skip_on_cran()
   file <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   vector <- terra::vect(file)
 
@@ -112,6 +116,7 @@ test_that("Rename SpatVectors with", {
 
 
 test_that("rename preserves grouping", {
+  skip_on_cran()
   df <- tibble::tibble(g = 1:3, x = 3:1)
   df <- as_spatvector(df, geom = c("g", "x"), keepgeom = TRUE)
   gf <- group_by(df, g)
@@ -121,6 +126,7 @@ test_that("rename preserves grouping", {
 })
 
 test_that("arguments to rename() don't match vars_rename() arguments", {
+  skip_on_cran()
   df <- data.frame(a = 1, lat = 1, lon = 1)
   df <- as_spatvector(df)
   expect_identical(rename(df, var = a) %>% as_tibble(), tibble::tibble(var = 1))

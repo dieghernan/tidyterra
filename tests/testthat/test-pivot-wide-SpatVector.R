@@ -1,4 +1,6 @@
 test_that("Back and fort", {
+  skip_on_cran()
+
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
@@ -24,6 +26,8 @@ test_that("Back and fort", {
 
 
 test_that("Remove geometry from values", {
+  skip_on_cran()
+
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
@@ -51,6 +55,8 @@ test_that("Remove geometry from values", {
 })
 
 test_that("Remove geometry from names", {
+  skip_on_cran()
+
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
@@ -78,6 +84,8 @@ test_that("Remove geometry from names", {
 })
 
 test_that("can pivot all cols to wide", {
+  skip_on_cran()
+
   df <- tibble::tibble(key = c("x", "y", "z"), val = 1:3)
 
   df$lat <- 1
@@ -97,6 +105,8 @@ test_that("can pivot all cols to wide", {
 })
 
 test_that("non-pivoted cols are preserved", {
+  skip_on_cran()
+
   df <- tibble::tibble(a = 1, key = c("x", "y"), val = 1:2)
   df$lat <- 1
   df$lon <- 1
@@ -114,6 +124,8 @@ test_that("non-pivoted cols are preserved", {
 })
 
 test_that("implicit missings turn into explicit missings", {
+  skip_on_cran()
+
   df <- tibble::tibble(a = 1:2, key = c("x", "y"), val = 1:2)
   df$lat <- 1
   df$lon <- 1
@@ -131,6 +143,8 @@ test_that("implicit missings turn into explicit missings", {
 })
 
 test_that("error when overwriting existing column", {
+  skip_on_cran()
+
   df <- tibble::tibble(
     a = c(1, 1),
     key = c("a", "b"),
@@ -156,6 +170,8 @@ test_that("error when overwriting existing column", {
 })
 
 test_that("`names_repair` happens after spec column reorganization (#1107)", {
+  skip_on_cran()
+
   df <- tibble::tibble(
     test = c("a", "b"),
     name = c("test", "test2"),
@@ -176,6 +192,8 @@ test_that("`names_repair` happens after spec column reorganization (#1107)", {
 })
 
 test_that("grouping is preserved", {
+  skip_on_cran()
+
   df <- tibble::tibble(g = 1, k = "x", v = 2)
   df$lat <- 1
   df$lon <- 1
@@ -192,6 +210,8 @@ test_that("grouping is preserved", {
 
 
 test_that("`names_from` must be supplied if `name` isn't in `data` (#1240)", {
+  skip_on_cran()
+
   df <- tibble::tibble(key = "x", val = 1)
   expect_snapshot((expect_error(pivot_wider(df, values_from = val))))
 })
@@ -199,6 +219,8 @@ test_that("`names_from` must be supplied if `name` isn't in `data` (#1240)", {
 
 
 test_that("can use `names_expand` to get sorted and expanded column names", {
+  skip_on_cran()
+
   name1 <- factor(c(NA, "x"), levels = c("x", "y"))
 
   df <- tibble::tibble(name1 = name1, name2 = c("c", "d"), value = c(1, 2))
@@ -221,6 +243,8 @@ test_that("can use `names_expand` to get sorted and expanded column names", {
 
 
 test_that("can fill only implicit missings from `names_expand`", {
+  skip_on_cran()
+
   name1 <- factor(c(NA, "x"), levels = c("x", "y"))
   df <- tibble::tibble(name1 = name1, name2 = c("c", "d"), value = c(1, NA))
   df$lat <- 1
@@ -250,6 +274,8 @@ test_that("can fill only implicit missings from `names_expand`", {
 })
 
 test_that("can override default keys, geometry sticky", {
+  skip_on_cran()
+
   df <- tibble::tribble(
     ~row, ~name, ~var, ~value,
     1, "Sam", "age", 10,
@@ -268,6 +294,8 @@ test_that("can override default keys, geometry sticky", {
 })
 
 test_that("`id_cols = everything()` excludes `names_from` and `values_from`", {
+  skip_on_cran()
+
   df <- tibble::tibble(key = "x", name = "a", value = 1L)
   df$lat <- 1
   df$lon <- 1
@@ -287,6 +315,8 @@ test_that("`id_cols = everything()` excludes `names_from` and `values_from`", {
 
 
 test_that("`id_expand` generates sorted rows even if no expansion is done", {
+  skip_on_cran()
+
   df <- tibble::tibble(id = c(2, 1), name = c("a", "b"), value = c(1, 2))
   df$lat <- 1
   df$lon <- 1
@@ -297,6 +327,8 @@ test_that("`id_expand` generates sorted rows even if no expansion is done", {
 })
 
 test_that("`id_expand` does a cartesian expansion of `id_cols`", {
+  skip_on_cran()
+
   df <- tibble::tibble(
     id1 = c(1, 2), id2 = c(3, 4), name = c("a", "b"),
     value = c(1, 2)

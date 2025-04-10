@@ -1,4 +1,6 @@
 test_that("With SpatRaster", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
   df <- as_tibble(r)
@@ -66,6 +68,8 @@ test_that("With SpatRaster", {
 
 
 test_that("With SpatVector", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
   df <- as_tibble(v)
