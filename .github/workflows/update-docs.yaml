@@ -36,7 +36,7 @@ jobs:
         run: |
 
           pkgdev::precompute_vignette_all()
-          pkgdev::update_docs(precompute = FALSE)
+          pkgdev::update_docs(precompute = FALSE, add_contributors = FALSE)
 
         shell: Rscript {0}
 
