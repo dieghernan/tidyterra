@@ -1,4 +1,6 @@
-# tidyterra (development version)
+# tidyterra 0.7.2
+
+-   Hotfix: Correct error on tests for **CRAN**.
 
 # tidyterra 0.7.1
 
