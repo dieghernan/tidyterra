@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2025-04-13                                             |
+|date     |2025-05-06                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 |quarto   |NA                                                     |
 
@@ -18,49 +18,47 @@
 
 |package      |old    |new    |Δ  |
 |:------------|:------|:------|:--|
-|tidyterra    |0.7.1  |0.7.2  |*  |
-|classInt     |0.4-11 |0.4-11 |   |
-|cli          |3.6.4  |3.6.4  |   |
-|colorspace   |2.1-1  |2.1-1  |   |
-|cpp11        |0.5.2  |0.5.2  |   |
-|data.table   |1.17.0 |1.17.0 |   |
-|DBI          |1.2.3  |1.2.3  |   |
-|dplyr        |1.1.4  |1.1.4  |   |
-|e1071        |1.7-16 |1.7-16 |   |
-|fansi        |1.0.6  |1.0.6  |   |
-|farver       |2.1.2  |2.1.2  |   |
-|generics     |0.1.3  |0.1.3  |   |
-|ggplot2      |3.5.2  |3.5.2  |   |
-|glue         |1.8.0  |1.8.0  |   |
-|gtable       |0.3.6  |0.3.6  |   |
-|isoband      |0.2.7  |0.2.7  |   |
-|labeling     |0.4.3  |0.4.3  |   |
-|lifecycle    |1.0.4  |1.0.4  |   |
-|magrittr     |2.0.3  |2.0.3  |   |
-|munsell      |0.5.1  |0.5.1  |   |
-|pillar       |1.10.2 |1.10.2 |   |
-|pkgconfig    |2.0.3  |2.0.3  |   |
-|proxy        |0.4-27 |0.4-27 |   |
-|purrr        |1.0.4  |1.0.4  |   |
-|R6           |2.6.1  |2.6.1  |   |
-|RColorBrewer |1.1-3  |1.1-3  |   |
-|Rcpp         |1.0.14 |1.0.14 |   |
-|rlang        |1.1.6  |1.1.6  |   |
-|s2           |1.1.7  |1.1.7  |   |
-|scales       |1.3.0  |1.3.0  |   |
-|sf           |1.0-20 |1.0-20 |   |
-|stringi      |1.8.7  |1.8.7  |   |
-|stringr      |1.5.1  |1.5.1  |   |
-|terra        |1.8-42 |1.8-42 |   |
-|tibble       |3.2.1  |3.2.1  |   |
-|tidyr        |1.3.1  |1.3.1  |   |
-|tidyselect   |1.2.1  |1.2.1  |   |
-|units        |0.8-7  |0.8-7  |   |
-|utf8         |1.2.4  |1.2.4  |   |
-|vctrs        |0.6.5  |0.6.5  |   |
-|viridisLite  |0.4.2  |0.4.2  |   |
-|withr        |3.0.2  |3.0.2  |   |
-|wk           |0.9.4  |0.9.4  |   |
+|tidyterra    |0.7.2  |0.7.2  |NA |
+|classInt     |0.4-11 |0.4-11 |NA |
+|cli          |3.6.5  |3.6.5  |NA |
+|cpp11        |0.5.2  |0.5.2  |NA |
+|data.table   |1.17.0 |1.17.0 |NA |
+|DBI          |1.2.3  |1.2.3  |NA |
+|dplyr        |1.1.4  |1.1.4  |NA |
+|e1071        |1.7-16 |1.7-16 |NA |
+|fansi        |1.0.6  |1.0.6  |NA |
+|farver       |2.1.2  |2.1.2  |NA |
+|generics     |0.1.3  |0.1.3  |NA |
+|ggplot2      |3.5.2  |3.5.2  |NA |
+|glue         |1.8.0  |1.8.0  |NA |
+|gtable       |0.3.6  |0.3.6  |NA |
+|isoband      |0.2.7  |0.2.7  |NA |
+|labeling     |0.4.3  |0.4.3  |NA |
+|lifecycle    |1.0.4  |1.0.4  |NA |
+|magrittr     |2.0.3  |2.0.3  |NA |
+|pillar       |1.10.2 |1.10.2 |NA |
+|pkgconfig    |2.0.3  |2.0.3  |NA |
+|proxy        |0.4-27 |0.4-27 |NA |
+|purrr        |1.0.4  |1.0.4  |NA |
+|R6           |2.6.1  |2.6.1  |NA |
+|RColorBrewer |1.1-3  |1.1-3  |NA |
+|Rcpp         |1.0.14 |1.0.14 |NA |
+|rlang        |1.1.6  |1.1.6  |NA |
+|s2           |1.1.7  |1.1.7  |NA |
+|scales       |1.4.0  |1.4.0  |NA |
+|sf           |1.0-20 |1.0-20 |NA |
+|stringi      |1.8.7  |1.8.7  |NA |
+|stringr      |1.5.1  |1.5.1  |NA |
+|terra        |1.8-42 |1.8-42 |NA |
+|tibble       |3.2.1  |3.2.1  |NA |
+|tidyr        |1.3.1  |1.3.1  |NA |
+|tidyselect   |1.2.1  |1.2.1  |NA |
+|units        |0.8-7  |0.8-7  |NA |
+|utf8         |1.2.5  |1.2.5  |NA |
+|vctrs        |0.6.5  |0.6.5  |NA |
+|viridisLite  |0.4.2  |0.4.2  |NA |
+|withr        |3.0.2  |3.0.2  |NA |
+|wk           |0.9.4  |0.9.4  |NA |
 
 # Revdeps
 
