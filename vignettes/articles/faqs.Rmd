@@ -382,9 +382,10 @@ ggplot() +
 
 ## Modifying the number of breaks on axis {#axis-breaks}
 
-This is a long-standing issue in **ggplot2** (see
-[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622)) that is
-fixed in **ggplot2** `>= 3.5.2` (on CRAN since April 2025):
+This is a long-standing issue in **ggplot2** with no satisfactory solution so
+far. Please see
+[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622) (and
+maybe consider opening a new issue). You can try something like this:
 
 ```{r breaks}
 packageVersion("ggplot2")
@@ -404,11 +405,20 @@ ggplot() +
 
 # Modify breaks on x and y
 
+# Need to be in EPSG:4326, but don't know why...
+extent <- r %>%
+  project("EPSG:4326") %>%
+  ext() %>%
+  as.vector()
+y_br <- pretty(c(extent[c("ymin", "ymax")]), n = 3)
+x_br <- pretty(c(extent[c("xmin", "xmax")]), n = 3)
+
+
 ggplot() +
   geom_spatraster(data = r) +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 3)) +
-  scale_y_continuous(breaks = scales::pretty_breaks(n = 3)) +
-  labs(title = "Try to get three breaks on x and y")
+  scale_y_continuous(breaks = y_br) +
+  scale_x_continuous(breaks = x_br) +
+  labs(title = "Three breaks in x and y axis")
 ```
 
 ## Plotting a `SpatRaster` with color tables
