@@ -491,8 +491,10 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
   if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
 
   if (is.null(values)) values <- hypsocol$limit
+  if (anyNA(values)) values <- values[!is.na(values)]
   # Reescale
   if (is.null(limits)) limits <- range(values)
+  if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_gradientn(...,
@@ -536,8 +538,10 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
   if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
 
   if (is.null(values)) values <- hypsocol$limit
+  if (anyNA(values)) values <- values[!is.na(values)]
   # Reescale
   if (is.null(limits)) limits <- range(values)
+  if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_gradientn(...,
@@ -581,8 +585,10 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
   if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
 
   if (is.null(values)) values <- hypsocol$limit
+  if (anyNA(values)) values <- values[!is.na(values)]
   # Reescale
   if (is.null(limits)) limits <- range(values)
+  if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_stepsn(
@@ -627,8 +633,10 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
   if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
 
   if (is.null(values)) values <- hypsocol$limit
+  if (anyNA(values)) values <- values[!is.na(values)]
   # Reescale
   if (is.null(limits)) limits <- range(values)
+  if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_stepsn(
