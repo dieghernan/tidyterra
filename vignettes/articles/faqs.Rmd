@@ -15,8 +15,6 @@ knitr::opts_chunk$set(
   tidy = "styler",
   out.width = "100%"
 )
-
-pak::pak("tidyverse/ggplot2")
 ```
 
 This is a compendium of [questions
@@ -386,12 +384,7 @@ ggplot() +
 
 This is a long-standing issue in **ggplot2** (see
 [ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622)) that is
-fixed in versions \> 3.5.1 (in development at the moment of writing):
-
-``` r
-# Need ggplot2 > 3.5.1 (dev version at the moment of writing)
-pak::pak("tidyverse/ggplot2")
-```
+fixed in **ggplot2** `>= 3.5.2` (on CRAN since April 2025):
 
 ```{r breaks}
 packageVersion("ggplot2")
@@ -415,7 +408,7 @@ ggplot() +
   geom_spatraster(data = r) +
   scale_x_continuous(breaks = scales::pretty_breaks(n = 3)) +
   scale_y_continuous(breaks = scales::pretty_breaks(n = 3)) +
-  labs(title = "Try to get three breaks on x and y (¿?)")
+  labs(title = "Try to get three breaks on x and y")
 ```
 
 ## Plotting a `SpatRaster` with color tables
