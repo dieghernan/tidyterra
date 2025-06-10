@@ -102,7 +102,7 @@ temp <- rast(f)
 
 temp
 #> class       : SpatRaster 
-#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
+#> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
 #> coord. ref. : World_Robinson 
@@ -120,7 +120,7 @@ mod <- temp %>%
 
 mod
 #> class       : SpatRaster 
-#> dimensions  : 87, 118, 3  (nrow, ncol, nlyr)
+#> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
 #> coord. ref. : World_Robinson 
@@ -288,7 +288,7 @@ asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
 #> class       : SpatRaster 
-#> dimensions  : 164, 306, 1  (nrow, ncol, nlyr)
+#> size        : 164, 306, 1  (nrow, ncol, nlyr)
 #> resolution  : 31836.23, 31847.57  (x, y)
 #> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
 #> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
