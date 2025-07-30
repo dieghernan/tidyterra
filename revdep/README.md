@@ -10,7 +10,7 @@
 |collate  |C.UTF-8                                                |
 |ctype    |C.UTF-8                                                |
 |tz       |UTC                                                    |
-|date     |2025-06-30                                             |
+|date     |2025-07-30                                             |
 |pandoc   |3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/pandoc |
 |quarto   |NA                                                     |
 
@@ -22,7 +22,7 @@
 |classInt     |0.4-11 |0.4-11 |NA |
 |cli          |3.6.5  |3.6.5  |NA |
 |cpp11        |0.5.2  |0.5.2  |NA |
-|data.table   |1.17.6 |1.17.6 |NA |
+|data.table   |1.17.8 |1.17.8 |NA |
 |DBI          |1.2.3  |1.2.3  |NA |
 |dplyr        |1.1.4  |1.1.4  |NA |
 |e1071        |1.7-16 |1.7-16 |NA |
@@ -35,20 +35,20 @@
 |labeling     |0.4.3  |0.4.3  |NA |
 |lifecycle    |1.0.4  |1.0.4  |NA |
 |magrittr     |2.0.3  |2.0.3  |NA |
-|pillar       |1.10.2 |1.10.2 |NA |
+|pillar       |1.11.0 |1.11.0 |NA |
 |pkgconfig    |2.0.3  |2.0.3  |NA |
 |proxy        |0.4-27 |0.4-27 |NA |
-|purrr        |1.0.4  |1.0.4  |NA |
+|purrr        |1.1.0  |1.1.0  |NA |
 |R6           |2.6.1  |2.6.1  |NA |
 |RColorBrewer |1.1-3  |1.1-3  |NA |
-|Rcpp         |1.0.14 |1.0.14 |NA |
+|Rcpp         |1.1.0  |1.1.0  |NA |
 |rlang        |1.1.6  |1.1.6  |NA |
 |s2           |1.1.9  |1.1.9  |NA |
 |scales       |1.4.0  |1.4.0  |NA |
 |sf           |1.0-21 |1.0-21 |NA |
 |stringi      |1.8.7  |1.8.7  |NA |
 |stringr      |1.5.1  |1.5.1  |NA |
-|terra        |1.8-54 |1.8-54 |NA |
+|terra        |1.8-60 |1.8-60 |NA |
 |tibble       |3.3.0  |3.3.0  |NA |
 |tidyr        |1.3.1  |1.3.1  |NA |
 |tidyselect   |1.2.1  |1.2.1  |NA |
