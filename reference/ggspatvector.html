@@ -17,7 +17,7 @@ objects (see terra::vect())."><meta property="og:image" content="https://diegher
       <img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,9 +75,7 @@ objects (see <code><a href="https://rspatial.github.io/terra/reference/vect.html
 <span>  na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="va">...</span>,</span>
-<span>  nudge_x <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  nudge_y <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  label.size <span class="op">=</span> <span class="fl">0.25</span>,</span>
+<span>  linewidth <span class="op">=</span> <span class="fl">0.25</span>,</span>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -87,8 +85,6 @@ objects (see <code><a href="https://rspatial.github.io/terra/reference/vect.html
 <span>  na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  show.legend <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  <span class="va">...</span>,</span>
-<span>  nudge_x <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  nudge_y <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  check_overlap <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  inherit.aes <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
@@ -139,13 +135,7 @@ These are often aesthetics, used to set an aesthetic to a fixed value,
 like <code>colour = "red"</code> or <code>linewidth = 3</code>.</p></dd>
 
 
-<dt id="arg-nudge-x-nudge-y">nudge_x, nudge_y<a class="anchor" aria-label="anchor" href="#arg-nudge-x-nudge-y"></a></dt>
-<dd><p>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointly specified with <code>position</code>.</p></dd>
-
-
-<dt id="arg-label-size">label.size<a class="anchor" aria-label="anchor" href="#arg-label-size"></a></dt>
+<dt id="arg-linewidth">linewidth<a class="anchor" aria-label="anchor" href="#arg-linewidth"></a></dt>
 <dd><p>Size of label border, in mm.</p></dd>
 
 
@@ -153,7 +143,7 @@ Cannot be jointly specified with <code>position</code>.</p></dd>
 <dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.org/reference/annotation_borders.html" class="external-link">borders()</a></code>.</p></dd>
+the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.org/reference/annotation_borders.html" class="external-link">annotation_borders()</a></code>.</p></dd>
 
 
 <dt id="arg-check-overlap">check_overlap<a class="anchor" aria-label="anchor" href="#arg-check-overlap"></a></dt>
