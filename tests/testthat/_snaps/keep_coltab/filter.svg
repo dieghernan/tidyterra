@@ -95,9 +95,9 @@
 <rect x='653.60' y='265.21' width='60.92' height='49.89' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <text x='653.60' y='273.92' style='font-size: 11.00px; font-family: sans;' textLength='26.30px' lengthAdjust='spacingAndGlyphs'>value</text>
 <rect x='653.60' y='280.54' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='653.60' y='280.54' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #9ADDCF;' />
+<rect x='653.60' y='280.54' width='17.28' height='17.28' style='stroke-width: 0.00; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #9ADDCF;' />
 <rect x='653.60' y='297.82' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='653.60' y='297.82' width='17.28' height='17.28' style='stroke-width: 0.75; stroke: none; fill: #A4FF74;' />
+<rect x='653.60' y='297.82' width='17.28' height='17.28' style='stroke-width: 0.00; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #A4FF74;' />
 <text x='676.36' y='292.21' style='font-size: 8.80px; font-family: sans;' textLength='38.16px' lengthAdjust='spacingAndGlyphs'>Paleozoic</text>
 <text x='676.36' y='309.49' style='font-size: 8.80px; font-family: sans;' textLength='37.18px' lengthAdjust='spacingAndGlyphs'>Mesozoic</text>
 <text x='37.21' y='40.79' style='font-size: 13.20px; font-family: sans;' textLength='24.93px' lengthAdjust='spacingAndGlyphs'>filter</text>

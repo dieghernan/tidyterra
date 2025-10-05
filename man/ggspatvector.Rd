@@ -22,9 +22,7 @@ geom_spatvector_label(
   na.rm = FALSE,
   show.legend = NA,
   ...,
-  nudge_x = 0,
-  nudge_y = 0,
-  label.size = 0.25,
+  linewidth = 0.25,
   inherit.aes = TRUE
 )
 
@@ -34,8 +32,6 @@ geom_spatvector_text(
   na.rm = FALSE,
   show.legend = NA,
   ...,
-  nudge_x = 0,
-  nudge_y = 0,
   check_overlap = FALSE,
   inherit.aes = TRUE
 )
@@ -73,8 +69,7 @@ override the default legend.}
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like \code{colour = "red"} or \code{linewidth = 3}.}
 
-\item{label.size}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Replaced by the
-\code{linewidth} aesthetic. Size of label border, in mm.}
+\item{linewidth}{Size of label border, in mm.}
 
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions

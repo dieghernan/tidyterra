@@ -93,22 +93,19 @@ geom_spatvector <- function(mapping = aes(),
 
 #' @export
 #' @name ggspatvector
+#' @param linewidth Size of label border, in mm.
 geom_spatvector_label <- function(mapping = aes(),
                                   data = NULL,
                                   na.rm = FALSE,
                                   show.legend = NA,
                                   ...,
-                                  nudge_x = 0,
-                                  nudge_y = 0,
-                                  label.size = 0.25,
+                                  linewidth = 0.25,
                                   inherit.aes = TRUE) {
   ggplot2::geom_sf_label(
     mapping = mapping,
     data = data,
     ...,
-    nudge_x = nudge_x,
-    nudge_y = nudge_y,
-    label.size = label.size,
+    linewidth = linewidth,
     na.rm = na.rm,
     show.legend = show.legend,
     inherit.aes = inherit.aes
@@ -123,16 +120,12 @@ geom_spatvector_text <- function(mapping = aes(),
                                  na.rm = FALSE,
                                  show.legend = NA,
                                  ...,
-                                 nudge_x = 0,
-                                 nudge_y = 0,
                                  check_overlap = FALSE,
                                  inherit.aes = TRUE) {
   ggplot2::geom_sf_text(
     mapping = mapping,
     data = data,
     ...,
-    nudge_x = nudge_x,
-    nudge_y = nudge_y,
     check_overlap = check_overlap,
     na.rm = na.rm,
     show.legend = show.legend,

@@ -1,3 +1,11 @@
+# tidyterra (development version)
+
+-   Adapt deprecations of **ggplot2** (4.0.0):
+    -   `geom_spatvector_label()` / `geom_spatvector_text()`: `label.size`
+        aesthetic replaced by `linewidth`. Also `nudge_x` and `nudge_y` are not
+        explicitly documented and are passed to `ggplot2::geom_sf_label()` /
+        `_text()` via dots (`...`).
+
 # tidyterra 0.7.2
 
 -   Hotfix: Correct error on tests for **CRAN**.
