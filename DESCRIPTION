@@ -53,6 +53,6 @@ Config/testthat/parallel: false
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 X-schema.org-keywords: r, terra, ggplot-extension, r-spatial, rspatial,
     cran, cran-r, r-package, rstats, rstats-package
