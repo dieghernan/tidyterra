@@ -94,6 +94,43 @@ test_that("Can extract several color tables on layers", {
   expect_identical(c(ctab1, ctab2), ctab)
 })
 
+test_that("Can alpha color tables", {
+  # Prepare colors
+  cols1 <- rainbow(3)
+  cols2 <- ggplot2::alpha(c("#FFA500", "#FFFF00"), alpha = c(0.5, 0.7))
+
+  # Prepare rasters
+  r <- terra::rast(
+    ncols = 4, nrows = 4,
+    vals = as.factor(rep_len(c("A", "B", "A", "C"), 16))
+  )
+  r2 <- r
+  terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), 16))
+
+
+  # Add coltabs
+  coltb1 <- data.frame(id = 1:3, t(col2rgb(cols1, alpha = TRUE)))
+  coltb2 <- data.frame(id = 1:2, t(col2rgb(cols2, alpha = TRUE)))
+
+
+  terra::coltab(r, layer = 1) <- coltb1
+  terra::coltab(r2, layer = 1) <- coltb2
+
+  rend <- c(r, r2)
+
+
+  ctab1 <- get_coltab_pal(r)
+  expect_true(all(cols1 == ctab1))
+
+  ctab2 <- get_coltab_pal(r2)
+  expect_true(all(cols2 == ctab2))
+  ctab <- get_coltab_pal(rend)
+  expect_true(all(
+    # When mixed all colours have alpha, FF=100%
+    c(paste0(ctab1, "FF"), ctab2) == ctab
+  ))
+})
+
 
 test_that("Give informative messages", {
   df <- data.frame(x = 1)
