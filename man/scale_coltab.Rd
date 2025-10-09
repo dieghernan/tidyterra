@@ -10,7 +10,7 @@
 scale_fill_coltab(
   data,
   ...,
-  alpha = 1,
+  alpha = NA,
   na.translate = FALSE,
   na.value = "transparent",
   drop = TRUE
@@ -19,7 +19,7 @@ scale_fill_coltab(
 scale_colour_coltab(
   data,
   ...,
-  alpha = 1,
+  alpha = NA,
   na.translate = FALSE,
   na.value = "transparent",
   drop = TRUE
@@ -84,8 +84,8 @@ expand the scale by 5\% on each side for continuous variables, and by
 0.6 units on each side for discrete variables.}
   }}
 
-\item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
-\code{\link[grDevices]{hsv}}.}
+\item{alpha}{The alpha transparency: could be \code{NA} or a number in [0,1].
+See argument \code{alpha} in \code{\link[=scale_fill_terrain_d]{scale_fill_terrain_d()}}.}
 
 \item{na.translate}{Should \code{NA} values be removed from the legend? Default
 is \code{TRUE}.}

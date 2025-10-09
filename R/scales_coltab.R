@@ -29,6 +29,9 @@
 #' @param data,x A `SpatRaster` with one or several color tables.
 #'   See [terra::has.colors()].
 #'
+#' @param alpha The alpha transparency: could be `NA` or a number in \[0,1\].
+#'   See argument `alpha` in [scale_fill_terrain_d()].
+#'
 #' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
 #'   [ggplot2::scale_fill_manual()],
 #'
@@ -65,7 +68,7 @@
 #' gg +
 #'   scale_fill_coltab(data = r)
 #' }
-scale_fill_coltab <- function(data, ..., alpha = 1,
+scale_fill_coltab <- function(data, ..., alpha = NA,
                               na.translate = FALSE,
                               na.value = "transparent",
                               drop = TRUE) {
@@ -73,11 +76,16 @@ scale_fill_coltab <- function(data, ..., alpha = 1,
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
   }
-
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+  if (is.na(alpha)) {
+    # In alpha NA use the alpha of the coltab
+    getcols <- getcols
+  } else {
+    if (alpha < 0 || alpha > 1) {
+      cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    }
+    getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
-  getcols <- ggplot2::alpha(getcols, alpha = alpha)
+
   if (isTRUE(na.translate)) {
     # Unname
     getcols <- unname(getcols)
@@ -93,17 +101,23 @@ scale_fill_coltab <- function(data, ..., alpha = 1,
 
 #' @rdname scale_coltab
 #' @export
-scale_colour_coltab <- function(data, ..., alpha = 1, na.translate = FALSE,
+scale_colour_coltab <- function(data, ..., alpha = NA, na.translate = FALSE,
                                 na.value = "transparent", drop = TRUE) {
   getcols <- get_coltab_pal(data)
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
   }
 
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+  if (is.na(alpha)) {
+    # In alpha NA use the alpha of the coltab
+    getcols <- getcols
+  } else {
+    if (alpha < 0 || alpha > 1) {
+      cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    }
+    getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
-  getcols <- ggplot2::alpha(getcols, alpha = alpha)
+
   if (isTRUE(na.translate)) {
     # Unname
     getcols <- unname(getcols)
@@ -215,8 +229,19 @@ get_coltab_pal <- function(x) {
   # Create palette
   colfields <- finaltab[, c("r", "g", "b", "a")]
 
-  namedpal <- rgb(tidyr::drop_na(colfields), maxColorValue = 255)
+  colfields <- tidyr::drop_na(colfields)
 
+  # Check if alpha is relevant
+  has_alpha <- any(colfields$a < 255)
+
+  if (has_alpha) {
+    namedpal <- rgb(
+      red = colfields$r, green = colfields$g, blue = colfields$b,
+      alpha = colfields$a, maxColorValue = 255
+    )
+  } else {
+    namedpal <- rgb(colfields, maxColorValue = 255)
+  }
   # Same length than names
   nms <- unique(finaltab[["label"]])
 
