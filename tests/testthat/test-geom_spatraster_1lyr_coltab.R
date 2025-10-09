@@ -352,3 +352,46 @@ test_that("geom_spatraster one facets", {
 
   vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })
+
+test_that("geom_spatraster one alpha", {
+  skip_on_cran()
+
+  suppressWarnings(library(ggplot2))
+  suppressWarnings(library(terra))
+
+  # Prepare colors
+  cols <- ggplot2::alpha(c("#FFA500", "#FFFF00"), alpha = c(0.1, 0.7))
+
+  # Prepare rasters
+  r <- terra::rast(
+    ncols = 4, nrows = 4,
+    vals = as.factor(rep_len(c("S", "W", "S"), 16))
+  )
+
+
+  # Add coltabs
+  coltb <- data.frame(id = 1:2, t(col2rgb(cols, alpha = TRUE)))
+
+  terra::coltab(r, layer = 1) <- coltb
+
+
+  # test with vdiffr
+  skip_on_covr()
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+
+  # Regular
+
+  p <- ggplot() +
+    geom_spatraster(data = r)
+  vdiffr::expect_doppelganger("crsalpha_01: alpha coltab", p)
+
+  # With alpha on scale
+
+  p <- ggplot() +
+    geom_spatraster(data = r, use_coltab = FALSE) +
+    scale_fill_coltab(data = r, alpha = 1)
+
+  vdiffr::expect_doppelganger("crsalpha_02: alpha in scale", p)
+})

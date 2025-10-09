@@ -204,6 +204,26 @@ test_that("Discrete scale color", {
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
+
+  # Alpha on coltab
+  coltb2 <- coltb
+  coltb2$alpha <- 100
+  terra::coltab(r, layer = 1) <- coltb2
+
+  p3 <- p + scale_color_coltab(data = r)
+
+  thecols <- unique(ggplot2::layer_data(p3)$colour)
+
+  df2 <- as.data.frame(t(col2rgb(thecols, alpha = TRUE)))
+  expect_true(all(df2$alpha == 100))
+
+  # Deactivate
+  p5 <- p + scale_color_coltab(data = r, alpha = 0.56373)
+
+  thecols <- unique(ggplot2::layer_data(p5)$colour)
+
+  df2 <- as.data.frame(t(col2rgb(thecols, alpha = TRUE)))
+  expect_false(any(df2$alpha == 100))
 })
 
 
@@ -264,4 +284,25 @@ test_that("Discrete scale fill", {
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
+
+  # Alpha in coltab
+  coltb2 <- coltb
+  coltb2$alpha <- 31
+
+  terra::coltab(r, layer = 1) <- coltb2
+
+  p3 <- p + scale_fill_coltab(data = r)
+
+  thecols <- unique(ggplot2::layer_data(p3)$fill)
+
+  df2 <- as.data.frame(t(col2rgb(thecols, alpha = TRUE)))
+  expect_true(all(df2$alpha == 31))
+
+  # Deactivate
+  p5 <- p + scale_fill_coltab(data = r, alpha = 0.56373)
+
+  thecols <- unique(ggplot2::layer_data(p5)$fill)
+
+  df2 <- as.data.frame(t(col2rgb(thecols, alpha = TRUE)))
+  expect_false(any(df2$alpha == 31))
 })
