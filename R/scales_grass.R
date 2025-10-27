@@ -243,8 +243,10 @@ scale_fill_grass_c <- function(palette = "viridis", ...,
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
     if (is.null(values)) values <- hypsocol$limit
+    if (anyNA(values)) values <- values[!is.na(values)]
     # Reescale
     if (is.null(limits)) limits <- range(values)
+    if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
     res <- scales::rescale(values, from = limits)
   }
 
@@ -296,8 +298,10 @@ scale_colour_grass_c <- function(palette = "viridis", ...,
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
     if (is.null(values)) values <- hypsocol$limit
+    if (anyNA(values)) values <- values[!is.na(values)]
     # Reescale
     if (is.null(limits)) limits <- range(values)
+    if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
     res <- scales::rescale(values, from = limits)
   }
 
@@ -354,8 +358,10 @@ scale_fill_grass_b <- function(palette = "viridis", ...,
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
     if (is.null(values)) values <- hypsocol$limit
+    if (anyNA(values)) values <- values[!is.na(values)]
     # Reescale
     if (is.null(limits)) limits <- range(values)
+    if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
     res <- scales::rescale(values, from = limits)
   }
 
@@ -408,8 +414,10 @@ scale_colour_grass_b <- function(palette = "viridis", ...,
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
     if (is.null(values)) values <- hypsocol$limit
+    if (anyNA(values)) values <- values[!is.na(values)]
     # Reescale
     if (is.null(limits)) limits <- range(values)
+    if (anyNA(limits)) limits[is.na(limits)] <- range(values)[is.na(limits)]
     res <- scales::rescale(values, from = limits)
   }
 
