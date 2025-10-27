@@ -6,6 +6,12 @@
         explicitly documented and are passed to `ggplot2::geom_sf_label()` /
         `_text()` via dots (`...`).
 -   `get_coltab_pal()` can extract colors with alpha values (#180).
+-   New `fortify.SpatExtent()` method, making easier to plot `SpatExtent`
+    objects with **ggplot2**.
+-   New methods from the **generics** package (that has been added to
+    `Imports`):
+    -   `required_pkgs()`.
+    -   
 
 # tidyterra 0.7.2
 

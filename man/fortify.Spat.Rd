@@ -5,6 +5,7 @@
 \alias{fortify.SpatRaster}
 \alias{fortify.SpatVector}
 \alias{fortify.SpatGraticule}
+\alias{fortify.SpatExtent}
 \title{Fortify \verb{Spat*} Objects}
 \usage{
 \method{fortify}{SpatRaster}(
@@ -19,10 +20,13 @@
 \method{fortify}{SpatVector}(model, data, ...)
 
 \method{fortify}{SpatGraticule}(model, data, ...)
+
+\method{fortify}{SpatExtent}(model, data, ..., crs = "")
 }
 \arguments{
 \item{model}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
-created with \code{\link[terra:vect]{terra::vect()}}.}
+created with \code{\link[terra:vect]{terra::vect()}}. Also support \code{SpatGraticule}
+(see \code{\link[terra:graticule]{terra::graticule()}}) and \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
 \item{data}{Not used by this method.}
 
@@ -72,6 +76,11 @@ the plot.}
 \item{pivot}{Logical. When \code{TRUE} the \code{SpatRaster} would be fortified on
 \link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default) it would
 be fortified as a data frame with a column for each layer. See \strong{Details}.}
+
+\item{crs}{Input potentially including or representing a CRS. It could be
+a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
+integer (representing an \href{https://epsg.io/}{EPSG} code).}
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}} returns a \code{\link[sf:sf]{sf}} object and

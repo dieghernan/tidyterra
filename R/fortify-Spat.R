@@ -5,7 +5,8 @@
 #'
 #'
 #' @param model A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
+#'   created with [terra::vect()]. Also support `SpatGraticule`
+#'   (see [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
 #' @param data Not used by this method.
 #' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::fortify
@@ -160,6 +161,17 @@ fortify.SpatGraticule <- function(model, data, ...) {
   }
   # nocov end
   as_sf(terra::vect(model))
+}
+
+#' @export
+#' @name fortify.Spat
+#' @param crs Input potentially including or representing a CRS. It could be
+#'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
+#'   [sf::st_crs()], a character (for example a [proj4
+#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
+#'   integer (representing an [EPSG](https://epsg.io/) code).
+fortify.SpatExtent <- function(model, data, ..., crs = "") {
+  as_sf(terra::vect(model, crs = pull_crs(crs)))
 }
 
 #' @export

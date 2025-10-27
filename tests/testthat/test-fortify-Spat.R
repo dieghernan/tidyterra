@@ -270,3 +270,35 @@ test_that("Fortify SpatGraticule", {
 
   expect_identical(build_terra, build_sf)
 })
+
+test_that("Fortify SpatExtent", {
+  skip_on_cran()
+
+  skip_if_not_installed("terra", minimum_version = "1.8.5")
+  v <- terra::graticule()
+  ex <- terra::ext(terra::vect(v))
+  fort <- fortify(ex)
+
+  # Compare
+  asf <- sf::st_as_sf(terra::vect(ex))
+  # We added new classes
+  class(asf) <- class(fort)
+
+  expect_identical(fort, asf)
+
+  # Try ggplot
+  v_t <- ggplot2::ggplot(ex) +
+    geom_spatvector()
+  build_terra <- ggplot2::layer_data(v_t)
+
+  v_sf <- ggplot2::ggplot(asf) +
+    ggplot2::geom_sf()
+
+  build_sf <- ggplot2::layer_data(v_sf)
+
+  expect_identical(build_terra, build_sf)
+
+  # Add crs
+  fort2 <- fortify(ex, crs = "EPSG:4326")
+  expect_identical(pull_crs(fort2), pull_crs("EPSG:4326"))
+})

@@ -2,6 +2,7 @@ list(
   rd_family_title = list(
     coerce = "Coercing objects:",
     tibble.methods = "Other \\CRANpkg{tibble} methods:",
+    generics.methods = "Other \\CRANpkg{generics} methods:",
     dplyr.methods = "Other \\CRANpkg{dplyr} methods:",
     dplyr.rows = "Other \\CRANpkg{dplyr} verbs that operate on rows:",
     dplyr.cols = "Other \\CRANpkg{dplyr} verbs that operate on columns:",
