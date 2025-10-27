@@ -45,15 +45,25 @@
 #'   )
 #' }
 #'
-stat_spat_coordinates <- function(mapping = aes(), data = NULL, geom = "point",
-                                  position = "identity", na.rm = FALSE,
-                                  show.legend = NA, inherit.aes = TRUE,
-                                  ...) {
+stat_spat_coordinates <- function(
+  mapping = aes(),
+  data = NULL,
+  geom = "point",
+  position = "identity",
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  ...
+) {
   # nocov start
   ggplot2::stat_sf_coordinates(
-    mapping = mapping, data = data, geom = geom,
-    position = position, na.rm = na.rm,
-    show.legend = show.legend, inherit.aes = inherit.aes,
+    mapping = mapping,
+    data = data,
+    geom = geom,
+    position = position,
+    na.rm = na.rm,
+    show.legend = show.legend,
+    inherit.aes = inherit.aes,
     ...
   )
   # nocov end

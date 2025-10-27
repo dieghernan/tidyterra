@@ -92,10 +92,14 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_princess_d(na.value = "gray10", palette = "maori")
 #' }
-scale_fill_princess_d <- function(palette = "snow", ...,
-                                  alpha = 1, direction = 1,
-                                  na.translate = FALSE,
-                                  drop = TRUE) {
+scale_fill_princess_d <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -118,10 +122,14 @@ scale_fill_princess_d <- function(palette = "snow", ...,
 }
 #' @export
 #' @rdname scale_princess
-scale_colour_princess_d <- function(palette = "snow", ...,
-                                    alpha = 1, direction = 1,
-                                    na.translate = FALSE,
-                                    drop = TRUE) {
+scale_colour_princess_d <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -145,10 +153,14 @@ scale_colour_princess_d <- function(palette = "snow", ...,
 
 #' @export
 #' @rdname scale_princess
-scale_fill_princess_c <- function(palette = "snow", ...,
-                                  alpha = 1, direction = 1,
-                                  na.value = "transparent",
-                                  guide = "colourbar") {
+scale_fill_princess_c <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -174,10 +186,14 @@ scale_fill_princess_c <- function(palette = "snow", ...,
 
 #' @export
 #' @rdname scale_princess
-scale_colour_princess_c <- function(palette = "snow", ...,
-                                    alpha = 1, direction = 1,
-                                    na.value = "transparent",
-                                    guide = "colourbar") {
+scale_colour_princess_c <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -204,10 +220,14 @@ scale_colour_princess_c <- function(palette = "snow", ...,
 
 #' @export
 #' @rdname scale_princess
-scale_fill_princess_b <- function(palette = "snow", ...,
-                                  alpha = 1, direction = 1,
-                                  na.value = "transparent",
-                                  guide = "coloursteps") {
+scale_fill_princess_b <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -217,7 +237,6 @@ scale_fill_princess_b <- function(palette = "snow", ...,
   }
 
   length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
 
   ggplot2::binned_scale(
     aesthetics = "fill",
@@ -234,10 +253,14 @@ scale_fill_princess_b <- function(palette = "snow", ...,
 
 #' @export
 #' @rdname scale_princess
-scale_colour_princess_b <- function(palette = "snow", ...,
-                                    alpha = 1, direction = 1,
-                                    na.value = "transparent",
-                                    guide = "coloursteps") {
+scale_colour_princess_b <- function(
+  palette = "snow",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -247,7 +270,6 @@ scale_colour_princess_b <- function(palette = "snow", ...,
   }
 
   length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
 
   ggplot2::binned_scale(
     aesthetics = "colour",
@@ -289,8 +311,7 @@ scale_colour_princess_b <- function(palette = "snow", ...,
 #'   )
 #' }
 #' par(opar)
-princess.colors <- function(n, palette = "snow",
-                            alpha = 1, rev = FALSE) {
+princess.colors <- function(n, palette = "snow", alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::princess_db, palette = palette)
     colors <- as.character(paltab$hex)
@@ -305,8 +326,10 @@ princess.colors <- function(n, palette = "snow",
 princess_pal <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- princess.colors(n,
-      rev = direction != 1, alpha = alpha,
+    pal <- princess.colors(
+      n,
+      rev = direction != 1,
+      alpha = alpha,
       palette = palette
     )
 

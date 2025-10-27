@@ -5,7 +5,6 @@ test_that("SpatRaster select: Geographic", {
 
   rasterselect <- raster %>% select(cyl_tile_1, cyl_tile_2)
 
-
   expect_true(terra::nlyr(rasterselect) == 2)
 
   # Checks on raster
@@ -22,7 +21,6 @@ test_that("SpatRaster select and rename: Geographic", {
   raster <- terra::rast(file)
 
   rasterselect <- raster %>% dplyr::select(name_test = cyl_tile_1)
-
 
   expect_true(terra::nlyr(rasterselect) == 1)
   expect_true(names(rasterselect) == "name_test")
@@ -57,14 +55,11 @@ test_that("SpatRaster select: Non Geographic", {
 
 test_that("SpatVector select and rename", {
   skip_on_cran()
-  f <- system.file("extdata/cyl.gpkg",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   v <- terra::vect(f)
 
   selected <- v %>% select(iso2, cpro2 = cpro)
-
 
   expect_s4_class(selected, "SpatVector")
   expect_equal(ncol(selected), 2)

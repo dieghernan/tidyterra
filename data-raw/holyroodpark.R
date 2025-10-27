@@ -4,7 +4,6 @@
 # Scotland Lidar Phase 5 DSM NT27SE
 # License: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
-
 library(terra)
 r <- rast("data-raw/dems/NT27SE_50CM_DSM_PHASE5.tif")
 

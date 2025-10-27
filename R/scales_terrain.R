@@ -69,9 +69,13 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_terrain_d(na.value = "gray10")
 #' }
-scale_fill_terrain_d <- function(..., alpha = 1, direction = 1,
-                                 na.translate = FALSE,
-                                 drop = TRUE) {
+scale_fill_terrain_d <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -94,9 +98,13 @@ scale_fill_terrain_d <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-scale_colour_terrain_d <- function(..., alpha = 1, direction = 1,
-                                   na.translate = FALSE,
-                                   drop = TRUE) {
+scale_colour_terrain_d <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -120,9 +128,13 @@ scale_colour_terrain_d <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
-                                 na.value = "transparent",
-                                 guide = "colourbar") {
+scale_fill_terrain_c <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -145,9 +157,13 @@ scale_fill_terrain_c <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
-                                   na.value = "transparent",
-                                   guide = "colourbar") {
+scale_colour_terrain_c <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -171,9 +187,13 @@ scale_colour_terrain_c <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
-                                 na.value = "transparent",
-                                 guide = "coloursteps") {
+scale_fill_terrain_b <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -196,9 +216,13 @@ scale_fill_terrain_b <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_terrain
-scale_colour_terrain_b <- function(..., alpha = 1, direction = 1,
-                                   na.value = "transparent",
-                                   guide = "coloursteps") {
+scale_colour_terrain_b <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }

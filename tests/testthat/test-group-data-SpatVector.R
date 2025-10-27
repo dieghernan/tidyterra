@@ -15,7 +15,6 @@ test_that("group_data(<SpatVector>) returns a tibble", {
   expect_s4_class(df_v, "SpatVector")
   gd_v <- group_data(df_v)
 
-
   expect_s3_class(gd_v, "tbl_df")
   expect_equal(as.list(gd_v$.rows), list(1:3))
 
@@ -80,7 +79,6 @@ test_that("group_rows() and group_keys() partition group_data()", {
   expect_equal(group_keys(gf_v), gd_v[1:2], ignore_attr = TRUE)
   expect_equal(group_rows(gf_v), gd_v[[3]])
 
-
   gf <- group_by(df, x, y, .drop = dplyr::group_by_drop_default(.data))
   gd <- group_data(gf)
 
@@ -88,7 +86,6 @@ test_that("group_rows() and group_keys() partition group_data()", {
 })
 
 # group_indices() ---------------------------------------------------------
-
 
 test_that("group_indices() returns expected values", {
   skip_on_cran()
@@ -102,7 +99,6 @@ test_that("group_indices() returns expected values", {
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
   gf_v <- group_by(df_v, x)
-
 
   expect_equal(group_indices(df_v), c(1, 1, 1))
   expect_equal(group_indices(gf_v), c(2, 1, 2))
@@ -152,7 +148,6 @@ test_that("group_size correct for grouped data", {
 
   expect_true(is_grouped_spatvector(df_v))
 
-
   expect_equal(n_groups(df_v), 3L)
   expect_equal(group_size(df_v), rep(10, 3))
 })
@@ -178,7 +173,6 @@ test_that("group_vars.SpatVector produces correct results for grouped", {
   expect_true(is_grouped_spatvector(gf_v))
   expect_true(dplyr::is_grouped_df(gf))
 
-
   expect_identical(group_vars(gf_v), group_vars(gf))
 })
 
@@ -197,7 +191,6 @@ test_that("group_vars.SpatVector produces correct results for ungrouped", {
 
   expect_false(is_grouped_spatvector(df_v))
   expect_false(dplyr::is_grouped_df(df))
-
 
   expect_identical(group_vars(df_v), group_vars(df))
 })

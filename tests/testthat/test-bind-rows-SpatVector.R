@@ -66,7 +66,6 @@ test_that("bind_spat_rows() creates a column of identifiers", {
   df1 <- terra::vect(df1, crs = "EPSG:4326")
   df2 <- terra::vect(df2, crs = "EPSG:4326")
 
-
   # with
   out <- bind_spat_rows(a = df1, b = df2, .id = "id")
   expect_equal(

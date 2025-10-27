@@ -131,10 +131,13 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   crs <- pull_crs(crs)
 
   # Check from attrs
-  if (is.na(crs)) crs <- crs_attr
+  if (is.na(crs)) {
+    crs <- crs_attr
+  }
 
-  if (is.na(pull_crs(crs))) crs <- NA
-
+  if (is.na(pull_crs(crs))) {
+    crs <- NA
+  }
 
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
 
@@ -142,8 +145,6 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (dplyr::is_grouped_df(x) || is_rowwise_df(x)) {
     v <- group_prepare_spat(v, x)
   }
-
-
 
   return(v)
 }
@@ -159,13 +160,11 @@ as_spatvector.sf <- function(x, ...) {
     return(v)
   }
 
-
   sf_col <- attr(x, "sf_column")
 
   # Create template with basic metadata
   template <- as_tbl_internal(terra::vect(x[!sf::st_is_empty(x), sf_col]))
   attr_template <- attributes(template)
-
 
   # Get tibble
   tbl <- sf::st_drop_geometry(x)
@@ -182,7 +181,6 @@ as_spatvector.sf <- function(x, ...) {
       "lines" = "MULTILINESTRING EMPTY",
       "POINT EMPTY"
     )
-
 
     gg[sf::st_is_empty(x)] <- empty_geom
   }

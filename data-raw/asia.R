@@ -1,10 +1,11 @@
 ## code to prepare `asia.tif` dataset goes here
 
-
 asiaraw <- terra::rast("data-raw/asia.tif")
 template <- terra::project(asiaraw, "EPSG:3857")
 terra::ncell(template)
-template <- terra::spatSample(template, 50000,
+template <- terra::spatSample(
+  template,
+  50000,
   method = "regular",
   as.raster = TRUE
 )

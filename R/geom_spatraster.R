@@ -139,16 +139,18 @@
 #'   geom_spatraster(data = no_crs, maxcell = 25)
 #' }
 #'
-geom_spatraster <- function(mapping = aes(),
-                            data,
-                            na.rm = TRUE,
-                            show.legend = NA,
-                            inherit.aes = FALSE,
-                            interpolate = FALSE,
-                            maxcell = 500000,
-                            use_coltab = TRUE,
-                            mask_projection = FALSE,
-                            ...) {
+geom_spatraster <- function(
+  mapping = aes(),
+  data,
+  na.rm = TRUE,
+  show.legend = NA,
+  inherit.aes = FALSE,
+  interpolate = FALSE,
+  maxcell = 500000,
+  use_coltab = TRUE,
+  mask_projection = FALSE,
+  ...
+) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster} only works with",
@@ -186,7 +188,6 @@ geom_spatraster <- function(mapping = aes(),
   # Check mixed types
   data <- check_mixed_cols(data)
 
-
   data <- resample_spat(data, maxcell)
 
   # 3. Create a nested list with each layer----
@@ -205,7 +206,6 @@ geom_spatraster <- function(mapping = aes(),
   for (i in seq_len(terra::nlyr(data))) {
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
-
 
   # 4. Build layer ----
 
@@ -230,7 +230,6 @@ geom_spatraster <- function(mapping = aes(),
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -240,9 +239,7 @@ geom_spatraster <- function(mapping = aes(),
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
@@ -256,7 +253,6 @@ geom_spatraster <- function(mapping = aes(),
     )
   }
 
-
   layer_spatrast
 }
 
@@ -267,7 +263,8 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
-    lyr = lyr, group = lyr,
+    lyr = lyr,
+    group = lyr,
     spatraster = after_stat(spatraster)
   ),
   extra_params = c("maxcell", "na.rm", "coord_crs", "mask_projection"),
@@ -296,11 +293,18 @@ StatTerraSpatRaster <- ggplot2::ggproto(
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
-      params, layout
+      params,
+      layout
     )
   },
-  compute_group = function(data, scales, coord, params,
-                           coord_crs = NA, mask_projection = FALSE) {
+  compute_group = function(
+    data,
+    scales,
+    coord,
+    params,
+    coord_crs = NA,
+    mask_projection = FALSE
+  ) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
@@ -331,9 +335,7 @@ remove_columns <- function(x, rem) {
 }
 
 # Reproject a SpatRaster with params
-reproject_raster_on_stat <- function(raster,
-                                     coords_crs = NA,
-                                     mask = FALSE) {
+reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   # Check if need to reproject
   crs_terra <- pull_crs(raster)
 
@@ -368,11 +370,12 @@ reproject_raster_on_stat <- function(raster,
   )
 
   # Try to keep the same number of cells on the template
-  template <- terra::spatSample(template, terra::ncell(init_rast),
+  template <- terra::spatSample(
+    template,
+    terra::ncell(init_rast),
     as.raster = TRUE,
     method = "regular"
   )
-
 
   # Reproject
   proj_rast <- terra::project(init_rast, template, mask = mask)
@@ -382,9 +385,7 @@ reproject_raster_on_stat <- function(raster,
 
 pivot_longer_spat <- function(x) {
   tb <- as_tbl_internal(x)
-  tb_pivot <- tidyr::pivot_longer(tb, -c(1, 2),
-    names_to = "lyr"
-  )
+  tb_pivot <- tidyr::pivot_longer(tb, -c(1, 2), names_to = "lyr")
   tb_pivot <- tb_pivot[order(tb_pivot$lyr), ]
 
   tb_pivot
@@ -407,8 +408,7 @@ override_aesthetics <- function(user_mapping = NULL, default_mapping = NULL) {
   }
 }
 
-cleanup_aesthetics <- function(mapping,
-                               remove = c("r", "g", "b", "fill")) {
+cleanup_aesthetics <- function(mapping, remove = c("r", "g", "b", "fill")) {
   allaes <- names(mapping)
   keepaes <- setdiff(allaes, remove)
   new_aes <- mapping[keepaes]
@@ -418,10 +418,7 @@ cleanup_aesthetics <- function(mapping,
 
 resample_spat <- function(r, maxcell = 50000) {
   if (terra::ncell(r) > 1.1 * maxcell) {
-    r <- terra::spatSample(r, maxcell,
-      as.raster = TRUE,
-      method = "regular"
-    )
+    r <- terra::spatSample(r, maxcell, as.raster = TRUE, method = "regular")
     cli::cli_inform(paste(
       "{.cls SpatRaster} resampled to",
       "{.field {terra::ncell(r)}} cell{?s}."
@@ -480,9 +477,11 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
 }
 
 
-prepare_aes_spatraster <- function(mapping = aes(),
-                                   raster_names = NA,
-                                   dots = list()) {
+prepare_aes_spatraster <- function(
+  mapping = aes(),
+  raster_names = NA,
+  dots = list()
+) {
   # Prepare aes for StatTerraSpatRaster
   mapinit <- cleanup_aesthetics(mapping, "group")
 
@@ -503,7 +502,6 @@ prepare_aes_spatraster <- function(mapping = aes(),
     map = mapinit
   )
 
-
   # Capture all info
   fill_from_dots <- "fill" %in% names(dots)
 
@@ -512,11 +510,11 @@ prepare_aes_spatraster <- function(mapping = aes(),
     return(result_obj)
   }
 
-
   # Extract from aes
   fill_from_aes <- unname(vapply(
     mapinit,
-    rlang::as_label, character(1)
+    rlang::as_label,
+    character(1)
   )["fill"])
   fill_not_provided <- is.na(fill_from_aes)
   is_layer <- fill_from_aes %in% raster_names
@@ -524,7 +522,8 @@ prepare_aes_spatraster <- function(mapping = aes(),
   # If not provided add after_stat
   if (fill_not_provided) {
     map_not_prov <- override_aesthetics(
-      mapinit, ggplot2::aes(fill = after_stat(.data$value))
+      mapinit,
+      ggplot2::aes(fill = after_stat(.data$value))
     )
 
     result_obj$map <- map_not_prov
@@ -537,7 +536,6 @@ prepare_aes_spatraster <- function(mapping = aes(),
       ggplot2::aes(fill = after_stat(.data$value)),
       mapinit
     )
-
 
     result_obj$map <- map_layer
     result_obj$namelayer <- fill_from_aes

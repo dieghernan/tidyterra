@@ -91,7 +91,6 @@ select.SpatRaster <- function(.data, ...) {
 
   df[1, ] <- seq_len(ncol(df))
 
-
   result <- dplyr::select(df, ...)
 
   # Now translate from result to terra

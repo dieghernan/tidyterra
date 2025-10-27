@@ -142,7 +142,6 @@ bind_spat_rows <- function(..., .id = NULL) {
       return(as_tibble(x))
     }
 
-
     if (inherits(x, "sf")) {
       return(sf::st_drop_geometry(x))
     }
@@ -211,7 +210,9 @@ crs_compare <- function(a, b, index) {
     )
   }
 
-  if (inherits(a, c("sf", "sfc"))) a <- as_spatvector(a)
+  if (inherits(a, c("sf", "sfc"))) {
+    a <- as_spatvector(a)
+  }
 
   if (is.na(pull_crs(b))) {
     terra::crs(a) <- pull_crs(b)

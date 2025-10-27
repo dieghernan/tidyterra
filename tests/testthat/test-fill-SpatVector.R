@@ -65,7 +65,6 @@ test_that("missings filled down for each atomic vector", {
 
   df <- terra::vect(df, crs = "EPSG:3857")
 
-
   expect_s4_class(df, "SpatVector")
 
   out <- fill(df, dplyr::everything())
@@ -90,7 +89,6 @@ test_that("missings filled up for each vector", {
 
   df <- terra::vect(df, crs = "EPSG:3857")
   expect_s4_class(df, "SpatVector")
-
 
   out <- fill(df, dplyr::everything(), .direction = "up")
   expect_equal(out$lgl, c(TRUE, TRUE))

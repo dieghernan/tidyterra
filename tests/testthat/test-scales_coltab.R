@@ -11,9 +11,7 @@ test_that("Return NULL", {
 
 
 test_that("Can extract a color table", {
-  r <- terra::rast(system.file("extdata/cyl_era.tif",
-    package = "tidyterra"
-  ))
+  r <- terra::rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
 
   expect_true(terra::has.colors(r))
 
@@ -34,7 +32,8 @@ test_that("Can extract a color table", {
 })
 
 test_that("Can extract a color table on several layers", {
-  rinit <- terra::rast(system.file("extdata/cyl_era.tif",
+  rinit <- terra::rast(system.file(
+    "extdata/cyl_era.tif",
     package = "tidyterra"
   ))
 
@@ -66,23 +65,21 @@ test_that("Can extract several color tables on layers", {
 
   # Prepare rasters
   r <- terra::rast(
-    ncols = 4, nrows = 4,
+    ncols = 4,
+    nrows = 4,
     vals = as.factor(rep_len(c("A", "B", "A", "C"), 16))
   )
   r2 <- r
   terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), 16))
 
-
   # Add coltabs
   coltb1 <- data.frame(id = 1:3, t(col2rgb(cols1, alpha = TRUE)))
   coltb2 <- data.frame(id = 1:2, t(col2rgb(cols2, alpha = TRUE)))
-
 
   terra::coltab(r, layer = 1) <- coltb1
   terra::coltab(r2, layer = 1) <- coltb2
 
   rend <- c(r, r2)
-
 
   ctab1 <- get_coltab_pal(r)
   expect_true(all(cols1 == ctab1))
@@ -101,23 +98,21 @@ test_that("Can alpha color tables", {
 
   # Prepare rasters
   r <- terra::rast(
-    ncols = 4, nrows = 4,
+    ncols = 4,
+    nrows = 4,
     vals = as.factor(rep_len(c("A", "B", "A", "C"), 16))
   )
   r2 <- r
   terra::values(r2) <- as.factor(rep_len(c("S", "W", "S"), 16))
 
-
   # Add coltabs
   coltb1 <- data.frame(id = 1:3, t(col2rgb(cols1, alpha = TRUE)))
   coltb2 <- data.frame(id = 1:2, t(col2rgb(cols2, alpha = TRUE)))
-
 
   terra::coltab(r, layer = 1) <- coltb1
   terra::coltab(r2, layer = 1) <- coltb2
 
   rend <- c(r, r2)
-
 
   ctab1 <- get_coltab_pal(r)
   expect_true(all(cols1 == ctab1))
@@ -135,7 +130,6 @@ test_that("Can alpha color tables", {
 test_that("Give informative messages", {
   df <- data.frame(x = 1)
   expect_snapshot(res <- get_coltab_pal(df))
-
 
   r <- terra::rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
@@ -156,13 +150,12 @@ test_that("Discrete scale color", {
 
   # Get levels
   d <- data.frame(
-    x = 1:100, y = 1:100,
+    x = 1:100,
+    y = 1:100,
     ff = rev(rep_len(c("A", "C", "B", "A"), 100))
   )
 
-
   d$ff <- factor(d$ff, levels = c("A", "B", "C"))
-
 
   p <- ggplot2::ggplot(d) +
     ggplot2::geom_point(aes(x, y, colour = ff))
@@ -195,9 +188,7 @@ test_that("Discrete scale color", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_snapshot(p + scale_color_coltab(data = r, alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_color_coltab(data = r, alpha = -1), error = TRUE)
 
   p3 <- p + scale_color_coltab(data = r, alpha = 0.9)
 
@@ -243,7 +234,6 @@ test_that("Discrete scale fill", {
 
   d$ff <- factor(d$ff, levels = c("A", "B", "C"))
 
-
   p <- ggplot2::ggplot(d) +
     ggplot2::geom_raster(aes(x, y, fill = ff))
 
@@ -275,9 +265,7 @@ test_that("Discrete scale fill", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_snapshot(p + scale_fill_coltab(data = r, alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_fill_coltab(data = r, alpha = -1), error = TRUE)
 
   p3 <- p + scale_fill_coltab(data = r, alpha = 0.9)
 

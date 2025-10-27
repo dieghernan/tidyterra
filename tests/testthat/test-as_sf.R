@@ -108,6 +108,7 @@ test_that("Coercion to rowwise sf works with names creating groups", {
     dplyr::group_indices(rwise)
   )
   expect_identical(
-    dplyr::group_vars(as_sf), dplyr::group_vars(rwise)
+    dplyr::group_vars(as_sf),
+    dplyr::group_vars(rwise)
   )
 })

@@ -73,7 +73,6 @@ test_that("select", {
     c(list(NULL), terra::coltab(r))
   )
 
-
   # Selecting severals with rename
   d4 <- select(rend, f = aa, era2 = era)
 
@@ -82,7 +81,6 @@ test_that("select", {
     terra::coltab(d4),
     c(list(NULL), terra::coltab(r))
   )
-
 
   # test with vdiffr
   skip_on_cran()
@@ -106,13 +104,15 @@ test_that("mutate", {
   expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-
   # Adding a new col
-  d2 <- mutate(r, era_new = dplyr::case_when(
-    era == "Cenozoic" ~ "Paleozoic",
-    era == "Mesozoic" ~ "Cenozoic",
-    TRUE ~ era
-  ))
+  d2 <- mutate(
+    r,
+    era_new = dplyr::case_when(
+      era == "Cenozoic" ~ "Paleozoic",
+      era == "Mesozoic" ~ "Cenozoic",
+      TRUE ~ era
+    )
+  )
 
   expect_identical(terra::has.colors(d2), c(TRUE, FALSE))
   expect_identical(c(terra::coltab(r), list(NULL)), terra::coltab(d2))
@@ -160,22 +160,27 @@ test_that("transmute", {
   expect_true(terra::has.colors(r))
 
   # transmute
-  d1 <- transmute(r, era = dplyr::case_when(
-    era == "Cenozoic" ~ "Paleozoic",
-    era == "Mesozoic" ~ "Cenozoic",
-    TRUE ~ era
-  ))
+  d1 <- transmute(
+    r,
+    era = dplyr::case_when(
+      era == "Cenozoic" ~ "Paleozoic",
+      era == "Mesozoic" ~ "Cenozoic",
+      TRUE ~ era
+    )
+  )
 
   expect_identical(terra::has.colors(d1), TRUE)
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-
   # transmute a new var with no coltab
-  d2 <- transmute(r, era_new = dplyr::case_when(
-    era == "Cenozoic" ~ "Paleozoic",
-    era == "Mesozoic" ~ "Cenozoic",
-    TRUE ~ era
-  ))
+  d2 <- transmute(
+    r,
+    era_new = dplyr::case_when(
+      era == "Cenozoic" ~ "Paleozoic",
+      era == "Mesozoic" ~ "Cenozoic",
+      TRUE ~ era
+    )
+  )
 
   expect_identical(terra::has.colors(d2), FALSE)
 
@@ -198,16 +203,19 @@ test_that("transmute", {
   expect_identical(terra::has.colors(d3), c(TRUE, TRUE))
   expect_identical(terra::coltab(d3), terra::coltab(several)[2:1])
 
-
   # Mix and match
 
   d4 <- transmute(several, era2 = era, letter = letter, ss = "fcr")
 
   expect_identical(terra::has.colors(d4), c(FALSE, TRUE, FALSE))
-  expect_identical(terra::coltab(d4), c(
-    list(NULL), terra::coltab(newctb),
-    list(NULL)
-  ))
+  expect_identical(
+    terra::coltab(d4),
+    c(
+      list(NULL),
+      terra::coltab(newctb),
+      list(NULL)
+    )
+  )
 
   # test with vdiffr
   skip_on_cran()
@@ -256,7 +264,6 @@ test_that("slice", {
   sl <- slice_tail(r, n = 50)
   expect_true(terra::has.colors(sl))
   expect_identical(terra::coltab(sl), terra::coltab(r))
-
 
   # Slice min
   sl <- slice_min(r, era, n = 50)

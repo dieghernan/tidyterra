@@ -15,7 +15,6 @@ test_that("make_safe_index iterates until make safe name", {
   m <- matrix(nrow = 1, ncol = 20)
   df <- as.data.frame(m)
 
-
   nnames <- paste0("a_", sprintf("%03d", seq_len(ncol(df))))
   names(df) <- nnames
   expect_identical(names(df), nnames)

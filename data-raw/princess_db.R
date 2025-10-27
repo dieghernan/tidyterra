@@ -122,7 +122,8 @@ princess_db <- lapply(allp, function(x) {
     ss <- t(col2rgb(y))
     unname(ss)
     as_tibble(ss)
-  }) %>% bind_rows()
+  }) %>%
+    bind_rows()
   names(rgb) <- c("r", "g", "b")
   rgb$hex <- cols
   rgb$pal <- x

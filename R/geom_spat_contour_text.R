@@ -12,12 +12,21 @@
 #' @inheritParams isoband::isolines_grob
 #'
 geom_spatraster_contour_text <- function(
-    mapping = NULL, data, ..., maxcell = 500000, bins = NULL, binwidth = NULL,
-    breaks = NULL, size.unit = "mm",
-    label_format = scales::label_number(),
-    label_placer = isoband::label_placer_minmax(),
-    na.rm = TRUE, show.legend = NA, inherit.aes = TRUE,
-    mask_projection = FALSE) {
+  mapping = NULL,
+  data,
+  ...,
+  maxcell = 500000,
+  bins = NULL,
+  binwidth = NULL,
+  breaks = NULL,
+  size.unit = "mm",
+  label_format = scales::label_number(),
+  label_placer = isoband::label_placer_minmax(),
+  na.rm = TRUE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  mask_projection = FALSE
+) {
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {
@@ -36,7 +45,6 @@ geom_spatraster_contour_text <- function(
     ))
   }
 
-
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
@@ -46,7 +54,6 @@ geom_spatraster_contour_text <- function(
       lyr = .data$lyr
     )
   )
-
 
   # aes(z=...) would select the layer to plot
   # Extract value of aes(z)
@@ -63,7 +70,6 @@ geom_spatraster_contour_text <- function(
     # Remove z from aes, would be provided later on the Stat
     mapping <- cleanup_aesthetics(mapping, "z")
   }
-
 
   # 2. Check if resample is needed----
 
@@ -117,7 +123,6 @@ geom_spatraster_contour_text <- function(
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -127,9 +132,7 @@ geom_spatraster_contour_text <- function(
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
@@ -145,9 +148,15 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
   ggplot2::Geom,
   required_aes = c("x", "y"),
   default_aes = aes(
-    weight = 1, label = "a", colour = "grey35", linewidth = .2,
+    weight = 1,
+    label = "a",
+    colour = "grey35",
+    linewidth = .2,
     # Reduce base size, align with scales
-    size = 3.88 * 0.8, linetype = 1, alpha = NA, family = "sans",
+    size = 3.88 * 0.8,
+    linetype = 1,
+    alpha = NA,
+    family = "sans",
     fontface = 1
   ),
   handle_na = function(self, data, params) {
@@ -167,24 +176,35 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
 
     data
   },
-  draw_panel = function(self, data, panel_params, coord, arrow = NULL,
-                        lineend = "butt", linejoin = "round", linemitre = 10,
-                        na.rm = FALSE, colour = "grey35", linetype = 1,
-                        size.unit = "mm", label_format = scales::label_number(),
-                        label_placer = isoband::label_placer_minmax()) {
+  draw_panel = function(
+    self,
+    data,
+    panel_params,
+    coord,
+    arrow = NULL,
+    lineend = "butt",
+    linejoin = "round",
+    linemitre = 10,
+    na.rm = FALSE,
+    colour = "grey35",
+    linetype = 1,
+    size.unit = "mm",
+    label_format = scales::label_number(),
+    label_placer = isoband::label_placer_minmax()
+  ) {
     # must be sorted on group
     data <- data[order(data$group), , drop = FALSE]
 
     # Override label with default level if it was not provided
-    if (data$label[1] == "a") data$label <- data$level
-
+    if (data$label[1] == "a") {
+      data$label <- data$level
+    }
 
     # back to isolines object
     iso <- df_to_isolines(data)
 
     # transform back to coordinate space
     iso <- lapply(iso, coord$transform, panel_params)
-
 
     # Get aes
     col_raw <- get_aes_iso(data, "colour")
@@ -227,13 +247,19 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     }
 
     # Implement isolines_grob
-    isoband::isolines_grob(iso,
+    isoband::isolines_grob(
+      iso,
       gp = grid::gpar(
         # Lines
-        lwd = lwd * ggplot2::.pt, lty = lty, lineend = lineend,
-        linejoin = linejoin, linemitre = linemitre,
+        lwd = lwd * ggplot2::.pt,
+        lty = lty,
+        lineend = lineend,
+        linejoin = linejoin,
+        linemitre = linemitre,
         # Fonts
-        fontsize = size * size_unit, fontfamily = fam, fontface = face,
+        fontsize = size * size_unit,
+        fontfamily = fam,
+        fontface = face,
         # Common
         col = col
       ),
@@ -255,11 +281,13 @@ df_to_isolines <- function(path_df) {
     df <- path_df[path_df$level == x, ]
     df$piece2 <- (df$piece - min(df$piece)) + 1
 
-    lst <- list(rename = list(
-      x = df$x,
-      y = df$y,
-      id = as.integer(df$piece2)
-    ))
+    lst <- list(
+      rename = list(
+        x = df$x,
+        y = df$y,
+        id = as.integer(df$piece2)
+      )
+    )
     names(lst) <- x
     lst
   })

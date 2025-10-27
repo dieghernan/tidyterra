@@ -16,13 +16,15 @@ test_that("bind_spat_cols() repairs names", {
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)
   expect_snapshot(bound <- bind_spat_cols(df, df))
 
-
   expect_s4_class(bound, "SpatVector")
 
   expect_snapshot(
     repaired <- tibble::as_tibble(
       data.frame(
-        a = 1, b = 2, a = 1, b = 2,
+        a = 1,
+        b = 2,
+        a = 1,
+        b = 2,
         check.names = FALSE
       ),
       .name_repair = "unique"
@@ -39,15 +41,18 @@ test_that("bind_spat_cols() honours .name_repair=", {
   aa <- terra::vect("POINT (0 0)")
   aa <- bind_spat_cols(aa, data.frame(a = 1))
 
-
-  expect_snapshot(res <- bind_spat_cols(
-    aa, data.frame(a = 2)
-  ))
+  expect_snapshot(
+    res <- bind_spat_cols(
+      aa,
+      data.frame(a = 2)
+    )
+  )
   expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))
 
   expect_error(bind_spat_cols(
     .name_repair = "check_unique",
-    aa, data.frame(a = 2)
+    aa,
+    data.frame(a = 2)
   ))
 })
 
@@ -57,8 +62,10 @@ test_that("bind_spat_cols() accepts NULL", {
   df1 <- data.frame(a = 1:10, b = 1:10)
   df2 <- data.frame(c = 1:10, d = 1:10)
 
-  df1 <- terra::vect(df1,
-    geom = c("a", "b"), keepgeom = TRUE,
+  df1 <- terra::vect(
+    df1,
+    geom = c("a", "b"),
+    keepgeom = TRUE,
     crs = "EPSG:4326"
   )
 
@@ -75,8 +82,10 @@ test_that("bind_spat_cols() accepts sf", {
 
   df1 <- data.frame(a = 1:10, b = 1:10)
 
-  df1 <- terra::vect(df1,
-    geom = c("a", "b"), keepgeom = TRUE,
+  df1 <- terra::vect(
+    df1,
+    geom = c("a", "b"),
+    keepgeom = TRUE,
     crs = "EPSG:4326"
   )
 

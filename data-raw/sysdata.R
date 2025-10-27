@@ -449,7 +449,8 @@ whitebox_coltab <- whitebox_coltab %>%
   mutate(pal = if_else(pal == "high", "high_relief", pal))
 
 # Make hex color
-whitebox_coltab$hex <- rgb(whitebox_coltab$r,
+whitebox_coltab$hex <- rgb(
+  whitebox_coltab$r,
   whitebox_coltab$g,
   whitebox_coltab$b,
   maxColorValue = 255

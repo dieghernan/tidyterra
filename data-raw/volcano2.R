@@ -5,7 +5,11 @@ library(tidyverse)
 library(terra)
 library(tidyterra)
 
-allrast <- list.files("~/R/mapslib/misc/", pattern = "^DEM_BA32.*tif", full.names = TRUE)
+allrast <- list.files(
+  "~/R/mapslib/misc/",
+  pattern = "^DEM_BA32.*tif",
+  full.names = TRUE
+)
 dem_list <- lapply(allrast, terra::rast)
 dem <- do.call(merge, dem_list)
 

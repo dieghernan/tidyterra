@@ -37,7 +37,6 @@ test_that("SpatVector", {
 
   expect_true(all(names(mod) == c("exp_attr", names(v))))
 
-
   mod2 <- mod %>% relocate(cpro, .after = dplyr::last_col())
 
   expect_s4_class(mod2, "SpatVector")

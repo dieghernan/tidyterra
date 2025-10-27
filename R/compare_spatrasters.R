@@ -79,9 +79,7 @@ compare_spatrasters <- function(x, y, digits = 6) {
   equal_ext <- all(dif_ext == 0)
 
   # Check resolution
-  dif_res <- round(terra::res(x) - terra::res(y),
-    digits = digits
-  )
+  dif_res <- round(terra::res(x) - terra::res(y), digits = digits)
   equal_res <- all(dif_res == 0)
 
   # Results

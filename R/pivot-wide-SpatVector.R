@@ -70,44 +70,56 @@
 #'     names_from = label
 #'   )
 #' }
-pivot_wider.SpatVector <- function(data,
-                                   ...,
-                                   id_cols = NULL,
-                                   id_expand = FALSE,
-                                   names_from = "name",
-                                   names_prefix = "",
-                                   names_sep = "_",
-                                   names_glue = NULL,
-                                   names_sort = FALSE,
-                                   names_vary = "fastest",
-                                   names_expand = FALSE,
-                                   names_repair = "check_unique",
-                                   values_from = "value",
-                                   values_fill = NULL,
-                                   values_fn = NULL,
-                                   unused_fn = NULL) {
+pivot_wider.SpatVector <- function(
+  data,
+  ...,
+  id_cols = NULL,
+  id_expand = FALSE,
+  names_from = "name",
+  names_prefix = "",
+  names_sep = "_",
+  names_glue = NULL,
+  names_sort = FALSE,
+  names_vary = "fastest",
+  names_expand = FALSE,
+  names_repair = "check_unique",
+  values_from = "value",
+  values_fill = NULL,
+  values_fn = NULL,
+  unused_fn = NULL
+) {
   # as tibble with attrbs
   tbl <- as_tbl_internal(data)
   att <- attributes(tbl)
-
 
   # Intercept cols using a template
   tmpl <- dplyr::ungroup(tbl[1, ])
   names_from_char <- remove_geom_col(tmpl, {{ names_from }}, "names_from")
   values_from_char <- remove_geom_col(tmpl, {{ values_from }}, "values_from")
   id_cols_char <- tt_sel_wider_id_cols(
-    tmpl, {{ id_cols }},
-    names_from_char, values_from_char
+    tmpl,
+    {{ id_cols }},
+    names_from_char,
+    values_from_char
   )
 
-  pivoted <- tidyr::pivot_wider(tbl,
+  pivoted <- tidyr::pivot_wider(
+    tbl,
     ...,
-    id_cols = dplyr::all_of(id_cols_char), id_expand = id_expand,
-    names_from = dplyr::all_of(names_from_char), names_prefix = names_prefix,
-    names_sep = names_sep, names_glue = names_glue, names_sort = names_sort,
-    names_vary = names_vary, names_expand = names_expand,
-    names_repair = names_repair, values_from = dplyr::all_of(values_from_char),
-    values_fill = values_fill, values_fn = values_fn, unused_fn = unused_fn
+    id_cols = dplyr::all_of(id_cols_char),
+    id_expand = id_expand,
+    names_from = dplyr::all_of(names_from_char),
+    names_prefix = names_prefix,
+    names_sep = names_sep,
+    names_glue = names_glue,
+    names_sort = names_sort,
+    names_vary = names_vary,
+    names_expand = names_expand,
+    names_repair = names_repair,
+    values_from = dplyr::all_of(values_from_char),
+    values_fill = values_fill,
+    values_fn = values_fn,
+    unused_fn = unused_fn
   )
 
   # nocov start
@@ -136,15 +148,16 @@ tidyr::pivot_wider
 
 # Based on tidyr:::select_wider_id_cols
 # Retuns always a character vector
-tt_sel_wider_id_cols <- function(data,
-                                 id_cols = NULL,
-                                 names_from_cols = character(),
-                                 values_from_cols = character()) {
+tt_sel_wider_id_cols <- function(
+  data,
+  id_cols = NULL,
+  names_from_cols = character(),
+  values_from_cols = character()
+) {
   id_cols_quo <- rlang::enquo(id_cols)
 
   # Remove known non-id-cols so they are never selected
   data <- data[setdiff(names(data), c(names_from_cols, values_from_cols))]
-
 
   if (rlang::quo_is_null(id_cols_quo)) {
     # Default selects everything in `data` after non-id-cols have been removed

@@ -2,15 +2,18 @@ test_that("Summarise gives the same results than default method", {
   skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
-  nogroup <- summarise(v,
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  nogroup <- summarise(
+    v,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
-  nogroup_df <- summarise(as_tibble(v),
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  nogroup_df <- summarise(
+    as_tibble(v),
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
-
 
   expect_s4_class(nogroup, "SpatVector")
   expect_s3_class(nogroup_df, "tbl")
@@ -19,13 +22,17 @@ test_that("Summarise gives the same results than default method", {
   g <- group_by(v, SID74, SID79)
   g_df <- group_by(as_tibble(v), SID74, SID79)
 
-  g_summ <- summarise(g,
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  g_summ <- summarise(
+    g,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
 
-  g_summ_df <- summarise(g_df,
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  g_summ_df <- summarise(
+    g_df,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
 
@@ -38,8 +45,10 @@ test_that("Summarise preserve CRS", {
   skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
-  nogroup <- summarise(v,
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  nogroup <- summarise(
+    v,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
   expect_s4_class(nogroup, "SpatVector")
@@ -50,18 +59,23 @@ test_that("Summarise handles dissolve", {
   skip_on_cran()
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
-  diss <- summarise(v,
-    sum_all = sum(AREA), n_all = dplyr::n(),
-    mean = mean(BIR74), .dissolve = TRUE
+  diss <- summarise(
+    v,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
+    mean = mean(BIR74),
+    .dissolve = TRUE
   )
   expect_s4_class(diss, "SpatVector")
 
   dissolved_pols <- terra::disagg(diss)
 
-
-  nodiss <- summarise(v,
-    sum_all = sum(AREA), n_all = dplyr::n(),
-    mean = mean(BIR74), .dissolve = FALSE
+  nodiss <- summarise(
+    v,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
+    mean = mean(BIR74),
+    .dissolve = FALSE
   )
   expect_s4_class(nodiss, "SpatVector")
 
@@ -79,18 +93,23 @@ test_that("Summarise handles dissolve on groups", {
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   v_g <- group_by(v, SID74, SID79)
-  diss <- summarise(v_g,
-    sum_all = sum(AREA), n_all = dplyr::n(),
-    mean = mean(BIR74), .dissolve = TRUE
+  diss <- summarise(
+    v_g,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
+    mean = mean(BIR74),
+    .dissolve = TRUE
   )
   expect_s4_class(diss, "SpatVector")
 
   dissolved_pols <- terra::disagg(diss)
 
-
-  nodiss <- summarise(v_g,
-    sum_all = sum(AREA), n_all = dplyr::n(),
-    mean = mean(BIR74), .dissolve = FALSE
+  nodiss <- summarise(
+    v_g,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
+    mean = mean(BIR74),
+    .dissolve = FALSE
   )
   expect_s4_class(nodiss, "SpatVector")
 
@@ -111,8 +130,10 @@ test_that("Summarise handles dissolve on groups", {
   expect_true(dplyr::is_grouped_df(df))
   expect_identical(group_data(df), group_data(v_g))
 
-  diss_df <- summarise(df,
-    sum_all = sum(AREA), n_all = dplyr::n(),
+  diss_df <- summarise(
+    df,
+    sum_all = sum(AREA),
+    n_all = dplyr::n(),
     mean = mean(BIR74)
   )
 
@@ -188,7 +209,6 @@ test_that("Check aggregation: POLYGONS", {
 
   expect_identical(terra::geomtype(v), "polygons")
 
-
   # Ungrouped
   # Dissolve
   v_ds <- summarise(v, s = sum(nn), .dissolve = TRUE)
@@ -212,7 +232,6 @@ test_that("Check aggregation: POLYGONS", {
 
   expect_false(identical(g_test, g_wkt))
 
-
   # Grouped
   # Dissolve
   v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = TRUE)
@@ -227,7 +246,6 @@ test_that("Check aggregation: POLYGONS", {
   expect_identical(g_wkt, t_wkt)
 
   g_test <- g_wkt
-
 
   # No Dissolve
   v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = FALSE)
@@ -255,7 +273,6 @@ test_that("Check aggregation: LINES", {
 
   expect_identical(terra::geomtype(v), "lines")
 
-
   # Ungrouped
   # Dissolve
   v_ds <- summarise(v, s = sum(nn), .dissolve = TRUE)
@@ -279,7 +296,6 @@ test_that("Check aggregation: LINES", {
 
   expect_false(identical(g_test, g_wkt))
 
-
   # Grouped
   # Dissolve
   v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = TRUE)
@@ -294,7 +310,6 @@ test_that("Check aggregation: LINES", {
   expect_identical(g_wkt, t_wkt)
 
   g_test <- g_wkt
-
 
   # No Dissolve
   v_ds <- summarise(group_by(v, gr), s = sum(nn), .dissolve = FALSE)

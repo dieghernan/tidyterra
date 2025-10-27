@@ -74,14 +74,16 @@
 #'   ) +
 #'   scale_colour_viridis_c(na.value = "transparent")
 #' }
-stat_spatraster <- function(mapping = aes(),
-                            data,
-                            geom = "raster",
-                            na.rm = TRUE,
-                            show.legend = NA,
-                            inherit.aes = FALSE,
-                            maxcell = 500000,
-                            ...) {
+stat_spatraster <- function(
+  mapping = aes(),
+  data,
+  geom = "raster",
+  na.rm = TRUE,
+  show.legend = NA,
+  inherit.aes = FALSE,
+  maxcell = 500000,
+  ...
+) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::stat_spatraster} only works with",
@@ -89,7 +91,6 @@ stat_spatraster <- function(mapping = aes(),
       "See {.help terra::vect}"
     ))
   }
-
 
   # 1. Work with aes ----
 
@@ -121,8 +122,6 @@ stat_spatraster <- function(mapping = aes(),
     # Use prepared data
     mapping <- prepared$map
 
-
-
     # Check if need to subset the SpatRaster
     if (is.character(prepared$namelayer)) {
       # Subset the layer from the data
@@ -133,7 +132,6 @@ stat_spatraster <- function(mapping = aes(),
 
   # Check mixed types
   data <- check_mixed_cols(data)
-
 
   data <- resample_spat(data, maxcell)
 
@@ -153,7 +151,6 @@ stat_spatraster <- function(mapping = aes(),
   for (i in seq_len(terra::nlyr(data))) {
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
-
 
   # 4. Build layer ----
 
@@ -176,7 +173,6 @@ stat_spatraster <- function(mapping = aes(),
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -186,15 +182,12 @@ stat_spatraster <- function(mapping = aes(),
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
     )
   }
-
 
   layer_spatrast
 }

@@ -65,14 +65,23 @@
 #'   facet_wrap(~label, ncol = 1) +
 #'   scale_fill_whitebox_c(palette = "muted")
 #' }
-pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
-                                    names_to = "name", names_prefix = NULL,
-                                    names_sep = NULL, names_pattern = NULL,
-                                    names_ptypes = NULL, names_transform = NULL,
-                                    names_repair = "check_unique",
-                                    values_to = "value", values_drop_na = FALSE,
-                                    values_ptypes = NULL,
-                                    values_transform = NULL) {
+pivot_longer.SpatVector <- function(
+  data,
+  cols,
+  ...,
+  cols_vary = "fastest",
+  names_to = "name",
+  names_prefix = NULL,
+  names_sep = NULL,
+  names_pattern = NULL,
+  names_ptypes = NULL,
+  names_transform = NULL,
+  names_repair = "check_unique",
+  values_to = "value",
+  values_drop_na = FALSE,
+  values_ptypes = NULL,
+  values_transform = NULL
+) {
   # as tibble with attrbs
   tbl <- as_tbl_internal(data)
 
@@ -83,12 +92,21 @@ pivot_longer.SpatVector <- function(data, cols, ..., cols_vary = "fastest",
   cols_char <- remove_geom_col(tmpl, {{ cols }}, "cols")
 
   pivoted <- tidyr::pivot_longer(
-    data = tbl, cols = dplyr::all_of(cols_char), ..., cols_vary = cols_vary,
-    names_to = names_to, names_prefix = names_prefix, names_sep = names_sep,
-    names_pattern = names_pattern, names_ptypes = names_ptypes,
-    names_transform = names_transform, names_repair = names_repair,
-    values_to = values_to, values_drop_na = values_drop_na,
-    values_ptypes = values_ptypes, values_transform = values_transform
+    data = tbl,
+    cols = dplyr::all_of(cols_char),
+    ...,
+    cols_vary = cols_vary,
+    names_to = names_to,
+    names_prefix = names_prefix,
+    names_sep = names_sep,
+    names_pattern = names_pattern,
+    names_ptypes = names_ptypes,
+    names_transform = names_transform,
+    names_repair = names_repair,
+    values_to = values_to,
+    values_drop_na = values_drop_na,
+    values_ptypes = values_ptypes,
+    values_transform = values_transform
   )
 
   # nocov start

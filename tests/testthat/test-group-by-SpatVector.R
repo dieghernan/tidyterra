@@ -9,10 +9,7 @@ test_that("group_by() with .add = TRUE adds groups", {
 
   add_groups1 <- function(tbl) group_by(tbl, x, y, .add = TRUE)
   add_groups2 <- function(tbl) {
-    group_by(group_by(tbl, x, .add = TRUE),
-      y,
-      .add = TRUE
-    )
+    group_by(group_by(tbl, x, .add = TRUE), y, .add = TRUE)
   }
 
   expect_s4_class(add_groups1(df), "SpatVector")
@@ -138,27 +135,22 @@ test_that("group_by orders by groups", {
   expect_true(is_grouped_spatvector(df))
   expect_s4_class(df, "SpatVector")
 
-
   expect_equal(group_data(df)$a, 1:4)
 
-  df <- cbind(df[, 0], data.frame(
-    a = sample(letters[1:4],
-      30,
-      replace = TRUE
-    ),
-    stringsAsFactors = FALSE
-  )) %>%
+  df <- cbind(
+    df[, 0],
+    data.frame(
+      a = sample(letters[1:4], 30, replace = TRUE),
+      stringsAsFactors = FALSE
+    )
+  ) %>%
     group_by(a)
-
 
   expect_equal(group_data(df)$a, letters[1:4])
 
   df <- cbind(
     df[, 0],
-    data.frame(a = sample(sqrt(1:3),
-      30,
-      replace = TRUE
-    ))
+    data.frame(a = sample(sqrt(1:3), 30, replace = TRUE))
   )
   df <- df %>%
     group_by(a)
@@ -175,7 +167,6 @@ test_that("distinct keep groups", {
     lon = c(0, 0, 0, 0, 1),
     lat = c(0, 0, 0, 0, 1)
   )
-
 
   v <- terra::vect(df)
   v <- group_by(v, y)

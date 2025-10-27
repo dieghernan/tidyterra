@@ -93,10 +93,14 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_whitebox_d(na.value = "gray10", palette = "soft")
 #' }
-scale_fill_whitebox_d <- function(palette = "high_relief", ...,
-                                  alpha = 1, direction = 1,
-                                  na.translate = FALSE,
-                                  drop = TRUE) {
+scale_fill_whitebox_d <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -119,10 +123,14 @@ scale_fill_whitebox_d <- function(palette = "high_relief", ...,
 }
 #' @export
 #' @rdname scale_whitebox
-scale_colour_whitebox_d <- function(palette = "high_relief", ...,
-                                    alpha = 1, direction = 1,
-                                    na.translate = FALSE,
-                                    drop = TRUE) {
+scale_colour_whitebox_d <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -146,10 +154,14 @@ scale_colour_whitebox_d <- function(palette = "high_relief", ...,
 
 #' @export
 #' @rdname scale_whitebox
-scale_fill_whitebox_c <- function(palette = "high_relief", ...,
-                                  alpha = 1, direction = 1,
-                                  na.value = "transparent",
-                                  guide = "colourbar") {
+scale_fill_whitebox_c <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -175,10 +187,14 @@ scale_fill_whitebox_c <- function(palette = "high_relief", ...,
 
 #' @export
 #' @rdname scale_whitebox
-scale_colour_whitebox_c <- function(palette = "high_relief", ...,
-                                    alpha = 1, direction = 1,
-                                    na.value = "transparent",
-                                    guide = "colourbar") {
+scale_colour_whitebox_c <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -205,10 +221,14 @@ scale_colour_whitebox_c <- function(palette = "high_relief", ...,
 
 #' @export
 #' @rdname scale_whitebox
-scale_fill_whitebox_b <- function(palette = "high_relief", ...,
-                                  alpha = 1, direction = 1,
-                                  na.value = "transparent",
-                                  guide = "coloursteps") {
+scale_fill_whitebox_b <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -218,7 +238,6 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
-
 
   ggplot2::binned_scale(
     aesthetics = "fill",
@@ -235,10 +254,14 @@ scale_fill_whitebox_b <- function(palette = "high_relief", ...,
 
 #' @export
 #' @rdname scale_whitebox
-scale_colour_whitebox_b <- function(palette = "high_relief", ...,
-                                    alpha = 1, direction = 1,
-                                    na.value = "transparent",
-                                    guide = "coloursteps") {
+scale_colour_whitebox_b <- function(
+  palette = "high_relief",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -248,7 +271,6 @@ scale_colour_whitebox_b <- function(palette = "high_relief", ...,
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
-
 
   ggplot2::binned_scale(
     aesthetics = "colour",
@@ -293,8 +315,12 @@ scale_colour_whitebox_b <- function(palette = "high_relief", ...,
 #'   )
 #' }
 #' par(opar)
-whitebox.colors <- function(n, palette = "high_relief",
-                            alpha = 1, rev = FALSE) {
+whitebox.colors <- function(
+  n,
+  palette = "high_relief",
+  alpha = 1,
+  rev = FALSE
+) {
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(whitebox_coltab, palette = palette)
     colors <- as.character(paltab$hex)
@@ -309,8 +335,10 @@ whitebox.colors <- function(n, palette = "high_relief",
 whitebox_pal <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- whitebox.colors(n,
-      rev = direction != 1, alpha = alpha,
+    pal <- whitebox.colors(
+      n,
+      rev = direction != 1,
+      alpha = alpha,
       palette = palette
     )
 

@@ -49,7 +49,6 @@ test_that("Aggregate can regroup", {
   # Trigger rebuild with any verb
   gr_v2 <- gr_v2 %>% mutate(a = 1)
 
-
   expect_identical(group_indices(gr_v2), c(1L, 2L, 3L))
 })
 

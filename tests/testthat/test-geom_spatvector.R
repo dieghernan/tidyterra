@@ -31,13 +31,11 @@ test_that("geom_spatvector works as geom_sf", {
 
   expect_identical(layer_terra2, layer_sf2)
 
-
   expect_true(
     all(layer_terra2$geometry == layer_sf2$geometry)
   )
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
-
 
   # Fortify
   build_fort <- ggplot2::ggplot(cyl) +
@@ -87,7 +85,6 @@ test_that("geom_spatvector_text works as geom_sf", {
 
   expect_identical(layer_terra2, layer_sf2)
 
-
   expect_true(
     all(layer_terra2$geometry == layer_sf2$geometry)
   )
@@ -127,7 +124,6 @@ test_that("geom_spatvector_label works as geom_sf", {
   layer_sf2 <- ggplot2::ggplot_build(build_sf_proj)$data[[1]]
 
   expect_identical(layer_terra2, layer_sf2)
-
 
   expect_true(
     all(layer_terra2$geometry == layer_sf2$geometry)

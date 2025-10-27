@@ -31,8 +31,6 @@ cyl <- vect(cyl)
 writeVector(cyl, "inst/extdata/cyl.gpkg", overwrite = TRUE)
 
 
-
-
 # Temps: from https://www.worldclim.org/data/worldclim21.html
 library(terra)
 
@@ -44,13 +42,11 @@ temps <- rast(c(
 ))
 
 
-
 # Crop to Spain
 esp <- vect(esp_get_ccaa(epsg = 4326))
 
 temps <- crop(temps, esp)
 names(temps) <- paste0("tavg_0", 4:6)
-
 
 
 # Project
@@ -65,7 +61,12 @@ writeRaster(newrast_crop, "inst/extdata/cyl_temp.tif")
 
 
 # Elev
-elev <- raster::getData(name = "alt", country = "ESP", path = tempdir(), mask = FALSE)
+elev <- raster::getData(
+  name = "alt",
+  country = "ESP",
+  path = tempdir(),
+  mask = FALSE
+)
 
 elev <- terra::rast(elev)
 

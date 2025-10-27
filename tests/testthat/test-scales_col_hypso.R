@@ -11,9 +11,7 @@ test_that("Discrete scale", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_snapshot(p + scale_colour_hypso_d(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_hypso_d(alpha = -1), error = TRUE)
 
   p3 <- p + scale_colour_hypso_d(alpha = 0.9)
 
@@ -22,19 +20,15 @@ test_that("Discrete scale", {
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_colour_hypso_d(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_hypso_d(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p + scale_colour_hypso_d(
-    direction = -1,
-    alpha = 0.7
-  )
+  p4 <- p +
+    scale_colour_hypso_d(
+      direction = -1,
+      alpha = 0.7
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
-
 
   expect_true(
     all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
@@ -48,9 +42,10 @@ test_that("Discrete scale", {
 
   # Get pals
   allpals_end <- lapply(allpals, function(x) {
-    palplot <- p + scale_colour_hypso_d(
-      palette = x
-    )
+    palplot <- p +
+      scale_colour_hypso_d(
+        palette = x
+      )
     mod_pal <- ggplot2::layer_data(palplot)$colour
     mod_pal
   })
@@ -113,9 +108,7 @@ test_that("Continous scale", {
   expect_true(!any(init %in% mod))
 
   # Alpha
-  expect_snapshot(p + scale_colour_hypso_c(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_hypso_c(alpha = -1), error = TRUE)
 
   p3 <- p + scale_colour_hypso_c(alpha = 0.9)
 
@@ -124,19 +117,15 @@ test_that("Continous scale", {
   expect_true(all(alpha(mod, alpha = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_color_hypso_c(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_color_hypso_c(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p + scale_colour_hypso_c(
-    direction = -1,
-    alpha = 0.7
-  )
+  p4 <- p +
+    scale_colour_hypso_c(
+      direction = -1,
+      alpha = 0.7
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
-
 
   expect_true(
     all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
@@ -150,9 +139,10 @@ test_that("Continous scale", {
 
   # Get pals
   allpals_end <- lapply(allpals, function(x) {
-    palplot <- p + scale_colour_hypso_c(
-      palette = x
-    )
+    palplot <- p +
+      scale_colour_hypso_c(
+        palette = x
+      )
     mod_pal <- ggplot2::layer_data(palplot)$colour
     mod_pal
   })
@@ -205,10 +195,11 @@ test_that("Continous scale tint", {
   expect_true(!any(mod_lims %in% init))
 
   # Modify also with values
-  p4 <- p + scale_colour_hypso_tint_c(
-    values = c(21, seq(22, 25, .05)),
-    limits = c(19, 27)
-  )
+  p4 <- p +
+    scale_colour_hypso_tint_c(
+      values = c(21, seq(22, 25, .05)),
+      limits = c(19, 27)
+    )
   mod_values <- ggplot2::layer_data(p4)$colour
   expect_true(!any(mod_values %in% mod_lims))
   expect_true(!any(mod_values %in% mod))
@@ -217,7 +208,8 @@ test_that("Continous scale tint", {
 
 test_that("Breaking scale", {
   d <- data.frame(
-    x = 1:10, y = 1:10,
+    x = 1:10,
+    y = 1:10,
     z = 31:40
   )
 
@@ -233,8 +225,6 @@ test_that("Breaking scale", {
   init <- ggplot2::layer_data(p)$colour
   expect_true(length(unique(init)) == 3)
 
-
-
   p2 <- p_init +
     scale_colour_hypso_b(breaks = br)
 
@@ -244,14 +234,13 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod)) == 3)
 
   # Alpha
-  expect_snapshot(p_init + scale_colour_hypso_b(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p_init + scale_colour_hypso_b(alpha = -1), error = TRUE)
 
-  p3 <- p_init + scale_color_hypso_b(
-    alpha = 0.9,
-    breaks = br
-  )
+  p3 <- p_init +
+    scale_color_hypso_b(
+      alpha = 0.9,
+      breaks = br
+    )
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
@@ -259,17 +248,14 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_colour_hypso_b(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_hypso_b(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p_init + scale_colour_hypso_b(
-    direction = -1,
-    alpha = 0.7,
-    breaks = br
-  )
+  p4 <- p_init +
+    scale_colour_hypso_b(
+      direction = -1,
+      alpha = 0.7,
+      breaks = br
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
   expect_true(length(unique(mod_alpha_rev)) == 3)
@@ -282,9 +268,10 @@ test_that("Breaking scale", {
 
   # Get pals
   allpals_end <- lapply(allpals, function(x) {
-    palplot <- p_init + scale_colour_hypso_b(
-      palette = x
-    )
+    palplot <- p_init +
+      scale_colour_hypso_b(
+        palette = x
+      )
     mod_pal <- ggplot2::layer_data(palplot)$colour
     mod_pal
   })
@@ -330,7 +317,6 @@ test_that("Breaking scale tint", {
   mod_alpha <- ggplot2::layer_data(p2_alpha)$colour
   expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
 
-
   # Modify limits
 
   p3 <- p + scale_color_hypso_tint_b(limits = c(20, 26))
@@ -339,10 +325,11 @@ test_that("Breaking scale tint", {
   expect_false(all(mod_lims %in% init))
 
   # Modify also with values
-  p4 <- p + scale_colour_hypso_tint_b(
-    values = c(20, seq(22, 27, .05)),
-    limits = c(19, 27)
-  )
+  p4 <- p +
+    scale_colour_hypso_tint_b(
+      values = c(20, seq(22, 27, .05)),
+      limits = c(19, 27)
+    )
   mod_values <- ggplot2::layer_data(p4)$colour
   expect_true(!any(mod_values %in% mod_lims))
   expect_true(!any(mod_values %in% mod))

@@ -12,7 +12,6 @@ test_that("geom_spatraster_rgb with CRS", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
-
   # Errors
   expect_error(
     ggplot(r) +
@@ -32,7 +31,6 @@ test_that("geom_spatraster_rgb with CRS", {
   # Check with less layers
 
   r_subset <- terra::subset(r, 1:2)
-
 
   expect_snapshot(
     ggplot() +
@@ -60,7 +58,6 @@ test_that("geom_spatraster_rgb with CRS", {
     rgbs$hexcol
   )
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -79,7 +76,6 @@ test_that("geom_spatraster_rgb with CRS", {
 
   vdiffr::expect_doppelganger("crs_02: change channels", p_channels)
 
-
   # Resampling
 
   expect_snapshot(
@@ -90,16 +86,15 @@ test_that("geom_spatraster_rgb with CRS", {
       )
   )
 
-
   vdiffr::expect_doppelganger("crs_03: resampled", p_res)
-
 
   # Resampling and interpolating
 
   expect_snapshot(
     p_res_int <- ggplot() +
       geom_spatraster_rgb(
-        data = r, maxcell = 20,
+        data = r,
+        maxcell = 20,
         interpolate = TRUE
       )
   )
@@ -115,7 +110,6 @@ test_that("geom_spatraster_rgb with CRS", {
     p_rast_first +
       coord_sf(crs = 3035)
   )
-
 
   # With vector after
   vdiffr::expect_doppelganger(
@@ -160,7 +154,6 @@ test_that("geom_spatraster_rgb with CRS", {
 })
 
 
-
 test_that("geom_spatraster_rgb with CRS masked", {
   skip_on_cran()
 
@@ -179,7 +172,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
   v2 <- terra::project(v, pull_crs(r))
   r <- terra::mask(r, v2)
 
-
   # Test color table
 
   s <- ggplot() +
@@ -194,12 +186,10 @@ test_that("geom_spatraster_rgb with CRS masked", {
     rgbs$hexcol
   )
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 
@@ -215,7 +205,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   vdiffr::expect_doppelganger("crsmask_02: change channels", p_channels)
 
-
   # Resampling
 
   expect_message(
@@ -230,18 +219,16 @@ test_that("geom_spatraster_rgb with CRS masked", {
   p_res <- ggplot() +
     geom_spatraster_rgb(data = r, maxcell = 20)
 
-
   vdiffr::expect_doppelganger("crsmask_03: resampled", p_res)
-
 
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
     geom_spatraster_rgb(
-      data = r, maxcell = 20,
+      data = r,
+      maxcell = 20,
       interpolate = TRUE
     )
-
 
   vdiffr::expect_doppelganger("crsmask_04: resampled interpolated", p_res_int)
 
@@ -254,7 +241,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
     p_rast_first +
       coord_sf(crs = 3035)
   )
-
 
   # With vector after
   vdiffr::expect_doppelganger(
@@ -316,7 +302,6 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   r_subset <- terra::subset(r, 1:2)
 
-
   expect_error(
     ggplot() +
       geom_spatraster_rgb(data = r_subset)
@@ -342,12 +327,9 @@ test_that("geom_spatraster_rgb with no CRS", {
     rgbs$hexcol
   )
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
-
 
   # Regular plot
 
@@ -367,8 +349,6 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   vdiffr::expect_doppelganger("nocrs_02: change channels", p_channels)
 
-
-
   # Resampling
 
   expect_message(
@@ -383,18 +363,16 @@ test_that("geom_spatraster_rgb with no CRS", {
   p_res <- ggplot() +
     geom_spatraster_rgb(data = r, maxcell = 20)
 
-
   vdiffr::expect_doppelganger("nocrs_03: resampled", p_res)
-
 
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
     geom_spatraster_rgb(
-      data = r, maxcell = 20,
+      data = r,
+      maxcell = 20,
       interpolate = TRUE
     )
-
 
   vdiffr::expect_doppelganger("nocrs_04: resampled interpolated", p_res_int)
 
@@ -456,7 +434,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
-
   # Mask
   v2 <- terra::project(v, pull_crs(r))
   r <- terra::mask(r, v2)
@@ -468,7 +445,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   # Check with less layers
 
   r_subset <- terra::subset(r, 1:2)
-
 
   expect_error(
     ggplot() +
@@ -495,13 +471,10 @@ test_that("geom_spatraster_rgb with no CRS masked", {
     rgbs$hexcol
   )
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
-
 
   # Regular plot
 
@@ -521,8 +494,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   vdiffr::expect_doppelganger("nocrsmask_02: change channels", p_channels)
 
-
-
   # Resampling
 
   expect_message(
@@ -537,18 +508,16 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   p_res <- ggplot() +
     geom_spatraster_rgb(data = r, maxcell = 20)
 
-
   vdiffr::expect_doppelganger("nocrsmask_03: resampled", p_res)
-
 
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
     geom_spatraster_rgb(
-      data = r, maxcell = 20,
+      data = r,
+      maxcell = 20,
       interpolate = TRUE
     )
-
 
   vdiffr::expect_doppelganger(
     "nocrsmask_04: resampled interpolated",
@@ -612,12 +581,10 @@ test_that("geom_spatraster facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 
@@ -654,11 +621,9 @@ test_that("stretch and zlim", {
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- rast(f)
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 

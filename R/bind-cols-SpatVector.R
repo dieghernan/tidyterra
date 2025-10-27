@@ -65,11 +65,15 @@
 #'
 #' # Row sizes must be compatible when column-binding
 #' try(bind_spat_cols(sv, sfobj))
-bind_spat_cols <- function(...,
-                           .name_repair = c(
-                             "unique", "universal",
-                             "check_unique", "minimal"
-                           )) {
+bind_spat_cols <- function(
+  ...,
+  .name_repair = c(
+    "unique",
+    "universal",
+    "check_unique",
+    "minimal"
+  )
+) {
   dots <- rlang::list2(...)
 
   # Return empty on none
@@ -116,14 +120,12 @@ bind_spat_cols <- function(...,
       return(as_tibble(x))
     }
 
-
     if (inherits(x, "sf")) {
       return(sf::st_drop_geometry(x))
     }
 
     return(x)
   })
-
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)
 
@@ -134,7 +136,6 @@ bind_spat_cols <- function(...,
   } else {
     vend <- cbind(template[, 0], endobj)
   }
-
 
   # Groups
   vend <- group_prepare_spat(vend, endobj)

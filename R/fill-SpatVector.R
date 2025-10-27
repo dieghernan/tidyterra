@@ -65,8 +65,11 @@
 #'   fill(NAME_1, .direction = "downup") %>%
 #'   as_tibble()
 #'
-fill.SpatVector <- function(data, ...,
-                            .direction = c("down", "up", "downup", "updown")) {
+fill.SpatVector <- function(
+  data,
+  ...,
+  .direction = c("down", "up", "downup", "updown")
+) {
   # Use own method
   tbl <- as_tibble(data)
   filled <- tidyr::fill(tbl, ..., .direction = .direction)

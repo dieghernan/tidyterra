@@ -1,8 +1,6 @@
 test_that("For SpatVector", {
   skip_on_cran()
-  f <- system.file("extdata/cyl.gpkg",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   v <- terra::vect(f)
 
@@ -50,9 +48,7 @@ test_that("For SpatVector", {
 
 test_that("For SpatVector internal", {
   skip_on_cran()
-  f <- system.file("extdata/cyl.gpkg",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   v <- terra::vect(f)
 
@@ -62,17 +58,14 @@ test_that("For SpatVector internal", {
   expect_identical(attr(tbl, "geomtype"), terra::geomtype(v))
   expect_identical(attr(tbl, "source"), "SpatVector")
 
-
   # Any error on normal tibble
   ntibble <- as_tibble(v)
   expect_snapshot(as_tbl_internal(ntibble), error = TRUE)
-
 
   # Preserve groups
   v_gr <- group_by(v, iso2)
 
   expect_true(is_grouped_spatvector(v_gr))
-
 
   df_gr <- as_tbl_internal(v_gr)
   expect_s3_class(df_gr, "grouped_df")
@@ -90,9 +83,7 @@ test_that("For SpatVector internal", {
 
 test_that("For SpatRaster", {
   skip_on_cran()
-  f <- system.file("extdata/cyl_temp.tif",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
   r <- terra::rast(f)
 
@@ -120,9 +111,7 @@ test_that("For SpatRaster", {
 
 test_that("For SpatRaster Internal", {
   skip_on_cran()
-  f <- system.file("extdata/cyl_temp.tif",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
   r <- terra::rast(f)
 

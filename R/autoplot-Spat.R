@@ -80,15 +80,20 @@
 #'   geom_spatvector_text(aes(label = iso2)) +
 #'   coord_sf(crs = 25829)
 #' }
-autoplot.SpatRaster <- function(object,
-                                ...,
-                                rgb = NULL,
-                                use_coltab = NULL,
-                                facets = NULL,
-                                nrow = NULL, ncol = 2) {
+autoplot.SpatRaster <- function(
+  object,
+  ...,
+  rgb = NULL,
+  use_coltab = NULL,
+  facets = NULL,
+  nrow = NULL,
+  ncol = 2
+) {
   gg <- ggplot2::ggplot()
 
-  if (is.null(rgb)) rgb <- terra::has.RGB(object)
+  if (is.null(rgb)) {
+    rgb <- terra::has.RGB(object)
+  }
 
   if (rgb) {
     gg <- gg +
@@ -101,15 +106,15 @@ autoplot.SpatRaster <- function(object,
   }
 
   # Guess scale
-  if (is.null(use_coltab)) use_coltab <- any(terra::has.colors(object))
+  if (is.null(use_coltab)) {
+    use_coltab <- any(terra::has.colors(object))
+  }
   gg <- gg +
     geom_spatraster(
       data = object,
       use_coltab = use_coltab,
       ...
     )
-
-
 
   if (!use_coltab) {
     todf <- terra::as.data.frame(object[1, ], na.rm = TRUE, xy = FALSE)
@@ -123,12 +128,16 @@ autoplot.SpatRaster <- function(object,
   }
 
   # Guess facets
-  if (is.null(facets)) facets <- terra::nlyr(object) > 1
+  if (is.null(facets)) {
+    facets <- terra::nlyr(object) > 1
+  }
 
-  if (all(
-    facets,
-    isFALSE(rgb)
-  )) {
+  if (
+    all(
+      facets,
+      isFALSE(rgb)
+    )
+  ) {
     gg <- gg + ggplot2::facet_wrap(~lyr, nrow = nrow, ncol = ncol)
   }
 

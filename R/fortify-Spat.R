@@ -110,25 +110,29 @@
 #'   geom_sf()
 #' }
 #'
-fortify.SpatRaster <- function(model, data, ..., .name_repair = "unique",
-                               maxcell = terra::ncell(model) * 1.1,
-                               pivot = FALSE) {
+fortify.SpatRaster <- function(
+  model,
+  data,
+  ...,
+  .name_repair = "unique",
+  maxcell = terra::ncell(model) * 1.1,
+  pivot = FALSE
+) {
   model <- resample_spat(model, maxcell)
 
   crs <- pull_crs(model)
 
-  if (is.na(crs)) crs <- ""
+  if (is.na(crs)) {
+    crs <- ""
+  }
 
   if (pivot == FALSE) {
     model <- as_tibble(model, xy = TRUE, .name_repair = .name_repair)
   } else {
-    model <- check_mixed_cols(model,
-      fn = "tidyterra::fortify.SpatRaster"
-    )
+    model <- check_mixed_cols(model, fn = "tidyterra::fortify.SpatRaster")
     model <- pivot_longer_spat(model)
     attr(model, "pvt_fort") <- TRUE
   }
-
 
   attr(model, "crs") <- crs
 

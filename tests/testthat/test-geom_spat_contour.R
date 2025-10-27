@@ -10,17 +10,19 @@ test_that("contour breaks can be set manually", {
   # shifting the range by 0.2 hits another execution branch
   # in contour_breaks()
   expect_length(contour_breaks(range + 0.2, bins = 5), 6)
-  expect_equal(ggplot2::resolution(
-    contour_breaks(range, binwidth = 0.3)
-  ), 0.3)
-  expect_equal(contour_breaks(range), contour_breaks(range,
-    breaks = scales::fullseq
-  ))
+  expect_equal(
+    ggplot2::resolution(
+      contour_breaks(range, binwidth = 0.3)
+    ),
+    0.3
+  )
   expect_equal(
     contour_breaks(range),
-    contour_breaks(range,
-      breaks = ~ scales::fullseq(.x, .y)
-    )
+    contour_breaks(range, breaks = scales::fullseq)
+  )
+  expect_equal(
+    contour_breaks(range),
+    contour_breaks(range, breaks = ~ scales::fullseq(.x, .y))
   )
 
   expect_equal(contour_breaks(range, bins = 1), range)
@@ -87,7 +89,6 @@ test_that("Test plot", {
   v <- terra::vect(f_v)
   v_sf <- sf::st_as_sf(v)
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -120,11 +121,11 @@ test_that("Test plot", {
       coord_sf(crs = 3035)
   )
 
-
   # Aes for a single layer
   p_more_aes <- ggplot() +
     geom_spatraster_contour(
-      data = r2, aes(
+      data = r2,
+      aes(
         z = elevation_m2,
         color = after_stat(nlevel)
       ),
@@ -198,12 +199,10 @@ test_that("geom_spatraster one facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 

@@ -4,12 +4,15 @@ test_that("Back and fort", {
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
-  nc_pivoted <- pivot_longer(nc, dplyr::starts_with("BIR"),
+  nc_pivoted <- pivot_longer(
+    nc,
+    dplyr::starts_with("BIR"),
     names_to = "year",
     values_to = "births"
   )
 
-  nc_unpivot <- pivot_wider(nc_pivoted,
+  nc_unpivot <- pivot_wider(
+    nc_pivoted,
     values_from = "births",
     names_from = "year"
   )
@@ -20,7 +23,8 @@ test_that("Back and fort", {
   nc_unpivot <- nc_unpivot[names(nc)]
 
   expect_identical(
-    as_tbl_internal(nc), as_tbl_internal(nc_unpivot)
+    as_tbl_internal(nc),
+    as_tbl_internal(nc_unpivot)
   )
 })
 
@@ -31,18 +35,20 @@ test_that("Remove geometry from values", {
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
-  nc_pivoted <- pivot_longer(nc, dplyr::starts_with("BIR"),
+  nc_pivoted <- pivot_longer(
+    nc,
+    dplyr::starts_with("BIR"),
     names_to = "year",
     values_to = "births"
   )
 
   expect_snapshot(
-    nc_unpivot <- pivot_wider(nc_pivoted,
+    nc_unpivot <- pivot_wider(
+      nc_pivoted,
       values_from = c(births, geometry),
       names_from = "year"
     )
   )
-
 
   expect_s4_class(nc_unpivot, "SpatVector")
 
@@ -50,7 +56,8 @@ test_that("Remove geometry from values", {
   nc_unpivot <- nc_unpivot[names(nc)]
 
   expect_identical(
-    as_tbl_internal(nc), as_tbl_internal(nc_unpivot)
+    as_tbl_internal(nc),
+    as_tbl_internal(nc_unpivot)
   )
 })
 
@@ -60,18 +67,20 @@ test_that("Remove geometry from names", {
   nc <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 
   nc <- nc[1:10, ]
-  nc_pivoted <- pivot_longer(nc, dplyr::starts_with("BIR"),
+  nc_pivoted <- pivot_longer(
+    nc,
+    dplyr::starts_with("BIR"),
     names_to = "year",
     values_to = "births"
   )
 
   expect_snapshot(
-    nc_unpivot <- pivot_wider(nc_pivoted,
+    nc_unpivot <- pivot_wider(
+      nc_pivoted,
       values_from = births,
       names_from = c(geometry, year)
     )
   )
-
 
   expect_s4_class(nc_unpivot, "SpatVector")
 
@@ -79,7 +88,8 @@ test_that("Remove geometry from names", {
   nc_unpivot <- nc_unpivot[names(nc)]
 
   expect_identical(
-    as_tbl_internal(nc), as_tbl_internal(nc_unpivot)
+    as_tbl_internal(nc),
+    as_tbl_internal(nc_unpivot)
   )
 })
 
@@ -94,7 +104,6 @@ test_that("can pivot all cols to wide", {
   df <- terra::vect(df, crs = "EPSG:3857")
 
   expect_s4_class(df, "SpatVector")
-
 
   pv <- pivot_wider(df, names_from = key, values_from = val)
 
@@ -157,10 +166,11 @@ test_that("error when overwriting existing column", {
 
   expect_error(pivot_wider(df, names_from = key, values_from = val))
 
-
   expect_snapshot(
-    out <- pivot_wider(df,
-      names_from = key, values_from = val,
+    out <- pivot_wider(
+      df,
+      names_from = key,
+      values_from = val,
       names_repair = "unique"
     )
   )
@@ -207,15 +217,12 @@ test_that("grouping is preserved", {
 })
 
 
-
-
 test_that("`names_from` must be supplied if `name` isn't in `data` (#1240)", {
   skip_on_cran()
 
   df <- tibble::tibble(key = "x", val = 1)
   expect_snapshot((expect_error(pivot_wider(df, values_from = val))))
 })
-
 
 
 test_that("can use `names_expand` to get sorted and expanded column names", {
@@ -267,7 +274,11 @@ test_that("can fill only implicit missings from `names_expand`", {
   expect_identical(
     res_df,
     tibble::tibble(
-      x_c = 0, x_d = NA_real_, y_c = 0, y_d = 0, NA_c = 1,
+      x_c = 0,
+      x_d = NA_real_,
+      y_c = 0,
+      y_d = 0,
+      NA_c = 1,
       NA_d = 0
     )
   )
@@ -330,7 +341,9 @@ test_that("`id_expand` does a cartesian expansion of `id_cols`", {
   skip_on_cran()
 
   df <- tibble::tibble(
-    id1 = c(1, 2), id2 = c(3, 4), name = c("a", "b"),
+    id1 = c(1, 2),
+    id2 = c(3, 4),
+    name = c("a", "b"),
     value = c(1, 2)
   )
   df$lat <- 1
@@ -342,7 +355,6 @@ test_that("`id_expand` does a cartesian expansion of `id_cols`", {
 
   res_tbl <- as_tibble(res)
   attr(res_tbl, "crs") <- NULL
-
 
   expect_identical(
     res_tbl,

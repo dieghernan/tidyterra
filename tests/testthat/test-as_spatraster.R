@@ -12,7 +12,6 @@ test_that("Error check", {
 })
 
 
-
 test_that("Regenerate raster properly", {
   skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
@@ -79,7 +78,6 @@ test_that("Irregular grids", {
 
   expect_error(as_spatraster(p_jitter_y))
 
-
   # Lower digits
   expect_s4_class(
     as_spatraster(p_jitter_x, digits = 3),
@@ -99,7 +97,6 @@ test_that("Check with chars", {
     y_lon = seq(510, 600, by = 10),
     letter = rep(letters[1:5], 2)
   )
-
 
   newspat <- as_spatraster(df, crs = 3857)
 
@@ -125,7 +122,6 @@ test_that("Check with mixed type of cols", {
   )
 
   df$fact <- factor(df$letter, levels = c("a", "c", "e"))
-
 
   newspat <- as_spatraster(df, crs = 3857)
 
@@ -164,8 +160,6 @@ test_that("Check internal", {
   # From internal
   tbl <- as_tbl_internal(r)
   expect_silent(as_spat_internal(tbl))
-
-
 
   r2 <- as_spat_internal(tbl)
 

@@ -97,8 +97,12 @@
 #'     y > 42
 #'   ) %>%
 #'   plot()
-filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
-                              .keep_extent = TRUE) {
+filter.SpatRaster <- function(
+  .data,
+  ...,
+  .preserve = FALSE,
+  .keep_extent = TRUE
+) {
   df <- as_tbl_internal(.data)
   xy <- dplyr::select(df, 1:2)
   values <- df
@@ -106,11 +110,8 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
   # Filter
   filtered <- dplyr::filter(values, ...)
 
-
   # Rebuild raster
-  rebuild_df <- dplyr::left_join(xy, filtered,
-    by = c("x", "y")
-  )
+  rebuild_df <- dplyr::left_join(xy, filtered, by = c("x", "y"))
 
   # For dtplyr
   rebuild_df <- data.table::as.data.table(rebuild_df)
@@ -118,7 +119,9 @@ filter.SpatRaster <- function(.data, ..., .preserve = FALSE,
 
   newrast <- as_spat_internal(rebuild_df)
 
-  if (!isTRUE(.keep_extent)) newrast <- terra::trim(newrast)
+  if (!isTRUE(.keep_extent)) {
+    newrast <- terra::trim(newrast)
+  }
 
   if (any(terra::has.colors(.data))) {
     terra::coltab(newrast) <- terra::coltab(.data)

@@ -50,7 +50,6 @@ test_that("Regenerate vector properly with WKT", {
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
-
   # Do nothing if r is SpatVector
   expect_s4_class(v, "SpatVector")
 
@@ -141,11 +140,8 @@ test_that("Works with grouped_df", {
     gr = rep_len(c("A", "B", "A"), length.out = 10)
   )
 
-
-
   gr <- dplyr::group_by(as_tbl, gr)
   expect_true(dplyr::is_grouped_df(gr))
-
 
   gr_v <- as_spatvector(gr, geom = c("x", "y"), keepgeom = TRUE)
 
@@ -167,11 +163,8 @@ test_that("Works with rowwise_df", {
     gr = rep_len(c("A", "B", "A"), length.out = 10)
   )
 
-
-
   gr <- dplyr::rowwise(as_tbl, gr)
   expect_true(is_rowwise_df(gr))
-
 
   gr_v <- as_spatvector(gr, geom = c("x", "y"), keepgeom = TRUE)
 
@@ -193,11 +186,8 @@ test_that("Works with unnamed rowwise_df", {
     gr = rep_len(c("A", "B", "A"), length.out = 10)
   )
 
-
-
   gr <- dplyr::rowwise(as_tbl)
   expect_true(is_rowwise_df(gr))
-
 
   gr_v <- as_spatvector(gr, geom = c("x", "y"), keepgeom = TRUE)
 
@@ -339,8 +329,6 @@ test_that("Check internal", {
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
-
-
   # Test bypass
   bypass_v <- as_spat_internal(v)
   expect_identical(
@@ -351,8 +339,6 @@ test_that("Check internal", {
   # From internal
   tbl <- as_tbl_internal(v)
   expect_silent(as_spat_internal(tbl))
-
-
 
   v2 <- as_spat_internal(tbl)
 
@@ -381,7 +367,6 @@ test_that("Check internal grouped", {
   v$gr <- rep_len(c("A", "A", "B"), length.out = nrow(v))
 
   gr_v <- group_by(v, gr)
-
 
   gr_tbl <- as_tbl_internal(gr_v)
 
@@ -413,7 +398,6 @@ test_that("Check internal rowwise", {
   v$gr <- rep_len(c("A", "A", "B"), length.out = nrow(v))
 
   gr_v <- rowwise(v, gr)
-
 
   gr_tbl <- as_tbl_internal(gr_v)
 
@@ -472,7 +456,6 @@ test_that("Check internal NULL: POLYGONS", {
     tosf$is_empty
   )
 
-
   # MULTIPOLYGON
   mpol_df <- as_tbl_internal(mpol)
 
@@ -529,7 +512,6 @@ test_that("Check internal NULL: LINES", {
     sf::st_is_empty(tosf),
     tosf$is_empty
   )
-
 
   # MULTILINESTRING
   mpol_df <- as_tbl_internal(mpol)
@@ -592,7 +574,6 @@ test_that("Check internal NULL: POINTS", {
     tosf$is_empty
   )
 
-
   # MULTIPOINT
   mpol_df <- as_tbl_internal(mpol)
 
@@ -635,7 +616,6 @@ test_that("Keep group with NULL", {
 
   # Convert to spatvector
   sv_gr <- as_spatvector(pol_g)
-
 
   expect_identical(sfg_data, group_data(sv_gr))
 

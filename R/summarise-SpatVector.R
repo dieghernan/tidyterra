@@ -77,8 +77,13 @@
 #'
 #' autoplot(no_diss, aes(fill = start_with_s)) +
 #'   ggplot2::ggtitle("Not Dissolved")
-summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
-                                 .dissolve = TRUE) {
+summarise.SpatVector <- function(
+  .data,
+  ...,
+  .by = NULL,
+  .groups = NULL,
+  .dissolve = TRUE
+) {
   # Get dfs
   df <- as_tibble(.data)
   df_summ <- dplyr::summarise(df, ..., .groups = .groups)
@@ -87,7 +92,8 @@ summarise.SpatVector <- function(.data, ..., .by = NULL, .groups = NULL,
 
   if (is_grouped_spatvector(spatv)) {
     spatv$tterra_index <- group_indices(df)
-    newgeom <- terra::aggregate(spatv,
+    newgeom <- terra::aggregate(
+      spatv,
       by = "tterra_index",
       dissolve = .dissolve
     )

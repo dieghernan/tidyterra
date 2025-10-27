@@ -12,7 +12,6 @@ test_that("Fortify SpatVectors", {
 
   expect_identical(fort, asf)
 
-
   # Try ggplot
   v_t <- ggplot2::ggplot(v) +
     geom_spatvector()
@@ -22,7 +21,6 @@ test_that("Fortify SpatVectors", {
     ggplot2::geom_sf()
 
   build_sf <- ggplot2::layer_data(v_sf)
-
 
   expect_identical(build_terra, build_sf)
 })
@@ -46,7 +44,6 @@ test_that("Fortify SpatRasters", {
   expect_true(compare_spatrasters(r, back))
   expect_identical(names(r), names(back))
 
-
   # What about with no CRS?
 
   r_no <- r
@@ -61,7 +58,6 @@ test_that("Fortify SpatRasters", {
   # Back!
   back_no <- as_spatraster(fort_no)
   expect_true(compare_spatrasters(r_no, back_no))
-
 
   # Try resample
   fort_res <- ggplot2::fortify(r, maxcell = 10)
@@ -90,9 +86,7 @@ test_that("Fortify SpatRasters", {
 test_that("Fortify SpatRasters pivot", {
   skip_on_cran()
 
-  r <- terra::rast(system.file("extdata/cyl_temp.tif",
-    package = "tidyterra"
-  ))
+  r <- terra::rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
   fort <- fortify(r, pivot = TRUE)
 
@@ -135,7 +129,6 @@ test_that("Fortify SpatRasters pivot", {
   back_no <- as_spatraster(fort_no)
   expect_true(compare_spatrasters(r_no, back_no))
 
-
   # Try resample
   fort_res <- ggplot2::fortify(r, maxcell = 10, pivot = TRUE)
 
@@ -154,14 +147,22 @@ test_that("Fortify SpatRasters pivot factor", {
 
   # https://stackoverflow.com/questions/79340152/
   r1 <- terra::rast(
-    nrows = 10, ncols = 10, xmin = 0, xmax = 10,
-    ymin = 0, ymax = 10
+    nrows = 10,
+    ncols = 10,
+    xmin = 0,
+    xmax = 10,
+    ymin = 0,
+    ymax = 10
   )
   r1[] <- runif(terra::ncell(r1), min = 1, max = 5)
 
   r2 <- terra::rast(
-    nrows = 10, ncols = 10, xmin = 0, xmax = 10,
-    ymin = 0, ymax = 10
+    nrows = 10,
+    ncols = 10,
+    xmin = 0,
+    xmax = 10,
+    ymin = 0,
+    ymax = 10
   )
   r2[] <- runif(terra::ncell(r2), min = 1, max = 5)
 
@@ -173,13 +174,24 @@ test_that("Fortify SpatRasters pivot factor", {
   # Define reclassification matrix
   m_rc <- matrix(
     c(
-      0, 0.5, 1,
-      0.5, 0.9, 2,
-      0.9, 1.1, 3,
-      1.1, 2, 4,
-      2, max(terra::global(s, max, na.rm = TRUE)$max), 5
+      0,
+      0.5,
+      1,
+      0.5,
+      0.9,
+      2,
+      0.9,
+      1.1,
+      3,
+      1.1,
+      2,
+      4,
+      2,
+      max(terra::global(s, max, na.rm = TRUE)$max),
+      5
     ),
-    ncol = 3, byrow = TRUE
+    ncol = 3,
+    byrow = TRUE
   )
 
   # Apply reclassification
@@ -246,7 +258,6 @@ test_that("Fortify SpatGraticule", {
 
   expect_identical(fort, asf)
 
-
   # Try ggplot
   v_t <- ggplot2::ggplot(v) +
     geom_spatvector()
@@ -256,7 +267,6 @@ test_that("Fortify SpatGraticule", {
     ggplot2::geom_sf()
 
   build_sf <- ggplot2::layer_data(v_sf)
-
 
   expect_identical(build_terra, build_sf)
 })

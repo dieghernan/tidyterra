@@ -52,7 +52,6 @@ test_that("Geometries SpatVector", {
   # SpatVector
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-
   expect_snapshot(glimpse(v))
   l <- terra::as.lines(v)
   expect_snapshot(glimpse(l))
@@ -107,7 +106,10 @@ test_that("Stress SpatRaster", {
 
   # Empty
   empt <- terra::rast(
-    xmin = -25, xmax = 15, ymin = -80, ymax = 10,
+    xmin = -25,
+    xmax = 15,
+    ymin = -80,
+    ymax = 10,
     resolution = 10
   )
   empt <- terra::project(empt, "ESRI:54030")

@@ -72,7 +72,6 @@ test_that("Name handling", {
     lat = c(0, 0, 0, 0)
   )
 
-
   v <- terra::vect(df)
 
   # With all
@@ -109,7 +108,6 @@ test_that("grouped distinct always includes group cols", {
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 
-
   out <- df %>%
     group_by(g) %>%
     distinct(x)
@@ -121,7 +119,6 @@ test_that("empty grouped distinct equivalent to empty ungrouped", {
 
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
-
 
   df1 <- df %>%
     distinct() %>%

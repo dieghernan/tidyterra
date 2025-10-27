@@ -15,13 +15,11 @@ test_that("geom_spatraster one layer coltab with CRS", {
   skip_on_cran()
   skip_if_not_installed("vdiffr")
 
-
   # Regular plot
 
   p <- ggplot() +
     geom_spatraster(data = r)
   vdiffr::expect_doppelganger("crs_01: regular", p)
-
 
   p2 <- ggplot() +
     geom_spatraster(data = r, use_coltab = FALSE)
@@ -42,18 +40,21 @@ test_that("geom_spatraster one layer coltab with CRS", {
   )
 
   # Using aes
-  expect_warning(ggplot() +
-    geom_spatraster(data = r, aes(
-      fill = era,
-      color = "red"
-    )))
+  expect_warning(
+    ggplot() +
+      geom_spatraster(
+        data = r,
+        aes(
+          fill = era,
+          color = "red"
+        )
+      )
+  )
 
   p_aes <- ggplot() +
     geom_spatraster(data = r, aes(fill = era))
 
   vdiffr::expect_doppelganger("crs_05: w/aes", p_aes)
-
-
 
   # Resampling
 
@@ -66,7 +67,6 @@ test_that("geom_spatraster one layer coltab with CRS", {
   p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20)
 
-
   vdiffr::expect_doppelganger("crs_06: resampled", p_res)
 
   # Resampling and interpolating
@@ -74,9 +74,7 @@ test_that("geom_spatraster one layer coltab with CRS", {
   p_res_int <- ggplot() +
     geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
 
-
   vdiffr::expect_doppelganger("crs_07: resampled interpolated", p_res_int)
-
 
   # With crs
   p_rast_first <- ggplot() +
@@ -157,21 +155,16 @@ test_that("geom_spatraster one layer without CRS", {
 
   terra::crs(r) <- NA
 
-
   # Can use other scales
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
 
-
   expect_silent(ggplot_build(s))
-
-
 
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 
@@ -179,14 +172,11 @@ test_that("geom_spatraster one layer without CRS", {
     geom_spatraster(data = r)
   vdiffr::expect_doppelganger("nocrs_01a: regular", p)
 
-
   vdiffr::expect_doppelganger(
     "nocrs_01b: regular with coord_equal",
     p +
       coord_equal()
   )
-
-
 
   vdiffr::expect_doppelganger(
     "nocrs_02: ncoltab",
@@ -211,17 +201,21 @@ test_that("geom_spatraster one layer without CRS", {
   )
 
   # Using aes
-  expect_warning(ggplot() +
-    geom_spatraster(data = r, aes(
-      fill = era,
-      color = "red"
-    )))
+  expect_warning(
+    ggplot() +
+      geom_spatraster(
+        data = r,
+        aes(
+          fill = era,
+          color = "red"
+        )
+      )
+  )
 
   p_aes <- ggplot() +
     geom_spatraster(data = r, aes(fill = era))
 
   vdiffr::expect_doppelganger("nocrs_05: w/aes", p_aes)
-
 
   # Resampling
 
@@ -234,7 +228,6 @@ test_that("geom_spatraster one layer without CRS", {
   p_res <- ggplot() +
     geom_spatraster(data = r, maxcell = 20)
 
-
   vdiffr::expect_doppelganger("nocrs_07: resampled", p_res)
 
   # Resampling and interpolating
@@ -242,9 +235,7 @@ test_that("geom_spatraster one layer without CRS", {
   p_res_int <- ggplot() +
     geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
 
-
   vdiffr::expect_doppelganger("nocrs_08: resampled interpolated", p_res_int)
-
 
   # With crs
   p_rast_first <- ggplot() +
@@ -262,7 +253,6 @@ test_that("geom_spatraster one layer without CRS", {
     p_rast_first +
       geom_sf(data = v_sf, fill = NA, color = "red")
   )
-
 
   # Would align only if sf/coord on the same crs
 
@@ -319,12 +309,10 @@ test_that("geom_spatraster one facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 
@@ -364,22 +352,20 @@ test_that("geom_spatraster one alpha", {
 
   # Prepare rasters
   r <- terra::rast(
-    ncols = 4, nrows = 4,
+    ncols = 4,
+    nrows = 4,
     vals = as.factor(rep_len(c("S", "W", "S"), 16))
   )
-
 
   # Add coltabs
   coltb <- data.frame(id = 1:2, t(col2rgb(cols, alpha = TRUE)))
 
   terra::coltab(r, layer = 1) <- coltb
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular
 

@@ -31,13 +31,11 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   skip_on_cran()
   skip_if_not_installed("vdiffr")
 
-
   # Regular plot
 
   p <- ggplot() +
     stat_spatraster(data = r)
   vdiffr::expect_doppelganger("crslyr1_01: regular", p)
-
 
   # Using facets
   vdiffr::expect_doppelganger(
@@ -47,11 +45,16 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   )
 
   # Using aes
-  expect_warning(ggplot() +
-    stat_spatraster(data = r, aes(
-      fill = elevation_m,
-      color = "red"
-    )))
+  expect_warning(
+    ggplot() +
+      stat_spatraster(
+        data = r,
+        aes(
+          fill = elevation_m,
+          color = "red"
+        )
+      )
+  )
 
   p_aes <- ggplot() +
     stat_spatraster(data = r, aes(fill = elevation_m))
@@ -65,7 +68,9 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
 
   p <- ggplot() +
     stat_spatraster(
-      data = r, geom = "point", aes(color = after_stat(value)),
+      data = r,
+      geom = "point",
+      aes(color = after_stat(value)),
       maxcell = 2500
     )
 
@@ -73,7 +78,8 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
 
   p <- ggplot() +
     stat_spatraster(
-      data = r, geom = "text",
+      data = r,
+      geom = "text",
       aes(label = after_stat(round(value))),
       check_overlap = TRUE,
       maxcell = 25
@@ -102,13 +108,11 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   skip_on_cran()
   skip_if_not_installed("vdiffr")
 
-
   # Regular plot
 
   p <- ggplot() +
     stat_spatraster(data = r)
   vdiffr::expect_doppelganger("nocrslyr1_01: regular", p)
-
 
   # Using facets
   vdiffr::expect_doppelganger(
@@ -118,11 +122,16 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   )
 
   # Using aes
-  expect_warning(ggplot() +
-    stat_spatraster(data = r, aes(
-      fill = elevation_m,
-      color = "red"
-    )))
+  expect_warning(
+    ggplot() +
+      stat_spatraster(
+        data = r,
+        aes(
+          fill = elevation_m,
+          color = "red"
+        )
+      )
+  )
 
   p_aes <- ggplot() +
     stat_spatraster(data = r, aes(fill = elevation_m))
@@ -136,7 +145,9 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
 
   p <- ggplot() +
     stat_spatraster(
-      data = r, geom = "point", aes(color = after_stat(value)),
+      data = r,
+      geom = "point",
+      aes(color = after_stat(value)),
       maxcell = 2500
     )
 
@@ -144,7 +155,8 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
 
   p <- ggplot() +
     stat_spatraster(
-      data = r, geom = "text",
+      data = r,
+      geom = "text",
       aes(label = after_stat(round(value))),
       check_overlap = TRUE,
       maxcell = 25

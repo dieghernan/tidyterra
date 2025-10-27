@@ -68,10 +68,14 @@
 #' gg +
 #'   scale_fill_coltab(data = r)
 #' }
-scale_fill_coltab <- function(data, ..., alpha = NA,
-                              na.translate = FALSE,
-                              na.value = "transparent",
-                              drop = TRUE) {
+scale_fill_coltab <- function(
+  data,
+  ...,
+  alpha = NA,
+  na.translate = FALSE,
+  na.value = "transparent",
+  drop = TRUE
+) {
   getcols <- get_coltab_pal(data)
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
@@ -91,7 +95,8 @@ scale_fill_coltab <- function(data, ..., alpha = NA,
     getcols <- unname(getcols)
   }
 
-  ggplot2::scale_fill_manual(...,
+  ggplot2::scale_fill_manual(
+    ...,
     values = getcols,
     na.translate = na.translate,
     na.value = na.value,
@@ -101,8 +106,14 @@ scale_fill_coltab <- function(data, ..., alpha = NA,
 
 #' @rdname scale_coltab
 #' @export
-scale_colour_coltab <- function(data, ..., alpha = NA, na.translate = FALSE,
-                                na.value = "transparent", drop = TRUE) {
+scale_colour_coltab <- function(
+  data,
+  ...,
+  alpha = NA,
+  na.translate = FALSE,
+  na.value = "transparent",
+  drop = TRUE
+) {
   getcols <- get_coltab_pal(data)
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
@@ -123,7 +134,8 @@ scale_colour_coltab <- function(data, ..., alpha = NA, na.translate = FALSE,
     getcols <- unname(getcols)
   }
 
-  ggplot2::scale_colour_manual(...,
+  ggplot2::scale_colour_manual(
+    ...,
     values = getcols,
     na.translate = na.translate,
     na.value = na.value,
@@ -169,9 +181,7 @@ get_coltab_pal <- function(x) {
 
       coltb <- data.frame(
         t(
-          col2rgb(terrain.colors(nrow(df), rev = TRUE),
-            alpha = TRUE
-          )
+          col2rgb(terrain.colors(nrow(df), rev = TRUE), alpha = TRUE)
         )
       )
       coltbend <- cbind(df[, 1], coltb)
@@ -236,8 +246,11 @@ get_coltab_pal <- function(x) {
 
   if (has_alpha) {
     namedpal <- rgb(
-      red = colfields$r, green = colfields$g, blue = colfields$b,
-      alpha = colfields$a, maxColorValue = 255
+      red = colfields$r,
+      green = colfields$g,
+      blue = colfields$b,
+      alpha = colfields$a,
+      maxColorValue = 255
     )
   } else {
     namedpal <- rgb(colfields, maxColorValue = 255)
@@ -252,7 +265,6 @@ get_coltab_pal <- function(x) {
   }
 
   names(namedpal) <- nms
-
 
   namedpal
 }

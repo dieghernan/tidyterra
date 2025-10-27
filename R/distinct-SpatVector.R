@@ -80,7 +80,6 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Get dots via select
   dots_labs <- names(select(as_tbl_internal(.data[1, ]), ...))
 
-
   # If call is empty or geomtry included, use internal
   # since we need geometry column
   if (rlang::dots_n(...) == 0 || "geometry" %in% dots_labs) {
@@ -124,10 +123,8 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Ensure groups
   vend <- group_prepare_spat(vend, dist)
 
-
   return(vend)
 }
-
 
 
 #' @export

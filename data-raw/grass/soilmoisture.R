@@ -4,7 +4,8 @@ pal <- "soilmoisture"
 
 init <- readLines(paste0(
   "https://raw.githubusercontent.com/OSGeo/grass/main/",
-  "lib/gis/colors/", pal
+  "lib/gis/colors/",
+  pal
 ))
 
 init
@@ -31,12 +32,22 @@ pal_df
 
 scales::show_col(pal_df$hex)
 ncols <- 128
-col_end <- tidyterra:::tidyterra_ramp2(pal_df$hex, n = ncols, limits = pal_df$limit)
+col_end <- tidyterra:::tidyterra_ramp2(
+  pal_df$hex,
+  n = ncols,
+  limits = pal_df$limit
+)
 
 image(
-  x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-  col = col_end, main = "test",
-  ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+  x = seq(1, ncols),
+  y = 1,
+  z = as.matrix(seq(1, ncols)),
+  col = col_end,
+  main = "test",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  bty = "n"
 )
 
 # Try

@@ -4,7 +4,8 @@ pal <- "evi"
 
 init <- readLines(paste0(
   "https://raw.githubusercontent.com/OSGeo/grass/main/",
-  "lib/gis/colors/", pal
+  "lib/gis/colors/",
+  pal
 ))
 
 init
@@ -37,7 +38,11 @@ pal_df <- lapply(tratapal, function(f) {
 
 # Try
 r <- terra::rast(system.file("extdata/asia.tif", package = "tidyterra"))
-endcols <- tidyterra:::tidyterra_ramp2(pal_df$hex, n = 10, limits = pal_df$limit)
+endcols <- tidyterra:::tidyterra_ramp2(
+  pal_df$hex,
+  n = 10,
+  limits = pal_df$limit
+)
 
 library(ggplot2)
 library(tidyterra)
@@ -50,7 +55,6 @@ ggplot() +
     na.value = "lightblue"
   )
 hypso.colors2
-
 
 
 scales::show_col(endcols, labels = FALSE, ncol = 10)

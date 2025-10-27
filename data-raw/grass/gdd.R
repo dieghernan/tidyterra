@@ -4,11 +4,11 @@ pal <- "gdd"
 
 init <- readLines(paste0(
   "https://raw.githubusercontent.com/OSGeo/grass/main/",
-  "lib/gis/colors/", pal
+  "lib/gis/colors/",
+  pal
 ))
 
 init
-
 
 
 tratapal <- init[] %>%
@@ -56,8 +56,6 @@ ggplot() +
     limit = as.vector(terra::minmax(r)),
     na.value = "lightblue"
   )
-
-
 
 
 extfile <- paste0("./data-raw/grass/", pal, ".rds")

@@ -121,7 +121,6 @@ test_that("Test plot", {
   v <- terra::vect(f_v)
   v_sf <- sf::st_as_sf(v)
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -158,11 +157,11 @@ test_that("Test plot", {
       coord_sf(crs = 3035)
   )
 
-
   # Aes for a single layer
   p_more_aes <- ggplot() +
     geom_spatraster_contour_text(
-      data = r2, aes(
+      data = r2,
+      aes(
         z = elevation_m2,
         size = after_stat(nlevel),
         label = after_stat(nlevel),
@@ -182,7 +181,6 @@ test_that("Test plot", {
     p_more_aes +
       coord_sf(crs = 3035)
   )
-
 
   # Check wrap
 
@@ -252,12 +250,10 @@ test_that("geom_spatraster one facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 

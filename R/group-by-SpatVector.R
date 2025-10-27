@@ -104,8 +104,12 @@
 #'   group_by(ID_COMB = ID_1 * 100 / ID_2) %>%
 #'   relocate(ID_COMB, .before = 1)
 #' }
-group_by.SpatVector <- function(.data, ..., .add = FALSE,
-                                .drop = group_by_drop_default(.data)) {
+group_by.SpatVector <- function(
+  .data,
+  ...,
+  .add = FALSE,
+  .drop = group_by_drop_default(.data)
+) {
   # Use own method
   x <- .data
 
@@ -139,7 +143,6 @@ ungroup.SpatVector <- function(x, ...) {
   g_tbl <- as_tibble(x)
   # Ungroup default method
   newgroups <- dplyr::ungroup(g_tbl, ...)
-
 
   # Add groups metadata
   x <- group_prepare_spat(x, newgroups)

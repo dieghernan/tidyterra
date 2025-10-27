@@ -7,7 +7,6 @@ test_that("empty slice drops all rows", {
   expect_s4_class(df, "SpatVector")
   gdf <- group_by(df, g)
 
-
   expect_identical(as_tibble(slice(df)), as_tibble(df[integer(), ]))
   expect_identical(
     slice(gdf) %>% as_tibble(),
@@ -81,7 +80,6 @@ test_that("slice ignores 0 and NA", {
 
   gf <- group_by(df, g)
 
-
   out <- slice(gf, 0)
   expect_equal(out$id, integer())
   out <- slice(gf, 0, 1)
@@ -150,13 +148,11 @@ test_that("`...` can't be named", {
 })
 
 
-
 test_that("can group transiently using `.by`", {
   skip_on_cran()
 
   df <- tibble::tibble(g = c(1, 1, 2), x = c(1, 2, 3))
   df <- as_spatvector(df, geom = c("x", "g"), keepgeom = TRUE)
-
 
   out <- slice(df, dplyr::n(), .by = g)
 

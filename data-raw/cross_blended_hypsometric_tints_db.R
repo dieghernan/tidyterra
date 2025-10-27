@@ -49,16 +49,11 @@ db <- tibble::tribble(
 )
 
 # Make hex color
-db$hex <- rgb(db$r,
-  db$g,
-  db$b,
-  maxColorValue = 255
-)
+db$hex <- rgb(db$r, db$g, db$b, maxColorValue = 255)
 
 db <- db %>%
   arrange(pal, limit) %>%
   filter(limit >= 0)
-
 
 
 cross_blended_hypsometric_tints_db <- db
@@ -71,7 +66,6 @@ usethis::use_data(cross_blended_hypsometric_tints_db, overwrite = TRUE)
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
 # Helper fun for plotting
-
 
 npanels <- grDevices::n2mfrow(length(pals))
 ncols <- 256
@@ -89,11 +83,16 @@ for (i in pals) {
     pull(hex)
   ramp <- colorRampPalette(cc)
 
-
   image(
-    x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-    col = ramp(ncols), main = i,
-    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+    x = seq(1, ncols),
+    y = 1,
+    z = as.matrix(seq(1, ncols)),
+    col = ramp(ncols),
+    main = i,
+    ylab = "",
+    xaxt = "n",
+    yaxt = "n",
+    bty = "n"
   )
 }
 par(opar)

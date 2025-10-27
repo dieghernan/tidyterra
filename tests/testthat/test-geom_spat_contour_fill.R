@@ -59,7 +59,6 @@ test_that("Test plot", {
   v <- terra::vect(f_v)
   v_sf <- sf::st_as_sf(v)
 
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
@@ -88,11 +87,11 @@ test_that("Test plot", {
       coord_sf(crs = 3857)
   )
 
-
   # Aes for a single layer
   p_more_aes <- ggplot() +
     geom_spatraster_contour_filled(
-      data = r, aes(
+      data = r,
+      aes(
         z = tavg_05,
         fill = after_stat(level_low)
       ),
@@ -115,11 +114,14 @@ test_that("Test plot", {
     geom_sf(data = v_sf, fill = "grey80") +
     geom_spatraster_contour_filled(
       data = single,
-      binwidth = 2, alpha = 0.7
+      binwidth = 2,
+      alpha = 0.7
     ) +
     geom_spatraster_contour(
-      data = single, binwidth = 2,
-      color = "blue", linewidth = 0.25
+      data = single,
+      binwidth = 2,
+      color = "blue",
+      linewidth = 0.25
     ) +
     scale_fill_terrain_d()
 
@@ -134,8 +136,10 @@ test_that("Test plot", {
     geom_sf(data = v_sf, fill = "grey80") +
     geom_spatraster_contour_filled(data = single, bins = 5, alpha = 0.7) +
     geom_spatraster_contour(
-      data = single, bins = 5,
-      color = "blue", linewidth = 0.25
+      data = single,
+      bins = 5,
+      color = "blue",
+      linewidth = 0.25
     ) +
     scale_fill_terrain_d()
 
@@ -149,12 +153,15 @@ test_that("Test plot", {
   bin_breaks <- ggplot() +
     geom_sf(data = v_sf, fill = "grey80") +
     geom_spatraster_contour_filled(
-      data = single, breaks = seq(0, 16, 2),
+      data = single,
+      breaks = seq(0, 16, 2),
       alpha = 0.7
     ) +
     geom_spatraster_contour(
-      data = single, breaks = seq(0, 16, 2),
-      color = "blue", linewidth = 0.25
+      data = single,
+      breaks = seq(0, 16, 2),
+      color = "blue",
+      linewidth = 0.25
     ) +
     scale_fill_terrain_d(direction = -1)
 
@@ -224,12 +231,10 @@ test_that("geom_spatraster one facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 

@@ -34,8 +34,10 @@ dev.off()
 paltest <- init %>%
   filter(pal == "population")
 
-mycols <- tidyterra:::tidyterra_ramp2(paltest$hex,
-  n = 50, limits = paltest$limit
+mycols <- tidyterra:::tidyterra_ramp2(
+  paltest$hex,
+  n = 50,
+  limits = paltest$limit
 )
 scales::show_col(mycols)
 pals_init <- unique(init$pal)
@@ -49,25 +51,29 @@ opar <- par(no.readonly = TRUE)
 par(mfrow = rowcol, mar = rep(1, 4))
 
 
-
 for (i in pals) {
   # Get pal
   values <- init[init$pal == i, ]
   if (is.na(values$limit[1])) {
     col_end <- tidyterra:::tidyterra_ramp(values$hex, n = ncols)
   } else {
-    col_end <- tidyterra:::tidyterra_ramp2(values$hex,
+    col_end <- tidyterra:::tidyterra_ramp2(
+      values$hex,
       n = ncols,
       limits = values$limit
     )
   }
 
-
-
   image(
-    x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-    col = col_end, main = i,
-    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+    x = seq(1, ncols),
+    y = 1,
+    z = as.matrix(seq(1, ncols)),
+    col = col_end,
+    main = i,
+    ylab = "",
+    xaxt = "n",
+    yaxt = "n",
+    bty = "n"
   )
 }
 

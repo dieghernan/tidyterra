@@ -8,7 +8,11 @@ devtools::load_all()
 #
 # lapply(allzips, unzip, junkpaths=TRUE, exdir="~/R/mapslib/misc/")
 
-allrast <- list.files("~/R/mapslib/misc/", pattern = "^DEM_BA32.*tif", full.names = TRUE)
+allrast <- list.files(
+  "~/R/mapslib/misc/",
+  pattern = "^DEM_BA32.*tif",
+  full.names = TRUE
+)
 dem_list <- lapply(allrast, terra::rast)
 dem <- do.call(merge, dem_list)
 
@@ -46,6 +50,5 @@ dem_crop
 # min value   :           76.26222
 # max value   :           195.5542
 usethis::use_data(volcano2, overwrite = TRUE)
-
 
 # usethis::use_r("data")

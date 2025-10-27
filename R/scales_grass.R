@@ -149,10 +149,14 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_grass_d(palette = "soilmoisture")
 #' }
-scale_fill_grass_d <- function(palette = "viridis", ...,
-                               alpha = 1, direction = 1,
-                               na.translate = FALSE,
-                               drop = TRUE) {
+scale_fill_grass_d <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -175,9 +179,14 @@ scale_fill_grass_d <- function(palette = "viridis", ...,
 }
 #' @export
 #' @rdname scale_grass
-scale_colour_grass_d <- function(palette = "viridis", ...,
-                                 alpha = 1, direction = 1,
-                                 na.translate = FALSE, drop = TRUE) {
+scale_colour_grass_d <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -206,13 +215,17 @@ scale_color_grass_d <- scale_colour_grass_d
 
 #' @export
 #' @rdname scale_grass
-scale_fill_grass_c <- function(palette = "viridis", ...,
-                               alpha = 1, direction = 1,
-                               values = NULL,
-                               limits = NULL,
-                               use_grass_range = TRUE,
-                               na.value = "transparent",
-                               guide = "colourbar") {
+scale_fill_grass_c <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  use_grass_range = TRUE,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -233,8 +246,12 @@ scale_fill_grass_c <- function(palette = "viridis", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
   # Check if use grass range
   if (any(!use_grass_range, anyNA(hypsocol$limit))) {
@@ -242,13 +259,18 @@ scale_fill_grass_c <- function(palette = "viridis", ...,
     res <- values
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
-    if (is.null(values)) values <- hypsocol$limit
+    if (is.null(values)) {
+      values <- hypsocol$limit
+    }
     # Reescale
-    if (is.null(limits)) limits <- range(values)
+    if (is.null(limits)) {
+      limits <- range(values)
+    }
     res <- scales::rescale(values, from = limits)
   }
 
-  ggplot2::scale_fill_gradientn(...,
+  ggplot2::scale_fill_gradientn(
+    ...,
     colors = hexcol,
     values = res,
     limits = limits,
@@ -259,13 +281,17 @@ scale_fill_grass_c <- function(palette = "viridis", ...,
 
 #' @export
 #' @rdname scale_grass
-scale_colour_grass_c <- function(palette = "viridis", ...,
-                                 alpha = 1, direction = 1,
-                                 values = NULL,
-                                 limits = NULL,
-                                 use_grass_range = TRUE,
-                                 na.value = "transparent",
-                                 guide = "colourbar") {
+scale_colour_grass_c <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  use_grass_range = TRUE,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -286,8 +312,12 @@ scale_colour_grass_c <- function(palette = "viridis", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
   # Check if use grass range
   if (any(!use_grass_range, anyNA(hypsocol$limit))) {
@@ -295,13 +325,18 @@ scale_colour_grass_c <- function(palette = "viridis", ...,
     res <- values
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
-    if (is.null(values)) values <- hypsocol$limit
+    if (is.null(values)) {
+      values <- hypsocol$limit
+    }
     # Reescale
-    if (is.null(limits)) limits <- range(values)
+    if (is.null(limits)) {
+      limits <- range(values)
+    }
     res <- scales::rescale(values, from = limits)
   }
 
-  ggplot2::scale_colour_gradientn(...,
+  ggplot2::scale_colour_gradientn(
+    ...,
     colors = hexcol,
     values = res,
     limits = limits,
@@ -317,13 +352,17 @@ scale_color_grass_c <- scale_colour_grass_c
 
 #' @export
 #' @rdname scale_grass
-scale_fill_grass_b <- function(palette = "viridis", ...,
-                               alpha = 1, direction = 1,
-                               values = NULL,
-                               limits = NULL,
-                               use_grass_range = TRUE,
-                               na.value = "transparent",
-                               guide = "coloursteps") {
+scale_fill_grass_b <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  use_grass_range = TRUE,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -344,8 +383,12 @@ scale_fill_grass_b <- function(palette = "viridis", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
   # Check if use grass range
   if (any(!use_grass_range, anyNA(hypsocol$limit))) {
@@ -353,9 +396,13 @@ scale_fill_grass_b <- function(palette = "viridis", ...,
     res <- values
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
-    if (is.null(values)) values <- hypsocol$limit
+    if (is.null(values)) {
+      values <- hypsocol$limit
+    }
     # Reescale
-    if (is.null(limits)) limits <- range(values)
+    if (is.null(limits)) {
+      limits <- range(values)
+    }
     res <- scales::rescale(values, from = limits)
   }
 
@@ -371,13 +418,17 @@ scale_fill_grass_b <- function(palette = "viridis", ...,
 
 #' @export
 #' @rdname scale_grass
-scale_colour_grass_b <- function(palette = "viridis", ...,
-                                 alpha = 1, direction = 1,
-                                 values = NULL,
-                                 limits = NULL,
-                                 use_grass_range = TRUE,
-                                 na.value = "transparent",
-                                 guide = "coloursteps") {
+scale_colour_grass_b <- function(
+  palette = "viridis",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  use_grass_range = TRUE,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -398,8 +449,12 @@ scale_colour_grass_b <- function(palette = "viridis", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
   # Check if use grass range
   if (any(!use_grass_range, anyNA(hypsocol$limit))) {
@@ -407,9 +462,13 @@ scale_colour_grass_b <- function(palette = "viridis", ...,
     res <- values
     if (!is.null(values)) res <- scales::rescale(res)
   } else {
-    if (is.null(values)) values <- hypsocol$limit
+    if (is.null(values)) {
+      values <- hypsocol$limit
+    }
     # Reescale
-    if (is.null(limits)) limits <- range(values)
+    if (is.null(limits)) {
+      limits <- range(values)
+    }
     res <- scales::rescale(values, from = limits)
   }
 
@@ -475,15 +534,18 @@ scale_color_grass_b <- scale_colour_grass_b
 #'   )
 #' }
 #' par(opar)
-grass.colors <- function(n, palette = "viridis",
-                         alpha = 1, rev = FALSE) {
+grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::grass_db, palette = palette)
     colors <- as.character(paltab$hex)
     if (anyNA(paltab$limit)) {
       endcols <- tidyterra_ramp(colors, n, alpha, rev)
     } else {
-      endcols <- tidyterra_ramp2(colors, n, alpha, rev,
+      endcols <- tidyterra_ramp2(
+        colors,
+        n,
+        alpha,
+        rev,
         limits = as.vector(paltab$limit)
       )
     }
@@ -498,8 +560,10 @@ grass.colors <- function(n, palette = "viridis",
 grass_pal <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- grass.colors(n,
-      rev = direction != 1, alpha = alpha,
+    pal <- grass.colors(
+      n,
+      rev = direction != 1,
+      alpha = alpha,
       palette = palette
     )
 

@@ -149,11 +149,14 @@
 #'   glimpse() %>%
 #'   autoplot(aes(fill = NAME_1))
 #' }
-slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
-                             .keep_extent = FALSE) {
+slice.SpatRaster <- function(
+  .data,
+  ...,
+  .preserve = FALSE,
+  .keep_extent = FALSE
+) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
-
 
   sliced <- dplyr::slice(skeleton, ...)
 
@@ -173,12 +176,10 @@ slice.SpatRaster <- function(.data, ..., .preserve = FALSE,
     return(newrast)
   }
 
-
   # Crop to selected range
   range <- range(keepcells)
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, drop = FALSE]
-
 
   return(newrast)
 }
@@ -208,7 +209,6 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
   sliced <- dplyr::slice_head(skeleton, ..., n = n, prop = prop)
 
   keepcells <- sliced$cellindex
-
 
   # Make NA cells
 
@@ -296,9 +296,16 @@ slice_tail.SpatVector <- function(.data, ..., n, prop) {
 #' @export
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_min
-slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, .keep_extent = FALSE,
-                                 na.rm = TRUE) {
+slice_min.SpatRaster <- function(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  with_ties = TRUE,
+  .keep_extent = FALSE,
+  na.rm = TRUE
+) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -310,11 +317,16 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
   skeleton <- dplyr::bind_cols(skeleton, values)
 
   # Remove NAs
-  if (na.rm) skeleton <- tidyr::drop_na(skeleton)
+  if (na.rm) {
+    skeleton <- tidyr::drop_na(skeleton)
+  }
 
-  sliced <- dplyr::slice_min(skeleton,
+  sliced <- dplyr::slice_min(
+    skeleton,
     order_by = {{ order_by }},
-    ..., n = n, prop = prop,
+    ...,
+    n = n,
+    prop = prop,
     with_ties = with_ties
   )
 
@@ -327,7 +339,6 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
 
   newrast <- .data
   newrast[tonas] <- NA
-
 
   # With keep_extent we just replaced the cells with NAs
   if (.keep_extent) {
@@ -344,16 +355,29 @@ slice_min.SpatRaster <- function(.data, order_by, ..., n, prop,
 
 #' @export
 #' @rdname slice.Spat
-slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, na_rm = FALSE) {
+slice_min.SpatVector <- function(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  with_ties = TRUE,
+  na_rm = FALSE
+) {
   # Use own method
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
 
-  sliced <- dplyr::slice_min(tbl, ...,
-    order_by = {{ order_by }}, ..., n = n,
-    prop = prop, with_ties = with_ties, na_rm = na_rm
+  sliced <- dplyr::slice_min(
+    tbl,
+    ...,
+    order_by = {{ order_by }},
+    ...,
+    n = n,
+    prop = prop,
+    with_ties = with_ties,
+    na_rm = na_rm
   )
 
   # Regenerate
@@ -367,9 +391,16 @@ slice_min.SpatVector <- function(.data, order_by, ..., n, prop,
 #' @export
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_max
-slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, .keep_extent = FALSE,
-                                 na.rm = TRUE) {
+slice_max.SpatRaster <- function(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  with_ties = TRUE,
+  .keep_extent = FALSE,
+  na.rm = TRUE
+) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -381,11 +412,16 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
   skeleton <- dplyr::bind_cols(skeleton, values)
 
   # Remove NAs
-  if (na.rm) skeleton <- tidyr::drop_na(skeleton)
+  if (na.rm) {
+    skeleton <- tidyr::drop_na(skeleton)
+  }
 
-  sliced <- dplyr::slice_max(skeleton,
+  sliced <- dplyr::slice_max(
+    skeleton,
     order_by = {{ order_by }},
-    ..., n = n, prop = prop,
+    ...,
+    n = n,
+    prop = prop,
     with_ties = with_ties
   )
 
@@ -398,7 +434,6 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
 
   newrast <- .data
   newrast[tonas] <- NA
-
 
   # With keep_extent we just replaced the cells with NAs
   if (.keep_extent) {
@@ -415,16 +450,29 @@ slice_max.SpatRaster <- function(.data, order_by, ..., n, prop,
 
 #' @export
 #' @rdname slice.Spat
-slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
-                                 with_ties = TRUE, na_rm = FALSE) {
+slice_max.SpatVector <- function(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  with_ties = TRUE,
+  na_rm = FALSE
+) {
   # Use own method
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
 
-  sliced <- dplyr::slice_max(tbl, ...,
-    order_by = {{ order_by }}, ..., n = n,
-    prop = prop, with_ties = with_ties, na_rm = na_rm
+  sliced <- dplyr::slice_max(
+    tbl,
+    ...,
+    order_by = {{ order_by }},
+    ...,
+    n = n,
+    prop = prop,
+    with_ties = with_ties,
+    na_rm = na_rm
   )
 
   # Regenerate
@@ -438,9 +486,15 @@ slice_max.SpatVector <- function(.data, order_by, ..., n, prop,
 #' @export
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_sample
-slice_sample.SpatRaster <- function(.data, ..., n, prop,
-                                    weight_by = NULL, replace = FALSE,
-                                    .keep_extent = FALSE) {
+slice_sample.SpatRaster <- function(
+  .data,
+  ...,
+  n,
+  prop,
+  weight_by = NULL,
+  replace = FALSE,
+  .keep_extent = FALSE
+) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -451,9 +505,12 @@ slice_sample.SpatRaster <- function(.data, ..., n, prop,
   # Add values
   skeleton <- dplyr::bind_cols(skeleton, values)
 
-  sliced <- dplyr::slice_sample(skeleton, ...,
+  sliced <- dplyr::slice_sample(
+    skeleton,
+    ...,
     n = n,
-    prop = prop, weight_by = weight_by,
+    prop = prop,
+    weight_by = weight_by,
     replace = replace
   )
 
@@ -482,8 +539,14 @@ slice_sample.SpatRaster <- function(.data, ..., n, prop,
 
 #' @export
 #' @rdname slice.Spat
-slice_sample.SpatVector <- function(.data, ..., n, prop,
-                                    weight_by = NULL, replace = FALSE) {
+slice_sample.SpatVector <- function(
+  .data,
+  ...,
+  n,
+  prop,
+  weight_by = NULL,
+  replace = FALSE
+) {
   # Use own method
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
@@ -517,10 +580,7 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   slice_dim <- dplyr::slice(index, ...)
 
   # Get cells to make NA
-  sliced <- dplyr::inner_join(skeleton,
-    slice_dim,
-    by = "rowindex"
-  )
+  sliced <- dplyr::inner_join(skeleton, slice_dim, by = "rowindex")
 
   keepcells <- sliced$cellindex
 
@@ -564,10 +624,7 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   slice_dim <- dplyr::slice(index, ...)
 
   # Get cells to make NA
-  sliced <- dplyr::inner_join(skeleton,
-    slice_dim,
-    by = "colindex"
-  )
+  sliced <- dplyr::inner_join(skeleton, slice_dim, by = "colindex")
 
   keepcells <- sliced$cellindex
 
@@ -600,9 +657,14 @@ slice_colrows <- function(.data, ...) {
 
 #' @export
 #' @rdname slice.Spat
-slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
-                                     .keep_extent = FALSE,
-                                     inverse = FALSE) {
+slice_colrows.SpatRaster <- function(
+  .data,
+  ...,
+  cols,
+  rows,
+  .keep_extent = FALSE,
+  inverse = FALSE
+) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -617,7 +679,6 @@ slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
 
   slice_cols <- dplyr::slice(col_index, cols)
 
-
   # Rows
   row_index <- skeleton["rowindex"]
   row_index$rowindex <- sort(row_index$rowindex)
@@ -626,16 +687,9 @@ slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
   slice_rows <- dplyr::slice(row_index, rows)
 
   # Get cells to make NA
-  sliced <- dplyr::inner_join(skeleton,
-    slice_cols,
-    by = "colindex"
-  )
+  sliced <- dplyr::inner_join(skeleton, slice_cols, by = "colindex")
 
-  sliced <- dplyr::inner_join(sliced,
-    slice_rows,
-    by = "rowindex"
-  )
-
+  sliced <- dplyr::inner_join(sliced, slice_rows, by = "rowindex")
 
   keepcells <- sliced$cellindex
 
@@ -661,7 +715,6 @@ slice_colrows.SpatRaster <- function(.data, ..., cols, rows,
   keepindex_row <- seq(range_row[1], range_row[2], by = 1)
 
   newrast <- newrast[keepindex_row, keepindex_col, drop = FALSE]
-
 
   return(newrast)
 }

@@ -7,7 +7,6 @@ library(dplyr)
 #   suppressWarnings(source(i))
 # }
 
-
 library(dplyr)
 library(tidyverse)
 allfiles <- list.files("data-raw/cpt", pattern = ".Rds$", full.names = TRUE)
@@ -42,9 +41,7 @@ getdual <- modify %>%
   filter(
     pal %in% dual
   ) %>%
-  mutate(pal = ifelse(limit < 0, paste0(pal, "_bathy"),
-    paste0(pal, "_hypso")
-  ))
+  mutate(pal = ifelse(limit < 0, paste0(pal, "_bathy"), paste0(pal, "_hypso")))
 
 hypso <- getdual %>%
   filter(limit >= 0) %>%
@@ -83,13 +80,15 @@ hypsometric_tints_db <- modify %>%
   distinct()
 
 
-
 validate <- hypsometric_tints_db %>%
   drop_na() %>%
   group_by(pal) %>%
   summarise(
-    n = n(), min = min(limit), max = max(limit),
-    mean = mean(limit), median = median(limit)
+    n = n(),
+    min = min(limit),
+    max = max(limit),
+    mean = mean(limit),
+    median = median(limit)
   ) %>%
   left_join(ncols_init) %>%
   mutate(diff = n - n_col)
@@ -106,7 +105,6 @@ pals <- unique(hypsometric_tints_db$pal)
 
 # Helper fun for plotting
 
-
 npanels <- grDevices::n2mfrow(length(pals))
 ncols <- 256
 npals <- length(pals)
@@ -121,11 +119,16 @@ for (i in pals) {
     pull(hex)
   ramp <- colorRampPalette(cc)
 
-
   image(
-    x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-    col = ramp(ncols), main = i,
-    ylab = "", xaxt = "n", yaxt = "n", bty = "n"
+    x = seq(1, ncols),
+    y = 1,
+    z = as.matrix(seq(1, ncols)),
+    col = ramp(ncols),
+    main = i,
+    ylab = "",
+    xaxt = "n",
+    yaxt = "n",
+    bty = "n"
   )
 }
 par(opar)

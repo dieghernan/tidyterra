@@ -47,11 +47,8 @@ is_regular_grid <- function(xy, digits = 6) {
     y = as.double(xy_df[, 2])
   )
 
-
-
   xyz <- as.matrix(newdf)
   xyz <- matrix(as.numeric(xyz), ncol = ncol(xyz), nrow = nrow(xyz))
-
 
   x <- sort(unique(xyz[, 1]))
   dx <- x[-1] - x[-length(x)]
@@ -66,7 +63,8 @@ is_regular_grid <- function(xy, digits = 6) {
   }
   if (q > 0) {
     cli::cli_abort(paste(
-      "{.arg x} cell sizes are not regular.", "
+      "{.arg x} cell sizes are not regular.",
+      "
       Try with a lower {.arg digit} value."
     ))
   }
@@ -84,7 +82,8 @@ is_regular_grid <- function(xy, digits = 6) {
   if (q > 0) {
     cli::cli_abort(paste(
       "{.arg y} cell sizes are not regular. Try with a lower",
-      "{.arg digit}", "value."
+      "{.arg digit}",
+      "value."
     ))
   }
 

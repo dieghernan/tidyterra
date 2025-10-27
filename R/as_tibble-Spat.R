@@ -90,17 +90,24 @@
 #'
 #' as_tibble(v)
 #'
-as_tibble.SpatRaster <- function(x, ..., xy = FALSE, na.rm = FALSE,
-                                 .name_repair = "unique") {
-  if (xy) x <- make_safe_names(x)
+as_tibble.SpatRaster <- function(
+  x,
+  ...,
+  xy = FALSE,
+  na.rm = FALSE,
+  .name_repair = "unique"
+) {
+  if (xy) {
+    x <- make_safe_names(x)
+  }
 
-  df <- tibble::as_tibble(terra::as.data.frame(x, ..., xy = xy, na.rm = na.rm),
+  df <- tibble::as_tibble(
+    terra::as.data.frame(x, ..., xy = xy, na.rm = na.rm),
     .name_repair = .name_repair
   )
 
   # Handle nas
   df[is.na(df)] <- NA
-
 
   # Set attributes
   attr(df, "crs") <- terra::crs(x)
@@ -115,8 +122,8 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
     x <- make_safe_names(x, geom = geom)
   }
 
-
-  df <- tibble::as_tibble(terra::as.data.frame(x, geom = geom, ...),
+  df <- tibble::as_tibble(
+    terra::as.data.frame(x, geom = geom, ...),
     .name_repair = .name_repair
   )
 
@@ -143,7 +150,6 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
   if (!is.na(pull_crs(x))) {
     attr(df, "crs") <- pull_crs(x)
   }
-
 
   return(df)
 }
@@ -221,7 +227,6 @@ as_tbl_vector_internal <- function(x) {
 
   todf <- check_regroups(todf)
 
-
   # Set attributes
   attr(todf, "source") <- "SpatVector"
   attr(todf, "crs") <- terra::crs(x)
@@ -253,12 +258,15 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
   }
 
   if (messages) {
-    cli::cli_alert_info(paste(
-      for_message,
-      "with duplicated/reserved names detected.",
-      "See {.strong About layer/column names} section on",
-      "{.fun tidyterra::as_tibble.SpatRaster}"
-    ), wrap = TRUE)
+    cli::cli_alert_info(
+      paste(
+        for_message,
+        "with duplicated/reserved names detected.",
+        "See {.strong About layer/column names} section on",
+        "{.fun tidyterra::as_tibble.SpatRaster}"
+      ),
+      wrap = TRUE
+    )
     cli::cli_alert_warning("Renaming columns:")
   }
   if (geom == "XY") {
@@ -279,8 +287,11 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     names_changed <- !newnames == init_names
 
     msg <- paste0(
-      "`", init_names[names_changed], "` -> `",
-      newnames[names_changed], "`"
+      "`",
+      init_names[names_changed],
+      "` -> `",
+      newnames[names_changed],
+      "`"
     )
 
     cli::cat_bullet(msg)
@@ -333,7 +344,6 @@ check_regroups <- function(x) {
     return(x)
   }
 
-
   if (is_rowwise_df(x)) {
     gvars <- dplyr::group_vars(x)
 
@@ -350,7 +360,6 @@ check_regroups <- function(x) {
 
       return(x)
     }
-
 
     val_vars <- gvars %in% names(x)
     all_vars <- all(val_vars)

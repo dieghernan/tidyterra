@@ -217,7 +217,6 @@ test_that("count Check aggregation: POLYGONS", {
   v$nn <- seq_len(nrow(v))
   expect_identical(terra::geomtype(v), "polygons")
 
-
   # Ungrouped
   # Dissolve
   v_ds <- count(v, .dissolve = TRUE)
@@ -298,7 +297,6 @@ test_that("count Check aggregation: LINES", {
   v <- terra::as.lines(v)
 
   expect_identical(terra::geomtype(v), "lines")
-
 
   # Ungrouped
   # Dissolve
@@ -421,7 +419,6 @@ test_that("tally Check aggregation: POLYGONS", {
   v$gr <- rep_len(c("F", "B", "A", "B", "A"), 9)
   v$nn <- seq_len(nrow(v))
   expect_identical(terra::geomtype(v), "polygons")
-
 
   # Ungrouped
   v_ds <- tally(v)

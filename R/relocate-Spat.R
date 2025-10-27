@@ -62,11 +62,12 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
   # With template
   df <- .data[1]
 
-  values_relocated <- dplyr::relocate(df, ...,
+  values_relocated <- dplyr::relocate(
+    df,
+    ...,
     .before = {{ .before }},
     .after = {{ .after }}
   )
-
 
   finalrast <- .data
   finalrast <- terra::subset(finalrast, names(values_relocated))
@@ -82,7 +83,9 @@ relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
   # With template
   df <- as_tibble(.data[1, ])
 
-  values_relocated <- dplyr::relocate(df, ...,
+  values_relocated <- dplyr::relocate(
+    df,
+    ...,
     .before = {{ .before }},
     .after = {{ .after }}
   )

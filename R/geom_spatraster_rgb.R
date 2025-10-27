@@ -73,19 +73,21 @@
 #'   coord_sf(crs = 3857) +
 #'   scale_fill_viridis_d(alpha = 0.7)
 #' }
-geom_spatraster_rgb <- function(mapping = aes(),
-                                data,
-                                interpolate = TRUE,
-                                r = 1,
-                                g = 2,
-                                b = 3,
-                                alpha = 1,
-                                maxcell = 500000,
-                                max_col_value = 255,
-                                ...,
-                                stretch = NULL,
-                                zlim = NULL,
-                                mask_projection = FALSE) {
+geom_spatraster_rgb <- function(
+  mapping = aes(),
+  data,
+  interpolate = TRUE,
+  r = 1,
+  g = 2,
+  b = 3,
+  alpha = 1,
+  maxcell = 500000,
+  max_col_value = 255,
+  ...,
+  stretch = NULL,
+  zlim = NULL,
+  mask_projection = FALSE
+) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_rgb} only works with",
@@ -96,20 +98,21 @@ geom_spatraster_rgb <- function(mapping = aes(),
 
   layers_order <- as.integer(c(r, g, b))
 
-
   nlyrs_data <- seq_len(terra::nlyr(data))
 
-  if (!all(
-    layers_order[1] %in% nlyrs_data,
-    layers_order[2] %in% nlyrs_data,
-    layers_order[3] %in% nlyrs_data
-  )) {
+  if (
+    !all(
+      layers_order[1] %in% nlyrs_data,
+      layers_order[2] %in% nlyrs_data,
+      layers_order[3] %in% nlyrs_data
+    )
+  ) {
     cli::cli_abort(paste(
       "Incorrect number of layers on {.arg {c('r','g','b')}}. data has",
-      "{terra::nlyr(data)}", "layer{?s}."
+      "{terra::nlyr(data)}",
+      "layer{?s}."
     ))
   }
-
 
   # 1. Work with aes ----
   mapping <- override_aesthetics(
@@ -131,14 +134,15 @@ geom_spatraster_rgb <- function(mapping = aes(),
 
   # stretch and clamp
 
-  data <- zlim_strecth(data,
-    zlim = zlim, stretch = stretch,
+  data <- zlim_strecth(
+    data,
+    zlim = zlim,
+    stretch = stretch,
     max_col_value = max_col_value
   )
 
   # 3. Build layer ----
   crs_terra <- pull_crs(data)
-
 
   layer_spatrast <- ggplot2::layer(
     data = tibble::tibble(
@@ -162,7 +166,6 @@ geom_spatraster_rgb <- function(mapping = aes(),
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -172,15 +175,12 @@ geom_spatraster_rgb <- function(mapping = aes(),
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
     )
   }
-
 
   layer_spatrast
 }
@@ -197,13 +197,19 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
 
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
-      params, layout
+      params,
+      layout
     )
   },
-  compute_group = function(data, scales, coord, params,
-                           coord_crs = NA,
-                           max_col_value = 255,
-                           mask_projection = FALSE) {
+  compute_group = function(
+    data,
+    scales,
+    coord,
+    params,
+    coord_crs = NA,
+    max_col_value = 255,
+    mask_projection = FALSE
+  ) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
@@ -240,14 +246,20 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
     data <- coord$transform(data, panel_params)
 
     # Convert vector of data to raster
-    x_pos <- as.integer((data$x - min(data$x)) / ggplot2::resolution(
-      data$x,
-      FALSE
-    ))
-    y_pos <- as.integer((data$y - min(data$y)) / ggplot2::resolution(
-      data$y,
-      FALSE
-    ))
+    x_pos <- as.integer(
+      (data$x - min(data$x)) /
+        ggplot2::resolution(
+          data$x,
+          FALSE
+        )
+    )
+    y_pos <- as.integer(
+      (data$y - min(data$y)) /
+        ggplot2::resolution(
+          data$y,
+          FALSE
+        )
+    )
 
     nrow <- max(y_pos) + 1
     ncol <- max(x_pos) + 1
@@ -265,10 +277,12 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
     x_rng <- c(min(data$xmin, na.rm = TRUE), max(data$xmax, na.rm = TRUE))
     y_rng <- c(min(data$ymin, na.rm = TRUE), max(data$ymax, na.rm = TRUE))
 
-
-    grid::rasterGrob(raster,
-      x = mean(x_rng), y = mean(y_rng),
-      width = diff(x_rng), height = diff(y_rng),
+    grid::rasterGrob(
+      raster,
+      x = mean(x_rng),
+      y = mean(y_rng),
+      width = diff(x_rng),
+      height = diff(y_rng),
       default.units = "native",
       interpolate = interpolate
     )
@@ -297,7 +311,6 @@ make_hexcol <- function(data, max_col_value = 255) {
   # Drop nas on color table
   full <- tidyr::drop_na(values)
   full$hexcol <- rgb(full$r, full$g, full$b, maxColorValue = max_col_value)
-
 
   # Prepare output
   df <- dplyr::left_join(xy, full[c("hexcol", "index")], by = "index")

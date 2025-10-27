@@ -9,7 +9,6 @@ local <- file.path("./data-raw", "cpt", basename(url))
 #   mode = "wb"
 # )
 
-
 # Extract colors for cpt file
 library(tidyverse)
 
@@ -30,7 +29,8 @@ full <- data.frame(all = lines)
 
 # Split to colors
 lines_split <- full %>%
-  separate(all,
+  separate(
+    all,
     c("limit", "r", "g", "b", "limit_high", "r2", "g2", "b2"),
     sep = "\t",
     extra = "drop",
@@ -93,9 +93,15 @@ ramp_cols <- test %>%
 ramp_pal <- colorRampPalette(ramp_cols)
 ncols <- 128
 image(
-  x = seq(1, ncols), y = 1, z = as.matrix(seq(1, ncols)),
-  col = ramp_pal(ncols), xlab = "", ylab = "",
-  xaxt = "n", yaxt = "n", bty = "n",
+  x = seq(1, ncols),
+  y = 1,
+  z = as.matrix(seq(1, ncols)),
+  col = ramp_pal(ncols),
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  bty = "n",
   main = unique(test$pal)
 )
 rm(list = ls())

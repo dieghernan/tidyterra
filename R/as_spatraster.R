@@ -65,7 +65,9 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   }
 
   # Create from dtplyr
-  if (inherits(x, "dtplyr_step")) x <- tibble::as_tibble(x)
+  if (inherits(x, "dtplyr_step")) {
+    x <- tibble::as_tibble(x)
+  }
 
   if (!inherits(x, "data.frame")) {
     cli::cli_abort(
@@ -100,8 +102,6 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     attr(x, "crs") <- initcrs
   }
 
-
-
   # To tibble
   x <- tibble::as_tibble(x)
 
@@ -125,10 +125,13 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   crs <- pull_crs(crs)
 
   # Check from attrs
-  if (is.na(crs)) crs <- crs_attr
+  if (is.na(crs)) {
+    crs <- crs_attr
+  }
 
-  if (is.na(pull_crs(crs))) crs <- NA
-
+  if (is.na(pull_crs(crs))) {
+    crs <- NA
+  }
 
   # Issue: work with layer/columns with NA
   # Check class of columns
@@ -136,8 +139,11 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   # If all are numeric happy days!
   if (all(col_classes)) {
-    newrast <- terra::rast(x_arrange,
-      crs = crs, ..., type = "xyz",
+    newrast <- terra::rast(
+      x_arrange,
+      crs = crs,
+      ...,
+      type = "xyz",
       digits = digits
     )
 
@@ -155,17 +161,12 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   xyvalind <- x_arrange[, 1:2]
   xyvalind$valindex <- seq_len(nrow(xyvalind))
 
-
   values_w_ind <- x_arrange[, -c(1, 2)]
   values_w_ind$valindex <- xyvalind$valindex
 
-
   # Create template
 
-  r_temp <- terra::rast(xyvalind,
-    crs = crs, ..., type = "xyz",
-    digits = digits
-  )
+  r_temp <- terra::rast(xyvalind, crs = crs, ..., type = "xyz", digits = digits)
 
   # Expand grid
   r_temp_df <- terra::as.data.frame(r_temp, na.rm = FALSE, xy = FALSE)
@@ -215,12 +216,10 @@ as_spatrast_attr <- function(x) {
   values <- dplyr::select(x, -c(1, 2))
   values <- data.table::as.data.table(values)
 
-
   nlyrs <- ncol(values)
 
   # Create a list of rasters for each layer
   # and assign value
-
 
   temp_list <- lapply(seq_len(nlyrs), function(x) {
     terra::setValues(

@@ -27,7 +27,8 @@ minit <- lapply(allcode, function(x) {
   send <- s %>% select(ERA)
 
   return(send)
-}) %>% bind_rows()
+}) %>%
+  bind_rows()
 
 m <- st_transform(minit, 3857)
 
@@ -36,8 +37,12 @@ unique(m$ERA)
 library(terra)
 m$ERA <- gsub("á", "a", m$ERA)
 lv <- rev(c(
-  "Cenozoico", "Mesozoico-Cenozoico", "Mesozoico", "Paleozoico-Mesozoico",
-  "Paleozoico", "Precambrico-Paleozoico"
+  "Cenozoico",
+  "Mesozoico-Cenozoico",
+  "Mesozoico",
+  "Paleozoico-Mesozoico",
+  "Paleozoico",
+  "Precambrico-Paleozoico"
 ))
 
 lv <- c(lv, "Sin determinar")

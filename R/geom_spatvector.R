@@ -77,11 +77,13 @@
 #'     subtitle = "With geom_sf()"
 #'   )
 #' }
-geom_spatvector <- function(mapping = aes(),
-                            data = NULL,
-                            na.rm = FALSE,
-                            show.legend = NA,
-                            ...) {
+geom_spatvector <- function(
+  mapping = aes(),
+  data = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  ...
+) {
   ggplot2::geom_sf(
     data = data,
     mapping = mapping,
@@ -94,13 +96,15 @@ geom_spatvector <- function(mapping = aes(),
 #' @export
 #' @name ggspatvector
 #' @param linewidth Size of label border, in mm.
-geom_spatvector_label <- function(mapping = aes(),
-                                  data = NULL,
-                                  na.rm = FALSE,
-                                  show.legend = NA,
-                                  ...,
-                                  linewidth = 0.25,
-                                  inherit.aes = TRUE) {
+geom_spatvector_label <- function(
+  mapping = aes(),
+  data = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  ...,
+  linewidth = 0.25,
+  inherit.aes = TRUE
+) {
   ggplot2::geom_sf_label(
     mapping = mapping,
     data = data,
@@ -115,13 +119,15 @@ geom_spatvector_label <- function(mapping = aes(),
 
 #' @export
 #' @name ggspatvector
-geom_spatvector_text <- function(mapping = aes(),
-                                 data = NULL,
-                                 na.rm = FALSE,
-                                 show.legend = NA,
-                                 ...,
-                                 check_overlap = FALSE,
-                                 inherit.aes = TRUE) {
+geom_spatvector_text <- function(
+  mapping = aes(),
+  data = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  ...,
+  check_overlap = FALSE,
+  inherit.aes = TRUE
+) {
   ggplot2::geom_sf_text(
     mapping = mapping,
     data = data,
@@ -135,14 +141,16 @@ geom_spatvector_text <- function(mapping = aes(),
 
 #' @export
 #' @name ggspatvector
-stat_spatvector <- function(mapping = NULL,
-                            data = NULL,
-                            geom = "rect",
-                            position = "identity",
-                            na.rm = FALSE,
-                            show.legend = NA,
-                            inherit.aes = TRUE,
-                            ...) {
+stat_spatvector <- function(
+  mapping = NULL,
+  data = NULL,
+  geom = "rect",
+  position = "identity",
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  ...
+) {
   # nocov start
   ggplot2::stat_sf(
     mapping = mapping,

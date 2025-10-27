@@ -99,16 +99,27 @@
 #' ggplot(full, aes(x, y)) +
 #'   geom_point(aes(color = letter))
 #' }
-inner_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
-                                  suffix = c(".x", ".y"), ..., keep = NULL) {
+inner_join.SpatVector <- function(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+) {
   error_spat_join(y)
   # Use own method
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::inner_join(x_tbl,
-    y = y, by = by,
-    copy = copy, suffix = suffix, ...,
+  joined_tbl <- dplyr::inner_join(
+    x_tbl,
+    y = y,
+    by = by,
+    copy = copy,
+    suffix = suffix,
+    ...,
     keep = keep
   )
 
@@ -125,16 +136,27 @@ dplyr::inner_join
 #' @importFrom dplyr left_join
 #' @export
 #' @name mutate-joins.SpatVector
-left_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
-                                 suffix = c(".x", ".y"), ..., keep = NULL) {
+left_join.SpatVector <- function(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+) {
   error_spat_join(y)
   # Use own method
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::left_join(x_tbl,
-    y = y, by = by,
-    copy = copy, suffix = suffix, ...,
+  joined_tbl <- dplyr::left_join(
+    x_tbl,
+    y = y,
+    by = by,
+    copy = copy,
+    suffix = suffix,
+    ...,
     keep = keep
   )
 
@@ -151,16 +173,27 @@ dplyr::left_join
 #' @importFrom dplyr right_join
 #' @export
 #' @name mutate-joins.SpatVector
-right_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
-                                  suffix = c(".x", ".y"), ..., keep = NULL) {
+right_join.SpatVector <- function(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+) {
   error_spat_join(y)
   # Use own method
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::right_join(x_tbl,
-    y = y, by = by,
-    copy = copy, suffix = suffix, ...,
+  joined_tbl <- dplyr::right_join(
+    x_tbl,
+    y = y,
+    by = by,
+    copy = copy,
+    suffix = suffix,
+    ...,
     keep = keep
   )
 
@@ -178,16 +211,27 @@ dplyr::right_join
 #' @importFrom dplyr full_join
 #' @export
 #' @name mutate-joins.SpatVector
-full_join.SpatVector <- function(x, y, by = NULL, copy = FALSE,
-                                 suffix = c(".x", ".y"), ..., keep = NULL) {
+full_join.SpatVector <- function(
+  x,
+  y,
+  by = NULL,
+  copy = FALSE,
+  suffix = c(".x", ".y"),
+  ...,
+  keep = NULL
+) {
   error_spat_join(y)
   # Use own method
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::full_join(x_tbl,
-    y = y, by = by,
-    copy = copy, suffix = suffix, ...,
+  joined_tbl <- dplyr::full_join(
+    x_tbl,
+    y = y,
+    by = by,
+    copy = copy,
+    suffix = suffix,
+    ...,
     keep = keep
   )
 
@@ -281,10 +325,7 @@ semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::semi_join(x_tbl,
-    y = y, by = by,
-    copy = copy, ...
-  )
+  joined_tbl <- dplyr::semi_join(x_tbl, y = y, by = by, copy = copy, ...)
 
   joined_tbl <- restore_attr(joined_tbl, x_tbl)
   joined <- as_spat_internal(joined_tbl)
@@ -305,10 +346,7 @@ anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
-  joined_tbl <- dplyr::anti_join(x_tbl,
-    y = y, by = by,
-    copy = copy, ...
-  )
+  joined_tbl <- dplyr::anti_join(x_tbl, y = y, by = by, copy = copy, ...)
 
   joined_tbl <- restore_attr(joined_tbl, x_tbl)
   joined <- as_spat_internal(joined_tbl)

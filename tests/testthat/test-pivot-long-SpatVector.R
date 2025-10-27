@@ -79,8 +79,8 @@ test_that("can handle missing combinations", {
 
   df <- tibble::tribble(
     ~id, ~x_1, ~x_2, ~y_2,
-    "A",    1,    2,  "a",
-    "B",    3,    4,  "b",
+    "A",    1,    2, "a",
+    "B",    3,    4, "b",
   )
   df$lat <- 1
   df$lon <- 1
@@ -88,12 +88,12 @@ test_that("can handle missing combinations", {
   expect_s4_class(df, "SpatVector")
   expect_snapshot(
     pv <- pivot_longer(
-      df, -id,
+      df,
+      -id,
       names_to = c(".value", "n"),
       names_sep = "_"
     )
   )
-
 
   expect_named(pv, c("id", "n", "x", "y"))
   expect_equal(pv$x, c(1:4))
@@ -122,8 +122,8 @@ test_that("original col order is preserved", {
 
   df <- tibble::tribble(
     ~id, ~z_1, ~y_1, ~x_1, ~z_2, ~y_2, ~x_2,
-    "A", 1, 2, 3, 4, 5, 6,
-    "B", 7, 8, 9, 10, 11, 12,
+    "A",    1,    2,    3,    4,    5,    6,
+    "B",    7,    8,    9,   10,   11,   12,
   )
   df$lat <- 1
   df$lon <- 1
@@ -153,7 +153,6 @@ test_that("can pivot duplicated names to .value", {
   expect_s4_class(pv1, "SpatVector")
   expect_identical(pull_crs(df), pull_crs(pv1))
 })
-
 
 
 test_that("grouping is preserved", {
@@ -297,19 +296,25 @@ test_that("Check tidyselect: start_with", {
   )
 
   ## No message
-  expect_silent(out <- remove_geom_col(
-    tbl, dplyr::starts_with("a"),
-    "test_that"
-  ))
+  expect_silent(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::starts_with("a"),
+      "test_that"
+    )
+  )
   expect_type(out, "character")
   expect_length(out, 2)
   expect_identical(out, c("a", "a2"))
 
   ## Message
-  expect_snapshot(out <- remove_geom_col(
-    tbl, dplyr::starts_with("g"),
-    "test_that"
-  ))
+  expect_snapshot(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::starts_with("g"),
+      "test_that"
+    )
+  )
 
   expect_type(out, "character")
   expect_length(out, 1)
@@ -330,19 +335,25 @@ test_that("Check tidyselect: ends_with", {
   )
 
   ## No message
-  expect_silent(out <- remove_geom_col(
-    tbl, dplyr::ends_with("m"),
-    "test_that"
-  ))
+  expect_silent(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::ends_with("m"),
+      "test_that"
+    )
+  )
   expect_type(out, "character")
   expect_length(out, 1)
   expect_identical(out, c("eom"))
 
   ## Message
-  expect_snapshot(out <- remove_geom_col(
-    tbl, dplyr::ends_with("y"),
-    "test_that"
-  ))
+  expect_snapshot(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::ends_with("y"),
+      "test_that"
+    )
+  )
 
   expect_type(out, "character")
   expect_length(out, 1)
@@ -363,19 +374,25 @@ test_that("Check tidyselect: ends_with", {
   )
 
   ## No message
-  expect_silent(out <- remove_geom_col(
-    tbl, dplyr::ends_with("m"),
-    "test_that"
-  ))
+  expect_silent(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::ends_with("m"),
+      "test_that"
+    )
+  )
   expect_type(out, "character")
   expect_length(out, 1)
   expect_identical(out, c("eom"))
 
   ## Message
-  expect_snapshot(out <- remove_geom_col(
-    tbl, dplyr::ends_with("y"),
-    "test_that"
-  ))
+  expect_snapshot(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::ends_with("y"),
+      "test_that"
+    )
+  )
 
   expect_type(out, "character")
   expect_length(out, 1)
@@ -396,19 +413,25 @@ test_that("Check tidyselect: whereis", {
   )
 
   ## No message
-  expect_silent(out <- remove_geom_col(
-    tbl, dplyr::where(is.numeric),
-    "test_that"
-  ))
+  expect_silent(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::where(is.numeric),
+      "test_that"
+    )
+  )
   expect_type(out, "character")
   expect_length(out, 3)
   expect_identical(out, c("a", "gy", "s"))
 
   ## Message
-  expect_snapshot(out <- remove_geom_col(
-    tbl, dplyr::where(is.character),
-    "test_that"
-  ))
+  expect_snapshot(
+    out <- remove_geom_col(
+      tbl,
+      dplyr::where(is.character),
+      "test_that"
+    )
+  )
 
   expect_type(out, "character")
   expect_length(out, 2)

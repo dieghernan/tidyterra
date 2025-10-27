@@ -16,7 +16,6 @@ test_that("Filter with SpatRaster keeping extent", {
 
   expect_equal(r_df[, 1:2], r_keep_df[, 1:2])
 
-
   # With NAs
   expect_equal(min(r_df$lyr, na.rm = TRUE), min(r_keep_df$lyr, na.rm = TRUE))
 
@@ -45,7 +44,6 @@ test_that("Filter with SpatRaster non keeping extent", {
   r_df <- as_tibble(r, xy = TRUE, na.rm = FALSE)
 
   expect_lt(nrow(r_keep_df), nrow(r_df))
-
 
   # With NAs
   expect_equal(min(r_df$lyr, na.rm = TRUE), min(r_keep_df$lyr, na.rm = TRUE))
@@ -87,7 +85,8 @@ test_that("grouped filter handles indices", {
   skip_on_cran()
 
   ir <- iris
-  ir <- terra::vect(ir,
+  ir <- terra::vect(
+    ir,
     geom = c("Sepal.Length", "Sepal.Width"),
     keepgeom = TRUE
   )

@@ -2,16 +2,19 @@
 #' @rdname geom_spat_contour
 #' @order 3
 #'
-geom_spatraster_contour_filled <- function(mapping = NULL, data,
-                                           ...,
-                                           maxcell = 500000,
-                                           bins = NULL,
-                                           binwidth = NULL,
-                                           breaks = NULL,
-                                           na.rm = TRUE,
-                                           show.legend = NA,
-                                           inherit.aes = TRUE,
-                                           mask_projection = FALSE) {
+geom_spatraster_contour_filled <- function(
+  mapping = NULL,
+  data,
+  ...,
+  maxcell = 500000,
+  bins = NULL,
+  binwidth = NULL,
+  breaks = NULL,
+  na.rm = TRUE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  mask_projection = FALSE
+) {
   # Is a suggestion so far
 
   # nocov start
@@ -31,7 +34,6 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     ))
   }
 
-
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
@@ -41,7 +43,6 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
       lyr = .data$lyr
     )
   )
-
 
   # aes(z=...) would select the layer to plot
   # Extract value of aes(z)
@@ -58,7 +59,6 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     # Remove z from aes, would be provided later on the Stat
     mapping <- cleanup_aesthetics(mapping, "z")
   }
-
 
   # 2. Check if resample is needed----
 
@@ -85,8 +85,6 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
 
-
-
   # 4. Build layer ----
 
   crs_terra <- pull_crs(data)
@@ -112,7 +110,6 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -122,9 +119,7 @@ geom_spatraster_contour_filled <- function(mapping = NULL, data,
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
@@ -155,11 +150,16 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
   ggplot2::Stat,
   required_aes = "spatraster",
   default_aes = ggplot2::aes(
-    lyr = lyr, order = after_stat(level),
+    lyr = lyr,
+    order = after_stat(level),
     fill = after_stat(level)
   ),
   extra_params = c(
-    "maxcell", "bins", "binwidth", "breaks", "na.rm",
+    "maxcell",
+    "bins",
+    "binwidth",
+    "breaks",
+    "na.rm",
     "coord_crs"
   ),
   setup_params = function(data, params) {
@@ -192,12 +192,22 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
-      params, layout
+      params,
+      layout
     )
   },
-  compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL,
-                           breaks = NULL, na.rm = FALSE, coord,
-                           coord_crs = NA, mask_projection = FALSE) {
+  compute_group = function(
+    data,
+    scales,
+    z.range,
+    bins = NULL,
+    binwidth = NULL,
+    breaks = NULL,
+    na.rm = FALSE,
+    coord,
+    coord_crs = NA,
+    mask_projection = FALSE
+  ) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
@@ -261,14 +271,8 @@ pretty_isoband_levels <- function(isoband_levels, dig.lab = 3) {
   interval_low <- gsub(":.*$", "", isoband_levels)
   interval_high <- gsub("^[^:]*:", "", isoband_levels)
 
-  label_low <- format(as.numeric(interval_low),
-    digits = dig.lab,
-    trim = TRUE
-  )
-  label_high <- format(as.numeric(interval_high),
-    digits = dig.lab,
-    trim = TRUE
-  )
+  label_low <- format(as.numeric(interval_low), digits = dig.lab, trim = TRUE)
+  label_high <- format(as.numeric(interval_high), digits = dig.lab, trim = TRUE)
 
   # from the isoband::isobands() docs:
   # the intervals specifying isobands are closed at their lower boundary

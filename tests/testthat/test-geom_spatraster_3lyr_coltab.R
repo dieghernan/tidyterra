@@ -37,14 +37,12 @@ test_that("geom_spatraster several layer with CRS", {
   skip_on_cran()
   skip_if_not_installed("vdiffr")
 
-
   # Regular plot
 
   p <- ggplot() +
     geom_spatraster(data = r)
 
   expect_snapshot(pp <- ggplot2::ggplot_build(p))
-
 
   vdiffr::expect_doppelganger("crs_01a: regular no facet", p)
 
@@ -55,7 +53,6 @@ test_that("geom_spatraster several layer with CRS", {
 
   vdiffr::expect_doppelganger("crs_01b: regular facet", p)
 
-
   p_aes <- ggplot() +
     geom_spatraster(data = r, aes(fill = cut2)) +
     facet_wrap(~lyr)
@@ -63,7 +60,6 @@ test_that("geom_spatraster several layer with CRS", {
   expect_silent(ggplot2::ggplot_build(p_aes))
 
   vdiffr::expect_doppelganger("crs_02: w/aes", p_aes)
-
 
   # Using a categorical
   expect_snapshot(
@@ -90,7 +86,6 @@ test_that("geom_spatraster several layer with CRS", {
 
   vdiffr::expect_doppelganger("crs_04: Mixed with nums", pmix1)
 
-
   # Resampling
 
   expect_snapshot(
@@ -112,11 +107,9 @@ test_that("geom_spatraster several layer with CRS", {
       coord_sf(crs = "ESRI:102003")
   )
 
-
   # Mixing different types of factors
   # Coltab first
   rcfirst <- c(r[[1]], rf[[2]])
-
 
   rcfirstplot <- ggplot() +
     geom_spatraster(data = rcfirst) +
@@ -125,7 +118,6 @@ test_that("geom_spatraster several layer with CRS", {
   vdiffr::expect_doppelganger("crs_07: Mix factors: coltab first", rcfirstplot)
 
   rcsec <- c(rf[[1]], r[[2]])
-
 
   rcsecplot <- ggplot() +
     geom_spatraster(data = rcsec) +
@@ -166,18 +158,23 @@ test_that("geom_spatraster alpha several layers", {
   }
 
   r <- hlp_input_coltab(rf, lyr = 1, pal = whitebox.colors)
-  r <- hlp_input_coltab(r,
-    lyr = 2, pal = whitebox.colors, palette = "bl_yl_rd",
+  r <- hlp_input_coltab(
+    r,
+    lyr = 2,
+    pal = whitebox.colors,
+    palette = "bl_yl_rd",
     alpha = 0.05
   )
-  r <- hlp_input_coltab(r,
-    lyr = 3, pal = hypso.colors, palette = "pakistan",
+  r <- hlp_input_coltab(
+    r,
+    lyr = 3,
+    pal = hypso.colors,
+    palette = "pakistan",
     alpha = 0.7
   )
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 

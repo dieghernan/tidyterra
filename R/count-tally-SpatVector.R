@@ -73,9 +73,15 @@
 #'   ggplot() +
 #'   geom_spatvector(aes(fill = n))
 #' }
-count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
-                             .drop = group_by_drop_default(x),
-                             .dissolve = TRUE) {
+count.SpatVector <- function(
+  x,
+  ...,
+  wt = NULL,
+  sort = FALSE,
+  name = NULL,
+  .drop = group_by_drop_default(x),
+  .dissolve = TRUE
+) {
   # Maybe regroup
   if (!missing(...)) {
     out <- group_by(x, ..., .add = TRUE, .drop = .drop)
@@ -86,11 +92,13 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
   vend <- tally(out, sort = sort, name = name)
 
   # Prepare a template for groups
-  template <- dplyr::count(as_tibble(x), ...,
-    sort = sort, name = name,
+  template <- dplyr::count(
+    as_tibble(x),
+    ...,
+    sort = sort,
+    name = name,
     .drop = .drop
   )
-
 
   # Dissolve if requested
   if (.dissolve) {
@@ -111,7 +119,6 @@ count.SpatVector <- function(x, ..., wt = NULL, sort = FALSE, name = NULL,
     vend <- group_by(vend, across_all_of(gvars))
   }
 
-
   vend
 }
 
@@ -130,7 +137,9 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
     vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
     # Keep aggregation only and rename
     vend <- vend[, "agg_n"]
-    if (is.null(name)) name <- "n"
+    if (is.null(name)) {
+      name <- "n"
+    }
 
     names(vend) <- name
     return(vend)
@@ -154,7 +163,6 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   names(vend) <- names(template)
   vend <- ungroup(vend)
 
-
   # Re-group based on the template
   if (dplyr::is_grouped_df(template)) {
     gvars <- dplyr::group_vars(template)
@@ -163,7 +171,6 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 
   vend
 }
-
 
 
 #' @export

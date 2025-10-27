@@ -90,9 +90,13 @@
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_wiki_d(na.value = "gray10")
 #' }
-scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
-                              na.translate = FALSE,
-                              drop = TRUE) {
+scale_fill_wiki_d <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -115,9 +119,13 @@ scale_fill_wiki_d <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_wiki
-scale_colour_wiki_d <- function(..., alpha = 1, direction = 1,
-                                na.translate = FALSE,
-                                drop = TRUE) {
+scale_colour_wiki_d <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -145,8 +153,13 @@ scale_color_wiki_d <- scale_colour_wiki_d
 
 #' @export
 #' @rdname scale_wiki
-scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
-                              na.value = "transparent", guide = "colourbar") {
+scale_fill_wiki_c <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -171,8 +184,13 @@ scale_fill_wiki_c <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_wiki
-scale_colour_wiki_c <- function(..., alpha = 1, direction = 1,
-                                na.value = "transparent", guide = "colourbar") {
+scale_colour_wiki_c <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -202,8 +220,13 @@ scale_color_wiki_c <- scale_colour_wiki_c
 
 #' @export
 #' @rdname scale_wiki
-scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
-                              na.value = "transparent", guide = "coloursteps") {
+scale_fill_wiki_b <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -228,9 +251,13 @@ scale_fill_wiki_b <- function(..., alpha = 1, direction = 1,
 
 #' @export
 #' @rdname scale_wiki
-scale_colour_wiki_b <- function(..., alpha = 1, direction = 1,
-                                na.value = "transparent",
-                                guide = "coloursteps") {
+scale_colour_wiki_b <- function(
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -274,19 +301,38 @@ wiki.colors <- function(n, alpha = 1, rev = FALSE) {
 # Create ramp
 # Create ramp
 tidyterra_ramp <- function(colors, n, alpha = 1, rev = FALSE) {
-  if (rev) colors <- rev(colors)
+  if (rev) {
+    colors <- rev(colors)
+  }
   fn_cols <- scales::colour_ramp(colors, alpha = FALSE)
   endcols <- fn_cols(seq(0, 1, length.out = n))
-  if (alpha != 1) endcols <- ggplot2::alpha(endcols, alpha)
+  if (alpha != 1) {
+    endcols <- ggplot2::alpha(endcols, alpha)
+  }
 
   return(endcols)
 }
 
 
 wiki_cols <- c(
-  "#3F6B48", "#5F835E", "#7F9B74", "#A0B38B", "#C0CBA1", "#E1E4B8",
-  "#EFEBC0", "#E8E1B6", "#DDD6AA", "#D3CA9D", "#CAB982", "#C3A76B",
-  "#B9985A", "#AA8753", "#AC9A7C", "#BAAE9A", "#CAC3B8", "#E0DED8",
+  "#3F6B48",
+  "#5F835E",
+  "#7F9B74",
+  "#A0B38B",
+  "#C0CBA1",
+  "#E1E4B8",
+  "#EFEBC0",
+  "#E8E1B6",
+  "#DDD6AA",
+  "#D3CA9D",
+  "#CAB982",
+  "#C3A76B",
+  "#B9985A",
+  "#AA8753",
+  "#AC9A7C",
+  "#BAAE9A",
+  "#CAC3B8",
+  "#E0DED8",
   "#F5F4F2"
 )
 

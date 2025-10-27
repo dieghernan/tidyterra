@@ -37,7 +37,6 @@ test_that("Different extent", {
   x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- x[1:5, , drop = FALSE]
 
-
   expect_snapshot(res <- compare_spatrasters(x, y))
   expect_false(res)
 })
@@ -61,7 +60,6 @@ test_that("All different", {
 
   x <- terra::rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
   y <- terra::project(x, "epsg:3035")
-
 
   expect_snapshot(res <- compare_spatrasters(x, y))
   expect_false(res)

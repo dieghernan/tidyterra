@@ -6,7 +6,6 @@ test_that("Test SpatRaster", {
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
 
-
   # Regular
   vdiffr::expect_doppelganger("norgb_01: regular", autoplot(r))
 
@@ -92,7 +91,6 @@ test_that("Test SpatRaster", {
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
 
-
   # Regular
   vdiffr::expect_doppelganger("coltab_01: regular", autoplot(r))
 
@@ -114,7 +112,6 @@ test_that("Test SpatRaster", {
       select(1) %>%
       autoplot()
   )
-
 
   # Change n facets
   vdiffr::expect_doppelganger(
@@ -143,7 +140,6 @@ test_that("test SpatVector", {
 
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
-
 
   # Regular
   vdiffr::expect_doppelganger("vector_01: regular", autoplot(v))

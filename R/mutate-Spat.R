@@ -111,7 +111,6 @@ mutate.SpatRaster <- function(.data, ...) {
 
   attributes(final_df) <- c(final_att, spat_attrs)
 
-
   # Rearrange number of layers
   dims <- attributes(df)$dims
   dims[3] <- ncol(values_mutate)
@@ -171,7 +170,6 @@ transmute.SpatRaster <- function(.data, ...) {
   xy <- data.table::as.data.table(xy)
   values_transm <- data.table::as.data.table(values_transm)
 
-
   final_df <- dplyr::bind_cols(xy, values_transm)
 
   # To data.table and rearrange attrs
@@ -192,7 +190,6 @@ transmute.SpatRaster <- function(.data, ...) {
 
   final_rast <- as_spat_internal(final_df)
 
-
   # Check coltab
   if (
     any(terra::has.colors(.data)) && any(names(final_rast) %in% names(.data))
@@ -202,7 +199,6 @@ transmute.SpatRaster <- function(.data, ...) {
     namesend <- names(final_rast)
 
     ctab_list <- ctab_list_init[namesend %in% names(.data)]
-
 
     # Assign coltab by layer
     l2 <- lapply(seq_len(terra::nlyr(final_rast)), function(x) {
@@ -218,7 +214,6 @@ transmute.SpatRaster <- function(.data, ...) {
     })
     final_rast <- do.call("c", l2)
   }
-
 
   return(final_rast)
 }

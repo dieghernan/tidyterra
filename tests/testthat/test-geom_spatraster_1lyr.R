@@ -32,19 +32,15 @@ test_that("geom_spatraster one layer with CRS", {
     coord_cartesian()
   expect_warning(ggplot_build(s), regexp = "must be used with")
 
-
-
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 
   p <- ggplot() +
     geom_spatraster(data = r)
   vdiffr::expect_doppelganger("crs_01: regular", p)
-
 
   # Scales
   vdiffr::expect_doppelganger(
@@ -67,17 +63,21 @@ test_that("geom_spatraster one layer with CRS", {
   )
 
   # Using aes
-  expect_warning(ggplot() +
-    geom_spatraster(data = r, aes(
-      fill = elevation_m,
-      color = "red"
-    )))
+  expect_warning(
+    ggplot() +
+      geom_spatraster(
+        data = r,
+        aes(
+          fill = elevation_m,
+          color = "red"
+        )
+      )
+  )
 
   p_aes <- ggplot() +
     geom_spatraster(data = r, aes(fill = elevation_m))
 
   vdiffr::expect_doppelganger("crs_05: w/aes", p_aes)
-
 
   # Using a categorical
 
@@ -101,7 +101,6 @@ test_that("geom_spatraster one layer with CRS", {
       geom_spatraster(data = r, maxcell = 20)
   )
 
-
   vdiffr::expect_doppelganger("crs_07: resampled", p_res)
 
   # Resampling and interpolating
@@ -111,9 +110,7 @@ test_that("geom_spatraster one layer with CRS", {
       geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
   )
 
-
   vdiffr::expect_doppelganger("crs_08: resampled interpolated", p_res_int)
-
 
   # With crs
   p_rast_first <- ggplot() +
@@ -229,15 +226,11 @@ test_that("geom_spatraster one layer without CRS", {
     geom_spatraster(data = r) +
     coord_cartesian()
 
-
   expect_silent(ggplot_build(s))
-
-
 
   # test with vdiffr
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Regular plot
 
@@ -245,14 +238,11 @@ test_that("geom_spatraster one layer without CRS", {
     geom_spatraster(data = r)
   vdiffr::expect_doppelganger("nocrs_01a: regular", p)
 
-
   vdiffr::expect_doppelganger(
     "nocrs_01b: regular with coord_equal",
     p +
       coord_equal()
   )
-
-
 
   # Scales
   vdiffr::expect_doppelganger(
@@ -277,17 +267,19 @@ test_that("geom_spatraster one layer without CRS", {
   # Using aes
   expect_warning(
     ggplot() +
-      geom_spatraster(data = r, aes(
-        fill = elevation_m,
-        color = "red"
-      ))
+      geom_spatraster(
+        data = r,
+        aes(
+          fill = elevation_m,
+          color = "red"
+        )
+      )
   )
 
   p_aes <- ggplot() +
     geom_spatraster(data = r, aes(fill = elevation_m))
 
   vdiffr::expect_doppelganger("nocrs_05: w/aes", p_aes)
-
 
   # Using a categorical
 
@@ -311,7 +303,6 @@ test_that("geom_spatraster one layer without CRS", {
       geom_spatraster(data = r, maxcell = 20)
   )
 
-
   vdiffr::expect_doppelganger("nocrs_07: resampled", p_res)
 
   # Resampling and interpolating
@@ -321,9 +312,7 @@ test_that("geom_spatraster one layer without CRS", {
       geom_spatraster(data = r, maxcell = 20, interpolate = TRUE)
   )
 
-
   vdiffr::expect_doppelganger("nocrs_08: resampled interpolated", p_res_int)
-
 
   # With crs
   p_rast_first <- ggplot() +
@@ -341,7 +330,6 @@ test_that("geom_spatraster one layer without CRS", {
     p_rast_first +
       geom_sf(data = v_sf, fill = NA, color = "red")
   )
-
 
   # Would align only if sf/coord on the same crs
 
@@ -398,12 +386,10 @@ test_that("geom_spatraster one facets", {
   v <- terra::project(v, "epsg:3035")
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
-
   # test with vdiffr
   skip_on_covr()
   skip_on_cran()
   skip_if_not_installed("vdiffr")
-
 
   # Facet plot
 

@@ -68,16 +68,16 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
   # New raster for init the loop
   newrast <- data
 
-
   for (i in seq_len(terra::nlyr(newrast))) {
-    if (!check_index[i]) next
+    if (!check_index[i]) {
+      next
+    }
 
     # Modify if false
     layer <- terra::subset(newrast, i)
 
     # Different replacement based on type of layer
     is_factor <- is.factor(dplyr::pull(layer[1]))
-
 
     # Check different if it is factor or not
     if (!is_factor) {
@@ -93,7 +93,8 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
 
       # New NA level and change label
 
-      new_vals <- factor(values,
+      new_vals <- factor(
+        values,
         exclude = NULL,
         levels = c(keep_levs, NA),
         labels = c(keep_levs, to_replace)

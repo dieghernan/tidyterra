@@ -1,9 +1,7 @@
 test_that("Drop na with SpatVectors", {
   skip_on_cran()
 
-  f <- system.file("extdata/cyl.gpkg",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   v <- terra::vect(f)
   v[1, 1] <- NA
@@ -50,9 +48,7 @@ test_that("groups are preserved", {
 test_that("Return empty geom when no results", {
   skip_on_cran()
 
-  f <- system.file("extdata/cyl.gpkg",
-    package = "tidyterra"
-  )
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   v <- terra::vect(f)
   v$cpro <- NA
@@ -96,15 +92,12 @@ test_that("Drop na with SpatRaster", {
   # Drop all
   all <- drop_na(r)
 
-
-
   expect_snapshot(res <- compare_spatrasters(r, all))
   expect_false(res)
   expect_equal(
     nrow(tidyr::drop_na(tbl)),
     terra::ncell(all)
   )
-
 
   # Drop based on layer
   lyr <- drop_na(r, lyr.1)

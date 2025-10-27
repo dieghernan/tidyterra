@@ -165,10 +165,14 @@
 #'     palette = "cold_humid"
 #'   )
 #' }
-scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
-                                       alpha = 1, direction = 1,
-                                       na.translate = FALSE,
-                                       drop = TRUE) {
+scale_fill_cross_blended_d <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -191,9 +195,14 @@ scale_fill_cross_blended_d <- function(palette = "cold_humid", ...,
 }
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
-                                         alpha = 1, direction = 1,
-                                         na.translate = FALSE, drop = TRUE) {
+scale_colour_cross_blended_d <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -217,10 +226,14 @@ scale_colour_cross_blended_d <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
-                                       alpha = 1, direction = 1,
-                                       na.value = "transparent",
-                                       guide = "colourbar") {
+scale_fill_cross_blended_c <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -229,7 +242,8 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
     cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
   }
 
-  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(
+    tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
 
@@ -248,10 +262,14 @@ scale_fill_cross_blended_c <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
-                                         alpha = 1, direction = 1,
-                                         na.value = "transparent",
-                                         guide = "colourbar") {
+scale_colour_cross_blended_c <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -260,7 +278,8 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
     cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
   }
 
-  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(
+    tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
 
@@ -278,10 +297,14 @@ scale_colour_cross_blended_c <- function(palette = "cold_humid", ...,
 }
 #' @export
 #' @rdname scale_cross_blended
-scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
-                                       alpha = 1, direction = 1,
-                                       na.value = "transparent",
-                                       guide = "coloursteps") {
+scale_fill_cross_blended_b <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -290,7 +313,8 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
     cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
   }
 
-  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(
+    tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
   ggplot2::binned_scale(
@@ -307,10 +331,14 @@ scale_fill_cross_blended_b <- function(palette = "cold_humid", ...,
 }
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
-                                         alpha = 1, direction = 1,
-                                         na.value = "transparent",
-                                         guide = "coloursteps") {
+scale_colour_cross_blended_b <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -319,7 +347,8 @@ scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
     cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
   }
 
-  length_pal <- nrow(extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+  length_pal <- nrow(extract_pal(
+    tidyterra::cross_blended_hypsometric_tints_db,
     palette = palette
   ))
   ggplot2::binned_scale(
@@ -360,10 +389,15 @@ scale_colour_cross_blended_b <- function(palette = "cold_humid", ...,
 #'   )
 #' }
 #' par(opar)
-cross_blended.colors <- function(n, palette = "cold_humid",
-                                 alpha = 1, rev = FALSE) {
+cross_blended.colors <- function(
+  n,
+  palette = "cold_humid",
+  alpha = 1,
+  rev = FALSE
+) {
   if ((n <- as.integer(n[1L])) > 0) {
-    paltab <- extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+    paltab <- extract_pal(
+      tidyterra::cross_blended_hypsometric_tints_db,
       palette = palette
     )
     colors <- as.character(paltab$hex)
@@ -408,10 +442,14 @@ cross_blended.colors <- function(n, palette = "cold_humid",
 #' In contrast, `cross_blended.colors()` provides an uniform gradient across
 #' colors. See **Examples**.
 #'
-scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                            alpha = 1, direction = 1,
-                                            na.translate = FALSE,
-                                            drop = TRUE) {
+scale_fill_cross_blended_tint_d <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -435,10 +473,14 @@ scale_fill_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
-                                              alpha = 1, direction = 1,
-                                              na.translate = FALSE,
-                                              drop = TRUE) {
+scale_colour_cross_blended_tint_d <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  na.translate = FALSE,
+  drop = TRUE
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -461,12 +503,16 @@ scale_colour_cross_blended_tint_d <- function(palette = "cold_humid", ...,
 }
 #' @export
 #' @rdname scale_cross_blended
-scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
-                                            alpha = 1, direction = 1,
-                                            values = NULL,
-                                            limits = NULL,
-                                            na.value = "transparent",
-                                            guide = "colourbar") {
+scale_fill_cross_blended_tint_c <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -487,15 +533,24 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
-  if (is.null(values)) values <- hypsocol$limit
+  if (is.null(values)) {
+    values <- hypsocol$limit
+  }
   # Reescale
-  if (is.null(limits)) limits <- range(values)
+  if (is.null(limits)) {
+    limits <- range(values)
+  }
   res <- scales::rescale(values, from = limits)
 
-  ggplot2::scale_fill_gradientn(...,
+  ggplot2::scale_fill_gradientn(
+    ...,
     colors = hexcol,
     values = res,
     limits = limits,
@@ -506,12 +561,16 @@ scale_fill_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
-                                              alpha = 1, direction = 1,
-                                              values = NULL,
-                                              limits = NULL,
-                                              na.value = "transparent",
-                                              guide = "colourbar") {
+scale_colour_cross_blended_tint_c <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = "transparent",
+  guide = "colourbar"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -532,15 +591,24 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
-  if (is.null(values)) values <- hypsocol$limit
+  if (is.null(values)) {
+    values <- hypsocol$limit
+  }
   # Reescale
-  if (is.null(limits)) limits <- range(values)
+  if (is.null(limits)) {
+    limits <- range(values)
+  }
   res <- scales::rescale(values, from = limits)
 
-  ggplot2::scale_colour_gradientn(...,
+  ggplot2::scale_colour_gradientn(
+    ...,
     colors = hexcol,
     values = res,
     limits = limits,
@@ -551,12 +619,16 @@ scale_colour_cross_blended_tint_c <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
-                                            alpha = 1, direction = 1,
-                                            values = NULL,
-                                            limits = NULL,
-                                            na.value = "transparent",
-                                            guide = "coloursteps") {
+scale_fill_cross_blended_tint_b <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -577,12 +649,20 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
-  if (is.null(values)) values <- hypsocol$limit
+  if (is.null(values)) {
+    values <- hypsocol$limit
+  }
   # Reescale
-  if (is.null(limits)) limits <- range(values)
+  if (is.null(limits)) {
+    limits <- range(values)
+  }
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_fill_stepsn(
@@ -597,12 +677,16 @@ scale_fill_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 
 #' @export
 #' @rdname scale_cross_blended
-scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
-                                              alpha = 1, direction = 1,
-                                              values = NULL,
-                                              limits = NULL,
-                                              na.value = "transparent",
-                                              guide = "coloursteps") {
+scale_colour_cross_blended_tint_b <- function(
+  palette = "cold_humid",
+  ...,
+  alpha = 1,
+  direction = 1,
+  values = NULL,
+  limits = NULL,
+  na.value = "transparent",
+  guide = "coloursteps"
+) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
   }
@@ -623,12 +707,20 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 
   hypsocol <- coltab[coltab$pal == palette, ]
   hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) hexcol <- rev(hexcol)
-  if (alpha != 1) hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  if (direction == -1) {
+    hexcol <- rev(hexcol)
+  }
+  if (alpha != 1) {
+    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
+  }
 
-  if (is.null(values)) values <- hypsocol$limit
+  if (is.null(values)) {
+    values <- hypsocol$limit
+  }
   # Reescale
-  if (is.null(limits)) limits <- range(values)
+  if (is.null(limits)) {
+    limits <- range(values)
+  }
   res <- scales::rescale(values, from = limits)
 
   ggplot2::scale_colour_stepsn(
@@ -664,10 +756,15 @@ scale_colour_cross_blended_tint_b <- function(palette = "cold_humid", ...,
 #'   )
 #' }
 #' par(opar)
-cross_blended.colors2 <- function(n, palette = "cold_humid",
-                                  alpha = 1, rev = FALSE) {
+cross_blended.colors2 <- function(
+  n,
+  palette = "cold_humid",
+  alpha = 1,
+  rev = FALSE
+) {
   if ((n <- as.integer(n[1L])) > 0) {
-    paltab <- extract_pal(tidyterra::cross_blended_hypsometric_tints_db,
+    paltab <- extract_pal(
+      tidyterra::cross_blended_hypsometric_tints_db,
       palette = palette
     )
     colors <- as.character(paltab$hex)
@@ -683,8 +780,10 @@ cross_blended.colors2 <- function(n, palette = "cold_humid",
 cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- cross_blended.colors(n,
-      rev = direction != 1, alpha = alpha,
+    pal <- cross_blended.colors(
+      n,
+      rev = direction != 1,
+      alpha = alpha,
       palette = palette
     )
 
@@ -697,8 +796,10 @@ cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
 cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
   # nocov start
   function(n) {
-    pal <- cross_blended.colors2(n,
-      rev = direction != 1, alpha = alpha,
+    pal <- cross_blended.colors2(
+      n,
+      rev = direction != 1,
+      alpha = alpha,
       palette = palette
     )
 

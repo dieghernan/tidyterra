@@ -18,9 +18,7 @@ test_that("Discrete scale", {
   expect_identical(mod, mod3)
 
   # Alpha
-  expect_snapshot(p + scale_colour_wiki_d(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_wiki_d(alpha = -1), error = TRUE)
 
   p3 <- p + scale_colour_wiki_d(alpha = 0.9)
 
@@ -29,19 +27,15 @@ test_that("Discrete scale", {
   expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_colour_wiki_d(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_wiki_d(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p + scale_colour_wiki_d(
-    direction = -1,
-    alpha = 0.7
-  )
+  p4 <- p +
+    scale_colour_wiki_d(
+      direction = -1,
+      alpha = 0.7
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
-
 
   expect_true(
     all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
@@ -68,9 +62,7 @@ test_that("Continous scale", {
   expect_identical(mod, mod3)
 
   # Alpha
-  expect_snapshot(p + scale_colour_wiki_c(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_wiki_c(alpha = -1), error = TRUE)
 
   p3 <- p + scale_colour_wiki_c(alpha = 0.9)
 
@@ -79,29 +71,29 @@ test_that("Continous scale", {
   expect_true(all(adjustcolor(mod, alpha.f = 0.9) == mod_alpha))
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_colour_wiki_c(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_wiki_c(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p + scale_colour_wiki_c(
-    direction = -1,
-    alpha = 0.7
-  )
+  p4 <- p +
+    scale_colour_wiki_c(
+      direction = -1,
+      alpha = 0.7
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
-
-  expect_true(all(rev(alpha(
-    mod,
-    0.7
-  )) == mod_alpha_rev))
+  expect_true(all(
+    rev(alpha(
+      mod,
+      0.7
+    )) ==
+      mod_alpha_rev
+  ))
 })
 
 test_that("Breaking scale", {
   d <- data.frame(
-    x = 1:10, y = 1:10,
+    x = 1:10,
+    y = 1:10,
     z = 31:40
   )
 
@@ -116,8 +108,6 @@ test_that("Breaking scale", {
 
   init <- ggplot2::layer_data(p)$colour
   expect_true(length(unique(init)) == 3)
-
-
 
   p2 <- p_init +
     scale_colour_wiki_b(breaks = br)
@@ -136,14 +126,13 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod)) == 3)
 
   # Alpha
-  expect_snapshot(p_init + scale_colour_wiki_b(alpha = -1),
-    error = TRUE
-  )
+  expect_snapshot(p_init + scale_colour_wiki_b(alpha = -1), error = TRUE)
 
-  p3 <- p_init + scale_colour_wiki_b(
-    alpha = 0.9,
-    breaks = br
-  )
+  p3 <- p_init +
+    scale_colour_wiki_b(
+      alpha = 0.9,
+      breaks = br
+    )
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
@@ -151,17 +140,14 @@ test_that("Breaking scale", {
   expect_true(length(unique(mod_alpha)) == 3)
 
   # Reverse also with alpha
-  expect_snapshot(p + scale_colour_wiki_b(direction = 0.5),
-    error = TRUE
-  )
+  expect_snapshot(p + scale_colour_wiki_b(direction = 0.5), error = TRUE)
 
-
-
-  p4 <- p_init + scale_colour_wiki_b(
-    direction = -1,
-    alpha = 0.7,
-    breaks = br
-  )
+  p4 <- p_init +
+    scale_colour_wiki_b(
+      direction = -1,
+      alpha = 0.7,
+      breaks = br
+    )
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
   expect_true(length(unique(mod_alpha_rev)) == 3)

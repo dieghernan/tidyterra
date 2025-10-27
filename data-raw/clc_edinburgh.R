@@ -1,6 +1,5 @@
 ## code to prepare `clc_edinburgh` dataset goes here
 
-
 # https://collections.sentinel-hub.com/corine-land-cover/readme.html
 
 # Prepate coltab and factors
@@ -53,8 +52,6 @@ clc_code <- tibble::tribble(
   "e6f2ff", 523L, "Sea and ocean",
   "ffffff", 999L, "NODATA"
 )
-
-
 
 
 clc_code$code_18 <- as.character(clc_code$code_18)
@@ -114,8 +111,6 @@ plot(r)
 
 autoplot(r) +
   guides(fill = guide_legend(ncol = 1))
-
-
 
 
 unlink("data-raw/clc_edinburgh.tif")

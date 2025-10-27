@@ -137,16 +137,19 @@
 #'   scale_fill_hypso_d()
 #' }
 #'
-geom_spatraster_contour <- function(mapping = NULL, data,
-                                    ...,
-                                    maxcell = 500000,
-                                    bins = NULL,
-                                    binwidth = NULL,
-                                    breaks = NULL,
-                                    na.rm = TRUE,
-                                    show.legend = NA,
-                                    inherit.aes = TRUE,
-                                    mask_projection = FALSE) {
+geom_spatraster_contour <- function(
+  mapping = NULL,
+  data,
+  ...,
+  maxcell = 500000,
+  bins = NULL,
+  binwidth = NULL,
+  breaks = NULL,
+  na.rm = TRUE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  mask_projection = FALSE
+) {
   # Is a suggestion so far
   # nocov start
   if (!requireNamespace("isoband", quietly = TRUE)) {
@@ -165,7 +168,6 @@ geom_spatraster_contour <- function(mapping = NULL, data,
     ))
   }
 
-
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
@@ -175,7 +177,6 @@ geom_spatraster_contour <- function(mapping = NULL, data,
       lyr = .data$lyr
     )
   )
-
 
   # aes(z=...) would select the layer to plot
   # Extract value of aes(z)
@@ -192,7 +193,6 @@ geom_spatraster_contour <- function(mapping = NULL, data,
     # Remove z from aes, would be provided later on the Stat
     mapping <- cleanup_aesthetics(mapping, "z")
   }
-
 
   # 2. Check if resample is needed----
 
@@ -243,7 +243,6 @@ geom_spatraster_contour <- function(mapping = NULL, data,
     )
   )
 
-
   # From ggspatial
   # If the SpatRaster has crs add a geom_sf for training scales
   # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
@@ -253,9 +252,7 @@ geom_spatraster_contour <- function(mapping = NULL, data,
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
-        data = sf::st_sfc(sf::st_point(),
-          crs = crs_terra
-        ),
+        data = sf::st_sfc(sf::st_point(), crs = crs_terra),
         inherit.aes = FALSE,
         show.legend = FALSE
       )
@@ -291,8 +288,13 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
   required_aes = "spatraster",
   default_aes = ggplot2::aes(lyr = lyr, order = after_stat(level)),
   extra_params = c(
-    "maxcell", "bins", "binwidth", "breaks", "na.rm",
-    "coord_crs", "mask_projection"
+    "maxcell",
+    "bins",
+    "binwidth",
+    "breaks",
+    "na.rm",
+    "coord_crs",
+    "mask_projection"
   ),
   setup_params = function(data, params) {
     range_lys <- lapply(data$spatraster, terra::minmax)
@@ -324,12 +326,22 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
-      params, layout
+      params,
+      layout
     )
   },
-  compute_group = function(data, scales, z.range, bins = NULL, binwidth = NULL,
-                           breaks = NULL, na.rm = FALSE, coord,
-                           coord_crs = NA, mask_projection = FALSE) {
+  compute_group = function(
+    data,
+    scales,
+    z.range,
+    bins = NULL,
+    binwidth = NULL,
+    breaks = NULL,
+    na.rm = FALSE,
+    coord,
+    coord_crs = NA,
+    mask_projection = FALSE
+  ) {
     # Extract raster from group
     rast <- data$spatraster[[1]]
 
@@ -349,7 +361,6 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
 
     # Now create data with values from raster
     names(prepare_iso) <- c("x", "y", "lyr", "z")
-
 
     # Port functions from ggplot2
     breaks <- contour_breaks(z.range, bins, binwidth, breaks)
@@ -382,8 +393,12 @@ allow_lambda <- function(x) {
 }
 
 # From ggplot2
-contour_breaks <- function(z_range, bins = NULL, binwidth = NULL,
-                           breaks = NULL) {
+contour_breaks <- function(
+  z_range,
+  bins = NULL,
+  binwidth = NULL,
+  breaks = NULL
+) {
   breaks <- allow_lambda(breaks)
 
   if (is.numeric(breaks)) {
@@ -457,7 +472,8 @@ iso_to_path <- function(iso, group = 1) {
 
   if (all(lengths == 0)) {
     cli::cli_warn(paste(
-      "In", cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
+      "In",
+      cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
       "Zero contours were generated"
     ))
     return(data.frame())
@@ -470,7 +486,9 @@ iso_to_path <- function(iso, group = 1) {
   item_id <- rep(seq_along(iso), lengths)
 
   # Add leading zeros so that groups can be properly sorted
-  groups <- paste(group, sprintf("%03d", item_id),
+  groups <- paste(
+    group,
+    sprintf("%03d", item_id),
     sprintf("%03d", ids),
     sep = "-"
   )
