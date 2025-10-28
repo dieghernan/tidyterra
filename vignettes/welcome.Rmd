@@ -15,7 +15,7 @@ vignette: >
 ## Welcome to {tidyterra}
 
 **tidyterra** is a package that adds common methods from the
-[**tidyverse**](https://www.tidyverse.org/) for `SpatRaster` and `SpatVectors`
+[**tidyverse**](https://tidyverse.org/) for `SpatRaster` and `SpatVectors`
 objects created with the [**terra**](https://CRAN.R-project.org/package=terra)
 package. It also adds specific `geom_spat*()` functions for plotting these kind
 of objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
@@ -52,20 +52,7 @@ Load **tidyterra** with additional libraries of the **tidyverse**:
 
 ``` r
 library(tidyterra)
-#> 
-#> Attaching package: 'tidyterra'
-#> The following object is masked from 'package:stats':
-#> 
-#>     filter
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(tidyr)
 ```
 
@@ -99,8 +86,9 @@ Currently, the following methods are available:
 | `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
 | `ggplot2::fortify()`                        | ✔️ to **sf** via `sf::st_as_sf()`             | To a **tibble** with coordinates.                                                              |
 | `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
-| `generics::tidy()` | ✔️ | ✔️ |
-| `generics::required_pkgs()` | ✔️ | ✔️ |
+| `generics::tidy()`                          | ✔️                                            | ✔️                                                                                             |
+| `generics::glance()`                        | ✔️                                            | ✔️                                                                                             |
+| `generics::required_pkgs()`                 | ✔️                                            | ✔️                                                                                             |
 
 
 Let's see some of them in action:

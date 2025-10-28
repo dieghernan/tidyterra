@@ -33,11 +33,11 @@ readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dpl
 <!-- badges: end -->
 
 The goal of **tidyterra** is to provide common methods of the
-[**tidyverse** packages](https://www.tidyverse.org/packages/) for
-objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package:
-`SpatRaster` and `SpatVector`. It also provides `geoms` for plotting
-these objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
+[**tidyverse** packages](https://tidyverse.org/packages/) for objects
+created with the [**terra**](https://CRAN.R-project.org/package=terra)
+package: `SpatRaster` and `SpatVector`. It also provides `geoms` for
+plotting these objects with
+[**ggplot2**](https://ggplot2.tidyverse.org/).
 
 Please cite **tidyterra** as:
 
