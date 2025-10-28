@@ -5,9 +5,9 @@
 %   R/glimpse-Spat.R, R/group-by-SpatVector.R, R/group-data-SpatVector.R,
 %   R/join-SpatVector.R, R/mutate-Spat.R, R/pivot-long-SpatVector.R,
 %   R/pivot-wide-SpatVector.R, R/pull-Spat.R, R/relocate-Spat.R,
-%   R/rename-Spat.R, R/replace_na-Spat.R, R/required_pkgs.R,
+%   R/rename-Spat.R, R/replace_na-Spat.R, R/required_pkgs-Spat.R,
 %   R/rowwise-SpatVector.R, R/select-Spat.R, R/slice-Spat.R,
-%   R/summarise-SpatVector.R, R/tidyterra-package.R
+%   R/summarise-SpatVector.R, R/tidy-Spat.R, R/tidyterra-package.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -59,6 +59,7 @@
 \alias{slice_sample}
 \alias{summarise}
 \alias{summarize}
+\alias{tidy}
 \alias{aes}
 \alias{after_stat}
 \title{Objects exported from other packages}
@@ -70,7 +71,7 @@ below to see their documentation.
 \describe{
   \item{dplyr}{\code{\link[dplyr:filter-joins]{anti_join}}, \code{\link[dplyr]{arrange}}, \code{\link[dplyr]{count}}, \code{\link[dplyr]{distinct}}, \code{\link[dplyr]{filter}}, \code{\link[dplyr:mutate-joins]{full_join}}, \code{\link[dplyr]{glimpse}}, \code{\link[dplyr]{group_by}}, \code{\link[dplyr]{group_by_drop_default}}, \code{\link[dplyr]{group_data}}, \code{\link[dplyr:group_data]{group_indices}}, \code{\link[dplyr:group_data]{group_keys}}, \code{\link[dplyr:group_data]{group_rows}}, \code{\link[dplyr:group_data]{group_size}}, \code{\link[dplyr:group_data]{group_vars}}, \code{\link[dplyr:group_data]{groups}}, \code{\link[dplyr:group_data]{groups}}, \code{\link[dplyr:mutate-joins]{inner_join}}, \code{\link[dplyr:mutate-joins]{left_join}}, \code{\link[dplyr]{mutate}}, \code{\link[dplyr:group_data]{n_groups}}, \code{\link[dplyr]{pull}}, \code{\link[dplyr]{relocate}}, \code{\link[dplyr]{rename}}, \code{\link[dplyr:rename]{rename_with}}, \code{\link[dplyr:mutate-joins]{right_join}}, \code{\link[dplyr]{rowwise}}, \code{\link[dplyr]{select}}, \code{\link[dplyr:filter-joins]{semi_join}}, \code{\link[dplyr]{slice}}, \code{\link[dplyr:slice]{slice_head}}, \code{\link[dplyr:slice]{slice_max}}, \code{\link[dplyr:slice]{slice_min}}, \code{\link[dplyr:slice]{slice_sample}}, \code{\link[dplyr:slice]{slice_tail}}, \code{\link[dplyr]{summarise}}, \code{\link[dplyr:summarise]{summarize}}, \code{\link[dplyr:count]{tally}}, \code{\link[dplyr]{transmute}}, \code{\link[dplyr:group_by]{ungroup}}}
 
-  \item{generics}{\code{\link[generics]{required_pkgs}}}
+  \item{generics}{\code{\link[generics]{required_pkgs}}, \code{\link[generics]{tidy}}}
 
   \item{ggplot2}{\code{\link[ggplot2]{aes}}, \code{\link[ggplot2:aes_eval]{after_stat}}, \code{\link[ggplot2]{autoplot}}, \code{\link[ggplot2]{fortify}}}
 

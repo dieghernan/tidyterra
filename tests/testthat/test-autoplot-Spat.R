@@ -154,3 +154,37 @@ test_that("test SpatVector", {
       geom_spatvector_label(aes(label = iso2))
   )
 })
+
+test_that("test SpatExtent", {
+  # test with vdiffr
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+  f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+  v <- terra::vect(f)
+
+  e <- terra::ext(v)
+
+  # Regular
+  vdiffr::expect_doppelganger("extent_01: regular", autoplot(e))
+
+  # Aes
+  vdiffr::expect_doppelganger("extent_02: params", autoplot(e, fill = "red", alpha = 0.2))
+})
+
+test_that("test SpatGraticule", {
+  # test with vdiffr
+  skip_on_cran()
+  skip_if_not_installed("vdiffr")
+
+  g <- terra::graticule(60, 30, crs = "+proj=robin")
+
+  # Regular
+  vdiffr::expect_doppelganger("grat_01: regular", autoplot(g))
+
+  # Aes
+  vdiffr::expect_doppelganger(
+    "grat_02: params",
+    autoplot(g, color = "red", linetype = 2, linewidth = 3)
+  )
+})

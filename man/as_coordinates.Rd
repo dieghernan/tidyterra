@@ -45,6 +45,7 @@ Coercing objects:
 \code{\link{as_spatraster}()},
 \code{\link{as_spatvector}()},
 \code{\link{as_tibble.Spat}},
-\code{\link{fortify.Spat}}
+\code{\link{fortify.Spat}},
+\code{\link{tidy.Spat}}
 }
 \concept{coerce}

@@ -1,19 +1,18 @@
 #' Fortify `Spat*` Objects
 #'
+#' @description
 #' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provide
 #' native compatibility with [ggplot2::ggplot()].
 #'
+#' **Note that** these methods are now implemented as a wrapper of [`tidy.Spat`]
+#' methods.
+#'
 #'
 #' @param model A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()]. Also support `SpatGraticule`
-#'   (see [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
+#'   created with [terra::vect()]. Also support `SpatGraticule` (see
+#'   [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
 #' @param data Not used by this method.
-#' @inheritParams geom_spatraster
-#' @inheritParams ggplot2::fortify
-#' @inheritParams as_tibble.Spat
-#' @param pivot Logical. When `TRUE` the `SpatRaster` would be fortified on
-#'   [long format][tidyr::pivot_longer()]. When `FALSE` (the default) it would
-#'   be fortified as a data frame with a column for each layer. See **Details**.
+#' @inheritParams tidy.Spat
 #' @importFrom ggplot2 fortify
 #' @export
 #'
@@ -23,14 +22,16 @@
 #'
 #' @return
 #'
-#' [fortify.SpatVector()] returns a [`sf`][sf::st_sf] object and
+#' [fortify.SpatVector()], [fortify.SpatGraticule()] and [fortify.SpatExtent()]
+#' return a [`sf`][sf::st_sf] object.
+#'
 #' [fortify.SpatRaster()] returns a [`tibble`][tibble::tibble]. See **Methods**.
 #'
 #' @rdname fortify.Spat
 #' @name fortify.Spat
 #'
-#' @seealso [sf::st_as_sf()], [`as_tibble.Spat`], [as_spatraster()],
-#'   [ggplot2::fortify()].
+#' @seealso [`tidy.Spat`], [sf::st_as_sf()], [`as_tibble.Spat`],
+#'   [as_spatraster()], [ggplot2::fortify()].
 #'
 #' @section Methods:
 #'
@@ -61,54 +62,57 @@
 #' This option may be useful when using several `geom_*` and for faceting, see
 #' **Examples**.
 #'
-#' ## `SpatVector` and `SpatGraticule`
+#' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
 #' Return a [`sf`][sf::st_sf] object than can be used with [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{
 #'
+#' # Demonstrate the use with ggplot2
+#' library(ggplot2)
+#'
+#'
 #' # Get a SpatRaster
 #' r <- system.file("extdata/volcano2.tif", package = "tidyterra") %>%
 #'   terra::rast() %>%
 #'   terra::project("EPSG:4326")
 #'
-#' fortified <- ggplot2::fortify(r)
-#'
-#' fortified
-#'
-#' # The crs is an attribute of the fortified SpatRaster
-#'
-#' attr(fortified, "crs")
-#'
-#' # Back to a SpatRaster with
-#' as_spatraster(fortified)
 #'
 #' # You can now use a SpatRaster with any geom
-#' library(ggplot2)
-#'
-#' ggplot(r) +
+#' ggplot(r, maxcell = 50) +
 #'   geom_histogram(aes(x = elevation),
 #'     bins = 20, fill = "lightblue",
 #'     color = "black"
 #'   )
 #'
+#' # For SpatVector, SpatGraticule and SpatExtent you can use now geom_sf()
 #'
 #' # Create a SpatVector
 #' extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 #' cyl <- terra::vect(extfile)
 #'
-#' cyl
-#'
-#' # To sf
-#' ggplot2::fortify(cyl)
-#'
-#' # Now you can use geom_sf() straight away thanks to fortify::SpatVector()
-#'
-#' library(ggplot2)
+#' class(cyl)
 #'
 #' ggplot(cyl) +
 #'   geom_sf()
+#'
+#' # SpatGraticule
+#' g <- terra::graticule(60, 30, crs = "+proj=robin")
+#'
+#' class(g)
+#'
+#' ggplot(g) +
+#'   geom_sf()
+#'
+#' # SpatExtent
+#' ex <- terra::ext(cyl)
+#'
+#' class(ex)
+#'
+#' ggplot(ex, crs = cyl) +
+#'   geom_sf(fill = "red", alpha = 0.3) +
+#'   geom_sf(data = cyl, fill = NA)
 #' }
 #'
 fortify.SpatRaster <- function(
@@ -119,59 +123,29 @@ fortify.SpatRaster <- function(
   maxcell = terra::ncell(model) * 1.1,
   pivot = FALSE
 ) {
-  model <- resample_spat(model, maxcell)
-
-  crs <- pull_crs(model)
-
-  if (is.na(crs)) {
-    crs <- ""
-  }
-
-  if (pivot == FALSE) {
-    model <- as_tibble(model, xy = TRUE, .name_repair = .name_repair)
-  } else {
-    model <- check_mixed_cols(model, fn = "tidyterra::fortify.SpatRaster")
-    model <- pivot_longer_spat(model)
-    attr(model, "pvt_fort") <- TRUE
-  }
-
-  attr(model, "crs") <- crs
-
-  model
+  tidy(
+    x = model, ..., .name_repair = .name_repair,
+    maxcell = maxcell,
+    pivot = pivot
+  )
 }
 
 #' @export
 #' @name fortify.Spat
 fortify.SpatVector <- function(model, data, ...) {
-  as_sf(model)
+  tidy(x = model, ...)
 }
 
 #' @export
 #' @name fortify.Spat
 fortify.SpatGraticule <- function(model, data, ...) {
-  # nocov start
-  tvers <- packageVersion("terra")
-  if (tvers < "1.8.5") {
-    msg <- paste(
-      "Need {.pkg terra} {.strong 1.8.5} or later for ",
-      "{.fn fortify.SpatGraticule} method. Current {.pkg terra} ",
-      "version is  {.strong {tvers}}"
-    )
-    cli::cli_abort(msg)
-  }
-  # nocov end
-  as_sf(terra::vect(model))
+  tidy(x = model, ...)
 }
 
 #' @export
 #' @name fortify.Spat
-#' @param crs Input potentially including or representing a CRS. It could be
-#'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
-#'   [sf::st_crs()], a character (for example a [proj4
-#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
-#'   integer (representing an [EPSG](https://epsg.io/) code).
 fortify.SpatExtent <- function(model, data, ..., crs = "") {
-  as_sf(terra::vect(model, crs = pull_crs(crs)))
+  tidy(x = model, ..., crs = crs)
 }
 
 #' @export
