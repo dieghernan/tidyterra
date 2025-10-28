@@ -144,6 +144,26 @@ references:
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.0.0'
 - type: software
+  title: generics
+  abstract: 'generics: Common S3 Generics not Provided by Base R Methods Related to
+    Model Fitting'
+  notes: Imports
+  url: https://generics.r-lib.org
+  repository: https://CRAN.R-project.org/package=generics
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Kuhn
+    given-names: Max
+    email: max@posit.co
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.generics
+- type: software
   title: ggplot2
   abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
   notes: Imports
@@ -295,26 +315,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.0.0'
-- type: software
-  title: hexbin
-  abstract: 'hexbin: Hexagonal Binning Routines'
-  notes: Suggests
-  url: https://github.com/edzer/hexbin
-  repository: https://CRAN.R-project.org/package=hexbin
-  authors:
-  - family-names: Carr
-    given-names: Dan
-    email: dcarr@voxel.galaxy.gmu.edu
-  - family-names: Lewin-Koh
-    given-names: Nicholas
-  - family-names: Maechler
-    given-names: Martin
-    email: maechler@stat.math.ethz.ch
-  - family-names: Sarkar
-    given-names: Deepayan
-    email: deepayan.sarkar@r-project.org
-  year: '2025'
-  doi: 10.32614/CRAN.package.hexbin
 - type: software
   title: isoband
   abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation

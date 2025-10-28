@@ -10,7 +10,8 @@
 #' @family ggplot2.methods
 #'
 #' @param object A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
+#'   created with [terra::vect()]. Also support `SpatGraticule` (see
+#'   [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
 #'
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
@@ -36,7 +37,7 @@
 #'
 #' Uses [geom_spatraster()] or [geom_spatraster_rgb()].
 #'
-#' ## `SpatVector`
+#' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
 #' or [geom_spatvector_label()].
@@ -151,6 +152,19 @@ autoplot.SpatVector <- function(object, ...) {
     geom_spatvector(...)
 }
 
+#' @export
+#' @name autoplot.Spat
+autoplot.SpatGraticule <- function(object, ...) {
+  ggplot2::ggplot(data = object) +
+    geom_spatvector(...)
+}
+
+#' @export
+#' @name autoplot.Spat
+autoplot.SpatExtent <- function(object, ...) {
+  ggplot2::ggplot(data = object) +
+    geom_spatvector(...)
+}
 
 #' @export
 ggplot2::autoplot

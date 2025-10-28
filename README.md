@@ -33,11 +33,11 @@ readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dpl
 <!-- badges: end -->
 
 The goal of **tidyterra** is to provide common methods of the
-[**tidyverse** packages](https://www.tidyverse.org/packages/) for
-objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package:
-`SpatRaster` and `SpatVector`. It also provides `geoms` for plotting
-these objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
+[**tidyverse** packages](https://tidyverse.org/packages/) for objects
+created with the [**terra**](https://CRAN.R-project.org/package=terra)
+package: `SpatRaster` and `SpatVector`. It also provides `geoms` for
+plotting these objects with
+[**ggplot2**](https://ggplot2.tidyverse.org/).
 
 Please cite **tidyterra** as:
 
@@ -114,6 +114,9 @@ Current methods and functions provided by **tidyterra** are:
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
 | `ggplot2::fortify()` | ✔️ to **sf** via `sf::st_as_sf()` | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
+| `generics::tidy()` | ✔️ | ✔️ |
+| `generics::glance()` | ✔️ | ✔️ |
+| `generics::required_pkgs()` | ✔️ | ✔️ |
 
 ## :exclamation: A note on performance
 

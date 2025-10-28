@@ -1,14 +1,14 @@
-# Fortify SpatRasters pivot
+# Tidy SpatRasters pivot
 
     Code
-      aa <- fortify(fort2, pivot = TRUE)
+      aa <- tidy(fort2, pivot = TRUE)
     Condition
       Warning:
       Mixed layer classes found in `tidyterra::tidy.SpatRaster()`.
     Message
       ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>
 
-# Fortify SpatRasters pivot factor
+# Tidy SpatRasters pivot factor
 
     Code
       end <- check_mixed_cols(s_r_f_mix)

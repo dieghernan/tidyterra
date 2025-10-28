@@ -6,6 +6,14 @@
         explicitly documented and are passed to `ggplot2::geom_sf_label()` /
         `_text()` via dots (`...`).
 -   `get_coltab_pal()` can extract colors with alpha values (#180).
+-   New dependency **generics** added to Imports. New methods (`SpatRaster`,
+    `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
+    -   `tidy()`.
+    -   `glance()`.
+    -   `required_pkgs()`.
+-   `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
+    -   New `fortify.SpatExtent()` method.
+-   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
 
 # tidyterra 0.7.2
 

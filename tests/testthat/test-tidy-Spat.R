@@ -1,9 +1,9 @@
-test_that("Fortify SpatVectors", {
+test_that("Tidy SpatVectors", {
   skip_on_cran()
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  fort <- fortify(v)
+  fort <- tidy(v)
 
   # Compare
   asf <- sf::st_as_sf(v)
@@ -11,27 +11,15 @@ test_that("Fortify SpatVectors", {
   class(asf) <- class(fort)
 
   expect_identical(fort, asf)
-
-  # Try ggplot
-  v_t <- ggplot2::ggplot(v) +
-    geom_spatvector()
-  build_terra <- ggplot2::layer_data(v_t)
-
-  v_sf <- ggplot2::ggplot(asf) +
-    ggplot2::geom_sf()
-
-  build_sf <- ggplot2::layer_data(v_sf)
-
-  expect_identical(build_terra, build_sf)
 })
 
 
-test_that("Fortify SpatRasters", {
+test_that("Tidy SpatRasters", {
   skip_on_cran()
 
   r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
 
-  fort <- fortify(r)
+  fort <- tidy(r)
 
   # Compare
   tbl <- as_tibble(r, xy = TRUE)
@@ -50,7 +38,7 @@ test_that("Fortify SpatRasters", {
 
   terra::crs(r_no) <- ""
 
-  fort_no <- ggplot2::fortify(r_no)
+  fort_no <- tidy(r_no)
   tbl_no <- as_tibble(r_no, xy = TRUE)
 
   expect_identical(fort_no, tbl_no)
@@ -60,35 +48,17 @@ test_that("Fortify SpatRasters", {
   expect_true(compare_spatrasters(r_no, back_no))
 
   # Try resample
-  fort_res <- ggplot2::fortify(r, maxcell = 10)
+  fort_res <- tidy(r, maxcell = 10)
 
   expect_lt(nrow(fort_res), nrow(fort))
-
-  # Try ggplot
-  v_t <- ggplot2::ggplot(r, maxcell = 10) +
-    ggplot2::geom_point(aes(x, y))
-  build_terra <- ggplot2::ggplot_build(v_t)
-
-  v_point <- ggplot2::ggplot(fort_res) +
-    ggplot2::geom_point(aes(x, y))
-
-  build_point <- ggplot2::ggplot_build(v_point)
-
-  # ignore layout
-  build_terra$plot$layout <- NULL
-  build_point$plot$layout <- NULL
-  build_terra$layout <- NULL
-  build_point$layout <- NULL
-
-  expect_identical(build_terra, build_point)
 })
 
-test_that("Fortify SpatRasters pivot", {
+test_that("Tidy SpatRasters pivot", {
   skip_on_cran()
 
   r <- terra::rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
-  fort <- fortify(r, pivot = TRUE)
+  fort <- tidy(r, pivot = TRUE)
 
   expect_equal(ncol(fort), 4)
   expect_equal(names(fort), c("x", "y", "lyr", "value"))
@@ -101,7 +71,7 @@ test_that("Fortify SpatRasters pivot", {
 
   # Complain on mixed
   fort2 <- dplyr::mutate(back, char = "a")
-  expect_snapshot(aa <- fortify(fort2, pivot = TRUE))
+  expect_snapshot(aa <- tidy(fort2, pivot = TRUE))
 
   expect_identical(unique(aa$lyr), names(back))
 
@@ -113,7 +83,7 @@ test_that("Fortify SpatRasters pivot", {
 
   db_int <- terra::rast(c(A = terra::rast(m), B = terra::rast(n)))
   expect_identical(terra::is.int(db_int), c(TRUE, FALSE))
-  expect_silent(db_int_f <- fortify(db_int, pivot = TRUE))
+  expect_silent(db_int_f <- tidy(db_int, pivot = TRUE))
 
   expect_equal(nrow(db_int_f), terra::ncell(db_int) * terra::nlyr(db_int))
   expect_identical(unique(db_int_f$lyr), names(db_int))
@@ -124,25 +94,18 @@ test_that("Fortify SpatRasters pivot", {
 
   terra::crs(r_no) <- ""
 
-  fort_no <- ggplot2::fortify(r_no, pivot = TRUE)
+  fort_no <- tidy(r_no, pivot = TRUE)
   # Back!
   back_no <- as_spatraster(fort_no)
   expect_true(compare_spatrasters(r_no, back_no))
 
   # Try resample
-  fort_res <- ggplot2::fortify(r, maxcell = 10, pivot = TRUE)
+  fort_res <- tidy(r, maxcell = 10, pivot = TRUE)
 
   expect_lt(nrow(fort_res), nrow(fort))
-
-  # Try ggplot
-  v_t <- ggplot2::ggplot(r, maxcell = 10, pivot = TRUE) +
-    ggplot2::geom_point(aes(x, y)) +
-    ggplot2::facet_wrap(~lyr)
-
-  build_terra <- ggplot2::ggplot_build(v_t)
 })
 
-test_that("Fortify SpatRasters pivot factor", {
+test_that("Tidy SpatRasters pivot factor", {
   skip_on_cran()
 
   # https://stackoverflow.com/questions/79340152/
@@ -232,8 +195,8 @@ test_that("Fortify SpatRasters pivot factor", {
   expect_identical(levs_ok[[2]], levs_ok[[4]])
   expect_identical(levs_ok[[3]], levs_ok[[4]])
 
-  # In fortify is ok as well
-  lev_ok <- fortify(s_r_f, pivot = TRUE)
+  # In tidy is ok as well
+  lev_ok <- tidy(s_r_f, pivot = TRUE)
   expect_identical(levels(lev_ok$value), as.character(seq(1, 5)))
 
   # And we still remove things
@@ -243,13 +206,13 @@ test_that("Fortify SpatRasters pivot factor", {
   expect_snapshot(end <- check_mixed_cols(s_r_f_mix))
 })
 
-test_that("Fortify SpatGraticule", {
+test_that("Tidy SpatGraticule", {
   skip_on_cran()
 
   skip_if_not_installed("terra", minimum_version = "1.8.5")
   v <- terra::graticule()
 
-  fort <- fortify(v)
+  fort <- tidy(v)
 
   # Compare
   asf <- sf::st_as_sf(terra::vect(v))
@@ -257,27 +220,15 @@ test_that("Fortify SpatGraticule", {
   class(asf) <- class(fort)
 
   expect_identical(fort, asf)
-
-  # Try ggplot
-  v_t <- ggplot2::ggplot(v) +
-    geom_spatvector()
-  build_terra <- ggplot2::layer_data(v_t)
-
-  v_sf <- ggplot2::ggplot(asf) +
-    ggplot2::geom_sf()
-
-  build_sf <- ggplot2::layer_data(v_sf)
-
-  expect_identical(build_terra, build_sf)
 })
 
-test_that("Fortify SpatExtent", {
+test_that("Tidy SpatExtent", {
   skip_on_cran()
 
   skip_if_not_installed("terra", minimum_version = "1.8.5")
   v <- terra::graticule()
   ex <- terra::ext(terra::vect(v))
-  fort <- fortify(ex)
+  fort <- tidy(ex)
 
   # Compare
   asf <- sf::st_as_sf(terra::vect(ex))
@@ -285,20 +236,4 @@ test_that("Fortify SpatExtent", {
   class(asf) <- class(fort)
 
   expect_identical(fort, asf)
-
-  # Try ggplot
-  v_t <- ggplot2::ggplot(ex) +
-    geom_spatvector()
-  build_terra <- ggplot2::layer_data(v_t)
-
-  v_sf <- ggplot2::ggplot(asf) +
-    ggplot2::geom_sf()
-
-  build_sf <- ggplot2::layer_data(v_sf)
-
-  expect_identical(build_terra, build_sf)
-
-  # Add crs
-  fort2 <- fortify(ex, crs = "EPSG:4326")
-  expect_identical(pull_crs(fort2), pull_crs("EPSG:4326"))
 })
