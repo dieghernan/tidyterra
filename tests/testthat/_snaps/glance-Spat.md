@@ -30,7 +30,7 @@
       # A tibble: 1 x 16
          nrow  ncol  nlyr ncell  xres  yres  xmin  xmax  ymin  ymax crs      crs_units
         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <chr>    <chr>    
-      1   126   212     1 26712 0.025 0.025 -7.08 -1.78  40.1  43.2 lon/lat~ degrees  
+      1   126   212     1 26712 0.025 0.025 -7.08 -1.77  40.1  43.2 lon/lat~ degrees  
       # i 4 more variables: source <chr>, has_rgb <lgl>, has_colors <lgl>,
       #   has_time <lgl>
 
@@ -42,7 +42,7 @@
       # A tibble: 1 x 15
          nrow  ncol  nlyr ncell  xres  yres  xmin  xmax  ymin  ymax crs         source
         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <chr>       <chr> 
-      1   126   212     1 26712 0.025 0.025 -7.08 -1.78  40.1  43.2 Cartesian ~ NA    
+      1   126   212     1 26712 0.025 0.025 -7.08 -1.77  40.1  43.2 Cartesian ~ NA    
       # i 3 more variables: has_rgb <lgl>, has_colors <lgl>, has_time <lgl>
 
 ---
