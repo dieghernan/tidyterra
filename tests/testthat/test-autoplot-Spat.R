@@ -169,7 +169,14 @@ test_that("test SpatExtent", {
   vdiffr::expect_doppelganger("extent_01: regular", autoplot(e))
 
   # Aes
-  vdiffr::expect_doppelganger("extent_02: params", autoplot(e, fill = "red", alpha = 0.2))
+  vdiffr::expect_doppelganger(
+    "extent_02: params",
+    autoplot(
+      e,
+      fill = "red",
+      alpha = 0.2
+    )
+  )
 })
 
 test_that("test SpatGraticule", {

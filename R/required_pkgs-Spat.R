@@ -2,7 +2,6 @@
 #'
 #' Determine packages required by `Spat*` objects.
 #'
-#' Implementation of [generics::required_pkgs()] method.
 #'
 #' @return A character string of packages that are required.
 #' @family generics.methods
@@ -15,12 +14,14 @@
 #' @rdname required_pkgs.Spat
 #' @name required_pkgs.Spat
 #'
+#' @section Methods:
 #'
+#' Implementation of [generics::required_pkgs()] method.
 #'
 #' @export
 #' @importFrom generics required_pkgs
 #'
-#' @seealso [generics::required_pkgs()]
+#' @seealso [generics::required_pkgs()].
 #'
 #' @examples
 #' file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

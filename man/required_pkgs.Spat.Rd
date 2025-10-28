@@ -29,9 +29,12 @@ A character string of packages that are required.
 \description{
 Determine packages required by \verb{Spat*} objects.
 }
-\details{
+\section{Methods}{
+
+
 Implementation of \code{\link[generics:required_pkgs]{generics::required_pkgs()}} method.
 }
+
 \examples{
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -51,9 +54,10 @@ required_pkgs(v)
 
 }
 \seealso{
-\code{\link[generics:required_pkgs]{generics::required_pkgs()}}
+\code{\link[generics:required_pkgs]{generics::required_pkgs()}}.
 
 Other \CRANpkg{generics} methods:
+\code{\link{glance.Spat}},
 \code{\link{tidy.Spat}}
 }
 \concept{generics.methods}

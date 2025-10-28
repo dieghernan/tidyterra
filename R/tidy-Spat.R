@@ -34,7 +34,7 @@
 #'
 #' @seealso
 #' [sf::st_as_sf()], [`as_tibble.Spat`], [as_spatraster()], [`fortify.Spat`],
-#' [ggplot2::fortify()].
+#' [generics::tidy()].
 #'
 #' @section Methods:
 #'

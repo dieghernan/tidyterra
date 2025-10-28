@@ -9,6 +9,7 @@
 -   New dependency **generics** added to Imports. New methods (`SpatRaster`,
     `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
     -   `tidy()`.
+    -   `glance()`.
     -   `required_pkgs()`.
 -   `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
     -   New `fortify.SpatExtent()` method.
