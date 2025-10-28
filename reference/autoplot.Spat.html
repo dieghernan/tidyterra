@@ -73,6 +73,12 @@ terra::plot()/terra::plotRGB() in a single command."><meta property="og:image" c
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'SpatVector'</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'SpatGraticule'</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'SpatExtent'</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -82,7 +88,8 @@ terra::plot()/terra::plotRGB() in a single command."><meta property="og:image" c
 
 <dl><dt id="arg-object">object<a class="anchor" aria-label="anchor" href="#arg-object"></a></dt>
 <dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
-created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
+created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>. Also support <code>SpatGraticule</code> (see
+<code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>) and <code>SpatExtent</code> (see <code><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">terra::ext()</a></code>).</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -131,7 +138,7 @@ try to guess. See also <code><a href="scale_coltab.html">scale_fill_coltab()</a>
 </div>
 
 <div class="section">
-<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector-spatgraticule-and-spatextent"><code>SpatVector</code>, <code>SpatGraticule</code> and <code>SpatExtent</code><a class="anchor" aria-label="anchor" href="#spatvector-spatgraticule-and-spatextent"></a></h3>
 
 
 <p>Uses <code><a href="ggspatvector.html">geom_spatvector()</a></code>. Labels can be placed with <code><a href="ggspatvector.html">geom_spatvector_text()</a></code>

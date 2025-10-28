@@ -35,6 +35,7 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/ggspatvector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/glance.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/grass_db.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.html</loc></url>
@@ -55,6 +56,7 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/relocate.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/rename.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/scale_coltab.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.html</loc></url>
@@ -68,6 +70,7 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/slice.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/stat_spat_coordinates.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/tidy.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/tidyterra-package.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/volcano2.html</loc></url>
 </urlset>

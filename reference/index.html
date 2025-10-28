@@ -296,13 +296,13 @@
 
       <dl><dt>
 
-          <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code>
+          <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="autoplot.Spat.html">autoplot(<i>&lt;SpatExtent&gt;</i>)</a></code>
 
         </dt>
         <dd>Create a complete ggplot for <code>Spat*</code> objects</dd>
       </dl><dl><dt>
 
-          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatGraticule&gt;</i>)</a></code>
+          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatExtent&gt;</i>)</a></code>
 
         </dt>
         <dd>Fortify <code>Spat*</code> Objects</dd>
@@ -407,6 +407,35 @@
         </dt>
         <dd>Gradient scales from <strong>Wikipedia</strong> color schemes</dd>
       </dl></div><div class="section level2">
+      <h2 id="-generics-methods"><strong>generics</strong> methods<a class="anchor" aria-label="anchor" href="#-generics-methods"></a></h2>
+
+      <div class="section-desc"><p>Methods from <a href="https://CRAN.R-project.org/package=generics" class="external-link"><span class="pkg">generics</span></a> implemented for <code>Spat*</code> objects.</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="glance.Spat.html">glance(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="glance.Spat.html">glance(<i>&lt;SpatVector&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Glance at an <code>Spat*</code> object</dd>
+      </dl><dl><dt>
+
+          <code><a href="required_pkgs.Spat.html">required_pkgs(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="required_pkgs.Spat.html">required_pkgs(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="required_pkgs.Spat.html">required_pkgs(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="required_pkgs.Spat.html">required_pkgs(<i>&lt;SpatExtent&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Determine packages required by <code>Spat*</code> objects</dd>
+      </dl><dl><dt>
+
+          <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatExtent&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Turn <code>Spat*</code> object into a tidy tibble</dd>
+      </dl></div><div class="section level2">
       <h2 id="helpers">Helpers<a class="anchor" aria-label="anchor" href="#helpers"></a></h2>
 
       <div class="section-desc"><p>Additional set of functions provided by <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a>.</p></div>
@@ -455,10 +484,16 @@
         <dd>Coerce a <code>SpatVector</code> or <code>SpatRaster</code> object to data frames</dd>
       </dl><dl><dt>
 
-          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatGraticule&gt;</i>)</a></code>
+          <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="fortify.Spat.html">fortify(<i>&lt;SpatExtent&gt;</i>)</a></code>
 
         </dt>
         <dd>Fortify <code>Spat*</code> Objects</dd>
+      </dl><dl><dt>
+
+          <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatRaster&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatVector&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatGraticule&gt;</i>)</a></code> <code><a href="tidy.Spat.html">tidy(<i>&lt;SpatExtent&gt;</i>)</a></code>
+
+        </dt>
+        <dd>Turn <code>Spat*</code> object into a tidy tibble</dd>
       </dl></div><div class="section level2">
 
       <h3 id="other-helpers">Other helpers<a class="anchor" aria-label="anchor" href="#other-helpers"></a></h3>
