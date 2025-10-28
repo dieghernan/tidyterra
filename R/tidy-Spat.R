@@ -106,9 +106,13 @@
 #' grat
 #' tidy(grat)
 #' }
-tidy.SpatRaster <- function(x, ..., .name_repair = "unique",
-                            maxcell = terra::ncell(x) * 1.1,
-                            pivot = FALSE) {
+tidy.SpatRaster <- function(
+  x,
+  ...,
+  .name_repair = "unique",
+  maxcell = terra::ncell(x) * 1.1,
+  pivot = FALSE
+) {
   x <- resample_spat(x, maxcell)
 
   crs <- pull_crs(x)

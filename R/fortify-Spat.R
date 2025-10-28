@@ -124,7 +124,9 @@ fortify.SpatRaster <- function(
   pivot = FALSE
 ) {
   tidy(
-    x = model, ..., .name_repair = .name_repair,
+    x = model,
+    ...,
+    .name_repair = .name_repair,
     maxcell = maxcell,
     pivot = pivot
   )

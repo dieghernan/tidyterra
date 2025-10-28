@@ -26,7 +26,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-<!-- tidyterra.Rmd is generated from welcome.Rmd.orig. Please edit that file -->
+<!-- tidyterra.Rmd is generated from tidyterra.Rmd.orig. Please edit that file -->
 
 
 
