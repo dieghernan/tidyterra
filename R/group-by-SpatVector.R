@@ -147,7 +147,7 @@ ungroup.SpatVector <- function(x, ...) {
   # Add groups metadata
   x <- group_prepare_spat(x, newgroups)
 
-  return(x)
+  x
 }
 
 #' @export
@@ -184,5 +184,5 @@ group_prepare_spat <- function(x, template) {
     attr(x, "tblclass") <- NULL
     attr(x, "groups") <- NULL
   }
-  return(x)
+  x
 }

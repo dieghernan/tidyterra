@@ -217,7 +217,7 @@ as_spatvector.sfc <- function(x, ...) {
 #' @rdname as_spatvector
 #' @export
 as_spatvector.SpatVector <- function(x, ...) {
-  return(x)
+  x
 }
 
 

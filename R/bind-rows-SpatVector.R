@@ -146,7 +146,7 @@ bind_spat_rows <- function(..., .id = NULL) {
       return(sf::st_drop_geometry(x))
     }
 
-    return(x)
+    x
   })
 
   # Now get all geoms
@@ -220,5 +220,5 @@ crs_compare <- function(a, b, index) {
     a <- terra::project(a, pull_crs(b))
   }
 
-  return(a)
+  a
 }

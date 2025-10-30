@@ -132,12 +132,12 @@ mutate.SpatRaster <- function(.data, ...) {
 
       terra::coltab(rr) <- ctab
 
-      return(rr)
+      rr
     })
     final_rast <- do.call("c", l2)
   }
 
-  return(final_rast)
+  final_rast
 }
 #' @export
 #' @rdname mutate.Spat
@@ -152,7 +152,7 @@ mutate.SpatVector <- function(.data, ...) {
   # Prepare groups
   vend <- group_prepare_spat(vend, mutated)
 
-  return(vend)
+  vend
 }
 #' @export
 #' @rdname mutate.Spat
@@ -210,12 +210,12 @@ transmute.SpatRaster <- function(.data, ...) {
       }
 
       terra::coltab(rr) <- ctab
-      return(rr)
+      rr
     })
     final_rast <- do.call("c", l2)
   }
 
-  return(final_rast)
+  final_rast
 }
 #' @export
 #' @rdname mutate.Spat
@@ -234,7 +234,7 @@ transmute.SpatVector <- function(.data, ...) {
   # Prepare groups
   vend <- group_prepare_spat(vend, transm)
 
-  return(vend)
+  vend
 }
 
 #' @export

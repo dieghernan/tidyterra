@@ -193,7 +193,7 @@ as_tbl_spat_attr <- function(x) {
   attr(todf, "dims") <- as.double(dim(x))
   attr(todf, "res") <- as.double(terra::res(x))
 
-  return(todf)
+  todf
 }
 
 
@@ -232,7 +232,7 @@ as_tbl_vector_internal <- function(x) {
   attr(todf, "crs") <- terra::crs(x)
   attr(todf, "geomtype") <- terra::geomtype(x)
 
-  return(todf)
+  todf
 }
 
 
@@ -392,5 +392,5 @@ check_regroups <- function(x) {
     return(x)
   }
 
-  return(x)
+  x
 }

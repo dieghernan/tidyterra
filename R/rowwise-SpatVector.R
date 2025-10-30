@@ -126,5 +126,5 @@ is_rowwise_spatvector <- function(x) {
     return(TRUE)
   }
 
-  return(FALSE)
+  FALSE
 }

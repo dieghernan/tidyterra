@@ -124,7 +124,7 @@ bind_spat_cols <- function(
       return(sf::st_drop_geometry(x))
     }
 
-    return(x)
+    x
   })
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)

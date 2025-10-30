@@ -70,7 +70,7 @@ rename.SpatRaster <- function(.data, ...) {
   final_rast <- .data
   names(final_rast) <- names(df_rename)
 
-  return(final_rast)
+  final_rast
 }
 
 #' @rdname rename.Spat
