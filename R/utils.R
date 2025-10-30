@@ -58,5 +58,5 @@ make_safe_index <- function(x, y) {
     is_safe <- !(x %in% nams)
   }
 
-  return(x)
+  x
 }

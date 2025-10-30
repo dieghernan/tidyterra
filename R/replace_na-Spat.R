@@ -122,7 +122,7 @@ replace_na.SpatVector <- function(data, replace, ...) {
   vend <- cbind(data[, 0], replaced)
   vend <- group_prepare_spat(vend, replaced)
 
-  return(vend)
+  vend
 }
 
 #' @export

@@ -139,5 +139,5 @@ pull_crs <- function(.data, ...) {
     "On {.fun tidyterra::pull_crs}\nNo wkt equivalent found.",
     "Returning {.val {NA}}"
   ))
-  return(NA)
+  NA
 }

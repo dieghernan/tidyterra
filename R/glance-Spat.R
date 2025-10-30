@@ -129,8 +129,8 @@ get_crs_units <- function(x) {
     unitsdb <- unitsdb
     longname <- as.vector(unitsdb[unitsdb$abb == unts, ]$name)
 
-    return(longname)
+    longname
   } else {
-    return(NULL)
+    NULL
   }
 }

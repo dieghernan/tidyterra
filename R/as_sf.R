@@ -76,5 +76,5 @@ as_sf <- function(x, ...) {
     sfobj <- dplyr::rowwise(sfobj, dplyr::all_of(vars))
   }
 
-  return(sfobj)
+  sfobj
 }

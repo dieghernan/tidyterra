@@ -207,5 +207,5 @@ tbl_for_groups <- function(x) {
     attr(df, "groups") <- attr(x, "groups")
   }
 
-  return(df)
+  df
 }

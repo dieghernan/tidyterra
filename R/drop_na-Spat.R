@@ -103,7 +103,7 @@ drop_na.SpatVector <- function(data, ...) {
   vend <- as_spat_internal(dropped)
   vend <- group_prepare_spat(vend, dropped)
 
-  return(vend)
+  vend
 }
 
 
@@ -179,7 +179,7 @@ drop_na.SpatRaster <- function(data, ...) {
   # Trim extent
   newrast <- terra::trim(end)
 
-  return(newrast)
+  newrast
 }
 
 #' @export

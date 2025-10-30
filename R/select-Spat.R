@@ -100,7 +100,7 @@ select.SpatRaster <- function(.data, ...) {
   # Set new names if anything has changed
   names(final_rast) <- names(result)
 
-  return(final_rast)
+  final_rast
 }
 
 #' @export
@@ -115,7 +115,7 @@ select.SpatVector <- function(.data, ...) {
 
   vend <- group_prepare_spat(vend, selected)
 
-  return(vend)
+  vend
 }
 
 #' @export
