@@ -1,13 +1,9 @@
-# ebvcube
+# ebvcube ()
 
-<details>
+* GitHub: <https://github.com/dieghernan/tidyterra>
+* Email: <mailto:diego.hernangomezherrero@gmail.com>
 
-* Version: 
-* GitHub: https://github.com/dieghernan/tidyterra
-* Source code: NA
-* Number of recursive dependencies: 0
-
-</details>
+Run `revdepcheck::revdep_details(, "ebvcube")` for more info
 
 ## Error before installation
 
