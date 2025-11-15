@@ -153,6 +153,14 @@ Large-scale modelling wind damage vulnerability through combination of
 high-resolution forest resources maps and ForestGALES. *Forest
 Ecosystems*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 
+Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
+A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
+Villalobos, F., Marquet, P. A., Svenning, J.-C., & Enquist, B. J.
+(2025). General laws of biodiversity: Climatic niches predict plant
+range size and ecological dominance globally. *Proceedings of the
+National Academy of Sciences*, *122*(46), e2517585122.
+<https://doi.org/10.1073/pnas.2517585122>
+
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
 Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
 Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
