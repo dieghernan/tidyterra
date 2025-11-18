@@ -147,7 +147,7 @@ ggplot(cyl) +
     ),
     stat = "sf_coordinates"
   )
-#> Warning: `geom_errobarh()` was deprecated in ggplot2 4.0.0.
+#> Warning: `geom_errorbarh()` was deprecated in ggplot2 4.0.0.
 #> ℹ Please use the `orientation` argument of `geom_errorbar()` instead.
 #> Warning: Ignoring unknown aesthetics: height
 

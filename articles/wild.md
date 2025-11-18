@@ -57,6 +57,13 @@ influence growth stability to changes in climate in two major tree
 species. *Frontiers in Forests and Global Change*, *7*, 1422165.
 <https://doi.org/10.3389/ffgc.2024.1422165>
 
+Drozdova, P., Shatilina, Z., Telnes, E., Gurkov, A., Saranchina, A.,
+Mutin, A., Zolotovskaya, E., & Timofeyev, M. (2025). Prezygotic and
+postzygotic reproductive incompatibilities complement each other in the
+formation of a cryptic amphipod species: The example of a Lake Baikal
+species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11).
+<https://doi.org/10.3390/d17110781>
+
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez‐Anez, N.
 (2025). How to Approach the Definition of WUI in Northern Europe. *Fire
 and Materials*. <https://doi.org/10.1002/fam.3264>
@@ -142,6 +149,14 @@ eastern coyotes from Nova Scotia, Canada: Effects of geography and
 trophic position. *Science of The Total Environment*, *974*, 179186.
 <https://doi.org/10.1016/j.scitotenv.2025.179186>
 
+Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
+M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
+Miranda De Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
+R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
+A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
+unknown lineage in Argentina. *Nature*.
+<https://doi.org/10.1038/s41586-025-09731-3>
+
 Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &
 Lanfranco, L. (2025). A systematic scoping review reveals that
 geographic and taxonomic patterns influence the scientific and societal
@@ -208,6 +223,10 @@ Temperature Controls the Lifetimes and Microbial Communities Degrading
 Cellulose Diacetate in the Coastal Ocean. *Environmental Science &
 Technology*, *59*(36), 19468–19478.
 <https://doi.org/10.1021/acs.est.5c05334>
+
+Tanaka, E. (2025). Examining the Interface Design of Tidyverse.
+*Australian & New Zealand Journal of Statistics*.
+<https://doi.org/10.1111/anzs.70031>
 
 Varma, V., Mosedale, J. R., Alvarez, J. A. G., & Bebber, D. P. (2025).
 Socio-economic factors constrain climate change adaptation in a tropical

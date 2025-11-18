@@ -82,7 +82,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2025-11-15
+    #>  date     2025-11-18
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -105,11 +105,10 @@ Details
     #>  fastmap        1.2.0      2024-05-15 [1] RSPM
     #>  fs             1.6.6      2025-04-12 [1] RSPM
     #>  generics       0.1.4      2025-05-09 [1] RSPM
-    #>  ggplot2      * 4.0.0      2025-09-11 [1] RSPM
+    #>  ggplot2      * 4.0.1      2025-11-14 [1] RSPM
     #>  glue           1.8.0      2024-09-30 [1] RSPM
     #>  gtable         0.3.6      2024-10-25 [1] RSPM
     #>  htmltools      0.5.8.1    2024-04-04 [1] RSPM
-    #>  htmlwidgets    1.6.4      2023-12-06 [1] RSPM
     #>  jquerylib      0.1.4      2021-04-26 [1] RSPM
     #>  jsonlite       2.0.0      2025-03-27 [1] RSPM
     #>  KernSmooth     2.23-26    2025-01-01 [3] CRAN (R 4.5.2)
@@ -132,7 +131,7 @@ Details
     #>  Rcpp           1.1.0      2025-07-02 [1] RSPM
     #>  rlang          1.1.6      2025-04-11 [1] RSPM
     #>  rmarkdown      2.30       2025-09-28 [1] RSPM
-    #>  S7             0.2.0      2024-11-07 [1] RSPM
+    #>  S7             0.2.1      2025-11-14 [1] RSPM
     #>  sass           0.4.10     2025-04-11 [1] RSPM
     #>  scales         1.4.0      2025-04-24 [1] RSPM
     #>  sessioninfo  * 1.2.3      2025-02-05 [1] any (@1.2.3)
@@ -144,7 +143,7 @@ Details
     #>  tibble         3.3.0      2025-06-08 [1] RSPM
     #>  tidyr          1.3.1      2024-01-24 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2025-11-15 [1] local
+    #>  tidyterra    * 0.7.2.9000 2025-11-18 [1] local
     #>  units          1.0-0      2025-10-09 [1] RSPM
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  withr          3.0.2      2024-10-28 [1] RSPM
