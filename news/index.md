@@ -127,7 +127,7 @@ CRAN release: 2024-04-22
 - New geom
   [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
   implemented on top of
-  [`isoband::isolines_grob()`](https://isoband.r-lib.org/reference/isolines_grob.html)
+  [`isoband::isolines_grob()`](http://isoband.r-lib.org/reference/isolines_grob.md)
   [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 - [`glimpse.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
   and

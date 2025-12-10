@@ -85,7 +85,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 
 ``` r
 library(terra)
-#> terra 1.8.80
+#> terra 1.8.86
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'

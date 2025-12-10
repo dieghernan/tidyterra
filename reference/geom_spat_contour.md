@@ -10,7 +10,7 @@ The underlying implementation is based on
 
 **\[experimental\]** `geom_spatraster_contour_text()` creates labeled
 contours and it is implemented on top of
-[`isoband::isolines_grob()`](https://isoband.r-lib.org/reference/isolines_grob.html).
+[`isoband::isolines_grob()`](http://isoband.r-lib.org/reference/isolines_grob.md).
 
 ## Usage
 
@@ -187,7 +187,7 @@ geom_spatraster_contour_filled(
 - label_placer:
 
   Function that controls how labels are placed along the isolines. Uses
-  [`label_placer_minmax()`](https://isoband.r-lib.org/reference/label_placer.html)
+  [`label_placer_minmax()`](http://isoband.r-lib.org/reference/label_placer.md)
   by default.
 
 ## Value
