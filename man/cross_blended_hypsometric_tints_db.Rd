@@ -51,7 +51,7 @@ data("cross_blended_hypsometric_tints_db")
 cross_blended_hypsometric_tints_db
 
 # Select a palette
-warm <- cross_blended_hypsometric_tints_db \%>\%
+warm <- cross_blended_hypsometric_tints_db |>
   filter(pal == "warm_humid")
 
 f <- system.file("extdata/asia.tif", package = "tidyterra")

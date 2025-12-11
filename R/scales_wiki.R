@@ -77,7 +77,7 @@
 #'   scale_fill_wiki_b(breaks = seq(70, 200, 10))
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
+#' factor <- volcano2_rast |> mutate(cats = cut(elevation,
 #'   breaks = c(100, 120, 130, 150, 170, 200),
 #'   labels = c(
 #'     "Very Low", "Low", "Average", "High",
@@ -292,7 +292,7 @@ wiki.colors <- function(n, alpha = 1, rev = FALSE) {
   if ((n <- as.integer(n[1L])) > 0) {
     colors <- wiki_cols
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
-    return(endcols)
+    endcols
   } else {
     character()
   }
@@ -310,7 +310,7 @@ tidyterra_ramp <- function(colors, n, alpha = 1, rev = FALSE) {
     endcols <- ggplot2::alpha(endcols, alpha)
   }
 
-  return(endcols)
+  endcols
 }
 
 

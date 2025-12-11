@@ -49,24 +49,24 @@
 #' # SpatVector
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'
-#' v %>% glimpse(n = 2)
+#' v |> glimpse(n = 2)
 #'
 #' # Use on a pipeline
-#' v %>%
-#'   glimpse() %>%
-#'   mutate(a = 30) %>%
+#' v |>
+#'   glimpse() |>
+#'   mutate(a = 30) |>
 #'   # with options
 #'   glimpse(geom = "WKT")
 #'
 #' # SpatRaster
 #' r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 #'
-#' r %>% glimpse()
+#' r |> glimpse()
 #'
 #' # Use on a pipeline
-#' r %>%
-#'   glimpse() %>%
-#'   mutate(b = elevation_m / 100) %>%
+#' r |>
+#'   glimpse() |>
+#'   mutate(b = elevation_m / 100) |>
 #'   # With options
 #'   glimpse(xy = TRUE)
 glimpse.SpatRaster <- function(
@@ -116,7 +116,7 @@ glimpse.SpatRaster <- function(
     tterra_body(x, ..., width = width, n = n, max_extra_cols = max_extra_cols)
   }
 
-  return(invisible(x))
+  invisible(x)
 }
 
 #' @rdname glimpse.Spat
@@ -149,7 +149,7 @@ glimpse.SpatVector <- function(
     # Manipulate tibble format (with options if provided)
     tterra_body(x, ..., width = width, n = n, max_extra_cols = max_extra_cols)
   }
-  return(invisible(x))
+  invisible(x)
 }
 
 
@@ -244,7 +244,7 @@ decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
     label <- paste0(label, collapse = " ")
   }
 
-  return(label)
+  label
 }
 
 
@@ -333,7 +333,7 @@ tterra_header_string_rgb <- function(x) {
 
   # Make msg
   ch_name <- names(x)[rgb_info]
-  nm <- c("Red", "Green", "Blue", "Alpha")[seq_len(length(rgb_info))]
+  nm <- c("Red", "Green", "Blue", "Alpha")[seq_along(rgb_info)]
   ch_end <- paste0(ch_name, " (", nm, ")", collapse = ", ")
   pl <- ifelse(length(rgb_info) == 1, "channel", "channels")
 

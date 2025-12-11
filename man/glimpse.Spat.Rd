@@ -54,24 +54,24 @@ library(terra)
 # SpatVector
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-v \%>\% glimpse(n = 2)
+v |> glimpse(n = 2)
 
 # Use on a pipeline
-v \%>\%
-  glimpse() \%>\%
-  mutate(a = 30) \%>\%
+v |>
+  glimpse() |>
+  mutate(a = 30) |>
   # with options
   glimpse(geom = "WKT")
 
 # SpatRaster
 r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
-r \%>\% glimpse()
+r |> glimpse()
 
 # Use on a pipeline
-r \%>\%
-  glimpse() \%>\%
-  mutate(b = elevation_m / 100) \%>\%
+r |>
+  glimpse() |>
+  mutate(b = elevation_m / 100) |>
   # With options
   glimpse(xy = TRUE)
 }

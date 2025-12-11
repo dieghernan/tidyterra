@@ -28,7 +28,7 @@ full <- data.frame(all = lines)
 
 
 # Split to colors
-lines_split <- full %>%
+lines_split <- full |>
   separate(
     all,
     c("limit", "r", "g", "b", "limit_high", "r2", "g2", "b2"),
@@ -36,24 +36,24 @@ lines_split <- full %>%
     extra = "drop",
     fill = "right",
     convert = TRUE
-  ) %>%
+  ) |>
   as_tibble()
 
 
 # Make rgb values
-make_hex <- lines_split %>%
-  mutate(across(.fns = ~ as.integer(.))) %>%
-  drop_na() %>%
+make_hex <- lines_split |>
+  mutate(across(.fns = ~ as.integer(.))) |>
+  drop_na() |>
   mutate(
     hex = rgb(r, g, b, maxColorValue = 255),
     hex_high = rgb(r2, g2, b2, maxColorValue = 255)
-  ) %>%
-  drop_na() %>%
+  ) |>
+  drop_na() |>
   relocate(hex, .after = b)
 
 # Make highest limit as last line as well
 make_endline <- make_hex[nrow(make_hex), ]
-make_endline <- make_endline %>%
+make_endline <- make_endline |>
   mutate(
     limit = limit_high,
     r = r2,
@@ -61,17 +61,17 @@ make_endline <- make_endline %>%
     b = b2,
     hex = hex_high,
     limit_high = 9999999999
-  ) %>%
+  ) |>
   drop_na()
 
 make_hex <- bind_rows(make_hex, make_endline)
 
 # Add palette name
-gsub(paste0(".", tools::file_ext(url)), "", basename(url)) %>%
+gsub(paste0(".", tools::file_ext(url)), "", basename(url)) |>
   tolower() -> pal
 
-make_hex <- make_hex %>%
-  mutate(pal = pal) %>%
+make_hex <- make_hex |>
+  mutate(pal = pal) |>
   relocate(pal, .before = 1)
 
 scales::show_col(make_hex$hex, labels = FALSE)
@@ -86,7 +86,7 @@ saveRDS(coltab_end, f_rds)
 # Post-mortem
 test <- readRDS(f_rds)
 
-ramp_cols <- test %>%
+ramp_cols <- test |>
   pull(hex)
 
 

@@ -102,7 +102,7 @@ test_that("geom_spatraster several layer with CRS", {
   br <- unique(round(seq(range[1], range[2], 2.5), 0))
 
   # Cut all layers
-  r_cat <- r %>% mutate(across(everything(), ~ cut(.x, br)))
+  r_cat <- r |> mutate(across(everything(), ~ cut(.x, br)))
 
   p_cats <- ggplot() +
     geom_spatraster(data = r_cat) +
@@ -115,7 +115,7 @@ test_that("geom_spatraster several layer with CRS", {
 
   # Numbers first
 
-  r_mix1 <- r %>% mutate(char = paste("c_", round(tavg_05)))
+  r_mix1 <- r |> mutate(char = paste("c_", round(tavg_05)))
 
   expect_snapshot(
     p_mix1 <- ggplot() +
@@ -128,8 +128,8 @@ test_that("geom_spatraster several layer with CRS", {
 
   # Chars first
 
-  r_mix2 <- r_mix1 %>%
-    mutate(char2 = paste("c_", round(tavg_06))) %>%
+  r_mix2 <- r_mix1 |>
+    mutate(char2 = paste("c_", round(tavg_06))) |>
     select(char, char2, tavg_04)
 
   expect_snapshot(
@@ -430,7 +430,7 @@ test_that("geom_spatraster several layer with no CRS", {
 
   # Cut all layers
 
-  r_cat <- r %>% mutate(across(everything(), ~ cut(.x, br)))
+  r_cat <- r |> mutate(across(everything(), ~ cut(.x, br)))
 
   p_cats <- ggplot() +
     geom_spatraster(data = r_cat) +
@@ -443,7 +443,7 @@ test_that("geom_spatraster several layer with no CRS", {
 
   # Numbers first
 
-  r_mix1 <- r %>% mutate(char = paste("c_", round(tavg_05)))
+  r_mix1 <- r |> mutate(char = paste("c_", round(tavg_05)))
 
   expect_snapshot(
     p_mix1 <- ggplot() +
@@ -455,8 +455,8 @@ test_that("geom_spatraster several layer with no CRS", {
 
   # Chars first
 
-  r_mix2 <- r_mix1 %>%
-    mutate(char2 = paste("c_", round(tavg_06))) %>%
+  r_mix2 <- r_mix1 |>
+    mutate(char2 = paste("c_", round(tavg_06))) |>
     select(char, char2, tavg_04)
 
   expect_snapshot(

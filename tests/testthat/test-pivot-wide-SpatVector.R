@@ -210,8 +210,8 @@ test_that("grouping is preserved", {
 
   df <- terra::vect(df, crs = "EPSG:3857")
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     pivot_wider(names_from = k, values_from = v)
   expect_equal(dplyr::group_vars(out), "g")
 })

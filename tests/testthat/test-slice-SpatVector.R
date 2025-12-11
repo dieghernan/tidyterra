@@ -9,8 +9,8 @@ test_that("empty slice drops all rows", {
 
   expect_identical(as_tibble(slice(df)), as_tibble(df[integer(), ]))
   expect_identical(
-    slice(gdf) %>% as_tibble(),
-    gdf[integer(), ] %>% as_tibble()
+    slice(gdf) |> as_tibble(),
+    gdf[integer(), ] |> as_tibble()
   )
 })
 
@@ -25,8 +25,8 @@ test_that("slicing SpatVector yields SpatVector", {
   expect_s4_class(sliced, "SpatVector")
 
   expect_equal(
-    sliced %>% as_tbl_internal(),
-    df %>% as_tbl_internal() %>% slice(1)
+    sliced |> as_tbl_internal(),
+    df |> as_tbl_internal() |> slice(1)
   )
 })
 
@@ -117,10 +117,10 @@ test_that("slice handles zero-row and zero-column inputs", {
   skip_on_cran()
 
   df <- terra::vect("POINT EMPTY")
-  expect_equal(slice(df, 1) %>% as_tibble(), tibble::tibble())
+  expect_equal(slice(df, 1) |> as_tibble(), tibble::tibble())
 
   df <- tibble::tibble(.rows = 10)
-  expect_equal(slice(df, 1) %>% as_tibble(), tibble::tibble(.rows = 1))
+  expect_equal(slice(df, 1) |> as_tibble(), tibble::tibble(.rows = 1))
 })
 
 test_that("user errors are correctly labelled", {
@@ -361,22 +361,22 @@ test_that("slice_min/max() count from back with negative n/prop", {
   df <- as_spatvector(df, geom = c("a", "b"))
 
   expect_equal(
-    slice_min(df, x, n = -1) %>% as_tibble(),
-    slice_min(df, x, n = 3) %>% as_tibble()
+    slice_min(df, x, n = -1) |> as_tibble(),
+    slice_min(df, x, n = 3) |> as_tibble()
   )
   expect_equal(
-    slice_max(df, x, n = -1) %>% as_tibble(),
-    slice_max(df, x, n = 3) %>% as_tibble()
+    slice_max(df, x, n = -1) |> as_tibble(),
+    slice_max(df, x, n = 3) |> as_tibble()
   )
 
   # and can be larger than group size
   expect_equal(
-    slice_min(df, x, n = -10) %>% as_tibble(),
-    df[0, ] %>% as_tibble()
+    slice_min(df, x, n = -10) |> as_tibble(),
+    df[0, ] |> as_tibble()
   )
   expect_equal(
-    slice_max(df, x, n = -10) %>% as_tibble(),
-    df[0, ] %>% as_tibble()
+    slice_max(df, x, n = -10) |> as_tibble(),
+    df[0, ] |> as_tibble()
   )
 })
 
@@ -424,12 +424,12 @@ test_that("slice_sample() handles positive n= and prop=", {
   df <- as_spatvector(df, geom = c("a", "b"), keepgeom = TRUE)
   gf <- group_by(df, a)
   expect_equal(
-    slice_sample(gf, n = 3, replace = TRUE) %>% as_tbl_internal(),
-    gf[c(1, 1, 1), ] %>% as_tbl_internal()
+    slice_sample(gf, n = 3, replace = TRUE) |> as_tbl_internal(),
+    gf[c(1, 1, 1), ] |> as_tbl_internal()
   )
   expect_equal(
-    slice_sample(gf, prop = 3, replace = TRUE) %>% as_tbl_internal(),
-    gf[c(1, 1, 1), ] %>% as_tbl_internal()
+    slice_sample(gf, prop = 3, replace = TRUE) |> as_tbl_internal(),
+    gf[c(1, 1, 1), ] |> as_tbl_internal()
   )
 })
 
@@ -483,23 +483,23 @@ test_that("slice_head/tail() count from back with negative n/prop", {
   df <- as_spatvector(df, geom = c("ff", "gg"))
 
   expect_equal(
-    slice_head(df, n = -1) %>% as_tibble(),
-    slice_head(df, n = 3) %>% as_tibble()
+    slice_head(df, n = -1) |> as_tibble(),
+    slice_head(df, n = 3) |> as_tibble()
   )
 
   expect_equal(
-    slice_tail(df, n = -1) %>% as_tibble(),
-    slice_tail(df, n = 3) %>% as_tibble()
+    slice_tail(df, n = -1) |> as_tibble(),
+    slice_tail(df, n = 3) |> as_tibble()
   )
 
   # and can be larger than group size
   expect_equal(
-    slice_head(df, n = -10) %>% as_tibble(),
-    df[0, ] %>% as_tibble()
+    slice_head(df, n = -10) |> as_tibble(),
+    df[0, ] |> as_tibble()
   )
   expect_equal(
-    slice_tail(df, n = -10) %>% as_tibble(),
-    df[0, ] %>% as_tibble()
+    slice_tail(df, n = -10) |> as_tibble(),
+    df[0, ] |> as_tibble()
   )
 })
 
@@ -526,25 +526,25 @@ test_that("slice_head/slice_tail handle infinite n/prop", {
   df$gg <- 2
   df <- as_spatvector(df, geom = c("ff", "gg"))
 
-  expect_identical(slice_head(df, n = Inf) %>% as_tibble(), as_tibble(df))
-  expect_identical(slice_tail(df, n = Inf) %>% as_tibble(), as_tibble(df))
+  expect_identical(slice_head(df, n = Inf) |> as_tibble(), as_tibble(df))
+  expect_identical(slice_tail(df, n = Inf) |> as_tibble(), as_tibble(df))
   expect_identical(
-    slice_head(df, n = -Inf) %>% as_tibble(),
+    slice_head(df, n = -Inf) |> as_tibble(),
     as_tibble(df[0, ])
   )
   expect_identical(
-    slice_tail(df, n = -Inf) %>% as_tibble(),
+    slice_tail(df, n = -Inf) |> as_tibble(),
     as_tibble(df[0, ])
   )
 
-  expect_identical(slice_head(df, prop = Inf) %>% as_tibble(), as_tibble(df))
-  expect_identical(slice_tail(df, prop = Inf) %>% as_tibble(), as_tibble(df))
+  expect_identical(slice_head(df, prop = Inf) |> as_tibble(), as_tibble(df))
+  expect_identical(slice_tail(df, prop = Inf) |> as_tibble(), as_tibble(df))
   expect_identical(
-    slice_head(df, prop = -Inf) %>% as_tibble(),
+    slice_head(df, prop = -Inf) |> as_tibble(),
     as_tibble(df[0, ])
   )
   expect_identical(
-    slice_tail(df, prop = -Inf) %>% as_tibble(),
+    slice_tail(df, prop = -Inf) |> as_tibble(),
     as_tibble(df[0, ])
   )
 })
@@ -557,11 +557,11 @@ test_that("slice_head/slice_tail work with `by`", {
   df <- as_spatvector(df, geom = c("ff", "gg"))
 
   expect_identical(
-    slice_head(df, n = 2, by = g) %>% as_tibble(),
-    df[c(1, 2, 4), ] %>% as_tibble()
+    slice_head(df, n = 2, by = g) |> as_tibble(),
+    df[c(1, 2, 4), ] |> as_tibble()
   )
   expect_identical(
-    slice_tail(df, n = 2, by = g) %>% as_tibble(),
-    df[c(2, 3, 4), ] %>% as_tibble()
+    slice_tail(df, n = 2, by = g) |> as_tibble(),
+    df[c(2, 3, 4), ] |> as_tibble()
   )
 })

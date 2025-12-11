@@ -142,8 +142,8 @@ test_that("fill respects grouping", {
   df <- terra::vect(df, crs = "EPSG:3857")
   expect_s4_class(df, "SpatVector")
 
-  out <- df %>%
-    group_by(x) %>%
+  out <- df |>
+    group_by(x) |>
     fill(y)
   expect_equal(out$y, c(1, 1, NA))
 })

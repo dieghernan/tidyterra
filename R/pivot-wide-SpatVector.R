@@ -54,17 +54,17 @@
 #' cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'
 #' # Add extra row with info
-#' xtra <- cyl %>%
-#'   slice(c(2, 3)) %>%
+#' xtra <- cyl |>
+#'   slice(c(2, 3)) |>
 #'   mutate(
 #'     label = "extra",
 #'     value = TRUE
-#'   ) %>%
-#'   rbind(cyl, .) %>%
+#'   ) |>
+#'   rbind(cyl) |>
 #'   glimpse()
 #'
 #' # Pivot by geom
-#' xtra %>%
+#' xtra |>
 #'   pivot_wider(
 #'     id_cols = iso2:name, values_from = value,
 #'     names_from = label
@@ -140,7 +140,7 @@ pivot_wider.SpatVector <- function(
 
   sv <- as_spat_internal(pivoted)
 
-  return(sv)
+  sv
 }
 
 #' @export

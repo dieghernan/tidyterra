@@ -127,7 +127,7 @@ pivot_longer.SpatVector <- function(
 
   sv <- as_spat_internal(pivoted)
 
-  return(sv)
+  sv
 }
 
 #' @export

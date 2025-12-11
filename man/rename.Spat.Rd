@@ -67,16 +67,16 @@ call.
 
 library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-spatrast <- rast(f) \%>\% mutate(aa = 1, bb = 2, cc = 3)
+spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 spatrast
 
-spatrast \%>\% rename(
+spatrast |> rename(
   this_first = cyl_tile_1,
   this_second = cyl_tile_2
 )
 
-spatrast \%>\% rename_with(
+spatrast |> rename_with(
   toupper,
   .cols = starts_with("c")
 )

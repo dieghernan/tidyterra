@@ -11,18 +11,18 @@ init <- readLines(paste0(
 init
 
 
-tratapal <- init[] %>%
-  gsub("   ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub(" ", ":", .) %>%
-  gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) %>%
+tratapal <- init[] |>
+  gsub("   ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub(" ", ":", .) |>
+  gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
   tb <- as.double(unlist(f)[-1])
-  # tb2 <- col2rgb(tb[2]) %>% as.double()
+  # tb2 <- col2rgb(tb[2]) |> as.double()
   # tb <- as.double(tb2)
 
   names(tb) <- c("r", "g", "b")
@@ -31,13 +31,13 @@ pal_df <- lapply(tratapal, function(f) {
   df$pal <- pal
 
   df
-}) %>%
-  bind_rows() %>%
+}) |>
+  bind_rows() |>
   select(pal, r, g, b, hex)
 
-# pal_df <- pal_df %>%
-#   group_by(limit) %>%
-#   slice_head(n = 1) %>%
+# pal_df <- pal_df |>
+#   group_by(limit) |>
+#   slice_head(n = 1) |>
 #   arrange(limit)
 #
 

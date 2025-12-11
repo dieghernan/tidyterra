@@ -7,12 +7,12 @@ test_that("geom_spatraster several layer with CRS", {
   r_init <- rast(f)
 
   # Create levels and coltabs
-  rf <- r_init %>%
+  rf <- r_init |>
     mutate(
       cut1 = cut(tavg_04, c(-Inf, 5, 7, 11, 15, Inf)),
       cut2 = cut(tavg_05, c(-Inf, seq(2, 16, 2), Inf)),
       cut3 = cut(tavg_06, c(-Inf, 5.6, 8.9, 14.2, Inf))
-    ) %>%
+    ) |>
     select(cut1:cut3)
   hlp_input_coltab <- function(r_f, lyr, pal, ...) {
     rd <- r_f[[lyr]]
@@ -135,12 +135,12 @@ test_that("geom_spatraster alpha several layers", {
   r_init <- rast(f)
 
   # Create levels and coltabs
-  rf <- r_init %>%
+  rf <- r_init |>
     mutate(
       cut1 = cut(tavg_04, c(-Inf, 5, 7, 11, 15, Inf)),
       cut2 = cut(tavg_05, c(-Inf, seq(2, 16, 2), Inf)),
       cut3 = cut(tavg_06, c(-Inf, 5.6, 8.9, 14.2, Inf))
-    ) %>%
+    ) |>
     select(cut1:cut3)
   hlp_input_coltab <- function(r_f, lyr, pal, ...) {
     rd <- r_f[[lyr]]

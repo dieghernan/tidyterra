@@ -32,7 +32,7 @@
 #' as_coordinates(r)
 #' as_coordinates(r, as.raster = TRUE)
 #'
-#' as_coordinates(r, as.raster = TRUE) %>% plot()
+#' as_coordinates(r, as.raster = TRUE) |> plot()
 #'
 as_coordinates <- function(x, as.raster = FALSE) {
   if (!inherits(x, "SpatRaster")) {
@@ -64,5 +64,5 @@ as_coordinates <- function(x, as.raster = FALSE) {
 
   names(template) <- names(tbl)
 
-  return(template)
+  template
 }

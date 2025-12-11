@@ -11,13 +11,13 @@ init <- readLines(paste0(
 init
 head(init, n = 10)
 
-tratapal <- init[] %>%
-  gsub("   ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub(" ", ":", .) %>%
-  gsub("white", paste0((col2rgb("white")), collapse = ":"), .) %>%
+tratapal <- init[] |>
+  gsub("   ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub(" ", ":", .) |>
+  gsub("white", paste0((col2rgb("white")), collapse = ":"), .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
@@ -29,13 +29,13 @@ pal_df <- lapply(tratapal, function(f) {
   df$pal <- pal
 
   df
-}) %>%
-  bind_rows() %>%
+}) |>
+  bind_rows() |>
   select(pal, limit, r, g, b, hex)
 
-pal_df <- pal_df %>%
-  group_by(limit) %>%
-  slice_head(n = 1) %>%
+pal_df <- pal_df |>
+  group_by(limit) |>
+  slice_head(n = 1) |>
   filter(limit < 10000000)
 
 

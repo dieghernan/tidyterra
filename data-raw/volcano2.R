@@ -14,7 +14,7 @@ dem_list <- lapply(allrast, terra::rast)
 dem <- do.call(merge, dem_list)
 
 # Get extent from original raster
-forcrop <- terra::rast("inst/extdata/volcano2.tif") %>%
+forcrop <- terra::rast("inst/extdata/volcano2.tif") |>
   terra::project(pull_crs(dem))
 
 dem_crop <- terra::crop(dem, forcrop)

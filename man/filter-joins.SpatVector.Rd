@@ -102,7 +102,7 @@ df <- data.frame(
 v
 
 # Semi join
-semi <- v \%>\% semi_join(df)
+semi <- v |> semi_join(df)
 
 semi
 
@@ -111,7 +111,7 @@ autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
 
 # Anti join
 
-anti <- v \%>\% anti_join(df)
+anti <- v |> anti_join(df)
 
 anti
 

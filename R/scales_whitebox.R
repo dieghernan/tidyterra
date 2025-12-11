@@ -36,11 +36,11 @@
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
-#' whitebox_coltab %>%
-#'   pull(pal) %>%
+#' whitebox_coltab |>
+#'   pull(pal) |>
 #'   unique() %>%
-#'   paste0('`"', ., '"`', collapse = ", ") %>%
-#'   paste0(".") %>%
+#'   paste0('`"', ., '"`', collapse = ", ") |>
+#'   paste0(".") |>
 #'   cat()
 #'
 #'
@@ -80,7 +80,7 @@
 #'   scale_fill_whitebox_b(breaks = seq(70, 200, 10), palette = "atlas")
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
+#' factor <- volcano2_rast |> mutate(cats = cut(elevation,
 #'   breaks = c(100, 120, 130, 150, 170, 200),
 #'   labels = c(
 #'     "Very Low", "Low", "Average", "High",
@@ -325,7 +325,7 @@ whitebox.colors <- function(
     paltab <- extract_pal(whitebox_coltab, palette = palette)
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
-    return(endcols)
+    endcols
   } else {
     character()
   }

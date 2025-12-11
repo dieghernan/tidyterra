@@ -138,7 +138,7 @@ test_that("Stress SpatVector", {
   expect_snapshot(glance(v2))
 
   # Geoms only
-  vnull <- v %>% select(1)
+  vnull <- v |> select(1)
   vnull$iso2 <- NULL
   expect_snapshot(glance(vnull))
 })

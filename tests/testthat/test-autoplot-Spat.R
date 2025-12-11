@@ -10,22 +10,22 @@ test_that("Test SpatRaster", {
   vdiffr::expect_doppelganger("norgb_01: regular", autoplot(r))
 
   # Categorical
-  r2 <- r %>% mutate(across(everything(), ~ cut(.x, c(0, 10, 12, 20))))
+  r2 <- r |> mutate(across(everything(), ~ cut(.x, c(0, 10, 12, 20))))
   vdiffr::expect_doppelganger("norgb_02: categorical", autoplot(r2))
 
   # No facets
   vdiffr::expect_doppelganger(
     "norgb_03: no facets forced",
-    r %>%
-      select(1) %>%
+    r |>
+      select(1) |>
       autoplot(facets = FALSE)
   )
 
   # No facets auto
   vdiffr::expect_doppelganger(
     "norgb_03: no facets auto",
-    r %>%
-      select(1) %>%
+    r |>
+      select(1) |>
       autoplot()
   )
 
@@ -37,15 +37,15 @@ test_that("Test SpatRaster", {
 
   vdiffr::expect_doppelganger(
     "norgb_05: four cols",
-    r %>%
-      mutate(other = tavg_04 * 2) %>%
+    r |>
+      mutate(other = tavg_04 * 2) |>
       autoplot(ncol = 4)
   )
 
   # Force to no facets
 
-  forced <- r %>%
-    mutate(other = tavg_04 * 2) %>%
+  forced <- r |>
+    mutate(other = tavg_04 * 2) |>
     autoplot(ncol = 4, facets = FALSE)
 
   expect_snapshot(b <- ggplot2::ggplot_build(forced))
@@ -100,16 +100,16 @@ test_that("Test SpatRaster", {
   # No facets
   vdiffr::expect_doppelganger(
     "coltab_02: no facets forced",
-    r %>%
-      select(1) %>%
+    r |>
+      select(1) |>
       autoplot(facets = FALSE)
   )
 
   # No facets auto
   vdiffr::expect_doppelganger(
     "coltab_03: no facets auto",
-    r %>%
-      select(1) %>%
+    r |>
+      select(1) |>
       autoplot()
   )
 
@@ -122,12 +122,12 @@ test_that("Test SpatRaster", {
 
   vdiffr::expect_doppelganger(
     "coltab_5: force no facets",
-    r %>%
+    r |>
       autoplot(ncol = 2, facets = FALSE)
   )
   vdiffr::expect_doppelganger(
     "coltab_6: Not use coltab",
-    r %>%
+    r |>
       autoplot(ncol = 2, use_coltab = FALSE)
   )
 })

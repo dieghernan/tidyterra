@@ -81,14 +81,14 @@ f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- terra::vect(f)
 
 # Add NAs
-v <- v \%>\% mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
+v <- v |> mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
 
 # Init
 plot(v, col = "red")
 
 # Mask with lyr.1
-v \%>\%
-  drop_na(iso2) \%>\%
+v |>
+  drop_na(iso2) |>
   plot(col = "red")
 # SpatRaster method
 
@@ -109,23 +109,23 @@ r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
 plot(r, nc = 3)
 
 # Mask with lyr.1
-r \%>\%
-  drop_na(lyr.1) \%>\%
+r |>
+  drop_na(lyr.1) |>
   plot(nc = 3)
 
 # Mask with lyr.2
-r \%>\%
-  drop_na(lyr.2) \%>\%
+r |>
+  drop_na(lyr.2) |>
   plot(nc = 3)
 
 # Mask with lyr.3
-r \%>\%
-  drop_na(lyr.3) \%>\%
+r |>
+  drop_na(lyr.3) |>
   plot(nc = 3)
 
 # Auto-mask all layers
-r \%>\%
-  drop_na() \%>\%
+r |>
+  drop_na() |>
   plot(nc = 3)
 }
 }

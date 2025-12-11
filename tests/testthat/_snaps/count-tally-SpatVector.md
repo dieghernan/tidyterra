@@ -21,7 +21,7 @@
       df$lat <- 1:4
       df$lon <- 1:4
       df <- terra::vect(df, crs = "EPSG:3857")
-      df %>% count(g)
+      count(df, g)
     Output
        class       : SpatVector 
        geometry    : points 
@@ -33,7 +33,7 @@
        values      :     1     2
                          2     2
     Code
-      df %>% count(g) %>% count()
+      count(count(df, g))
     Output
        class       : SpatVector 
        geometry    : points 
@@ -44,7 +44,7 @@
        type        : <int>
        values      :     2
     Code
-      df %>% count(n)
+      count(df, n)
     Message
       Storing counts in `nn`, as `n` already present in input
       i Use `name = "new_name"` to pick a new name.

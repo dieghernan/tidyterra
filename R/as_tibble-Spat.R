@@ -112,7 +112,7 @@ as_tibble.SpatRaster <- function(
   # Set attributes
   attr(df, "crs") <- terra::crs(x)
 
-  return(df)
+  df
 }
 
 #' @export
@@ -151,7 +151,7 @@ as_tibble.SpatVector <- function(x, ..., geom = NULL, .name_repair = "unique") {
     attr(df, "crs") <- pull_crs(x)
   }
 
-  return(df)
+  df
 }
 
 as_tbl_internal <- function(x) {
@@ -297,7 +297,7 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     cli::cat_bullet(msg)
   }
   names(x) <- newnames
-  return(x)
+  x
 }
 
 #' @export

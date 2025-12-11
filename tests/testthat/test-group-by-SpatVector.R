@@ -32,13 +32,13 @@ test_that("group_by(<grouped df>, add add groups", {
 
   expect_s4_class(df, "SpatVector")
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     group_by(x)
   expect_equal(group_vars(out), "x")
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     group_by(x, .add = TRUE)
   expect_equal(group_vars(out), c("g", "x"))
 })
@@ -69,7 +69,7 @@ test_that("grouping by constant adds column", {
   skip_on_cran()
 
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-  grouped <- group_by(v1, "cyl") %>% summarise(foo = dplyr::n())
+  grouped <- group_by(v1, "cyl") |> summarise(foo = dplyr::n())
   expect_equal(names(grouped), c('"cyl"', "foo"))
   expect_equal(nrow(grouped), 1L)
 })
@@ -131,7 +131,7 @@ test_that("group_by orders by groups", {
 
   df <- data.frame(a = sample(1:4, 30, replace = TRUE))
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-  df <- cbind(v[df$a, 0], df) %>% group_by(a)
+  df <- cbind(v[df$a, 0], df) |> group_by(a)
   expect_true(is_grouped_spatvector(df))
   expect_s4_class(df, "SpatVector")
 
@@ -143,7 +143,7 @@ test_that("group_by orders by groups", {
       a = sample(letters[1:4], 30, replace = TRUE),
       stringsAsFactors = FALSE
     )
-  ) %>%
+  ) |>
     group_by(a)
 
   expect_equal(group_data(df)$a, letters[1:4])
@@ -152,7 +152,7 @@ test_that("group_by orders by groups", {
     df[, 0],
     data.frame(a = sample(sqrt(1:3), 30, replace = TRUE))
   )
-  df <- df %>%
+  df <- df |>
     group_by(a)
 
   expect_equal(group_data(df)$a, sqrt(1:3))
@@ -198,8 +198,8 @@ test_that("ungroup.rowwise_df gives a ungrouped SpatVector", {
 
   mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
 
-  res <- mtcars_v %>%
-    rowwise() %>%
+  res <- mtcars_v |>
+    rowwise() |>
     ungroup()
   expect_false(is_grouped_spatvector(res))
   expect_false(is_rowwise_spatvector(res))

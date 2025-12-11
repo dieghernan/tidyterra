@@ -380,7 +380,7 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   # Reproject
   proj_rast <- terra::project(init_rast, template, mask = mask)
 
-  return(proj_rast)
+  proj_rast
 }
 
 pivot_longer_spat <- function(x) {
@@ -425,7 +425,7 @@ resample_spat <- function(r, maxcell = 50000) {
     ))
   }
 
-  return(r)
+  r
 }
 
 check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
@@ -473,7 +473,7 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
     }
   }
 
-  return(newr)
+  newr
 }
 
 
@@ -543,5 +543,5 @@ prepare_aes_spatraster <- function(
   }
 
   # Otherwise leave as it is
-  return(result_obj)
+  result_obj
 }

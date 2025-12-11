@@ -41,7 +41,7 @@ test_that("Stress SpatVector", {
   expect_s4_class(inv, "SpatVector")
 
   # Geoms only
-  vnull <- v %>% select(1)
+  vnull <- v |> select(1)
   vnull$iso2 <- NULL
   expect_snapshot(inv <- glimpse(vnull))
   expect_s4_class(inv, "SpatVector")

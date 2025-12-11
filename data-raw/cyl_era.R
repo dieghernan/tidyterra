@@ -4,14 +4,14 @@ base <- "https://opendata.jcyl.es/ficheros/carto/a2t04_geologia/ge.geolog_cyl_li
 library(tidyverse)
 library(sf)
 db <- mapSpain::esp_codelist
-allcode <- db %>%
-  filter(iso2.ccaa.code == "ES-CL") %>%
-  select(ine.prov.name) %>%
-  distinct() %>%
-  pull() %>%
-  tolower() %>%
-  gsub("á", "a", .) %>%
-  stringr::str_sub(1, 2) %>%
+allcode <- db |>
+  filter(iso2.ccaa.code == "ES-CL") |>
+  select(ine.prov.name) |>
+  distinct() |>
+  pull() |>
+  tolower() |>
+  gsub("á", "a", .) |>
+  stringr::str_sub(1, 2) |>
   gsub("se", "sg", .)
 
 allcode
@@ -24,10 +24,10 @@ minit <- lapply(allcode, function(x) {
   }
   unzip(basezip, exdir = tempdir(), junkpaths = TRUE)
   s <- read_sf(gsub(".zip", ".shp", basezip))
-  send <- s %>% select(ERA)
+  send <- s |> select(ERA)
 
   return(send)
-}) %>%
+}) |>
   bind_rows()
 
 m <- st_transform(minit, 3857)
@@ -82,7 +82,7 @@ library(tidyterra)
 ggplot() +
   geom_spatraster(data = z)
 
-v2 <- mapSpain::esp_get_ccaa("Castilla y León", epsg = 3857) %>%
+v2 <- mapSpain::esp_get_ccaa("Castilla y León", epsg = 3857) |>
   vect()
 cyl_era <- crop(z, v2)
 plot(cyl_era)

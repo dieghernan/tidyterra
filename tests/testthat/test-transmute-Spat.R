@@ -3,7 +3,7 @@ test_that("SpatRaster transmute", {
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   spatrast <- terra::rast(f)
 
-  mod <- spatrast %>%
+  mod <- spatrast |>
     transmute(exp_lyr1 = exp(tavg_04 / 10))
 
   expect_true(compare_spatrasters(spatrast, mod))
@@ -16,7 +16,7 @@ test_that("SpatVector", {
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
-  mutated <- v %>%
+  mutated <- v |>
     transmute(cpro2 = paste0(cpro, "-CyL"))
 
   expect_s4_class(mutated, "SpatVector")
@@ -51,7 +51,7 @@ test_that("transmute with no args returns grouping vars", {
   df <- as_spatvector(df, geom = c("x", "y"), keepgeom = TRUE)
 
   gf <- group_by(df, x)
-  expect_equal(df %>% transmute() %>% ncol(), 0)
-  expect_equal(gf %>% transmute() %>% ncol(), 1)
-  expect_equal(gf %>% transmute() %>% names(), "x")
+  expect_equal(df |> transmute() |> ncol(), 0)
+  expect_equal(gf |> transmute() |> ncol(), 1)
+  expect_equal(gf |> transmute() |> names(), "x")
 })

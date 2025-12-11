@@ -39,10 +39,10 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 r <- rast(f)
 
-r \%>\% plot()
+r |> plot()
 
-r \%>\%
-  replace_na(list(tavg_04 = 6, tavg_06 = 20)) \%>\%
+r |>
+  replace_na(list(tavg_04 = 6, tavg_06 = 20)) |>
   plot()
 
 }

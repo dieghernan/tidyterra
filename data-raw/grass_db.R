@@ -31,7 +31,7 @@ for (i in rest) {
 
 dev.off()
 
-paltest <- init %>%
+paltest <- init |>
   filter(pal == "population")
 
 mycols <- tidyterra:::tidyterra_ramp2(
@@ -79,8 +79,8 @@ for (i in pals) {
 
 par(opar)
 
-grass_db <- init %>%
-  as_tibble() %>%
+grass_db <- init |>
+  as_tibble() |>
   relocate(pal, limit)
 
 data("hypsometric_tints_db")

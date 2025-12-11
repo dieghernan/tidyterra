@@ -64,7 +64,7 @@
 #' )
 #'
 #' # Inner join
-#' inner <- v %>% inner_join(df)
+#' inner <- v |> inner_join(df)
 #'
 #' nrow(inner)
 #' autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
@@ -72,14 +72,14 @@
 #'
 #' # Left join
 #'
-#' left <- v %>% left_join(df)
+#' left <- v |> left_join(df)
 #' nrow(left)
 #'
 #' autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
 #'
 #' \donttest{
 #' # Right join
-#' right <- v %>% right_join(df)
+#' right <- v |> right_join(df)
 #' nrow(right)
 #'
 #' autoplot(right, aes(fill = letter)) + ggtitle("Right Join")
@@ -90,7 +90,7 @@
 #'
 #'
 #' # Full join
-#' full <- v %>% full_join(df)
+#' full <- v |> full_join(df)
 #' nrow(full)
 #'
 #' autoplot(full, aes(fill = letter)) + ggtitle("Full Join")
@@ -127,7 +127,7 @@ inner_join.SpatVector <- function(
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export
@@ -164,7 +164,7 @@ left_join.SpatVector <- function(
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export
@@ -201,7 +201,7 @@ right_join.SpatVector <- function(
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export
@@ -239,7 +239,7 @@ full_join.SpatVector <- function(
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export
@@ -304,7 +304,7 @@ dplyr::full_join
 #' v
 #'
 #' # Semi join
-#' semi <- v %>% semi_join(df)
+#' semi <- v |> semi_join(df)
 #'
 #' semi
 #'
@@ -313,7 +313,7 @@ dplyr::full_join
 #'
 #' # Anti join
 #'
-#' anti <- v %>% anti_join(df)
+#' anti <- v |> anti_join(df)
 #'
 #' anti
 #'
@@ -331,7 +331,7 @@ semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export
@@ -352,7 +352,7 @@ anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   joined <- as_spat_internal(joined_tbl)
   joined <- group_prepare_spat(joined, joined_tbl)
 
-  return(joined)
+  joined
 }
 
 #' @export

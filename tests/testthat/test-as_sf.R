@@ -84,7 +84,7 @@ test_that("Coercion to rowwise sf works with names creating groups", {
   v <- terra::vect(f)
   v$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
 
-  gr_v <- rowwise(v, gr) %>% summarise(a = dplyr::n())
+  gr_v <- rowwise(v, gr) |> summarise(a = dplyr::n())
   as_sf <- as_sf(gr_v)
 
   expect_s3_class(as_sf, "sf")
@@ -95,7 +95,7 @@ test_that("Coercion to rowwise sf works with names creating groups", {
   # Should be the same as
   sf2 <- sf::read_sf(f)
   sf2$gr <- c("C", "A", "A", "B", "A", "B", "B", "C", "A")
-  rwise <- dplyr::rowwise(sf2, gr) %>%
+  rwise <- dplyr::rowwise(sf2, gr) |>
     summarise(
       a = dplyr::n(),
       dplyr::across(geom, sf::st_union)

@@ -35,10 +35,10 @@
 #' f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 #' r <- rast(f)
 #'
-#' r %>% plot()
+#' r |> plot()
 #'
-#' r %>%
-#'   replace_na(list(tavg_04 = 6, tavg_06 = 20)) %>%
+#' r |>
+#'   replace_na(list(tavg_04 = 6, tavg_06 = 20)) |>
 #'   plot()
 #'
 replace_na.SpatRaster <- function(data, replace = list(), ...) {
@@ -108,7 +108,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
     terra::coltab(newrast) <- terra::coltab(data)
   }
 
-  return(newrast)
+  newrast
 }
 
 #' @export

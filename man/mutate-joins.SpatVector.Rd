@@ -156,7 +156,7 @@ df <- data.frame(
 )
 
 # Inner join
-inner <- v \%>\% inner_join(df)
+inner <- v |> inner_join(df)
 
 nrow(inner)
 autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
@@ -164,14 +164,14 @@ autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
 
 # Left join
 
-left <- v \%>\% left_join(df)
+left <- v |> left_join(df)
 nrow(left)
 
 autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
 
 \donttest{
 # Right join
-right <- v \%>\% right_join(df)
+right <- v |> right_join(df)
 nrow(right)
 
 autoplot(right, aes(fill = letter)) + ggtitle("Right Join")
@@ -182,7 +182,7 @@ ggplot(right, aes(x, y)) +
 
 
 # Full join
-full <- v \%>\% full_join(df)
+full <- v |> full_join(df)
 nrow(full)
 
 autoplot(full, aes(fill = letter)) + ggtitle("Full Join")

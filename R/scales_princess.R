@@ -36,11 +36,11 @@
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
-#' princess_db %>%
-#'   pull(pal) %>%
+#' princess_db |>
+#'   pull(pal) |>
 #'   unique() %>%
-#'   paste0('`"', ., '"`', collapse = ", ") %>%
-#'   paste0(".") %>%
+#'   paste0('`"', ., '"`', collapse = ", ") |>
+#'   paste0(".") |>
 #'   cat()
 #'
 #'
@@ -79,7 +79,7 @@
 #'   scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "denmark")
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
+#' factor <- volcano2_rast |> mutate(cats = cut(elevation,
 #'   breaks = c(100, 120, 130, 150, 170, 200),
 #'   labels = c(
 #'     "Very Low", "Low", "Average", "High",
@@ -316,7 +316,7 @@ princess.colors <- function(n, palette = "snow", alpha = 1, rev = FALSE) {
     paltab <- extract_pal(tidyterra::princess_db, palette = palette)
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
-    return(endcols)
+    endcols
   } else {
     character()
   }

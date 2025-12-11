@@ -40,7 +40,7 @@ test_that("geom_spatraster_rgb with CRS", {
 
   expect_snapshot(
     ggplot() +
-      geom_spatraster_rgb(data = r_subset %>% select(1)),
+      geom_spatraster_rgb(data = r_subset |> select(1)),
     error = TRUE
   )
 
@@ -255,14 +255,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
     geom_spatraster_rgb(data = r, alpha = 0.6)
 
   vdiffr::expect_doppelganger("crsmask_07: With sf first", p_sf_first)
-
-  # With vector first and change proj
-
-  vdiffr::expect_doppelganger(
-    "crsmask_08: With sf first and crs",
-    p_sf_first +
-      coord_sf(crs = 4326)
-  )
 
   # With vector first and change proj
 

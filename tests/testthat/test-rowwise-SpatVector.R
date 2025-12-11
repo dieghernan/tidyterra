@@ -82,14 +82,14 @@ test_that("rowwise captures group_vars", {
 
   expect_equal(group_vars(rw), "g")
 
-  rw2 <- group_by(df, g, x) %>% rowwise()
+  rw2 <- group_by(df, g, x) |> rowwise()
   expect_equal(group_vars(rw2), c("g", "x"))
 
   # Get same result on NULL
-  rw3 <- df %>%
-    ungroup() %>%
+  rw3 <- df |>
+    ungroup() |>
     rowwise()
-  df_alt <- data.frame(x = 1) %>% rowwise()
+  df_alt <- data.frame(x = 1) |> rowwise()
   expect_equal(group_vars(rw3), dplyr::group_vars(df_alt))
 
   # but can't regroup

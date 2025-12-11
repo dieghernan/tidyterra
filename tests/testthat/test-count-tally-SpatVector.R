@@ -56,13 +56,13 @@ test_that("output preserves grouping", {
   exp <- terra::vect(exp)
 
   expect_equal(
-    df %>% count(g) %>% as_tibble(),
-    exp %>% as_tibble()
+    df |> count(g) |> as_tibble(),
+    exp |> as_tibble()
   )
 
   expect_equal(
-    df %>% group_by(g) %>% count() %>% as_tibble(),
-    exp %>% group_by(g) %>% as_tibble()
+    df |> group_by(g) |> count() |> as_tibble(),
+    exp |> group_by(g) |> as_tibble()
   )
 })
 
@@ -74,13 +74,13 @@ test_that("output preserves class & attributes where possible", {
   df$lat <- 1:4
   df <- terra::vect(df, crs = "EPSG:4326")
 
-  out <- df %>% count(g)
+  out <- df |> count(g)
   expect_s4_class(out, "SpatVector")
   expect_identical(group_vars(out), group_vars(df))
   expect_identical(pull_crs(out), pull_crs(df))
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     count()
   expect_s4_class(out, "SpatVector")
   expect_equal(group_vars(out), "g")
@@ -96,11 +96,11 @@ test_that("can only explicitly chain together multiple tallies", {
     df$lon <- 1:4
     df <- terra::vect(df, crs = "EPSG:3857")
 
-    df %>% count(g)
-    df %>%
-      count(g) %>%
+    df |> count(g)
+    df |>
+      count(g) |>
       count()
-    df %>% count(n)
+    df |> count(n)
   })
 })
 
@@ -126,7 +126,7 @@ test_that("tally() drops last group", {
   df <- data.frame(x = 1, y = 2, z = 3)
   df <- terra::vect(df, c("x", "y"), keepgeom = TRUE)
 
-  res <- expect_message(df %>% group_by(x, y) %>% tally(), NA)
+  res <- expect_message(df |> group_by(x, y) |> tally(), NA)
   expect_equal(group_vars(res), "x")
 })
 

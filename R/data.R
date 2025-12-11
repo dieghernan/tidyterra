@@ -100,7 +100,7 @@ NULL
 #' hypsometric_tints_db
 #'
 #' # Select a palette
-#' wikicols <- hypsometric_tints_db %>%
+#' wikicols <- hypsometric_tints_db |>
 #'   filter(pal == "wiki-2.0")
 #'
 #' f <- system.file("extdata/asia.tif", package = "tidyterra")
@@ -180,7 +180,7 @@ NULL
 #' cross_blended_hypsometric_tints_db
 #'
 #' # Select a palette
-#' warm <- cross_blended_hypsometric_tints_db %>%
+#' warm <- cross_blended_hypsometric_tints_db |>
 #'   filter(pal == "warm_humid")
 #'
 #' f <- system.file("extdata/asia.tif", package = "tidyterra")
@@ -262,7 +262,7 @@ NULL
 #' grass_db
 #' # Select a palette
 #'
-#' srtm_plus <- grass_db %>%
+#' srtm_plus <- grass_db |>
 #'   filter(pal == "srtm_plus")
 #'
 #' f <- system.file("extdata/asia.tif", package = "tidyterra")
@@ -323,7 +323,7 @@ NULL
 #' princess_db
 #'
 #' # Select a palette
-#' maori <- princess_db %>%
+#' maori <- princess_db |>
 #'   filter(pal == "maori")
 #'
 #' f <- system.file("extdata/volcano2.tif", package = "tidyterra")

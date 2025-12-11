@@ -131,7 +131,7 @@ test_that("mutate", {
   )
   terra::coltab(newctb) <- coltb2
   several <- c(r, newctb)
-  d3 <- several %>% mutate(another = "SAD")
+  d3 <- several |> mutate(another = "SAD")
 
   expect_identical(terra::has.colors(d3), c(TRUE, TRUE, FALSE))
 
@@ -139,7 +139,7 @@ test_that("mutate", {
   expect_identical(terra::coltab(d3), fullctab)
 
   # Additional test select
-  d4 <- d3 %>% select(letter, another, era)
+  d4 <- d3 |> select(letter, another, era)
   expect_identical(terra::has.colors(d4), c(TRUE, FALSE, TRUE))
   expect_identical(terra::coltab(d4), fullctab[c(2, 3, 1)])
 
@@ -198,7 +198,7 @@ test_that("transmute", {
   )
   terra::coltab(newctb) <- coltb2
   several <- c(r, newctb)
-  d3 <- several %>% transmute(letter = letter, era = era)
+  d3 <- several |> transmute(letter = letter, era = era)
 
   expect_identical(terra::has.colors(d3), c(TRUE, TRUE))
   expect_identical(terra::coltab(d3), terra::coltab(several)[2:1])

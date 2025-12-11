@@ -87,5 +87,5 @@ is_regular_grid <- function(xy, digits = 6) {
     ))
   }
 
-  return(invisible())
+  invisible()
 }

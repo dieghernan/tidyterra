@@ -445,7 +445,7 @@ whitebox_coltab <- tibble::tribble(
 )
 
 # Change name
-whitebox_coltab <- whitebox_coltab %>%
+whitebox_coltab <- whitebox_coltab |>
   mutate(pal = if_else(pal == "high", "high_relief", pal))
 
 # Make hex color

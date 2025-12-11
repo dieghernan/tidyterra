@@ -54,41 +54,41 @@
 #' v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
 #'
 #' # Select new births
-#' nb <- v %>%
-#'   select(starts_with("NWBIR")) %>%
+#' nb <- v |>
+#'   select(starts_with("NWBIR")) |>
 #'   glimpse()
 #'
 #' # Compute the mean of NWBIR on each geometry
-#' nb %>%
-#'   rowwise() %>%
+#' nb |>
+#'   rowwise() |>
 #'   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))
 #'
 #' # Additional examples
 #' \donttest{
 #' # use c_across() to more easily select many variables
-#' nb %>%
-#'   rowwise() %>%
+#' nb |>
+#'   rowwise() |>
 #'   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
 #'
 #' # Compute the minimum of x and y in each row
 #'
-#' nb %>%
-#'   rowwise() %>%
+#' nb |>
+#'   rowwise() |>
 #'   mutate(min = min(c_across(NWBIR74:NWBIR79)))
 #'
 #' # Summarising
-#' v %>%
-#'   rowwise() %>%
-#'   summarise(mean_bir = mean(BIR74, BIR79)) %>%
-#'   glimpse() %>%
+#' v |>
+#'   rowwise() |>
+#'   summarise(mean_bir = mean(BIR74, BIR79)) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = mean_bir))
 #'
 #' # Supply a variable to be kept
-#' v %>%
-#'   mutate(id2 = as.integer(CNTY_ID / 100)) %>%
-#'   rowwise(id2) %>%
-#'   summarise(mean_bir = mean(BIR74, BIR79)) %>%
-#'   glimpse() %>%
+#' v |>
+#'   mutate(id2 = as.integer(CNTY_ID / 100)) |>
+#'   rowwise(id2) |>
+#'   summarise(mean_bir = mean(BIR74, BIR79)) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = as.factor(id2)))
 #' }
 rowwise.SpatVector <- function(data, ...) {

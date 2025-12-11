@@ -51,8 +51,8 @@ db <- tibble::tribble(
 # Make hex color
 db$hex <- rgb(db$r, db$g, db$b, maxColorValue = 255)
 
-db <- db %>%
-  arrange(pal, limit) %>%
+db <- db |>
+  arrange(pal, limit) |>
   filter(limit >= 0)
 
 
@@ -73,13 +73,13 @@ npals <- length(pals)
 
 opar <- par(no.readonly = TRUE)
 
-# db %>% filter(pal == "cold_humid") %>% pull(hex)
-# db %>% filter(pal == "warm_humid") %>% pull(hex)
+# db |> filter(pal == "cold_humid") |> pull(hex)
+# db |> filter(pal == "warm_humid") |> pull(hex)
 
 par(mfrow = npanels, mar = rep(1, 4), bg = "grey85")
 for (i in pals) {
-  cc <- cross_blended_hypsometric_tints_db %>%
-    filter(pal == i) %>%
+  cc <- cross_blended_hypsometric_tints_db |>
+    filter(pal == i) |>
     pull(hex)
   ramp <- colorRampPalette(cc)
 

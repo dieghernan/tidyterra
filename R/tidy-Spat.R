@@ -72,8 +72,8 @@
 #' \donttest{
 #'
 #' # Get a SpatRaster
-#' r <- system.file("extdata/volcano2.tif", package = "tidyterra") %>%
-#'   terra::rast() %>%
+#' r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
+#'   terra::rast() |>
 #'   terra::project("EPSG:4326")
 #'
 #' r_tidy <- tidy(r)
@@ -91,7 +91,7 @@
 #' tidy(cyl)
 #'
 #' # SpatExtent
-#' ex <- cyl %>% terra::ext()
+#' ex <- cyl |> terra::ext()
 #'
 #' ex
 #'

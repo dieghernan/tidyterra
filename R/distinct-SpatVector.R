@@ -123,7 +123,7 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Ensure groups
   vend <- group_prepare_spat(vend, dist)
 
-  return(vend)
+  vend
 }
 
 

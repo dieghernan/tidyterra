@@ -55,10 +55,10 @@ test_that("filtering joins preserve row and column order of x", {
 test_that("joins preserve groups", {
   skip_on_cran()
 
-  aa <- tibble::tibble(a = 1:3, lat = 1:3, lon = 1:3) %>% as_spatvector()
+  aa <- tibble::tibble(a = 1:3, lat = 1:3, lon = 1:3) |> as_spatvector()
   bb <- tibble::tibble(a = rep(1:4, 2), b = 1, lat = 1, lon = 1)
-  gf1 <- aa %>% group_by(a)
-  gf2 <- bb %>% group_by(b)
+  gf1 <- aa |> group_by(a)
+  gf2 <- bb |> group_by(b)
 
   out <- inner_join(gf1, gf2, by = "a")
   expect_equal(group_vars(out), "a")

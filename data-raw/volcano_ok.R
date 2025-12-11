@@ -8,7 +8,7 @@ allrast <- list.files(
   full.names = TRUE
 )
 dem_list <- lapply(allrast, terra::rast)
-dem <- do.call(merge, dem_list) %>% drop_na()
+dem <- do.call(merge, dem_list) |> drop_na()
 
 dem_end <- spatSample(dem, size = 500000, method = "regular", as.raster = TRUE)
 

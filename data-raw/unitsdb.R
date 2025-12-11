@@ -7,7 +7,7 @@ library(dplyr)
 
 udb <- units::valid_udunits()
 
-unitsdb <- udb %>%
+unitsdb <- udb |>
   select(abb = symbol, name = name_singular)
 
 

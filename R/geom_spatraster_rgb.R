@@ -314,7 +314,7 @@ make_hexcol <- function(data, max_col_value = 255) {
 
   # Prepare output
   df <- dplyr::left_join(xy, full[c("hexcol", "index")], by = "index")
-  return(df[c("x", "y", "hexcol")])
+  df[c("x", "y", "hexcol")]
 }
 
 # Strecth and clamp

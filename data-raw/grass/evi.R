@@ -11,16 +11,16 @@ init <- readLines(paste0(
 init
 
 
-tratapal <- init[] %>%
-  gsub("   ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub(" ", ":", .) %>%
-  gsub("aqua", paste0((col2rgb("#00FFFF")), collapse = ":"), .) %>%
+tratapal <- init[] |>
+  gsub("   ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub(" ", ":", .) |>
+  gsub("aqua", paste0((col2rgb("#00FFFF")), collapse = ":"), .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
@@ -32,8 +32,8 @@ pal_df <- lapply(tratapal, function(f) {
   df$pal <- pal
 
   df
-}) %>%
-  bind_rows() %>%
+}) |>
+  bind_rows() |>
   select(pal, limit, r, g, b, hex)
 
 # Try

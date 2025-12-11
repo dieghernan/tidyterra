@@ -34,7 +34,7 @@ r <- rast(f)
 as_coordinates(r)
 as_coordinates(r, as.raster = TRUE)
 
-as_coordinates(r, as.raster = TRUE) \%>\% plot()
+as_coordinates(r, as.raster = TRUE) |> plot()
 
 }
 \seealso{

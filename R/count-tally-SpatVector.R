@@ -2,10 +2,10 @@
 #'
 #' @description
 #' `count()` lets you quickly count the unique values of one or more variables:
-#' - `df %>% count(a, b)` is roughly equivalent to
-#'   `df %>% group_by(a, b) %>% summarise(n = n())`.
+#' - `df |> count(a, b)` is roughly equivalent to
+#'   `df |> group_by(a, b) |> summarise(n = n())`.
 #' - `count()` is paired with `tally()`, a lower-level helper that is equivalent
-#'    to `df %>% summarise(n = n())`.
+#'    to `df |> summarise(n = n())`.
 #'
 #'
 #' @export
@@ -46,30 +46,30 @@
 #' p <- vect(f)
 #'
 #'
-#' p %>% count(NAME_1, sort = TRUE)
+#' p |> count(NAME_1, sort = TRUE)
 #'
-#' p %>% count(NAME_1, sort = TRUE)
+#' p |> count(NAME_1, sort = TRUE)
 #'
-#' p %>% count(pop = ifelse(POP < 20000, "A", "B"))
+#' p |> count(pop = ifelse(POP < 20000, "A", "B"))
 #'
 #' # tally() is a lower-level function that assumes you've done the grouping
-#' p %>% tally()
+#' p |> tally()
 #'
-#' p %>%
-#'   group_by(NAME_1) %>%
+#' p |>
+#'   group_by(NAME_1) |>
 #'   tally()
 #'
 #' # Dissolve geometries by default
 #'
 #' library(ggplot2)
-#' p %>%
-#'   count(NAME_1) %>%
+#' p |>
+#'   count(NAME_1) |>
 #'   ggplot() +
 #'   geom_spatvector(aes(fill = n))
 #'
 #' # Opt out
-#' p %>%
-#'   count(NAME_1, .dissolve = FALSE, sort = TRUE) %>%
+#' p |>
+#'   count(NAME_1, .dissolve = FALSE, sort = TRUE) |>
 #'   ggplot() +
 #'   geom_spatvector(aes(fill = n))
 #' }

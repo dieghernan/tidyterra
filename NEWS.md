@@ -1,5 +1,6 @@
 # tidyterra (development version)
 
+-   Minimal **R** version required updated to **\>= 4.1.0**.
 -   Adapt deprecation of **ggplot2** (4.0.0):
     -   `geom_spatvector_label()` / `geom_spatvector_text()`: `label.size`
         aesthetic replaced by `linewidth`. Also `nudge_x` and `nudge_y` are not

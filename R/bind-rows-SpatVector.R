@@ -66,7 +66,7 @@
 #' bind_spat_rows(v1, sfobj)
 #'
 #' # Would reproject with a message on different CRS
-#' sfobj_3857 <- as_spatvector(sfobj) %>% project("EPSG:3857")
+#' sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 #'
 #' bind_spat_rows(v1, sfobj_3857)
 #'
@@ -97,7 +97,7 @@ bind_spat_rows <- function(..., .id = NULL) {
     dots <- dots[[1]]
   }
 
-  named_list <- as.character(seq_len(length(dots)))
+  named_list <- as.character(seq_along(dots))
 
   # Named lists
   if (!is.null(names(dots))) {
@@ -121,7 +121,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   template <- dots[[1]]
 
   # First get all as tibbles
-  alltibbs <- lapply(seq_len(length(dots)), function(i) {
+  alltibbs <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
     # First is always a SpatVector
@@ -151,7 +151,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 
   # Now get all geoms
   # Ensure all are SpatVectors and add ids if required
-  allspatvect <- lapply(seq_len(length(dots)), function(i) {
+  allspatvect <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
     if (inherits(x, c("SpatVector", "sf", "sfc"))) {

@@ -140,7 +140,7 @@ test_that("Test plot", {
   )
 
   # Faceted
-  r2 <- r %>% mutate(elevation_m2 = elevation_m * 2)
+  r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
 
   p_facet <- ggplot() +
     geom_spatraster_contour_text(

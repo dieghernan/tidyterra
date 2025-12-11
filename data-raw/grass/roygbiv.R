@@ -11,28 +11,28 @@ init <- readLines(paste0(
 init
 
 
-tratapal <- init[-1] %>%
-  gsub("   ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub(" ", ":", .) %>%
-  # gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) %>%
-  # gsub("white", paste0((col2rgb("white")), collapse = ":"), .) %>%
-  # gsub("black", paste0((col2rgb("black")), collapse = ":"), .) %>%
-  # gsub("green", paste0((col2rgb("green")), collapse = ":"), .) %>%
+tratapal <- init[-1] |>
+  gsub("   ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub(" ", ":", .) |>
+  # gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) |>
+  # gsub("white", paste0((col2rgb("white")), collapse = ":"), .) |>
+  # gsub("black", paste0((col2rgb("black")), collapse = ":"), .) |>
+  # gsub("green", paste0((col2rgb("green")), collapse = ":"), .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
-  tb <- unlist(f)[-1] %>% as.double()
+  tb <- unlist(f)[-1] |> as.double()
   names(tb) <- c("r", "g", "b")
   df <- as.data.frame(t(tb))
   df$hex <- rgb(df$r, df$g, df$b, maxColorValue = 255)
   df$pal <- pal
 
   df
-}) %>%
-  bind_rows() %>%
+}) |>
+  bind_rows() |>
   select(pal, r, g, b, hex)
 
 # Try

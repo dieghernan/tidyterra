@@ -47,19 +47,19 @@
 #'
 #' # Single variable
 #'
-#' v %>%
+#' v |>
 #'   arrange(desc(iso2))
 #'
 #'
 #' # Two variables
-#' v %>%
-#'   mutate(even = as.double(cpro) %% 2 == 0, ) %>%
+#' v |>
+#'   mutate(even = as.double(cpro) %% 2 == 0, ) |>
 #'   arrange(desc(even), desc(iso2))
 #'
 #'
 #' # With new variables
-#' v %>%
-#'   mutate(area_geom = terra::expanse(v)) %>%
+#' v |>
+#'   mutate(area_geom = terra::expanse(v)) |>
 #'   arrange(area_geom)
 arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
   # Use index
@@ -77,7 +77,7 @@ arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
 
   vend <- group_prepare_spat(vend, arranged)
 
-  return(vend)
+  vend
 }
 
 

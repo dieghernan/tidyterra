@@ -108,7 +108,7 @@ test_that("Test plot", {
   )
 
   # Final test, align everything
-  single <- r %>% select(1)
+  single <- r |> select(1)
 
   binw <- ggplot() +
     geom_sf(data = v_sf, fill = "grey80") +

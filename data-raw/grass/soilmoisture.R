@@ -10,8 +10,8 @@ init <- readLines(paste0(
 
 init
 
-tratapal <- init[] %>%
-  gsub(" ", ":", .) %>%
+tratapal <- init[] |>
+  gsub(" ", ":", .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
@@ -24,8 +24,8 @@ pal_df <- lapply(tratapal, function(f) {
   df$pal <- pal
 
   df
-}) %>%
-  bind_rows() %>%
+}) |>
+  bind_rows() |>
   select(pal, limit, r, g, b, hex)
 
 pal_df

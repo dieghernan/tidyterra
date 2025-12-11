@@ -73,7 +73,7 @@ sfobj
 bind_spat_rows(v1, sfobj)
 
 # Would reproject with a message on different CRS
-sfobj_3857 <- as_spatvector(sfobj) \%>\% project("EPSG:3857")
+sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
 

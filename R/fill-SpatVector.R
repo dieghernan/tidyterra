@@ -42,27 +42,27 @@
 #'
 #' # Leave some blanks for demo purporses
 #'
-#' lux_blnk <- lux %>%
+#' lux_blnk <- lux |>
 #'   mutate(NAME_1 = if_else(NAME_1 != NAME_2, NA, NAME_2))
 #'
 #'
 #' as_tibble(lux_blnk)
 #'
 #' # `fill()` defaults to replacing missing data from top to bottom
-#' lux_blnk %>%
-#'   fill(NAME_1) %>%
+#' lux_blnk |>
+#'   fill(NAME_1) |>
 #'   as_tibble()
 #'
 #'
 #' # direction = "up"
-#' lux_blnk %>%
-#'   fill(NAME_1, .direction = "up") %>%
+#' lux_blnk |>
+#'   fill(NAME_1, .direction = "up") |>
 #'   as_tibble()
 #'
 #' # Grouping and downup - will restore the initial state
-#' lux_blnk %>%
-#'   group_by(ID_1) %>%
-#'   fill(NAME_1, .direction = "downup") %>%
+#' lux_blnk |>
+#'   group_by(ID_1) |>
+#'   fill(NAME_1, .direction = "downup") |>
 #'   as_tibble()
 #'
 fill.SpatVector <- function(
@@ -78,7 +78,7 @@ fill.SpatVector <- function(
   vend <- cbind(data[, 0], filled)
   vend <- group_prepare_spat(vend, filled)
 
-  return(vend)
+  vend
 }
 
 #' @export

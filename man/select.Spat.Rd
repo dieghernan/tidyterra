@@ -65,13 +65,13 @@ spatrast <- rast(
   vals = seq_len(10 * 10 * 6)
 )
 
-spatrast \%>\% select(1)
+spatrast |> select(1)
 
 # By name
-spatrast \%>\% select(lyr.1:lyr.4)
+spatrast |> select(lyr.1:lyr.4)
 
 # Rename
-spatrast \%>\% select(a = lyr.1, c = lyr.6)
+spatrast |> select(a = lyr.1, c = lyr.6)
 
 # SpatVector method
 
@@ -81,9 +81,9 @@ v <- vect(f)
 
 v
 
-v \%>\% select(1, 3)
+v |> select(1, 3)
 
-v \%>\% select(iso2, name2 = cpro)
+v |> select(iso2, name2 = cpro)
 }
 \seealso{
 \code{\link[dplyr:select]{dplyr::select()}}, \code{\link[terra:subset]{terra::subset()}}

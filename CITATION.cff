@@ -69,7 +69,7 @@ references:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
   year: '2025'
-  version: '>= 3.6.0'
+  version: '>= 4.1.0'
 - type: software
   title: cli
   abstract: 'cli: Helpers for Developing Command Line Interfaces'
@@ -353,7 +353,7 @@ references:
     orcid: https://orcid.org/0000-0002-7470-9261
   - family-names: Pedersen
     given-names: Thomas Lin
-    email: thomasp85@gmail.com
+    email: thomas.pedersen@posit.co
     orcid: https://orcid.org/0000-0002-5147-4711
   year: '2025'
   doi: 10.32614/CRAN.package.isoband

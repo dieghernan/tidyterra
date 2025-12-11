@@ -163,8 +163,8 @@ test_that("grouping is preserved", {
   df$lon <- 1
   df <- terra::vect(df, crs = "EPSG:3857")
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     pivot_longer(x1:x2, names_to = "x", values_to = "v")
   expect_equal(dplyr::group_vars(out), "g")
   expect_s4_class(out, "SpatVector")

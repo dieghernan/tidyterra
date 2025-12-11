@@ -109,5 +109,5 @@ compare_spatrasters <- function(x, y, digits = 6) {
     return(invisible(FALSE))
   }
 
-  return(invisible(TRUE))
+  invisible(TRUE)
 }

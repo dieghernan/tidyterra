@@ -261,7 +261,7 @@ get_coltab_pal <- function(x) {
   # Complete NAs with terrain.cols
   if (!identical(length(namedpal), length(nms))) {
     namedpal <- c(namedpal, terrain.colors(length(nms)))
-    namedpal <- namedpal[seq_len(length(nms))]
+    namedpal <- namedpal[seq_along(nms)]
   }
 
   names(namedpal) <- nms

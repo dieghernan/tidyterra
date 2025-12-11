@@ -56,7 +56,7 @@
 #'
 #' # Using points and labels
 #'
-#' r_single <- temp_rast %>% select(1)
+#' r_single <- temp_rast |> select(1)
 #'
 #' ggplot() +
 #'   stat_spatraster(

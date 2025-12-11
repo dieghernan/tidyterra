@@ -16,7 +16,7 @@ test_that("With SpatRaster", {
   )
 
   # Cut
-  r2 <- r %>% mutate(is_fact = cut(tavg_04, seq(0, 20, 5)))
+  r2 <- r |> mutate(is_fact = cut(tavg_04, seq(0, 20, 5)))
 
   # With na.rm FALSE should have more lenght
   expect_lt(

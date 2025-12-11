@@ -216,7 +216,7 @@ ggplot() +
   scale_fill_princess_b(breaks = seq(70, 200, 10), palette = "denmark")
 
 # With discrete values
-factor <- volcano2_rast \%>\% mutate(cats = cut(elevation,
+factor <- volcano2_rast |> mutate(cats = cut(elevation,
   breaks = c(100, 120, 130, 150, 170, 200),
   labels = c(
     "Very Low", "Low", "Average", "High",

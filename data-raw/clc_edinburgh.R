@@ -78,17 +78,17 @@ plot(r)
 library(tidyverse)
 library(tidyterra)
 
-id <- as.data.frame(r) %>%
-  distinct() %>%
-  arrange(CLC_2018) %>%
+id <- as.data.frame(r) |>
+  distinct() |>
+  arrange(CLC_2018) |>
   select(id = CLC_2018)
 
-id2 <- clc_code %>%
-  select(label) %>%
+id2 <- clc_code |>
+  select(label) |>
   mutate(id = row_number())
 
 
-id_end <- id %>%
+id_end <- id |>
   left_join(id2)
 
 # Asign factors
@@ -99,8 +99,8 @@ plot(r)
 
 # Add coltab
 
-coltab_CLC <- clc_code %>%
-  select(label, col = hex) %>%
+coltab_CLC <- clc_code |>
+  select(label, col = hex) |>
   as.data.frame()
 
 

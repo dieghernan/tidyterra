@@ -212,7 +212,7 @@ test_that("Palette", {
   # Expect character(0)
   expect_identical(princess.colors(0), character(0))
 
-  for (i in seq_len(length(allpals))) {
+  for (i in seq_along(allpals)) {
     pal <- allpals[i]
     colors <- princess.colors(20, pal)
 

@@ -115,8 +115,8 @@ library(ggplot2)
 
 
 # Get a SpatRaster
-r <- system.file("extdata/volcano2.tif", package = "tidyterra") \%>\%
-  terra::rast() \%>\%
+r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
+  terra::rast() |>
   terra::project("EPSG:4326")
 
 

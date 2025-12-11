@@ -11,23 +11,23 @@ init <- readLines(paste0(
 init
 
 
-tratapal <- init[] %>%
-  gsub("   ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub("  ", " ", .) %>%
-  gsub(" ", ":", .) %>%
-  # gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) %>%
-  # gsub("white", paste0((col2rgb("white")), collapse = ":"), .) %>%
-  # gsub("black", paste0((col2rgb("black")), collapse = ":"), .) %>%
-  gsub("indigo", "#4B0082", .) %>%
+tratapal <- init[] |>
+  gsub("   ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub("  ", " ", .) |>
+  gsub(" ", ":", .) |>
+  # gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) |>
+  # gsub("white", paste0((col2rgb("white")), collapse = ":"), .) |>
+  # gsub("black", paste0((col2rgb("black")), collapse = ":"), .) |>
+  gsub("indigo", "#4B0082", .) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
   tb <- unlist(f)[-1]
   if (length(tb) == 1) {
-    tb <- tb %>%
-      col2rgb() %>%
+    tb <- tb |>
+      col2rgb() |>
       as.double()
   }
   tb <- as.double(tb)
@@ -37,7 +37,7 @@ pal_df <- lapply(tratapal, function(f) {
   df$pal <- pal
   v <- unlist(f)[1]
   if (grepl("%", v)) {
-    tbn <- gsub("%", "", v) %>% as.double()
+    tbn <- gsub("%", "", v) |> as.double()
     tbn <- tbn / 1000
     tbn <- ifelse(tbn == 0, -1, tbn)
   } else {
@@ -46,14 +46,14 @@ pal_df <- lapply(tratapal, function(f) {
   df$limit <- tbn
 
   df
-}) %>%
-  bind_rows() %>%
-  select(pal, limit, r, g, b, hex) %>%
+}) |>
+  bind_rows() |>
+  select(pal, limit, r, g, b, hex) |>
   as_tibble()
 
-pal_df <- pal_df %>%
-  mutate(limit = ifelse(limit == -1, -0.1, limit)) %>%
-  group_by(limit) %>%
+pal_df <- pal_df |>
+  mutate(limit = ifelse(limit == -1, -0.1, limit)) |>
+  group_by(limit) |>
   slice_head(n = 1)
 
 scales::show_col(pal_df$hex)

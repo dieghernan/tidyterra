@@ -19,7 +19,7 @@ test_that("Can extract a color table", {
   expect_named(pal)
 
   # Test equalities
-  l <- pull(r, era) %>% levels()
+  l <- pull(r, era) |> levels()
 
   expect_identical(names(pal), l)
 
@@ -50,9 +50,9 @@ test_that("Can extract a color table on several layers", {
   expect_named(pal)
 
   # Test equalities
-  l2 <- pull(r, era) %>% levels()
-  l1 <- pull(r, letter) %>%
-    unique() %>%
+  l2 <- pull(r, era) |> levels()
+  l1 <- pull(r, letter) |>
+    unique() |>
     sort()
 
   expect_identical(names(pal), c(l1, l2))

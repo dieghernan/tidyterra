@@ -6,12 +6,12 @@ library(dplyr)
 
 cyl <- esp_get_prov("Castilla y León", epsg = 3035, resolution = 3)
 
-cyl <- cyl %>%
+cyl <- cyl |>
   select(
     iso2 = iso2.prov.code,
     cpro,
     name = cldr.prov.name.en
-  ) %>%
+  ) |>
   st_make_valid()
 
 p <- iconv(cyl$name, to = "ASCII//TRANSLIT")
@@ -72,7 +72,7 @@ elev <- terra::rast(elev)
 
 prov2 <- project(cyl, terra::crs(elev))
 
-elev %>% crop(prov2) -> elev_end
+elev |> crop(prov2) -> elev_end
 
 names(elev_end) <- "elevation_m"
 
@@ -102,13 +102,13 @@ plot(r_check)
 plot(prov2, add = TRUE)
 
 ggplot() +
-  geom_sf(data = sf::st_as_sf(prov2) %>% sf::st_transform(3035)) +
+  geom_sf(data = sf::st_as_sf(prov2) |> sf::st_transform(3035)) +
   geom_spatraster(data = r_check, alpha = 0.4)
 
 # Tile
 library(maptiles)
 
-cyl_sf <- st_as_sf(cyl) %>% st_transform(3857)
+cyl_sf <- st_as_sf(cyl) |> st_transform(3857)
 sf::st_crs(cyl_sf)
 tile <- get_tiles(cyl_sf, crop = TRUE, verbose = TRUE, zoom = 7)
 terra::plotRGB(tile)

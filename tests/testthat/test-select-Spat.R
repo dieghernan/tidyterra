@@ -3,7 +3,7 @@ test_that("SpatRaster select: Geographic", {
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
-  rasterselect <- raster %>% select(cyl_tile_1, cyl_tile_2)
+  rasterselect <- raster |> select(cyl_tile_1, cyl_tile_2)
 
   expect_true(terra::nlyr(rasterselect) == 2)
 
@@ -20,7 +20,7 @@ test_that("SpatRaster select and rename: Geographic", {
   file <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   raster <- terra::rast(file)
 
-  rasterselect <- raster %>% dplyr::select(name_test = cyl_tile_1)
+  rasterselect <- raster |> dplyr::select(name_test = cyl_tile_1)
 
   expect_true(terra::nlyr(rasterselect) == 1)
   expect_true(names(rasterselect) == "name_test")
@@ -39,7 +39,7 @@ test_that("SpatRaster select: Non Geographic", {
   values <- seq_len(terra::ncell(raster) * terra::nlyr(raster))
   terra::values(raster) <- values
 
-  rasterselect <- raster %>% dplyr::select(lyr.1)
+  rasterselect <- raster |> dplyr::select(lyr.1)
 
   expect_true(terra::nlyr(rasterselect) == 1)
   expect_true(names(rasterselect) == "lyr.1")
@@ -59,7 +59,7 @@ test_that("SpatVector select and rename", {
 
   v <- terra::vect(f)
 
-  selected <- v %>% select(iso2, cpro2 = cpro)
+  selected <- v |> select(iso2, cpro2 = cpro)
 
   expect_s4_class(selected, "SpatVector")
   expect_equal(ncol(selected), 2)
@@ -93,10 +93,10 @@ test_that("grouping variables preserved with a msg, unless already selected", {
 
   df <- data.frame(a = 1, b = 2, c = 3)
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)
-  df <- df %>% group_by(a)
+  df <- df |> group_by(a)
 
-  result <- df %>%
-    select(a = b) %>%
+  result <- df |>
+    select(a = b) |>
     as_tibble()
   attr(result, "crs") <- NULL
   expect_equal(
@@ -104,21 +104,21 @@ test_that("grouping variables preserved with a msg, unless already selected", {
     tibble::tibble(a = 2)
   )
 
-  df <- data.frame(a = 1, b = 2, c = 3) %>%
-    terra::vect(geom = c("a", "b"), keepgeom = TRUE) %>%
+  df <- data.frame(a = 1, b = 2, c = 3) |>
+    terra::vect(geom = c("a", "b"), keepgeom = TRUE) |>
     group_by(a, b)
 
   expect_snapshot({
     expect_equal(
-      df %>% select(a = c) %>% group_keys(),
-      tibble::tibble(b = 2, a = 3) %>%
-        group_by(b) %>%
+      df |> select(a = c) |> group_keys(),
+      tibble::tibble(b = 2, a = 3) |>
+        group_by(b) |>
         group_keys()
     )
     expect_equal(
-      df %>% select(b = c) %>% group_keys(),
-      tibble::tibble(a = 1, b = 3) %>%
-        group_by(a) %>%
+      df |> select(b = c) |> group_keys(),
+      tibble::tibble(a = 1, b = 3) |>
+        group_by(a) |>
         group_keys()
     )
   })

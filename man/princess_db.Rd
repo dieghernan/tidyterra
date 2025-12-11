@@ -30,7 +30,7 @@ data("princess_db")
 princess_db
 
 # Select a palette
-maori <- princess_db \%>\%
+maori <- princess_db |>
   filter(pal == "maori")
 
 f <- system.file("extdata/volcano2.tif", package = "tidyterra")

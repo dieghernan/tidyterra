@@ -84,8 +84,8 @@ test_that("geom_spatraster one layer with CRS", {
   t <- as_tibble(r)
   labs <- paste0("c_", cut_number(t$elevation_m, 9, labels = FALSE))
 
-  r_cat <- r %>%
-    dplyr::mutate(elevation_m = labs) %>%
+  r_cat <- r |>
+    dplyr::mutate(elevation_m = labs) |>
     dplyr::select(cats = elevation_m)
 
   p_cats <- ggplot() +
@@ -286,8 +286,8 @@ test_that("geom_spatraster one layer without CRS", {
   t <- as_tibble(r)
   labs <- paste0("c_", cut_number(t$elevation_m, 9, labels = FALSE))
 
-  r_cat <- r %>%
-    dplyr::mutate(elevation_m = labs) %>%
+  r_cat <- r |>
+    dplyr::mutate(elevation_m = labs) |>
     dplyr::select(cats = elevation_m)
 
   p_cats <- ggplot() +

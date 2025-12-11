@@ -19,7 +19,7 @@ URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra
 BugReports: https://github.com/dieghernan/tidyterra/issues
 Depends: 
-    R (>= 3.6.0)
+    R (>= 4.1.0)
 Imports: 
     cli (>= 3.0.0),
     data.table,

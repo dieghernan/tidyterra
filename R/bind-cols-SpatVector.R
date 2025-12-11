@@ -99,7 +99,7 @@ bind_spat_cols <- function(
   template <- dots[[1]]
 
   # Ensure all are tibbles
-  alltibbs <- lapply(seq_len(length(dots)), function(i) {
+  alltibbs <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
     # First is always a SpatVector
@@ -140,5 +140,5 @@ bind_spat_cols <- function(
   # Groups
   vend <- group_prepare_spat(vend, endobj)
 
-  return(vend)
+  vend
 }

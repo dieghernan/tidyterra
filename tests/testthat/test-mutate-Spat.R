@@ -4,7 +4,7 @@ test_that("SpatRaster mutate", {
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   spatrast <- terra::rast(f)
 
-  mod <- spatrast %>%
+  mod <- spatrast |>
     mutate(exp_lyr1 = exp(tavg_04 / 10))
 
   expect_true(compare_spatrasters(spatrast, mod))

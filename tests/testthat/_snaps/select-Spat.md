@@ -8,13 +8,13 @@
 ---
 
     Code
-      expect_equal(df %>% select(a = c) %>% group_keys(), tibble::tibble(b = 2, a = 3) %>%
-        group_by(b) %>% group_keys())
+      expect_equal(group_keys(select(df, a = c)), group_keys(group_by(tibble::tibble(
+        b = 2, a = 3), b)))
     Message
       Adding missing grouping variables: `b`
     Code
-      expect_equal(df %>% select(b = c) %>% group_keys(), tibble::tibble(a = 1, b = 3) %>%
-        group_by(a) %>% group_keys())
+      expect_equal(group_keys(select(df, b = c)), group_keys(group_by(tibble::tibble(
+        a = 1, b = 3), a)))
     Message
       Adding missing grouping variables: `a`
 

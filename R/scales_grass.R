@@ -136,7 +136,7 @@
 #'
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>%
+#' factor <- volcano2_rast |>
 #'   mutate(cats = cut(elevation,
 #'     breaks = c(100, 120, 130, 150, 170, 200),
 #'     labels = c(
@@ -550,7 +550,7 @@ grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
       )
     }
 
-    return(endcols)
+    endcols
   } else {
     character()
   }

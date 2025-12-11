@@ -17,7 +17,7 @@ dem_list <- lapply(allrast, terra::rast)
 dem <- do.call(merge, dem_list)
 
 # Get extent from original raster
-forcrop <- terra::rast("inst/extdata/volcano2.tif") %>%
+forcrop <- terra::rast("inst/extdata/volcano2.tif") |>
   terra::project(pull_crs(dem))
 
 dem_crop <- terra::crop(dem, forcrop)
@@ -36,7 +36,7 @@ class(volcano2)
 dim(volcano2)
 filled.contour(volcano2, color.palette = terrain.colors, asp = 1)
 
-terra::rast(volcano2) %>% terra::plot()
+terra::rast(volcano2) |> terra::plot()
 dem_crop
 
 

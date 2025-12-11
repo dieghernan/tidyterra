@@ -118,17 +118,17 @@ test_that("arguments to rename() don't match vars_rename() arguments", {
   skip_on_cran()
   df <- data.frame(a = 1, lat = 1, lon = 1)
   df <- as_spatvector(df)
-  expect_identical(rename(df, var = a) %>% as_tibble(), tibble::tibble(var = 1))
+  expect_identical(rename(df, var = a) |> as_tibble(), tibble::tibble(var = 1))
   expect_identical(
-    rename(group_by(df, a), var = a) %>% as_tibble(),
+    rename(group_by(df, a), var = a) |> as_tibble(),
     group_by(data.frame(var = 1), var)
   )
   expect_identical(
-    rename(df, strict = a) %>% as_tibble(),
+    rename(df, strict = a) |> as_tibble(),
     tibble::tibble(strict = 1)
   )
   expect_identical(
-    rename(group_by(df, a), strict = a) %>% as_tibble(),
+    rename(group_by(df, a), strict = a) |> as_tibble(),
     group_by(tibble::tibble(strict = 1), strict)
   )
 })

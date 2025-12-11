@@ -49,13 +49,13 @@
 #'
 #'
 #' f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-#' spatrast <- rast(f) %>% mutate(aa = 1, bb = 2, cc = 3)
+#' spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 #'
 #' names(spatrast)
 #'
 #'
-#' spatrast %>%
-#'   relocate(bb, .before = cyl_tile_3) %>%
+#' spatrast |>
+#'   relocate(bb, .before = cyl_tile_3) |>
 #'   relocate(cyl_tile_1, .after = last_col())
 #'
 relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
@@ -72,7 +72,7 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
   finalrast <- .data
   finalrast <- terra::subset(finalrast, names(values_relocated))
 
-  return(finalrast)
+  finalrast
 }
 
 
@@ -93,7 +93,7 @@ relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
   vend <- .data[, names(values_relocated)]
   vend <- group_prepare_spat(vend, values_relocated)
 
-  return(vend)
+  vend
 }
 
 #' @export

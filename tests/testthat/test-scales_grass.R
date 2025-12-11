@@ -671,7 +671,7 @@ test_that("Palettes", {
   # Expect character(0)
   expect_identical(grass.colors(0), character(0))
 
-  for (i in seq_len(length(allpals))) {
+  for (i in seq_along(allpals)) {
     pal <- allpals[i]
     colors <- grass.colors(20, pal)
 

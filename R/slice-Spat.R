@@ -96,57 +96,57 @@
 #' r <- rast(f)
 #'
 #' # Slice first 100 cells
-#' r %>%
-#'   slice(1:100) %>%
+#' r |>
+#'   slice(1:100) |>
 #'   plot()
 #'
 #' # Rows
-#' r %>%
-#'   slice_rows(1:30) %>%
+#' r |>
+#'   slice_rows(1:30) |>
 #'   plot()
 #'
 #' # Cols
-#' r %>%
-#'   slice_cols(-(20:50)) %>%
+#' r |>
+#'   slice_cols(-(20:50)) |>
 #'   plot()
 #'
 #' # Spatial sample
-#' r %>%
-#'   slice_sample(prop = 0.2) %>%
+#' r |>
+#'   slice_sample(prop = 0.2) |>
 #'   plot()
 #'
 #'
 #' # Slice regions
-#' r %>%
+#' r |>
 #'   slice_colrows(
 #'     cols = c(20:40, 60:80),
 #'     rows = -c(1:20, 30:50)
-#'   ) %>%
+#'   ) |>
 #'   plot()
 #'
 #' # Group wise operation with SpatVectors--------------------------------------
 #' v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 #'
 #' \donttest{
-#' glimpse(v) %>% autoplot(aes(fill = NAME_1))
+#' glimpse(v) |> autoplot(aes(fill = NAME_1))
 #'
-#' gv <- v %>% group_by(NAME_1)
+#' gv <- v |> group_by(NAME_1)
 #' # All slice helpers operate per group, silently truncating to the group size
-#' gv %>%
-#'   slice_head(n = 1) %>%
-#'   glimpse() %>%
+#' gv |>
+#'   slice_head(n = 1) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = NAME_1))
-#' gv %>%
-#'   slice_tail(n = 1) %>%
-#'   glimpse() %>%
+#' gv |>
+#'   slice_tail(n = 1) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = NAME_1))
-#' gv %>%
-#'   slice_min(AREA, n = 1) %>%
-#'   glimpse() %>%
+#' gv |>
+#'   slice_min(AREA, n = 1) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = NAME_1))
-#' gv %>%
-#'   slice_max(AREA, n = 1) %>%
-#'   glimpse() %>%
+#' gv |>
+#'   slice_max(AREA, n = 1) |>
+#'   glimpse() |>
 #'   autoplot(aes(fill = NAME_1))
 #' }
 slice.SpatRaster <- function(
@@ -181,7 +181,7 @@ slice.SpatRaster <- function(
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 #' @export
 #' @rdname slice.Spat
@@ -225,7 +225,7 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
   newrast <- newrast[keepcells, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -272,7 +272,7 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
   newrast <- newrast[keepcells, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -350,7 +350,7 @@ slice_min.SpatRaster <- function(
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -445,7 +445,7 @@ slice_max.SpatRaster <- function(
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -534,7 +534,7 @@ slice_sample.SpatRaster <- function(
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -602,7 +602,7 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[keepindex, , drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -646,7 +646,7 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   keepindex <- seq(range[1], range[2], by = 1)
   newrast <- newrast[, keepindex, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export
@@ -716,7 +716,7 @@ slice_colrows.SpatRaster <- function(
 
   newrast <- newrast[keepindex_row, keepindex_col, drop = FALSE]
 
-  return(newrast)
+  newrast
 }
 
 #' @export

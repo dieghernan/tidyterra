@@ -135,18 +135,23 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
     crs <- crs_attr
   }
 
-  if (is.na(pull_crs(crs))) {
-    crs <- NA
+  if (any(is.na(pull_crs(crs)), is.null(pull_crs(crs)))) {
+    crs <- ""
   }
 
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
+
+  # No CRS if no provided
+  if (crs == "") {
+    terra::crs(v) <- NULL
+  }
 
   # Make groups
   if (dplyr::is_grouped_df(x) || is_rowwise_df(x)) {
     v <- group_prepare_spat(v, x)
   }
 
-  return(v)
+  v
 }
 
 #' @rdname as_spatvector

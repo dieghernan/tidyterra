@@ -13,7 +13,7 @@ test_that("distinct equivalent to terra unique", {
 
   expect_equal(as_tibble(distinct(v)), as_tibble(terra::unique(v)))
 
-  v2 <- v %>% select(1, 2)
+  v2 <- v |> select(1, 2)
   expect_equal(as_tibble(distinct(v2)), as_tibble(terra::unique(v2)))
 })
 
@@ -98,8 +98,8 @@ test_that("distinct doesn't duplicate columns", {
   df <- data.frame(a = 1:3, b = 4:6)
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)
 
-  expect_identical(df %>% distinct(a, a) %>% names(), "a")
-  expect_identical(df %>% group_by(a) %>% distinct(a) %>% names(), "a")
+  expect_identical(df |> distinct(a, a) |> names(), "a")
+  expect_identical(df |> group_by(a) |> distinct(a) |> names(), "a")
 })
 
 test_that("grouped distinct always includes group cols", {
@@ -108,8 +108,8 @@ test_that("grouped distinct always includes group cols", {
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 
-  out <- df %>%
-    group_by(g) %>%
+  out <- df |>
+    group_by(g) |>
     distinct(x)
   expect_identical(names(out), c("g", "x"))
 })
@@ -120,11 +120,11 @@ test_that("empty grouped distinct equivalent to empty ungrouped", {
   df <- data.frame(g = c(1, 2), x = c(1, 2))
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
 
-  df1 <- df %>%
-    distinct() %>%
+  df1 <- df |>
+    distinct() |>
     group_by(g)
-  df2 <- df %>%
-    group_by(g) %>%
+  df2 <- df |>
+    group_by(g) |>
     distinct()
 
   expect_identical(as_tibble(df1), as_tibble(df2))
@@ -136,8 +136,8 @@ test_that("distinct adds grouping variables to front if missing", {
   d <- data.frame(x = 1:2, y = 3:4)
   d <- terra::vect(d, geom = c("x", "y"), keepgeom = TRUE)
 
-  expect_identical(distinct(group_by(d, y), x) %>% names(), c("y", "x"))
-  expect_identical(distinct(group_by(d, y), x, y) %>% names(), c("x", "y"))
+  expect_identical(distinct(group_by(d, y), x) |> names(), c("y", "x"))
+  expect_identical(distinct(group_by(d, y), x, y) |> names(), c("x", "y"))
 })
 
 test_that("distinct preserves grouping", {

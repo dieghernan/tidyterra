@@ -25,7 +25,7 @@
 ---
 
     Code
-      ggplot() + geom_spatraster_rgb(data = r_subset %>% select(1))
+      ggplot() + geom_spatraster_rgb(data = select(r_subset, 1))
     Condition
       Error in `geom_spatraster_rgb()`:
       ! Incorrect number of layers on `r`, `g`, and `b`. data has 1 layer.

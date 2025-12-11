@@ -22,75 +22,75 @@ for (i in rest) {
   init <- bind_rows(init, readRDS(i))
 }
 
-ncols_init <- init %>%
-  group_by(pal) %>%
+ncols_init <- init |>
+  group_by(pal) |>
   summarise(n_col = n())
 
-modify <- init %>%
-  mutate(limit = as.integer(limit)) %>%
+modify <- init |>
+  mutate(limit = as.integer(limit)) |>
   drop_na()
 
 # Split those palettes with baty and hypso
-dual <- modify %>%
-  group_by(pal) %>%
-  summarise(m = min(limit)) %>%
-  filter(m < 0) %>%
+dual <- modify |>
+  group_by(pal) |>
+  summarise(m = min(limit)) |>
+  filter(m < 0) |>
   pull(pal)
 
-getdual <- modify %>%
+getdual <- modify |>
   filter(
     pal %in% dual
-  ) %>%
+  ) |>
   mutate(pal = ifelse(limit < 0, paste0(pal, "_bathy"), paste0(pal, "_hypso")))
 
-hypso <- getdual %>%
-  filter(limit >= 0) %>%
+hypso <- getdual |>
+  filter(limit >= 0) |>
   select(1:6)
 
 # Modify limits on bathy
-bathy <- getdual %>%
-  filter(limit < 0) %>%
+bathy <- getdual |>
+  filter(limit < 0) |>
   select(-c(2:6))
 
 names(bathy) <- names(hypso)
 # Additional adjustment on dual palettes
 
-adjust_dual <- getdual <- modify %>%
+adjust_dual <- getdual <- modify |>
   filter(
     pal %in% dual
-  ) %>%
-  filter(limit < 0) %>%
-  select(pal) %>%
+  ) |>
+  filter(limit < 0) |>
+  select(pal) |>
   unique()
 
 newcol <- tribble(
   ~limit, ~r, ~g, ~b, ~hex,
   -5, 175, 220, 244, "#AFDCF4"
 )
-adjusted <- adjust_dual %>% bind_cols(newcol)
+adjusted <- adjust_dual |> bind_cols(newcol)
 
 # Regenetate
-hypsometric_tints_db <- modify %>%
-  bind_rows(hypso) %>%
-  bind_rows(bathy) %>%
-  bind_rows(adjusted) %>%
-  select(1:6) %>%
-  drop_na() %>%
-  arrange(pal, limit) %>%
+hypsometric_tints_db <- modify |>
+  bind_rows(hypso) |>
+  bind_rows(bathy) |>
+  bind_rows(adjusted) |>
+  select(1:6) |>
+  drop_na() |>
+  arrange(pal, limit) |>
   distinct()
 
 
-validate <- hypsometric_tints_db %>%
-  drop_na() %>%
-  group_by(pal) %>%
+validate <- hypsometric_tints_db |>
+  drop_na() |>
+  group_by(pal) |>
   summarise(
     n = n(),
     min = min(limit),
     max = max(limit),
     mean = mean(limit),
     median = median(limit)
-  ) %>%
-  left_join(ncols_init) %>%
+  ) |>
+  left_join(ncols_init) |>
   mutate(diff = n - n_col)
 
 
@@ -114,8 +114,8 @@ opar <- par(no.readonly = TRUE)
 
 par(mfrow = npanels, mar = rep(1, 4), bg = "grey85")
 for (i in pals) {
-  cc <- hypsometric_tints_db %>%
-    filter(pal == i) %>%
+  cc <- hypsometric_tints_db |>
+    filter(pal == i) |>
     pull(hex)
   ramp <- colorRampPalette(cc)
 

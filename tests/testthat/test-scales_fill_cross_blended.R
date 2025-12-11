@@ -362,7 +362,7 @@ test_that("Palettes", {
   # Expect character(0)
   expect_identical(cross_blended.colors(0), character(0))
 
-  for (i in seq_len(length(allpals))) {
+  for (i in seq_along(allpals)) {
     pal <- allpals[i]
     colors <- cross_blended.colors(20, pal)
 
@@ -384,7 +384,7 @@ test_that("Palettes2", {
   # Expect character(0)
   expect_identical(cross_blended.colors2(0), character(0))
 
-  for (i in seq_len(length(allpals))) {
+  for (i in seq_along(allpals)) {
     pal <- allpals[i]
 
     colors <- cross_blended.colors2(25, pal)

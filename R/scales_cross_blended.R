@@ -58,11 +58,11 @@
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
-#' cross_blended_hypsometric_tints_db %>%
-#'   pull(pal) %>%
+#' cross_blended_hypsometric_tints_db |>
+#'   pull(pal) |>
 #'   unique() %>%
-#'   paste0('`"', ., '"`', collapse = ", ") %>%
-#'   paste0(".") %>%
+#'   paste0('`"', ., '"`', collapse = ", ") |>
+#'   paste0(".") |>
 #'   cat()
 #'
 #'
@@ -143,7 +143,7 @@
 #'   )
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>%
+#' factor <- volcano2_rast |>
 #'   mutate(cats = cut(elevation,
 #'     breaks = c(100, 120, 130, 150, 170, 200),
 #'     labels = c(
@@ -402,7 +402,7 @@ cross_blended.colors <- function(
     )
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
-    return(endcols)
+    endcols
   } else {
     character()
   }
@@ -770,7 +770,7 @@ cross_blended.colors2 <- function(
     colors <- as.character(paltab$hex)
     limits <- sort(as.integer(paltab$limit))
     endcols <- tidyterra_ramp2(colors, n, alpha, rev, limits)
-    return(endcols)
+    endcols
   } else {
     character()
   }

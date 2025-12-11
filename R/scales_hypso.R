@@ -49,11 +49,11 @@
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
 #' suppressPackageStartupMessages(library(dplyr))
-#' hypsometric_tints_db %>%
-#'   pull(pal) %>%
+#' hypsometric_tints_db |>
+#'   pull(pal) |>
 #'   unique() %>%
-#'   paste0('`"', ., '"`', collapse = ", ") %>%
-#'   paste0(".") %>%
+#'   paste0('`"', ., '"`', collapse = ", ") |>
+#'   paste0(".") |>
 #'   cat()
 #'
 #'
@@ -129,7 +129,7 @@
 #'   )
 #'
 #' # With discrete values
-#' factor <- volcano2_rast %>% mutate(cats = cut(elevation,
+#' factor <- volcano2_rast |> mutate(cats = cut(elevation,
 #'   breaks = c(100, 120, 130, 150, 170, 200),
 #'   labels = c(
 #'     "Very Low", "Low", "Average", "High",
@@ -376,7 +376,7 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
     paltab <- extract_pal(tidyterra::hypsometric_tints_db, palette = palette)
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)
-    return(endcols)
+    endcols
   } else {
     character()
   }
@@ -732,7 +732,7 @@ hypso.colors2 <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
     colors <- as.character(paltab$hex)
     limits <- sort(as.integer(paltab$limit))
     endcols <- tidyterra_ramp2(colors, n, alpha, rev, limits)
-    return(endcols)
+    endcols
   } else {
     character()
   }
@@ -752,7 +752,7 @@ tidyterra_ramp2 <- function(colors, n, alpha = 1, rev = FALSE, limits) {
     endcols <- ggplot2::alpha(endcols, alpha)
   }
 
-  return(endcols)
+  endcols
 }
 
 

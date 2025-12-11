@@ -13,14 +13,14 @@ autoplot(r)
 
 terra::has.colors(xend)
 
-pp <- as_tibble(r) %>%
+pp <- as_tibble(r) |>
   filter(substr(LABEL3, 1, 1) == "S")
 
 unique(pp$LABEL3)
 end <- unique(pp$LABEL3)
 as.integer(end)
 levels(pp$LABEL3)
-aa <- r %>% filter(substr(LABEL3, 1, 1) == "S")
+aa <- r |> filter(substr(LABEL3, 1, 1) == "S")
 
 bb <- terra::levels(aa)
 
@@ -34,7 +34,7 @@ terra::plot(aa)
 init <- terra::cats(r)
 end <- terra::cats(aa)
 terra::coltab(aa)
-get_coltab_pal(r) %>% scales::show_col()
+get_coltab_pal(r) |> scales::show_col()
 autoplot(aa)
 undebug(filter.SpatRaster)
 dplyr::tr
