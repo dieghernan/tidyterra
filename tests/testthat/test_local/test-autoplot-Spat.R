@@ -1,7 +1,5 @@
 test_that("Test SpatRaster", {
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
@@ -135,8 +133,6 @@ test_that("Test SpatRaster", {
 
 test_that("test SpatVector", {
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
@@ -157,8 +153,6 @@ test_that("test SpatVector", {
 
 test_that("test SpatExtent", {
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
@@ -181,8 +175,6 @@ test_that("test SpatExtent", {
 
 test_that("test SpatGraticule", {
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   g <- terra::graticule(60, 30, crs = "+proj=robin")
 

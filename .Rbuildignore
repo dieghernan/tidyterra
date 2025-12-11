@@ -10,7 +10,6 @@
 ^docs$
 ^pkgdown$
 ^README\.Rmd$
-^tests/testthat/_snaps$
 ^\.github$
 ^tidyterra\.Rcheck$
 ^tidyterra.*\.tar\.gz$
@@ -34,3 +33,4 @@
 ^_pkgdown\.yml$
 ^[.]?air[.]toml$
 ^\.vscode$
+^tests/testthat/test_local$

@@ -1,6 +1,4 @@
 test_that("geom_spatraster_rgb with CRS", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -59,8 +57,6 @@ test_that("geom_spatraster_rgb with CRS", {
   )
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -155,8 +151,6 @@ test_that("geom_spatraster_rgb with CRS", {
 
 
 test_that("geom_spatraster_rgb with CRS masked", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -187,9 +181,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
   )
 
   # test with vdiffr
-  skip_on_covr()
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -272,8 +263,6 @@ test_that("geom_spatraster_rgb with CRS masked", {
 })
 
 test_that("geom_spatraster_rgb with no CRS", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -320,8 +309,6 @@ test_that("geom_spatraster_rgb with no CRS", {
   )
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -412,8 +399,6 @@ test_that("geom_spatraster_rgb with no CRS", {
 
 
 test_that("geom_spatraster_rgb with no CRS masked", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -464,9 +449,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   )
 
   # test with vdiffr
-  skip_on_covr()
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -559,8 +541,6 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 })
 
 test_that("geom_spatraster facets", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -574,9 +554,6 @@ test_that("geom_spatraster facets", {
   v_sf <- sf::st_as_sf(v)
 
   # test with vdiffr
-  skip_on_covr()
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Facet plot
 
@@ -605,8 +582,6 @@ test_that("geom_spatraster facets", {
 })
 
 test_that("stretch and zlim", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -614,8 +589,6 @@ test_that("stretch and zlim", {
   r <- rast(f)
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 

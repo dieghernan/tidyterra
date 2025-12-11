@@ -1,37 +1,61 @@
-test_that("contour breaks can be set manually", {
-  skip_on_cran()
-
+test_that("keep_mid_true drops leading/trailing FALSE", {
   # From ggplot2
-
-  range <- c(0, 1)
-  expect_equal(contour_breaks(range), pretty(range, 10))
-  expect_identical(contour_breaks(range, breaks = 1:3), 1:3)
-  expect_length(contour_breaks(range, bins = 5), 6)
-  # shifting the range by 0.2 hits another execution branch
-  # in contour_breaks()
-  expect_length(contour_breaks(range + 0.2, bins = 5), 6)
+  expect_equal(keep_mid_true(c(FALSE, FALSE)), c(FALSE, FALSE))
   expect_equal(
-    ggplot2::resolution(
-      contour_breaks(range, binwidth = 0.3)
-    ),
-    0.3
+    keep_mid_true(c(FALSE, TRUE, FALSE, TRUE, FALSE)),
+    c(FALSE, TRUE, TRUE, TRUE, FALSE)
   )
   expect_equal(
-    contour_breaks(range),
-    contour_breaks(range, breaks = scales::fullseq)
+    keep_mid_true(c(TRUE, TRUE, FALSE, TRUE, FALSE)),
+    c(TRUE, TRUE, TRUE, TRUE, FALSE)
   )
   expect_equal(
-    contour_breaks(range),
-    contour_breaks(range, breaks = ~ scales::fullseq(.x, .y))
+    keep_mid_true(c(FALSE, TRUE, FALSE, TRUE, TRUE)),
+    c(FALSE, TRUE, TRUE, TRUE, TRUE)
   )
-
-  expect_equal(contour_breaks(range, bins = 1), range)
 })
 
+test_that("resolve text units", {
+  expect_equal(resolve_text_unit("pt"), 1)
+  expect_equal(resolve_text_unit("in"), 72.27)
+  expect_equal(resolve_text_unit("mm"), ggplot2::.pt)
+  expect_equal(resolve_text_unit("cm"), 10 * ggplot2::.pt)
+  expect_equal(resolve_text_unit("pc"), 12)
+})
+
+test_that("rebuild isolines", {
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  r <- terra::rast(f)
+  xyz_df <- as_tibble(r, xy = TRUE)
+  names(xyz_df) <- c("x", "y", "z")
+
+  isolines <- xyz_to_isolines(xyz_df, breaks = seq(500, 2000, 500))
+  expect_s3_class(isolines, c("isolines", "iso"), exact = TRUE)
+
+  path_df <- iso_to_path(isolines, "group")
+
+  path_df$level <- as.numeric(path_df$level)
+  path_df$nlevel <- scales::rescale_max(path_df$level)
+  path_df$lyr <- "ly"
+  isoreb <- df_to_isolines(path_df)
+
+  expect_identical(isolines, isoreb)
+})
+test_that("aes iso", {
+  df <- data.frame(
+    level = 1,
+    # aes
+    fontface = "a",
+    color = "red",
+    size = 200
+  )
+
+  expect_identical(get_aes_iso(df, "fontface"), "a")
+  expect_identical(get_aes_iso(df, "color"), "red")
+  expect_identical(get_aes_iso(df, "size"), 200)
+})
 
 test_that("Errors and messages", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -45,22 +69,22 @@ test_that("Errors and messages", {
   # Errors
   expect_error(
     ggplot(r) +
-      geom_spatraster_contour()
+      geom_spatraster_contour_text()
   )
 
   expect_snapshot(
     ggplot() +
-      geom_spatraster_contour(data = v),
+      geom_spatraster_contour_text(data = v),
     error = TRUE
   )
   expect_snapshot(
     ggplot() +
-      geom_spatraster_contour(data = 1:3),
+      geom_spatraster_contour_text(data = 1:3),
     error = TRUE
   )
   expect_snapshot(
     ggplot() +
-      geom_spatraster_contour(data = r, aes(z = noexist)),
+      geom_spatraster_contour_text(data = r, aes(z = noexist)),
     error = TRUE
   )
 
@@ -68,17 +92,15 @@ test_that("Errors and messages", {
   terra::crs(r) <- NA
 
   ff <- ggplot() +
-    geom_spatraster_contour(
+    geom_spatraster_contour_text(
       data = r,
-      breaks = c(0, 1)
+      breaks = c(150, 200, 500, 1000, 2000)
     )
   expect_snapshot(end <- ggplot_build(ff))
 })
 
 
 test_that("Test plot", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
 
   #  Import also vector
@@ -90,13 +112,14 @@ test_that("Test plot", {
   v_sf <- sf::st_as_sf(v)
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
   p <- ggplot() +
-    geom_spatraster_contour(data = r)
+    geom_spatraster_contour_text(
+      data = r,
+      breaks = c(1000, 2000)
+    )
 
   vdiffr::expect_doppelganger("01-regular", p)
   vdiffr::expect_doppelganger(
@@ -108,8 +131,9 @@ test_that("Test plot", {
   r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
 
   p_facet <- ggplot() +
-    geom_spatraster_contour(
+    geom_spatraster_contour_text(
       data = r2,
+      breaks = c(1000, 2000, 4000),
       aes(color = after_stat(level))
     ) +
     facet_wrap(~lyr)
@@ -123,13 +147,19 @@ test_that("Test plot", {
 
   # Aes for a single layer
   p_more_aes <- ggplot() +
-    geom_spatraster_contour(
+    geom_spatraster_contour_text(
       data = r2,
       aes(
         z = elevation_m2,
+        size = after_stat(nlevel),
+        label = after_stat(nlevel),
         color = after_stat(nlevel)
       ),
+      family = "serif",
+      fontface = "bold",
       binwidth = 500,
+      label_format = scales::label_number(prefix = "XO-0"),
+      label_placer = isoband::label_placer_minmax(),
       linetype = "dotted"
     )
 
@@ -148,8 +178,9 @@ test_that("Test plot", {
 
   # With false
   p <- ggplot() +
-    geom_spatraster_contour(
+    geom_spatraster_contour_text(
       data = asia,
+      binwidth = 500,
       mask_projection = FALSE
     ) +
     coord_sf(crs = "+proj=eqearth")
@@ -160,7 +191,11 @@ test_that("Test plot", {
 
   # With true
   p <- ggplot() +
-    geom_spatraster_contour(data = asia, mask_projection = TRUE) +
+    geom_spatraster_contour_text(
+      data = asia,
+      binwidth = 500,
+      mask_projection = TRUE
+    ) +
     coord_sf(crs = "+proj=eqearth")
   vdiffr::expect_doppelganger(
     "08-No Wrap",
@@ -173,7 +208,11 @@ test_that("Test plot", {
   end <- c(asia, a2)
 
   p <- ggplot() +
-    geom_spatraster_contour(data = end, mask_projection = TRUE) +
+    geom_spatraster_contour_text(
+      data = end,
+      binwidth = 500,
+      mask_projection = TRUE
+    ) +
     facet_wrap(~lyr) +
     coord_sf(crs = "+proj=eqearth")
 
@@ -185,8 +224,6 @@ test_that("Test plot", {
 
 
 test_that("geom_spatraster one facets", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -200,14 +237,11 @@ test_that("geom_spatraster one facets", {
   v_sf <- sf::st_as_sf(v)[1:3, ]
 
   # test with vdiffr
-  skip_on_covr()
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Facet plot
 
   p <- ggplot() +
-    geom_spatraster_contour(data = r, bins = 3) +
+    geom_spatraster_contour_text(data = r, bins = 3) +
     geom_sf(data = v_sf, color = "red", fill = NA) +
     facet_wrap(~iso2)
 
@@ -216,7 +250,7 @@ test_that("geom_spatraster one facets", {
   # With color
 
   p <- ggplot() +
-    geom_spatraster_contour(data = r, bins = 3) +
+    geom_spatraster_contour_text(data = r, bins = 3) +
     geom_sf(data = v_sf, aes(color = cpro), fill = NA) +
     facet_wrap(~iso2)
 

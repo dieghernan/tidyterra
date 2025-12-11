@@ -1,7 +1,5 @@
 # Test coltab is kept on SpatRaster methods
 test_that("drop_na", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -13,16 +11,12 @@ test_that("drop_na", {
   expect_identical(terra::coltab(r), terra::coltab(d))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   vdiffr::expect_doppelganger("coltab_orig", autoplot(r))
   vdiffr::expect_doppelganger("drop_na", autoplot(d))
 })
 
 test_that("replace_na", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -34,16 +28,13 @@ test_that("replace_na", {
   expect_identical(terra::coltab(r), terra::coltab(d))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
+
   vdiffr::expect_doppelganger("replace_na", autoplot(d))
 })
 
 # Dplyr methods
 
 test_that("select", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -83,8 +74,7 @@ test_that("select", {
   )
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
+
   vdiffr::expect_doppelganger("select1", autoplot(d1))
   vdiffr::expect_doppelganger("select2", autoplot(d2))
   vdiffr::expect_doppelganger("select several", autoplot(d3))
@@ -92,8 +82,6 @@ test_that("select", {
 })
 
 test_that("mutate", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -144,8 +132,7 @@ test_that("mutate", {
   expect_identical(terra::coltab(d4), fullctab[c(2, 3, 1)])
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
+
   vdiffr::expect_doppelganger("mutate1", autoplot(d1))
   vdiffr::expect_doppelganger("mutate2", autoplot(d2))
   vdiffr::expect_doppelganger("mutate3", autoplot(d3))
@@ -153,8 +140,6 @@ test_that("mutate", {
 })
 
 test_that("transmute", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -218,8 +203,7 @@ test_that("transmute", {
   )
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
+
   vdiffr::expect_doppelganger("transmute1", autoplot(d1))
   vdiffr::expect_doppelganger("transmute2", autoplot(d2))
   vdiffr::expect_doppelganger("transmute3", autoplot(d3))
@@ -227,8 +211,6 @@ test_that("transmute", {
 })
 
 test_that("filter", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -237,15 +219,11 @@ test_that("filter", {
   expect_identical(terra::coltab(r), terra::coltab(d))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   vdiffr::expect_doppelganger("filter", autoplot(d))
 })
 
 test_that("slice", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -298,8 +276,6 @@ test_that("slice", {
 
 
 test_that("rename", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -308,15 +284,11 @@ test_that("rename", {
   expect_identical(terra::coltab(r), terra::coltab(d))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   vdiffr::expect_doppelganger("rename", autoplot(d))
 })
 
 test_that("relocate", {
-  skip_on_cran()
-
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.colors(r))
@@ -330,8 +302,6 @@ test_that("relocate", {
   expect_identical(terra::coltab(d), c(terra::coltab(r), list(NULL)))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   vdiffr::expect_doppelganger("relocate", autoplot(d))
 })

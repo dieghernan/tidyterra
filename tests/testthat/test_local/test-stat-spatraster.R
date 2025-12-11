@@ -1,5 +1,4 @@
 test_that("Minimal checks for stat_spatraster 1lyr CRS", {
-  skip_on_cran()
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -28,8 +27,6 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   )
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -89,7 +86,6 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
 })
 
 test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
-  skip_on_cran()
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -105,8 +101,6 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   terra::crs(r) <- NA
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 

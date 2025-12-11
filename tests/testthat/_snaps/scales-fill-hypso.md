@@ -142,3 +142,24 @@
       Error in `extract_pal()`:
       ! `palette` does not match any given palette
 
+# PR 165
+
+    Code
+      data$.label
+    Output
+      [1] "-10000" "-5000"  "0"      "5000"   "10000" 
+
+---
+
+    Code
+      data$.label
+    Output
+      [1] "-1000" "-750"  "-500"  "-250"  "0"    
+
+---
+
+    Code
+      data$.label
+    Output
+      [1] "-7500" "-5000" "-2500" "0"    
+

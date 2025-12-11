@@ -1,6 +1,4 @@
 test_that("geom_spatraster several layer with CRS", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -35,8 +33,6 @@ test_that("geom_spatraster several layer with CRS", {
   expect_snapshot(end <- ggplot_build(s))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -323,8 +319,6 @@ test_that("geom_spatraster several layer with CRS", {
 
 
 test_that("geom_spatraster several layer with no CRS", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -354,8 +348,6 @@ test_that("geom_spatraster several layer with no CRS", {
   expect_silent(ggplot_build(s))
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -550,8 +542,6 @@ test_that("geom_spatraster several layer with no CRS", {
 })
 
 test_that("Warn in RGB tile", {
-  skip_on_cran()
-
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 

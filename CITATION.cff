@@ -494,29 +494,4 @@ references:
     email: davis@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.vctrs
-- type: software
-  title: vdiffr
-  abstract: 'vdiffr: Visual Regression Testing and Graphical Diffing'
-  notes: Suggests
-  url: https://vdiffr.r-lib.org/
-  repository: https://CRAN.R-project.org/package=vdiffr
-  authors:
-  - family-names: Henry
-    given-names: Lionel
-    email: lionel@posit.co
-  - family-names: Pedersen
-    given-names: Thomas Lin
-    email: thomas.pedersen@posit.co
-    orcid: https://orcid.org/0000-0002-5147-4711
-  - family-names: Luciani
-    given-names: T Jake
-    email: jake@apache.org
-  - family-names: Decorde
-    given-names: Matthieu
-    email: matthieu.decorde@ens-lyon.fr
-  - family-names: Lise
-    given-names: Vaudor
-    email: lise.vaudor@ens-lyon.fr
-  year: '2025'
-  doi: 10.32614/CRAN.package.vdiffr
 

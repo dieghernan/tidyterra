@@ -394,6 +394,7 @@ test_that("Palettes2", {
 })
 
 test_that("PR 165", {
+  skip_on_cran()
   suppressWarnings(library(ggplot2))
   suppressWarnings(library(terra))
 
@@ -405,6 +406,10 @@ test_that("PR 165", {
     geom_spatraster(data = r) +
     scale_fill_hypso_tint_c(palette = "gmt_globe")
 
+  data <- get_guide_data(p1, "fill")
+
+  expect_snapshot(data$.label)
+
   wlims1 <- ggplot() +
     geom_spatraster(data = r) +
     scale_fill_hypso_tint_c(
@@ -413,6 +418,9 @@ test_that("PR 165", {
       limits = c(-1000, 50)
     )
 
+  data <- get_guide_data(wlims1, "fill")
+  expect_snapshot(data$.label)
+
   wlims2 <- ggplot() +
     geom_spatraster(data = r) +
     scale_fill_hypso_tint_c(
@@ -420,9 +428,6 @@ test_that("PR 165", {
       oob = scales::oob_squish,
       limits = c(-9000, 50)
     )
-
-  # Scales
-  vdiffr::expect_doppelganger("pr165_01: nolims", p1)
-  vdiffr::expect_doppelganger("pr165_02: lims1", wlims1)
-  vdiffr::expect_doppelganger("pr165_03: lims1", wlims2)
+  data <- get_guide_data(wlims2, "fill")
+  expect_snapshot(data$.label)
 })

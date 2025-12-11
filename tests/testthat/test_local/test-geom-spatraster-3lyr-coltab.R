@@ -34,8 +34,6 @@ test_that("geom_spatraster several layer with CRS", {
   r <- hlp_input_coltab(r, lyr = 3, pal = hypso.colors, palette = "pakistan")
 
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
@@ -173,8 +171,6 @@ test_that("geom_spatraster alpha several layers", {
     alpha = 0.7
   )
   # test with vdiffr
-  skip_on_cran()
-  skip_if_not_installed("vdiffr")
 
   # Regular plot
 
