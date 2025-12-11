@@ -39,6 +39,15 @@ jobs:
             r-lib/revdepcheck
           needs: check
 
+      - name: Cheat testthat >= 3.3.0
+        run: |
+          # Cheat testthat >= 3.3.0
+          lns <- readLines(".Rbuildignore")
+          lns_new <- lns[!grepl("_snaps", lns)]
+          writeLines(lns_new, ".Rbuildignore")
+
+        shell: Rscript {0}
+
       - name: revdepcheck
         run: |
 
