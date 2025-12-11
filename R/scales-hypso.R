@@ -757,7 +757,6 @@ tidyterra_ramp2 <- function(colors, n, alpha = 1, rev = FALSE, limits) {
 
 
 hypso_pal <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- hypso.colors(
       n,
@@ -768,12 +767,10 @@ hypso_pal <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 
 hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- hypso.colors2(
       n,
@@ -784,7 +781,6 @@ hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 #' @export

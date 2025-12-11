@@ -150,7 +150,6 @@ stat_spatvector <- function(
   inherit.aes = TRUE,
   ...
 ) {
-  # nocov start
   ggplot2::stat_sf(
     mapping = mapping,
     data = data,
@@ -161,5 +160,4 @@ stat_spatvector <- function(
     inherit.aes = inherit.aes,
     ...
   )
-  # nocov end
 }

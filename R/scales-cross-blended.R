@@ -778,7 +778,6 @@ cross_blended.colors2 <- function(
 
 # Helpers
 cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- cross_blended.colors(
       n,
@@ -789,12 +788,10 @@ cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 
 cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- cross_blended.colors2(
       n,
@@ -805,7 +802,6 @@ cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 

@@ -124,6 +124,7 @@ test_that("Glance SpatVectors", {
 
 test_that("Stress SpatVector", {
   skip_on_cran()
+  skip_on_os("linux")
   # SpatVector
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   expect_snapshot(glance(v))

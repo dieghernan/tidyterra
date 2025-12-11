@@ -333,7 +333,6 @@ whitebox.colors <- function(
 
 
 whitebox_pal <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- whitebox.colors(
       n,
@@ -344,7 +343,6 @@ whitebox_pal <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 extract_pal <- function(df, palette) {

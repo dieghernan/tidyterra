@@ -324,7 +324,6 @@ princess.colors <- function(n, palette = "snow", alpha = 1, rev = FALSE) {
 
 
 princess_pal <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- princess.colors(
       n,
@@ -335,7 +334,6 @@ princess_pal <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }
 
 

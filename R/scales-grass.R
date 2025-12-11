@@ -558,7 +558,6 @@ grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
 
 # Helpers
 grass_pal <- function(alpha = 1, direction = 1, palette) {
-  # nocov start
   function(n) {
     pal <- grass.colors(
       n,
@@ -569,5 +568,4 @@ grass_pal <- function(alpha = 1, direction = 1, palette) {
 
     pal
   }
-  # nocov end
 }

@@ -337,11 +337,9 @@ wiki_cols <- c(
 )
 
 wiki_pal <- function(alpha = 1, direction = 1) {
-  # nocov start
   function(n) {
     pal <- wiki.colors(n, rev = direction != 1, alpha = alpha)
 
     pal
   }
-  # nocov end
 }

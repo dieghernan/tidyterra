@@ -244,13 +244,11 @@ scale_colour_terrain_b <- function(
 }
 
 terrain_pal <- function(alpha = 1, direction = 1) {
-  # nocov start
   function(n) {
     pal <- terrain.colors(n, rev = direction == 1, alpha = alpha)
 
     pal
   }
-  # nocov end
 }
 
 #' @export

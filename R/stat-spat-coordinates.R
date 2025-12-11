@@ -55,7 +55,6 @@ stat_spat_coordinates <- function(
   inherit.aes = TRUE,
   ...
 ) {
-  # nocov start
   ggplot2::stat_sf_coordinates(
     mapping = mapping,
     data = data,
@@ -66,5 +65,4 @@ stat_spat_coordinates <- function(
     inherit.aes = inherit.aes,
     ...
   )
-  # nocov end
 }
