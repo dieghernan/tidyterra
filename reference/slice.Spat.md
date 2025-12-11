@@ -286,36 +286,36 @@ f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 r <- rast(f)
 
 # Slice first 100 cells
-r %>%
-  slice(1:100) %>%
+r |>
+  slice(1:100) |>
   plot()
 
 
 # Rows
-r %>%
-  slice_rows(1:30) %>%
+r |>
+  slice_rows(1:30) |>
   plot()
 
 
 # Cols
-r %>%
-  slice_cols(-(20:50)) %>%
+r |>
+  slice_cols(-(20:50)) |>
   plot()
 
 
 # Spatial sample
-r %>%
-  slice_sample(prop = 0.2) %>%
+r |>
+  slice_sample(prop = 0.2) |>
   plot()
 
 
 
 # Slice regions
-r %>%
+r |>
   slice_colrows(
     cols = c(20:40, 60:80),
     rows = -c(1:20, 30:50)
-  ) %>%
+  ) |>
   plot()
 
 
@@ -323,7 +323,7 @@ r %>%
 v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 
 # \donttest{
-glimpse(v) %>% autoplot(aes(fill = NAME_1))
+glimpse(v) |> autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 12 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
@@ -337,11 +337,11 @@ glimpse(v) %>% autoplot(aes(fill = NAME_1))
 #> $ POP    <dbl> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187, 1…
 
 
-gv <- v %>% group_by(NAME_1)
+gv <- v |> group_by(NAME_1)
 # All slice helpers operate per group, silently truncating to the group size
-gv %>%
-  slice_head(n = 1) %>%
-  glimpse() %>%
+gv |>
+  slice_head(n = 1) |>
+  glimpse() |>
   autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
@@ -356,9 +356,9 @@ gv %>%
 #> $ AREA   <dbl> 312, 188, 185
 #> $ POP    <dbl> 18081, 18899, 48187
 
-gv %>%
-  slice_tail(n = 1) %>%
-  glimpse() %>%
+gv |>
+  slice_tail(n = 1) |>
+  glimpse() |>
   autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
@@ -373,9 +373,9 @@ gv %>%
 #> $ AREA   <dbl> 263, 210, 233
 #> $ POP    <dbl> 16735, 29828, 32112
 
-gv %>%
-  slice_min(AREA, n = 1) %>%
-  glimpse() %>%
+gv |>
+  slice_min(AREA, n = 1) |>
+  glimpse() |>
   autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
@@ -390,9 +390,9 @@ gv %>%
 #> $ AREA   <dbl> 76, 129, 185
 #> $ POP    <dbl> 5163, 22366, 48187
 
-gv %>%
-  slice_max(AREA, n = 1) %>%
-  glimpse() %>%
+gv |>
+  slice_max(AREA, n = 1) |>
+  glimpse() |>
   autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons

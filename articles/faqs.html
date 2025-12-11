@@ -151,8 +151,8 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span><span class="co"># Get a raster data from Holyrood Park, Edinburgh</span></span>
 <span><span class="va">holyrood</span> <span class="op">&lt;-</span> <span class="st">"holyroodpark.tif"</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="va">holyrood</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="va">holyrood</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">elevation</span> <span class="op">&gt;</span> <span class="fl">80</span> <span class="op">&amp;</span> <span class="va">elevation</span> <span class="op">&lt;</span> <span class="fl">180</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Default</span></span>
@@ -395,8 +395,8 @@ to avoid resampling and force the <strong>ggplot2</strong> map to be on
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/maptiles/" class="external-link">maptiles</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Get a tile from a point on sf format</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3.166011</span>, <span class="fl">55.945235</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3.166011</span>, <span class="fl">55.945235</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_unary.html" class="external-link">st_buffer</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tile1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">get_tiles</a></span><span class="op">(</span><span class="va">p</span>,</span>
@@ -501,9 +501,9 @@ this:</p>
 <span><span class="co"># Modify breaks on x and y</span></span>
 <span></span>
 <span><span class="co"># Need to be in EPSG:4326, but don't know why...</span></span>
-<span><span class="va">extent</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">extent</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">y_br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">extent</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ymin"</span>, <span class="st">"ymax"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">x_br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/pretty.html" class="external-link">pretty</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">extent</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"xmin"</span>, <span class="st">"xmax"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
@@ -746,7 +746,7 @@ your layer:</p>
 <span></span>
 <span></span>
 <span><span class="co"># Area of interest</span></span>
-<span><span class="va">aoi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html" class="external-link">gadm</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"CHE"</span>, path <span class="op">=</span> <span class="st">"."</span>, level <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">aoi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html" class="external-link">gadm</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"CHE"</span>, path <span class="op">=</span> <span class="st">"."</span>, level <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:3857"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Tile</span></span>
@@ -756,9 +756,9 @@ your layer:</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Clim (mean prec)</span></span>
-<span><span class="va">clim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/worldclim.html" class="external-link">worldclim_country</a></span><span class="op">(</span><span class="st">"CHE"</span>, var <span class="op">=</span> <span class="st">"prec"</span>, path <span class="op">=</span> <span class="st">"."</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">rgb_tile</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/mask.html" class="external-link">mask</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">clim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/geodata/man/worldclim.html" class="external-link">worldclim_country</a></span><span class="op">(</span><span class="st">"CHE"</span>, var <span class="op">=</span> <span class="st">"prec"</span>, path <span class="op">=</span> <span class="st">"."</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">rgb_tile</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/mask.html" class="external-link">mask</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Labels</span></span>
@@ -930,7 +930,7 @@ Details
 <span><span class="co">#&gt;  collate  English_United States.utf8</span></span>
 <span><span class="co">#&gt;  ctype    English_United States.utf8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2025-12-10</span></span>
+<span><span class="co">#&gt;  date     2025-12-11</span></span>
 <span><span class="co">#&gt;  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt;  quarto   NA</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1006,7 +1006,7 @@ Details
 <span><span class="co">#&gt;  tibble         3.3.0      <span style="color: #555555;">2025-06-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyr          1.3.1      <span style="color: #555555;">2024-01-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyselect     1.2.1      <span style="color: #555555;">2024-03-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyterra    * <span style="color: #BB00BB; font-weight: bold;">0.7.2.9000</span> <span style="color: #555555;">2025-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  tidyterra    * <span style="color: #BB00BB; font-weight: bold;">0.7.2.9000</span> <span style="color: #555555;">2025-12-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  units          1.0-0      <span style="color: #555555;">2025-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
 <span><span class="co">#&gt;  vctrs          0.6.5      <span style="color: #555555;">2023-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  viridisLite    0.4.2      <span style="color: #555555;">2023-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>

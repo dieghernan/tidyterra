@@ -96,15 +96,15 @@ library(terra)
 
 
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-spatrast <- rast(f) %>% mutate(aa = 1, bb = 2, cc = 3)
+spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 names(spatrast)
 #> [1] "cyl_tile_1" "cyl_tile_2" "cyl_tile_3" "aa"         "bb"        
 #> [6] "cc"        
 
 
-spatrast %>%
-  relocate(bb, .before = cyl_tile_3) %>%
+spatrast |>
+  relocate(bb, .before = cyl_tile_3) |>
   relocate(cyl_tile_1, .after = last_col())
 #> class       : SpatRaster 
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)

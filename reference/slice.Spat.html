@@ -351,36 +351,36 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Slice first 100 cells</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Rows</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu">slice_rows</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">slice_rows</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">30</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Cols</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu">slice_cols</span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="fl">20</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">slice_cols</span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="fl">20</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-3.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Spatial sample</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span>prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Slice regions</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">slice_colrows</span><span class="op">(</span></span></span>
 <span class="r-in"><span>    cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">20</span><span class="op">:</span><span class="fl">40</span>, <span class="fl">60</span><span class="op">:</span><span class="fl">80</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    rows <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>, <span class="fl">30</span><span class="op">:</span><span class="fl">50</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="slice.Spat-5.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
@@ -388,7 +388,7 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 12 x 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)</span></span>
@@ -402,11 +402,11 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 18081<span style="color: #949494;">, </span>32543<span style="color: #949494;">, </span>18664<span style="color: #949494;">, </span>5163<span style="color: #949494;">, </span>16735<span style="color: #949494;">, </span>18899<span style="color: #949494;">, </span>22366<span style="color: #949494;">, </span>29828<span style="color: #949494;">, </span>48187<span style="color: #949494;">, </span>1…</span>
 <span class="r-plt img"><img src="slice.Spat-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">gv</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># All slice helpers operate per group, silently truncating to the group size</span></span></span>
-<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 3 x 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
@@ -421,9 +421,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 312<span style="color: #949494;">, </span>188<span style="color: #949494;">, </span>185</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 18081<span style="color: #949494;">, </span>18899<span style="color: #949494;">, </span>48187</span>
 <span class="r-plt img"><img src="slice.Spat-7.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_tail</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 3 x 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
@@ -438,9 +438,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 263<span style="color: #949494;">, </span>210<span style="color: #949494;">, </span>233</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 16735<span style="color: #949494;">, </span>29828<span style="color: #949494;">, </span>32112</span>
 <span class="r-plt img"><img src="slice.Spat-8.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 3 x 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>
@@ -455,9 +455,9 @@ index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ AREA   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 76<span style="color: #949494;">, </span>129<span style="color: #949494;">, </span>185</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ POP    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5163<span style="color: #949494;">, </span>22366<span style="color: #949494;">, </span>48187</span>
 <span class="r-plt img"><img src="slice.Spat-9.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span><span class="va">gv</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">gv</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max</a></span><span class="op">(</span><span class="va">AREA</span>, n <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">NAME_1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  A SpatVector 3 x 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">#  Geometry type: Polygons</span></span>

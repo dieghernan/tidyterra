@@ -127,7 +127,7 @@ boundaries.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Leave some blanks for demo purporses</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op">&lt;-</span> <span class="va">lux</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op">&lt;-</span> <span class="va">lux</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>NAME_1 <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html" class="external-link">if_else</a></span><span class="op">(</span><span class="va">NAME_1</span> <span class="op">!=</span> <span class="va">NAME_2</span>, <span class="cn">NA</span>, <span class="va">NAME_2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -149,8 +149,8 @@ boundaries.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>     3 <span style="color: #BB0000;">NA</span>              11 Mersch             233  <span style="text-decoration: underline;">32</span>112</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># `fill()` defaults to replacing missing data from top to bottom</span></span></span>
-<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     ID_1 NAME_1        ID_2 NAME_2            AREA    POP</span>
@@ -170,8 +170,8 @@ boundaries.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># direction = "up"</span></span></span>
-<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span>, .direction <span class="op">=</span> <span class="st">"up"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span>, .direction <span class="op">=</span> <span class="st">"up"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     ID_1 NAME_1        ID_2 NAME_2            AREA    POP</span>
@@ -190,9 +190,9 @@ boundaries.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>     3 <span style="color: #BB0000;">NA</span>              11 Mersch             233  <span style="text-decoration: underline;">32</span>112</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Grouping and downup - will restore the initial state</span></span></span>
-<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span>, .direction <span class="op">=</span> <span class="st">"downup"</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">lux_blnk</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill</a></span><span class="op">(</span><span class="va">NAME_1</span>, .direction <span class="op">=</span> <span class="st">"downup"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   ID_1 [3]</span></span>

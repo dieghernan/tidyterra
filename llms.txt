@@ -163,7 +163,7 @@ rastertemp
 #> max values  : 13.283829, 16.740898, 21.11378
 
 # Rename
-rastertemp <- rastertemp %>%
+rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
 
 # Facet all layers
@@ -190,8 +190,8 @@ ggplot() +
 ``` r
 
 # Create maximum differences of two months
-variation <- rastertemp %>%
-  mutate(diff = June - May) %>%
+variation <- rastertemp |>
+  mutate(diff = June - May) |>
   select(variation = diff)
 
 # Add also a overlay of a SpatVector
@@ -285,9 +285,9 @@ This is a basic example which shows you how to manipulate and plot
 `SpatVector` objects:
 
 ``` r
-vect(system.file("ex/lux.shp", package = "terra")) %>%
-  mutate(pop_dens = POP / AREA) %>%
-  glimpse() %>%
+vect(system.file("ex/lux.shp", package = "terra")) |>
+  mutate(pop_dens = POP / AREA) |>
+  glimpse() |>
   autoplot(aes(fill = pop_dens)) +
   scale_fill_whitebox_c(palette = "pi_y_g") +
   labs(

@@ -111,7 +111,7 @@ spatrast <- rast(
   vals = seq_len(10 * 10 * 6)
 )
 
-spatrast %>% select(1)
+spatrast |> select(1)
 #> class       : SpatRaster 
 #> size        : 10, 10, 1  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
@@ -123,7 +123,7 @@ spatrast %>% select(1)
 #> max value   :   100 
 
 # By name
-spatrast %>% select(lyr.1:lyr.4)
+spatrast |> select(lyr.1:lyr.4)
 #> class       : SpatRaster 
 #> size        : 10, 10, 4  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
@@ -135,7 +135,7 @@ spatrast %>% select(lyr.1:lyr.4)
 #> max values  :   100,   200,   300,   400 
 
 # Rename
-spatrast %>% select(a = lyr.1, c = lyr.6)
+spatrast |> select(a = lyr.1, c = lyr.6)
 #> class       : SpatRaster 
 #> size        : 10, 10, 2  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
@@ -165,7 +165,7 @@ v
 #>                ES-BU    09 Burgos
 #>                ES-LE    24   Leon
 
-v %>% select(1, 3)
+v |> select(1, 3)
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 9, 2  (geometries, attributes)
@@ -178,7 +178,7 @@ v %>% select(1, 3)
 #>                ES-BU Burgos
 #>                ES-LE   Leon
 
-v %>% select(iso2, name2 = cpro)
+v |> select(iso2, name2 = cpro)
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 9, 2  (geometries, attributes)

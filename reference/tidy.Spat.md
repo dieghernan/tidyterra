@@ -161,8 +161,8 @@ Coercing objects:
 # \donttest{
 
 # Get a SpatRaster
-r <- system.file("extdata/volcano2.tif", package = "tidyterra") %>%
-  terra::rast() %>%
+r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
+  terra::rast() |>
   terra::project("EPSG:4326")
 
 r_tidy <- tidy(r)
@@ -231,7 +231,7 @@ tidy(cyl)
 #> 9 ES-ZA 49    Zamora     POLYGON ((3042661 2138939, 3040851 2133391, 3038188 21…
 
 # SpatExtent
-ex <- cyl %>% terra::ext()
+ex <- cyl |> terra::ext()
 
 ex
 #> SpatExtent : 2892686.537, 3341372.1325, 2017621.67, 2361599.9431 (xmin, xmax, ymin, ymax)

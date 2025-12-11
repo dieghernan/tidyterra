@@ -72,7 +72,7 @@ hypsometric_tints_db
 #> # ℹ 1,092 more rows
 
 # Select a palette
-wikicols <- hypsometric_tints_db %>%
+wikicols <- hypsometric_tints_db |>
   filter(pal == "wiki-2.0")
 
 f <- system.file("extdata/asia.tif", package = "tidyterra")

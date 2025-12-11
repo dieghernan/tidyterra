@@ -140,7 +140,7 @@ bind_spat_rows(v1, sfobj)
 #>                   NA  Leon ES-LE
 
 # Would reproject with a message on different CRS
-sfobj_3857 <- as_spatvector(sfobj) %>% project("EPSG:3857")
+sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
 #> ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1

@@ -101,7 +101,7 @@ library(terra)
 # SpatVector
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-v %>% glimpse(n = 2)
+v |> glimpse(n = 2)
 #> #  A SpatVector 9 x 3
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
@@ -114,9 +114,9 @@ v %>% glimpse(n = 2)
 #> # ℹ Use `tidyterra::glimpse(n = ...)` to see more columns
 
 # Use on a pipeline
-v %>%
-  glimpse() %>%
-  mutate(a = 30) %>%
+v |>
+  glimpse() |>
+  mutate(a = 30) |>
   # with options
   glimpse(geom = "WKT")
 #> #  A SpatVector 9 x 3
@@ -143,7 +143,7 @@ v %>%
 # SpatRaster
 r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
-r %>% glimpse()
+r |> glimpse()
 #> #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
 #> #  Resolution (x / y): (1' 30" , 1' 30")
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
@@ -152,9 +152,9 @@ r %>% glimpse()
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 
 # Use on a pipeline
-r %>%
-  glimpse() %>%
-  mutate(b = elevation_m / 100) %>%
+r |>
+  glimpse() |>
+  mutate(b = elevation_m / 100) |>
   # With options
   glimpse(xy = TRUE)
 #> #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)

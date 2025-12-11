@@ -105,11 +105,11 @@ temp
 #> min values  :  1.885463,  5.817587, 10.46338 
 #> max values  : 13.283829, 16.740898, 21.11378
 
-mod <- temp %>%
-  select(-1) %>%
-  mutate(newcol = tavg_06 - tavg_05) %>%
-  relocate(newcol, .before = 1) %>%
-  replace_na(list(newcol = 3)) %>%
+mod <- temp |>
+  select(-1) |>
+  mutate(newcol = tavg_06 - tavg_05) |>
+  relocate(newcol, .before = 1) |>
+  replace_na(list(newcol = 3)) |>
   rename(difference = newcol)
 
 mod
@@ -153,16 +153,16 @@ lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- vect(lux)
 
-v_lux %>%
+v_lux |>
   # Create categories
-  mutate(gr = cut(POP / 1000, 5)) %>%
-  group_by(gr) %>%
+  mutate(gr = cut(POP / 1000, 5)) |>
+  group_by(gr) |>
   # Summary
   summarise(
     n = n(),
     tot_pop = sum(POP),
     mean_area = mean(AREA)
-  ) %>%
+  ) |>
   # Arrange
   arrange(desc(gr))
 #>  class       : SpatVector 
@@ -341,16 +341,16 @@ convenience:
 
 ``` r
 # Dissolving
-v_lux %>%
+v_lux |>
   # Create categories
-  mutate(gr = cut(POP / 1000, 5)) %>%
-  group_by(gr) %>%
+  mutate(gr = cut(POP / 1000, 5)) |>
+  group_by(gr) |>
   # Summary
   summarise(
     n = n(),
     tot_pop = sum(POP),
     mean_area = mean(AREA)
-  ) %>%
+  ) |>
   ggplot() +
   geom_spatvector(aes(fill = tot_pop), color = "black") +
   geom_spatvector_label(aes(label = gr)) +
@@ -365,17 +365,17 @@ Union of SpatVectors
 
 
 # Same but keeping internal boundaries
-v_lux %>%
+v_lux |>
   # Create categories
-  mutate(gr = cut(POP / 1000, 5)) %>%
-  group_by(gr) %>%
+  mutate(gr = cut(POP / 1000, 5)) |>
+  group_by(gr) |>
   # Summary without dissolving
   summarise(
     n = n(),
     tot_pop = sum(POP),
     mean_area = mean(AREA),
     .dissolve = FALSE
-  ) %>%
+  ) |>
   ggplot() +
   geom_spatvector(aes(fill = tot_pop), color = "black") +
   geom_spatvector_label(aes(label = gr)) +

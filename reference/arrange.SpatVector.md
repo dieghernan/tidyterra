@@ -104,7 +104,7 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 # Single variable
 
-v %>%
+v |>
   arrange(desc(iso2))
 #>  class       : SpatVector 
 #>  geometry    : polygons 
@@ -119,8 +119,8 @@ v %>%
 
 
 # Two variables
-v %>%
-  mutate(even = as.double(cpro) %% 2 == 0, ) %>%
+v |>
+  mutate(even = as.double(cpro) %% 2 == 0, ) |>
   arrange(desc(even), desc(iso2))
 #>  class       : SpatVector 
 #>  geometry    : polygons 
@@ -135,8 +135,8 @@ v %>%
 
 
 # With new variables
-v %>%
-  mutate(area_geom = terra::expanse(v)) %>%
+v |>
+  mutate(area_geom = terra::expanse(v)) |>
   arrange(area_geom)
 #>  class       : SpatVector 
 #>  geometry    : polygons 

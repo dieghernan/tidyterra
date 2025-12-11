@@ -137,23 +137,23 @@ f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 r <- rast(f)
 
 # Extract second layer
-r %>%
-  pull(2) %>%
+r |>
+  pull(2) |>
   head()
 #> [1] 229 235 229 229 239 153
 
 # With xy the first two cols are `x` (longitude) and `y` (latitude)
 
-r %>%
-  pull(2, xy = TRUE) %>%
+r |>
+  pull(2, xy = TRUE) |>
   head()
 #> [1] 5370160 5370160 5370160 5370160 5370160 5370160
 
 # With renaming
 
-r %>%
-  mutate(cat = cut(cyl_tile_3, c(0, 100, 300))) %>%
-  pull(cyl_tile_3, name = cat) %>%
+r |>
+  mutate(cat = cut(cyl_tile_3, c(0, 100, 300))) |>
+  pull(cyl_tile_3, name = cat) |>
   head()
 #> (100,300] (100,300] (100,300] (100,300] (100,300] (100,300] 
 #>       206       224       206       206       233       169 

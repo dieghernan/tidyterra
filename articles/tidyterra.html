@@ -243,7 +243,7 @@ Additionally, it illustrates how to seamlessly plot a
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Rename with the tidyverse</span></span>
-<span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>April <span class="op">=</span> <span class="va">tavg_04</span>, May <span class="op">=</span> <span class="va">tavg_05</span>, June <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span></span>
 <span></span>
 <span></span>
@@ -275,8 +275,8 @@ result. In this case the plot is a contour plot of the original
 overlay of a <code>SpatVector</code> for reference:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the variation between April and June and apply a different palette</span></span>
-<span><span class="va">incr_temp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>var <span class="op">=</span> <span class="va">June</span> <span class="op">-</span> <span class="va">April</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span><span class="va">incr_temp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>var <span class="op">=</span> <span class="va">June</span> <span class="op">-</span> <span class="va">April</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>Variation <span class="op">=</span> <span class="va">var</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Overlay an SpatVector</span></span>

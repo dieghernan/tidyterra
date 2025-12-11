@@ -140,8 +140,8 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 spatrast <- rast(f)
 
-mod <- spatrast %>%
-  mutate(exp_lyr1 = exp(tavg_04 / 10)) %>%
+mod <- spatrast |>
+  mutate(exp_lyr1 = exp(tavg_04 / 10)) |>
   select(tavg_04, exp_lyr1)
 
 mod
@@ -161,8 +161,8 @@ plot(mod)
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f)
 
-v %>%
-  mutate(cpro2 = paste0(cpro, "-CyL")) %>%
+v |>
+  mutate(cpro2 = paste0(cpro, "-CyL")) |>
   select(cpro, cpro2)
 #>  class       : SpatVector 
 #>  geometry    : polygons 

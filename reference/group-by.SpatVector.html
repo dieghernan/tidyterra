@@ -163,7 +163,7 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">by_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">by_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># grouping doesn't change how the SpatVector looks</span></span></span>
 <span class="r-in"><span><span class="va">by_name1</span></span></span>
@@ -208,7 +208,7 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># It changes how it acts with the other dplyr verbs:</span></span></span>
-<span class="r-in"><span><span class="va">by_name1</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">by_name1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  pop <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
@@ -224,7 +224,7 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span>                  Luxembourg 1.099e+05   906</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Each call to summarise() removes a layer of grouping</span></span></span>
-<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_2</span>, <span class="va">NAME_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_2</span>, <span class="va">NAME_1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">by_name2_name1</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
@@ -255,7 +255,7 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Vianden          Diekirch             <span style="color: #949494;">[1]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Wiltz            Diekirch             <span style="color: #949494;">[1]</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">by_name2</span> <span class="op">&lt;-</span> <span class="va">by_name2_name1</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">by_name2</span> <span class="op">&lt;-</span> <span class="va">by_name2_name1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">by_name2</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
@@ -285,8 +285,8 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Wiltz                    <span style="color: #949494;">[1]</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># To removing grouping, use ungroup</span></span></span>
-<span class="r-in"><span><span class="va">by_name2</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">by_name2</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
@@ -298,22 +298,22 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    12</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># By default, group_by() overrides existing grouping</span></span></span>
-<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span>, <span class="va">ID_2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span>, <span class="va">ID_2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_vars</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID_1" "ID_2"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use add = TRUE to instead append</span></span></span>
-<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span>, <span class="va">ID_2</span>, .add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">ID_1</span>, <span class="va">ID_2</span>, .add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_vars</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "NAME_2" "NAME_1" "ID_1"   "ID_2"  </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can group by expressions: this is a short-hand</span></span></span>
 <span class="r-in"><span><span class="co"># for a mutate() followed by a group_by()</span></span></span>
-<span class="r-in"><span><span class="va">p</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>ID_COMB <span class="op">=</span> <span class="va">ID_1</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">/</span> <span class="va">ID_2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>ID_COMB <span class="op">=</span> <span class="va">ID_1</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">/</span> <span class="va">ID_2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">ID_COMB</span>, .before <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>

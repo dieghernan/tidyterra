@@ -3,13 +3,13 @@
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) lets you
 quickly count the unique values of one or more variables:
 
-- `df %>% count(a, b)` is roughly equivalent to
-  `df %>% group_by(a, b) %>% summarise(n = n())`.
+- `df |> count(a, b)` is roughly equivalent to
+  `df |> group_by(a, b) |> summarise(n = n())`.
 
 - [`count()`](https://dplyr.tidyverse.org/reference/count.html) is
   paired with
   [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
-  lower-level helper that is equivalent to `df %>% summarise(n = n())`.
+  lower-level helper that is equivalent to `df |> summarise(n = n())`.
 
 ## Usage
 
@@ -133,7 +133,7 @@ f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
 
-p %>% count(NAME_1, sort = TRUE)
+p |> count(NAME_1, sort = TRUE)
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 2  (geometries, attributes)
@@ -145,7 +145,7 @@ p %>% count(NAME_1, sort = TRUE)
 #>                  Luxembourg     4
 #>                Grevenmacher     3
 
-p %>% count(NAME_1, sort = TRUE)
+p |> count(NAME_1, sort = TRUE)
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 2  (geometries, attributes)
@@ -157,7 +157,7 @@ p %>% count(NAME_1, sort = TRUE)
 #>                  Luxembourg     4
 #>                Grevenmacher     3
 
-p %>% count(pop = ifelse(POP < 20000, "A", "B"))
+p |> count(pop = ifelse(POP < 20000, "A", "B"))
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 2, 2  (geometries, attributes)
@@ -169,7 +169,7 @@ p %>% count(pop = ifelse(POP < 20000, "A", "B"))
 #>                    B     7
 
 # tally() is a lower-level function that assumes you've done the grouping
-p %>% tally()
+p |> tally()
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 1, 1  (geometries, attributes)
@@ -179,8 +179,8 @@ p %>% tally()
 #>  type        : <int>
 #>  values      :    12
 
-p %>%
-  group_by(NAME_1) %>%
+p |>
+  group_by(NAME_1) |>
   tally()
 #>  class       : SpatVector 
 #>  geometry    : polygons 
@@ -196,15 +196,15 @@ p %>%
 # Dissolve geometries by default
 
 library(ggplot2)
-p %>%
-  count(NAME_1) %>%
+p |>
+  count(NAME_1) |>
   ggplot() +
   geom_spatvector(aes(fill = n))
 
 
 # Opt out
-p %>%
-  count(NAME_1, .dissolve = FALSE, sort = TRUE) %>%
+p |>
+  count(NAME_1, .dissolve = FALSE, sort = TRUE) |>
   ggplot() +
   geom_spatvector(aes(fill = n))
 

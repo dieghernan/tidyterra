@@ -170,7 +170,7 @@ attributes on the function call.</p>
 <span class="r-in"><span>  vals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fl">10</span> <span class="op">*</span> <span class="fl">6</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 10, 10, 1  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 10, 10  (x, y)</span>
@@ -182,7 +182,7 @@ attributes on the function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> max value   :   100 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># By name</span></span></span>
-<span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">:</span><span class="va">lyr.4</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">:</span><span class="va">lyr.4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 10, 10, 4  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 10, 10  (x, y)</span>
@@ -194,7 +194,7 @@ attributes on the function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> max values  :   100,   200,   300,   400 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Rename</span></span></span>
-<span class="r-in"><span><span class="va">spatrast</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">lyr.1</span>, c <span class="op">=</span> <span class="va">lyr.6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>a <span class="op">=</span> <span class="va">lyr.1</span>, c <span class="op">=</span> <span class="va">lyr.6</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 10, 10, 2  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 10, 10  (x, y)</span>
@@ -224,7 +224,7 @@ attributes on the function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   Leon</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 2  (geometries, attributes)</span>
@@ -237,7 +237,7 @@ attributes on the function call.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU Burgos</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE   Leon</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">iso2</span>, name2 <span class="op">=</span> <span class="va">cpro</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">iso2</span>, name2 <span class="op">=</span> <span class="va">cpro</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 2  (geometries, attributes)</span>

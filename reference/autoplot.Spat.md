@@ -137,7 +137,7 @@ autoplot(temp)
 
 # With a tile
 
-tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") %>%
+tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") |>
   rast()
 
 autoplot(tile)
@@ -145,7 +145,7 @@ autoplot(tile)
 
 # With coltabs
 
-ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") %>%
+ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") |>
   rast()
 
 autoplot(ctab)
@@ -156,7 +156,7 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 autoplot(v)
 
 
-v %>% autoplot(aes(fill = cpro)) +
+v |> autoplot(aes(fill = cpro)) +
   geom_spatvector_text(aes(label = iso2)) +
   coord_sf(crs = 25829)
 

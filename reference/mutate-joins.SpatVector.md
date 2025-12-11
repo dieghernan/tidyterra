@@ -222,7 +222,7 @@ df <- data.frame(
 )
 
 # Inner join
-inner <- v %>% inner_join(df)
+inner <- v |> inner_join(df)
 #> Joining with `by = join_by(cpro)`
 
 nrow(inner)
@@ -233,7 +233,7 @@ autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
 
 # Left join
 
-left <- v %>% left_join(df)
+left <- v |> left_join(df)
 #> Joining with `by = join_by(cpro)`
 nrow(left)
 #> [1] 9
@@ -243,7 +243,7 @@ autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
 
 # \donttest{
 # Right join
-right <- v %>% right_join(df)
+right <- v |> right_join(df)
 #> Joining with `by = join_by(cpro)`
 nrow(right)
 #> [1] 10
@@ -258,7 +258,7 @@ ggplot(right, aes(x, y)) +
 
 
 # Full join
-full <- v %>% full_join(df)
+full <- v |> full_join(df)
 #> Joining with `by = join_by(cpro)`
 nrow(full)
 #> [1] 17

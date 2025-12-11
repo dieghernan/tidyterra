@@ -205,13 +205,13 @@ library(ggplot2)
 cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 # Add extra row with info
-xtra <- cyl %>%
-  slice(c(2, 3)) %>%
+xtra <- cyl |>
+  slice(c(2, 3)) |>
   mutate(
     label = "extra",
     value = TRUE
-  ) %>%
-  rbind(cyl, .) %>%
+  ) |>
+  rbind(cyl) |>
   glimpse()
 #> #  A SpatVector 11 x 5
 #> #  Geometry type: Polygons
@@ -219,14 +219,14 @@ xtra <- cyl %>%
 #> #  CRS projection units: meter <m>
 #> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
-#> $ iso2  <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "E…
-#> $ cpro  <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49", "09", "24"
-#> $ name  <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "…
-#> $ label <chr> NA, NA, NA, NA, NA, NA, NA, NA, NA, "extra", "extra"
-#> $ value <lgl> NA, NA, NA, NA, NA, NA, NA, NA, NA, TRUE, TRUE
+#> $ iso2  <chr> "ES-BU", "ES-LE", "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "E…
+#> $ cpro  <chr> "09", "24", "05", "09", "24", "34", "37", "40", "42", "47", "49"
+#> $ name  <chr> "Burgos", "Leon", "Avila", "Burgos", "Leon", "Palencia", "Salama…
+#> $ label <chr> "extra", "extra", NA, NA, NA, NA, NA, NA, NA, NA, NA
+#> $ value <lgl> TRUE, TRUE, NA, NA, NA, NA, NA, NA, NA, NA, NA
 
 # Pivot by geom
-xtra %>%
+xtra |>
   pivot_wider(
     id_cols = iso2:name, values_from = value,
     names_from = label
@@ -236,10 +236,10 @@ xtra %>%
 #>  dimensions  : 9, 5  (geometries, attributes)
 #>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name        NA     extra
+#>  names       :  iso2  cpro   name     extra        NA
 #>  type        : <chr> <chr>  <chr> <logical> <logical>
-#>  values      : ES-AV    05  Avila      <NA>      <NA>
-#>                ES-BU    09 Burgos      <NA>      TRUE
-#>                ES-LE    24   Leon      <NA>      TRUE
+#>  values      : ES-BU    09 Burgos      TRUE      <NA>
+#>                ES-LE    24   Leon      TRUE      <NA>
+#>                ES-AV    05  Avila      <NA>      <NA>
 # }
 ```

@@ -141,7 +141,7 @@ grass_db
 #> # ℹ 2,910 more rows
 # Select a palette
 
-srtm_plus <- grass_db %>%
+srtm_plus <- grass_db |>
   filter(pal == "srtm_plus")
 
 f <- system.file("extdata/asia.tif", package = "tidyterra")

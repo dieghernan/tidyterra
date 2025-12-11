@@ -127,13 +127,13 @@ library(ggplot2)
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 # Grouped
-gr_v <- v %>%
-  mutate(start_with_s = substr(name, 1, 1) == "S") %>%
+gr_v <- v |>
+  mutate(start_with_s = substr(name, 1, 1) == "S") |>
   group_by(start_with_s)
 
 
 # Dissolving
-diss <- gr_v %>%
+diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
 diss
@@ -151,7 +151,7 @@ autoplot(diss, aes(fill = start_with_s)) + ggplot2::ggtitle("Dissolved")
 
 
 # Not dissolving
-no_diss <- gr_v %>%
+no_diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 
 # Same statistic

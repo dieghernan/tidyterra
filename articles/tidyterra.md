@@ -153,7 +153,7 @@ rastertemp <- terra::rast(system.file("extdata/cyl_temp.tif",
 ))
 
 # Rename with the tidyverse
-rastertemp <- rastertemp %>%
+rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
 
 
@@ -188,8 +188,8 @@ it also includes an overlay of a `SpatVector` for reference:
 
 ``` r
 # Compute the variation between April and June and apply a different palette
-incr_temp <- rastertemp %>%
-  mutate(var = June - April) %>%
+incr_temp <- rastertemp |>
+  mutate(var = June - April) |>
   select(Variation = var)
 
 # Overlay an SpatVector

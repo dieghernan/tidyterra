@@ -120,7 +120,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ``` r
 library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
-spatrast <- rast(f) %>% mutate(aa = 1, bb = 2, cc = 3)
+spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 spatrast
 #> class       : SpatRaster 
@@ -133,7 +133,7 @@ spatrast
 #> min values  :         35,         35,         35,  1,  2,  3 
 #> max values  :        253,        251,        250,  1,  2,  3 
 
-spatrast %>% rename(
+spatrast |> rename(
   this_first = cyl_tile_1,
   this_second = cyl_tile_2
 )
@@ -147,7 +147,7 @@ spatrast %>% rename(
 #> min values  :         35,          35,         35,  1,  2,  3 
 #> max values  :        253,         251,        250,  1,  2,  3 
 
-spatrast %>% rename_with(
+spatrast |> rename_with(
   toupper,
   .cols = starts_with("c")
 )

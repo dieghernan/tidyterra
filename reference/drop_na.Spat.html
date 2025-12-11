@@ -172,15 +172,15 @@ of this method for <code>SpatRaster</code> may change in the future.</p>
 <span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Add NAs</span></span></span>
-<span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>iso2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">cpro</span> <span class="op">&lt;=</span> <span class="st">"09"</span>, <span class="cn">NA</span>, <span class="va">cpro</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>iso2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">cpro</span> <span class="op">&lt;=</span> <span class="st">"09"</span>, <span class="cn">NA</span>, <span class="va">cpro</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Init</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">v</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.1</span></span></span>
-<span class="r-in"><span><span class="va">v</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># SpatRaster method</span></span></span>
@@ -203,26 +203,26 @@ of this method for <code>SpatRaster</code> may change in the future.</p>
 <span class="r-plt img"><img src="drop_na.Spat-3.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.1</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.2</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.2</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-5.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.3</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.3</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.3</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Auto-mask all layers</span></span></span>
-<span class="r-in"><span><span class="va">r</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

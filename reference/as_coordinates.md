@@ -76,6 +76,6 @@ as_coordinates(r, as.raster = TRUE)
 #> min values  :         1,        1,        1 
 #> max values  :     10266,       87,      118 
 
-as_coordinates(r, as.raster = TRUE) %>% plot()
+as_coordinates(r, as.raster = TRUE) |> plot()
 
 ```

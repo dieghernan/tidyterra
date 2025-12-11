@@ -56,8 +56,8 @@ library(ggplot2)
 # Get a raster data from Holyrood Park, Edinburgh
 holyrood <- "holyroodpark.tif"
 
-r <- holyrood %>%
-  rast() %>%
+r <- holyrood |>
+  rast() |>
   filter(elevation > 80 & elevation < 180)
 
 # Default
@@ -321,8 +321,8 @@ library(sf)
 library(maptiles)
 
 # Get a tile from a point on sf format
-p <- st_point(c(-3.166011, 55.945235)) %>%
-  st_sfc(crs = 4326) %>%
+p <- st_point(c(-3.166011, 55.945235)) |>
+  st_sfc(crs = 4326) |>
   st_buffer(500)
 
 tile1 <- get_tiles(p,
@@ -438,9 +438,9 @@ ggplot() +
 # Modify breaks on x and y
 
 # Need to be in EPSG:4326, but don't know why...
-extent <- r %>%
-  project("EPSG:4326") %>%
-  ext() %>%
+extent <- r |>
+  project("EPSG:4326") |>
+  ext() |>
   as.vector()
 y_br <- pretty(c(extent[c("ymin", "ymax")]), n = 3)
 x_br <- pretty(c(extent[c("xmin", "xmax")]), n = 3)
@@ -707,7 +707,7 @@ library(geodata)
 
 
 # Area of interest
-aoi <- gadm(country = "CHE", path = ".", level = 0) %>%
+aoi <- gadm(country = "CHE", path = ".", level = 0) |>
   project("EPSG:3857")
 
 # Tile
@@ -717,9 +717,9 @@ rgb_tile <- get_tiles(aoi,
 )
 
 # Clim (mean prec)
-clim <- worldclim_country("CHE", var = "prec", path = ".") %>%
-  project(rgb_tile) %>%
-  mask(aoi) %>%
+clim <- worldclim_country("CHE", var = "prec", path = ".") |>
+  project(rgb_tile) |>
+  mask(aoi) |>
   terra::mean()
 
 # Labels
@@ -913,7 +913,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2025-12-10
+    #>  date     2025-12-11
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -989,7 +989,7 @@ Details
     #>  tibble         3.3.0      2025-06-08 [1] RSPM
     #>  tidyr          1.3.1      2024-01-24 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2025-12-10 [1] local
+    #>  tidyterra    * 0.7.2.9000 2025-12-11 [1] local
     #>  units          1.0-0      2025-10-09 [1] CRAN (R 4.5.2)
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM

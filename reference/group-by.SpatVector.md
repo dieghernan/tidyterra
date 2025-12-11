@@ -125,7 +125,7 @@ f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
 
-by_name1 <- p %>% group_by(NAME_1)
+by_name1 <- p |> group_by(NAME_1)
 
 # grouping doesn't change how the SpatVector looks
 by_name1
@@ -170,7 +170,7 @@ head(by_name1_tbl, 3)
 
 
 # It changes how it acts with the other dplyr verbs:
-by_name1 %>% summarise(
+by_name1 |> summarise(
   pop = mean(POP),
   area = sum(AREA)
 )
@@ -186,7 +186,7 @@ by_name1 %>% summarise(
 #>                  Luxembourg 1.099e+05   906
 
 # Each call to summarise() removes a layer of grouping
-by_name2_name1 <- p %>% group_by(NAME_2, NAME_1)
+by_name2_name1 <- p |> group_by(NAME_2, NAME_1)
 
 by_name2_name1
 #>  class       : SpatVector 
@@ -217,7 +217,7 @@ group_data(by_name2_name1)
 #> 11 Vianden          Diekirch             [1]
 #> 12 Wiltz            Diekirch             [1]
 
-by_name2 <- by_name2_name1 %>% summarise(n = dplyr::n())
+by_name2 <- by_name2_name1 |> summarise(n = dplyr::n())
 by_name2
 #>  class       : SpatVector 
 #>  geometry    : polygons 
@@ -247,8 +247,8 @@ group_data(by_name2)
 #> 12 Wiltz                    [1]
 
 # To removing grouping, use ungroup
-by_name2 %>%
-  ungroup() %>%
+by_name2 |>
+  ungroup() |>
   summarise(n = sum(n))
 #>  class       : SpatVector 
 #>  geometry    : polygons 
@@ -260,22 +260,22 @@ by_name2 %>%
 #>  values      :    12
 
 # By default, group_by() overrides existing grouping
-by_name2_name1 %>%
-  group_by(ID_1, ID_2) %>%
+by_name2_name1 |>
+  group_by(ID_1, ID_2) |>
   group_vars()
 #> [1] "ID_1" "ID_2"
 
 
 # Use add = TRUE to instead append
-by_name2_name1 %>%
-  group_by(ID_1, ID_2, .add = TRUE) %>%
+by_name2_name1 |>
+  group_by(ID_1, ID_2, .add = TRUE) |>
   group_vars()
 #> [1] "NAME_2" "NAME_1" "ID_1"   "ID_2"  
 
 # You can group by expressions: this is a short-hand
 # for a mutate() followed by a group_by()
-p %>%
-  group_by(ID_COMB = ID_1 * 100 / ID_2) %>%
+p |>
+  group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)
 #>  class       : SpatVector 
 #>  geometry    : polygons 

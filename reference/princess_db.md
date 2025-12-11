@@ -65,7 +65,7 @@ princess_db
 #> # ℹ 65 more rows
 
 # Select a palette
-maori <- princess_db %>%
+maori <- princess_db |>
   filter(pal == "maori")
 
 f <- system.file("extdata/volcano2.tif", package = "tidyterra")
