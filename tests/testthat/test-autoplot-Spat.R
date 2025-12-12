@@ -42,6 +42,55 @@ test_that("Test SpatRaster RGB", {
   expect_null(ggplot2::get_guide_data(reg, "fill"))
 })
 
+test_that("Test SpatRaster coltab", {
+  skip_on_cran()
+
+  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
+  r <- terra::rast(f)
+
+  # Minimal checks
+
+  # Regular
+  expect_s3_class(autoplot(r), "ggplot")
+
+  # Add another layer
+  r$another <- rep_len(letters[2:5], terra::ncell(r))
+
+  # No facets
+  expect_s3_class(
+    r |>
+      select(1) |>
+      autoplot(facets = FALSE),
+    "ggplot"
+  )
+
+  # No facets auto
+  expect_s3_class(
+    r |>
+      select(1) |>
+      autoplot(),
+    "ggplot"
+  )
+
+  # Change n facets
+  expect_s3_class(
+    autoplot(r, nrow = 2, ncol = 1),
+    "ggplot"
+  )
+  # Force to no facets
+
+  expect_s3_class(
+    r |>
+      autoplot(ncol = 2, facets = FALSE),
+    "ggplot"
+  )
+
+  expect_s3_class(
+    r |>
+      autoplot(ncol = 2, use_coltab = FALSE),
+    "ggplot"
+  )
+})
 
 test_that("Test SpatVector", {
   skip_on_cran()

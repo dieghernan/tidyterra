@@ -20,8 +20,8 @@
       end <- ggplot_build(s)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-        Use `facet_wrap(~lyr)` for faceting or
-        Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` for faceting or
+      * Use `aes(fill = <name_of_layer>)` for displaying single layers
     Condition
       Warning:
       Computation failed in `stat_terra_spat_raster()`.
@@ -34,8 +34,8 @@
       end <- ggplot2::ggplot_build(p)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-        Use `facet_wrap(~lyr)` for faceting or
-        Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` for faceting or
+      * Use `aes(fill = <name_of_layer>)` for displaying single layers
 
 ---
 
@@ -79,8 +79,8 @@
     Code
       expect_message(ggplot2::ggplot_build(p))
     Message
-        Use `facet_wrap(~lyr)` for faceting or
-        Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` for faceting or
+      * Use `aes(fill = <name_of_layer>)` for displaying single layers
 
 ---
 
