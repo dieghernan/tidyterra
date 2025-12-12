@@ -26,7 +26,9 @@ and
 [`scale_fill_wiki_c()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md)
 for more info.
 
-![](palettes_files/figure-html/terr_wiki-1.png)![](palettes_files/figure-html/terr_wiki-2.png)
+![Terrain and wiki palettes in
+tidyterra](palettes_files/figure-html/terr_wiki-1.png)![Terrain and wiki
+palettes in tidyterra](palettes_files/figure-html/terr_wiki-2.png)
 
 ## `scale_fill_whitebox_*`
 
@@ -34,7 +36,22 @@ Check
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md)
 for more info.
 
-![](palettes_files/figure-html/whitebox-1.png)![](palettes_files/figure-html/whitebox-2.png)![](palettes_files/figure-html/whitebox-3.png)![](palettes_files/figure-html/whitebox-4.png)![](palettes_files/figure-html/whitebox-5.png)![](palettes_files/figure-html/whitebox-6.png)![](palettes_files/figure-html/whitebox-7.png)![](palettes_files/figure-html/whitebox-8.png)![](palettes_files/figure-html/whitebox-9.png)![](palettes_files/figure-html/whitebox-10.png)![](palettes_files/figure-html/whitebox-11.png)
+![Whitebox palettes in
+tidyterra](palettes_files/figure-html/whitebox-1.png)![Whitebox palettes
+in tidyterra](palettes_files/figure-html/whitebox-2.png)![Whitebox
+palettes in
+tidyterra](palettes_files/figure-html/whitebox-3.png)![Whitebox palettes
+in tidyterra](palettes_files/figure-html/whitebox-4.png)![Whitebox
+palettes in
+tidyterra](palettes_files/figure-html/whitebox-5.png)![Whitebox palettes
+in tidyterra](palettes_files/figure-html/whitebox-6.png)![Whitebox
+palettes in
+tidyterra](palettes_files/figure-html/whitebox-7.png)![Whitebox palettes
+in tidyterra](palettes_files/figure-html/whitebox-8.png)![Whitebox
+palettes in
+tidyterra](palettes_files/figure-html/whitebox-9.png)![Whitebox palettes
+in tidyterra](palettes_files/figure-html/whitebox-10.png)![Whitebox
+palettes in tidyterra](palettes_files/figure-html/whitebox-11.png)
 
 ## `scale_fill_hypso_*`
 
@@ -42,7 +59,40 @@ Check
 [`scale_fill_hypso_c()`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md)
 for more info.
 
-![](palettes_files/figure-html/hypso-1.png)![](palettes_files/figure-html/hypso-2.png)![](palettes_files/figure-html/hypso-3.png)![](palettes_files/figure-html/hypso-4.png)![](palettes_files/figure-html/hypso-5.png)![](palettes_files/figure-html/hypso-6.png)![](palettes_files/figure-html/hypso-7.png)![](palettes_files/figure-html/hypso-8.png)![](palettes_files/figure-html/hypso-9.png)![](palettes_files/figure-html/hypso-10.png)![](palettes_files/figure-html/hypso-11.png)![](palettes_files/figure-html/hypso-12.png)![](palettes_files/figure-html/hypso-13.png)![](palettes_files/figure-html/hypso-14.png)![](palettes_files/figure-html/hypso-15.png)![](palettes_files/figure-html/hypso-16.png)![](palettes_files/figure-html/hypso-17.png)![](palettes_files/figure-html/hypso-18.png)![](palettes_files/figure-html/hypso-19.png)![](palettes_files/figure-html/hypso-20.png)![](palettes_files/figure-html/hypso-21.png)![](palettes_files/figure-html/hypso-22.png)![](palettes_files/figure-html/hypso-23.png)![](palettes_files/figure-html/hypso-24.png)![](palettes_files/figure-html/hypso-25.png)![](palettes_files/figure-html/hypso-26.png)![](palettes_files/figure-html/hypso-27.png)![](palettes_files/figure-html/hypso-28.png)![](palettes_files/figure-html/hypso-29.png)![](palettes_files/figure-html/hypso-30.png)![](palettes_files/figure-html/hypso-31.png)![](palettes_files/figure-html/hypso-32.png)![](palettes_files/figure-html/hypso-33.png)
+![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-1.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-2.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-3.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-4.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-5.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-6.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-7.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-8.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-9.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-10.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-11.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-12.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-13.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-14.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-15.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-16.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-17.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-18.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-19.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-20.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-21.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-22.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-23.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-24.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-25.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-26.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-27.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-28.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-29.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-30.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-31.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-32.png)![Hypso palettes in
+tidyterra](palettes_files/figure-html/hypso-33.png)
 
 ## `scale_fill_cross_blended_*`
 
@@ -50,7 +100,13 @@ Check
 [`scale_fill_cross_blended_c()`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md)
 for more info.
 
-![](palettes_files/figure-html/cross-1.png)![](palettes_files/figure-html/cross-2.png)![](palettes_files/figure-html/cross-3.png)![](palettes_files/figure-html/cross-4.png)
+![Cross-blended palettes in
+tidyterra](palettes_files/figure-html/cross-1.png)![Cross-blended
+palettes in
+tidyterra](palettes_files/figure-html/cross-2.png)![Cross-blended
+palettes in
+tidyterra](palettes_files/figure-html/cross-3.png)![Cross-blended
+palettes in tidyterra](palettes_files/figure-html/cross-4.png)
 
 ## `scale_fill_grass_*`
 
@@ -58,7 +114,58 @@ Check
 [`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
 for more info. Plots produced using `use_grass_range = FALSE`.
 
-![](palettes_files/figure-html/grass-1.png)![](palettes_files/figure-html/grass-2.png)![](palettes_files/figure-html/grass-3.png)![](palettes_files/figure-html/grass-4.png)![](palettes_files/figure-html/grass-5.png)![](palettes_files/figure-html/grass-6.png)![](palettes_files/figure-html/grass-7.png)![](palettes_files/figure-html/grass-8.png)![](palettes_files/figure-html/grass-9.png)![](palettes_files/figure-html/grass-10.png)![](palettes_files/figure-html/grass-11.png)![](palettes_files/figure-html/grass-12.png)![](palettes_files/figure-html/grass-13.png)![](palettes_files/figure-html/grass-14.png)![](palettes_files/figure-html/grass-15.png)![](palettes_files/figure-html/grass-16.png)![](palettes_files/figure-html/grass-17.png)![](palettes_files/figure-html/grass-18.png)![](palettes_files/figure-html/grass-19.png)![](palettes_files/figure-html/grass-20.png)![](palettes_files/figure-html/grass-21.png)![](palettes_files/figure-html/grass-22.png)![](palettes_files/figure-html/grass-23.png)![](palettes_files/figure-html/grass-24.png)![](palettes_files/figure-html/grass-25.png)![](palettes_files/figure-html/grass-26.png)![](palettes_files/figure-html/grass-27.png)![](palettes_files/figure-html/grass-28.png)![](palettes_files/figure-html/grass-29.png)![](palettes_files/figure-html/grass-30.png)![](palettes_files/figure-html/grass-31.png)![](palettes_files/figure-html/grass-32.png)![](palettes_files/figure-html/grass-33.png)![](palettes_files/figure-html/grass-34.png)![](palettes_files/figure-html/grass-35.png)![](palettes_files/figure-html/grass-36.png)![](palettes_files/figure-html/grass-37.png)![](palettes_files/figure-html/grass-38.png)![](palettes_files/figure-html/grass-39.png)![](palettes_files/figure-html/grass-40.png)![](palettes_files/figure-html/grass-41.png)![](palettes_files/figure-html/grass-42.png)![](palettes_files/figure-html/grass-43.png)![](palettes_files/figure-html/grass-44.png)![](palettes_files/figure-html/grass-45.png)![](palettes_files/figure-html/grass-46.png)![](palettes_files/figure-html/grass-47.png)![](palettes_files/figure-html/grass-48.png)![](palettes_files/figure-html/grass-49.png)![](palettes_files/figure-html/grass-50.png)![](palettes_files/figure-html/grass-51.png)
+![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-1.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-2.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-3.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-4.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-5.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-6.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-7.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-8.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-9.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-10.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-11.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-12.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-13.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-14.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-15.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-16.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-17.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-18.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-19.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-20.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-21.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-22.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-23.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-24.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-25.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-26.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-27.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-28.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-29.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-30.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-31.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-32.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-33.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-34.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-35.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-36.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-37.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-38.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-39.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-40.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-41.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-42.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-43.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-44.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-45.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-46.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-47.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-48.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-49.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-50.png)![GRASS palettes in
+tidyterra](palettes_files/figure-html/grass-51.png)
 
 ## `scale_fill_princess_*`
 
@@ -66,7 +173,30 @@ Check
 [`scale_fill_princess_c()`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md)
 for more info.
 
-![](palettes_files/figure-html/princess-1.png)![](palettes_files/figure-html/princess-2.png)![](palettes_files/figure-html/princess-3.png)![](palettes_files/figure-html/princess-4.png)![](palettes_files/figure-html/princess-5.png)![](palettes_files/figure-html/princess-6.png)![](palettes_files/figure-html/princess-7.png)![](palettes_files/figure-html/princess-8.png)![](palettes_files/figure-html/princess-9.png)![](palettes_files/figure-html/princess-10.png)![](palettes_files/figure-html/princess-11.png)![](palettes_files/figure-html/princess-12.png)![](palettes_files/figure-html/princess-13.png)![](palettes_files/figure-html/princess-14.png)![](palettes_files/figure-html/princess-15.png)
+![Princess palettes in
+tidyterra](palettes_files/figure-html/princess-1.png)![Princess palettes
+in tidyterra](palettes_files/figure-html/princess-2.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-3.png)![Princess palettes
+in tidyterra](palettes_files/figure-html/princess-4.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-5.png)![Princess palettes
+in tidyterra](palettes_files/figure-html/princess-6.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-7.png)![Princess palettes
+in tidyterra](palettes_files/figure-html/princess-8.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-9.png)![Princess palettes
+in tidyterra](palettes_files/figure-html/princess-10.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-11.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-12.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-13.png)![Princess
+palettes in
+tidyterra](palettes_files/figure-html/princess-14.png)![Princess
+palettes in tidyterra](palettes_files/figure-html/princess-15.png)
 
 ## Session info
 
@@ -82,7 +212,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2025-12-11
+    #>  date     2025-12-12
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -119,7 +249,7 @@ Details
     #>  pillar         1.11.1     2025-09-17 [1] RSPM
     #>  pkgconfig      2.0.3      2019-09-22 [1] RSPM
     #>  pkgdown        2.2.0      2025-11-06 [1] RSPM
-    #>  proxy          0.4-27     2022-06-09 [1] RSPM
+    #>  proxy          0.4-28     2025-12-11 [1] RSPM
     #>  purrr          1.2.0      2025-11-04 [1] RSPM
     #>  R.cache        0.17.0     2025-05-02 [1] RSPM
     #>  R.methodsS3    1.8.2      2022-06-13 [1] RSPM
@@ -143,7 +273,7 @@ Details
     #>  tibble         3.3.0      2025-06-08 [1] RSPM
     #>  tidyr          1.3.1      2024-01-24 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2025-12-11 [1] local
+    #>  tidyterra    * 0.7.2.9000 2025-12-12 [1] local
     #>  units          1.0-0      2025-10-09 [1] CRAN (R 4.5.2)
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  withr          3.0.2      2024-10-28 [1] RSPM

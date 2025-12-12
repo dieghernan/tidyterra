@@ -185,7 +185,8 @@ ggplot() +
   )
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png)
+![Average temperature in Castille and Leon,
+Spain](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png)
 
 ``` r
 
@@ -214,7 +215,8 @@ ggplot(prov) +
   )
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png)
+![Average temperature in Castille and Leon,
+Spain](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:
@@ -230,7 +232,8 @@ plot <- ggplot(prov) +
 plot
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png)
+![Example: Plotting a tile in
+tidyterra](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png)
 
 ``` r
 
@@ -240,7 +243,8 @@ plot +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png)
+![Example: Plotting a tile in
+tidyterra](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png)
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
@@ -251,7 +255,8 @@ asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 terra::plot(asia)
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png)
+![Hypsometric map of
+Asia](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png)
 
 ``` r
 
@@ -277,7 +282,8 @@ ggplot() +
   )
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png)
+![Hypsometric map of
+Asia](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png)
 
 ### `SpatVectors`
 

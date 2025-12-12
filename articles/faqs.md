@@ -913,7 +913,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2025-12-11
+    #>  date     2025-12-12
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -956,13 +956,12 @@ Details
     #>  magrittr       2.0.4      2025-09-12 [1] RSPM
     #>  maptiles     * 0.10.0     2025-05-07 [1] RSPM
     #>  memoise        2.0.1      2021-11-26 [1] RSPM
-    #>  metR         * 0.18.2     2025-09-05 [1] CRAN (R 4.5.2)
+    #>  metR         * 0.18.3     2025-12-09 [1] RSPM
     #>  pillar         1.11.1     2025-09-17 [1] RSPM
     #>  pkgconfig      2.0.3      2019-09-22 [1] RSPM
     #>  pkgdown        2.2.0      2025-11-06 [1] RSPM
     #>  plyr           1.8.9      2023-10-02 [1] CRAN (R 4.5.2)
-    #>  png            0.1-8      2022-11-29 [1] RSPM
-    #>  proxy          0.4-27     2022-06-09 [1] RSPM
+    #>  proxy          0.4-28     2025-12-11 [1] RSPM
     #>  purrr          1.2.0      2025-11-04 [1] RSPM
     #>  R.cache        0.17.0     2025-05-02 [1] RSPM
     #>  R.methodsS3    1.8.2      2022-06-13 [1] RSPM
@@ -981,7 +980,6 @@ Details
     #>  scales         1.4.0      2025-04-24 [1] RSPM
     #>  sessioninfo  * 1.2.3      2025-02-05 [1] any (@1.2.3)
     #>  sf           * 1.0-23     2025-11-28 [1] CRAN (R 4.5.2)
-    #>  slippymath     0.3.1      2019-06-28 [1] RSPM
     #>  styler         1.11.0     2025-10-13 [1] RSPM
     #>  systemfonts    1.3.1      2025-10-01 [1] RSPM
     #>  terra        * 1.8-86     2025-11-28 [1] CRAN (R 4.5.2)
@@ -989,7 +987,7 @@ Details
     #>  tibble         3.3.0      2025-06-08 [1] RSPM
     #>  tidyr          1.3.1      2024-01-24 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2025-12-11 [1] local
+    #>  tidyterra    * 0.7.2.9000 2025-12-12 [1] local
     #>  units          1.0-0      2025-10-09 [1] CRAN (R 4.5.2)
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM

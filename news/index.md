@@ -28,6 +28,9 @@
   and
   [`autoplot.SpatGraticule()`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md)
   methods.
+- **testthat**: Internal changes in tests:
+  - Move snapshot testing to its own directory, that is included in
+    `.Rbuildignore`: .`/tests/testthat/test_ci`.
 
 ## tidyterra 0.7.2
 
