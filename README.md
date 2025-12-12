@@ -213,7 +213,7 @@ ggplot() +
   )
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
 
 ``` r
 
@@ -242,7 +242,7 @@ ggplot(prov) +
   )
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:
@@ -258,7 +258,7 @@ plot <- ggplot(prov) +
 plot
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
 
 ``` r
 
@@ -268,7 +268,7 @@ plot +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
@@ -279,7 +279,7 @@ asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 terra::plot(asia)
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
 
 ``` r
 
@@ -305,7 +305,7 @@ ggplot() +
   )
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" alt="Hypsometric map of Asia" width="100%" />
 
 ### `SpatVectors`
 

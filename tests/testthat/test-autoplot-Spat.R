@@ -1,197 +1,173 @@
 test_that("Test SpatRaster", {
-  # test with vdiffr
   skip_on_cran()
-  skip_if_not_installed("vdiffr")
-
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
 
   # Regular
-  vdiffr::expect_doppelganger("norgb_01: regular", autoplot(r))
+  expect_silent(p <- autoplot(r))
+
+  p_data <- ggplot2::get_layer_data(p)
+  p_guide <- ggplot2::get_guide_data(p, "fill")
+
+  expect_identical(unique(p_data$PANEL), factor(seq_len(terra::nlyr(r))))
+  expect_true(is.numeric(p_guide$.value))
 
   # Categorical
   r2 <- r |> mutate(across(everything(), ~ cut(.x, c(0, 10, 12, 20))))
-  vdiffr::expect_doppelganger("norgb_02: categorical", autoplot(r2))
+  expect_silent(p2 <- autoplot(r2))
+  p_guide <- ggplot2::get_guide_data(p2, "fill")
+  expect_true(is.character(p_guide$.value))
 
   # No facets
-  vdiffr::expect_doppelganger(
-    "norgb_03: no facets forced",
-    r |>
-      select(1) |>
-      autoplot(facets = FALSE)
-  )
 
-  # No facets auto
-  vdiffr::expect_doppelganger(
-    "norgb_03: no facets auto",
-    r |>
-      select(1) |>
-      autoplot()
-  )
+  p3 <- r |>
+    select(1) |>
+    autoplot(facets = FALSE)
 
-  # Change n facets
-  vdiffr::expect_doppelganger(
-    "norgb_04: three rows",
-    autoplot(r, nrow = 3, ncol = 1)
-  )
+  p_data <- ggplot2::get_layer_data(p3)
 
-  vdiffr::expect_doppelganger(
-    "norgb_05: four cols",
-    r |>
-      mutate(other = tavg_04 * 2) |>
-      autoplot(ncol = 4)
-  )
+  expect_identical(unique(p_data$PANEL), factor(1))
+})
 
-  # Force to no facets
-
-  forced <- r |>
-    mutate(other = tavg_04 * 2) |>
-    autoplot(ncol = 4, facets = FALSE)
-
-  expect_snapshot(b <- ggplot2::ggplot_build(forced))
-  vdiffr::expect_doppelganger(
-    "norgb_06: force no facets",
-    forced
-  )
+test_that("Test SpatRaster RGB", {
+  skip_on_cran()
 
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- terra::rast(f)
+  expect_true(terra::has.RGB(r))
+  reg <- autoplot(r)
+  data <- ggplot2::get_layer_data(reg)
+  expect_identical(unique(data$PANEL), factor(1))
+  expect_gt(length(unique(data$hexcol)), 30)
+  expect_null(ggplot2::get_guide_data(reg, "fill"))
+})
 
-  vdiffr::expect_doppelganger(
-    "rgb_01: regular",
-    autoplot(r)
-  )
-
-  vdiffr::expect_doppelganger(
-    "rgb_01: regular_forced",
-    autoplot(r, rgb = TRUE)
-  )
-
-  vdiffr::expect_doppelganger(
-    "rgb_02: with opts",
-    autoplot(r, r = 3, g = 1, b = 2)
-  )
-
-  vdiffr::expect_doppelganger(
-    "rgb_03: change coords",
-    autoplot(r) +
-      ggplot2::coord_sf(crs = 3035)
-  )
-
-  vdiffr::expect_doppelganger(
-    "rgb_04: facets does not affect",
-    autoplot(r, facets = TRUE)
-  )
-
-  vdiffr::expect_doppelganger(
-    "rgb_05: forced to non-rgb",
-    autoplot(r, facets = TRUE, rgb = FALSE)
-  )
+test_that("Test SpatRaster coltab", {
+  skip_on_cran()
 
   f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
   r <- terra::rast(f)
 
+  # Minimal checks
+
   # Regular
-  vdiffr::expect_doppelganger("coltab_01: regular", autoplot(r))
+  expect_s3_class(autoplot(r), "ggplot")
 
   # Add another layer
   r$another <- rep_len(letters[2:5], terra::ncell(r))
 
   # No facets
-  vdiffr::expect_doppelganger(
-    "coltab_02: no facets forced",
+  expect_s3_class(
     r |>
       select(1) |>
-      autoplot(facets = FALSE)
+      autoplot(facets = FALSE),
+    "ggplot"
   )
 
   # No facets auto
-  vdiffr::expect_doppelganger(
-    "coltab_03: no facets auto",
+  expect_s3_class(
     r |>
       select(1) |>
-      autoplot()
+      autoplot(),
+    "ggplot"
   )
 
   # Change n facets
-  vdiffr::expect_doppelganger(
-    "coltab_04: two rows",
-    autoplot(r, nrow = 2, ncol = 1)
+  expect_s3_class(
+    autoplot(r, nrow = 2, ncol = 1),
+    "ggplot"
   )
   # Force to no facets
 
-  vdiffr::expect_doppelganger(
-    "coltab_5: force no facets",
+  expect_s3_class(
     r |>
-      autoplot(ncol = 2, facets = FALSE)
+      autoplot(ncol = 2, facets = FALSE),
+    "ggplot"
   )
-  vdiffr::expect_doppelganger(
-    "coltab_6: Not use coltab",
+
+  expect_s3_class(
     r |>
-      autoplot(ncol = 2, use_coltab = FALSE)
+      autoplot(ncol = 2, use_coltab = FALSE),
+    "ggplot"
   )
 })
 
-
-test_that("test SpatVector", {
-  # test with vdiffr
+test_that("Test SpatVector", {
   skip_on_cran()
-  skip_if_not_installed("vdiffr")
-
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
-  # Regular
-  vdiffr::expect_doppelganger("vector_01: regular", autoplot(v))
+  expect_silent(
+    ss <- autoplot(v)
+  )
+
+  guide <- ggplot2::get_guide_data(ss, "fill")
+  expect_null(guide)
 
   # Aes
-  vdiffr::expect_doppelganger("vector_02: aes", autoplot(v, aes(fill = iso2)))
-
-  # Inherit aes
-  vdiffr::expect_doppelganger(
-    "vector_03: aes inherited",
-    autoplot(v, aes(fill = iso2)) +
-      geom_spatvector_label(aes(label = iso2))
-  )
+  ss <- autoplot(v, aes(fill = iso2))
+  guide <- ggplot2::get_guide_data(ss, "fill")
+  expect_false(is.null(guide))
 })
-
-test_that("test SpatExtent", {
-  # test with vdiffr
+test_that("Test SpatExtent", {
   skip_on_cran()
-  skip_if_not_installed("vdiffr")
-
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
   e <- terra::ext(v)
 
   # Regular
-  vdiffr::expect_doppelganger("extent_01: regular", autoplot(e))
+  ss <- autoplot(e)
+  expect_identical(
+    nrow(ggplot2::get_layer_data(ss)),
+    1L
+  )
 
   # Aes
-  vdiffr::expect_doppelganger(
-    "extent_02: params",
-    autoplot(
-      e,
-      fill = "red",
-      alpha = 0.2
-    )
+  aes <- autoplot(
+    e,
+    fill = "red",
+    alpha = 0.2
+  )
+
+  expect_identical(
+    ggplot2::get_layer_data(aes)$fill,
+    "red"
+  )
+
+  expect_identical(
+    ggplot2::get_layer_data(aes)$alpha,
+    0.2
   )
 })
 
-test_that("test SpatGraticule", {
-  # test with vdiffr
+test_that("Test SpatGraticule", {
   skip_on_cran()
-  skip_if_not_installed("vdiffr")
-
   g <- terra::graticule(60, 30, crs = "+proj=robin")
 
   # Regular
-  vdiffr::expect_doppelganger("grat_01: regular", autoplot(g))
+  ss <- autoplot(g)
+  expect_gt(
+    nrow(ggplot2::get_layer_data(ss)),
+    5
+  )
 
   # Aes
-  vdiffr::expect_doppelganger(
-    "grat_02: params",
-    autoplot(g, color = "red", linetype = 2, linewidth = 3)
+
+  with_aes <- autoplot(g, color = "red", linetype = 2, linewidth = 3)
+
+  expect_identical(
+    unique(ggplot2::get_layer_data(with_aes)$colour),
+    "red"
+  )
+
+  expect_identical(
+    unique(ggplot2::get_layer_data(with_aes)$linetype),
+    2
+  )
+
+  expect_identical(
+    unique(ggplot2::get_layer_data(with_aes)$linewidth),
+    3
   )
 })

@@ -42,15 +42,14 @@ Suggests:
     rmarkdown,
     s2,
     testthat (>= 3.0.0),
-    vctrs,
-    vdiffr
+    vctrs
 VignetteBuilder: 
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,
     ggspatial, cpp11, remotes, gganimate, gifski
 Config/testthat/edition: 3
-Config/testthat/parallel: false
+Config/testthat/parallel: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

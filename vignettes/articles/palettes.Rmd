@@ -44,7 +44,7 @@ ggplot() +
 
 Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
 
-```{r terr_wiki, echo=FALSE}
+```{r terr_wiki, echo=FALSE, fig.alt="Terrain and wiki palettes in tidyterra"}
 r <- terra::rast(system.file("extdata/volcano2.tif",
   package = "tidyterra"
 ))
@@ -74,7 +74,7 @@ print(ss)
 
 Check `scale_fill_whitebox_c()` for more info.
 
-```{r whitebox, echo=FALSE}
+```{r whitebox, echo=FALSE, fig.alt="Whitebox palettes in tidyterra"}
 allpals <- sort(c(
   "atlas", "high_relief", "arid", "soft", "muted", "purple",
   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
@@ -95,7 +95,7 @@ for (i in allpals) {
 
 Check `scale_fill_hypso_c()` for more info.
 
-```{r hypso, echo=FALSE}
+```{r hypso, echo=FALSE, fig.alt="Hypso palettes in tidyterra"}
 allpals <- sort(unique(hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -112,7 +112,7 @@ for (i in allpals) {
 
 Check `scale_fill_cross_blended_c()` for more info.
 
-```{r cross, echo=FALSE}
+```{r cross, echo=FALSE, fig.alt="Cross-blended palettes in tidyterra"}
 allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -130,7 +130,7 @@ for (i in allpals) {
 Check `scale_fill_grass_c()` for more info. Plots produced using
 `use_grass_range = FALSE`.
 
-```{r grass, echo=FALSE}
+```{r grass, echo=FALSE, fig.alt="GRASS palettes in tidyterra"}
 allpals <- sort(unique(grass_db$pal))
 
 for (i in allpals) {
@@ -147,7 +147,7 @@ for (i in allpals) {
 
 Check `scale_fill_princess_c()` for more info.
 
-```{r princess, echo=FALSE}
+```{r princess, echo=FALSE, fig.alt="Princess palettes in tidyterra"}
 allpals <- sort(unique(princess_db$pal))
 
 for (i in allpals) {

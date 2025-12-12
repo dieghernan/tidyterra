@@ -107,7 +107,7 @@ example, `as_tibble()` would return a `tibble`).
 Current methods and functions provided by **tidyterra** are:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
-|----|----|----|
+|---------------------------|---------------------------|---------------------------|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
 | `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
@@ -189,7 +189,7 @@ install.packages("tidyterra", repos = c(
 This is a basic example which shows you how to manipulate and plot `SpatRaster`
 objects:
 
-```{r example-temp}
+```{r example-temp, fig.alt="Average temperature in Castille and Leon, Spain"}
 library(tidyterra)
 library(terra)
 
@@ -248,7 +248,7 @@ ggplot(prov) +
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles with
 **ggplot2**:
 
-```{r example-tile}
+```{r example-tile, fig.alt="Example: Plotting a tile in tidyterra"}
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
 plot <- ggplot(prov) +
@@ -267,7 +267,7 @@ plot +
 **tidyterra** provides specific scales for plotting hypsometric maps with
 **ggplot2**:
 
-```{r hypso, fig.asp=0.65}
+```{r hypso, fig.asp=0.65, fig.alt="Hypsometric map of Asia"}
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
