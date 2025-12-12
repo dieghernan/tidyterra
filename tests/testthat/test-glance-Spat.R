@@ -11,7 +11,7 @@ test_that("Glance SpatRasters", {
 test_that("Stress SpatRaster", {
   skip_on_cran()
   skip_on_os("linux")
- 
+
   # SpatRaster
   v <- terra::rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
   expect_snapshot(glance(v))

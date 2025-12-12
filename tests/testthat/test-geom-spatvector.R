@@ -131,3 +131,30 @@ test_that("geom_spatvector_label works as geom_sf", {
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
 })
+
+test_that("stat_spatvector works as geom_sf", {
+  skip_on_cran()
+
+  extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
+
+  cyl <- terra::vect(extfile)
+  cyl$x <- seq_len(9) * 1000000
+  cyl$y <- seq_len(9) * 1000000
+
+  build_terra <- ggplot2::ggplot(cyl, aes(x, y)) +
+    stat_spatvector(geom = "point")
+
+  cyl_sf <- sf::st_as_sf(cyl)
+
+  build_sf <- ggplot2::ggplot(cyl_sf, aes(x, y)) +
+    ggplot2::stat_sf(geom = "point")
+
+  layer_terra <- ggplot2::ggplot_build(build_terra)$data[[1]]
+  layer_sf <- ggplot2::ggplot_build(build_sf)$data[[1]]
+
+  expect_identical(layer_terra, layer_sf)
+
+  expect_true(
+    all(layer_terra$geometry == layer_sf$geometry)
+  )
+})

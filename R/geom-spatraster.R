@@ -280,8 +280,8 @@ StatTerraSpatRaster <- ggplot2::ggproto(
         ))
         cli::cli_bullets(
           c(
-            " " = "Use {.code facet_wrap(~lyr)} for faceting or",
-            " " = paste(
+            "*" = "Use {.code facet_wrap(~lyr)} for faceting or",
+            "*" = paste(
               "Use {.code aes(fill = <name_of_layer>)}",
               "for displaying single layers"
             )

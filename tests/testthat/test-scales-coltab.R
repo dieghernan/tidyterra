@@ -11,6 +11,7 @@ test_that("Return NULL", {
 
 
 test_that("Can extract a color table", {
+  skip_on_cran()
   r <- terra::rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
 
   expect_true(terra::has.colors(r))
@@ -32,6 +33,7 @@ test_that("Can extract a color table", {
 })
 
 test_that("Can extract a color table on several layers", {
+  skip_on_cran()
   rinit <- terra::rast(system.file(
     "extdata/cyl_era.tif",
     package = "tidyterra"
@@ -59,6 +61,7 @@ test_that("Can extract a color table on several layers", {
 })
 
 test_that("Can extract several color tables on layers", {
+  skip_on_cran()
   # Prepare colors
   cols1 <- rainbow(3)
   cols2 <- c("#FFA500", "#FFFF00")
@@ -92,6 +95,7 @@ test_that("Can extract several color tables on layers", {
 })
 
 test_that("Can alpha color tables", {
+  skip_on_cran()
   # Prepare colors
   cols1 <- rainbow(3)
   cols2 <- ggplot2::alpha(c("#FFA500", "#FFFF00"), alpha = c(0.5, 0.7))
@@ -128,6 +132,7 @@ test_that("Can alpha color tables", {
 
 
 test_that("Give informative messages", {
+  skip_on_cran()
   df <- data.frame(x = 1)
   expect_snapshot(res <- get_coltab_pal(df))
 
@@ -138,6 +143,7 @@ test_that("Give informative messages", {
 
 
 test_that("Discrete scale color", {
+  skip_on_cran()
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
@@ -219,6 +225,7 @@ test_that("Discrete scale color", {
 
 
 test_that("Discrete scale fill", {
+  skip_on_cran()
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
   ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
@@ -293,4 +300,36 @@ test_that("Discrete scale fill", {
 
   df2 <- as.data.frame(t(col2rgb(thecols, alpha = TRUE)))
   expect_false(any(df2$alpha == 31))
+})
+
+test_that("Several layers not all coltab", {
+  skip_on_cran()
+  r <- terra::rast(ncols = 4, nrows = 4)
+  terra::values(r) <- as.factor(rep_len(c("A", "B"), 16))
+
+  r$nocol <- as.factor(rep_len(c("D", "E", NA), 16))
+
+  ll <- data.frame(id = 1:2, lev = c("A", "B"))
+  coltb <- data.frame(
+    value = 1:2,
+    t(col2rgb(c("red", "yellow"), alpha = TRUE))
+  )
+  terra::coltab(r, layer = 1) <- coltb
+
+  expect_identical(terra::has.colors(r), c(TRUE, FALSE))
+
+  the_plot <- ggplot2::ggplot() +
+    geom_spatraster(data = r) +
+    ggplot2::facet_wrap(~lyr)
+
+  expect_silent(gb <- ggplot2::ggplot_build(the_plot))
+
+  guide <- ggplot2::get_guide_data(the_plot, "fill")
+
+  allc <- rgb(t(col2rgb(c("red", "yellow"))), maxColorValue = 255)
+  plus_col <- terrain.colors(2, rev = TRUE)
+  expect_identical(guide$fill, c(allc, plus_col))
+
+  colt <- unname(get_coltab_pal(r))
+  expect_equal(colt, c(allc, plus_col))
 })

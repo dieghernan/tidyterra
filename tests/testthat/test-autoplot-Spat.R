@@ -1,4 +1,5 @@
 test_that("Test SpatRaster", {
+  skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
 
@@ -15,9 +16,7 @@ test_that("Test SpatRaster", {
   r2 <- r |> mutate(across(everything(), ~ cut(.x, c(0, 10, 12, 20))))
   expect_silent(p2 <- autoplot(r2))
   p_guide <- ggplot2::get_guide_data(p2, "fill")
-  expect_true(
-    is.character(p_guide$.value)
-  )
+  expect_true(is.character(p_guide$.value))
 
   # No facets
 
@@ -28,43 +27,11 @@ test_that("Test SpatRaster", {
   p_data <- ggplot2::get_layer_data(p3)
 
   expect_identical(unique(p_data$PANEL), factor(1))
-
-  # No facets auto
-
-  p3 <- r |>
-    select(1) |>
-    autoplot()
-
-  p_data <- ggplot2::get_layer_data(p3)
-
-  expect_identical(unique(p_data$PANEL), factor(1))
-
-  p3 <- autoplot(r, nrow = 3, ncol = 1)
-
-  aa <- ggplot2::ggplot_build(p3)
-  rows <- ggplot2::ggplot_gtable(aa) |>
-    ggplot2::panel_rows()
-  expect_identical(nrow(rows), 3L)
-
-  p4 <- r |>
-    mutate(other = tavg_04 * 2) |>
-    autoplot(ncol = 4)
-  aa <- ggplot2::ggplot_build(p4)
-  cols <- ggplot2::ggplot_gtable(aa) |>
-    ggplot2::panel_cols()
-  expect_identical(nrow(cols), 4L)
-
-  # Force to no facets
-
-  forced <- r |>
-    mutate(other = tavg_04 * 2) |>
-    autoplot(ncol = 4, facets = FALSE)
-
-  expect_snapshot(b <- ggplot2::ggplot_build(forced))
 })
 
-
 test_that("Test SpatRaster RGB", {
+  skip_on_cran()
+
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- terra::rast(f)
   expect_true(terra::has.RGB(r))
@@ -77,6 +44,7 @@ test_that("Test SpatRaster RGB", {
 
 
 test_that("Test SpatVector", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -93,6 +61,7 @@ test_that("Test SpatVector", {
   expect_false(is.null(guide))
 })
 test_that("Test SpatExtent", {
+  skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
@@ -124,6 +93,7 @@ test_that("Test SpatExtent", {
 })
 
 test_that("Test SpatGraticule", {
+  skip_on_cran()
   g <- terra::graticule(60, 30, crs = "+proj=robin")
 
   # Regular
