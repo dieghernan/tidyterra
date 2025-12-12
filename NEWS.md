@@ -15,6 +15,9 @@
 -   `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
     -   New `fortify.SpatExtent()` method.
 -   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
+-   **testthat**: Internal changes in tests:
+    -   Move snapshot testing to its own directory, that is included in
+        `.Rbuildignore`: .`/tests/testthat/test_ci`.
 
 # tidyterra 0.7.2
 
