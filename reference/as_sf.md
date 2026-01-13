@@ -73,6 +73,7 @@ dplyr::is_grouped_df(a_sf)
 # Grouped
 
 v$gr <- c("C", "A", "A", "B", "A", "B", "B")
+#> Warning: [$<-] replacement is not a multiple of the number of rows
 v$gr2 <- rep(c("F", "G", "F"), 3)
 
 gr_v <- group_by(v, gr, gr2)

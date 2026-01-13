@@ -913,7 +913,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2026-01-11
+    #>  date     2026-01-13
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -971,7 +971,7 @@ Details
     #>  ragg           1.5.0      2025-09-02 [1] RSPM
     #>  rappdirs       0.3.3      2021-01-31 [1] RSPM
     #>  RColorBrewer   1.1-3      2022-04-03 [1] RSPM
-    #>  Rcpp           1.1.0      2025-07-02 [1] RSPM
+    #>  Rcpp           1.1.1      2026-01-10 [1] RSPM
     #>  rlang          1.1.7      2026-01-09 [1] RSPM
     #>  rmarkdown      2.30       2025-09-28 [1] RSPM
     #>  s2             1.1.9      2025-05-23 [1] RSPM
@@ -979,15 +979,15 @@ Details
     #>  sass           0.4.10     2025-04-11 [1] RSPM
     #>  scales         1.4.0      2025-04-24 [1] RSPM
     #>  sessioninfo  * 1.2.3      2025-02-05 [1] any (@1.2.3)
-    #>  sf           * 1.0-23     2025-11-28 [1] RSPM
+    #>  sf           * 1.0-24     2026-01-13 [1] RSPM
     #>  styler         1.11.0     2025-10-13 [1] RSPM
     #>  systemfonts    1.3.1      2025-10-01 [1] RSPM
-    #>  terra        * 1.8-86     2025-11-28 [1] RSPM
+    #>  terra        * 1.8-93     2026-01-12 [1] RSPM
     #>  textshaping    1.0.4      2025-10-10 [1] RSPM
-    #>  tibble         3.3.0      2025-06-08 [1] RSPM
+    #>  tibble         3.3.1      2026-01-11 [1] RSPM
     #>  tidyr          1.3.2      2025-12-19 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2026-01-11 [1] local
+    #>  tidyterra    * 0.7.2.9000 2026-01-13 [1] local
     #>  units          1.0-0      2025-10-09 [1] RSPM
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM
