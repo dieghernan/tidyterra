@@ -10,6 +10,8 @@ on:
   workflow_dispatch:
 
 name: dev-version dplyr and readr
+permissions:
+  contents: read
 
 jobs:
   R-CMD-check-dplyr-readr-devel:

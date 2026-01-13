@@ -1,4 +1,6 @@
 name: Clear GHA caches
+permissions: write-all
+
 on:
   workflow_dispatch:
   schedule:

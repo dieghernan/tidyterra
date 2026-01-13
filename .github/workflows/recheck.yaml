@@ -10,6 +10,8 @@ on:
           - most
 
 name: r-devel reverse dependency check
+permissions:
+  contents: read
 
 jobs:
     revdep_check:

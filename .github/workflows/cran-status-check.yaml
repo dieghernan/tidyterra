@@ -1,4 +1,7 @@
 name: CRAN Status Monitor
+permissions:
+  contents: read
+  issues: write
 
 on:
   workflow_dispatch:
@@ -8,7 +11,6 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    permissions: write-all
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 

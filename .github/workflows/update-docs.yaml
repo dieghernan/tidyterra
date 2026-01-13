@@ -2,6 +2,8 @@ on:
   workflow_dispatch:
 
 name: Update docs
+permissions:
+  contents: write
 
 jobs:
   update-docs:
@@ -31,6 +33,12 @@ jobs:
             dieghernan/pkgdev
 
           needs: website
+
+      - name: Run jarl
+        uses: etiennebacher/setup-jarl@v0.1.0
+        continue-on-error: true
+        with:
+          args: check . --fix
 
       - name: Install Air
         uses: posit-dev/setup-air@v1

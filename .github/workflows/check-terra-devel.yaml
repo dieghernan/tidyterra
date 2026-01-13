@@ -10,6 +10,8 @@ on:
   workflow_dispatch:
 
 name: dev-version terra
+permissions:
+  contents: read
 
 jobs:
   R-CMD-check-terra-devel:

@@ -10,6 +10,8 @@ on:
   workflow_dispatch:
 
 name: dev-version sf
+permissions:
+  contents: read
 
 jobs:
   R-CMD-check-sf-devel:
