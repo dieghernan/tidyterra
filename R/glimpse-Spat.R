@@ -168,9 +168,12 @@ get_named_crs <- function(x) {
 
   d <- try(terra::crs(pulled, describe = TRUE), silent = TRUE)
 
+  # nocov start
   if (inherits(d, "try-error")) {
     return(NA)
   }
+  # nocov end
+
 
   r <- terra::crs(pulled, proj = TRUE)
 
