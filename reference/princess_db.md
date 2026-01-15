@@ -1,12 +1,12 @@
 # Princess palettes database
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 including the color map of 15 gradient palettes.
 
 ## Format
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) of 75
-rows and 5 columns. with the following fields:
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
+75 rows and 5 columns. with the following fields:
 
 - pal:
 

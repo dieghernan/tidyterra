@@ -1,6 +1,6 @@
 # Cross-blended hypsometric tints
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 including the color map of 4 gradient palettes. All the palettes
 includes also a definition of colors limits in terms of elevation
 (meters), that can be used with

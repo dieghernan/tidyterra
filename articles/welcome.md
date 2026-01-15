@@ -4,9 +4,9 @@
 
 **tidyterra** is a package that adds common methods from the
 [**tidyverse**](https://tidyverse.org/) for `SpatRaster` and
-`SpatVectors` objects created with the
+`SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also
-adds specific `geom_spat*()` functions for plotting these kind of
+adds specific `geom_spat*()` functions for plotting these kinds of
 objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why **tidyterra**?
@@ -22,20 +22,20 @@ more easily with `Spat*` objects, just like (s)he would do with tabular
 data.
 
 **Note that** in terms of performance, **terra** is much more optimized
-for working for this kind of objects, so it is **recommended** also to
+for working with this kind of objects, so it is **recommended** also to
 learn a bit of **terra** syntax. Each function of **tidyterra** refers
 (when possible) to the corresponding equivalent on **terra**.
 
 ## A note for advanced **terra** users
 
 As previously mentioned, **tidyterra** is not optimized in terms of
-performance. Specially when working with
+performance. Especially when working with
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) methods,
 it can be slow.
 
 As a rule of thumb, **tidyterra** can handle objects with less than
-10.000.000 slots of information (i.e.,
+10,000,000 slots of information (i.e.,
 `terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
 
 ## Get started with **tidyterra**
@@ -133,9 +133,9 @@ On the previous example, we had:
 - Replaced the `NA` cells on `newcol` with `3`.
 - Renamed `newcol` to difference.
 
-In all the process, the essential properties of the `SpatRaster` (number
-of cells, columns and rows, extent, resolution and coordinate reference
-system) have not been modified. Other methods as
+Throughout the process, the essential properties of the `SpatRaster`
+(number of cells, columns and rows, extent, resolution and coordinate
+reference system) have not been modified. Other methods such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) can
@@ -144,7 +144,7 @@ modify these properties, as they would do when applied to a data frame
 
 ### `SpatVectors`
 
-`tidyterra >= 0.4.0` provides support to `SpatVectors` for most of the
+`tidyterra >= 0.4.0` provides support for `SpatVectors` for most of the
 **dplyr** and **tidyr** methods, so it is possible to arrange, group and
 summarise information of `SpatVectors`.
 
@@ -177,18 +177,18 @@ v_lux |>
 #>                (4.99,40.7]     9 1.944e+05     209.8
 ```
 
-As in the case of `SpatRaster`, basic properties as the geometry and the
-CRS are preserved.
+As in the case of `SpatRaster`, basic properties such as the geometry
+and the CRS are preserved.
 
 ## Plotting with **ggplot2**
 
 ### `SpatRasters`
 
 **tidyterra** provides several `geom_*` for `SpatRasters`. When the
-`SpatRaster` has the CRS informed (i.e. `terra::crs(a_rast) != ""`), the
+`SpatRaster` has the CRS defined (i.e. `terra::crs(a_rast) != ""`), the
 geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
-and may be also reprojected for adjusting the coordinates to other
+and may also be reprojected for adjusting the coordinates to other
 spatial layers:
 
 ``` r
@@ -261,9 +261,9 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![Plotting a RGB SpatRaster](rgb-1.png)
+![Plotting an RGB SpatRaster](rgb-1.png)
 
-Plotting a RGB SpatRaster
+Plotting an RGB SpatRaster
 
 **tidyterra** provides selected scales that are suitable for creating
 hypsometric and bathymetric maps:
@@ -357,9 +357,9 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Union of SpatVectors](aggregate-1.png)
+![Dissolving SpatVectors by group](aggregate-1.png)
 
-Union of SpatVectors
+Dissolving SpatVectors by group
 
 ``` r
 
@@ -382,6 +382,7 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Union of SpatVector keeping the inner borders](aggregate-2.png)
+![Dissolving SpatVectors by group (keeping internal
+boundaries)](aggregate-2.png)
 
-Union of SpatVector keeping the inner borders
+Dissolving SpatVectors by group (keeping internal boundaries)

@@ -98,7 +98,7 @@ fortify(model, data, ..., crs = "")
 [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 `fortify.SpatRaster()` returns a
-[`tibble`](https://tibble.tidyverse.org/reference/tibble.html). See
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html). See
 **Methods**.
 
 ## Methods

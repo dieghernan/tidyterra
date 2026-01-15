@@ -1,6 +1,6 @@
 # GRASS color tables
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 including the color map of 51 gradient palettes. Some palettes includes
 also a definition of colors limits that can be used with
 [`ggplot2::scale_fill_gradientn()`](https://ggplot2.tidyverse.org/reference/scale_gradient.html).

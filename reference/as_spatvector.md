@@ -27,9 +27,9 @@ as_spatvector(x, ...)
 
 - x:
 
-  A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html), data
-  frame or [sf](https://CRAN.R-project.org/package=sf) object of class
-  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) or
+  A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html),
+  data frame or [sf](https://CRAN.R-project.org/package=sf) object of
+  class [`sf`](https://r-spatial.github.io/sf/reference/sf.html) or
   [`sfc`](https://r-spatial.github.io/sf/reference/sfc.html).
 
 - ...:

@@ -1,10 +1,10 @@
 # tidyterra FAQs
 
-This is a compendium of [questions
+This is a compendium of [questions that have
 arisen](https://github.com/dieghernan/tidyterra/discussions) on the use
-of the **tidyterra** package and the potential solutions to it (mostly
-related with the use of **terra** and **ggplot2** at this stage). You
-can ask for help or search previous questions in the following links.
+of the **tidyterra** package and the potential solutions to them (mostly
+related to the use of **terra** and **ggplot2** at this stage). You can
+ask for help or search previous questions in the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -45,7 +45,7 @@ The original file has been cropped and down-sampled for demo purposes,
 This is the default behavior produced by the **ggplot2** package.
 **tidyterra** color scales (i.e.,
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
-etc.), has by default the parameter `na.value` set to `"transparent"`,
+etc.), have by default the parameter `na.value` set to `"transparent"`,
 that prevents `NA` values to be filled[²](#fn2).
 
 ``` r
@@ -268,7 +268,7 @@ ggplot() +
 ## Can I change the default palette of my maps?
 
 Yes, use `options("ggplot2.continuous.fill")` to modify the default
-colors on your session.
+colors in your session.
 
 ``` r
 library(terra)
@@ -305,10 +305,10 @@ p
 
 ## My map tiles are blurry
 
-This is probably related with the tile itself rather than the package.
+This is probably related to the tile itself rather than the package.
 Most base tiles are provided in **EPSG:3857**, so check first if your
 tile has this CRS and not a different one. Not having **EPSG:3857** may
-be an indication that the tile has been reprojected, implied some sort
+be an indication that the tile has been reprojected, implying some sort
 of sampling that causes the blurriness on your data. Also, modify the
 parameter `maxcell` to avoid resampling and force the **ggplot2** map to
 be on **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
@@ -460,8 +460,8 @@ ggplot() +
 **tidyterra** has several ways to handle these `SpatRaster` objects. We
 use the file `clc_edinburgh.tif`, available online in
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder,
-representing the information of the Corine Land Cover Dataset (2018) for
-the city of Edinburgh[³](#fn3).
+representing the information from the Corine Land Cover Dataset (2018)
+for the city of Edinburgh[³](#fn3).
 
 ``` r
 library(terra)
@@ -694,7 +694,7 @@ autoplot(r) +
 
 This is quite straightforward, just use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
-and after that command just create your layer:
+and after that, just create your layer:
 
 ``` r
 library(terra)
@@ -751,7 +751,7 @@ ggplot(aoi) +
 
 ![](faqs_files/figure-html/overlay_cont-1.png)
 
-We can create another variations with binned legends and filled contours
+We can create other variations with binned legends and filled contours
 (see
 [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)):
 
@@ -801,15 +801,15 @@ ggplot(aoi) +
 
 ## Hexagonal grids (and other `geoms`)
 
-By concept the cells of a `SpatRaster` are rectangular, so it is not
+Conceptually, the cells of a `SpatRaster` are rectangular, so it is not
 possible to create a `SpatRaster` with i.e. hexagonal cells.
 
 But it is possible to create a plot with hexagonal cells thanks to
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
 and
 [`stat_summary_hex()`](https://ggplot2.tidyverse.org/reference/stat_summary_2d.html).
-Additional work is needed to adjust the final plot, specifically it is
-needed also to use
+Additional work is needed to adjust the final plot, specifically, it is
+also needed to use
 [`coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
 ``` r
@@ -913,7 +913,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2026-01-13
+    #>  date     2026-01-15
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -987,7 +987,7 @@ Details
     #>  tibble         3.3.1      2026-01-11 [1] RSPM
     #>  tidyr          1.3.2      2025-12-19 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 0.7.2.9000 2026-01-13 [1] local
+    #>  tidyterra    * 0.7.2.9000 2026-01-15 [1] local
     #>  units          1.0-0      2025-10-09 [1] RSPM
     #>  vctrs          0.6.5      2023-12-01 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM
@@ -1009,11 +1009,11 @@ Details
     corresponding area.
 
 2.  `na.value = NA` could be used as well for the same purpose in most
-    of the cases, however when the proportion of non-`NA`s is small it
+    of the cases, However, when the proportion of non-`NA`s is small it
     can produce undesired results, see
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 3.  The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors, and it is has
-    been added the corresponding color table as of
+    converted to their corresponding labels and factors, and it has been
+    added the corresponding color table as of
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

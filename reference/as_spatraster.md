@@ -1,8 +1,8 @@
 # Coerce a data frame to `SpatRaster`
 
 `as_spatraster()` turns an existing data frame or
-[`tibble`](https://tibble.tidyverse.org/reference/tibble.html) into a
-`SpatRaster`. This is a wrapper of
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) into
+a `SpatRaster`. This is a wrapper of
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
 S4 method for signature `data.frame`.
 
@@ -16,8 +16,8 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - x:
 
-  A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) or
-  data frame.
+  A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+  or data frame.
 
 - ...:
 

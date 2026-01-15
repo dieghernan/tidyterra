@@ -1,6 +1,6 @@
 # Hypsometric palettes database
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html)
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 including the color map of 33 gradient palettes. All the palettes
 includes also a definition of colors limits in terms of elevation
 (meters), that can be used with
@@ -8,8 +8,8 @@ includes also a definition of colors limits in terms of elevation
 
 ## Format
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html) of 1102
-rows and 6 columns. with the following fields:
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
+1102 rows and 6 columns. with the following fields:
 
 - pal:
 

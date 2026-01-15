@@ -150,7 +150,7 @@ pivot_longer(
 
 - values_drop_na:
 
-  If `TRUE`, will drop rows that contain only `NA`s in the `value_to`
+  If `TRUE`, will drop rows that contain only `NA`s in the `values_to`
   column. This effectively converts explicit missing values to implicit
   missing values, and should generally be used only when missing values
   in `data` were created by its structure.

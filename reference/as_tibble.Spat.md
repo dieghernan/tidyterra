@@ -65,7 +65,7 @@ as_tibble(x, ..., geom = NULL, .name_repair = "unique")
 
 ## Value
 
-A [`tibble`](https://tibble.tidyverse.org/reference/tibble.html).
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

@@ -96,10 +96,10 @@
     
     
 <p>This is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">questions
-arisen</a> on the use of the <strong>tidyterra</strong> package and the
-potential solutions to it (mostly related with the use of
-<strong>terra</strong> and <strong>ggplot2</strong> at this stage). You
-can ask for help or search previous questions in the following
+that have arisen</a> on the use of the <strong>tidyterra</strong>
+package and the potential solutions to them (mostly related to the use
+of <strong>terra</strong> and <strong>ggplot2</strong> at this stage).
+You can ask for help or search previous questions in the following
 links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack
 Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
@@ -138,10 +138,10 @@ folder.</p>
 </h2>
 <p>This is the default behavior produced by the <strong>ggplot2</strong>
 package. <strong>tidyterra</strong> color scales (i.e.,
-<code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), has by default the
+<code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), have by default the
 parameter <code>na.value</code> set to <code>"transparent"</code>, that
 prevents <code>NA</code> values to be filled<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the
-same purpose in most of the cases, however when the proportion of
+same purpose in most of the cases, However, when the proportion of
 non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -346,7 +346,7 @@ of scales:</p>
 <h2 id="can-i-change-the-default-palette-of-my-maps">Can I change the default palette of my maps?<a class="anchor" aria-label="anchor" href="#can-i-change-the-default-palette-of-my-maps"></a>
 </h2>
 <p>Yes, use <code>options("ggplot2.continuous.fill")</code> to modify
-the default colors on your session.</p>
+the default colors in your session.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -378,13 +378,13 @@ the default colors on your session.</p>
 <div class="section level2">
 <h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>This is probably related with the tile itself rather than the
-package. Most base tiles are provided in <strong>EPSG:3857</strong>, so
-check first if your tile has this CRS and not a different one. Not
-having <strong>EPSG:3857</strong> may be an indication that the tile has
-been reprojected, implied some sort of sampling that causes the
-blurriness on your data. Also, modify the parameter <code>maxcell</code>
-to avoid resampling and force the <strong>ggplot2</strong> map to be on
+<p>This is probably related to the tile itself rather than the package.
+Most base tiles are provided in <strong>EPSG:3857</strong>, so check
+first if your tile has this CRS and not a different one. Not having
+<strong>EPSG:3857</strong> may be an indication that the tile has been
+reprojected, implying some sort of sampling that causes the blurriness
+on your data. Also, modify the parameter <code>maxcell</code> to avoid
+resampling and force the <strong>ggplot2</strong> map to be on
 <strong>EPSG:3857</strong> with
 <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -522,9 +522,9 @@ this:</p>
 <p><strong>tidyterra</strong> has several ways to handle these
 <code>SpatRaster</code> objects. We use the file
 <code>clc_edinburgh.tif</code>, available online in <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>
-folder, representing the information of the Corine Land Cover Dataset
+folder, representing the information from the Corine Land Cover Dataset
 (2018) for the city of Edinburgh<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values
-have been converted to their corresponding labels and factors, and it is
+have been converted to their corresponding labels and factors, and it
 has been added the corresponding color table as of &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -733,8 +733,8 @@ for <strong>ggplot2</strong> plots. However, you can use
 <h2 id="how-to-overlay-a-spatraster-over-a-rgb-tile">How to overlay a <code>SpatRaster</code> over a RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-over-a-rgb-tile"></a>
 </h2>
 <p>This is quite straightforward, just use
-<code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> and after that command just create
-your layer:</p>
+<code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> and after that, just create your
+layer:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -787,7 +787,7 @@ your layer:</p>
 <span>    caption <span class="op">=</span> <span class="va">cap_lab</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="faqs_files/figure-html/overlay_cont-1.png" class="r-plt" alt="" width="100%"></p>
-<p>We can create another variations with binned legends and filled
+<p>We can create other variations with binned legends and filled
 contours (see <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>):</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Binned</span></span>
@@ -831,13 +831,13 @@ contours (see <code><a href="../reference/geom_spat_contour.html">geom_spatraste
 <div class="section level2">
 <h2 id="fort">Hexagonal grids (and other <code>geoms</code>)<a class="anchor" aria-label="anchor" href="#fort"></a>
 </h2>
-<p>By concept the cells of a <code>SpatRaster</code> are rectangular, so
-it is not possible to create a <code>SpatRaster</code> with
+<p>Conceptually, the cells of a <code>SpatRaster</code> are rectangular,
+so it is not possible to create a <code>SpatRaster</code> with
 i.e. hexagonal cells.</p>
 <p>But it is possible to create a plot with hexagonal cells thanks to
 <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex()</a></code>.
-Additional work is needed to adjust the final plot, specifically it is
-needed also to use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
+Additional work is needed to adjust the final plot, specifically, it is
+also needed to use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -930,7 +930,7 @@ Details
 <span><span class="co">#&gt;  collate  English_United States.utf8</span></span>
 <span><span class="co">#&gt;  ctype    English_United States.utf8</span></span>
 <span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2026-01-13</span></span>
+<span><span class="co">#&gt;  date     2026-01-15</span></span>
 <span><span class="co">#&gt;  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt;  quarto   NA</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1004,7 +1004,7 @@ Details
 <span><span class="co">#&gt;  tibble         3.3.1      <span style="color: #555555;">2026-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyr          1.3.2      <span style="color: #555555;">2025-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  tidyselect     1.2.1      <span style="color: #555555;">2024-03-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyterra    * <span style="color: #BB00BB; font-weight: bold;">0.7.2.9000</span> <span style="color: #555555;">2026-01-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  tidyterra    * <span style="color: #BB00BB; font-weight: bold;">0.7.2.9000</span> <span style="color: #555555;">2026-01-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  units          1.0-0      <span style="color: #555555;">2025-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  vctrs          0.6.5      <span style="color: #555555;">2023-12-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
 <span><span class="co">#&gt;  viridisLite    0.4.2      <span style="color: #555555;">2023-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>

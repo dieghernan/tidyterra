@@ -113,13 +113,13 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>Full manual of the most recent release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
-<p><strong>tidyverse</strong> methods implemented on <strong>tidyterra</strong> works differently depending on the type of <code>Spat*</code> object:</p>
+<p>The full manual of the most recent release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
+<p><strong>tidyverse</strong> methods implemented on <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of the geometry.</p></li>
-<li><p><code>SpatRaster</code>: The implementation on <code>SpatRaster</code> objects differs, since the methods could be applied to layers or to cells. <strong>tidyterra</strong> overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a <code>SpatRaster</code>).</p></li>
+<li><p><code>SpatRaster</code>: The implementation on <code>SpatRaster</code> objects differs, since the methods could be applied to layers or to cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a <code>SpatRaster</code>).</p></li>
 </ul>
-<p>The methods implemented return the same type of object used as input, unless the expected behavior of the method is to return another type of object, (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> would return a <code>tibble</code>).</p>
+<p>The methods implemented return the same type of object used as input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> would return a tibble).</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
 <table class="table">
 <colgroup>
@@ -295,8 +295,8 @@
 <span class="emoji" data-emoji="exclamation">❗</span> A note on performance<a class="anchor" aria-label="anchor" href="#exclamation-a-note-on-performance"></a>
 </h2>
 <p><strong>tidyterra</strong> is conceived as a user-friendly wrapper of <strong>terra</strong> using the <strong>tidyverse</strong> methods and verbs. This approach therefore has a <strong>cost in terms of performance</strong>.</p>
-<p>If you are a <strong>heavy user</strong> of <strong>terra</strong> or you need to work with <strong>big raster files</strong>, <strong>terra</strong> is much more focused on terms of performance. When possible, each function of <strong>tidyterra</strong> references to its equivalent on <strong>terra</strong>.</p>
-<p>As a rule of thumb if your raster has less than 10.000.000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with <strong>tidyterra</strong>.</p>
+<p>If you are a <strong>heavy user</strong> of <strong>terra</strong> or you need to work with <strong>big raster files</strong>, <strong>terra</strong> is much more performant. When possible, each function of <strong>tidyterra</strong> refers to its equivalent on <strong>terra</strong>.</p>
+<p>As a rule of thumb if your raster has less than 10,000,000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with <strong>tidyterra</strong>.</p>
 <p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> parameter.</p>
 </div>
 <div class="section level2">
@@ -467,7 +467,7 @@
 <span><span class="co">#&gt; $ AREA     &lt;dbl&gt; 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233</span></span>
 <span><span class="co">#&gt; $ POP      &lt;dbl&gt; 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…</span></span>
 <span><span class="co">#&gt; $ pop_dens &lt;dbl&gt; 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…</span></span></code></pre></div>
-<p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%"></p>
+<p><img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" alt="" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
@@ -484,7 +484,7 @@
 <div class="section level2">
 <h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
 </h2>
-<p><strong>tidyterra</strong> <strong>ggplot2</strong> geoms are based on <a href="https://github.com/paleolimbot/ggspatial" class="external-link"><strong>ggspatial</strong></a> implementation, by <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link"><strong>ggspatial</strong> contributors</a>.</p>
+<p><strong>tidyterra</strong>’s <strong>ggplot2</strong> geoms are based on <a href="https://github.com/paleolimbot/ggspatial" class="external-link"><strong>ggspatial</strong></a> implementation, by <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link"><strong>ggspatial</strong> contributors</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
