@@ -181,7 +181,7 @@ get_named_crs <- function(x) {
   # nocov end
 
   if (!(d$name %in% c(NA, "unknown", "unnamed"))) {
-    if (substr(r, 1, 13) == "+proj=longlat") {
+    if (startsWith(r, "+proj=longlat")) {
       r <- paste("lon/lat", d$name)
     } else {
       r <- d$name
@@ -354,10 +354,10 @@ tterra_header_string_ctab <- function(x) {
     return(invisible(NULL))
   }
 
-  lcol <- length(coltab_info[coltab_info == TRUE])
+  lcol <- length(coltab_info[coltab_info])
   pl <- ifelse(lcol == 1, "table", "tables")
 
-  ch_name <- names(x)[coltab_info == TRUE]
+  ch_name <- names(x)[coltab_info]
   ch_end <- paste0(ch_name, collapse = ", ")
 
   tterra_header("SpatRaster with ", lcol, " color ", pl, " in: ", ch_end)
@@ -430,7 +430,7 @@ tterra_body <- function(
     # Full message
     nms <- ifelse(ncol(extra_cols) == 1, "variable", "variables")
     if (init_type == "SpatRaster") {
-      nms <- gsub("variable", "layer", nms)
+      nms <- gsub("variable", "layer", nms, fixed = TRUE)
     }
     full <- paste(
       "#",

@@ -27,7 +27,7 @@
 #' [`tidy.SpatVector()`], [`tidy.SpatGraticule()`] and [`tidy.SpatExtent()`]
 #' return a [`sf`][sf::st_sf] object.
 #'
-#' [`tidy.SpatRaster()`] returns a [`tibble`][tibble::tibble]. See **Methods**.
+#' [`tidy.SpatRaster()`] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @rdname tidy.Spat
 #' @name tidy.Spat
@@ -121,7 +121,7 @@ tidy.SpatRaster <- function(
     crs <- ""
   }
 
-  if (pivot == FALSE) {
+  if (!pivot) {
     x <- as_tibble(x, xy = TRUE, .name_repair = .name_repair)
   } else {
     x <- check_mixed_cols(x, fn = "tidyterra::tidy.SpatRaster")

@@ -14,13 +14,13 @@ autoplot(r)
 terra::has.colors(xend)
 
 pp <- as_tibble(r) |>
-  filter(substr(LABEL3, 1, 1) == "S")
+  filter(startsWith(LABEL3, "S"))
 
 unique(pp$LABEL3)
 end <- unique(pp$LABEL3)
 as.integer(end)
 levels(pp$LABEL3)
-aa <- r |> filter(substr(LABEL3, 1, 1) == "S")
+aa <- r |> filter(startsWith(LABEL3, "S"))
 
 bb <- terra::levels(aa)
 

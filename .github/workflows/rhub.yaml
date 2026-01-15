@@ -8,26 +8,29 @@
 
 name: R-hub
 run-name: "${{ github.event.inputs.id }}: ${{ github.event.inputs.name || format('Manually run by {0}', github.triggering_actor) }}"
-
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 on:
   workflow_dispatch:
     inputs:
       config:
-        description: 'A comma separated list of R-hub platforms to use.'
+        description: "A comma separated list of R-hub platforms to use."
         type: string
-        default: 'linux,m1-san,macos,macos-arm64,windows,atlas,c23,clang-asan,clang-ubsan,clang16,clang17,clang18,clang19,clang20,donttest,gcc-asan,gcc13,gcc14,intel,mkl,nold,noremap,ubuntu-clang,ubuntu-gcc12,ubuntu-next,ubuntu-release'
+        default: "linux,windows,macos"
       name:
-        description: 'Run name. You can leave this empty now.'
+        description: "Run name. You can leave this empty now."
         type: string
       id:
-        description: 'Unique ID. You can leave this empty now.'
+        description: "Unique ID. You can leave this empty now."
         type: string
 
 jobs:
-
   setup:
     runs-on: ubuntu-latest
     outputs:
@@ -35,11 +38,10 @@ jobs:
       platforms: ${{ steps.rhub-setup.outputs.platforms }}
 
     steps:
-    # NO NEED TO CHECKOUT HERE
-    - uses: r-hub/actions/setup@v1
-      with:
-        config: ${{ github.event.inputs.config }}
-      id: rhub-setup
+      - uses: r-hub/actions/setup@v1
+        with:
+          config: ${{ github.event.inputs.config }}
+        id: rhub-setup
 
   linux-containers:
     needs: setup
@@ -55,14 +57,17 @@ jobs:
 
     steps:
       - uses: r-hub/actions/checkout@v1
+
       - uses: r-hub/actions/platform-info@v1
         with:
           token: ${{ secrets.RHUB_TOKEN }}
           job-config: ${{ matrix.config.job-config }}
+
       - uses: r-hub/actions/setup-deps@v1
         with:
           token: ${{ secrets.RHUB_TOKEN }}
           job-config: ${{ matrix.config.job-config }}
+
       - uses: r-hub/actions/run-check@v1
         with:
           token: ${{ secrets.RHUB_TOKEN }}
@@ -80,20 +85,23 @@ jobs:
 
     steps:
       - uses: r-hub/actions/checkout@v1
+
       - uses: r-hub/actions/setup-r@v1
         with:
           job-config: ${{ matrix.config.job-config }}
           token: ${{ secrets.RHUB_TOKEN }}
+
       - uses: r-hub/actions/platform-info@v1
         with:
           token: ${{ secrets.RHUB_TOKEN }}
           job-config: ${{ matrix.config.job-config }}
+
       - uses: r-hub/actions/setup-deps@v1
         with:
           job-config: ${{ matrix.config.job-config }}
           token: ${{ secrets.RHUB_TOKEN }}
+
       - uses: r-hub/actions/run-check@v1
         with:
           job-config: ${{ matrix.config.job-config }}
           token: ${{ secrets.RHUB_TOKEN }}
-

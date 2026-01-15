@@ -22,7 +22,7 @@ Derived from \url{https://github.com/OSGeo/grass/tree/main/lib/gis/colors}. See
 also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
 }
 \description{
-A \code{\link[tibble:tibble]{tibble}} including the color map of
+A \link[tibble:tbl_df-class]{tibble} including the color map of
 51 gradient palettes. Some palettes includes
 also a definition of colors limits that can be used with
 \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.

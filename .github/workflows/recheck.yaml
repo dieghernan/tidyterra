@@ -1,11 +1,11 @@
 # Workflow derived from https://github.com/r-devel/recheck
 on:
-    workflow_dispatch:
-      inputs:
-        which:
-          type: choice
-          description: Which dependents to check
-          options:
+  workflow_dispatch:
+    inputs:
+      which:
+        type: choice
+        description: Which dependents to check
+        options:
           - strong
           - most
 
@@ -13,10 +13,14 @@ name: r-devel reverse dependency check
 permissions:
   contents: read
 
-jobs:
-    revdep_check:
-      name: Reverse check ${{ inputs.which }} dependents
-      uses: r-devel/recheck/.github/workflows/recheck.yml@v1
-      with:
-        which: ${{ inputs.which }}
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
+jobs:
+  revdep_check:
+    name: Reverse check ${{ inputs.which }} dependents
+    uses: r-devel/recheck/.github/workflows/recheck.yml@v1
+    with:
+      which: ${{ inputs.which }}

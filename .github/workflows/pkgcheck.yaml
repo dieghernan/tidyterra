@@ -1,4 +1,4 @@
-name: pkgcheck - rOpenSci
+name: pkgcheck
 permissions:
   contents: read
   issues: write
@@ -15,10 +15,10 @@ on:
 jobs:
   pkgcheck:
     runs-on: ubuntu-latest
+
     steps:
       - uses: ropensci-review-tools/pkgcheck-action@main
         with:
           summary-only: false
           post-to-issue: true
           append-to-issue: true
-

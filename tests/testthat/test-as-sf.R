@@ -39,7 +39,7 @@ test_that("Coercion to grouped sf works", {
   skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
-  v$gr <- c("C", "A", "A", "B", "A", "B", "B")
+  v$gr <- c("C", "A", "A", "B", "A", "B", "B", NA, NA)
   v$gr2 <- rep(c("F", "G", "F"), 3)
 
   gr_v <- group_by(v, gr, gr2)
@@ -57,7 +57,7 @@ test_that("Coercion to rowwise sf works", {
   skip_on_cran()
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
-  v$gr <- c("C", "A", "A", "B", "A", "B", "B")
+  v$gr <- c("C", "A", "A", "B", "A", "B", "B", NA, NA)
   v$gr2 <- rep(c("F", "G", "F"), 3)
 
   gr_v <- rowwise(v)

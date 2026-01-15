@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is a compendium of [questions
+This is a compendium of [questions that have
 arisen](https://github.com/dieghernan/tidyterra/discussions) on the use of the
-**tidyterra** package and the potential solutions to it (mostly related with the
+**tidyterra** package and the potential solutions to them (mostly related to the
 use of **terra** and **ggplot2** at this stage). You can ask for help or search
 previous questions in the following links.
 
@@ -58,12 +58,12 @@ The original file has been cropped and down-sampled for demo purposes,
 ## `NA` values are shown in gray color {#nas-remove}
 
 This is the default behavior produced by the **ggplot2** package. **tidyterra**
-color scales (i.e., `scale_fill_whitebox_c()`, etc.), has by default the
+color scales (i.e., `scale_fill_whitebox_c()`, etc.), have by default the
 parameter `na.value` set to `"transparent"`, that prevents `NA` values to be
 filled[^2].
 
 [^2]: `na.value = NA` could be used as well for the same purpose in most of the
-    cases, however when the proportion of non-`NA`s is small it can produce
+    cases, However, when the proportion of non-`NA`s is small it can produce
     undesired results, see
     [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
@@ -260,7 +260,7 @@ ggplot() +
 
 ## Can I change the default palette of my maps?
 
-Yes, use `options("ggplot2.continuous.fill")` to modify the default colors on
+Yes, use `options("ggplot2.continuous.fill")` to modify the default colors in
 your session.
 
 ```{r default}
@@ -291,10 +291,10 @@ p
 
 ## My map tiles are blurry {#blurry-tiles}
 
-This is probably related with the tile itself rather than the package. Most base
+This is probably related to the tile itself rather than the package. Most base
 tiles are provided in **EPSG:3857**, so check first if your tile has this CRS
 and not a different one. Not having **EPSG:3857** may be an indication that the
-tile has been reprojected, implied some sort of sampling that causes the
+tile has been reprojected, implying some sort of sampling that causes the
 blurriness on your data. Also, modify the parameter `maxcell` to avoid
 resampling and force the **ggplot2** map to be on **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
@@ -426,11 +426,11 @@ ggplot() +
 **tidyterra** has several ways to handle these `SpatRaster` objects. We use the
 file `clc_edinburgh.tif`, available online in
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder,
-representing the information of the Corine Land Cover Dataset (2018) for the
+representing the information from the Corine Land Cover Dataset (2018) for the
 city of Edinburgh[^3].
 
 [^3]: The original file has been cropped, the numeric values have been converted
-    to their corresponding labels and factors, and it is has been added the
+    to their corresponding labels and factors, and it has been added the
     corresponding color table as of
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.
 
@@ -571,8 +571,8 @@ autoplot(r) +
 
 ## How to overlay a `SpatRaster` over a RGB tile
 
-This is quite straightforward, just use `geom_spatraster_rgb()` and after that
-command just create your layer:
+This is quite straightforward, just use `geom_spatraster_rgb()` and after that,
+just create your layer:
 
 ```{r overlay_cont}
 library(terra)
@@ -627,7 +627,7 @@ ggplot(aoi) +
   )
 ```
 
-We can create another variations with binned legends and filled contours (see
+We can create other variations with binned legends and filled contours (see
 `geom_spatraster_contour_filled()`):
 
 ```{r overlay_alt}
@@ -669,12 +669,12 @@ ggplot(aoi) +
 
 ## Hexagonal grids (and other `geoms`) {#fort}
 
-By concept the cells of a `SpatRaster` are rectangular, so it is not possible to
-create a `SpatRaster` with i.e. hexagonal cells.
+Conceptually, the cells of a `SpatRaster` are rectangular, so it is not possible
+to create a `SpatRaster` with i.e. hexagonal cells.
 
 But it is possible to create a plot with hexagonal cells thanks to
 `fortify.SpatRaster()` and `stat_summary_hex()`. Additional work is needed to
-adjust the final plot, specifically it is needed also to use `coord_sf()`:
+adjust the final plot, specifically, it is also needed to use `coord_sf()`:
 
 ```{r hex_grid}
 library(terra)

@@ -13,7 +13,7 @@
 #' @name as_spatvector
 #' @rdname as_spatvector
 #'
-#' @param x A [`tibble`][tibble::tibble], data frame or \CRANpkg{sf} object of
+#' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
 #'  class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
 #'
 #' @param ... additional arguments passed on to [terra::vect()].
@@ -135,7 +135,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
     crs <- crs_attr
   }
 
-  if (any(is.na(pull_crs(crs)), is.null(pull_crs(crs)))) {
+  if (anyNA(pull_crs(crs))) {
     crs <- ""
   }
 
@@ -244,7 +244,7 @@ as_spatvect_attr <- function(x) {
 
   gg[gg == ""] <- NA
 
-  if (any(is.na(gg))) {
+  if (anyNA(gg)) {
     gtype <- tolower(attrs$geomtype)
 
     # Needs to be MULTI except for POINT

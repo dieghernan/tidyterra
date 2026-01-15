@@ -23,7 +23,7 @@ lines <- lines[!grepl("^[A-Za-z]", lines)]
 lines <- lines[nchar(lines) > 0]
 
 # Replace blank spaces
-lines <- gsub(" ", "\t", lines)
+lines <- gsub(" ", "\t", lines, fixed = TRUE)
 full <- data.frame(all = lines)
 
 
@@ -67,8 +67,8 @@ make_endline <- make_endline |>
 make_hex <- bind_rows(make_hex, make_endline)
 
 # Add palette name
-gsub(paste0(".", tools::file_ext(url)), "", basename(url)) |>
-  tolower() -> pal
+pal <- gsub(paste0(".", tools::file_ext(url)), "", basename(url)) |>
+  tolower()
 
 make_hex <- make_hex |>
   mutate(pal = pal) |>

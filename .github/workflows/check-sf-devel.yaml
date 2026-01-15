@@ -6,12 +6,17 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 12 * * 2,5'
+    - cron: "00 12 * * 2,5"
   workflow_dispatch:
 
 name: dev-version sf
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   R-CMD-check-sf-devel:
@@ -23,8 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release'}
-
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -51,12 +55,12 @@ jobs:
       - name: Install sf from runiverse
         run: |
           # Install sf from rspatial runiverse
-          install.packages('sf', repos = c('https://r-spatial.r-universe.dev', 'https://cloud.r-project.org'))
+          install.packages("sf",
+            repos = c("https://r-spatial.r-universe.dev", "https://cloud.r-project.org")
+          )
 
           # Display version
           cat("sf ", as.character(packageVersion("sf")))
-
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
-

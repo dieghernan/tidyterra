@@ -8,6 +8,10 @@ on:
 name: test-coverage
 
 permissions: read-all
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   test-coverage:
@@ -40,7 +44,8 @@ jobs:
           # Create junit code as character
           junreport <- paste0(
             "testthat::test_package('",
-            pkgname, "', reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
+            pkgname, "',
+            reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
           )
 
           cov <- covr::package_coverage(
@@ -72,11 +77,13 @@ jobs:
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
+        uses: codecov/codecov-action@v5
         with:
           # Fail if error if not on PR, or if on PR and token is given
           fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
-          file: ./junit.xml
+          files: ./junit.xml
+          report_type: test_results
+          plugins: noop
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Show testthat output
@@ -92,4 +99,3 @@ jobs:
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
-

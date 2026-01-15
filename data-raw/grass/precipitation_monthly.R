@@ -12,12 +12,12 @@ init
 head(init, n = 10)
 
 tratapal <- init[] |>
-  gsub("   ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub(" ", ":", .) |>
-  gsub("aqua", "#00FFFF", .) |>
+  gsub("   ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub(" ", ":", ., fixed = TRUE) |>
+  gsub("aqua", "#00FFFF", ., fixed = TRUE) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {

@@ -12,11 +12,11 @@ init
 
 
 tratapal <- init[-1] |>
-  gsub("   ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub(" ", ":", .) |>
+  gsub("   ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub(" ", ":", ., fixed = TRUE) |>
   # gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) |>
   # gsub("white", paste0((col2rgb("white")), collapse = ":"), .) |>
   # gsub("black", paste0((col2rgb("black")), collapse = ":"), .) |>

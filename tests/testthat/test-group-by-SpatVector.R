@@ -129,7 +129,7 @@ test_that("mutate does not lose variables", {
 test_that("group_by orders by groups", {
   skip_on_cran()
 
-  df <- data.frame(a = sample(1:4, 30, replace = TRUE))
+  df <- data.frame(a = sample.int(4, 30, replace = TRUE))
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   df <- cbind(v[df$a, 0], df) |> group_by(a)
   expect_true(is_grouped_spatvector(df))

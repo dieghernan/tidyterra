@@ -168,7 +168,7 @@ test_that("Continous scale no range", {
       use_grass_range = FALSE
     )
   mod_alpha <- ggplot2::layer_data(p2_alpha)$colour
-  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+  expect_true(all(ggplot2::alpha(mod, 0.5) == mod_alpha))
 
   # Modify limits
   p3 <- p + scale_color_grass_c(limits = c(20, 26), palette = "etopo2")
@@ -179,7 +179,7 @@ test_that("Continous scale no range", {
   # Modify also with values
   p4 <- p +
     scale_colour_grass_c(
-      values = c(21, seq(22, 25, .05)),
+      values = c(21, seq(22, 25, 0.05)),
       limits = c(19, 27),
       palette = "etopo2",
       use_grass_range = FALSE
@@ -308,7 +308,7 @@ test_that("Breaking scale no range", {
       use_grass_range = FALSE
     )
   mod_alpha <- ggplot2::layer_data(p2_alpha)$colour
-  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+  expect_true(all(ggplot2::alpha(mod, 0.5) == mod_alpha))
 
   # Modify limits
 
@@ -325,7 +325,7 @@ test_that("Breaking scale no range", {
   # Modify also with values
   p4 <- p +
     scale_colour_grass_b(
-      values = c(20, seq(22, 27, .05)),
+      values = c(20, seq(22, 27, 0.05)),
       limits = c(19, 27),
       palette = "etopo2",
       use_grass_range = FALSE
@@ -494,7 +494,7 @@ test_that("Continous scale fill no range", {
       use_grass_range = FALSE
     )
   mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
-  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+  expect_true(all(ggplot2::alpha(mod, 0.5) == mod_alpha))
 
   # Modify limits
   p3 <- p + scale_fill_grass_c(limits = c(20, 26), palette = "etopo2")
@@ -505,7 +505,7 @@ test_that("Continous scale fill no range", {
   # Modify also with values
   p4 <- p +
     scale_fill_grass_c(
-      values = c(21, seq(22, 25, .05)),
+      values = c(21, seq(22, 25, 0.05)),
       limits = c(19, 27),
       palette = "etopo2",
       use_grass_range = FALSE
@@ -634,7 +634,7 @@ test_that("Breaking scale fill no range", {
       use_grass_range = FALSE
     )
   mod_alpha <- ggplot2::layer_data(p2_alpha)$fill
-  expect_true(all(ggplot2::alpha(mod, .5) == mod_alpha))
+  expect_true(all(ggplot2::alpha(mod, 0.5) == mod_alpha))
 
   # Modify limits
 
@@ -651,7 +651,7 @@ test_that("Breaking scale fill no range", {
   # Modify also with values
   p4 <- p +
     scale_fill_grass_b(
-      values = c(20, seq(22, 27, .05)),
+      values = c(20, seq(22, 27, 0.05)),
       limits = c(19, 27),
       palette = "etopo2",
       use_grass_range = FALSE

@@ -64,10 +64,10 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-Full manual of the most recent release of **tidyterra** on **CRAN** is
-online: <https://dieghernan.github.io/tidyterra/>
+The full manual of the most recent release of **tidyterra** on **CRAN**
+is online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented on **tidyterra** works differently
+**tidyverse** methods implemented on **tidyterra** work differently
 depending on the type of `Spat*` object:
 
 - `SpatVector`: the methods are implemented using
@@ -76,13 +76,13 @@ depending on the type of `Spat*` object:
 
 - `SpatRaster`: The implementation on `SpatRaster` objects differs,
   since the methods could be applied to layers or to cells.
-  **tidyterra** overall approach is to treat the layers as columns of a
-  tibble and the cells as rows (i.e. `select(SpatRaster, 1)` would
+  **tidyterra**’s overall approach is to treat the layers as columns of
+  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` would
   select the first layer of a `SpatRaster`).
 
 The methods implemented return the same type of object used as input,
 unless the expected behavior of the method is to return another type of
-object, (for example, `as_tibble()` would return a `tibble`).
+object (for example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by **tidyterra** are:
 
@@ -125,11 +125,10 @@ the **tidyverse** methods and verbs. This approach therefore has a
 **cost in terms of performance**.
 
 If you are a **heavy user** of **terra** or you need to work with **big
-raster files**, **terra** is much more focused on terms of performance.
-When possible, each function of **tidyterra** references to its
-equivalent on **terra**.
+raster files**, **terra** is much more performant. When possible, each
+function of **tidyterra** refers to its equivalent on **terra**.
 
-As a rule of thumb if your raster has less than 10.000.000 data slots
+As a rule of thumb if your raster has less than 10,000,000 data slots
 counting cells and layers
 (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
 good to go with **tidyterra**.
@@ -337,7 +336,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" width="100%" />
+<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" alt="" width="100%" />
 
 ## I need your feedback
 
@@ -356,7 +355,7 @@ the tag
 
 ## Acknowledgement
 
-**tidyterra** **ggplot2** geoms are based on
+**tidyterra**’s **ggplot2** geoms are based on
 [**ggspatial**](https://github.com/paleolimbot/ggspatial)
 implementation, by [Dewey Dunnington](https://github.com/paleolimbot)
 and [**ggspatial**

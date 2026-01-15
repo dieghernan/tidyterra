@@ -25,7 +25,7 @@
 #' [fortify.SpatVector()], [fortify.SpatGraticule()] and [fortify.SpatExtent()]
 #' return a [`sf`][sf::st_sf] object.
 #'
-#' [fortify.SpatRaster()] returns a [`tibble`][tibble::tibble]. See **Methods**.
+#' [fortify.SpatRaster()] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @rdname fortify.Spat
 #' @name fortify.Spat

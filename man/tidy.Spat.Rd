@@ -57,7 +57,7 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 \code{\link[=tidy.SpatVector]{tidy.SpatVector()}}, \code{\link[=tidy.SpatGraticule]{tidy.SpatGraticule()}} and \code{\link[=tidy.SpatExtent]{tidy.SpatExtent()}}
 return a \code{\link[sf:sf]{sf}} object.
 
-\code{\link[=tidy.SpatRaster]{tidy.SpatRaster()}} returns a \code{\link[tibble:tibble]{tibble}}. See \strong{Methods}.
+\code{\link[=tidy.SpatRaster]{tidy.SpatRaster()}} returns a \link[tibble:tbl_df-class]{tibble}. See \strong{Methods}.
 }
 \description{
 Turn \verb{Spat*} object into a tidy tibble. This is similar to

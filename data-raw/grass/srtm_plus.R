@@ -11,7 +11,7 @@ init <- readLines(paste0(
 init
 
 tratapal <- init[-c(16:17)] |>
-  gsub(" ", ":", .) |>
+  gsub(" ", ":", ., fixed = TRUE) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {

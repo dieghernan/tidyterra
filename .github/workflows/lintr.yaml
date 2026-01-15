@@ -22,19 +22,24 @@ on:
       - main
       - master
   schedule:
-    - cron: '38 10 * * 4'
+    - cron: "38 10 * * 4"
 
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   lintr:
     name: Run lintr scanning
     runs-on: ubuntu-latest
     permissions:
-      contents: read # for checkout to fetch code
-      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+      contents: read
+      security-events: write
+      actions: read
 
     steps:
       - name: Checkout code
@@ -68,4 +73,3 @@ jobs:
         with:
           sarif_file: lintr-results.sarif
           wait-for-processing: true
-

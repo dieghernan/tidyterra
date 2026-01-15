@@ -75,6 +75,7 @@ magrittr
 metR
 millimetres
 natively
+performant
 picas
 plotmath
 proj
@@ -93,6 +94,7 @@ summarise
 summarises
 summarising
 terra
+testthat
 tibble
 tibbles
 tidyr
@@ -106,4 +108,5 @@ xmax
 xmin
 ymax
 ymin
+’s
 ️

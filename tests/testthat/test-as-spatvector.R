@@ -432,8 +432,8 @@ test_that("Check internal NULL: POLYGONS", {
   mpol <- v[1:3, ]
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt)))
-  expect_true(any(grepl("MULTI", mpol_wkt)))
+  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # POLYGON
   pol_df <- as_tbl_internal(pol)
@@ -489,8 +489,8 @@ test_that("Check internal NULL: LINES", {
   mpol <- terra::as.lines(v[1:3, ])
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt)))
-  expect_true(any(grepl("MULTI", mpol_wkt)))
+  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # LINESTRING
   pol_df <- as_tbl_internal(pol)
@@ -550,8 +550,8 @@ test_that("Check internal NULL: POINTS", {
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
 
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt)))
-  expect_true(any(grepl("MULTI", mpol_wkt)))
+  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # POINT
   pol_df <- as_tbl_internal(pol)

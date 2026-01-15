@@ -72,14 +72,14 @@ elev <- terra::rast(elev)
 
 prov2 <- project(cyl, terra::crs(elev))
 
-elev |> crop(prov2) -> elev_end
+elev_end <- elev |> crop(prov2)
 
 names(elev_end) <- "elevation_m"
 
 
 # Reduce size
 template <- terra::rast(elev_end)
-res(template) <- c(.025, .025)
+res(template) <- c(0.025, 0.025)
 
 elev2 <- terra::resample(elev_end, template)
 

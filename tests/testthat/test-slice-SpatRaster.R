@@ -240,8 +240,8 @@ test_that("Slice min", {
   # Remove NAs option
   r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
 
-  df1 <- as_tibble(slice_min(r3, order_by = log2, prop = .5))
-  df2 <- as_tibble(slice_min(r3, order_by = log2, prop = .5, na.rm = FALSE))
+  df1 <- as_tibble(slice_min(r3, order_by = log2, prop = 0.5))
+  df2 <- as_tibble(slice_min(r3, order_by = log2, prop = 0.5, na.rm = FALSE))
 
   expect_false(nrow(df1) == nrow(df2))
 })
@@ -318,8 +318,8 @@ test_that("Slice max", {
   # Remove NAs option
   r3 <- transmute(r, log2 = ifelse(log > 4, log, NA))
 
-  df1 <- as_tibble(slice_max(r3, order_by = log2, prop = .5))
-  df2 <- as_tibble(slice_max(r3, order_by = log2, prop = .5, na.rm = FALSE))
+  df1 <- as_tibble(slice_max(r3, order_by = log2, prop = 0.5))
+  df2 <- as_tibble(slice_max(r3, order_by = log2, prop = 0.5, na.rm = FALSE))
 
   expect_false(nrow(df1) == nrow(df2))
 })
@@ -597,7 +597,7 @@ test_that("Slice RowCols", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(!sort(unique(df$colindex)) %in% -cls))
+  expect_true(!any(sort(unique(df$colindex)) %in% -cls))
   expect_true(all(sort(unique(df$rowindex)) == rws))
 
   # Mixed index: Keeps
@@ -612,6 +612,6 @@ test_that("Slice RowCols", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(all(!sort(unique(df$colindex)) %in% -cls))
+  expect_true(!any(sort(unique(df$colindex)) %in% -cls))
   expect_true(all(sort(unique(df$rowindex)) == rws))
 })

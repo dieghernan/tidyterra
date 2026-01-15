@@ -10,7 +10,7 @@ test_that("Replace NA with SpatVectors", {
 
   df_init <- terra::as.data.frame(v)
 
-  expect_true(any(is.na(df_init)))
+  expect_true(anyNA(df_init))
 
   replaced1 <- replace_na(v, list(attr_1 = "SomeValue"))
 
@@ -21,8 +21,8 @@ test_that("Replace NA with SpatVectors", {
 
   df <- terra::as.data.frame(replaced1)
 
-  expect_false(any(is.na(df[, 1])))
-  expect_true(any(is.na(df[, 3])))
+  expect_false(anyNA(df[, 1]))
+  expect_true(anyNA(df[, 3]))
   expect_true("SomeValue" %in% df[, 1])
 
   replaced2 <- replace_na(v, list(attr_3 = "AnotherValue"))
@@ -33,8 +33,8 @@ test_that("Replace NA with SpatVectors", {
 
   df2 <- terra::as.data.frame(replaced2)
 
-  expect_true(any(is.na(df2[, 1])))
-  expect_false(any(is.na(df2[, 3])))
+  expect_true(anyNA(df2[, 1]))
+  expect_false(anyNA(df2[, 3]))
   expect_true("AnotherValue" %in% df2[, 3])
 
   replaced3 <- replace_na(
@@ -52,7 +52,7 @@ test_that("Replace NA with SpatVectors", {
 
   # No NAs in the dataframe
   df3 <- terra::as.data.frame(replaced3)
-  expect_true(all(!is.na(df3)))
+  expect_true(!anyNA(df3))
 })
 
 
@@ -73,7 +73,7 @@ test_that("Replace na with SpatRaster", {
   # Extract as tibble for comparison
   tbl <- as_tibble(r, na.rm = FALSE)
 
-  expect_true(any(is.na(tbl)))
+  expect_true(anyNA(tbl))
 
   # Replace on lyr1
   expect_s4_class(r, "SpatRaster")
@@ -83,9 +83,9 @@ test_that("Replace na with SpatRaster", {
   expect_true(compare_spatrasters(r, rep))
   tbl2 <- as_tibble(rep, na.rm = FALSE)
 
-  expect_true(any(is.na(tbl2)))
-  expect_true(any(is.na(tbl$lyr_1)))
-  expect_false(any(is.na(tbl2$lyr_1)))
+  expect_true(anyNA(tbl2))
+  expect_true(anyNA(tbl$lyr_1))
+  expect_false(anyNA(tbl2$lyr_1))
 
   expect_true(max(tbl2$lyr_1) == 10e5)
 
@@ -102,10 +102,10 @@ test_that("Replace na with SpatRaster", {
   expect_true(compare_spatrasters(r, rep2))
   tbl3 <- as_tibble(rep2, na.rm = FALSE)
 
-  expect_true(any(is.na(tbl3)))
-  expect_true(any(is.na(tbl3$lyr_1)))
-  expect_false(any(is.na(tbl3$lyr_2)))
-  expect_false(any(is.na(tbl3$lyr_3)))
+  expect_true(anyNA(tbl3))
+  expect_true(anyNA(tbl3$lyr_1))
+  expect_false(anyNA(tbl3$lyr_2))
+  expect_false(anyNA(tbl3$lyr_3))
 
   expect_true(is.na(min(tbl3$lyr_1)))
   expect_true(min(tbl3$lyr_2) == -10)

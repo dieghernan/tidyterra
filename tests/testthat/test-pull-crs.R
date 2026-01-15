@@ -33,7 +33,7 @@ test_that("Check crs", {
   sf_na$no_na <- "A"
   sf_na$no_na <- NA
 
-  expect_true(any(is.na(sf_na)))
+  expect_true(anyNA(sf_na))
   expect_s3_class(sf_na, "sf")
   sf_na_check <- pull_crs(sf_na)
 

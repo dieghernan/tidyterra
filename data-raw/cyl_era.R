@@ -10,9 +10,9 @@ allcode <- db |>
   distinct() |>
   pull() |>
   tolower() |>
-  gsub("á", "a", .) |>
+  gsub("á", "a", ., fixed = TRUE) |>
   stringr::str_sub(1, 2) |>
-  gsub("se", "sg", .)
+  gsub("se", "sg", ., fixed = TRUE)
 
 allcode
 
@@ -20,7 +20,7 @@ minit <- lapply(allcode, function(x) {
   allurls <- paste0(base, x, ".zip")
   basezip <- file.path(tempdir(), basename(allurls))
   if (!file.exists(basezip)) {
-    download.file(allurls, basezip, quiet = TRUE)
+    download.file(allurls, basezip, quiet = TRUE, mode = "wb")
   }
   unzip(basezip, exdir = tempdir(), junkpaths = TRUE)
   s <- read_sf(gsub(".zip", ".shp", basezip))
@@ -35,7 +35,7 @@ m <- st_transform(minit, 3857)
 unique(m$ERA)
 
 library(terra)
-m$ERA <- gsub("á", "a", m$ERA)
+m$ERA <- gsub("á", "a", m$ERA, fixed = TRUE)
 lv <- rev(c(
   "Cenozoico",
   "Mesozoico-Cenozoico",
@@ -59,11 +59,11 @@ z <- rasterize(v, r, "ERA")
 plot(z)
 cols <- rev(c("#FFFFBF", "#FFD480", "#A4FF74", "#D79EBD", "#9ADDCF", "#FFBFE9"))
 cols <- c(cols, "white")
-eng <- gsub("zoico", "zoic", levels(p))
-eng <- gsub("brico", "bric", eng)
-eng <- gsub("Sin determinar", "Undetermined", eng)
+eng <- gsub("zoico", "zoic", levels(p), fixed = TRUE)
+eng <- gsub("brico", "bric", eng, fixed = TRUE)
+eng <- gsub("Sin determinar", "Undetermined", eng, fixed = TRUE)
 df <- data.frame(
-  value = seq_len(length(levels(p))),
+  value = seq_len(nlevels(p)),
   era = eng
 )
 

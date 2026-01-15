@@ -12,17 +12,27 @@ init
 head(init, n = 10)
 
 tratapal <- init[-c(1:6)] |>
-  gsub("   ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub(" ", ":", .) |>
-  gsub("aqua", paste0((col2rgb("aquamarine")), collapse = ":"), .) |>
-  gsub("white", paste0((col2rgb("white")), collapse = ":"), .) |>
-  gsub("black", paste0((col2rgb("black")), collapse = ":"), .) |>
-  gsub("green", paste0((col2rgb("green")), collapse = ":"), .) |>
-  gsub("yellow", paste0((col2rgb("yellow")), collapse = ":"), .) |>
-  gsub("red", paste0((col2rgb("red")), collapse = ":"), .) |>
+  gsub("   ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub(" ", ":", ., fixed = TRUE) |>
+  gsub(
+    "aqua",
+    paste0((col2rgb("aquamarine")), collapse = ":"),
+    .,
+    fixed = TRUE
+  ) |>
+  gsub("white", paste0((col2rgb("white")), collapse = ":"), ., fixed = TRUE) |>
+  gsub("black", paste0((col2rgb("black")), collapse = ":"), ., fixed = TRUE) |>
+  gsub("green", paste0((col2rgb("green")), collapse = ":"), ., fixed = TRUE) |>
+  gsub(
+    "yellow",
+    paste0((col2rgb("yellow")), collapse = ":"),
+    .,
+    fixed = TRUE
+  ) |>
+  gsub("red", paste0((col2rgb("red")), collapse = ":"), ., fixed = TRUE) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {

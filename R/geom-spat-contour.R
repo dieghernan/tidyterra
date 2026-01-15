@@ -271,7 +271,7 @@ GeomSpatRasterContour <- ggplot2::ggproto(
   default_aes = aes(
     weight = 1,
     colour = "grey35",
-    linewidth = .2,
+    linewidth = 0.2,
     linetype = 1,
     alpha = NA
   ),

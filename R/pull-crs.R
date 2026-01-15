@@ -109,12 +109,11 @@ pull_crs <- function(.data, ...) {
     return(sf::st_crs(.data)$wkt)
   }
 
-  if (
-    any(
-      is.na(.data),
-      is.null(.data)
-    )
-  ) {
+  if (anyNA(.data)) {
+    return(NA)
+  }
+
+  if (is.null(.data)) {
     return(NA)
   }
 

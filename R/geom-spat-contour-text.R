@@ -151,7 +151,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     weight = 1,
     label = "a",
     colour = "grey35",
-    linewidth = .2,
+    linewidth = 0.2,
     # Reduce base size, align with scales
     size = 3.88 * 0.8,
     linetype = 1,

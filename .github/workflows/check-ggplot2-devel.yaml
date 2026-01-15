@@ -6,12 +6,17 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 18 * * 1,4'
+    - cron: "00 18 * * 1,4"
   workflow_dispatch:
 
 name: dev-version ggplot2
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   R-CMD-check-ggplot2-devel:
@@ -23,8 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release'}
-
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -51,12 +55,12 @@ jobs:
       - name: Install ggplot2 from runiverse
         run: |
           # Install ggplot2 from rspatial runiverse
-          install.packages('ggplot2', repos = c('https://tidyverse.r-universe.dev', 'https://cloud.r-project.org'))
+          install.packages("ggplot2",
+            repos = c("https://tidyverse.r-universe.dev", "https://cloud.r-project.org")
+          )
 
           # Display version
           cat("ggplot2 ", as.character(packageVersion("ggplot2")))
-
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
-

@@ -6,12 +6,17 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 11 * * 2,5'
+    - cron: "00 11 * * 2,5"
   workflow_dispatch:
 
 name: dev-version terra
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   R-CMD-check-terra-devel:
@@ -23,8 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release'}
-
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -52,13 +56,14 @@ jobs:
         run: |
           # Install terra from rspatial runiverse
           # update.packages(repos = 'https://rspatial.r-universe.dev')
-          options(repos = c(rspatial = "https://rspatial.r-universe.dev",   CRAN = "https://cloud.r-project.org"))
+          options(repos = c(
+            rspatial = "https://rspatial.r-universe.dev",
+            CRAN = "https://cloud.r-project.org"
+          ))
           install.packages("terra", dependencies = TRUE)
 
           # Display version
           cat("terra ", as.character(packageVersion("terra")))
-
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
-

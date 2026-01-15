@@ -84,30 +84,30 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-Full manual of the most recent release of **tidyterra** on **CRAN** is online:
-<https://dieghernan.github.io/tidyterra/>
+The full manual of the most recent release of **tidyterra** on **CRAN** is
+online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented on **tidyterra** works differently depending
-on the type of `Spat*` object:
+**tidyverse** methods implemented on **tidyterra** work differently depending on
+the type of `Spat*` object:
 
 -   `SpatVector`: the methods are implemented using `terra::as.data.frame()`
     coercion. Rows correspond to geometries and columns correspond to attributes
     of the geometry.
 
 -   `SpatRaster`: The implementation on `SpatRaster` objects differs, since the
-    methods could be applied to layers or to cells. **tidyterra** overall
+    methods could be applied to layers or to cells. **tidyterra**'s overall
     approach is to treat the layers as columns of a tibble and the cells as rows
     (i.e. `select(SpatRaster, 1)` would select the first layer of a
     `SpatRaster`).
 
 The methods implemented return the same type of object used as input, unless the
-expected behavior of the method is to return another type of object, (for
-example, `as_tibble()` would return a `tibble`).
+expected behavior of the method is to return another type of object (for
+example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by **tidyterra** are:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
-|---------------------------|---------------------------|---------------------------|
+|----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
 | `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
@@ -145,10 +145,10 @@ Current methods and functions provided by **tidyterra** are:
 of performance**.
 
 If you are a **heavy user** of **terra** or you need to work with **big raster
-files**, **terra** is much more focused on terms of performance. When possible,
-each function of **tidyterra** references to its equivalent on **terra**.
+files**, **terra** is much more performant. When possible, each function of
+**tidyterra** refers to its equivalent on **terra**.
 
-As a rule of thumb if your raster has less than 10.000.000 data slots counting
+As a rule of thumb if your raster has less than 10,000,000 data slots counting
 cells and layers (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`)
 you are good to go with **tidyterra**.
 
@@ -327,7 +327,7 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 
 ## Acknowledgement
 
-**tidyterra** **ggplot2** geoms are based on
+**tidyterra**'s **ggplot2** geoms are based on
 [**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation, by
 [Dewey Dunnington](https://github.com/paleolimbot) and [**ggspatial**
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).

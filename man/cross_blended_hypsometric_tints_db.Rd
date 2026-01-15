@@ -27,7 +27,7 @@ Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69),
 }
 }
 \description{
-A \code{\link[tibble:tibble]{tibble}} including the color map of
+A \link[tibble:tbl_df-class]{tibble} including the color map of
 4 gradient palettes.
 All the palettes includes also a definition of colors limits in terms of
 elevation (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.

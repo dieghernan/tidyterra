@@ -6,12 +6,17 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron:  '00 14 * * 1,4'
+    - cron: "00 14 * * 1,4"
   workflow_dispatch:
 
 name: dev-version dplyr and readr
 permissions:
   contents: read
+
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   R-CMD-check-dplyr-readr-devel:
@@ -23,8 +28,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: ubuntu-latest, r: 'release'}
-
+          - { os: ubuntu-latest, r: "release" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -51,13 +55,13 @@ jobs:
       - name: Install dplyr readr from runiverse
         run: |
           # Install packages from rspatial runiverse
-          install.packages(c('dplyr', 'readr'), repos = c('https://tidyverse.r-universe.dev', 'https://cloud.r-project.org'))
+          install.packages(c("dplyr", "readr"),
+            repos = c("https://tidyverse.r-universe.dev", "https://cloud.r-project.org")
+          )
 
           # Display version
           cat("\ndplyr ", as.character(packageVersion("dplyr")))
           cat("\nreadr ", as.character(packageVersion("readr")))
-
         shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
-

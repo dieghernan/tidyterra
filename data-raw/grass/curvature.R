@@ -12,12 +12,12 @@ init
 
 
 tratapal <- init[] |>
-  gsub("   ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub("  ", " ", .) |>
-  gsub(" ", ":", .) |>
-  gsub("aqua", "aquamarine", .) |>
+  gsub("   ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub("  ", " ", ., fixed = TRUE) |>
+  gsub(" ", ":", ., fixed = TRUE) |>
+  gsub("aqua", "aquamarine", ., fixed = TRUE) |>
   lapply(strsplit, split = ":")
 
 pal_df <- lapply(tratapal, function(f) {
@@ -33,8 +33,8 @@ pal_df <- lapply(tratapal, function(f) {
   df$hex <- rgb(df$r, df$g, df$b, maxColorValue = 255)
   df$pal <- pal
   v <- unlist(f)[1]
-  if (grepl("%", v)) {
-    tbn <- gsub("%", "", v) |> as.double()
+  if (grepl("%", v, fixed = TRUE)) {
+    tbn <- gsub("%", "", v, fixed = TRUE) |> as.double()
     tbn <- tbn / 1000
     tbn <- ifelse(tbn == 0, -1, tbn)
   } else {

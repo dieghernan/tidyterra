@@ -60,7 +60,7 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}}, \code{\link[=fortify.SpatGraticule]{fortify.SpatGraticule()}} and \code{\link[=fortify.SpatExtent]{fortify.SpatExtent()}}
 return a \code{\link[sf:sf]{sf}} object.
 
-\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \code{\link[tibble:tibble]{tibble}}. See \strong{Methods}.
+\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \link[tibble:tbl_df-class]{tibble}. See \strong{Methods}.
 }
 \description{
 Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provide
