@@ -6,8 +6,9 @@
 # usethis::use_github_action("check-standard") will install it.
 on:
   schedule:
-    - cron: "00 14 * * 1,4"
+  - cron: "00 14 * * 1,4"
   workflow_dispatch:
+
 
 name: dev-version dplyr and readr
 permissions:
@@ -28,40 +29,40 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { os: ubuntu-latest, r: "release" }
+        - {os: ubuntu-latest, r: "release"}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v6
+    - uses: actions/checkout@v6
 
-      - uses: r-lib/actions/setup-pandoc@v2
+    - uses: r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
-          use-public-rspm: true
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: ${{ matrix.config.r }}
+        http-user-agent: ${{ matrix.config.http-user-agent }}
+        use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          cache-version: dplyr-readr-devel
-          extra-packages: |
-            any::rcmdcheck
+    - uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        cache-version: dplyr-readr-devel
+        extra-packages: |
+          any::rcmdcheck
 
-          needs: check
+        needs: check
 
-      - name: Install dplyr readr from runiverse
-        run: |
-          # Install packages from rspatial runiverse
-          install.packages(c("dplyr", "readr"),
-            repos = c("https://tidyverse.r-universe.dev", "https://cloud.r-project.org")
-          )
+    - name: Install dplyr readr from runiverse
+      run: |
+        # Install packages from rspatial runiverse
+        install.packages(c("dplyr", "readr"),
+          repos = c("https://tidyverse.r-universe.dev", "https://cloud.r-project.org")
+        )
 
-          # Display version
-          cat("\ndplyr ", as.character(packageVersion("dplyr")))
-          cat("\nreadr ", as.character(packageVersion("readr")))
-        shell: Rscript {0}
+        # Display version
+        cat("\ndplyr ", as.character(packageVersion("dplyr")))
+        cat("\nreadr ", as.character(packageVersion("readr")))
+      shell: Rscript {0}
 
-      - uses: r-lib/actions/check-r-package@v2
+    - uses: r-lib/actions/check-r-package@v2

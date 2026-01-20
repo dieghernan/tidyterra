@@ -10,10 +10,11 @@ on:
   pull_request:
     branches: [main, master]
   schedule:
-    - cron: "30 15 * * 3,6"
+  - cron: "30 15 * * 3,6"
   repository_dispatch:
     types: [trigger-check-workflow]
   workflow_dispatch:
+
 
 name: R-CMD-check
 permissions:
@@ -32,30 +33,30 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { os: windows-latest, r: "devel" }
-          - { os: windows-latest, r: "release" }
-          - { os: macOS-latest, r: "release" }
-          - { os: ubuntu-latest, r: "release" }
-          - { os: ubuntu-latest, r: "devel" }
-          - { os: ubuntu-latest, r: "oldrel" }
-          - { os: ubuntu-latest, r: "4.1.0" }
+        - {os: windows-latest, r: "devel"}
+        - {os: windows-latest, r: "release"}
+        - {os: macOS-latest, r: "release"}
+        - {os: ubuntu-latest, r: "release"}
+        - {os: ubuntu-latest, r: "devel"}
+        - {os: ubuntu-latest, r: "oldrel"}
+        - {os: ubuntu-latest, r: "4.1.0"}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v6
+    - uses: actions/checkout@v6
 
-      - uses: r-lib/actions/setup-pandoc@v2
+    - uses: r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          r-version: ${{ matrix.config.r }}
-          http-user-agent: ${{ matrix.config.http-user-agent }}
-          use-public-rspm: true
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        r-version: ${{ matrix.config.r }}
+        http-user-agent: ${{ matrix.config.http-user-agent }}
+        use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::rcmdcheck
-          needs: check
+    - uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        extra-packages: any::rcmdcheck
+        needs: check
 
-      - uses: r-lib/actions/check-r-package@v2
+    - uses: r-lib/actions/check-r-package@v2

@@ -5,6 +5,7 @@ on:
     branches: [main, master]
   pull_request:
 
+
 name: test-coverage
 
 permissions: read-all
@@ -21,81 +22,83 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
-      - uses: actions/checkout@v6
+    - uses: actions/checkout@v6
 
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::covr, any::xml2
-          needs: coverage
+    - uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        extra-packages: |
+          any::covr
+          any::xml2
+        needs: coverage
 
-      - name: Test coverage
-        run: |
-          # Need to config junit on working dir to locate it
-          wdir <- file.path(normalizePath(getwd(), winslash = "/"))
-          junfile <- file.path(wdir, "junit.xml")
+    - name: Test coverage
+      run: |
+        # Need to config junit on working dir to locate it
+        wdir <- file.path(normalizePath(getwd(), winslash = "/"))
+        junfile <- file.path(wdir, "junit.xml")
 
-          # And get the name
-          pkgname <- as.character(unname(read.dcf("DESCRIPTION", "Package")))
+        # And get the name
+        pkgname <- as.character(unname(read.dcf("DESCRIPTION", "Package")))
 
-          # Create junit code as character
-          junreport <- paste0(
-            "testthat::test_package('",
-            pkgname, "',
-            reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
-          )
+        # Create junit code as character
+        junreport <- paste0(
+          "testthat::test_package('",
+          pkgname, "',
+          reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
+        )
 
-          cov <- covr::package_coverage(
-            quiet = FALSE,
-            clean = FALSE,
-            type = "none",
-            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"),
-              winslash = "/"
-            ), "package"),
-            code = junreport
-          )
+        cov <- covr::package_coverage(
+          quiet = FALSE,
+          clean = FALSE,
+          type = "none",
+          install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"),
+            winslash = "/"
+          ), "package"),
+          code = junreport
+        )
 
-          # Show results
-          print(cov)
+        # Show results
+        print(cov)
 
-          # Generate files for upload in the working dir
-          covr::to_cobertura(cov)
-        shell: Rscript {0}
+        # Generate files for upload in the working dir
+        covr::to_cobertura(cov)
+      shell: Rscript {0}
 
-      - name: Upload coverage report
-        uses: codecov/codecov-action@v5
-        with:
-          # Fail if error if not on PR, or if on PR and token is given
-          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
-          files: ./cobertura.xml
-          plugins: noop
-          disable_search: true
-          token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload coverage report
+      uses: codecov/codecov-action@v5
+      with:
+        # Fail if error if not on PR, or if on PR and token is given
+        fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+        files: ./cobertura.xml
+        plugins: noop
+        disable_search: true
+        token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        uses: codecov/codecov-action@v5
-        with:
-          # Fail if error if not on PR, or if on PR and token is given
-          fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
-          files: ./junit.xml
-          report_type: test_results
-          plugins: noop
-          token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/codecov-action@v5
+      with:
+        # Fail if error if not on PR, or if on PR and token is given
+        fail_ci_if_error: ${{ github.event_name != 'pull_request' || secrets.CODECOV_TOKEN }}
+        files: ./junit.xml
+        report_type: test_results
+        plugins: noop
+        token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Show testthat output
-        if: always()
-        run: |
-          ## --------------------------------------------------------------------
-          find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
-        shell: bash
+    - name: Show testthat output
+      if: always()
+      run: |
+        ## --------------------------------------------------------------------
+        find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
+      shell: bash
 
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v6
-        with:
-          name: coverage-test-failures
-          path: ${{ runner.temp }}/package
+    - name: Upload test results
+      if: failure()
+      uses: actions/upload-artifact@v6
+      with:
+        name: coverage-test-failures
+        path: ${{ runner.temp }}/package

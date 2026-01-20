@@ -12,13 +12,14 @@ on:
   # Manually trigger the Action under Actions/pkgcheck
   workflow_dispatch:
 
+
 jobs:
   pkgcheck:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ropensci-review-tools/pkgcheck-action@main
-        with:
-          summary-only: false
-          post-to-issue: true
-          append-to-issue: true
+    - uses: ropensci-review-tools/pkgcheck-action@main
+      with:
+        summary-only: false
+        post-to-issue: true
+        append-to-issue: true

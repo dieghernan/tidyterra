@@ -52,12 +52,16 @@ home:
 reference:
 - title: "**tibble** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a> implemented for `Spat*` objects.
+    Methods from <a href="https://CRAN.R-project.org/package=tibble"
+    class="external-link"><span class="pkg">tibble</span></a> implemented for
+    `Spat*` objects.
   contents: has_concept("tibble.methods")
 
 - title: dplyr methods
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> implemented for `Spat*` objects.
+    Methods from <a href="https://CRAN.R-project.org/package=dplyr"
+    class="external-link"><span class="pkg">dplyr</span></a> implemented for
+    `Spat*` objects.
 - subtitle: Rows
   desc: |
     Verbs that principally operate on rows.
@@ -77,25 +81,33 @@ reference:
 
 - title: tidyr methods
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=tidyr" class="external-link"><span class="pkg">tidyr</span></a> implemented for `Spat*` objects.
+    Methods from <a href="https://CRAN.R-project.org/package=tidyr"
+    class="external-link"><span class="pkg">tidyr</span></a> implemented for
+    `Spat*` objects.
 - subtitle: Pivoting
   description: >
-    Pivoting changes the representation of a `SpatVector` object, without changing the data inside of it.
+    Pivoting changes the representation of a `SpatVector` object, without
+    changing the data inside of it.
   contents: has_concept("tidyr.pivot")
 - subtitle: Missing values
   description: >
-    Tools for converting between implicit (absent rows) and explicit (`NA`) missing values, handling explicit `NA`s.
+    Tools for converting between implicit (absent rows) and explicit (`NA`)
+    missing values, handling explicit `NA`s.
   contents: has_concept("tidyr.missing")
 
 - title: ggplot2 methods
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> implemented for `Spat*` objects.
+    Methods from <a href="https://CRAN.R-project.org/package=ggplot2"
+    class="external-link"><span class="pkg">ggplot2</span></a> implemented for
+    `Spat*` objects.
   contents: has_concept("ggplot2.methods")
 
 - title: ggplot2 utils
 - subtitle: Geoms
   desc: >
-    Create <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layers for `Spat*` objects.
+    Create <a href="https://CRAN.R-project.org/package=ggplot2"
+    class="external-link"><span class="pkg">ggplot2</span></a> layers for
+    `Spat*` objects.
   contents: starts_with("geom_")
 - subtitle: Scales
   desc: Gradient colour schemes, palettes and hypsometric tints.
@@ -103,12 +115,16 @@ reference:
 
 - title: "**generics** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=generics" class="external-link"><span class="pkg">generics</span></a> implemented for `Spat*` objects.
+    Methods from <a href="https://CRAN.R-project.org/package=generics"
+    class="external-link"><span class="pkg">generics</span></a> implemented for
+    `Spat*` objects.
   contents: has_concept("generics.methods")
 
 - title: Helpers
   desc: >
-    Additional set of functions provided by <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a>.
+    Additional set of functions provided by <a
+    href="https://CRAN.R-project.org/package=tidyterra"
+    class="external-link"><span class="pkg">tidyterra</span></a>.
 - subtitle: Coercing objects
   desc: >
     Convert Spat* to other type of objects or create `SpatRasters` from tibbles.

@@ -6,8 +6,8 @@ on:
         type: choice
         description: Which dependents to check
         options:
-          - strong
-          - most
+        - strong
+        - most
 
 name: r-devel reverse dependency check
 permissions:

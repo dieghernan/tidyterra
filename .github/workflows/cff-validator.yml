@@ -22,15 +22,15 @@ jobs:
       RSPM: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+    - name: Checkout
+      uses: actions/checkout@v6
 
-      # This is needed for workflows running on
-      # ubuntu-20.04 or later
-      - name: Install V8
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get install -y libv8-dev
+    # This is needed for workflows running on
+    # ubuntu-20.04 or later
+    - name: Install V8
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get install -y libv8-dev
 
-      - name: Validate CITATION.cff
-        uses: dieghernan/cff-validator@main
+    - name: Validate CITATION.cff
+      uses: dieghernan/cff-validator@main

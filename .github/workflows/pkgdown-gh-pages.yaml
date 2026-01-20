@@ -5,8 +5,9 @@ on:
     branches: [main, master]
     tags: ["*"]
   schedule:
-    - cron: "20 20 20 * *"
+  - cron: "20 20 20 * *"
   workflow_dispatch:
+
 
 name: pkgdown-gh-pages
 permissions: write-all
@@ -21,23 +22,23 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v6
+    - uses: actions/checkout@v6
 
-      - uses: r-lib/actions/setup-pandoc@v2
+    - uses: r-lib/actions/setup-pandoc@v2
 
-      - uses: r-lib/actions/setup-r@v2
-        with:
-          use-public-rspm: true
+    - uses: r-lib/actions/setup-r@v2
+      with:
+        use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            local::.
-            any::pkgdown
-          needs: website
+    - uses: r-lib/actions/setup-r-dependencies@v2
+      with:
+        extra-packages: |
+          local::.
+          any::pkgdown
+        needs: website
 
-      - name: Deploy package
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          Rscript -e 'pkgdown::deploy_to_branch(clean = TRUE, run_dont_run = TRUE)'
+    - name: Deploy package
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        Rscript -e 'pkgdown::deploy_to_branch(clean = TRUE, run_dont_run = TRUE)'
