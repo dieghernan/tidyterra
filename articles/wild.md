@@ -116,6 +116,11 @@ timing alters the phenology but not the performance of an understory
 spring ephemeral plant. *Journal of Ecology*, *113*(9), 2289–2300.
 <https://doi.org/10.1111/1365-2745.70099>
 
+Kiziridis, D. A., Karmiris, I., & Fotakis, D. (2026). Agroforestry
+optimisation for climate policy: Mapping silvopastoral carbon
+sequestration trade-offs in the Mediterranean. *Sustainability*,
+*18*(1). <https://doi.org/10.3390/su18010439>
+
 Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
 centuries of collection records. *New Phytologist*, nph.70321.
@@ -127,6 +132,11 @@ K., Keith, A. M., Seaton, F., & Robinson, D. A. (2025). Patterns and
 thresholds for soil pH across Europe in relation to soil health and
 degradation. *CATENA*, *260*, 109454.
 <https://doi.org/10.1016/j.catena.2025.109454>
+
+Lee, F., Kusabs, I. A. K., Perry, G. L. W., & MacNeil, C. (2025).
+Identifying refugia from the synergistic threats of climate change and
+invasive species. *Web Ecology*, *25*(2), 221–239.
+<https://doi.org/10.5194/we-25-221-2025>
 
 Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
 E. (2024). *inlabru: Software for fitting latent Gaussian models with
@@ -162,6 +172,11 @@ Lanfranco, L. (2025). A systematic scoping review reveals that
 geographic and taxonomic patterns influence the scientific and societal
 interest in urban soil microbial diversity. *Environmental Microbiome*,
 *20*(1), 17. <https://doi.org/10.1186/s40793-025-00677-7>
+
+Merlin, M., Gardiner, B., & Solberg, S. (2026). Predicting the risk of
+individual tree fall along powerlines in Norway with a mechanistic wind
+risk model and machine learning. *EGUsphere*, *2026*, 1–34.
+<https://doi.org/10.5194/egusphere-2025-6363>
 
 Merlin, M., Locatelli, T., Gardiner, B., & Astrup, R. (2025).
 Large-scale modelling wind damage vulnerability through combination of
@@ -257,3 +272,9 @@ Wong, C. Y. S., Wright, M. C., Mantgem, P. J. van, Latimer, A. M., &
 Young, D. J. N. (2025). Sentinel imagery detects the presence of live
 trees following large wildfires in California. *Environmental Research:
 Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
+
+Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
+H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
+distribution pattern in Tajikistan: A global hotspot of diversity.
+*Regional Sustainability*, 100294.
+<https://doi.org/10.1016/j.regsus.2026.100294>

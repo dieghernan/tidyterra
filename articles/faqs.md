@@ -945,7 +945,6 @@ Details
     #>  gtable         0.3.6      2024-10-25 [1] RSPM
     #>  hexbin         1.28.5     2024-11-13 [1] RSPM
     #>  htmltools      0.5.9      2025-12-04 [1] RSPM
-    #>  htmlwidgets    1.6.4      2023-12-06 [1] RSPM
     #>  isoband        0.3.0      2025-12-07 [1] RSPM
     #>  jquerylib      0.1.4      2021-04-26 [1] RSPM
     #>  jsonlite       2.0.0      2025-03-27 [1] RSPM
@@ -958,10 +957,9 @@ Details
     #>  maptiles     * 0.11.0     2025-12-12 [1] RSPM
     #>  memoise        2.0.1      2021-11-26 [1] RSPM
     #>  metR         * 0.18.3     2025-12-09 [1] RSPM
-    #>  otel           0.2.0      2025-08-29 [1] RSPM
     #>  pillar         1.11.1     2025-09-17 [1] RSPM
     #>  pkgconfig      2.0.3      2019-09-22 [1] RSPM
-    #>  pkgdown        2.2.0      2025-11-06 [1] any (@2.2.0)
+    #>  pkgdown        2.2.0      2025-11-06 [1] RSPM
     #>  plyr           1.8.9      2023-10-02 [1] RSPM
     #>  proxy          0.4-29     2025-12-29 [1] RSPM
     #>  purrr          1.2.1      2026-01-09 [1] RSPM
@@ -980,7 +978,7 @@ Details
     #>  S7             0.2.1      2025-11-14 [1] RSPM
     #>  sass           0.4.10     2025-04-11 [1] RSPM
     #>  scales         1.4.0      2025-04-24 [1] RSPM
-    #>  sessioninfo  * 1.2.3      2025-02-05 [1] RSPM
+    #>  sessioninfo  * 1.2.3      2025-02-05 [1] any (@1.2.3)
     #>  sf           * 1.0-24     2026-01-13 [1] RSPM
     #>  styler         1.11.0     2025-10-13 [1] RSPM
     #>  systemfonts    1.3.1      2025-10-01 [1] RSPM
