@@ -174,7 +174,6 @@ get_named_crs <- function(x) {
   }
   # nocov end
 
-
   r <- terra::crs(pulled, proj = TRUE)
 
   # nocov start

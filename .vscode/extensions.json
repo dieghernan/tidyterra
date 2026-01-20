@@ -1,5 +1,3 @@
 {
-    "recommendations": [
-        "Posit.air-vscode"
-    ]
+  "recommendations": ["github.vscode-github-actions", "GitHub.vscode-pull-request-github", "kennylong.kubernetes-yaml-formatter", "Posit.air-vscode", "quarto.quarto"]
 }

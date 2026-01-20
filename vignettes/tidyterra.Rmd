@@ -163,10 +163,14 @@ library(scales) # Additional library for labels
 rastertemp <- terra::rast(system.file("extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 # Rename with the tidyverse
 rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
+#> Error:
+#> ! object 'rastertemp' not found
 
 
 # Plot with facets
@@ -184,12 +188,9 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+#> Error:
+#> ! object 'rastertemp' not found
 ```
-
-<div class="figure">
-<img src="./spatraster-example1-1.png" alt="Faceted map with multi-layer raster file." width="100%" />
-<p class="caption">Faceted map with multi-layer raster file.</p>
-</div>
 
 In the following example we combine a common **dplyr** workflow (`mutate()` +
 `select()`) and we plot the result. In this case the plot is a contour plot of
@@ -202,11 +203,15 @@ includes an overlay of a `SpatVector` for reference:
 incr_temp <- rastertemp |>
   mutate(var = June - April) |>
   select(Variation = var)
+#> Error:
+#> ! object 'rastertemp' not found
 
 # Overlay an SpatVector
 cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg",
   package = "tidyterra"
 ))
+#> Error:
+#> ! [vect] file does not exist:
 
 # Contour map with overlay
 ggplot() +
@@ -219,12 +224,9 @@ ggplot() +
     title = "Variation of temperature in Castille and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
+#> Error:
+#> ! object 'incr_temp' not found
 ```
-
-<div class="figure">
-<img src="./spatraster-example2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%" />
-<p class="caption">Contour map of temperature variation with a SpatVector overlay</p>
-</div>
 
 ## Additional materials
 
