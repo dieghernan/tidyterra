@@ -93,17 +93,12 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 temp
-#> class       : SpatRaster 
-#> size        : 87, 118, 3  (nrow, ncol, nlyr)
-#> resolution  : 3881.255, 3881.255  (x, y)
-#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
-#> source      : cyl_temp.tif 
-#> names       :   tavg_04,   tavg_05,  tavg_06 
-#> min values  :  1.885463,  5.817587, 10.46338 
-#> max values  : 13.283829, 16.740898, 21.11378
+#> Error:
+#> ! object 'temp' not found
 
 mod <- temp |>
   select(-1) |>
@@ -111,17 +106,12 @@ mod <- temp |>
   relocate(newcol, .before = 1) |>
   replace_na(list(newcol = 3)) |>
   rename(difference = newcol)
+#> Error:
+#> ! object 'temp' not found
 
 mod
-#> class       : SpatRaster 
-#> size        : 87, 118, 3  (nrow, ncol, nlyr)
-#> resolution  : 3881.255, 3881.255  (x, y)
-#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
-#> source(s)   : memory
-#> names       : difference,   tavg_05,  tavg_06 
-#> min values  :   2.817647,  5.817587, 10.46338 
-#> max values  :   5.307511, 16.740898, 21.11378
+#> Error:
+#> ! object 'mod' not found
 ```
 
 On the previous example, we had:
@@ -203,17 +193,17 @@ ggplot() +
     palette = "muted",
     na.value = "white"
   )
+#> Error:
+#> ! object 'temp' not found
 ```
-
-![A faceted SpatRaster](faceted-1.png)
-
-A faceted SpatRaster
 
 ``` r
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 ggplot() +
   geom_spatraster(data = volcano2) +
@@ -221,11 +211,10 @@ ggplot() +
   scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
+#> Error in `geom_spatraster()`:
+#> ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects,
+#>   not <matrix/array>. See `?terra::vect()`
 ```
-
-![Contour lines plot for a SpatRaster](contourlines-1.png)
-
-Contour lines plot for a SpatRaster
 
 ``` r
 # Contour filled
@@ -234,11 +223,10 @@ ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
   scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
+#> Error in `geom_spatraster_contour_filled()`:
+#> ! `tidyterra::geom_spatraster_contour_filled()` only works with
+#>   <SpatRaster> objects, not <matrix/array>. See `?terra::vect()`
 ```
-
-![Contour filled plot for a SpatRaster](contourfilled-1.png)
-
-Contour filled plot for a SpatRaster
 
 With **tidyterra** you can also plot RGB `SpatRasters` to add imagery to
 your plots:
@@ -248,39 +236,38 @@ your plots:
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
+#> Error:
+#> ! [vect] file does not exist:
 
 # Read a tile
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 rgb_plot <- ggplot(v) +
   geom_spatraster_rgb(data = r_rgb) +
   geom_spatvector(fill = NA, size = 1)
+#> Error:
+#> ! object 'v' not found
 
 rgb_plot
+#> Error:
+#> ! object 'rgb_plot' not found
 ```
-
-![Plotting an RGB SpatRaster](rgb-1.png)
-
-Plotting an RGB SpatRaster
 
 **tidyterra** provides selected scales that are suitable for creating
 hypsometric and bathymetric maps:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 asia
-#> class       : SpatRaster 
-#> size        : 164, 306, 1  (nrow, ncol, nlyr)
-#> resolution  : 31836.23, 31847.57  (x, y)
-#> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
-#> source      : asia.tif 
-#> name        : file44bc291153f2 
-#> min value   :        -9558.468 
-#> max value   :         5801.927
+#> Error:
+#> ! object 'asia' not found
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -302,11 +289,9 @@ ggplot() +
     legend.ticks = element_line(colour = "black", linewidth = 0.3),
     legend.direction = "horizontal"
   )
+#> Error:
+#> ! object 'asia' not found
 ```
-
-![Hypsometric tints](hypso-1.png)
-
-Hypsometric tints
 
 ### `SpatVectors`
 
