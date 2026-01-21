@@ -15,7 +15,7 @@ date: "2023-07-18"
 description: >-
   Paper published on The Journal of Open Source Software.
 bibliography: paper.bib
-link-citations: yes
+link-citations: true
 editor_options:
   markdown:
     wrap: 80
