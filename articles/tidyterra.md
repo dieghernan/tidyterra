@@ -289,7 +289,7 @@ Crawling Predators.” *Marine Ecology Progress Series* 721 (October):
 85–101. <https://doi.org/10.3354/meps14416>.
 
 Moraga, Paula. 2024. *Spatial Statistics for Data Science: Theory and
-Practice with R*. First edition. Boca Raton, FL: Chapman and Hall/CRC.
+Practice with R*. First edition. Boca Raton, FL: CRC Press.
 <https://www.paulamoraga.com/book-spatial/>.
 
 Müller, Kirill, and Hadley Wickham. 2023. “tibble: Simple Data Frames.”

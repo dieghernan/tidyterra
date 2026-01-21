@@ -36,13 +36,13 @@ and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
 <https://doi.org/10.3389/past.2025.14997>
 
-Buma, B. (2024). Including non‐growing season emissions of N₂O in US
+Buma, B. (2024). Including non-growing season emissions of N₂O in US
 maize could raise net CO₂e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
 
 Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
-hummingbird‐pollinated plant is not strongly influenced by hummingbird
+hummingbird-pollinated plant is not strongly influenced by hummingbird
 abundance. *American Journal of Botany*, e70034.
 <https://doi.org/10.1002/ajb2.70034>
 
@@ -64,7 +64,7 @@ formation of a cryptic amphipod species: The example of a Lake Baikal
 species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11).
 <https://doi.org/10.3390/d17110781>
 
-Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez‐Anez, N.
+Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
 (2025). How to Approach the Definition of WUI in Northern Europe. *Fire
 and Materials*. <https://doi.org/10.1002/fam.3264>
 
@@ -79,7 +79,7 @@ Fu, F., Wang, S., Wu, X., Chen, S., Tan, Z., Ye, C., & Grünzweig, J. M.
 ecological restoration. *Communications Earth & Environment*, *6*(1),
 667. <https://doi.org/10.1038/s43247-025-02649-8>
 
-García-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
+Garcı́a-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
 Naranjo-Cigala, A., & Arévalo, J. R. (2025). Assessing the Potential
 Risk of Invasion of the Neophyte *Pluchea ovalis* (Pers.) DC.
 (Asteraceae) in the Canarian Archipelago Using an Ensemble of Species
@@ -198,7 +198,7 @@ viticola* Causing Downy Mildew in Russian Far East Grapevines.
 *Horticulturae*, *10*(4), 326.
 <https://doi.org/10.3390/horticulturae10040326>
 
-Pérez-Girón, J. C., López-Bao, J. V., Díaz-Varela, E., &
+Pérez-Girón, J. C., López-Bao, J. V., Dı́az-Varela, E., &
 Álvarez-Álvarez, P. (2025). Predicting climate-related compositional
 shifts in nut-producing species that are important for bears during
 hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
@@ -223,7 +223,7 @@ Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 Salvador Baiges, G., & Gassiot Ballbè, E. (dir. ). (2024). *Clima,
 orografia i dinàmiques de poblament al Pirineu Central. Arqueologia, SIG
 i modelització espacial del patró d’ocupació del territori durant el
-Neolític (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
+Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
 Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
 <https://ddd.uab.cat/record/301073>
 
