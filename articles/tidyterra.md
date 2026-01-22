@@ -113,7 +113,7 @@ plotting, the default behavior of the geoms provided is to resample
 process (as the
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
 does), however this upper limit can be modified using the `maxcell`
-parameter of the geom function.
+argument of the geom function.
 
 Note also that when possible, the help page of each function of
 **tidyterra** references its equivalent in **terra**.

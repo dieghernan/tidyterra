@@ -14,7 +14,7 @@ Additionally, a color palette `whitebox.colors()` is provided. See also
 [`grDevices::terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html)
 for details.
 
-Additional parameters `...` would be passed on to:
+Additional arguments `...` would be passed on to:
 
 - Discrete values:
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
@@ -26,9 +26,9 @@ Additional parameters `...` would be passed on to:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional parameters, check the
+just documents a selection of these additional arguments, check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
-above to see the full range of parameters accepted by these scales.
+above to see the full range of arguments accepted by these scales.
 
 ## Usage
 
@@ -259,7 +259,7 @@ layer with the values applied to the `fill/colour` aesthetics.
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html)
 
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` parameters.
+additional `...` arguments.
 
 Other gradient scales and palettes for hypsometry:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),

@@ -14,7 +14,7 @@ following fill scales and palettes are provided:
   [`grDevices::terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html)
   for details.
 
-Additional parameters `...` would be passed on to:
+Additional arguments `...` would be passed on to:
 
 - Discrete values:
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
@@ -26,9 +26,9 @@ Additional parameters `...` would be passed on to:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional parameters, check the
+just documents a selection of these additional arguments, check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
-above to see the full range of parameters accepted by these scales.
+above to see the full range of arguments accepted by these scales.
 
 These palettes are an implementation of
 [`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html),
@@ -298,10 +298,10 @@ However, it is possible to modify this behaviour with the
 mapped to the range of values of the `color/fill` aesthethics, See
 **Examples**.
 
-When passing `limits` parameter the colors would be restricted of those
-specified by this parameter, keeping the distribution of the palette.
-You can combine this with `oob` (i.e. `oob = scales::oob_squish`) to
-avoid blank pixels in the plot.
+When passing `limits` argument the colors would be restricted of those
+specified by this argument, keeping the distribution of the palette. You
+can combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid
+blank pixels in the plot.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -321,7 +321,7 @@ Foundation, USA. <https://grass.osgeo.org>.
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` parameters:
+additional `...` arguments:
 
 Other gradient scales and palettes for hypsometry:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),

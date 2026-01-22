@@ -8,15 +8,15 @@ grass.colors(): Gradient color palette. See also
 grDevices::terrain.colors() for details.
 
 
-Additional parameters ... would be passed on to:
+Additional arguments ... would be passed on to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
 Note that tidyterra just documents a selection of these
-additional parameters, check the ggplot2 functions listed above to
-see the full range of parameters accepted by these scales.
+additional arguments, check the ggplot2 functions listed above to
+see the full range of arguments accepted by these scales.
 These palettes are an implementation of terra::map.pal(), that is the
 default color palettes provided by terra::plot() (terra
 &amp;gt; 1.7.78)."><meta property="og:description" content="Implementation of GRASS color tables. The
@@ -28,15 +28,15 @@ grass.colors(): Gradient color palette. See also
 grDevices::terrain.colors() for details.
 
 
-Additional parameters ... would be passed on to:
+Additional arguments ... would be passed on to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
 Note that tidyterra just documents a selection of these
-additional parameters, check the ggplot2 functions listed above to
-see the full range of parameters accepted by these scales.
+additional arguments, check the ggplot2 functions listed above to
+see the full range of arguments accepted by these scales.
 These palettes are an implementation of terra::map.pal(), that is the
 default color palettes provided by terra::plot() (terra
 &amp;gt; 1.7.78)."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
@@ -55,7 +55,7 @@ default color palettes provided by terra::plot() (terra
       <img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,12 +99,12 @@ following fill scales and palettes are provided:</p><ul><li><p><code>scale_*_gra
 <li><p><code>scale_*_grass_b()</code>: For binning continuous values.</p></li>
 <li><p><code>grass.colors()</code>: Gradient color palette. See also
 <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">grDevices::terrain.colors()</a></code> for details.</p></li>
-</ul><p>Additional parameters <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
+</ul><p>Additional arguments <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
 <li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code>.</p></li>
 <li><p>Binned continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale()</a></code>.</p></li>
 </ul><p><strong>Note that</strong> <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> just documents a selection of these
-additional parameters, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
-see the full range of parameters accepted by these scales.</p>
+additional arguments, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
+see the full range of arguments accepted by these scales.</p>
 <p>These palettes are an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, that is the
 default color palettes provided by <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a>
 <code>&gt; 1.7.78</code>).</p>
@@ -334,8 +334,8 @@ not filled. See also
 <a href="grass_db.html">grass_db</a>). However, it is possible to modify this behaviour with the
 <code>use_grass_range</code> argument, When <code>FALSE</code> the color scales would be mapped
 to the range of values of the <code>color/fill</code> aesthethics, See <strong>Examples</strong>.</p>
-<p>When passing <code>limits</code> parameter the colors would be restricted of those
-specified by this parameter, keeping the distribution of the palette. You can
+<p>When passing <code>limits</code> argument the colors would be restricted of those
+specified by this argument, keeping the distribution of the palette. You can
 combine this with <code>oob</code> (i.e. <code>oob = scales::oob_squish</code>) to avoid blank
 pixels in the plot.</p>
     </div>
@@ -356,7 +356,7 @@ pixels in the plot.</p>
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="grass_db.html">grass_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>,
 <code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code>.</p>
-<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> parameters:</p>
+<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> arguments:</p>
 <p>Other gradient scales and palettes for hypsometry:
 <code><a href="scale_wiki.html">scale_color_coltab()</a></code>,
 <code><a href="scale_cross_blended.html">scale_cross_blended</a></code>,

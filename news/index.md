@@ -1,6 +1,6 @@
 # Changelog
 
-## tidyterra (development version)
+## tidyterra 1.0.0
 
 - Minimal **R** version required updated to **\>= 4.1.0**.
 - Minimal **ggplot2** version required **\>= 4.0.0**.
@@ -17,9 +17,12 @@
   ([\#180](https://github.com/dieghernan/tidyterra/issues/180)).
 - New dependency **generics** added to Imports. New methods
   (`SpatRaster`, `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
-  - [`tidy()`](https://generics.r-lib.org/reference/tidy.html).
-  - [`glance()`](https://generics.r-lib.org/reference/glance.html).
-  - [`required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html).
+  - [`tidy.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md),
+    etc.
+  - [`glance.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md),
+    etc.
+  - [`required_pkgs.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md),
+    etc.
 - `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
   - New
     [`fortify.SpatExtent()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
@@ -47,7 +50,7 @@ CRAN release: 2025-04-14
 
 CRAN release: 2025-04-07
 
-- New parameters in `geom_spatraster_*`: `mask_projection`. When set to
+- New arguments in `geom_spatraster_*`: `mask_projection`. When set to
   `TRUE` avoid `SpatRaster` to wrapping around on some projections (see
   [\#115](https://github.com/dieghernan/tidyterra/issues/115) and
   [\#169](https://github.com/dieghernan/tidyterra/issues/169), by
@@ -70,7 +73,7 @@ CRAN release: 2025-02-03
   (**terra** \>= `1.8-10`). See
   <https://stackoverflow.com/questions/79340152>.
 - Now `scales` that uses limits truncate the legend when `limits`
-  parameter is provided
+  argument is provided
   ([\#165](https://github.com/dieghernan/tidyterra/issues/165)
   [@Fan-iX](https://github.com/Fan-iX)). Scales impacted:
   - `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
@@ -279,7 +282,7 @@ CRAN release: 2022-11-09
     [`autoplot.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md).
     - [`autoplot.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md)
       now is smarter on identifying the type of plot to produce. Can
-      still be overridden with parameters.
+      still be overridden with arguments.
   - Methods for fortifying `SpatRaster` and `SpatVector` objects:
     [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
     [`fortify.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md).
@@ -354,7 +357,7 @@ CRAN release: 2022-06-21
   [`slice_max()`](https://dplyr.tidyverse.org/reference/slice.html) for
   `SpatRaster` objects
   ([\#20](https://github.com/dieghernan/tidyterra/issues/20)). Also add
-  a new parameter `na.rm`.
+  a new argument `na.rm`.
 - Add new gradient scales for use on hypsometry:
   - [`scale_fill_hypso_c()`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md)
   - [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md)

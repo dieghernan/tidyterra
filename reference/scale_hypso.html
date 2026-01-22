@@ -19,15 +19,15 @@ grDevices::terrain.colors() for details.
 
 
 See Details.
-Additional parameters ... would be passed on to:
+Additional arguments ... would be passed on to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
 Note that tidyterra just documents a selection of these
-additional parameters, check the ggplot2 functions listed above to
-see the full range of parameters accepted by these scales."><meta property="og:description" content="Implementation of a selection of gradient palettes available in
+additional arguments, check the ggplot2 functions listed above to
+see the full range of arguments accepted by these scales."><meta property="og:description" content="Implementation of a selection of gradient palettes available in
 cpt-city.
 The following scales and palettes are provided:
 scale_*_hypso_d(): For discrete values.
@@ -47,15 +47,15 @@ grDevices::terrain.colors() for details.
 
 
 See Details.
-Additional parameters ... would be passed on to:
+Additional arguments ... would be passed on to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
 Note that tidyterra just documents a selection of these
-additional parameters, check the ggplot2 functions listed above to
-see the full range of parameters accepted by these scales."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
+additional arguments, check the ggplot2 functions listed above to
+see the full range of arguments accepted by these scales."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -71,7 +71,7 @@ see the full range of parameters accepted by these scales."><meta property="og:i
       <img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,12 +123,12 @@ see the full range of parameters accepted by these scales."><meta property="og:i
 <li><p><code>hypso.colors2()</code>: A gradient color palette. See also
 <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">grDevices::terrain.colors()</a></code> for details.</p></li>
 </ul><p>See <strong>Details</strong>.</p>
-<p>Additional parameters <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
+<p>Additional arguments <code>...</code> would be passed on to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
 <li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code>.</p></li>
 <li><p>Binned continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale()</a></code>.</p></li>
 </ul><p><strong>Note that</strong> <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> just documents a selection of these
-additional parameters, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
-see the full range of parameters accepted by these scales.</p>
+additional arguments, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
+see the full range of arguments accepted by these scales.</p>
     </div>
 
     <div class="section level2">
@@ -412,9 +412,9 @@ specific data. For example, a <code>SpatRaster</code> of small parts of the glob
 with a limited range of elevations) may not be well represented. As an
 example, a <code>SpatRaster</code> with a range of values on <code>[100, 200]</code> would appear
 almost as an uniform color. This could be adjusted using the
-<code>limits</code>/<code>values</code> parameters.</p>
-<p>When passing <code>limits</code> parameter to <code>scale_*_hypso_tint_*</code> the colors would
-be restricted of those specified by this parameter, keeping the distribution
+<code>limits</code>/<code>values</code> arguments.</p>
+<p>When passing <code>limits</code> argument to <code>scale_*_hypso_tint_*</code> the colors would
+be restricted of those specified by this argument, keeping the distribution
 of the tint. You can combine this with <code>oob</code> (i.e.
 <code>oob = scales::oob_squish</code>) to avoid blank pixels in the plot.</p>
 <p><code>hypso.colors2()</code> provides a gradient color palette where the distance
@@ -426,7 +426,7 @@ between colors is different depending of the type of color. In contrast,
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="hypsometric_tints_db.html">hypsometric_tints_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>,
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code></p>
-<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> parameters.</p>
+<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> arguments.</p>
 <p>Other gradient scales and palettes for hypsometry:
 <code><a href="scale_wiki.html">scale_color_coltab()</a></code>,
 <code><a href="scale_cross_blended.html">scale_cross_blended</a></code>,

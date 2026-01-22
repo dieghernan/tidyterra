@@ -6,7 +6,7 @@ sf/Spat\* object.
 The [Well-known text
 (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
 representation of coordinate reference systems (CRS) is a character
-string that identifies precisely the parameters of each CRS. This is the
+string that identifies precisely the arguments of each CRS. This is the
 current standard used on [sf](https://CRAN.R-project.org/package=sf) and
 [terra](https://CRAN.R-project.org/package=terra) packages.
 

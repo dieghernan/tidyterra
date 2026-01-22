@@ -15,7 +15,7 @@
       <img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2>
 <ul><li>Minimal <strong>R</strong> version required updated to <strong>&gt;= 4.1.0</strong>.</li>
 <li>Minimal <strong>ggplot2</strong> version required <strong>&gt;= 4.0.0</strong>.</li>
 <li>Adapt deprecation of <strong>ggplot2</strong> (4.0.0):
@@ -63,11 +63,11 @@
 <code><a href="../reference/scale_coltab.html">get_coltab_pal()</a></code> can extract colors with alpha values (<a href="https://github.com/dieghernan/tidyterra/issues/180" class="external-link">#180</a>).</li>
 <li>New dependency <strong>generics</strong> added to Imports. New methods (<code>SpatRaster</code>, <code>SpatVector</code>, <code>SpatGraticule</code>, <code>SpatExtent</code>) included:
 <ul><li>
-<code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy()</a></code>.</li>
+<code><a href="../reference/tidy.Spat.html">tidy.SpatRaster()</a></code>, etc.</li>
 <li>
-<code><a href="https://generics.r-lib.org/reference/glance.html" class="external-link">glance()</a></code>.</li>
+<code><a href="../reference/glance.Spat.html">glance.SpatRaster()</a></code>, etc.</li>
 <li>
-<code><a href="https://generics.r-lib.org/reference/required_pkgs.html" class="external-link">required_pkgs()</a></code>.</li>
+<code><a href="../reference/required_pkgs.Spat.html">required_pkgs.SpatRaster()</a></code>, etc.</li>
 </ul></li>
 <li>
 <code>fortify.Spat</code> methods now uses <code>tidy.Spat</code> methods under the hood:
@@ -89,7 +89,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2><p class="text-muted">CRAN release: 2025-04-07</p>
-<ul><li>New parameters in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code> avoid <code>SpatRaster</code> to wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
+<ul><li>New arguments in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code> avoid <code>SpatRaster</code> to wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
 <li>Fix an old bug exposed after <strong>terra 1.8-42</strong>: Plots crash when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> (or with implicit change of CRS due to other <code>sf/Spat*</code> objects).</li>
 </ul></div>
     <div class="section level2">
@@ -97,7 +97,7 @@
 <ul><li>Minimal version of <strong>terra</strong> required is <code>1.8-10</code>.</li>
 <li>Remove <strong>metR</strong> from Suggests.</li>
 <li>Improve handling of factors when several layers have different levels. This is done using <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> (<strong>terra</strong> &gt;= <code>1.8-10</code>). See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
-<li>Now <code>scales</code> that uses limits truncate the legend when <code>limits</code> parameter is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>). Scales impacted:
+<li>Now <code>scales</code> that uses limits truncate the legend when <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>). Scales impacted:
 <ul><li>
 <code>scale_*_cross_blended_tint_c</code> and <code>scale_*_cross_blended_tint_b</code>.</li>
 <li>
@@ -225,7 +225,7 @@
 <ul><li>New <strong>ggplot2</strong> methods added:
 <ul><li>Methods for <code><a href="../reference/autoplot.Spat.html">autoplot.SpatVector()</a></code>, <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code>.
 <ul><li>
-<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now is smarter on identifying the type of plot to produce. Can still be overridden with parameters.</li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now is smarter on identifying the type of plot to produce. Can still be overridden with arguments.</li>
 </ul></li>
 <li>Methods for fortifying <code>SpatRaster</code> and <code>SpatVector</code> objects: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
 </ul></li>
@@ -261,7 +261,7 @@
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2><p class="text-muted">CRAN release: 2022-06-21</p>
 <ul><li>Recreate <code>extdata/volcano2.tif</code> using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
 <li>Add <code>volcano2</code> dataset.</li>
-<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRaster</code> objects (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new parameter <code>na.rm</code>.</li>
+<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRaster</code> objects (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new argument <code>na.rm</code>.</li>
 <li>Add new gradient scales for use on hypsometry:
 <ul><li><code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code></li>
 <li><code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code></li>

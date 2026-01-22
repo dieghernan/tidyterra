@@ -30,7 +30,7 @@ tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 
 See **Details**.
 
-Additional parameters `...` would be passed on to:
+Additional arguments `...` would be passed on to:
 
 - Discrete values:
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
@@ -42,9 +42,9 @@ Additional parameters `...` would be passed on to:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional parameters, check the
+just documents a selection of these additional arguments, check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
-above to see the full range of parameters accepted by these scales.
+above to see the full range of arguments accepted by these scales.
 
 ## Usage
 
@@ -374,10 +374,10 @@ specific data. For example, a `SpatRaster` of small parts of the globe
 (and with a limited range of elevations) may not be well represented. As
 an example, a `SpatRaster` with a range of values on `[100, 200]` would
 appear almost as an uniform color. This could be adjusted using the
-`limits`/`values` parameters.
+`limits`/`values` arguments.
 
-When passing `limits` parameter to `scale_*_cross_blended_tint_*` the
-colors would be restricted of those specified by this parameter, keeping
+When passing `limits` argument to `scale_*_cross_blended_tint_*` the
+colors would be restricted of those specified by this argument, keeping
 the distribution of the tint. You can combine this with `oob` (i.e.
 `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 
@@ -394,7 +394,7 @@ colors. See **Examples**.
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` parameters.
+additional `...` arguments.
 
 Other gradient scales and palettes for hypsometry:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),

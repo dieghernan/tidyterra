@@ -9,13 +9,13 @@ associated to a `SpatRaster`.
 You can also get a vector of colors named with the corresponding factor
 with `get_coltab_pal()`.
 
-Additional parameters `...` would be passed on to
+Additional arguments `...` would be passed on to
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional parameters, check
+just documents a selection of these additional arguments, check
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
-to see the full range of parameters accepted.
+to see the full range of arguments accepted.
 
 ## Usage
 

@@ -26,4 +26,5 @@ Other contributors:
 
 - ggplot2 authors (for contour code) \[copyright holder\]
 
-- Andrea Manica \[contributor\]
+- Andrea Manica ([ORCID](https://orcid.org/0000-0003-1895-450X))
+  \[contributor\]

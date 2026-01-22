@@ -102,7 +102,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
   input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This parameter is passed to
+  in Equal Area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -204,7 +204,7 @@ For `alpha` use computed variable. See section **Computed variables**.
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
-When `geom = "raster"` the `fill` parameter would behave as in
+When `geom = "raster"` the `fill` argument would behave as in
 `geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
 understand the aesthetics of the required `geom` and
 `aes(fill = <name_of_lyr>)` would not be applicable.

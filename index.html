@@ -45,7 +45,7 @@
       <img src="apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
       tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.2.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -297,7 +297,7 @@
 <p><strong>tidyterra</strong> is conceived as a user-friendly wrapper of <strong>terra</strong> using the <strong>tidyverse</strong> methods and verbs. This approach therefore has a <strong>cost in terms of performance</strong>.</p>
 <p>If you are a <strong>heavy user</strong> of <strong>terra</strong> or you need to work with <strong>big raster files</strong>, <strong>terra</strong> is much more performant. When possible, each function of <strong>tidyterra</strong> refers to its equivalent on <strong>terra</strong>.</p>
 <p>As a rule of thumb if your raster has less than 10,000,000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with <strong>tidyterra</strong>.</p>
-<p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> parameter.</p>
+<p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>

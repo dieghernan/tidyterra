@@ -46,8 +46,8 @@ pull(.data, var = -1, name = NULL, ...)
 
 - name:
 
-  An optional parameter that specifies the column to be used as names
-  for a named vector. Specified in a similar manner as `var`.
+  An optional argument that specifies the column to be used as names for
+  a named vector. Specified in a similar manner as `var`.
 
 - ...:
 

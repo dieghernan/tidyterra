@@ -107,7 +107,7 @@ good to go with **tidyterra**.
 When plotting rasters, resampling is performed automatically (as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
 does, see the help page). You can adjust this with the `maxcell`
-parameter.
+argument.
 
 ## Installation
 

@@ -131,7 +131,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
   input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This parameter is passed to
+  in Equal Area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
