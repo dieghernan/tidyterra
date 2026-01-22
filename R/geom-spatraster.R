@@ -33,7 +33,7 @@
 #'
 #' @param mask_projection logical, defaults to `FALSE`. If `TRUE`, mask out
 #'   areas outside the input extent. For example, to avoid data wrapping
-#'   around the date-line in Equal Area projections. This parameter is passed
+#'   around the date-line in Equal Area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the `SpatRaster`.
 #'
 #' @inheritParams ggplot2::geom_raster

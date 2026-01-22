@@ -27,7 +27,7 @@
 #'  - [`fill`][ggplot2::aes_colour_fill_alpha]
 #'  - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' When `geom = "raster"` the `fill` parameter would behave as in
+#' When `geom = "raster"` the `fill` argument would behave as in
 #' `geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
 #' understand the aesthetics of the required `geom` and
 #' `aes(fill = <name_of_lyr>)` would not be applicable.

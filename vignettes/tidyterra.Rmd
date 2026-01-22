@@ -46,7 +46,8 @@ Furthermore, **tidyterra** extends the functionality of the **ggplot2** package
 `geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
 and color palettes specifically designed for map production.
 
-[^1]: The term `geoms` refers to geometric objects, and `stats` refers to
+[^1]:
+    The term `geoms` refers to geometric objects, and `stats` refers to
     statistical transformations, following the naming conventions of **ggplot2**
 
 **tidyterra** can manipulate the following classes of **terra** objects:
@@ -72,8 +73,8 @@ packages that share an underlying design philosophy, grammar, and data
 structures. The packages within the tidyverse are widely used by **R** users for
 tidying, transforming, and visualizing data.
 
-The **tidyverse** is designed to work with tidy data (*"every column is a
-variable, every row is an observation, every cell is a single value"*),
+The **tidyverse** is designed to work with tidy data (_"every column is a
+variable, every row is an observation, every cell is a single value"_),
 represented in the form of data frames or **tibbles**. However, it is possible
 to extend the functionality of **tidyverse** packages to work with new **R**
 object classes by registering the corresponding S3 methods [@wickham_s32019].
@@ -123,7 +124,7 @@ recommended to use the native **terra** syntax, that is specifically designed
 for handling this type of files. In the case of plotting, the default behavior
 of the geoms provided is to resample `SpatRaster` that presents more than
 500.000 cells to speed up the process (as the `terra::plot()` does), however
-this upper limit can be modified using the `maxcell` parameter of the geom
+this upper limit can be modified using the `maxcell` argument of the geom
 function.
 
 Note also that when possible, the help page of each function of **tidyterra**
@@ -231,12 +232,12 @@ ggplot() +
 The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
--   Details on each function, including (if possible) the equivalent **terra**
-    function, in case users prefer to include those on their workflows.
--   Working examples on the use of the functions and creation of plots.
--   Additional articles and vignettes, as well as a complete demo of the
-    different color palettes included on the package (see
-    [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
+- Details on each function, including (if possible) the equivalent **terra**
+  function, in case users prefer to include those on their workflows.
+- Working examples on the use of the functions and creation of plots.
+- Additional articles and vignettes, as well as a complete demo of the
+  different color palettes included on the package (see
+  [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements
 

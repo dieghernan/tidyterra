@@ -121,7 +121,7 @@ than combining with them.}
 
 \item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This parameter is passed
+around the date-line in Equal Area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{size.unit}{How the \code{size} aesthetic is interpreted: as millimetres

@@ -111,12 +111,12 @@ vector of colors based on the color table \code{\link[terra:colors]{terra::colta
 You can also get a vector of colors named with the corresponding
 factor with \code{\link[=get_coltab_pal]{get_coltab_pal()}}.
 
-Additional parameters \code{...} would be passed on to
+Additional arguments \code{...} would be passed on to
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
 
 \strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
-additional parameters, check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full
-range of parameters accepted.
+additional arguments, check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full
+range of arguments accepted.
 }
 \examples{
 library(terra)

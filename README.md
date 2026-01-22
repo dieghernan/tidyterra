@@ -135,7 +135,7 @@ good to go with **tidyterra**.
 
 When plotting rasters, resampling is performed automatically (as
 `terra::plot()` does, see the help page). You can adjust this with the
-`maxcell` parameter.
+`maxcell` argument.
 
 ## Installation
 

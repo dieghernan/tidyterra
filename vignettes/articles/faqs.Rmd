@@ -59,7 +59,7 @@ The original file has been cropped and down-sampled for demo purposes,
 
 This is the default behavior produced by the **ggplot2** package. **tidyterra**
 color scales (i.e., `scale_fill_whitebox_c()`, etc.), have by default the
-parameter `na.value` set to `"transparent"`, that prevents `NA` values to be
+argument `na.value` set to `"transparent"`, that prevents `NA` values to be
 filled[^2].
 
 [^2]: `na.value = NA` could be used as well for the same purpose in most of the
@@ -175,7 +175,7 @@ ggplot(r) +
 
 Thanks to `fortify.SpatRaster()` you can use your `SpatRaster` straight away
 with the **metR** package (see [Hexagonal grids and other geoms](#fort)). Use
-the parameter(s) `bins/binwidth/breaks` to align both labels and lines:
+the argument(s) `bins/binwidth/breaks` to align both labels and lines:
 
 ```{r metr}
 library(metR)
@@ -295,7 +295,7 @@ This is probably related to the tile itself rather than the package. Most base
 tiles are provided in **EPSG:3857**, so check first if your tile has this CRS
 and not a different one. Not having **EPSG:3857** may be an indication that the
 tile has been reprojected, implying some sort of sampling that causes the
-blurriness on your data. Also, modify the parameter `maxcell` to avoid
+blurriness on your data. Also, modify the argument `maxcell` to avoid
 resampling and force the **ggplot2** map to be on **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
 

@@ -207,7 +207,7 @@ following fill scales and palettes are provided:
 \code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
 }
 
-Additional parameters \code{...} would be passed on to:
+Additional arguments \code{...} would be passed on to:
 \itemize{
 \item Discrete values: \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
 \item Continuous values: \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale()}}.
@@ -215,8 +215,8 @@ Additional parameters \code{...} would be passed on to:
 }
 
 \strong{Note that} \CRANpkg{tidyterra} just documents a selection of these
-additional parameters, check the \CRANpkg{ggplot2} functions listed above to
-see the full range of parameters accepted by these scales.
+additional arguments, check the \CRANpkg{ggplot2} functions listed above to
+see the full range of arguments accepted by these scales.
 
 These palettes are an implementation of \code{\link[terra:mappal]{terra::map.pal()}}, that is the
 default color palettes provided by \code{\link[terra:plot]{terra::plot()}} (\CRANpkg{terra}
@@ -228,8 +228,8 @@ Some palettes are mapped by default to a specific range of values (see
 \code{use_grass_range} argument, When \code{FALSE} the color scales would be mapped
 to the range of values of the \code{color/fill} aesthethics, See \strong{Examples}.
 
-When passing \code{limits} parameter the colors would be restricted of those
-specified by this parameter, keeping the distribution of the palette. You can
+When passing \code{limits} argument the colors would be restricted of those
+specified by this argument, keeping the distribution of the palette. You can
 combine this with \code{oob} (i.e. \code{oob = scales::oob_squish}) to avoid blank
 pixels in the plot.
 }
@@ -353,7 +353,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 \link{grass_db}, \code{\link[terra:plot]{terra::plot()}},
 \code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}.
 
-See also \CRANpkg{ggplot2} docs on additional \code{...} parameters:
+See also \CRANpkg{ggplot2} docs on additional \code{...} arguments:
 
 Other gradient scales and palettes for hypsometry:
 \code{\link{scale_color_coltab}()},

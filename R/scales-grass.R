@@ -12,14 +12,14 @@
 #' - `grass.colors()`: Gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
-#' Additional parameters `...` would be passed on to:
+#' Additional arguments `...` would be passed on to:
 #' - Discrete values: [ggplot2::discrete_scale()].
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
-#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of parameters accepted by these scales.
+#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of arguments accepted by these scales.
 #'
 #' These palettes are an implementation of [terra::map.pal()], that is the
 #' default color palettes provided by [terra::plot()] (\CRANpkg{terra}
@@ -53,7 +53,7 @@
 #' @seealso [grass_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
 #'
-#' See also \CRANpkg{ggplot2} docs on additional `...` parameters:
+#' See also \CRANpkg{ggplot2} docs on additional `...` arguments:
 #'
 #' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
@@ -82,8 +82,8 @@
 #' `use_grass_range` argument, When `FALSE` the color scales would be mapped
 #' to the range of values of the `color/fill` aesthethics, See **Examples**.
 #'
-#' When passing `limits` parameter the colors would be restricted of those
-#' specified by this parameter, keeping the distribution of the palette. You can
+#' When passing `limits` argument the colors would be restricted of those
+#' specified by this argument, keeping the distribution of the palette. You can
 #' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
 #' pixels in the plot.
 #'

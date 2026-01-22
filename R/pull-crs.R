@@ -16,7 +16,7 @@
 #'
 #' ```
 #' representation of coordinate reference systems (CRS) is a character string
-#' that identifies precisely the parameters of each CRS. This is the current
+#' that identifies precisely the arguments of each CRS. This is the current
 #' standard used on \CRANpkg{sf} and \CRANpkg{terra} packages.
 #'
 #' @seealso

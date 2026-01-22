@@ -410,7 +410,7 @@ contour_breaks <- function(
     breaks_fun <- breaks
   }
 
-  # If no parameters set, use pretty bins
+  # If no arguments set, use pretty bins
   if (is.null(bins) && is.null(binwidth)) {
     breaks <- pretty(z_range, 10)
     return(breaks)

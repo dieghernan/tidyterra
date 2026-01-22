@@ -31,7 +31,7 @@
 #' The default returns the last layer/attribute (on the assumption that's the
 #' column you've created most recently).
 #'
-#' @param name An optional parameter that specifies the column to be used as
+#' @param name An optional argument that specifies the column to be used as
 #'   names for a named vector. Specified in a similar manner as `var`.
 #' @param ...  Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat]
 #'

@@ -8,14 +8,14 @@
 #' - `scale_*_terrain_c()`: For continuous values.
 #' - `scale_*_terrain_b()`: For binning continuous values.
 #'
-#' Additional parameters `...` would be passed on to:
+#' Additional arguments `...` would be passed on to:
 #' - Discrete values: [ggplot2::discrete_scale()].
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
-#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of parameters accepted by these scales.
+#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of arguments accepted by these scales.
 #'
 #' @export
 #'
@@ -28,7 +28,7 @@
 #'
 #' @seealso
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
-#' on additional `...` parameters.
+#' on additional `...` arguments.
 #'
 #'
 #'

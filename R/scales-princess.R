@@ -13,14 +13,14 @@
 #' [grDevices::terrain.colors()] for details.
 #'
 #'
-#' Additional parameters `...` would be passed on to:
+#' Additional arguments `...` would be passed on to:
 #' - Discrete values: [ggplot2::discrete_scale()].
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
-#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of parameters accepted by these scales.
+#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of arguments accepted by these scales.
 #'
 #' @export
 #'
@@ -48,7 +48,7 @@
 #'
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
-#' See also \CRANpkg{ggplot2} docs on additional `...` parameters.
+#' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
 #'
 #' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the

@@ -23,14 +23,14 @@
 #'
 #' See **Details**.
 #'
-#' Additional parameters `...` would be passed on to:
+#' Additional arguments `...` would be passed on to:
 #' - Discrete values: [ggplot2::discrete_scale()].
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
-#' additional parameters, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of parameters accepted by these scales.
+#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
+#' see the full range of arguments accepted by these scales.
 #'
 #' @export
 #'
@@ -70,7 +70,7 @@
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
 #'
-#' See also \CRANpkg{ggplot2} docs on additional `...` parameters.
+#' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
 #'
 #' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
@@ -430,10 +430,10 @@ cross_blended.colors <- function(
 #' with a limited range of elevations) may not be well represented. As an
 #' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
 #' almost as an uniform color. This could be adjusted using the
-#' `limits`/`values` parameters.
+#' `limits`/`values` arguments.
 #'
-#' When passing `limits` parameter to `scale_*_cross_blended_tint_*` the
-#' colors would be restricted of those specified by this parameter, keeping the
+#' When passing `limits` argument to `scale_*_cross_blended_tint_*` the
+#' colors would be restricted of those specified by this argument, keeping the
 #' distribution of the tint. You can combine this with `oob` (i.e.
 #' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 #'

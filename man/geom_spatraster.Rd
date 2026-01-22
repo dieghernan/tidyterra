@@ -65,7 +65,7 @@ plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This parameter is passed
+around the date-line in Equal Area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
@@ -170,7 +170,7 @@ when using \code{geom = "raster"} (the default):
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
-When \code{geom = "raster"} the \code{fill} parameter would behave as in
+When \code{geom = "raster"} the \code{fill} argument would behave as in
 \code{geom_spatraster()}. If another \code{geom} is used \code{stat_spatraster()} would
 understand the aesthetics of the required \code{geom} and
 \verb{aes(fill = <name_of_lyr>)} would not be applicable.

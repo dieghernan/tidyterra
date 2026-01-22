@@ -10,12 +10,12 @@
 #' You can also get a vector of colors named with the corresponding
 #' factor with [get_coltab_pal()].
 #'
-#' Additional parameters `...` would be passed on to
+#' Additional arguments `...` would be passed on to
 #' [ggplot2::discrete_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
-#' additional parameters, check [ggplot2::discrete_scale()] to see the full
-#' range of parameters accepted.
+#' additional arguments, check [ggplot2::discrete_scale()] to see the full
+#' range of arguments accepted.
 #'
 #' @export
 #'
