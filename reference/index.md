@@ -231,7 +231,7 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 - [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
   [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
   [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-  **\[experimental\]** :
+  :
 
   Plot `SpatRaster` contours
 

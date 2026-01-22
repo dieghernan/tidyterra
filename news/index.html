@@ -54,6 +54,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
 <ul><li>Minimal <strong>R</strong> version required updated to <strong>&gt;= 4.1.0</strong>.</li>
+<li>Minimal <strong>ggplot2</strong> version required <strong>&gt;= 4.0.0</strong>.</li>
 <li>Adapt deprecation of <strong>ggplot2</strong> (4.0.0):
 <ul><li>
 <code><a href="../reference/ggspatvector.html">geom_spatvector_label()</a></code> / <code><a href="../reference/ggspatvector.html">geom_spatvector_text()</a></code>: <code>label.size</code> aesthetic replaced by <code>linewidth</code>. Also <code>nudge_x</code> and <code>nudge_y</code> are not explicitly documented and are passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf_label()</a></code> / <code>_text()</code> via dots (<code>...</code>).</li>
@@ -73,6 +74,10 @@
 <ul><li>New <code><a href="../reference/fortify.Spat.html">fortify.SpatExtent()</a></code> method.</li>
 </ul></li>
 <li>New <code><a href="../reference/autoplot.Spat.html">autoplot.SpatExtent()</a></code> and <code><a href="../reference/autoplot.Spat.html">autoplot.SpatGraticule()</a></code> methods.</li>
+<li>
+<code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code> supports now the <code>.by</code> argument.</li>
+<li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> is now a stable function.</li>
 <li>
 <strong>testthat</strong>: Internal changes in tests:
 <ul><li>Move snapshot testing to its own directory, that is included in <code>.Rbuildignore</code>: .<code>/tests/testthat/test_ci</code>.</li>

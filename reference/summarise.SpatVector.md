@@ -47,8 +47,14 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .by:
 
-  Ignored on this method (**\[experimental\]** on
-  [dplyr](https://CRAN.R-project.org/package=dplyr)).
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
 
 - .groups:
 

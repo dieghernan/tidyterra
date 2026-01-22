@@ -8,8 +8,8 @@ also **Facets** section.
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
 
-**\[experimental\]** `geom_spatraster_contour_text()` creates labeled
-contours and it is implemented on top of
+`geom_spatraster_contour_text()` creates labeled contours and it is
+implemented on top of
 [`isoband::isolines_grob()`](http://isoband.r-lib.org/reference/isolines_grob.md).
 
 ## Usage

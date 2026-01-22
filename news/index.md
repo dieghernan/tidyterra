@@ -3,6 +3,7 @@
 ## tidyterra (development version)
 
 - Minimal **R** version required updated to **\>= 4.1.0**.
+- Minimal **ggplot2** version required **\>= 4.0.0**.
 - Adapt deprecation of **ggplot2** (4.0.0):
   - [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
     /
@@ -28,6 +29,10 @@
   and
   [`autoplot.SpatGraticule()`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md)
   methods.
+- [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
+  supports now the `.by` argument.
+- [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
+  is now a stable function.
 - **testthat**: Internal changes in tests:
   - Move snapshot testing to its own directory, that is included in
     `.Rbuildignore`: .`/tests/testthat/test_ci`.

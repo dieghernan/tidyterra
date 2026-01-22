@@ -6,7 +6,7 @@
   maintainer, copyright holder.
   [](https://orcid.org/0000-0001-8457-4658)
 
-- **Dewey Dunnington**. Contributor.
+- **[Dewey Dunnington](https://dewey.dunnington.ca/)**. Contributor.
   [](https://orcid.org/0000-0002-9415-4582)  
   for ggspatial code
 
@@ -14,6 +14,7 @@
   for contour code
 
 - **Andrea Manica**. Contributor.
+  [](https://orcid.org/0000-0003-1895-450X)
 
 ## Citation
 
