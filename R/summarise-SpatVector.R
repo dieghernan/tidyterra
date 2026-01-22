@@ -26,8 +26,6 @@
 #' @param .data A `SpatVector`.
 #'
 #' @inheritParams dplyr::summarise
-#' @param .by Ignored on this method (`r lifecycle::badge('experimental')`
-#'   on \CRANpkg{dplyr}).
 #' @param .groups See [dplyr::summarise()]
 #' @param .dissolve logical. Should borders between aggregated geometries
 #'   be dissolved?
@@ -84,9 +82,12 @@ summarise.SpatVector <- function(
   .groups = NULL,
   .dissolve = TRUE
 ) {
+  # Try find .by vectors
+  by_groups <- dplyr::group_by(as_tibble(.data), {{ .by }})
+
   # Get dfs
   df <- as_tibble(.data)
-  df_summ <- dplyr::summarise(df, ..., .groups = .groups)
+  df_summ <- dplyr::summarise(df, ..., .groups = .groups, .by = {{ .by }})
 
   spatv <- .data
 
@@ -100,6 +101,13 @@ summarise.SpatVector <- function(
   } else if (is_rowwise_spatvector(spatv)) {
     # Do nothing, rowwise respect rows
     newgeom <- spatv
+  } else if (dplyr::is_grouped_df(by_groups)) {
+    spatv$tterra_index <- group_indices(by_groups)
+    newgeom <- terra::aggregate(
+      spatv,
+      by = "tterra_index",
+      dissolve = .dissolve
+    )
   } else {
     newgeom <- terra::aggregate(spatv, dissolve = .dissolve)
   }

@@ -1,6 +1,7 @@
 # tidyterra (development version)
 
 -   Minimal **R** version required updated to **\>= 4.1.0**.
+-   Minimal **ggplot2** version required **\>= 4.0.0**.
 -   Adapt deprecation of **ggplot2** (4.0.0):
     -   `geom_spatvector_label()` / `geom_spatvector_text()`: `label.size`
         aesthetic replaced by `linewidth`. Also `nudge_x` and `nudge_y` are not
@@ -15,6 +16,8 @@
 -   `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
     -   New `fortify.SpatExtent()` method.
 -   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
+-   `summarise.SpatVector()` supports now the `.by` argument.
+-   `geom_spatraster_contour_text()` is now a stable function.
 -   **testthat**: Internal changes in tests:
     -   Move snapshot testing to its own directory, that is included in
         `.Rbuildignore`: .`/tests/testthat/test_ci`.

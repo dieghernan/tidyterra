@@ -9,8 +9,8 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_contour()].
 #'
-#' `r lifecycle::badge("experimental")` `geom_spatraster_contour_text()` creates
-#' labeled contours and it is implemented on top of [isoband::isolines_grob()].
+#' `geom_spatraster_contour_text()` creates labeled contours and it is
+#' implemented on top of [isoband::isolines_grob()].
 #'
 #' @export
 #'

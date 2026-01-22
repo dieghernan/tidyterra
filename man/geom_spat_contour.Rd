@@ -152,8 +152,8 @@ section.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
 
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}} \code{geom_spatraster_contour_text()} creates
-labeled contours and it is implemented on top of \code{\link[isoband:isolines_grob]{isoband::isolines_grob()}}.
+\code{geom_spatraster_contour_text()} creates labeled contours and it is
+implemented on top of \code{\link[isoband:isolines_grob]{isoband::isolines_grob()}}.
 }
 \section{\CRANpkg{terra} equivalent}{
 

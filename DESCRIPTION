@@ -8,7 +8,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-9415-4582", "for ggspatial code")),
     person("ggplot2 authors", role = "cph",
            comment = "for contour code"),
-    person("Andrea", "Manica", role = "ctb")
+    person("Andrea", "Manica", role = "ctb",
+            comment = c(ORCID = "0000-0003-1895-450X"))
   )
 Description: Extension of the 'tidyverse' for 'SpatRaster' and
     'SpatVector' objects of the 'terra' package. It includes also new
@@ -18,14 +19,14 @@ License: MIT + file LICENSE
 URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra
 BugReports: https://github.com/dieghernan/tidyterra/issues
-Depends: 
+Depends:
     R (>= 4.1.0)
-Imports: 
+Imports:
     cli (>= 3.0.0),
     data.table,
     dplyr (>= 1.0.0),
     generics,
-    ggplot2 (>= 3.5.0),
+    ggplot2 (>= 4.0.0),
     magrittr,
     rlang,
     scales,
@@ -33,7 +34,7 @@ Imports:
     terra (>= 1.8-10),
     tibble (>= 3.0.0),
     tidyr (>= 1.0.0)
-Suggests: 
+Suggests:
     hexbin,
     isoband,
     knitr,
@@ -43,7 +44,7 @@ Suggests:
     s2,
     testthat (>= 3.0.0),
     vctrs
-VignetteBuilder: 
+VignetteBuilder:
     knitr
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,

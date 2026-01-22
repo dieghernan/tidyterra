@@ -325,3 +325,69 @@ test_that("Check aggregation: LINES", {
 
   expect_false(identical(g_test, g_wkt))
 })
+
+
+# .by ----------------------------------------------------------------------
+
+test_that("can group transiently using `.by`", {
+  skip_on_cran()
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+  df <- dplyr::tibble(g = c(1, 1, 2, 1, 2), x = c(5, 2, 1, 2, 3))
+
+  df_v <- cbind(v[seq_len(nrow(df)), 0], df)
+
+  out <- summarise(df_v, x = mean(x), .by = g)
+
+  expect_identical(out$g, c(1, 2))
+  expect_identical(out$x, c(3, 2))
+  expect_s4_class(out, class(v))
+})
+
+
+test_that("transient grouping orders by first appearance", {
+  skip_on_cran()
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+
+  df <- tibble(g = c(2, 1, 2, 0), x = c(4, 2, 8, 5))
+  df_v <- cbind(v[seq_len(nrow(df)), 0], df)
+
+  out <- summarise(df, x = mean(x), .by = g)
+
+  expect_identical(out$g, c(2, 1, 0))
+  expect_identical(out$x, c(6, 2, 5))
+})
+
+test_that("can't use `.by` with `.groups`", {
+  skip_on_cran()
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+  v_g <- group_by(v, CNTY_ID)
+
+  expect_error(
+    summarise(v_g, .by = x, .groups = "drop")
+  )
+})
+
+test_that("catches `.by` with grouped-df", {
+  skip_on_cran()
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+  df <- tibble(x = 1)
+  df_v <- cbind(v[1, ], df)
+
+  gdf <- group_by(df_v, x)
+
+  expect_error(
+    summarise(gdf, .by = x)
+  )
+})
+
+test_that("catches `.by` with rowwise-df", {
+  skip_on_cran()
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+  df <- tibble(x = 1)
+  df_v <- cbind(v[1, ], df)
+  rdf <- rowwise(df_v)
+
+  expect_error(
+    summarise(rdf, .by = x)
+  )
+})

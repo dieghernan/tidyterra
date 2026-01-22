@@ -32,6 +32,21 @@ jobs:
           dieghernan/pkgdev
         needs: website
 
+    - name: Install optipng
+      run: |
+        if [ "$RUNNER_OS" == "Linux" ]; then
+          sudo apt-get update
+          sudo apt-get install optipng
+        elif [ "$RUNNER_OS" == "Windows" ]; then
+          choco install optipng
+        elif [ "$RUNNER_OS" == "macOS" ]; then
+          brew install optipng
+        else
+          echo "$RUNNER_OS not supported"
+          exit 1
+        fi
+      shell: bash
+
     - name: Run jarl
       uses: etiennebacher/setup-jarl@v0.1.0
       continue-on-error: true
@@ -46,8 +61,9 @@ jobs:
 
     - name: Update docs
       run: |
-        
-        pkgdev::update_docs(opt_dir = c("man/figures", "img", "vignettes"))
+
+        pkgdev::precompute_vignette_all()
+        pkgdev::update_docs(precompute = FALSE)
 
       shell: Rscript {0}
 
