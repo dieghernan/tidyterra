@@ -2,6 +2,8 @@
 
 ## tidyterra 1.0.0
 
+CRAN release: 2026-01-23
+
 - Minimal **R** version required updated to **\>= 4.1.0**.
 - Minimal **ggplot2** version required **\>= 4.0.0**.
 - Adapt deprecation of **ggplot2** (4.0.0):
