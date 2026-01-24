@@ -41,4 +41,4 @@ email is totally warranted if it's a sensitive problem of any kind.
 
 This contributing guide is adapted from the tidyverse contributing guide
 available at
-<https://raw.githubusercontent.com/r-lib/usethis/master/inst/templates/tidy-contributing.md>
+<https://raw.githubusercontent.com/r-lib/usethis/main/inst/templates/tidy-contributing.md>
