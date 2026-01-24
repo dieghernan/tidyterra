@@ -1,9 +1,5 @@
-/*!
-    * Copyright 2022 gitdevr Skin Author
-	* Licensed under MIT
-	* Beautify: https://www.freeformatter.com/css-beautifier.html
-	* Minify: https://www.freeformatter.com/css-minifier.html
-*/
+/*!  Compressed with sass R library https: //rstudio.github.io/sass/*/
+
 /* ---Images and captions figure spacing--- */
 main img {
 	margin-left: auto;
@@ -12,7 +8,7 @@ main img {
 
 .caption,
 .figure {
-	color: #6A788A;
+	color: #6a788a;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0.5rem;
@@ -22,7 +18,7 @@ main img {
 
 /* ---Navbar tweaks--- */
 .navbar {
-	font-family: 'Inter Tight', Roboto;
+	font-family: "Inter Tight", Roboto;
 }
 
 .navbar-brand {
@@ -54,17 +50,17 @@ main img {
 
 #navbar .nav-link:hover,
 #navbar .nav-link:focus {
-	color: #6A788A !important;
+	color: #6a788a !important;
 }
 
 #navbar .dropdown-menu .dropdown-item:hover,
 #navbar .dropdown-menu .dropdown-item:focus {
-	color: #6A788A !important;
+	color: #6a788a !important;
 	background-color: #f8f9fa;
 }
 
 .navbar-toggler {
-	border: none
+	border: none;
 }
 
 .algolia-autocomplete .aa-dropdown-menu {
@@ -82,7 +78,7 @@ footer {
 	background-color: #212529 !important;
 	color: #8b949e;
 	margin-bottom: 0;
-	font-family: 'Inter Tight', Roboto;
+	font-family: "Inter Tight", Roboto;
 	font-weight: 700;
 }
 
@@ -107,50 +103,44 @@ footer .pkgdown-footer-left {
 }
 
 @media screen and (max-width: 576px) {
-
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
-		margin-right: .75rem;
-		margin-left: .75rem;
+		margin-right: 0.75rem;
+		margin-left: 0.75rem;
 		padding-left: 12px;
 		padding-right: 12px;
 	}
 }
 
-@media (max-width:768px) and (min-width:576px) {
-
+@media (max-width: 768px) and (min-width: 576px) {
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
 		max-width: 270px;
 	}
 }
 
-@media (max-width: 992px) and (min-width:768px) {
-
+@media (max-width: 992px) and (min-width: 768px) {
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
 		max-width: 360px;
 	}
 }
 
-@media (max-width: 1200px) and (min-width:992px) {
-
+@media (max-width: 1200px) and (min-width: 992px) {
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
 		max-width: 480px;
 	}
 }
 
-@media (max-width: 1400px) and (min-width:1200px) {
-
+@media (max-width: 1400px) and (min-width: 1200px) {
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
 		max-width: 570px;
 	}
 }
 
-@media (min-width:1400px) {
-
+@media (min-width: 1400px) {
 	footer .pkgdown-footer-right,
 	footer .pkgdown-footer-left {
 		max-width: 660px;
@@ -180,7 +170,7 @@ code a:any-link {
 	text-decoration-color: #6c757d;
 }
 
-a>code {
+a > code {
 	text-decoration: underline;
 	color: #e83e8c;
 }
@@ -220,198 +210,132 @@ code {
 
 /* --- Highlighter based in perldoc --- */
 pre {
-	background-color: #f4f4f5
+	background-color: #f4f4f5;
 }
 
 pre code
 
-/* Normal - pygments.n */
-	{
-	color: #212529
+/* Normal - pygments.n */ {
+	color: #212529;
 }
 
 pre code span.al
 
-/* Alert - pygments.gr */
-	{
-	color: #aa0000
+/* Alert - pygments.gr */ {
+	color: #aa0000;
 }
 
 pre code span.an
 
-/* Annotation - pygments.c1 */
-	{
-	color: #228B22
+/* Annotation - pygments.c1 */ {
+	color: #228b22;
 }
-
-pre code span.at
-
-/* Attribute */
-	{}
-
-pre code span.bn
-
-/* BaseN */
-	{}
-
-pre code span.bu
-
-/* BuiltIn */
-	{}
-
-pre code span.cf
-
-/* ControlFlow */
-	{}
 
 pre code span.ch
 
-/* Char - pygments.s2 */
-	{
-	color: #CD5555
+/* Char - pygments.s2 */ {
+	color: #cd5555;
 }
 
 pre code span.cn
 
-/* Constant - pygments.nb */
-	{
-	color: #658b00
+/* Constant - pygments.nb */ {
+	color: #658b00;
 }
 
 pre code span.co
 
-/* Comment - pygments.c1 */
-	{
-	color: #228B22
+/* Comment - pygments.c1 */ {
+	color: #228b22;
 }
 
 pre code span.cv
 
-/* CommentVar - pygments.c1 */
-	{
-	color: #228B22
+/* CommentVar - pygments.c1 */ {
+	color: #228b22;
 }
 
 pre code span.do
 
-/* Documentation - pygments.c1 */
-	{
-	color: #228B22
+/* Documentation - pygments.c1 */ {
+	color: #228b22;
 }
-
-pre code span.dt
-
-/* DataType */
-	{}
 
 pre code span.dv
 
-/* DecVal - pygments.m */
-	{
-	color: #B452CD
+/* DecVal - pygments.m */ {
+	color: #b452cd;
 }
 
 pre code span.er
 
-/* Error - pygments.gr */
-	{
-	color: #aa0000
+/* Error - pygments.gr */ {
+	color: #aa0000;
 }
-
-pre code span.ex
-
-/* Extension */
-	{}
 
 pre code span.fl
 
-/* Float - pygments.m */
-	{
-	color: #B452CD
+/* Float - pygments.m */ {
+	color: #b452cd;
 }
 
 pre code span.fu
 
-/* Function - pygments.n */
-	{
-	color: #212529
+/* Function - pygments.n */ {
+	color: #212529;
 }
-
-pre code span.im
-
-/* Import */
-	{}
 
 pre code span.in
 
-/* Information - pygments.gp */
-	{
-	color: #555555
+/* Information - pygments.gp */ {
+	color: #555555;
 }
 
 pre code span.kw
 
-/* Keyword - pygments.k */
-	{
-	color: #8B008B;
-	font-weight: bold
+/* Keyword - pygments.k */ {
+	color: #8b008b;
+	font-weight: bold;
 }
-
-pre code span.op
-
-/* Operator - pygments.o */
-	{}
 
 pre code span.ot
 
-/* Other - pygments.sx */
-	{
-	color: #cb6c20
+/* Other - pygments.sx */ {
+	color: #cb6c20;
 }
-
-pre code span.pp
-
-/* Preprocessor */
-	{}
 
 pre code span.sc
 
-/* SpecialChar - pygments.s2 */
-	{
-	color: #CD5555
+/* SpecialChar - pygments.s2 */ {
+	color: #cd5555;
 }
 
 pre code span.ss
 
-/* SpecialString - pygments.s2 */
-	{
-	color: #CD5555
+/* SpecialString - pygments.s2 */ {
+	color: #cd5555;
 }
 
 pre code span.st
 
-/* String - pygments.s2 */
-	{
-	color: #CD5555
+/* String - pygments.s2 */ {
+	color: #cd5555;
 }
 
 pre code span.va
 
-/* Variable - pygments.n */
-	{
-	color: #212529
+/* Variable - pygments.n */ {
+	color: #212529;
 }
 
 pre code span.vs
 
-/* VerbatimString - pygments.s2 */
-	{
-	color: #CD5555
+/* VerbatimString - pygments.s2 */ {
+	color: #cd5555;
 }
 
 pre code span.wa
 
-/* Warning - pygments.gr */
-	{
-	color: #aa0000
+/* Warning - pygments.gr */ {
+	color: #aa0000;
 }
