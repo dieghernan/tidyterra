@@ -12,10 +12,10 @@
 -   `get_coltab_pal()` can extract colors with alpha values (#180).
 -   New dependency **generics** added to Imports. New methods (`SpatRaster`,
     `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
-    -   `tidy.SpatRaster()`, etc.
-    -   `glance.SpatRaster()`, etc.
-    -   `required_pkgs.SpatRaster()`, etc.
--   `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
+    -   `?tidy.Spat`.
+    -   `?glance.Spat`.
+    -   `?required_pkgs.Spat`.
+-   `?fortify.Spat` methods now uses `?tidy.Spat` methods under the hood:
     -   New `fortify.SpatExtent()` method.
 -   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
 -   `summarise.SpatVector()` supports now the `.by` argument.
