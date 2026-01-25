@@ -20,6 +20,13 @@ navbar:
     - github
     - donate
   components:
+    articles:
+      text: Articles
+      menu:
+      - text: Welcome to tidyterra
+        href: articles/welcome.html
+      - text: Gradient palettes in tidyterra
+        href: articles/palettes.html
     faqs:
       text: FAQs
       href: articles/faqs.html
