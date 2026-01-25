@@ -21,13 +21,13 @@ CRAN release: 2026-01-23
   ([\#180](https://github.com/dieghernan/tidyterra/issues/180)).
 - New dependency **generics** added to Imports. New methods
   (`SpatRaster`, `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
-  - [`tidy.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md),
-    etc.
-  - [`glance.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md),
-    etc.
-  - [`required_pkgs.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md),
-    etc.
-- `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
+  - [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md).
+  - [`?glance.Spat`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md).
+  - [`?required_pkgs.Spat`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md).
+- [`?fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
+  methods now uses
+  [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
+  methods under the hood:
   - New
     [`fortify.SpatExtent()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
     method.
