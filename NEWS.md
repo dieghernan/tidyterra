@@ -4,6 +4,7 @@
     `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
     been extended to (#193):
     -   `mutate.SpatVector()`.
+    -   `filter.SpatVector()`.
 -   `?mutate.Spat`: New arguments `.keep, .before, .after` (see
     `dplyr::mutate()`).
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
@@ -256,3 +257,4 @@ Other changes on this version:
     -   `rename()`
 -   New geoms:
     -   `geom_spatraster_contour()` family.
+

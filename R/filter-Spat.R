@@ -127,14 +127,14 @@ filter.SpatRaster <- function(
 
 #' @export
 #' @rdname filter.Spat
-filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
+filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)
 
   var_index <- make_safe_index("tterra_index", tbl)
   tbl[[var_index]] <- seq_len(nrow(tbl))
 
-  filtered <- dplyr::filter(tbl, ..., .preserve = .preserve)
+  filtered <- dplyr::filter(tbl, ..., .by = {{ .by }}, .preserve = .preserve)
 
   vend <- .data[as.integer(filtered[[var_index]]), ]
 
@@ -145,3 +145,7 @@ filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
 #' @export
 dplyr::filter
+
+# TODO: Implement method when available
+
+filter_out <- filter.SpatVector

@@ -128,3 +128,125 @@ test_that("filter() preserve order across groups", {
   expect_false(is.unsorted(res2$time))
   expect_false(is.unsorted(res3$time))
 })
+
+# .by -------------------------------------------------------------------------
+
+test_that("can group transiently using `.by`", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 1, 2, 1, 2), x = c(5, 10, 1, 2, 3))
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  out <- filter(df, x > mean(x), .by = g)
+  expect_identical(out$g, c(1, 2))
+  expect_identical(out$x, c(10, 3))
+  expect_s4_class(out, class(df))
+
+  skip("filter_out method pending")
+
+  out <- filter_out(df, x > mean(x), .by = g)
+  expect_identical(out$g, c(1, 2, 1))
+  expect_identical(out$x, c(5, 1, 2))
+  expect_s4_class(out, class(df))
+})
+
+test_that("transient grouping retains bare data.frame class", {
+  skip_on_cran()
+  df <- tibble(g = c(1, 1, 2, 1, 2), x = c(5, 10, 1, 2, 3))
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  out <- filter(df, x > mean(x), .by = g)
+  expect_s4_class(out, class(df))
+
+  out <- filter_out(df, x > mean(x), .by = g)
+  expect_s4_class(out, class(df))
+})
+
+test_that("transient grouping retains attributes", {
+  skip_on_cran()
+
+  df <- data.frame(g = c(1, 1, 2), x = c(1, 2, 1))
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  attr(df, "foo") <- "bar"
+
+  out <- filter(df, x > mean(x), .by = g)
+  expect_identical(attr(out, "foo"), "bar")
+
+  out <- filter_out(df, x > mean(x), .by = g)
+  expect_identical(attr(out, "foo"), "bar")
+})
+
+test_that("can't use `.by` with `.preserve`", {
+  skip_on_cran()
+
+  df <- tibble(x = 1)
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  expect_error(
+    filter(df, .by = x, .preserve = TRUE)
+  )
+
+  expect_error(
+    filter_out(df, .by = x, .preserve = TRUE)
+  )
+})
+
+test_that("catches `.by` with grouped-df", {
+  skip_on_cran()
+
+  df <- tibble(x = 1)
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  gdf <- group_by(df, x)
+
+  expect_error(
+    filter(gdf, .by = x)
+  )
+
+  expect_error(
+    filter_out(gdf, .by = x)
+  )
+})
+
+test_that("catches `.by` with rowwise-df", {
+  skip_on_cran()
+
+  df <- tibble(x = 1)
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  rdf <- rowwise(df)
+
+  expect_error(
+    filter(rdf, .by = x)
+  )
+  expect_error(
+    filter_out(rdf, .by = x)
+  )
+})
+
+test_that("catches `by` typo (#6647)", {
+  skip_on_cran()
+
+  df <- tibble(x = 1)
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  expect_error(filter(df, by = x))
+  expect_error(
+    filter_out(df, by = x)
+  )
+})

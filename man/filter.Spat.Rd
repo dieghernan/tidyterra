@@ -8,7 +8,7 @@
 \usage{
 \method{filter}{SpatRaster}(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
-\method{filter}{SpatVector}(.data, ..., .preserve = FALSE)
+\method{filter}{SpatVector}(.data, ..., .by = NULL, .preserve = FALSE)
 }
 \arguments{
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
