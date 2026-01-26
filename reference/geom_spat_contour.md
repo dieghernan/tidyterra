@@ -251,7 +251,8 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 - `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
 
 - `after_stat(level_low)`, `after_stat(level_high)`,
-  `after_stat(level_mid)`: (contour bands only) Lower and upper bin
+
+- `after_stat(level_mid)`: (contour bands only) Lower and upper bin
   boundaries for each band, as well the mid point between the
   boundaries.
 
@@ -262,11 +263,11 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 ## Coords
 
-When the `SpatRaster` does not present a crs (i.e.,
+When the `SpatRaster` does not present a CRS (i.e.,
 `terra::crs(rast) == ""`) the geom does not make any assumption on the
 scales.
 
-On `SpatRaster` that have a crs, the geom uses
+On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. That means that also the **`SpatRaster` may be
 reprojected**.
@@ -318,14 +319,12 @@ ggplot() +
   geom_spatraster_contour(data = r)
 
 
-
 # Labelled
 ggplot() +
   geom_spatraster_contour_text(
     data = r, breaks = c(110, 130, 160, 190),
     color = "grey10", family = "serif"
   )
-
 
 
 ggplot() +

@@ -139,7 +139,6 @@ ex2b
 nrow(ex2b)
 #> [1] 3
 
-
 # Unique geometries
 ex3 <- distinct(v, geometry)
 

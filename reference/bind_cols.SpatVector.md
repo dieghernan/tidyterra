@@ -101,7 +101,6 @@ bind_spat_cols(sv, df2)
 #>                ES-BU    09 Burgos       b
 #>                ES-LE    24   Leon       c
 
-
 # Another SpatVector
 bind_spat_cols(sv[1:2, ], sv[3:4, ])
 #> New names:

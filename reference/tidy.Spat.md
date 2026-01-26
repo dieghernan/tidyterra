@@ -33,12 +33,12 @@ tidy(x, ..., crs = "")
 - x:
 
   A `SpatRaster` created with
-  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
-  or a `SpatVector` created with
-  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
-  Also support `SpatGraticule` (see
+  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html),
+  a `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html),
+  a `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
-  and `SpatExtent` (see
+  or a `SpatExtent` (see
   [`terra::ext()`](https://rspatial.github.io/terra/reference/ext.html)).
 
 - ...:

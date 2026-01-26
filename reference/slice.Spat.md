@@ -216,7 +216,7 @@ function.
 
 ### `SpatRaster`
 
-The result is a `SpatRaster` with the crs and resolution of the input
+The result is a `SpatRaster` with the CRS and resolution of the input
 and where cell values of the selected cells/columns/rows are preserved.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
@@ -279,7 +279,6 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
-
 library(terra)
 
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
@@ -307,7 +306,6 @@ r |>
 r |>
   slice_sample(prop = 0.2) |>
   plot()
-
 
 
 # Slice regions

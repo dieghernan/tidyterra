@@ -70,12 +70,12 @@ Cells that do not fulfill the conditions on `...` are returned with
 value `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across
 all the layers.
 
-If `.keep_extent = TRUE` the returning `SpatRaster` has the same crs,
+If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS,
 extent, resolution and hence the same number of cells than `.data`. If
 `.keep_extent = FALSE` the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
 so the extent and number of cells may differ. The output would present
-in any case the same crs and resolution than `.data`.
+in any case the same CRS and resolution than `.data`.
 
 `x` and `y` variables (i.e. the longitude and latitude of the
 `SpatRaster`) are also available internally for filtering. See
@@ -134,7 +134,6 @@ r <- rast(f) |> select(tavg_04)
 plot(r)
 
 
-
 # Filter temps
 r_f <- r |> filter(tavg_04 > 11.5)
 
@@ -142,13 +141,11 @@ r_f <- r |> filter(tavg_04 > 11.5)
 plot(r_f)
 
 
-
 # Filter temps and extent
 r_f2 <- r |> filter(tavg_04 > 11.5, .keep_extent = FALSE)
 
 # Extent has changed
 plot(r_f2)
-
 
 
 # Filter by geographic coordinates

@@ -2,6 +2,16 @@
 
 ## tidyterra (development version)
 
+- In **dplyr** `.by` has moved from experimental to stable. This
+  argument has been included in:
+  - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md).
+- [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
+  New arguments `.keep, .before, .after` (see
+  [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)).
+- [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
+  is marked as superseded, as in
+  [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html).
+
 ## tidyterra 1.0.0
 
 CRAN release: 2026-01-23
@@ -215,7 +225,7 @@ Other changes on this version:
   ([\#120](https://github.com/dieghernan/tidyterra/issues/120)).
 - Enhanced
   [`glimpse.Spat()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
-  with meta-information on type of geometry, crs, etc.
+  with meta-information on type of geometry, CRS, etc.
 - New messaging interface thanks to [**cli**](https://cli.r-lib.org/)
   package.
 

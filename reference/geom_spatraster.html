@@ -213,10 +213,10 @@ for <code>SpatRaster</code> are <code>"raster"</code> (the default), <code>"poin
 
 
 
-<p>When the <code>SpatRaster</code> does not present a crs (i.e.,
+<p>When the <code>SpatRaster</code> does not present a CRS (i.e.,
 <code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
 scales.</p>
-<p>On <code>SpatRaster</code> that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
+<p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
 adjust the scales. That means that also the
 <strong><code>SpatRaster</code> may be reprojected</strong>.</p>
     </div>
@@ -325,7 +325,6 @@ aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">no_crs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="cn">NA</span>, extent <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>, nlyr <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/values.html" class="external-link">values</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_len</a></span><span class="op">(</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">ncell</a></span><span class="op">(</span><span class="va">no_crs</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster</span><span class="op">(</span>data <span class="op">=</span> <span class="va">no_crs</span><span class="op">)</span></span></span>

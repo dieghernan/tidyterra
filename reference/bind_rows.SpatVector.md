@@ -175,7 +175,6 @@ bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #>              
 #>              
 
-
 # Use lists
 bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
 #>  class       : SpatVector 

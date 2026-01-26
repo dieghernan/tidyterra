@@ -91,7 +91,7 @@ layers/attributes to the left-hand side; specifying both is an error.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>Spat*</code> object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
+    <p>A <code>Spat*</code> object of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -154,14 +154,12 @@ layers/attributes to the left-hand side; specifying both is an error.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>aa <span class="op">=</span> <span class="fl">1</span>, bb <span class="op">=</span> <span class="fl">2</span>, cc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">spatrast</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "cyl_tile_1" "cyl_tile_2" "cyl_tile_3" "aa"         "bb"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "cc"        </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">bb</span>, .before <span class="op">=</span> <span class="va">cyl_tile_3</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>

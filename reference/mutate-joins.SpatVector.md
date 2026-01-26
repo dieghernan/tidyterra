@@ -230,7 +230,6 @@ nrow(inner)
 autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
 
 
-
 # Left join
 
 left <- v |> left_join(df)
@@ -254,7 +253,6 @@ autoplot(right, aes(fill = letter)) + ggtitle("Right Join")
 # There are empty geometries, check with data from df
 ggplot(right, aes(x, y)) +
   geom_point(aes(color = letter))
-
 
 
 # Full join

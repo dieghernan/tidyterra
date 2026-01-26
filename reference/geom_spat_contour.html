@@ -277,8 +277,8 @@ aesthetics, using (for example) <code>aes(color = after_stat(&lt;computed&gt;))<
 vector that represents bin boundaries. For contour bands, this is an
 ordered factor that represents bin ranges.</p></li>
 <li><p><code>after_stat(nlevel)</code>: Height of contour, scaled to maximum of 1.</p></li>
-<li><p><code>after_stat(level_low)</code>, <code>after_stat(level_high)</code>,
-<code>after_stat(level_mid)</code>: (contour bands only) Lower and upper bin
+<li><p><code>after_stat(level_low)</code>, <code>after_stat(level_high)</code>,</p></li>
+<li><p><code>after_stat(level_mid)</code>: (contour bands only) Lower and upper bin
 boundaries for each band, as well the mid point between the boundaries.</p></li>
 </ul></div>
     <div class="section level2">
@@ -293,10 +293,10 @@ longer available.</p></li>
 
 
 
-<p>When the <code>SpatRaster</code> does not present a crs (i.e.,
+<p>When the <code>SpatRaster</code> does not present a CRS (i.e.,
 <code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
 scales.</p>
-<p>On <code>SpatRaster</code> that have a crs, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
+<p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
 adjust the scales. That means that also the
 <strong><code>SpatRaster</code> may be reprojected</strong>.</p>
     </div>
@@ -339,7 +339,6 @@ the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour</span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spat_contour-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Labelled</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour_text</span><span class="op">(</span></span></span>
@@ -347,7 +346,6 @@ the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse
 <span class="r-in"><span>    color <span class="op">=</span> <span class="st">"grey10"</span>, family <span class="op">=</span> <span class="st">"serif"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="geom_spat_contour-2.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">geom_spatraster_contour</span><span class="op">(</span></span></span>

@@ -32,8 +32,7 @@ replace_na(data, replace, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `data`. Geometries and spatial
-attributes are preserved.
+A `Spat*` object of the same class than `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

@@ -26,9 +26,9 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 - width:
 
-  Width of output: defaults to the setting of the width option (if
-  finite) or the width of the console. See
-  [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html).
+  Width of output: defaults to the setting of the `width`
+  [option](https://pillar.r-lib.org/reference/pillar_options.html) (if
+  finite) or the width of the console.
 
 - ...:
 

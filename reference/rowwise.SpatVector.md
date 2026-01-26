@@ -38,6 +38,12 @@ rowwise(data, ...)
   identify each row. See
   [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
+  **NB**: unlike
+  [`group_by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
+  you can not create new variables here but instead you can select
+  multiple variables with (e.g.)
+  [`dplyr::everything()`](https://dplyr.tidyverse.org/reference/reexports.html).
+
 ## Value
 
 The same `SpatVector` object with an additional attribute.

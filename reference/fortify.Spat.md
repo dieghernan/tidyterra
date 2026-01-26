@@ -36,12 +36,12 @@ fortify(model, data, ..., crs = "")
 - model:
 
   A `SpatRaster` created with
-  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
-  or a `SpatVector` created with
-  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
-  Also support `SpatGraticule` (see
+  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html),
+  a `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html),
+  a `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
-  and `SpatExtent` (see
+  or a `SpatExtent` (see
   [`terra::ext()`](https://rspatial.github.io/terra/reference/ext.html)).
 
 - data:
@@ -180,12 +180,10 @@ Coercing objects:
 # Demonstrate the use with ggplot2
 library(ggplot2)
 
-
 # Get a SpatRaster
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
   terra::rast() |>
   terra::project("EPSG:4326")
-
 
 # You can now use a SpatRaster with any geom
 ggplot(r, maxcell = 50) +

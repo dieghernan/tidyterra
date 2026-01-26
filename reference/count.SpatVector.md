@@ -132,7 +132,6 @@ library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
-
 p |> count(NAME_1, sort = TRUE)
 #>  class       : SpatVector 
 #>  geometry    : polygons 

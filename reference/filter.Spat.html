@@ -113,7 +113,7 @@ different of the extent of the output. See also <code><a href="drop_na.Spat.html
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>Spat*</code> object  of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
+    <p>A <code>Spat*</code> object of the same class than <code>.data</code>. See <strong>Methods</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -127,11 +127,11 @@ different of the extent of the output. See also <code><a href="drop_na.Spat.html
 <p>Cells that do not fulfill the conditions on <code>...</code> are returned with value
 <code>NA</code>. On a multi-layer <code>SpatRaster</code> the <code>NA</code> is propagated across all the
 layers.</p>
-<p>If <code>.keep_extent = TRUE</code> the returning <code>SpatRaster</code> has the same crs, extent,
+<p>If <code>.keep_extent = TRUE</code> the returning <code>SpatRaster</code> has the same CRS, extent,
 resolution and hence the same number of cells than <code>.data</code>. If
 <code>.keep_extent = FALSE</code> the outer <code>NA</code> cells are trimmed with <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>,
 so the extent and number of cells may differ. The output would present in
-any case the same crs and resolution than <code>.data</code>.</p>
+any case the same CRS and resolution than <code>.data</code>.</p>
 <p><code>x</code> and <code>y</code> variables (i.e. the longitude and latitude of the <code>SpatRaster</code>)
 are also available internally for filtering. See <strong>Examples</strong>.</p>
 </div>
@@ -190,7 +190,6 @@ are also available internally for filtering. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter.Spat-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filter temps</span></span></span>
 <span class="r-in"><span><span class="va">r_f</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">tavg_04</span> <span class="op">&gt;</span> <span class="fl">11.5</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -198,14 +197,12 @@ are also available internally for filtering. See <strong>Examples</strong>.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_f</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter.Spat-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filter temps and extent</span></span></span>
 <span class="r-in"><span><span class="va">r_f2</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">tavg_04</span> <span class="op">&gt;</span> <span class="fl">11.5</span>, .keep_extent <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extent has changed</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_f2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter.Spat-3.png" alt="" width="2188" height="1352"></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filter by geographic coordinates</span></span></span>
 <span class="r-in"><span><span class="va">r2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"epsg:4326"</span><span class="op">)</span></span></span>

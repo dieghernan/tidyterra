@@ -90,9 +90,9 @@ methods.</p>
 
 
 <dl><dt id="arg-model">model<a class="anchor" aria-label="anchor" href="#arg-model"></a></dt>
-<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code> or a <code>SpatVector</code>
-created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>. Also support <code>SpatGraticule</code> (see
-<code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>) and <code>SpatExtent</code> (see <code><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">terra::ext()</a></code>).</p></dd>
+<dd><p>A <code>SpatRaster</code> created with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">terra::rast()</a></code>, a <code>SpatVector</code>
+created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>, a <code>SpatGraticule</code> (see <code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>)
+or a <code>SpatExtent</code> (see <code><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">terra::ext()</a></code>).</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -203,12 +203,10 @@ columns:</p><ul><li><p><code>x,y</code>: Coordinates (center) of the cell on the
 <span class="r-in"><span><span class="co"># Demonstrate the use with ggplot2</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Get a SpatRaster</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can now use a SpatRaster with any geom</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, maxcell <span class="op">=</span> <span class="fl">50</span><span class="op">)</span> <span class="op">+</span></span></span>

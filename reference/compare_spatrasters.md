@@ -1,7 +1,7 @@
 # Compare attributes of two `SpatRaster` objects
 
 Two `SpatRaster` objects are compatible (in terms of combining layers)
-if the crs, extent and resolution are similar. In those cases you can
+if the CRS, extent and resolution are similar. In those cases you can
 combine the objects simply as `c(x, y)`.
 
 This function compares those attributes informing of the results. See
@@ -36,7 +36,7 @@ are compatible, plus an informative message flagging the issues found
 
 ## Solving issues
 
-- On **non-equal crs**, try
+- On **non-equal CRS**, try
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html).
 
 - On **non-equal extent** try

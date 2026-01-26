@@ -2,10 +2,13 @@
 
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new
 layers/attributes and preserves existing ones on a `Spat*` object.
+
+**\[superseded\]**
+
 [`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-adds new layers/attributes and drops existing ones. New variables
-overwrite existing variables of the same name. Variables can be removed
-by setting their value to `NULL`.
+creates a new object containing only the specified computations. It's
+superseded because you can perform the same job with
+`mutate(.keep = "none")`.
 
 ## Usage
 
@@ -14,7 +17,14 @@ by setting their value to `NULL`.
 mutate(.data, ...)
 
 # S3 method for class 'SpatVector'
-mutate(.data, ...)
+mutate(
+  .data,
+  ...,
+  .by = NULL,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
 
 # S3 method for class 'SpatRaster'
 transmute(.data, ...)
@@ -35,8 +45,55 @@ transmute(.data, ...)
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
-  Name-value pairs. The name gives the name of the layer/attribute in
-  the output.
+  Name-value pairs. The name gives the name of the column in the output.
+
+  The value can be:
+
+  - A vector of length 1, which will be recycled to the correct length.
+
+  - A vector the same length as the current group (or the whole data
+    frame if ungrouped).
+
+  - `NULL`, to remove the column.
+
+  - A data frame or tibble, to create multiple columns in the output.
+
+- .by:
+
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
+
+- .keep:
+
+  Control which columns from `.data` are retained in the output.
+  Grouping columns and columns created by `...` are always kept.
+
+  - `"all"` retains all columns from `.data`. This is the default.
+
+  - `"used"` retains only the columns used in `...` to create new
+    columns. This is useful for checking your work, as it displays
+    inputs and outputs side-by-side.
+
+  - `"unused"` retains only the columns *not* used in `...` to create
+    new columns. This is useful if you generate new columns, but no
+    longer need the columns used to generate them.
+
+  - `"none"` doesn't retain any extra columns from `.data`. Only the
+    grouping variables and columns created by `...` are kept.
+
+- .before, .after:
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, control where new columns should appear (the default is to
+  add to the right hand side). See
+  [`relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
+  for more details.
 
 ## Value
 
@@ -63,7 +120,7 @@ functions.
 ### `SpatRaster`
 
 Add new layers and preserves existing ones. The result is a `SpatRaster`
-with the same extent, resolution and crs than `.data`. Only the values
+with the same extent, resolution and CRS than `.data`. Only the values
 (and possibly the number) of layers is modified.
 
 [`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)

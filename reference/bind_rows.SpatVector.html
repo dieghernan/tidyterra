@@ -101,9 +101,9 @@ names if available, otherwise it will use positions.</p></dd>
 <p>Implementation of the <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">dplyr::bind_rows()</a></code> function for
 <code>SpatVector</code> objects.</p>
 <p>The first element of <code>...</code> should be a <code>SpatVector</code>. Subsequent elements may
-be <code>SpatVector</code>, <code>sf/sfc</code> objects or data frames:</p><ul><li><p>If subsequent <code>SpatVector/sf/sfc</code> objects present a different CRS than the
-first element, those elements would be reprojected to the CRS of the first
-element with a message.</p></li>
+be <code>SpatVector</code>, <code>sf/sfc</code> objects or data frames:</p><ul><li><p>If subsequent <code>SpatVector/sf/sfc</code> objects present a different CRS than
+the first element, those elements would be reprojected to the CRS of the
+first element with a message.</p></li>
 <li><p>If any element of <code>...</code> is a tibble/data frame the rows would be
 <code>cbind</code>ed with empty geometries with a message.</p></li>
 </ul></div>
@@ -229,7 +229,6 @@ element with a message.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use lists</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">v1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, <span class="va">sfobj</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>

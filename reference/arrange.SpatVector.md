@@ -21,14 +21,13 @@ arrange(.data, ..., .by_group = FALSE)
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   Variables, or functions of variables. Use
-  [`desc()`](https://dplyr.tidyverse.org/reference/desc.html) to sort a
-  variable in descending order.
+  [`dplyr::desc()`](https://dplyr.tidyverse.org/reference/desc.html) to
+  sort a variable in descending order.
 
 - .by_group:
 
   If `TRUE`, will sort first by grouping variable. Applies to grouped
-  `SpatVector` only (see
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)).
+  `SpatVector` only.
 
 ## Value
 
@@ -101,7 +100,6 @@ library(dplyr)
 
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-
 # Single variable
 
 v |>
@@ -117,7 +115,6 @@ v |>
 #>                ES-VA    47 Valladolid
 #>                ES-SO    42      Soria
 
-
 # Two variables
 v |>
   mutate(even = as.double(cpro) %% 2 == 0, ) |>
@@ -132,7 +129,6 @@ v |>
 #>  values      : ES-SO    42    Soria      TRUE
 #>                ES-SG    40  Segovia      TRUE
 #>                 ES-P    34 Palencia      TRUE
-
 
 # With new variables
 v |>

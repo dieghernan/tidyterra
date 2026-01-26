@@ -51,7 +51,15 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-</div>
+<ul><li>In <strong>dplyr</strong> <code>.by</code> has moved from experimental to stable. This argument has been included in:
+<ul><li>
+<code><a href="../reference/mutate.Spat.html">mutate.SpatVector()</a></code>.</li>
+</ul></li>
+<li>
+<code><a href="../reference/mutate.Spat.html">mutate.SpatVector()</a></code>: New arguments <code>.keep, .before, .after</code> (see <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>).</li>
+<li>
+<code><a href="../reference/mutate.Spat.html">?transmute.Spat</a></code> is marked as superseded, as in <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2><p class="text-muted">CRAN release: 2026-01-23</p>
 <ul><li>Minimal <strong>R</strong> version required updated to <strong>&gt;= 4.1.0</strong>.</li>
@@ -172,7 +180,7 @@
 </ul></li>
 <li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
 <li>By default, all the non-discrete (e.g. continuous or breaks) scales of <strong>tidyterra</strong> have now <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
-<li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, crs, etc.</li>
+<li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, CRS, etc.</li>
 <li>New messaging interface thanks to <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
 </ul></div>
     <div class="section level2">

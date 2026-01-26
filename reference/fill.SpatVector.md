@@ -73,7 +73,6 @@ lux <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 lux_blnk <- lux |>
   mutate(NAME_1 = if_else(NAME_1 != NAME_2, NA, NAME_2))
 
-
 as_tibble(lux_blnk)
 #> # A tibble: 12 × 6
 #>     ID_1 NAME_1        ID_2 NAME_2            AREA    POP
@@ -110,7 +109,6 @@ lux_blnk |>
 #> 10     3 Grevenmacher     9 Esch-sur-Alzette   251 176820
 #> 11     3 Luxembourg      10 Luxembourg         237 182607
 #> 12     3 Luxembourg      11 Mersch             233  32112
-
 
 # direction = "up"
 lux_blnk |>

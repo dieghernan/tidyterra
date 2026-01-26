@@ -73,13 +73,13 @@ values of selected columns.</p>
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Variables, or
-functions of variables. Use <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc()</a></code> to sort a variable in
+functions of variables. Use <code><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">dplyr::desc()</a></code> to sort a variable in
 descending order.</p></dd>
 
 
 <dt id="arg--by-group">.by_group<a class="anchor" aria-label="anchor" href="#arg--by-group"></a></dt>
 <dd><p>If <code>TRUE</code>, will sort first by grouping variable. Applies to
-grouped <code>SpatVector</code> only (see <code><a href="group-by.SpatVector.html">group_by.SpatVector()</a></code>).</p></dd>
+grouped <code>SpatVector</code> only.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -155,7 +155,6 @@ grouped <code>SpatVector</code> only (see <code><a href="group-by.SpatVector.htm
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Single variable</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
@@ -171,7 +170,6 @@ grouped <code>SpatVector</code> only (see <code><a href="group-by.SpatVector.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-VA    47 Valladolid</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-SO    42      Soria</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Two variables</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>even <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="va">cpro</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span>, <span class="op">)</span> <span class="op">|&gt;</span></span></span>
@@ -186,7 +184,6 @@ grouped <code>SpatVector</code> only (see <code><a href="group-by.SpatVector.htm
 <span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-SO    42    Soria      TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                ES-SG    40  Segovia      TRUE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                 ES-P    34 Palencia      TRUE</span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With new variables</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>

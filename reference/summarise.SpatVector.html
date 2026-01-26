@@ -106,7 +106,20 @@ details and examples, see <a href="https://dplyr.tidyverse.org/reference/dplyr_b
 
 
 <dt id="arg--groups">.groups<a class="anchor" aria-label="anchor" href="#arg--groups"></a></dt>
-<dd><p>See <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">dplyr::summarise()</a></code></p></dd>
+<dd><p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="[Experimental]"></a> Grouping structure of the
+result.</p><ul><li><p>"drop_last": dropping the last level of grouping. This was the
+only supported option before version 1.0.0.</p></li>
+<li><p>"drop": All levels of grouping are dropped.</p></li>
+<li><p>"keep": Same grouping structure as <code>.data</code>.</p></li>
+<li><p>"rowwise": Each row is its own group.</p></li>
+</ul><p>When <code>.groups</code> is not specified, it is chosen
+based on the number of rows of the results:</p><ul><li><p>If all the results have 1 row, you get "drop_last".</p></li>
+<li><p>If the number of rows varies, you get "keep" (note that returning a
+variable number of rows was deprecated in favor of <code><a href="https://dplyr.tidyverse.org/reference/reframe.html" class="external-link">reframe()</a></code>, which
+also unconditionally drops all levels of grouping).</p></li>
+</ul><p>In addition, a message informs you of that choice, unless the result is ungrouped,
+the option "dplyr.summarise.inform" is set to <code>FALSE</code>,
+or when <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise()</a></code> is called from a function in a package.</p></dd>
 
 
 <dt id="arg--dissolve">.dissolve<a class="anchor" aria-label="anchor" href="#arg--dissolve"></a></dt>
@@ -185,7 +198,6 @@ geometries (with <code>.dissolve = FALSE</code>). See <strong>Examples</strong>.
 <span class="r-in"><span><span class="va">gr_v</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>start_with_s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">name</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">==</span> <span class="st">"S"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">start_with_s</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Dissolving</span></span></span>
 <span class="r-in"><span><span class="va">diss</span> <span class="op">&lt;-</span> <span class="va">gr_v</span> <span class="op">|&gt;</span></span></span>
