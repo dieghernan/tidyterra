@@ -2,15 +2,19 @@
 
 ## tidyterra (development version)
 
-- In **dplyr** `.by` has moved from experimental to stable. This
-  argument has been included in:
+- In **dplyr** `.by` has moved from experimental to stable. In
+  [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
+  this was implemented in version 1.0.0. Now it has been extended to
+  ([\#193](https://github.com/dieghernan/tidyterra/issues/193)):
   - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md).
-- [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
+  - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
+- [`?mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
   New arguments `.keep, .before, .after` (see
   [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)).
-- [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
+- [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/transmute.Spat.md)
   is marked as superseded, as in
-  [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html).
+  [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
+  **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
 
 ## tidyterra 1.0.0
 

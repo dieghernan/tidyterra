@@ -3,18 +3,17 @@
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new
 layers/attributes and preserves existing ones on a `Spat*` object.
 
-**\[superseded\]**
-
-[`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-creates a new object containing only the specified computations. It's
-superseded because you can perform the same job with
-`mutate(.keep = "none")`.
-
 ## Usage
 
 ``` r
 # S3 method for class 'SpatRaster'
-mutate(.data, ...)
+mutate(
+  .data,
+  ...,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
 
 # S3 method for class 'SpatVector'
 mutate(
@@ -25,12 +24,6 @@ mutate(
   .before = NULL,
   .after = NULL
 )
-
-# S3 method for class 'SpatRaster'
-transmute(.data, ...)
-
-# S3 method for class 'SpatVector'
-transmute(.data, ...)
 ```
 
 ## Arguments
@@ -58,17 +51,6 @@ transmute(.data, ...)
 
   - A data frame or tibble, to create multiple columns in the output.
 
-- .by:
-
-  **\[experimental\]**
-
-  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
-  Optionally, a selection of columns to group by for just this
-  operation, functioning as an alternative to
-  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
-  For details and examples, see
-  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
-
 - .keep:
 
   Control which columns from `.data` are retained in the output.
@@ -95,6 +77,17 @@ transmute(.data, ...)
   [`relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
   for more details.
 
+- .by:
+
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
+
 ## Value
 
 A `Spat*` object of the same class than `.data`. See **Methods**.
@@ -113,9 +106,8 @@ modifying cell values:
 ## Methods
 
 Implementation of the **generic**
-[`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html),
-[`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-functions.
+[`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
+method.
 
 ### `SpatRaster`
 
@@ -123,21 +115,14 @@ Add new layers and preserves existing ones. The result is a `SpatRaster`
 with the same extent, resolution and CRS than `.data`. Only the values
 (and possibly the number) of layers is modified.
 
-[`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-would keep only the layers created with `...`.
-
 ### `SpatVector`
 
 The result is a `SpatVector` with the modified (and possibly renamed)
 attributes on the function call.
 
-[`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-would keep only the attributes created with `...`.
-
 ## See also
 
-[`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html),
-[`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
+[`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
 methods.
 
 [terra](https://CRAN.R-project.org/package=terra) provides several ways

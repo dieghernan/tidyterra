@@ -101,7 +101,7 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
-function.
+method.
 
 ### `SpatVector`
 

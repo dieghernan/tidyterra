@@ -47,7 +47,7 @@ A `Spat*` object of the same class than `data`. See **Methods**.
 
 Implementation of the **generic**
 [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-function.
+method.
 
 ### `SpatVector`
 

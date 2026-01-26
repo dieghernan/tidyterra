@@ -21,7 +21,7 @@ See **Examples** and section **About layer names** on
 filter(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
 # S3 method for class 'SpatVector'
-filter(.data, ..., .preserve = FALSE)
+filter(.data, ..., .by = NULL, .preserve = FALSE)
 ```
 
 ## Arguments
@@ -54,6 +54,17 @@ filter(.data, ..., .preserve = FALSE)
   of the output. See also
   [`drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.md).
 
+- .by:
+
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
+
 ## Value
 
 A `Spat*` object of the same class than `.data`. See **Methods**.
@@ -62,7 +73,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
-function.
+method.
 
 ### `SpatRaster`
 

@@ -71,7 +71,7 @@ See
 
 Implementation of the **generic**
 [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)
-function. This is done by coercing the `Spat*` object to a tibble first
+method. This is done by coercing the `Spat*` object to a tibble first
 (see
 [as_tibble.Spat](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md))
 and then using

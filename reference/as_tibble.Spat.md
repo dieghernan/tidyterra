@@ -75,7 +75,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 Implementation of the **generic**
 [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-function.
+method.
 
 ### `SpatRaster` and `SpatVector`
 

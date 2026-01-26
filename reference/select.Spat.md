@@ -42,7 +42,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)
-function.
+method.
 
 ### `SpatRaster`
 

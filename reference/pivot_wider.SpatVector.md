@@ -173,7 +173,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
-function.
+method.
 
 ### `SpatVector`
 

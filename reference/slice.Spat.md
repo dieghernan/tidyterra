@@ -212,7 +212,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)
-function.
+method.
 
 ### `SpatRaster`
 

@@ -48,7 +48,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
-function.
+method.
 
 ### `SpatRaster`
 

@@ -143,7 +143,7 @@ bind_spat_rows(v1, sfobj)
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
-#> ! Reprojecting object 2 in `...` since it  doesn't have the same CRS than object 1
+#> ! Reprojecting object 2 in `...` since it doesn't have the same CRS than object 1
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 2, 3  (geometries, attributes)

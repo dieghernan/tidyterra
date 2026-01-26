@@ -50,7 +50,7 @@ output will contain all columns that appear in any of the inputs."><meta propert
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Bind multiple <code>SpatVector</code>, <code>sf/sfc</code> and data frames objects by row</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/bind-rows-SpatVector.R" class="external-link"><code>R/bind-rows-SpatVector.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/new-dplyr/R/bind-rows-SpatVector.R" class="external-link"><code>R/bind-rows-SpatVector.R</code></a></small>
       <div class="d-none name"><code>bind_rows.SpatVector.Rd</code></div>
     </div>
 
@@ -198,7 +198,7 @@ first element with a message.</p></li>
 <span class="r-in"><span><span class="va">sfobj_3857</span> <span class="op">&lt;-</span> <span class="fu"><a href="as_spatvector.html">as_spatvector</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:3857"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj_3857</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` since it  doesn't have the same CRS than object <span style="color: #00BB00;">1</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` since it doesn't have the same CRS than object <span style="color: #00BB00;">1</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 2, 3  (geometries, attributes)</span>

@@ -42,7 +42,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-function.
+method.
 
 ### `SpatVector`
 
