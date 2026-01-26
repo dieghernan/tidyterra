@@ -46,7 +46,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::pull()] function. This is done
+#' Implementation of the **generic** [dplyr::pull()] method. This is done
 #' by coercing the `Spat*` object to a tibble first (see [as_tibble.Spat]) and
 #' then using [dplyr::pull()] method over the tibble.
 #'

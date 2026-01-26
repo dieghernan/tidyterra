@@ -5,7 +5,8 @@
     -   `mutate.SpatVector()`.
 -   `mutate.SpatVector()`: New arguments `.keep, .before, .after` (see
     `dplyr::mutate()`).
--   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`.
+-   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
+    **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
 
 # tidyterra 1.0.0
 

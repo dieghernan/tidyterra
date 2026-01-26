@@ -30,7 +30,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [ggplot2::autoplot()] function.
+#' Implementation of the **generic** [ggplot2::autoplot()] method.
 #'
 #' ## `SpatRaster`
 #'

@@ -127,7 +127,7 @@ Learn more in \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} function.
+Implementation of the \strong{generic} \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} method.
 \subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behavior. This means that the result would

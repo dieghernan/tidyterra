@@ -202,7 +202,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
     cli::cli_alert_warning(
-      paste(
+      paste0(
         "Reprojecting object {.field {index}} in {.arg ...} since it",
         " doesn't have the same CRS than object {.field 1}"
       )

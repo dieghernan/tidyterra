@@ -32,7 +32,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::select()] function.
+#' Implementation of the **generic** [dplyr::select()] method.
 #'
 #' ## `SpatRaster`
 #'

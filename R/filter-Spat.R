@@ -38,7 +38,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::filter()] function.
+#' Implementation of the **generic** [dplyr::filter()] method.
 #'
 #' ## `SpatRaster`
 #'

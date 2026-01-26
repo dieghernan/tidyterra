@@ -37,7 +37,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::summarise()] function.
+#' Implementation of the **generic** [dplyr::summarise()] method.
 #'
 #' ## `SpatVector`
 #'

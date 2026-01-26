@@ -29,7 +29,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::distinct()] function.
+#' Implementation of the **generic** [dplyr::distinct()] method.
 #'
 #' ## `SpatVector`
 #'

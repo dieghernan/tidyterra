@@ -32,7 +32,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::rename()] function.
+#' Implementation of the **generic** [dplyr::rename()] method.
 #'
 #' ## `SpatRaster`
 #'

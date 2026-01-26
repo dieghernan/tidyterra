@@ -55,7 +55,7 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} function. This is done
+Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} method. This is done
 by coercing the \verb{Spat*} object to a tibble first (see \link{as_tibble.Spat}) and
 then using \code{\link[dplyr:pull]{dplyr::pull()}} method over the tibble.
 \subsection{\code{SpatRaster}}{

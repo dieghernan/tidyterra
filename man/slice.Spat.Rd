@@ -175,7 +175,7 @@ See \strong{Methods} for details.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} method.
 \subsection{\code{SpatRaster}}{
 
 The result is a \code{SpatRaster} with the CRS and resolution of the input and

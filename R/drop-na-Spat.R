@@ -30,7 +30,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::drop_na()] function.
+#' Implementation of the **generic** [tidyr::drop_na()] method.
 #'
 #' ## `SpatVector`
 #'

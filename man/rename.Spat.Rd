@@ -48,7 +48,7 @@ using a function.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} method.
 \subsection{\code{SpatRaster}}{
 
 Rename layers of a \code{SpatRaster}.

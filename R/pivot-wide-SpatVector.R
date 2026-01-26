@@ -37,7 +37,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::pivot_wider()] function.
+#' Implementation of the **generic** [tidyr::pivot_wider()] method.
 #'
 #' ## `SpatVector`
 #'

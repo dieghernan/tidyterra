@@ -26,7 +26,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::pivot_longer()] function.
+#' Implementation of the **generic** [tidyr::pivot_longer()] method.
 #'
 #' ## `SpatVector`
 #'

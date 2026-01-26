@@ -49,7 +49,7 @@ A \link[tibble:tbl_df-class]{tibble}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} function.
+Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} method.
 \subsection{\code{SpatRaster} and \code{SpatVector}}{
 
 The tibble is returned with an attribute including the CRS of the initial

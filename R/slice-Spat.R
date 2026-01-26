@@ -68,7 +68,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::slice()] function.
+#' Implementation of the **generic** [dplyr::slice()] method.
 #'
 #' ## `SpatRaster`
 #'

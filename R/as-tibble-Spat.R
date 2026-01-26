@@ -40,7 +40,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tibble::as_tibble()] function.
+#' Implementation of the **generic** [tibble::as_tibble()] method.
 #'
 #' ## `SpatRaster` and `SpatVector`
 #'

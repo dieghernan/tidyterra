@@ -44,7 +44,7 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} method.
 \subsection{\code{SpatRaster}}{
 
 Cells that do not fulfill the conditions on \code{...} are returned with value

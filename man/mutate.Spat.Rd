@@ -3,10 +3,7 @@
 \name{mutate.Spat}
 \alias{mutate.Spat}
 \alias{mutate.SpatRaster}
-\alias{transmute.Spat}
 \alias{mutate.SpatVector}
-\alias{transmute.SpatRaster}
-\alias{transmute.SpatVector}
 \title{Create, modify, and delete cell values/layers/attributes of \verb{Spat*} objects}
 \usage{
 \method{mutate}{SpatRaster}(.data, ...)
@@ -19,10 +16,6 @@
   .before = NULL,
   .after = NULL
 )
-
-\method{transmute}{SpatRaster}(.data, ...)
-
-\method{transmute}{SpatVector}(.data, ...)
 }
 \arguments{
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
@@ -70,12 +63,6 @@ A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 \description{
 \code{mutate()} adds new layers/attributes and preserves existing ones on a
 \verb{Spat*} object.
-
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
-
-\code{transmute()} creates a new object containing only the specified
-computations. It's superseded because you can perform the same job
-with \code{mutate(.keep = "none")}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -88,23 +75,18 @@ Some \CRANpkg{terra} methods for modifying cell values:
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:transmute]{dplyr::transmute()}}
-functions.
+Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}} method.
 \subsection{\code{SpatRaster}}{
 
 Add new layers and preserves existing ones. The result is a
 \code{SpatRaster} with the same extent, resolution and CRS than \code{.data}. Only the
 values (and possibly the number) of layers is modified.
-
-\code{transmute()} would keep only the layers created with \code{...}.
 }
 
 \subsection{\code{SpatVector}}{
 
 The result is a \code{SpatVector} with the modified (and possibly renamed)
 attributes on the function call.
-
-\code{transmute()} would keep only the attributes created with \code{...}.
 }
 }
 
@@ -132,7 +114,7 @@ v |>
   select(cpro, cpro2)
 }
 \seealso{
-\code{\link[dplyr:mutate]{dplyr::mutate()}}, \code{\link[dplyr:transmute]{dplyr::transmute()}} methods.
+\code{\link[dplyr:mutate]{dplyr::mutate()}} methods.
 
 \CRANpkg{terra} provides several ways to modify \verb{Spat*} objects:
 \itemize{
