@@ -339,7 +339,7 @@ test_that(".keep= always retains grouping variables (#5582)", {
   )
 })
 
-# Raster.before, .after, .keep ------------------------------------------------------
+# Raster .before, .after, .keep ---------------------------------
 
 test_that("rast .keep = 'unused' keeps variables explicitly mentioned", {
   skip_on_cran()
