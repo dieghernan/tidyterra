@@ -24,6 +24,8 @@
 #'
 #' @importFrom dplyr filter
 #' @inheritParams select.Spat
+#' @inheritParams dplyr::filter
+#'
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Expressions that
 #'   return a logical value, and are defined in terms of the layers/attributes
 #'   in `.data`. If multiple expressions are included, they are combined with
