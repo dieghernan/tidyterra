@@ -20,8 +20,7 @@ has \code{NA} values to be replaced.}
 \item{...}{Ignored}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{data}. Geometries and
-spatial attributes are preserved.
+A \verb{Spat*} object of the same class than \code{data}. See \strong{Methods}.
 }
 \description{
 Replace \code{NA} values on layers/attributes with specified values

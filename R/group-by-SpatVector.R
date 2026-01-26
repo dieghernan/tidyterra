@@ -47,7 +47,6 @@
 #' f <- system.file("ex/lux.shp", package = "terra")
 #' p <- vect(f)
 #'
-#'
 #' by_name1 <- p |> group_by(NAME_1)
 #'
 #' # grouping doesn't change how the SpatVector looks
@@ -64,7 +63,6 @@
 #' by_name1_tbl <- as_tibble(by_name1)
 #' class(by_name1_tbl)
 #' head(by_name1_tbl, 3)
-#'
 #'
 #' # It changes how it acts with the other dplyr verbs:
 #' by_name1 |> summarise(
@@ -91,7 +89,6 @@
 #' by_name2_name1 |>
 #'   group_by(ID_1, ID_2) |>
 #'   group_vars()
-#'
 #'
 #' # Use add = TRUE to instead append
 #' by_name2_name1 |>

@@ -16,7 +16,7 @@ layers indicating the position of each cell (cell number, row and column).}
 A \link[tibble:tbl_df-class]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
 the same number of rows (or cells) than the number of cells in \code{x}.
 
-When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same crs,
+When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same CRS,
 extension and resolution than \code{x}
 }
 \description{

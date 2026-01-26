@@ -140,7 +140,7 @@ length as the input. Weights are automatically standardised to sum to 1.}
 See \code{\link[terra:mask]{terra::mask()}}.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{slice()} methods lets you index cells/rows/columns/geometries by their
@@ -178,7 +178,7 @@ See \strong{Methods} for details.
 Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} function.
 \subsection{\code{SpatRaster}}{
 
-The result is a \code{SpatRaster} with the crs and resolution of the input and
+The result is a \code{SpatRaster} with the CRS and resolution of the input and
 where cell values of the selected cells/columns/rows are preserved.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
@@ -196,7 +196,6 @@ the first five rows in each group.
 }
 
 \examples{
-
 
 library(terra)
 
@@ -222,7 +221,6 @@ r |>
 r |>
   slice_sample(prop = 0.2) |>
   plot()
-
 
 # Slice regions
 r |>

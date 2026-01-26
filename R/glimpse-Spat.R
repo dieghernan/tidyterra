@@ -2,7 +2,7 @@
 #'
 #' @description
 #' `glimpse()` is like a transposed version of [print()]: layers/columns run
-#' down the  page, and data runs across. This makes it possible to see every
+#' down the page, and data runs across. This makes it possible to see every
 #' layer/column in a `Spat*` object.
 #'
 #' @export
@@ -16,15 +16,12 @@
 #'
 #' @importFrom dplyr glimpse
 #'
-#'
 #' @return original `x` is (invisibly) returned, allowing `glimpse()` to
 #' be used within a data pipeline.
 #'
 #' @inheritParams as_tibble.Spat
-#' @inheritParams tibble::print.tbl_df
+#' @inheritParams pillar::glimpse
 #'
-#' @param width Width of output: defaults to the setting of the width option
-#'   (if finite) or the width of the console. See [dplyr::glimpse()].
 #' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods
 #'   for `SpatRaster` and `SpatVector`. See [as_tibble.SpatRaster()].
 #' @param max_extra_cols Number of extra columns or layers to print abbreviated
@@ -35,12 +32,10 @@
 #'
 #' `print()`
 #'
-#'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::glimpse()] function for
 #' `Spat*`. objects.
-#'
 #'
 #' @examples
 #'

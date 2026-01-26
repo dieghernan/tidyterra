@@ -11,7 +11,14 @@
 \usage{
 \method{mutate}{SpatRaster}(.data, ...)
 
-\method{mutate}{SpatVector}(.data, ...)
+\method{mutate}{SpatVector}(
+  .data,
+  ...,
+  .by = NULL,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
 
 \method{transmute}{SpatRaster}(.data, ...)
 
@@ -22,16 +29,53 @@
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Name-value pairs.
-The name gives the name of the layer/attribute in the output.}
+The name gives the name of the column in the output.
+
+The value can be:
+\itemize{
+\item A vector of length 1, which will be recycled to the correct length.
+\item A vector the same length as the current group (or the whole data frame
+if ungrouped).
+\item \code{NULL}, to remove the column.
+\item A data frame or tibble, to create multiple columns in the output.
+}}
+
+\item{.by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
+<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
+group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
+details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
+
+\item{.keep}{Control which columns from \code{.data} are retained in the output. Grouping
+columns and columns created by \code{...} are always kept.
+\itemize{
+\item \code{"all"} retains all columns from \code{.data}. This is the default.
+\item \code{"used"} retains only the columns used in \code{...} to create new
+columns. This is useful for checking your work, as it displays inputs
+and outputs side-by-side.
+\item \code{"unused"} retains only the columns \emph{not} used in \code{...} to create new
+columns. This is useful if you generate new columns, but no longer need
+the columns used to generate them.
+\item \code{"none"} doesn't retain any extra columns from \code{.data}. Only the grouping
+variables and columns created by \code{...} are kept.
+}}
+
+\item{.before, .after}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, control where new columns
+should appear (the default is to add to the right hand side). See
+\code{\link[dplyr:relocate]{relocate()}} for more details.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{mutate()} adds new layers/attributes and preserves existing ones on a
-\verb{Spat*} object. \code{transmute()} adds new layers/attributes and drops existing
-ones. New variables overwrite existing variables of the same name. Variables
-can be removed by setting their value to \code{NULL}.
+\verb{Spat*} object.
+
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
+
+\code{transmute()} creates a new object containing only the specified
+computations. It's superseded because you can perform the same job
+with \code{mutate(.keep = "none")}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -49,7 +93,7 @@ functions.
 \subsection{\code{SpatRaster}}{
 
 Add new layers and preserves existing ones. The result is a
-\code{SpatRaster} with the same extent, resolution and crs than \code{.data}. Only the
+\code{SpatRaster} with the same extent, resolution and CRS than \code{.data}. Only the
 values (and possibly the number) of layers is modified.
 
 \code{transmute()} would keep only the layers created with \code{...}.

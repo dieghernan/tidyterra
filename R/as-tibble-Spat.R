@@ -44,7 +44,7 @@
 #'
 #' ## `SpatRaster` and `SpatVector`
 #'
-#' The tibble is returned with an attribute including the crs of the initial
+#' The tibble is returned with an attribute including the CRS of the initial
 #' object in WKT format (see [pull_crs()]).
 #'
 #' @section About layer/column names:

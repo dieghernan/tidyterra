@@ -10,11 +10,11 @@
 \item{.data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables, or
-functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable in
+functions of variables. Use \code{\link[dplyr:desc]{dplyr::desc()}} to sort a variable in
 descending order.}
 
 \item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
-grouped \code{SpatVector} only (see \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).}
+grouped \code{SpatVector} only.}
 }
 \value{
 A \code{SpatVector} object.
@@ -43,18 +43,15 @@ library(dplyr)
 
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-
 # Single variable
 
 v |>
   arrange(desc(iso2))
 
-
 # Two variables
 v |>
   mutate(even = as.double(cpro) \%\% 2 == 0, ) |>
   arrange(desc(even), desc(iso2))
-
 
 # With new variables
 v |>

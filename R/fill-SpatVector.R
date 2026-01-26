@@ -6,7 +6,6 @@
 #' This is useful in the common output format where values are not repeated,
 #' and are only recorded when they change.
 #'
-#'
 #' @export
 #' @importFrom tidyr fill
 #'
@@ -16,9 +15,7 @@
 #' @rdname fill.SpatVector
 #' @name fill.SpatVector
 #'
-#'
 #' @param data A `SpatVector`.
-#' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]> Columns to fill.
 #' @inheritParams tidyr::fill
 #'
 #' @seealso [tidyr::fill()]
@@ -45,14 +42,12 @@
 #' lux_blnk <- lux |>
 #'   mutate(NAME_1 = if_else(NAME_1 != NAME_2, NA, NAME_2))
 #'
-#'
 #' as_tibble(lux_blnk)
 #'
 #' # `fill()` defaults to replacing missing data from top to bottom
 #' lux_blnk |>
 #'   fill(NAME_1) |>
 #'   as_tibble()
-#'
 #'
 #' # direction = "up"
 #' lux_blnk |>

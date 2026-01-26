@@ -25,9 +25,9 @@
 \method{autoplot}{SpatExtent}(object, ...)
 }
 \arguments{
-\item{object}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
-created with \code{\link[terra:vect]{terra::vect()}}. Also support \code{SpatGraticule} (see
-\code{\link[terra:graticule]{terra::graticule()}}) and \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
+\item{object}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}}, a \code{SpatVector}
+created with \code{\link[terra:vect]{terra::vect()}}, a \code{SpatGraticule} (see \code{\link[terra:graticule]{terra::graticule()}})
+or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
 \item{...}{other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} or \code{\link[=geom_spatvector]{geom_spatvector()}}.}
@@ -80,7 +80,6 @@ temp <- rast(file_path)
 
 library(ggplot2)
 autoplot(temp)
-
 
 # With a tile
 

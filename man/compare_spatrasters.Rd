@@ -18,7 +18,7 @@ compatible, plus an informative message flagging the issues found (if any).
 }
 \description{
 Two \code{SpatRaster} objects are compatible (in terms of combining layers) if the
-crs, extent and resolution are similar. In those cases you can combine the
+CRS, extent and resolution are similar. In those cases you can combine the
 objects simply as \code{c(x, y)}.
 
 This function compares those attributes informing of the results. See
@@ -33,7 +33,7 @@ This function compares those attributes informing of the results. See
 \section{Solving issues}{
 
 \itemize{
-\item On \strong{non-equal crs}, try \code{\link[terra:project]{terra::project()}}.
+\item On \strong{non-equal CRS}, try \code{\link[terra:project]{terra::project()}}.
 \item On \strong{non-equal extent} try \code{\link[terra:resample]{terra::resample()}}.
 \item On \strong{non-equal resolution} you can try \code{\link[terra:resample]{terra::resample()}},
 \code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disaggregate]{terra::disagg()}}.

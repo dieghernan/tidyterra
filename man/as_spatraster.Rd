@@ -12,9 +12,9 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 \item{...}{additional arguments passed on to \code{\link[terra:rast]{terra::rast()}}.}
 
 \item{xycols}{A vector of integers of length 2 determining the position of
-the columns that hold the x and y coordinates.}
+the columns that hold the \code{x} and \code{y} coordinates.}
 
-\item{crs}{A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
+\item{crs}{A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
 and spatial object from \strong{\link[sf:st_crs]{sf}} or
 \strong{\link[terra:crs]{terra}}.
 that includes the target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and
@@ -27,7 +27,7 @@ on a regular grid (a low number of digits is a low precision).}
 A \code{SpatRaster}.
 }
 \description{
-\code{as_spatraster()} turns an existing  data frame or \link[tibble:tbl_df-class]{tibble}
+\code{as_spatraster()} turns an existing data frame or \link[tibble:tbl_df-class]{tibble}
 into a \code{SpatRaster}. This is a wrapper of \code{\link[terra:rast]{terra::rast()}} S4 method for
 signature \code{data.frame}.
 }
@@ -60,7 +60,7 @@ newrast
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}} for retrieving crs, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
+\code{\link[=pull_crs]{pull_crs()}} for retrieving CRS, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
 and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:

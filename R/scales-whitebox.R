@@ -5,18 +5,17 @@
 #' Implementation of the gradient palettes provided by
 #' [WhiteboxTools](https://github.com/jblindsay/whitebox-tools). Three
 #' scales are provided:
-#' - `scale_*_whitebox_d()`: For discrete values.
-#' - `scale_*_whitebox_c()`: For continuous values.
-#' - `scale_*_whitebox_b()`: For binning continuous values.
+#' * `scale_*_whitebox_d()`: For discrete values.
+#' * `scale_*_whitebox_c()`: For continuous values.
+#' * `scale_*_whitebox_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `whitebox.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
-#'
 #' Additional arguments `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()].
-#' - Continuous values: [ggplot2::continuous_scale()].
-#' - Binned continuous values: [ggplot2::binned_scale()].
+#' * Discrete values: [ggplot2::discrete_scale()].
+#' * Continuous values: [ggplot2::continuous_scale()].
+#' * Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -42,7 +41,6 @@
 #'   paste0('`"', ., '"`', collapse = ", ") |>
 #'   paste0(".") |>
 #'   cat()
-#'
 #'
 #' ```
 #'
@@ -87,7 +85,6 @@
 #'     "Very High"
 #'   )
 #' ))
-#'
 #'
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +

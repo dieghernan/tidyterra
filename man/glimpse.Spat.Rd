@@ -14,8 +14,9 @@
 \item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{width}{Width of output: defaults to the setting of the width option
-(if finite) or the width of the console. See \code{\link[dplyr:glimpse]{dplyr::glimpse()}}.}
+\item{width}{Width of output: defaults to the setting of the
+\code{width} \link[pillar:pillar_options]{option} (if finite)
+or the width of the console.}
 
 \item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} methods
 for \code{SpatRaster} and \code{SpatVector}. See \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}.}
@@ -31,7 +32,7 @@ be used within a data pipeline.
 }
 \description{
 \code{glimpse()} is like a transposed version of \code{\link[=print]{print()}}: layers/columns run
-down the  page, and data runs across. This makes it possible to see every
+down the page, and data runs across. This makes it possible to see every
 layer/column in a \verb{Spat*} object.
 }
 \section{\CRANpkg{terra} equivalent}{

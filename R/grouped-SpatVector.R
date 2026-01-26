@@ -13,7 +13,6 @@
 #' @keywords internal
 #' @param x a `SpatVector`.
 #'
-#'
 #' @family helpers
 #'
 #' @export

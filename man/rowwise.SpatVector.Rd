@@ -12,7 +12,11 @@
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
 preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
 of variables whose combination uniquely identify each row. See
-\code{\link[dplyr:rowwise]{dplyr::rowwise()}}.}
+\code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
+
+\strong{NB}: unlike \code{\link{group_by.SpatVector}} you can not create new variables
+here but instead you can select multiple variables with (e.g.)
+\code{\link[dplyr:reexports]{dplyr::everything()}}.}
 }
 \value{
 The same \code{SpatVector} object with an additional attribute.

@@ -20,7 +20,7 @@ they were positions in the \verb{Spat*} object, so expressions like \code{x:y} c
 be used to select a range of layers/attributes.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 Select (and optionally rename) attributes/layers in \verb{Spat*} objects, using a
@@ -39,7 +39,7 @@ Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()
 \subsection{\code{SpatRaster}}{
 
 Select (and rename) layers of a \code{SpatRaster}. The result is a \code{SpatRaster}
-with the same extent, resolution and crs than \code{.data}. Only the number (and
+with the same extent, resolution and CRS than \code{.data}. Only the number (and
 possibly the name) of layers is modified.
 }
 

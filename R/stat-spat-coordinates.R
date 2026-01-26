@@ -5,14 +5,12 @@
 #'
 #' Wrapper of [ggplot2::stat_sf_coordinates()].
 #'
-#'
 #' @rdname stat_spat_coordinates
 #'
 #' @export
 #' @family ggplot2.utils
 #' @return A \CRANpkg{ggplot2} layer
 #' @keywords internal
-#'
 #'
 #' @inheritParams ggspatvector
 #' @inheritParams ggplot2::stat_sf_coordinates
@@ -21,7 +19,6 @@
 #' @details
 #'
 #' See [ggplot2::stat_sf_coordinates()] for details.
-#'
 #'
 #' @examples
 #' \donttest{

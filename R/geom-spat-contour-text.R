@@ -3,11 +3,11 @@
 #' @order 2
 #'
 #' @param label_format One of:
-#'   - `NULL` for no labels. This produced the same result than
+#'   * `NULL` for no labels. This produced the same result than
 #'     `geom_spatraster_contour()`.
-#'   - A character vector giving labels (must be same length as the breaks
+#'   * A character vector giving labels (must be same length as the breaks
 #'     produced by `bins`, `binwidth`, or `breaks`).
-#'   - A function that takes the breaks as input and returns labels as output,
+#'   * A function that takes the breaks as input and returns labels as output,
 #'     as the default setup ([scales::label_number()]).
 #' @inheritParams isoband::isolines_grob
 #'

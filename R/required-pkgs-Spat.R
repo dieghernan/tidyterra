@@ -2,14 +2,10 @@
 #'
 #' Determine packages required by `Spat*` objects.
 #'
-#'
 #' @return A character string of packages that are required.
 #' @family generics.methods
 #'
-#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()]. Also support `SpatGraticule`
-#'   (see [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
-#' @param ... Ignored by these methods.
+#' @inheritParams tidy.Spat
 #'
 #' @rdname required_pkgs.Spat
 #' @name required_pkgs.Spat
@@ -25,7 +21,6 @@
 #'
 #' @examples
 #' file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
-#'
 #'
 #' library(terra)
 #'

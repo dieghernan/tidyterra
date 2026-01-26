@@ -52,7 +52,7 @@ A \link[tibble:tbl_df-class]{tibble}.
 Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} function.
 \subsection{\code{SpatRaster} and \code{SpatVector}}{
 
-The tibble is returned with an attribute including the crs of the initial
+The tibble is returned with an attribute including the CRS of the initial
 object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 }
 }

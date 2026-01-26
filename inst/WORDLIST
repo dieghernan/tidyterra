@@ -48,7 +48,6 @@ colours
 coltab
 coord
 cpt
-crs
 de
 disaggregated
 downsampled
@@ -87,6 +86,7 @@ reprojected
 reprojecting
 resamp
 rlang
+rowwise
 rst
 sparrpowR
 standardised

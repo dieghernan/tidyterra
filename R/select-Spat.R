@@ -18,7 +18,7 @@
 #'   they were positions in the `Spat*` object, so expressions like `x:y` can
 #'   be used to select a range of layers/attributes.
 #'
-#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
+#' @return A `Spat*` object of the same class than `.data`. See **Methods**.
 #'
 #' @seealso [dplyr::select()], [terra::subset()]
 #'
@@ -37,14 +37,13 @@
 #' ## `SpatRaster`
 #'
 #' Select (and rename) layers of a `SpatRaster`. The result is a `SpatRaster`
-#' with the same extent, resolution and crs than `.data`. Only the number (and
+#' with the same extent, resolution and CRS than `.data`. Only the number (and
 #' possibly the name) of layers is modified.
 #'
 #' ## `SpatVector`
 #'
 #' The result is a `SpatVector` with the selected (and possibly renamed)
 #' attributes on the function call.
-#'
 #'
 #' @examples
 #'

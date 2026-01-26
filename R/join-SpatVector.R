@@ -28,7 +28,6 @@
 #'
 #' @return A `SpatVector` object.
 #'
-#'
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::merge()]
@@ -69,7 +68,6 @@
 #' nrow(inner)
 #' autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
 #'
-#'
 #' # Left join
 #'
 #' left <- v |> left_join(df)
@@ -87,7 +85,6 @@
 #' # There are empty geometries, check with data from df
 #' ggplot(right, aes(x, y)) +
 #'   geom_point(aes(color = letter))
-#'
 #'
 #' # Full join
 #' full <- v |> full_join(df)
@@ -251,8 +248,8 @@ dplyr::full_join
 #' @description
 #' Filtering joins filter rows from `x` based on the presence or absence of
 #' matches in `y`:
-#'  - [semi_join()] return all rows from `x` with a match in `y`.
-#'  - [anti_join()] return all rows from `x` without a match in `y`.
+#' * [semi_join()] return all rows from `x` with a match in `y`.
+#' * [anti_join()] return all rows from `x` without a match in `y`.
 #'
 #' See [dplyr::semi_join()] for details.
 #'
@@ -270,7 +267,6 @@ dplyr::full_join
 #' @inheritParams mutate-joins.SpatVector
 #'
 #' @return A `SpatVector` object.
-#'
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -309,7 +305,6 @@ dplyr::full_join
 #' semi
 #'
 #' autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
-#'
 #'
 #' # Anti join
 #'

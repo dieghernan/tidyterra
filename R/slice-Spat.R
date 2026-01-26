@@ -11,12 +11,12 @@
 #'
 #' It is accompanied by a number of helpers for common use cases:
 #'
-#' - `slice_head()` and `slice_tail()` select the first or last
+#' * `slice_head()` and `slice_tail()` select the first or last
 #'   cells/geometries.
-#' - `slice_sample()` randomly selects cells/geometries.
-#' - `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
+#' * `slice_sample()` randomly selects cells/geometries.
+#' * `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
 #'   of a `SpatRaster`.
-#' - `slice_colrows()` subsets regions of the `SpatRaster` by row and column
+#' * `slice_colrows()` subsets regions of the `SpatRaster` by row and column
 #'   position of a `SpatRaster`.
 #'
 #' You can get a skeleton of your `SpatRaster` with the cell, column and row
@@ -40,12 +40,11 @@
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'
-#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
-#'
+#' @inherit select.Spat return
 #' @importFrom dplyr slice
 #'
-#' @inheritParams mutate.Spat
-#'
+#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
+#'   created with [terra::vect()].
 #' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   See also [terra::trim()], [terra::extend()].
@@ -73,7 +72,7 @@
 #'
 #' ## `SpatRaster`
 #'
-#' The result is a `SpatRaster` with the crs and resolution of the input and
+#' The result is a `SpatRaster` with the CRS and resolution of the input and
 #' where cell values of the selected cells/columns/rows are preserved.
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
@@ -88,7 +87,6 @@
 #' the first five rows in each group.
 #'
 #' @examples
-#'
 #'
 #' library(terra)
 #'
@@ -114,7 +112,6 @@
 #' r |>
 #'   slice_sample(prop = 0.2) |>
 #'   plot()
-#'
 #'
 #' # Slice regions
 #' r |>

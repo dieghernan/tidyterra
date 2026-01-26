@@ -26,7 +26,6 @@
 #'
 #' is_regular_grid(p)
 #'
-#'
 #' # Jitter location
 #' set.seed(1234)
 #' jitter <- runif(length(p)) / 10e4

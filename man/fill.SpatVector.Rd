@@ -47,14 +47,12 @@ lux <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 lux_blnk <- lux |>
   mutate(NAME_1 = if_else(NAME_1 != NAME_2, NA, NAME_2))
 
-
 as_tibble(lux_blnk)
 
 # `fill()` defaults to replacing missing data from top to bottom
 lux_blnk |>
   fill(NAME_1) |>
   as_tibble()
-
 
 # direction = "up"
 lux_blnk |>

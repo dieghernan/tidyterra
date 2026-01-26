@@ -3,7 +3,7 @@
 #' @description
 #'
 #' Two `SpatRaster` objects are compatible (in terms of combining layers) if the
-#' crs, extent and resolution are similar. In those cases you can combine the
+#' CRS, extent and resolution are similar. In those cases you can combine the
 #' objects simply as `c(x, y)`.
 #'
 #' This function compares those attributes informing of the results. See
@@ -13,14 +13,12 @@
 #' A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects are
 #' compatible, plus an informative message flagging the issues found (if any).
 #'
-#'
 #' @param x,y `SpatRaster` objects
 #' @param digits Integer to set the precision for comparing the extent and
 #'   the resolution.
 #'
 #' @family helpers
 #' @export
-#'
 #'
 #' @seealso [terra::identical()]
 #' @section \CRANpkg{terra} equivalent:
@@ -29,9 +27,9 @@
 #'
 #' @section Solving issues:
 #'
-#' - On **non-equal crs**, try [terra::project()].
-#' - On **non-equal extent** try [terra::resample()].
-#' - On **non-equal resolution** you can try [terra::resample()],
+#' * On **non-equal CRS**, try [terra::project()].
+#' * On **non-equal extent** try [terra::resample()].
+#' * On **non-equal resolution** you can try [terra::resample()],
 #'   [terra::aggregate()] or [terra::disagg()].
 #'
 #' @examples

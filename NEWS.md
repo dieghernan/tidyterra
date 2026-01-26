@@ -1,5 +1,12 @@
 # tidyterra (development version)
 
+-   In **dplyr** `.by` has moved from experimental to stable. This argument has
+    been included in:
+    -   `mutate.SpatVector()`.
+-   `mutate.SpatVector()`: New arguments `.keep, .before, .after` (see
+    `dplyr::mutate()`).
+-   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`.
+
 # tidyterra 1.0.0
 
 -   Minimal **R** version required updated to **\>= 4.1.0**.
@@ -127,7 +134,7 @@ Other changes on this version:
     setup: `na.translate = FALSE`.
 -   By default, all the non-discrete (e.g. continuous or breaks) scales of
     **tidyterra** have now `na.value = "transparent"` (#120).
--   Enhanced `glimpse.Spat()` with meta-information on type of geometry, crs,
+-   Enhanced `glimpse.Spat()` with meta-information on type of geometry, CRS,
     etc.
 -   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
 

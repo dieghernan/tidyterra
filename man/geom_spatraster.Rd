@@ -125,11 +125,11 @@ can be modified.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not present a crs (i.e.,
+When the \code{SpatRaster} does not present a CRS (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -230,7 +230,6 @@ ggplot() +
 
 no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 values(no_crs) <- seq_len(ncell(no_crs))
-
 
 ggplot() +
   geom_spatraster(data = no_crs)

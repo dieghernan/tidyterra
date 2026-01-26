@@ -26,6 +26,10 @@
 #'   of variables whose combination uniquely identify each row. See
 #'   [dplyr::rowwise()].
 #'
+#'   **NB**: unlike [`group_by.SpatVector`] you can not create new variables
+#'   here but instead you can select multiple variables with (e.g.)
+#'   [dplyr::everything()].
+#'
 #' @return The same `SpatVector` object with an additional attribute.
 #'
 #' @section Methods:

@@ -52,20 +52,19 @@
 #'
 #' @section Coords:
 #'
-#' When the `SpatRaster` does not present a crs (i.e.,
+#' When the `SpatRaster` does not present a CRS (i.e.,
 #' `terra::crs(rast) == ""`) the geom does not make any assumption on the
 #' scales.
 #'
-#' On `SpatRaster` that have a crs, the geom uses [ggplot2::coord_sf()] to
+#' On `SpatRaster` that have a CRS, the geom uses [ggplot2::coord_sf()] to
 #' adjust the scales. That means that also the
 #' **`SpatRaster` may be reprojected**.
 #'
 #' @section Aesthetics:
 #'
 #' `geom_spatraster()` understands the following aesthetics:
-#'
-#'  - [`fill`][ggplot2::aes_colour_fill_alpha]
-#'  - [`alpha`][ggplot2::aes_colour_fill_alpha]
+#' * [`fill`][ggplot2::aes_colour_fill_alpha]
+#' * [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a \CRANpkg{ggplot2}
 #' layer with all the layers of the `SpatRaster` object. Use `facet_wrap(~lyr)`
@@ -95,8 +94,8 @@
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
-#'  - `after_stat(value)`: Values of the `SpatRaster.`
-#'  - `after_stat(lyr)`: Name of the layer.
+#' * `after_stat(value)`: Values of the `SpatRaster.`
+#' * `after_stat(lyr)`: Name of the layer.
 #'
 #' @export
 #' @examples
@@ -128,7 +127,6 @@
 #'
 #' no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 #' values(no_crs) <- seq_len(ncell(no_crs))
-#'
 #'
 #' ggplot() +
 #'   geom_spatraster(data = no_crs)

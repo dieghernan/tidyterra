@@ -28,7 +28,7 @@ class \code{\link[sf:sf]{sf}} or \code{\link[sf:sfc]{sfc}}.}
 two names for x and y coordinates of points, or a single name for a single
 column with WKT geometries.}
 
-\item{crs}{A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
+\item{crs}{A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
 and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
 target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
 }
@@ -36,7 +36,7 @@ target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and 
 A \code{SpatVector}.
 }
 \description{
-\code{as_spatvector()} turns an existing  object into a \code{SpatVector}. This is a
+\code{as_spatvector()} turns an existing object into a \code{SpatVector}. This is a
 wrapper of \code{\link[terra:vect]{terra::vect()}} S4 method for signature \code{data.frame}.
 }
 \details{
@@ -79,7 +79,7 @@ newvect
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}} for retrieving crs, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
+\code{\link[=pull_crs]{pull_crs()}} for retrieving CRS, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
 and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:

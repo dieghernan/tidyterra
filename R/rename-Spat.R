@@ -13,14 +13,12 @@
 #'
 #' @inheritParams select.Spat
 #' @inheritParams dplyr::rename
-#' @param ... Depending on the function:
-#'   - For `rename.Spat*()`: <[`tidy-select`][dplyr::dplyr_tidy_select]>.
-#'     Use `new_name = old_name` to rename selected variables.
-#'   - For `rename_with()`: additional arguments passed onto `.fn`.
-#' @param .cols	<[`tidy-select`][dplyr::dplyr_tidy_select]> Columns to rename;
-#'   defaults to all columns.
+#' @param ... For `rename.Spat*()`: <[`tidy-select`][dplyr::dplyr_tidy_select]>
+#'   Use `new_name = old_name` to rename selected variables.
 #'
-#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
+#'   For `rename_with.Spat*()`: additional arguments passed onto `.fn`.
+#'
+#' @inherit select.Spat return
 #'
 #' @seealso [dplyr::rename()]
 #'

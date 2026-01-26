@@ -7,10 +7,9 @@
 #' **Note that** these methods are now implemented as a wrapper of [`tidy.Spat`]
 #' methods.
 #'
-#'
-#' @param model A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()]. Also support `SpatGraticule` (see
-#'   [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
+#' @param model A `SpatRaster` created with [terra::rast()], a `SpatVector`
+#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
+#'   or a `SpatExtent` (see [terra::ext()]).
 #' @param data Not used by this method.
 #' @inheritParams tidy.Spat
 #' @importFrom ggplot2 fortify
@@ -55,9 +54,9 @@
 #' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
 #' [tidyr::pivot_longer()]). The fortified object would have the following
 #' columns:
-#' - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
-#' - `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
-#' - `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+#' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
+#' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
+#' * `value`: The value of the `SpatRaster` in the corresponding `lyr`.
 #'
 #' This option may be useful when using several `geom_*` and for faceting, see
 #' **Examples**.
@@ -72,12 +71,10 @@
 #' # Demonstrate the use with ggplot2
 #' library(ggplot2)
 #'
-#'
 #' # Get a SpatRaster
 #' r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
 #'   terra::rast() |>
 #'   terra::project("EPSG:4326")
-#'
 #'
 #' # You can now use a SpatRaster with any geom
 #' ggplot(r, maxcell = 50) +

@@ -142,7 +142,6 @@ library(ggplot2)
 ggplot(cyl) +
   geom_spatvector()
 
-
 # With params
 
 ggplot(cyl) +
@@ -161,7 +160,6 @@ ggplot(cyl) +
   coord_sf(crs = 3857)
 
 # You can use now geom_sf with SpatVectors!
-
 
 ggplot(cyl) +
   geom_sf() +

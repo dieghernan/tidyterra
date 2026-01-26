@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing  object into a `SpatVector`. This is a
+#' `as_spatvector()` turns an existing object into a `SpatVector`. This is a
 #' wrapper of [terra::vect()] S4 method for signature `data.frame`.
 #'
 #' @return
@@ -14,7 +14,7 @@
 #' @rdname as_spatvector
 #'
 #' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
-#'  class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
+#'   class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
 #'
 #' @param ... additional arguments passed on to [terra::vect()].
 #'
@@ -22,10 +22,9 @@
 #'   two names for x and y coordinates of points, or a single name for a single
 #'   column with WKT geometries.
 #'
-#' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
+#' @param crs A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
 #'   and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
 #'   target coordinate reference system. See [pull_crs()] and **Details**.
-#'
 #'
 #' @details
 #'
@@ -41,12 +40,11 @@
 #' * Handles correctly the conversion of `EMPTY` geometries between
 #'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
-#'
 #' @family coerce
 #'
 #' @seealso
 #'
-#' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
+#' [pull_crs()] for retrieving CRS, and the corresponding utils [sf::st_crs()]
 #' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:

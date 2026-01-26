@@ -41,9 +41,9 @@ Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function
 The first element of \code{...} should be a \code{SpatVector}. Subsequent elements may
 be \code{SpatVector}, \code{sf/sfc} objects or data frames:
 \itemize{
-\item If subsequent \code{SpatVector/sf/sfc} objects present a different CRS than the
-first element, those elements would be reprojected to the CRS of the first
-element with a message.
+\item If subsequent \code{SpatVector/sf/sfc} objects present a different CRS than
+the first element, those elements would be reprojected to the CRS of the
+first element with a message.
 \item If any element of \code{...} is a tibble/data frame the rows would be
 \code{cbind}ed with empty geometries with a message.
 }
@@ -80,7 +80,6 @@ bind_spat_rows(v1, sfobj_3857)
 # And with data frames with a message
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
-
 
 # Use lists
 bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))

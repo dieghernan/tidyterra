@@ -9,9 +9,9 @@
 #' @family ggplot2.utils
 #' @family ggplot2.methods
 #'
-#' @param object A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()]. Also support `SpatGraticule` (see
-#'   [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
+#' @param object A `SpatRaster` created with [terra::rast()], a `SpatVector`
+#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
+#'   or a `SpatExtent` (see [terra::ext()]).
 #'
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
@@ -26,8 +26,7 @@
 #'
 #' @param nrow,ncol Number of rows and columns on the facet.
 #' @param ... other arguments passed to [geom_spatraster()],
-#'  [geom_spatraster_rgb()] or [geom_spatvector()].
-#'
+#'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
 #' @section Methods:
 #'
@@ -57,7 +56,6 @@
 #'
 #' library(ggplot2)
 #' autoplot(temp)
-#'
 #'
 #' # With a tile
 #'

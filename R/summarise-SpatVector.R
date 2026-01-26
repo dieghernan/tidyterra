@@ -26,7 +26,6 @@
 #' @param .data A `SpatVector`.
 #'
 #' @inheritParams dplyr::summarise
-#' @param .groups See [dplyr::summarise()]
 #' @param .dissolve logical. Should borders between aggregated geometries
 #'   be dissolved?
 #'
@@ -57,7 +56,6 @@
 #'   mutate(start_with_s = substr(name, 1, 1) == "S") |>
 #'   group_by(start_with_s)
 #'
-#'
 #' # Dissolving
 #' diss <- gr_v |>
 #'   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
@@ -83,7 +81,7 @@ summarise.SpatVector <- function(
   .dissolve = TRUE
 ) {
   # Try find .by vectors
-  by_groups <- dplyr::group_by(as_tibble(.data), {{ .by }})
+  by_groups <- group_by(.data, {{ .by }})
 
   # Get dfs
   df <- as_tibble(.data)
@@ -101,7 +99,7 @@ summarise.SpatVector <- function(
   } else if (is_rowwise_spatvector(spatv)) {
     # Do nothing, rowwise respect rows
     newgeom <- spatv
-  } else if (dplyr::is_grouped_df(by_groups)) {
+  } else if (is_grouped_spatvector(by_groups)) {
     spatv$tterra_index <- group_indices(by_groups)
     newgeom <- terra::aggregate(
       spatv,

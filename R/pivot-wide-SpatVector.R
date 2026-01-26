@@ -14,7 +14,6 @@
 #' @rdname pivot_wider.SpatVector
 #' @name pivot_wider.SpatVector
 #'
-#'
 #' @param id_cols <[`tidy-select`][tidyr::tidyr_tidy_select]> A set of columns
 #'   that uniquely identify each observation. Typically used when you have
 #'   redundant variables, i.e. variables whose values are perfectly correlated

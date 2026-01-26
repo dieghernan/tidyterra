@@ -194,7 +194,6 @@ factor <- volcano2_rast |> mutate(cats = cut(elevation,
   )
 ))
 
-
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_terrain_d(na.value = "gray10")

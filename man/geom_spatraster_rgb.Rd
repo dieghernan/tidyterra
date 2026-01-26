@@ -109,11 +109,11 @@ No \code{aes()} is required. In fact, \code{aes()} will be ignored.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not present a crs (i.e.,
+When the \code{SpatRaster} does not present a CRS (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On \code{SpatRaster} that have a crs, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -128,7 +128,6 @@ library(terra)
 tile <- rast(file_path)
 
 library(ggplot2)
-
 
 ggplot() +
   geom_spatraster_rgb(data = tile) +
@@ -150,8 +149,8 @@ ggplot(cyl_sf) +
 \seealso{
 \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
 
-You can get also RGB tiles from the \CRANpkg{maptiles} package,
-see \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
+You can get also RGB tiles from the \CRANpkg{maptiles} package, see
+\code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
 Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},

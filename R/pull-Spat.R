@@ -23,10 +23,9 @@
 #'
 #' @inheritParams select.Spat
 #' @param var A variable specified as:
-#'
-#'   - a literal layer/attribute name.
-#'   - a positive integer, giving the position counting from the left.
-#'   - a negative integer, giving the position counting from the right.
+#'   * a literal layer/attribute name.
+#'   * a positive integer, giving the position counting from the left.
+#'   * a negative integer, giving the position counting from the right.
 #'
 #' The default returns the last layer/attribute (on the assumption that's the
 #' column you've created most recently).

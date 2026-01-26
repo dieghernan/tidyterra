@@ -17,9 +17,9 @@
 \method{required_pkgs}{SpatExtent}(x, ...)
 }
 \arguments{
-\item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
-created with \code{\link[terra:vect]{terra::vect()}}. Also support \code{SpatGraticule}
-(see \code{\link[terra:graticule]{terra::graticule()}}) and \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
+\item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}}, a \code{SpatVector}
+created with \code{\link[terra:vect]{terra::vect()}}, a \code{SpatGraticule} (see \code{\link[terra:graticule]{terra::graticule()}})
+or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
 \item{...}{Ignored by these methods.}
 }
@@ -37,7 +37,6 @@ Implementation of \code{\link[generics:required_pkgs]{generics::required_pkgs()}
 
 \examples{
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
-
 
 library(terra)
 

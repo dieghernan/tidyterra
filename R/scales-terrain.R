@@ -4,14 +4,14 @@
 #'
 #' Implementation of the classic color palette [terrain.colors()]:
 #'
-#' - `scale_*_terrain_d()`: For discrete values.
-#' - `scale_*_terrain_c()`: For continuous values.
-#' - `scale_*_terrain_b()`: For binning continuous values.
+#' * `scale_*_terrain_d()`: For discrete values.
+#' * `scale_*_terrain_c()`: For continuous values.
+#' * `scale_*_terrain_b()`: For binning continuous values.
 #'
 #' Additional arguments `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()].
-#' - Continuous values: [ggplot2::continuous_scale()].
-#' - Binned continuous values: [ggplot2::binned_scale()].
+#' * Discrete values: [ggplot2::discrete_scale()].
+#' * Continuous values: [ggplot2::continuous_scale()].
+#' * Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -29,7 +29,6 @@
 #' @seealso
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
 #' on additional `...` arguments.
-#'
 #'
 #'
 #' @return
@@ -63,7 +62,6 @@
 #'     "Very High"
 #'   )
 #' ))
-#'
 #'
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +

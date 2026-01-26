@@ -5,28 +5,28 @@
 #' Implementation of the cross blended hypsometric gradients presented on
 #' \doi{10.14714/CP69.20}. The following fill scales and palettes are provided:
 #'
-#' - `scale_*_cross_blended_d()`: For discrete values.
-#' - `scale_*_cross_blended_c()`: For continuous values.
-#' - `scale_*_cross_blended_b()`: For binning continuous values.
-#' - `cross_blended.colors()`: A gradient color palette. See also
+#' * `scale_*_cross_blended_d()`: For discrete values.
+#' * `scale_*_cross_blended_c()`: For continuous values.
+#' * `scale_*_cross_blended_b()`: For binning continuous values.
+#' * `cross_blended.colors()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
 #' [hypsometric (or bathymetric)
 #' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
-#' - `scale_*_cross_blended_tint_d()`: For discrete values.
-#' - `scale_*_cross_blended_tint_c()`: For continuous values.
-#' - `scale_*_cross_blended_tint_b()`: For binning continuous values.
-#' - `cross_blended.colors2()`: A gradient color palette. See also
+#' * `scale_*_cross_blended_tint_d()`: For discrete values.
+#' * `scale_*_cross_blended_tint_c()`: For continuous values.
+#' * `scale_*_cross_blended_tint_b()`: For binning continuous values.
+#' * `cross_blended.colors2()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' See **Details**.
 #'
 #' Additional arguments `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()].
-#' - Continuous values: [ggplot2::continuous_scale()].
-#' - Binned continuous values: [ggplot2::binned_scale()].
+#' * Discrete values: [ggplot2::discrete_scale()].
+#' * Continuous values: [ggplot2::continuous_scale()].
+#' * Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -65,7 +65,6 @@
 #'   paste0(".") |>
 #'   cat()
 #'
-#'
 #' ```
 #' @seealso [cross_blended_hypsometric_tints_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
@@ -80,11 +79,11 @@
 #'
 #' @source
 #'
-#' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+#' * Patterson, T., & Jenny, B. (2011). The Development and Rationale of
 #'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31 -
 #'   46. \doi{10.14714/CP69.20}.
 #'
-#' - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
+#' * Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
 #'   Generalized Environmental Mapping.* Online, Accessed June 10, 2022.
 #'
 #' @examples
@@ -100,12 +99,10 @@
 #' # Palette with uneven colors
 #' plot(volcano2_rast, col = cross_blended.colors2(100, palette = "arid"))
 #'
-#'
 #' library(ggplot2)
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_cross_blended_c(palette = "cold_humid")
-#'
 #'
 #' # Full map with true tints
 #'
@@ -155,7 +152,6 @@
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_cross_blended_d(na.value = "gray10", palette = "cold_humid")
-#'
 #'
 #' # Tint version
 #' ggplot() +
@@ -416,10 +412,10 @@ cross_blended.colors <- function(
 #' and the limits of the palette are redefined. Instead of treating the color
 #' palette as a continuous gradient, they are rescaled to act as a hypsometric
 #' tint. A rough description of these tints are:
-#' - Blue colors: Negative values.
-#' - Green colors: 0 to 1.000 values.
-#' - Browns: 1000 to 4.000 values.
-#' - Whites: Values higher than 4.000.
+#' * Blue colors: Negative values.
+#' * Green colors: 0 to 1.000 values.
+#' * Browns: 1000 to 4.000 values.
+#' * Whites: Values higher than 4.000.
 #'
 #' The following orientation would vary depending on the palette definition
 #' (see [cross_blended_hypsometric_tints_db] for an example on how this could

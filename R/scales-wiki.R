@@ -16,22 +16,21 @@
 #' ```
 #'
 #' Three scales are provided:
-#' - `scale_*_wiki_d()`: For discrete values.
-#' - `scale_*_wiki_c()`: For continuous values.
-#' - `scale_*_wiki_b()`: For binning continuous values.
+#' * `scale_*_wiki_d()`: For discrete values.
+#' * `scale_*_wiki_c()`: For continuous values.
+#' * `scale_*_wiki_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `wiki.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' Additional arguments `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()].
-#' - Continuous values: [ggplot2::continuous_scale()].
-#' - Binned continuous values: [ggplot2::binned_scale()].
+#' * Discrete values: [ggplot2::discrete_scale()].
+#' * Continuous values: [ggplot2::continuous_scale()].
+#' * Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
-#'
 #'
 #' @export
 #'
@@ -84,7 +83,6 @@
 #'     "Very High"
 #'   )
 #' ))
-#'
 #'
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +

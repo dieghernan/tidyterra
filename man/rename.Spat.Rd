@@ -20,12 +20,10 @@
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{Depending on the function:
-\itemize{
-\item For \verb{rename.Spat*()}: <\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}>.
+\item{...}{For \verb{rename.Spat*()}: <\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}>
 Use \code{new_name = old_name} to rename selected variables.
-\item For \code{rename_with()}: additional arguments passed onto \code{.fn}.
-}}
+
+For \verb{rename_with.Spat*()}: additional arguments passed onto \code{.fn}.}
 
 \item{.fn}{A function used to transform the selected \code{.cols}. Should
 return a character vector the same length as the input.}
@@ -34,7 +32,7 @@ return a character vector the same length as the input.}
 defaults to all columns.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{rename()} changes the names of individual layers/attributes using

@@ -24,9 +24,9 @@
 \method{fortify}{SpatExtent}(model, data, ..., crs = "")
 }
 \arguments{
-\item{model}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
-created with \code{\link[terra:vect]{terra::vect()}}. Also support \code{SpatGraticule} (see
-\code{\link[terra:graticule]{terra::graticule()}}) and \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
+\item{model}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}}, a \code{SpatVector}
+created with \code{\link[terra:vect]{terra::vect()}}, a \code{SpatGraticule} (see \code{\link[terra:graticule]{terra::graticule()}})
+or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
 \item{data}{Not used by this method.}
 
@@ -113,12 +113,10 @@ Return a \code{\link[sf:sf]{sf}} object than can be used with \code{\link[ggplot
 # Demonstrate the use with ggplot2
 library(ggplot2)
 
-
 # Get a SpatRaster
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
   terra::rast() |>
   terra::project("EPSG:4326")
-
 
 # You can now use a SpatRaster with any geom
 ggplot(r, maxcell = 50) +

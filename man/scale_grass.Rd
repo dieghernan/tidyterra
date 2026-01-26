@@ -286,7 +286,6 @@ ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_grass_b(breaks = seq(70, 200, 25), palette = "sepia")
 
-
 # With discrete values
 factor <- volcano2_rast |>
   mutate(cats = cut(elevation,

@@ -22,7 +22,7 @@ of layers/attributes selected by \code{...}. Supplying neither will move
 layers/attributes to the left-hand side; specifying both is an error.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 Use \code{relocate()} to change layer/attribute positions, using the same syntax
@@ -54,12 +54,10 @@ The result is a \code{SpatVector} with the attributes on a different order.
 
 library(terra)
 
-
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 names(spatrast)
-
 
 spatrast |>
   relocate(bb, .before = cyl_tile_3) |>

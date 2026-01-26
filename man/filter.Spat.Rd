@@ -27,7 +27,7 @@ On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent
 different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
 }
 \value{
-A \verb{Spat*} object  of the same class than \code{.data}. See \strong{Methods}.
+A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
 The \code{filter()} function is used to subset \verb{Spat*} objects, retaining all
@@ -51,11 +51,11 @@ Cells that do not fulfill the conditions on \code{...} are returned with value
 \code{NA}. On a multi-layer \code{SpatRaster} the \code{NA} is propagated across all the
 layers.
 
-If \code{.keep_extent = TRUE} the returning \code{SpatRaster} has the same crs, extent,
+If \code{.keep_extent = TRUE} the returning \code{SpatRaster} has the same CRS, extent,
 resolution and hence the same number of cells than \code{.data}. If
 \code{.keep_extent = FALSE} the outer \code{NA} cells are trimmed with \code{\link[terra:trim]{terra::trim()}},
 so the extent and number of cells may differ. The output would present in
-any case the same crs and resolution than \code{.data}.
+any case the same CRS and resolution than \code{.data}.
 
 \code{x} and \code{y} variables (i.e. the longitude and latitude of the \code{SpatRaster})
 are also available internally for filtering. See \strong{Examples}.
@@ -77,20 +77,17 @@ r <- rast(f) |> select(tavg_04)
 
 plot(r)
 
-
 # Filter temps
 r_f <- r |> filter(tavg_04 > 11.5)
 
 # Extent is kept
 plot(r_f)
 
-
 # Filter temps and extent
 r_f2 <- r |> filter(tavg_04 > 11.5, .keep_extent = FALSE)
 
 # Extent has changed
 plot(r_f2)
-
 
 # Filter by geographic coordinates
 r2 <- project(r, "epsg:4326")

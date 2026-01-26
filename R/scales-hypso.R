@@ -7,28 +7,28 @@
 #'
 #' The following scales and palettes are provided:
 #'
-#' - `scale_*_hypso_d()`: For discrete values.
-#' - `scale_*_hypso_c()`: For continuous values.
-#' - `scale_*_hypso_b()`: For binning continuous values.
-#' - `hypso.colors()`: A gradient color palette. See also
+#' * `scale_*_hypso_d()`: For discrete values.
+#' * `scale_*_hypso_c()`: For continuous values.
+#' * `scale_*_hypso_b()`: For binning continuous values.
+#' * `hypso.colors()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
 #' [hypsometric (or bathymetric)
 #' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
-#' - `scale_*_hypso_tint_d()`: For discrete values.
-#' - `scale_*_hypso_tint_c()`: For continuous values.
-#' - `scale_*_hypso_tint_b()`: For binning continuous values.
-#' - `hypso.colors2()`: A gradient color palette. See also
+#' * `scale_*_hypso_tint_d()`: For discrete values.
+#' * `scale_*_hypso_tint_c()`: For continuous values.
+#' * `scale_*_hypso_tint_b()`: For binning continuous values.
+#' * `hypso.colors2()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' See **Details**.
 #'
 #' Additional arguments `...` would be passed on to:
-#' - Discrete values: [ggplot2::discrete_scale()].
-#' - Continuous values: [ggplot2::continuous_scale()].
-#' - Binned continuous values: [ggplot2::binned_scale()].
+#' * Discrete values: [ggplot2::discrete_scale()].
+#' * Continuous values: [ggplot2::continuous_scale()].
+#' * Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} just documents a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -55,7 +55,6 @@
 #'   paste0('`"', ., '"`', collapse = ", ") |>
 #'   paste0(".") |>
 #'   cat()
-#'
 #'
 #' ```
 #' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
@@ -86,12 +85,10 @@
 #' # Palette with uneven colors
 #' plot(volcano2_rast, col = hypso.colors2(100, palette = "wiki-2.0_hypso"))
 #'
-#'
 #' library(ggplot2)
 #' ggplot() +
 #'   geom_spatraster(data = volcano2_rast) +
 #'   scale_fill_hypso_c(palette = "colombia_hypso")
-#'
 #'
 #' # Full map with true tints
 #'
@@ -140,7 +137,6 @@
 #' ggplot() +
 #'   geom_spatraster(data = factor, aes(fill = cats)) +
 #'   scale_fill_hypso_d(na.value = "gray10", palette = "dem_poster")
-#'
 #'
 #' # Tint version
 #' ggplot() +
@@ -390,10 +386,10 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' the limits of the palette are redefined. Instead of treating the color
 #' palette as a continuous gradient, they are rescaled to act as a hypsometric
 #' tint. A rough description of these tints are:
-#' - Blue colors: Negative values.
-#' - Green colors: 0 to 1.000 values.
-#' - Browns: 1000 to 4.000 values.
-#' - Whites: Values higher than 4.000.
+#' * Blue colors: Negative values.
+#' * Green colors: 0 to 1.000 values.
+#' * Browns: 1000 to 4.000 values.
+#' * Whites: Values higher than 4.000.
 #'
 #' The following orientation would vary depending on the palette definition
 #' (see [hypsometric_tints_db] for an example on how this could be achieved).
@@ -409,7 +405,6 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' be restricted of those specified by this argument, keeping the distribution
 #' of the tint. You can combine this with `oob` (i.e.
 #' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
-#'
 #'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,

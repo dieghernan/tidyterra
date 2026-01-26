@@ -10,7 +10,6 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
-#'
 #' @return A \CRANpkg{ggplot2} layer
 #' @family ggplot2.utils
 #'
@@ -24,15 +23,15 @@
 #' @inheritParams terra::plotRGB
 #' @param mapping Ignored.
 #' @param r,g,b Integer representing the number of layer of `data` to be
-#'  considered as the red (`r`), green (`g`) and blue (`b`) channel.
+#'   considered as the red (`r`), green (`g`) and blue (`b`) channel.
 #' @param max_col_value Number giving the maximum of the color values range.
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
 #' @seealso
 #' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
 #'
-#'  You can get also RGB tiles from the \CRANpkg{maptiles} package,
-#'  see [maptiles::get_tiles()].
+#' You can get also RGB tiles from the \CRANpkg{maptiles} package, see
+#' [maptiles::get_tiles()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -55,7 +54,6 @@
 #' tile <- rast(file_path)
 #'
 #' library(ggplot2)
-#'
 #'
 #' ggplot() +
 #'   geom_spatraster_rgb(data = tile) +

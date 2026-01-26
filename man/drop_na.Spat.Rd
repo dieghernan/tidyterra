@@ -101,7 +101,6 @@ r <- rast(
 )
 terra::values(r) <- seq_len(ncell(r) * nlyr(r))
 
-
 # Add NAs
 r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
 

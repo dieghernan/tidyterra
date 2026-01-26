@@ -108,7 +108,6 @@ semi
 
 autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
 
-
 # Anti join
 
 anti <- v |> anti_join(df)

@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' `as_spatraster()` turns an existing  data frame or [tibble][tibble::tbl_df]
+#' `as_spatraster()` turns an existing data frame or [tibble][tibble::tbl_df]
 #' into a `SpatRaster`. This is a wrapper of [terra::rast()] S4 method for
 #' signature `data.frame`.
 #'
@@ -13,12 +13,12 @@
 #'
 #' @param x A [tibble][tibble::tbl_df] or data frame.
 #' @param xycols A vector of integers of length 2 determining the position of
-#'   the columns that hold the x and y coordinates.
+#'   the columns that hold the `x` and `y` coordinates.
 #'
 #' @param digits integer to set the precision for detecting whether points are
 #'   on a regular grid (a low number of digits is a low precision).
 #'
-#' @param crs A crs on several formats (PROJ.4, WKT, EPSG code, ..) or
+#' @param crs A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
 #'   and spatial object from **[sf][sf::st_crs()]** or
 #'   **[terra][terra::crs()]**.
 #'   that includes the target coordinate reference system. See [pull_crs()] and
@@ -36,7 +36,7 @@
 #'
 #' @seealso
 #'
-#' [pull_crs()] for retrieving crs, and the corresponding utils [sf::st_crs()]
+#' [pull_crs()] for retrieving CRS, and the corresponding utils [sf::st_crs()]
 #' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:

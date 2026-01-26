@@ -30,7 +30,28 @@ deprecated as of 1.1.0. Please use \code{\link[dplyr:reframe]{reframe()}} for th
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
 details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 
-\item{.groups}{See \code{\link[dplyr:summarise]{dplyr::summarise()}}}
+\item{.groups}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}} Grouping structure of the
+result.
+\itemize{
+\item "drop_last": dropping the last level of grouping. This was the
+only supported option before version 1.0.0.
+\item "drop": All levels of grouping are dropped.
+\item "keep": Same grouping structure as \code{.data}.
+\item "rowwise": Each row is its own group.
+}
+
+When \code{.groups} is not specified, it is chosen
+based on the number of rows of the results:
+\itemize{
+\item If all the results have 1 row, you get "drop_last".
+\item If the number of rows varies, you get "keep" (note that returning a
+variable number of rows was deprecated in favor of \code{\link[dplyr:reframe]{reframe()}}, which
+also unconditionally drops all levels of grouping).
+}
+
+In addition, a message informs you of that choice, unless the result is ungrouped,
+the option "dplyr.summarise.inform" is set to \code{FALSE},
+or when \code{summarise()} is called from a function in a package.}
 
 \item{.dissolve}{logical. Should borders between aggregated geometries
 be dissolved?}
@@ -76,7 +97,6 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 gr_v <- v |>
   mutate(start_with_s = substr(name, 1, 1) == "S") |>
   group_by(start_with_s)
-
 
 # Dissolving
 diss <- gr_v |>

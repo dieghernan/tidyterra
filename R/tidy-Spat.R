@@ -4,9 +4,9 @@
 #' [`fortify.Spat`], and it is provided just in case [ggplot2::fortify()]
 #' method is deprecated in the future.
 #'
-#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()]. Also support `SpatGraticule` (see
-#'   [terra::graticule()]) and `SpatExtent` (see [terra::ext()]).
+#' @param x A `SpatRaster` created with [terra::rast()], a `SpatVector`
+#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
+#'   or a `SpatExtent` (see [terra::ext()]).
 #' @param ... Ignored by these methods.
 #' @param pivot Logical. When `TRUE` the `SpatRaster` would be provided on
 #'   [long format][tidyr::pivot_longer()]. When `FALSE` (the default) it would
@@ -14,7 +14,6 @@
 #' @inheritParams geom_spatraster
 #' @inheritParams as_tibble.Spat
 #' @inheritParams generics::tidy
-#'
 #'
 #' @importFrom generics tidy
 #' @export
@@ -58,9 +57,9 @@
 #' When `pivot = TRUE` the `SpatRaster` is provided in a "long" format (see
 #' [tidyr::pivot_longer()]). The tidy object would have the following
 #' columns:
-#' - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
-#' - `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
-#' - `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+#' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
+#' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
+#' * `value`: The value of the `SpatRaster` in the corresponding `lyr`.
 #'
 #' This option may be useful when using several `geom_*` and for faceting.
 #'

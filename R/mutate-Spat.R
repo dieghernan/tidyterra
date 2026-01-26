@@ -3,16 +3,20 @@
 #' @description
 #'
 #' `mutate()` adds new layers/attributes and preserves existing ones on a
-#' `Spat*` object. `transmute()` adds new layers/attributes and drops existing
-#' ones. New variables overwrite existing variables of the same name. Variables
-#' can be removed by setting their value to `NULL`.
+#' `Spat*` object.
 #'
+#' `r lifecycle::badge("superseded")`
 #'
-#' @return A `Spat*` object  of the same class than `.data`. See **Methods**.
+#' `transmute()` creates a new object containing only the specified
+#' computations. It's superseded because you can perform the same job
+#' with `mutate(.keep = "none")`.
 #'
-#' @inheritParams select.Spat
-#' @param ... <[`data-masking`][rlang::args_data_masking]> Name-value pairs.
-#'   The name gives the name of the layer/attribute in the output.
+#' @inherit select.Spat return
+#'
+#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
+#'   created with [terra::vect()].
+#'
+#' @inheritParams dplyr::mutate
 #'
 #' @export
 #' @rdname mutate.Spat
@@ -28,10 +32,10 @@
 #'
 #' \CRANpkg{terra} provides several ways to modify `Spat*` objects:
 #'
-#' - [terra::ifel()].
-#' - [terra::classify()].
-#' - [terra::clamp()].
-#' - [terra::app()], [terra::lapp()], [terra::tapp()].
+#' * [terra::ifel()].
+#' * [terra::classify()].
+#' * [terra::clamp()].
+#' * [terra::app()], [terra::lapp()], [terra::tapp()].
 #'
 #' @family single table verbs
 #' @family dplyr.cols
@@ -51,7 +55,7 @@
 #' ## `SpatRaster`
 #'
 #' Add new layers and preserves existing ones. The result is a
-#' `SpatRaster` with the same extent, resolution and crs than `.data`. Only the
+#' `SpatRaster` with the same extent, resolution and CRS than `.data`. Only the
 #' values (and possibly the number) of layers is modified.
 #'
 #' `transmute()` would keep only the layers created with `...`.
@@ -141,13 +145,33 @@ mutate.SpatRaster <- function(.data, ...) {
 }
 #' @export
 #' @rdname mutate.Spat
-mutate.SpatVector <- function(.data, ...) {
+mutate.SpatVector <- function(
+  .data,
+  ...,
+  .by = NULL,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+) {
   # Use own method
   tbl <- as_tibble(.data)
-  mutated <- dplyr::mutate(tbl, ...)
+  mutated <- dplyr::mutate(
+    tbl,
+    ...,
+    .by = {{ .by }},
+    .keep = .keep,
+    .before = {{ .before }},
+    .after = {{ .after }}
+  )
 
-  # Bind
-  vend <- cbind(.data[, 0], mutated)
+  # If NULL...
+  if(ncol(mutated) == 0){
+    vend <- .data[,0]
+
+  } else {
+    # Bind
+    vend <- cbind(.data[, 0], mutated)
+  }
 
   # Prepare groups
   vend <- group_prepare_spat(vend, mutated)

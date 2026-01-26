@@ -55,7 +55,6 @@ df2 <- data.frame(letters = letters[seq_len(nrow(sv))])
 # Data frame
 bind_spat_cols(sv, df2)
 
-
 # Another SpatVector
 bind_spat_cols(sv[1:2, ], sv[3:4, ])
 
