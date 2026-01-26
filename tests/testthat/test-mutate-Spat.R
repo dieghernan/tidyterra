@@ -338,3 +338,151 @@ test_that(".keep= always retains grouping variables (#5582)", {
     tibble(y = 2, z = 3, a = 2) |> group_by(z) |> group_data()
   )
 })
+
+# Raster.before, .after, .keep ------------------------------------------------------
+
+test_that("rast .keep = 'unused' keeps variables explicitly mentioned", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+
+  out <- spatrast |>
+    mutate(x_n = 1, y_n = 2) |>
+    select(x_n:y_n) |>
+    mutate(x1 = x_n + 1, y_n = y_n, .keep = "unused")
+
+  expect_named(out, c("y_n", "x1"))
+})
+
+test_that("rast .keep = 'used' not affected by across() or pick()", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+
+  # This must evaluate every column in order to figure out if should
+  # be included in the set or not, but that shouldn't be counted for
+  # the purposes of "used" variables
+
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2, z = 3, a = "a", b = "b", c = "c") |>
+    select(x_n:c)
+
+  out <- mutate(
+    df,
+    dplyr::across(dplyr::where(is.numeric), identity),
+    .keep = "unused"
+  )
+
+  expect_named(out, names(df))
+
+  out <- mutate(df, dplyr::pick(dplyr::where(is.numeric)), .keep = "unused")
+  expect_named(out, names(df))
+})
+
+test_that("rast .keep = 'used' keeps variables used in expressions", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(a = 1, b = 2, c = 3, x_n = 1, y_n = 2) |>
+    select(a:y_n)
+
+  out <- mutate(df, xy = x_n + y_n, .keep = "used")
+  expect_named(out, c("x_n", "y_n", "xy"))
+})
+
+test_that("rast .keep = 'none' retains original ordering (#5967)", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2) |>
+    select(-elevation_m)
+
+  expect_named(df |> mutate(y_n = 1, x_n = 2, .keep = "none"), c("x_n", "y_n"))
+})
+
+test_that("rast can use .before and .after to control column position", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2) |>
+    select(-elevation_m)
+
+  expect_named(mutate(df, z = 1), c("x_n", "y_n", "z"))
+  expect_named(mutate(df, z = 1, .before = 1), c("z", "x_n", "y_n"))
+  expect_named(mutate(df, z = 1, .after = 1), c("x_n", "z", "y_n"))
+
+  # but doesn't affect order of existing columns
+
+  expect_named(mutate(df, x_n = 1, .after = y_n), c("x_n", "y_n"))
+})
+
+test_that("rast .keep and .before/.after interact correctly", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2, z = 1, a = 1, b = 2, c = 3) |>
+    select(-elevation_m)
+
+  expect_named(mutate(df, d = 1, x_n = 2, .keep = "none"), c("x_n", "d"))
+  expect_named(
+    mutate(df, d = 1, x_n = 2, .keep = "none", .before = "a"),
+    c("x_n", "d")
+  )
+  expect_named(
+    mutate(df, d = 1, x_n = 2, .keep = "none", .after = "a"),
+    c("x_n", "d")
+  )
+})
+
+test_that("rast drop col with `NULL` then reading it retains original loc", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2, z = 1, a = 1) |>
+    select(-elevation_m)
+
+  expect_named(
+    mutate(df, y_n = NULL, y_n = 3, .keep = "all"),
+    c("x_n", "y_n", "z", "a")
+  )
+  expect_named(
+    mutate(df, b = a, y_n = NULL, y_n = 3, .keep = "used"),
+    c("y_n", "a", "b")
+  )
+  expect_named(
+    mutate(df, b = a, y_n = NULL, y_n = 3, .keep = "unused"),
+    c("x_n", "y_n", "z", "b")
+  )
+
+  # It isn't treated as a "new" column
+  expect_named(
+    mutate(df, y_n = NULL, y_n = 3, .keep = "all", .before = x_n),
+    c("x_n", "y_n", "z", "a")
+  )
+})
+
+test_that("rast set a new col to `NULL` works with `.before` and `.after`", {
+  skip_on_cran()
+  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
+  spatrast <- terra::rast(f)
+  df <- spatrast |>
+    mutate(x_n = 1, y_n = 2, z = 1, a = 1) |>
+    select(-elevation_m)
+
+  expect_named(mutate(df, b = NULL, .before = 1), names(df))
+  expect_named(mutate(df, b = 1, b = NULL, .before = 1), names(df))
+  expect_named(
+    mutate(df, b = NULL, b = 1, .before = 1),
+    c("b", "x_n", "y_n", "z", "a")
+  )
+
+  expect_named(
+    mutate(df, b = NULL, c = 1, .after = 2),
+    c("x_n", "y_n", "c", "z", "a")
+  )
+})

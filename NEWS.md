@@ -1,9 +1,10 @@
 # tidyterra (development version)
 
--   In **dplyr** `.by` has moved from experimental to stable. This argument has
-    been included in:
+-   In **dplyr** `.by` has moved from experimental to stable. In
+    `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
+    been extended to (#193):
     -   `mutate.SpatVector()`.
--   `mutate.SpatVector()`: New arguments `.keep, .before, .after` (see
+-   `?mutate.Spat`: New arguments `.keep, .before, .after` (see
     `dplyr::mutate()`).
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
     **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.

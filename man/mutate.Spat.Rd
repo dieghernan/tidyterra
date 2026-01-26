@@ -6,7 +6,13 @@
 \alias{mutate.SpatVector}
 \title{Create, modify, and delete cell values/layers/attributes of \verb{Spat*} objects}
 \usage{
-\method{mutate}{SpatRaster}(.data, ...)
+\method{mutate}{SpatRaster}(
+  .data,
+  ...,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+)
 
 \method{mutate}{SpatVector}(
   .data,
@@ -33,12 +39,6 @@ if ungrouped).
 \item A data frame or tibble, to create multiple columns in the output.
 }}
 
-\item{.by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
-group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
-details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
-
 \item{.keep}{Control which columns from \code{.data} are retained in the output. Grouping
 columns and columns created by \code{...} are always kept.
 \itemize{
@@ -56,6 +56,12 @@ variables and columns created by \code{...} are kept.
 \item{.before, .after}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, control where new columns
 should appear (the default is to add to the right hand side). See
 \code{\link[dplyr:relocate]{relocate()}} for more details.}
+
+\item{.by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
+<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
+group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
+details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 }
 \value{
 A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.

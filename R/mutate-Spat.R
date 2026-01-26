@@ -76,14 +76,26 @@
 #' v |>
 #'   mutate(cpro2 = paste0(cpro, "-CyL")) |>
 #'   select(cpro, cpro2)
-mutate.SpatRaster <- function(.data, ...) {
+mutate.SpatRaster <- function(
+  .data,
+  ...,
+  .keep = c("all", "used", "unused", "none"),
+  .before = NULL,
+  .after = NULL
+) {
   df <- as_tbl_internal(.data)
 
   xy <- dplyr::select(df, 1:2)
 
   values <- dplyr::select(df, -c(1, 2))
 
-  values_mutate <- dplyr::mutate(values, ...)
+  values_mutate <- dplyr::mutate(
+    values,
+    ...,
+    .keep = .keep,
+    .before = {{ .before }},
+    .after = {{ .after }}
+  )
 
   # dtplyr
   xy <- data.table::as.data.table(xy)
