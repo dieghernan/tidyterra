@@ -138,8 +138,6 @@
       x Problematic arguments:
       * ..1 = 5
       * ..2 = 2
-      * ..3 = 5
-      * ..4 = 2
       i Did you forget to name an argument?
     Code
       slice_max(df, x, 5, 2)
@@ -178,12 +176,12 @@
       slice_min(gdf, order_by = x, by = x)
     Condition
       Error in `dplyr::slice_min()`:
-      ! formal argument "by" matched by multiple actual arguments
+      ! Can't supply `by` when `.data` is a grouped data frame.
     Code
       slice_max(gdf, order_by = x, by = x)
     Condition
       Error in `dplyr::slice_max()`:
-      ! formal argument "by" matched by multiple actual arguments
+      ! Can't supply `by` when `.data` is a grouped data frame.
     Code
       slice_sample(gdf, n = 1, by = x)
     Condition
