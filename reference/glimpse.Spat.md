@@ -34,8 +34,7 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
   Arguments passed on to
   [`as_tibble()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
-  methods for `SpatRaster` and `SpatVector`. See
-  [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md).
+  methods for `SpatRaster` and `SpatVector`.
 
 - n:
 

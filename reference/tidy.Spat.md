@@ -13,7 +13,8 @@ method is deprecated in the future.
 tidy(
   x,
   ...,
-  .name_repair = "unique",
+  .name_repair = c("unique", "check_unique", "universal", "minimal", "unique_quiet",
+    "universal_quiet"),
   maxcell = terra::ncell(x) * 1.1,
   pivot = FALSE
 )
@@ -49,20 +50,29 @@ tidy(x, ..., crs = "")
 
   Treatment of problematic column names:
 
-  - `"minimal"`: No name repair or checks, beyond basic existence.
+  - `"minimal"`: No name repair or checks, beyond basic existence,
 
-  - `"unique"`: Make sure names are unique and not empty.
+  - `"unique"`: Make sure names are unique and not empty,
 
   - `"check_unique"`: (default value), no name repair, but check they
-    are `unique`.
+    are `unique`,
 
-  - `"universal"`: Make the names `unique` and syntactic.
+  - `"universal"`: Make the names `unique` and syntactic
+
+  - `"unique_quiet"`: Same as `"unique"`, but "quiet"
+
+  - `"universal_quiet"`: Same as `"universal"`, but "quiet"
 
   - a function: apply custom name repair (e.g.,
-    `.name_repair = make.names` for names in the style of base **R**).
+    `.name_repair = make.names` for names in the style of base R).
 
   - A purrr-style anonymous function, see
-    [`rlang::as_function()`](https://rlang.r-lib.org/reference/as_function.html).
+    [`rlang::as_function()`](https://rlang.r-lib.org/reference/as_function.html)
+
+  This argument is passed on as `repair` to
+  [`vctrs::vec_as_names()`](https://vctrs.r-lib.org/reference/vec_as_names.html).
+  See there for more details on these terms and the strategies used to
+  enforce them.
 
 - maxcell:
 

@@ -2,14 +2,11 @@
 
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) lets you
 quickly count the unique values of one or more variables:
-
-- `df |> count(a, b)` is roughly equivalent to
-  `df |> group_by(a, b) |> summarise(n = n())`.
-
-- [`count()`](https://dplyr.tidyverse.org/reference/count.html) is
-  paired with
-  [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
-  lower-level helper that is equivalent to `df |> summarise(n = n())`.
+`df |> count(a, b)` is roughly equivalent to
+`df |> group_by(a, b) |> summarise(n = n())`.
+[`count()`](https://dplyr.tidyverse.org/reference/count.html) is paired
+with [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
+lower-level helper that is equivalent to `df |> summarise(n = n())`.
 
 ## Usage
 

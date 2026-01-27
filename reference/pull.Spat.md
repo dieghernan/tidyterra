@@ -44,10 +44,14 @@ pull(.data, var = -1, name = NULL, ...)
   The default returns the last layer/attribute (on the assumption that's
   the column you've created most recently).
 
+  This argument is taken by expression and supports
+  [quasiquotation](https://rlang.r-lib.org/reference/topic-inject.html)
+  (you can unquote column names and column locations).
+
 - name:
 
-  An optional argument that specifies the column to be used as names for
-  a named vector. Specified in a similar manner as `var`.
+  An optional parameter that specifies the column to be used as names
+  for a named vector. Specified in a similar manner as `var`.
 
 - ...:
 

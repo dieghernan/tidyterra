@@ -298,6 +298,11 @@ pre code span.kw
 	font-weight: bold;
 }
 
+pre code span.op
+  /* Operator - pygments.o */ {
+	color: #8b008b;
+}
+
 pre code span.ot
 
 /* Other - pygments.sx */ {
@@ -338,4 +343,145 @@ pre code span.wa
 
 /* Warning - pygments.gr */ {
 	color: #aa0000;
+}
+
+/* --- Dark Mode --- */
+/* Highlighter based in StackOverflow Dark --- */
+
+[data-bs-theme="dark"] {
+	pre {
+		background: rgba(222, 226, 230, 0.1);
+		color: #ffffff;
+	}
+
+	pre code
+
+/* Normal - pygments.n */ {
+		color: #ffffff;
+	}
+
+	pre code span.al
+
+/* Alert - pygments.gr */ {
+		color: #de7176;
+	}
+
+	pre code span.an
+
+/* Annotation - pygments.c1 */ {
+		color: #999999;
+	}
+
+	pre code span.ch
+
+/* Char - pygments.s2 */ {
+		color: #b5bd68;
+	}
+
+	pre code span.cn
+
+/* Constant - pygments.nb */ {
+		color: #ffffff;
+	}
+
+	pre code span.co
+
+/* Comment - pygments.c1 */ {
+		color: #999999;
+	}
+
+	pre code span.cv
+
+/* CommentVar - pygments.c1 */ {
+		color: #999999;
+	}
+
+	pre code span.do
+
+/* Documentation - pygments.c1 */ {
+		color: #999999;
+	}
+
+	pre code span.dv
+
+/* DecVal - pygments.m */ {
+		color: #f08d49;
+	}
+
+	pre code span.er
+
+/* Error - pygments.gr */ {
+		color: #de7176;
+	}
+
+	pre code span.fl
+
+/* Float - pygments.m */ {
+		color: #f08d49;
+	}
+
+	pre code span.fu
+
+/* Function - pygments.n or kd */ {
+		color: #88aece;
+	}
+
+	pre code span.in
+
+/* Information - pygments.gp */ {
+		color: #88aece;
+	}
+
+	pre code span.kw
+
+/* Keyword - pygments.k */ {
+		color: #88aece;
+	}
+
+	pre code span.op
+  /* Operator - pygments.o */ {
+		color: #ffffff;
+	}
+
+	pre code span.ot
+
+/* Other - pygments.sx */ {
+		color: #b5bd68;
+	}
+
+	pre code span.sc
+
+/* SpecialChar - pygments.s2 */ {
+		color: #b5bd68;
+	}
+
+	pre code span.ss
+
+/* SpecialString - pygments.s2 */ {
+		color: #b5bd68;
+	}
+
+	pre code span.st
+
+/* String - pygments.s2 */ {
+		color: #b5bd68;
+	}
+
+	pre code span.va
+
+/* Variable - pygments.n or kd  */ {
+		color: #88aece;
+	}
+
+	pre code span.vs
+
+/* VerbatimString - pygments.s2 */ {
+		color: #b5bd68;
+	}
+
+	pre code span.wa
+
+/* Warning - pygments.gr */ {
+		color: #de7176;
+	}
 }

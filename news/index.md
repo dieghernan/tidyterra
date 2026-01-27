@@ -4,13 +4,23 @@
 
 - In **dplyr** `.by` has moved from experimental to stable. In
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
-  this was implemented in version 1.0.0. Now it has been extended to
+  this was implemented in version 1.0.0. Now it has been extended to the
+  following **tidyterra** methods as new arguments
   ([\#193](https://github.com/dieghernan/tidyterra/issues/193)):
   - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md).
   - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
-- [`?mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
-  New arguments `.keep, .before, .after` (see
-  [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)).
+  - [`?slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
+    methods for `SpatVector`.
+  - [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.md).
+- Other arguments added to methods:
+  - [`?mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
+    New arguments `.keep, .before, .after` (see
+    [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)).
+  - [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md):
+    `.locale` added (see
+    [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)).
+  - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md):
+    `.preserve` argument support added (previously it was ignored).
 - [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/transmute.Spat.md)
   is marked as superseded, as in
   [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)

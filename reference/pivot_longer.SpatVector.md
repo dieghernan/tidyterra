@@ -167,7 +167,7 @@ method.
 
 ### `SpatVector`
 
-The geometry column has a sticky behavior. This means that the result
+The geometry column has a sticky behaviour. This means that the result
 would have always the geometry of `data`.
 
 ## See also

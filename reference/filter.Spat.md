@@ -44,7 +44,9 @@ filter(.data, ..., .by = NULL, .preserve = FALSE)
 
 - .preserve:
 
-  Ignored for `Spat*` objects.
+  Relevant when the `.data` input is grouped. If `.preserve = FALSE`
+  (the default), the grouping structure is recalculated based on the
+  resulting data, otherwise the grouping is kept as is.
 
 - .keep_extent:
 

@@ -8,7 +8,7 @@ repeated, and are only recorded when they change.
 
 ``` r
 # S3 method for class 'SpatVector'
-fill(data, ..., .direction = c("down", "up", "downup", "updown"))
+fill(data, ..., .by = NULL, .direction = c("down", "up", "downup", "updown"))
 ```
 
 ## Arguments
@@ -21,6 +21,17 @@ fill(data, ..., .direction = c("down", "up", "downup", "updown"))
 
   \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
   Columns to fill.
+
+- .by:
+
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
 
 - .direction:
 
