@@ -8,7 +8,7 @@
 \usage{
 \method{filter}{SpatRaster}(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
-\method{filter}{SpatVector}(.data, ..., .preserve = FALSE)
+\method{filter}{SpatVector}(.data, ..., .by = NULL, .preserve = FALSE)
 }
 \arguments{
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
@@ -20,11 +20,19 @@ in \code{.data}. If multiple expressions are included, they are combined with
 the \code{&} operator. Only cells/geometries for which all conditions evaluate
 to \code{TRUE} are kept. See \strong{Methods}.}
 
-\item{.preserve}{Ignored for \verb{Spat*} objects.}
+\item{.preserve}{Relevant when the \code{.data} input is grouped.
+If \code{.preserve = FALSE} (the default), the grouping structure
+is recalculated based on the resulting data, otherwise the grouping is kept as is.}
 
 \item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
 On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be
 different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
+
+\item{.by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
+<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
+group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
+details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 }
 \value{
 A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
@@ -44,7 +52,7 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} method.
 \subsection{\code{SpatRaster}}{
 
 Cells that do not fulfill the conditions on \code{...} are returned with value

@@ -23,7 +23,7 @@
 #' @inheritParams pillar::glimpse
 #'
 #' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods
-#'   for `SpatRaster` and `SpatVector`. See [as_tibble.SpatRaster()].
+#'   for `SpatRaster` and `SpatVector`.
 #' @param max_extra_cols Number of extra columns or layers to print abbreviated
 #'   information for, if `n` is too small for the `Spat*` object.
 #' @param n Maximum number of rows to show.

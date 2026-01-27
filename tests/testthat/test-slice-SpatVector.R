@@ -161,6 +161,17 @@ test_that("can group transiently using `.by`", {
   expect_false(is_grouped_spatvector(out))
 })
 
+test_that("transient grouping retains data frame attributes", {
+  skip_on_cran()
+
+  df <- data.frame(g = c(1, 1, 2), x = c(1, 2, 3))
+  df <- as_spatvector(df, geom = c("x", "g"), keepgeom = TRUE)
+
+  attr(df, "foo") <- "bar"
+
+  out <- slice(df, dplyr::n(), .by = g)
+  expect_identical(attr(out, "foo"), "bar")
+})
 
 test_that("transient grouping orders by first appearance", {
   skip_on_cran()
@@ -407,6 +418,20 @@ test_that("slice_min/max() check size of `order_by=`", {
 
 # slice_sample ------------------------------------------------------------
 
+test_that("slice_sample() respects weight_by and replaces", {
+  skip_on_cran()
+
+  df <- tibble(x = 1:100, wt = c(1, rep(0, 99)))
+  df$a <- 1
+  df$b <- 2
+  df <- as_spatvector(df, geom = c("a", "b"))
+
+  out <- slice_sample(df, n = 1, weight_by = wt)
+  expect_equal(out$x, 1)
+
+  out <- slice_sample(df, n = 2, weight_by = wt, replace = TRUE)
+  expect_equal(out$x, c(1, 1))
+})
 test_that("slice_sample() can increase rows if replace = TRUE", {
   skip_on_cran()
   df <- tibble::tibble(x = 1:10)
@@ -416,7 +441,27 @@ test_that("slice_sample() can increase rows if replace = TRUE", {
   expect_equal(nrow(slice_sample(df, n = 20, replace = FALSE)), 10)
   expect_equal(nrow(slice_sample(df, n = 20, replace = TRUE)), 20)
 })
+test_that("slice_sample() checks size of `weight_by=` (#5922)", {
+  skip_on_cran()
+  df <- tibble(x = 1:10)
+  df$a <- 1
+  df$b <- 2
+  df <- as_spatvector(df, geom = c("a", "b"))
 
+  expect_error(slice_sample(df, n = 2, weight_by = 1:6))
+})
+test_that("slice_sample() injects `replace` (#6725)", {
+  skip_on_cran()
+
+  # So a column named `replace` doesn't mask that argument
+  df <- tibble(replace = 1)
+  df$a <- 1
+  df$b <- 2
+  df <- as_spatvector(df, geom = c("a", "b"))
+
+  expect_identical(slice_sample(df, n = 2)$replace, df$replace)
+  expect_named(slice_sample(df, n = 2), "replace")
+})
 
 test_that("slice_sample() handles positive n= and prop=", {
   skip_on_cran()

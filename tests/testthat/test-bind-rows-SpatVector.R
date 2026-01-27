@@ -163,7 +163,7 @@ test_that("bind_spat_rows() promotes integer to double", {
   expect_type(res$b, "double")
 })
 
-# Geometry  handling ----------------------------------------------------------
+# Geometry handling ----------------------------------------------------------
 
 test_that("bind_spat_rows() return empty point", {
   skip_on_cran()

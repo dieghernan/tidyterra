@@ -78,7 +78,7 @@ the summary statistics that you have specified.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} method.
 \subsection{\code{SpatVector}}{
 
 Similarly to the implementation on \CRANpkg{sf} this function can be used to

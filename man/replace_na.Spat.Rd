@@ -14,16 +14,18 @@
 \item{data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{replace}{list of values, with one value for each layer/attribute that
-has \code{NA} values to be replaced.}
+\item{replace}{A named list of values, with one value for each
+layer/attribute that has missing values to be replaced. Each value in
+\code{replace} will be cast to the type of the column in \code{data} that it being
+used as a replacement in.}
 
-\item{...}{Ignored}
+\item{...}{Additional arguments for methods. Currently unused.}
 }
 \value{
 A \verb{Spat*} object of the same class than \code{data}. See \strong{Methods}.
 }
 \description{
-Replace \code{NA} values on layers/attributes with specified values
+Replace \code{NA}s values on layers/attributes with specified values
 }
 \section{\CRANpkg{terra} equivalent}{
 

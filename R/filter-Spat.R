@@ -24,12 +24,13 @@
 #'
 #' @importFrom dplyr filter
 #' @inheritParams select.Spat
+#' @inheritParams dplyr::filter
+#'
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Expressions that
 #'   return a logical value, and are defined in terms of the layers/attributes
 #'   in `.data`. If multiple expressions are included, they are combined with
 #'   the `&` operator. Only cells/geometries for which all conditions evaluate
 #'   to `TRUE` are kept. See **Methods**.
-#' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   On `FALSE`, [terra::trim()] is called so the extent of the result may be
 #'   different of the extent of the output. See also [drop_na.SpatRaster()].
@@ -38,7 +39,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::filter()] function.
+#' Implementation of the **generic** [dplyr::filter()] method.
 #'
 #' ## `SpatRaster`
 #'
@@ -104,7 +105,7 @@ filter.SpatRaster <- function(
   values <- df
 
   # Filter
-  filtered <- dplyr::filter(values, ...)
+  filtered <- dplyr::filter(values, ..., .preserve = .preserve)
 
   # Rebuild raster
   rebuild_df <- dplyr::left_join(xy, filtered, by = c("x", "y"))
@@ -127,14 +128,14 @@ filter.SpatRaster <- function(
 
 #' @export
 #' @rdname filter.Spat
-filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
+filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)
 
   var_index <- make_safe_index("tterra_index", tbl)
   tbl[[var_index]] <- seq_len(nrow(tbl))
 
-  filtered <- dplyr::filter(tbl, ..., .preserve = .preserve)
+  filtered <- dplyr::filter(tbl, ..., .by = {{ .by }}, .preserve = .preserve)
 
   vend <- .data[as.integer(filtered[[var_index]]), ]
 
@@ -145,3 +146,7 @@ filter.SpatVector <- function(.data, ..., .preserve = FALSE) {
 
 #' @export
 dplyr::filter
+
+# TODO: Implement method when available
+
+filter_out <- filter.SpatVector

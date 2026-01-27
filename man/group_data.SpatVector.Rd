@@ -31,7 +31,7 @@
 instead.}
 }
 \value{
-See the description of the function. The results are usually tibbles,
+See the description of the method. The results are usually tibbles,
 lists or vectors. These functions does not return \code{SpatVector} objects.
 }
 \description{

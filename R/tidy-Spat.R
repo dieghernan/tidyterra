@@ -108,7 +108,14 @@
 tidy.SpatRaster <- function(
   x,
   ...,
-  .name_repair = "unique",
+  .name_repair = c(
+    "unique",
+    "check_unique",
+    "universal",
+    "minimal",
+    "unique_quiet",
+    "universal_quiet"
+  ),
   maxcell = terra::ncell(x) * 1.1,
   pivot = FALSE
 ) {

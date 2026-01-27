@@ -9,9 +9,7 @@
 #'   and each of the subsequent arguments can either be a `SpatVector`, a
 #'   `sf/sfc` object or a data frame. Columns are matched by name, and any
 #'   missing columns will be filled with `NA`.
-#' @param .id The name of an optional identifier column. Provide a string to
-#'   create an output column that identifies each input. The column will use
-#'   names if available, otherwise it will use positions.
+#' @inheritParams dplyr::bind_rows
 #'
 #' @return A `SpatVector` of the same type as the first element of `...`.
 #' @aliases bind.Spat
@@ -202,7 +200,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
     cli::cli_alert_warning(
-      paste(
+      paste0(
         "Reprojecting object {.field {index}} in {.arg ...} since it",
         " doesn't have the same CRS than object {.field 1}"
       )

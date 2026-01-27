@@ -30,7 +30,6 @@
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
 #' on additional `...` arguments.
 #'
-#'
 #' @return
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.

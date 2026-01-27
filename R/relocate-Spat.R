@@ -33,7 +33,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::relocate()] function.
+#' Implementation of the **generic** [dplyr::relocate()] method.
 #'
 #' ## `SpatRaster`
 #'

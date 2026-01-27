@@ -16,12 +16,8 @@
 #'
 #' @importFrom dplyr arrange
 #'
-#' @inheritParams distinct.SpatVector
-#'
-#' @param ... <[`data-masking`][rlang::args_data_masking]> Variables, or
-#'   functions of variables. Use [dplyr::desc()] to sort a variable in
-#'   descending order.
-#'
+#' @inheritParams dplyr::arrange
+#' @param .data A `SpatVector` created with [terra::vect()].
 #' @param .by_group If `TRUE`, will sort first by grouping variable. Applies to
 #'   grouped `SpatVector` only.
 #'
@@ -57,7 +53,7 @@
 #' v |>
 #'   mutate(area_geom = terra::expanse(v)) |>
 #'   arrange(area_geom)
-arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
+arrange.SpatVector <- function(.data, ..., .by_group = FALSE, .locale = NULL) {
   # Use index
   indexvar <- make_safe_index("tterra_index", .data)
 
@@ -65,7 +61,7 @@ arrange.SpatVector <- function(.data, ..., .by_group = FALSE) {
   tbl <- as_tibble(.data)
   tbl[[indexvar]] <- seq_len(nrow(tbl))
 
-  arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group)
+  arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group, .locale = .locale)
 
   # Regenerate
   vend <- .data

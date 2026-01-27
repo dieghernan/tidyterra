@@ -57,7 +57,7 @@ Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} method.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} function.
+Implementation of the \strong{generic} \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} method.
 \subsection{\code{SpatRaster}}{
 
 Uses \code{\link[=geom_spatraster]{geom_spatraster()}} or \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.

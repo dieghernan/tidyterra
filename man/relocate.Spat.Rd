@@ -38,7 +38,7 @@ layers/attributes at once.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:relocate]{dplyr::relocate()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:relocate]{dplyr::relocate()}} method.
 \subsection{\code{SpatRaster}}{
 
 Relocate layers of a \code{SpatRaster}.

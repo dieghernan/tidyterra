@@ -134,10 +134,10 @@ decreasing the number of rows. The inverse transformation is
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}} function.
+Implementation of the \strong{generic} \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}} method.
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behavior. This means that the result would
+The geometry column has a sticky behaviour. This means that the result would
 have always the geometry of \code{data}.
 }
 }

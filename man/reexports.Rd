@@ -8,7 +8,7 @@
 %   R/relocate-Spat.R, R/rename-Spat.R, R/replace-na-Spat.R,
 %   R/required-pkgs-Spat.R, R/rowwise-SpatVector.R, R/select-Spat.R,
 %   R/slice-Spat.R, R/summarise-SpatVector.R, R/tidy-Spat.R,
-%   R/tidyterra-package.R
+%   R/tidyterra-package.R, R/transmute-Spat.R
 \docType{import}
 \name{reexports}
 \alias{reexports}
@@ -42,7 +42,6 @@
 \alias{semi_join}
 \alias{anti_join}
 \alias{mutate}
-\alias{transmute}
 \alias{pivot_longer}
 \alias{pivot_wider}
 \alias{pull}
@@ -64,6 +63,7 @@
 \alias{tidy}
 \alias{aes}
 \alias{after_stat}
+\alias{transmute}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{

@@ -129,7 +129,7 @@ See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
 Implementation of the \strong{generic} \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} family
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behavior. This means that the result would
+The geometry column has a sticky behaviour. This means that the result would
 have always the geometry of \code{x} for the records that matches the join
 conditions.
 

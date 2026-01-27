@@ -6,9 +6,22 @@
 \alias{as_tibble.SpatVector}
 \title{Coerce a \code{SpatVector} or \code{SpatRaster} object to data frames}
 \usage{
-\method{as_tibble}{SpatRaster}(x, ..., xy = FALSE, na.rm = FALSE, .name_repair = "unique")
+\method{as_tibble}{SpatRaster}(
+  x,
+  ...,
+  xy = FALSE,
+  na.rm = FALSE,
+  .name_repair = c("unique", "check_unique", "universal", "minimal", "unique_quiet",
+    "universal_quiet")
+)
 
-\method{as_tibble}{SpatVector}(x, ..., geom = NULL, .name_repair = "unique")
+\method{as_tibble}{SpatVector}(
+  x,
+  ...,
+  geom = NULL,
+  .name_repair = c("unique", "check_unique", "universal", "minimal", "unique_quiet",
+    "universal_quiet")
+)
 }
 \arguments{
 \item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
@@ -22,15 +35,21 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
-\item \code{"minimal"}: No name repair or checks, beyond basic existence.
-\item \code{"unique"}: Make sure names are unique and not empty.
+\item \code{"minimal"}: No name repair or checks, beyond basic existence,
+\item \code{"unique"}: Make sure names are unique and not empty,
 \item \code{"check_unique"}: (default value), no name repair, but check they are
-\code{unique}.
-\item \code{"universal"}: Make the names \code{unique} and syntactic.
+\code{unique},
+\item \code{"universal"}: Make the names \code{unique} and syntactic
+\item \code{"unique_quiet"}: Same as \code{"unique"}, but "quiet"
+\item \code{"universal_quiet"}: Same as \code{"universal"}, but "quiet"
 \item a function: apply custom name repair (e.g., \code{.name_repair = make.names}
-for names in the style of base \strong{R}).
-\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}.
-}}
+for names in the style of base R).
+\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}
+}
+
+This argument is passed on as \code{repair} to \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}}.
+See there for more details on these terms and the strategies used
+to enforce them.}
 
 \item{geom}{character or NULL. If not NULL, either "WKT" or "HEX", to get the geometry included in Well-Known-Text or hexadecimal notation. If \code{x} has point geometry, it can also be "XY" to add the coordinates of each point}
 }
@@ -49,7 +68,7 @@ A \link[tibble:tbl_df-class]{tibble}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} function.
+Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} method.
 \subsection{\code{SpatRaster} and \code{SpatVector}}{
 
 The tibble is returned with an attribute including the CRS of the initial

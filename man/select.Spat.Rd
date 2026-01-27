@@ -35,7 +35,7 @@ concise mini-language. See \strong{Methods}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} function.
+Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} method.
 \subsection{\code{SpatRaster}}{
 
 Select (and rename) layers of a \code{SpatRaster}. The result is a \code{SpatRaster}

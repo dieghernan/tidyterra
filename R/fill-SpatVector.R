@@ -63,11 +63,12 @@
 fill.SpatVector <- function(
   data,
   ...,
+  .by = NULL,
   .direction = c("down", "up", "downup", "updown")
 ) {
   # Use own method
   tbl <- as_tibble(data)
-  filled <- tidyr::fill(tbl, ..., .direction = .direction)
+  filled <- tidyr::fill(tbl, ..., .by = {{ .by }}, .direction = .direction)
 
   # Bind and prepare
   vend <- cbind(data[, 0], filled)

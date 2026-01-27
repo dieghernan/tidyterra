@@ -19,7 +19,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 or the width of the console.}
 
 \item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble()}} methods
-for \code{SpatRaster} and \code{SpatVector}. See \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}.}
+for \code{SpatRaster} and \code{SpatVector}.}
 
 \item{n}{Maximum number of rows to show.}
 
