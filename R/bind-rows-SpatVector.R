@@ -9,9 +9,7 @@
 #'   and each of the subsequent arguments can either be a `SpatVector`, a
 #'   `sf/sfc` object or a data frame. Columns are matched by name, and any
 #'   missing columns will be filled with `NA`.
-#' @param .id The name of an optional identifier column. Provide a string to
-#'   create an output column that identifies each input. The column will use
-#'   names if available, otherwise it will use positions.
+#' @inheritParams dplyr::bind_rows
 #'
 #' @return A `SpatVector` of the same type as the first element of `...`.
 #' @aliases bind.Spat

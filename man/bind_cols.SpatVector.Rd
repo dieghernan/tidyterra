@@ -13,11 +13,12 @@ bind_spat_cols(
 \arguments{
 \item{...}{Objects to combine. The first argument should be a \code{SpatVector}
 and each of the subsequent arguments can either be a \code{SpatVector}, a \code{sf}
-object or a data frame. Inputs are \link[dplyr:bind_cols]{recycled} to the
-same length, then matched by position.}
+object or a data frame. Inputs are \link[vctrs:theory-faq-recycling]{recycled}
+to the same length, then matched by position.}
 
-\item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or \code{"check_unique"}.
-See \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} for \strong{Details}.}
+\item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or
+\code{"check_unique"}. See \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}} for the meaning of these
+options.}
 }
 \value{
 A \code{SpatVector} with the corresponding columns. The geometry and CRS

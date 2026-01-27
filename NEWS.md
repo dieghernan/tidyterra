@@ -2,12 +2,18 @@
 
 -   In **dplyr** `.by` has moved from experimental to stable. In
     `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
-    been extended to (#193):
+    been extended to the following **tidyterra** methods as new arguments
+    (#193):
     -   `mutate.SpatVector()`.
     -   `filter.SpatVector()`.
     -   `?slice.Spat` methods for `SpatVector`.
--   `?mutate.Spat`: New arguments `.keep, .before, .after` (see
-    `dplyr::mutate()`).
+    -   `fill.SpatVector()`.
+-   Other arguments added to methods:
+    -   `?mutate.Spat`: New arguments `.keep, .before, .after` (see
+        `dplyr::mutate()`).
+    -   `arrange.SpatVector()`: `.locale` added (see `dplyr::arrange()`).
+    -   `filter.SpatVector()`: `.preserve` argument support added (previously it
+        was ignored).
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
     **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
 

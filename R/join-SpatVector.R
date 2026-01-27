@@ -38,7 +38,7 @@
 #'
 #' ## `SpatVector`
 #'
-#' The geometry column has a sticky behavior. This means that the result would
+#' The geometry column has a sticky behaviour. This means that the result would
 #' have always the geometry of `x` for the records that matches the join
 #' conditions.
 #'
@@ -278,7 +278,7 @@ dplyr::full_join
 #'
 #' ## `SpatVector`
 #'
-#' The geometry column has a sticky behavior. This means that the result would
+#' The geometry column has a sticky behaviour. This means that the result would
 #' have always the geometry of `x` for the records that matches the join
 #' conditions.
 #'

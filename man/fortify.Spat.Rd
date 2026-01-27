@@ -12,7 +12,8 @@
   model,
   data,
   ...,
-  .name_repair = "unique",
+  .name_repair = c("unique", "check_unique", "universal", "minimal", "unique_quiet",
+    "universal_quiet"),
   maxcell = terra::ncell(model) * 1.1,
   pivot = FALSE
 )
@@ -34,15 +35,21 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
 \item{.name_repair}{Treatment of problematic column names:
 \itemize{
-\item \code{"minimal"}: No name repair or checks, beyond basic existence.
-\item \code{"unique"}: Make sure names are unique and not empty.
+\item \code{"minimal"}: No name repair or checks, beyond basic existence,
+\item \code{"unique"}: Make sure names are unique and not empty,
 \item \code{"check_unique"}: (default value), no name repair, but check they are
-\code{unique}.
-\item \code{"universal"}: Make the names \code{unique} and syntactic.
+\code{unique},
+\item \code{"universal"}: Make the names \code{unique} and syntactic
+\item \code{"unique_quiet"}: Same as \code{"unique"}, but "quiet"
+\item \code{"universal_quiet"}: Same as \code{"universal"}, but "quiet"
 \item a function: apply custom name repair (e.g., \code{.name_repair = make.names}
-for names in the style of base \strong{R}).
-\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}.
-}}
+for names in the style of base R).
+\item A purrr-style anonymous function, see \code{\link[rlang:as_function]{rlang::as_function()}}
+}
+
+This argument is passed on as \code{repair} to \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}}.
+See there for more details on these terms and the strategies used
+to enforce them.}
 
 \item{maxcell}{positive integer. Maximum number of cells to use for
 the plot.}

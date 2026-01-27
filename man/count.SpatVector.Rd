@@ -50,12 +50,10 @@ A \code{SpatVector} object with an additional attribute.
 }
 \description{
 \code{count()} lets you quickly count the unique values of one or more variables:
-\itemize{
-\item \code{df |> count(a, b)} is roughly equivalent to
-\code{df |> group_by(a, b) |> summarise(n = n())}.
-\item \code{count()} is paired with \code{tally()}, a lower-level helper that is equivalent
-to \code{df |> summarise(n = n())}.
-}
+\code{df |> count(a, b)} is roughly equivalent to
+\code{df |> group_by(a, b) |> summarise(n = n())}. \code{count()} is paired with
+\code{tally()}, a lower-level helper that is equivalent to
+\code{df |> summarise(n = n())}.
 }
 \section{\CRANpkg{terra} equivalent}{
 

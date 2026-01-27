@@ -6,9 +6,10 @@
 #' This is most useful when a vectorised function doesn't exist.
 #'
 #' Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
-#' row-wise grouping, with the exception of [summarise.SpatVector()]. You can
-#' explicitly ungroup with [ungroup.SpatVector()] or [as_tibble()], or convert
-#' to a grouped `SpatVector` with [group_by.SpatVector()].
+#' row-wise grouping. The exception is [summarise.SpatVector()], which return a
+#' [grouped SpatVector][group_by.SpatVector]. You can explicitly ungroup with
+#' [ungroup.SpatVector()] or [as_tibble()], or convert to a grouped `SpatVector`
+#' with [group_by.SpatVector()].
 #'
 #' @export
 #' @rdname rowwise.SpatVector
@@ -26,9 +27,9 @@
 #'   of variables whose combination uniquely identify each row. See
 #'   [dplyr::rowwise()].
 #'
-#'   **NB**: unlike [`group_by.SpatVector`] you can not create new variables
+#'   **NB**: unlike [group_by.SpatVector()] you can not create new variables
 #'   here but instead you can select multiple variables with (e.g.)
-#'   [dplyr::everything()].
+#'   [everything()].
 #'
 #' @return The same `SpatVector` object with an additional attribute.
 #'

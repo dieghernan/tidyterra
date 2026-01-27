@@ -78,7 +78,7 @@ See \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} for details.
 Implementation of the \strong{generic} \code{\link[dplyr:filter-joins]{dplyr::semi_join()}} family
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behavior. This means that the result would
+The geometry column has a sticky behaviour. This means that the result would
 have always the geometry of \code{x} for the records that matches the join
 conditions.
 }

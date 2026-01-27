@@ -80,7 +80,44 @@ test_that("filter works with rowwise data", {
   expect_equal(nrow(res), 1L)
   expect_equal(as_tibble(df[1, ]), as_tibble(ungroup(res)))
 })
+test_that("filter preserve works", {
+  skip_on_cran()
 
+  df1 <- data.frame(x = rep(1:3, each = 10), y = rep(1:6, each = 5))
+  v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  v1 <- v1[sample(seq_len(nrow(v1)), nrow(df1), replace = TRUE), ]
+  df <- cbind(v1[, 0], df1)
+
+  out <- df |>
+    group_by(x) |>
+    filter(y < 4, .preserve = TRUE)
+
+  out_tbl_v <- as_tibble(out)
+  attr(out_tbl_v, "crs") <- NULL
+
+  out_df <- df1 |>
+    group_by(x) |>
+    filter(y < 4, .preserve = TRUE)
+
+  expect_identical(out_tbl_v, out_df)
+  expect_identical(group_data(out_tbl_v), group_data(out_df))
+
+  # No preserve
+  out <- df |>
+    group_by(x) |>
+    filter(y < 4, .preserve = FALSE)
+
+  out_tbl_v2 <- as_tibble(out)
+  attr(out_tbl_v2, "crs") <- NULL
+
+  out_df2 <- df1 |>
+    group_by(x) |>
+    filter(y < 4, .preserve = FALSE)
+
+  expect_identical(out_tbl_v2, out_df2)
+  expect_identical(group_data(out_tbl_v2), group_data(out_df2))
+  expect_false(identical(group_data(out_tbl_v), group_data(out_tbl_v2)))
+})
 test_that("grouped filter handles indices", {
   skip_on_cran()
 

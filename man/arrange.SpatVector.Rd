@@ -4,17 +4,35 @@
 \alias{arrange.SpatVector}
 \title{Order a \code{SpatVector} using column values}
 \usage{
-\method{arrange}{SpatVector}(.data, ..., .by_group = FALSE)
+\method{arrange}{SpatVector}(.data, ..., .by_group = FALSE, .locale = NULL)
 }
 \arguments{
 \item{.data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables, or
-functions of variables. Use \code{\link[dplyr:desc]{dplyr::desc()}} to sort a variable in
-descending order.}
+functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable in descending
+order.}
 
 \item{.by_group}{If \code{TRUE}, will sort first by grouping variable. Applies to
 grouped \code{SpatVector} only.}
+
+\item{.locale}{The locale to sort character vectors in.
+\itemize{
+\item If \code{NULL}, the default, uses the \code{"C"} locale unless the
+\code{dplyr.legacy_locale} global option escape hatch is active. See the
+\link[dplyr]{dplyr-locale} help page for more details.
+\item If a single string from \code{\link[stringi:stri_locale_list]{stringi::stri_locale_list()}} is supplied, then
+this will be used as the locale to sort with. For example, \code{"en"} will
+sort with the American English locale. This requires the stringi package.
+\item If \code{"C"} is supplied, then character vectors will always be sorted in the
+C locale. This does not require stringi and is often much faster than
+supplying a locale identifier.
+}
+
+The C locale is not the same as English locales, such as \code{"en"},
+particularly when it comes to data containing a mix of upper and lower case
+letters. This is explained in more detail on the \link[dplyr:dplyr-locale]{locale}
+help page under the \verb{Default locale} section.}
 }
 \value{
 A \code{SpatVector} object.

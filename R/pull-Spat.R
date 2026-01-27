@@ -22,16 +22,20 @@
 #' @importFrom dplyr pull
 #'
 #' @inheritParams select.Spat
+#' @inheritParams dplyr::pull
+#'
 #' @param var A variable specified as:
 #'   * a literal layer/attribute name.
 #'   * a positive integer, giving the position counting from the left.
 #'   * a negative integer, giving the position counting from the right.
 #'
-#' The default returns the last layer/attribute (on the assumption that's the
-#' column you've created most recently).
+#'   The default returns the last layer/attribute (on the assumption that's the
+#'   column you've created most recently).
 #'
-#' @param name An optional argument that specifies the column to be used as
-#'   names for a named vector. Specified in a similar manner as `var`.
+#'   This argument is taken by expression and supports
+#'   [quasiquotation][rlang::topic-inject] (you can unquote column names and
+#'   column locations).
+#'
 #' @param ...  Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat]
 #'
 #' @return A vector the same number of cells/geometries as `.data`.

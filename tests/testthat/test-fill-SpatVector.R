@@ -147,3 +147,23 @@ test_that("fill respects grouping", {
     fill(y)
   expect_equal(out$y, c(1, 1, NA))
 })
+test_that("fill respects existing grouping and `.by`", {
+  skip_on_cran()
+  df <- tibble(x = c(1, 1, 2), y = c(1, NA, NA))
+  df$lat <- 1
+  df$lon <- 1
+
+  df <- terra::vect(df, crs = "EPSG:3857")
+  expect_s4_class(df, "SpatVector")
+
+  out <- df |>
+    group_by(x) |>
+    fill(y)
+  expect_identical(out$y, c(1, 1, NA))
+  expect_identical(group_vars(out), "x")
+
+  out <- df |>
+    fill(y, .by = x)
+  expect_identical(out$y, c(1, 1, NA))
+  expect_identical(group_vars(out), character())
+})

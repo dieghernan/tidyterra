@@ -31,7 +31,6 @@
 #'   in `.data`. If multiple expressions are included, they are combined with
 #'   the `&` operator. Only cells/geometries for which all conditions evaluate
 #'   to `TRUE` are kept. See **Methods**.
-#' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   On `FALSE`, [terra::trim()] is called so the extent of the result may be
 #'   different of the extent of the output. See also [drop_na.SpatRaster()].
@@ -106,7 +105,7 @@ filter.SpatRaster <- function(
   values <- df
 
   # Filter
-  filtered <- dplyr::filter(values, ...)
+  filtered <- dplyr::filter(values, ..., .preserve = .preserve)
 
   # Rebuild raster
   rebuild_df <- dplyr::left_join(xy, filtered, by = c("x", "y"))

@@ -20,7 +20,9 @@ in \code{.data}. If multiple expressions are included, they are combined with
 the \code{&} operator. Only cells/geometries for which all conditions evaluate
 to \code{TRUE} are kept. See \strong{Methods}.}
 
-\item{.preserve}{Ignored for \verb{Spat*} objects.}
+\item{.preserve}{Relevant when the \code{.data} input is grouped.
+If \code{.preserve = FALSE} (the default), the grouping structure
+is recalculated based on the resulting data, otherwise the grouping is kept as is.}
 
 \item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
 On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be

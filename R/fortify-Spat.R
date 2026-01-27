@@ -116,7 +116,14 @@ fortify.SpatRaster <- function(
   model,
   data,
   ...,
-  .name_repair = "unique",
+  .name_repair = c(
+    "unique",
+    "check_unique",
+    "universal",
+    "minimal",
+    "unique_quiet",
+    "universal_quiet"
+  ),
   maxcell = terra::ncell(model) * 1.1,
   pivot = FALSE
 ) {
