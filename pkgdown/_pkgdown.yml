@@ -19,6 +19,7 @@ navbar:
     - twitter
     - github
     - donate
+    - lightswitch
   components:
     articles:
       text: Articles
