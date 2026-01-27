@@ -67,6 +67,12 @@ main img {
 	color: #22272e;
 }
 
+[data-bs-theme="dark"] {
+	.algolia-autocomplete .aa-dropdown-menu {
+		color: rgba(255, 255, 255, 0.55);
+	}
+}
+
 /* ---Footer--- */
 footer {
 	width: 100vw;
