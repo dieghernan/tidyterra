@@ -218,7 +218,7 @@ Details
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
     #>  package      * version    date (UTC) lib source
-    #>  bslib          0.9.0      2025-01-30 [1] RSPM
+    #>  bslib          0.10.0     2026-01-26 [1] RSPM
     #>  cachem         1.1.0      2024-05-16 [1] RSPM
     #>  class          7.3-23     2025-01-01 [3] CRAN (R 4.5.2)
     #>  classInt       0.4-11     2025-01-08 [1] RSPM

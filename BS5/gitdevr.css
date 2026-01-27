@@ -40,7 +40,7 @@ main img {
 }
 
 #navbar .dropdown-menu {
-	background-color: #212529 !important;
+	background-color: #22272e !important;
 }
 
 #navbar .dropdown-menu .dropdown-item {
@@ -75,7 +75,7 @@ footer {
 	right: 50%;
 	margin-left: -50vw;
 	margin-right: -50vw;
-	background-color: #212529 !important;
+	background-color: #0d1117 !important;
 	color: #8b949e;
 	margin-bottom: 0;
 	font-family: "Inter Tight", Roboto;
@@ -156,6 +156,14 @@ img.logo {
 	display: inline;
 }
 
+/* Hack to reduce brightness of plots in dark mode */
+[data-bs-theme="dark"] img.r-plt,
+[data-bs-theme="dark"] pre .r-plt.img img,
+[data-bs-theme="dark"] .cell-output-display img,
+[data-bs-theme="dark"] .html-widget {
+	filter: brightness(66%) !important;
+}
+
 blockquote {
 	border-left: solid #0969da !important;
 	font-size: 115%;
@@ -165,6 +173,7 @@ blockquote {
 	font-weight: bold;
 }
 
+/* ---Code--- */
 code a:any-link {
 	text-decoration: underline;
 	text-decoration-color: #6c757d;
@@ -175,24 +184,22 @@ a > code {
 	color: #e83e8c;
 }
 
-/* ---allcontributors package--- */
-
-.allctb-avatar {
-	border: 1px solid;
-	border-radius: 50%;
-	border-color: var(--bs-primary) !important;
-	max-width: 100px;
-}
-
-table.allctb-table td {
-	border-color: transparent;
-}
-
-/* --- Code --- */
 code {
 	font-size: 87.5%;
 	color: #e83e8c;
 	word-wrap: break-word;
+}
+
+/* Dark Mode */
+[data-bs-theme="dark"] {
+	code a:any-link {
+		color: inherit;
+	}
+
+	code {
+		color: #e75ca2;
+		background-color: RGBA(var(--bs-emphasis-color-rgb), 0.04);
+	}
 }
 
 /* --- Inherited args --- */
@@ -208,280 +215,325 @@ code {
 	border-radius: 0;
 }
 
-/* --- Highlighter based in perldoc --- */
+/* --- Highlighter based in gitdevr --- */
 pre {
-	background-color: #f4f4f5;
+	background-color: RGBA(var(--bs-emphasis-color-rgb), 0.04);
+	color: var(--bs-primary);
 }
 
 pre code
 
 /* Normal - pygments.n */ {
-	color: #212529;
+	color: var(--bs-primary);
 }
 
 pre code span.al
 
 /* Alert - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
 }
 
 pre code span.an
 
 /* Annotation - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-dark);
+	font-style: italic;
+}
+
+pre code span.at
+
+/* Attribute - e.g value (non numeric) in YAML */ {
+	color: var(--bs--info);
+}
+
+pre code span.cf
+
+/* ControlFlow - like Operator -> pygments.o */ {
+	color: var(--bs-info);
 }
 
 pre code span.ch
 
 /* Char - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs--warning);
 }
 
 pre code span.cn
 
 /* Constant - pygments.nb */ {
-	color: #658b00;
+	color: var(--bs--warning);
 }
 
 pre code span.co
 
 /* Comment - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-dark);
+	font-style: italic;
 }
 
 pre code span.cv
 
 /* CommentVar - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-dark);
+	font-style: italic;
 }
 
 pre code span.do
 
 /* Documentation - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-dark);
+	font-style: italic;
 }
 
 pre code span.dv
 
 /* DecVal - pygments.m */ {
-	color: #b452cd;
+	color: var(--bs-info);
 }
 
 pre code span.er
 
 /* Error - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
 }
 
 pre code span.fl
 
 /* Float - pygments.m */ {
-	color: #b452cd;
+	color: var(--bs-info);
 }
 
 pre code span.fu
 
 /* Function - pygments.n */ {
-	color: #212529;
+	color: var(--bs-blue);
 }
 
 pre code span.in
 
 /* Information - pygments.gp */ {
-	color: #555555;
+	color: var(--bs-gray-dark);
+	font-style: italic;
 }
 
 pre code span.kw
 
 /* Keyword - pygments.k */ {
-	color: #8b008b;
+	color: var(--bs-info);
 	font-weight: bold;
 }
 
 pre code span.op
   /* Operator - pygments.o */ {
-	color: #8b008b;
+	color: var(--bs-info);
 }
 
 pre code span.ot
 
 /* Other - pygments.sx */ {
-	color: #cb6c20;
+	color: var(--bs-success);
 }
 
 pre code span.sc
 
 /* SpecialChar - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.ss
 
 /* SpecialString - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.st
 
 /* String - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.va
 
 /* Variable - pygments.n */ {
-	color: #212529;
+	color: var(--bs-primary);
 }
 
 pre code span.vs
 
 /* VerbatimString - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-danger);
 }
 
 pre code span.wa
 
 /* Warning - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
 }
 
 /* --- Dark Mode --- */
-/* Highlighter based in StackOverflow Dark --- */
+[data-bs-theme="dark"] {
+	a.external-link:not(:has(*)),
+	a.uri:not(:has(*)) {
+		color: #2b8ffd;
+	}
+
+	.nav-item.active .nav-link {
+		background: transparent;
+	}
+}
+
+/* Highlighter based in gitdevr --- */
 
 [data-bs-theme="dark"] {
 	pre {
-		background: rgba(222, 226, 230, 0.1);
-		color: #ffffff;
+		background-color: RGBA(var(--bs-emphasis-color-rgb), 0.04);
+		color: var(--bs-light-text-emphasis);
 	}
 
 	pre code
 
 /* Normal - pygments.n */ {
-		color: #ffffff;
+		color: var(--bs-light-text-emphasis);
 	}
 
 	pre code span.al
 
 /* Alert - pygments.gr */ {
-		color: #de7176;
+		color: var(--bs-danger-text-emphasis);
 	}
 
 	pre code span.an
 
 /* Annotation - pygments.c1 */ {
-		color: #999999;
+		color: var(--bs-dark-text-emphasis);
+		font-style: italic;
+	}
+	pre code span.at
+/* Attribute - e.g value (non numeric) in YAML */ {
+		color: var(--bs--info-text-emphasis);
+	}
+
+	pre code span.cf
+
+/* ControlFlow - like Operator -> pygments.o */ {
+		color: var(--bs-info-text-emphasis);
 	}
 
 	pre code span.ch
 
 /* Char - pygments.s2 */ {
-		color: #b5bd68;
+		color: var(--bs--warning-text-emphasis);
 	}
 
 	pre code span.cn
 
 /* Constant - pygments.nb */ {
-		color: #ffffff;
+		color: var(--bs--warning-text-emphasis);
 	}
 
 	pre code span.co
 
 /* Comment - pygments.c1 */ {
-		color: #999999;
+		color: var(--bs-dark-text-emphasis);
+		font-style: italic;
 	}
 
 	pre code span.cv
 
 /* CommentVar - pygments.c1 */ {
-		color: #999999;
+		color: var(--bs-dark-text-emphasis);
+		font-style: italic;
 	}
 
 	pre code span.do
 
 /* Documentation - pygments.c1 */ {
-		color: #999999;
+		color: var(--bs-dark-text-emphasis);
+		font-style: italic;
 	}
 
 	pre code span.dv
 
 /* DecVal - pygments.m */ {
-		color: #f08d49;
+		color: var(--bs-info-text-emphasis);
 	}
 
 	pre code span.er
 
 /* Error - pygments.gr */ {
-		color: #de7176;
+		color: var(--bs-danger-text-emphasis);
 	}
 
 	pre code span.fl
 
 /* Float - pygments.m */ {
-		color: #f08d49;
+		color: var(--bs-info-text-emphasis);
 	}
 
 	pre code span.fu
 
-/* Function - pygments.n or kd */ {
-		color: #88aece;
+/* Function - pygments.n */ {
+		color: #2b8ffd;
 	}
 
 	pre code span.in
 
 /* Information - pygments.gp */ {
-		color: #88aece;
+		color: var(--bs-dark-text-emphasis);
+		font-style: italic;
 	}
 
 	pre code span.kw
 
 /* Keyword - pygments.k */ {
-		color: #88aece;
+		color: var(--bs-info-text-emphasis);
+		font-weight: bold;
 	}
 
 	pre code span.op
   /* Operator - pygments.o */ {
-		color: #ffffff;
+		color: var(--bs-info-text-emphasis);
 	}
 
 	pre code span.ot
 
 /* Other - pygments.sx */ {
-		color: #b5bd68;
+		color: var(--bs-success-text-emphasis);
 	}
 
 	pre code span.sc
 
 /* SpecialChar - pygments.s2 */ {
-		color: #b5bd68;
+		color: var(--bs-success-text-emphasis);
 	}
 
 	pre code span.ss
 
 /* SpecialString - pygments.s2 */ {
-		color: #b5bd68;
+		color: var(--bs-success-text-emphasis);
 	}
 
 	pre code span.st
 
 /* String - pygments.s2 */ {
-		color: #b5bd68;
+		color: var(--bs-success-text-emphasis);
 	}
 
 	pre code span.va
 
-/* Variable - pygments.n or kd  */ {
-		color: #88aece;
+/* Variable - pygments.n */ {
+		color: var(--bs-light-text-emphasis);
 	}
 
 	pre code span.vs
 
 /* VerbatimString - pygments.s2 */ {
-		color: #b5bd68;
+		color: var(--bs-danger-text-emphasis);
 	}
 
 	pre code span.wa
 
 /* Warning - pygments.gr */ {
-		color: #de7176;
+		color: var(--bs-danger-text-emphasis);
 	}
 }
