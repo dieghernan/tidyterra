@@ -100,6 +100,7 @@ main img {
 /* ---Navbar tweaks--- */
 
 .navbar-brand,
+#navbar,
 .navbar .dropdown-item {
 	font-family: "Inter Tight", Roboto;
 	font-weight: 800;
@@ -113,6 +114,7 @@ main img {
 #navbar .nav-link:hover,
 #navbar .nav-link:focus {
 	color: #6a788a !important;
+	background-color: transparent;
 }
 
 #navbar .dropdown-menu .dropdown-item.active:hover,
@@ -136,22 +138,27 @@ main img {
 	border: none;
 }
 
+/* --- Search ---*/
 .algolia-autocomplete .aa-dropdown-menu {
-	color: var(--bs-navbar-color);
-	background-color: var(--brand-black);
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+}
+
+mark,
+.mark {
+	background: linear-gradient(
+		-100deg,
+		RGBA(var(--bs-link-color-rgb), 0.2),
+		RGBA(var(--bs-link-color-rgb), 0.7) 95%,
+		RGBA(var(--bs-link-color-rgb), 0.1)
+	);
 }
 
 /* ---Nav pills--- */
 .nav-item .nav-link:hover,
 .nav-pills .nav-link.active:hover {
-	background-color: var(--brand-black);
+	background-color: rgba(var(--bs-body-color-rgb), 0.08);
 	color: #6a788a;
-}
-
-.nav-pills .nav-link:hover,
-.nav-item .nav-link:focus,
-.nav-pills .nav-link:focus {
-	color: var(--bs-nav-pills-link-active-color);
 }
 
 /* ---Footer--- */
