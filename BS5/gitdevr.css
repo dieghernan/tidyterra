@@ -254,9 +254,13 @@ img.logo {
 	display: inline;
 }
 
+/* Render author and date consistenly between Rmd and quarto files */
 .author,
 .date {
 	color: var(--bs-secondary);
+	font-size: var(--bs-body-font-size);
+	font-weight: var(--bs-body-font-weight);
+	margin-bottom: 0.5rem;
 }
 
 /* Hack to reduce color in dark mode */
@@ -277,18 +281,15 @@ blockquote {
 /* ---Code--- */
 code a:any-link {
 	text-decoration: underline;
-	text-decoration-color: var(--brand-code);
 	background-color: transparent !important;
 }
 
 a > code {
 	text-decoration: underline;
-	color: var(--brand-code);
 }
 
 code {
 	font-size: 87.5%;
-	color: var(--brand-code);
 	word-wrap: break-word;
 	background-color: var(--body-bg) !important;
 }
