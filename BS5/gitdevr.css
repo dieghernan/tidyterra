@@ -254,6 +254,11 @@ img.logo {
 	display: inline;
 }
 
+.author,
+.date {
+	color: var(--bs-secondary);
+}
+
 /* Hack to reduce color in dark mode */
 [data-bs-theme="dark"] img.r-plt,
 [data-bs-theme="dark"] pre .r-plt.img img {
@@ -460,9 +465,7 @@ pre code span.wa
 		background-color: rgba(var(--bs-body-color-rgb), 0.03);
 		color: var(--bs-body-color);
 	}
-	pre code a {
-		text-decoration-color: var(--bs-gray-500);
-	}
+
 	pre code
 
 /* Normal - pygments.n */ {

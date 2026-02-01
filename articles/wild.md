@@ -113,7 +113,7 @@ squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000–2022). *PLOS One*, *20*(10), e0333746.
+US (2000-2022). *PLOS One*, *20*(10), e0333746.
 <https://doi.org/10.1371/journal.pone.0333746>
 
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
@@ -215,9 +215,10 @@ shifts in nut-producing species that are important for bears during
 hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
 <https://doi.org/10.3389/ffgc.2025.1624612>
 
-Read, F. R., Warmington, R. J., & Beale, C. M. (2025). *Assessing
+Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
-Britain*. <https://doi.org/10.1101/2025.09.02.673856>
+Britain. *PLOS ONE*, *21*(1), 1–16.
+<https://doi.org/10.1371/journal.pone.0332485>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
 & Hajibabaei, M. (2025). Biomonitoring 2.0 Refined: Observing local

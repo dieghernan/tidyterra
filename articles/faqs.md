@@ -913,7 +913,7 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2026-01-31
+    #>  date     2026-02-01
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
@@ -989,7 +989,7 @@ Details
     #>  tibble         3.3.1      2026-01-11 [1] RSPM
     #>  tidyr          1.3.2      2025-12-19 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 1.0.0.9000 2026-01-31 [1] local
+    #>  tidyterra    * 1.0.0.9000 2026-02-01 [1] local
     #>  units          1.0-0      2025-10-09 [1] RSPM
     #>  vctrs          0.7.1      2026-01-23 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM
