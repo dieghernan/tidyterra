@@ -1,9 +1,9 @@
 ---
 title: "Gradient palettes in tidyterra"
 description: >
-  A gallery of maps using the gradients provided by tidyterra.
-editor_options: 
-  markdown: 
+  A gallery of maps using the gradients provided by **tidyterra**.
+editor_options:
+  markdown:
     wrap: 80
 ---
 
@@ -45,9 +45,7 @@ ggplot() +
 Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
 
 ```{r terr_wiki, echo=FALSE, fig.alt="Terrain and wiki palettes in tidyterra"}
-r <- terra::rast(system.file("extdata/volcano2.tif",
-  package = "tidyterra"
-))
+r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
 
 library(ggplot2)
 
@@ -76,8 +74,17 @@ Check `scale_fill_whitebox_c()` for more info.
 
 ```{r whitebox, echo=FALSE, fig.alt="Whitebox palettes in tidyterra"}
 allpals <- sort(c(
-  "atlas", "high_relief", "arid", "soft", "muted", "purple",
-  "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
+  "atlas",
+  "high_relief",
+  "arid",
+  "soft",
+  "muted",
+  "purple",
+  "viridi",
+  "gn_yl",
+  "pi_y_g",
+  "bl_yl_rd",
+  "deep"
 ))
 
 

@@ -1,6 +1,6 @@
 ---
 title: "tidyterra FAQs"
-description: Frequently Asked Questions on the use of tidyterra.
+description: Frequently Asked Questions on the use of **tidyterra**.
 ---
 
 ```{r setup, include = FALSE}
@@ -142,7 +142,8 @@ labs <- c(100, 140, 180, 220)
 
 ggplot(r) +
   geom_spatraster_contour_text(
-    data = r, aes(
+    data = r,
+    aes(
       linewidth = after_stat(level),
       size = after_stat(level),
       color = after_stat(level)
@@ -196,7 +197,8 @@ ggplot(r, aes(x, y)) +
   ) +
   geom_text_contour(
     aes(
-      z = elevation, color = after_stat(level),
+      z = elevation,
+      color = after_stat(level),
       size = after_stat(level)
     ),
     breaks = br,
@@ -311,8 +313,11 @@ p <- st_point(c(-3.166011, 55.945235)) |>
   st_sfc(crs = 4326) |>
   st_buffer(500)
 
-tile1 <- get_tiles(p,
-  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+tile1 <- get_tiles(
+  p,
+  provider = "OpenStreetMap",
+  zoom = 14,
+  cachedir = ".",
   crop = TRUE
 )
 
@@ -329,8 +334,11 @@ st_crs(tile1)$epsg
 p2 <- st_transform(p, 3857)
 
 
-tile2 <- get_tiles(p2,
-  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+tile2 <- get_tiles(
+  p2,
+  provider = "OpenStreetMap",
+  zoom = 14,
+  cachedir = ".",
   crop = TRUE
 )
 
@@ -488,7 +496,8 @@ scales::show_col(cols)
 
 g +
   scale_fill_manual(
-    values = cols, na.value = "transparent",
+    values = cols,
+    na.value = "transparent",
     na.translate = FALSE
   ) +
   ggtitle("scale_fill_manual method")
@@ -589,9 +598,13 @@ aoi <- gadm(country = "CHE", path = ".", level = 0) |>
   project("EPSG:3857")
 
 # Tile
-rgb_tile <- get_tiles(aoi,
-  crop = TRUE, provider = "Esri.WorldShadedRelief",
-  zoom = 8, project = FALSE, cachedir = "."
+rgb_tile <- get_tiles(
+  aoi,
+  crop = TRUE,
+  provider = "Esri.WorldShadedRelief",
+  zoom = 8,
+  project = FALSE,
+  cachedir = "."
 )
 
 # Clim (mean prec)
@@ -615,7 +628,8 @@ ggplot(aoi) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     labels = scales::label_number(suffix = " mm.")
   ) +
   coord_sf(expand = FALSE) +
@@ -637,7 +651,8 @@ ggplot(aoi) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_b(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     n.breaks = 4,
     labels = scales::label_number(suffix = " mm.")
   ) +
@@ -656,7 +671,8 @@ ggplot(aoi) +
   geom_spatvector(fill = NA) +
   coord_sf(expand = FALSE) +
   scale_fill_whitebox_d(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     guide = guide_legend(reverse = TRUE)
   ) +
   labs(
@@ -688,7 +704,9 @@ r <- rast(holyrood)
 # With hex grid
 ggplot(r, aes(x, y, z = elevation)) +
   stat_summary_hex(
-    fun = mean, color = NA, linewidth = 0,
+    fun = mean,
+    color = NA,
+    linewidth = 0,
     # Bins size determines the number of cells displayed
     bins = 30
   ) +
@@ -696,7 +714,8 @@ ggplot(r, aes(x, y, z = elevation)) +
   labs(
     title = "Hexagonal SpatRaster",
     subtitle = "Using fortify (implicit) and stat_summary_hex",
-    x = NULL, y = NULL
+    x = NULL,
+    y = NULL
   )
 ```
 
@@ -710,9 +729,11 @@ Thanks to this extension mechanism, it is possible to use additional `geoms` and
 ```{r alt_points}
 # Point plot
 ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
-  geom_point(aes(size = elevation, alpha = elevation),
+  geom_point(
+    aes(size = elevation, alpha = elevation),
     fill = "darkblue",
-    color = "grey50", shape = 21
+    color = "grey50",
+    shape = 21
   ) +
   coord_sf(crs = pull_crs(r)) +
   scale_radius(range = c(1, 5)) +
@@ -720,7 +741,8 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   labs(
     title = "SpatRaster as points",
     subtitle = "Using fortify (implicit)",
-    x = NULL, y = NULL
+    x = NULL,
+    y = NULL
   )
 ```
 
@@ -747,7 +769,8 @@ r <- rast(holyrood)
 ggplot(r, aes(x, y)) +
   geom_relief(aes(z = elevation)) +
   geom_spatraster(
-    data = r, inherit.aes = FALSE,
+    data = r,
+    inherit.aes = FALSE,
     aes(alpha = after_stat(value))
   ) +
   scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +

@@ -148,14 +148,15 @@ articles:
 
 - title: In the wild
   navbar: In the wild
-  desc: tidyterra in publications
+  desc: >
+    **tidyterra** in publications.
   contents:
   - articles/wild
 
 - title: FAQs
   desc: >
-    tidyterra FAQs. See also <a
+    **tidyterra** FAQs. See also <a
     href="https://github.com/dieghernan/tidyterra/discussions"
-    >/tidyterra/discussions</a>
+    >/tidyterra/discussions</a>.
   contents:
   - articles/faqs
