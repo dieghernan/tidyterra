@@ -86,37 +86,37 @@ object (for example, `as_tibble()` would return a tibble).
 
 Current methods and functions provided by **tidyterra** are:
 
-| tidyverse method | `SpatVector` | `SpatRaster` |
-|----|----|----|
-| `tibble::as_tibble()` | ✔️ | ✔️ |
-| `dplyr::select()` | ✔️ | ✔️ Select layers |
-| `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
-| `dplyr::transmute()` | ✔️ | ✔️ |
-| `dplyr::filter()` | ✔️ | ✔️ Modify cells values and (additionally) remove outer cells. |
-| `dplyr::slice()` | ✔️ | ✔️ Additional methods for slicing by row and column. |
-| `dplyr::pull()` | ✔️ | ✔️ |
-| `dplyr::rename()` | ✔️ | ✔️ |
-| `dplyr::relocate()` | ✔️ | ✔️ |
-| `dplyr::distinct()` | ✔️ |  |
-| `dplyr::arrange()` | ✔️ |  |
-| `dplyr::glimpse()` | ✔️ | ✔️ |
-| `dplyr::inner_join()` family | ✔️ |  |
-| `dplyr::summarise()` | ✔️ |  |
-| `dplyr::group_by()` family | ✔️ |  |
-| `dplyr::rowwise()` | ✔️ |  |
-| `dplyr::count()`, `tally()` | ✔️ |  |
-| `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
-| `tidyr::replace_na()` | ✔️ | ✔️ |
-| `tidyr::fill()` | ✔️ |  |
-| `tidyr::pivot_longer()` | ✔️ |  |
-| `tidyr::pivot_wider()` | ✔️ |  |
-| `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** via `sf::st_as_sf()` | To a **tibble** with coordinates. |
-| `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
-| `generics::tidy()` | ✔️ | ✔️ |
-| `generics::glance()` | ✔️ | ✔️ |
-| `generics::required_pkgs()` | ✔️ | ✔️ |
+| tidyverse method                            | `SpatVector`                                  | `SpatRaster`                                                                                   |
+|---------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| `tibble::as_tibble()`                       | ✔️                                            | ✔️                                                                                             |
+| `dplyr::select()`                           | ✔️                                            | ✔️ Select layers                                                                               |
+| `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
+| `dplyr::transmute()`                        | ✔️                                            | ✔️                                                                                             |
+| `dplyr::filter()`                           | ✔️                                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::slice()`                            | ✔️                                            | ✔️ Additional methods for slicing by row and column.                                           |
+| `dplyr::pull()`                             | ✔️                                            | ✔️                                                                                             |
+| `dplyr::rename()`                           | ✔️                                            | ✔️                                                                                             |
+| `dplyr::relocate()`                         | ✔️                                            | ✔️                                                                                             |
+| `dplyr::distinct()`                         | ✔️                                            |                                                                                                |
+| `dplyr::arrange()`                          | ✔️                                            |                                                                                                |
+| `dplyr::glimpse()`                          | ✔️                                            | ✔️                                                                                             |
+| `dplyr::inner_join()` family                | ✔️                                            |                                                                                                |
+| `dplyr::summarise()`                        | ✔️                                            |                                                                                                |
+| `dplyr::group_by()` family                  | ✔️                                            |                                                                                                |
+| `dplyr::rowwise()`                          | ✔️                                            |                                                                                                |
+| `dplyr::count()`, `tally()`                 | ✔️                                            |                                                                                                |
+| `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |                                                                                                |
+| `tidyr::drop_na()`                          | ✔️                                            | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::replace_na()`                       | ✔️                                            | ✔️                                                                                             |
+| `tidyr::fill()`                             | ✔️                                            |                                                                                                |
+| `tidyr::pivot_longer()`                     | ✔️                                            |                                                                                                |
+| `tidyr::pivot_wider()`                      | ✔️                                            |                                                                                                |
+| `ggplot2::autoplot()`                       | ✔️                                            | ✔️                                                                                             |
+| `ggplot2::fortify()`                        | ✔️ to **sf** via `sf::st_as_sf()`             | To a **tibble** with coordinates.                                                              |
+| `ggplot2::geom_*()`                         | ✔️ `geom_spatvector()`                        | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`.                                            |
+| `generics::tidy()`                          | ✔️                                            | ✔️                                                                                             |
+| `generics::glance()`                        | ✔️                                            | ✔️                                                                                             |
+| `generics::required_pkgs()`                 | ✔️                                            | ✔️                                                                                             |
 
 ## :exclamation: A note on performance
 
@@ -139,12 +139,18 @@ When plotting rasters, resampling is performed automatically (as
 
 ## Installation
 
+<div class="pkgdown-release">
+
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ``` r
 install.packages("tidyterra")
 ```
+
+</div>
+
+<div class="pkgdown-devel">
 
 You can install the development version of **tidyterra** like so:
 
@@ -163,6 +169,8 @@ install.packages("tidyterra", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
+</div>
 
 ## Example
 
@@ -351,7 +359,7 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
-[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
+[$$tidyterra$$](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 

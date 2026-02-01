@@ -107,7 +107,7 @@ example, `as_tibble()` would return a tibble).
 Current methods and functions provided by **tidyterra** are:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
-|----|----|----|
+|---------------------------|---------------------------|---------------------------|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
 | `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
@@ -157,13 +157,16 @@ does, see the help page). You can adjust this with the `maxcell` argument.
 
 ## Installation
 
+::: pkgdown-release
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ```{r, eval=FALSE}
 install.packages("tidyterra")
 ```
+:::
 
+::: pkgdown-devel
 You can install the development version of **tidyterra** like so:
 
 ```{r, eval=FALSE }
@@ -181,6 +184,7 @@ install.packages("tidyterra", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+:::
 
 ## Example
 
@@ -323,7 +327,7 @@ Check our [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
-[[tidyterra]](https://stackoverflow.com/questions/tagged/tidyterra).
+[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 
