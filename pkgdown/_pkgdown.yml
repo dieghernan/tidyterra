@@ -12,7 +12,6 @@ navbar:
     - articles
     - faqs
     - tutorials
-    - media
     - news
     right:
     - search
@@ -21,19 +20,9 @@ navbar:
     - donate
     - lightswitch
   components:
-    articles:
-      text: Articles
-      menu:
-      - text: Welcome to tidyterra
-        href: articles/welcome.html
-      - text: Gradient palettes in tidyterra
-        href: articles/palettes.html
     faqs:
       text: FAQs
       href: articles/faqs.html
-    media:
-      text: In the wild
-      href: articles/wild.html
     twitter:
       icon: fa-brands fa-x-twitter
       href: https://x.com/dhernangomez
@@ -149,3 +138,24 @@ authors:
     href: https://dieghernan.github.io/
   Dewey Dunnington:
     href: https://dewey.dunnington.ca/
+
+articles:
+- title: Articles
+  navbar:
+  contents:
+  - welcome
+  - articles/palettes
+
+- title: In the wild
+  navbar: In the wild
+  desc: tidyterra in publications
+  contents:
+  - articles/wild
+
+- title: FAQs
+  desc: >
+    tidyterra FAQs. See also <a
+    href="https://github.com/dieghernan/tidyterra/discussions"
+    >/tidyterra/discussions</a>
+  contents:
+  - articles/faqs

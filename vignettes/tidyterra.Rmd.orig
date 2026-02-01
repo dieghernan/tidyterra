@@ -12,7 +12,7 @@ tags:
   - ggplot2
 author: Diego Hernangómez
 date: "2023-07-18"
-description: >-
+description: >
   Paper published on The Journal of Open Source Software.
 bibliography: paper.bib
 link-citations: true
