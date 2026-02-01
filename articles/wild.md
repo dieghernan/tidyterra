@@ -113,7 +113,7 @@ squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000-2022). *PLOS One*, *20*(10), e0333746.
+US (2000-2022). *PLOS ONE*, *20*(10), 1–25.
 <https://doi.org/10.1371/journal.pone.0333746>
 
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
