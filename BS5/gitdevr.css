@@ -286,6 +286,7 @@ code a:any-link {
 
 a > code {
 	text-decoration: underline;
+	color: var(--bs-code-color);
 }
 
 code {
