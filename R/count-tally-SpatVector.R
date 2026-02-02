@@ -19,7 +19,6 @@
 #' @importFrom dplyr count
 #'
 #' @param x A `SpatVector`.
-#' @param wt Not implemented on this method
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'
@@ -43,8 +42,6 @@
 #' library(terra)
 #' f <- system.file("ex/lux.shp", package = "terra")
 #' p <- vect(f)
-#'
-#' p |> count(NAME_1, sort = TRUE)
 #'
 #' p |> count(NAME_1, sort = TRUE)
 #'
@@ -87,7 +84,7 @@ count.SpatVector <- function(
     out <- x
   }
 
-  vend <- tally(out, sort = sort, name = name)
+  vend <- tally(out, sort = sort, name = name, wt = {{ wt }})
 
   # Prepare a template for groups
   template <- dplyr::count(
@@ -133,32 +130,35 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
     x[[vargroup]] <- "UNIQUE"
 
     vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
-    # Keep aggregation only and rename
-    vend <- vend[, "agg_n"]
-    if (is.null(name)) {
-      name <- "n"
-    }
+    df <- tally(as_tibble(x), sort = sort, name = name, wt = {{ wt }})
 
-    names(vend) <- name
+    vend <- cbind(vend[, 0], df)
     return(vend)
   }
 
   # Get tibble and index of rows
   tblforindex <- as_tibble(x)
-  # Get a template
-  template <- dplyr::tally(tblforindex, sort = sort, name = name)
+  # Get the df
+  template <- dplyr::tally(
+    tblforindex,
+    sort = FALSE,
+    name = name,
+    wt = {{ wt }}
+  )
 
   vargroup <- dplyr::group_vars(tblforindex)
   x <- x[, vargroup]
   vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
   # Keep and rename
-  vend <- vend[, c(vargroup, "agg_n")]
+  vend <- cbind(vend[, 0], template)
+
+  newvar <- setdiff(names(template), vargroup)
 
   if (sort) {
     # Re-sort
-    vend <- vend[order(vend$agg_n, decreasing = TRUE), ]
+    vend <- vend[order(template[[newvar]], decreasing = TRUE), ]
   }
-  names(vend) <- names(template)
+
   vend <- ungroup(vend)
 
   # Re-group based on the template

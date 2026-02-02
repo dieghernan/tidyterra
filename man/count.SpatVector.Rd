@@ -23,7 +23,12 @@
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables to group
 by.}
 
-\item{wt}{Not implemented on this method}
+\item{wt}{<\code{\link[rlang:args_data_masking]{data-masking}}> Frequency weights.
+Can be \code{NULL} or a variable:
+\itemize{
+\item If \code{NULL} (the default), counts the number of rows in each group.
+\item If a variable, computes \code{sum(wt)} for each group.
+}}
 
 \item{sort}{If \code{TRUE}, will show the largest groups at the top.}
 
@@ -77,8 +82,6 @@ handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}
 library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
-
-p |> count(NAME_1, sort = TRUE)
 
 p |> count(NAME_1, sort = TRUE)
 
