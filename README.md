@@ -139,12 +139,17 @@ When plotting rasters, resampling is performed automatically (as
 
 ## Installation
 
+<div class="pkgdown-release" >
+
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ``` r
 install.packages("tidyterra")
 ```
+</div>
+
+<div class=“pkgdown-devel” >
 
 You can install the development version of **tidyterra** like so:
 
@@ -163,6 +168,8 @@ install.packages("tidyterra", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
+</div>
 
 ## Example
 
