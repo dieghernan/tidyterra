@@ -16,8 +16,7 @@ fortify(
   model,
   data,
   ...,
-  .name_repair = c("unique", "check_unique", "universal", "minimal", "unique_quiet",
-    "universal_quiet"),
+  .name_repair = "unique",
   maxcell = terra::ncell(model) * 1.1,
   pivot = FALSE
 )
@@ -37,12 +36,12 @@ fortify(model, data, ..., crs = "")
 - model:
 
   A `SpatRaster` created with
-  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html),
-  a `SpatVector` created with
-  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html),
-  a `SpatGraticule` (see
+  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
+  or a `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
+  Also support `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
-  or a `SpatExtent` (see
+  and `SpatExtent` (see
   [`terra::ext()`](https://rspatial.github.io/terra/reference/ext.html)).
 
 - data:
@@ -57,29 +56,20 @@ fortify(model, data, ..., crs = "")
 
   Treatment of problematic column names:
 
-  - `"minimal"`: No name repair or checks, beyond basic existence,
+  - `"minimal"`: No name repair or checks, beyond basic existence.
 
-  - `"unique"`: Make sure names are unique and not empty,
+  - `"unique"`: Make sure names are unique and not empty.
 
   - `"check_unique"`: (default value), no name repair, but check they
-    are `unique`,
+    are `unique`.
 
-  - `"universal"`: Make the names `unique` and syntactic
-
-  - `"unique_quiet"`: Same as `"unique"`, but "quiet"
-
-  - `"universal_quiet"`: Same as `"universal"`, but "quiet"
+  - `"universal"`: Make the names `unique` and syntactic.
 
   - a function: apply custom name repair (e.g.,
-    `.name_repair = make.names` for names in the style of base R).
+    `.name_repair = make.names` for names in the style of base **R**).
 
   - A purrr-style anonymous function, see
-    [`rlang::as_function()`](https://rlang.r-lib.org/reference/as_function.html)
-
-  This argument is passed on as `repair` to
-  [`vctrs::vec_as_names()`](https://vctrs.r-lib.org/reference/vec_as_names.html).
-  See there for more details on these terms and the strategies used to
-  enforce them.
+    [`rlang::as_function()`](https://rlang.r-lib.org/reference/as_function.html).
 
 - maxcell:
 
@@ -190,10 +180,12 @@ Coercing objects:
 # Demonstrate the use with ggplot2
 library(ggplot2)
 
+
 # Get a SpatRaster
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
   terra::rast() |>
   terra::project("EPSG:4326")
+
 
 # You can now use a SpatRaster with any geom
 ggplot(r, maxcell = 50) +

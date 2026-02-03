@@ -25,14 +25,14 @@ bind_spat_cols(
   Objects to combine. The first argument should be a `SpatVector` and
   each of the subsequent arguments can either be a `SpatVector`, a `sf`
   object or a data frame. Inputs are
-  [recycled](https://vctrs.r-lib.org/reference/theory-faq-recycling.html)
-  to the same length, then matched by position.
+  [recycled](https://dplyr.tidyverse.org/reference/bind_cols.html) to
+  the same length, then matched by position.
 
 - .name_repair:
 
   One of `"unique"`, `"universal"`, or `"check_unique"`. See
-  [`vctrs::vec_as_names()`](https://vctrs.r-lib.org/reference/vec_as_names.html)
-  for the meaning of these options.
+  [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
+  for **Details**.
 
 ## Value
 
@@ -100,6 +100,7 @@ bind_spat_cols(sv, df2)
 #>  values      : ES-AV    05  Avila       a
 #>                ES-BU    09 Burgos       b
 #>                ES-LE    24   Leon       c
+
 
 # Another SpatVector
 bind_spat_cols(sv[1:2, ], sv[3:4, ])

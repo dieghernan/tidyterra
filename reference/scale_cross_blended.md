@@ -421,10 +421,12 @@ plot(volcano2_rast, col = cross_blended.colors(100, palette = "arid"))
 plot(volcano2_rast, col = cross_blended.colors2(100, palette = "arid"))
 
 
+
 library(ggplot2)
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_cross_blended_c(palette = "cold_humid")
+
 
 
 # Full map with true tints
@@ -478,6 +480,7 @@ factor <- volcano2_rast |>
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_cross_blended_d(na.value = "gray10", palette = "cold_humid")
+
 
 
 # Tint version

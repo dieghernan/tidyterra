@@ -23,7 +23,7 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,27 +35,19 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a></li>
     <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../articles/faqs.html">FAQs</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/wild.html">In the wild</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch"><li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
-  </ul></li>
       </ul></div>
 
 
@@ -64,7 +56,7 @@ See Examples and section About layer names on as_tibble.Spat()."><meta property=
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Extract a single layer/attribute</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/pull-Spat.R" class="external-link"><code>R/pull-Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/R/pull-Spat.R" class="external-link"><code>R/pull-Spat.R</code></a></small>
       <div class="d-none name"><code>pull.Spat.Rd</code></div>
     </div>
 
@@ -100,15 +92,12 @@ created with <code><a href="https://rspatial.github.io/terra/reference/vect.html
 <li><p>a positive integer, giving the position counting from the left.</p></li>
 <li><p>a negative integer, giving the position counting from the right.</p></li>
 </ul><p>The default returns the last layer/attribute (on the assumption that's the
-column you've created most recently).</p>
-<p>This argument is taken by expression and supports
-<a href="https://rlang.r-lib.org/reference/topic-inject.html" class="external-link">quasiquotation</a> (you can unquote column names and
-column locations).</p></dd>
+column you've created most recently).</p></dd>
 
 
 <dt id="arg-name">name<a class="anchor" aria-label="anchor" href="#arg-name"></a></dt>
-<dd><p>An optional parameter that specifies the column to be used
-as names for a named vector. Specified in a similar manner as <code>var</code>.</p></dd>
+<dd><p>An optional argument that specifies the column to be used as
+names for a named vector. Specified in a similar manner as <code>var</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -134,7 +123,7 @@ empty cells, so you may need to pass (<code>na.rm = FALSE</code>) to <code>...</
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method. This is done
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> function. This is done
 by coercing the <code>Spat*</code> object to a tibble first (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and
 then using <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method over the tibble.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>

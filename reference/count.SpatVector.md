@@ -2,11 +2,14 @@
 
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) lets you
 quickly count the unique values of one or more variables:
-`df |> count(a, b)` is roughly equivalent to
-`df |> group_by(a, b) |> summarise(n = n())`.
-[`count()`](https://dplyr.tidyverse.org/reference/count.html) is paired
-with [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
-lower-level helper that is equivalent to `df |> summarise(n = n())`.
+
+- `df |> count(a, b)` is roughly equivalent to
+  `df |> group_by(a, b) |> summarise(n = n())`.
+
+- [`count()`](https://dplyr.tidyverse.org/reference/count.html) is
+  paired with
+  [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
+  lower-level helper that is equivalent to `df |> summarise(n = n())`.
 
 ## Usage
 
@@ -128,6 +131,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
+
 
 p |> count(NAME_1, sort = TRUE)
 #>  class       : SpatVector 

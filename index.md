@@ -111,22 +111,11 @@ argument.
 
 ## Installation
 
-You can install the development version of **tidyterra** like so:
+Install **tidyterra** from
+[**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ``` r
-# install.packages("pak")
-pak::pak("dieghernan/tidyterra")
-```
-
-Alternatively, you can install **tidyterra** using the
-[r-universe](https://dieghernan.r-universe.dev/tidyterra):
-
-``` r
-# Enable this universe
-install.packages("tidyterra", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages("tidyterra")
 ```
 
 ## Example

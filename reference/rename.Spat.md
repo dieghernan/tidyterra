@@ -33,11 +33,15 @@ rename_with(.data, .fn, .cols = everything(), ...)
 
 - ...:
 
-  For `rename.Spat*()`:
-  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
-  Use `new_name = old_name` to rename selected variables.
+  Depending on the function:
 
-  For `rename_with.Spat*()`: additional arguments passed onto `.fn`.
+  - For `rename.Spat*()`:
+    \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>.
+    Use `new_name = old_name` to rename selected variables.
+
+  - For
+    [`rename_with()`](https://dplyr.tidyverse.org/reference/rename.html):
+    additional arguments passed onto `.fn`.
 
 - .fn:
 
@@ -61,7 +65,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
-method.
+function.
 
 ### `SpatRaster`
 

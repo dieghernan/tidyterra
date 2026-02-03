@@ -23,12 +23,12 @@ required_pkgs(x, ...)
 - x:
 
   A `SpatRaster` created with
-  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html),
-  a `SpatVector` created with
-  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html),
-  a `SpatGraticule` (see
+  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
+  or a `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
+  Also support `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
-  or a `SpatExtent` (see
+  and `SpatExtent` (see
   [`terra::ext()`](https://rspatial.github.io/terra/reference/ext.html)).
 
 - ...:
@@ -57,6 +57,7 @@ Other [generics](https://CRAN.R-project.org/package=generics) methods:
 
 ``` r
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+
 
 library(terra)
 

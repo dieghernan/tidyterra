@@ -93,6 +93,7 @@ fromint <- pull_crs(4326)
 # Characters
 fromchar <- pull_crs("epsg:4326")
 
+
 all(
   fromsf1 == fromsf2,
   fromsf2 == fromterra1,

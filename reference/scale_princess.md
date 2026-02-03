@@ -303,6 +303,7 @@ factor <- volcano2_rast |> mutate(cats = cut(elevation,
   )
 ))
 
+
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_princess_d(na.value = "gray10", palette = "maori")

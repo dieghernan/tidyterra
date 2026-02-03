@@ -26,7 +26,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) or
 a `SpatRaster` (if `as.raster = TRUE`) with the same number of rows (or
 cells) than the number of cells in `x`.
 
-When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
+When `as.raster = TRUE` the resulting `SpatRaster` has the same crs,
 extension and resolution than `x`
 
 ## See also

@@ -7,10 +7,8 @@ when a vectorised function doesn't exist.
 Most [dplyr](https://CRAN.R-project.org/package=dplyr) verbs
 implementation in
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) preserve
-row-wise grouping. The exception is
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md),
-which return a [grouped
-SpatVector](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md).
+row-wise grouping, with the exception of
+[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md).
 You can explicitly ungroup with
 [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
 or
@@ -39,12 +37,6 @@ rowwise(data, ...)
   This is typically a set of variables whose combination uniquely
   identify each row. See
   [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
-
-  **NB**: unlike
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
-  you can not create new variables here but instead you can select
-  multiple variables with (e.g.)
-  [`tidyselect::everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
 

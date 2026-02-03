@@ -157,7 +157,7 @@ family
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
+The geometry column has a sticky behavior. This means that the result
 would have always the geometry of `x` for the records that matches the
 join conditions.
 
@@ -230,6 +230,7 @@ nrow(inner)
 autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
 
 
+
 # Left join
 
 left <- v |> left_join(df)
@@ -253,6 +254,7 @@ autoplot(right, aes(fill = letter)) + ggtitle("Right Join")
 # There are empty geometries, check with data from df
 ggplot(right, aes(x, y)) +
   geom_point(aes(color = letter))
+
 
 
 # Full join

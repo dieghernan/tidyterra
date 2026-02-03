@@ -203,6 +203,7 @@ ggplot(cyl) +
   geom_spatvector()
 
 
+
 # With params
 
 ggplot(cyl) +
@@ -223,6 +224,7 @@ ggplot(cyl) +
 
 
 # You can use now geom_sf with SpatVectors!
+
 
 ggplot(cyl) +
   geom_sf() +

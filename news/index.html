@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,27 +25,19 @@
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a></li>
     <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../articles/faqs.html">FAQs</a></li>
+<li class="nav-item"><a class="nav-link" href="../articles/wild.html">In the wild</a></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch"><li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
-  </ul></li>
       </ul></div>
 
 
@@ -54,32 +46,9 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li>In <strong>dplyr</strong> <code>.by</code> has moved from experimental to stable. In <code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code> this was implemented in version 1.0.0. Now it has been extended to the following <strong>tidyterra</strong> methods as new arguments (<a href="https://github.com/dieghernan/tidyterra/issues/193" class="external-link">#193</a>):
-<ul><li>
-<code><a href="../reference/mutate.Spat.html">mutate.SpatVector()</a></code>.</li>
-<li>
-<code><a href="../reference/filter.Spat.html">filter.SpatVector()</a></code>.</li>
-<li>
-<code><a href="../reference/slice.Spat.html">?slice.Spat</a></code> methods for <code>SpatVector</code>.</li>
-<li>
-<code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code>.</li>
-</ul></li>
-<li>Other arguments added to methods:
-<ul><li>
-<code><a href="../reference/mutate.Spat.html">?mutate.Spat</a></code>: New arguments <code>.keep, .before, .after</code> (see <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code>).</li>
-<li>
-<code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code>: <code>.locale</code> added (see <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code>).</li>
-<li>
-<code><a href="../reference/filter.Spat.html">filter.SpatVector()</a></code>: <code>.preserve</code> argument support added (previously it was ignored).</li>
-</ul></li>
-<li>
-<code><a href="../reference/transmute.Spat.html">?transmute.Spat</a></code> is marked as superseded, as in <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code> <strong>dplyr 1.1.0</strong> (January 2023). Use <code>mutate(.keep = "none")</code>.</li>
-</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2><p class="text-muted">CRAN release: 2026-01-23</p>
 <ul><li>Minimal <strong>R</strong> version required updated to <strong>&gt;= 4.1.0</strong>.</li>
@@ -92,14 +61,14 @@
 <code><a href="../reference/scale_coltab.html">get_coltab_pal()</a></code> can extract colors with alpha values (<a href="https://github.com/dieghernan/tidyterra/issues/180" class="external-link">#180</a>).</li>
 <li>New dependency <strong>generics</strong> added to Imports. New methods (<code>SpatRaster</code>, <code>SpatVector</code>, <code>SpatGraticule</code>, <code>SpatExtent</code>) included:
 <ul><li>
-<code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code>.</li>
+<code><a href="../reference/tidy.Spat.html">tidy.SpatRaster()</a></code>, etc.</li>
 <li>
-<code><a href="../reference/glance.Spat.html">?glance.Spat</a></code>.</li>
+<code><a href="../reference/glance.Spat.html">glance.SpatRaster()</a></code>, etc.</li>
 <li>
-<code><a href="../reference/required_pkgs.Spat.html">?required_pkgs.Spat</a></code>.</li>
+<code><a href="../reference/required_pkgs.Spat.html">required_pkgs.SpatRaster()</a></code>, etc.</li>
 </ul></li>
 <li>
-<code><a href="../reference/fortify.Spat.html">?fortify.Spat</a></code> methods now uses <code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code> methods under the hood:
+<code>fortify.Spat</code> methods now uses <code>tidy.Spat</code> methods under the hood:
 <ul><li>New <code><a href="../reference/fortify.Spat.html">fortify.SpatExtent()</a></code> method.</li>
 </ul></li>
 <li>New <code><a href="../reference/autoplot.Spat.html">autoplot.SpatExtent()</a></code> and <code><a href="../reference/autoplot.Spat.html">autoplot.SpatGraticule()</a></code> methods.</li>
@@ -200,7 +169,7 @@
 </ul></li>
 <li>By default all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
 <li>By default, all the non-discrete (e.g. continuous or breaks) scales of <strong>tidyterra</strong> have now <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
-<li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, CRS, etc.</li>
+<li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, crs, etc.</li>
 <li>New messaging interface thanks to <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
 </ul></div>
     <div class="section level2">

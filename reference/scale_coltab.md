@@ -196,6 +196,7 @@ library(ggplot2)
 gg <- ggplot() +
   geom_spatraster(data = r)
 
+
 # Default plot
 gg
 

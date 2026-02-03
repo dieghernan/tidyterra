@@ -26,15 +26,16 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 - width:
 
-  Width of output: defaults to the setting of the `width`
-  [option](https://pillar.r-lib.org/reference/pillar_options.html) (if
-  finite) or the width of the console.
+  Width of output: defaults to the setting of the width option (if
+  finite) or the width of the console. See
+  [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html).
 
 - ...:
 
   Arguments passed on to
   [`as_tibble()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
-  methods for `SpatRaster` and `SpatVector`.
+  methods for `SpatRaster` and `SpatVector`. See
+  [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md).
 
 - n:
 

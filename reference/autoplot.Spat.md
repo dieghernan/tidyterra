@@ -35,12 +35,12 @@ autoplot(object, ...)
 - object:
 
   A `SpatRaster` created with
-  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html),
-  a `SpatVector` created with
-  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html),
-  a `SpatGraticule` (see
+  [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
+  or a `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
+  Also support `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
-  or a `SpatExtent` (see
+  and `SpatExtent` (see
   [`terra::ext()`](https://rspatial.github.io/terra/reference/ext.html)).
 
 - ...:
@@ -87,7 +87,7 @@ method.
 
 Implementation of the **generic**
 [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+function.
 
 ### `SpatRaster`
 
@@ -132,6 +132,7 @@ temp <- rast(file_path)
 
 library(ggplot2)
 autoplot(temp)
+
 
 
 # With a tile

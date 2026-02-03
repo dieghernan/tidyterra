@@ -425,10 +425,12 @@ plot(volcano2_rast, col = hypso.colors(100, palette = "wiki-2.0_hypso"))
 plot(volcano2_rast, col = hypso.colors2(100, palette = "wiki-2.0_hypso"))
 
 
+
 library(ggplot2)
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_hypso_c(palette = "colombia_hypso")
+
 
 
 # Full map with true tints
@@ -481,6 +483,7 @@ factor <- volcano2_rast |> mutate(cats = cut(elevation,
 ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_hypso_d(na.value = "gray10", palette = "dem_poster")
+
 
 
 # Tint version
