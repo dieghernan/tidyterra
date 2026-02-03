@@ -1,6 +1,15 @@
 # tidyterra (development version)
 
--   In **dplyr** `.by` has moved from experimental to stable. In
+-   New **dplyr** minimum version: **1.2.0**.
+
+### New Methods
+
+-   `add_count.SpatVector()`.
+-   `filter_out.SpatVector()`.
+
+### Changes in arguments
+
+-   In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
     `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
     been extended to the following **tidyterra** methods as new arguments
     (#193):
@@ -14,15 +23,14 @@
     -   `arrange.SpatVector()`: `.locale` added (see `dplyr::arrange()`).
     -   `filter.SpatVector()`: `.preserve` argument support added (previously it
         was ignored).
+        -   In `count.SpatVector()`:
+            -   `wt` argument for performing weighted counts supported.
+            -   `.drop` argument deprecated, (it never really worked).
+
+### Deprecations
+
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
     **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
--   In `count.SpatVector()`:
-    -   `wt` argument for performing weighted counts supported.
-    -   `.drop` argument deprecated, (it never really worked).
-
-### New Methods:
-
--   `add_count.SpatVector()`.
 
 # tidyterra 1.0.0
 

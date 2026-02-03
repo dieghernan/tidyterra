@@ -38,9 +38,17 @@ details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-The \code{filter()} function is used to subset \verb{Spat*} objects, retaining all
-cells/geometries that satisfy your conditions. To be retained, the
-cell/geometry must produce a value of \code{TRUE} for all conditions.
+These functions are used to subset a data frame, applying the expressions in
+\code{...} to determine which rows should be kept (for \code{filter()}) or dropped (
+for \code{filter_out()}).
+
+Multiple conditions can be supplied separated by a comma. These will be
+combined with the \code{&} operator. To combine comma separated conditions using
+\code{|} instead, wrap them in \code{\link[dplyr:when-any-all]{dplyr::when_any()}}.
+
+Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. This subtle
+behaviour can impact how you write your conditions when missing values are
+involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
 \strong{It is possible to filter a \code{SpatRaster} by its geographic coordinates}.
 You need to use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
@@ -109,6 +117,12 @@ r2 |>
     y > 42
   ) |>
   plot()
+v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+glimpse(v)
+v |> filter(cpro < 10)
+
+# Same as
+v |> filter_out(cpro >= 10)
 }
 \seealso{
 \code{\link[dplyr:filter]{dplyr::filter()}}
