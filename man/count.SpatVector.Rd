@@ -3,6 +3,7 @@
 \name{count.SpatVector}
 \alias{count.SpatVector}
 \alias{tally.SpatVector}
+\alias{add_count.SpatVector}
 \title{Count the observations in each \code{SpatVector} group}
 \usage{
 \method{count}{SpatVector}(
@@ -11,11 +12,13 @@
   wt = NULL,
   sort = FALSE,
   name = NULL,
-  .drop = group_by_drop_default(x),
+  .drop = deprecated(),
   .dissolve = TRUE
 )
 
 \method{tally}{SpatVector}(x, wt = NULL, sort = FALSE, name = NULL)
+
+\method{add_count}{SpatVector}(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 }
 \arguments{
 \item{x}{A \code{SpatVector}.}
@@ -23,7 +26,12 @@
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables to group
 by.}
 
-\item{wt}{Not implemented on this method}
+\item{wt}{<\code{\link[rlang:args_data_masking]{data-masking}}> Frequency weights.
+Can be \code{NULL} or a variable:
+\itemize{
+\item If \code{NULL} (the default), counts the number of rows in each group.
+\item If a variable, computes \code{sum(wt)} for each group.
+}}
 
 \item{sort}{If \code{TRUE}, will show the largest groups at the top.}
 
@@ -33,14 +41,9 @@ If omitted, it will default to \code{n}. If there's already a column called \cod
 it will use \code{nn}. If there's a column called \code{n} and \code{nn}, it'll use
 \code{nnn}, and so on, adding \code{n}s until it gets a new name.}
 
-\item{.drop}{Handling of factor levels that don't appear in the data, passed
-on to \code{\link[dplyr:group_by]{group_by()}}.
-
-For \code{count()}: if \code{FALSE} will include counts for empty groups (i.e. for
-levels of factors that don't exist in the data).
-
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} For \code{add_count()}: deprecated since it
-can't actually affect the output.}
+\item{.drop}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Argument not longer
+supported; empty groups are always removed (see \code{\link[dplyr:count]{dplyr::count()}},
+\code{.drop = TRUE} argument).}
 
 \item{.dissolve}{logical. Should borders between aggregated geometries
 be dissolved?}
@@ -53,7 +56,11 @@ A \code{SpatVector} object with an additional attribute.
 \code{df |> count(a, b)} is roughly equivalent to
 \code{df |> group_by(a, b) |> summarise(n = n())}. \code{count()} is paired with
 \code{tally()}, a lower-level helper that is equivalent to
-\code{df |> summarise(n = n())}.
+\code{df |> summarise(n = n())}.  Supply \code{wt} to perform weighted counts,
+switching the summary from \code{n = n()} to \code{n = sum(wt)}.
+
+\code{add_count()} is equivalent to \code{count()} but use \code{\link[=mutate]{mutate()}} instead of
+\code{\link[=summarise]{summarise()}} so that it adds a new column with group-wise counts.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -64,8 +71,8 @@ A \code{SpatVector} object with an additional attribute.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} family functions for
-\code{SpatVector} objects.
+Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} methods for \code{SpatVector}
+objects.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.
@@ -77,8 +84,6 @@ handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}
 library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
-
-p |> count(NAME_1, sort = TRUE)
 
 p |> count(NAME_1, sort = TRUE)
 

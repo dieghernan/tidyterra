@@ -1,6 +1,34 @@
 # From dplyr
 # count -------------------------------------------------------------------
 
+test_that("count sorts output by keys by default", {
+  skip_on_cran()
+
+  # Due to usage of `summarise()` internally
+  df <- tibble(x = c(2, 1, 1, 2, 1))
+
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  df <- cbind(v[seq_len(nrow(df)), 0], df)
+
+  expect_s4_class(df, "SpatVector")
+  out <- count(df, x)
+  expect_equal(as_tibble(out)$x, c(1, 2))
+  expect_equal(as_tibble(out)$n, c(3, 2))
+})
+
+test_that("count can sort output by `n`", {
+  skip_on_cran()
+
+  df <- tibble(x = c(1, 1, 2, 2, 2))
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  df <- cbind(v[seq_len(nrow(df)), 0], df)
+
+  out <- count(df, x, sort = TRUE)
+  expect_equal(as_tibble(out)$x, c(2, 1))
+  expect_equal(as_tibble(out)$n, c(3, 2))
+})
+
+
 test_that("informs if n column already present, unless overridden", {
   skip_on_cran()
 
@@ -14,19 +42,21 @@ test_that("informs if n column already present, unless overridden", {
   expect_s4_class(out, "SpatVector")
   expect_named(out, c("n", "nn"))
 
-  # not supported
-  expect_error(count(df1, n, name = "n"))
+  # not a good idea, but supported
+  expect_message(out <- count(df1, n, name = "n"), NA)
+  expect_named(out, "n")
 
   expect_message(out <- count(df1, n, name = "nn"), NA)
   expect_named(out, c("n", "nn"))
 
-  df2 <- df1
-  df2$nn <- 1:5
+  df2 <- tibble(n = c(1, 1, 2, 2, 2), nn = 1:5)
+  df2$lon <- df2$n
+  df2$lat <- df2$n
+  df2 <- terra::vect(df2)
 
   expect_message(out <- count(df2, n), "already present")
-  expect_s4_class(out, "SpatVector")
   expect_named(out, c("n", "nn"))
-
+  expect_s4_class(df2, "SpatVector")
   expect_message(out <- count(df2, n, nn), "already present")
   expect_named(out, c("n", "nn", "nnn"))
 })
@@ -41,6 +71,18 @@ test_that("name must be string", {
 
   expect_snapshot(error = TRUE, count(df1, x, name = 1))
   expect_snapshot(error = TRUE, count(df1, x, name = letters))
+})
+
+test_that(".drop argument deprecated", {
+  skip_on_cran()
+
+  df <- terra::vect(tibble(lat = 1, lon = 1))
+  df <- cbind(df, tibble(f = factor("b", levels = c("a", "b", "c"))))
+
+  expect_snapshot(res <- count(df, f, .drop = FALSE))
+  res2 <- count(df, f)
+
+  expect_identical(as_tibble(res), as_tibble(res2))
 })
 
 test_that("output preserves grouping", {
@@ -96,10 +138,10 @@ test_that("can only explicitly chain together multiple tallies", {
     df$lon <- 1:4
     df <- terra::vect(df, crs = "EPSG:3857")
 
-    df |> count(g)
+    df |> count(g, wt = n)
     df |>
-      count(g) |>
-      count()
+      count(g, wt = n) |>
+      count(wt = n)
     df |> count(n)
   })
 })
@@ -120,6 +162,20 @@ test_that("tally can sort output", {
   expect_true(all(as_tibble(out) == data.frame(x = c(2, 1), n = c(3, 2))))
 })
 
+test_that("weighted tally drops NAs", {
+  skip_on_cran()
+
+  df <- tibble(x = c(1, 1, NA))
+  df$lon <- 1:3
+  df$lat <- df$lon
+  df <- as_spatvector(df)
+  expect_s4_class(df, "SpatVector")
+
+  res <- tally(df, x)
+  expect_s4_class(res, "SpatVector")
+  expect_equal(res$n, 2)
+})
+
 test_that("tally() drops last group", {
   skip_on_cran()
 
@@ -129,6 +185,76 @@ test_that("tally() drops last group", {
   res <- expect_message(df |> group_by(x, y) |> tally(), NA)
   expect_equal(group_vars(res), "x")
 })
+
+
+# add_count ---------------------------------------------------------------
+
+test_that("add_count preserves grouping", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), n = c(1, 3, 3, 3))
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g)
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+  res2 <- df |>
+    group_by(g) |>
+    add_count()
+  expect_s4_class(res2, "SpatVector")
+
+  expect_equal(res2 |> as_tibble(), exp |> group_by(g) |> as_tibble())
+})
+
+test_that("add_count sorts", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), n = c(1, 3, 3, 3))
+  exp <- exp[order(exp$n, decreasing = TRUE), ]
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g, sort = TRUE)
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+  res2 <- df |>
+    group_by(g) |>
+    add_count(sort = TRUE)
+  expect_s4_class(res2, "SpatVector")
+
+  expect_equal(res2 |> as_tibble(), exp |> group_by(g) |> as_tibble())
+})
+
+test_that("add_count() `wt` works", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2), f = c(5, 3, 4, 1))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), f = c(5, 3, 4, 1), the_wt = c(5, 8, 8, 8))
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g, wt = f, name = "the_wt")
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+})
+
+
+# SpatVector aggregation ------------------------------------------------------
 
 test_that("count Check aggregation: POINTS", {
   skip_on_cran()

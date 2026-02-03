@@ -5,7 +5,11 @@
 #' `df |> count(a, b)` is roughly equivalent to
 #' `df |> group_by(a, b) |> summarise(n = n())`. `count()` is paired with
 #' `tally()`, a lower-level helper that is equivalent to
-#' `df |> summarise(n = n())`.
+#' `df |> summarise(n = n())`.  Supply `wt` to perform weighted counts,
+#' switching the summary from `n = n()` to `n = sum(wt)`.
+#'
+#' `add_count()` is equivalent to `count()` but use [mutate()] instead of
+#' [summarise()] so that it adds a new column with group-wise counts.
 #'
 #' @export
 #' @rdname count.SpatVector
@@ -19,7 +23,9 @@
 #' @importFrom dplyr count
 #'
 #' @param x A `SpatVector`.
-#' @param wt Not implemented on this method
+#' @param .drop `r lifecycle::badge("deprecated")` Argument not longer
+#'   supported; empty groups are always removed (see [dplyr::count()],
+#'   `.drop = TRUE` argument).
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'
@@ -31,8 +37,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::count()] family functions for
-#' `SpatVector` objects.
+#' Implementation of the **generic** [dplyr::count()] methods for `SpatVector`
+#' objects.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].
@@ -43,8 +49,6 @@
 #' library(terra)
 #' f <- system.file("ex/lux.shp", package = "terra")
 #' p <- vect(f)
-#'
-#' p |> count(NAME_1, sort = TRUE)
 #'
 #' p |> count(NAME_1, sort = TRUE)
 #'
@@ -77,17 +81,28 @@ count.SpatVector <- function(
   wt = NULL,
   sort = FALSE,
   name = NULL,
-  .drop = group_by_drop_default(x),
+  .drop = deprecated(),
   .dissolve = TRUE
 ) {
+  if (lifecycle::is_present(.drop)) {
+    lifecycle::deprecate_warn(
+      when = "1.1.0",
+      what = "tidyterra::count.SpatVector(.drop)",
+      details = paste0(
+        "Argument not longer supported; empty groups are always removed",
+        "(see `dplyr::count()`, `.drop = TRUE` argument)."
+      )
+    )
+  }
+
   # Maybe regroup
   if (!missing(...)) {
-    out <- group_by(x, ..., .add = TRUE, .drop = .drop)
+    out <- group_by(x, ..., .add = TRUE, .drop = TRUE)
   } else {
     out <- x
   }
 
-  vend <- tally(out, sort = sort, name = name)
+  vend <- tally(out, sort = sort, name = name, wt = {{ wt }})
 
   # Prepare a template for groups
   template <- dplyr::count(
@@ -95,7 +110,7 @@ count.SpatVector <- function(
     ...,
     sort = sort,
     name = name,
-    .drop = .drop
+    .drop = TRUE
   )
 
   # Dissolve if requested
@@ -133,32 +148,35 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
     x[[vargroup]] <- "UNIQUE"
 
     vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
-    # Keep aggregation only and rename
-    vend <- vend[, "agg_n"]
-    if (is.null(name)) {
-      name <- "n"
-    }
+    df <- tally(as_tibble(x), sort = sort, name = name, wt = {{ wt }})
 
-    names(vend) <- name
+    vend <- cbind(vend[, 0], df)
     return(vend)
   }
 
   # Get tibble and index of rows
   tblforindex <- as_tibble(x)
-  # Get a template
-  template <- dplyr::tally(tblforindex, sort = sort, name = name)
+  # Get the df
+  template <- dplyr::tally(
+    tblforindex,
+    sort = FALSE,
+    name = name,
+    wt = {{ wt }}
+  )
 
   vargroup <- dplyr::group_vars(tblforindex)
   x <- x[, vargroup]
   vend <- terra::aggregate(x, by = vargroup, dissolve = FALSE, count = TRUE)
   # Keep and rename
-  vend <- vend[, c(vargroup, "agg_n")]
+  vend <- cbind(vend[, 0], template)
+
+  newvar <- setdiff(names(template), vargroup)
 
   if (sort) {
     # Re-sort
-    vend <- vend[order(vend$agg_n, decreasing = TRUE), ]
+    vend <- vend[order(template[[newvar]], decreasing = TRUE), ]
   }
-  names(vend) <- names(template)
+
   vend <- ungroup(vend)
 
   # Re-group based on the template
@@ -173,3 +191,61 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 
 #' @export
 dplyr::tally
+
+#' @importFrom dplyr add_count
+#' @export
+#' @name count.SpatVector
+add_count.SpatVector <- function(
+  x,
+  ...,
+  wt = NULL,
+  sort = FALSE,
+  name = NULL,
+  .drop = deprecated()
+) {
+  # Maybe regroup
+  if (!missing(...)) {
+    out <- group_by(x, ..., .add = TRUE, .drop = TRUE)
+  } else {
+    out <- x
+  }
+  x
+
+  # Add count with dplyr method, no sorting yet
+  tbl <- dplyr::add_count(
+    as_tibble(out),
+    sort = FALSE,
+    name = name,
+    wt = {{ wt }}
+  )
+
+  vend <- cbind(out[, 0], tbl)
+
+  if (sort) {
+    newvar <- rev(names(tbl))[1]
+
+    vend <- vend[order(tbl[[newvar]], decreasing = TRUE), ]
+  }
+
+  # Prepare a template for groups
+  template <- dplyr::add_count(
+    as_tibble(x),
+    ...,
+    sort = sort,
+    name = name
+  )
+  # Ensure groups
+  vend <- ungroup(vend)
+
+  # Re-group based on the template
+  if (dplyr::is_grouped_df(template)) {
+    gvars <- dplyr::group_vars(template)
+    vend <- group_by(vend, across_all_of(gvars))
+  }
+
+  vend
+}
+
+
+#' @export
+dplyr::add_count

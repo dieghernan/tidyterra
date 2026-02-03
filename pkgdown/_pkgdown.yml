@@ -3,6 +3,9 @@ url: https://dieghernan.github.io/tidyterra
 figures:
   dpi: 300
   fig.retina: 2
+  
+development:
+  mode: auto
 
 navbar:
   structure:
