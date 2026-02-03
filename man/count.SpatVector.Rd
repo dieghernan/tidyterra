@@ -3,6 +3,7 @@
 \name{count.SpatVector}
 \alias{count.SpatVector}
 \alias{tally.SpatVector}
+\alias{add_count.SpatVector}
 \title{Count the observations in each \code{SpatVector} group}
 \usage{
 \method{count}{SpatVector}(
@@ -16,6 +17,16 @@
 )
 
 \method{tally}{SpatVector}(x, wt = NULL, sort = FALSE, name = NULL)
+
+\method{add_count}{SpatVector}(
+  x,
+  ...,
+  wt = NULL,
+  sort = FALSE,
+  name = NULL,
+  .drop = deprecated(),
+  .dissolve = TRUE
+)
 }
 \arguments{
 \item{x}{A \code{SpatVector}.}
@@ -55,6 +66,9 @@ A \code{SpatVector} object with an additional attribute.
 \code{tally()}, a lower-level helper that is equivalent to
 \code{df |> summarise(n = n())}.  Supply \code{wt} to perform weighted counts,
 switching the summary from \code{n = n()} to \code{n = sum(wt)}.
+
+\code{add_count()} is equivalent to \code{count()} but use \code{\link[=mutate]{mutate()}} instead of
+\code{\link[=summarise]{summarise()}} so that it adds a new column with group-wise counts.
 }
 \section{\CRANpkg{terra} equivalent}{
 

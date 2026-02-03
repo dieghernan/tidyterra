@@ -186,6 +186,74 @@ test_that("tally() drops last group", {
   expect_equal(group_vars(res), "x")
 })
 
+
+# add_count ---------------------------------------------------------------
+
+test_that("add_count preserves grouping", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), n = c(1, 3, 3, 3))
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g)
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+  res2 <- df |>
+    group_by(g) |>
+    add_count()
+  expect_s4_class(res2, "SpatVector")
+
+  expect_equal(res2 |> as_tibble(), exp |> group_by(g) |> as_tibble())
+})
+
+test_that("add_count sorts", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), n = c(1, 3, 3, 3))
+  exp <- exp[order(exp$n, decreasing = TRUE), ]
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g, sort = TRUE)
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+  res2 <- df |>
+    group_by(g) |>
+    add_count(sort = TRUE)
+  expect_s4_class(res2, "SpatVector")
+
+  expect_equal(res2 |> as_tibble(), exp |> group_by(g) |> as_tibble())
+})
+
+test_that("add_count() `wt` works", {
+  skip_on_cran()
+
+  df <- tibble(g = c(1, 2, 2, 2), f = c(5, 3, 4, 1))
+  df$lon <- c(1, 2, 3, 4)
+  df$lat <- c(4, 3, 2, 1)
+  exp <- tibble(g = c(1, 2, 2, 2), f = c(5, 3, 4, 1), the_wt = c(5, 8, 8, 8))
+
+  df <- as_spatvector(df)
+  exp <- cbind(df[, 0], exp)
+
+  res1 <- df |> add_count(g, wt = f, name = "the_wt")
+  expect_s4_class(res1, "SpatVector")
+
+  expect_equal(res1 |> as_tibble(), exp |> as_tibble())
+})
+
+
 # SpatVector aggregation ------------------------------------------------------
 
 test_that("count Check aggregation: POINTS", {

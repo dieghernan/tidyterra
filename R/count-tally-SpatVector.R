@@ -8,6 +8,9 @@
 #' `df |> summarise(n = n())`.  Supply `wt` to perform weighted counts,
 #' switching the summary from `n = n()` to `n = sum(wt)`.
 #'
+#' `add_count()` is equivalent to `count()` but use [mutate()] instead of
+#' [summarise()] so that it adds a new column with group-wise counts.
+#'
 #' @export
 #' @rdname count.SpatVector
 #' @name count.SpatVector
@@ -189,3 +192,61 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 
 #' @export
 dplyr::tally
+
+#' @importFrom dplyr add_count
+#' @export
+#' @name count.SpatVector
+add_count.SpatVector <- function(
+  x,
+  ...,
+  wt = NULL,
+  sort = FALSE,
+  name = NULL,
+  .drop = deprecated()
+) {
+  # Maybe regroup
+  if (!missing(...)) {
+    out <- group_by(x, ..., .add = TRUE, .drop = TRUE)
+  } else {
+    out <- x
+  }
+  x
+
+  # Add count with dplyr method, no sorting yet
+  tbl <- dplyr::add_count(
+    as_tibble(out),
+    sort = FALSE,
+    name = name,
+    wt = {{ wt }}
+  )
+
+  vend <- cbind(out[, 0], tbl)
+
+  if (sort) {
+    newvar <- rev(names(tbl))[1]
+
+    vend <- vend[order(tbl[[newvar]], decreasing = TRUE), ]
+  }
+
+  # Prepare a template for groups
+  template <- dplyr::add_count(
+    as_tibble(x),
+    ...,
+    sort = sort,
+    name = name
+  )
+  # Ensure groups
+  vend <- ungroup(vend)
+
+  # Re-group based on the template
+  if (dplyr::is_grouped_df(template)) {
+    gvars <- dplyr::group_vars(template)
+    vend <- group_by(vend, across_all_of(gvars))
+  }
+
+  vend
+}
+
+
+#' @export
+dplyr::add_count
