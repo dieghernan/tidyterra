@@ -11,13 +11,17 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="tidyterra in the wild">
-<meta name="description" content="Use of tidyterra in publications.">
-<meta property="og:description" content="Use of tidyterra in publications.">
+<meta name="description" content="Use of **tidyterra** in publications.">
+<meta property="og:description" content="Use of **tidyterra** in publications.">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -29,20 +33,15 @@
   gtag('js', new Date());
 
   gtag('config', 'G-KRDM62G8K4');
-</script><!-- fonts --><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&amp;family=Inter:wght@100..900&amp;family=Inter+Tight:wght@100..900&amp;family=Quicksand:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-<!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet">
+</script><!-- gitdevr tweaks --><link href="../BS5/gitdevr.min.css" rel="stylesheet">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">
-      <img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">
-      tidyterra</a>
+    <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
     <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
@@ -58,14 +57,16 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/faqs.html">tidyterra FAQs</a></li>
+<li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
     <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../articles/faqs.html">FAQs</a></li>
-<li class="nav-item"><a class="nav-link" href="../articles/wild.html">In the wild</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -75,6 +76,14 @@
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -90,7 +99,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>tidyterra in the wild</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/wild.Rmd" class="external-link"><code>vignettes/articles/wild.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/new-methods/vignettes/articles/wild.Rmd" class="external-link"><code>vignettes/articles/wild.Rmd</code></a></small>
       <div class="d-none name"><code>wild.Rmd</code></div>
     </div>
 
@@ -224,13 +233,14 @@ and Evolution</em>, <em>15</em>(5), e71137. <a href="https://doi.org/10.1002/ece
 <div id="ref-https://doi.org/10.1111/mec.70179" class="csl-entry">
 Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F.
 C., Esselstyn, J. A., Inayah, N., &amp; Hawkins, M. T. R. (2025).
-Pliocene forest fragmentation shaped speciation in tropical <span class="nocase">Asia’s</span> giant squirrels (<em>ratufa</em>).
-<em>Molecular Ecology</em>, <em>34</em>(24), e70179. <a href="https://doi.org/10.1111/mec.70179" class="external-link">https://doi.org/10.1111/mec.70179</a>
+Pliocene forest fragmentation shaped speciation in tropical <span class="nocase">Asia’s</span> giant squirrels
+(<span><em>Ratufa</em></span>). <em>Molecular Ecology</em>,
+<em>34</em>(24), e70179. <a href="https://doi.org/10.1111/mec.70179" class="external-link">https://doi.org/10.1111/mec.70179</a>
 </div>
 <div id="ref-jones_saur_2025" class="csl-entry">
 Jones, M. D. (2025). Saur and decline: <span>Patterns</span> in lizard
-imports to the <span>US</span> (2000–2022). <em>PLOS One</em>,
-<em>20</em>(10), e0333746. <a href="https://doi.org/10.1371/journal.pone.0333746" class="external-link">https://doi.org/10.1371/journal.pone.0333746</a>
+imports to the <span>US</span> (2000-2022). <em>PLOS ONE</em>,
+<em>20</em>(10), 1–25. <a href="https://doi.org/10.1371/journal.pone.0333746" class="external-link">https://doi.org/10.1371/journal.pone.0333746</a>
 </div>
 <div id="ref-10.3389/fsoil.2025.1548645" class="csl-entry">
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
@@ -285,7 +295,7 @@ Vectors</em>, <em>17</em>(1), 502. <a href="https://doi.org/10.1186/s13071-024-0
 </div>
 <div id="ref-https://doi.org/10.1002/ecog.08112" class="csl-entry">
 Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., &amp;
-Merow, C. (n.d.). Flexible methods for species distribution modeling
+Merow, C. (2026). Flexible methods for species distribution modeling
 with small samples. <em>Ecography</em>, e08112. <a href="https://doi.org/10.1002/ecog.08112" class="external-link">https://doi.org/10.1002/ecog.08112</a>
 </div>
 <div id="ref-mallory_mercury_2025" class="csl-entry">
@@ -348,10 +358,10 @@ shifts in nut-producing species that are important for bears during
 hyperphagia. <em>Frontiers in Forests and Global Change</em>,
 <em>8</em>, 1624612. <a href="https://doi.org/10.3389/ffgc.2025.1624612" class="external-link">https://doi.org/10.3389/ffgc.2025.1624612</a>
 </div>
-<div id="ref-read_assessing_2025" class="csl-entry">
-Read, F. R., Warmington, R. J., &amp; Beale, C. M. (2025). <em>Assessing
+<div id="ref-10.1371/journal.pone.0332485" class="csl-entry">
+Read, F. R., Warmington, R. J., &amp; Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
-<span>Britain</span></em>. <a href="https://doi.org/10.1101/2025.09.02.673856" class="external-link">https://doi.org/10.1101/2025.09.02.673856</a>
+<span>Britain</span>. <em>PLOS ONE</em>, <em>21</em>(1), 1–16. <a href="https://doi.org/10.1371/journal.pone.0332485" class="external-link">https://doi.org/10.1371/journal.pone.0332485</a>
 </div>
 <div id="ref-riley_biomonitoring_2025" class="csl-entry">
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
@@ -452,12 +462,10 @@ diversity. <em>Regional Sustainability</em>, 100294. <a href="https://doi.org/10
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by <a href="https://dieghernan.github.io/" class="external-link">Diego Hernangómez</a>.</p>
+  <p>Developed by <a href="https://dieghernan.github.io/" class="external-link">Diego Hernangómez</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
   <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> using the <a href="https://dieghernan.github.io/gitdevr/" class="external-link">gitdevr</a> template.</p>
 </div>
 

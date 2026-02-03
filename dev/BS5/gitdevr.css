@@ -1,5 +1,85 @@
 /*!  Compressed with sass R library https: //rstudio.github.io/sass/*/
 
+[data-bs-theme="dark"] {
+	color-scheme: dark;
+	--bs-body-bg: #24292f;
+	--bs-body-bg-rgb: 36, 41, 47;
+	--bs-body-color: #fff;
+	--bs-body-color-rgb: 255, 255, 255;
+
+	--bs-blue: #2b8ffd;
+	--bs-blue-rgb: 43, 143, 253;
+	--bs-blue-color: #2b8ffd;
+	--bs-blue-color-rgb: 43, 143, 253;
+
+	--bs-primary: #383d43;
+	--bs-primary-rgb: 56.1, 60.6, 66.9;
+	--bs-primary-color: #383d43;
+	--bs-primary-color-rgb: 56.1, 60.6, 66.9;
+
+	--bs-secondary: #6c757d;
+	--bs-secondary-rgb: 108, 117, 125;
+	--bs-secondary-color: #6c757d;
+	--bs-secondary-rgb: 108, 117, 125;
+
+	--bs-success: #2da44e;
+	--bs-success-rgb: 45, 164, 78;
+	--bs-success-color: #2da44e;
+	--bs-success-color-rgb: 45, 164, 78;
+
+	--bs-info: #9686be;
+	--bs-info-rgb: 150, 134, 190;
+	--bs-info-color: #9686be;
+	--bs-info-color-rgb: 150, 134, 190;
+
+	--bs-warning: #d4a72c;
+	--bs-warning-rgb: 212, 167, 44;
+	--bs-warning-color: #d4a72c;
+	--bs-warning-color-rgb: 212, 167, 44;
+
+	--bs-danger: #d86f75;
+	--bs-danger-rgb: 216, 111, 117;
+	--bs-danger-color: #d86f75;
+	--bs-danger-color-rgb: 216, 111, 117;
+
+	--bs-light: #f8f9fa;
+	--bs-light-rgb: 248, 249, 250;
+	--bs-light-color: #f8f9fa;
+	--bs-light-color-rgb: 248, 249, 250;
+
+	--bs-dark: #343a40;
+	--bs-dark-rgb: 52, 58, 64;
+	--bs-dark-color: #343a40;
+	--bs-dark-color-rgb: 52, 58, 64;
+
+	--bs-link: #2b8ffd;
+	--bs-link-rgb: 43, 143, 253;
+	--bs-link-color: #2b8ffd;
+	--bs-link-color-rgb: 43, 143, 253;
+
+	--bs-link-hover: #025cc0;
+	--bs-link-hover-rgb: 2, 92, 192;
+	--bs-link-hover-color: #025cc0;
+	--bs-link-hover-color-rgb: 2, 92, 192;
+
+	/* Branding */
+	--brand-black: #24292f;
+	--brand-blue: #2b8ffd;
+	--brand-green: #2da44e;
+	--brand-orange: #d4a72c;
+	--brand-red: #d86f75;
+	--brand-purple: #9686be;
+	--brand-code: #e75ca2;
+}
+
+.dropdown-menu {
+	--bs-dropdown-link-active-bg: var(--bs-dropdown-bg);
+	--bs-dropdown-link-color: var(--bs-navbar-color);
+	--bs-dropdown-link-hover-color: #6a788a;
+	--bs-dropdown-link-hover-bg: var(--bs-dropdown-bg);
+	--bs-dropdown-header-color: var(--bs-dropdown-link-hover-color);
+}
+
 /* ---Images and captions figure spacing--- */
 main img {
 	margin-left: auto;
@@ -8,7 +88,7 @@ main img {
 
 .caption,
 .figure {
-	color: #6a788a;
+	color: var(--bs-secondary);
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0.5rem;
@@ -17,54 +97,67 @@ main img {
 }
 
 /* ---Navbar tweaks--- */
-.navbar {
-	font-family: "Inter Tight", Roboto;
-}
 
-.navbar-brand {
+.navbar-brand,
+#navbar,
+.navbar .dropdown-item {
+	font-family: "Inter Tight", Roboto;
 	font-weight: 800;
-	color: #fff;
 }
 
 .navbar .text-muted {
-	color: #c6ced8 !important;
+	color: var(--bs-gray) !important;
 }
 
-.navbar-brand:hover,
-.navbar-brand:focus {
-	color: #fff;
-}
-
-#navbar {
-	font-weight: 800;
-}
-
-#navbar .dropdown-menu {
-	background-color: #212529 !important;
-}
-
-#navbar .dropdown-menu .dropdown-item {
-	color: #fff !important;
-	font-weight: 800;
-}
-
+/* Hovers */
 #navbar .nav-link:hover,
 #navbar .nav-link:focus {
 	color: #6a788a !important;
+	background-color: transparent;
 }
 
-#navbar .dropdown-menu .dropdown-item:hover,
-#navbar .dropdown-menu .dropdown-item:focus {
-	color: #6a788a !important;
-	background-color: #f8f9fa;
+#navbar .dropdown-menu .dropdown-item.active:hover,
+#navbar .dropdown-menu .dropdown-item.active:focus {
+	color: #6a788a;
+}
+
+/* Actives */
+#navbar .nav-item.active .nav-link,
+#navbar .dropdown-menu .dropdown-item.active {
+	color: var(--bs-gray-200);
+	background: transparent;
+}
+
+#navbar .dropdown-menu .dropdown-item .fa {
+	opacity: 1;
+	color: inherit;
 }
 
 .navbar-toggler {
 	border: none;
 }
 
+/* --- Search ---*/
 .algolia-autocomplete .aa-dropdown-menu {
-	color: #22272e;
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+}
+
+mark,
+.mark {
+	background: linear-gradient(
+		-100deg,
+		RGBA(var(--bs-link-color-rgb), 0.2),
+		RGBA(var(--bs-link-color-rgb), 0.7) 95%,
+		RGBA(var(--bs-link-color-rgb), 0.1)
+	);
+}
+
+/* ---Nav pills--- */
+.nav-item .nav-link:hover,
+.nav-pills .nav-link.active:hover {
+	background-color: rgba(var(--bs-body-color-rgb), 0.08);
+	color: #6a788a;
 }
 
 /* ---Footer--- */
@@ -75,11 +168,14 @@ footer {
 	right: 50%;
 	margin-left: -50vw;
 	margin-right: -50vw;
-	background-color: #212529 !important;
-	color: #8b949e;
 	margin-bottom: 0;
 	font-family: "Inter Tight", Roboto;
 	font-weight: 700;
+}
+
+/* Dark mode footer */
+[data-bs-theme="dark"] footer {
+	background-color: var(--bs-body-bg) !important;
 }
 
 footer a {
@@ -89,7 +185,7 @@ footer a {
 
 footer a:hover,
 footer a:focus {
-	color: #8b949e;
+	color: rgb(73, 136.2, 208.6);
 }
 
 footer .pkgdown-footer-right {
@@ -148,6 +244,7 @@ footer .pkgdown-footer-left {
 }
 
 /* ---Misc--- */
+
 img.logo {
 	display: none;
 }
@@ -156,8 +253,23 @@ img.logo {
 	display: inline;
 }
 
+/* Render author and date consistenly between Rmd and quarto files */
+.author,
+.date {
+	color: var(--bs-secondary);
+	font-size: var(--bs-body-font-size);
+	font-weight: var(--bs-body-font-weight);
+	margin-bottom: 0.5rem;
+}
+
+/* Hack to reduce color in dark mode */
+[data-bs-theme="dark"] img.r-plt,
+[data-bs-theme="dark"] pre .r-plt.img img {
+	filter: grayscale(40%) !important;
+}
+
 blockquote {
-	border-left: solid #0969da !important;
+	border-left: solid var(--bs-link);
 	font-size: 115%;
 }
 
@@ -165,177 +277,476 @@ blockquote {
 	font-weight: bold;
 }
 
+/* ---Code--- */
 code a:any-link {
 	text-decoration: underline;
-	text-decoration-color: #6c757d;
+	background-color: transparent !important;
 }
 
 a > code {
 	text-decoration: underline;
-	color: #e83e8c;
+	color: var(--bs-code-color);
 }
 
-/* ---allcontributors package--- */
-
-.allctb-avatar {
-	border: 1px solid;
-	border-radius: 50%;
-	border-color: var(--bs-primary) !important;
-	max-width: 100px;
-}
-
-table.allctb-table td {
-	border-color: transparent;
-}
-
-/* --- Code --- */
 code {
 	font-size: 87.5%;
-	color: #e83e8c;
 	word-wrap: break-word;
+	background-color: var(--body-bg) !important;
+}
+
+@media (max-width: 575.98px) {
+	/* See https://github.com/r-lib/pkgdown/pull/2970 */
+
+	div > pre {
+		border-radius: 0;
+	}
+
+	:not(li, blockquote) > div > pre {
+		margin-left: calc(var(--bs-gutter-x) * -0.5);
+		margin-right: calc(var(--bs-gutter-x) * -0.5);
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	:not(li, blockquote) > div > .btn-copy-ex {
+		right: calc(var(--bs-gutter-x) * -0.5 + 5px);
+	}
 }
 
 /* --- Inherited args --- */
-
-.template-reference-topic dt code {
-	font-weight: 700;
-	font-family: var(--bs-body-font-family);
-	font-size: var(--bs-body-font-size);
-	color: var(--bs-body-color);
-	text-align: var(--bs-body-text-align);
-	background-color: var(--bs-body-bg);
-	padding: 0;
-	border-radius: 0;
+.template-reference-topic dt {
+	font-weight: 800;
+	font-family: "Inter Tight", Roboto;
 }
 
-/* --- Highlighter based in perldoc --- */
+/* --- Highlighter based in gitdevr --- */
 pre {
-	background-color: #f4f4f5;
+	border: none;
+}
+
+pre {
+	background-color: rgba(var(--bs-body-color-rgb), 0.03);
+	color: var(--bs-body-color);
 }
 
 pre code
 
 /* Normal - pygments.n */ {
-	color: #212529;
+	color: var(--bs-body-color);
 }
 
 pre code span.al
 
 /* Alert - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
 }
 
 pre code span.an
 
 /* Annotation - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-500);
+	font-style: italic;
+}
+
+pre code span.at
+
+/* Attribute - e.g value (non numeric) in YAML */ {
+	color: var(--bs-info);
+}
+
+pre code span.cf
+
+/* ControlFlow - like Operator -> pygments.o */ {
+	color: var(--bs-info);
 }
 
 pre code span.ch
 
 /* Char - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-warning);
 }
 
 pre code span.cn
 
 /* Constant - pygments.nb */ {
-	color: #658b00;
+	color: var(--bs-warning);
 }
 
 pre code span.co
 
 /* Comment - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-500);
+	font-style: italic;
 }
 
 pre code span.cv
 
 /* CommentVar - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-500);
+	font-style: italic;
 }
 
 pre code span.do
 
 /* Documentation - pygments.c1 */ {
-	color: #228b22;
+	color: var(--bs-gray-500);
+	font-style: italic;
 }
 
 pre code span.dv
 
 /* DecVal - pygments.m */ {
-	color: #b452cd;
+	color: var(--bs-info);
 }
 
 pre code span.er
 
 /* Error - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
 }
 
 pre code span.fl
 
 /* Float - pygments.m */ {
-	color: #b452cd;
+	color: var(--bs-info);
 }
 
 pre code span.fu
 
 /* Function - pygments.n */ {
-	color: #212529;
+	color: var(--bs-blue);
 }
 
 pre code span.in
 
 /* Information - pygments.gp */ {
-	color: #555555;
+	color: var(--bs-gray-500);
+	font-style: italic;
 }
 
 pre code span.kw
 
 /* Keyword - pygments.k */ {
-	color: #8b008b;
+	color: var(--bs-info);
 	font-weight: bold;
+}
+
+pre code span.op
+  /* Operator - pygments.o */ {
+	color: var(--bs-info);
 }
 
 pre code span.ot
 
 /* Other - pygments.sx */ {
-	color: #cb6c20;
+	color: var(--bs-success);
 }
 
 pre code span.sc
 
 /* SpecialChar - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.ss
 
 /* SpecialString - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.st
 
 /* String - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-success);
 }
 
 pre code span.va
 
 /* Variable - pygments.n */ {
-	color: #212529;
+	color: var(--bs-body-color);
 }
 
 pre code span.vs
 
 /* VerbatimString - pygments.s2 */ {
-	color: #cd5555;
+	color: var(--bs-danger);
 }
 
 pre code span.wa
 
 /* Warning - pygments.gr */ {
-	color: #aa0000;
+	color: var(--bs-danger);
+}
+
+/* Highlighter based in gitdevr --- */
+
+[data-bs-theme="dark"] {
+	pre {
+		background-color: rgba(var(--bs-body-color-rgb), 0.03);
+		color: var(--bs-body-color);
+	}
+
+	pre code
+
+/* Normal - pygments.n */ {
+		color: var(--bs-body-color);
+	}
+
+	pre code span.al
+
+/* Alert - pygments.gr */ {
+		color: var(--bs-danger);
+	}
+
+	pre code span.an
+
+/* Annotation - pygments.c1 */ {
+		color: var(--bs-gray-500);
+		font-style: italic;
+	}
+
+	pre code span.at
+
+/* Attribute - e.g value (non numeric) in YAML */ {
+		color: var(--bs-info);
+	}
+
+	pre code span.cf
+
+/* ControlFlow - like Operator -> pygments.o */ {
+		color: var(--bs-info);
+	}
+
+	pre code span.ch
+
+/* Char - pygments.s2 */ {
+		color: var(--bs-warning);
+	}
+
+	pre code span.cn
+
+/* Constant - pygments.nb */ {
+		color: var(--bs-warning);
+	}
+
+	pre code span.co
+
+/* Comment - pygments.c1 */ {
+		color: var(--bs-gray-500);
+		font-style: italic;
+	}
+
+	pre code span.cv
+
+/* CommentVar - pygments.c1 */ {
+		color: var(--bs-gray-500);
+		font-style: italic;
+	}
+
+	pre code span.do
+
+/* Documentation - pygments.c1 */ {
+		color: var(--bs-gray-500);
+		font-style: italic;
+	}
+
+	pre code span.dv
+
+/* DecVal - pygments.m */ {
+		color: var(--bs-info);
+	}
+
+	pre code span.er
+
+/* Error - pygments.gr */ {
+		color: var(--bs-danger);
+	}
+
+	pre code span.fl
+
+/* Float - pygments.m */ {
+		color: var(--bs-info);
+	}
+
+	pre code span.fu
+
+/* Function - pygments.n */ {
+		color: var(--bs-blue);
+	}
+
+	pre code span.in
+
+/* Information - pygments.gp */ {
+		color: var(--bs-gray-500);
+		font-style: italic;
+	}
+
+	pre code span.kw
+
+/* Keyword - pygments.k */ {
+		color: var(--bs-info);
+		font-weight: bold;
+	}
+
+	pre code span.op
+  /* Operator - pygments.o */ {
+		color: var(--bs-info);
+	}
+
+	pre code span.ot
+
+/* Other - pygments.sx */ {
+		color: var(--bs-success);
+	}
+
+	pre code span.sc
+
+/* SpecialChar - pygments.s2 */ {
+		color: var(--bs-success);
+	}
+
+	pre code span.ss
+
+/* SpecialString - pygments.s2 */ {
+		color: var(--bs-success);
+	}
+
+	pre code span.st
+
+/* String - pygments.s2 */ {
+		color: var(--bs-success);
+	}
+
+	pre code span.va
+
+/* Variable - pygments.n */ {
+		color: var(--bs-body-color);
+	}
+
+	pre code span.vs
+
+/* VerbatimString - pygments.s2 */ {
+		color: var(--bs-danger);
+	}
+
+	pre code span.wa
+
+/* Warning - pygments.gr */ {
+		color: var(--bs-danger);
+	}
+}
+
+/* Dark reactable */
+
+[data-bs-theme="dark"] {
+	.reactable.html-widget {
+		filter: none !important;
+	}
+
+	.Reactable {
+		background-color: var(--bs-body-bg);
+		color: var(--bs-body-color);
+	}
+
+	.rt-sticky,
+	.rt-tbody,
+	.rt-tr,
+	.rt-tr-group {
+		background-color: inherit;
+	}
+
+	.rt-table {
+		border-color: var(--brand-dk_black);
+	}
+
+	.rt-th {
+		border-bottom: 2px solid var(--brand-dk_black);
+		border-left-color: var(--brand-dk_black);
+	}
+
+	.rt-td {
+		border-left-color: var(--brand-dk_black);
+		border-top: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-th-group:after {
+		background-color: var(--brand-dk_black);
+	}
+
+	.rt-tr-striped {
+		background-color: rgba(0, 0, 0, 0.03);
+	}
+
+	.rt-tr-striped-sticky {
+		background-color: var(--brand-dk_black);
+	}
+
+	.rt-tr-highlight:hover,
+	.rt-tr-highlight-sticky:hover {
+		background-color: var(--bs-gray-800);
+	}
+	.rt-td-filter {
+		border-bottom: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-filter {
+		background-color: var(--brand-dk_black);
+		border: 1px solid var(--brand-dk_black);
+		color: inherit;
+	}
+
+	.rt-filter:focus {
+		border: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-expander:after {
+		border-top: 7px solid var(--brand-dk_black);
+	}
+
+	.rt-pagination {
+		border-top: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-page-jump,
+	.rt-page-size-select {
+		background-color: var(--bs-body-bg);
+		border: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-page-button:hover {
+		background-color: var(--bs-gray-800);
+	}
+
+	.rt-page-button:active {
+		background-color: rgba(0, 0, 0, 0.08);
+	}
+
+	.rt-keyboard-active .rt-page-button:focus {
+		background-color: rgba(0, 0, 0, 0.04);
+	}
+
+	.rt-page-button:disabled:focus,
+	.rt-page-button:disabled:hover {
+		background-color: transparent;
+	}
+
+	.rt-tbody-no-data .rt-td {
+		border-color: transparent;
+	}
+
+	.rt-search {
+		background-color: var(--brand-dk_black);
+		border: 1px solid var(--brand-dk_black);
+		color: var(--bs-body-color);
+	}
+
+	.rt-search:active,
+	.rt-search:focus {
+		border: 1px solid var(--brand-dk_black);
+	}
+
+	.rt-borderless .rt-td,
+	.rt-tr-group:first-child > .rt-tr:first-child .rt-td {
+		border-top-color: var(--brand-dk_black);
+	}
 }

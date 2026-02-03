@@ -7,7 +7,7 @@ values of selected columns.
 
 ``` r
 # S3 method for class 'SpatVector'
-arrange(.data, ..., .by_group = FALSE)
+arrange(.data, ..., .by_group = FALSE, .locale = NULL)
 ```
 
 ## Arguments
@@ -27,8 +27,32 @@ arrange(.data, ..., .by_group = FALSE)
 - .by_group:
 
   If `TRUE`, will sort first by grouping variable. Applies to grouped
-  `SpatVector` only (see
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)).
+  `SpatVector` only.
+
+- .locale:
+
+  The locale to sort character vectors in.
+
+  - If `NULL`, the default, uses the `"C"` locale unless the
+    `dplyr.legacy_locale` global option escape hatch is active. See the
+    [dplyr-locale](https://dplyr.tidyverse.org/reference/dplyr-locale.html)
+    help page for more details.
+
+  - If a single string from
+    [`stringi::stri_locale_list()`](https://rdrr.io/pkg/stringi/man/stri_locale_list.html)
+    is supplied, then this will be used as the locale to sort with. For
+    example, `"en"` will sort with the American English locale. This
+    requires the stringi package.
+
+  - If `"C"` is supplied, then character vectors will always be sorted
+    in the C locale. This does not require stringi and is often much
+    faster than supplying a locale identifier.
+
+  The C locale is not the same as English locales, such as `"en"`,
+  particularly when it comes to data containing a mix of upper and lower
+  case letters. This is explained in more detail on the
+  [locale](https://dplyr.tidyverse.org/reference/dplyr-locale.html) help
+  page under the `Default locale` section.
 
 ## Value
 
@@ -101,7 +125,6 @@ library(dplyr)
 
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-
 # Single variable
 
 v |>
@@ -117,7 +140,6 @@ v |>
 #>                ES-VA    47 Valladolid
 #>                ES-SO    42      Soria
 
-
 # Two variables
 v |>
   mutate(even = as.double(cpro) %% 2 == 0, ) |>
@@ -132,7 +154,6 @@ v |>
 #>  values      : ES-SO    42    Soria      TRUE
 #>                ES-SG    40  Segovia      TRUE
 #>                 ES-P    34 Palencia      TRUE
-
 
 # With new variables
 v |>

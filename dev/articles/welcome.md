@@ -1,6 +1,6 @@
 # Welcome to tidyterra
 
-## Welcome to {tidyterra}
+## The tidyterra package
 
 **tidyterra** is a package that adds common methods from the
 [**tidyverse**](https://tidyverse.org/) for `SpatRaster` and

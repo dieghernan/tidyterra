@@ -124,7 +124,6 @@ library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
-
 by_name1 <- p |> group_by(NAME_1)
 
 # grouping doesn't change how the SpatVector looks
@@ -167,7 +166,6 @@ head(by_name1_tbl, 3)
 #> 1     1 Diekirch     1 Clervaux   312 18081
 #> 2     1 Diekirch     2 Diekirch   218 32543
 #> 3     1 Diekirch     3 Redange    259 18664
-
 
 # It changes how it acts with the other dplyr verbs:
 by_name1 |> summarise(
@@ -264,7 +262,6 @@ by_name2_name1 |>
   group_by(ID_1, ID_2) |>
   group_vars()
 #> [1] "ID_1" "ID_2"
-
 
 # Use add = TRUE to instead append
 by_name2_name1 |>

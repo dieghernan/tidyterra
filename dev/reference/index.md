@@ -65,8 +65,6 @@ Verbs that principally operate on columns.
 
 - [`mutate(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
   [`mutate(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
-  [`transmute(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
-  [`transmute(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
   :
 
   Create, modify, and delete cell values/layers/attributes of `Spat*`

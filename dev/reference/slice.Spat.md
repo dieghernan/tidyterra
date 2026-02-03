@@ -37,19 +37,19 @@ See **Methods** for details.
 slice(.data, ..., .preserve = FALSE, .keep_extent = FALSE)
 
 # S3 method for class 'SpatVector'
-slice(.data, ..., .preserve = FALSE)
+slice(.data, ..., .by = NULL, .preserve = FALSE)
 
 # S3 method for class 'SpatRaster'
 slice_head(.data, ..., n, prop, .keep_extent = FALSE)
 
 # S3 method for class 'SpatVector'
-slice_head(.data, ..., n, prop)
+slice_head(.data, ..., n, prop, by = NULL)
 
 # S3 method for class 'SpatRaster'
 slice_tail(.data, ..., n, prop, .keep_extent = FALSE)
 
 # S3 method for class 'SpatVector'
-slice_tail(.data, ..., n, prop)
+slice_tail(.data, ..., n, prop, by = NULL)
 
 # S3 method for class 'SpatRaster'
 slice_min(
@@ -64,7 +64,16 @@ slice_min(
 )
 
 # S3 method for class 'SpatVector'
-slice_min(.data, order_by, ..., n, prop, with_ties = TRUE, na_rm = FALSE)
+slice_min(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  by = NULL,
+  with_ties = TRUE,
+  na_rm = FALSE
+)
 
 # S3 method for class 'SpatRaster'
 slice_max(
@@ -79,7 +88,16 @@ slice_max(
 )
 
 # S3 method for class 'SpatVector'
-slice_max(.data, order_by, ..., n, prop, with_ties = TRUE, na_rm = FALSE)
+slice_max(
+  .data,
+  order_by,
+  ...,
+  n,
+  prop,
+  by = NULL,
+  with_ties = TRUE,
+  na_rm = FALSE
+)
 
 # S3 method for class 'SpatRaster'
 slice_sample(
@@ -93,7 +111,7 @@ slice_sample(
 )
 
 # S3 method for class 'SpatVector'
-slice_sample(.data, ..., n, prop, weight_by = NULL, replace = FALSE)
+slice_sample(.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)
 
 slice_rows(.data, ...)
 
@@ -139,6 +157,17 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
   Should the extent of the resulting `SpatRaster` be kept? See also
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
   [`terra::extend()`](https://rspatial.github.io/terra/reference/extend.html).
+
+- .by, by:
+
+  **\[experimental\]**
+
+  \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
+  Optionally, a selection of columns to group by for just this
+  operation, functioning as an alternative to
+  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
+  For details and examples, see
+  [?dplyr_by](https://dplyr.tidyverse.org/reference/dplyr_by.html).
 
 - n, prop:
 
@@ -212,11 +241,11 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)
-function.
+method.
 
 ### `SpatRaster`
 
-The result is a `SpatRaster` with the crs and resolution of the input
+The result is a `SpatRaster` with the CRS and resolution of the input
 and where cell values of the selected cells/columns/rows are preserved.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
@@ -279,7 +308,6 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
-
 library(terra)
 
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
@@ -307,7 +335,6 @@ r |>
 r |>
   slice_sample(prop = 0.2) |>
   plot()
-
 
 
 # Slice regions

@@ -48,7 +48,7 @@ A `Spat*` object of the same class than `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
-function.
+method.
 
 ### `SpatRaster`
 
@@ -94,14 +94,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ``` r
 library(terra)
 
-
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 names(spatrast)
 #> [1] "cyl_tile_1" "cyl_tile_2" "cyl_tile_3" "aa"         "bb"        
 #> [6] "cc"        
-
 
 spatrast |>
   relocate(bb, .before = cyl_tile_3) |>

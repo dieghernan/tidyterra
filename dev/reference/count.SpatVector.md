@@ -2,14 +2,11 @@
 
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) lets you
 quickly count the unique values of one or more variables:
-
-- `df |> count(a, b)` is roughly equivalent to
-  `df |> group_by(a, b) |> summarise(n = n())`.
-
-- [`count()`](https://dplyr.tidyverse.org/reference/count.html) is
-  paired with
-  [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
-  lower-level helper that is equivalent to `df |> summarise(n = n())`.
+`df |> count(a, b)` is roughly equivalent to
+`df |> group_by(a, b) |> summarise(n = n())`.
+[`count()`](https://dplyr.tidyverse.org/reference/count.html) is paired
+with [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
+lower-level helper that is equivalent to `df |> summarise(n = n())`.
 
 ## Usage
 
@@ -42,7 +39,12 @@ tally(x, wt = NULL, sort = FALSE, name = NULL)
 
 - wt:
 
-  Not implemented on this method
+  \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
+  Frequency weights. Can be `NULL` or a variable:
+
+  - If `NULL` (the default), counts the number of rows in each group.
+
+  - If a variable, computes `sum(wt)` for each group.
 
 - sort:
 
@@ -131,19 +133,6 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 library(terra)
 f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
-
-
-p |> count(NAME_1, sort = TRUE)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1     n
-#>  type        :        <chr> <int>
-#>  values      :     Diekirch     5
-#>                  Luxembourg     4
-#>                Grevenmacher     3
 
 p |> count(NAME_1, sort = TRUE)
 #>  class       : SpatVector 

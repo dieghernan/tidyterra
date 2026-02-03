@@ -141,7 +141,8 @@ labs <- c(100, 140, 180, 220)
 
 ggplot(r) +
   geom_spatraster_contour_text(
-    data = r, aes(
+    data = r,
+    aes(
       linewidth = after_stat(level),
       size = after_stat(level),
       color = after_stat(level)
@@ -199,7 +200,8 @@ ggplot(r, aes(x, y)) +
   ) +
   geom_text_contour(
     aes(
-      z = elevation, color = after_stat(level),
+      z = elevation,
+      color = after_stat(level),
       size = after_stat(level)
     ),
     breaks = br,
@@ -325,8 +327,11 @@ p <- st_point(c(-3.166011, 55.945235)) |>
   st_sfc(crs = 4326) |>
   st_buffer(500)
 
-tile1 <- get_tiles(p,
-  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+tile1 <- get_tiles(
+  p,
+  provider = "OpenStreetMap",
+  zoom = 14,
+  cachedir = ".",
   crop = TRUE
 )
 
@@ -344,8 +349,11 @@ st_crs(tile1)$epsg
 p2 <- st_transform(p, 3857)
 
 
-tile2 <- get_tiles(p2,
-  provider = "OpenStreetMap", zoom = 14, cachedir = ".",
+tile2 <- get_tiles(
+  p2,
+  provider = "OpenStreetMap",
+  zoom = 14,
+  cachedir = ".",
   crop = TRUE
 )
 
@@ -605,7 +613,8 @@ scales::show_col(cols)
 
 g +
   scale_fill_manual(
-    values = cols, na.value = "transparent",
+    values = cols,
+    na.value = "transparent",
     na.translate = FALSE
   ) +
   ggtitle("scale_fill_manual method")
@@ -711,9 +720,13 @@ aoi <- gadm(country = "CHE", path = ".", level = 0) |>
   project("EPSG:3857")
 
 # Tile
-rgb_tile <- get_tiles(aoi,
-  crop = TRUE, provider = "Esri.WorldShadedRelief",
-  zoom = 8, project = FALSE, cachedir = "."
+rgb_tile <- get_tiles(
+  aoi,
+  crop = TRUE,
+  provider = "Esri.WorldShadedRelief",
+  zoom = 8,
+  project = FALSE,
+  cachedir = "."
 )
 
 # Clim (mean prec)
@@ -737,7 +750,8 @@ ggplot(aoi) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     labels = scales::label_number(suffix = " mm.")
   ) +
   coord_sf(expand = FALSE) +
@@ -762,7 +776,8 @@ ggplot(aoi) +
   geom_spatraster(data = clim) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_b(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     n.breaks = 4,
     labels = scales::label_number(suffix = " mm.")
   ) +
@@ -786,7 +801,8 @@ ggplot(aoi) +
   geom_spatvector(fill = NA) +
   coord_sf(expand = FALSE) +
   scale_fill_whitebox_d(
-    palette = "deep", alpha = 0.5,
+    palette = "deep",
+    alpha = 0.5,
     guide = guide_legend(reverse = TRUE)
   ) +
   labs(
@@ -824,7 +840,9 @@ r <- rast(holyrood)
 # With hex grid
 ggplot(r, aes(x, y, z = elevation)) +
   stat_summary_hex(
-    fun = mean, color = NA, linewidth = 0,
+    fun = mean,
+    color = NA,
+    linewidth = 0,
     # Bins size determines the number of cells displayed
     bins = 30
   ) +
@@ -832,7 +850,8 @@ ggplot(r, aes(x, y, z = elevation)) +
   labs(
     title = "Hexagonal SpatRaster",
     subtitle = "Using fortify (implicit) and stat_summary_hex",
-    x = NULL, y = NULL
+    x = NULL,
+    y = NULL
   )
 ```
 
@@ -849,9 +868,11 @@ Thanks to this extension mechanism, it is possible to use additional
 ``` r
 # Point plot
 ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
-  geom_point(aes(size = elevation, alpha = elevation),
+  geom_point(
+    aes(size = elevation, alpha = elevation),
     fill = "darkblue",
-    color = "grey50", shape = 21
+    color = "grey50",
+    shape = 21
   ) +
   coord_sf(crs = pull_crs(r)) +
   scale_radius(range = c(1, 5)) +
@@ -859,7 +880,8 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   labs(
     title = "SpatRaster as points",
     subtitle = "Using fortify (implicit)",
-    x = NULL, y = NULL
+    x = NULL,
+    y = NULL
   )
 ```
 
@@ -888,7 +910,8 @@ r <- rast(holyrood)
 ggplot(r, aes(x, y)) +
   geom_relief(aes(z = elevation)) +
   geom_spatraster(
-    data = r, inherit.aes = FALSE,
+    data = r,
+    inherit.aes = FALSE,
     aes(alpha = after_stat(value))
   ) +
   scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
@@ -913,21 +936,21 @@ Details
     #>  collate  English_United States.utf8
     #>  ctype    English_United States.utf8
     #>  tz       UTC
-    #>  date     2026-01-25
+    #>  date     2026-02-03
     #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
     #>  quarto   NA
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
     #>  package      * version    date (UTC) lib source
     #>  backports      1.5.0      2024-05-23 [1] RSPM
-    #>  bslib          0.9.0      2025-01-30 [1] RSPM
+    #>  bslib          0.10.0     2026-01-26 [1] RSPM
     #>  cachem         1.1.0      2024-05-16 [1] RSPM
     #>  checkmate      2.3.3      2025-08-18 [1] RSPM
     #>  class          7.3-23     2025-01-01 [3] CRAN (R 4.5.2)
     #>  classInt       0.4-11     2025-01-08 [1] RSPM
     #>  cli            3.6.5      2025-04-23 [1] RSPM
     #>  codetools      0.2-20     2024-03-31 [3] CRAN (R 4.5.2)
-    #>  data.table     1.18.0     2025-12-24 [1] RSPM
+    #>  data.table     1.18.2.1   2026-01-27 [1] RSPM
     #>  DBI            1.2.3      2024-06-02 [1] RSPM
     #>  desc           1.4.3      2023-12-10 [1] RSPM
     #>  digest         0.6.39     2025-11-19 [1] RSPM
@@ -989,7 +1012,7 @@ Details
     #>  tibble         3.3.1      2026-01-11 [1] RSPM
     #>  tidyr          1.3.2      2025-12-19 [1] RSPM
     #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 1.0.0.9000 2026-01-25 [1] local
+    #>  tidyterra    * 1.0.0.9000 2026-02-03 [1] local
     #>  units          1.0-0      2025-10-09 [1] RSPM
     #>  vctrs          0.7.1      2026-01-23 [1] RSPM
     #>  viridisLite    0.4.2      2023-05-02 [1] RSPM

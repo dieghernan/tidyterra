@@ -111,13 +111,6 @@ argument.
 
 ## Installation
 
-Install **tidyterra** from
-[**CRAN**](https://CRAN.R-project.org/package=tidyterra):
-
-``` r
-install.packages("tidyterra")
-```
-
 You can install the development version of **tidyterra** like so:
 
 ``` r
@@ -329,7 +322,7 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
-[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
+[$$tidyterra$$](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 

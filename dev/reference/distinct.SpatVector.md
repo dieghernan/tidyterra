@@ -42,7 +42,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-function.
+method.
 
 ### `SpatVector`
 
@@ -138,7 +138,6 @@ ex2b
 #>                    C     3 Luxembourg    10 Luxembourg   237 1.826e+05
 nrow(ex2b)
 #> [1] 3
-
 
 # Unique geometries
 ex3 <- distinct(v, geometry)
