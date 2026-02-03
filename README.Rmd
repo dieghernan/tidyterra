@@ -159,15 +159,18 @@ does, see the help page). You can adjust this with the `maxcell` argument.
 ## Installation
 
 ::: pkgdown-release
+
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ```{r, eval=FALSE}
 install.packages("tidyterra")
 ```
+
 :::
 
 ::: pkgdown-devel
+
 You can install the development version of **tidyterra** like so:
 
 ```{r, eval=FALSE }
@@ -185,6 +188,7 @@ install.packages("tidyterra", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
 :::
 
 ## Example

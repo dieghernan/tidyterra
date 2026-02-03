@@ -128,6 +128,13 @@ filter.SpatRaster <- function(
 
 #' @export
 #' @rdname filter.Spat
+#' @examples
+#' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#' glimpse(v)
+#' v |> filter( cpro < 10)
+#'
+#' # Same as
+#' v |> filter_out(cpro >= 10)
 filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)
@@ -147,6 +154,29 @@ filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 #' @export
 dplyr::filter
 
-# TODO: Implement method when available
+#' @importFrom dplyr filter_out
+#' @export
+#' @rdname filter.Spat
+filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
+  # Use own method
+  tbl <- as_tibble(.data)
 
-filter_out <- filter.SpatVector
+  var_index <- make_safe_index("tterra_index", tbl)
+  tbl[[var_index]] <- seq_len(nrow(tbl))
+
+  filtered <- dplyr::filter_out(
+    tbl,
+    ...,
+    .by = {{ .by }},
+    .preserve = .preserve
+  )
+
+  vend <- .data[as.integer(filtered[[var_index]]), ]
+
+  vend <- group_prepare_spat(vend, filtered)
+
+  vend
+}
+
+#' @export
+dplyr::filter_out

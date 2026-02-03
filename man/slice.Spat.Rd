@@ -118,9 +118,7 @@ beyond the number of rows in the input are silently ignored. See
 \item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
 See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
 
-\item{.by, by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
+\item{.by, by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
 details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 
@@ -153,7 +151,9 @@ reach \code{n}/\code{prop}.}
 
 \item{weight_by}{<\code{\link[rlang:args_data_masking]{data-masking}}> Sampling
 weights. This must evaluate to a vector of non-negative numbers the same
-length as the input. Weights are automatically standardised to sum to 1.}
+length as the input. Weights are automatically standardised to sum to 1.
+See the \code{Details} section for more technical details regarding these
+weights.}
 
 \item{replace}{Should sampling be performed with (\code{TRUE}) or without
 (\code{FALSE}, the default) replacement.}
