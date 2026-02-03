@@ -96,6 +96,7 @@ Verbs that principally operate on groups of rows.
 
 - [`count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   [`tally(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
+  [`add_count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   :
 
   Count the observations in each `SpatVector` group

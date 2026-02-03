@@ -5,6 +5,7 @@ to see their documentation.
 
 - dplyr:
 
+  [`add_count`](https://dplyr.tidyverse.org/reference/count.html),
   [`anti_join`](https://dplyr.tidyverse.org/reference/filter-joins.html),
   [`arrange`](https://dplyr.tidyverse.org/reference/arrange.html),
   [`count`](https://dplyr.tidyverse.org/reference/count.html),

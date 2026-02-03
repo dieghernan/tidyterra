@@ -7,6 +7,15 @@ quickly count the unique values of one or more variables:
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) is paired
 with [`tally()`](https://dplyr.tidyverse.org/reference/count.html), a
 lower-level helper that is equivalent to `df |> summarise(n = n())`.
+Supply `wt` to perform weighted counts, switching the summary from
+`n = n()` to `n = sum(wt)`.
+
+[`add_count()`](https://dplyr.tidyverse.org/reference/count.html) is
+equivalent to
+[`count()`](https://dplyr.tidyverse.org/reference/count.html) but use
+[`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) instead
+of [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
+so that it adds a new column with group-wise counts.
 
 ## Usage
 
@@ -18,12 +27,15 @@ count(
   wt = NULL,
   sort = FALSE,
   name = NULL,
-  .drop = group_by_drop_default(x),
+  .drop = deprecated(),
   .dissolve = TRUE
 )
 
 # S3 method for class 'SpatVector'
 tally(x, wt = NULL, sort = FALSE, name = NULL)
+
+# S3 method for class 'SpatVector'
+add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 ```
 
 ## Arguments
@@ -60,16 +72,10 @@ tally(x, wt = NULL, sort = FALSE, name = NULL)
 
 - .drop:
 
-  Handling of factor levels that don't appear in the data, passed on to
-  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
-
-  For [`count()`](https://dplyr.tidyverse.org/reference/count.html): if
-  `FALSE` will include counts for empty groups (i.e. for levels of
-  factors that don't exist in the data).
-
-  **\[deprecated\]** For
-  [`add_count()`](https://dplyr.tidyverse.org/reference/count.html):
-  deprecated since it can't actually affect the output.
+  **\[deprecated\]** Argument not longer supported; empty groups are
+  always removed (see
+  [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html),
+  `.drop = TRUE` argument).
 
 - .dissolve:
 
@@ -87,7 +93,7 @@ A `SpatVector` object with an additional attribute.
 
 Implementation of the **generic**
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html)
-family functions for `SpatVector` objects.
+methods for `SpatVector` objects.
 
 [`tally()`](https://dplyr.tidyverse.org/reference/count.html) will
 always return a disaggregated geometry while

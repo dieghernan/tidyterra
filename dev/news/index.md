@@ -25,6 +25,14 @@
   is marked as superseded, as in
   [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
   **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+- In
+  [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md):
+  - `wt` argument for performing weighted counts supported.
+  - `.drop` argument deprecated, (it never really worked).
+
+#### New Methods:
+
+- [`add_count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md).
 
 ## tidyterra 1.0.0
 

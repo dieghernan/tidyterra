@@ -3,11 +3,17 @@
 df |&amp;gt; count(a, b) is roughly equivalent to
 df |&amp;gt; group_by(a, b) |&amp;gt; summarise(n = n()). count() is paired with
 tally(), a lower-level helper that is equivalent to
-df |&amp;gt; summarise(n = n())."><meta property="og:description" content="count() lets you quickly count the unique values of one or more variables:
+df |&amp;gt; summarise(n = n()).  Supply wt to perform weighted counts,
+switching the summary from n = n() to n = sum(wt).
+add_count() is equivalent to count() but use mutate() instead of
+summarise() so that it adds a new column with group-wise counts."><meta property="og:description" content="count() lets you quickly count the unique values of one or more variables:
 df |&amp;gt; count(a, b) is roughly equivalent to
 df |&amp;gt; group_by(a, b) |&amp;gt; summarise(n = n()). count() is paired with
 tally(), a lower-level helper that is equivalent to
-df |&amp;gt; summarise(n = n())."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
+df |&amp;gt; summarise(n = n()).  Supply wt to perform weighted counts,
+switching the summary from n = n() to n = sum(wt).
+add_count() is equivalent to count() but use mutate() instead of
+summarise() so that it adds a new column with group-wise counts."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -62,7 +68,7 @@ df |&amp;gt; summarise(n = n())."><meta property="og:image" content="https://die
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Count the observations in each <code>SpatVector</code> group</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/new-methods/R/count-tally-SpatVector.R" class="external-link"><code>R/count-tally-SpatVector.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/count-tally-SpatVector.R" class="external-link"><code>R/count-tally-SpatVector.R</code></a></small>
       <div class="d-none name"><code>count.SpatVector.Rd</code></div>
     </div>
 
@@ -71,7 +77,10 @@ df |&amp;gt; summarise(n = n())."><meta property="og:image" content="https://die
 <code>df |&gt; count(a, b)</code> is roughly equivalent to
 <code>df |&gt; group_by(a, b) |&gt; summarise(n = n())</code>. <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code> is paired with
 <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally()</a></code>, a lower-level helper that is equivalent to
-<code>df |&gt; summarise(n = n())</code>.</p>
+<code>df |&gt; summarise(n = n())</code>.  Supply <code>wt</code> to perform weighted counts,
+switching the summary from <code>n = n()</code> to <code>n = sum(wt)</code>.</p>
+<p><code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code> is equivalent to <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code> but use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> instead of
+<code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise()</a></code> so that it adds a new column with group-wise counts.</p>
     </div>
 
     <div class="section level2">
@@ -83,12 +92,15 @@ df |&amp;gt; summarise(n = n())."><meta property="og:image" content="https://die
 <span>  wt <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  sort <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  .drop <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by_drop_default.html" class="external-link">group_by_drop_default</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,</span>
+<span>  .drop <span class="op">=</span> <span class="fu">deprecated</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  .dissolve <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally</a></span><span class="op">(</span><span class="va">x</span>, wt <span class="op">=</span> <span class="cn">NULL</span>, sort <span class="op">=</span> <span class="cn">FALSE</span>, name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally</a></span><span class="op">(</span><span class="va">x</span>, wt <span class="op">=</span> <span class="cn">NULL</span>, sort <span class="op">=</span> <span class="cn">FALSE</span>, name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for class 'SpatVector'</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, wt <span class="op">=</span> <span class="cn">NULL</span>, sort <span class="op">=</span> <span class="cn">FALSE</span>, name <span class="op">=</span> <span class="cn">NULL</span>, .drop <span class="op">=</span> <span class="fu">deprecated</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -123,12 +135,9 @@ it will use <code>nn</code>. If there's a column called <code>n</code> and <code
 
 
 <dt id="arg--drop">.drop<a class="anchor" aria-label="anchor" href="#arg--drop"></a></dt>
-<dd><p>Handling of factor levels that don't appear in the data, passed
-on to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>.</p>
-<p>For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code>: if <code>FALSE</code> will include counts for empty groups (i.e. for
-levels of factors that don't exist in the data).</p>
-<p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a> For <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">add_count()</a></code>: deprecated since it
-can't actually affect the output.</p></dd>
+<dd><p><a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a> Argument not longer
+supported; empty groups are always removed (see <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code>,
+<code>.drop = TRUE</code> argument).</p></dd>
 
 
 <dt id="arg--dissolve">.dissolve<a class="anchor" aria-label="anchor" href="#arg--dissolve"></a></dt>
@@ -152,8 +161,8 @@ be dissolved?</p></dd>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code> family functions for
-<code>SpatVector</code> objects.</p>
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">dplyr::count()</a></code> methods for <code>SpatVector</code>
+objects.</p>
 <p><code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">tally()</a></code> will always return a disaggregated geometry while <code><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count()</a></code> can
 handle this. See also <code><a href="summarise.SpatVector.html">summarise.SpatVector()</a></code>.</p>
     </div>
