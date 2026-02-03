@@ -4,11 +4,14 @@
 \alias{filter.Spat}
 \alias{filter.SpatRaster}
 \alias{filter.SpatVector}
+\alias{filter_out.SpatVector}
 \title{Subset cells/geometries of \verb{Spat*} objects}
 \usage{
 \method{filter}{SpatRaster}(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
 \method{filter}{SpatVector}(.data, ..., .by = NULL, .preserve = FALSE)
+
+\method{filter_out}{SpatVector}(.data, ..., .by = NULL, .preserve = FALSE)
 }
 \arguments{
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
@@ -20,17 +23,14 @@ in \code{.data}. If multiple expressions are included, they are combined with
 the \code{&} operator. Only cells/geometries for which all conditions evaluate
 to \code{TRUE} are kept. See \strong{Methods}.}
 
-\item{.preserve}{Relevant when the \code{.data} input is grouped.
-If \code{.preserve = FALSE} (the default), the grouping structure
-is recalculated based on the resulting data, otherwise the grouping is kept as is.}
+\item{.preserve}{Relevant when the \code{.data} input is grouped. If \code{.preserve = FALSE} (the default), the grouping structure is recalculated based on the
+resulting data, otherwise the grouping is kept as is.}
 
 \item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
 On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be
 different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
 
-\item{.by}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-
-<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
+\item{.by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
 details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 }
@@ -38,9 +38,17 @@ details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 }
 \description{
-The \code{filter()} function is used to subset \verb{Spat*} objects, retaining all
-cells/geometries that satisfy your conditions. To be retained, the
-cell/geometry must produce a value of \code{TRUE} for all conditions.
+These functions are used to subset a data frame, applying the expressions in
+\code{...} to determine which rows should be kept (for \code{filter()}) or dropped (
+for \code{filter_out()}).
+
+Multiple conditions can be supplied separated by a comma. These will be
+combined with the \code{&} operator. To combine comma separated conditions using
+\code{|} instead, wrap them in \code{\link[dplyr:when-any-all]{dplyr::when_any()}}.
+
+Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. This subtle
+behaviour can impact how you write your conditions when missing values are
+involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
 \strong{It is possible to filter a \code{SpatRaster} by its geographic coordinates}.
 You need to use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
@@ -109,6 +117,12 @@ r2 |>
     y > 42
   ) |>
   plot()
+v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+glimpse(v)
+v |> filter(cpro < 10)
+
+# Same as
+v |> filter_out(cpro >= 10)
 }
 \seealso{
 \code{\link[dplyr:filter]{dplyr::filter()}}

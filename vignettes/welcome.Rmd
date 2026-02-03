@@ -65,6 +65,7 @@ Currently, the following methods are available:
 | `dplyr::mutate()`                           | ✔️                                            | ✔️ Create /modify layers                                                                       |
 | `dplyr::transmute()`                        | ✔️                                            | ✔️                                                                                             |
 | `dplyr::filter()`                           | ✔️                                            | ✔️ Modify cells values and (additionally) remove outer cells.                                  |
+| `dplyr::filter_out()`                       | ✔️                                            |                                                                                                |
 | `dplyr::slice()`                            | ✔️                                            | ✔️ Additional methods for slicing by row and column.                                           |
 | `dplyr::pull()`                             | ✔️                                            | ✔️                                                                                             |
 | `dplyr::rename()`                           | ✔️                                            | ✔️                                                                                             |

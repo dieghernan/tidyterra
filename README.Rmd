@@ -113,6 +113,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
 | `dplyr::filter()` | ✔️ | ✔️ Modify cells values and (additionally) remove outer cells. |
+| `dplyr::filter_out()` | ✔️ |  |
 | `dplyr::slice()` | ✔️ | ✔️ Additional methods for slicing by row and column. |
 | `dplyr::pull()` | ✔️ | ✔️ |
 | `dplyr::rename()` | ✔️ | ✔️ |
@@ -159,15 +160,18 @@ does, see the help page). You can adjust this with the `maxcell` argument.
 ## Installation
 
 ::: pkgdown-release
+
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ```{r, eval=FALSE}
 install.packages("tidyterra")
 ```
+
 :::
 
 ::: pkgdown-devel
+
 You can install the development version of **tidyterra** like so:
 
 ```{r, eval=FALSE }
@@ -185,6 +189,7 @@ install.packages("tidyterra", repos = c(
   "https://cloud.r-project.org"
 ))
 ```
+
 :::
 
 ## Example

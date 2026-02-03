@@ -1,9 +1,17 @@
 #' Subset cells/geometries of `Spat*` objects
 #'
 #' @description
-#' The `filter()` function is used to subset `Spat*` objects, retaining all
-#' cells/geometries that satisfy your conditions. To be retained, the
-#' cell/geometry must produce a value of `TRUE` for all conditions.
+#' These functions are used to subset a data frame, applying the expressions in
+#' `...` to determine which rows should be kept (for `filter()`) or dropped (
+#' for `filter_out()`).
+#'
+#' Multiple conditions can be supplied separated by a comma. These will be
+#' combined with the `&` operator. To combine comma separated conditions using
+#' `|` instead, wrap them in [dplyr::when_any()].
+#'
+#' Both `filter()` and `filter_out()` treat `NA` like `FALSE`. This subtle
+#' behaviour can impact how you write your conditions when missing values are
+#' involved. See [dplyr::filter()].
 #'
 #' **It is possible to filter a `SpatRaster` by its geographic coordinates**.
 #' You need to use `filter(.data, x > 42)`. Note that `x` and `y` are reserved
@@ -128,6 +136,13 @@ filter.SpatRaster <- function(
 
 #' @export
 #' @rdname filter.Spat
+#' @examples
+#' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#' glimpse(v)
+#' v |> filter(cpro < 10)
+#'
+#' # Same as
+#' v |> filter_out(cpro >= 10)
 filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)
@@ -147,6 +162,29 @@ filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 #' @export
 dplyr::filter
 
-# TODO: Implement method when available
+#' @importFrom dplyr filter_out
+#' @export
+#' @rdname filter.Spat
+filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
+  # Use own method
+  tbl <- as_tibble(.data)
 
-filter_out <- filter.SpatVector
+  var_index <- make_safe_index("tterra_index", tbl)
+  tbl[[var_index]] <- seq_len(nrow(tbl))
+
+  filtered <- dplyr::filter_out(
+    tbl,
+    ...,
+    .by = {{ .by }},
+    .preserve = .preserve
+  )
+
+  vend <- .data[as.integer(filtered[[var_index]]), ]
+
+  vend <- group_prepare_spat(vend, filtered)
+
+  vend
+}
+
+#' @export
+dplyr::filter_out

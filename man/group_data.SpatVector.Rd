@@ -27,8 +27,7 @@
 \arguments{
 \item{.data, .tbl, x}{A \code{SpatVector}.}
 
-\item{...}{Use of \code{...} is now deprecated; please use \code{group_by()} first
-instead.}
+\item{...}{Unused.}
 }
 \value{
 See the description of the method. The results are usually tibbles,

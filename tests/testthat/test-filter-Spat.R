@@ -62,6 +62,36 @@ test_that("Filter with SpatVector", {
   expect_s4_class(v, "SpatVector")
 })
 
+# dplyr ------------------------------------------------------------------
+test_that("filter(.,TRUE,TRUE) works (#1210)", {
+  skip_on_cran()
+  df <- data.frame(x = 1:5)
+  df$lat <- 1
+  df$lon <- 1
+  df <- as_spatvector(df)
+
+  expect_identical(filter(df, TRUE, TRUE) |> pull(x), df$x)
+  expect_identical(
+    filter_out(df, TRUE, TRUE) |> pull(x),
+    df[0, , drop = FALSE]$x
+  )
+})
+
+test_that("filter and filter_out propagate attributes", {
+  skip_on_cran()
+
+  date.start <- ISOdate(2010, 01, 01, 0)
+  test <- data.frame(Date = ISOdate(2010, 01, 01, 1:10))
+  test$lat <- 1
+  test$lon <- 1
+  test <- as_spatvector(test)
+  expect_s4_class(test, "SpatVector")
+  test2 <- test |> filter(Date < ISOdate(2010, 01, 01, 5))
+  expect_equal(test$Date[1:4], test2$Date)
+  test2 <- test |> filter_out(Date < ISOdate(2010, 01, 01, 5))
+  expect_equal(test$Date[5:10], test2$Date)
+})
+
 test_that("filter works with rowwise data", {
   skip_on_cran()
 
@@ -137,8 +167,47 @@ test_that("grouped filter handles indices", {
   expect_equal(group_keys(res), group_keys(res2))
 })
 
+test_that("filter(FALSE) and filter_out(TRUE) handle indices", {
+  skip_on_cran()
 
-test_that("filter() preserve order across groups", {
+  indices <- mtcars |>
+    group_by(cyl) |>
+    filter(FALSE, .preserve = TRUE) |>
+    group_rows()
+
+  mtcars2 <- mtcars |> as_spatvector(geom = c("mpg", "cyl"), keepgeom = TRUE)
+
+  out <- mtcars2 |>
+    group_by(cyl) |>
+    filter(FALSE, .preserve = TRUE) |>
+    group_rows()
+  expect_identical(out, indices)
+
+  out <- mtcars2 |>
+    group_by(cyl) |>
+    filter_out(TRUE, .preserve = TRUE) |>
+    group_rows()
+  expect_identical(out, indices)
+
+  indices <- mtcars |>
+    group_by(cyl) |>
+    filter(FALSE, .preserve = FALSE) |>
+    group_rows()
+
+  out <- mtcars2 |>
+    group_by(cyl) |>
+    filter(FALSE, .preserve = FALSE) |>
+    group_rows()
+  expect_identical(out, indices)
+
+  out <- mtcars2 |>
+    group_by(cyl) |>
+    filter_out(TRUE, .preserve = FALSE) |>
+    group_rows()
+  expect_identical(out, indices)
+})
+
+test_that("filter() and filter_out() preserve order across groups", {
   skip_on_cran()
 
   df <- data.frame(g = c(1, 2, 1, 2, 1), time = 5:1, x = 5:1)
@@ -159,11 +228,28 @@ test_that("filter() preserve order across groups", {
     arrange(time) |>
     group_by(g)
 
+  expect_identical(res1$time, 1:4)
   expect_equal(as_tibble(res1), as_tibble(res2))
   expect_equal(as_tibble(res1), as_tibble(res3))
-  expect_false(is.unsorted(res1$time))
-  expect_false(is.unsorted(res2$time))
-  expect_false(is.unsorted(res3$time))
+
+  res1 <- df |>
+    group_by(g) |>
+    filter_out(x <= 2) |>
+    arrange(time)
+
+  res2 <- df |>
+    group_by(g) |>
+    arrange(time) |>
+    filter_out(x <= 2)
+
+  res3 <- df |>
+    filter_out(x <= 2) |>
+    arrange(time) |>
+    group_by(g)
+
+  expect_identical(res1$time, 3:5)
+  expect_equal(as_tibble(res1), as_tibble(res2))
+  expect_equal(as_tibble(res1), as_tibble(res3))
 })
 
 # .by -------------------------------------------------------------------------
@@ -180,8 +266,6 @@ test_that("can group transiently using `.by`", {
   expect_identical(out$g, c(1, 2))
   expect_identical(out$x, c(10, 3))
   expect_s4_class(out, class(df))
-
-  skip("filter_out method pending")
 
   out <- filter_out(df, x > mean(x), .by = g)
   expect_identical(out$g, c(1, 2, 1))
