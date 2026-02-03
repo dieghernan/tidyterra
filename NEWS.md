@@ -20,6 +20,10 @@
     -   `wt` argument for performing weighted counts supported.
     -   `.drop` argument deprecated, (it never really worked).
 
+### New Methods:
+
+-   `add_count.SpatVector()`.
+
 # tidyterra 1.0.0
 
 -   Minimal **R** version required updated to **\>= 4.1.0**.

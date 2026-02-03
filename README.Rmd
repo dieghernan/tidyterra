@@ -125,6 +125,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::group_by()` family | ✔️ |  |
 | `dplyr::rowwise()` | ✔️ |  |
 | `dplyr::count()`, `tally()` | ✔️ |  |
+| `dplyr::add_count()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
 | `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
 | `tidyr::replace_na()` | ✔️ | ✔️ |

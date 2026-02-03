@@ -43,7 +43,6 @@
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].
 #'
-#'
 #' @examples
 #' \donttest{
 #'

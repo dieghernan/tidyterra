@@ -18,15 +18,7 @@
 
 \method{tally}{SpatVector}(x, wt = NULL, sort = FALSE, name = NULL)
 
-\method{add_count}{SpatVector}(
-  x,
-  ...,
-  wt = NULL,
-  sort = FALSE,
-  name = NULL,
-  .drop = deprecated(),
-  .dissolve = TRUE
-)
+\method{add_count}{SpatVector}(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 }
 \arguments{
 \item{x}{A \code{SpatVector}.}
