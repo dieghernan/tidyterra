@@ -59,7 +59,17 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<ul><li>In <strong>dplyr</strong> <code>.by</code> has moved from experimental to stable. In <code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code> this was implemented in version 1.0.0. Now it has been extended to the following <strong>tidyterra</strong> methods as new arguments (<a href="https://github.com/dieghernan/tidyterra/issues/193" class="external-link">#193</a>):
+<ul><li>New <strong>dplyr</strong> minimum version: <strong>1.2.0</strong>.</li>
+</ul><div class="section level4">
+<h4 id="new-methods-development-version">New Methods<a class="anchor" aria-label="anchor" href="#new-methods-development-version"></a></h4>
+<ul><li>
+<code><a href="../reference/count.SpatVector.html">add_count.SpatVector()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/195" class="external-link">#195</a>).</li>
+<li>
+<code><a href="../reference/filter.Spat.html">filter_out.SpatVector()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/196" class="external-link">#196</a>).</li>
+</ul></div>
+<div class="section level4">
+<h4 id="changes-in-arguments-development-version">Changes in arguments<a class="anchor" aria-label="anchor" href="#changes-in-arguments-development-version"></a></h4>
+<ul><li>In <strong>dplyr</strong> <strong>1.2.0</strong> <code>.by</code> has moved from experimental to stable. In <code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code> this was implemented in version 1.0.0. Now it has been extended to the following <strong>tidyterra</strong> methods as new arguments (<a href="https://github.com/dieghernan/tidyterra/issues/193" class="external-link">#193</a>):
 <ul><li>
 <code><a href="../reference/mutate.Spat.html">mutate.SpatVector()</a></code>.</li>
 <li>
@@ -75,20 +85,20 @@
 <li>
 <code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code>: <code>.locale</code> added (see <code><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">dplyr::arrange()</a></code>).</li>
 <li>
-<code><a href="../reference/filter.Spat.html">filter.SpatVector()</a></code>: <code>.preserve</code> argument support added (previously it was ignored).</li>
-</ul></li>
-<li>
-<code><a href="../reference/transmute.Spat.html">?transmute.Spat</a></code> is marked as superseded, as in <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code> <strong>dplyr 1.1.0</strong> (January 2023). Use <code>mutate(.keep = "none")</code>.</li>
-<li>In <code><a href="../reference/count.SpatVector.html">count.SpatVector()</a></code>:
+<code><a href="../reference/filter.Spat.html">filter.SpatVector()</a></code>: <code>.preserve</code> argument support added (previously it was ignored).
+<ul><li>In <code><a href="../reference/count.SpatVector.html">count.SpatVector()</a></code>:
 <ul><li>
 <code>wt</code> argument for performing weighted counts supported.</li>
 <li>
 <code>.drop</code> argument deprecated, (it never really worked).</li>
 </ul></li>
-</ul><div class="section level4">
-<h4 id="new-methods-development-version">New Methods:<a class="anchor" aria-label="anchor" href="#new-methods-development-version"></a></h4>
+</ul></li>
+</ul></li>
+</ul></div>
+<div class="section level4">
+<h4 id="deprecations-development-version">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-development-version"></a></h4>
 <ul><li>
-<code><a href="../reference/count.SpatVector.html">add_count.SpatVector()</a></code>.</li>
+<code><a href="../reference/transmute.Spat.html">?transmute.Spat</a></code> is marked as superseded, as in <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code> <strong>dplyr 1.1.0</strong> (January 2023). Use <code>mutate(.keep = "none")</code>.</li>
 </ul></div>
 </div>
     <div class="section level2">

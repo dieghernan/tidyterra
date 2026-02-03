@@ -2,7 +2,18 @@
 
 ## tidyterra (development version)
 
-- In **dplyr** `.by` has moved from experimental to stable. In
+- New **dplyr** minimum version: **1.2.0**.
+
+#### New Methods
+
+- [`add_count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
+  ([\#195](https://github.com/dieghernan/tidyterra/issues/195)).
+- [`filter_out.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
+  ([\#196](https://github.com/dieghernan/tidyterra/issues/196)).
+
+#### Changes in arguments
+
+- In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
   this was implemented in version 1.0.0. Now it has been extended to the
   following **tidyterra** methods as new arguments
@@ -21,18 +32,17 @@
     [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)).
   - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md):
     `.preserve` argument support added (previously it was ignored).
+    - In
+      [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md):
+      - `wt` argument for performing weighted counts supported.
+      - `.drop` argument deprecated, (it never really worked).
+
+#### Deprecations
+
 - [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/transmute.Spat.md)
   is marked as superseded, as in
   [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
   **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
-- In
-  [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md):
-  - `wt` argument for performing weighted counts supported.
-  - `.drop` argument deprecated, (it never really worked).
-
-#### New Methods:
-
-- [`add_count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md).
 
 ## tidyterra 1.0.0
 

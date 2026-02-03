@@ -68,9 +68,7 @@ n_groups(x)
 
 - ...:
 
-  Use of `...` is now deprecated; please use
-  [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
-  first instead.
+  Unused.
 
 ## Value
 

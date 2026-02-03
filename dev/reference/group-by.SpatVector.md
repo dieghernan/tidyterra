@@ -22,6 +22,7 @@ ungroup(x, ...)
 
 - ...:
 
+  \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   In
   [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html),
   variables or computations to group by. Computations are always done on
@@ -41,10 +42,6 @@ ungroup(x, ...)
   [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
   will override existing groups. To add to the existing groups, use
   `.add = TRUE`.
-
-  This argument was previously called `add`, but that prevented creating
-  a new grouping variable called `add`, and conflicts with our naming
-  conventions.
 
 - .drop:
 

@@ -32,6 +32,7 @@ Verbs that principally operate on rows.
 
 - [`filter(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   [`filter(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
+  [`filter_out(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   :
 
   Subset cells/geometries of `Spat*` objects

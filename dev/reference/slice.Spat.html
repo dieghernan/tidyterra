@@ -235,8 +235,7 @@ See also <code><a href="https://rspatial.github.io/terra/reference/trim.html" cl
 
 
 <dt id="arg--by-by">.by, by<a class="anchor" aria-label="anchor" href="#arg--by-by"></a></dt>
-<dd><p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="[Experimental]"></a></p>
-<p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Optionally, a selection of columns to
+<dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code>. For
 details and examples, see <a href="https://dplyr.tidyverse.org/reference/dplyr_by.html" class="external-link">?dplyr_by</a>.</p></dd>
 
@@ -280,7 +279,9 @@ reach <code>n</code>/<code>prop</code>.</p></dd>
 <dt id="arg-weight-by">weight_by<a class="anchor" aria-label="anchor" href="#arg-weight-by"></a></dt>
 <dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Sampling
 weights. This must evaluate to a vector of non-negative numbers the same
-length as the input. Weights are automatically standardised to sum to 1.</p></dd>
+length as the input. Weights are automatically standardised to sum to 1.
+See the <code>Details</code> section for more technical details regarding these
+weights.</p></dd>
 
 
 <dt id="arg-replace">replace<a class="anchor" aria-label="anchor" href="#arg-replace"></a></dt>

@@ -1,9 +1,21 @@
 # Subset cells/geometries of `Spat*` objects
 
-The [`filter()`](https://dplyr.tidyverse.org/reference/filter.html)
-function is used to subset `Spat*` objects, retaining all
-cells/geometries that satisfy your conditions. To be retained, the
-cell/geometry must produce a value of `TRUE` for all conditions.
+These functions are used to subset a data frame, applying the
+expressions in `...` to determine which rows should be kept (for
+[`filter()`](https://dplyr.tidyverse.org/reference/filter.html)) or
+dropped ( for
+[`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)).
+
+Multiple conditions can be supplied separated by a comma. These will be
+combined with the `&` operator. To combine comma separated conditions
+using `|` instead, wrap them in
+[`dplyr::when_any()`](https://dplyr.tidyverse.org/reference/when-any-all.html).
+
+Both [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
+[`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)
+treat `NA` like `FALSE`. This subtle behaviour can impact how you write
+your conditions when missing values are involved. See
+[`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
 **It is possible to filter a `SpatRaster` by its geographic
 coordinates**. You need to use `filter(.data, x > 42)`. Note that `x`
@@ -22,6 +34,9 @@ filter(.data, ..., .preserve = FALSE, .keep_extent = TRUE)
 
 # S3 method for class 'SpatVector'
 filter(.data, ..., .by = NULL, .preserve = FALSE)
+
+# S3 method for class 'SpatVector'
+filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 ```
 
 ## Arguments
@@ -57,8 +72,6 @@ filter(.data, ..., .by = NULL, .preserve = FALSE)
   [`drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md).
 
 - .by:
-
-  **\[experimental\]**
 
   \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
   Optionally, a selection of columns to group by for just this
@@ -174,4 +187,38 @@ r2 |>
     y > 42
   ) |>
   plot()
+
+v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+glimpse(v)
+#> #  A SpatVector 9 x 3
+#> #  Geometry type: Polygons
+#> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
+#> #  CRS projection units: meter <m>
+#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> 
+#> $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…
+#> $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
+#> $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S…
+v |> filter(cpro < 10)
+#>  class       : SpatVector 
+#>  geometry    : polygons 
+#>  dimensions  : 2, 3  (geometries, attributes)
+#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#>  names       :  iso2  cpro   name
+#>  type        : <chr> <chr>  <chr>
+#>  values      : ES-AV    05  Avila
+#>                ES-BU    09 Burgos
+
+# Same as
+v |> filter_out(cpro >= 10)
+#>  class       : SpatVector 
+#>  geometry    : polygons 
+#>  dimensions  : 2, 3  (geometries, attributes)
+#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
+#>  names       :  iso2  cpro   name
+#>  type        : <chr> <chr>  <chr>
+#>  values      : ES-AV    05  Avila
+#>                ES-BU    09 Burgos
 ```

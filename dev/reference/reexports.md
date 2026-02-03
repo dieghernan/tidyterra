@@ -11,6 +11,7 @@ to see their documentation.
   [`count`](https://dplyr.tidyverse.org/reference/count.html),
   [`distinct`](https://dplyr.tidyverse.org/reference/distinct.html),
   [`filter`](https://dplyr.tidyverse.org/reference/filter.html),
+  [`filter_out`](https://dplyr.tidyverse.org/reference/filter.html),
   [`full_join`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
   [`glimpse`](https://pillar.r-lib.org/reference/glimpse.html),
   [`group_by`](https://dplyr.tidyverse.org/reference/group_by.html),
