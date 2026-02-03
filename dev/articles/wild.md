@@ -56,6 +56,12 @@ Enhancing tsunami evacuation strategies in Puerto Rico using open-source
 least-cost path analysis. *Journal of Disaster Science and Management*,
 *1*(1), 18. <https://doi.org/10.1007/s44367-025-00018-y>
 
+Di Fabio, A., Aspalter, S., Chakraborty, D., Loo, M. van, Rolke, L. M.,
+Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
+performance is driven by site conditions and moderated by functional
+trait plasticity in *Quercus robur* and *Prunus avium*. *Ecology and
+Evolution*, *16*(2), e72978. <https://doi.org/10.1002/ece3.72978>
+
 Di Fabio, A., Buttò, V., Chakraborty, D., O’Neill, G. A., Schueler, S.,
 & Kreyling, J. (2024). Climatic conditions at provenance origin
 influence growth stability to changes in climate in two major tree
