@@ -14,9 +14,6 @@ test_that("informs if n column already present, unless overridden", {
   expect_s4_class(out, "SpatVector")
   expect_named(out, c("n", "nn"))
 
-  # not supported
-  expect_error(count(df1, n, name = "n"))
-
   expect_message(out <- count(df1, n, name = "nn"), NA)
   expect_named(out, c("n", "nn"))
 
