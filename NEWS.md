@@ -4,8 +4,8 @@
 
 ### New Methods
 
--   `add_count.SpatVector()`.
--   `filter_out.SpatVector()`.
+-   `add_count.SpatVector()` (#195).
+-   `filter_out.SpatVector()` (#196).
 
 ### Changes in arguments
 
