@@ -16,6 +16,9 @@
         was ignored).
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
     **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+-   In `count.SpatVector()`:
+    -   `wt` argument for performing weighted counts supported.
+    -   `.drop` argument deprecated, (it never really worked).
 
 # tidyterra 1.0.0
 

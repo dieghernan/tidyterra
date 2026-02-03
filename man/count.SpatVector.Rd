@@ -11,7 +11,7 @@
   wt = NULL,
   sort = FALSE,
   name = NULL,
-  .drop = group_by_drop_default(x),
+  .drop = deprecated(),
   .dissolve = TRUE
 )
 
@@ -38,14 +38,9 @@ If omitted, it will default to \code{n}. If there's already a column called \cod
 it will use \code{nn}. If there's a column called \code{n} and \code{nn}, it'll use
 \code{nnn}, and so on, adding \code{n}s until it gets a new name.}
 
-\item{.drop}{Handling of factor levels that don't appear in the data, passed
-on to \code{\link[dplyr:group_by]{group_by()}}.
-
-For \code{count()}: if \code{FALSE} will include counts for empty groups (i.e. for
-levels of factors that don't exist in the data).
-
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} For \code{add_count()}: deprecated since it
-can't actually affect the output.}
+\item{.drop}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Argument not longer
+supported; empty groups are always removed (see \code{\link[dplyr:count]{dplyr::count()}},
+\code{.drop = TRUE} argument).}
 
 \item{.dissolve}{logical. Should borders between aggregated geometries
 be dissolved?}
@@ -58,7 +53,8 @@ A \code{SpatVector} object with an additional attribute.
 \code{df |> count(a, b)} is roughly equivalent to
 \code{df |> group_by(a, b) |> summarise(n = n())}. \code{count()} is paired with
 \code{tally()}, a lower-level helper that is equivalent to
-\code{df |> summarise(n = n())}.
+\code{df |> summarise(n = n())}.  Supply \code{wt} to perform weighted counts,
+switching the summary from \code{n = n()} to \code{n = sum(wt)}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -69,8 +65,8 @@ A \code{SpatVector} object with an additional attribute.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} family functions for
-\code{SpatVector} objects.
+Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} methods for \code{SpatVector}
+objects.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.

@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
+  "runtimePlatform": "R version 4.4.3 (2025-02-28)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -102,18 +102,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "lifecycle",
-      "name": "lifecycle",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
     },
     {
       "@type": "SoftwareApplication",
@@ -261,6 +249,18 @@
     },
     "7": {
       "@type": "SoftwareApplication",
+      "identifier": "lifecycle",
+      "name": "lifecycle",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=lifecycle"
+    },
+    "8": {
+      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "provider": {
@@ -271,7 +271,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -283,7 +283,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "scales",
       "name": "scales",
@@ -295,7 +295,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=scales"
     },
-    "10": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -308,7 +308,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "11": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "terra",
       "name": "terra",
@@ -321,7 +321,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=terra"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -334,7 +334,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "13": {
+    "14": {
       "@type": "SoftwareApplication",
       "identifier": "tidyr",
       "name": "tidyr",
@@ -350,7 +350,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2497.591KB",
+  "fileSize": "2467.312KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

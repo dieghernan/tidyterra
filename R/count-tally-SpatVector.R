@@ -5,7 +5,8 @@
 #' `df |> count(a, b)` is roughly equivalent to
 #' `df |> group_by(a, b) |> summarise(n = n())`. `count()` is paired with
 #' `tally()`, a lower-level helper that is equivalent to
-#' `df |> summarise(n = n())`.
+#' `df |> summarise(n = n())`.  Supply `wt` to perform weighted counts,
+#' switching the summary from `n = n()` to `n = sum(wt)`.
 #'
 #' @export
 #' @rdname count.SpatVector
@@ -19,6 +20,9 @@
 #' @importFrom dplyr count
 #'
 #' @param x A `SpatVector`.
+#' @param .drop `r lifecycle::badge("deprecated")` Argument not longer
+#'   supported; empty groups are always removed (see [dplyr::count()],
+#'   `.drop = TRUE` argument).
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'
@@ -30,11 +34,12 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::count()] family functions for
-#' `SpatVector` objects.
+#' Implementation of the **generic** [dplyr::count()] methods for `SpatVector`
+#' objects.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].
+#'
 #'
 #' @examples
 #' \donttest{
@@ -74,12 +79,23 @@ count.SpatVector <- function(
   wt = NULL,
   sort = FALSE,
   name = NULL,
-  .drop = group_by_drop_default(x),
+  .drop = deprecated(),
   .dissolve = TRUE
 ) {
+  if (lifecycle::is_present(.drop)) {
+    lifecycle::deprecate_warn(
+      when = "1.1.0",
+      what = "tidyterra::count.SpatVector(.drop)",
+      details = paste0(
+        "Argument not longer supported; empty groups are always removed",
+        "(see `dplyr::count()`, `.drop = TRUE` argument)."
+      )
+    )
+  }
+
   # Maybe regroup
   if (!missing(...)) {
-    out <- group_by(x, ..., .add = TRUE, .drop = .drop)
+    out <- group_by(x, ..., .add = TRUE, .drop = TRUE)
   } else {
     out <- x
   }
@@ -92,7 +108,7 @@ count.SpatVector <- function(
     ...,
     sort = sort,
     name = name,
-    .drop = .drop
+    .drop = TRUE
   )
 
   # Dissolve if requested

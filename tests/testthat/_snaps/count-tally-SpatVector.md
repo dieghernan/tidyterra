@@ -14,6 +14,15 @@
       Error in `dplyr::tally()`:
       ! `name` must be a single string, not a character vector.
 
+# .drop argument deprecated
+
+    Code
+      res <- count(df, f, .drop = FALSE)
+    Condition
+      Warning:
+      The `.drop` argument of `count.SpatVector()` is deprecated as of tidyterra 1.1.0.
+      i Argument not longer supported; empty groups are always removed(see `dplyr::count()`, `.drop = TRUE` argument).
+
 # can only explicitly chain together multiple tallies
 
     Code
@@ -21,7 +30,7 @@
       df$lat <- 1:4
       df$lon <- 1:4
       df <- terra::vect(df, crs = "EPSG:3857")
-      count(df, g)
+      count(df, g, wt = n)
     Output
        class       : SpatVector 
        geometry    : points 
@@ -30,10 +39,10 @@
        coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
        names       :     g     n
        type        : <num> <int>
-       values      :     1     2
-                         2     2
+       values      :     1     3
+                         2     7
     Code
-      count(count(df, g))
+      count(count(df, g, wt = n), wt = n)
     Output
        class       : SpatVector 
        geometry    : points 
@@ -42,7 +51,7 @@
        coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
        names       :     n
        type        : <int>
-       values      :     2
+       values      :    10
     Code
       count(df, n)
     Message
