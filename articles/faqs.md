@@ -415,7 +415,7 @@ this:
 
 ``` r
 packageVersion("ggplot2")
-#> [1] '4.0.1'
+#> [1] '4.0.2'
 
 library(terra)
 library(tidyterra)
@@ -905,16 +905,16 @@ Details
 
     #> ─ Session info ───────────────────────────────────────────────────────────────
     #>  setting  value
-    #>  version  R version 4.5.2 (2025-10-31 ucrt)
-    #>  os       Windows Server 2022 x64 (build 26100)
-    #>  system   x86_64, mingw32
-    #>  ui       RTerm
+    #>  version  R version 4.5.2 (2025-10-31)
+    #>  os       Ubuntu 24.04.3 LTS
+    #>  system   x86_64, linux-gnu
+    #>  ui       X11
     #>  language en
-    #>  collate  English_United States.utf8
-    #>  ctype    English_United States.utf8
+    #>  collate  C.UTF-8
+    #>  ctype    C.UTF-8
     #>  tz       UTC
-    #>  date     2026-02-03
-    #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
+    #>  date     2026-02-14
+    #>  pandoc   3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/ (via rmarkdown)
     #>  quarto   NA
     #> 
     #> ─ Packages ───────────────────────────────────────────────────────────────────
@@ -922,7 +922,7 @@ Details
     #>  backports      1.5.0    2024-05-23 [1] RSPM
     #>  bslib          0.10.0   2026-01-26 [1] RSPM
     #>  cachem         1.1.0    2024-05-16 [1] RSPM
-    #>  checkmate      2.3.3    2025-08-18 [1] RSPM
+    #>  checkmate      2.3.4    2026-02-03 [1] RSPM
     #>  class          7.3-23   2025-01-01 [3] CRAN (R 4.5.2)
     #>  classInt       0.4-11   2025-01-08 [1] RSPM
     #>  cli            3.6.5    2025-04-23 [1] RSPM
@@ -931,7 +931,7 @@ Details
     #>  DBI            1.2.3    2024-06-02 [1] RSPM
     #>  desc           1.4.3    2023-12-10 [1] RSPM
     #>  digest         0.6.39   2025-11-19 [1] RSPM
-    #>  dplyr          1.1.4    2023-11-17 [1] RSPM
+    #>  dplyr          1.2.0    2026-02-03 [1] RSPM
     #>  e1071          1.7-17   2025-12-18 [1] RSPM
     #>  evaluate       1.0.5    2025-08-27 [1] RSPM
     #>  farver         2.1.2    2024-05-13 [1] RSPM
@@ -939,13 +939,12 @@ Details
     #>  fs             1.6.6    2025-04-12 [1] RSPM
     #>  generics       0.1.4    2025-05-09 [1] RSPM
     #>  geodata      * 0.6-6    2025-09-30 [1] RSPM
-    #>  ggplot2      * 4.0.1    2025-11-14 [1] RSPM
+    #>  ggplot2      * 4.0.2    2026-02-03 [1] RSPM
     #>  ggspatial    * 1.1.10   2025-08-24 [1] RSPM
     #>  glue           1.8.0    2024-09-30 [1] RSPM
     #>  gtable         0.3.6    2024-10-25 [1] RSPM
     #>  hexbin         1.28.5   2024-11-13 [1] RSPM
     #>  htmltools      0.5.9    2025-12-04 [1] RSPM
-    #>  htmlwidgets    1.6.4    2023-12-06 [1] RSPM
     #>  isoband        0.3.0    2025-12-07 [1] RSPM
     #>  jquerylib      0.1.4    2021-04-26 [1] RSPM
     #>  jsonlite       2.0.0    2025-03-27 [1] RSPM
@@ -958,10 +957,9 @@ Details
     #>  maptiles     * 0.11.0   2025-12-12 [1] RSPM
     #>  memoise        2.0.1    2021-11-26 [1] RSPM
     #>  metR         * 0.18.3   2025-12-09 [1] RSPM
-    #>  otel           0.2.0    2025-08-29 [1] RSPM
     #>  pillar         1.11.1   2025-09-17 [1] RSPM
     #>  pkgconfig      2.0.3    2019-09-22 [1] RSPM
-    #>  pkgdown        2.2.0    2025-11-06 [1] any (@2.2.0)
+    #>  pkgdown        2.2.0    2025-11-06 [1] RSPM
     #>  plyr           1.8.9    2023-10-02 [1] RSPM
     #>  proxy          0.4-29   2025-12-29 [1] RSPM
     #>  purrr          1.2.1    2026-01-09 [1] RSPM
@@ -989,18 +987,18 @@ Details
     #>  tibble         3.3.1    2026-01-11 [1] RSPM
     #>  tidyr          1.3.2    2025-12-19 [1] RSPM
     #>  tidyselect     1.2.1    2024-03-11 [1] RSPM
-    #>  tidyterra    * 1.0.0    2026-02-02 [1] local
+    #>  tidyterra    * 1.0.0    2026-02-14 [1] local
     #>  units          1.0-0    2025-10-09 [1] RSPM
     #>  vctrs          0.7.1    2026-01-23 [1] RSPM
-    #>  viridisLite    0.4.2    2023-05-02 [1] RSPM
+    #>  viridisLite    0.4.3    2026-02-04 [1] RSPM
     #>  withr          3.0.2    2024-10-28 [1] RSPM
     #>  wk             0.9.5    2025-12-18 [1] RSPM
     #>  xfun           0.56     2026-01-18 [1] RSPM
     #>  yaml           2.3.12   2025-12-10 [1] RSPM
     #> 
-    #>  [1] D:/a/_temp/Library
-    #>  [2] C:/R/site-library
-    #>  [3] C:/R/library
+    #>  [1] /home/runner/work/_temp/Library
+    #>  [2] /opt/R/4.5.2/lib/R/site-library
+    #>  [3] /opt/R/4.5.2/lib/R/library
     #>  * ── Packages attached to the search path.
     #> 
     #> ──────────────────────────────────────────────────────────────────────────────

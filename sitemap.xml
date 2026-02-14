@@ -1,5 +1,9 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://dieghernan.github.io/tidyterra/404.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/CONTRIBUTING.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/articles/faqs.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/articles/index.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/articles/palettes.html</loc></url>
@@ -7,11 +11,7 @@
 <url><loc>https://dieghernan.github.io/tidyterra/articles/welcome.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/articles/wild.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/authors.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/CODE_OF_CONDUCT.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/CONTRIBUTING.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/index.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/LICENSE-text.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/LICENSE.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/news/index.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/as_coordinates.html</loc></url>
@@ -31,9 +31,9 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/filter.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/ggspatvector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/glance.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.html</loc></url>

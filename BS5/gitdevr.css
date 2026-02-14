@@ -87,12 +87,15 @@ main img {
 }
 
 .caption,
-.figure {
+.figure,
+.figcaption,
+figcaption,
+caption {
 	color: var(--bs-secondary);
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 0.5rem;
-	font-size: 85%;
+	margin-top: 1rem;
+	font-size: 0.875rem;
 	width: 100%;
 }
 
@@ -135,6 +138,11 @@ main img {
 
 .navbar-toggler {
 	border: none;
+}
+
+/* --- Dividers in menu --- */
+.navbar-nav .nav-item.dropdown ul li:first-child hr {
+	display: none;
 }
 
 /* --- Search ---*/
@@ -264,8 +272,13 @@ img.logo {
 
 /* Hack to reduce color in dark mode */
 [data-bs-theme="dark"] img.r-plt,
-[data-bs-theme="dark"] pre .r-plt.img img {
-	filter: grayscale(40%) !important;
+[data-bs-theme="dark"] pre .r-plt.img img,
+[data-bs-theme="dark"] .cell-output-display img {
+	filter: brightness(80%) !important;
+}
+
+[data-bs-theme="dark"] img:not(.logo, .d-inline-block) {
+	filter: brightness(80%) !important;
 }
 
 blockquote {
@@ -296,6 +309,11 @@ code {
 
 @media (max-width: 575.98px) {
 	/* See https://github.com/r-lib/pkgdown/pull/2970 */
+
+	/* Need to override pkgdown */
+	.btn-copy-ex {
+		right: 5px;
+	}
 
 	div > pre {
 		border-radius: 0;

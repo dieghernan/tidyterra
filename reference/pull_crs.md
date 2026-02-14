@@ -113,7 +113,6 @@ cat(fromsf1)
 #>         MEMBER["World Geodetic System 1984 (G1674)"],
 #>         MEMBER["World Geodetic System 1984 (G1762)"],
 #>         MEMBER["World Geodetic System 1984 (G2139)"],
-#>         MEMBER["World Geodetic System 1984 (G2296)"],
 #>         ELLIPSOID["WGS 84",6378137,298.257223563,
 #>             LENGTHUNIT["metre",1]],
 #>         ENSEMBLEACCURACY[2.0]],

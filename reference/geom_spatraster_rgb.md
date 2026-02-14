@@ -204,7 +204,8 @@ vect_path <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
 cyl_sf <- sf::st_read(vect_path)
 #> Reading layer `cyl' from data source 
-#>   `D:\a\_temp\Library\tidyterra\extdata\cyl.gpkg' using driver `GPKG'
+#>   `/home/runner/work/_temp/Library/tidyterra/extdata/cyl.gpkg' 
+#>   using driver `GPKG'
 #> Simple feature collection with 9 features and 3 fields
 #> Geometry type: MULTIPOLYGON
 #> Dimension:     XY

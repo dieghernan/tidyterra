@@ -217,6 +217,13 @@ implemented for `Spat*` objects.
 Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 `Spat*` objects.
 
+- [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
+  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
+  [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
+  :
+
+  Plot `SpatRaster` contours
+
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
   [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
   :
@@ -227,13 +234,6 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
   :
 
   Visualise `SpatRaster` objects as images
-
-- [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-  [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-  :
-
-  Plot `SpatRaster` contours
 
 - [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
