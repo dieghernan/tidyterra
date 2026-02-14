@@ -1,26 +1,30 @@
 # Articles
 
-### All vignettes
+### Articles
 
-- [tidyterra
-  FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.md):
-
-  Frequently Asked Questions on the use of tidyterra.
+- [Welcome to
+  tidyterra](https://dieghernan.github.io/tidyterra/articles/welcome.md):
 
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/articles/palettes.md):
 
   A gallery of maps using the gradients provided by tidyterra.
 
-- [Using the tidyverse with terra objects: the tidyterra
-  package](https://dieghernan.github.io/tidyterra/articles/tidyterra.md):
+### In the wild
 
-  Paper published on The Journal of Open Source Software.
-
-- [Welcome to
-  tidyterra](https://dieghernan.github.io/tidyterra/articles/welcome.md):
+**tidyterra** in publications.
 
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/articles/wild.md):
 
   Use of tidyterra in publications.
+
+### FAQs
+
+**tidyterra** FAQs. See also
+[/tidyterra/discussions](https://github.com/dieghernan/tidyterra/discussions).
+
+- [tidyterra
+  FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.md):
+
+  Frequently Asked Questions on the use of tidyterra.
