@@ -40,3 +40,10 @@
 ^vignettes/\.quarto$
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
+^vignettes/tidyterra\.qmd\.orig$
+^vignettes/*_files$
+^vignettes/welcome\.qmd\.orig$
+^README\.qmd$
+^inst/README\.qmd$
+^README_files$
+^README\.html$

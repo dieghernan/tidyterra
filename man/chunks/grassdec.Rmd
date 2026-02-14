@@ -1,8 +1,12 @@
-```{r include=FALSE}
+```{r}
+#| include: false
 library(dplyr)
 ``` 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
 grass_desc <- tibble::tribble(
   ~palette, ~use, ~description,
   "aspect", "General", "aspect oriented grey colors",

@@ -1,0 +1,237 @@
+---
+title: "Gradient palettes in tidyterra"
+description: A gallery of maps using the gradients provided by tidyterra.
+lightbox:
+  match: auto
+  desc-position: bottom
+  effect: fade
+format:
+  html:
+    include-before-body:
+      text: |
+        <style>
+          .glightbox-clean .gslide-desc {
+            font-weight: 800;
+            font-family: 'Inter Tight';
+            text-shadow: 0 0 10px black;
+            color: white !important;
+            opacity: 0.75;
+          }
+          .glightbox-mobile .glightbox-container .gslide-desc {
+            font-size: 1.25rem;
+          }
+        </style>
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    dpi: 300
+    tidy: "styler"
+    dev: "ragg_png"
+    out.width: "100%"
+---
+
+This page shows a [Lightbox gallery](https://biati-digital.github.io/glightbox/)
+of maps that can be displayed with the gradient fill scales included with
+**tidyterra**. A basic code to generate this map is:
+
+```{r}
+#| eval: false
+library(tidyterra)
+library(terra)
+library(ggplot2)
+
+r <- rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+ggplot() +
+  geom_spatraster(data = r) +
+  # Use the palette you like, in this case:
+  scale_fill_hypso_c() +
+  theme_void()
+```
+
+## `scale_fill_terrain_*` and `scale_fill_wiki_*`
+
+Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
+
+```{r}
+#| label: terr_wiki
+#| echo: false
+#| fig-alt: Terrain and wiki palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-wikiterr
+#|   description: Terrain and wiki palettes in tidyterra
+library(tidyterra)
+
+r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+library(ggplot2)
+
+baseplot <- ggplot() +
+  geom_spatraster(data = r)
+
+ss <- baseplot +
+  scale_fill_terrain_c() +
+  labs(title = "terrain") +
+  theme_void() +
+  theme(plot.background = element_rect(fill = "white"))
+
+print(ss)
+
+
+ss <- baseplot +
+  scale_fill_wiki_c() +
+  labs(title = "wiki") +
+  theme_void() +
+  theme(plot.background = element_rect(fill = "white"))
+
+
+print(ss)
+```
+
+## `scale_fill_whitebox_*`
+
+Check `scale_fill_whitebox_c()` for more info.
+
+```{r}
+#| label: whitebox
+#| echo: false
+#| fig-alt: Whitebox palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-whitebox
+#|   description: Whitebox palettes in tidyterra
+allpals <- sort(c(
+  "atlas",
+  "high_relief",
+  "arid",
+  "soft",
+  "muted",
+  "purple",
+  "viridi",
+  "gn_yl",
+  "pi_y_g",
+  "bl_yl_rd",
+  "deep"
+))
+
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_whitebox_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white"))
+
+
+  print(ss)
+}
+```
+
+## `scale_fill_hypso_*`
+
+Check `scale_fill_hypso_c()` for more info.
+
+```{r}
+#| label: hypso
+#| echo: false
+#| fig-alt: Hypso palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-hypso
+#|   description: Hypso palettes in tidyterra
+allpals <- sort(unique(hypsometric_tints_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_hypso_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white"))
+
+
+  print(ss)
+}
+```
+
+## `scale_fill_cross_blended_*`
+
+Check `scale_fill_cross_blended_c()` for more info.
+
+```{r}
+#| label: cross
+#| echo: false
+#| fig-alt: Cross-blended palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-cross
+#|   description: Cross-blended palettes in tidyterra
+allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_cross_blended_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white"))
+
+
+  print(ss)
+}
+```
+
+## `scale_fill_grass_*`
+
+Check `scale_fill_grass_c()` for more info. Plots produced using
+`use_grass_range = FALSE`.
+
+```{r}
+#| label: grass
+#| echo: false
+#| fig-alt: GRASS palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-grass
+#|   description: GRASS palettes in tidyterra
+allpals <- sort(unique(grass_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_grass_c(palette = i, use_grass_range = FALSE) +
+    labs(title = paste0(i)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white"))
+
+
+  print(ss)
+}
+```
+
+## `scale_fill_princess_*`
+
+Check `scale_fill_princess_c()` for more info.
+
+```{r}
+#| label: princess
+#| echo: false
+#| fig-alt: Princess palettes in tidyterra
+#| layout-ncol: 2
+#| lightbox:
+#|   group: r-princess
+#|   description: Princess palettes in tidyterra
+allpals <- sort(unique(princess_db$pal))
+
+for (i in allpals) {
+  ss <- baseplot +
+    scale_fill_princess_c(palette = i) +
+    labs(title = paste0(i)) +
+    theme_void() +
+    theme(plot.background = element_rect(fill = "white"))
+
+
+  print(ss)
+}
+```
