@@ -37,3 +37,9 @@
 ^jarl\.toml$
 /.quarto/
 [.]quarto_ipynb$
+^vignettes/tidyterra\.qmd\.orig$
+^vignettes/*_files$
+^vignettes/welcome\.qmd\.orig$
+^vignettes/\.quarto$
+^vignettes/articles/\.quarto$
+^vignettes/articles/*_files$

@@ -4,6 +4,12 @@ figures:
   dpi: 300
   fig.retina: 2
 
+development:
+  mode: auto
+
+repo:
+  branch: release
+
 navbar:
   structure:
     left:
@@ -12,20 +18,17 @@ navbar:
     - articles
     - faqs
     - tutorials
-    - media
     - news
     right:
     - search
     - twitter
     - github
     - donate
+    - lightswitch
   components:
     faqs:
       text: FAQs
       href: articles/faqs.html
-    media:
-      text: In the wild
-      href: articles/wild.html
     twitter:
       icon: fa-brands fa-x-twitter
       href: https://x.com/dhernangomez
@@ -141,3 +144,25 @@ authors:
     href: https://dieghernan.github.io/
   Dewey Dunnington:
     href: https://dewey.dunnington.ca/
+
+articles:
+- title: Articles
+  navbar:
+  contents:
+  - welcome
+  - articles/palettes
+
+- title: In the wild
+  navbar: In the wild
+  desc: >
+    **tidyterra** in publications.
+  contents:
+  - articles/wild
+
+- title: FAQs
+  desc: >
+    **tidyterra** FAQs. See also <a
+    href="https://github.com/dieghernan/tidyterra/discussions"
+    >/tidyterra/discussions</a>.
+  contents:
+  - articles/faqs

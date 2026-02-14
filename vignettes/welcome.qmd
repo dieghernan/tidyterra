@@ -1,53 +1,45 @@
 ---
 title: "Welcome to tidyterra"
-subtitle: "First steps with the tidyterra package"
-output: rmarkdown::html_vignette
+description: "First steps with the tidyterra package"
 vignette: >
   %\VignetteIndexEntry{Welcome to tidyterra}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
 
-<!-- welcome.Rmd is generated from welcome.Rmd.orig. Please edit that file -->
+<!-- welcome.qmd is generated from welcome.qmd.orig. Please edit that file -->
 
 
 
-## Welcome to {tidyterra}
+## The tidyterra package
 
-**tidyterra** is a package that adds common methods from the
-[**tidyverse**](https://tidyverse.org/) for `SpatRaster` and `SpatVector`
-objects created with the [**terra**](https://CRAN.R-project.org/package=terra)
-package. It also adds specific `geom_spat*()` functions for plotting these kinds
-of objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
+**tidyterra** adds common tidyverse methods for `SpatRaster` and `SpatVector`
+objects from the [**terra**](https://CRAN.R-project.org/package=terra) package,
+and provides `geom_spat*()` geoms for plotting these objects with
+[**ggplot2**](https://ggplot2.tidyverse.org/).
 
-### Why **tidyterra**?
+### Why tidyterra?
 
-`Spat*` objects are not like regular data frames. They are a different type of
-objects, implemented via the [S4 object system](http://adv-r.had.co.nz/S4.html),
-and have their own syntax and computation methods, implemented on the **terra**
-package.
+`Spat*` objects differ from regular data frames: they are S4 objects with their
+own syntax and computational methods (implemented in **terra**). By providing
+tidyverse verbs—especially `dplyr` and `tidyr` methods—**tidyterra** lets users
+manipulate `Spat*` objects in a style similar to working with tabular data.
 
-By implementing **tidyverse** methods for these objects, and more specifically
-**dplyr** and **tidyr** methods, a use**R** can now work more easily with
-`Spat*` objects, just like (s)he would do with tabular data.
+Note: **terra** is generally more performant. Learning some **terra** syntax is
+recommended because **tidyterra** functions call, where possible, the
+corresponding **terra** equivalents.
 
-**Note that** in terms of performance, **terra** is much more optimized for
-working with this kind of objects, so it is **recommended** also to learn a bit
-of **terra** syntax. Each function of **tidyterra** refers (when possible) to
-the corresponding equivalent on **terra**.
+## A note for advanced terra users
 
-## A note for advanced **terra** users
+**tidyterra** is not optimized for performance. Operations such as `filter()`
+and `mutate()` can be slower than their **terra** counterparts.
 
-As previously mentioned, **tidyterra** is not optimized in terms of performance.
-Especially when working with `filter()` and `mutate()` methods, it can be slow.
+As a rule of thumb, **tidyterra** is most suitable for objects with fewer than
+1e7 "slots" (i.e., `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`).
 
-As a rule of thumb, **tidyterra** can handle objects with less than 10,000,000
-slots of information (i.e.,
-`terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
+## Get started with tidyterra
 
-## Get started with **tidyterra**
-
-Load **tidyterra** with additional libraries of the **tidyverse**:
+Load **tidyterra** together with core tidyverse packages:
 
 
 ``` r
@@ -59,12 +51,12 @@ library(tidyr)
 Currently, the following methods are available:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
-|----|----|----|
+|---------------------|---------------------|--------------------------------------|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
-| `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
+| `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
-| `dplyr::filter()` | ✔️ | ✔️ Modify cells values and (additionally) remove outer cells. |
+| `dplyr::filter()` | ✔️ | ✔️ Modify cell values and (optionally) remove outer cells. |
 | `dplyr::slice()` | ✔️ | ✔️ Additional methods for slicing by row and column. |
 | `dplyr::pull()` | ✔️ | ✔️ |
 | `dplyr::rename()` | ✔️ | ✔️ |
@@ -90,11 +82,11 @@ Currently, the following methods are available:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-Let's see some of them in action:
+Let's see some of these methods in action.
 
 ### `SpatRasters`
 
-See an example with `SpatRaster` objects:
+Example using a `SpatRaster`:
 
 
 ``` r
@@ -133,26 +125,24 @@ mod
 #> max values  :   5.307511, 16.740898, 21.11378
 ```
 
-On the previous example, we had:
+In this example we:
 
--   Eliminated the first layer of the raster `tavg_04`.
--   Created a new layer `newcol` as the difference of the layers `tavg_05` and
-    `tavg_06`.
--   Relocated `newcol` as the first layer of the `SpatRaster`.
--   Replaced the `NA` cells on `newcol` with `3`.
--   Renamed `newcol` to difference.
+-   Removed the first layer (`tavg_04`).
+-   Created a new layer `newcol` as the difference between `tavg_06` and
+    `tavg_05`.
+-   Relocated `newcol` to be the first layer.
+-   Replaced `NA` values in `newcol` with `3`.
+-   Renamed `newcol` to `difference`.
 
-Throughout the process, the essential properties of the `SpatRaster` (number of
-cells, columns and rows, extent, resolution and coordinate reference system)
-have not been modified. Other methods such as `filter()`, `slice()` or
-`drop_na()` can modify these properties, as they would do when applied to a data
-frame (number of rows would be modified on that case).
+Throughout these steps, core properties of the `SpatRaster` (number of cells,
+rows and columns, extent, resolution, and CRS) remain unchanged. Other verbs
+such as `filter()`, `slice()`, or `drop_na()` may alter these properties in a
+manner analogous to how row operations affect data frames.
 
 ### `SpatVectors`
 
-`tidyterra >= 0.4.0` provides support for `SpatVectors` for most of the
-**dplyr** and **tidyr** methods, so it is possible to arrange, group and
-summarise information of `SpatVectors`.
+Since **tidyterra** 0.4.0, most `dplyr` and `tidyr` verbs work with `SpatVector`
+objects, so you can arrange, group, and summarise their attributes.
 
 
 ``` r
@@ -184,17 +174,15 @@ v_lux |>
 #>                (4.99,40.7]     9 1.944e+05     209.8
 ```
 
-As in the case of `SpatRaster`, basic properties such as the geometry and the
-CRS are preserved.
+As with `SpatRaster`, essential properties such as geometry and CRS are
+preserved during these operations.
 
-## Plotting with **ggplot2**
+## Plotting with ggplot2
 
 ### `SpatRasters`
 
-**tidyterra** provides several `geom_*` for `SpatRasters`. When the `SpatRaster`
-has the CRS defined (i.e. `terra::crs(a_rast) != ""`), the geom uses
-`ggplot2::coord_sf()`, and may also be reprojected for adjusting the coordinates
-to other spatial layers:
+When a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != ""`), the geom
+uses `ggplot2::coord_sf()` and can be reprojected to match other spatial layers.
 
 
 ``` r
@@ -212,8 +200,8 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./faceted-1.png" alt="A faceted SpatRaster" width="100%" />
-<p class="caption">A faceted SpatRaster</p>
+<img src="./fig-faceted-1.png" alt="A faceted map using SpatRaster" width="100%" />
+<p class="caption">A faceted map using SpatRaster</p>
 </div>
 
 
@@ -232,7 +220,7 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./contourlines-1.png" alt="Contour lines plot for a SpatRaster" width="100%" />
+<img src="./fig-contourlines-1.png" alt="Contour lines plot for a SpatRaster" width="100%" />
 <p class="caption">Contour lines plot for a SpatRaster</p>
 </div>
 
@@ -247,12 +235,11 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./contourfilled-1.png" alt="Contour filled plot for a SpatRaster" width="100%" />
+<img src="./fig-contourfilled-1.png" alt="Contour filled plot for a SpatRaster" width="100%" />
 <p class="caption">Contour filled plot for a SpatRaster</p>
 </div>
 
-With **tidyterra** you can also plot RGB `SpatRasters` to add imagery to your
-plots:
+tidyterra also supports RGB `SpatRasters` for imagery:
 
 
 ``` r
@@ -274,12 +261,12 @@ rgb_plot
 ```
 
 <div class="figure">
-<img src="./rgb-1.png" alt="Plotting an RGB SpatRaster" width="100%" />
-<p class="caption">Plotting an RGB SpatRaster</p>
+<img src="./fig-rgb-1.png" alt="A map combining a RGB SpatRaster and a SpatVector" width="100%" />
+<p class="caption">A map combining a RGB SpatRaster and a SpatVector</p>
 </div>
 
-**tidyterra** provides selected scales that are suitable for creating
-hypsometric and bathymetric maps:
+**tidyterra** includes color scales suitable for hypsometric and bathymetric
+maps:
 
 
 ``` r
@@ -319,14 +306,13 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./hypso-1.png" alt="Hypsometric tints" width="100%" />
-<p class="caption">Hypsometric tints</p>
+<img src="./fig-hypso-1.png" alt="Map of Asia including hypsometric tints" width="100%" />
+<p class="caption">Map of Asia including hypsometric tints</p>
 </div>
 
 ### `SpatVectors`
 
-**tidyterra** allows you to plot `SpatVectors` with **ggplot2** using the
-`geom_spatvector()` functions:
+Plot `SpatVectors` with `geom_spatvector()`:
 
 
 ``` r
@@ -342,15 +328,14 @@ ggplot(v_lux) +
 ```
 
 <div class="figure">
-<img src="./lux_ggplot-1.png" alt="Plotting SpatVectors" width="100%" />
-<p class="caption">Plotting SpatVectors</p>
+<img src="./fig-lux_ggplot-1.png" alt="Choropleth map with a SpatVector object" width="100%" />
+<p class="caption">Choropleth map with a SpatVector object</p>
 </div>
 
-The underlying implementation is to take advantage of the conversion
-`terra::vect()/sf::st_as_sf()` and use `ggplot2::geom_sf()` as an endpoint for
-creating the layer.
+Implementation-wise, **tidyterra** converts `terra::vect()` output to **sf** via
+`sf::st_as_sf()` and then uses `ggplot2::geom_sf()` to render the layer.
 
-With **tidyterra** we can also aggregate `SpatVectors` at our convenience:
+You can also aggregate `SpatVectors` easily:
 
 
 ``` r
@@ -372,12 +357,11 @@ v_lux |>
 ```
 
 <div class="figure">
-<img src="./aggregate-1.png" alt="Dissolving SpatVectors by group" width="100%" />
+<img src="./fig-aggregate-1.png" alt="Dissolving SpatVectors by group" width="100%" />
 <p class="caption">Dissolving SpatVectors by group</p>
 </div>
 
 ``` r
-
 
 # Same but keeping internal boundaries
 v_lux |>
@@ -398,6 +382,6 @@ v_lux |>
 ```
 
 <div class="figure">
-<img src="./aggregate-2.png" alt="Dissolving SpatVectors by group (keeping internal boundaries)" width="100%" />
+<img src="./fig-aggregate-2.png" alt="Dissolving SpatVectors by group (keeping internal boundaries)" width="100%" />
 <p class="caption">Dissolving SpatVectors by group (keeping internal boundaries)</p>
 </div>

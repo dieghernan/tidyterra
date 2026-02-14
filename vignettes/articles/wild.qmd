@@ -1,6 +1,6 @@
 ---
 title: "tidyterra in the wild"
-description: Use of tidyterra in publications.
+description: Use of **tidyterra** in publications.
 bibliography: INPUBS.bib
 csl: apa.csl
 nocite: '@*'
@@ -29,6 +29,10 @@ A BibTeX entry for LaTeX users is:
 }
 ```
 
-<p><span class="__dimensions_badge_embed__" data-doi="10.21105/joss.05751" data-legend="always" data-style="small_circle"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+<p>
+
+```{=html}
+<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+```
 
 ## Publications

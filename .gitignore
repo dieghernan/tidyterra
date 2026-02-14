@@ -30,3 +30,4 @@ cran-comments.md
 Rplots.pdf
 /.quarto/
 **/*.quarto_ipynb
+**/.quarto/

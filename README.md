@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" align="right" height="139"/></a>
+# tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" alt="tidyterra website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -139,6 +139,8 @@ When plotting rasters, resampling is performed automatically (as
 
 ## Installation
 
+<div class="pkgdown-release">
+
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
@@ -146,7 +148,14 @@ Install **tidyterra** from
 install.packages("tidyterra")
 ```
 
-You can install the development version of **tidyterra** like so:
+</div>
+
+<div class="pkgdown-devel">
+
+Check the docs of the developing version in
+<https://dieghernan.github.io/tidyterra/dev/>
+
+You can install the developing version of **tidyterra** like so:
 
 ``` r
 # install.packages("pak")
@@ -158,11 +167,16 @@ Alternatively, you can install **tidyterra** using the
 
 ``` r
 # Enable this universe
-install.packages("tidyterra", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyterra",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
+
+</div>
 
 ## Example
 
@@ -228,7 +242,8 @@ ggplot(prov) +
   geom_spatraster(data = variation) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
-    palette = "deep", direction = -1,
+    palette = "deep",
+    direction = -1,
     labels = scales::label_number(suffix = "º"),
     n.breaks = 5
   ) +
