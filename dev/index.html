@@ -324,17 +324,21 @@
 </h2>
 
 <div class="pkgdown-devel">
-<p>You can install the development version of <strong>tidyterra</strong> like so:</p>
+<p>Check the docs of the developing version in <a href="https://dieghernan.github.io/tidyterra/dev/" class="uri">https://dieghernan.github.io/tidyterra/dev/</a></p>
+<p>You can install the developing version of <strong>tidyterra</strong> like so:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install <strong>tidyterra</strong> using the <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>  <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
-<span>  <span class="st">"https://cloud.r-project.org"</span></span>
-<span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"tidyterra"</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
+<span>    <span class="st">"https://cloud.r-project.org"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -399,7 +403,8 @@
 <span>  <span class="fu"><a href="reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">variation</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span></span>
-<span>    palette <span class="op">=</span> <span class="st">"deep"</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
+<span>    palette <span class="op">=</span> <span class="st">"deep"</span>,</span>
+<span>    direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>suffix <span class="op">=</span> <span class="st">"º"</span><span class="op">)</span>,</span>
 <span>    n.breaks <span class="op">=</span> <span class="fl">5</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
@@ -499,7 +504,7 @@
 <h2 id="need-help">Need help?<a class="anchor" aria-label="anchor" href="#need-help"></a>
 </h2>
 <p>Check our <a href="https://dieghernan.github.io/tidyterra/articles/faqs.html">FAQs</a> or open a new <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">issue</a>!</p>
-<p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>i</mi><mi>d</mi><mi>y</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>r</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">tidyterra</annotation></semantics></math></a>.</p>
+<p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link">[tidyterra]</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>

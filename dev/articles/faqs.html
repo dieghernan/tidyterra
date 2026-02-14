@@ -19,9 +19,9 @@
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="tidyterra FAQs">
-<meta name="description" content="Frequently Asked Questions on the use of **tidyterra**.">
-<meta property="og:description" content="Frequently Asked Questions on the use of **tidyterra**.">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="faqs_files/libs/quarto-html/popper.min.js"></script><script src="faqs_files/libs/quarto-html/tippy.umd.min.js"></script><link href="faqs_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="faqs_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="tidyterra FAQs">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -66,7 +66,7 @@
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
 </li>
-<li class="nav-item"><a class="nav-link" href="../articles/faqs.html">FAQs</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/faqs.html">FAQs</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -89,71 +89,43 @@
 
 
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>tidyterra FAQs</h1>
-            
-      
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/faqs.Rmd" class="external-link"><code>vignettes/articles/faqs.Rmd</code></a></small>
-      <div class="d-none name"><code>faqs.Rmd</code></div>
+
+
+
+
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<p>This is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">questions
-that have arisen</a> on the use of the <strong>tidyterra</strong>
-package and the potential solutions to them (mostly related to the use
-of <strong>terra</strong> and <strong>ggplot2</strong> at this stage).
-You can ask for help or search previous questions in the following
-links.</p>
-<p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack
-Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
+
+
+
+
+
+    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and their solutions (primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>). You can ask for help or search previous questions using the following links.</p>
+<p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a Bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
 <li>Ask a question [<a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">link</a>].</li>
 </ul>
-<div class="section level3">
-<h3 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
+<section class="level3"><h3 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
 </h3>
-<div class="section level4">
-<h4 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a>
+<section class="level4"><h4 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a>
 </h4>
-<p>This article uses a sample of <strong>LiDAR for Scotland Phase 5 -
-DSM</strong> provided by <a href="https://remotesensingdata.gov.scot/" class="external-link">The Scottish Remote Sensing
-Portal</a>. This data is made available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="external-link">Open
-Government Licence v3</a>.</p>
-</div>
-<div class="section level4">
-<h4 id="about-the-file">About the file<a class="anchor" aria-label="anchor" href="#about-the-file"></a>
+<p>This article uses a sample of <strong>LiDAR for Scotland Phase 5 - DSM</strong> provided by <a href="https://remotesensingdata.gov.scot/" class="external-link">The Scottish Remote Sensing Portal</a>. This data is made available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="external-link">Open Government Licence v3</a>.</p>
+</section><section class="level4"><h4 id="about-the-file">About the file<a class="anchor" aria-label="anchor" href="#about-the-file"></a>
 </h4>
-<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of
-the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park,
-Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>,
-an extinct volcano, pretty much as the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau
-/ Mount Eden</a> volcano represented in
-<code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
-<p>The original file has been cropped and down-sampled for demo
-purposes, <code>holyroodpark.tif</code> is available online in <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>
-folder.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="nas-remove">
+<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, pretty much as the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
+<p>The original file has been cropped and down-sampled for demo purposes, <code>holyroodpark.tif</code> is available online in <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a> folder.</p>
+</section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray color<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior produced by the <strong>ggplot2</strong>
-package. <strong>tidyterra</strong> color scales (i.e.,
-<code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), have by default the
-argument <code>na.value</code> set to <code>"transparent"</code>, that
-prevents <code>NA</code> values to be filled<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the
-same purpose in most of the cases, However, when the proportion of
-non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<p>This is the default behavior produced by the <strong>ggplot2</strong> package. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), have by default the argument <code>na.value</code> set to <code>"transparent"</code>, that prevents <code>NA</code> values to be filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the same purpose in most of the cases, However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -173,20 +145,16 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Default on ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"NA values in grey"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/remove-nas-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Modify with scales</span></span>
 <span><span class="va">def</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_continuous</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"transparent"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Default colors on ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"But NAs are not plotted"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/remove-nas-2.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Use a different scale provided by ggplot2</span></span>
 <span><span class="va">def</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -194,13 +162,53 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span>    title <span class="op">=</span> <span class="st">"Use any fill_* scale of ggplot2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Note that na.value = 'orange'"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/remove-nas-3.png" class="r-plt" alt="" width="100%"></p>
+<div id="fig-remove_nas" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-remove_nas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-remove_nas" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-remove_nas-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-remove_nas-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-remove_nas-1.png" style="width:100.0%" data-ref-parent="fig-remove_nas">
 </div>
-<div class="section level2">
-<h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-remove_nas-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Default ggplot2 value.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-remove_nas" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-remove_nas-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-remove_nas-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-remove_nas-2.png" style="width:100.0%" data-ref-parent="fig-remove_nas">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-remove_nas-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Plot with transparent NA values.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-remove_nas" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-remove_nas-3" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-remove_nas-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-remove_nas-3.png" style="width:100.0%" data-ref-parent="fig-remove_nas">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-remove_nas-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) NA values mapped with another color.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remove_nas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 1: NA values on ggplot2
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
 </h2>
 <p>Use <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg" alt="Experimental"></a>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -211,10 +219,7 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Labelling contours"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/text-contour-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Labelling contours"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># With options and aes</span></span>
 <span></span>
@@ -261,16 +266,42 @@ non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see 
 <span>    title <span class="op">=</span> <span class="st">"Labelling contours"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"With options: b/w plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/text-contour-2.png" class="r-plt" alt="" width="100%"></p>
-<div class="section level3">
-<h3 id="other-alternatives">Other alternatives<a class="anchor" aria-label="anchor" href="#other-alternatives"></a>
+<div id="fig-textcontour" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-textcontour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-textcontour" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-textcontour-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-textcontour-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-textcontour-1.png" style="width:100.0%" data-ref-parent="fig-textcontour">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-textcontour-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Simple contour labels.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-textcontour" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-textcontour-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-textcontour-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-textcontour-2.png" style="width:100.0%" data-ref-parent="fig-textcontour">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-textcontour-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Alternative: Labelled contours.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-textcontour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 2: Contour labels with tidyterra
+</figcaption></figure>
+</div>
+<section class="level3"><h3 id="other-alternatives">Other alternatives<a class="anchor" aria-label="anchor" href="#other-alternatives"></a>
 </h3>
-<p>Thanks to <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> you can use your
-<code>SpatRaster</code> straight away with the <strong>metR</strong>
-package (see <a href="#fort">Hexagonal grids and other geoms</a>). Use
-the argument(s) <code>bins/binwidth/breaks</code> to align both labels
-and lines:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<p>Thanks to <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> you can use your <code>SpatRaster</code> straight away with the <strong>metR</strong> package (see <a href="#fort">Hexagonal grids and other geoms</a>). Use the argument(s) <code>bins/binwidth/breaks</code> to align both labels and lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/metR/" class="external-link">metR</a></span><span class="op">)</span></span>
 <span><span class="va">br</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">250</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">labs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">140</span>, <span class="fl">180</span>, <span class="fl">220</span><span class="op">)</span></span>
@@ -321,16 +352,22 @@ and lines:</p>
 <span>    x <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">""</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/metr-1.png" class="r-plt" alt="" width="100%"></p>
+<div class="cell-output-display">
+<div id="fig-metr" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-metr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-metr-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 3: Alternative (metR): Contour labeling combining tidyterra and metR packages with customized styling.
+</figcaption></figure>
 </div>
 </div>
-<div class="section level2">
-<h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
+</div>
+</section></section><section class="level2"><h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
 </h2>
-<p>Since <strong>tidyterra</strong> leverages on
-<strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use
-of scales:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<p>Since <strong>tidyterra</strong> leverages on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use of scales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -352,14 +389,21 @@ of scales:</p>
 <span>    na.value <span class="op">=</span> <span class="st">"transparent"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"A hillshade plot with grey colors"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/greys-1.png" class="r-plt" alt="" width="100%"></p>
+<div class="cell-output-display">
+<div id="fig-greys" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-greys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-greys-1.png" style="width:100.0%">
 </div>
-<div class="section level2">
-<h2 id="can-i-change-the-default-palette-of-my-maps">Can I change the default palette of my maps?<a class="anchor" aria-label="anchor" href="#can-i-change-the-default-palette-of-my-maps"></a>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-greys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 4: Hillshade visualization using grayscale colors to enhance terrain relief.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="can-i-change-the-default-palette-of-my-maps">Can I change the default palette of my maps?<a class="anchor" aria-label="anchor" href="#can-i-change-the-default-palette-of-my-maps"></a>
 </h2>
-<p>Yes, use <code>options("ggplot2.continuous.fill")</code> to modify
-the default colors in your session.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<p>Yes, use <code>options("ggplot2.continuous.fill")</code> to modify the default colors in your session.</p>
+<div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -376,30 +420,47 @@ the default colors in your session.</p>
 <span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"ggplot2.continuous.fill"</span><span class="op">)</span> <span class="co"># store current setting</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ggplot2.continuous.fill <span class="op">=</span> <span class="va">scale_fill_grass_c</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">p</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/default-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="va">p</span></span>
+<span></span>
 <span><span class="co"># restore previous setting</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>ggplot2.continuous.fill <span class="op">=</span> <span class="va">tmp</span><span class="op">)</span></span>
 <span></span>
-<span></span>
 <span><span class="va">p</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/default-2.png" class="r-plt" alt="" width="100%"></p>
+<div id="fig-default" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-default" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-default-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-default-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-default-1.png" style="width:100.0%" data-ref-parent="fig-default">
 </div>
-<div class="section level2">
-<h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-default-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Use of new default palette via options.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-default" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-default-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-default-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-default-2.png" style="width:100.0%" data-ref-parent="fig-default">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-default-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Restoring the default palette.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 5: Changing default ggplot2 color palettes
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>This is probably related to the tile itself rather than the package.
-Most base tiles are provided in <strong>EPSG:3857</strong>, so check
-first if your tile has this CRS and not a different one. Not having
-<strong>EPSG:3857</strong> may be an indication that the tile has been
-reprojected, implying some sort of sampling that causes the blurriness
-on your data. Also, modify the argument <code>maxcell</code> to avoid
-resampling and force the <strong>ggplot2</strong> map to be on
-<strong>EPSG:3857</strong> with
-<code>ggplot2::coord_sf(crs = 3857)</code>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. Also, modify the <code>maxcell</code> argument to avoid resampling and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -421,7 +482,7 @@ resampling and force the <strong>ggplot2</strong> map to be on
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tile1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"This is a bit blurry..."</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"CRS EPSG:4326"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">tile1</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span></span>
@@ -450,16 +511,41 @@ resampling and force the <strong>ggplot2</strong> map to be on
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">tile2</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># Force crs to be 3857</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"...compared with this one"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"CRS EPSG:3857"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/blurry-tile-1.png" class="r-plt" alt="" width="50%"><img src="faqs_files/figure-html/blurry-tile-2.png" class="r-plt" alt="" width="50%"></p>
+<div id="fig-blurrytile" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-blurrytile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-blurrytile" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-blurrytile-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-blurrytile-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-blurrytile-1.png" style="width:100.0%" data-ref-parent="fig-blurrytile">
 </div>
-<div class="section level2">
-<h2 id="axis-degrees">Avoid degrees labeling on axis<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-blurrytile-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Plot with resampled raster (EPGS:4326).
+</figcaption></figure>
+</div>
+</div>
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-blurrytile" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-blurrytile-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-blurrytile-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-blurrytile-2.png" style="width:100.0%" data-ref-parent="fig-blurrytile">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-blurrytile-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Plot with native CRS - not resampled (EPGS:3857).
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blurrytile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 6: Example of impact of resampling on blurriness of the tile
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="axis-degrees">Avoid degrees labeling on axis<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
 </h2>
-<p>Again, this is the <strong>ggplot2</strong> default, but can be
-modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<p>This is a <strong>ggplot2</strong> default behavior, but you can modify it using the <code>ggplot2::coord_sf(datum)</code> argument:</p>
+<div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -474,10 +560,8 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Axis auto-converted to lon/lat"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"But SpatRaster is EPSG:"</span>, <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/modify-datum-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
 <span></span>
 <span><span class="co"># Use datum</span></span>
 <span></span>
@@ -488,18 +572,43 @@ modified with <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <span>    title <span class="op">=</span> <span class="st">"Axis on the units of the SpatRaster"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"EPSG:"</span>, <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">$</span><span class="va">epsg</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/modify-datum-2.png" class="r-plt" alt="" width="100%"></p>
+<div id="fig-modifydatum" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-modifydatum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-modifydatum" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-modifydatum-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-modifydatum-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-modifydatum-1.png" style="width:100.0%" data-ref-parent="fig-modifydatum">
 </div>
-<div class="section level2">
-<h2 id="axis-breaks">Modifying the number of breaks on axis<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-modifydatum-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Automatic longitude/latitude axes.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-modifydatum" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-modifydatum-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-modifydatum-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-modifydatum-2.png" style="width:100.0%" data-ref-parent="fig-modifydatum">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-modifydatum-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Native coordinate system units.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modifydatum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 7: Degree labelling with ggplot2
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="axis-breaks">Modifying the number of breaks on axis<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
 </h2>
-<p>This is a long-standing issue in <strong>ggplot2</strong> with no
-satisfactory solution so far. Please see <a href="https://github.com/tidyverse/ggplot2/issues/4622" class="external-link">ggplot2/issues/4622</a>
-(and maybe consider opening a new issue). You can try something like
-this:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<p>This is a long-standing issue in <strong>ggplot2</strong> with no satisfactory solution so far. Please see <a href="https://github.com/tidyverse/ggplot2/issues/4622" class="external-link">ggplot2/issues/4622</a> (and consider contributing if you have insights). You can try the following approach:</p>
+<div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html" class="external-link">packageVersion</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] '4.0.1'</span></span>
+<span><span class="co">#&gt; [1] '4.0.2'</span></span>
 <span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -512,10 +621,8 @@ this:</p>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Default axis breaks"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/breaks-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Default axis breaks"</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Modify breaks on x and y</span></span>
 <span></span>
 <span><span class="co"># Need to be in EPSG:4326, but don't know why...</span></span>
@@ -532,19 +639,42 @@ this:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="va">y_br</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="va">x_br</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Three breaks in x and y axis"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/breaks-2.png" class="r-plt" alt="" width="100%"></p>
+<div id="fig-breaks" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-breaks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-breaks" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-breaks-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-breaks-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-breaks-1.png" style="width:100.0%" data-ref-parent="fig-breaks">
 </div>
-<div class="section level2">
-<h2 id="plotting-a-spatraster-with-color-tables">Plotting a <code>SpatRaster</code> with color tables<a class="anchor" aria-label="anchor" href="#plotting-a-spatraster-with-color-tables"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-breaks-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Default axis breaks.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-breaks" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-breaks-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-breaks-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-breaks-2.png" style="width:100.0%" data-ref-parent="fig-breaks">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-breaks-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Custom-defined breaks.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breaks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 8: Spatial axis breaks with ggplot2
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="plotting-a-spatraster-with-color-tables">Plotting a <code>SpatRaster</code> with color tables<a class="anchor" aria-label="anchor" href="#plotting-a-spatraster-with-color-tables"></a>
 </h2>
-<p><strong>tidyterra</strong> has several ways to handle these
-<code>SpatRaster</code> objects. We use the file
-<code>clc_edinburgh.tif</code>, available online in <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>
-folder, representing the information from the Corine Land Cover Dataset
-(2018) for the city of Edinburgh<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values
-have been converted to their corresponding labels and factors, and it
-has been added the corresponding color table as of &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the Corine Land Cover Dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and it has been added the corresponding color table as of &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -570,8 +700,13 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span></span>
 <span><span class="co"># Native handling by terra packages</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span></span>
 <span><span class="co"># A. autoplot</span></span>
@@ -579,16 +714,26 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"autoplot method"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-2.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-2.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># B. geom_spatraster</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"geom_spatraster method"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-3.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-3.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># C. Using scale_fill_coltab</span></span>
 <span></span>
@@ -598,15 +743,25 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span></span>
 <span></span>
 <span><span class="va">g</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-4.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-4.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># But...</span></span>
 <span><span class="va">g</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_coltab method"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-5.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-5.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># D. Extract named colors and scale_fill_manual</span></span>
 <span></span>
@@ -661,8 +816,13 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span><span class="co">#&gt;                                  "#E6F2FF"</span></span>
 <span></span>
 <span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="va">cols</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-6.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-6.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># And now</span></span>
 <span></span>
@@ -673,13 +833,18 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span>    na.translate <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/coltab-7.png" class="r-plt" alt="" width="100%"></p>
+<div class="cell-output-display">
+<div>
+<figure><p><img src="faqs_files/figure-html/coltab-7.png" style="width:100.0%"></p>
+</figure>
 </div>
-<div class="section level2">
-<h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
+</div>
+</div>
+</section><section class="level2"><h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
 </h2>
-<p>Sure! See an example (thanks <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<p>Absolutely! Here is an example (thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
@@ -712,17 +877,24 @@ has been added the corresponding color table as of &lt;a href="https://collectio
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu">gganimate</span><span class="fu">::</span><span class="fu"><a href="https://gganimate.com/reference/animate.html" class="external-link">animate</a></span><span class="op">(</span><span class="va">anim</span>, duration <span class="op">=</span> <span class="fl">12</span>, device <span class="op">=</span> <span class="st">"ragg_png"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="che_temp.gif" class="r-plt" alt="" width="100%"></p>
 </div>
-<div class="section level2">
-<h2 id="north-arrows-and-scale-bar">North arrows and scale bar<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bar"></a>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-include_gif" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-include_gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="che_temp.gif" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-include_gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 9: Animation of average monthly temperatures.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="north-arrows-and-scale-bar">North arrows and scale bar<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bar"></a>
 </h2>
-<p><strong>tidyterra</strong> does not provide these graphical objects
-for <strong>ggplot2</strong> plots. However, you can use
-<strong>ggspatial</strong> functions
-(<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and
-<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots. However, you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -746,15 +918,22 @@ for <strong>ggplot2</strong> plots. However, you can use
 <span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
 <span>    text_cex <span class="op">=</span> <span class="fl">.8</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/northarrow-1.png" class="r-plt" alt="" width="100%"></p>
+<div class="cell-output-display">
+<div id="fig-northarrow" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-northarrow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-northarrow-1.png" style="width:100.0%">
 </div>
-<div class="section level2">
-<h2 id="how-to-overlay-a-spatraster-over-a-rgb-tile">How to overlay a <code>SpatRaster</code> over a RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-over-a-rgb-tile"></a>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-northarrow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 10: Map with north arrow (top right) and scale bar (bottom left) annotations added using ggspatial.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="how-to-overlay-a-spatraster-over-a-rgb-tile">How to overlay a <code>SpatRaster</code> over a RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-over-a-rgb-tile"></a>
 </h2>
-<p>This is quite straightforward, just use
-<code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> and after that, just create your
-layer:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<p>This is straightforward: use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, and then add your data layers on top:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -810,10 +989,19 @@ layer:</p>
 <span>    fill <span class="op">=</span> <span class="st">"Precipitation"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="va">cap_lab</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/overlay_cont-1.png" class="r-plt" alt="" width="100%"></p>
-<p>We can create other variations with binned legends and filled
-contours (see <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>):</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div id="fig-overlay_cont" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-overlay_cont-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-overlay_cont-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_cont-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 11: Continuous precipitation data overlaid as semi-transparent layer on RGB satellite imagery.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>You can create variations with binned legends and filled contours using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>:</p>
+<div class="sourceCode cell-code" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Binned</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
@@ -831,10 +1019,8 @@ contours (see <code><a href="../reference/geom_spat_contour.html">geom_spatraste
 <span>    subtitle <span class="op">=</span> <span class="st">"With overlay: binned legend"</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">"Precipitation"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="va">cap_lab</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/overlay_alt-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Filled contour</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
@@ -852,19 +1038,42 @@ contours (see <code><a href="../reference/geom_spat_contour.html">geom_spatraste
 <span>    fill <span class="op">=</span> <span class="st">"Precipitation (mm.)"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="va">cap_lab</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/overlay_alt-2.png" class="r-plt" alt="" width="100%"></p>
+<div id="fig-overlay_alt" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-overlay_alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-overlay_alt" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-overlay_alt-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-overlay_alt-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-overlay_alt-1.png" style="width:100.0%" data-ref-parent="fig-overlay_alt">
 </div>
-<div class="section level2">
-<h2 id="fort">Hexagonal grids (and other <code>geoms</code>)<a class="anchor" aria-label="anchor" href="#fort"></a>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-overlay_alt-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Binned precipitation legend.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-overlay_alt" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-overlay_alt-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-overlay_alt-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-overlay_alt-2.png" style="width:100.0%" data-ref-parent="fig-overlay_alt">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-overlay_alt-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Contour representation.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 12: Alternative overlay approaches
+</figcaption></figure>
+</div>
+</section><section class="level2"><h2 id="fort">Hexagonal grids (and other <code>geoms</code>)<a class="anchor" aria-label="anchor" href="#fort"></a>
 </h2>
-<p>Conceptually, the cells of a <code>SpatRaster</code> are rectangular,
-so it is not possible to create a <code>SpatRaster</code> with
-i.e. hexagonal cells.</p>
-<p>But it is possible to create a plot with hexagonal cells thanks to
-<code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex()</a></code>.
-Additional work is needed to adjust the final plot, specifically, it is
-also needed to use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<p>While <code>SpatRaster</code> cells are inherently rectangular, you can create plots with hexagonal cells using <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex()</a></code>. The final plot requires coordinate adjustment with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -889,15 +1098,21 @@ also needed to use <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.h
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/hex_grid-1.png" class="r-plt" alt="" width="100%"></p>
-<p>Note that there is no need to make a direct call to
-<code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, since this function is implicitly
-invoked by <strong>ggplot2</strong> when using
-<code>ggplot(data = a_spatraster)</code>.</p>
-<p>Thanks to this extension mechanism, it is possible to use additional
-<code>geoms</code> and <code>stats</code> provided by
-<strong>ggplot2</strong>:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="cell-output-display">
+<div id="fig-hex_grid" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-hex_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-hex_grid-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hex_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 13: Elevation data aggregated and visualized as hexagonal grid cells.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Note that you do not need to call <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> directly; <strong>ggplot2</strong> invokes it implicitly when you use <code>ggplot(data = a_spatraster)</code>.</p>
+<p>Thanks to this extension mechanism, you can use additional <code>geoms</code> and <code>stats</code> from <strong>ggplot2</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Point plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span>, maxcell <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
@@ -915,15 +1130,22 @@ invoked by <strong>ggplot2</strong> when using
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/alt_points-1.png" class="r-plt" alt="" width="100%"></p>
-<div class="section level3">
-<h3 id="tidyterra-and-metr">tidyterra and metR<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
+<div class="cell-output-display">
+<div id="fig-alt_points" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-alt_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-alt_points-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alt_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 14: Elevation data represented as points with size and transparency scaled by elevation values.
+</figcaption></figure>
+</div>
+</div>
+</div>
+<section class="level3"><h3 id="tidyterra-and-metr">tidyterra and metR<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
 </h3>
-<p><strong>metR</strong> is a package that also provides
-<strong>ggplot2</strong> extensions, mainly focused on the analysis of
-meteorological fields. As shown previously (see <a href="#label-contour">Labeling contours</a>) it is possible to use both
-packages to provide rich plots.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<p><strong>metR</strong> is a package that provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load libraries and files</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -932,9 +1154,9 @@ packages to provide rich plots.</p>
 <span></span>
 <span><span class="va">holyrood</span> <span class="op">&lt;-</span> <span class="st">"holyroodpark.tif"</span></span>
 <span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">holyrood</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">holyrood</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://eliocamp.github.io/metR/reference/geom_relief.html" class="external-link">geom_relief</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">r</span>,</span>
@@ -945,122 +1167,103 @@ packages to provide rich plots.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_alpha.html" class="external-link">scale_alpha</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="st">"none"</span>, fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span>, title <span class="op">=</span> <span class="st">"tidyterra and metR: reliefs"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="faqs_files/figure-html/hill-1.png" class="r-plt" alt="" width="100%"></p>
+<div class="cell-output-display">
+<div id="fig-metrdemo" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-metrdemo-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 15: Relief rendering combining tidyterra for raster visualization and metR for terrain relief representation.
+</figcaption></figure>
 </div>
 </div>
-<div class="section level2">
-<h2 id="session-info">Session info<a class="anchor" aria-label="anchor" href="#session-info"></a>
-</h2>
-<details><summary>
-Details
-</summary><pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
-<span><span class="co">#&gt;  version  R version 4.5.2 (2025-10-31 ucrt)</span></span>
-<span><span class="co">#&gt;  os       Windows Server 2022 x64 (build 26100)</span></span>
-<span><span class="co">#&gt;  system   x86_64, mingw32</span></span>
-<span><span class="co">#&gt;  ui       RTerm</span></span>
-<span><span class="co">#&gt;  language en</span></span>
-<span><span class="co">#&gt;  collate  English_United States.utf8</span></span>
-<span><span class="co">#&gt;  ctype    English_United States.utf8</span></span>
-<span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2026-02-03</span></span>
-<span><span class="co">#&gt;  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)</span></span>
-<span><span class="co">#&gt;  quarto   NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package     </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version   </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
-<span><span class="co">#&gt;  backports      1.5.0      <span style="color: #555555;">2024-05-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  bslib          0.10.0     <span style="color: #555555;">2026-01-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cachem         1.1.0      <span style="color: #555555;">2024-05-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  checkmate      2.3.3      <span style="color: #555555;">2025-08-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  class          7.3-23     <span style="color: #555555;">2025-01-01</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  classInt       0.4-11     <span style="color: #555555;">2025-01-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cli            3.6.5      <span style="color: #555555;">2025-04-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  codetools      0.2-20     <span style="color: #555555;">2024-03-31</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  data.table     1.18.2.1   <span style="color: #555555;">2026-01-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  DBI            1.2.3      <span style="color: #555555;">2024-06-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  desc           1.4.3      <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  digest         0.6.39     <span style="color: #555555;">2025-11-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  dplyr          1.2.0      <span style="color: #555555;">2026-02-03</span> <span style="color: #555555;">[1]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  e1071          1.7-17     <span style="color: #555555;">2025-12-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  evaluate       1.0.5      <span style="color: #555555;">2025-08-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  farver         2.1.2      <span style="color: #555555;">2024-05-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fastmap        1.2.0      <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fs             1.6.6      <span style="color: #555555;">2025-04-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  generics       0.1.4      <span style="color: #555555;">2025-05-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  geodata      * 0.6-6      <span style="color: #555555;">2025-09-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ggplot2      * 4.0.1      <span style="color: #555555;">2025-11-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ggspatial    * 1.1.10     <span style="color: #555555;">2025-08-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  glue           1.8.0      <span style="color: #555555;">2024-09-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  gtable         0.3.6      <span style="color: #555555;">2024-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  hexbin         1.28.5     <span style="color: #555555;">2024-11-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  htmltools      0.5.9      <span style="color: #555555;">2025-12-04</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  htmlwidgets    1.6.4      <span style="color: #555555;">2023-12-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  isoband        0.3.0      <span style="color: #555555;">2025-12-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jquerylib      0.1.4      <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jsonlite       2.0.0      <span style="color: #555555;">2025-03-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  KernSmooth     2.23-26    <span style="color: #555555;">2025-01-01</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  knitr          1.51       <span style="color: #555555;">2025-12-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  labeling       0.4.3      <span style="color: #555555;">2023-08-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  lattice        0.22-7     <span style="color: #555555;">2025-04-02</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  lifecycle      1.0.5      <span style="color: #555555;">2026-01-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  magrittr       2.0.4      <span style="color: #555555;">2025-09-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  maptiles     * 0.11.0     <span style="color: #555555;">2025-12-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  memoise        2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  metR         * 0.18.3     <span style="color: #555555;">2025-12-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  otel           0.2.0      <span style="color: #555555;">2025-08-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pillar         1.11.1     <span style="color: #555555;">2025-09-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pkgconfig      2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pkgdown        2.2.0      <span style="color: #555555;">2025-11-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  plyr           1.8.9      <span style="color: #555555;">2023-10-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  proxy          0.4-29     <span style="color: #555555;">2025-12-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  purrr          1.2.1      <span style="color: #555555;">2026-01-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.cache        0.17.0     <span style="color: #555555;">2025-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.methodsS3    1.8.2      <span style="color: #555555;">2022-06-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.oo           1.27.1     <span style="color: #555555;">2025-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.utils        2.13.0     <span style="color: #555555;">2025-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R6             2.6.1      <span style="color: #555555;">2025-02-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ragg           1.5.0      <span style="color: #555555;">2025-09-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rappdirs       0.3.4      <span style="color: #555555;">2026-01-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  RColorBrewer   1.1-3      <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  Rcpp           1.1.1      <span style="color: #555555;">2026-01-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rlang          1.1.7      <span style="color: #555555;">2026-01-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rmarkdown      2.30       <span style="color: #555555;">2025-09-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  s2             1.1.9      <span style="color: #555555;">2025-05-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  S7             0.2.1      <span style="color: #555555;">2025-11-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sass           0.4.10     <span style="color: #555555;">2025-04-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  scales         1.4.0      <span style="color: #555555;">2025-04-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sessioninfo  * 1.2.3      <span style="color: #555555;">2025-02-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">any (@1.2.3)</span></span></span>
-<span><span class="co">#&gt;  sf           * 1.0-24     <span style="color: #555555;">2026-01-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  styler         1.11.0     <span style="color: #555555;">2025-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  systemfonts    1.3.1      <span style="color: #555555;">2025-10-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  terra        * 1.8-93     <span style="color: #555555;">2026-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  textshaping    1.0.4      <span style="color: #555555;">2025-10-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tibble         3.3.1      <span style="color: #555555;">2026-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyr          1.3.2      <span style="color: #555555;">2025-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyselect     1.2.1      <span style="color: #555555;">2024-03-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyterra    * <span style="color: #BB00BB; font-weight: bold;">1.0.0.9000</span> <span style="color: #555555;">2026-02-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
-<span><span class="co">#&gt;  units          1.0-0      <span style="color: #555555;">2025-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  vctrs          0.7.1      <span style="color: #555555;">2026-01-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  viridisLite    0.4.2      <span style="color: #555555;">2023-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  withr          3.0.2      <span style="color: #555555;">2024-10-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  wk             0.9.5      <span style="color: #555555;">2025-12-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  xfun           0.56       <span style="color: #555555;">2026-01-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  yaml           2.3.12     <span style="color: #555555;">2025-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] D:/a/_temp/Library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [2] C:/R/site-library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [3] C:/R/library</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #BBBBBB; background-color: #BB0000;">*</span> ── Packages attached to the search path.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre>
-</details>
 </div>
-
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+</section></section><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config);
+    }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
-
 
 
     <footer><div class="pkgdown-footer-left">

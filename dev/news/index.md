@@ -4,14 +4,14 @@
 
 - New **dplyr** minimum version: **1.2.0**.
 
-#### New Methods
+### New Methods
 
 - [`add_count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   ([\#195](https://github.com/dieghernan/tidyterra/issues/195)).
 - [`filter_out.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   ([\#196](https://github.com/dieghernan/tidyterra/issues/196)).
 
-#### Changes in arguments
+### Changes in arguments
 
 - In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
@@ -37,12 +37,16 @@
       - `wt` argument for performing weighted counts supported.
       - `.drop` argument deprecated, (it never really worked).
 
-#### Deprecations
+### Deprecations
 
 - [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/transmute.Spat.md)
   is marked as superseded, as in
   [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
   **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+
+### Other changes
+
+- Migrate vignettes and articles to Quarto.
 
 ## tidyterra 1.0.0
 

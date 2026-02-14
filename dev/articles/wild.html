@@ -19,9 +19,9 @@
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="tidyterra in the wild">
-<meta name="description" content="Use of **tidyterra** in publications.">
-<meta property="og:description" content="Use of **tidyterra** in publications.">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="wild_files/libs/quarto-html/popper.min.js"></script><script src="wild_files/libs/quarto-html/tippy.umd.min.js"></script><link href="wild_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="wild_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="tidyterra in the wild">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -54,7 +54,7 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../articles/tidyterra.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
+<li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
@@ -89,384 +89,276 @@
 
 
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>tidyterra in the wild</h1>
-            
-      
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/wild.Rmd" class="external-link"><code>vignettes/articles/wild.Rmd</code></a></small>
-      <div class="d-none name"><code>wild.Rmd</code></div>
+
+
+
+
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/wild.qmd" class="external-link"><code>vignettes/articles/wild.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<p>Please cite <strong>tidyterra</strong> as:</p>
-<p>Hernangómez, D., (2023). Using the tidyverse with terra objects: the
-tidyterra package. <em>Journal of Open Source Software</em>,
-<em>8</em>(91), 5751, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a>.</p>
-<p>A BibTeX entry for LaTeX users is:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bib"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">Hernang</span>ó<span class="ot">mez2023</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="dt">doi</span> = {10.21105/joss.05751},</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="dt">url</span> = {https://doi.org/10.21105/joss.05751},</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>  <span class="dt">year</span> = {2023},</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>  <span class="dt">publisher</span> = {The Open Journal},</span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>  <span class="dt">volume</span> = {8},</span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>  <span class="dt">number</span> = {91},</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>  <span class="dt">pages</span> = {5751},</span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a>  <span class="dt">author</span> = {Diego Hernangómez},</span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>  <span class="dt">title</span> = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  <span class="dt">journal</span> = {Journal of Open Source Software}</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>}</span></code></pre></div>
-<p>
-<span class="__dimensions_badge_embed__" data-doi="10.21105/joss.05751" data-legend="always" data-style="small_circle"></span>
-<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script></p>
-<div class="section level2 unnumbered">
-<h2 class="unnumbered" id="publications">Publications<a class="anchor" aria-label="anchor" href="#publications"></a>
-</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0" line-spacing="2">
-<div id="ref-doi:10.1073/pnas.2417203122" class="csl-entry">
-Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., &amp; Meyer, B.
-(2025). Mapping encounters between <span>Antarctic</span> krill fishing
-vessels and air-breathing krill predators using acoustic data from the
-fishery. <em>Proceedings of the National Academy of Sciences</em>,
-<em>122</em>(25), e2417203122. <a href="https://doi.org/10.1073/pnas.2417203122" class="external-link">https://doi.org/10.1073/pnas.2417203122</a>
-</div>
-<div id="ref-bionda_mapping_2025" class="csl-entry">
-Bionda, A., Negro, A., Grande, S., &amp; Crepaldi, P. (2025). Mapping
-risks and landscapes: Conservation insights for <span>Italian</span>
-small ruminant populations. <em>Pastoralism: Research, Policy and
-Practice</em>, <em>15</em>, 14997. <a href="https://doi.org/10.3389/past.2025.14997" class="external-link">https://doi.org/10.3389/past.2025.14997</a>
-</div>
-<div id="ref-buma_including_2024" class="csl-entry">
-Buma, B. (2024). Including non-growing season emissions of
-<span>N</span>₂<span>O</span> in <span>US</span> maize could raise net
-<span>CO</span>₂e emissions by 31% annually. <em>Agricultural &amp;
-Environmental Letters</em>, <em>9</em>(2), e20146. <a href="https://doi.org/10.1002/ael2.20146" class="external-link">https://doi.org/10.1002/ael2.20146</a>
-</div>
-<div id="ref-coffey_spatial_2025" class="csl-entry">
-Coffey, M. L., &amp; Simons, A. M. (2025). The spatial distribution of a
-hummingbird-pollinated plant is not strongly influenced by hummingbird
-abundance. <em>American Journal of Botany</em>, e70034. <a href="https://doi.org/10.1002/ajb2.70034" class="external-link">https://doi.org/10.1002/ajb2.70034</a>
-</div>
-<div id="ref-Copot2026" class="csl-entry">
-Copot, O., &amp; Lõhmus, A. (2026). Assessment of multiple outcomes of
-habitat models can significantly affect conservation decisions for
-threatened species. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-026-35987-4" class="external-link">https://doi.org/10.1038/s41598-026-35987-4</a>
-</div>
-<div id="ref-cordero_enhancing_2025" class="csl-entry">
-Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., &amp; Sherman, C.
-(2025). Enhancing tsunami evacuation strategies in <span>Puerto</span>
-<span>Rico</span> using open-source least-cost path analysis.
-<em>Journal of Disaster Science and Management</em>, <em>1</em>(1), 18.
-<a href="https://doi.org/10.1007/s44367-025-00018-y" class="external-link">https://doi.org/10.1007/s44367-025-00018-y</a>
-</div>
-<div id="ref-https://doi.org/10.1002/ece3.72978" class="csl-entry">
-Di Fabio, A., Aspalter, S., Chakraborty, D., Loo, M. van, Rolke, L. M.,
-Schüler, S., Thiel, R., Veit, C., &amp; Kreyling, J. (2026). Growth
-performance is driven by site conditions and moderated by functional
-trait plasticity in <span><em>Quercus robur</em></span> and
-<span><em>Prunus avium</em></span>. <em>Ecology and Evolution</em>,
-<em>16</em>(2), e72978. <a href="https://doi.org/10.1002/ece3.72978" class="external-link">https://doi.org/10.1002/ece3.72978</a>
-</div>
-<div id="ref-di_fabio_climatic_2024" class="csl-entry">
-Di Fabio, A., Buttò, V., Chakraborty, D., O’Neill, G. A., Schueler, S.,
-&amp; Kreyling, J. (2024). Climatic conditions at provenance origin
-influence growth stability to changes in climate in two major tree
-species. <em>Frontiers in Forests and Global Change</em>, <em>7</em>,
-1422165. <a href="https://doi.org/10.3389/ffgc.2024.1422165" class="external-link">https://doi.org/10.3389/ffgc.2024.1422165</a>
-</div>
-<div id="ref-d17110781" class="csl-entry">
-Drozdova, P., Shatilina, Z., Telnes, E., Gurkov, A., Saranchina, A.,
-Mutin, A., Zolotovskaya, E., &amp; Timofeyev, M. (2025). Prezygotic and
-postzygotic reproductive incompatibilities complement each other in the
-formation of a cryptic amphipod species: The example of a <span>Lake
-Baikal</span> species complex <em><span>Eulimnogammarus</span>
-verrucosus</em>. <em>Diversity</em>, <em>17</em>(11). <a href="https://doi.org/10.3390/d17110781" class="external-link">https://doi.org/10.3390/d17110781</a>
-</div>
-<div id="ref-elio_medina_how_2025" class="csl-entry">
-Elio Medina, J., Plathner, F. V., Pastor, E., &amp; Fernandez-Anez, N.
-(2025). How to <span>Approach</span> the <span>Definition</span> of
-<span>WUI</span> in <span>Northern</span> <span>Europe</span>. <em>Fire
-and Materials</em>. <a href="https://doi.org/10.1002/fam.3264" class="external-link">https://doi.org/10.1002/fam.3264</a>
-</div>
-<div id="ref-fard_developing_2025" class="csl-entry">
-Fard, P., Hügel, J., Keivabu, R. C., Dominici, F., Zagheni, E., Estiri,
-H., &amp; Patel, C. J. (2025). Developing a <span>Spatiotemporal</span>
-<span>Repository</span> of <span>Extreme</span> <span>Heat</span> and
-<span>Cold</span> <span>Exposure</span> in the <span>United</span>
-<span>States</span> for <span>Precision</span> <span>Public</span>
-<span>Health</span> <span>Research</span>. <em>Environmental Science
-&amp; Technology</em>, <em>59</em>(37), 19872–19884. <a href="https://doi.org/10.1021/acs.est.5c03658" class="external-link">https://doi.org/10.1021/acs.est.5c03658</a>
-</div>
-<div id="ref-fu_integrating_2025" class="csl-entry">
-Fu, F., Wang, S., Wu, X., Chen, S., Tan, Z., Ye, C., &amp; Grünzweig, J.
-M. (2025). Integrating hydrological impacts for cost-effective dryland
-ecological restoration. <em>Communications Earth &amp; Environment</em>,
-<em>6</em>(1), 667. <a href="https://doi.org/10.1038/s43247-025-02649-8" class="external-link">https://doi.org/10.1038/s43247-025-02649-8</a>
-</div>
-<div id="ref-garcia-alvarado_assessing_2025" class="csl-entry">
-Garcı́a-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
-Naranjo-Cigala, A., &amp; Arévalo, J. R. (2025). Assessing the
-<span>Potential</span> <span>Risk</span> of <span>Invasion</span> of the
-<span>Neophyte</span> <em><span>Pluchea</span> ovalis</em>
-(<span>Pers</span>.) <span>DC</span>. (<span>Asteraceae</span>) in the
-<span>Canarian</span> <span>Archipelago</span> <span>Using</span> an
-<span>Ensemble</span> of <span>Species</span> <span>Distribution</span>
-<span>Modelling</span>. <em>Diversity</em>, <em>17</em>(3), 195. <a href="https://doi.org/10.3390/d17030195" class="external-link">https://doi.org/10.3390/d17030195</a>
-</div>
-<div id="ref-hattendorf_dirofilaria_2025" class="csl-entry">
-Hattendorf, C., &amp; Lühken, R. (2025a). <em><span>Dirofilaria</span>
-immitis</em> and <em><span>D.</span> <span class="nocase">repens</span></em> in <span>Europe</span>: A systematic
-literature review on vectors, host range, and the spatial distribution
-in the 20th and 21st century. <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2025.02.17.638693" class="external-link">https://doi.org/10.1101/2025.02.17.638693</a>
-</div>
-<div id="ref-hattendorf_vectors_2025" class="csl-entry">
-Hattendorf, C., &amp; Lühken, R. (2025b). Vectors, host range, and
-spatial distribution of <em><span>Dirofilaria</span> immitis</em> and
-<em><span>D.</span> <span class="nocase">repens</span></em> in
-<span>Europe</span>: A systematic review. <em>Infectious Diseases of
-Poverty</em>, <em>14</em>(1), 58. <a href="https://doi.org/10.1186/s40249-025-01328-2" class="external-link">https://doi.org/10.1186/s40249-025-01328-2</a>
-</div>
-<div id="ref-https://doi.org/10.1002/ece3.71137" class="csl-entry">
-Herrera-Lopera, J. M., Solé, M., &amp; Cultid-Medina, C. A. (2025).
-<span class="nocase">Mapping the Missing: Assessing Amphibian Sampling
-Completeness and Overlap With Global Protected Areas</span>. <em>Ecology
-and Evolution</em>, <em>15</em>(5), e71137. <a href="https://doi.org/10.1002/ece3.71137" class="external-link">https://doi.org/10.1002/ece3.71137</a>
-</div>
-<div id="ref-https://doi.org/10.1111/mec.70179" class="csl-entry">
-Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F.
-C., Esselstyn, J. A., Inayah, N., &amp; Hawkins, M. T. R. (2025).
-Pliocene forest fragmentation shaped speciation in tropical <span class="nocase">Asia’s</span> giant squirrels
-(<span><em>Ratufa</em></span>). <em>Molecular Ecology</em>,
-<em>34</em>(24), e70179. <a href="https://doi.org/10.1111/mec.70179" class="external-link">https://doi.org/10.1111/mec.70179</a>
-</div>
-<div id="ref-jones_saur_2025" class="csl-entry">
-Jones, M. D. (2025). Saur and decline: <span>Patterns</span> in lizard
-imports to the <span>US</span> (2000-2022). <em>PLOS ONE</em>,
-<em>20</em>(10), 1–25. <a href="https://doi.org/10.1371/journal.pone.0333746" class="external-link">https://doi.org/10.1371/journal.pone.0333746</a>
-</div>
-<div id="ref-10.3389/fsoil.2025.1548645" class="csl-entry">
-Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
-Stomph, T., &amp; Struik, P. C. (2025). Can drone images predict
-within-field variability in soil fertility? A case study in the <span class="nocase">Northern Region of Ghana</span>. <em>Frontiers in Soil
-Science</em>, <em>Volume 5 - 2025</em>. <a href="https://doi.org/10.3389/fsoil.2025.1548645" class="external-link">https://doi.org/10.3389/fsoil.2025.1548645</a>
-</div>
-<div id="ref-kiel_snowmelt_2025" class="csl-entry">
-Kiel, N. G., Watts, D. A., Young, A. B., &amp; Vellend, M. (2025).
-Snowmelt timing alters the phenology but not the performance of an
-understory spring ephemeral plant. <em>Journal of Ecology</em>,
-<em>113</em>(9), 2289–2300. <a href="https://doi.org/10.1111/1365-2745.70099" class="external-link">https://doi.org/10.1111/1365-2745.70099</a>
-</div>
-<div id="ref-su18010439" class="csl-entry">
-Kiziridis, D. A., Karmiris, I., &amp; Fotakis, D. (2026). Agroforestry
-optimisation for climate policy: Mapping silvopastoral carbon
-sequestration trade-offs in the <span>Mediterranean</span>.
-<em>Sustainability</em>, <em>18</em>(1). <a href="https://doi.org/10.3390/su18010439" class="external-link">https://doi.org/10.3390/su18010439</a>
-</div>
-<div id="ref-kutza_endemic_2025" class="csl-entry">
-Kutza, A. D., Hert, Z. L., &amp; Moyle, L. C. (2025). Endemic and
-invasion dynamics of wild tomato species on the <span>Galápagos</span>
-<span>Islands</span>, across two centuries of collection records.
-<em>New Phytologist</em>, nph.70321. <a href="https://doi.org/10.1111/nph.70321" class="external-link">https://doi.org/10.1111/nph.70321</a>
-</div>
-<div id="ref-LEBRON2025109454" class="csl-entry">
-Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H.,
-Lofts, S., Griffiths, R., Fidler, D., Jones, B., Panagos, P., Sawicka,
-K., Keith, A. M., Seaton, F., &amp; Robinson, D. A. (2025). Patterns and
-thresholds for soil <span class="nocase">pH</span> across
-<span>Europe</span> in relation to soil health and degradation.
-<em>CATENA</em>, <em>260</em>, 109454. <a href="https://doi.org/10.1016/j.catena.2025.109454" class="external-link">https://doi.org/10.1016/j.catena.2025.109454</a>
-</div>
-<div id="ref-we-25-221-2025" class="csl-entry">
-Lee, F., Kusabs, I. A. K., Perry, G. L. W., &amp; MacNeil, C. (2025).
-Identifying refugia from the synergistic threats of climate change and
-invasive species. <em>Web Ecology</em>, <em>25</em>(2), 221–239. <a href="https://doi.org/10.5194/we-25-221-2025" class="external-link">https://doi.org/10.5194/we-25-221-2025</a>
-</div>
-<div id="ref-lindgren_inlabru_2024" class="csl-entry">
-Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., &amp; Seaton,
-A. E. (2024). <em><span class="nocase">inlabru</span>: Software for
-fitting latent <span>Gaussian</span> models with non-linear
-predictors</em>. <a href="https://arxiv.org/abs/2407.00791" class="external-link">https://arxiv.org/abs/2407.00791</a>
-</div>
-<div id="ref-luhken_high_2024" class="csl-entry">
-Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
-Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., &amp; Heitmann,
-A. (2024). High vector competence for chikungunya virus but heavily
-reduced locomotor activity of <em><span>Aedes</span> albopictus</em>
-from <span>Germany</span> at low temperatures. <em>Parasites &amp;
-Vectors</em>, <em>17</em>(1), 502. <a href="https://doi.org/10.1186/s13071-024-06594-x" class="external-link">https://doi.org/10.1186/s13071-024-06594-x</a>
-</div>
-<div id="ref-https://doi.org/10.1002/ecog.08112" class="csl-entry">
-Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., &amp;
-Merow, C. (2026). Flexible methods for species distribution modeling
-with small samples. <em>Ecography</em>, e08112. <a href="https://doi.org/10.1002/ecog.08112" class="external-link">https://doi.org/10.1002/ecog.08112</a>
-</div>
-<div id="ref-mallory_mercury_2025" class="csl-entry">
-Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
-Morrill, A., Provencher, J. F., &amp; O’Driscoll, N. J. (2025). Mercury
-in eastern coyotes from <span>Nova</span> <span>Scotia</span>,
-<span>Canada</span>: <span>Effects</span> of geography and trophic
-position. <em>Science of The Total Environment</em>, <em>974</em>,
-179186. <a href="https://doi.org/10.1016/j.scitotenv.2025.179186" class="external-link">https://doi.org/10.1016/j.scitotenv.2025.179186</a>
-</div>
-<div id="ref-maravall-lopez_eight_2025" class="csl-entry">
-Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
-M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
-Miranda De Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
-R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
-A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
-unknown lineage in <span>Argentina</span>. <em>Nature</em>. <a href="https://doi.org/10.1038/s41586-025-09731-3" class="external-link">https://doi.org/10.1038/s41586-025-09731-3</a>
-</div>
-<div id="ref-masson_systematic_2025" class="csl-entry">
-Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I.,
-&amp; Lanfranco, L. (2025). A systematic scoping review reveals that
-geographic and taxonomic patterns influence the scientific and societal
-interest in urban soil microbial diversity. <em>Environmental
-Microbiome</em>, <em>20</em>(1), 17. <a href="https://doi.org/10.1186/s40793-025-00677-7" class="external-link">https://doi.org/10.1186/s40793-025-00677-7</a>
-</div>
-<div id="ref-egusphere-2025-6363" class="csl-entry">
-Merlin, M., Gardiner, B., &amp; Solberg, S. (2026). Predicting the risk
-of individual tree fall along powerlines in <span>Norway</span> with a
-mechanistic wind risk model and machine learning. <em>EGUsphere</em>,
-<em>2026</em>, 1–34. <a href="https://doi.org/10.5194/egusphere-2025-6363" class="external-link">https://doi.org/10.5194/egusphere-2025-6363</a>
-</div>
-<div id="ref-MERLIN2025100361" class="csl-entry">
-Merlin, M., Locatelli, T., Gardiner, B., &amp; Astrup, R. (2025).
-Large-scale modelling wind damage vulnerability through combination of
-high-resolution forest resources maps and <span>ForestGALES</span>.
-<em>Forest Ecosystems</em>, 100361. <a href="https://doi.org/10.1016/j.fecs.2025.100361" class="external-link">https://doi.org/10.1016/j.fecs.2025.100361</a>
-</div>
-<div id="ref-doi:10.1073/pnas.2517585122" class="csl-entry">
-Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
-A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
-Villalobos, F., Marquet, P. A., Svenning, J.-C., &amp; Enquist, B. J.
-(2025). General laws of biodiversity: <span>Climatic</span> niches
-predict plant range size and ecological dominance globally.
-<em>Proceedings of the National Academy of Sciences</em>,
-<em>122</em>(46), e2517585122. <a href="https://doi.org/10.1073/pnas.2517585122" class="external-link">https://doi.org/10.1073/pnas.2517585122</a>
-</div>
-<div id="ref-nityagovsky_distribution_2024" class="csl-entry">
-Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
-Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
-Sanina, N. M., &amp; Aleynova, O. A. (2024). Distribution of
-<em><span>Plasmopara</span> viticola</em> <span>Causing</span>
-<span>Downy</span> <span>Mildew</span> in <span>Russian</span>
-<span>Far</span> <span>East</span> <span>Grapevines</span>.
-<em>Horticulturae</em>, <em>10</em>(4), 326. <a href="https://doi.org/10.3390/horticulturae10040326" class="external-link">https://doi.org/10.3390/horticulturae10040326</a>
-</div>
-<div id="ref-perez-giron_predicting_2025" class="csl-entry">
-Pérez-Girón, J. C., López-Bao, J. V., Dı́az-Varela, E., &amp;
-Álvarez-Álvarez, P. (2025). Predicting climate-related compositional
-shifts in nut-producing species that are important for bears during
-hyperphagia. <em>Frontiers in Forests and Global Change</em>,
-<em>8</em>, 1624612. <a href="https://doi.org/10.3389/ffgc.2025.1624612" class="external-link">https://doi.org/10.3389/ffgc.2025.1624612</a>
-</div>
-<div id="ref-10.1371/journal.pone.0332485" class="csl-entry">
-Read, F. R., Warmington, R. J., &amp; Beale, C. M. (2026). Assessing
-protected areas as climate refugia for threatened plant species in
-<span>Britain</span>. <em>PLOS ONE</em>, <em>21</em>(1), 1–16. <a href="https://doi.org/10.1371/journal.pone.0332485" class="external-link">https://doi.org/10.1371/journal.pone.0332485</a>
-</div>
-<div id="ref-riley_biomonitoring_2025" class="csl-entry">
-Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
-&amp; Hajibabaei, M. (2025). Biomonitoring 2.0 <span>Refined</span>:
-Observing local change through metaphylogeography using a
-community-based <span class="nocase">eDNA</span> metabarcoding
-monitoring network. <em>BMC Biology</em>, <em>23</em>(1), 187. <a href="https://doi.org/10.1186/s12915-025-02284-x" class="external-link">https://doi.org/10.1186/s12915-025-02284-x</a>
-</div>
-<div id="ref-rock_spatiotemporal_2025" class="csl-entry">
-Rock, L. A., Fetzer, W. W., Patterson, L. S., Sillen, S. J., Steg, R.,
-Walters, A. W., &amp; Collins, S. M. (2025). Spatiotemporal drivers of
-water quality and phytoplankton communities in a cyanobacteria-dominated
-reservoir provide management insights. <em>Environmental Monitoring and
-Assessment</em>, <em>197</em>(7), 795. <a href="https://doi.org/10.1007/s10661-025-14258-1" class="external-link">https://doi.org/10.1007/s10661-025-14258-1</a>
-</div>
-<div id="ref-salvador_baiges_clima_2024" class="csl-entry">
-Salvador Baiges, G., &amp; Gassiot Ballbè, E. (dir. ). (2024).
-<em>Clima, orografia i dinàmiques de poblament al <span>Pirineu</span>
-<span>Central</span>. <span>Arqueologia</span>, <span>SIG</span> i
-modelització espacial del patró d’ocupació del territori durant el
-<span>Neolı́tic</span> (5700- 2100 cal <span>ANE</span>)</em> [PhD
-Thesis, Universitat Autònoma de Barcelona. Programa de Doctorat en
-Arqueologia Prehistòrica]. <a href="https://ddd.uab.cat/record/301073" class="external-link">https://ddd.uab.cat/record/301073</a>
-</div>
-<div id="ref-su_high_2025" class="csl-entry">
-Su, X., Popescu, N., Insuk, C., Lausen, C., &amp; Xu, J. (2025). High
-<span>Diversity</span> and <span>Low</span> <span>Genetic</span>
-<span>Differentiation</span> <span>Among</span> <span>Geographic</span>
-<span>Populations</span> of <em><span>Myotis</span> yumanensis</em> in
-<span>Western</span> <span>Canada</span>. <em>Animals</em>,
-<em>15</em>(4), 578. <a href="https://doi.org/10.3390/ani15040578" class="external-link">https://doi.org/10.3390/ani15040578</a>
-</div>
-<div id="ref-sun_temperature_2025" class="csl-entry">
-Sun, Y., James, B. D., Houston, K. R., Edwards, B., Izallalen, M.,
-Mazumder, S., Shankar, R., Reddy, C. M., &amp; Ward, C. P. (2025).
-Temperature <span>Controls</span> the <span>Lifetimes</span> and
-<span>Microbial</span> <span>Communities</span> <span>Degrading</span>
-<span>Cellulose</span> <span>Diacetate</span> in the
-<span>Coastal</span> <span>Ocean</span>. <em>Environmental Science &amp;
-Technology</em>, <em>59</em>(36), 19468–19478. <a href="https://doi.org/10.1021/acs.est.5c05334" class="external-link">https://doi.org/10.1021/acs.est.5c05334</a>
-</div>
-<div id="ref-Tanaka2025" class="csl-entry">
-Tanaka, E. (2025). <span class="nocase">Examining the Interface Design
-of Tidyverse</span>. <em>Australian <span>&amp;</span> New Zealand
-Journal of Statistics</em>. <a href="https://doi.org/10.1111/anzs.70031" class="external-link">https://doi.org/10.1111/anzs.70031</a>
-</div>
-<div id="ref-varma_socio-economic_2025" class="csl-entry">
-Varma, V., Mosedale, J. R., Alvarez, J. A. G., &amp; Bebber, D. P.
-(2025). Socio-economic factors constrain climate change adaptation in a
-tropical export crop. <em>Nature Food</em>. <a href="https://doi.org/10.1038/s43016-025-01130-1" class="external-link">https://doi.org/10.1038/s43016-025-01130-1</a>
-</div>
-<div id="ref-wang_relationship_2025" class="csl-entry">
-Wang, G., Tang, X., Zhang, Q., Li, B., &amp; Li, M. (2025). The
-<span>Relationship</span> <span>Between</span> <span>Soil</span>
-<span>Organic</span> <span>Matter</span> <span>Composition</span> and
-<span>Soil</span> <span>Enzymes</span> <span>Activities</span> in
-<span>Various</span> <span>Land</span> <span>Use</span>
-<span>Types</span> in the <span>Upper</span> <span>Watershed</span> of
-<span>Danjiangkou</span> <span>Reservoir</span> in <span>China</span>.
-<em>Land Degradation &amp; Development</em>. <a href="https://doi.org/10.1002/ldr.5516" class="external-link">https://doi.org/10.1002/ldr.5516</a>
-</div>
-<div id="ref-wiethase_advancing_2023" class="csl-entry">
-Wiethase, J. H. (2023). <em>Advancing ecosystem understanding:
-<span>Identifying</span> the drivers of habitat degradation, species
-distributions and species vulnerabilities in <span>East</span>
-<span>African</span> grasslands.</em> [PhD thesis, University of York].
-<a href="https://etheses.whiterose.ac.uk/id/eprint/34736/" class="external-link">https://etheses.whiterose.ac.uk/id/eprint/34736/</a>
-</div>
-<div id="ref-williams_ecosystem_2025" class="csl-entry">
-Williams, J., &amp; Pettorelli, N. (2025). Ecosystem condition emerges
-from an ecological equation of state applied to <span>North</span>
-<span>American</span> tree communities. <em>Current Biology</em>,
-<em>35</em>(7), 1672–1679.e3. <a href="https://doi.org/10.1016/j.cub.2025.02.062" class="external-link">https://doi.org/10.1016/j.cub.2025.02.062</a>
-</div>
-<div id="ref-williams_active_2024" class="csl-entry">
-Williams, J., Sandom, C. J., &amp; Pettorelli, N. (2024). Active
-management is required to regenerate the <span>Caledonian</span> forest:
-<span>Alladale</span> as a case study. <em>Ecological Solutions and
-Evidence</em>, <em>5</em>(1), e12315. <a href="https://doi.org/10.1002/2688-8319.12315" class="external-link">https://doi.org/10.1002/2688-8319.12315</a>
-</div>
-<div id="ref-Wong_2025" class="csl-entry">
-Wong, C. Y. S., Wright, M. C., Mantgem, P. J. van, Latimer, A. M., &amp;
-Young, D. J. N. (2025). Sentinel imagery detects the presence of live
-trees following large wildfires in <span>California</span>.
-<em>Environmental Research: Ecology</em>, <em>4</em>(2), 025006. <a href="https://doi.org/10.1088/2752-664X/add5fd" class="external-link">https://doi.org/10.1088/2752-664X/add5fd</a>
-</div>
-<div id="ref-ZHOU2026100294" class="csl-entry">
-Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
-H., Ma, K., Yang, W., &amp; Zhang, Y. (2026). Vascular plant diversity
-and distribution pattern in <span>Tajikistan</span>: A global hotspot of
-diversity. <em>Regional Sustainability</em>, 100294. <a href="https://doi.org/10.1016/j.regsus.2026.100294" class="external-link">https://doi.org/10.1016/j.regsus.2026.100294</a>
-</div>
-</div>
-</div>
-  </main>
-</div>
 
+
+
+
+
+    <p>Please cite <strong>tidyterra</strong> as:</p>
+<p>Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra package. <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a>.</p>
+<p>A BibTeX entry for LaTeX users is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bib"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">Hernang</span>ó<span class="ot">mez2023</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span> = {10.21105/joss.05751},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">url</span> = {https://doi.org/10.21105/joss.05751},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> = {2023},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span> = {The Open Journal},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span> = {8},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span> = {91},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span> = {5751},</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span> = {Diego Hernangómez},</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span> = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> = {Journal of Open Source Software}</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>
+<script async="" src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script></p>
+<section class="level2 unnumbered"><h2 class="unnumbered" id="publications">Publications<a class="anchor" aria-label="anchor" href="#publications"></a>
+</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-doi:10.1073/pnas.2417203122" class="csl-entry" role="listitem">
+Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., &amp; Meyer, B. (2025). Mapping encounters between <span>Antarctic</span> krill fishing vessels and air-breathing krill predators using acoustic data from the fishery. <em>Proceedings of the National Academy of Sciences</em>, <em>122</em>(25), e2417203122. <a href="https://doi.org/10.1073/pnas.2417203122" class="external-link">https://doi.org/10.1073/pnas.2417203122</a>
+</div>
+<div id="ref-bionda_mapping_2025" class="csl-entry" role="listitem">
+Bionda, A., Negro, A., Grande, S., &amp; Crepaldi, P. (2025). Mapping risks and landscapes: Conservation insights for <span>Italian</span> small ruminant populations. <em>Pastoralism: Research, Policy and Practice</em>, <em>15</em>, 14997. <a href="https://doi.org/10.3389/past.2025.14997" class="external-link">https://doi.org/10.3389/past.2025.14997</a>
+</div>
+<div id="ref-buma_including_2024" class="csl-entry" role="listitem">
+Buma, B. (2024). Including non-growing season emissions of <span>N</span>₂<span>O</span> in <span>US</span> maize could raise net <span>CO</span>₂e emissions by 31% annually. <em>Agricultural &amp; Environmental Letters</em>, <em>9</em>(2), e20146. <a href="https://doi.org/10.1002/ael2.20146" class="external-link">https://doi.org/10.1002/ael2.20146</a>
+</div>
+<div id="ref-coffey_spatial_2025" class="csl-entry" role="listitem">
+Coffey, M. L., &amp; Simons, A. M. (2025). The spatial distribution of a hummingbird-pollinated plant is not strongly influenced by hummingbird abundance. <em>American Journal of Botany</em>, e70034. <a href="https://doi.org/10.1002/ajb2.70034" class="external-link">https://doi.org/10.1002/ajb2.70034</a>
+</div>
+<div id="ref-Copot2026" class="csl-entry" role="listitem">
+Copot, O., &amp; Lõhmus, A. (2026). Assessment of multiple outcomes of habitat models can significantly affect conservation decisions for threatened species. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-026-35987-4" class="external-link">https://doi.org/10.1038/s41598-026-35987-4</a>
+</div>
+<div id="ref-cordero_enhancing_2025" class="csl-entry" role="listitem">
+Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., &amp; Sherman, C. (2025). Enhancing tsunami evacuation strategies in <span>Puerto</span> <span>Rico</span> using open-source least-cost path analysis. <em>Journal of Disaster Science and Management</em>, <em>1</em>(1), 18. <a href="https://doi.org/10.1007/s44367-025-00018-y" class="external-link">https://doi.org/10.1007/s44367-025-00018-y</a>
+</div>
+<div id="ref-https://doi.org/10.1002/ece3.72978" class="csl-entry" role="listitem">
+Di Fabio, A., Aspalter, S., Chakraborty, D., Loo, M. van, Rolke, L. M., Schüler, S., Thiel, R., Veit, C., &amp; Kreyling, J. (2026). Growth performance is driven by site conditions and moderated by functional trait plasticity in <span><em>Quercus robur</em></span> and <span><em>Prunus avium</em></span>. <em>Ecology and Evolution</em>, <em>16</em>(2), e72978. <a href="https://doi.org/10.1002/ece3.72978" class="external-link">https://doi.org/10.1002/ece3.72978</a>
+</div>
+<div id="ref-di_fabio_climatic_2024" class="csl-entry" role="listitem">
+Di Fabio, A., Buttò, V., Chakraborty, D., O’Neill, G. A., Schueler, S., &amp; Kreyling, J. (2024). Climatic conditions at provenance origin influence growth stability to changes in climate in two major tree species. <em>Frontiers in Forests and Global Change</em>, <em>7</em>, 1422165. <a href="https://doi.org/10.3389/ffgc.2024.1422165" class="external-link">https://doi.org/10.3389/ffgc.2024.1422165</a>
+</div>
+<div id="ref-d17110781" class="csl-entry" role="listitem">
+Drozdova, P., Shatilina, Z., Telnes, E., Gurkov, A., Saranchina, A., Mutin, A., Zolotovskaya, E., &amp; Timofeyev, M. (2025). Prezygotic and postzygotic reproductive incompatibilities complement each other in the formation of a cryptic amphipod species: The example of a <span>Lake Baikal</span> species complex <em><span>Eulimnogammarus</span> verrucosus</em>. <em>Diversity</em>, <em>17</em>(11). <a href="https://doi.org/10.3390/d17110781" class="external-link">https://doi.org/10.3390/d17110781</a>
+</div>
+<div id="ref-elio_medina_how_2025" class="csl-entry" role="listitem">
+Elio Medina, J., Plathner, F. V., Pastor, E., &amp; Fernandez-Anez, N. (2025). How to <span>Approach</span> the <span>Definition</span> of <span>WUI</span> in <span>Northern</span> <span>Europe</span>. <em>Fire and Materials</em>. <a href="https://doi.org/10.1002/fam.3264" class="external-link">https://doi.org/10.1002/fam.3264</a>
+</div>
+<div id="ref-fard_developing_2025" class="csl-entry" role="listitem">
+Fard, P., Hügel, J., Keivabu, R. C., Dominici, F., Zagheni, E., Estiri, H., &amp; Patel, C. J. (2025). Developing a <span>Spatiotemporal</span> <span>Repository</span> of <span>Extreme</span> <span>Heat</span> and <span>Cold</span> <span>Exposure</span> in the <span>United</span> <span>States</span> for <span>Precision</span> <span>Public</span> <span>Health</span> <span>Research</span>. <em>Environmental Science &amp; Technology</em>, <em>59</em>(37), 19872–19884. <a href="https://doi.org/10.1021/acs.est.5c03658" class="external-link">https://doi.org/10.1021/acs.est.5c03658</a>
+</div>
+<div id="ref-fu_integrating_2025" class="csl-entry" role="listitem">
+Fu, F., Wang, S., Wu, X., Chen, S., Tan, Z., Ye, C., &amp; Grünzweig, J. M. (2025). Integrating hydrological impacts for cost-effective dryland ecological restoration. <em>Communications Earth &amp; Environment</em>, <em>6</em>(1), 667. <a href="https://doi.org/10.1038/s43247-025-02649-8" class="external-link">https://doi.org/10.1038/s43247-025-02649-8</a>
+</div>
+<div id="ref-garcia-alvarado_assessing_2025" class="csl-entry" role="listitem">
+Garcı́a-Alvarado, J. J., Pestano-González, M., González-Montelongo, C., Naranjo-Cigala, A., &amp; Arévalo, J. R. (2025). Assessing the <span>Potential</span> <span>Risk</span> of <span>Invasion</span> of the <span>Neophyte</span> <em><span>Pluchea</span> ovalis</em> (<span>Pers</span>.) <span>DC</span>. (<span>Asteraceae</span>) in the <span>Canarian</span> <span>Archipelago</span> <span>Using</span> an <span>Ensemble</span> of <span>Species</span> <span>Distribution</span> <span>Modelling</span>. <em>Diversity</em>, <em>17</em>(3), 195. <a href="https://doi.org/10.3390/d17030195" class="external-link">https://doi.org/10.3390/d17030195</a>
+</div>
+<div id="ref-hattendorf_dirofilaria_2025" class="csl-entry" role="listitem">
+Hattendorf, C., &amp; Lühken, R. (2025a). <em><span>Dirofilaria</span> immitis</em> and <em><span>D.</span> <span class="nocase">repens</span></em> in <span>Europe</span>: A systematic literature review on vectors, host range, and the spatial distribution in the 20th and 21st century. <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2025.02.17.638693" class="external-link">https://doi.org/10.1101/2025.02.17.638693</a>
+</div>
+<div id="ref-hattendorf_vectors_2025" class="csl-entry" role="listitem">
+Hattendorf, C., &amp; Lühken, R. (2025b). Vectors, host range, and spatial distribution of <em><span>Dirofilaria</span> immitis</em> and <em><span>D.</span> <span class="nocase">repens</span></em> in <span>Europe</span>: A systematic review. <em>Infectious Diseases of Poverty</em>, <em>14</em>(1), 58. <a href="https://doi.org/10.1186/s40249-025-01328-2" class="external-link">https://doi.org/10.1186/s40249-025-01328-2</a>
+</div>
+<div id="ref-https://doi.org/10.1002/ece3.71137" class="csl-entry" role="listitem">
+Herrera-Lopera, J. M., Solé, M., &amp; Cultid-Medina, C. A. (2025). <span class="nocase">Mapping the Missing: Assessing Amphibian Sampling Completeness and Overlap With Global Protected Areas</span>. <em>Ecology and Evolution</em>, <em>15</em>(5), e71137. <a href="https://doi.org/10.1002/ece3.71137" class="external-link">https://doi.org/10.1002/ece3.71137</a>
+</div>
+<div id="ref-https://doi.org/10.1111/mec.70179" class="csl-entry" role="listitem">
+Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F. C., Esselstyn, J. A., Inayah, N., &amp; Hawkins, M. T. R. (2025). Pliocene forest fragmentation shaped speciation in tropical <span class="nocase">Asia’s</span> giant squirrels (<span><em>Ratufa</em></span>). <em>Molecular Ecology</em>, <em>34</em>(24), e70179. <a href="https://doi.org/10.1111/mec.70179" class="external-link">https://doi.org/10.1111/mec.70179</a>
+</div>
+<div id="ref-jones_saur_2025" class="csl-entry" role="listitem">
+Jones, M. D. (2025). Saur and decline: <span>Patterns</span> in lizard imports to the <span>US</span> (2000-2022). <em>PLOS ONE</em>, <em>20</em>(10), 1–25. <a href="https://doi.org/10.1371/journal.pone.0333746" class="external-link">https://doi.org/10.1371/journal.pone.0333746</a>
+</div>
+<div id="ref-10.3389/fsoil.2025.1548645" class="csl-entry" role="listitem">
+Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N., Stomph, T., &amp; Struik, P. C. (2025). Can drone images predict within-field variability in soil fertility? A case study in the <span class="nocase">Northern Region of Ghana</span>. <em>Frontiers in Soil Science</em>, <em>Volume 5 - 2025</em>. <a href="https://doi.org/10.3389/fsoil.2025.1548645" class="external-link">https://doi.org/10.3389/fsoil.2025.1548645</a>
+</div>
+<div id="ref-kiel_snowmelt_2025" class="csl-entry" role="listitem">
+Kiel, N. G., Watts, D. A., Young, A. B., &amp; Vellend, M. (2025). Snowmelt timing alters the phenology but not the performance of an understory spring ephemeral plant. <em>Journal of Ecology</em>, <em>113</em>(9), 2289–2300. <a href="https://doi.org/10.1111/1365-2745.70099" class="external-link">https://doi.org/10.1111/1365-2745.70099</a>
+</div>
+<div id="ref-su18010439" class="csl-entry" role="listitem">
+Kiziridis, D. A., Karmiris, I., &amp; Fotakis, D. (2026). Agroforestry optimisation for climate policy: Mapping silvopastoral carbon sequestration trade-offs in the <span>Mediterranean</span>. <em>Sustainability</em>, <em>18</em>(1). <a href="https://doi.org/10.3390/su18010439" class="external-link">https://doi.org/10.3390/su18010439</a>
+</div>
+<div id="ref-kutza_endemic_2025" class="csl-entry" role="listitem">
+Kutza, A. D., Hert, Z. L., &amp; Moyle, L. C. (2025). Endemic and invasion dynamics of wild tomato species on the <span>Galápagos</span> <span>Islands</span>, across two centuries of collection records. <em>New Phytologist</em>, nph.70321. <a href="https://doi.org/10.1111/nph.70321" class="external-link">https://doi.org/10.1111/nph.70321</a>
+</div>
+<div id="ref-LEBRON2025109454" class="csl-entry" role="listitem">
+Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H., Lofts, S., Griffiths, R., Fidler, D., Jones, B., Panagos, P., Sawicka, K., Keith, A. M., Seaton, F., &amp; Robinson, D. A. (2025). Patterns and thresholds for soil <span class="nocase">pH</span> across <span>Europe</span> in relation to soil health and degradation. <em>CATENA</em>, <em>260</em>, 109454. <a href="https://doi.org/10.1016/j.catena.2025.109454" class="external-link">https://doi.org/10.1016/j.catena.2025.109454</a>
+</div>
+<div id="ref-we-25-221-2025" class="csl-entry" role="listitem">
+Lee, F., Kusabs, I. A. K., Perry, G. L. W., &amp; MacNeil, C. (2025). Identifying refugia from the synergistic threats of climate change and invasive species. <em>Web Ecology</em>, <em>25</em>(2), 221–239. <a href="https://doi.org/10.5194/we-25-221-2025" class="external-link">https://doi.org/10.5194/we-25-221-2025</a>
+</div>
+<div id="ref-lindgren_inlabru_2024" class="csl-entry" role="listitem">
+Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., &amp; Seaton, A. E. (2024). <em><span class="nocase">inlabru</span>: Software for fitting latent <span>Gaussian</span> models with non-linear predictors</em>. <a href="https://arxiv.org/abs/2407.00791" class="external-link">https://arxiv.org/abs/2407.00791</a>
+</div>
+<div id="ref-luhken_high_2024" class="csl-entry" role="listitem">
+Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N., Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., &amp; Heitmann, A. (2024). High vector competence for chikungunya virus but heavily reduced locomotor activity of <em><span>Aedes</span> albopictus</em> from <span>Germany</span> at low temperatures. <em>Parasites &amp; Vectors</em>, <em>17</em>(1), 502. <a href="https://doi.org/10.1186/s13071-024-06594-x" class="external-link">https://doi.org/10.1186/s13071-024-06594-x</a>
+</div>
+<div id="ref-https://doi.org/10.1002/ecog.08112" class="csl-entry" role="listitem">
+Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., &amp; Merow, C. (2026). Flexible methods for species distribution modeling with small samples. <em>Ecography</em>, e08112. <a href="https://doi.org/10.1002/ecog.08112" class="external-link">https://doi.org/10.1002/ecog.08112</a>
+</div>
+<div id="ref-mallory_mercury_2025" class="csl-entry" role="listitem">
+Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M., Morrill, A., Provencher, J. F., &amp; O’Driscoll, N. J. (2025). Mercury in eastern coyotes from <span>Nova</span> <span>Scotia</span>, <span>Canada</span>: <span>Effects</span> of geography and trophic position. <em>Science of The Total Environment</em>, <em>974</em>, 179186. <a href="https://doi.org/10.1016/j.scitotenv.2025.179186" class="external-link">https://doi.org/10.1016/j.scitotenv.2025.179186</a>
+</div>
+<div id="ref-maravall-lopez_eight_2025" class="csl-entry" role="listitem">
+Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra, M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C., Miranda De Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G. R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta, A. D., … Nores, R. (2025). Eight millennia of continuity of a previously unknown lineage in <span>Argentina</span>. <em>Nature</em>. <a href="https://doi.org/10.1038/s41586-025-09731-3" class="external-link">https://doi.org/10.1038/s41586-025-09731-3</a>
+</div>
+<div id="ref-masson_systematic_2025" class="csl-entry" role="listitem">
+Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &amp; Lanfranco, L. (2025). A systematic scoping review reveals that geographic and taxonomic patterns influence the scientific and societal interest in urban soil microbial diversity. <em>Environmental Microbiome</em>, <em>20</em>(1), 17. <a href="https://doi.org/10.1186/s40793-025-00677-7" class="external-link">https://doi.org/10.1186/s40793-025-00677-7</a>
+</div>
+<div id="ref-egusphere-2025-6363" class="csl-entry" role="listitem">
+Merlin, M., Gardiner, B., &amp; Solberg, S. (2026). Predicting the risk of individual tree fall along powerlines in <span>Norway</span> with a mechanistic wind risk model and machine learning. <em>EGUsphere</em>, <em>2026</em>, 1–34. <a href="https://doi.org/10.5194/egusphere-2025-6363" class="external-link">https://doi.org/10.5194/egusphere-2025-6363</a>
+</div>
+<div id="ref-MERLIN2025100361" class="csl-entry" role="listitem">
+Merlin, M., Locatelli, T., Gardiner, B., &amp; Astrup, R. (2025). Large-scale modelling wind damage vulnerability through combination of high-resolution forest resources maps and <span>ForestGALES</span>. <em>Forest Ecosystems</em>, 100361. <a href="https://doi.org/10.1016/j.fecs.2025.100361" class="external-link">https://doi.org/10.1016/j.fecs.2025.100361</a>
+</div>
+<div id="ref-doi:10.1073/pnas.2517585122" class="csl-entry" role="listitem">
+Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier, A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L., Villalobos, F., Marquet, P. A., Svenning, J.-C., &amp; Enquist, B. J. (2025). General laws of biodiversity: <span>Climatic</span> niches predict plant range size and ecological dominance globally. <em>Proceedings of the National Academy of Sciences</em>, <em>122</em>(46), e2517585122. <a href="https://doi.org/10.1073/pnas.2517585122" class="external-link">https://doi.org/10.1073/pnas.2517585122</a>
+</div>
+<div id="ref-nityagovsky_distribution_2024" class="csl-entry" role="listitem">
+Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V., Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V., Sanina, N. M., &amp; Aleynova, O. A. (2024). Distribution of <em><span>Plasmopara</span> viticola</em> <span>Causing</span> <span>Downy</span> <span>Mildew</span> in <span>Russian</span> <span>Far</span> <span>East</span> <span>Grapevines</span>. <em>Horticulturae</em>, <em>10</em>(4), 326. <a href="https://doi.org/10.3390/horticulturae10040326" class="external-link">https://doi.org/10.3390/horticulturae10040326</a>
+</div>
+<div id="ref-perez-giron_predicting_2025" class="csl-entry" role="listitem">
+Pérez-Girón, J. C., López-Bao, J. V., Dı́az-Varela, E., &amp; Álvarez-Álvarez, P. (2025). Predicting climate-related compositional shifts in nut-producing species that are important for bears during hyperphagia. <em>Frontiers in Forests and Global Change</em>, <em>8</em>, 1624612. <a href="https://doi.org/10.3389/ffgc.2025.1624612" class="external-link">https://doi.org/10.3389/ffgc.2025.1624612</a>
+</div>
+<div id="ref-10.1371/journal.pone.0332485" class="csl-entry" role="listitem">
+Read, F. R., Warmington, R. J., &amp; Beale, C. M. (2026). Assessing protected areas as climate refugia for threatened plant species in <span>Britain</span>. <em>PLOS ONE</em>, <em>21</em>(1), 1–16. <a href="https://doi.org/10.1371/journal.pone.0332485" class="external-link">https://doi.org/10.1371/journal.pone.0332485</a>
+</div>
+<div id="ref-riley_biomonitoring_2025" class="csl-entry" role="listitem">
+Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J., &amp; Hajibabaei, M. (2025). Biomonitoring 2.0 <span>Refined</span>: Observing local change through metaphylogeography using a community-based <span class="nocase">eDNA</span> metabarcoding monitoring network. <em>BMC Biology</em>, <em>23</em>(1), 187. <a href="https://doi.org/10.1186/s12915-025-02284-x" class="external-link">https://doi.org/10.1186/s12915-025-02284-x</a>
+</div>
+<div id="ref-rock_spatiotemporal_2025" class="csl-entry" role="listitem">
+Rock, L. A., Fetzer, W. W., Patterson, L. S., Sillen, S. J., Steg, R., Walters, A. W., &amp; Collins, S. M. (2025). Spatiotemporal drivers of water quality and phytoplankton communities in a cyanobacteria-dominated reservoir provide management insights. <em>Environmental Monitoring and Assessment</em>, <em>197</em>(7), 795. <a href="https://doi.org/10.1007/s10661-025-14258-1" class="external-link">https://doi.org/10.1007/s10661-025-14258-1</a>
+</div>
+<div id="ref-salvador_baiges_clima_2024" class="csl-entry" role="listitem">
+Salvador Baiges, G., &amp; Gassiot Ballbè, E. (dir. ). (2024). <em>Clima, orografia i dinàmiques de poblament al <span>Pirineu</span> <span>Central</span>. <span>Arqueologia</span>, <span>SIG</span> i modelització espacial del patró d’ocupació del territori durant el <span>Neolı́tic</span> (5700- 2100 cal <span>ANE</span>)</em> [PhD Thesis, Universitat Autònoma de Barcelona. Programa de Doctorat en Arqueologia Prehistòrica]. <a href="https://ddd.uab.cat/record/301073" class="external-link">https://ddd.uab.cat/record/301073</a>
+</div>
+<div id="ref-su_high_2025" class="csl-entry" role="listitem">
+Su, X., Popescu, N., Insuk, C., Lausen, C., &amp; Xu, J. (2025). High <span>Diversity</span> and <span>Low</span> <span>Genetic</span> <span>Differentiation</span> <span>Among</span> <span>Geographic</span> <span>Populations</span> of <em><span>Myotis</span> yumanensis</em> in <span>Western</span> <span>Canada</span>. <em>Animals</em>, <em>15</em>(4), 578. <a href="https://doi.org/10.3390/ani15040578" class="external-link">https://doi.org/10.3390/ani15040578</a>
+</div>
+<div id="ref-sun_temperature_2025" class="csl-entry" role="listitem">
+Sun, Y., James, B. D., Houston, K. R., Edwards, B., Izallalen, M., Mazumder, S., Shankar, R., Reddy, C. M., &amp; Ward, C. P. (2025). Temperature <span>Controls</span> the <span>Lifetimes</span> and <span>Microbial</span> <span>Communities</span> <span>Degrading</span> <span>Cellulose</span> <span>Diacetate</span> in the <span>Coastal</span> <span>Ocean</span>. <em>Environmental Science &amp; Technology</em>, <em>59</em>(36), 19468–19478. <a href="https://doi.org/10.1021/acs.est.5c05334" class="external-link">https://doi.org/10.1021/acs.est.5c05334</a>
+</div>
+<div id="ref-Tanaka2025" class="csl-entry" role="listitem">
+Tanaka, E. (2025). <span class="nocase">Examining the Interface Design of Tidyverse</span>. <em>Australian <span>&amp;</span> New Zealand Journal of Statistics</em>. <a href="https://doi.org/10.1111/anzs.70031" class="external-link">https://doi.org/10.1111/anzs.70031</a>
+</div>
+<div id="ref-varma_socio-economic_2025" class="csl-entry" role="listitem">
+Varma, V., Mosedale, J. R., Alvarez, J. A. G., &amp; Bebber, D. P. (2025). Socio-economic factors constrain climate change adaptation in a tropical export crop. <em>Nature Food</em>. <a href="https://doi.org/10.1038/s43016-025-01130-1" class="external-link">https://doi.org/10.1038/s43016-025-01130-1</a>
+</div>
+<div id="ref-wang_relationship_2025" class="csl-entry" role="listitem">
+Wang, G., Tang, X., Zhang, Q., Li, B., &amp; Li, M. (2025). The <span>Relationship</span> <span>Between</span> <span>Soil</span> <span>Organic</span> <span>Matter</span> <span>Composition</span> and <span>Soil</span> <span>Enzymes</span> <span>Activities</span> in <span>Various</span> <span>Land</span> <span>Use</span> <span>Types</span> in the <span>Upper</span> <span>Watershed</span> of <span>Danjiangkou</span> <span>Reservoir</span> in <span>China</span>. <em>Land Degradation &amp; Development</em>. <a href="https://doi.org/10.1002/ldr.5516" class="external-link">https://doi.org/10.1002/ldr.5516</a>
+</div>
+<div id="ref-wiethase_advancing_2023" class="csl-entry" role="listitem">
+Wiethase, J. H. (2023). <em>Advancing ecosystem understanding: <span>Identifying</span> the drivers of habitat degradation, species distributions and species vulnerabilities in <span>East</span> <span>African</span> grasslands.</em> [PhD thesis, University of York]. <a href="https://etheses.whiterose.ac.uk/id/eprint/34736/" class="external-link">https://etheses.whiterose.ac.uk/id/eprint/34736/</a>
+</div>
+<div id="ref-williams_ecosystem_2025" class="csl-entry" role="listitem">
+Williams, J., &amp; Pettorelli, N. (2025). Ecosystem condition emerges from an ecological equation of state applied to <span>North</span> <span>American</span> tree communities. <em>Current Biology</em>, <em>35</em>(7), 1672–1679.e3. <a href="https://doi.org/10.1016/j.cub.2025.02.062" class="external-link">https://doi.org/10.1016/j.cub.2025.02.062</a>
+</div>
+<div id="ref-williams_active_2024" class="csl-entry" role="listitem">
+Williams, J., Sandom, C. J., &amp; Pettorelli, N. (2024). Active management is required to regenerate the <span>Caledonian</span> forest: <span>Alladale</span> as a case study. <em>Ecological Solutions and Evidence</em>, <em>5</em>(1), e12315. <a href="https://doi.org/10.1002/2688-8319.12315" class="external-link">https://doi.org/10.1002/2688-8319.12315</a>
+</div>
+<div id="ref-Wong_2025" class="csl-entry" role="listitem">
+Wong, C. Y. S., Wright, M. C., Mantgem, P. J. van, Latimer, A. M., &amp; Young, D. J. N. (2025). Sentinel imagery detects the presence of live trees following large wildfires in <span>California</span>. <em>Environmental Research: Ecology</em>, <em>4</em>(2), 025006. <a href="https://doi.org/10.1088/2752-664X/add5fd" class="external-link">https://doi.org/10.1088/2752-664X/add5fd</a>
+</div>
+<div id="ref-ZHOU2026100294" class="csl-entry" role="listitem">
+Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev, H., Ma, K., Yang, W., &amp; Zhang, Y. (2026). Vascular plant diversity and distribution pattern in <span>Tajikistan</span>: A global hotspot of diversity. <em>Regional Sustainability</em>, 100294. <a href="https://doi.org/10.1016/j.regsus.2026.100294" class="external-link">https://doi.org/10.1016/j.regsus.2026.100294</a>
+</div>
+</div>
+</section><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config);
+    }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script></main>
+</div>
 
 
     <footer><div class="pkgdown-footer-left">

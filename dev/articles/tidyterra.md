@@ -148,7 +148,8 @@ library(tidyverse) # Load all the packages of tidyverse at once
 library(scales) # Additional library for labels
 
 # Temperatures in Castille and Leon (selected months)
-rastertemp <- terra::rast(system.file("extdata/cyl_temp.tif",
+rastertemp <- terra::rast(system.file(
+  "extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
 
@@ -174,7 +175,7 @@ ggplot() +
   )
 ```
 
-![Faceted map with multi-layer raster file.](spatraster-example1-1.png)
+![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
 
 Faceted map with multi-layer raster file.
 
@@ -193,9 +194,7 @@ incr_temp <- rastertemp |>
   select(Variation = var)
 
 # Overlay an SpatVector
-cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg",
-  package = "tidyterra"
-))
+cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 # Contour map with overlay
 ggplot() +
@@ -211,7 +210,7 @@ ggplot() +
 ```
 
 ![Contour map of temperature variation with a SpatVector
-overlay](spatraster-example2-1.png)
+overlay](./fig-ex2-1.png)
 
 Contour map of temperature variation with a SpatVector overlay
 

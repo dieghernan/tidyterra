@@ -1,10 +1,10 @@
 # tidyterra FAQs
 
-This is a compendium of [questions that have
-arisen](https://github.com/dieghernan/tidyterra/discussions) on the use
-of the **tidyterra** package and the potential solutions to them (mostly
-related to the use of **terra** and **ggplot2** at this stage). You can
-ask for help or search previous questions in the following links.
+This document is a compendium of [frequently asked
+questions](https://github.com/dieghernan/tidyterra/discussions) about
+using the **tidyterra** package and their solutions (primarily focused
+on the integration of **terra** and **ggplot2**). You can ask for help
+or search previous questions using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -69,11 +69,6 @@ def +
     title = "Default on ggplot2",
     subtitle = "NA values in grey"
   )
-```
-
-![](faqs_files/figure-html/remove-nas-1.png)
-
-``` r
 
 # Modify with scales
 def +
@@ -82,11 +77,6 @@ def +
     title = "Default colors on ggplot2",
     subtitle = "But NAs are not plotted"
   )
-```
-
-![](faqs_files/figure-html/remove-nas-2.png)
-
-``` r
 
 # Use a different scale provided by ggplot2
 def +
@@ -97,7 +87,19 @@ def +
   )
 ```
 
-![](faqs_files/figure-html/remove-nas-3.png)
+![](faqs_files/figure-html/fig-remove_nas-1.png)
+
+\(a\) Default ggplot2 value.
+
+![](faqs_files/figure-html/fig-remove_nas-2.png)
+
+\(b\) Plot with transparent NA values.
+
+![](faqs_files/figure-html/fig-remove_nas-3.png)
+
+\(c\) NA values mapped with another color.
+
+Figure 1: NA values on ggplot2
 
 ## Labeling contours
 
@@ -117,12 +119,6 @@ r <- rast(holyrood)
 ggplot() +
   geom_spatraster_contour_text(data = r) +
   labs(title = "Labelling contours")
-```
-
-![](faqs_files/figure-html/text-contour-1.png)
-
-``` r
-
 
 # With options and aes
 
@@ -171,7 +167,15 @@ ggplot(r) +
   )
 ```
 
-![](faqs_files/figure-html/text-contour-2.png)
+![](faqs_files/figure-html/fig-textcontour-1.png)
+
+\(a\) Simple contour labels.
+
+![](faqs_files/figure-html/fig-textcontour-2.png)
+
+\(b\) Alternative: Labelled contours.
+
+Figure 2: Contour labels with tidyterra
 
 ### Other alternatives
 
@@ -234,7 +238,10 @@ ggplot(r, aes(x, y)) +
   )
 ```
 
-![](faqs_files/figure-html/metr-1.png)
+![](faqs_files/figure-html/fig-metr-1.png)
+
+Figure 3: Alternative (metR): Contour labeling combining tidyterra and
+metR packages with customized styling.
 
 ## Using a different color scale
 
@@ -265,7 +272,10 @@ ggplot() +
   labs(title = "A hillshade plot with grey colors")
 ```
 
-![](faqs_files/figure-html/greys-1.png)
+![](faqs_files/figure-html/fig-greys-1.png)
+
+Figure 4: Hillshade visualization using grayscale colors to enhance
+terrain relief.
 
 ## Can I change the default palette of my maps?
 
@@ -290,30 +300,32 @@ tmp <- getOption("ggplot2.continuous.fill") # store current setting
 options(ggplot2.continuous.fill = scale_fill_grass_c)
 
 p
-```
-
-![](faqs_files/figure-html/default-1.png)
-
-``` r
 
 # restore previous setting
 options(ggplot2.continuous.fill = tmp)
 
-
 p
 ```
 
-![](faqs_files/figure-html/default-2.png)
+![](faqs_files/figure-html/fig-default-1.png)
+
+\(a\) Use of new default palette via options.
+
+![](faqs_files/figure-html/fig-default-2.png)
+
+\(b\) Restoring the default palette.
+
+Figure 5: Changing default ggplot2 color palettes
 
 ## My map tiles are blurry
 
-This is probably related to the tile itself rather than the package.
-Most base tiles are provided in **EPSG:3857**, so check first if your
-tile has this CRS and not a different one. Not having **EPSG:3857** may
-be an indication that the tile has been reprojected, implying some sort
-of sampling that causes the blurriness on your data. Also, modify the
-argument `maxcell` to avoid resampling and force the **ggplot2** map to
-be on **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+Blurriness is typically related to the tile source rather than the
+package. Most base tiles are provided in **EPSG:3857**, so verify that
+your tile uses this CRS rather than a different one. If your tile is not
+in **EPSG:3857**, it has likely been reprojected, which involves
+resampling and causes blurriness. Also, modify the `maxcell` argument to
+avoid resampling and ensure the **ggplot2** map uses **EPSG:3857** with
+`ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
 library(terra)
@@ -337,7 +349,7 @@ tile1 <- get_tiles(
 
 ggplot() +
   geom_spatraster_rgb(data = tile1) +
-  labs(title = "This is a bit blurry...") +
+  labs(title = "CRS EPSG:4326") +
   theme_void()
 
 st_crs(tile1)$epsg
@@ -366,15 +378,23 @@ ggplot() +
   geom_spatraster_rgb(data = tile2, maxcell = Inf) +
   # Force crs to be 3857
   coord_sf(crs = 3857) +
-  labs(title = "...compared with this one") +
+  labs(title = "CRS EPSG:3857") +
   theme_void()
 ```
 
-![](faqs_files/figure-html/blurry-tile-1.png)![](faqs_files/figure-html/blurry-tile-2.png)
+![](faqs_files/figure-html/fig-blurrytile-1.png)
+
+\(a\) Plot with resampled raster (EPGS:4326).
+
+![](faqs_files/figure-html/fig-blurrytile-2.png)
+
+\(b\) Plot with native CRS - not resampled (EPGS:3857).
+
+Figure 6: Example of impact of resampling on blurriness of the tile
 
 ## Avoid degrees labeling on axis
 
-Again, this is the **ggplot2** default, but can be modified with
+This is a **ggplot2** default behavior, but you can modify it using the
 `ggplot2::coord_sf(datum)` argument:
 
 ``` r
@@ -393,11 +413,6 @@ ggplot() +
     title = "Axis auto-converted to lon/lat",
     subtitle = paste("But SpatRaster is EPSG:", st_crs(r)$epsg)
   )
-```
-
-![](faqs_files/figure-html/modify-datum-1.png)
-
-``` r
 
 
 # Use datum
@@ -411,19 +426,27 @@ ggplot() +
   )
 ```
 
-![](faqs_files/figure-html/modify-datum-2.png)
+![](faqs_files/figure-html/fig-modifydatum-1.png)
+
+\(a\) Automatic longitude/latitude axes.
+
+![](faqs_files/figure-html/fig-modifydatum-2.png)
+
+\(b\) Native coordinate system units.
+
+Figure 7: Degree labelling with ggplot2
 
 ## Modifying the number of breaks on axis
 
 This is a long-standing issue in **ggplot2** with no satisfactory
 solution so far. Please see
 [ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622)
-(and maybe consider opening a new issue). You can try something like
-this:
+(and consider contributing if you have insights). You can try the
+following approach:
 
 ``` r
 packageVersion("ggplot2")
-#> [1] '4.0.1'
+#> [1] '4.0.2'
 
 library(terra)
 library(tidyterra)
@@ -437,11 +460,6 @@ r <- rast(holyrood)
 ggplot() +
   geom_spatraster(data = r) +
   labs(title = "Default axis breaks")
-```
-
-![](faqs_files/figure-html/breaks-1.png)
-
-``` r
 
 # Modify breaks on x and y
 
@@ -461,15 +479,24 @@ ggplot() +
   labs(title = "Three breaks in x and y axis")
 ```
 
-![](faqs_files/figure-html/breaks-2.png)
+![](faqs_files/figure-html/fig-breaks-1.png)
+
+\(a\) Default axis breaks.
+
+![](faqs_files/figure-html/fig-breaks-2.png)
+
+\(b\) Custom-defined breaks.
+
+Figure 8: Spatial axis breaks with ggplot2
 
 ## Plotting a `SpatRaster` with color tables
 
-**tidyterra** has several ways to handle these `SpatRaster` objects. We
-use the file `clc_edinburgh.tif`, available online in
-<https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder,
-representing the information from the Corine Land Cover Dataset (2018)
-for the city of Edinburgh[³](#fn3).
+**tidyterra** provides several methods for handling `SpatRaster` objects
+with color tables. This example uses `clc_edinburgh.tif`, available
+online in the [data-raw
+folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
+which contains data from the Corine Land Cover Dataset (2018) for
+Edinburgh[³](#fn3).
 
 ``` r
 library(terra)
@@ -624,7 +651,8 @@ g +
 
 ## Use with gganimate
 
-Sure! See an example (thanks [@frzambra](https://github.com/frzambra)):
+Absolutely! Here is an example (thanks to
+[@frzambra](https://github.com/frzambra)):
 
 ``` r
 library(gganimate)
@@ -663,10 +691,12 @@ gganimate::animate(anim, duration = 12, device = "ragg_png")
 
 ![](che_temp.gif)
 
+Figure 9: Animation of average monthly temperatures.
+
 ## North arrows and scale bar
 
-**tidyterra** does not provide these graphical objects for **ggplot2**
-plots. However, you can use **ggspatial** functions
+**tidyterra** does not provide north arrows or scale bars directly for
+**ggplot2** plots. However, you can use **ggspatial** functions
 ([`ggspatial::annotation_north_arrow()`](https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html)
 and
 [`ggspatial::annotation_scale()`](https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html)):
@@ -697,13 +727,16 @@ autoplot(r) +
   )
 ```
 
-![](faqs_files/figure-html/northarrow-1.png)
+![](faqs_files/figure-html/fig-northarrow-1.png)
+
+Figure 10: Map with north arrow (top right) and scale bar (bottom left)
+annotations added using ggspatial.
 
 ## How to overlay a `SpatRaster` over a RGB tile
 
-This is quite straightforward, just use
+This is straightforward: use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
-and after that, just create your layer:
+for the background tile, and then add your data layers on top:
 
 ``` r
 library(terra)
@@ -763,11 +796,13 @@ ggplot(aoi) +
   )
 ```
 
-![](faqs_files/figure-html/overlay_cont-1.png)
+![](faqs_files/figure-html/fig-overlay_cont-1.png)
 
-We can create other variations with binned legends and filled contours
-(see
-[`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)):
+Figure 11: Continuous precipitation data overlaid as semi-transparent
+layer on RGB satellite imagery.
+
+You can create variations with binned legends and filled contours using
+[`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md):
 
 ``` r
 # Binned
@@ -788,11 +823,6 @@ ggplot(aoi) +
     fill = "Precipitation",
     caption = cap_lab
   )
-```
-
-![](faqs_files/figure-html/overlay_alt-1.png)
-
-``` r
 
 # Filled contour
 ggplot(aoi) +
@@ -813,19 +843,24 @@ ggplot(aoi) +
   )
 ```
 
-![](faqs_files/figure-html/overlay_alt-2.png)
+![](faqs_files/figure-html/fig-overlay_alt-1.png)
+
+\(a\) Binned precipitation legend.
+
+![](faqs_files/figure-html/fig-overlay_alt-2.png)
+
+\(b\) Contour representation.
+
+Figure 12: Alternative overlay approaches
 
 ## Hexagonal grids (and other `geoms`)
 
-Conceptually, the cells of a `SpatRaster` are rectangular, so it is not
-possible to create a `SpatRaster` with i.e. hexagonal cells.
-
-But it is possible to create a plot with hexagonal cells thanks to
+While `SpatRaster` cells are inherently rectangular, you can create
+plots with hexagonal cells using
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
 and
 [`stat_summary_hex()`](https://ggplot2.tidyverse.org/reference/stat_summary_2d.html).
-Additional work is needed to adjust the final plot, specifically, it is
-also needed to use
+The final plot requires coordinate adjustment with
 [`coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
 ``` r
@@ -855,15 +890,18 @@ ggplot(r, aes(x, y, z = elevation)) +
   )
 ```
 
-![](faqs_files/figure-html/hex_grid-1.png)
+![](faqs_files/figure-html/fig-hex_grid-1.png)
 
-Note that there is no need to make a direct call to
-[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
-since this function is implicitly invoked by **ggplot2** when using
+Figure 13: Elevation data aggregated and visualized as hexagonal grid
+cells.
+
+Note that you do not need to call
+[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
+directly; **ggplot2** invokes it implicitly when you use
 `ggplot(data = a_spatraster)`.
 
-Thanks to this extension mechanism, it is possible to use additional
-`geoms` and `stats` provided by **ggplot2**:
+Thanks to this extension mechanism, you can use additional `geoms` and
+`stats` from **ggplot2**:
 
 ``` r
 # Point plot
@@ -885,14 +923,17 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   )
 ```
 
-![](faqs_files/figure-html/alt_points-1.png)
+![](faqs_files/figure-html/fig-alt_points-1.png)
+
+Figure 14: Elevation data represented as points with size and
+transparency scaled by elevation values.
 
 ### tidyterra and metR
 
-**metR** is a package that also provides **ggplot2** extensions, mainly
-focused on the analysis of meteorological fields. As shown previously
-(see [Labeling contours](#label-contour)) it is possible to use both
-packages to provide rich plots.
+**metR** is a package that provides **ggplot2** extensions, primarily
+for meteorological data visualization. As shown previously (see
+[Labeling contours](#label-contour)), you can combine both packages to
+create rich, complex plots.
 
 ``` r
 # load libraries and files
@@ -904,9 +945,7 @@ library(metR)
 holyrood <- "holyroodpark.tif"
 
 r <- rast(holyrood)
-```
 
-``` r
 ggplot(r, aes(x, y)) +
   geom_relief(aes(z = elevation)) +
   geom_spatraster(
@@ -920,113 +959,10 @@ ggplot(r, aes(x, y)) +
   labs(x = "", y = "", title = "tidyterra and metR: reliefs")
 ```
 
-![](faqs_files/figure-html/hill-1.png)
+![](faqs_files/figure-html/fig-metrdemo-1.png)
 
-## Session info
-
-Details
-
-    #> ─ Session info ───────────────────────────────────────────────────────────────
-    #>  setting  value
-    #>  version  R version 4.5.2 (2025-10-31 ucrt)
-    #>  os       Windows Server 2022 x64 (build 26100)
-    #>  system   x86_64, mingw32
-    #>  ui       RTerm
-    #>  language en
-    #>  collate  English_United States.utf8
-    #>  ctype    English_United States.utf8
-    #>  tz       UTC
-    #>  date     2026-02-03
-    #>  pandoc   3.1.11 @ C:/HOSTED~1/windows/pandoc/31F387~1.11/x64/PANDOC~1.11/ (via rmarkdown)
-    #>  quarto   NA
-    #> 
-    #> ─ Packages ───────────────────────────────────────────────────────────────────
-    #>  package      * version    date (UTC) lib source
-    #>  backports      1.5.0      2024-05-23 [1] RSPM
-    #>  bslib          0.10.0     2026-01-26 [1] RSPM
-    #>  cachem         1.1.0      2024-05-16 [1] RSPM
-    #>  checkmate      2.3.3      2025-08-18 [1] RSPM
-    #>  class          7.3-23     2025-01-01 [3] CRAN (R 4.5.2)
-    #>  classInt       0.4-11     2025-01-08 [1] RSPM
-    #>  cli            3.6.5      2025-04-23 [1] RSPM
-    #>  codetools      0.2-20     2024-03-31 [3] CRAN (R 4.5.2)
-    #>  data.table     1.18.2.1   2026-01-27 [1] RSPM
-    #>  DBI            1.2.3      2024-06-02 [1] RSPM
-    #>  desc           1.4.3      2023-12-10 [1] RSPM
-    #>  digest         0.6.39     2025-11-19 [1] RSPM
-    #>  dplyr          1.2.0      2026-02-03 [1] CRAN (R 4.5.2)
-    #>  e1071          1.7-17     2025-12-18 [1] RSPM
-    #>  evaluate       1.0.5      2025-08-27 [1] RSPM
-    #>  farver         2.1.2      2024-05-13 [1] RSPM
-    #>  fastmap        1.2.0      2024-05-15 [1] RSPM
-    #>  fs             1.6.6      2025-04-12 [1] RSPM
-    #>  generics       0.1.4      2025-05-09 [1] RSPM
-    #>  geodata      * 0.6-6      2025-09-30 [1] RSPM
-    #>  ggplot2      * 4.0.1      2025-11-14 [1] RSPM
-    #>  ggspatial    * 1.1.10     2025-08-24 [1] RSPM
-    #>  glue           1.8.0      2024-09-30 [1] RSPM
-    #>  gtable         0.3.6      2024-10-25 [1] RSPM
-    #>  hexbin         1.28.5     2024-11-13 [1] RSPM
-    #>  htmltools      0.5.9      2025-12-04 [1] RSPM
-    #>  htmlwidgets    1.6.4      2023-12-06 [1] RSPM
-    #>  isoband        0.3.0      2025-12-07 [1] RSPM
-    #>  jquerylib      0.1.4      2021-04-26 [1] RSPM
-    #>  jsonlite       2.0.0      2025-03-27 [1] RSPM
-    #>  KernSmooth     2.23-26    2025-01-01 [3] CRAN (R 4.5.2)
-    #>  knitr          1.51       2025-12-20 [1] RSPM
-    #>  labeling       0.4.3      2023-08-29 [1] RSPM
-    #>  lattice        0.22-7     2025-04-02 [3] CRAN (R 4.5.2)
-    #>  lifecycle      1.0.5      2026-01-08 [1] RSPM
-    #>  magrittr       2.0.4      2025-09-12 [1] RSPM
-    #>  maptiles     * 0.11.0     2025-12-12 [1] RSPM
-    #>  memoise        2.0.1      2021-11-26 [1] RSPM
-    #>  metR         * 0.18.3     2025-12-09 [1] RSPM
-    #>  otel           0.2.0      2025-08-29 [1] RSPM
-    #>  pillar         1.11.1     2025-09-17 [1] RSPM
-    #>  pkgconfig      2.0.3      2019-09-22 [1] RSPM
-    #>  pkgdown        2.2.0      2025-11-06 [1] RSPM
-    #>  plyr           1.8.9      2023-10-02 [1] RSPM
-    #>  proxy          0.4-29     2025-12-29 [1] RSPM
-    #>  purrr          1.2.1      2026-01-09 [1] RSPM
-    #>  R.cache        0.17.0     2025-05-02 [1] RSPM
-    #>  R.methodsS3    1.8.2      2022-06-13 [1] RSPM
-    #>  R.oo           1.27.1     2025-05-02 [1] RSPM
-    #>  R.utils        2.13.0     2025-02-24 [1] RSPM
-    #>  R6             2.6.1      2025-02-15 [1] RSPM
-    #>  ragg           1.5.0      2025-09-02 [1] RSPM
-    #>  rappdirs       0.3.4      2026-01-17 [1] RSPM
-    #>  RColorBrewer   1.1-3      2022-04-03 [1] RSPM
-    #>  Rcpp           1.1.1      2026-01-10 [1] RSPM
-    #>  rlang          1.1.7      2026-01-09 [1] RSPM
-    #>  rmarkdown      2.30       2025-09-28 [1] RSPM
-    #>  s2             1.1.9      2025-05-23 [1] RSPM
-    #>  S7             0.2.1      2025-11-14 [1] RSPM
-    #>  sass           0.4.10     2025-04-11 [1] RSPM
-    #>  scales         1.4.0      2025-04-24 [1] RSPM
-    #>  sessioninfo  * 1.2.3      2025-02-05 [1] any (@1.2.3)
-    #>  sf           * 1.0-24     2026-01-13 [1] RSPM
-    #>  styler         1.11.0     2025-10-13 [1] RSPM
-    #>  systemfonts    1.3.1      2025-10-01 [1] RSPM
-    #>  terra        * 1.8-93     2026-01-12 [1] RSPM
-    #>  textshaping    1.0.4      2025-10-10 [1] RSPM
-    #>  tibble         3.3.1      2026-01-11 [1] RSPM
-    #>  tidyr          1.3.2      2025-12-19 [1] RSPM
-    #>  tidyselect     1.2.1      2024-03-11 [1] RSPM
-    #>  tidyterra    * 1.0.0.9000 2026-02-03 [1] local
-    #>  units          1.0-0      2025-10-09 [1] RSPM
-    #>  vctrs          0.7.1      2026-01-23 [1] RSPM
-    #>  viridisLite    0.4.2      2023-05-02 [1] RSPM
-    #>  withr          3.0.2      2024-10-28 [1] RSPM
-    #>  wk             0.9.5      2025-12-18 [1] RSPM
-    #>  xfun           0.56       2026-01-18 [1] RSPM
-    #>  yaml           2.3.12     2025-12-10 [1] RSPM
-    #> 
-    #>  [1] D:/a/_temp/Library
-    #>  [2] C:/R/site-library
-    #>  [3] C:/R/library
-    #>  * ── Packages attached to the search path.
-    #> 
-    #> ──────────────────────────────────────────────────────────────────────────────
+Figure 15: Relief rendering combining tidyterra for raster visualization
+and metR for terrain relief representation.
 
 ------------------------------------------------------------------------
 

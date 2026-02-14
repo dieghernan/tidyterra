@@ -113,7 +113,10 @@ argument.
 
 ## Installation
 
-You can install the development version of **tidyterra** like so:
+Check the docs of the developing version in
+<https://dieghernan.github.io/tidyterra/dev/>
+
+You can install the developing version of **tidyterra** like so:
 
 ``` r
 # install.packages("pak")
@@ -125,10 +128,13 @@ Alternatively, you can install **tidyterra** using the
 
 ``` r
 # Enable this universe
-install.packages("tidyterra", repos = c(
-  "https://dieghernan.r-universe.dev",
-  "https://cloud.r-project.org"
-))
+install.packages(
+  "tidyterra",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
 ```
 
 ## Example
@@ -196,7 +202,8 @@ ggplot(prov) +
   geom_spatraster(data = variation) +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
-    palette = "deep", direction = -1,
+    palette = "deep",
+    direction = -1,
     labels = scales::label_number(suffix = "º"),
     n.breaks = 5
   ) +
@@ -324,7 +331,7 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
-[$$tidyterra$$](https://stackoverflow.com/questions/tagged/tidyterra).
+[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 
@@ -553,6 +560,13 @@ implemented for `Spat*` objects.
 Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 `Spat*` objects.
 
+- [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
+  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
+  [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
+  :
+
+  Plot `SpatRaster` contours
+
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   :
@@ -563,13 +577,6 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
   :
 
   Visualise `SpatRaster` objects as images
-
-- [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
-  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
-  [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
-  :
-
-  Plot `SpatRaster` contours
 
 - [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
@@ -792,12 +799,12 @@ tibbles.
 - [Welcome to
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/welcome.md):
 
-  First steps with the **tidyterra** package
+  First steps with the tidyterra package
 
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/palettes.md):
 
-  A gallery of maps using the gradients provided by **tidyterra**.
+  A gallery of maps using the gradients provided by tidyterra.
 
 ### In the wild
 
@@ -816,4 +823,4 @@ tibbles.
 - [tidyterra
   FAQs](https://dieghernan.github.io/tidyterra/dev/articles/faqs.md):
 
-  Frequently Asked Questions on the use of **tidyterra**.
+  Frequently Asked Questions on the use of tidyterra.

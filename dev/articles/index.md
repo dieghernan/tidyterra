@@ -5,12 +5,12 @@
 - [Welcome to
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/welcome.md):
 
-  First steps with the **tidyterra** package
+  First steps with the tidyterra package
 
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/palettes.md):
 
-  A gallery of maps using the gradients provided by **tidyterra**.
+  A gallery of maps using the gradients provided by tidyterra.
 
 ### In the wild
 
@@ -29,4 +29,4 @@
 - [tidyterra
   FAQs](https://dieghernan.github.io/tidyterra/dev/articles/faqs.md):
 
-  Frequently Asked Questions on the use of **tidyterra**.
+  Frequently Asked Questions on the use of tidyterra.

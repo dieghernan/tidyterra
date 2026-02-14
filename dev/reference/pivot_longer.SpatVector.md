@@ -192,8 +192,8 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 library(dplyr)
 library(tidyr)
 #> 
-#> Attaching package: 'tidyr'
-#> The following object is masked from 'package:terra':
+#> Attaching package: ‘tidyr’
+#> The following object is masked from ‘package:terra’:
 #> 
 #>     extract
 library(ggplot2)

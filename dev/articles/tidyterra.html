@@ -19,11 +19,9 @@
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using the tidyverse with terra objects: the tidyterra package">
-<meta name="description" content="Paper published on The Journal of Open Source Software.
-">
-<meta property="og:description" content="Paper published on The Journal of Open Source Software.
-">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="tidyterra_files/libs/quarto-html/popper.min.js"></script><script src="tidyterra_files/libs/quarto-html/tippy.umd.min.js"></script><link href="tidyterra_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="tidyterra_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Using the tidyverse with terra objects: the tidyterra package">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -54,7 +52,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../articles/tidyterra.html">Get started</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/tidyterra.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
@@ -91,166 +89,64 @@
 
 
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Using the tidyverse with terra objects: the tidyterra package</h1>
-            <h3 data-toc-skip class="subtitle">JOSS paper</h3>
-                        <h4 data-toc-skip class="author">Diego
-Hernangómez</h4>
-            
-            <h4 data-toc-skip class="date">2023-07-18</h4>
-      
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.Rmd" class="external-link"><code>vignettes/tidyterra.Rmd</code></a></small>
-      <div class="d-none name"><code>tidyterra.Rmd</code></div>
+      <p class="subtitle">JOSS paper</p>
+      <p class="author">Diego Hernangómez</p>
+      <p class="date">2023-07-18</p>
+
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<!-- tidyterra.Rmd is generated from tidyterra.Rmd.orig. Please edit that file -->
-<p><a href="https://doi.org/10.21105/joss.05751" class="external-link"><img src="https://joss.theoj.org/papers/10.21105/joss.05751/status.svg" alt="DOI"></a></p>
-<div class="section level2">
-<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+
+
+
+
+
+    <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><p><a href="https://doi.org/10.21105/joss.05751" class="external-link"><img src="https://joss.theoj.org/papers/10.21105/joss.05751/status.svg" alt="DOI"></a></p>
+<section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p><strong>tidyterra</strong> is an <strong>R</strong> <span class="citation">(<a href="#ref-r-project">R Core Team 2023</a>)</span>
-package that allows manipulation of spatial data objects as provided by
-the <strong>terra</strong> package <span class="citation">(<a href="#ref-R-terra">Hijmans 2023</a>)</span>, using the verbs of the
-packages included in the <strong>tidyverse</strong> <span class="citation">(<a href="#ref-R-tidyverse">Wickham et al.
-2019</a>)</span>, such as <strong>dplyr</strong> <span class="citation">(<a href="#ref-R-dplyr">Wickham et al.
-2023</a>)</span>, <strong>tidyr</strong> <span class="citation">(<a href="#ref-R-tidyr">Wickham, Vaughan, and Girlich 2023</a>)</span>, or
-<strong>tibble</strong> <span class="citation">(<a href="#ref-R-tibble">Müller and Wickham 2023</a>)</span>. This addition
-enables users that are already familiar with the
-<strong>tidyverse</strong> to approach spatial data manipulation and
-analysis more easily and much faster.</p>
-<p>Furthermore, <strong>tidyterra</strong> extends the functionality of
-the <strong>ggplot2</strong> package <span class="citation">(<a href="#ref-R-ggplot2">Wickham 2016</a>)</span> by providing additional
-<code>geoms</code> and <code>stats</code> <a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The term &lt;code&gt;geoms&lt;/code&gt; refers to geometric objects,
-and &lt;code&gt;stats&lt;/code&gt; refers to statistical transformations, following
-the naming conventions of &lt;strong&gt;ggplot2&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a> like
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>, as
-well as carefully chosen scales and color palettes specifically designed
-for map production.</p>
-<p><strong>tidyterra</strong> can manipulate the following classes of
-<strong>terra</strong> objects:</p>
-<ol style="list-style-type: decimal">
-<li><p><code>SpatVector</code> objects, which represent vector data such
-as points, lines, or polygon geometries.</p></li>
-<li><p><code>SpatRaster</code> objects, which represent raster data in
-the form of a grid consisting of equally sized rectangles. Each
-rectangle can contain one or more values.</p></li>
+<p><strong>tidyterra</strong> is an <strong>R</strong> <span class="citation" data-cites="r-project">(<a href="#ref-r-project" role="doc-biblioref">R Core Team 2023</a>)</span> package that allows manipulation of spatial data objects as provided by the <strong>terra</strong> package <span class="citation" data-cites="R-terra">(<a href="#ref-R-terra" role="doc-biblioref">Hijmans 2023</a>)</span>, using the verbs of the packages included in the <strong>tidyverse</strong> <span class="citation" data-cites="R-tidyverse">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, such as <strong>dplyr</strong> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <strong>tidyr</strong> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2023</a>)</span>, or <strong>tibble</strong> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>. This addition enables users that are already familiar with the <strong>tidyverse</strong> to approach spatial data manipulation and analysis more easily and much faster.</p>
+<p>Furthermore, <strong>tidyterra</strong> extends the functionality of the <strong>ggplot2</strong> package <span class="citation" data-cites="R-ggplot2">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> by providing additional <code>geoms</code> and <code>stats</code> <a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The term &lt;code&gt;geoms&lt;/code&gt; refers to geometric objects, and &lt;code&gt;stats&lt;/code&gt; refers to statistical transformations, following the naming conventions of &lt;strong&gt;ggplot2&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a> like <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>, as well as carefully chosen scales and color palettes specifically designed for map production.</p>
+<p><strong>tidyterra</strong> can manipulate the following classes of <strong>terra</strong> objects:</p>
+<ol type="1">
+<li><p><code>SpatVector</code> objects, which represent vector data such as points, lines, or polygon geometries.</p></li>
+<li><p><code>SpatRaster</code> objects, which represent raster data in the form of a grid consisting of equally sized rectangles. Each rectangle can contain one or more values.</p></li>
 </ol>
-<p>The first stable version of <strong>tidyterra</strong> was included
-on CRAN on April 24, 2022, and has been actively used by other packages
-(such as <strong>ebvcuve</strong> <span class="citation">(<a href="#ref-R-ebvcube">Quoss et al. 2021</a>)</span>,
-<strong>biomod2</strong> <span class="citation">(<a href="#ref-R-biomod2">Thuiller et al. 2023</a>)</span>,
-<strong>inlabru</strong> <span class="citation">(<a href="#ref-R-inlabru">Bachl et al. 2019</a>)</span>,
-<strong>RCzechia</strong> <span class="citation">(<a href="#ref-R-rczechia">Lacko 2023</a>)</span> and
-<strong>sparrpowR</strong> <span class="citation">(<a href="#ref-R-sparrpowr">Buller et al. 2021</a>)</span>) and cited in
-academic research and publications (<span class="citation">Bahlburg et
-al. (<a href="#ref-bahlburg2023">2023</a>)</span>, <span class="citation">Moraga (<a href="#ref-moraga2023">2024</a>)</span>,
-<span class="citation">Leonardi, Colucci, and Manica (<a href="#ref-Leonardi2023">2023</a>)</span>, <span class="citation">Meister et al. (<a href="#ref-meister2023">2023</a>)</span>) ever since.</p>
-</div>
-<div class="section level2">
-<h2 id="statement-of-need">Statement of need<a class="anchor" aria-label="anchor" href="#statement-of-need"></a>
+<p>The first stable version of <strong>tidyterra</strong> was included on CRAN on April 24, 2022, and has been actively used by other packages (such as <strong>ebvcuve</strong> <span class="citation" data-cites="R-ebvcube">(<a href="#ref-R-ebvcube" role="doc-biblioref">Quoss et al. 2021</a>)</span>, <strong>biomod2</strong> <span class="citation" data-cites="R-biomod2">(<a href="#ref-R-biomod2" role="doc-biblioref">Thuiller et al. 2023</a>)</span>, <strong>inlabru</strong> <span class="citation" data-cites="R-inlabru">(<a href="#ref-R-inlabru" role="doc-biblioref">Bachl et al. 2019</a>)</span>, <strong>RCzechia</strong> <span class="citation" data-cites="R-rczechia">(<a href="#ref-R-rczechia" role="doc-biblioref">Lacko 2023</a>)</span> and <strong>sparrpowR</strong> <span class="citation" data-cites="R-sparrpowr">(<a href="#ref-R-sparrpowr" role="doc-biblioref">Buller et al. 2021</a>)</span>) and cited in academic research and publications (<span class="citation" data-cites="bahlburg2023">Bahlburg et al. (<a href="#ref-bahlburg2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="moraga2023">Moraga (<a href="#ref-moraga2023" role="doc-biblioref">2024</a>)</span>, <span class="citation" data-cites="Leonardi2023">Leonardi, Colucci, and Manica (<a href="#ref-Leonardi2023" role="doc-biblioref">2023</a>)</span>, <span class="citation" data-cites="meister2023">Meister et al. (<a href="#ref-meister2023" role="doc-biblioref">2023</a>)</span>) ever since.</p>
+</section><section class="level2"><h2 id="statement-of-need">Statement of need<a class="anchor" aria-label="anchor" href="#statement-of-need"></a>
 </h2>
-<p>The <a href="https://tidyverse.org/" class="external-link"><strong>tidyverse</strong></a>
-is a compilation of <strong>R</strong> packages that share an underlying
-design philosophy, grammar, and data structures. The packages within the
-tidyverse are widely used by <strong>R</strong> users for tidying,
-transforming, and visualizing data.</p>
-<p>The <strong>tidyverse</strong> is designed to work with tidy data
-(<em>“every column is a variable, every row is an observation, every
-cell is a single value”</em>), represented in the form of data frames or
-<strong>tibbles</strong>. However, it is possible to extend the
-functionality of <strong>tidyverse</strong> packages to work with new
-<strong>R</strong> object classes by registering the corresponding S3
-methods <span class="citation">(<a href="#ref-wickham_s32019">Wickham
-2019</a>)</span>. This means that <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> can be
-adapted to work with any object of class <code>foo</code> by creating
-the corresponding S3 method <code>mutate.foo()</code>.</p>
-<p>While other popular packages designed for spatial data handling, such
-as <strong>sf</strong> <span class="citation">(<a href="#ref-R-sf">Pebesma 2018</a>)</span> or <strong>stars</strong>
-<span class="citation">(<a href="#ref-R-stars">Pebesma and Bivand
-2023</a>)</span>, already provide integration with the
-<strong>tidyverse</strong> as part of their infrastructure,
-<strong>terra</strong> objects lack this integration natively. Although
-<strong>terra</strong> offers a wide set of functions for transforming
-and visualizing <code>SpatRaster</code> and <code>SpatVector</code>
-objects, some users who are not familiar with this package would need to
-make an additional effort to learn that syntax. This may imply an
-additional challenge during their initial steps in the field of spatial
-analysis.</p>
-<p>The <strong>tidyterra</strong> package was developed to address this
-integration gap. By providing the corresponding S3 methods, data
-analysts can apply the same syntax and functions they are already
-familiar with for rectangular data to the objects provided by
-<strong>terra</strong>. This enables users who are not familiar with
-spatial data analysis to approach this area more easily.</p>
-<p>In addition, <strong>tidyterra</strong> also offers functions for
-plotting <strong>terra</strong> objects using the
-<strong>ggplot2</strong> syntax. Although packages like
-<strong>rasterVis</strong> <span class="citation">(<a href="#ref-R-rastervis">Perpiñán and Hijmans 2023</a>)</span> and
-<strong>ggspatial</strong> <span class="citation">(<a href="#ref-R-ggspatial">Dunnington 2023</a>)</span> already allow the
-representation of <code>SpatRaster</code> objects via
-<strong>ggplot2</strong>, <strong>tidyterra</strong> functions provide
-additional support for advanced mapping. This support includes the
-integration of faceted maps, contours, and the automatic conversion of
-spatial layers to the same CRS<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;CRS; Coordinate reference system&lt;/p&gt;"><sup>2</sup></a> via <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>.
-Furthermore, <strong>tidyterra</strong> also provides support for
-<code>SpatVector</code> objects, similar to the native support of
-<strong>sf</strong> objects in the <strong>ggplot2</strong> package.</p>
-<p>Lastly, <strong>tidyterra</strong> provides a collection of color
-palettes specifically designed for representing spatial phenomena <span class="citation">(<a href="#ref-whitebox">Lindsay 2018</a>)</span>.
-Additionally, it implements the cross-blended hypsometric tints
-described by <span class="citation">Patterson and Jenny (<a href="#ref-Patterson_Jenny_2011">2011</a>)</span>.</p>
-</div>
-<div class="section level2">
-<h2 id="a-note-on-performance">A note on performance<a class="anchor" aria-label="anchor" href="#a-note-on-performance"></a>
+<p>The <a href="https://tidyverse.org/" class="external-link"><strong>tidyverse</strong></a> is a compilation of <strong>R</strong> packages that share an underlying design philosophy, grammar, and data structures. The packages within the tidyverse are widely used by <strong>R</strong> users for tidying, transforming, and visualizing data.</p>
+<p>The <strong>tidyverse</strong> is designed to work with tidy data (<em>“every column is a variable, every row is an observation, every cell is a single value”</em>), represented in the form of data frames or <strong>tibbles</strong>. However, it is possible to extend the functionality of <strong>tidyverse</strong> packages to work with new <strong>R</strong> object classes by registering the corresponding S3 methods <span class="citation" data-cites="wickham_s32019">(<a href="#ref-wickham_s32019" role="doc-biblioref">Wickham 2019</a>)</span>. This means that <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> can be adapted to work with any object of class <code>foo</code> by creating the corresponding S3 method <code>mutate.foo()</code>.</p>
+<p>While other popular packages designed for spatial data handling, such as <strong>sf</strong> <span class="citation" data-cites="R-sf">(<a href="#ref-R-sf" role="doc-biblioref">Pebesma 2018</a>)</span> or <strong>stars</strong> <span class="citation" data-cites="R-stars">(<a href="#ref-R-stars" role="doc-biblioref">Pebesma and Bivand 2023</a>)</span>, already provide integration with the <strong>tidyverse</strong> as part of their infrastructure, <strong>terra</strong> objects lack this integration natively. Although <strong>terra</strong> offers a wide set of functions for transforming and visualizing <code>SpatRaster</code> and <code>SpatVector</code> objects, some users who are not familiar with this package would need to make an additional effort to learn that syntax. This may imply an additional challenge during their initial steps in the field of spatial analysis.</p>
+<p>The <strong>tidyterra</strong> package was developed to address this integration gap. By providing the corresponding S3 methods, data analysts can apply the same syntax and functions they are already familiar with for rectangular data to the objects provided by <strong>terra</strong>. This enables users who are not familiar with spatial data analysis to approach this area more easily.</p>
+<p>In addition, <strong>tidyterra</strong> also offers functions for plotting <strong>terra</strong> objects using the <strong>ggplot2</strong> syntax. Although packages like <strong>rasterVis</strong> <span class="citation" data-cites="R-rastervis">(<a href="#ref-R-rastervis" role="doc-biblioref">Perpiñán and Hijmans 2023</a>)</span> and <strong>ggspatial</strong> <span class="citation" data-cites="R-ggspatial">(<a href="#ref-R-ggspatial" role="doc-biblioref">Dunnington 2023</a>)</span> already allow the representation of <code>SpatRaster</code> objects via <strong>ggplot2</strong>, <strong>tidyterra</strong> functions provide additional support for advanced mapping. This support includes the integration of faceted maps, contours, and the automatic conversion of spatial layers to the same CRS<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;CRS; Coordinate reference system&lt;/p&gt;"><sup>2</sup></a> via <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>. Furthermore, <strong>tidyterra</strong> also provides support for <code>SpatVector</code> objects, similar to the native support of <strong>sf</strong> objects in the <strong>ggplot2</strong> package.</p>
+<p>Lastly, <strong>tidyterra</strong> provides a collection of color palettes specifically designed for representing spatial phenomena <span class="citation" data-cites="whitebox">(<a href="#ref-whitebox" role="doc-biblioref">Lindsay 2018</a>)</span>. Additionally, it implements the cross-blended hypsometric tints described by <span class="citation" data-cites="Patterson_Jenny_2011">Patterson and Jenny (<a href="#ref-Patterson_Jenny_2011" role="doc-biblioref">2011</a>)</span>.</p>
+</section><section class="level2"><h2 id="a-note-on-performance">A note on performance<a class="anchor" aria-label="anchor" href="#a-note-on-performance"></a>
 </h2>
-<p>The development philosophy of <strong>tidyterra</strong> consists on
-adapting <strong>terra</strong> objects to data frame-like structures by
-performing different data transformations, that ultimately may impact in
-the performance of the package.</p>
-<p>When manipulating large raster files (i.e. more than 10.000.000
-cells), it is recommended to use the native <strong>terra</strong>
-syntax, that is specifically designed for handling this type of files.
-In the case of plotting, the default behavior of the geoms provided is
-to resample <code>SpatRaster</code> that presents more than 500.000
-cells to speed up the process (as the <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does),
-however this upper limit can be modified using the <code>maxcell</code>
-argument of the geom function.</p>
-<p>Note also that when possible, the help page of each function of
-<strong>tidyterra</strong> references its equivalent in
-<strong>terra</strong>.</p>
-</div>
-<div class="section level2">
-<h2 id="example-of-use">Example of use<a class="anchor" aria-label="anchor" href="#example-of-use"></a>
+<p>The development philosophy of <strong>tidyterra</strong> consists on adapting <strong>terra</strong> objects to data frame-like structures by performing different data transformations, that ultimately may impact in the performance of the package.</p>
+<p>When manipulating large raster files (i.e. more than 10.000.000 cells), it is recommended to use the native <strong>terra</strong> syntax, that is specifically designed for handling this type of files. In the case of plotting, the default behavior of the geoms provided is to resample <code>SpatRaster</code> that presents more than 500.000 cells to speed up the process (as the <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does), however this upper limit can be modified using the <code>maxcell</code> argument of the geom function.</p>
+<p>Note also that when possible, the help page of each function of <strong>tidyterra</strong> references its equivalent in <strong>terra</strong>.</p>
+</section><section class="level2"><h2 id="example-of-use">Example of use<a class="anchor" aria-label="anchor" href="#example-of-use"></a>
 </h2>
-<p><strong>tidyterra</strong> is available on <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><strong>CRAN</strong></a>,
-so it can be easily installed using the following commands in
-<strong>R</strong>:</p>
+<p><strong>tidyterra</strong> is available on <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><strong>CRAN</strong></a>, so it can be easily installed using the following commands in <strong>R</strong>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"tidyterra"</span><span class="op">)</span></span></code></pre></div>
-<p>The latest developing version is hosted in <a href="https://github.com/dieghernan/tidyterra" class="external-link">GitHub</a> and can be
-installed using the following command in <strong>R</strong>:</p>
+<p>The latest developing version is hosted in <a href="https://github.com/dieghernan/tidyterra" class="external-link">GitHub</a> and can be installed using the following command in <strong>R</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
-<p>The following example demonstrates how to manipulate a
-<code>SpatRaster</code> object using the <strong>dplyr</strong> syntax.
-Additionally, it illustrates how to seamlessly plot a
-<code>SpatRaster</code> object with <strong>ggplot2</strong> using the
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> function:</p>
+<p>The following example demonstrates how to manipulate a <code>SpatRaster</code> object using the <strong>dplyr</strong> syntax. Additionally, it illustrates how to seamlessly plot a <code>SpatRaster</code> object with <strong>ggplot2</strong> using the <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> function:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span> <span class="co"># Load all the packages of tidyverse at once</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span> <span class="co"># Additional library for labels</span></span>
 <span></span>
 <span><span class="co"># Temperatures in Castille and Leon (selected months)</span></span>
-<span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>,</span>
+<span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
+<span>  <span class="st">"extdata/cyl_temp.tif"</span>,</span>
 <span>  package <span class="op">=</span> <span class="st">"tidyterra"</span></span>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -275,16 +171,11 @@ Additionally, it illustrates how to seamlessly plot a
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="spatraster-example1-1.png" alt="Faceted map with multi-layer raster file." width="100%"><p class="caption">
+<img src="./fig-ex1-1.png" alt="Faceted map with multi-layer raster file." width="100%"><p class="caption">
 Faceted map with multi-layer raster file.
 </p>
 </div>
-<p>In the following example we combine a common <strong>dplyr</strong>
-workflow (<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> + <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code>) and we plot the
-result. In this case the plot is a contour plot of the original
-<code>SpatRaster</code> using
-<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>and it also includes an
-overlay of a <code>SpatVector</code> for reference:</p>
+<p>In the following example we combine a common <strong>dplyr</strong> workflow (<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> + <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code>) and we plot the result. In this case the plot is a contour plot of the original <code>SpatRaster</code> using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>and it also includes an overlay of a <code>SpatVector</code> for reference:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the variation between April and June and apply a different palette</span></span>
 <span><span class="va">incr_temp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
@@ -292,9 +183,7 @@ overlay of a <code>SpatVector</code> for reference:</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>Variation <span class="op">=</span> <span class="va">var</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Overlay an SpatVector</span></span>
-<span><span class="va">cyl_vect</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>,</span>
-<span>  package <span class="op">=</span> <span class="st">"tidyterra"</span></span>
-<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cyl_vect</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Contour map with overlay</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -308,175 +197,183 @@ overlay of a <code>SpatVector</code> for reference:</p>
 <span>    subtitle <span class="op">=</span> <span class="st">"Difference between April and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="spatraster-example2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%"><p class="caption">
+<img src="./fig-ex2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%"><p class="caption">
 Contour map of temperature variation with a SpatVector overlay
 </p>
 </div>
-</div>
-<div class="section level2">
-<h2 id="additional-materials">Additional materials<a class="anchor" aria-label="anchor" href="#additional-materials"></a>
+</section><section class="level2"><h2 id="additional-materials">Additional materials<a class="anchor" aria-label="anchor" href="#additional-materials"></a>
 </h2>
 <p>The package includes extensive documentation available online at <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a> including:</p>
 <ul>
-<li>Details on each function, including (if possible) the equivalent
-<strong>terra</strong> function, in case users prefer to include those
-on their workflows.</li>
-<li>Working examples on the use of the functions and creation of
-plots.</li>
-<li>Additional articles and vignettes, as well as a complete demo of the
-different color palettes included on the package (see <a href="https://dieghernan.github.io/tidyterra/articles/palettes.html">Palettes</a>).</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+<li>Details on each function, including (if possible) the equivalent <strong>terra</strong> function, in case users prefer to include those on their workflows.</li>
+<li>Working examples on the use of the functions and creation of plots.</li>
+<li>Additional articles and vignettes, as well as a complete demo of the different color palettes included on the package (see <a href="https://dieghernan.github.io/tidyterra/articles/palettes.html">Palettes</a>).</li>
+</ul></section><section class="level2"><h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>I would like to thank <a href="https://github.com/rhijmans" class="external-link">Robert J.
-Hijmans</a> for his advice and support in adapting some of the methods,
-as well as for the suggestions that helped us improve the
-functionalities of the package. I am also thankful to <a href="https://dewey.dunnington.ca/" class="external-link">Dewey Dunnington</a>, Brent Thorne
-and the rest of contributors of the <strong>ggspatial</strong> package,
-which served as a key reference during the initial stages of the
-development of <strong>tidyterra</strong>.</p>
-<p><strong>tidyterra</strong> also incorporates some pieces of code
-adapted from <strong>ggplot2</strong> for computing contours, which
-relies on the package <strong>isoband</strong> <span class="citation">(<a href="#ref-R-isoband">Wickham, Wilke, and Pedersen
-2022</a>)</span> developed by <a href="https://clauswilke.com/" class="external-link">Claus O.
-Wilke</a>.</p>
-</div>
-<div class="section level2 unnumbered">
-<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<p>I would like to thank <a href="https://github.com/rhijmans" class="external-link">Robert J. Hijmans</a> for his advice and support in adapting some of the methods, as well as for the suggestions that helped us improve the functionalities of the package. I am also thankful to <a href="https://dewey.dunnington.ca/" class="external-link">Dewey Dunnington</a>, Brent Thorne and the rest of contributors of the <strong>ggspatial</strong> package, which served as a key reference during the initial stages of the development of <strong>tidyterra</strong>.</p>
+<p><strong>tidyterra</strong> also incorporates some pieces of code adapted from <strong>ggplot2</strong> for computing contours, which relies on the package <strong>isoband</strong> <span class="citation" data-cites="R-isoband">(<a href="#ref-R-isoband" role="doc-biblioref">Wickham, Wilke, and Pedersen 2022</a>)</span> developed by <a href="https://clauswilke.com/" class="external-link">Claus O. Wilke</a>.</p>
+</section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-R-inlabru" class="csl-entry">
-Bachl, Fabian E., Finn Lindgren, David L. Borchers, and Janine B.
-Illian. 2019. <span>“<span class="nocase">inlabru</span>: An
-<span>R</span> Package for <span>Bayesian</span> Spatial Modelling from
-Ecological Survey Data.”</span> <em>Methods in Ecology and
-Evolution</em> 10: 760–66. <a href="https://doi.org/10.1111/2041-210X.13168" class="external-link">https://doi.org/10.1111/2041-210X.13168</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-R-inlabru" class="csl-entry" role="listitem">
+Bachl, Fabian E., Finn Lindgren, David L. Borchers, and Janine B. Illian. 2019. <span>“<span class="nocase">inlabru</span>: An <span>R</span> Package for <span>Bayesian</span> Spatial Modelling from Ecological Survey Data.”</span> <em>Methods in Ecology and Evolution</em> 10: 760–66. <a href="https://doi.org/10.1111/2041-210X.13168" class="external-link">https://doi.org/10.1111/2041-210X.13168</a>.
 </div>
-<div id="ref-bahlburg2023" class="csl-entry">
-Bahlburg, Dominik, Sally E. Thorpe, Bettina Meyer, Uta Berger, and
-Eugene J. Murphy. 2023. <span>“An Intercomparison of Models Predicting
-Growth of <span>Antarctic</span> Krill (<span class="nocase">Euphausia
-superba</span>): The Importance of Recognizing Model
-Specificity.”</span> <em>PLOS ONE</em> 18 (7): 1–29. <a href="https://doi.org/10.1371/journal.pone.0286036" class="external-link">https://doi.org/10.1371/journal.pone.0286036</a>.
+<div id="ref-bahlburg2023" class="csl-entry" role="listitem">
+Bahlburg, Dominik, Sally E. Thorpe, Bettina Meyer, Uta Berger, and Eugene J. Murphy. 2023. <span>“An Intercomparison of Models Predicting Growth of <span>Antarctic</span> Krill (<span class="nocase">Euphausia superba</span>): The Importance of Recognizing Model Specificity.”</span> <em>PLOS ONE</em> 18 (7): 1–29. <a href="https://doi.org/10.1371/journal.pone.0286036" class="external-link">https://doi.org/10.1371/journal.pone.0286036</a>.
 </div>
-<div id="ref-R-sparrpowr" class="csl-entry">
-Buller, I. D., D. W. Brown, T. A. Myers, R. R. Jones, and M. J.
-Machiela. 2021. <span>“<span class="nocase">sparrpowR</span>: A Flexible
-<span>R</span> Package to Estimate Statistical Power to Identify Spatial
-Clustering of Two Groups and Its Application.”</span> <em>International
-Journal of Health Geographics</em> 20 (1): 1–7. <a href="https://doi.org/10.1186/s12942-021-00267-z" class="external-link">https://doi.org/10.1186/s12942-021-00267-z</a>.
+<div id="ref-R-sparrpowr" class="csl-entry" role="listitem">
+Buller, I. D., D. W. Brown, T. A. Myers, R. R. Jones, and M. J. Machiela. 2021. <span>“<span class="nocase">sparrpowR</span>: A Flexible <span>R</span> Package to Estimate Statistical Power to Identify Spatial Clustering of Two Groups and Its Application.”</span> <em>International Journal of Health Geographics</em> 20 (1): 1–7. <a href="https://doi.org/10.1186/s12942-021-00267-z" class="external-link">https://doi.org/10.1186/s12942-021-00267-z</a>.
 </div>
-<div id="ref-R-ggspatial" class="csl-entry">
-Dunnington, Dewey. 2023. <em><span class="nocase">ggspatial</span>:
-Spatial Data Framework for <span class="nocase">ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial" class="external-link">https://CRAN.R-project.org/package=ggspatial</a>.
+<div id="ref-R-ggspatial" class="csl-entry" role="listitem">
+Dunnington, Dewey. 2023. <em><span class="nocase">ggspatial</span>: Spatial Data Framework for <span class="nocase">ggplot2</span></em>. <a href="https://CRAN.R-project.org/package=ggspatial" class="external-link">https://CRAN.R-project.org/package=ggspatial</a>.
 </div>
-<div id="ref-R-terra" class="csl-entry">
-Hijmans, Robert J. 2023. <em><span class="nocase">terra</span>: Spatial
-Data Analysis</em>. <a href="https://rspatial.org/" class="external-link">https://rspatial.org/</a>.
+<div id="ref-R-terra" class="csl-entry" role="listitem">
+Hijmans, Robert J. 2023. <em><span class="nocase">terra</span>: Spatial Data Analysis</em>. <a href="https://rspatial.org/" class="external-link">https://rspatial.org/</a>.
 </div>
-<div id="ref-R-rczechia" class="csl-entry">
-Lacko, Jindra. 2023. <span>“<span>RCzechia</span>: Spatial Objects of
-the <span>Czech</span> <span>Republic</span>.”</span> <em>Journal of
-Open Source Software</em> 8 (83). <a href="https://doi.org/10.21105/joss.05082" class="external-link">https://doi.org/10.21105/joss.05082</a>.
+<div id="ref-R-rczechia" class="csl-entry" role="listitem">
+Lacko, Jindra. 2023. <span>“<span>RCzechia</span>: Spatial Objects of the <span>Czech</span> <span>Republic</span>.”</span> <em>Journal of Open Source Software</em> 8 (83). <a href="https://doi.org/10.21105/joss.05082" class="external-link">https://doi.org/10.21105/joss.05082</a>.
 </div>
-<div id="ref-Leonardi2023" class="csl-entry">
-Leonardi, Michela, Margherita Colucci, and Andrea Manica. 2023.
-<span>“<span class="nocase">tidysdm</span>: Leveraging the Flexibility
-of <span class="nocase">tidymodels</span> for Species Distribution
-Modelling in <span>R</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2023.07.24.550358" class="external-link">https://doi.org/10.1101/2023.07.24.550358</a>.
+<div id="ref-Leonardi2023" class="csl-entry" role="listitem">
+Leonardi, Michela, Margherita Colucci, and Andrea Manica. 2023. <span>“<span class="nocase">tidysdm</span>: Leveraging the Flexibility of <span class="nocase">tidymodels</span> for Species Distribution Modelling in <span>R</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2023.07.24.550358" class="external-link">https://doi.org/10.1101/2023.07.24.550358</a>.
 </div>
-<div id="ref-whitebox" class="csl-entry">
-Lindsay, John. 2018. <span>“Whitebox-Tools.”</span> GitHub repository.
-<a href="https://github.com/jblindsay/whitebox-tools" class="external-link">https://github.com/jblindsay/whitebox-tools</a>.
+<div id="ref-whitebox" class="csl-entry" role="listitem">
+Lindsay, John. 2018. <span>“Whitebox-Tools.”</span> GitHub repository. <a href="https://github.com/jblindsay/whitebox-tools" class="external-link">https://github.com/jblindsay/whitebox-tools</a>.
 </div>
-<div id="ref-meister2023" class="csl-entry">
-Meister, Nadja, Tom J. Langbehn, Øystein Varpe, and Christian Jørgensen.
-2023. <span>“Blue Mussels in Western Norway Have Vanished Where in Reach
-of Crawling Predators.”</span> <em>Marine Ecology Progress Series</em>
-721 (October): 85–101. <a href="https://doi.org/10.3354/meps14416" class="external-link">https://doi.org/10.3354/meps14416</a>.
+<div id="ref-meister2023" class="csl-entry" role="listitem">
+Meister, Nadja, Tom J. Langbehn, Øystein Varpe, and Christian Jørgensen. 2023. <span>“Blue Mussels in Western Norway Have Vanished Where in Reach of Crawling Predators.”</span> <em>Marine Ecology Progress Series</em> 721 (October): 85–101. <a href="https://doi.org/10.3354/meps14416" class="external-link">https://doi.org/10.3354/meps14416</a>.
 </div>
-<div id="ref-moraga2023" class="csl-entry">
-Moraga, Paula. 2024. <em>Spatial <span>Statistics</span> for
-<span>Data</span> <span>Science</span>: <span>Theory</span> and
-<span>Practice</span> with <span>R</span></em>. First edition. Boca
-Raton, FL: CRC Press. <a href="https://www.paulamoraga.com/book-spatial/" class="external-link">https://www.paulamoraga.com/book-spatial/</a>.
+<div id="ref-moraga2023" class="csl-entry" role="listitem">
+Moraga, Paula. 2024. <em>Spatial <span>Statistics</span> for <span>Data</span> <span>Science</span>: <span>Theory</span> and <span>Practice</span> with <span>R</span></em>. First edition. Boca Raton, FL: CRC Press. <a href="https://www.paulamoraga.com/book-spatial/" class="external-link">https://www.paulamoraga.com/book-spatial/</a>.
 </div>
-<div id="ref-R-tibble" class="csl-entry">
+<div id="ref-R-tibble" class="csl-entry" role="listitem">
 Müller, Kirill, and Hadley Wickham. 2023. <span>“<span class="nocase">tibble</span>: Simple Data Frames.”</span> <a href="https://tibble.tidyverse.org/" class="external-link">https://tibble.tidyverse.org/</a>.
 </div>
-<div id="ref-Patterson_Jenny_2011" class="csl-entry">
-Patterson, Tom, and Bernhard Jenny. 2011. <span>“The Development and
-Rationale of Cross-Blended Hypsometric Tints.”</span> <em>Cartographic
-Perspectives</em>, no. 69 (June): 31–46. <a href="https://doi.org/10.14714/CP69.20" class="external-link">https://doi.org/10.14714/CP69.20</a>.
+<div id="ref-Patterson_Jenny_2011" class="csl-entry" role="listitem">
+Patterson, Tom, and Bernhard Jenny. 2011. <span>“The Development and Rationale of Cross-Blended Hypsometric Tints.”</span> <em>Cartographic Perspectives</em>, no. 69 (June): 31–46. <a href="https://doi.org/10.14714/CP69.20" class="external-link">https://doi.org/10.14714/CP69.20</a>.
 </div>
-<div id="ref-R-sf" class="csl-entry">
-Pebesma, Edzer. 2018. <span>“<span class="nocase">Simple Features for
-<span>R</span>: Standardized Support for Spatial Vector
-Data</span>.”</span> <em><span>The R Journal</span></em> 10 (1): 439–46.
-<a href="https://doi.org/10.32614/RJ-2018-009" class="external-link">https://doi.org/10.32614/RJ-2018-009</a>.
+<div id="ref-R-sf" class="csl-entry" role="listitem">
+Pebesma, Edzer. 2018. <span>“<span class="nocase">Simple Features for <span>R</span>: Standardized Support for Spatial Vector Data</span>.”</span> <em><span>The R Journal</span></em> 10 (1): 439–46. <a href="https://doi.org/10.32614/RJ-2018-009" class="external-link">https://doi.org/10.32614/RJ-2018-009</a>.
 </div>
-<div id="ref-R-stars" class="csl-entry">
-Pebesma, Edzer, and Roger Bivand. 2023. <em><span class="nocase">Spatial
-Data Science: With applications in R</span></em>. London: <span>Chapman
-and Hall/CRC</span>. <a href="https://doi.org/10.1201/9780429459016" class="external-link">https://doi.org/10.1201/9780429459016</a>.
+<div id="ref-R-stars" class="csl-entry" role="listitem">
+Pebesma, Edzer, and Roger Bivand. 2023. <em><span class="nocase">Spatial Data Science: With applications in R</span></em>. London: <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/9780429459016" class="external-link">https://doi.org/10.1201/9780429459016</a>.
 </div>
-<div id="ref-R-rastervis" class="csl-entry">
+<div id="ref-R-rastervis" class="csl-entry" role="listitem">
 Perpiñán, Oscar, and Robert Hijmans. 2023. <em><span class="nocase">rasterVis</span></em>. <a href="https://oscarperpinan.github.io/rastervis/" class="external-link">https://oscarperpinan.github.io/rastervis/</a>.
 </div>
-<div id="ref-R-ebvcube" class="csl-entry">
-Quoss, Luise, Nestor Fernandez, Christian Langer, Jose Valdez, and
-Henrique Miguel Pereira. 2021. <em><span class="nocase">ebvcube</span>:
-Working with <span class="nocase">netCDF</span> for Essential
-Biodiversity Variables</em>. Germany: German Centre for Integrative
-Biodiversity Research (iDiv) Halle-Jena-Leipzig. <a href="https://github.com/EBVcube/ebvcube" class="external-link">https://github.com/EBVcube/ebvcube</a>.
+<div id="ref-R-ebvcube" class="csl-entry" role="listitem">
+Quoss, Luise, Nestor Fernandez, Christian Langer, Jose Valdez, and Henrique Miguel Pereira. 2021. <em><span class="nocase">ebvcube</span>: Working with <span class="nocase">netCDF</span> for Essential Biodiversity Variables</em>. Germany: German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig. <a href="https://github.com/EBVcube/ebvcube" class="external-link">https://github.com/EBVcube/ebvcube</a>.
 </div>
-<div id="ref-r-project" class="csl-entry">
-R Core Team. 2023. <em><span>R</span>: A Language and Environment for
-Statistical Computing</em>. Vienna, Austria: <span>R Foundation for
-Statistical Computing</span>. <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.
+<div id="ref-r-project" class="csl-entry" role="listitem">
+R Core Team. 2023. <em><span>R</span>: A Language and Environment for Statistical Computing</em>. Vienna, Austria: <span>R Foundation for Statistical Computing</span>. <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.
 </div>
-<div id="ref-R-biomod2" class="csl-entry">
-Thuiller, Wilfried, Damien Georges, Maya Gueguen, Robin Engler, Frank
-Breiner, Bruno Lafourcade, and Remi Patin. 2023. <em><span class="nocase">biomod2</span>: Ensemble Platform for Species
-Distribution Modeling</em>.
+<div id="ref-R-biomod2" class="csl-entry" role="listitem">
+Thuiller, Wilfried, Damien Georges, Maya Gueguen, Robin Engler, Frank Breiner, Bruno Lafourcade, and Remi Patin. 2023. <em><span class="nocase">biomod2</span>: Ensemble Platform for Species Distribution Modeling</em>.
 </div>
-<div id="ref-R-ggplot2" class="csl-entry">
-Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant
-Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org" class="external-link">https://ggplot2.tidyverse.org</a>.
+<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em><span class="nocase">ggplot2</span>: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org" class="external-link">https://ggplot2.tidyverse.org</a>.
 </div>
-<div id="ref-wickham_s32019" class="csl-entry">
-———. 2019. <span>“S3.”</span> In <em>Advanced <span>R</span></em>, 2nd
-ed. <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/9781351201315" class="external-link">https://doi.org/10.1201/9781351201315</a>.
+<div id="ref-wickham_s32019" class="csl-entry" role="listitem">
+———. 2019. <span>“S3.”</span> In <em>Advanced <span>R</span></em>, 2nd ed. <span>Chapman and Hall/CRC</span>. <a href="https://doi.org/10.1201/9781351201315" class="external-link">https://doi.org/10.1201/9781351201315</a>.
 </div>
-<div id="ref-R-tidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-<span>“Welcome to the <span class="nocase">tidyverse</span>.”</span>
-<em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686" class="external-link">https://doi.org/10.21105/joss.01686</a>.
+<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686" class="external-link">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div id="ref-R-dplyr" class="csl-entry">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
-Vaughan. 2023. <span>“<span class="nocase">dplyr</span>: A Grammar of
-Data Manipulation.”</span> <a href="https://dplyr.tidyverse.org" class="external-link">https://dplyr.tidyverse.org</a>.
+<div id="ref-R-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <span>“<span class="nocase">dplyr</span>: A Grammar of Data Manipulation.”</span> <a href="https://dplyr.tidyverse.org" class="external-link">https://dplyr.tidyverse.org</a>.
 </div>
-<div id="ref-R-tidyr" class="csl-entry">
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023.
-<span>“<span class="nocase">tidyr</span>: Tidy Messy Data.”</span> <a href="https://tidyr.tidyverse.org" class="external-link">https://tidyr.tidyverse.org</a>.
+<div id="ref-R-tidyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <span>“<span class="nocase">tidyr</span>: Tidy Messy Data.”</span> <a href="https://tidyr.tidyverse.org" class="external-link">https://tidyr.tidyverse.org</a>.
 </div>
-<div id="ref-R-isoband" class="csl-entry">
-Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022.
-<em><span class="nocase">isoband</span>: Generate Isolines and Isobands
-from Regularly Spaced Elevation Grids</em>. <a href="https://CRAN.R-project.org/package=isoband" class="external-link">https://CRAN.R-project.org/package=isoband</a>.
+<div id="ref-R-isoband" class="csl-entry" role="listitem">
+Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022. <em><span class="nocase">isoband</span>: Generate Isolines and Isobands from Regularly Spaced Elevation Grids</em>. <a href="https://CRAN.R-project.org/package=isoband" class="external-link">https://CRAN.R-project.org/package=isoband</a>.
 </div>
 </div>
-</div>
-
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+</section><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config);
+    }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
-
 
 
     <footer><div class="pkgdown-footer-left">
