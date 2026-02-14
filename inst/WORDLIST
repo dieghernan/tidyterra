@@ -5,6 +5,7 @@ CodeFactor
 Colorimetric
 Coords
 DSM
+Deprecations
 EPSG
 ETOPO
 Geospatial
@@ -16,6 +17,7 @@ ISSN
 JOSS
 LiDAR
 Licence
+Lightbox
 Maungawhau
 NZGD
 ORCID
@@ -76,6 +78,7 @@ millimetres
 natively
 performant
 picas
+pkgdown
 plotmath
 proj
 ptype

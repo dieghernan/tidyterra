@@ -2,12 +2,12 @@
 
 -   New **dplyr** minimum version: **1.2.0**.
 
-### New Methods
+## New Methods
 
 -   `add_count.SpatVector()` (#195).
 -   `filter_out.SpatVector()` (#196).
 
-### Changes in arguments
+## Changes in arguments
 
 -   In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
     `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
@@ -27,10 +27,14 @@
             -   `wt` argument for performing weighted counts supported.
             -   `.drop` argument deprecated, (it never really worked).
 
-### Deprecations
+## Deprecations
 
 -   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
     **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+
+## Other changes
+
+-   Migrate vignettes and articles to Quarto.
 
 # tidyterra 1.0.0
 

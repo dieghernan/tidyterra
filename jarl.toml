@@ -1,2 +1,3 @@
 [lint]
 ignore = ["implicit_assignment", "duplicated_arguments"]
+exclude = ["data-raw/"]
