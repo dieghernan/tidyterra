@@ -1,46 +1,39 @@
 # Welcome to tidyterra
 
-## Welcome to {tidyterra}
+## The tidyterra package
 
-**tidyterra** is a package that adds common methods from the
-[**tidyverse**](https://tidyverse.org/) for `SpatRaster` and
-`SpatVector` objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package. It also
-adds specific `geom_spat*()` functions for plotting these kinds of
-objects with [**ggplot2**](https://ggplot2.tidyverse.org/).
+**tidyterra** adds common tidyverse methods for `SpatRaster` and
+`SpatVector` objects from the
+[**terra**](https://CRAN.R-project.org/package=terra) package, and
+provides `geom_spat*()` geoms for plotting these objects with
+[**ggplot2**](https://ggplot2.tidyverse.org/).
 
-### Why **tidyterra**?
+### Why tidyterra?
 
-`Spat*` objects are not like regular data frames. They are a different
-type of objects, implemented via the [S4 object
-system](http://adv-r.had.co.nz/S4.md), and have their own syntax and
-computation methods, implemented on the **terra** package.
+`Spat*` objects differ from regular data frames: they are S4 objects
+with their own syntax and computational methods (implemented in
+**terra**). By providing tidyverse verbs—especially `dplyr` and `tidyr`
+methods—**tidyterra** lets users manipulate `Spat*` objects in a style
+similar to working with tabular data.
 
-By implementing **tidyverse** methods for these objects, and more
-specifically **dplyr** and **tidyr** methods, a use**R** can now work
-more easily with `Spat*` objects, just like (s)he would do with tabular
-data.
+Note: **terra** is generally more performant. Learning some **terra**
+syntax is recommended because **tidyterra** functions call, where
+possible, the corresponding **terra** equivalents.
 
-**Note that** in terms of performance, **terra** is much more optimized
-for working with this kind of objects, so it is **recommended** also to
-learn a bit of **terra** syntax. Each function of **tidyterra** refers
-(when possible) to the corresponding equivalent on **terra**.
+## A note for advanced terra users
 
-## A note for advanced **terra** users
-
-As previously mentioned, **tidyterra** is not optimized in terms of
-performance. Especially when working with
+**tidyterra** is not optimized for performance. Operations such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
-[`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) methods,
-it can be slow.
+[`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) can be
+slower than their **terra** counterparts.
 
-As a rule of thumb, **tidyterra** can handle objects with less than
-10,000,000 slots of information (i.e.,
-`terra::ncell(a_rast) * terra::nlyr(a_rast) < 10e6`).
+As a rule of thumb, **tidyterra** is most suitable for objects with
+fewer than 1e7 “slots” (i.e.,
+`terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`).
 
-## Get started with **tidyterra**
+## Get started with tidyterra
 
-Load **tidyterra** with additional libraries of the **tidyverse**:
+Load **tidyterra** together with core tidyverse packages:
 
 ``` r
 library(tidyterra)
@@ -54,9 +47,9 @@ Currently, the following methods are available:
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)                                                                              | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Select layers                                                                                                                                                                                      |
-| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Create /modify layers                                                                                                                                                                              |
+| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Create/modify layers                                                                                                                                                                               |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)                                                                                | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Modify cells values and (additionally) remove outer cells.                                                                                                                                         |
+| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Modify cell values and (optionally) remove outer cells.                                                                                                                                            |
 | [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)                                                                                        | ✔️                                                                                                                                                                                                    | ✔️ Additional methods for slicing by row and column.                                                                                                                                                  |
 | [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)                                                                                          | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 | [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
@@ -82,11 +75,11 @@ Currently, the following methods are available:
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)                                                                                    | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html)                                                                      | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 
-Let’s see some of them in action:
+Let’s see some of these methods in action.
 
 ### `SpatRasters`
 
-See an example with `SpatRaster` objects:
+Example using a `SpatRaster`:
 
 ``` r
 library(terra)
@@ -124,29 +117,29 @@ mod
 #> max values  :   5.307511, 16.740898, 21.11378
 ```
 
-On the previous example, we had:
+In this example we:
 
-- Eliminated the first layer of the raster `tavg_04`.
-- Created a new layer `newcol` as the difference of the layers `tavg_05`
-  and `tavg_06`.
-- Relocated `newcol` as the first layer of the `SpatRaster`.
-- Replaced the `NA` cells on `newcol` with `3`.
-- Renamed `newcol` to difference.
+- Removed the first layer (`tavg_04`).
+- Created a new layer `newcol` as the difference between `tavg_06` and
+  `tavg_05`.
+- Relocated `newcol` to be the first layer.
+- Replaced `NA` values in `newcol` with `3`.
+- Renamed `newcol` to `difference`.
 
-Throughout the process, the essential properties of the `SpatRaster`
-(number of cells, columns and rows, extent, resolution and coordinate
-reference system) have not been modified. Other methods such as
+Throughout these steps, core properties of the `SpatRaster` (number of
+cells, rows and columns, extent, resolution, and CRS) remain unchanged.
+Other verbs such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
-[`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or
-[`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) can
-modify these properties, as they would do when applied to a data frame
-(number of rows would be modified on that case).
+[`slice()`](https://dplyr.tidyverse.org/reference/slice.html), or
+[`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) may
+alter these properties in a manner analogous to how row operations
+affect data frames.
 
 ### `SpatVectors`
 
-`tidyterra >= 0.4.0` provides support for `SpatVectors` for most of the
-**dplyr** and **tidyr** methods, so it is possible to arrange, group and
-summarise information of `SpatVectors`.
+Since **tidyterra** 0.4.0, most `dplyr` and `tidyr` verbs work with
+`SpatVector` objects, so you can arrange, group, and summarise their
+attributes.
 
 ``` r
 lux <- system.file("ex/lux.shp", package = "terra")
@@ -177,19 +170,17 @@ v_lux |>
 #>                (4.99,40.7]     9 1.944e+05     209.8
 ```
 
-As in the case of `SpatRaster`, basic properties such as the geometry
-and the CRS are preserved.
+As with `SpatRaster`, essential properties such as geometry and CRS are
+preserved during these operations.
 
-## Plotting with **ggplot2**
+## Plotting with ggplot2
 
 ### `SpatRasters`
 
-**tidyterra** provides several `geom_*` for `SpatRasters`. When the
-`SpatRaster` has the CRS defined (i.e. `terra::crs(a_rast) != ""`), the
+When a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != ""`), the
 geom uses
-[`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
-and may also be reprojected for adjusting the coordinates to other
-spatial layers:
+[`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
+and can be reprojected to match other spatial layers.
 
 ``` r
 library(ggplot2)
@@ -205,9 +196,9 @@ ggplot() +
   )
 ```
 
-![A faceted SpatRaster](faceted-1.png)
+![A faceted map using SpatRaster](./fig-faceted-1.png)
 
-A faceted SpatRaster
+A faceted map using SpatRaster
 
 ``` r
 # Contour lines for a specific layer
@@ -223,7 +214,7 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Contour lines plot for a SpatRaster](contourlines-1.png)
+![Contour lines plot for a SpatRaster](./fig-contourlines-1.png)
 
 Contour lines plot for a SpatRaster
 
@@ -236,12 +227,11 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Contour filled plot for a SpatRaster](contourfilled-1.png)
+![Contour filled plot for a SpatRaster](./fig-contourfilled-1.png)
 
 Contour filled plot for a SpatRaster
 
-With **tidyterra** you can also plot RGB `SpatRasters` to add imagery to
-your plots:
+tidyterra also supports RGB `SpatRasters` for imagery:
 
 ``` r
 # Read a vector
@@ -261,12 +251,12 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![Plotting an RGB SpatRaster](rgb-1.png)
+![A map combining a RGB SpatRaster and a SpatVector](./fig-rgb-1.png)
 
-Plotting an RGB SpatRaster
+A map combining a RGB SpatRaster and a SpatVector
 
-**tidyterra** provides selected scales that are suitable for creating
-hypsometric and bathymetric maps:
+**tidyterra** includes color scales suitable for hypsometric and
+bathymetric maps:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
@@ -304,16 +294,14 @@ ggplot() +
   )
 ```
 
-![Hypsometric tints](hypso-1.png)
+![Map of Asia including hypsometric tints](./fig-hypso-1.png)
 
-Hypsometric tints
+Map of Asia including hypsometric tints
 
 ### `SpatVectors`
 
-**tidyterra** allows you to plot `SpatVectors` with **ggplot2** using
-the
-[`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
-functions:
+Plot `SpatVectors` with
+[`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md):
 
 ``` r
 lux <- system.file("ex/lux.shp", package = "terra")
@@ -327,17 +315,19 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-![Plotting SpatVectors](lux_ggplot-1.png)
+![Choropleth map with a SpatVector object](./fig-lux_ggplot-1.png)
 
-Plotting SpatVectors
+Choropleth map with a SpatVector object
 
-The underlying implementation is to take advantage of the conversion
-`terra::vect()/sf::st_as_sf()` and use
+Implementation-wise, **tidyterra** converts
+[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
+output to **sf** via
+[`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
+and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-as an endpoint for creating the layer.
+to render the layer.
 
-With **tidyterra** we can also aggregate `SpatVectors` at our
-convenience:
+You can also aggregate `SpatVectors` easily:
 
 ``` r
 # Dissolving
@@ -357,12 +347,11 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Dissolving SpatVectors by group](aggregate-1.png)
+![Dissolving SpatVectors by group](./fig-aggregate-1.png)
 
 Dissolving SpatVectors by group
 
 ``` r
-
 
 # Same but keeping internal boundaries
 v_lux |>
@@ -383,6 +372,6 @@ v_lux |>
 ```
 
 ![Dissolving SpatVectors by group (keeping internal
-boundaries)](aggregate-2.png)
+boundaries)](./fig-aggregate-2.png)
 
 Dissolving SpatVectors by group (keeping internal boundaries)

@@ -19,11 +19,11 @@
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Gradient palettes in tidyterra">
-<meta name="description" content="A gallery of maps using the gradients provided by tidyterra.
-">
-<meta property="og:description" content="A gallery of maps using the gradients provided by tidyterra.
-">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="palettes_files/libs/quarto-html/popper.min.js"></script><script src="palettes_files/libs/quarto-html/tippy.umd.min.js"></script><link href="palettes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="palettes_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<script src="palettes_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script><link href="palettes_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="palettes_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Gradient palettes in tidyterra">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -90,26 +90,36 @@
 
 
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Gradient palettes in tidyterra</h1>
-            
-      
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/vignettes/articles/palettes.Rmd" class="external-link"><code>vignettes/articles/palettes.Rmd</code></a></small>
-      <div class="d-none name"><code>palettes.Rmd</code></div>
+
+
+
+
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/vignettes/articles/palettes.qmd" class="external-link"><code>vignettes/articles/palettes.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<p>This page shows a gallery of maps that can be displayed with the
-gradient fill scales included with <strong>tidyterra</strong>. A basic
-code to generate this map is:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+
+
+
+<style>
+  .glightbox-clean .gslide-desc {
+    font-weight: 800;
+    font-family: 'Inter Tight';
+    text-shadow: 0 0 10px black;
+    color: white !important;
+    opacity: 0.75;
+  }
+  .glightbox-mobile .glightbox-container .gslide-desc {
+    font-size: 1.25rem;
+  }
+</style>
+<p>This page shows a <a href="https://biati-digital.github.io/glightbox/" class="external-link">Lightbox gallery</a> of maps that can be displayed with the gradient fill scales included with <strong>tidyterra</strong>. A basic code to generate this map is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -121,146 +131,979 @@ code to generate this map is:</p>
 <span>  <span class="co"># Use the palette you like, in this case:</span></span>
 <span>  <span class="fu"><a href="../reference/scale_hypso.html">scale_fill_hypso_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="section level2">
-<h2 id="scale_fill_terrain_-and-scale_fill_wiki_">
-<code>scale_fill_terrain_*</code> and
-<code>scale_fill_wiki_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_terrain_-and-scale_fill_wiki_"></a>
-</h2>
-<p>Check <code><a href="../reference/scale_terrain.html">scale_fill_terrain_c()</a></code> and
-<code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code> for more info.</p>
-<p><img src="palettes_files/figure-html/terr_wiki-1.png" class="r-plt" alt="Terrain and wiki palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/terr_wiki-2.png" class="r-plt" alt="Terrain and wiki palettes in tidyterra" width="50%"></p>
 </div>
-<div class="section level2">
-<h2 id="scale_fill_whitebox_">
+<section class="level2"><h2 id="scale_fill_terrain_-and-scale_fill_wiki_">
+<code>scale_fill_terrain_*</code> and <code>scale_fill_wiki_*</code>
+<a class="anchor" aria-label="anchor" href="#scale_fill_terrain_-and-scale_fill_wiki_"></a>
+</h2>
+<p>Check <code><a href="../reference/scale_terrain.html">scale_fill_terrain_c()</a></code> and <code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code> for more info.</p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/terr_wiki-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1;" data-gallery="r-wikiterr"><img src="palettes_files/figure-html/terr_wiki-1.png" alt="Terrain and wiki palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/terr_wiki-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-2;" data-gallery="r-wikiterr"><img src="palettes_files/figure-html/terr_wiki-2.png" alt="Terrain and wiki palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="scale_fill_whitebox_">
 <code>scale_fill_whitebox_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_whitebox_"></a>
 </h2>
 <p>Check <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code> for more info.</p>
-<p><img src="palettes_files/figure-html/whitebox-1.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-2.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-3.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-4.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-5.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-6.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-7.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-8.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-9.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-10.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/whitebox-11.png" class="r-plt" alt="Whitebox palettes in tidyterra" width="50%"></p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-1.png" alt="Whitebox palettes in tidyterra"></a></p>
 </div>
-<div class="section level2">
-<h2 id="scale_fill_hypso_">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-4;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-2.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-5;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-3.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-6;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-4.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-7;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-5.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-6.png" class="lightbox" data-glightbox="description: .lightbox-desc-8;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-6.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-7.png" class="lightbox" data-glightbox="description: .lightbox-desc-9;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-7.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-8.png" class="lightbox" data-glightbox="description: .lightbox-desc-10;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-8.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-9.png" class="lightbox" data-glightbox="description: .lightbox-desc-11;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-9.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-10.png" class="lightbox" data-glightbox="description: .lightbox-desc-12;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-10.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/whitebox-11.png" class="lightbox" data-glightbox="description: .lightbox-desc-13;" data-gallery="r-whitebox"><img src="palettes_files/figure-html/whitebox-11.png" alt="Whitebox palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="scale_fill_hypso_">
 <code>scale_fill_hypso_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_hypso_"></a>
 </h2>
 <p>Check <code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code> for more info.</p>
-<p><img src="palettes_files/figure-html/hypso-1.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-2.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-3.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-4.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-5.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-6.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-7.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-8.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-9.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-10.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-11.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-12.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-13.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-14.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-15.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-16.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-17.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-18.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-19.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-20.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-21.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-22.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-23.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-24.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-25.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-26.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-27.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-28.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-29.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-30.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-31.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-32.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/hypso-33.png" class="r-plt" alt="Hypso palettes in tidyterra" width="50%"></p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-14;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-1.png" alt="Hypso palettes in tidyterra"></a></p>
 </div>
-<div class="section level2">
-<h2 id="scale_fill_cross_blended_">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-15;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-2.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-16;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-3.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-17;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-4.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-18;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-5.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-6.png" class="lightbox" data-glightbox="description: .lightbox-desc-19;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-6.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-7.png" class="lightbox" data-glightbox="description: .lightbox-desc-20;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-7.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-8.png" class="lightbox" data-glightbox="description: .lightbox-desc-21;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-8.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-9.png" class="lightbox" data-glightbox="description: .lightbox-desc-22;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-9.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-10.png" class="lightbox" data-glightbox="description: .lightbox-desc-23;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-10.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-11.png" class="lightbox" data-glightbox="description: .lightbox-desc-24;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-11.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-12.png" class="lightbox" data-glightbox="description: .lightbox-desc-25;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-12.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-13.png" class="lightbox" data-glightbox="description: .lightbox-desc-26;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-13.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-14.png" class="lightbox" data-glightbox="description: .lightbox-desc-27;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-14.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-15.png" class="lightbox" data-glightbox="description: .lightbox-desc-28;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-15.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-16.png" class="lightbox" data-glightbox="description: .lightbox-desc-29;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-16.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-17.png" class="lightbox" data-glightbox="description: .lightbox-desc-30;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-17.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-18.png" class="lightbox" data-glightbox="description: .lightbox-desc-31;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-18.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-19.png" class="lightbox" data-glightbox="description: .lightbox-desc-32;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-19.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-20.png" class="lightbox" data-glightbox="description: .lightbox-desc-33;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-20.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-21.png" class="lightbox" data-glightbox="description: .lightbox-desc-34;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-21.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-22.png" class="lightbox" data-glightbox="description: .lightbox-desc-35;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-22.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-36;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-23.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-24.png" class="lightbox" data-glightbox="description: .lightbox-desc-37;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-24.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-25.png" class="lightbox" data-glightbox="description: .lightbox-desc-38;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-25.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-26.png" class="lightbox" data-glightbox="description: .lightbox-desc-39;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-26.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-27.png" class="lightbox" data-glightbox="description: .lightbox-desc-40;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-27.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-28.png" class="lightbox" data-glightbox="description: .lightbox-desc-41;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-28.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-29.png" class="lightbox" data-glightbox="description: .lightbox-desc-42;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-29.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-43;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-30.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-31.png" class="lightbox" data-glightbox="description: .lightbox-desc-44;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-31.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-32.png" class="lightbox" data-glightbox="description: .lightbox-desc-45;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-32.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/hypso-33.png" class="lightbox" data-glightbox="description: .lightbox-desc-46;" data-gallery="r-hypso"><img src="palettes_files/figure-html/hypso-33.png" alt="Hypso palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="scale_fill_cross_blended_">
 <code>scale_fill_cross_blended_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_cross_blended_"></a>
 </h2>
 <p>Check <code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code> for more info.</p>
-<p><img src="palettes_files/figure-html/cross-1.png" class="r-plt" alt="Cross-blended palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/cross-2.png" class="r-plt" alt="Cross-blended palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/cross-3.png" class="r-plt" alt="Cross-blended palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/cross-4.png" class="r-plt" alt="Cross-blended palettes in tidyterra" width="50%"></p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/cross-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-47;" data-gallery="r-cross"><img src="palettes_files/figure-html/cross-1.png" alt="Cross-blended palettes in tidyterra"></a></p>
 </div>
-<div class="section level2">
-<h2 id="scale_fill_grass_">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/cross-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-48;" data-gallery="r-cross"><img src="palettes_files/figure-html/cross-2.png" alt="Cross-blended palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/cross-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-49;" data-gallery="r-cross"><img src="palettes_files/figure-html/cross-3.png" alt="Cross-blended palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/cross-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-50;" data-gallery="r-cross"><img src="palettes_files/figure-html/cross-4.png" alt="Cross-blended palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="scale_fill_grass_">
 <code>scale_fill_grass_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_grass_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> for more info. Plots produced
-using <code>use_grass_range = FALSE</code>.</p>
-<p><img src="palettes_files/figure-html/grass-1.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-2.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-3.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-4.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-5.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-6.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-7.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-8.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-9.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-10.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-11.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-12.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-13.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-14.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-15.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-16.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-17.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-18.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-19.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-20.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-21.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-22.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-23.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-24.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-25.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-26.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-27.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-28.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-29.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-30.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-31.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-32.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-33.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-34.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-35.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-36.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-37.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-38.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-39.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-40.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-41.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-42.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-43.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-44.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-45.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-46.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-47.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-48.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-49.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-50.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/grass-51.png" class="r-plt" alt="GRASS palettes in tidyterra" width="50%"></p>
+<p>Check <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> for more info. Plots produced using <code>use_grass_range = FALSE</code>.</p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-51;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-1.png" alt="GRASS palettes in tidyterra"></a></p>
 </div>
-<div class="section level2">
-<h2 id="scale_fill_princess_">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-52;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-2.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-53;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-3.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-54;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-4.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-55;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-5.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-6.png" class="lightbox" data-glightbox="description: .lightbox-desc-56;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-6.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-7.png" class="lightbox" data-glightbox="description: .lightbox-desc-57;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-7.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-8.png" class="lightbox" data-glightbox="description: .lightbox-desc-58;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-8.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-9.png" class="lightbox" data-glightbox="description: .lightbox-desc-59;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-9.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-10.png" class="lightbox" data-glightbox="description: .lightbox-desc-60;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-10.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-11.png" class="lightbox" data-glightbox="description: .lightbox-desc-61;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-11.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-12.png" class="lightbox" data-glightbox="description: .lightbox-desc-62;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-12.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-13.png" class="lightbox" data-glightbox="description: .lightbox-desc-63;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-13.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-14.png" class="lightbox" data-glightbox="description: .lightbox-desc-64;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-14.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-15.png" class="lightbox" data-glightbox="description: .lightbox-desc-65;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-15.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-16.png" class="lightbox" data-glightbox="description: .lightbox-desc-66;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-16.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-17.png" class="lightbox" data-glightbox="description: .lightbox-desc-67;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-17.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-18.png" class="lightbox" data-glightbox="description: .lightbox-desc-68;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-18.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-19.png" class="lightbox" data-glightbox="description: .lightbox-desc-69;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-19.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-20.png" class="lightbox" data-glightbox="description: .lightbox-desc-70;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-20.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-21.png" class="lightbox" data-glightbox="description: .lightbox-desc-71;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-21.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-22.png" class="lightbox" data-glightbox="description: .lightbox-desc-72;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-22.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-23.png" class="lightbox" data-glightbox="description: .lightbox-desc-73;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-23.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-24.png" class="lightbox" data-glightbox="description: .lightbox-desc-74;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-24.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-25.png" class="lightbox" data-glightbox="description: .lightbox-desc-75;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-25.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-26.png" class="lightbox" data-glightbox="description: .lightbox-desc-76;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-26.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-27.png" class="lightbox" data-glightbox="description: .lightbox-desc-77;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-27.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-28.png" class="lightbox" data-glightbox="description: .lightbox-desc-78;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-28.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-29.png" class="lightbox" data-glightbox="description: .lightbox-desc-79;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-29.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-30.png" class="lightbox" data-glightbox="description: .lightbox-desc-80;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-30.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-31.png" class="lightbox" data-glightbox="description: .lightbox-desc-81;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-31.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-32.png" class="lightbox" data-glightbox="description: .lightbox-desc-82;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-32.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-33.png" class="lightbox" data-glightbox="description: .lightbox-desc-83;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-33.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-34.png" class="lightbox" data-glightbox="description: .lightbox-desc-84;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-34.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-35.png" class="lightbox" data-glightbox="description: .lightbox-desc-85;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-35.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-36.png" class="lightbox" data-glightbox="description: .lightbox-desc-86;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-36.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-37.png" class="lightbox" data-glightbox="description: .lightbox-desc-87;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-37.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-38.png" class="lightbox" data-glightbox="description: .lightbox-desc-88;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-38.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-39.png" class="lightbox" data-glightbox="description: .lightbox-desc-89;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-39.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-40.png" class="lightbox" data-glightbox="description: .lightbox-desc-90;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-40.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-41.png" class="lightbox" data-glightbox="description: .lightbox-desc-91;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-41.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-42.png" class="lightbox" data-glightbox="description: .lightbox-desc-92;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-42.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-43.png" class="lightbox" data-glightbox="description: .lightbox-desc-93;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-43.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-44.png" class="lightbox" data-glightbox="description: .lightbox-desc-94;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-44.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-45.png" class="lightbox" data-glightbox="description: .lightbox-desc-95;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-45.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-46.png" class="lightbox" data-glightbox="description: .lightbox-desc-96;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-46.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-47.png" class="lightbox" data-glightbox="description: .lightbox-desc-97;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-47.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-48.png" class="lightbox" data-glightbox="description: .lightbox-desc-98;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-48.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-49.png" class="lightbox" data-glightbox="description: .lightbox-desc-99;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-49.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-50.png" class="lightbox" data-glightbox="description: .lightbox-desc-100;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-50.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/grass-51.png" class="lightbox" data-glightbox="description: .lightbox-desc-101;" data-gallery="r-grass"><img src="palettes_files/figure-html/grass-51.png" alt="GRASS palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+</section><section class="level2"><h2 id="scale_fill_princess_">
 <code>scale_fill_princess_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_princess_"></a>
 </h2>
 <p>Check <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> for more info.</p>
-<p><img src="palettes_files/figure-html/princess-1.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-2.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-3.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-4.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-5.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-6.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-7.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-8.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-9.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-10.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-11.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-12.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-13.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-14.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"><img src="palettes_files/figure-html/princess-15.png" class="r-plt" alt="Princess palettes in tidyterra" width="50%"></p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-102;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-1.png" alt="Princess palettes in tidyterra"></a></p>
 </div>
-<div class="section level2">
-<h2 id="session-info">Session info<a class="anchor" aria-label="anchor" href="#session-info"></a>
-</h2>
-<details><summary>
-Details
-</summary><pre><code><span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span></span>
-<span><span class="co">#&gt;  version  R version 4.5.2 (2025-10-31)</span></span>
-<span><span class="co">#&gt;  os       Ubuntu 24.04.3 LTS</span></span>
-<span><span class="co">#&gt;  system   x86_64, linux-gnu</span></span>
-<span><span class="co">#&gt;  ui       X11</span></span>
-<span><span class="co">#&gt;  language en</span></span>
-<span><span class="co">#&gt;  collate  C.UTF-8</span></span>
-<span><span class="co">#&gt;  ctype    C.UTF-8</span></span>
-<span><span class="co">#&gt;  tz       UTC</span></span>
-<span><span class="co">#&gt;  date     2026-02-14</span></span>
-<span><span class="co">#&gt;  pandoc   3.1.11 @ /opt/hostedtoolcache/pandoc/3.1.11/x64/ (via rmarkdown)</span></span>
-<span><span class="co">#&gt;  quarto   NA</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package     </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
-<span><span class="co">#&gt;  bslib          0.10.0   <span style="color: #555555;">2026-01-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cachem         1.1.0    <span style="color: #555555;">2024-05-16</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  class          7.3-23   <span style="color: #555555;">2025-01-01</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  classInt       0.4-11   <span style="color: #555555;">2025-01-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  cli            3.6.5    <span style="color: #555555;">2025-04-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  codetools      0.2-20   <span style="color: #555555;">2024-03-31</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  data.table     1.18.2.1 <span style="color: #555555;">2026-01-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  DBI            1.2.3    <span style="color: #555555;">2024-06-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  desc           1.4.3    <span style="color: #555555;">2023-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  digest         0.6.39   <span style="color: #555555;">2025-11-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  dplyr          1.2.0    <span style="color: #555555;">2026-02-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  e1071          1.7-17   <span style="color: #555555;">2025-12-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  evaluate       1.0.5    <span style="color: #555555;">2025-08-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  farver         2.1.2    <span style="color: #555555;">2024-05-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fastmap        1.2.0    <span style="color: #555555;">2024-05-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  fs             1.6.6    <span style="color: #555555;">2025-04-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  generics       0.1.4    <span style="color: #555555;">2025-05-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ggplot2      * 4.0.2    <span style="color: #555555;">2026-02-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  glue           1.8.0    <span style="color: #555555;">2024-09-30</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  gtable         0.3.6    <span style="color: #555555;">2024-10-25</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  htmltools      0.5.9    <span style="color: #555555;">2025-12-04</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jquerylib      0.1.4    <span style="color: #555555;">2021-04-26</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  jsonlite       2.0.0    <span style="color: #555555;">2025-03-27</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  KernSmooth     2.23-26  <span style="color: #555555;">2025-01-01</span> <span style="color: #555555;">[3]</span> <span style="color: #555555;">CRAN (R 4.5.2)</span></span></span>
-<span><span class="co">#&gt;  knitr          1.51     <span style="color: #555555;">2025-12-20</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  labeling       0.4.3    <span style="color: #555555;">2023-08-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  lifecycle      1.0.5    <span style="color: #555555;">2026-01-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  magrittr       2.0.4    <span style="color: #555555;">2025-09-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pillar         1.11.1   <span style="color: #555555;">2025-09-17</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pkgconfig      2.0.3    <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  pkgdown        2.2.0    <span style="color: #555555;">2025-11-06</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  proxy          0.4-29   <span style="color: #555555;">2025-12-29</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  purrr          1.2.1    <span style="color: #555555;">2026-01-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.cache        0.17.0   <span style="color: #555555;">2025-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.methodsS3    1.8.2    <span style="color: #555555;">2022-06-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.oo           1.27.1   <span style="color: #555555;">2025-05-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R.utils        2.13.0   <span style="color: #555555;">2025-02-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  R6             2.6.1    <span style="color: #555555;">2025-02-15</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  ragg           1.5.0    <span style="color: #555555;">2025-09-02</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  RColorBrewer   1.1-3    <span style="color: #555555;">2022-04-03</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  Rcpp           1.1.1    <span style="color: #555555;">2026-01-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rlang          1.1.7    <span style="color: #555555;">2026-01-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  rmarkdown      2.30     <span style="color: #555555;">2025-09-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  S7             0.2.1    <span style="color: #555555;">2025-11-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sass           0.4.10   <span style="color: #555555;">2025-04-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  scales         1.4.0    <span style="color: #555555;">2025-04-24</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  sessioninfo  * 1.2.3    <span style="color: #555555;">2025-02-05</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">any (@1.2.3)</span></span></span>
-<span><span class="co">#&gt;  sf             1.0-24   <span style="color: #555555;">2026-01-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  styler         1.11.0   <span style="color: #555555;">2025-10-13</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  systemfonts    1.3.1    <span style="color: #555555;">2025-10-01</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  terra          1.8-93   <span style="color: #555555;">2026-01-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  textshaping    1.0.4    <span style="color: #555555;">2025-10-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tibble         3.3.1    <span style="color: #555555;">2026-01-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyr          1.3.2    <span style="color: #555555;">2025-12-19</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyselect     1.2.1    <span style="color: #555555;">2024-03-11</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  tidyterra    * 1.0.0    <span style="color: #555555;">2026-02-14</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
-<span><span class="co">#&gt;  units          1.0-0    <span style="color: #555555;">2025-10-09</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  vctrs          0.7.1    <span style="color: #555555;">2026-01-23</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  withr          3.0.2    <span style="color: #555555;">2024-10-28</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  xfun           0.56     <span style="color: #555555;">2026-01-18</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt;  yaml           2.3.12   <span style="color: #555555;">2025-12-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">RSPM</span></span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /home/runner/work/_temp/Library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [2] /opt/R/4.5.2/lib/R/site-library</span></span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [3] /opt/R/4.5.2/lib/R/library</span></span></span>
-<span><span class="co">#&gt;  <span style="color: #BBBBBB; background-color: #BB0000;">*</span> ── Packages attached to the search path.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre>
-</details>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-2.png" class="lightbox" data-glightbox="description: .lightbox-desc-103;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-2.png" alt="Princess palettes in tidyterra"></a></p>
 </div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-3.png" class="lightbox" data-glightbox="description: .lightbox-desc-104;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-3.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-4.png" class="lightbox" data-glightbox="description: .lightbox-desc-105;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-4.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-5.png" class="lightbox" data-glightbox="description: .lightbox-desc-106;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-5.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-6.png" class="lightbox" data-glightbox="description: .lightbox-desc-107;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-6.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-7.png" class="lightbox" data-glightbox="description: .lightbox-desc-108;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-7.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-8.png" class="lightbox" data-glightbox="description: .lightbox-desc-109;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-8.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-9.png" class="lightbox" data-glightbox="description: .lightbox-desc-110;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-9.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-10.png" class="lightbox" data-glightbox="description: .lightbox-desc-111;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-10.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-11.png" class="lightbox" data-glightbox="description: .lightbox-desc-112;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-11.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-12.png" class="lightbox" data-glightbox="description: .lightbox-desc-113;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-12.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-13.png" class="lightbox" data-glightbox="description: .lightbox-desc-114;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-13.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-14.png" class="lightbox" data-glightbox="description: .lightbox-desc-115;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-14.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><a href="palettes_files/figure-html/princess-15.png" class="lightbox" data-glightbox="description: .lightbox-desc-116;" data-gallery="r-princess"><img src="palettes_files/figure-html/princess-15.png" alt="Princess palettes in tidyterra"></a></p>
+</div>
+</div>
+</div>
+<div class="hidden" aria-hidden="true">
+<div class="glightbox-desc lightbox-desc-1">
+<p>Terrain and wiki palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-2">
+<p>Terrain and wiki palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-3">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-4">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-5">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-6">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-7">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-8">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-9">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-10">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-11">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-12">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-13">
+<p>Whitebox palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-14">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-15">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-16">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-17">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-18">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-19">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-20">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-21">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-22">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-23">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-24">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-25">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-26">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-27">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-28">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-29">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-30">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-31">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-32">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-33">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-34">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-35">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-36">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-37">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-38">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-39">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-40">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-41">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-42">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-43">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-44">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-45">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-46">
+<p>Hypso palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-47">
+<p>Cross-blended palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-48">
+<p>Cross-blended palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-49">
+<p>Cross-blended palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-50">
+<p>Cross-blended palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-51">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-52">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-53">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-54">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-55">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-56">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-57">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-58">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-59">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-60">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-61">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-62">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-63">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-64">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-65">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-66">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-67">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-68">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-69">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-70">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-71">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-72">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-73">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-74">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-75">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-76">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-77">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-78">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-79">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-80">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-81">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-82">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-83">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-84">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-85">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-86">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-87">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-88">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-89">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-90">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-91">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-92">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-93">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-94">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-95">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-96">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-97">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-98">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-99">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-100">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-101">
+<p>GRASS palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-102">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-103">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-104">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-105">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-106">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-107">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-108">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-109">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-110">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-111">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-112">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-113">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-114">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-115">
+<p>Princess palettes in tidyterra</p>
+</div>
+<div class="glightbox-desc lightbox-desc-116">
+<p>Princess palettes in tidyterra</p>
+</div>
+</div>
+</section><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config);
+    }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"bottom","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      }
+    });
+
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+
+  };
+
+})();
+          </script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
-
 
 
     <footer><div class="pkgdown-footer-left">

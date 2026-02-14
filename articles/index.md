@@ -5,6 +5,8 @@
 - [Welcome to
   tidyterra](https://dieghernan.github.io/tidyterra/articles/welcome.md):
 
+  First steps with the tidyterra package
+
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/articles/palettes.md):
 
@@ -17,7 +19,7 @@
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/articles/wild.md):
 
-  Use of tidyterra in publications.
+  Use of **tidyterra** in publications.
 
 ### FAQs
 
