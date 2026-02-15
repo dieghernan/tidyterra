@@ -47,3 +47,4 @@
 ^inst/README\.qmd$
 ^README_files$
 ^README\.html$
+^\.quarto$
