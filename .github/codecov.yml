@@ -1,0 +1,24 @@
+codecov:
+  branch: main
+  require_ci_to_pass: false
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+
+ignore:
+- data-raw/
+- inst/
+- vignettes/
+
+github_checks:
+  annotations: true
