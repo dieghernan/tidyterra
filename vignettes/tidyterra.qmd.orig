@@ -63,7 +63,7 @@ addition enables users that are already familiar with the **tidyverse** to
 approach spatial data manipulation and analysis more easily and much faster.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2** package
-[@R-ggplot2] by providing additional `geoms` and `stats` [^1] like
+[@R-ggplot2] by providing additional `geoms` and `stats`[^1] like
 `geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
 and color palettes specifically designed for map production.
 
