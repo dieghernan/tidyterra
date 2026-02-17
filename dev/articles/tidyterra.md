@@ -17,7 +17,7 @@ and analysis more easily and much faster.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2**
 package ([Wickham 2016](#ref-R-ggplot2)) by providing additional `geoms`
-and `stats` [¹](#fn1) like
+and `stats`[¹](#fn1) like
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
 and
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md),
