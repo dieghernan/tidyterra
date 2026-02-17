@@ -291,6 +291,16 @@ blockquote {
 	font-weight: bold;
 }
 
+/* ---Toolbox in References --- */
+
+.tippy-box[data-theme~="light-border"] {
+	background-color: var(--bs-body-bg);
+	color: var(--bs-popover-body-color);
+	font-size: 0.9rem;
+	padding: 0.75rem;
+	box-shadow: 4px 4px 8px 2px RGBA(var(--bs-body-color-rgb), 0.3);
+}
+
 /* ---Code--- */
 code a:any-link {
 	text-decoration: underline;
