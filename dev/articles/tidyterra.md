@@ -145,6 +145,8 @@ function:
 ``` r
 library(tidyterra)
 library(tidyverse) # Load all the packages of tidyverse at once
+#> Error in `library()`:
+#> ! there is no package called 'tidyverse'
 library(scales) # Additional library for labels
 
 # Temperatures in Castille and Leon (selected months)
@@ -173,11 +175,9 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+#> Error in `ggplot()`:
+#> ! could not find function "ggplot"
 ```
-
-![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
-
-Faceted map with multi-layer raster file.
 
 In the following example we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
@@ -207,12 +207,9 @@ ggplot() +
     title = "Variation of temperature in Castille and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
+#> Error in `ggplot()`:
+#> ! could not find function "ggplot"
 ```
-
-![Contour map of temperature variation with a SpatVector
-overlay](./fig-ex2-1.png)
-
-Contour map of temperature variation with a SpatVector overlay
 
 ## Additional materials
 

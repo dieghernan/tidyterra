@@ -11,13 +11,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
-<link href="../deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
-<link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
-<link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="tidyterra_files/libs/quarto-html/popper.min.js"></script><script src="tidyterra_files/libs/quarto-html/tippy.umd.min.js"></script><link href="tidyterra_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="tidyterra_files/libs/quarto-html/light-border.css" rel="stylesheet">
@@ -39,7 +35,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
@@ -76,14 +72,6 @@
 <li class="nav-item"><a class="external-link nav-link" href="https://x.com/dhernangomez" aria-label="X (formerly Twitter)"><span class="fa fa-brands fa-x-twitter"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/dieghernan/tidyterra/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://ko-fi.com/dieghernan" aria-label="Buy me a coffee"><span class="fa fa-hand-holding-dollar"></span></a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
-  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
-<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
-    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
-  </ul>
-</li>
       </ul>
 </div>
 
@@ -142,6 +130,8 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span> <span class="co"># Load all the packages of tidyverse at once</span></span>
+<span><span class="co">#&gt; Error in `library()`:</span></span>
+<span><span class="co">#&gt; ! there is no package called 'tidyverse'</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span> <span class="co"># Additional library for labels</span></span>
 <span></span>
 <span><span class="co"># Temperatures in Castille and Leon (selected months)</span></span>
@@ -169,12 +159,9 @@
 <span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Average temperature in Castille and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./fig-ex1-1.png" alt="Faceted map with multi-layer raster file." width="100%"><p class="caption">
-Faceted map with multi-layer raster file.
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error in `ggplot()`:</span></span>
+<span><span class="co">#&gt; ! could not find function "ggplot"</span></span></code></pre></div>
 <p>In the following example we combine a common <strong>dplyr</strong> workflow (<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> + <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code>) and we plot the result. In this case the plot is a contour plot of the original <code>SpatRaster</code> using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>and it also includes an overlay of a <code>SpatVector</code> for reference:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the variation between April and June and apply a different palette</span></span>
@@ -195,12 +182,9 @@ Faceted map with multi-layer raster file.
 <span>    fill <span class="op">=</span> <span class="st">"º Celsius"</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castille and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Difference between April and June"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./fig-ex2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%"><p class="caption">
-Contour map of temperature variation with a SpatVector overlay
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error in `ggplot()`:</span></span>
+<span><span class="co">#&gt; ! could not find function "ggplot"</span></span></code></pre></div>
 </section><section class="level2"><h2 id="additional-materials">Additional materials<a class="anchor" aria-label="anchor" href="#additional-materials"></a>
 </h2>
 <p>The package includes extensive documentation available online at <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a> including:</p>
@@ -381,7 +365,7 @@ Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022. <em><span class=
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> using the <a href="https://dieghernan.github.io/gitdevr/" class="external-link">gitdevr</a> template.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
