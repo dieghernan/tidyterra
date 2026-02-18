@@ -350,7 +350,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2508.404KB",
+  "fileSize": "2514.41KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -382,6 +382,6 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/tidyterra/blob/main/NEWS.md",
   "readme": "https://github.com/dieghernan/tidyterra/blob/main/README.md",
-  "contIntegration": ["https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yml", "https://app.codecov.io/gh/dieghernan/tidyterra", "https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-dplyr-readr.yml"],
+  "contIntegration": ["https://github.com/dieghernan/tidyterra/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/tidyterra", "https://github.com/dieghernan/tidyterra/actions/workflows/check-terra-devel.yaml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-sf-devel.yaml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-ggplot2-devel.yaml", "https://github.com/dieghernan/tidyterra/actions/workflows/check-dplyr-readr.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
