@@ -29,6 +29,7 @@ jobs:
           local::.
           any::rcmdcheck
           dieghernan/pkgdev
+          tidyverse
 
     - name: Install optipng
       run: |
