@@ -49,7 +49,7 @@ VignetteBuilder:
     quarto
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,
-    ggspatial, cpp11, remotes, gganimate, gifski
+    ggspatial, cpp11, remotes, gganimate, gifski, tidyverse
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
