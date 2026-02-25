@@ -142,8 +142,6 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span> <span class="co"># Load all the packages of tidyverse at once</span></span>
-<span><span class="co">#&gt; Error in `library()`:</span></span>
-<span><span class="co">#&gt; ! there is no package called 'tidyverse'</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span> <span class="co"># Additional library for labels</span></span>
 <span></span>
 <span><span class="co"># Temperatures in Castille and Leon (selected months)</span></span>
@@ -171,9 +169,12 @@
 <span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Average temperature in Castille and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="co">#&gt; Error in `ggplot()`:</span></span>
-<span><span class="co">#&gt; ! could not find function "ggplot"</span></span></code></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<img src="./fig-ex1-1.png" alt="Faceted map with multi-layer raster file." width="100%"><p class="caption">
+Faceted map with multi-layer raster file.
+</p>
+</div>
 <p>In the following example we combine a common <strong>dplyr</strong> workflow (<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> + <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code>) and we plot the result. In this case the plot is a contour plot of the original <code>SpatRaster</code> using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>and it also includes an overlay of a <code>SpatVector</code> for reference:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the variation between April and June and apply a different palette</span></span>
@@ -194,9 +195,12 @@
 <span>    fill <span class="op">=</span> <span class="st">"º Celsius"</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castille and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Difference between April and June"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="co">#&gt; Error in `ggplot()`:</span></span>
-<span><span class="co">#&gt; ! could not find function "ggplot"</span></span></code></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="figure">
+<img src="./fig-ex2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%"><p class="caption">
+Contour map of temperature variation with a SpatVector overlay
+</p>
+</div>
 </section><section class="level2"><h2 id="additional-materials">Additional materials<a class="anchor" aria-label="anchor" href="#additional-materials"></a>
 </h2>
 <p>The package includes extensive documentation available online at <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a> including:</p>

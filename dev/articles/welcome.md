@@ -38,14 +38,6 @@ Load **tidyterra** together with core tidyverse packages:
 ``` r
 library(tidyterra)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(tidyr)
 ```
 
