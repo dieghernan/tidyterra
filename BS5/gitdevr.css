@@ -282,9 +282,11 @@ img.logo {
 	filter: brightness(80%) !important;
 }
 
-blockquote {
+blockquote,
+.blockquote {
 	border-left: solid var(--bs-link);
-	font-size: 115%;
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
 }
 
 .pkg {
