@@ -53,17 +53,19 @@ jobs:
         # Create junit code as character
         junreport <- paste0(
           "testthat::test_package('",
-          pkgname, "',
-          reporter = testthat::JunitReporter$new(file = '", junfile, "'))"
+          pkgname,
+          "', reporter = testthat::JunitReporter$new(file = '",
+          junfile,
+          "'))"
         )
 
         cov <- covr::package_coverage(
           quiet = FALSE,
           clean = FALSE,
-          type = "none",
-          install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"),
-            winslash = "/"
-          ), "package"),
+          install_path = file.path(
+            normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"),
+            "package"
+          ),
           code = junreport
         )
 
@@ -104,7 +106,7 @@ jobs:
 
     - name: Upload test results
       if: failure()
-      uses: actions/upload-artifact@v6
+      uses: actions/upload-artifact@v7
       with:
         name: coverage-test-failures
         path: ${{ runner.temp }}/package
