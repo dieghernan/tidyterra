@@ -229,7 +229,11 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+```
 
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
+
+``` r
 # Create maximum differences of two months
 variation <- rastertemp |>
   mutate(diff = June - May) |>
@@ -256,32 +260,29 @@ ggplot(prov) +
   )
 ```
 
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Variation of temperature in Castille and Leon, Spain" width="100%" />
+
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:
 
 ``` r
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
-plot <- ggplot(prov) +
+ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
   geom_spatvector(fill = NA) +
-  theme_light()
-
-plot
-
-# Automatically recognizes and applies coord_sf() for spatial data.
-plot +
+  theme_light() +
   # Change the CRS and datum (useful for relabeling graticules).
   coord_sf(crs = 3857, datum = 3857)
 ```
+
+<img src="https://dieghernan.github.io/tidyterra/README-example-tile-1.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-
-terra::plot(asia)
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -304,6 +305,8 @@ ggplot() +
     legend.direction = "horizontal"
   )
 ```
+
+<img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
 
 ### `SpatVectors`
 
@@ -334,6 +337,8 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ POP      <dbl> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
+
+<img src="https://dieghernan.github.io/tidyterra/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
 
 ## I need your feedback
 

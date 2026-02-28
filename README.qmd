@@ -1,6 +1,17 @@
 ---
 format: gfm
 default-image-extension: ''
+knitr:
+  opts_chunk:
+    collapse: true
+    tidy: "styler"
+    comment: "#>"
+    fig.path: "pkgdown/assets/README-"
+    warning: false
+    message: false
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
 <!-- README.md is generated from README.qmd. Please edit that file -->
@@ -11,12 +22,19 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   tidy = "styler",
   comment = "#>",
-  fig.path = "assets/README/README-",
+  fig.path = "pkgdown/assets/README-",
   warning = FALSE,
   message = FALSE,
   dev = "ragg_png",
   dpi = 300,
   out.width = "100%"
+)
+
+v <- packageDescription("tidyterra")$Version
+is_dev <- length(unlist(strsplit(v, ".", fixed = TRUE))) > 3
+
+base_url <- ifelse(is_dev, "https://dieghernan.github.io/tidyterra",
+  "https://dieghernan.github.io/tidyterra/dev"
 )
 ```
 
@@ -205,7 +223,6 @@ objects:
 
 ```{r}
 #| label: example-temp
-#| fig-alt: Average temperature in Castille and Leon, Spain
 #| fig-show: hide
 library(tidyterra)
 library(terra)
@@ -236,7 +253,23 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-temp-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Average temperature in ',
+    'Castille and Leon, Spain" width="100%" />'
+  )
+)
+```
+
+```{r}
+#| label: example-temp2
+#| fig-show: hide
 # Create maximum differences of two months
 variation <- rastertemp |>
   mutate(diff = June - May) |>
@@ -263,26 +296,44 @@ ggplot(prov) +
   )
 ```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-temp2-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Variation of temperature in ',
+    'Castille and Leon, Spain" width="100%" />'
+  )
+)
+```
+
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles with
 **ggplot2**:
 
 ```{r}
 #| label: example-tile
-#| fig-alt: 'Example: Plotting a tile in tidyterra'
 #| fig-show: hide
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
-plot <- ggplot(prov) +
+ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
   geom_spatvector(fill = NA) +
-  theme_light()
-
-plot
-
-# Automatically recognizes and applies coord_sf() for spatial data.
-plot +
+  theme_light() +
   # Change the CRS and datum (useful for relabeling graticules).
   coord_sf(crs = 3857, datum = 3857)
+```
+
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-tile-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Example: Plotting a tile in tidyterra"',
+    ' width="100%" />'
+  )
+)
 ```
 
 **tidyterra** provides specific scales for plotting hypsometric maps with
@@ -291,11 +342,8 @@ plot +
 ```{r}
 #| label: hypso
 #| fig-asp: 0.65
-#| fig-alt: Hypsometric map of Asia
 #| fig-show: hide
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-
-terra::plot(asia)
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -319,6 +367,18 @@ ggplot() +
   )
 ```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-hypso-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Hypsometric map of Asia"',
+    ' width="100%" />'
+  )
+)
+```
+
 ### `SpatVectors`
 
 This is a basic example which shows you how to manipulate and plot `SpatVector`
@@ -337,6 +397,18 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
     title = "Population density of Luxembourg",
     subtitle = "By canton"
   )
+```
+
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-spatvec-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="A SpatVector plotted with tidyterra"',
+    ' width="100%" />'
+  )
+)
 ```
 
 ## I need your feedback
