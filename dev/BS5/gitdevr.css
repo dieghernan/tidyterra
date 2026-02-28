@@ -284,7 +284,7 @@ img.logo {
 
 blockquote,
 .blockquote {
-	border-left: 0.25rem solid var(--bs-secondary);
+	border-left: 0.25rem solid var(--bs-link-hover-color);
 	margin-bottom: 1rem;
 	font-size: 1.25rem;
 }
@@ -1000,11 +1000,11 @@ div.callout.callout-style-default > .callout-header {
 }
 
 div.callout-note.callout {
-	border-left-color: var(--bs-info);
+	border-left-color: var(--bs-link-color);
 }
 
 div.callout-note.callout-style-default > .callout-header {
-	background-color: RGBA(var(--bs-info-rgb), 0.1);
+	background-color: RGBA(var(--bs-link-color-rgb), 0.1);
 }
 
 div.callout-note:not(.callout-titled) .callout-icon::before {
@@ -1105,4 +1105,15 @@ div.callout-body-container.callout-body pre {
 }
 div.callout-body-container.callout-body .btn-copy-ex {
 	right: 18px !important;
+}
+
+.screen-reader-only {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
 }

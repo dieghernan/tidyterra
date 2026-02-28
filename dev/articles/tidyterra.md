@@ -98,7 +98,7 @@ specifically designed for representing spatial phenomena ([Lindsay
 hypsometric tints described by Patterson and Jenny
 ([2011](#ref-Patterson_Jenny_2011)).
 
-A note on performance
+## A note on performance
 
 The development philosophy of **tidyterra** consists on adapting
 **terra** objects to data frame-like structures by performing different
