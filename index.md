@@ -1,6 +1,6 @@
 
 
-<!-- README.md is generated from README.qmd. Please edit that file -->
+<!-- index.md is generated from index.qmd. Please edit that file -->
 
 # tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" alt="tidyterra website" align="right" height="139"/></a>
 
@@ -118,27 +118,31 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-> [!NOTE]
->
-> ### A note on performance
->
-> **tidyterra** is conceived as a user-friendly wrapper of **terra**
-> using the **tidyverse** methods and verbs. This approach therefore has
-> a **cost in terms of performance**.
->
-> If you are a **heavy user** of **terra** or you need to work with
-> **big raster files**, **terra** is much more performant. When
-> possible, each function of **tidyterra** refers to its equivalent on
-> **terra**.
->
-> As a rule of thumb if your raster has less than 10,000,000 data slots
-> counting cells and layers
-> (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
-> good to go with **tidyterra**.
->
-> When plotting rasters, resampling is performed automatically (as
-> `terra::plot()` does, see the help page). You can adjust this with the
-> `maxcell` argument.
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">A note on performance</div></div>
+<div class="callout-body-container callout-body">
+
+**tidyterra** is conceived as a user-friendly wrapper of **terra** using
+the **tidyverse** methods and verbs. This approach therefore has a
+**cost in terms of performance**.
+
+If you are a **heavy user** of **terra** or you need to work with **big
+raster files**, **terra** is much more performant. When possible, each
+function of **tidyterra** refers to its equivalent on **terra**.
+
+As a rule of thumb if your raster has less than 10,000,000 data slots
+counting cells and layers
+(i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
+good to go with **tidyterra**.
+
+When plotting rasters, resampling is performed automatically (as
+`terra::plot()` does, see the help page). You can adjust this with the
+`maxcell` argument.
+
+</div>
+</div>
 
 ## Installation
 

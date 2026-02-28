@@ -1,25 +1,40 @@
 ---
-output: github_document
+format: gfm
+default-image-extension: ''
+knitr:
+  opts_chunk:
+    collapse: true
+    tidy: "styler"
+    comment: "#>"
+    fig.path: "pkgdown/assets/README-"
+    warning: false
+    message: false
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- index.md is generated from index.qmd. Please edit that file -->
 
 ```{r}
 #| include: false
-knitr::opts_knit$set(
-  progress = TRUE,
-  base.url = "https://raw.githubusercontent.com/dieghernan/tidyterra/main/"
-)
 knitr::opts_chunk$set(
   collapse = TRUE,
   tidy = "styler",
   comment = "#>",
-  fig.path = "img/README-",
+  fig.path = "pkgdown/assets/README-",
   warning = FALSE,
   message = FALSE,
   dev = "ragg_png",
   dpi = 300,
   out.width = "100%"
+)
+
+v <- packageDescription("tidyterra")$Version
+is_dev <- length(unlist(strsplit(v, ".", fixed = TRUE))) > 3
+
+base_url <- ifelse(is_dev, "https://dieghernan.github.io/tidyterra/dev",
+  "https://dieghernan.github.io/tidyterra"
 )
 ```
 
@@ -61,9 +76,9 @@ packages](https://tidyverse.org/packages/) for objects created with the
 
 Please cite **tidyterra** as:
 
-> Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra
-> package. *Journal of Open Source Software*, *8*(91), 5751,
-> <https://doi.org/10.21105/joss.05751>.
+Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra
+package. *Journal of Open Source Software*, *8*(91), 5751,
+<https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is:
 
@@ -138,7 +153,13 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-## :exclamation: A note on performance
+```{=html}
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">A note on performance</div></div>
+<div class="callout-body-container callout-body">
+```
 
 **tidyterra** is conceived as a user-friendly wrapper of **terra** using the
 **tidyverse** methods and verbs. This approach therefore has a **cost in terms
@@ -154,6 +175,11 @@ you are good to go with **tidyterra**.
 
 When plotting rasters, resampling is performed automatically (as `terra::plot()`
 does, see the help page). You can adjust this with the `maxcell` argument.
+
+```{=html}
+</div>
+</div>
+```
 
 ## Installation
 
@@ -204,7 +230,7 @@ objects:
 
 ```{r}
 #| label: example-temp
-#| fig-alt: Average temperature in Castille and Leon, Spain
+#| fig-show: hide
 library(tidyterra)
 library(terra)
 
@@ -234,7 +260,23 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-temp-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Average temperature in ',
+    'Castille and Leon, Spain" width="100%" />'
+  )
+)
+```
+
+```{r}
+#| label: example-temp2
+#| fig-show: hide
 # Create maximum differences of two months
 variation <- rastertemp |>
   mutate(diff = June - May) |>
@@ -261,25 +303,44 @@ ggplot(prov) +
   )
 ```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-temp2-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Variation of temperature in ',
+    'Castille and Leon, Spain" width="100%" />'
+  )
+)
+```
+
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles with
 **ggplot2**:
 
 ```{r}
 #| label: example-tile
-#| fig-alt: 'Example: Plotting a tile in tidyterra'
+#| fig-show: hide
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
-plot <- ggplot(prov) +
+ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
   geom_spatvector(fill = NA) +
-  theme_light()
-
-plot
-
-# Automatically recognizes and applies coord_sf() for spatial data.
-plot +
+  theme_light() +
   # Change the CRS and datum (useful for relabeling graticules).
   coord_sf(crs = 3857, datum = 3857)
+```
+
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-example-tile-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Example: Plotting a tile in tidyterra"',
+    ' width="100%" />'
+  )
+)
 ```
 
 **tidyterra** provides specific scales for plotting hypsometric maps with
@@ -288,10 +349,8 @@ plot +
 ```{r}
 #| label: hypso
 #| fig-asp: 0.65
-#| fig-alt: Hypsometric map of Asia
+#| fig-show: hide
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-
-terra::plot(asia)
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -315,13 +374,26 @@ ggplot() +
   )
 ```
 
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-hypso-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="Hypsometric map of Asia"',
+    ' width="100%" />'
+  )
+)
+```
+
 ### `SpatVectors`
 
 This is a basic example which shows you how to manipulate and plot `SpatVector`
 objects:
 
-```{r }
+```{r}
 #| label: spatvec
+#| fig-show: hide
 vect(system.file("ex/lux.shp", package = "terra")) |>
   mutate(pop_dens = POP / AREA) |>
   glimpse() |>
@@ -332,6 +404,18 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
     title = "Population density of Luxembourg",
     subtitle = "By canton"
   )
+```
+
+```{r}
+#| echo: false
+#| results: asis
+img_url <- file.path(base_url, "README-spatvec-1.png")
+cat(
+  paste0(
+    '<img src="', img_url, '" alt="A SpatVector plotted with tidyterra"',
+    ' width="100%" />'
+  )
+)
 ```
 
 ## I need your feedback
@@ -345,7 +429,7 @@ Check our [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
-[[tidyterra]](https://stackoverflow.com/questions/tagged/tidyterra).
+[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 

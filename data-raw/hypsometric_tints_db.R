@@ -64,8 +64,8 @@ adjust_dual <- getdual <- modify |>
   unique()
 
 newcol <- tribble(
-  ~limit , ~r  , ~g  , ~b  , ~hex      ,
-      -5 , 175 , 220 , 244 , "#AFDCF4"
+  ~limit, ~r, ~g, ~b, ~hex,
+  -5, 175, 220, 244, "#AFDCF4"
 )
 adjusted <- adjust_dual |> bind_cols(newcol)
 

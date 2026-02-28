@@ -43,3 +43,14 @@
 ^vignettes/\.quarto$
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
+^vignettes/_quarto\.yaml$
+^vignettes/_quarto\.yml$
+^\.quarto$
+^index\.qmd$
+^index_files$
+^index\.html$
+^index\.md$
+^README\.qmd$
+^inst/README\.qmd$
+^README_files$
+^README\.html$

@@ -145,7 +145,7 @@ references:
     orcid: https://orcid.org/0000-0003-4777-038X
   year: '2026'
   doi: 10.32614/CRAN.package.dplyr
-  version: '>= 1.0.0'
+  version: '>= 1.2.0'
 - type: software
   title: generics
   abstract: 'generics: Common S3 Generics not Provided by Base R Methods Related to
@@ -207,6 +207,22 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 4.0.0'
+- type: software
+  title: lifecycle
+  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
+  notes: Imports
+  url: https://lifecycle.r-lib.org/
+  repository: https://CRAN.R-project.org/package=lifecycle
+  authors:
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  year: '2026'
+  doi: 10.32614/CRAN.package.lifecycle
 - type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
@@ -374,22 +390,6 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
-  title: lifecycle
-  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
-  notes: Suggests
-  url: https://lifecycle.r-lib.org/
-  repository: https://CRAN.R-project.org/package=lifecycle
-  authors:
-  - family-names: Henry
-    given-names: Lionel
-    email: lionel@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-    orcid: https://orcid.org/0000-0003-4757-117X
-  year: '2026'
-  doi: 10.32614/CRAN.package.lifecycle
-- type: software
   title: maptiles
   abstract: 'maptiles: Download and Display Map Tiles'
   notes: Suggests
@@ -403,49 +403,22 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.maptiles
 - type: software
-  title: rmarkdown
-  abstract: 'rmarkdown: Dynamic Documents for R'
+  title: quarto
+  abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
   notes: Suggests
-  url: https://pkgs.rstudio.com/rmarkdown/
-  repository: https://CRAN.R-project.org/package=rmarkdown
+  url: https://quarto-dev.github.io/quarto-r/
+  repository: https://CRAN.R-project.org/package=quarto
   authors:
   - family-names: Allaire
     given-names: JJ
     email: jj@posit.co
-  - family-names: Xie
-    given-names: Yihui
-    email: xie@yihui.name
-    orcid: https://orcid.org/0000-0003-0645-5666
+    orcid: https://orcid.org/0000-0003-0174-9868
   - family-names: Dervieux
     given-names: Christophe
     email: cderv@posit.co
     orcid: https://orcid.org/0000-0003-4474-2498
-  - family-names: McPherson
-    given-names: Jonathan
-    email: jonathan@posit.co
-  - family-names: Luraschi
-    given-names: Javier
-  - family-names: Ushey
-    given-names: Kevin
-    email: kevin@posit.co
-  - family-names: Atkins
-    given-names: Aron
-    email: aron@posit.co
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Cheng
-    given-names: Joe
-    email: joe@posit.co
-  - family-names: Chang
-    given-names: Winston
-    email: winston@posit.co
-  - family-names: Iannone
-    given-names: Richard
-    email: rich@posit.co
-    orcid: https://orcid.org/0000-0003-3925-190X
   year: '2026'
-  doi: 10.32614/CRAN.package.rmarkdown
+  doi: 10.32614/CRAN.package.quarto
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -466,6 +439,19 @@ references:
     email: rubak@math.aau.dk
   year: '2026'
   doi: 10.32614/CRAN.package.s2
+- type: software
+  title: stringi
+  abstract: 'stringi: Fast and Portable Character String Processing Facilities'
+  notes: Suggests
+  url: https://stringi.gagolewski.com/
+  repository: https://CRAN.R-project.org/package=stringi
+  authors:
+  - family-names: Gagolewski
+    given-names: Marek
+    email: marek@gagolewski.com
+    orcid: https://orcid.org/0000-0003-0637-6028
+  year: '2026'
+  doi: 10.32614/CRAN.package.stringi
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'

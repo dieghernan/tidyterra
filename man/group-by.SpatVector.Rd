@@ -13,20 +13,16 @@
 \arguments{
 \item{.data, x}{A \code{SpatVector} object. See \strong{Methods}.}
 
-\item{...}{In \code{group_by()}, variables or computations to group by.
-Computations are always done on the ungrouped data frame.
-To perform computations on the grouped data, you need to use
-a separate \code{mutate()} step before the \code{group_by()}.
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> In \code{group_by()},
+variables or computations to group by. Computations are always done on the
+ungrouped data frame. To perform computations on the grouped data, you need
+to use a separate \code{mutate()} step before the \code{group_by()}.
 Computations are not allowed in \code{nest_by()}.
 In \code{ungroup()}, variables to remove from the grouping.}
 
 \item{.add}{When \code{FALSE}, the default, \code{group_by()} will
 override existing groups. To add to the existing groups, use
-\code{.add = TRUE}.
-
-This argument was previously called \code{add}, but that prevented
-creating a new grouping variable called \code{add}, and conflicts with
-our naming conventions.}
+\code{.add = TRUE}.}
 
 \item{.drop}{Drop groups formed by factor levels that don't appear in the
 data? The default is \code{TRUE} except when \code{.data} has been previously

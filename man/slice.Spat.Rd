@@ -129,7 +129,9 @@ reach \code{n}/\code{prop}.}
 
 \item{weight_by}{<\code{\link[rlang:args_data_masking]{data-masking}}> Sampling
 weights. This must evaluate to a vector of non-negative numbers the same
-length as the input. Weights are automatically standardised to sum to 1.}
+length as the input. Weights are automatically standardised to sum to 1.
+See the \code{Details} section for more technical details regarding these
+weights.}
 
 \item{replace}{Should sampling be performed with (\code{TRUE}) or without
 (\code{FALSE}, the default) replacement.}
