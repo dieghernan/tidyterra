@@ -30,6 +30,7 @@ jobs:
           any::rcmdcheck
           dieghernan/pkgdev
           tidyverse
+        needs: website
 
     - name: Install optipng
       run: |
