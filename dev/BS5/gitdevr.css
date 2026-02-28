@@ -284,7 +284,7 @@ img.logo {
 
 blockquote,
 .blockquote {
-	border-left: solid var(--bs-link);
+	border-left: 0.25rem solid var(--bs-secondary);
 	margin-bottom: 1rem;
 	font-size: 1.25rem;
 }
