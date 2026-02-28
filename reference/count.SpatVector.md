@@ -65,9 +65,9 @@ tally(x, wt = NULL, sort = FALSE, name = NULL)
   `FALSE` will include counts for empty groups (i.e. for levels of
   factors that don't exist in the data).
 
-  **\[deprecated\]** For
+  **\[defunct\]** For
   [`add_count()`](https://dplyr.tidyverse.org/reference/count.html):
-  deprecated since it can't actually affect the output.
+  defunct since it can't actually affect the output.
 
 - .dissolve:
 

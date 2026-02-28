@@ -183,7 +183,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   Sampling weights. This must evaluate to a vector of non-negative
   numbers the same length as the input. Weights are automatically
-  standardised to sum to 1.
+  standardised to sum to 1. See the `Details` section for more technical
+  details regarding these weights.
 
 - replace:
 

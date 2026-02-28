@@ -38,16 +38,10 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
     [`n()`](https://dplyr.tidyverse.org/reference/context.html), or
     `sum(is.na(y))`.
 
-  - A data frame, to add multiple columns from a single expression.
-
-  **\[deprecated\]** Returning values with size 0 or \>1 was deprecated
-  as of 1.1.0. Please use
-  [`reframe()`](https://dplyr.tidyverse.org/reference/reframe.html) for
-  this instead.
+  - A data frame with 1 row, to add multiple columns from a single
+    expression.
 
 - .by:
-
-  **\[experimental\]**
 
   \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
   Optionally, a selection of columns to group by for just this

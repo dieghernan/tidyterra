@@ -9,9 +9,9 @@ plotting these objects with
 
 Please cite **tidyterra** as:
 
-> Hernangómez, D., (2023). Using the tidyverse with terra objects: the
-> tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
-> <https://doi.org/10.21105/joss.05751>.
+Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
+<https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is:
 
@@ -89,7 +89,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)                                                                                    | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html)                                                                      | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
 
-## ❗ A note on performance
+A note on performance
 
 **tidyterra** is conceived as a user-friendly wrapper of **terra** using
 the **tidyverse** methods and verbs. This approach therefore has a
@@ -167,10 +167,9 @@ ggplot() +
 ```
 
 ![Average temperature in Castille and Leon,
-Spain](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png)
+Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)
 
 ``` r
-
 # Create maximum differences of two months
 variation <- rastertemp |>
   mutate(diff = June - May) |>
@@ -197,8 +196,8 @@ ggplot(prov) +
   )
 ```
 
-![Average temperature in Castille and Leon,
-Spain](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png)
+![Variation of temperature in Castille and Leon,
+Spain](https://dieghernan.github.io/tidyterra/README-example-temp2-1.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:
@@ -206,41 +205,22 @@ with **ggplot2**:
 ``` r
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
-plot <- ggplot(prov) +
+ggplot(prov) +
   geom_spatraster_rgb(data = rgb_tile) +
   geom_spatvector(fill = NA) +
-  theme_light()
-
-plot
-```
-
-![Example: Plotting a tile in
-tidyterra](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png)
-
-``` r
-
-# Automatically recognizes and applies coord_sf() for spatial data.
-plot +
+  theme_light() +
   # Change the CRS and datum (useful for relabeling graticules).
   coord_sf(crs = 3857, datum = 3857)
 ```
 
 ![Example: Plotting a tile in
-tidyterra](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png)
+tidyterra](https://dieghernan.github.io/tidyterra/README-example-tile-1.png)
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-
-terra::plot(asia)
-```
-
-![Hypsometric map of
-Asia](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png)
-
-``` r
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -265,7 +245,7 @@ ggplot() +
 ```
 
 ![Hypsometric map of
-Asia](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png)
+Asia](https://dieghernan.github.io/tidyterra/README-hypso-1.png)
 
 ### `SpatVectors`
 
@@ -297,7 +277,8 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
-![](https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png)
+![A SpatVector plotted with
+tidyterra](https://dieghernan.github.io/tidyterra/README-spatvec-1.png)
 
 ## I need your feedback
 
