@@ -91,7 +91,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)                                                                                    | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                            |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html)                                                                      | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                            |
 
-## ❗ A note on performance
+A note on performance
 
 **tidyterra** is conceived as a user-friendly wrapper of **terra** using
 the **tidyverse** methods and verbs. This approach therefore has a

@@ -309,15 +309,22 @@
 </tr>
 </tbody>
 </table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="section level2">
-<h2 id="exclamation-a-note-on-performance">
-<span class="emoji" data-emoji="exclamation">❗</span> A note on performance<a class="anchor" aria-label="anchor" href="#exclamation-a-note-on-performance"></a>
-</h2>
+<div class="callout-title-container flex-fill">
+A note on performance
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>tidyterra</strong> is conceived as a user-friendly wrapper of <strong>terra</strong> using the <strong>tidyverse</strong> methods and verbs. This approach therefore has a <strong>cost in terms of performance</strong>.</p>
 <p>If you are a <strong>heavy user</strong> of <strong>terra</strong> or you need to work with <strong>big raster files</strong>, <strong>terra</strong> is much more performant. When possible, each function of <strong>tidyterra</strong> refers to its equivalent on <strong>terra</strong>.</p>
 <p>As a rule of thumb if your raster has less than 10,000,000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with <strong>tidyterra</strong>.</p>
 <p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
+</div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
