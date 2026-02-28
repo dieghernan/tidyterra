@@ -140,22 +140,25 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-## :exclamation: A note on performance
-
-**tidyterra** is conceived as a user-friendly wrapper of **terra** using the
-**tidyverse** methods and verbs. This approach therefore has a **cost in terms
-of performance**.
-
-If you are a **heavy user** of **terra** or you need to work with **big raster
-files**, **terra** is much more performant. When possible, each function of
-**tidyterra** refers to its equivalent on **terra**.
-
-As a rule of thumb if your raster has less than 10,000,000 data slots counting
-cells and layers (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`)
-you are good to go with **tidyterra**.
-
-When plotting rasters, resampling is performed automatically (as `terra::plot()`
-does, see the help page). You can adjust this with the `maxcell` argument.
+> [!NOTE]
+> ## A note on performance
+>
+> **tidyterra** is conceived as a user-friendly wrapper of **terra** using the
+> **tidyverse** methods and verbs. This approach therefore has a **cost in terms
+> of performance**.
+>
+> If you are a **heavy user** of **terra** or you need to work with **big raster
+> files**, **terra** is much more performant. When possible, each function of
+> **tidyterra** refers to its equivalent on **terra**.
+>
+> As a rule of thumb if your raster has less than 10,000,000 data slots counting
+> cells and layers (i.e.
+> `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are good to go
+> with **tidyterra**.
+>
+> When plotting rasters, resampling is performed automatically (as
+> `terra::plot()` does, see the help page). You can adjust this with the
+> `maxcell` argument.
 
 ## Installation
 
