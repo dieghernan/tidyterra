@@ -119,13 +119,7 @@ designed for representing spatial phenomena [@whitebox]. Additionally, it
 implements the cross-blended hypsometric tints described by
 @Patterson_Jenny_2011.
 
-```{=html}
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container"><i class="callout-icon"></i></div>
-<div class="callout-title-container flex-fill">A note on performance</div></div>
-<div class="callout-body-container callout-body">
-```
+## A note on performance
 
 The development philosophy of **tidyterra** consists on adapting **terra**
 objects to data frame-like structures by performing different data
@@ -141,11 +135,6 @@ function.
 
 Note also that when possible, the help page of each function of **tidyterra**
 references its equivalent in **terra**.
-
-```{=html}
-</div>
-</div>
-```
 
 ## Example of use
 
