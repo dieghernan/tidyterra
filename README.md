@@ -1,5 +1,6 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # tidyterra <a href="https://dieghernan.github.io/tidyterra/"><img src="man/figures/logo.png" alt="tidyterra website" align="right" height="139"/></a>
 
@@ -40,9 +41,9 @@ plotting these objects with
 
 Please cite **tidyterra** as:
 
-> Hernangómez, D., (2023). Using the tidyverse with terra objects: the
-> tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
-> <https://doi.org/10.21105/joss.05751>.
+Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
+<https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is:
 
@@ -119,7 +120,9 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-> \[!NOTE\] \## A note on performance
+> [!NOTE]
+>
+> ### A note on performance
 >
 > **tidyterra** is conceived as a user-friendly wrapper of **terra**
 > using the **tidyverse** methods and verbs. This approach therefore has
@@ -131,9 +134,9 @@ Current methods and functions provided by **tidyterra** are:
 > **terra**.
 >
 > As a rule of thumb if your raster has less than 10,000,000 data slots
-> counting cells and layers (i.e.
-> `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are good
-> to go with **tidyterra**.
+> counting cells and layers
+> (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
+> good to go with **tidyterra**.
 >
 > When plotting rasters, resampling is performed automatically (as
 > `terra::plot()` does, see the help page). You can adjust this with the
@@ -226,11 +229,6 @@ ggplot() +
     title = "Average temperature in Castille and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
-```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-1.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
-
-``` r
 
 # Create maximum differences of two months
 variation <- rastertemp |>
@@ -258,8 +256,6 @@ ggplot(prov) +
   )
 ```
 
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-temp-2.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
-
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:
 
@@ -272,19 +268,12 @@ plot <- ggplot(prov) +
   theme_light()
 
 plot
-```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-1.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
-
-``` r
 
 # Automatically recognizes and applies coord_sf() for spatial data.
 plot +
   # Change the CRS and datum (useful for relabeling graticules).
   coord_sf(crs = 3857, datum = 3857)
 ```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-example-tile-2.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
@@ -293,11 +282,6 @@ with **ggplot2**:
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
-```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
-
-``` r
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -320,8 +304,6 @@ ggplot() +
     legend.direction = "horizontal"
   )
 ```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-hypso-2.png" alt="Hypsometric map of Asia" width="100%" />
 
 ### `SpatVectors`
 
@@ -352,8 +334,6 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ POP      <dbl> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
-
-<img src="https://raw.githubusercontent.com/dieghernan/tidyterra/main/img/README-spatvec-1.png" alt="" width="100%" />
 
 ## I need your feedback
 

@@ -1,20 +1,17 @@
 ---
-output: github_document
+format: gfm
+default-image-extension: ''
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 ```{r}
 #| include: false
-knitr::opts_knit$set(
-  progress = TRUE,
-  base.url = "https://raw.githubusercontent.com/dieghernan/tidyterra/main/"
-)
 knitr::opts_chunk$set(
   collapse = TRUE,
   tidy = "styler",
   comment = "#>",
-  fig.path = "img/README-",
+  fig.path = "assets/README/README-",
   warning = FALSE,
   message = FALSE,
   dev = "ragg_png",
@@ -61,9 +58,9 @@ packages](https://tidyverse.org/packages/) for objects created with the
 
 Please cite **tidyterra** as:
 
-> Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra
-> package. *Journal of Open Source Software*, *8*(91), 5751,
-> <https://doi.org/10.21105/joss.05751>.
+Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra
+package. *Journal of Open Source Software*, *8*(91), 5751,
+<https://doi.org/10.21105/joss.05751>.
 
 A BibTeX entry for LaTeX users is:
 
@@ -140,25 +137,24 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-> [!NOTE]
-> ## A note on performance
->
-> **tidyterra** is conceived as a user-friendly wrapper of **terra** using the
-> **tidyverse** methods and verbs. This approach therefore has a **cost in terms
-> of performance**.
->
-> If you are a **heavy user** of **terra** or you need to work with **big raster
-> files**, **terra** is much more performant. When possible, each function of
-> **tidyterra** refers to its equivalent on **terra**.
->
-> As a rule of thumb if your raster has less than 10,000,000 data slots counting
-> cells and layers (i.e.
-> `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are good to go
-> with **tidyterra**.
->
-> When plotting rasters, resampling is performed automatically (as
-> `terra::plot()` does, see the help page). You can adjust this with the
-> `maxcell` argument.
+::: callout-note
+## A note on performance
+
+**tidyterra** is conceived as a user-friendly wrapper of **terra** using the
+**tidyverse** methods and verbs. This approach therefore has a **cost in terms
+of performance**.
+
+If you are a **heavy user** of **terra** or you need to work with **big raster
+files**, **terra** is much more performant. When possible, each function of
+**tidyterra** refers to its equivalent on **terra**.
+
+As a rule of thumb if your raster has less than 10,000,000 data slots counting
+cells and layers (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`)
+you are good to go with **tidyterra**.
+
+When plotting rasters, resampling is performed automatically (as `terra::plot()`
+does, see the help page). You can adjust this with the `maxcell` argument.
+:::
 
 ## Installation
 
@@ -210,6 +206,7 @@ objects:
 ```{r}
 #| label: example-temp
 #| fig-alt: Average temperature in Castille and Leon, Spain
+#| fig-show: hide
 library(tidyterra)
 library(terra)
 
@@ -272,6 +269,7 @@ ggplot(prov) +
 ```{r}
 #| label: example-tile
 #| fig-alt: 'Example: Plotting a tile in tidyterra'
+#| fig-show: hide
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
 
 plot <- ggplot(prov) +
@@ -294,6 +292,7 @@ plot +
 #| label: hypso
 #| fig-asp: 0.65
 #| fig-alt: Hypsometric map of Asia
+#| fig-show: hide
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 terra::plot(asia)
@@ -325,8 +324,9 @@ ggplot() +
 This is a basic example which shows you how to manipulate and plot `SpatVector`
 objects:
 
-```{r }
+```{r}
 #| label: spatvec
+#| fig-show: hide
 vect(system.file("ex/lux.shp", package = "terra")) |>
   mutate(pop_dens = POP / AREA) |>
   glimpse() |>
@@ -350,7 +350,7 @@ Check our [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
-[[tidyterra]](https://stackoverflow.com/questions/tagged/tidyterra).
+[\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
 ## Acknowledgement
 
