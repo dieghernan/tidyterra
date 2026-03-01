@@ -252,7 +252,7 @@ Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
 Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
 <https://ddd.uab.cat/record/301073>
 
-Schmidt, J., Dashti, S., & Torres-Machi, C. (n.d.). Next-generation
+Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
