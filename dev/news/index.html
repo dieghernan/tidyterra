@@ -106,7 +106,7 @@
 </ul></div>
 </div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2><p class="text-muted">CRAN release: 2026-01-23</p>
+<h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2>
 <ul><li>Minimal <strong>R</strong> version required updated to <strong>&gt;= 4.1.0</strong>.</li>
 <li>Minimal <strong>ggplot2</strong> version required <strong>&gt;= 4.0.0</strong>.</li>
 <li>Adapt deprecation of <strong>ggplot2</strong> (4.0.0):
@@ -138,16 +138,16 @@
 </ul></li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.7.2" id="tidyterra-072">tidyterra 0.7.2<a class="anchor" aria-label="anchor" href="#tidyterra-072"></a></h2><p class="text-muted">CRAN release: 2025-04-14</p>
+<h2 class="pkg-version" data-toc-text="0.7.2" id="tidyterra-072">tidyterra 0.7.2<a class="anchor" aria-label="anchor" href="#tidyterra-072"></a></h2>
 <ul><li>Hotfix: Correct error on tests for <strong>CRAN</strong>.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2><p class="text-muted">CRAN release: 2025-04-07</p>
+<h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2>
 <ul><li>New arguments in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code> avoid <code>SpatRaster</code> to wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
 <li>Fix an old bug exposed after <strong>terra 1.8-42</strong>: Plots crash when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> (or with implicit change of CRS due to other <code>sf/Spat*</code> objects).</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.7.0" id="tidyterra-070">tidyterra 0.7.0<a class="anchor" aria-label="anchor" href="#tidyterra-070"></a></h2><p class="text-muted">CRAN release: 2025-02-03</p>
+<h2 class="pkg-version" data-toc-text="0.7.0" id="tidyterra-070">tidyterra 0.7.0<a class="anchor" aria-label="anchor" href="#tidyterra-070"></a></h2>
 <ul><li>Minimal version of <strong>terra</strong> required is <code>1.8-10</code>.</li>
 <li>Remove <strong>metR</strong> from Suggests.</li>
 <li>Improve handling of factors when several layers have different levels. This is done using <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> (<strong>terra</strong> &gt;= <code>1.8-10</code>). See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
@@ -162,14 +162,14 @@
 <li>Now <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> (and overall pivoting of <code>SpatRaster</code> is less strict with different layer classes: if several layers can be defined as numeric (i.e. <code>double</code>, <code>integer</code> and <code>numeric</code>) the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>
+<h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2>
 <ul><li>Add (limited) support for <code>SpatGraticule</code> (see <code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>) <a href="https://github.com/dieghernan/tidyterra/issues/155" class="external-link">#155</a>.</li>
 <li>New arguments in <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>: <code>stretch</code> and <code>zlim</code>. See <code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code> for clarification.</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> suggests <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> when a <code>SpatRaster</code> with RGB specification is detected (<code><a href="https://rspatial.github.io/terra/reference/RGB.html" class="external-link">terra::has.RGB()</a></code> is <code>TRUE</code>)</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.1" id="tidyterra-061">tidyterra 0.6.1<a class="anchor" aria-label="anchor" href="#tidyterra-061"></a></h2><p class="text-muted">CRAN release: 2024-06-08</p>
+<h2 class="pkg-version" data-toc-text="0.6.1" id="tidyterra-061">tidyterra 0.6.1<a class="anchor" aria-label="anchor" href="#tidyterra-061"></a></h2>
 <ul><li>Add new scales:
 <ul><li>
 <code>grass_db</code> and <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> family. This is an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, that is the default palette for <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<code>&gt; 1.7.78</code>).</li>
@@ -180,7 +180,7 @@
 <li>Fix tests.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.6.0" id="tidyterra-060">tidyterra 0.6.0<a class="anchor" aria-label="anchor" href="#tidyterra-060"></a></h2><p class="text-muted">CRAN release: 2024-04-22</p>
+<h2 class="pkg-version" data-toc-text="0.6.0" id="tidyterra-060">tidyterra 0.6.0<a class="anchor" aria-label="anchor" href="#tidyterra-060"></a></h2>
 <ul><li>Requires <strong>ggplot2</strong> (&gt;= 3.5.0).</li>
 <li>New methods for <code>SpatVector</code> objects:
 <ul><li>
@@ -200,16 +200,16 @@
 <strong>metR</strong> added to Suggests.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.5.2" id="tidyterra-052">tidyterra 0.5.2<a class="anchor" aria-label="anchor" href="#tidyterra-052"></a></h2><p class="text-muted">CRAN release: 2024-01-19</p>
+<h2 class="pkg-version" data-toc-text="0.5.2" id="tidyterra-052">tidyterra 0.5.2<a class="anchor" aria-label="anchor" href="#tidyterra-052"></a></h2>
 <ul><li>Adapt tests to <strong>ggplot2</strong> 3.5.0 (<a href="https://github.com/dieghernan/tidyterra/issues/129" class="external-link">#129</a>) <a href="https://github.com/teunbrand" class="external-link">@teunbrand</a>.</li>
 <li>Reduce package size, specially relevant in the external raster <code>asia.tif</code>.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.5.1" id="tidyterra-051">tidyterra 0.5.1<a class="anchor" aria-label="anchor" href="#tidyterra-051"></a></h2><p class="text-muted">CRAN release: 2023-12-15</p>
+<h2 class="pkg-version" data-toc-text="0.5.1" id="tidyterra-051">tidyterra 0.5.1<a class="anchor" aria-label="anchor" href="#tidyterra-051"></a></h2>
 <ul><li>Adjust tests for <code><a href="../reference/as_sf.html">as_sf()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/124" class="external-link">#124</a>).</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.5.0" id="tidyterra-050">tidyterra 0.5.0<a class="anchor" aria-label="anchor" href="#tidyterra-050"></a></h2><p class="text-muted">CRAN release: 2023-11-21</p>
+<h2 class="pkg-version" data-toc-text="0.5.0" id="tidyterra-050">tidyterra 0.5.0<a class="anchor" aria-label="anchor" href="#tidyterra-050"></a></h2>
 <p><strong>tidyterra</strong> has been accepted on JOSS. Please use the result of <code>citation("tidyterra")</code> or the following string:</p>
 <blockquote>
 <p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
@@ -233,7 +233,7 @@
 <ul><li>Release for JOSS paper. No relevant changes.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2><p class="text-muted">CRAN release: 2023-03-17</p>
+<h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2>
 <ul><li>This release focuses heavily on <code>SpatVector</code> objects. The improvements have been:
 <ul><li>New methods for <code>SpatVector</code>:
 <ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
@@ -268,14 +268,14 @@
 </ul></li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.2" id="tidyterra-032">tidyterra 0.3.2<a class="anchor" aria-label="anchor" href="#tidyterra-032"></a></h2><p class="text-muted">CRAN release: 2023-02-24</p>
+<h2 class="pkg-version" data-toc-text="0.3.2" id="tidyterra-032">tidyterra 0.3.2<a class="anchor" aria-label="anchor" href="#tidyterra-032"></a></h2>
 <ul><li>Fix a bug on <code><a href="../reference/pull_crs.html">pull_crs()</a></code> that returned <code>"NA"</code> on <code>sf</code> objects with any field equal to <code>NA</code> (<a href="https://github.com/dieghernan/tidyterra/issues/74" class="external-link">#74</a>).</li>
 <li>Improve docs on <code>scales_*</code> (<a href="https://github.com/dieghernan/tidyterra/issues/73" class="external-link">#73</a>) .</li>
 <li>Remove dependency on <strong>crayon</strong> package (superseded) in favor of <strong>cli</strong>.</li>
 <li>Remove <strong>tidyverse</strong> from Suggests.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.1" id="tidyterra-031">tidyterra 0.3.1<a class="anchor" aria-label="anchor" href="#tidyterra-031"></a></h2><p class="text-muted">CRAN release: 2022-11-09</p>
+<h2 class="pkg-version" data-toc-text="0.3.1" id="tidyterra-031">tidyterra 0.3.1<a class="anchor" aria-label="anchor" href="#tidyterra-031"></a></h2>
 <ul><li>New <strong>ggplot2</strong> methods added:
 <ul><li>Methods for <code><a href="../reference/autoplot.Spat.html">autoplot.SpatVector()</a></code>, <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code>.
 <ul><li>
@@ -289,7 +289,7 @@
 <li>Adapt <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2>
 <ul><li>Package back to <strong>CRAN</strong>.</li>
 <li>Libraries <strong>dplyr</strong>, <strong>tidyr</strong>, <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</li>
 <li>Improvements on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>:
@@ -302,17 +302,17 @@
 <li>Reduce the size of external files.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.2" id="tidyterra-022">tidyterra 0.2.2<a class="anchor" aria-label="anchor" href="#tidyterra-022"></a></h2><p class="text-muted">CRAN release: 2022-09-29</p>
+<h2 class="pkg-version" data-toc-text="0.2.2" id="tidyterra-022">tidyterra 0.2.2<a class="anchor" aria-label="anchor" href="#tidyterra-022"></a></h2>
 <ul><li>Changes on how <strong>dplyr</strong>, <strong>tibble</strong> and <strong>tidyr</strong> are attached. Now these packages are listed on ‘Depends’ and are attached before <strong>tidyterra</strong> when <code>library</code> or <code>require</code> is called. Messages on load can be suppressed with <code>suppressPackageStartupMessages(library(tidyterra))</code>.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2><p class="text-muted">CRAN release: 2022-09-23</p>
+<h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2>
 <ul><li>Now <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/35" class="external-link">#35</a>)</li>
 <li>Improve faceting when the plot facets are created using non-Spat* layers.</li>
 <li>Precompute vignettes.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2><p class="text-muted">CRAN release: 2022-06-21</p>
+<h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2>
 <ul><li>Recreate <code>extdata/volcano2.tif</code> using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
 <li>Add <code>volcano2</code> dataset.</li>
 <li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRaster</code> objects (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add a new argument <code>na.rm</code>.</li>
@@ -325,7 +325,7 @@
 <li>Add new <code>asia.tif</code> file on <code>extdata</code>.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.0" id="tidyterra-010">tidyterra 0.1.0<a class="anchor" aria-label="anchor" href="#tidyterra-010"></a></h2><p class="text-muted">CRAN release: 2022-05-24</p>
+<h2 class="pkg-version" data-toc-text="0.1.0" id="tidyterra-010">tidyterra 0.1.0<a class="anchor" aria-label="anchor" href="#tidyterra-010"></a></h2>
 <ul><li>Add DOI.</li>
 <li>
 <strong>CRAN</strong> release.</li>
