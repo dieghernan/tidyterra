@@ -33,7 +33,9 @@ knitr::opts_chunk$set(
 v <- packageDescription("tidyterra")$Version
 is_dev <- length(unlist(strsplit(v, ".", fixed = TRUE))) > 3
 
-base_url <- ifelse(is_dev, "https://dieghernan.github.io/tidyterra/dev",
+base_url <- ifelse(
+  is_dev,
+  "https://dieghernan.github.io/tidyterra/dev",
   "https://dieghernan.github.io/tidyterra"
 )
 ```
@@ -261,7 +263,9 @@ ggplot() +
 img_url <- file.path(base_url, "README-example-temp-1.png")
 cat(
   paste0(
-    '<img src="', img_url, '" alt="Average temperature in ',
+    '<img src="',
+    img_url,
+    '" alt="Average temperature in ',
     'Castille and Leon, Spain" width="100%" />'
   )
 )
@@ -302,7 +306,9 @@ ggplot(prov) +
 img_url <- file.path(base_url, "README-example-temp2-1.png")
 cat(
   paste0(
-    '<img src="', img_url, '" alt="Variation of temperature in ',
+    '<img src="',
+    img_url,
+    '" alt="Variation of temperature in ',
     'Castille and Leon, Spain" width="100%" />'
   )
 )
@@ -330,7 +336,9 @@ ggplot(prov) +
 img_url <- file.path(base_url, "README-example-tile-1.png")
 cat(
   paste0(
-    '<img src="', img_url, '" alt="Example: Plotting a tile in tidyterra"',
+    '<img src="',
+    img_url,
+    '" alt="Example: Plotting a tile in tidyterra"',
     ' width="100%" />'
   )
 )
@@ -373,7 +381,9 @@ ggplot() +
 img_url <- file.path(base_url, "README-hypso-1.png")
 cat(
   paste0(
-    '<img src="', img_url, '" alt="Hypsometric map of Asia"',
+    '<img src="',
+    img_url,
+    '" alt="Hypsometric map of Asia"',
     ' width="100%" />'
   )
 )
@@ -405,7 +415,9 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 img_url <- file.path(base_url, "README-spatvec-1.png")
 cat(
   paste0(
-    '<img src="', img_url, '" alt="A SpatVector plotted with tidyterra"',
+    '<img src="',
+    img_url,
+    '" alt="A SpatVector plotted with tidyterra"',
     ' width="100%" />'
   )
 )
