@@ -155,7 +155,7 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-::: callout-note
+::: callout-important
 ## A note on performance
 
 **tidyterra** is conceived as a user-friendly wrapper of **terra** using the

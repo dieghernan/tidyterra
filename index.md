@@ -120,7 +120,7 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container"><i class="callout-icon"></i></div>
 <div class="callout-title-container flex-fill">A note on performance</div></div>

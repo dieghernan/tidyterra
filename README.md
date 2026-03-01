@@ -120,7 +120,7 @@ Current methods and functions provided by **tidyterra** are:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-> [!NOTE]
+> [!IMPORTANT]
 >
 > ### A note on performance
 >
