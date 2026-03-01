@@ -1108,12 +1108,12 @@ div.callout-body-container.callout-body .btn-copy-ex {
 }
 
 .screen-reader-only {
-  position: absolute;
-  clip: rect(0 0 0 0);
-  border: 0;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  width: 1px;
+	position: absolute;
+	clip: rect(0 0 0 0);
+	border: 0;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
 }
