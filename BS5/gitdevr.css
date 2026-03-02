@@ -160,6 +160,7 @@ mark,
 		RGBA(var(--bs-link-color-rgb), 0.7) 95%,
 		RGBA(var(--bs-link-color-rgb), 0.1)
 	);
+	color: var(--bs-body-color);
 }
 
 /* ---Nav pills--- */
@@ -284,7 +285,7 @@ img.logo {
 
 blockquote,
 .blockquote {
-	border-left: 0.25rem solid var(--bs-link-hover-color);
+	border-left: 0.25rem solid RGBA(var(--bs-link-color-rgb), 0.3);
 	margin-bottom: 1rem;
 	font-size: 1.25rem;
 }
