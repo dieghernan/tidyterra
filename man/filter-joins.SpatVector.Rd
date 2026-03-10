@@ -106,7 +106,7 @@ semi <- v |> semi_join(df)
 
 semi
 
-autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
+autoplot(semi, aes(fill = iso2)) + labs(title = "Semi Join")
 
 # Anti join
 
@@ -114,7 +114,7 @@ anti <- v |> anti_join(df)
 
 anti
 
-autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
+autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 
 }
 \seealso{

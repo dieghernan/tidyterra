@@ -30,8 +30,6 @@ test_that("stretch and zlim", {
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- rast(f)
 
-  # test with vdiffr
-
   # Regular plot
 
   p <- ggplot() +

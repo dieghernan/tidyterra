@@ -159,21 +159,21 @@ df <- data.frame(
 inner <- v |> inner_join(df)
 
 nrow(inner)
-autoplot(inner, aes(fill = letter)) + ggtitle("Inner Join")
+autoplot(inner, aes(fill = letter)) + labs(title = "Inner Join")
 
 # Left join
 
 left <- v |> left_join(df)
 nrow(left)
 
-autoplot(left, aes(fill = letter)) + ggtitle("Left Join")
+autoplot(left, aes(fill = letter)) + labs(title = "Left Join")
 
 \donttest{
 # Right join
 right <- v |> right_join(df)
 nrow(right)
 
-autoplot(right, aes(fill = letter)) + ggtitle("Right Join")
+autoplot(right, aes(fill = letter)) + labs(title = "Right Join")
 
 # There are empty geometries, check with data from df
 ggplot(right, aes(x, y)) +
@@ -183,7 +183,7 @@ ggplot(right, aes(x, y)) +
 full <- v |> full_join(df)
 nrow(full)
 
-autoplot(full, aes(fill = letter)) + ggtitle("Full Join")
+autoplot(full, aes(fill = letter)) + labs(title = "Full Join")
 
 # Check with data from df
 ggplot(full, aes(x, y)) +

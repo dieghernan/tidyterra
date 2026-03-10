@@ -16,7 +16,6 @@ vignettes/*.pdf
 *.knit.md
 .Renviron
 docs
-dev
 tidyterra.Rcheck/
 tidyterra*.tar.gz
 tidyterra*.tgz

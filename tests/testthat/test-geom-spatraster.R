@@ -23,7 +23,7 @@ test_that("Errors and messages", {
 
   s <- ggplot2::ggplot() +
     geom_spatraster(data = r) +
-    ggplot2::coord_polar()
+    ggplot2::coord_radial()
 
   expect_error(
     ggplot2::ggplot_build(s)

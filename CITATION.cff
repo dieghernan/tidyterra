@@ -208,6 +208,48 @@ references:
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 4.0.0'
 - type: software
+  title: grDevices
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+- type: software
+  title: grid
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+- type: software
+  title: isoband
+  abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
+    Grids'
+  notes: Imports
+  url: https://isoband.r-lib.org
+  repository: https://CRAN.R-project.org/package=isoband
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Wilke
+    given-names: Claus O.
+    email: wilke@austin.utexas.edu
+    orcid: https://orcid.org/0000-0002-7470-9261
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
+  year: '2026'
+  doi: 10.32614/CRAN.package.isoband
+- type: software
   title: lifecycle
   abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
   notes: Imports
@@ -286,6 +328,16 @@ references:
   doi: 10.32614/CRAN.package.sf
   version: '>= 1.0.0'
 - type: software
+  title: stats
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+- type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'
   notes: Imports
@@ -335,6 +387,44 @@ references:
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.0.0'
 - type: software
+  title: tools
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+- type: software
+  title: utils
+  abstract: 'R: A Language and Environment for Statistical Computing'
+  notes: Imports
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2026'
+- type: software
+  title: vctrs
+  abstract: 'vctrs: Vector Helpers'
+  notes: Imports
+  url: https://vctrs.r-lib.org/
+  repository: https://CRAN.R-project.org/package=vctrs
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Vaughan
+    given-names: Davis
+    email: davis@posit.co
+  year: '2026'
+  doi: 10.32614/CRAN.package.vctrs
+- type: software
   title: hexbin
   abstract: 'hexbin: Hexagonal Binning Routines'
   notes: Suggests
@@ -354,28 +444,6 @@ references:
     email: deepayan.sarkar@r-project.org
   year: '2026'
   doi: 10.32614/CRAN.package.hexbin
-- type: software
-  title: isoband
-  abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
-    Grids'
-  notes: Suggests
-  url: https://isoband.r-lib.org
-  repository: https://CRAN.R-project.org/package=isoband
-  authors:
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-    orcid: https://orcid.org/0000-0003-4757-117X
-  - family-names: Wilke
-    given-names: Claus O.
-    email: wilke@austin.utexas.edu
-    orcid: https://orcid.org/0000-0002-7470-9261
-  - family-names: Pedersen
-    given-names: Thomas Lin
-    email: thomas.pedersen@posit.co
-    orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2026'
-  doi: 10.32614/CRAN.package.isoband
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -419,6 +487,50 @@ references:
     orcid: https://orcid.org/0000-0003-4474-2498
   year: '2026'
   doi: 10.32614/CRAN.package.quarto
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2026'
+  doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: s2
   abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
@@ -465,22 +577,4 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
-- type: software
-  title: vctrs
-  abstract: 'vctrs: Vector Helpers'
-  notes: Suggests
-  url: https://vctrs.r-lib.org/
-  repository: https://CRAN.R-project.org/package=vctrs
-  authors:
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Henry
-    given-names: Lionel
-    email: lionel@posit.co
-  - family-names: Vaughan
-    given-names: Davis
-    email: davis@posit.co
-  year: '2026'
-  doi: 10.32614/CRAN.package.vctrs
 

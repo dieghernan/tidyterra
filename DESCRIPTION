@@ -27,24 +27,30 @@ Imports:
     dplyr (>= 1.2.0),
     generics,
     ggplot2 (>= 4.0.0),
+    grDevices,
+    grid,
+    isoband,
     lifecycle,
     magrittr,
     rlang,
     scales,
     sf (>= 1.0.0),
+    stats,
     terra (>= 1.8-10),
     tibble (>= 3.0.0),
-    tidyr (>= 1.0.0)
+    tidyr (>= 1.0.0),
+    tools,
+    utils,
+    vctrs
 Suggests:
     hexbin,
-    isoband,
     knitr,
     maptiles,
     quarto,
+    rmarkdown,
     s2,
     stringi,
-    testthat (>= 3.0.0),
-    vctrs
+    testthat (>= 3.0.0)
 VignetteBuilder:
     quarto
 Config/Needs/coverage: covr

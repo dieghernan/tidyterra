@@ -1,0 +1,25 @@
+path.n: NAMESPACE
+path.d: DESCRIPTION
+dir.r: R
+dir.v: vignettes
+dir.t: tests
+extra.suggests: [quarto, hexbin, stringi, s2, testthat, vctrs]
+pkg_ignore:
+  [
+    geodata,
+    ragg,
+    styler,
+    metR,
+    ggspatial,
+    cpp11,
+    remotes,
+    gganimate,
+    gifski,
+    tidyverse,
+    vdiffr
+  ]
+document: no
+normalize: yes
+inside_rmd: no
+must.exist: yes
+check_if_suggests_is_installed: yes

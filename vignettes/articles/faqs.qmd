@@ -485,7 +485,8 @@ which contains data from the Corine Land Cover Dataset (2018) for Edinburgh[^3].
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.
 
 ```{r}
-#| label: coltab
+#| label: fig-coltab
+#| fig-cap: "Color tables: Native plot with terra package"
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -499,51 +500,53 @@ r_coltab
 
 # Native handling by terra packages
 plot(r_coltab)
+```
 
+```{r}
+#| label: fig-tidyterra
+#| layout-ncol: 2
+#| fig-cap: "Color tables: tidyterra package"
+#| fig-subcap:
+#|   - "autoplot method"
+#|   - "geom_spatraster method"
+#|   - "scale_fill_coltab method"
+#|   - "named colors and scale_fill_manual method"
 
-# A. autoplot
-
+# a. autoplot
 autoplot(r_coltab, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1)) +
-  ggtitle("autoplot method")
+  labs(title = "autoplot method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-# B. geom_spatraster
+# b. geom_spatraster
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1)) +
-  ggtitle("geom_spatraster method")
+  labs(title = "geom_spatraster method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-# C. Using scale_fill_coltab
 
-g <- ggplot() +
+# c. Using scale_fill_coltab
+ggplot() +
   geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1))
-
-
-g
-
-# But...
-g +
   scale_fill_coltab(data = r_coltab) +
-  ggtitle("scale_fill_coltab method")
+  labs(title = "scale_fill_coltab method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-# D. Extract named colors and scale_fill_manual
 
+# d. Extract named colors and scale_fill_manual
 cols <- get_coltab_pal(r_coltab)
 
 cols
 
-scales::show_col(cols)
-
 # And now
-
-g +
+ggplot() +
+  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
   scale_fill_manual(
     values = cols,
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  ggtitle("scale_fill_manual method")
+  labs(title = "scale_fill_manual method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 ```
 
 ## Use with gganimate {#gganimate}

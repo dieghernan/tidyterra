@@ -62,7 +62,8 @@
 #'
 #' diss
 #'
-#' autoplot(diss, aes(fill = start_with_s)) + ggplot2::ggtitle("Dissolved")
+#' autoplot(diss, aes(fill = start_with_s)) +
+#'   ggplot2::labs(title = "Dissolved")
 #'
 #' # Not dissolving
 #' no_diss <- gr_v |>
@@ -72,7 +73,7 @@
 #' no_diss
 #'
 #' autoplot(no_diss, aes(fill = start_with_s)) +
-#'   ggplot2::ggtitle("Not Dissolved")
+#'   ggplot2::labs(title = "Not Dissolved")
 summarise.SpatVector <- function(
   .data,
   ...,
