@@ -16,7 +16,7 @@ geom_spatraster_rgb(
   g = 2,
   b = 3,
   alpha = 1,
-  maxcell = 500000,
+  maxcell = 5e+05,
   max_col_value = 255,
   ...,
   stretch = NULL,

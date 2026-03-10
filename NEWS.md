@@ -1,4 +1,4 @@
-# tidyterra (development version)
+# tidyterra 1.1.0
 
 -   New **dplyr** minimum version: **1.2.0**.
 
