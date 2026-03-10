@@ -122,7 +122,6 @@ scale_colour_terrain_d <- function(
   )
 }
 
-
 #' @export
 #' @rdname scale_terrain
 scale_fill_terrain_c <- function(

@@ -147,7 +147,6 @@ scale_colour_coltab <- function(
 #' @usage NULL
 scale_color_coltab <- scale_colour_coltab
 
-
 #' @rdname scale_coltab
 #' @export
 get_coltab_pal <- function(x) {

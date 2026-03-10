@@ -230,7 +230,6 @@ StatTerraSpatRasterRGB <- ggplot2::ggproto(
   }
 )
 
-
 # Geom----
 
 # Based on geom_raster ggplot2
@@ -286,7 +285,6 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
     )
   }
 )
-
 
 # Helper ------
 

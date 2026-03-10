@@ -108,7 +108,6 @@ test_that("can fully `ungroup()`", {
   )
 })
 
-
 test_that("mutate does not lose variables", {
   skip_on_cran()
 

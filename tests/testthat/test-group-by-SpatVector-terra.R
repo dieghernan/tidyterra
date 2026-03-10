@@ -32,7 +32,6 @@ test_that("Groups are kept with casting", {
   expect_identical(group_data(gr_v), group_data(gr_v2))
 })
 
-
 test_that("Aggregate can regroup", {
   skip_on_cran()
 

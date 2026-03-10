@@ -214,7 +214,6 @@ scale_colour_princess_c <- function(
   )
 }
 
-
 #' @export
 #' @rdname scale_princess
 scale_fill_princess_b <- function(
@@ -280,7 +279,6 @@ scale_colour_princess_b <- function(
     ...
   )
 }
-
 
 #' @export
 #' @rdname scale_princess

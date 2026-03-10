@@ -25,7 +25,6 @@ test_that("Filter with SpatRaster keeping extent", {
   expect_true(compare_spatrasters(r, r_keep))
 })
 
-
 test_that("Filter with SpatRaster non keeping extent", {
   skip_on_cran()
 

@@ -43,7 +43,6 @@ test_that("Errors and messages", {
   expect_snapshot(end <- ggplot_build(ff), error = TRUE)
 })
 
-
 test_that("Test plot", {
   suppressWarnings(library(ggplot2))
 

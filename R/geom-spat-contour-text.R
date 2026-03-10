@@ -27,16 +27,6 @@ geom_spatraster_contour_text <- function(
   inherit.aes = TRUE,
   mask_projection = FALSE
 ) {
-  # Is a suggestion so far
-  # nocov start
-  if (!requireNamespace("isoband", quietly = TRUE)) {
-    cli::cli_abort(paste(
-      "Package {.pkg isoband} required.",
-      "Run {.run install.packages('isoband')}"
-    ))
-  }
-  # nocov end
-
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_contour_text} only works with",
@@ -141,7 +131,6 @@ geom_spatraster_contour_text <- function(
 
   layer_spatrast
 }
-
 
 GeomSpatRasterContourText <- ggplot2::ggproto(
   "GeomSpatRasterContourText",
@@ -306,7 +295,6 @@ get_aes_iso <- function(x, aesx = "colour") {
 
   unlist(get_aes)
 }
-
 
 ## from ggplot2 ----
 

@@ -171,6 +171,7 @@ scale_fill_hypso_d <- function(
     ...
   )
 }
+
 #' @export
 #' @rdname scale_hypso
 scale_colour_hypso_d <- function(
@@ -201,7 +202,6 @@ scale_colour_hypso_d <- function(
     ...
   )
 }
-
 
 #' @export
 #' @rdname scale_hypso
@@ -750,7 +750,6 @@ tidyterra_ramp2 <- function(colors, n, alpha = 1, rev = FALSE, limits) {
   endcols
 }
 
-
 hypso_pal <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- hypso.colors(
@@ -787,7 +786,6 @@ scale_color_hypso_d <- scale_colour_hypso_d
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_tint_d <- scale_colour_hypso_tint_d
-
 
 #' @export
 #' @rdname scale_hypso

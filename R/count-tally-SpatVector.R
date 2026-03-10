@@ -188,7 +188,6 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   vend
 }
 
-
 #' @export
 dplyr::tally
 
@@ -245,7 +244,6 @@ add_count.SpatVector <- function(
 
   vend
 }
-
 
 #' @export
 dplyr::add_count

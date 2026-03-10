@@ -786,7 +786,6 @@ cross_blended_pal <- function(alpha = 1, direction = 1, palette) {
   }
 }
 
-
 cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- cross_blended.colors2(
@@ -799,7 +798,6 @@ cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
     pal
   }
 }
-
 
 #' @export
 #' @rdname scale_cross_blended
@@ -821,7 +819,6 @@ scale_color_cross_blended_c <- scale_colour_cross_blended_c
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_tint_c <- scale_colour_cross_blended_tint_c
-
 
 #' @export
 #' @rdname scale_cross_blended

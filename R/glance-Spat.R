@@ -111,7 +111,6 @@ glance.SpatVector <- function(x, ...) {
 #' @export
 generics::glance
 
-
 # Helpers ----
 get_crs_units <- function(x) {
   pulled_crs <- pull_crs(x)

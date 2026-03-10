@@ -108,7 +108,6 @@ test_that("For SpatRaster", {
   )
 })
 
-
 test_that("For SpatRaster Internal", {
   skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

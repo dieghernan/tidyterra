@@ -322,7 +322,6 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   }
 )
 
-
 # Helpers ----
 
 # Remove column names
@@ -473,7 +472,6 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
 
   newr
 }
-
 
 prepare_aes_spatraster <- function(
   mapping = aes(),

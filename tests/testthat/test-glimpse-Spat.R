@@ -74,16 +74,27 @@ test_that("Glimpse SpatRasters", {
 
   skip_on_cran()
 
-  expect_snapshot(glimpse(r))
+  expect_snapshot(glimpse(r), transform = function(x) {
+    xmod <- gsub("Robinson(.*)", "Robinson (ESRI:54030)", x)
+    xmod
+  })
 
   skip_if_not_installed("vctrs")
 
   # With opts
-  expect_snapshot(glimpse(r, xy = TRUE, width = 50))
-  expect_snapshot(glimpse(r, width = 50, n = 1))
-  expect_snapshot(glimpse(r, width = 50, n = 2))
+  expect_snapshot(glimpse(r, xy = TRUE, width = 50), transform = function(x) {
+    xmod <- gsub("Robinson(.*)", "Robinson (ESRI:54030)", x)
+    xmod
+  })
+  expect_snapshot(glimpse(r, width = 50, n = 1), transform = function(x) {
+    xmod <- gsub("Robinson(.*)", "Robinson (ESRI:54030)", x)
+    xmod
+  })
+  expect_snapshot(glimpse(r, width = 50, n = 2), transform = function(x) {
+    xmod <- gsub("Robinson(.*)", "Robinson (ESRI:54030)", x)
+    xmod
+  })
 })
-
 
 test_that("Stress SpatRaster", {
   skip_on_cran()

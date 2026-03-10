@@ -41,7 +41,6 @@ test_that("as_coordinates return a skeleton", {
   )
 })
 
-
 test_that("as_coordinates return a raster", {
   skip_on_cran()
   v <- volcano

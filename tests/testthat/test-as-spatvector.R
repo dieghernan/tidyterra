@@ -15,7 +15,6 @@ test_that("Error check", {
   expect_silent(as_spatvector(as_tbl, geom = c("x", "y"), crs = "EPSG:4326"))
 })
 
-
 test_that("Handle NAs", {
   skip_on_cran()
   as_tbl <- data.frame(

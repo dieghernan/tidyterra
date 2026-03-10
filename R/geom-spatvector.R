@@ -113,7 +113,6 @@ geom_spatvector_label <- function(
   )
 }
 
-
 #' @export
 #' @name ggspatvector
 geom_spatvector_text <- function(

@@ -146,9 +146,7 @@ test_that("can only explicitly chain together multiple tallies", {
   })
 })
 
-
 # tally -------------------------------------------------------------------
-
 test_that("tally can sort output", {
   skip_on_cran()
 
@@ -186,9 +184,7 @@ test_that("tally() drops last group", {
   expect_equal(group_vars(res), "x")
 })
 
-
 # add_count ---------------------------------------------------------------
-
 test_that("add_count preserves grouping", {
   skip_on_cran()
 

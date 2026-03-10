@@ -15,17 +15,6 @@ geom_spatraster_contour_filled <- function(
   inherit.aes = TRUE,
   mask_projection = FALSE
 ) {
-  # Is a suggestion so far
-
-  # nocov start
-  if (!requireNamespace("isoband", quietly = TRUE)) {
-    cli::cli_abort(paste(
-      "Package {.pkg isoband} required.",
-      "Run {.run install.packages('isoband')}"
-    ))
-  }
-  # nocov end
-
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_contour_filled} only works with",

@@ -215,7 +215,6 @@ scale_colour_whitebox_c <- function(
   )
 }
 
-
 #' @export
 #' @rdname scale_whitebox
 scale_fill_whitebox_b <- function(

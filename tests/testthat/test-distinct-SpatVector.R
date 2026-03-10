@@ -35,7 +35,6 @@ test_that("distinct for single column works as expected", {
   expect_equal(nrow(vend), 1)
 })
 
-
 test_that("Remove unique geometries on specific calls", {
   skip_on_cran()
 

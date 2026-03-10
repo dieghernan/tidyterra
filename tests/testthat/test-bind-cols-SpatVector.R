@@ -8,7 +8,6 @@ test_that("bind_spat_cols() handles empty argument", {
   )
 })
 
-
 test_that("bind_spat_cols() repairs names", {
   skip_on_cran()
 

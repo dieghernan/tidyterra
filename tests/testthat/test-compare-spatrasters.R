@@ -8,7 +8,6 @@ test_that("Error", {
   expect_snapshot(compare_spatrasters(1, "a"), error = TRUE)
 })
 
-
 test_that("Equal", {
   skip_on_cran()
 
@@ -29,7 +28,6 @@ test_that("Different crs", {
   expect_snapshot(res <- compare_spatrasters(x, y))
   expect_false(res)
 })
-
 
 test_that("Different extent", {
   skip_on_cran()

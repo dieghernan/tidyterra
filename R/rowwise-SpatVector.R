@@ -116,13 +116,11 @@ rowwise.SpatVector <- function(data, ...) {
 #' @export
 dplyr::rowwise
 
-
 # Helpers
 # Not exported from dplyr, create
 is_rowwise_df <- function(x) {
   inherits(x, "rowwise_df")
 }
-
 
 is_rowwise_spatvector <- function(x) {
   att <- attributes(x)

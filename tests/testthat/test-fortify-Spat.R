@@ -25,7 +25,6 @@ test_that("Fortify SpatVectors", {
   expect_identical(build_terra, build_sf)
 })
 
-
 test_that("Fortify SpatRasters", {
   skip_on_cran()
 

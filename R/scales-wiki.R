@@ -311,7 +311,6 @@ tidyterra_ramp <- function(colors, n, alpha = 1, rev = FALSE) {
   endcols
 }
 
-
 wiki_cols <- c(
   "#3F6B48",
   "#5F835E",

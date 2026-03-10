@@ -123,6 +123,5 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   vend
 }
 
-
 #' @export
 dplyr::distinct

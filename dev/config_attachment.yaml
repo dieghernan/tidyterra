@@ -16,7 +16,9 @@ pkg_ignore:
     gganimate,
     gifski,
     tidyverse,
-    vdiffr
+    vdiffr,
+    grid,
+    stats
   ]
 document: no
 normalize: yes

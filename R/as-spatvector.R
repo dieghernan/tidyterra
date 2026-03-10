@@ -223,7 +223,6 @@ as_spatvector.SpatVector <- function(x, ...) {
   x
 }
 
-
 #' Rebuild objects created with as_tbl_internal to `SpatVector`
 #' Strict version, used attributes for creating a template
 #' `SpatVector` and then transfer the values

@@ -401,14 +401,7 @@ tterra_body <- function(
     extra_text <- vapply(
       extra_cols,
       function(x) {
-        if (requireNamespace("vctrs", quietly = TRUE)) {
-          aa <- paste0(vctrs::vec_ptype_abbr(x), collapse = "/")
-        } else {
-          # nocov start
-          aa <- paste0(class(x), collapse = "/")
-          # nocov end
-        }
-
+        aa <- paste0(vctrs::vec_ptype_abbr(x), collapse = "/")
         paste0("<", aa, ">")
       },
       character(1)

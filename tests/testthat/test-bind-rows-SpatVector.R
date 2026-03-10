@@ -57,7 +57,6 @@ test_that("bind_spat_rows() returns union of columns with CRS", {
   expect_equal(as.data.frame(out), data.frame(x = c(1, NA), y = c(NA, 2)))
 })
 
-
 test_that("bind_spat_rows() creates a column of identifiers", {
   skip_on_cran()
 
@@ -213,7 +212,6 @@ test_that("bind_spat_rows() give informative errors", {
     (expect_error(bind_spat_rows(df1, ll)))
   })
 })
-
 
 test_that("bind_spat_rows() give informative message", {
   skip_on_cran()

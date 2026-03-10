@@ -104,7 +104,6 @@ drop_na.SpatVector <- function(data, ...) {
   vend
 }
 
-
 #' @export
 #' @rdname drop_na.Spat
 #'

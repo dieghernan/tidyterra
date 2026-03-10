@@ -208,7 +208,6 @@ as_tbl_spat_attr <- function(x) {
   todf
 }
 
-
 #' Strict internal version, returns a tibble with required attributes to
 #' rebuild a `SpatVector`
 #' This is the underlying object that would be handled by the tidyverse
@@ -246,7 +245,6 @@ as_tbl_vector_internal <- function(x) {
 
   todf
 }
-
 
 # Protect reserved names on coercion
 make_safe_names <- function(x, geom = NULL, messages = TRUE) {

@@ -73,7 +73,6 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
   finalrast
 }
 
-
 #' @rdname relocate.Spat
 #' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {

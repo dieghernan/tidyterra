@@ -218,16 +218,6 @@ references:
     address: Vienna, Austria
   year: '2026'
 - type: software
-  title: grid
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-  institution:
-    name: R Foundation for Statistical Computing
-    address: Vienna, Austria
-  year: '2026'
-- type: software
   title: isoband
   abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
     Grids'
@@ -327,16 +317,6 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.sf
   version: '>= 1.0.0'
-- type: software
-  title: stats
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-  institution:
-    name: R Foundation for Statistical Computing
-    address: Vienna, Austria
-  year: '2026'
 - type: software
   title: terra
   abstract: 'terra: Spatial Data Analysis'

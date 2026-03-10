@@ -51,7 +51,6 @@ test_that("geom_spatvector works as geom_sf", {
   expect_identical(layer_terra2, layer_fort2)
 })
 
-
 test_that("geom_spatvector_text works as geom_sf", {
   skip_on_cran()
 

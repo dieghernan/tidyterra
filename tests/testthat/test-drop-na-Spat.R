@@ -24,7 +24,6 @@ test_that("Drop na with SpatVectors", {
   expect_identical(as_tibble(nona), nonacheck)
 })
 
-
 test_that("groups are preserved", {
   skip_on_cran()
 

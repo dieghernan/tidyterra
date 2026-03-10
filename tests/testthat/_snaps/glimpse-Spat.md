@@ -168,7 +168,7 @@
     Output
       #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
       #  Resolution (x / y): (3,881.255 / 3,881.255)
-      #  Projected CRS: World_Robinson
+      #  Projected CRS: World_Robinson (ESRI:54030)
       #  CRS projection units: meter <m>
       #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
       
@@ -183,7 +183,7 @@
     Output
       #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
       #  Resolution (x / y): (3,881.255 / 3,881.255)
-      #  Projected CRS: World_Robinson
+      #  Projected CRS: World_Robinson (ESRI:54030)
       #  CRS projection units: meter <m>
       #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
       
@@ -198,7 +198,7 @@
     Output
       #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
       #  Resolution (x / y): (3,881.255 / 3,881.255)
-      #  Projected CRS: World_Robinson
+      #  Projected CRS: World_Robinson (ESRI:54030)
       #  CRS projection units: meter <m>
       #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
       
@@ -213,7 +213,7 @@
     Output
       #  A SpatRaster 87 x 118 x 3 layers (10,266 cells)
       #  Resolution (x / y): (3,881.255 / 3,881.255)
-      #  Projected CRS: World_Robinson
+      #  Projected CRS: World_Robinson (ESRI:54030)
       #  CRS projection units: meter <m>
       #  Extent (x / y) : ([ -612,335.4 /  -154,347.3] , [4,283,017.7 / 4,620,686.9])
       

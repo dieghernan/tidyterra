@@ -72,6 +72,5 @@ arrange.SpatVector <- function(.data, ..., .by_group = FALSE, .locale = NULL) {
   vend
 }
 
-
 #' @export
 dplyr::arrange

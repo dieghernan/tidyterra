@@ -124,7 +124,6 @@ group_keys.SpatVector <- function(.tbl, ...) {
 #' @export
 dplyr::group_keys
 
-
 #' @importFrom dplyr group_rows
 #' @export
 dplyr::group_rows
@@ -139,7 +138,6 @@ group_indices.SpatVector <- function(.data, ...) {
 
 #' @export
 dplyr::group_indices
-
 
 #' @export
 #' @rdname group_data.SpatVector

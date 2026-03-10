@@ -11,7 +11,6 @@ test_that("Error check", {
   expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
 })
 
-
 test_that("Regenerate raster properly", {
   skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
