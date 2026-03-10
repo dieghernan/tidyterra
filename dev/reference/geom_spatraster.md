@@ -26,7 +26,7 @@ geom_spatraster(
   show.legend = NA,
   inherit.aes = FALSE,
   interpolate = FALSE,
-  maxcell = 5e+05,
+  maxcell = 500000,
   use_coltab = TRUE,
   mask_projection = FALSE,
   ...
@@ -39,7 +39,7 @@ stat_spatraster(
   na.rm = TRUE,
   show.legend = NA,
   inherit.aes = FALSE,
-  maxcell = 5e+05,
+  maxcell = 500000,
   ...
 )
 ```
