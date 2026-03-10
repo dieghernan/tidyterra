@@ -162,7 +162,7 @@ bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 34, 15  (geometries, attributes)
-#>  extent      : -180, 3126360, -90, 2361600  (xmin, xmax, ymin, ymax)
+#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
 #>  names       :   id2  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt
 #>  type        : <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>
@@ -180,7 +180,7 @@ bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 3  (geometries, attributes)
-#>  extent      : -180, 3126360, -90, 2361600  (xmin, xmax, ymin, ymax)
+#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
 #>  names       :  cpro  name  iso2
 #>  type        : <chr> <chr> <chr>
@@ -198,7 +198,7 @@ bind_spat_rows(list(
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 15  (geometries, attributes)
-#>  extent      : -180, 3126360, -90, 2361600  (xmin, xmax, ymin, ymax)
+#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
 #>  names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt
 #>  type        :      <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>

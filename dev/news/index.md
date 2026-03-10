@@ -50,6 +50,8 @@
 
 ## tidyterra 1.0.0
 
+CRAN release: 2026-01-23
+
 - Minimal **R** version required updated to **\>= 4.1.0**.
 - Minimal **ggplot2** version required **\>= 4.0.0**.
 - Adapt deprecation of **ggplot2** (4.0.0):
@@ -90,9 +92,13 @@
 
 ## tidyterra 0.7.2
 
+CRAN release: 2025-04-14
+
 - Hotfix: Correct error on tests for **CRAN**.
 
 ## tidyterra 0.7.1
+
+CRAN release: 2025-04-07
 
 - New arguments in `geom_spatraster_*`: `mask_projection`. When set to
   `TRUE` avoid `SpatRaster` to wrapping around on some projections (see
@@ -106,6 +112,8 @@
   with implicit change of CRS due to other `sf/Spat*` objects).
 
 ## tidyterra 0.7.0
+
+CRAN release: 2025-02-03
 
 - Minimal version of **terra** required is `1.8-10`.
 - Remove **metR** from Suggests.
@@ -132,6 +140,8 @@
 
 ## tidyterra 0.6.2
 
+CRAN release: 2025-01-08
+
 - Add (limited) support for `SpatGraticule` (see
   [`terra::graticule()`](https://rspatial.github.io/terra/reference/graticule.html))
   [\#155](https://github.com/dieghernan/tidyterra/issues/155).
@@ -149,6 +159,8 @@
 
 ## tidyterra 0.6.1
 
+CRAN release: 2024-06-08
+
 - Add new scales:
   - `grass_db` and
     [`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md)
@@ -165,6 +177,8 @@
 - Fix tests.
 
 ## tidyterra 0.6.0
+
+CRAN release: 2024-04-22
 
 - Requires **ggplot2** (\>= 3.5.0).
 - New methods for `SpatVector` objects:
@@ -202,6 +216,8 @@
 
 ## tidyterra 0.5.2
 
+CRAN release: 2024-01-19
+
 - Adapt tests to **ggplot2** 3.5.0
   ([\#129](https://github.com/dieghernan/tidyterra/issues/129))
   [@teunbrand](https://github.com/teunbrand).
@@ -210,11 +226,15 @@
 
 ## tidyterra 0.5.1
 
+CRAN release: 2023-12-15
+
 - Adjust tests for
   [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md)
   ([\#124](https://github.com/dieghernan/tidyterra/issues/124)).
 
 ## tidyterra 0.5.0
+
+CRAN release: 2023-11-21
 
 **tidyterra** has been accepted on JOSS. Please use the result of
 `citation("tidyterra")` or the following string:
@@ -250,6 +270,8 @@ Other changes on this version:
 - Release for JOSS paper. No relevant changes.
 
 ## tidyterra 0.4.0
+
+CRAN release: 2023-03-17
 
 - This release focuses heavily on `SpatVector` objects. The improvements
   have been:
@@ -288,6 +310,8 @@ Other changes on this version:
 
 ## tidyterra 0.3.2
 
+CRAN release: 2023-02-24
+
 - Fix a bug on
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   that returned `"NA"` on `sf` objects with any field equal to `NA`
@@ -299,6 +323,8 @@ Other changes on this version:
 - Remove **tidyverse** from Suggests.
 
 ## tidyterra 0.3.1
+
+CRAN release: 2022-11-09
 
 - New **ggplot2** methods added:
   - Methods for
@@ -325,6 +351,8 @@ Other changes on this version:
 
 ## tidyterra 0.3.0
 
+CRAN release: 2022-10-12
+
 - Package back to **CRAN**.
 - Libraries **dplyr**, **tidyr**, **tibble** are not attached by
   default. Needed functions are reexported instead.
@@ -345,6 +373,8 @@ Other changes on this version:
 
 ## tidyterra 0.2.2
 
+CRAN release: 2022-09-29
+
 - Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now
   these packages are listed on ‘Depends’ and are attached before
   **tidyterra** when `library` or `require` is called. Messages on load
@@ -352,6 +382,8 @@ Other changes on this version:
   `suppressPackageStartupMessages(library(tidyterra))`.
 
 ## tidyterra 0.2.1
+
+CRAN release: 2022-09-23
 
 - Now
   [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
@@ -363,6 +395,8 @@ Other changes on this version:
 - Precompute vignettes.
 
 ## tidyterra 0.2.0
+
+CRAN release: 2022-06-21
 
 - Recreate `extdata/volcano2.tif` using official DEM information from
   New Zealand. Source: [Auckland LiDAR 1m DEM
@@ -382,6 +416,8 @@ Other changes on this version:
 - Add new `asia.tif` file on `extdata`.
 
 ## tidyterra 0.1.0
+
+CRAN release: 2022-05-24
 
 - Add DOI.
 - **CRAN** release.

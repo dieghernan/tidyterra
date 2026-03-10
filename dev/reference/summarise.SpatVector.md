@@ -162,7 +162,8 @@ diss
 #>  values      :        FALSE     6    28
 #>                        TRUE     3 39.67
 
-autoplot(diss, aes(fill = start_with_s)) + ggplot2::ggtitle("Dissolved")
+autoplot(diss, aes(fill = start_with_s)) +
+  ggplot2::labs(title = "Dissolved")
 
 
 # Not dissolving
@@ -182,5 +183,5 @@ no_diss
 #>                        TRUE     3 39.67
 
 autoplot(no_diss, aes(fill = start_with_s)) +
-  ggplot2::ggtitle("Not Dissolved")
+  ggplot2::labs(title = "Not Dissolved")
 ```

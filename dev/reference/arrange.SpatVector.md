@@ -109,7 +109,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 
 ``` r
 library(terra)
-#> terra 1.8.93
+#> terra 1.9.1
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’

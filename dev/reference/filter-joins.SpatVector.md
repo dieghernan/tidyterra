@@ -184,7 +184,7 @@ semi
 #>  values      : ES-AV    05  Avila
 #>                ES-BU    09 Burgos
 
-autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
+autoplot(semi, aes(fill = iso2)) + labs(title = "Semi Join")
 
 
 # Anti join
@@ -204,6 +204,6 @@ anti
 #>                 ES-P    34  Palencia
 #>                ES-SA    37 Salamanca
 
-autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
+autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 
 ```

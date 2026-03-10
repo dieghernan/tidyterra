@@ -526,59 +526,32 @@ r_coltab
 plot(r_coltab)
 ```
 
-![](faqs_files/figure-html/coltab-1.png)
+![](faqs_files/figure-html/fig-coltab-1.png)
+
+Figure 9: Color tables: Native plot with terra package
 
 ``` r
-
-
-# A. autoplot
-
+# a. autoplot
 autoplot(r_coltab, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1)) +
-  ggtitle("autoplot method")
-```
+  labs(title = "autoplot method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-![](faqs_files/figure-html/coltab-2.png)
-
-``` r
-
-# B. geom_spatraster
+# b. geom_spatraster
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1)) +
-  ggtitle("geom_spatraster method")
-```
+  labs(title = "geom_spatraster method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-![](faqs_files/figure-html/coltab-3.png)
 
-``` r
-
-# C. Using scale_fill_coltab
-
-g <- ggplot() +
+# c. Using scale_fill_coltab
+ggplot() +
   geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
-  guides(fill = guide_legend(ncol = 1))
-
-
-g
-```
-
-![](faqs_files/figure-html/coltab-4.png)
-
-``` r
-
-# But...
-g +
   scale_fill_coltab(data = r_coltab) +
-  ggtitle("scale_fill_coltab method")
-```
+  labs(title = "scale_fill_coltab method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 
-![](faqs_files/figure-html/coltab-5.png)
 
-``` r
-
-# D. Extract named colors and scale_fill_manual
-
+# d. Extract named colors and scale_fill_manual
 cols <- get_coltab_pal(r_coltab)
 
 cols
@@ -629,25 +602,35 @@ cols
 #>                              Sea and ocean 
 #>                                  "#E6F2FF"
 
-scales::show_col(cols)
-```
-
-![](faqs_files/figure-html/coltab-6.png)
-
-``` r
-
 # And now
-
-g +
+ggplot() +
+  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
   scale_fill_manual(
     values = cols,
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  ggtitle("scale_fill_manual method")
+  labs(title = "scale_fill_manual method") +
+  theme(legend.text = element_text(size = rel(0.7)))
 ```
 
-![](faqs_files/figure-html/coltab-7.png)
+![](faqs_files/figure-html/fig-tidyterra-1.png)
+
+\(a\) autoplot method
+
+![](faqs_files/figure-html/fig-tidyterra-2.png)
+
+\(b\) geom_spatraster method
+
+![](faqs_files/figure-html/fig-tidyterra-3.png)
+
+\(c\) scale_fill_coltab method
+
+![](faqs_files/figure-html/fig-tidyterra-4.png)
+
+\(d\) named colors and scale_fill_manual method
+
+Figure 10: Color tables: tidyterra package
 
 ## Use with gganimate
 
@@ -691,7 +674,7 @@ gganimate::animate(anim, duration = 12, device = "ragg_png")
 
 ![](che_temp.gif)
 
-Figure 9: Animation of average monthly temperatures.
+Figure 11: Animation of average monthly temperatures.
 
 ## North arrows and scale bar
 
@@ -729,7 +712,7 @@ autoplot(r) +
 
 ![](faqs_files/figure-html/fig-northarrow-1.png)
 
-Figure 10: Map with north arrow (top right) and scale bar (bottom left)
+Figure 12: Map with north arrow (top right) and scale bar (bottom left)
 annotations added using ggspatial.
 
 ## How to overlay a `SpatRaster` over a RGB tile
@@ -798,7 +781,7 @@ ggplot(aoi) +
 
 ![](faqs_files/figure-html/fig-overlay_cont-1.png)
 
-Figure 11: Continuous precipitation data overlaid as semi-transparent
+Figure 13: Continuous precipitation data overlaid as semi-transparent
 layer on RGB satellite imagery.
 
 You can create variations with binned legends and filled contours using
@@ -851,7 +834,7 @@ ggplot(aoi) +
 
 \(b\) Contour representation.
 
-Figure 12: Alternative overlay approaches
+Figure 14: Alternative overlay approaches
 
 ## Hexagonal grids (and other `geoms`)
 
@@ -892,7 +875,7 @@ ggplot(r, aes(x, y, z = elevation)) +
 
 ![](faqs_files/figure-html/fig-hex_grid-1.png)
 
-Figure 13: Elevation data aggregated and visualized as hexagonal grid
+Figure 15: Elevation data aggregated and visualized as hexagonal grid
 cells.
 
 Note that you do not need to call
@@ -925,7 +908,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 
 ![](faqs_files/figure-html/fig-alt_points-1.png)
 
-Figure 14: Elevation data represented as points with size and
+Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
 
 ### tidyterra and metR
@@ -961,7 +944,7 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metrdemo-1.png)
 
-Figure 15: Relief rendering combining tidyterra for raster visualization
+Figure 17: Relief rendering combining tidyterra for raster visualization
 and metR for terrain relief representation.
 
 ------------------------------------------------------------------------
