@@ -45,7 +45,7 @@ as_spatvector(x, ...)
 
 - crs:
 
-  A crs on several formats (PROJ.4, WKT, EPSG code, ..) or and spatial
+  A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or and spatial
   object from [sf](https://CRAN.R-project.org/package=sf) or
   [terra](https://CRAN.R-project.org/package=terra) that includes the
   target coordinate reference system. See
@@ -87,7 +87,7 @@ on the following:
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-for retrieving crs, and the corresponding utils
+for retrieving CRS, and the corresponding utils
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).
@@ -117,9 +117,9 @@ v
 #>  coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
 #>  names       :   cat
 #>  type        : <chr>
-#>  values      :     B
-#>                    A
-#>                    A
+#>  values      :     A
+#>                    C
+#>                    D
 
 # Create tibble
 as_tbl <- as_tibble(v, geom = "WKT")
@@ -128,16 +128,16 @@ as_tbl
 #> # A tibble: 40 × 2
 #>    cat   geometry     
 #>    <chr> <chr>        
-#>  1 B     POINT (1 41) 
-#>  2 A     POINT (2 42) 
-#>  3 A     POINT (3 43) 
-#>  4 A     POINT (4 44) 
-#>  5 C     POINT (5 45) 
-#>  6 D     POINT (6 46) 
+#>  1 A     POINT (1 41) 
+#>  2 C     POINT (2 42) 
+#>  3 D     POINT (3 43) 
+#>  4 C     POINT (4 44) 
+#>  5 A     POINT (5 45) 
+#>  6 B     POINT (6 46) 
 #>  7 C     POINT (7 47) 
-#>  8 A     POINT (8 48) 
-#>  9 B     POINT (9 49) 
-#> 10 B     POINT (10 50)
+#>  8 C     POINT (8 48) 
+#>  9 C     POINT (9 49) 
+#> 10 D     POINT (10 50)
 #> # ℹ 30 more rows
 
 # From tibble
@@ -150,7 +150,7 @@ newvect
 #>  coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
 #>  names       :   cat
 #>  type        : <chr>
-#>  values      :     B
-#>                    A
-#>                    A
+#>  values      :     A
+#>                    C
+#>                    D
 ```

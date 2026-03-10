@@ -11,7 +11,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
@@ -42,7 +43,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +97,7 @@
 
 
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -700,70 +701,38 @@ Figure 8: Spatial axis breaks with ggplot2
 <span><span class="co"># Native handling by terra packages</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-1.png" style="width:100.0%"></p>
-</figure>
+<div id="fig-coltab" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-coltab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-coltab-1.png" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coltab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 9: Color tables: Native plot with terra package
+</figcaption></figure>
+</div>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span></span>
-<span><span class="co"># A. autoplot</span></span>
-<span></span>
+<code class="sourceCode R"><span><span class="co"># a. autoplot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"autoplot method"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-2.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co"># B. geom_spatraster</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"autoplot method"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># b. geom_spatraster</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"geom_spatraster method"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-3.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co"># C. Using scale_fill_coltab</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_spatraster method"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span></span>
+<span><span class="co"># c. Using scale_fill_coltab</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="va">g</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-4.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co"># But...</span></span>
-<span><span class="va">g</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_coltab method"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-5.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co"># D. Extract named colors and scale_fill_manual</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_coltab method"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
+<span></span>
+<span><span class="co"># d. Extract named colors and scale_fill_manual</span></span>
 <span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale_coltab.html">get_coltab_pal</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cols</span></span>
@@ -814,36 +783,72 @@ Figure 8: Spatial axis breaks with ggplot2
 <span><span class="co">#&gt;                              Sea and ocean </span></span>
 <span><span class="co">#&gt;                                  "#E6F2FF"</span></span>
 <span></span>
-<span><span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/show_col.html" class="external-link">show_col</a></span><span class="op">(</span><span class="va">cols</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-6.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
 <span><span class="co"># And now</span></span>
-<span></span>
-<span><span class="va">g</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span></span>
 <span>    values <span class="op">=</span> <span class="va">cols</span>,</span>
 <span>    na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>    na.translate <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img src="faqs_files/figure-html/coltab-7.png" style="width:100.0%"></p>
-</figure>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_manual method"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div id="fig-tidyterra" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-tidyterra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidyterra" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tidyterra-1" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-tidyterra-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-tidyterra-1.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) autoplot method
+</figcaption></figure>
 </div>
 </div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidyterra" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tidyterra-2" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-tidyterra-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-tidyterra-2.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) geom_spatraster method
+</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidyterra" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tidyterra-3" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-tidyterra-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-tidyterra-3.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) scale_fill_coltab method
+</figcaption></figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-tidyterra" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tidyterra-4" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-tidyterra-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-tidyterra-4.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) named colors and scale_fill_manual method
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidyterra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 10: Color tables: tidyterra package
+</figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
 </h2>
 <p>Absolutely! Here is an example (thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">geodata</span><span class="op">)</span></span>
@@ -884,7 +889,7 @@ Figure 8: Spatial axis breaks with ggplot2
 <img src="che_temp.gif" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-include_gif-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 9: Animation of average monthly temperatures.
+Figure 11: Animation of average monthly temperatures.
 </figcaption></figure>
 </div>
 </div>
@@ -893,7 +898,7 @@ Figure 9: Animation of average monthly temperatures.
 </h2>
 <p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots. However, you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -923,7 +928,7 @@ Figure 9: Animation of average monthly temperatures.
 <img src="faqs_files/figure-html/fig-northarrow-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-northarrow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 10: Map with north arrow (top right) and scale bar (bottom left) annotations added using ggspatial.
+Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotations added using ggspatial.
 </figcaption></figure>
 </div>
 </div>
@@ -932,7 +937,7 @@ Figure 10: Map with north arrow (top right) and scale bar (bottom left) annotat
 </h2>
 <p>This is straightforward: use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, and then add your data layers on top:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -994,13 +999,13 @@ Figure 10: Map with north arrow (top right) and scale bar (bottom left) annotat
 <img src="faqs_files/figure-html/fig-overlay_cont-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_cont-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 11: Continuous precipitation data overlaid as semi-transparent layer on RGB satellite imagery.
+Figure 13: Continuous precipitation data overlaid as semi-transparent layer on RGB satellite imagery.
 </figcaption></figure>
 </div>
 </div>
 </div>
 <p>You can create variations with binned legends and filled contours using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code>:</p>
-<div class="sourceCode cell-code" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Binned</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1065,14 +1070,14 @@ Figure 11: Continuous precipitation data overlaid as semi-transparent layer on 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 12: Alternative overlay approaches
+Figure 14: Alternative overlay approaches
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="fort">Hexagonal grids (and other <code>geoms</code>)<a class="anchor" aria-label="anchor" href="#fort"></a>
 </h2>
 <p>While <code>SpatRaster</code> cells are inherently rectangular, you can create plots with hexagonal cells using <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex()</a></code>. The final plot requires coordinate adjustment with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -1103,7 +1108,7 @@ Figure 12: Alternative overlay approaches
 <img src="faqs_files/figure-html/fig-hex_grid-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hex_grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 13: Elevation data aggregated and visualized as hexagonal grid cells.
+Figure 15: Elevation data aggregated and visualized as hexagonal grid cells.
 </figcaption></figure>
 </div>
 </div>
@@ -1111,7 +1116,7 @@ Figure 13: Elevation data aggregated and visualized as hexagonal grid cells.
 <p>Note that you do not need to call <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> directly; <strong>ggplot2</strong> invokes it implicitly when you use <code>ggplot(data = a_spatraster)</code>.</p>
 <p>Thanks to this extension mechanism, you can use additional <code>geoms</code> and <code>stats</code> from <strong>ggplot2</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Point plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">r</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, z <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span>, maxcell <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
@@ -1135,7 +1140,7 @@ Figure 13: Elevation data aggregated and visualized as hexagonal grid cells.
 <img src="faqs_files/figure-html/fig-alt_points-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alt_points-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 14: Elevation data represented as points with size and transparency scaled by elevation values.
+Figure 16: Elevation data represented as points with size and transparency scaled by elevation values.
 </figcaption></figure>
 </div>
 </div>
@@ -1144,7 +1149,7 @@ Figure 14: Elevation data represented as points with size and transparency scal
 </h3>
 <p><strong>metR</strong> is a package that provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># load libraries and files</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -1172,7 +1177,7 @@ Figure 14: Elevation data represented as points with size and transparency scal
 <img src="faqs_files/figure-html/fig-metrdemo-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 15: Relief rendering combining tidyterra for raster visualization and metR for terrain relief representation.
+Figure 17: Relief rendering combining tidyterra for raster visualization and metR for terrain relief representation.
 </figcaption></figure>
 </div>
 </div>

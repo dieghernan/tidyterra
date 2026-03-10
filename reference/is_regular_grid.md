@@ -45,7 +45,6 @@ p <- matrix(1:90, nrow = 45, ncol = 2)
 
 is_regular_grid(p)
 
-
 # Jitter location
 set.seed(1234)
 jitter <- runif(length(p)) / 10e4

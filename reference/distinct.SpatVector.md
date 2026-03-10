@@ -42,7 +42,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-function.
+method.
 
 ### `SpatVector`
 
@@ -98,11 +98,11 @@ ex1
 #>  dimensions  : 34, 7  (geometries, attributes)
 #>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1     NAME_1  ID_2   NAME_2  AREA       POP    gr
-#>  type        : <num>      <chr> <num>    <chr> <num>     <num> <chr>
-#>  values      :     1   Diekirch     1 Clervaux   312 1.808e+04     B
-#>                    3 Luxembourg    11   Mersch   233 3.211e+04     A
-#>                    1   Diekirch     3  Redange   259 1.866e+04     B
+#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
+#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
+#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
+#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
+#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
 
 nrow(ex1)
 #> [1] 34
@@ -113,13 +113,13 @@ ex2
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 1  (geometries, attributes)
-#>  extent      : 5.826232, 6.312236, 49.51847, 50.18162  (xmin, xmax, ymin, ymax)
+#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
 #>  names       :    gr
 #>  type        : <chr>
-#>  values      :     B
-#>                    A
+#>  values      :     A
 #>                    C
+#>                    B
 nrow(ex2)
 #> [1] 3
 
@@ -129,16 +129,15 @@ ex2b
 #>  class       : SpatVector 
 #>  geometry    : polygons 
 #>  dimensions  : 3, 7  (geometries, attributes)
-#>  extent      : 5.826232, 6.312236, 49.51847, 50.18162  (xmin, xmax, ymin, ymax)
+#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :    gr  ID_1     NAME_1  ID_2     NAME_2  AREA       POP
-#>  type        : <chr> <num>      <chr> <num>      <chr> <num>     <num>
-#>  values      :     B     1   Diekirch     1   Clervaux   312 1.808e+04
-#>                    A     3 Luxembourg    11     Mersch   233 3.211e+04
-#>                    C     3 Luxembourg    10 Luxembourg   237 1.826e+05
+#>  names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA       POP
+#>  type        : <chr> <num>        <chr> <num>      <chr> <num>     <num>
+#>  values      :     A     1     Diekirch     5      Wiltz   263 1.674e+04
+#>                    C     2 Grevenmacher     6 Echternach   188  1.89e+04
+#>                    B     1     Diekirch     1   Clervaux   312 1.808e+04
 nrow(ex2b)
 #> [1] 3
-
 
 # Unique geometries
 ex3 <- distinct(v, geometry)
@@ -166,9 +165,9 @@ distinct(v, geometry, .keep_all = TRUE)
 #>  dimensions  : 12, 7  (geometries, attributes)
 #>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
 #>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1     NAME_1  ID_2   NAME_2  AREA       POP    gr
-#>  type        : <num>      <chr> <num>    <chr> <num>     <num> <chr>
-#>  values      :     1   Diekirch     1 Clervaux   312 1.808e+04     B
-#>                    3 Luxembourg    11   Mersch   233 3.211e+04     A
-#>                    1   Diekirch     3  Redange   259 1.866e+04     B
+#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
+#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
+#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
+#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
+#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
 ```

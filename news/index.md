@@ -1,5 +1,53 @@
 # Changelog
 
+## tidyterra 1.1.0
+
+- New **dplyr** minimum version: **1.2.0**.
+
+### New Methods
+
+- [`add_count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
+  ([\#195](https://github.com/dieghernan/tidyterra/issues/195)).
+- [`filter_out.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
+  ([\#196](https://github.com/dieghernan/tidyterra/issues/196)).
+
+### Changes in arguments
+
+- In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
+  [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
+  this was implemented in version 1.0.0. Now it has been extended to the
+  following **tidyterra** methods as new arguments
+  ([\#193](https://github.com/dieghernan/tidyterra/issues/193)):
+  - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md).
+  - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
+  - [`?slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
+    methods for `SpatVector`.
+  - [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.md).
+- Other arguments added to methods:
+  - [`?mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md):
+    New arguments `.keep, .before, .after` (see
+    [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)).
+  - [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md):
+    `.locale` added (see
+    [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)).
+  - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md):
+    `.preserve` argument support added (previously it was ignored).
+    - In
+      [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md):
+      - `wt` argument for performing weighted counts supported.
+      - `.drop` argument deprecated, (it never really worked).
+
+### Deprecations
+
+- [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/transmute.Spat.md)
+  is marked as superseded, as in
+  [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
+  **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+
+### Other changes
+
+- Migrate vignettes and articles to Quarto.
+
 ## tidyterra 1.0.0
 
 CRAN release: 2026-01-23
@@ -19,13 +67,13 @@ CRAN release: 2026-01-23
   ([\#180](https://github.com/dieghernan/tidyterra/issues/180)).
 - New dependency **generics** added to Imports. New methods
   (`SpatRaster`, `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
-  - [`tidy.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md),
-    etc.
-  - [`glance.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md),
-    etc.
-  - [`required_pkgs.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md),
-    etc.
-- `fortify.Spat` methods now uses `tidy.Spat` methods under the hood:
+  - [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md).
+  - [`?glance.Spat`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md).
+  - [`?required_pkgs.Spat`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md).
+- [`?fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
+  methods now uses
+  [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
+  methods under the hood:
   - New
     [`fortify.SpatExtent()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
     method.
@@ -213,7 +261,7 @@ Other changes on this version:
   ([\#120](https://github.com/dieghernan/tidyterra/issues/120)).
 - Enhanced
   [`glimpse.Spat()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
-  with meta-information on type of geometry, crs, etc.
+  with meta-information on type of geometry, CRS, etc.
 - New messaging interface thanks to [**cli**](https://cli.r-lib.org/)
   package.
 

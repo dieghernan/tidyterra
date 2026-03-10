@@ -1,6 +1,6 @@
 # Replace `NA`s with specified values
 
-Replace `NA` values on layers/attributes with specified values
+Replace `NA`s values on layers/attributes with specified values
 
 ## Usage
 
@@ -23,17 +23,18 @@ replace_na(data, replace, ...)
 
 - replace:
 
-  list of values, with one value for each layer/attribute that has `NA`
-  values to be replaced.
+  A named list of values, with one value for each layer/attribute that
+  has missing values to be replaced. Each value in `replace` will be
+  cast to the type of the column in `data` that it being used as a
+  replacement in.
 
 - ...:
 
-  Ignored
+  Additional arguments for methods. Currently unused.
 
 ## Value
 
-A `Spat*` object of the same class than `data`. Geometries and spatial
-attributes are preserved.
+A `Spat*` object of the same class than `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

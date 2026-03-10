@@ -104,7 +104,7 @@ family
 
 ### `SpatVector`
 
-The geometry column has a sticky behavior. This means that the result
+The geometry column has a sticky behaviour. This means that the result
 would have always the geometry of `x` for the records that matches the
 join conditions.
 
@@ -184,8 +184,7 @@ semi
 #>  values      : ES-AV    05  Avila
 #>                ES-BU    09 Burgos
 
-autoplot(semi, aes(fill = iso2)) + ggtitle("Semi Join")
-
+autoplot(semi, aes(fill = iso2)) + labs(title = "Semi Join")
 
 
 # Anti join
@@ -205,6 +204,6 @@ anti
 #>                 ES-P    34  Palencia
 #>                ES-SA    37 Salamanca
 
-autoplot(anti, aes(fill = iso2)) + ggtitle("Anti Join")
+autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 
 ```

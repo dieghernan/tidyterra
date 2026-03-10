@@ -160,11 +160,11 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
 
 ## Coords
 
-When the `SpatRaster` does not present a crs (i.e.,
+When the `SpatRaster` does not present a CRS (i.e.,
 `terra::crs(rast) == ""`) the geom does not make any assumption on the
 scales.
 
-On `SpatRaster` that have a crs, the geom uses
+On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. That means that also the **`SpatRaster` may be
 reprojected**.
@@ -288,7 +288,6 @@ ggplot() +
 
 no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 values(no_crs) <- seq_len(ncell(no_crs))
-
 
 ggplot() +
   geom_spatraster(data = no_crs)

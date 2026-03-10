@@ -52,8 +52,24 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .groups:
 
-  See
-  [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
+  **\[experimental\]** Grouping structure of the result.
+
+  - `"drop_last"`: drops the last level of grouping. This was the only
+    supported option before version 1.0.0.
+
+  - `"drop"`: All levels of grouping are dropped.
+
+  - `"keep"`: Same grouping structure as `.data`.
+
+  - `"rowwise"`: Each row is its own group.
+
+  When `.groups` is not specified, it is set to `"drop_last"` for a
+  grouped data frame, and `"keep"` for a rowwise data frame. In
+  addition, a message informs you of how the result will be grouped
+  unless the result is ungrouped, the option `"dplyr.summarise.inform"`
+  is set to `FALSE`, or when
+  [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
+  is called from a function in a package.
 
 - .dissolve:
 
@@ -71,7 +87,7 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
-function.
+method.
 
 ### `SpatVector`
 
@@ -131,7 +147,6 @@ gr_v <- v |>
   mutate(start_with_s = substr(name, 1, 1) == "S") |>
   group_by(start_with_s)
 
-
 # Dissolving
 diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
@@ -147,7 +162,8 @@ diss
 #>  values      :        FALSE     6    28
 #>                        TRUE     3 39.67
 
-autoplot(diss, aes(fill = start_with_s)) + ggplot2::ggtitle("Dissolved")
+autoplot(diss, aes(fill = start_with_s)) +
+  ggplot2::labs(title = "Dissolved")
 
 
 # Not dissolving
@@ -167,5 +183,5 @@ no_diss
 #>                        TRUE     3 39.67
 
 autoplot(no_diss, aes(fill = start_with_s)) +
-  ggplot2::ggtitle("Not Dissolved")
+  ggplot2::labs(title = "Not Dissolved")
 ```

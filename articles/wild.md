@@ -166,6 +166,13 @@ locomotor activity of *Aedes albopictus* from Germany at low
 temperatures. *Parasites & Vectors*, *17*(1), 502.
 <https://doi.org/10.1186/s13071-024-06594-x>
 
+Macey, J. N., Kunberger, J. M., Collins, K., Rowin, S., Mueller, J. M.,
+Carrasco, S. M., Colón, M. R., Grigsby, N., Raginski, N. M., Gamble, M.
+D., Finn, D. S., Lopez, R., & Long, A. M. (2026). Miniaturized
+light-level geolocators provide novel insight into the migration ecology
+of an endangered songbird. *Movement Ecology*.
+<https://doi.org/10.1186/s40462-026-00626-0>
+
 Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., & Merow,
 C. (2026). Flexible methods for species distribution modeling with small
 samples. *Ecography*, e08112. <https://doi.org/10.1002/ecog.08112>
@@ -244,6 +251,11 @@ i modelització espacial del patró d’ocupació del territori durant el
 Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
 Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
 <https://ddd.uab.cat/record/301073>
+
+Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
+probabilistic liquefaction model building at the regional scale.
+*Earthquake Spectra*, *42*(1), e70013.
+<https://doi.org/10.1002/esp4.70013>
 
 Su, X., Popescu, N., Insuk, C., Lausen, C., & Xu, J. (2025). High
 Diversity and Low Genetic Differentiation Among Geographic Populations

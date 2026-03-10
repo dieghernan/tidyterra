@@ -32,6 +32,7 @@ Verbs that principally operate on rows.
 
 - [`filter(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
   [`filter(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
+  [`filter_out(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
   :
 
   Subset cells/geometries of `Spat*` objects
@@ -65,8 +66,6 @@ Verbs that principally operate on columns.
 
 - [`mutate(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
   [`mutate(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
-  [`transmute(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
-  [`transmute(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md)
   :
 
   Create, modify, and delete cell values/layers/attributes of `Spat*`
@@ -98,6 +97,7 @@ Verbs that principally operate on groups of rows.
 
 - [`count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
   [`tally(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
+  [`add_count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
   :
 
   Count the observations in each `SpatVector` group

@@ -11,7 +11,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
-<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
@@ -42,7 +43,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,7 +97,7 @@
       <p class="author">Diego Hernangómez</p>
       <p class="date">2023-07-18</p>
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/release/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -109,7 +110,7 @@
 <section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <p><strong>tidyterra</strong> is an <strong>R</strong> <span class="citation" data-cites="r-project">(<a href="#ref-r-project" role="doc-biblioref">R Core Team 2023</a>)</span> package that allows manipulation of spatial data objects as provided by the <strong>terra</strong> package <span class="citation" data-cites="R-terra">(<a href="#ref-R-terra" role="doc-biblioref">Hijmans 2023</a>)</span>, using the verbs of the packages included in the <strong>tidyverse</strong> <span class="citation" data-cites="R-tidyverse">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, such as <strong>dplyr</strong> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>, <strong>tidyr</strong> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, and Girlich 2023</a>)</span>, or <strong>tibble</strong> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>. This addition enables users that are already familiar with the <strong>tidyverse</strong> to approach spatial data manipulation and analysis more easily and much faster.</p>
-<p>Furthermore, <strong>tidyterra</strong> extends the functionality of the <strong>ggplot2</strong> package <span class="citation" data-cites="R-ggplot2">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> by providing additional <code>geoms</code> and <code>stats</code> <a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The term &lt;code&gt;geoms&lt;/code&gt; refers to geometric objects, and &lt;code&gt;stats&lt;/code&gt; refers to statistical transformations, following the naming conventions of &lt;strong&gt;ggplot2&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a> like <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>, as well as carefully chosen scales and color palettes specifically designed for map production.</p>
+<p>Furthermore, <strong>tidyterra</strong> extends the functionality of the <strong>ggplot2</strong> package <span class="citation" data-cites="R-ggplot2">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> by providing additional <code>geoms</code> and <code>stats</code><a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The term &lt;code&gt;geoms&lt;/code&gt; refers to geometric objects, and &lt;code&gt;stats&lt;/code&gt; refers to statistical transformations, following the naming conventions of &lt;strong&gt;ggplot2&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a> like <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>, as well as carefully chosen scales and color palettes specifically designed for map production.</p>
 <p><strong>tidyterra</strong> can manipulate the following classes of <strong>terra</strong> objects:</p>
 <ol type="1">
 <li><p><code>SpatVector</code> objects, which represent vector data such as points, lines, or polygon geometries.</p></li>
@@ -207,7 +208,7 @@ Contour map of temperature variation with a SpatVector overlay
 <li>Details on each function, including (if possible) the equivalent <strong>terra</strong> function, in case users prefer to include those on their workflows.</li>
 <li>Working examples on the use of the functions and creation of plots.</li>
 <li>Additional articles and vignettes, as well as a complete demo of the different color palettes included on the package (see <a href="https://dieghernan.github.io/tidyterra/articles/palettes.html">Palettes</a>).</li>
-</ul></section><section class="level2"><h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</ul></section><section class="level2 appendix"><h2 class="appendix" id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
 <p>I would like to thank <a href="https://github.com/rhijmans" class="external-link">Robert J. Hijmans</a> for his advice and support in adapting some of the methods, as well as for the suggestions that helped us improve the functionalities of the package. I am also thankful to <a href="https://dewey.dunnington.ca/" class="external-link">Dewey Dunnington</a>, Brent Thorne and the rest of contributors of the <strong>ggspatial</strong> package, which served as a key reference during the initial stages of the development of <strong>tidyterra</strong>.</p>
 <p><strong>tidyterra</strong> also incorporates some pieces of code adapted from <strong>ggplot2</strong> for computing contours, which relies on the package <strong>isoband</strong> <span class="citation" data-cites="R-isoband">(<a href="#ref-R-isoband" role="doc-biblioref">Wickham, Wilke, and Pedersen 2022</a>)</span> developed by <a href="https://clauswilke.com/" class="external-link">Claus O. Wilke</a>.</p>
