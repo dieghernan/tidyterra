@@ -2,6 +2,8 @@
 
 ## tidyterra 1.1.0
 
+CRAN release: 2026-03-11
+
 - New **dplyr** minimum version: **1.2.0**.
 
 ### New Methods
