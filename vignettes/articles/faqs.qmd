@@ -474,6 +474,10 @@ ggplot() +
 
 ## Plotting a `SpatRaster` with color tables
 
+::: callout-note
+We omitted the legends in this section's figures to improve readability.
+:::
+
 **tidyterra** provides several methods for handling `SpatRaster` objects with
 color tables. This example uses `clc_edinburgh.tif`, available online in the
 [data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
@@ -499,7 +503,7 @@ has.colors(r_coltab)
 r_coltab
 
 # Native handling by terra packages
-plot(r_coltab)
+plot(r_coltab, legend = FALSE)
 ```
 
 ```{r}
@@ -513,40 +517,44 @@ plot(r_coltab)
 #|   - "named colors and scale_fill_manual method"
 
 # a. autoplot
-autoplot(r_coltab, maxcell = Inf) +
-  labs(title = "autoplot method") +
-  theme(legend.text = element_text(size = rel(0.7)))
+autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
+  labs(title = "autoplot method")
 
 # b. geom_spatraster
 ggplot() +
-  geom_spatraster(data = r_coltab, maxcell = Inf) +
-  labs(title = "geom_spatraster method") +
-  theme(legend.text = element_text(size = rel(0.7)))
-
+  geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
+  labs(title = "geom_spatraster method")
 
 # c. Using scale_fill_coltab
 ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
+  geom_spatraster(
+    data = r_coltab,
+    use_coltab = FALSE,
+    maxcell = Inf,
+    show.legend = FALSE
+  ) +
   scale_fill_coltab(data = r_coltab) +
-  labs(title = "scale_fill_coltab method") +
-  theme(legend.text = element_text(size = rel(0.7)))
-
+  labs(title = "scale_fill_coltab method")
 
 # d. Extract named colors and scale_fill_manual
 cols <- get_coltab_pal(r_coltab)
 
-cols
+cols |> head()
 
 # And now
 ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
+  geom_spatraster(
+    data = r_coltab,
+    use_coltab = FALSE,
+    maxcell = Inf,
+    show.legend = FALSE
+  ) +
   scale_fill_manual(
     values = cols,
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  labs(title = "scale_fill_manual method") +
-  theme(legend.text = element_text(size = rel(0.7)))
+  labs(title = "scale_fill_manual method")
 ```
 
 ## Use with gganimate {#gganimate}
