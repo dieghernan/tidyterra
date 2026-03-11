@@ -97,7 +97,7 @@
 
 
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.1.0/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -672,6 +672,12 @@ Figure 8: Spatial axis breaks with ggplot2
 </div>
 </section><section class="level2"><h2 id="plotting-a-spatraster-with-color-tables">Plotting a <code>SpatRaster</code> with color tables<a class="anchor" aria-label="anchor" href="#plotting-a-spatraster-with-color-tables"></a>
 </h2>
+<div>
+<blockquote>
+<p><strong>Note</strong></p>
+<p>We omitted the legends in this section’s figures to improve readability.</p>
+</blockquote>
+</div>
 <p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the Corine Land Cover Dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and it has been added the corresponding color table as of &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
@@ -699,7 +705,7 @@ Figure 8: Spatial axis breaks with ggplot2
 <span><span class="co">#&gt; max value   :           Sea and ocean</span></span>
 <span></span>
 <span><span class="co"># Native handling by terra packages</span></span>
-<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-coltab" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-coltab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -713,29 +719,29 @@ Figure 9: Color tables: Native plot with terra package
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># a. autoplot</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"autoplot method"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"autoplot method"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># b. geom_spatraster</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_spatraster method"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_spatraster method"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># c. Using scale_fill_coltab</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">r_coltab</span>,</span>
+<span>    use_coltab <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    maxcell <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_coltab method"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_coltab method"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># d. Extract named colors and scale_fill_manual</span></span>
 <span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale_coltab.html">get_coltab_pal</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">cols</span></span>
+<span><span class="va">cols</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt;                    Continuous urban fabric </span></span>
 <span><span class="co">#&gt;                                  "#E6004D" </span></span>
 <span><span class="co">#&gt;                 Discontinuous urban fabric </span></span>
@@ -747,52 +753,22 @@ Figure 9: Color tables: Native plot with terra package
 <span><span class="co">#&gt;                                 Port areas </span></span>
 <span><span class="co">#&gt;                                  "#E6CCCC" </span></span>
 <span><span class="co">#&gt;                                   Airports </span></span>
-<span><span class="co">#&gt;                                  "#E6CCE6" </span></span>
-<span><span class="co">#&gt;                   Mineral extraction sites </span></span>
-<span><span class="co">#&gt;                                  "#A600CC" </span></span>
-<span><span class="co">#&gt;                                 Dump sites </span></span>
-<span><span class="co">#&gt;                                  "#A64D00" </span></span>
-<span><span class="co">#&gt;                         Construction sites </span></span>
-<span><span class="co">#&gt;                                  "#FF4DFF" </span></span>
-<span><span class="co">#&gt;                          Green urban areas </span></span>
-<span><span class="co">#&gt;                                  "#FFA6FF" </span></span>
-<span><span class="co">#&gt;               Sport and leisure facilities </span></span>
-<span><span class="co">#&gt;                                  "#FFE6FF" </span></span>
-<span><span class="co">#&gt;                  Non-irrigated arable land </span></span>
-<span><span class="co">#&gt;                                  "#FFFFA8" </span></span>
-<span><span class="co">#&gt;                                   Pastures </span></span>
-<span><span class="co">#&gt;                                  "#E6E64D" </span></span>
-<span><span class="co">#&gt;                        Broad-leaved forest </span></span>
-<span><span class="co">#&gt;                                  "#80FF00" </span></span>
-<span><span class="co">#&gt;                          Coniferous forest </span></span>
-<span><span class="co">#&gt;                                  "#00A600" </span></span>
-<span><span class="co">#&gt;                               Mixed forest </span></span>
-<span><span class="co">#&gt;                                  "#4DFF00" </span></span>
-<span><span class="co">#&gt;                         Natural grasslands </span></span>
-<span><span class="co">#&gt;                                  "#CCF24D" </span></span>
-<span><span class="co">#&gt;                        Moors and heathland </span></span>
-<span><span class="co">#&gt;                                  "#A6FF80" </span></span>
-<span><span class="co">#&gt;                                 Bare rocks </span></span>
-<span><span class="co">#&gt;                                  "#CCCCCC" </span></span>
-<span><span class="co">#&gt;                           Intertidal flats </span></span>
-<span><span class="co">#&gt;                                  "#A6A6E6" </span></span>
-<span><span class="co">#&gt;                               Water bodies </span></span>
-<span><span class="co">#&gt;                                  "#80F2E6" </span></span>
-<span><span class="co">#&gt;                                  Estuaries </span></span>
-<span><span class="co">#&gt;                                  "#A6FFE6" </span></span>
-<span><span class="co">#&gt;                              Sea and ocean </span></span>
-<span><span class="co">#&gt;                                  "#E6F2FF"</span></span>
+<span><span class="co">#&gt;                                  "#E6CCE6"</span></span>
 <span></span>
 <span><span class="co"># And now</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, use_coltab <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">r_coltab</span>,</span>
+<span>    use_coltab <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    maxcell <span class="op">=</span> <span class="cn">Inf</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span></span>
 <span>    values <span class="op">=</span> <span class="va">cols</span>,</span>
 <span>    na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>    na.translate <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_manual method"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">rel</a></span><span class="op">(</span><span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
 <div id="fig-tidyterra" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-tidyterra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">

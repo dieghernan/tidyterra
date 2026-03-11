@@ -491,6 +491,11 @@ Figure 8: Spatial axis breaks with ggplot2
 
 ## Plotting a `SpatRaster` with color tables
 
+> **Note**
+>
+> We omitted the legends in this section’s figures to improve
+> readability.
+
 **tidyterra** provides several methods for handling `SpatRaster` objects
 with color tables. This example uses `clc_edinburgh.tif`, available
 online in the [data-raw
@@ -523,7 +528,7 @@ r_coltab
 #> max value   :           Sea and ocean
 
 # Native handling by terra packages
-plot(r_coltab)
+plot(r_coltab, legend = FALSE)
 ```
 
 ![](faqs_files/figure-html/fig-coltab-1.png)
@@ -532,29 +537,29 @@ Figure 9: Color tables: Native plot with terra package
 
 ``` r
 # a. autoplot
-autoplot(r_coltab, maxcell = Inf) +
-  labs(title = "autoplot method") +
-  theme(legend.text = element_text(size = rel(0.7)))
+autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
+  labs(title = "autoplot method")
 
 # b. geom_spatraster
 ggplot() +
-  geom_spatraster(data = r_coltab, maxcell = Inf) +
-  labs(title = "geom_spatraster method") +
-  theme(legend.text = element_text(size = rel(0.7)))
-
+  geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
+  labs(title = "geom_spatraster method")
 
 # c. Using scale_fill_coltab
 ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
+  geom_spatraster(
+    data = r_coltab,
+    use_coltab = FALSE,
+    maxcell = Inf,
+    show.legend = FALSE
+  ) +
   scale_fill_coltab(data = r_coltab) +
-  labs(title = "scale_fill_coltab method") +
-  theme(legend.text = element_text(size = rel(0.7)))
-
+  labs(title = "scale_fill_coltab method")
 
 # d. Extract named colors and scale_fill_manual
 cols <- get_coltab_pal(r_coltab)
 
-cols
+cols |> head()
 #>                    Continuous urban fabric 
 #>                                  "#E6004D" 
 #>                 Discontinuous urban fabric 
@@ -566,52 +571,22 @@ cols
 #>                                 Port areas 
 #>                                  "#E6CCCC" 
 #>                                   Airports 
-#>                                  "#E6CCE6" 
-#>                   Mineral extraction sites 
-#>                                  "#A600CC" 
-#>                                 Dump sites 
-#>                                  "#A64D00" 
-#>                         Construction sites 
-#>                                  "#FF4DFF" 
-#>                          Green urban areas 
-#>                                  "#FFA6FF" 
-#>               Sport and leisure facilities 
-#>                                  "#FFE6FF" 
-#>                  Non-irrigated arable land 
-#>                                  "#FFFFA8" 
-#>                                   Pastures 
-#>                                  "#E6E64D" 
-#>                        Broad-leaved forest 
-#>                                  "#80FF00" 
-#>                          Coniferous forest 
-#>                                  "#00A600" 
-#>                               Mixed forest 
-#>                                  "#4DFF00" 
-#>                         Natural grasslands 
-#>                                  "#CCF24D" 
-#>                        Moors and heathland 
-#>                                  "#A6FF80" 
-#>                                 Bare rocks 
-#>                                  "#CCCCCC" 
-#>                           Intertidal flats 
-#>                                  "#A6A6E6" 
-#>                               Water bodies 
-#>                                  "#80F2E6" 
-#>                                  Estuaries 
-#>                                  "#A6FFE6" 
-#>                              Sea and ocean 
-#>                                  "#E6F2FF"
+#>                                  "#E6CCE6"
 
 # And now
 ggplot() +
-  geom_spatraster(data = r_coltab, use_coltab = FALSE, maxcell = Inf) +
+  geom_spatraster(
+    data = r_coltab,
+    use_coltab = FALSE,
+    maxcell = Inf,
+    show.legend = FALSE
+  ) +
   scale_fill_manual(
     values = cols,
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  labs(title = "scale_fill_manual method") +
-  theme(legend.text = element_text(size = rel(0.7)))
+  labs(title = "scale_fill_manual method")
 ```
 
 ![](faqs_files/figure-html/fig-tidyterra-1.png)
