@@ -255,6 +255,10 @@ footer .pkgdown-footer-left {
 
 /* ---Misc--- */
 
+@view-transition {
+	navigation: auto;
+}
+
 img.logo {
 	display: none;
 }
