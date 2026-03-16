@@ -51,6 +51,12 @@ habitat models can significantly affect conservation decisions for
 threatened species. *Scientific Reports*.
 <https://doi.org/10.1038/s41598-026-35987-4>
 
+Corak, K., Courtney, C., Ellerbrock, B., Kamath, P., Manching, H. K.,
+Poland, J., Neilsen, M., Hulse-Kemp, A. M., & Rife, T. W. (2026).
+GeoNav: Enhancing field phenotyping with high-precision global
+navigation systems integration in the Field Book mobile application.
+*Crop Science*, *66*(2), e70254. <https://doi.org/10.1002/csc2.70254>
+
 Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
 Enhancing tsunami evacuation strategies in Puerto Rico using open-source
 least-cost path analysis. *Journal of Disaster Science and Management*,
