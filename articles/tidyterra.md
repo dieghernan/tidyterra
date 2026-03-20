@@ -8,8 +8,8 @@
 that allows manipulation of spatial data objects as provided by the
 **terra** package ([Hijmans 2023](#ref-R-terra)), using the verbs of the
 packages included in the **tidyverse** ([Wickham et al.
-2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham et al.
-2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, and Girlich
+2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
+2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
 2023](#ref-R-tidyr)), or **tibble** ([Müller and Wickham
 2023](#ref-R-tibble)). This addition enables users that are already
 familiar with the **tidyverse** to approach spatial data manipulation
@@ -40,8 +40,8 @@ The first stable version of **tidyterra** was included on CRAN on April
 2019](#ref-R-inlabru)), **RCzechia** ([Lacko 2023](#ref-R-rczechia)) and
 **sparrpowR** ([Buller et al. 2021](#ref-R-sparrpowr))) and cited in
 academic research and publications (Bahlburg et al.
-([2023](#ref-bahlburg2023)), Moraga ([2024](#ref-moraga2023)), Leonardi,
-Colucci, and Manica ([2023](#ref-Leonardi2023)), Meister et al.
+([2023](#ref-bahlburg2023)), Moraga ([2024](#ref-moraga2023)), Leonardi
+et al. ([2023](#ref-Leonardi2023)), Meister et al.
 ([2023](#ref-meister2023))) ever since.
 
 ## Statement of need
@@ -239,8 +239,8 @@ reference during the initial stages of the development of **tidyterra**.
 
 **tidyterra** also incorporates some pieces of code adapted from
 **ggplot2** for computing contours, which relies on the package
-**isoband** ([Wickham, Wilke, and Pedersen 2022](#ref-R-isoband))
-developed by [Claus O. Wilke](https://clauswilke.com/).
+**isoband** ([Wickham et al. 2022](#ref-R-isoband)) developed by [Claus
+O. Wilke](https://clauswilke.com/).
 
 ## References
 
@@ -273,10 +273,10 @@ Lacko, Jindra. 2023. “RCzechia: Spatial Objects of the Czech Republic.”
 
 Leonardi, Michela, Margherita Colucci, and Andrea Manica. 2023.
 “tidysdm: Leveraging the Flexibility of tidymodels for Species
-Distribution Modelling in R.” *bioRxiv*.
+Distribution Modelling in R.” *bioRxiv*, ahead of print.
 <https://doi.org/10.1101/2023.07.24.550358>.
 
-Lindsay, John. 2018. “Whitebox-Tools.” GitHub repository.
+Lindsay, John. 2018. *Whitebox-Tools*. GitHub repository.
 <https://github.com/jblindsay/whitebox-tools>.
 
 Meister, Nadja, Tom J. Langbehn, Øystein Varpe, and Christian Jørgensen.
@@ -285,11 +285,11 @@ Crawling Predators.” *Marine Ecology Progress Series* 721 (October):
 85–101. <https://doi.org/10.3354/meps14416>.
 
 Moraga, Paula. 2024. *Spatial Statistics for Data Science: Theory and
-Practice with R*. First edition. Boca Raton, FL: CRC Press.
+Practice with R*. First edition. CRC Press.
 <https://www.paulamoraga.com/book-spatial/>.
 
-Müller, Kirill, and Hadley Wickham. 2023. “tibble: Simple Data Frames.”
-<https://tibble.tidyverse.org/>.
+Müller, Kirill, and Hadley Wickham. 2023. *tibble: Simple Data Frames*.
+Version 3.2.1. <https://tibble.tidyverse.org/>.
 
 Patterson, Tom, and Bernhard Jenny. 2011. “The Development and Rationale
 of Cross-Blended Hypsometric Tints.” *Cartographic Perspectives*, no. 69
@@ -300,7 +300,7 @@ Spatial Vector Data.” *The R Journal* 10 (1): 439–46.
 <https://doi.org/10.32614/RJ-2018-009>.
 
 Pebesma, Edzer, and Roger Bivand. 2023. *Spatial Data Science: With
-applications in R*. London: Chapman and Hall/CRC.
+applications in R*. Chapman and Hall/CRC.
 <https://doi.org/10.1201/9780429459016>.
 
 Perpiñán, Oscar, and Robert Hijmans. 2023. *rasterVis*.
@@ -308,35 +308,33 @@ Perpiñán, Oscar, and Robert Hijmans. 2023. *rasterVis*.
 
 Quoss, Luise, Nestor Fernandez, Christian Langer, Jose Valdez, and
 Henrique Miguel Pereira. 2021. *ebvcube: Working with netCDF for
-Essential Biodiversity Variables*. Germany: German Centre for
-Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig.
+Essential Biodiversity Variables*. German Centre for Integrative
+Biodiversity Research (iDiv) Halle-Jena-Leipzig.
 <https://github.com/EBVcube/ebvcube>.
 
 R Core Team. 2023. *R: A Language and Environment for Statistical
-Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+Computing*. R Foundation for Statistical Computing.
 <https://www.R-project.org/>.
 
-Thuiller, Wilfried, Damien Georges, Maya Gueguen, Robin Engler, Frank
-Breiner, Bruno Lafourcade, and Remi Patin. 2023. *biomod2: Ensemble
-Platform for Species Distribution Modeling*.
+Thuiller, Wilfried, Damien Georges, Maya Gueguen, et al. 2023. *biomod2:
+Ensemble Platform for Species Distribution Modeling*.
 
 Wickham, Hadley. 2016. *ggplot2: Elegant Graphics for Data Analysis*.
 Springer-Verlag New York. <https://ggplot2.tidyverse.org>.
 
-———. 2019. “S3.” In *Advanced R*, 2nd ed. Chapman and Hall/CRC.
-<https://doi.org/10.1201/9781351201315>.
+Wickham, Hadley. 2019. “S3.” Chap. 13 in *Advanced R*, 2nd ed. Chapman
+and Hall/CRC. <https://doi.org/10.1201/9781351201315>.
 
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the tidyverse.” *Journal of Open Source Software* 4 (43):
-1686. <https://doi.org/10.21105/joss.01686>.
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019. “Welcome to
+the tidyverse.” *Journal of Open Source Software* 4 (43): 1686.
+<https://doi.org/10.21105/joss.01686>.
 
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
-Vaughan. 2023. “dplyr: A Grammar of Data Manipulation.”
+Vaughan. 2023. *dplyr: A Grammar of Data Manipulation*. Version 1.1.2.
 <https://dplyr.tidyverse.org>.
 
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. “tidyr:
-Tidy Messy Data.” <https://tidyr.tidyverse.org>.
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *tidyr:
+Tidy Messy Data*. Version 1.3.0. <https://tidyr.tidyverse.org>.
 
 Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022.
 *isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
