@@ -48,7 +48,7 @@ jobs:
       shell: bash
 
     - name: Run jarl
-      uses: etiennebacher/setup-jarl@v0.1.0
+      uses: etiennebacher/setup-jarl@v0.1.1
       continue-on-error: true
       with:
         args: "--version"
