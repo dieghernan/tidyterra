@@ -51,7 +51,7 @@ jobs:
       uses: etiennebacher/setup-jarl@v0.1.0
       continue-on-error: true
       with:
-        args: check . --fix --min-r-version 4.1.0
+        args: "--version"
 
     - name: Install Air
       uses: posit-dev/setup-air@v1
