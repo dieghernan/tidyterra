@@ -289,6 +289,12 @@ Various Land Use Types in the Upper Watershed of Danjiangkou Reservoir
 in China. *Land Degradation & Development*.
 <https://doi.org/10.1002/ldr.5516>
 
+Wieczorkowski, J. D., Rajaovelona, L. R., Hermans, J., Stévart, T.,
+Razanajatovo, H., Droissart, V., Pennington, R. T., Zizka, A., &
+Lehmann, C. E. R. (2026). Orchids in the open: Understanding
+biodiversity beyond Madagascar’s forests. *Diversity and Distributions*,
+*32*(3), e70172. <https://doi.org/10.1111/ddi.70172>
+
 Wiethase, J. H. (2023). *Advancing ecosystem understanding: Identifying
 the drivers of habitat degradation, species distributions and species
 vulnerabilities in East African grasslands.* \[PhD thesis, University of
