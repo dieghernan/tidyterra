@@ -94,7 +94,7 @@ temp
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
+#> coord. ref. : World_Robinson (ESRI:54030) 
 #> source      : cyl_temp.tif 
 #> names       :   tavg_04,   tavg_05,  tavg_06 
 #> min values  :  1.885463,  5.817587, 10.46338 
@@ -112,7 +112,7 @@ mod
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
+#> coord. ref. : World_Robinson (ESRI:54030) 
 #> source(s)   : memory
 #> names       : difference,   tavg_05,  tavg_06 
 #> min values  :   2.817647,  5.817587, 10.46338 

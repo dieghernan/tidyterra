@@ -95,7 +95,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 - use_coltab:
 
   Logical. Only applicable to `SpatRaster` objects that have an
-  associated coltab. Should the coltab be used on the plot? See also
+  associated
+  [coltab](https://rspatial.github.io/terra/reference/colors.html).
+  Should the coltab be used on the plot? See also
   [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md).
 
 - mask_projection:

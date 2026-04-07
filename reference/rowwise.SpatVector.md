@@ -44,7 +44,7 @@ rowwise(data, ...)
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
   you can not create new variables here but instead you can select
   multiple variables with (e.g.)
-  [`tidyselect::everything()`](https://tidyselect.r-lib.org/reference/everything.html).
+  [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
 
