@@ -31,6 +31,12 @@ air-breathing krill predators using acoustic data from the fishery.
 *Proceedings of the National Academy of Sciences*, *122*(25),
 e2417203122. <https://doi.org/10.1073/pnas.2417203122>
 
+Bausilio, G., Di Martire, D., Allocca, V., Coda, S., De Vita, P.,
+Guerriero, L., & Calcaterra, D. (2026). Integrated analysis for a
+resilient urban planning using ensemble modeling and machine learning
+algorithms. *International Journal of Disaster Risk Reduction*, *138*,
+106124. <https://doi.org/10.1016/j.ijdrr.2026.106124>
+
 Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
 and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
