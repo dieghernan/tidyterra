@@ -172,12 +172,12 @@ xtra |>
 \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
 
 Other \CRANpkg{tidyr} verbs for pivoting:
-\code{\link{pivot_longer.SpatVector}()}
+\code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}}
 
 Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
-\code{\link{fill.SpatVector}()},
-\code{\link{pivot_longer.SpatVector}()},
+\code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

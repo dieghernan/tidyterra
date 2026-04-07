@@ -88,13 +88,13 @@ v |> select(iso2, name2 = cpro)
 \seealso{
 \code{\link[dplyr:select]{dplyr::select()}}, \code{\link[terra:subset]{terra::subset()}}
 
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
+Other single table verbs:
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},
@@ -104,11 +104,11 @@ Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{rename.Spat}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -118,9 +118,9 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.cols}
 \concept{dplyr.methods}

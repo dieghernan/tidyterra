@@ -65,7 +65,7 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 You can also set this to one of "polygon", "line", and "point" to
 override the default legend.}
 
-\item{...}{Other arguments passed on to \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions.
+\item{...}{Other arguments passed on to \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like \code{colour = "red"} or \code{linewidth = 3}.}
 
@@ -112,16 +112,16 @@ to use \code{position_jitter()}, give the position as \code{"jitter"}.
 A \CRANpkg{ggplot2} layer
 }
 \description{
-Wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} family used to visualise \code{SpatVector}
+Wrappers of \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to visualise \code{SpatVector}
 objects (see \code{\link[terra:vect]{terra::vect()}}).
 }
 \details{
-These functions are wrappers of \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} functions. Since a
+These functions are wrappers of \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions. Since a
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \CRANpkg{ggplot2} treat a
-\code{SpatVector} in the same way that a \code{\link[sf:sf]{sf}} object. A side effect
-is that you can use \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} directly with \code{SpatVector} objects.
+\code{SpatVector} in the same way that a \code{\link[sf:st_sf]{sf}} object. A side effect
+is that you can use \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} directly with \code{SpatVector} objects.
 
-See \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
+See \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -170,14 +170,14 @@ ggplot(cyl) +
 }
 }
 \seealso{
-\code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}
+\code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}
 
 Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster}()},
-\code{\link{geom_spatraster_rgb}()},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=geom_spatraster]{geom_spatraster()}},
+\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}},
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 }
 \concept{ggplot2.utils}

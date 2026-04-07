@@ -92,7 +92,7 @@ green and blue channel.
 
 For plotting \code{SpatRaster} objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
 
-The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}.
+The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -113,7 +113,7 @@ When the \code{SpatRaster} does not present a CRS (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -147,7 +147,7 @@ ggplot(cyl_sf) +
 }
 }
 \seealso{
-\code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
+\code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
 
 You can get also RGB tiles from the \CRANpkg{maptiles} package, see
 \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
@@ -156,8 +156,8 @@ Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster}()},
+\code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link{ggspatvector}},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 }
 \concept{ggplot2.utils}

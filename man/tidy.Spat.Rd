@@ -62,9 +62,9 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 }
 \value{
 \code{\link[=tidy.SpatVector]{tidy.SpatVector()}}, \code{\link[=tidy.SpatGraticule]{tidy.SpatGraticule()}} and \code{\link[=tidy.SpatExtent]{tidy.SpatExtent()}}
-return a \code{\link[sf:sf]{sf}} object.
+return a \code{\link[sf:st_sf]{sf}} object.
 
-\code{\link[=tidy.SpatRaster]{tidy.SpatRaster()}} returns a \link[tibble:tbl_df-class]{tibble}. See \strong{Methods}.
+\code{\link[=tidy.SpatRaster]{tidy.SpatRaster()}} returns a \link[tibble:tbl_df]{tibble}. See \strong{Methods}.
 }
 \description{
 Turn \verb{Spat*} object into a tidy tibble. This is similar to
@@ -78,7 +78,7 @@ Implementation of the \strong{generic} \code{\link[generics:tidy]{generics::tidy
 \subsection{\code{SpatRaster}}{
 
 Return a tibble than can be used with \verb{ggplot2::geom_*} like
-\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, etc.
+\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, etc.
 
 The resulting tibble includes the coordinates on the columns \verb{x, y}. The
 values of each layer are included as additional columns named as per the
@@ -104,7 +104,7 @@ This option may be useful when using several \verb{geom_*} and for faceting.
 
 \subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
 
-Return a \code{\link[sf:sf]{sf}} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Return a \code{\link[sf:st_sf]{sf}} object than can be used with \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
 }
 }
 
@@ -156,10 +156,10 @@ Other \CRANpkg{generics} methods:
 \code{\link{required_pkgs.Spat}}
 
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_sf}()},
-\code{\link{as_spatraster}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}}
 }

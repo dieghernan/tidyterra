@@ -5,7 +5,7 @@
 \alias{princess_db}
 \title{Princess palettes database}
 \format{
-A \link[tibble:tbl_df-class]{tibble} of 75 rows and
+A \link[tibble:tbl_df]{tibble} of 75 rows and
 5 columns. with the following fields:
 
 \describe{
@@ -20,7 +20,7 @@ A \link[tibble:tbl_df-class]{tibble} of 75 rows and
 \url{https://leahsmyth.github.io/Princess-Colour-Schemes/index.html}.
 }
 \description{
-A \link[tibble:tbl_df-class]{tibble} including the color map of
+A \link[tibble:tbl_df]{tibble} including the color map of
 15 gradient palettes.
 }
 \examples{
@@ -49,7 +49,7 @@ p +
 \seealso{
 \code{\link[=scale_fill_princess_c]{scale_fill_princess_c()}}
 
-Other datasets: 
+Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},
 \code{\link{grass_db}},
 \code{\link{hypsometric_tints_db}},

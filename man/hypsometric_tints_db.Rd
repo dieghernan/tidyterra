@@ -5,7 +5,7 @@
 \alias{hypsometric_tints_db}
 \title{Hypsometric palettes database}
 \format{
-A \link[tibble:tbl_df-class]{tibble} of 1102 rows and
+A \link[tibble:tbl_df]{tibble} of 1102 rows and
 6 columns. with the following fields:
 
 \describe{
@@ -21,10 +21,10 @@ A \link[tibble:tbl_df-class]{tibble} of 1102 rows and
 cpt-city: \url{http://seaviewsensing.com/pub/cpt-city/}.
 }
 \description{
-A \link[tibble:tbl_df-class]{tibble} including the color map of
+A \link[tibble:tbl_df]{tibble} including the color map of
 33 gradient palettes. All the
 palettes includes also a definition of colors limits in terms of elevation
-(meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
+(meters), that can be used with \code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
 }
 \examples{
 \donttest{
@@ -60,7 +60,7 @@ p +
 \seealso{
 \code{\link[=scale_fill_hypso_c]{scale_fill_hypso_c()}}
 
-Other datasets: 
+Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},
 \code{\link{grass_db}},
 \code{\link{princess_db}},

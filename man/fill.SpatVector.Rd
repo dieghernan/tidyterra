@@ -81,8 +81,8 @@ Other \CRANpkg{tidyr} verbs for handling missing values:
 
 Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
-\code{\link{pivot_longer.SpatVector}()},
-\code{\link{pivot_wider.SpatVector}()},
+\code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

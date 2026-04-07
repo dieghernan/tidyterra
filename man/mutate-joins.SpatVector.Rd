@@ -115,7 +115,7 @@ Mutating joins add columns from \code{y} to \code{x}, matching observations base
 the keys. There are four mutating joins: the inner join, and the three outer
 joins.
 
-See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
+See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -126,7 +126,7 @@ See \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} for details.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:mutate-joins]{dplyr::inner_join()}} family
+Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inner_join()}} family
 \subsection{\code{SpatVector}}{
 
 The geometry column has a sticky behaviour. This means that the result would
@@ -191,8 +191,8 @@ ggplot(full, aes(x, y)) +
 }
 }
 \seealso{
-\code{\link[dplyr:mutate-joins]{dplyr::inner_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::left_join()}}, \code{\link[dplyr:mutate-joins]{dplyr::right_join()}},
-\code{\link[dplyr:mutate-joins]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
+\code{\link[dplyr:inner_join]{dplyr::inner_join()}}, \code{\link[dplyr:left_join]{dplyr::left_join()}}, \code{\link[dplyr:right_join]{dplyr::right_join()}},
+\code{\link[dplyr:full_join]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
 Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
@@ -200,11 +200,11 @@ Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{filter-joins.SpatVector}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -213,10 +213,10 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.methods}
 \concept{dplyr.pairs}

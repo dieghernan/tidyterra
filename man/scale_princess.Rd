@@ -182,7 +182,7 @@ scales are provided:
 }
 
 Additionally, a color palette \code{princess.colors()} is provided. See also
-\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+\code{\link[grDevices:terrain.colors]{grDevices::terrain.colors()}} for details.
 
 Additional arguments \code{...} would be passed on to:
 \itemize{
@@ -251,12 +251,12 @@ for (i in pals) {
 par(opar)
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_color_coltab}()},
+\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},

@@ -196,7 +196,7 @@ aesthetics.
 
 These geom computes internally some variables that are available for use as
 aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
-\code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
+\code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
 \item \code{after_stat(lyr)}: Name of the layer.
 \item \code{after_stat(level)}: Height of contour. For contour lines, this is numeric
@@ -224,7 +224,7 @@ When the \code{SpatRaster} does not present a CRS (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -302,9 +302,9 @@ The \CRANpkg{metR} package also provides a set of alternative functions:
 Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
-\code{\link{geom_spatraster}()},
-\code{\link{geom_spatraster_rgb}()},
+\code{\link[=geom_spatraster]{geom_spatraster()}},
+\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}},
 \code{\link{ggspatvector}},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 }
 \concept{ggplot2.utils}

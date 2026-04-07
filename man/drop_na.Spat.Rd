@@ -132,13 +132,13 @@ r |>
 \code{\link[tidyr:drop_na]{tidyr::drop_na()}}
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
-\code{\link{fill.SpatVector}()},
+\code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link{replace_na.Spat}}
 
 Other \CRANpkg{tidyr} methods:
-\code{\link{fill.SpatVector}()},
-\code{\link{pivot_longer.SpatVector}()},
-\code{\link{pivot_wider.SpatVector}()},
+\code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

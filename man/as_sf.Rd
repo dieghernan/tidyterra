@@ -2,7 +2,7 @@
 % Please edit documentation in R/as-sf.R
 \name{as_sf}
 \alias{as_sf}
-\title{Coerce a \code{SpatVector} to a \code{\link[sf:sf]{sf}} object}
+\title{Coerce a \code{SpatVector} to a \code{\link[sf:st_sf]{sf}} object}
 \usage{
 as_sf(x, ...)
 }
@@ -12,11 +12,11 @@ as_sf(x, ...)
 \item{...}{additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
-A \code{\link[sf:sf]{sf}} object object with an additional \code{tbl_df} class, for
+A \code{\link[sf:st_sf]{sf}} object object with an additional \code{tbl_df} class, for
 pretty printing method.
 }
 \description{
-\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \code{\link[sf:sf]{sf}} object. This is a wrapper
+\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \code{\link[sf:st_sf]{sf}} object. This is a wrapper
 of \code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} are preserved.
 }
@@ -59,9 +59,9 @@ group_data(a_gr_sf)
 }
 \seealso{
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_spatraster}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{tidy.Spat}}

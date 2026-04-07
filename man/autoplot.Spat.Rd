@@ -36,7 +36,7 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
 
 \item{use_coltab}{Logical. Should be plotted with the corresponding
-\code{\link[terra:colors]{terra::coltab()}}? If \code{NULL} (the default) \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would
+\code{\link[terra:coltab]{terra::coltab()}}? If \code{NULL} (the default) \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would
 try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{facets}{Logical. Should facets be displayed? If \code{NULL} (the default)
@@ -110,10 +110,10 @@ v |> autoplot(aes(fill = cpro)) +
 Other \CRANpkg{ggplot2} utils:
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster}()},
-\code{\link{geom_spatraster_rgb}()},
+\code{\link[=geom_spatraster]{geom_spatraster()}},
+\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}},
 \code{\link{ggspatvector}},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 
 Other \CRANpkg{ggplot2} methods:
 \code{\link{fortify.Spat}}

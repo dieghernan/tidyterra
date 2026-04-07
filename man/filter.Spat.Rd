@@ -44,7 +44,7 @@ for \code{filter_out()}).
 
 Multiple conditions can be supplied separated by a comma. These will be
 combined with the \code{&} operator. To combine comma separated conditions using
-\code{|} instead, wrap them in \code{\link[dplyr:when-any-all]{dplyr::when_any()}}.
+\code{|} instead, wrap them in \code{\link[dplyr:when_any]{dplyr::when_any()}}.
 
 Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. This subtle
 behaviour can impact how you write your conditions when missing values are
@@ -127,25 +127,25 @@ v |> filter_out(cpro >= 10)
 \seealso{
 \code{\link[dplyr:filter]{dplyr::filter()}}
 
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
+Other single table verbs:
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{mutate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} verbs that operate on rows:
-\code{\link{arrange.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{slice.Spat}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
@@ -154,10 +154,10 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}

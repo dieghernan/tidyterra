@@ -119,19 +119,19 @@ p |>
 }
 }
 \seealso{
-\code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:group_by]{dplyr::ungroup()}}
+\code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:ungroup]{dplyr::ungroup()}}
 
 Other \CRANpkg{dplyr} verbs that operate on group of rows:
-\code{\link{count.SpatVector}()},
-\code{\link{rowwise.SpatVector}()},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -140,10 +140,10 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.groups}
 \concept{dplyr.methods}

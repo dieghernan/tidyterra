@@ -170,12 +170,12 @@ cyl_temp |>
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}
 
 Other \CRANpkg{tidyr} verbs for pivoting:
-\code{\link{pivot_wider.SpatVector}()}
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
 
 Other \CRANpkg{tidyr} methods:
 \code{\link{drop_na.Spat}},
-\code{\link{fill.SpatVector}()},
-\code{\link{pivot_wider.SpatVector}()},
+\code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
 \code{\link{replace_na.Spat}}
 }
 \concept{tidyr.methods}

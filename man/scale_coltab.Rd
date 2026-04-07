@@ -29,7 +29,7 @@ get_coltab_pal(x)
 }
 \arguments{
 \item{data, x}{A \code{SpatRaster} with one or several color tables.
-See \code{\link[terra:colors]{terra::has.colors()}}.}
+See \code{\link[terra:has.colors]{terra::has.colors()}}.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale}}
@@ -105,7 +105,7 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \description{
 Some categorical \code{SpatRaster} objects may have an associated color table.
 This function extract those values. These functions generates scales and
-vector of colors based on the color table \code{\link[terra:colors]{terra::coltab()}} associated to a
+vector of colors based on the color table \code{\link[terra:coltab]{terra::coltab()}} associated to a
 \code{SpatRaster}.
 
 You can also get a vector of colors named with the corresponding
@@ -148,6 +148,6 @@ gg +
 }
 }
 \seealso{
-\code{\link[terra:colors]{terra::coltab()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},
-\code{\link[ggplot2:scale_manual]{ggplot2::scale_fill_manual()}},
+\code{\link[terra:coltab]{terra::coltab()}}, \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}},
+\code{\link[ggplot2:scale_fill_manual]{ggplot2::scale_fill_manual()}},
 }

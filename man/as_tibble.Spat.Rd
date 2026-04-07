@@ -54,7 +54,7 @@ to enforce them.}
 \item{geom}{character or NULL. If not NULL, either "WKT" or "HEX", to get the geometry included in Well-Known-Text or hexadecimal notation. If \code{x} has point geometry, it can also be "XY" to add the coordinates of each point}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble}.
+A \link[tibble:tbl_df]{tibble}.
 }
 \description{
 \code{\link[=as_tibble]{as_tibble()}} methods for \code{SpatRaster} and \code{SpatVector} objects.
@@ -128,10 +128,10 @@ as_tibble(v)
 \code{\link[tibble:as_tibble]{tibble::as_tibble()}}, \code{\link[terra:as.data.frame]{terra::as.data.frame()}}
 
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_sf}()},
-\code{\link{as_spatraster}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{fortify.Spat}},
 \code{\link{tidy.Spat}}
 }

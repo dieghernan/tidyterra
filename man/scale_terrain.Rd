@@ -200,11 +200,11 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2} docs
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2} docs
 on additional \code{...} arguments.
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_color_coltab}()},
+\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},

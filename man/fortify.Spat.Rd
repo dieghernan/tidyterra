@@ -65,9 +65,9 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}}, \code{\link[=fortify.SpatGraticule]{fortify.SpatGraticule()}} and \code{\link[=fortify.SpatExtent]{fortify.SpatExtent()}}
-return a \code{\link[sf:sf]{sf}} object.
+return a \code{\link[sf:st_sf]{sf}} object.
 
-\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \link[tibble:tbl_df-class]{tibble}. See \strong{Methods}.
+\code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \link[tibble:tbl_df]{tibble}. See \strong{Methods}.
 }
 \description{
 Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provide
@@ -83,7 +83,7 @@ Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::for
 \subsection{\code{SpatRaster}}{
 
 Return a tibble than can be used with \verb{ggplot2::geom_*} like
-\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, etc.
+\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, etc.
 
 The resulting tibble includes the coordinates on the columns \verb{x, y}. The
 values of each layer are included as additional columns named as per the
@@ -110,7 +110,7 @@ This option may be useful when using several \verb{geom_*} and for faceting, see
 
 \subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
 
-Return a \code{\link[sf:sf]{sf}} object than can be used with \code{\link[ggplot2:ggsf]{ggplot2::geom_sf()}}.
+Return a \code{\link[sf:st_sf]{sf}} object than can be used with \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
 }
 }
 
@@ -169,19 +169,19 @@ ggplot(ex, crs = cyl) +
 Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster}()},
-\code{\link{geom_spatraster_rgb}()},
+\code{\link[=geom_spatraster]{geom_spatraster()}},
+\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}},
 \code{\link{ggspatvector}},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 
 Other \CRANpkg{ggplot2} methods:
 \code{\link{autoplot.Spat}}
 
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_sf}()},
-\code{\link{as_spatraster}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{tidy.Spat}}
 }

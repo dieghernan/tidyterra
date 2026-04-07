@@ -16,7 +16,7 @@ of variables whose combination uniquely identify each row. See
 
 \strong{NB}: unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} you can not create new variables
 here but instead you can select multiple variables with (e.g.)
-\code{\link[tidyselect:everything]{tidyselect::everything()}}.}
+\code{\link[tidyselect:everything]{everything()}}.}
 }
 \value{
 The same \code{SpatVector} object with an additional attribute.
@@ -100,16 +100,16 @@ v |>
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}
 
 Other \CRANpkg{dplyr} verbs that operate on group of rows:
-\code{\link{count.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
 \code{\link{group-by.SpatVector}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -121,7 +121,7 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.groups}
 \concept{dplyr.methods}

@@ -193,7 +193,7 @@ See \strong{Methods} for details.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:subset]{terra::subset()}}, \code{\link[terra:sample]{terra::spatSample()}}
+\code{\link[terra:subset]{terra::subset()}}, \code{\link[terra:spatSample]{terra::spatSample()}}
 }
 
 \section{Methods}{
@@ -281,32 +281,32 @@ gv |>
 }
 }
 \seealso{
-\code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:sample]{terra::spatSample()}}.
+\code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:spatSample]{terra::spatSample()}}.
 
 You can get a skeleton of your \code{SpatRaster} with the cell, column and row
 index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 If you want to slice by geographic coordinates use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
+Other single table verbs:
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} verbs that operate on rows:
-\code{\link{arrange.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter.Spat}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -316,9 +316,9 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}

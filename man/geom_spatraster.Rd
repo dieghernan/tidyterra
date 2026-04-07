@@ -60,7 +60,7 @@ than combining with them.}
 the plot.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
-an associated \link[terra:colors]{coltab}. Should the coltab be used on the
+an associated \link[terra:coltab]{coltab}. Should the coltab be used on the
 plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
@@ -111,7 +111,7 @@ does.
 For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster}), use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 
-The underlying implementation is based on \code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}.
+The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
 \code{stat_spatraster()} is provided as a complementary function, so the \code{geom}
 can be modified.
@@ -129,7 +129,7 @@ When the \code{SpatRaster} does not present a CRS (i.e.,
 \code{terra::crs(rast) == ""}) the geom does not make any assumption on the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}} to
+On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
 adjust the scales. That means that also the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -194,7 +194,7 @@ the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet
 
 This geom computes internally some variables that are available for use as
 aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
-\code{\link[ggplot2:aes_eval]{ggplot2::after_stat()}}).
+\code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
 \item \code{after_stat(value)}: Values of the \code{SpatRaster.}
 \item \code{after_stat(lyr)}: Name of the layer.
@@ -279,13 +279,13 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[ggplot2:geom_tile]{ggplot2::geom_raster()}}, \code{\link[ggplot2:ggsf]{ggplot2::coord_sf()}},
+\code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}},
 \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}
 
 Recommended \code{geoms}:
 \itemize{
 \item \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}.
-\item \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}.
+\item \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}.
 \item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
 }
 
@@ -293,8 +293,8 @@ Other \CRANpkg{ggplot2} utils:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
-\code{\link{geom_spatraster_rgb}()},
+\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}},
 \code{\link{ggspatvector}},
-\code{\link{stat_spat_coordinates}()}
+\code{\link[=stat_spat_coordinates]{stat_spat_coordinates()}}
 }
 \concept{ggplot2.utils}

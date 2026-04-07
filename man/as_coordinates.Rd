@@ -13,7 +13,7 @@ as_coordinates(x, as.raster = FALSE)
 layers indicating the position of each cell (cell number, row and column).}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
+A \link[tibble:tbl_df]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
 the same number of rows (or cells) than the number of cells in \code{x}.
 
 When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same CRS,
@@ -41,9 +41,9 @@ as_coordinates(r, as.raster = TRUE) |> plot()
 \code{\link[=slice.SpatRaster]{slice.SpatRaster()}}
 
 Coercing objects:
-\code{\link{as_sf}()},
-\code{\link{as_spatraster}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{tidy.Spat}}

@@ -22,10 +22,10 @@ Derived from \url{https://github.com/OSGeo/grass/tree/main/lib/gis/colors}. See
 also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
 }
 \description{
-A \link[tibble:tbl_df-class]{tibble} including the color map of
+A \link[tibble:tbl_df]{tibble} including the color map of
 51 gradient palettes. Some palettes includes
 also a definition of colors limits that can be used with
-\code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
+\code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
 }
 \details{
 Summary of palettes provided, description and recommended use:\tabular{llll}{
@@ -86,7 +86,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:mappal]{terra::map.pal()}}
+\code{\link[terra:map.pal]{terra::map.pal()}}
 }
 
 \examples{
@@ -129,7 +129,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 \seealso{
 \code{\link[=scale_fill_grass_c]{scale_fill_grass_c()}}
 
-Other datasets: 
+Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},
 \code{\link{hypsometric_tints_db}},
 \code{\link{princess_db}},

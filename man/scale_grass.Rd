@@ -204,7 +204,7 @@ following fill scales and palettes are provided:
 \item \verb{scale_*_grass_c()}: For continuous values.
 \item \verb{scale_*_grass_b()}: For binning continuous values.
 \item \code{grass.colors()}: Gradient color palette. See also
-\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+\code{\link[grDevices:terrain.colors]{grDevices::terrain.colors()}} for details.
 }
 
 Additional arguments \code{...} would be passed on to:
@@ -218,7 +218,7 @@ Additional arguments \code{...} would be passed on to:
 additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 see the full range of arguments accepted by these scales.
 
-These palettes are an implementation of \code{\link[terra:mappal]{terra::map.pal()}}, that is the
+These palettes are an implementation of \code{\link[terra:map.pal]{terra::map.pal()}}, that is the
 default color palettes provided by \code{\link[terra:plot]{terra::plot()}} (\CRANpkg{terra}
 \verb{> 1.7.78}).
 }
@@ -236,7 +236,7 @@ pixels in the plot.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:mappal]{terra::map.pal()}}
+\code{\link[terra:map.pal]{terra::map.pal()}}
 }
 
 \examples{
@@ -350,12 +350,12 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 }
 \seealso{
 \link{grass_db}, \code{\link[terra:plot]{terra::plot()}},
-\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}.
+\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments:
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_color_coltab}()},
+\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_hypso}},
 \code{\link{scale_princess}},

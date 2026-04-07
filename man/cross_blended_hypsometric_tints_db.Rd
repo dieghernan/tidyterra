@@ -27,10 +27,10 @@ Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69),
 }
 }
 \description{
-A \link[tibble:tbl_df-class]{tibble} including the color map of
+A \link[tibble:tbl_df]{tibble} including the color map of
 4 gradient palettes.
 All the palettes includes also a definition of colors limits in terms of
-elevation (meters), that can be used with \code{\link[ggplot2:scale_gradient]{ggplot2::scale_fill_gradientn()}}.
+elevation (meters), that can be used with \code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
 }
 \details{
 From Patterson & Jenny (2011):
@@ -79,7 +79,7 @@ p +
 \seealso{
 \code{\link[=scale_fill_cross_blended_c]{scale_fill_cross_blended_c()}}
 
-Other datasets: 
+Other datasets:
 \code{\link{grass_db}},
 \code{\link{hypsometric_tints_db}},
 \code{\link{princess_db}},

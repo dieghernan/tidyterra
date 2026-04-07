@@ -22,6 +22,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Diego Hernangómez \email{diego.hernangomezherrero@gmail.com} (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [copyright holder]
 
+Authors:
+\itemize{
+  \item Diego Hernangómez \email{diego.hernangomezherrero@gmail.com} (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [copyright holder]
+}
+
 Other contributors:
 \itemize{
   \item Dewey Dunnington (\href{https://orcid.org/0000-0002-9415-4582}{ORCID}) (for ggspatial code) [contributor]

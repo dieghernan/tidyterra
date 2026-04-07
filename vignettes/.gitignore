@@ -5,3 +5,4 @@
 *_files
 _quarto.yaml
 _quarto.yml
+*.rmarkdown

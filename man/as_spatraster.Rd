@@ -7,7 +7,7 @@
 as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 }
 \arguments{
-\item{x}{A \link[tibble:tbl_df-class]{tibble} or data frame.}
+\item{x}{A \link[tibble:tbl_df]{tibble} or data frame.}
 
 \item{...}{additional arguments passed on to \code{\link[terra:rast]{terra::rast()}}.}
 
@@ -27,7 +27,7 @@ on a regular grid (a low number of digits is a low precision).}
 A \code{SpatRaster}.
 }
 \description{
-\code{as_spatraster()} turns an existing data frame or \link[tibble:tbl_df-class]{tibble}
+\code{as_spatraster()} turns an existing data frame or \link[tibble:tbl_df]{tibble}
 into a \code{SpatRaster}. This is a wrapper of \code{\link[terra:rast]{terra::rast()}} S4 method for
 signature \code{data.frame}.
 }
@@ -64,9 +64,9 @@ newrast
 and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_sf}()},
-\code{\link{as_spatvector}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatvector]{as_spatvector()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{tidy.Spat}}

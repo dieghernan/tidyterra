@@ -72,7 +72,7 @@ A \verb{Spat*} object of the same class than \code{.data}. See \strong{Methods}.
 
 
 Some \CRANpkg{terra} methods for modifying cell values:
-\code{\link[terra:ifelse]{terra::ifel()}}, \code{\link[terra:classify]{terra::classify()}}, \code{\link[terra:clamp]{terra::clamp()}}, \code{\link[terra:app]{terra::app()}},
+\code{\link[terra:ifel]{terra::ifel()}}, \code{\link[terra:classify]{terra::classify()}}, \code{\link[terra:clamp]{terra::clamp()}}, \code{\link[terra:app]{terra::app()}},
 \code{\link[terra:lapp]{terra::lapp()}}, \code{\link[terra:tapp]{terra::tapp()}}
 }
 
@@ -122,19 +122,19 @@ v |>
 
 \CRANpkg{terra} provides several ways to modify \verb{Spat*} objects:
 \itemize{
-\item \code{\link[terra:ifelse]{terra::ifel()}}.
+\item \code{\link[terra:ifel]{terra::ifel()}}.
 \item \code{\link[terra:classify]{terra::classify()}}.
 \item \code{\link[terra:clamp]{terra::clamp()}}.
 \item \code{\link[terra:app]{terra::app()}}, \code{\link[terra:lapp]{terra::lapp()}}, \code{\link[terra:tapp]{terra::tapp()}}.
 }
 
-Other single table verbs: 
-\code{\link{arrange.SpatVector}()},
+Other single table verbs:
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},
@@ -144,11 +144,11 @@ Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{select.Spat}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
@@ -157,10 +157,10 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.cols}
 \concept{dplyr.methods}

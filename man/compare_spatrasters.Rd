@@ -36,7 +36,7 @@ This function compares those attributes informing of the results. See
 \item On \strong{non-equal CRS}, try \code{\link[terra:project]{terra::project()}}.
 \item On \strong{non-equal extent} try \code{\link[terra:resample]{terra::resample()}}.
 \item On \strong{non-equal resolution} you can try \code{\link[terra:resample]{terra::resample()}},
-\code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disaggregate]{terra::disagg()}}.
+\code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disagg]{terra::disagg()}}.
 }
 }
 
@@ -71,9 +71,9 @@ compare_spatrasters(x, project(x, "epsg:3035"))
 \seealso{
 \code{\link[terra:identical]{terra::identical()}}
 
-Other helpers: 
-\code{\link{is_grouped_spatvector}()},
-\code{\link{is_regular_grid}()},
-\code{\link{pull_crs}()}
+Other helpers:
+\code{\link[=is_grouped_spatvector]{is_grouped_spatvector()}},
+\code{\link[=is_regular_grid]{is_regular_grid()}},
+\code{\link[=pull_crs]{pull_crs()}}
 }
 \concept{helpers}

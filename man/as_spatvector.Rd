@@ -19,8 +19,8 @@ as_spatvector(x, ...)
 \method{as_spatvector}{SpatVector}(x, ...)
 }
 \arguments{
-\item{x}{A \link[tibble:tbl_df-class]{tibble}, data frame or \CRANpkg{sf} object of
-class \code{\link[sf:sf]{sf}} or \code{\link[sf:sfc]{sfc}}.}
+\item{x}{A \link[tibble:tbl_df]{tibble}, data frame or \CRANpkg{sf} object of
+class \code{\link[sf:st_sf]{sf}} or \code{\link[sf:st_sfc]{sfc}}.}
 
 \item{...}{additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 
@@ -83,9 +83,9 @@ newvect
 and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
-\code{\link{as_coordinates}()},
-\code{\link{as_sf}()},
-\code{\link{as_spatraster}()},
+\code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=as_sf]{as_sf()}},
+\code{\link[=as_spatraster]{as_spatraster()}},
 \code{\link{as_tibble.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{tidy.Spat}}

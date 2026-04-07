@@ -77,7 +77,7 @@ r |>
   glimpse(xy = TRUE)
 }
 \seealso{
-\code{\link[tibble:formatting]{tibble::print.tbl_df()}}
+\code{\link[tibble:print.tbl_df]{tibble::print.tbl_df()}}
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{mutate.Spat}},
@@ -87,11 +87,11 @@ Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{select.Spat}}
 
 Other \CRANpkg{dplyr} methods:
-\code{\link{arrange.SpatVector}()},
+\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
-\code{\link{count.SpatVector}()},
-\code{\link{distinct.SpatVector}()},
+\code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{group-by.SpatVector}},
@@ -100,10 +100,10 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
-\code{\link{rowwise.SpatVector}()},
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
-\code{\link{summarise.SpatVector}()}
+\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 }
 \concept{dplyr.cols}
 \concept{dplyr.methods}

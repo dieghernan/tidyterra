@@ -171,7 +171,7 @@ Three scales are provided:
 }
 
 Additionally, a color palette \code{wiki.colors()} is provided. See also
-\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+\code{\link[grDevices:terrain.colors]{grDevices::terrain.colors()}} for details.
 
 Additional arguments \code{...} would be passed on to:
 \itemize{
@@ -219,7 +219,7 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 

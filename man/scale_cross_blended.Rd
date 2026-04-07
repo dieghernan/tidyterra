@@ -269,7 +269,7 @@ Implementation of the cross blended hypsometric gradients presented on
 \item \verb{scale_*_cross_blended_c()}: For continuous values.
 \item \verb{scale_*_cross_blended_b()}: For binning continuous values.
 \item \code{cross_blended.colors()}: A gradient color palette. See also
-\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+\code{\link[grDevices:terrain.colors]{grDevices::terrain.colors()}} for details.
 }
 
 An additional set of scales is provided. These scales can act as
@@ -279,7 +279,7 @@ An additional set of scales is provided. These scales can act as
 \item \verb{scale_*_cross_blended_tint_c()}: For continuous values.
 \item \verb{scale_*_cross_blended_tint_b()}: For binning continuous values.
 \item \code{cross_blended.colors2()}: A gradient color palette. See also
-\code{\link[grDevices:palettes]{grDevices::terrain.colors()}} for details.
+\code{\link[grDevices:terrain.colors]{grDevices::terrain.colors()}} for details.
 }
 
 See \strong{Details}.
@@ -446,12 +446,12 @@ par(opar)
 }
 \seealso{
 \link{cross_blended_hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}},
-\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_viridis]{ggplot2::scale_fill_viridis_c()}}.
+\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
 Other gradient scales and palettes for hypsometry:
-\code{\link{scale_color_coltab}()},
+\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},
 \code{\link{scale_princess}},
