@@ -127,7 +127,7 @@
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of the geometry.</p></li>
 <li><p><code>SpatRaster</code>: The implementation on <code>SpatRaster</code> objects differs, since the methods could be applied to layers or to cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a <code>SpatRaster</code>).</p></li>
 </ul>
-<p>The methods implemented return the same type of object used as input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> would return a tibble).</p>
+<p>The implemented methods return the same type of object as the input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble).</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
 <table class="table">
 <colgroup>
@@ -154,7 +154,7 @@
 <tr class="odd">
 <td><code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code></td>
 <td>✔️</td>
-<td>✔️ Create /modify layers</td>
+<td>✔️ Create/modify layers</td>
 </tr>
 <tr class="even">
 <td><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">dplyr::transmute()</a></code></td>
@@ -318,8 +318,8 @@ A note on performance
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>tidyterra</strong> is conceived as a user-friendly wrapper of <strong>terra</strong> using the <strong>tidyverse</strong> methods and verbs. This approach therefore has a <strong>cost in terms of performance</strong>.</p>
-<p>If you are a <strong>heavy user</strong> of <strong>terra</strong> or you need to work with <strong>big raster files</strong>, <strong>terra</strong> is much more performant. When possible, each function of <strong>tidyterra</strong> refers to its equivalent on <strong>terra</strong>.</p>
-<p>As a rule of thumb if your raster has less than 10,000,000 data slots counting cells and layers (i.e. <code>terra::ncell(your_rast)*terra::nlyr(your_rast) &lt; 10e6</code>) you are good to go with <strong>tidyterra</strong>.</p>
+<p>If you frequently use <strong>terra</strong> or work with large raster files, <strong>terra</strong> is much more performant. Whenever possible, each <strong>tidyterra</strong> function refers to its equivalent on <strong>terra</strong>.</p>
+<p>As a rule of thumb, if your raster has fewer than 10,000,000 data slots (i.e. <code>terra::ncell(your_rast) * terra::nlyr(your_rast) &lt; 1e7</code>), <strong>tidyterra</strong> is a good fit.</p>
 <p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
 </div>
 </div>

@@ -161,7 +161,7 @@ return a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class=
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Return a tibble than can be used with <code>ggplot2::geom_*</code> like
+<p>Return a tibble that can be used with <code>ggplot2::geom_*</code> like
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">ggplot2::geom_point()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, etc.</p>
 <p>The resulting tibble includes the coordinates on the columns <code>x, y</code>. The
 values of each layer are included as additional columns named as per the
@@ -171,7 +171,7 @@ name of the layer on the <code>SpatRaster</code>.</p>
 <p>It is possible to convert the fortified object onto a <code>SpatRaster</code> again with
 <code><a href="as_spatraster.html">as_spatraster()</a></code>.</p>
 <p>When <code>pivot = TRUE</code> the <code>SpatRaster</code> is fortified in a "long" format (see
-<code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The fortified object would have the following
+<code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The fortified object has the following
 columns:</p><ul><li><p><code>x,y</code>: Coordinates (center) of the cell on the corresponding CRS.</p></li>
 <li><p><code>lyr</code>: Indicating the name of the <code>SpatRaster</code> layer of <code>value</code>.</p></li>
 <li><p><code>value</code>: The value of the <code>SpatRaster</code> in the corresponding <code>lyr</code>.</p></li>
@@ -183,7 +183,7 @@ columns:</p><ul><li><p><code>x,y</code>: Coordinates (center) of the cell on the
 <h3 id="spatvector-spatgraticule-and-spatextent"><code>SpatVector</code>, <code>SpatGraticule</code> and <code>SpatExtent</code><a class="anchor" aria-label="anchor" href="#spatvector-spatgraticule-and-spatextent"></a></h3>
 
 
-<p>Return a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object than can be used with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>
+<p>Return a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object that can be used with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>
 </div>
 
     </div>

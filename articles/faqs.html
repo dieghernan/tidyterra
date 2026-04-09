@@ -106,7 +106,7 @@
 
 
 
-    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and their solutions (primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>). You can ask for help or search previous questions using the following links.</p>
+    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and their solutions, primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a Bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -120,11 +120,11 @@
 </section><section class="level4"><h4 id="about-the-file">About the file<a class="anchor" aria-label="anchor" href="#about-the-file"></a>
 </h4>
 <p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, pretty much as the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
-<p>The original file has been cropped and down-sampled for demo purposes, <code>holyroodpark.tif</code> is available online in <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a> folder.</p>
+<p>The original file has been cropped and down-sampled for demo purposes. <code>holyroodpark.tif</code> is available online in the <code>data-raw</code> folder at <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>.</p>
 </section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray color<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior produced by the <strong>ggplot2</strong> package. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.), have by default the argument <code>na.value</code> set to <code>"transparent"</code>, that prevents <code>NA</code> values to be filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the same purpose in most of the cases, However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.) have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the same purpose in most of the cases, However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -896,7 +896,7 @@ Figure 11: Animation of average monthly temperatures.
 <span>    width_hint <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
 <span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
-<span>    text_cex <span class="op">=</span> <span class="fl">.8</span></span>
+<span>    text_cex <span class="op">=</span> <span class="fl">0.8</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-northarrow" class="quarto-float quarto-figure quarto-figure-center">

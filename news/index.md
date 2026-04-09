@@ -15,10 +15,10 @@ CRAN release: 2026-03-11
 
 ### Changes in arguments
 
-- In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
+- In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
-  this was implemented in version 1.0.0. Now it has been extended to the
-  following **tidyterra** methods as new arguments
+  this was implemented in version 1.0.0. The following **tidyterra**
+  methods now also support it as new arguments
   ([\#193](https://github.com/dieghernan/tidyterra/issues/193)):
   - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md).
   - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
@@ -36,15 +36,15 @@ CRAN release: 2026-03-11
     `.preserve` argument support added (previously it was ignored).
     - In
       [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md):
-      - `wt` argument for performing weighted counts supported.
-      - `.drop` argument deprecated, (it never really worked).
+      - The `wt` argument for weighted counts is now supported.
+      - The `.drop` argument is deprecated (it never really worked).
 
 ### Deprecations
 
 - [`?transmute.Spat`](https://dieghernan.github.io/tidyterra/reference/transmute.Spat.md)
-  is marked as superseded, as in
+  is now marked as superseded, following
   [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-  **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+  in **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
 
 ### Other changes
 
@@ -73,7 +73,7 @@ CRAN release: 2026-01-23
   - [`?glance.Spat`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md).
   - [`?required_pkgs.Spat`](https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.md).
 - [`?fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
-  methods now uses
+  methods now use
   [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
   methods under the hood:
   - New
@@ -124,18 +124,17 @@ CRAN release: 2025-02-03
   [`terra::combineLevels()`](https://rspatial.github.io/terra/reference/factors.html)
   (**terra** \>= `1.8-10`). See
   <https://stackoverflow.com/questions/79340152>.
-- Now `scales` that uses limits truncate the legend when `limits`
+- `scales` that use limits now truncate the legend when the `limits`
   argument is provided
   ([\#165](https://github.com/dieghernan/tidyterra/issues/165)
   [@Fan-iX](https://github.com/Fan-iX)). Scales impacted:
   - `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
   - `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
   - `scale_*_grass_c` and `scale_*_grass_b`.
-- Now
-  [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
-  (and overall pivoting of `SpatRaster` is less strict with different
-  layer classes: if several layers can be defined as numeric
-  (i.e. `double`, `integer` and `numeric`) the pivoting (and therefore
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
+  and the overall pivoting of `SpatRaster` are now less strict with
+  different layer classes: if several layers can be defined as numeric
+  (i.e. `double`, `integer` and `numeric`), the pivoting (and therefore
   the plot) can be performed. This is consistent with
   [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
   behavior (<https://stackoverflow.com/questions/79292989>).

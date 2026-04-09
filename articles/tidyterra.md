@@ -11,9 +11,9 @@ packages included in the **tidyverse** ([Wickham et al.
 2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
 2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
 2023](#ref-R-tidyr)), or **tibble** ([Müller and Wickham
-2023](#ref-R-tibble)). This addition enables users that are already
-familiar with the **tidyverse** to approach spatial data manipulation
-and analysis more easily and much faster.
+2023](#ref-R-tibble)). This This makes spatial data manipulation and
+analysis easier and faster for users already familiar with the
+**tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2**
 package ([Wickham 2016](#ref-R-ggplot2)) by providing additional `geoms`
@@ -100,23 +100,21 @@ hypsometric tints described by Patterson and Jenny
 
 ## A note on performance
 
-The development philosophy of **tidyterra** consists on adapting
-**terra** objects to data frame-like structures by performing different
-data transformations, that ultimately may impact in the performance of
-the package.
+The development philosophy of **tidyterra** is to adapt **terra**
+objects to data frame-like structures by performing data
+transformations, which can affect performance.
 
-When manipulating large raster files (i.e. more than 10.000.000 cells),
-it is recommended to use the native **terra** syntax, that is
-specifically designed for handling this type of files. In the case of
-plotting, the default behavior of the geoms provided is to resample
-`SpatRaster` that presents more than 500.000 cells to speed up the
-process (as the
+When manipulating large raster files (i.e. more than 10,000,000 cells),
+it is recommended to use native **terra** syntax, which is specially
+designed for handling this type of data. For plotting, the geoms
+resample `SpatRaster` objects with more than 500,000 cells by default to
+speed up rendering (as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
-does), however this upper limit can be modified using the `maxcell`
-argument of the geom function.
+does); you can override this upper limit with the geom’s `maxcell`
+argument.
 
-Note also that when possible, the help page of each function of
-**tidyterra** references its equivalent in **terra**.
+Also note that, when possible, each **tidyterra** help page references
+its equivalent **terra** function.
 
 ## Example of use
 
@@ -128,7 +126,7 @@ easily installed using the following commands in **R**:
 install.packages("tidyterra")
 ```
 
-The latest developing version is hosted in
+The latest development version is hosted on
 [GitHub](https://github.com/dieghernan/tidyterra) and can be installed
 using the following command in **R**:
 
@@ -144,7 +142,7 @@ function:
 
 ``` r
 library(tidyterra)
-library(tidyverse) # Load all the packages of tidyverse at once
+library(tidyverse) # Load all tidyverse packages at once
 library(scales) # Additional library for labels
 
 # Temperatures in Castille and Leon (selected months)
@@ -179,13 +177,13 @@ ggplot() +
 
 Faceted map with multi-layer raster file.
 
-In the following example we combine a common **dplyr** workflow
+In the following example, we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
-[`select()`](https://dplyr.tidyverse.org/reference/select.html)) and we
-plot the result. In this case the plot is a contour plot of the original
-`SpatRaster` using
-[`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)and
-it also includes an overlay of a `SpatVector` for reference:
+[`select()`](https://dplyr.tidyverse.org/reference/select.html)) and
+plot the result. In this case, the plot is a contour plot of the
+original `SpatRaster` using
+[`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
+and it also includes an overlay of a `SpatVector` for reference:
 
 ``` r
 # Compute the variation between April and June and apply a different palette

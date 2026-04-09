@@ -32,7 +32,7 @@ select(.data, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -47,7 +47,7 @@ method.
 ### `SpatRaster`
 
 Select (and rename) layers of a `SpatRaster`. The result is a
-`SpatRaster` with the same extent, resolution and CRS than `.data`. Only
+`SpatRaster` with the same extent, resolution and CRS as `.data`. Only
 the number (and possibly the name) of layers is modified.
 
 ### `SpatVector`

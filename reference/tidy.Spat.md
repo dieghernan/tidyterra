@@ -112,7 +112,7 @@ method.
 
 ### `SpatRaster`
 
-Return a tibble than can be used with `ggplot2::geom_*` like
+Return a tibble that can be used with `ggplot2::geom_*` like
 [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html),
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
 etc.
@@ -129,7 +129,7 @@ It is possible to convert the tidy object onto a `SpatRaster` again with
 
 When `pivot = TRUE` the `SpatRaster` is provided in a "long" format (see
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
-The tidy object would have the following columns:
+The tidy object has the following columns:
 
 - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
 
@@ -142,7 +142,7 @@ This option may be useful when using several `geom_*` and for faceting.
 ### `SpatVector`, `SpatGraticule` and `SpatExtent`
 
 Return a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
-than can be used with
+that can be used with
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
 ## See also

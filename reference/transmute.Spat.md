@@ -44,7 +44,7 @@ transmute(.data, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## Methods
 

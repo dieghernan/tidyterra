@@ -27,8 +27,8 @@ as_sf(x, ...)
 
 ## Value
 
-A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object object
-with an additional `tbl_df` class, for pretty printing method.
+A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object with
+an additional `tbl_df` class for pretty printing.
 
 ## See also
 

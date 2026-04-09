@@ -82,7 +82,7 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## Methods
 
@@ -97,11 +97,11 @@ value `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across
 all the layers.
 
 If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS,
-extent, resolution and hence the same number of cells than `.data`. If
+extent, resolution and hence the same number of cells as `.data`. If
 `.keep_extent = FALSE` the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
-so the extent and number of cells may differ. The output would present
-in any case the same CRS and resolution than `.data`.
+so the extent and number of cells may differ. The output will still have
+the same CRS and resolution as `.data`.
 
 `x` and `y` variables (i.e. the longitude and latitude of the
 `SpatRaster`) are also available internally for filtering. See

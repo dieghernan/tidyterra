@@ -37,7 +37,7 @@ bind_spat_cols(
 ## Value
 
 A `SpatVector` with the corresponding columns. The geometry and CRS
-would correspond to the the first `SpatVector` of `...`.
+would correspond to the first `SpatVector` of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

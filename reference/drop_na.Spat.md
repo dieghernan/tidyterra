@@ -37,7 +37,7 @@ drop_na(data, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `data`. See **Methods**.
+A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -72,7 +72,7 @@ of specific layers (columns).
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) would
 effectively remove outer cells that are `NA` (see
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)),
-so the extent of the resulting object may differ of the extent of the
+so the extent of the resulting object may differ from the extent of the
 input (see
 [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html)
 for more info).

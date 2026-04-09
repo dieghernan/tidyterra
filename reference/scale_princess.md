@@ -14,7 +14,7 @@ Additionally, a color palette `princess.colors()` is provided. See also
 [`grDevices::terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html)
 for details.
 
-Additional arguments `...` would be passed on to:
+Additional arguments `...` are passed to:
 
 - Discrete values:
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
@@ -26,7 +26,7 @@ Additional arguments `...` would be passed on to:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional arguments, check the
+documents only a selection of these additional arguments, check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 

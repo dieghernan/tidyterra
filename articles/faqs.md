@@ -2,9 +2,9 @@
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and their solutions (primarily focused
-on the integration of **terra** and **ggplot2**). You can ask for help
-or search previous questions using the following links.
+using the **tidyterra** package and their solutions, primarily focused
+on the integration of **terra** and **ggplot2**. You can ask for help or
+search previous questions using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -36,17 +36,17 @@ Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano
 represented in
 [`datasets::volcano`](https://rdrr.io/r/datasets/volcano.html).
 
-The original file has been cropped and down-sampled for demo purposes,
-`holyroodpark.tif` is available online in
-<https://github.com/dieghernan/tidyterra/tree/main/data-raw> folder.
+The original file has been cropped and down-sampled for demo purposes.
+`holyroodpark.tif` is available online in the `data-raw` folder at
+<https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
 ## `NA` values are shown in gray color
 
-This is the default behavior produced by the **ggplot2** package.
-**tidyterra** color scales (i.e.,
+This is the default behavior of **ggplot2**. **tidyterra** color scales
+(i.e.,
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
-etc.), have by default the argument `na.value` set to `"transparent"`,
-that prevents `NA` values to be filled[²](#fn2).
+etc.) have `na.value = "transparent"` by default, which prevents `NA`
+values from being filled[²](#fn2).
 
 ``` r
 library(terra)
@@ -681,7 +681,7 @@ autoplot(r) +
     width_hint = 0.5,
     pad_x = unit(0.07, "npc"),
     pad_y = unit(0.07, "npc"),
-    text_cex = .8
+    text_cex = 0.8
   )
 ```
 

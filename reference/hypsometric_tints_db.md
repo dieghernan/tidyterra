@@ -37,7 +37,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 ## Source
 
-cpt-city: <http://seaviewsensing.com/pub/cpt-city/>.
+cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 
 ## See also
 

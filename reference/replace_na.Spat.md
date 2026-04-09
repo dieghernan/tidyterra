@@ -25,7 +25,7 @@ replace_na(data, replace, ...)
 
   A named list of values, with one value for each layer/attribute that
   has missing values to be replaced. Each value in `replace` will be
-  cast to the type of the column in `data` that it being used as a
+  cast to the type of the column in `data` that it is being used as a
   replacement in.
 
 - ...:
@@ -34,7 +34,7 @@ replace_na(data, replace, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `data`. See **Methods**.
+A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

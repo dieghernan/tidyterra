@@ -199,7 +199,7 @@ For `alpha` use computed variable. See section **Computed variables**.
 
 ### `stat_spatraster()`
 
-`stat_spatraster()` understands the same aesthetics than
+`stat_spatraster()` understands the same aesthetics as
 `geom_spatraster()` when using `geom = "raster"` (the default):
 
 - [`fill`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
