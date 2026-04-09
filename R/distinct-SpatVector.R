@@ -4,6 +4,7 @@
 #' Keep only unique/distinct rows and geometries from a `SpatVector`.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname distinct.SpatVector
 #' @name distinct.SpatVector
 #'

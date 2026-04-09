@@ -10,14 +10,15 @@
 #' You can also get a vector of colors named with the corresponding
 #' factor with [get_coltab_pal()].
 #'
-#' Additional arguments `...` would be passed on to
+#' Additional arguments `...` are passed to
 #' [ggplot2::discrete_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check [ggplot2::discrete_scale()] to see the full
 #' range of arguments accepted.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_coltab
 #' @rdname scale_coltab
@@ -105,6 +106,7 @@ scale_fill_coltab <- function(
 
 #' @rdname scale_coltab
 #' @export
+#' @encoding UTF-8
 scale_colour_coltab <- function(
   data,
   ...,
@@ -143,12 +145,14 @@ scale_colour_coltab <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @usage NULL
 scale_color_coltab <- scale_colour_coltab
 
 #' @rdname scale_coltab
 #' @export
+#' @encoding UTF-8
 get_coltab_pal <- function(x) {
   if (!inherits(x, "SpatRaster")) {
     cli::cli_alert_info(
@@ -253,7 +257,7 @@ get_coltab_pal <- function(x) {
   } else {
     namedpal <- rgb(colfields, maxColorValue = 255)
   }
-  # Same length than names
+  # Same length as names
   nms <- unique(finaltab[["label"]])
 
   # Complete NAs with terrain.cols

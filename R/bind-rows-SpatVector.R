@@ -14,6 +14,7 @@
 #' @return A `SpatVector` of the same type as the first element of `...`.
 #' @aliases bind.Spat
 #' @export
+#' @encoding UTF-8
 #'
 #' @family dplyr.pairs
 #' @family dplyr.methods
@@ -90,7 +91,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 
   # Make it work with list
   if (length(dots) == 1 && is.list(dots[[1]])) {
-    # If is a list unlist the first level
+    # If it is a list, unlist the first level
     dots <- dots[[1]]
   }
 
@@ -125,7 +126,7 @@ bind_spat_rows <- function(..., .id = NULL) {
     if (i == 1) {
       frst <- as_tibble(x)
 
-      # Case when first is only geometry, need to add a mock var
+      # If first is only geometry, add a mock var
       if (nrow(frst) == 0) {
         frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
       }
@@ -202,7 +203,7 @@ crs_compare <- function(a, b, index) {
     cli::cli_alert_warning(
       paste0(
         "Reprojecting object {.field {index}} in {.arg ...} since it",
-        " doesn't have the same CRS than object {.field 1}"
+        " doesn't have the same CRS as object {.field 1}"
       )
     )
   }

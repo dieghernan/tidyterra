@@ -18,7 +18,7 @@ A \link[tibble:tbl_df]{tibble} of 1102 rows and
 }
 }
 \source{
-cpt-city: \url{http://seaviewsensing.com/pub/cpt-city/}.
+cpt-city: \url{https://phillips.shef.ac.uk/pub/cpt-city/}.
 }
 \description{
 A \link[tibble:tbl_df]{tibble} including the color map of

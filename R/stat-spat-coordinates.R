@@ -8,6 +8,7 @@
 #' @rdname stat_spat_coordinates
 #'
 #' @export
+#' @encoding UTF-8
 #' @family ggplot2.utils
 #' @return A \CRANpkg{ggplot2} layer
 #' @keywords internal

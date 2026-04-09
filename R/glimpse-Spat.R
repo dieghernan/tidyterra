@@ -6,6 +6,7 @@
 #' layer/column in a `Spat*` object.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname glimpse.Spat
 #' @name glimpse.Spat
 #'
@@ -116,6 +117,7 @@ glimpse.SpatRaster <- function(
 
 #' @rdname glimpse.Spat
 #' @export
+#' @encoding UTF-8
 glimpse.SpatVector <- function(
   x,
   width = NULL,

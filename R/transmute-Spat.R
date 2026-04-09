@@ -17,6 +17,7 @@
 #' @inheritParams mutate.Spat
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @importFrom dplyr transmute
 #' @inherit mutate.Spat return
@@ -94,6 +95,7 @@ transmute.SpatRaster <- function(.data, ...) {
   final_rast
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname transmute.Spat
 transmute.SpatVector <- function(.data, ...) {
   # Use own method

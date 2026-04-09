@@ -44,6 +44,7 @@
 #' No `aes()` is required. In fact, `aes()` will be ignored.
 #'
 #' @export
+#' @encoding UTF-8
 #' @examples
 #' \donttest{
 #'

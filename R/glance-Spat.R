@@ -9,6 +9,7 @@
 #'
 #' @importFrom generics glance
 #' @export
+#' @encoding UTF-8
 #'
 #' @family generics.methods
 #'
@@ -80,6 +81,7 @@ glance.SpatRaster <- function(x, ...) {
 
 #' @rdname glance.Spat
 #' @export
+#' @encoding UTF-8
 glance.SpatVector <- function(x, ...) {
   initial <- tibble::tibble(
     geometry = terra::geomtype(x),

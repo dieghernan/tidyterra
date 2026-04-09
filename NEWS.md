@@ -9,10 +9,9 @@
 
 ## Changes in arguments
 
--   In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
-    `summarise.SpatVector()` this was implemented in version 1.0.0. Now it has
-    been extended to the following **tidyterra** methods as new arguments
-    (#193):
+-   In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
+    `summarise.SpatVector()` this was implemented in version 1.0.0. The
+    following **tidyterra** methods now also support it as new arguments (#193):
     -   `mutate.SpatVector()`.
     -   `filter.SpatVector()`.
     -   `?slice.Spat` methods for `SpatVector`.
@@ -24,13 +23,14 @@
     -   `filter.SpatVector()`: `.preserve` argument support added (previously it
         was ignored).
         -   In `count.SpatVector()`:
-            -   `wt` argument for performing weighted counts supported.
-            -   `.drop` argument deprecated, (it never really worked).
+            -   The `wt` argument for weighted counts is now supported.
+            -   The `.drop` argument is deprecated (it never really worked).
 
 ## Deprecations
 
--   `?transmute.Spat` is marked as superseded, as in `dplyr::transmute()`
-    **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
+-   `?transmute.Spat` is now marked as superseded, following
+    `dplyr::transmute()` in **dplyr 1.1.0** (January 2023). Use
+    `mutate(.keep = "none")`.
 
 ## Other changes
 
@@ -51,7 +51,7 @@
     -   `?tidy.Spat`.
     -   `?glance.Spat`.
     -   `?required_pkgs.Spat`.
--   `?fortify.Spat` methods now uses `?tidy.Spat` methods under the hood:
+-   `?fortify.Spat` methods now use `?tidy.Spat` methods under the hood:
     -   New `fortify.SpatExtent()` method.
 -   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
 -   `summarise.SpatVector()` supports now the `.by` argument.
@@ -80,16 +80,17 @@
 -   Improve handling of factors when several layers have different levels. This
     is done using `terra::combineLevels()` (**terra** \>= `1.8-10`). See
     <https://stackoverflow.com/questions/79340152>.
--   Now `scales` that uses limits truncate the legend when `limits` argument is
-    provided (#165 \@Fan-iX). Scales impacted:
+-   `scales` that use limits now truncate the legend when the `limits` argument
+    is provided (#165 \@Fan-iX). Scales impacted:
     -   `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
     -   `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
     -   `scale_*_grass_c` and `scale_*_grass_b`.
--   Now `geom_spatraster()` (and overall pivoting of `SpatRaster` is less strict
-    with different layer classes: if several layers can be defined as numeric
-    (i.e. `double`, `integer` and `numeric`) the pivoting (and therefore the
-    plot) can be performed. This is consistent with `tidyr::pivot_longer()`
-    behavior (<https://stackoverflow.com/questions/79292989>).
+-   `geom_spatraster()` and the overall pivoting of `SpatRaster` are now less
+    strict with different layer classes: if several layers can be defined as
+    numeric (i.e. `double`, `integer` and `numeric`), the pivoting (and
+    therefore the plot) can be performed. This is consistent with
+    `tidyr::pivot_longer()` behavior
+    (<https://stackoverflow.com/questions/79292989>).
 
 # tidyterra 0.6.2
 

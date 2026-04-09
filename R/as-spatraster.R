@@ -10,6 +10,7 @@
 #' A `SpatRaster`.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @param x A [tibble][tibble::tbl_df] or data frame.
 #' @param xycols A vector of integers of length 2 determining the position of

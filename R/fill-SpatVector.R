@@ -7,6 +7,7 @@
 #' and are only recorded when they change.
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom tidyr fill
 #'
 #' @family tidyr.missing

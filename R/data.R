@@ -89,7 +89,7 @@ NULL
 #' }
 #'
 #' @source
-#' cpt-city: <http://seaviewsensing.com/pub/cpt-city/>.
+#' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
 #' @seealso [scale_fill_hypso_c()]
 #'

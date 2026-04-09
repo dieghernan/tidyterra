@@ -19,6 +19,7 @@
 #'
 #' @family helpers
 #' @export
+#' @encoding UTF-8
 #'
 #' @seealso [terra::identical()]
 #' @section \CRANpkg{terra} equivalent:

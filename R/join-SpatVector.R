@@ -8,6 +8,7 @@
 #' See [dplyr::inner_join()] for details.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname mutate-joins.SpatVector
 #' @name mutate-joins.SpatVector
 #'
@@ -132,6 +133,7 @@ dplyr::inner_join
 
 #' @importFrom dplyr left_join
 #' @export
+#' @encoding UTF-8
 #' @name mutate-joins.SpatVector
 left_join.SpatVector <- function(
   x,
@@ -169,6 +171,7 @@ dplyr::left_join
 
 #' @importFrom dplyr right_join
 #' @export
+#' @encoding UTF-8
 #' @name mutate-joins.SpatVector
 right_join.SpatVector <- function(
   x,
@@ -207,6 +210,7 @@ dplyr::right_join
 
 #' @importFrom dplyr full_join
 #' @export
+#' @encoding UTF-8
 #' @name mutate-joins.SpatVector
 full_join.SpatVector <- function(
   x,
@@ -254,6 +258,7 @@ dplyr::full_join
 #' See [dplyr::semi_join()] for details.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname filter-joins.SpatVector
 #' @name filter-joins.SpatVector
 #'
@@ -334,6 +339,7 @@ dplyr::semi_join
 
 #' @importFrom dplyr anti_join
 #' @export
+#' @encoding UTF-8
 #' @name filter-joins.SpatVector
 anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   error_spat_join(y)

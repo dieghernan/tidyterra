@@ -8,16 +8,17 @@
 #' * `scale_*_terrain_c()`: For continuous values.
 #' * `scale_*_terrain_b()`: For binning continuous values.
 #'
-#' Additional arguments `...` would be passed on to:
+#' Additional arguments `...` are passed to:
 #' * Discrete values: [ggplot2::discrete_scale()].
 #' * Continuous values: [ggplot2::continuous_scale()].
 #' * Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_terrain
 #'
@@ -94,6 +95,7 @@ scale_fill_terrain_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 scale_colour_terrain_d <- function(
   ...,
@@ -123,6 +125,7 @@ scale_colour_terrain_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 scale_fill_terrain_c <- function(
   ...,
@@ -152,6 +155,7 @@ scale_fill_terrain_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 scale_colour_terrain_c <- function(
   ...,
@@ -182,6 +186,7 @@ scale_colour_terrain_c <- function(
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 scale_fill_terrain_b <- function(
   ...,
@@ -211,6 +216,7 @@ scale_fill_terrain_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 scale_colour_terrain_b <- function(
   ...,
@@ -248,18 +254,21 @@ terrain_pal <- function(alpha = 1, direction = 1) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
 scale_color_terrain_d <- scale_colour_terrain_d
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
 scale_color_terrain_c <- scale_colour_terrain_c
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
 scale_color_terrain_b <- scale_colour_terrain_b

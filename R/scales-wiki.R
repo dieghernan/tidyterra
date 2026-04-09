@@ -23,16 +23,17 @@
 #' Additionally, a color palette `wiki.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
-#' Additional arguments `...` would be passed on to:
+#' Additional arguments `...` are passed to:
 #' * Discrete values: [ggplot2::discrete_scale()].
 #' * Continuous values: [ggplot2::continuous_scale()].
 #' * Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_wiki
 #'
@@ -116,6 +117,7 @@ scale_fill_wiki_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 scale_colour_wiki_d <- function(
   ...,
@@ -145,11 +147,13 @@ scale_colour_wiki_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @usage NULL
 scale_color_wiki_d <- scale_colour_wiki_d
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 scale_fill_wiki_c <- function(
   ...,
@@ -181,6 +185,7 @@ scale_fill_wiki_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 scale_colour_wiki_c <- function(
   ...,
@@ -212,11 +217,13 @@ scale_colour_wiki_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @usage NULL
 scale_color_wiki_c <- scale_colour_wiki_c
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 scale_fill_wiki_b <- function(
   ...,
@@ -248,6 +255,7 @@ scale_fill_wiki_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 scale_colour_wiki_b <- function(
   ...,
@@ -279,11 +287,13 @@ scale_colour_wiki_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @usage NULL
 scale_color_wiki_b <- scale_colour_wiki_b
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @inheritParams grDevices::terrain.colors
 wiki.colors <- function(n, alpha = 1, rev = FALSE) {

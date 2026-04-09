@@ -14,6 +14,7 @@
 #' A `SpatVector`.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname summarise.SpatVector
 #' @name summarise.SpatVector
 #'
@@ -53,7 +54,7 @@
 #'
 #' # Grouped
 #' gr_v <- v |>
-#'   mutate(start_with_s = substr(name, 1, 1) == "S") |>
+#'   mutate(start_with_s = startsWith(name, "S")) |>
 #'   group_by(start_with_s)
 #'
 #' # Dissolving
@@ -125,6 +126,7 @@ dplyr::summarise
 #' @rdname summarise.SpatVector
 #' @importFrom dplyr summarize
 #' @export
+#' @encoding UTF-8
 summarize.SpatVector <- summarise.SpatVector
 
 #' @export

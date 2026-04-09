@@ -21,6 +21,7 @@
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname filter.Spat
 #' @name filter.Spat
 #'
@@ -56,10 +57,10 @@
 #' layers.
 #'
 #' If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS, extent,
-#' resolution and hence the same number of cells than `.data`. If
+#' resolution and hence the same number of cells as `.data`. If
 #' `.keep_extent = FALSE` the outer `NA` cells are trimmed with [terra::trim()],
-#' so the extent and number of cells may differ. The output would present in
-#' any case the same CRS and resolution than `.data`.
+#' so the extent and number of cells may differ. The output will still have
+#' the same CRS and resolution as `.data`.
 #'
 #' `x` and `y` variables (i.e. the longitude and latitude of the `SpatRaster`)
 #' are also available internally for filtering. See **Examples**.
@@ -135,6 +136,7 @@ filter.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname filter.Spat
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -164,6 +166,7 @@ dplyr::filter
 
 #' @importFrom dplyr filter_out
 #' @export
+#' @encoding UTF-8
 #' @rdname filter.Spat
 filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method

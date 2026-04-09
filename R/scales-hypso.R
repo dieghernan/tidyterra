@@ -3,7 +3,7 @@
 #' @description
 #'
 #' Implementation of a selection of gradient palettes available in
-#' [cpt-city](http://seaviewsensing.com/pub/cpt-city/).
+#' [cpt-city](https://phillips.shef.ac.uk/pub/cpt-city/).
 #'
 #' The following scales and palettes are provided:
 #'
@@ -25,16 +25,17 @@
 #'
 #' See **Details**.
 #'
-#' Additional arguments `...` would be passed on to:
+#' Additional arguments `...` are passed to:
 #' * Discrete values: [ggplot2::discrete_scale()].
 #' * Continuous values: [ggplot2::continuous_scale()].
 #' * Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_hypso
 #'
@@ -70,7 +71,7 @@
 #'
 #' @source
 #'
-#' cpt-city: <http://seaviewsensing.com/pub/cpt-city/>.
+#' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
 #' @examples
 #' \donttest{
@@ -173,6 +174,7 @@ scale_fill_hypso_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_d <- function(
   palette = "etopo1_hypso",
@@ -204,6 +206,7 @@ scale_colour_hypso_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_fill_hypso_c <- function(
   palette = "etopo1_hypso",
@@ -239,6 +242,7 @@ scale_fill_hypso_c <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_c <- function(
   palette = "etopo1_hypso",
@@ -274,6 +278,7 @@ scale_colour_hypso_c <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_fill_hypso_b <- function(
   palette = "etopo1_hypso",
@@ -308,6 +313,7 @@ scale_fill_hypso_b <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_b <- function(
   palette = "etopo1_hypso",
@@ -343,6 +349,7 @@ scale_colour_hypso_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #'
 #' @inheritParams wiki.colors
@@ -379,6 +386,7 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @details
 #'
@@ -394,21 +402,21 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' The following orientation would vary depending on the palette definition
 #' (see [hypsometric_tints_db] for an example on how this could be achieved).
 #'
-#' Note that the setup of the palette may not be always suitable for your
+#' Note that the setup of the palette may not always be suitable for your
 #' specific data. For example, a `SpatRaster` of small parts of the globe (and
 #' with a limited range of elevations) may not be well represented. As an
 #' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
-#' almost as an uniform color. This could be adjusted using the
+#' almost as a uniform color. This could be adjusted using the
 #' `limits`/`values` arguments.
 #'
 #' When passing `limits` argument to `scale_*_hypso_tint_*` the colors would
-#' be restricted of those specified by this argument, keeping the distribution
+#' be restricted to those specified by this argument, keeping the distribution
 #' of the tint. You can combine this with `oob` (i.e.
 #' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 #'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,
-#' `hypso.colors()` provides an uniform gradient across colors. See
+#' `hypso.colors()` provides a uniform gradient across colors. See
 #' **Examples**.
 #'
 scale_fill_hypso_tint_d <- function(
@@ -440,6 +448,7 @@ scale_fill_hypso_tint_d <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_tint_d <- function(
   palette = "etopo1_hypso",
@@ -470,6 +479,7 @@ scale_colour_hypso_tint_d <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_fill_hypso_tint_c <- function(
   palette = "etopo1_hypso",
@@ -527,6 +537,7 @@ scale_fill_hypso_tint_c <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_tint_c <- function(
   palette = "etopo1_hypso",
@@ -585,6 +596,7 @@ scale_colour_hypso_tint_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_fill_hypso_tint_b <- function(
   palette = "etopo1_hypso",
@@ -642,6 +654,7 @@ scale_fill_hypso_tint_b <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 scale_colour_hypso_tint_b <- function(
   palette = "etopo1_hypso",
@@ -699,6 +712,7 @@ scale_colour_hypso_tint_b <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @examples
 #' # Display all the cpl_city palettes on version 2
@@ -778,32 +792,38 @@ hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_d <- scale_colour_hypso_d
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_tint_d <- scale_colour_hypso_tint_d
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_c <- scale_colour_hypso_c
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_tint_c <- scale_colour_hypso_tint_c
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_b <- scale_colour_hypso_b
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_tint_b <- scale_colour_hypso_tint_b

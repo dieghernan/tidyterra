@@ -11,13 +11,14 @@
 #'
 #' @return
 #' A [tibble][tibble::tbl_df] or a `SpatRaster` (if `as.raster = TRUE`) with
-#' the same number of rows (or cells) than the number of cells in `x`.
+#' the same number of rows (or cells) as the number of cells in `x`.
 #'
 #' When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
-#' extension and resolution than `x`
+#' extension and resolution as `x`.
 #'
 #' @family coerce
 #' @export
+#' @encoding UTF-8
 #'
 #' @seealso [slice.SpatRaster()]
 #'
@@ -54,7 +55,7 @@ as_coordinates <- function(x, as.raster = FALSE) {
     return(tbl)
   }
 
-  # If not create a raster
+  # If not, create a raster
 
   template <- terra::rast(x)
   terra::crs(template) <- terra::crs(x)

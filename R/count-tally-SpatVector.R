@@ -12,6 +12,7 @@
 #' [summarise()] so that it adds a new column with group-wise counts.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname count.SpatVector
 #' @name count.SpatVector
 #'
@@ -193,6 +194,7 @@ dplyr::tally
 
 #' @importFrom dplyr add_count
 #' @export
+#' @encoding UTF-8
 #' @name count.SpatVector
 add_count.SpatVector <- function(
   x,

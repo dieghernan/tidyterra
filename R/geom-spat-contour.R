@@ -4,7 +4,7 @@
 #'
 #' These geoms create contours of `SpatRaster` objects.  To specify a valid
 #' surface, you should specify the layer on `aes(z = layer_name)`, otherwise all
-#' the layers would be consider for creating contours. See also **Facets**
+#' the layers are considered for creating contours. See also **Facets**
 #' section.
 #'
 #' The underlying implementation is based on [ggplot2::geom_contour()].
@@ -13,6 +13,7 @@
 #' implemented on top of [isoband::isolines_grob()].
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @rdname geom_spat_contour
 #' @name geom_spat_contour
@@ -123,7 +124,7 @@
 #' ggplot() +
 #'   geom_spatraster_contour_filled(
 #'     data = r, breaks = seq(80, 200, 10),
-#'     alpha = .7
+#'     alpha = 0.7
 #'   ) +
 #'   geom_spatraster_contour(
 #'     data = r, breaks = seq(80, 200, 2.5),

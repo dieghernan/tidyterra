@@ -12,6 +12,7 @@
 #' with [group_by.SpatVector()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname rowwise.SpatVector
 #' @name rowwise.SpatVector
 #'

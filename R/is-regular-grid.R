@@ -8,6 +8,7 @@
 #' This function is internally called by [as_spatraster()].
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @return
 #' `invisible()` if is regular or an error message otherwise

@@ -34,6 +34,7 @@
 #' [terra::plot()]
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #' \donttest{
@@ -91,6 +92,7 @@ geom_spatvector <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name ggspatvector
 #' @param linewidth Size of label border, in mm.
 geom_spatvector_label <- function(
@@ -114,6 +116,7 @@ geom_spatvector_label <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name ggspatvector
 geom_spatvector_text <- function(
   mapping = aes(),
@@ -136,6 +139,7 @@ geom_spatvector_text <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name ggspatvector
 stat_spatvector <- function(
   mapping = NULL,

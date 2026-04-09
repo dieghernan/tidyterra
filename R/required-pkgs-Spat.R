@@ -15,6 +15,7 @@
 #' Implementation of [generics::required_pkgs()] method.
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom generics required_pkgs
 #'
 #' @seealso [generics::required_pkgs()].
@@ -40,18 +41,21 @@ required_pkgs.SpatRaster <- function(x, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name required_pkgs.Spat
 required_pkgs.SpatVector <- function(x, ...) {
   c("terra")
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name required_pkgs.Spat
 required_pkgs.SpatGraticule <- function(x, ...) {
   c("terra")
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name required_pkgs.Spat
 required_pkgs.SpatExtent <- function(x, ...) {
   c("terra")

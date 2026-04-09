@@ -7,6 +7,7 @@
 #' indicating the corresponding groups. See **Methods**.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname group-by.SpatVector
 #' @name group-by.SpatVector
 #'
@@ -128,6 +129,7 @@ dplyr::group_by
 
 #' @importFrom dplyr ungroup
 #' @export
+#' @encoding UTF-8
 #' @name group-by.SpatVector
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
@@ -152,6 +154,7 @@ dplyr::ungroup
 
 #' @importFrom dplyr group_by_drop_default
 #' @export
+#' @encoding UTF-8
 dplyr::group_by_drop_default
 
 # Internal

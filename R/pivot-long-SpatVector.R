@@ -8,6 +8,7 @@
 #' Learn more in [tidyr::pivot_wider()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom tidyr pivot_longer
 #'
 #' @family tidyr.pivot

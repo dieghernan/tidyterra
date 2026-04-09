@@ -7,6 +7,7 @@
 #' layers/attributes at once.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname relocate.Spat
 #' @name relocate.Spat
 #'
@@ -75,6 +76,7 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
 
 #' @rdname relocate.Spat
 #' @export
+#' @encoding UTF-8
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
   # Use own method
   # With template

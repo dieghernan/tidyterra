@@ -42,6 +42,7 @@
 #' or [geom_spatvector_label()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom ggplot2 autoplot
 #'
 #' @seealso [ggplot2::autoplot()]
@@ -144,6 +145,7 @@ autoplot.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name autoplot.Spat
 autoplot.SpatVector <- function(object, ...) {
   ggplot2::ggplot(data = object) +
@@ -151,6 +153,7 @@ autoplot.SpatVector <- function(object, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name autoplot.Spat
 autoplot.SpatGraticule <- function(object, ...) {
   ggplot2::ggplot(data = object) +
@@ -158,6 +161,7 @@ autoplot.SpatGraticule <- function(object, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name autoplot.Spat
 autoplot.SpatExtent <- function(object, ...) {
   ggplot2::ggplot(data = object) +

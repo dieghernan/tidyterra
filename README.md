@@ -80,9 +80,9 @@ depending on the type of `Spat*` object:
   a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` would
   select the first layer of a `SpatRaster`).
 
-The methods implemented return the same type of object used as input,
+The implemented methods return the same type of object as the input,
 unless the expected behavior of the method is to return another type of
-object (for example, `as_tibble()` would return a tibble).
+object (for example, `as_tibble()` returns a tibble).
 
 Current methods and functions provided by **tidyterra** are:
 
@@ -90,7 +90,7 @@ Current methods and functions provided by **tidyterra** are:
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
-| `dplyr::mutate()` | ✔️ | ✔️ Create /modify layers |
+| `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
 | `dplyr::filter()` | ✔️ | ✔️ Modify cells values and (additionally) remove outer cells. |
 | `dplyr::filter_out()` | ✔️ |  |
@@ -128,15 +128,13 @@ Current methods and functions provided by **tidyterra** are:
 > using the **tidyverse** methods and verbs. This approach therefore has
 > a **cost in terms of performance**.
 >
-> If you are a **heavy user** of **terra** or you need to work with
-> **big raster files**, **terra** is much more performant. When
-> possible, each function of **tidyterra** refers to its equivalent on
-> **terra**.
+> If you frequently use **terra** or work with large raster files,
+> **terra** is much more performant. Whenever possible, each
+> **tidyterra** function refers to its equivalent on **terra**.
 >
-> As a rule of thumb if your raster has less than 10,000,000 data slots
-> counting cells and layers
-> (i.e. `terra::ncell(your_rast)*terra::nlyr(your_rast) < 10e6`) you are
-> good to go with **tidyterra**.
+> As a rule of thumb, if your raster has fewer than 10,000,000 data
+> slots (i.e. `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`),
+> **tidyterra** is a good fit.
 >
 > When plotting rasters, resampling is performed automatically (as
 > `terra::plot()` does, see the help page). You can adjust this with the
@@ -144,18 +142,12 @@ Current methods and functions provided by **tidyterra** are:
 
 ## Installation
 
-<div class="pkgdown-release">
-
 Install **tidyterra** from
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra):
 
 ``` r
 install.packages("tidyterra")
 ```
-
-</div>
-
-<div class="pkgdown-devel">
 
 Check the docs of the developing version in
 <https://dieghernan.github.io/tidyterra/dev/>
@@ -180,8 +172,6 @@ install.packages(
   )
 )
 ```
-
-</div>
 
 ## Example
 

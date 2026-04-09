@@ -25,6 +25,7 @@
 #' See **Methods** for details.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @name slice.Spat
 #'
@@ -181,6 +182,7 @@ slice.SpatRaster <- function(
   newrast
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
@@ -197,6 +199,7 @@ slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   vend
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_head
 slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
@@ -226,6 +229,7 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   # Use own method
@@ -244,6 +248,7 @@ slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_tail
 slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
@@ -273,6 +278,7 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_tail.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   # Use own method
@@ -291,6 +297,7 @@ slice_tail.SpatVector <- function(.data, ..., n, prop, by = NULL) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_min
 slice_min.SpatRaster <- function(
@@ -351,6 +358,7 @@ slice_min.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_min.SpatVector <- function(
   .data,
@@ -387,6 +395,7 @@ slice_min.SpatVector <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_max
 slice_max.SpatRaster <- function(
@@ -447,6 +456,7 @@ slice_max.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_max.SpatVector <- function(
   .data,
@@ -484,6 +494,7 @@ slice_max.SpatVector <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_sample
 slice_sample.SpatRaster <- function(
@@ -538,6 +549,7 @@ slice_sample.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_sample.SpatVector <- function(
   .data,
@@ -571,12 +583,14 @@ slice_sample.SpatVector <- function(
   vend
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_rows <- function(.data, ...) {
   UseMethod("slice_rows")
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   # Create skeleton
@@ -615,12 +629,14 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_cols <- function(.data, ...) {
   UseMethod("slice_cols")
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   # Create skeleton
@@ -659,12 +675,14 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_colrows <- function(.data, ...) {
   UseMethod("slice_colrows")
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname slice.Spat
 slice_colrows.SpatRaster <- function(
   .data,

@@ -1,4 +1,5 @@
 #' @export
+#' @encoding UTF-8
 #' @rdname geom_spatraster
 #'
 #' @description
@@ -20,7 +21,7 @@
 #'
 #' ## `stat_spatraster()`
 #'
-#' `stat_spatraster()` understands the same aesthetics than `geom_spatraster()`
+#' `stat_spatraster()` understands the same aesthetics as `geom_spatraster()`
 #' when using `geom = "raster"` (the default):
 #'
 #' * [`fill`][ggplot2::aes_colour_fill_alpha]

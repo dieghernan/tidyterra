@@ -11,6 +11,7 @@
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname pull.Spat
 #' @name pull.Spat
 #'
@@ -102,6 +103,7 @@ pull.SpatRaster <- function(.data, var = -1, name = NULL, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname pull.Spat
 pull.SpatVector <- function(.data, var = -1, name = NULL, ...) {
   var <- rlang::enquo(var)

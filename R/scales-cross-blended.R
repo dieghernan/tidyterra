@@ -23,16 +23,17 @@
 #'
 #' See **Details**.
 #'
-#' Additional arguments `...` would be passed on to:
+#' Additional arguments `...` are passed to:
 #' * Discrete values: [ggplot2::discrete_scale()].
 #' * Continuous values: [ggplot2::continuous_scale()].
 #' * Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_cross_blended
 #'
@@ -190,6 +191,7 @@ scale_fill_cross_blended_d <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_d <- function(
   palette = "cold_humid",
@@ -221,6 +223,7 @@ scale_colour_cross_blended_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_c <- function(
   palette = "cold_humid",
@@ -257,6 +260,7 @@ scale_fill_cross_blended_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_c <- function(
   palette = "cold_humid",
@@ -292,6 +296,7 @@ scale_colour_cross_blended_c <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_b <- function(
   palette = "cold_humid",
@@ -326,6 +331,7 @@ scale_fill_cross_blended_b <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_b <- function(
   palette = "cold_humid",
@@ -361,6 +367,7 @@ scale_colour_cross_blended_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #'
 #' @inheritParams wiki.colors
@@ -405,6 +412,7 @@ cross_blended.colors <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @details
 #'
@@ -421,21 +429,21 @@ cross_blended.colors <- function(
 #' (see [cross_blended_hypsometric_tints_db] for an example on how this could
 #' be achieved).
 #'
-#' Note that the setup of the palette may not be always suitable for your
+#' Note that the setup of the palette may not always be suitable for your
 #' specific data. For example, a `SpatRaster` of small parts of the globe (and
 #' with a limited range of elevations) may not be well represented. As an
 #' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
-#' almost as an uniform color. This could be adjusted using the
+#' almost as a uniform color. This could be adjusted using the
 #' `limits`/`values` arguments.
 #'
 #' When passing `limits` argument to `scale_*_cross_blended_tint_*` the
-#' colors would be restricted of those specified by this argument, keeping the
+#' colors would be restricted to those specified by this argument, keeping the
 #' distribution of the tint. You can combine this with `oob` (i.e.
 #' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 #'
 #' `cross_blended.colors2()` provides a gradient color palette where the
 #' distance between colors is different depending of the type of color.
-#' In contrast, `cross_blended.colors()` provides an uniform gradient across
+#' In contrast, `cross_blended.colors()` provides a uniform gradient across
 #' colors. See **Examples**.
 #'
 scale_fill_cross_blended_tint_d <- function(
@@ -468,6 +476,7 @@ scale_fill_cross_blended_tint_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_tint_d <- function(
   palette = "cold_humid",
@@ -498,6 +507,7 @@ scale_colour_cross_blended_tint_d <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_tint_c <- function(
   palette = "cold_humid",
@@ -556,6 +566,7 @@ scale_fill_cross_blended_tint_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_tint_c <- function(
   palette = "cold_humid",
@@ -614,6 +625,7 @@ scale_colour_cross_blended_tint_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_fill_cross_blended_tint_b <- function(
   palette = "cold_humid",
@@ -672,6 +684,7 @@ scale_fill_cross_blended_tint_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 scale_colour_cross_blended_tint_b <- function(
   palette = "cold_humid",
@@ -730,6 +743,7 @@ scale_colour_cross_blended_tint_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @examples
 #' # Display all the cross-blended palettes on version 2
@@ -800,32 +814,38 @@ cross_blended_pal2 <- function(alpha = 1, direction = 1, palette) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_d <- scale_colour_cross_blended_d
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_tint_d <- scale_colour_cross_blended_tint_d
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_c <- scale_colour_cross_blended_c
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_tint_c <- scale_colour_cross_blended_tint_c
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_b <- scale_colour_cross_blended_b
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_cross_blended
 #' @usage NULL
 scale_color_cross_blended_tint_b <- scale_colour_cross_blended_tint_b

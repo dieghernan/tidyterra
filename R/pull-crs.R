@@ -26,6 +26,7 @@
 #'
 #' @family helpers
 #' @export
+#' @encoding UTF-8
 #'
 #' @return A WKT representation of the corresponding CRS.
 #'

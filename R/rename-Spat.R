@@ -6,6 +6,7 @@
 #' using a function.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname rename.Spat
 #' @name rename.Spat
 #'
@@ -75,6 +76,7 @@ rename.SpatRaster <- function(.data, ...) {
 #' @importFrom dplyr rename_with
 #' @importFrom dplyr everything
 #' @export
+#' @encoding UTF-8
 rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
   # Use template
   df <- .data[1]
@@ -96,6 +98,7 @@ rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
 
 #' @rdname rename.Spat
 #' @export
+#' @encoding UTF-8
 rename.SpatVector <- function(.data, ...) {
   # Use template
   df <- as_tibble(.data[1, ])
@@ -111,6 +114,7 @@ rename.SpatVector <- function(.data, ...) {
 
 #' @rdname rename.Spat
 #' @export
+#' @encoding UTF-8
 rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
   # Use template
   df <- as_tibble(.data[1, ])

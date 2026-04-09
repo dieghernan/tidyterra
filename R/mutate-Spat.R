@@ -13,6 +13,7 @@
 #' @inheritParams dplyr::mutate
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname mutate.Spat
 #' @name mutate.Spat
 #'
@@ -46,7 +47,7 @@
 #' ## `SpatRaster`
 #'
 #' Add new layers and preserves existing ones. The result is a
-#' `SpatRaster` with the same extent, resolution and CRS than `.data`. Only the
+#' `SpatRaster` with the same extent, resolution and CRS as `.data`. Only the
 #' values (and possibly the number) of layers is modified.
 #'
 #' ## `SpatVector`
@@ -143,6 +144,7 @@ mutate.SpatRaster <- function(
   final_rast
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname mutate.Spat
 mutate.SpatVector <- function(
   .data,

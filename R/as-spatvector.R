@@ -9,6 +9,7 @@
 #' A `SpatVector`.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name as_spatvector
 #' @rdname as_spatvector
@@ -75,6 +76,7 @@ as_spatvector <- function(x, ...) {
 
 #' @rdname as_spatvector
 #' @export
+#' @encoding UTF-8
 as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (!length(geom) %in% c(1, 2)) {
     cli::cli_abort(paste(
@@ -100,7 +102,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   tbl <- as_tibble(x)
 
   # Issue: Convert coords to numeric if x,y
-  # With tibble and integer terra::vect() gives errors
+  # With tibble and integer values, terra::vect() gives errors
   if (length(geom) == 2) {
     tbl[[geom[1]]] <- as.double(tbl[[geom[1]]])
     tbl[[geom[2]]] <- as.double(tbl[[geom[2]]])
@@ -139,7 +141,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
 
-  # No CRS if no provided
+  # No CRS if none provided
   if (crs == "") {
     terra::crs(v) <- NULL
   }
@@ -154,8 +156,9 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 
 #' @rdname as_spatvector
 #' @export
+#' @encoding UTF-8
 as_spatvector.sf <- function(x, ...) {
-  # If none is empty then can convert safely
+  # If none are empty, can convert safely
 
   if (!any(sf::st_is_empty(x))) {
     v <- terra::vect(x)
@@ -211,6 +214,7 @@ as_spatvector.sf <- function(x, ...) {
 
 #' @rdname as_spatvector
 #' @export
+#' @encoding UTF-8
 as_spatvector.sfc <- function(x, ...) {
   x_df <- sf::st_as_sf(x)
 
@@ -219,6 +223,7 @@ as_spatvector.sfc <- function(x, ...) {
 
 #' @rdname as_spatvector
 #' @export
+#' @encoding UTF-8
 as_spatvector.SpatVector <- function(x, ...) {
   x
 }

@@ -6,6 +6,7 @@
 #' [pivot_longer.SpatVector()].
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom tidyr pivot_wider
 #'
 #' @family tidyr.pivot

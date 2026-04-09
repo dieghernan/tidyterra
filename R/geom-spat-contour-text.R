@@ -1,9 +1,10 @@
 #' @export
+#' @encoding UTF-8
 #' @rdname geom_spat_contour
 #' @order 2
 #'
 #' @param label_format One of:
-#'   * `NULL` for no labels. This produced the same result than
+#'   * `NULL` for no labels. This produced the same result as
 #'     `geom_spatraster_contour()`.
 #'   * A character vector giving labels (must be same length as the breaks
 #'     produced by `bins`, `binwidth`, or `breaks`).

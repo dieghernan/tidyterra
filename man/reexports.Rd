@@ -10,6 +10,7 @@
 %   R/slice-Spat.R, R/summarise-SpatVector.R, R/tidy-Spat.R,
 %   R/tidyterra-package.R, R/transmute-Spat.R
 \docType{import}
+\encoding{UTF-8}
 \name{reexports}
 \alias{reexports}
 \alias{arrange}

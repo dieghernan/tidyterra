@@ -18,6 +18,7 @@
 #' @inheritParams tibble::as_tibble
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom terra as.data.frame
 #' @importFrom tibble as_tibble
 #' @importFrom tibble tibble

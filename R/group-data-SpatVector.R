@@ -41,6 +41,7 @@
 #' @name group_data.SpatVector
 #'
 #' @export
+#' @encoding UTF-8
 #' @importFrom dplyr group_data
 #'
 #' @examples
@@ -114,6 +115,7 @@ group_data.SpatVector <- function(.data) {
 dplyr::group_data
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_keys
 group_keys.SpatVector <- function(.tbl, ...) {
@@ -126,9 +128,11 @@ dplyr::group_keys
 
 #' @importFrom dplyr group_rows
 #' @export
+#' @encoding UTF-8
 dplyr::group_rows
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_indices
 group_indices.SpatVector <- function(.data, ...) {
@@ -140,6 +144,7 @@ group_indices.SpatVector <- function(.data, ...) {
 dplyr::group_indices
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_vars
 group_vars.SpatVector <- function(x) {
@@ -151,6 +156,7 @@ group_vars.SpatVector <- function(x) {
 dplyr::group_vars
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr groups
 groups.SpatVector <- function(x) {
@@ -162,6 +168,7 @@ groups.SpatVector <- function(x) {
 dplyr::groups
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_size
 group_size.SpatVector <- function(x) {
@@ -176,6 +183,7 @@ dplyr::group_size
 dplyr::groups
 
 #' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr n_groups
 n_groups.SpatVector <- function(x) {

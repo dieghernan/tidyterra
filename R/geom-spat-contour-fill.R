@@ -1,4 +1,5 @@
 #' @export
+#' @encoding UTF-8
 #' @rdname geom_spat_contour
 #' @order 3
 #'

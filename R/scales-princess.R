@@ -12,16 +12,17 @@
 #' Additionally, a color palette `princess.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
-#' Additional arguments `...` would be passed on to:
+#' Additional arguments `...` are passed to:
 #' * Discrete values: [ggplot2::discrete_scale()].
 #' * Continuous values: [ggplot2::continuous_scale()].
 #' * Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} just documents a selection of these
+#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
 #' see the full range of arguments accepted by these scales.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @name scale_princess
 #'
@@ -118,6 +119,7 @@ scale_fill_princess_d <- function(
   )
 }
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 scale_colour_princess_d <- function(
   palette = "snow",
@@ -149,6 +151,7 @@ scale_colour_princess_d <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 scale_fill_princess_c <- function(
   palette = "snow",
@@ -182,6 +185,7 @@ scale_fill_princess_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 scale_colour_princess_c <- function(
   palette = "snow",
@@ -215,6 +219,7 @@ scale_colour_princess_c <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 scale_fill_princess_b <- function(
   palette = "snow",
@@ -248,6 +253,7 @@ scale_fill_princess_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 scale_colour_princess_b <- function(
   palette = "snow",
@@ -281,6 +287,7 @@ scale_colour_princess_b <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 #'
 #' @inheritParams wiki.colors
@@ -333,18 +340,21 @@ princess_pal <- function(alpha = 1, direction = 1, palette) {
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 #' @usage NULL
 scale_color_princess_d <- scale_colour_princess_d
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 #' @usage NULL
 scale_color_princess_c <- scale_colour_princess_c
 
 
 #' @export
+#' @encoding UTF-8
 #' @rdname scale_princess
 #' @usage NULL
 scale_color_princess_b <- scale_colour_princess_b

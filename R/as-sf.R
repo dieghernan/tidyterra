@@ -7,10 +7,11 @@
 #' [group_by.SpatVector()] are preserved.
 #'
 #' @return
-#' A [`sf`][sf::st_sf] object object with an additional `tbl_df` class, for
-#' pretty printing method.
+#' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
+#' pretty printing.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @param x A `SpatVector`.
 #'
@@ -62,7 +63,7 @@ as_sf <- function(x, ...) {
 
   # Make a sf/tibble object
   # https://github.com/r-spatial/sf/issues/951
-  # But boosting performance
+  # This boosts performance
   template <- sf::st_as_sf(tibble::tibble(x = 1, y = 1), coords = c("x", "y"))
   class(sfobj) <- class(template)
 

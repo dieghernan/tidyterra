@@ -17,9 +17,10 @@
 #' @inheritParams dplyr::bind_cols
 #'
 #' @return A `SpatVector` with the corresponding columns. The geometry and CRS
-#' would correspond to the the first `SpatVector` of `...`.
+#' would correspond to the first `SpatVector` of `...`.
 #'
 #' @export
+#' @encoding UTF-8
 #' @family dplyr.pairs
 #' @family dplyr.methods
 #'
@@ -82,7 +83,7 @@ bind_spat_cols <- function(
 
   # Make it work with list
   if (length(dots) == 1 && is.list(dots[[1]])) {
-    # If is a list unlist the first level
+    # If it is a list, unlist the first level
     dots <- dots[[1]]
   }
 
@@ -105,7 +106,7 @@ bind_spat_cols <- function(
     if (i == 1) {
       frst <- as_tibble(x)
 
-      # Case when first is only geometry, need to add a mock var
+      # If first is only geometry, add a mock var
       if (nrow(frst) == 0) {
         frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
       }
@@ -128,8 +129,8 @@ bind_spat_cols <- function(
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)
 
-  # If first was geom only bind the rest
-  # Use cbind terra method
+  # If first was geom only, bind the rest
+  # Use terra cbind method
   if (dim(template)[2] == 0) {
     vend <- cbind(template, endobj[, -1])
   } else {

@@ -16,6 +16,7 @@
 #' @family helpers
 #'
 #' @export
+#' @encoding UTF-8
 is_grouped_spatvector <- function(x) {
   att <- attributes(x)
 

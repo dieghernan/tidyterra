@@ -17,6 +17,7 @@
 #'
 #' @importFrom generics tidy
 #' @export
+#' @encoding UTF-8
 #'
 #' @family generics.methods
 #' @family coerce
@@ -41,7 +42,7 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Return a tibble than can be used with `ggplot2::geom_*` like
+#' Return a tibble that can be used with `ggplot2::geom_*` like
 #' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
 #'
 #' The resulting tibble includes the coordinates on the columns `x, y`. The
@@ -55,7 +56,7 @@
 #' [as_spatraster()].
 #'
 #' When `pivot = TRUE` the `SpatRaster` is provided in a "long" format (see
-#' [tidyr::pivot_longer()]). The tidy object would have the following
+#' [tidyr::pivot_longer()]). The tidy object has the following
 #' columns:
 #' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
 #' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
@@ -65,7 +66,7 @@
 #'
 #' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
-#' Return a [`sf`][sf::st_sf] object than can be used with [ggplot2::geom_sf()].
+#' Return a [`sf`][sf::st_sf] object that can be used with [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{
@@ -141,12 +142,14 @@ tidy.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name tidy.Spat
 tidy.SpatVector <- function(x, ...) {
   as_sf(x)
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name tidy.Spat
 tidy.SpatGraticule <- function(x, ...) {
   # nocov start
@@ -164,6 +167,7 @@ tidy.SpatGraticule <- function(x, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name tidy.Spat
 #' @param crs Input potentially including or representing a CRS. It could be
 #'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from

@@ -5,6 +5,7 @@
 #' values of selected columns.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname arrange.SpatVector
 #' @name arrange.SpatVector
 #'

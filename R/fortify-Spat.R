@@ -14,6 +14,7 @@
 #' @inheritParams tidy.Spat
 #' @importFrom ggplot2 fortify
 #' @export
+#' @encoding UTF-8
 #'
 #' @family ggplot2.utils
 #' @family ggplot2.methods
@@ -38,7 +39,7 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Return a tibble than can be used with `ggplot2::geom_*` like
+#' Return a tibble that can be used with `ggplot2::geom_*` like
 #' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
 #'
 #' The resulting tibble includes the coordinates on the columns `x, y`. The
@@ -52,7 +53,7 @@
 #' [as_spatraster()].
 #'
 #' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
-#' [tidyr::pivot_longer()]). The fortified object would have the following
+#' [tidyr::pivot_longer()]). The fortified object has the following
 #' columns:
 #' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
 #' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
@@ -63,7 +64,7 @@
 #'
 #' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
-#' Return a [`sf`][sf::st_sf] object than can be used with [ggplot2::geom_sf()].
+#' Return a [`sf`][sf::st_sf] object that can be used with [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{
@@ -137,18 +138,21 @@ fortify.SpatRaster <- function(
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name fortify.Spat
 fortify.SpatVector <- function(model, data, ...) {
   tidy(x = model, ...)
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name fortify.Spat
 fortify.SpatGraticule <- function(model, data, ...) {
   tidy(x = model, ...)
 }
 
 #' @export
+#' @encoding UTF-8
 #' @name fortify.Spat
 fortify.SpatExtent <- function(model, data, ..., crs = "") {
   tidy(x = model, ..., crs = crs)

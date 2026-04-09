@@ -6,7 +6,7 @@
 #' * `SpatRaster`: `drop_na()` method drops cells where any layer specified by
 #' `...` contains a missing value.
 #'
-#' @return A `Spat*` object of the same class than `data`. See **Methods**.
+#' @return A `Spat*` object of the same class as `data`. See **Methods**.
 #'
 #' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
 #'   [terra::rast()].
@@ -14,6 +14,7 @@
 #'   for missing values. If empty, all attributes are used.
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @rdname drop_na.Spat
 #' @name drop_na.Spat
@@ -52,7 +53,7 @@
 #' layers (columns).
 #'
 #' `drop_na()` would effectively remove outer cells that are `NA` (see
-#' [terra::trim()]), so the extent of the resulting object may differ of the
+#' [terra::trim()]), so the extent of the resulting object may differ from the
 #' extent of the input (see [terra::resample()] for more info).
 #'
 #' Check the **Examples** to have a better understanding of this method.
@@ -81,10 +82,10 @@
 #'   drop_na(iso2) |>
 #'   plot(col = "red")
 drop_na.SpatVector <- function(data, ...) {
-  # Use own method, no way to avoid coercion
   tbl <- as_tbl_internal(data)
   dropped <- tidyr::drop_na(tbl, ...)
 
+  # Use own method; there is no way to avoid coercion.
   if (nrow(dropped) == 0) {
     cli::cli_alert_warning(paste0(
       cli::col_red("All geometries dropped."),
@@ -105,6 +106,7 @@ drop_na.SpatVector <- function(data, ...) {
 }
 
 #' @export
+#' @encoding UTF-8
 #' @rdname drop_na.Spat
 #'
 #' @examples
