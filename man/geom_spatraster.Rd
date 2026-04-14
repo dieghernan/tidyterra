@@ -144,9 +144,10 @@ adjust the scales. That means that also the
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
-If \code{fill} is not provided, \code{geom_spatraster()} creates a \CRANpkg{ggplot2}
-layer with all the layers of the \code{SpatRaster} object. Use \code{facet_wrap(~lyr)}
-to display properly the \code{SpatRaster} layers.
+If \code{fill} is not provided, \code{geom_spatraster()} creates a
+\CRANpkg{ggplot2} layer with all the layers of the \code{SpatRaster}
+object. Use \code{facet_wrap(~lyr)} to properly display the \code{SpatRaster}
+layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
 on the \code{SpatRaster} (i.e.

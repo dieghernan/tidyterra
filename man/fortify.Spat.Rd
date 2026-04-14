@@ -93,8 +93,8 @@ name of the layer on the \code{SpatRaster}.
 The CRS of the \code{SpatRaster} can be retrieved with
 \code{attr(fortifiedSpatRaster, "crs")}.
 
-It is possible to convert the fortified object onto a \code{SpatRaster} again with
-\code{\link[=as_spatraster]{as_spatraster()}}.
+It is possible to convert the fortified object to a \code{SpatRaster}
+again with \code{\link[=as_spatraster]{as_spatraster()}}.
 
 When \code{pivot = TRUE} the \code{SpatRaster} is fortified in a "long" format (see
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The fortified object has the following

@@ -81,17 +81,17 @@ object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 
 
 When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} names are
-reserved for geographic coordinates of each cell of the \code{SpatRaster} It
-should be also noted that \CRANpkg{terra} allows layers with duplicated
-names.
+reserved for geographic coordinates of each cell of the \code{SpatRaster}. It
+should be also noted that \CRANpkg{terra} allows layers with
+duplicated names.
 
 In the process of coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra}
 may rename the layers of your \code{SpatRaster} for overcoming this issue.
 Specifically, layers may be renamed on the following cases:
 \itemize{
 \item Layers with duplicated names.
-\item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or \code{y} would be
-renamed.
+\item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or
+\code{y} would be renamed.
 \item When working with tidyverse methods (i.e. \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}), the
 latter would happen as well.
 }

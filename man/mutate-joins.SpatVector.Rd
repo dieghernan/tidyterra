@@ -113,7 +113,7 @@ A \code{SpatVector} object.
 }
 \description{
 Mutating joins add columns from \code{y} to \code{x}, matching observations based on
-the keys. There are four mutating joins: the inner join, and the three outer
+the keys. There are four mutating joins: the inner join and the three outer
 joins.
 
 See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.

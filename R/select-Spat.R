@@ -14,10 +14,10 @@
 #'
 #' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
-#' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> One or more unquoted
-#'   expressions separated by commas. Layer/attribute names can be used as if
-#'   they were positions in the `Spat*` object, so expressions like `x:y` can
-#'   be used to select a range of layers/attributes.
+#' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> One or more
+#'   unquoted expressions separated by commas. Layer/attribute names can be
+#'   used as if they were positions in the `Spat*` object, so expressions like
+#'   `x:y` can be used to select a range of layers/attributes.
 #'
 #' @return A `Spat*` object of the same class as `.data`. See **Methods**.
 #'

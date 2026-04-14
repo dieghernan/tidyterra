@@ -15,8 +15,8 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 \item{xycols}{A vector of integers of length 2 determining the position of
 the columns that hold the \code{x} and \code{y} coordinates.}
 
-\item{crs}{A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
-and spatial object from \strong{\link[sf:st_crs]{sf}} or
+\item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, ..)
+or a spatial object from \strong{\link[sf:st_crs]{sf}} or
 \strong{\link[terra:crs]{terra}}.
 that includes the target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and
 \strong{Details}.}
@@ -61,7 +61,7 @@ newrast
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}} for retrieving CRS, and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
+\code{\link[=pull_crs]{pull_crs()}} for retrieving CRS and the corresponding utils \code{\link[sf:st_crs]{sf::st_crs()}}
 and \code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:

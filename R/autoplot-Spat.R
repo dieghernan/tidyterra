@@ -1,7 +1,7 @@
 #' Create a complete ggplot for `Spat*` objects
 #'
-#' `autoplot()` uses \CRANpkg{ggplot2} to draw plots as the ones produced by
-#' [terra::plot()]/[terra::plotRGB()] in a single command.
+#' `autoplot()` uses \CRANpkg{ggplot2} to draw plots like those
+#' produced by [terra::plot()]/[terra::plotRGB()] in a single command.
 #'
 #' Implementation of [ggplot2::autoplot()] method.
 #'

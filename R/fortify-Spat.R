@@ -49,8 +49,8 @@
 #' The CRS of the `SpatRaster` can be retrieved with
 #' `attr(fortifiedSpatRaster, "crs")`.
 #'
-#' It is possible to convert the fortified object onto a `SpatRaster` again with
-#' [as_spatraster()].
+#' It is possible to convert the fortified object to a `SpatRaster`
+#' again with [as_spatraster()].
 #'
 #' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
 #' [tidyr::pivot_longer()]). The fortified object has the following

@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Mutating joins add columns from `y` to `x`, matching observations based on
-#' the keys. There are four mutating joins: the inner join, and the three outer
+#' the keys. There are four mutating joins: the inner join and the three outer
 #' joins.
 #'
 #' See [dplyr::inner_join()] for details.
@@ -12,7 +12,8 @@
 #' @rdname mutate-joins.SpatVector
 #' @name mutate-joins.SpatVector
 #'
-#' @seealso [dplyr::inner_join()], [dplyr::left_join()], [dplyr::right_join()],
+#' @seealso
+#' [dplyr::inner_join()], [dplyr::left_join()], [dplyr::right_join()],
 #' [dplyr::full_join()], [terra::merge()]
 #'
 #' @family dplyr.pairs

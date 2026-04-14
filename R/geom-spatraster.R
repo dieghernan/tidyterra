@@ -66,9 +66,10 @@
 #' * [`fill`][ggplot2::aes_colour_fill_alpha]
 #' * [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' If `fill` is not provided, `geom_spatraster()` creates a \CRANpkg{ggplot2}
-#' layer with all the layers of the `SpatRaster` object. Use `facet_wrap(~lyr)`
-#' to display properly the `SpatRaster` layers.
+#' If `fill` is not provided, `geom_spatraster()` creates a
+#' \CRANpkg{ggplot2} layer with all the layers of the `SpatRaster`
+#' object. Use `facet_wrap(~lyr)` to properly display the `SpatRaster`
+#' layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
 #' on the `SpatRaster` (i.e.

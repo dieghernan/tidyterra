@@ -44,16 +44,16 @@
 #' @section About layer/column names:
 #'
 #' When coercing `SpatRaster` objects to data frames, `x` and `y` names are
-#' reserved for geographic coordinates of each cell of the `SpatRaster` It
-#' should be also noted that \CRANpkg{terra} allows layers with duplicated
-#' names.
+#' reserved for geographic coordinates of each cell of the `SpatRaster`. It
+#' should be also noted that \CRANpkg{terra} allows layers with
+#' duplicated names.
 #'
 #' In the process of coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra}
 #' may rename the layers of your `SpatRaster` for overcoming this issue.
 #' Specifically, layers may be renamed on the following cases:
 #' * Layers with duplicated names.
-#' * When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` would be
-#'   renamed.
+#' * When coercing to a tibble, if `xy = TRUE`, layers named `x` or
+#'   `y` would be renamed.
 #' * When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
 #'   latter would happen as well.
 #'

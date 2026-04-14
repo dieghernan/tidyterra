@@ -5,7 +5,7 @@
 #' decreasing the number of columns. The inverse transformation is
 #' [pivot_wider.SpatVector()]
 #'
-#' Learn more in [tidyr::pivot_wider()].
+#' Learn more in [tidyr::pivot_longer()].
 #'
 #' @export
 #' @encoding UTF-8

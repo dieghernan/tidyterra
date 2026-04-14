@@ -188,10 +188,10 @@ Other changes on this version:
         -   `group_by.SpatVector()`,`ungroup.SpatVector()`
         -   `count.SpatVector()`, `tally.SpatVector()`
         -   `bind_spat_cols()`, `bind_spat_rows()`
-    -   Already implemented methods now works with `dplyr::group_by()`.
-    -   Internal review of code. Now the methods does not rely on
-        `sf::st_as_sf()` coercion. In fact coercion between object classes is
-        avoided as much as possible.
+    -   Already implemented methods now work with `dplyr::group_by()`.
+    -   Internal review of code. Now the methods do not rely on `sf::st_as_sf()`
+        coercion. In fact coercion between object classes is avoided as much as
+        possible.
 -   New `glimpse.SpatRaster()` method for `SpatRaster`.
 -   Other coercing and helper functions:
     -   `as_spatvector()`

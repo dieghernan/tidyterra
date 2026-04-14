@@ -52,7 +52,8 @@ the input.
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 
 Actual implementation of \verb{drop_na().SpatRaster} can be understood as a
-masking method based on the values of the layers (see \code{\link[terra:mask]{terra::mask()}}).
+masking method based on the values of the layers (see
+\code{\link[terra:mask]{terra::mask()}}).
 
 \code{SpatRaster} layers are considered as columns and \code{SpatRaster} cells as rows,
 so rows (cells) with any \code{NA} value on any layer would get a \code{NA} value. It

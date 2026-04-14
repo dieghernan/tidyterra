@@ -39,8 +39,8 @@ output will contain all columns that appear in any of the inputs.
 Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function for
 \code{SpatVector} objects.
 
-The first element of \code{...} should be a \code{SpatVector}. Subsequent elements may
-be \code{SpatVector}, \code{sf/sfc} objects or data frames:
+The first argument should be a \code{SpatVector}. Each subsequent argument can be
+a \code{SpatVector}, \code{sf/sfc} object, or data frame:
 \itemize{
 \item If subsequent \code{SpatVector/sf/sfc} objects present a different CRS than
 the first element, those elements would be reprojected to the CRS of the

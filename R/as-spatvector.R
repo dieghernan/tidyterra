@@ -23,9 +23,10 @@
 #'   two names for x and y coordinates of points, or a single name for a single
 #'   column with WKT geometries.
 #'
-#' @param crs A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or
-#'   and spatial object from \CRANpkg{sf} or \CRANpkg{terra} that includes the
-#'   target coordinate reference system. See [pull_crs()] and **Details**.
+#' @param crs A CRS in several formats (PROJ.4, WKT, EPSG code, ..)
+#'   or a spatial object from **[sf][sf::st_crs()]** or
+#'   **[terra][terra::crs()]** that includes the target coordinate
+#'   reference system. See [pull_crs()] and **Details**.
 #'
 #' @details
 #'
@@ -45,7 +46,7 @@
 #'
 #' @seealso
 #'
-#' [pull_crs()] for retrieving CRS, and the corresponding utils [sf::st_crs()]
+#' [pull_crs()] for retrieving CRS and the corresponding utils [sf::st_crs()]
 #' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:

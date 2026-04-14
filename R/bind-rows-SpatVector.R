@@ -33,8 +33,9 @@
 #' Implementation of the [dplyr::bind_rows()] function for
 #' `SpatVector` objects.
 #'
-#' The first element of `...` should be a `SpatVector`. Subsequent elements may
-#' be `SpatVector`, `sf/sfc` objects or data frames:
+#' The first argument should be a `SpatVector`. Each subsequent argument can be
+#' a `SpatVector`, `sf/sfc` object, or data frame:
+#'
 #' * If subsequent `SpatVector/sf/sfc` objects present a different CRS than
 #'   the first element, those elements would be reprojected to the CRS of the
 #'   first element with a message.

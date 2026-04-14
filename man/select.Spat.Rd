@@ -15,10 +15,10 @@
 \item{.data}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more unquoted
-expressions separated by commas. Layer/attribute names can be used as if
-they were positions in the \verb{Spat*} object, so expressions like \code{x:y} can
-be used to select a range of layers/attributes.}
+\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more
+unquoted expressions separated by commas. Layer/attribute names can be
+used as if they were positions in the \verb{Spat*} object, so expressions like
+\code{x:y} can be used to select a range of layers/attributes.}
 }
 \value{
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.

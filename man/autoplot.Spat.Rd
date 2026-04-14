@@ -49,8 +49,8 @@ try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 A \CRANpkg{ggplot2} layer
 }
 \description{
-\code{autoplot()} uses \CRANpkg{ggplot2} to draw plots as the ones produced by
-\code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{terra::plotRGB()}} in a single command.
+\code{autoplot()} uses \CRANpkg{ggplot2} to draw plots like those
+produced by \code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{terra::plotRGB()}} in a single command.
 }
 \details{
 Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} method.

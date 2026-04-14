@@ -70,9 +70,9 @@
 #' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
 #' [ggplot2::after_stat()]).
 #' * `after_stat(lyr)`: Name of the layer.
-#' * `after_stat(level)`: Height of contour. For contour lines, this is numeric
-#'    vector that represents bin boundaries. For contour bands, this is an
-#'    ordered factor that represents bin ranges.
+#' * `after_stat(level)`: Height of contour. For contour lines, this is
+#'    a numeric vector that represents bin boundaries. For contour bands,
+#'    this is an ordered factor that represents bin ranges.
 #' * `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
 #' * `after_stat(level_low)`, `after_stat(level_high)`,
 #' * `after_stat(level_mid)`: (contour bands only) Lower and upper bin

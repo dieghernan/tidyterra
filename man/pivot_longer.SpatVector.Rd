@@ -123,7 +123,7 @@ A \code{SpatVector} object.
 decreasing the number of columns. The inverse transformation is
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
 
-Learn more in \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
+Learn more in \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}.
 }
 \section{Methods}{
 

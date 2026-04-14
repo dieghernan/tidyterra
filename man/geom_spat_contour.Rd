@@ -200,9 +200,9 @@ aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
 \item \code{after_stat(lyr)}: Name of the layer.
-\item \code{after_stat(level)}: Height of contour. For contour lines, this is numeric
-vector that represents bin boundaries. For contour bands, this is an
-ordered factor that represents bin ranges.
+\item \code{after_stat(level)}: Height of contour. For contour lines, this is
+a numeric vector that represents bin boundaries. For contour bands,
+this is an ordered factor that represents bin ranges.
 \item \code{after_stat(nlevel)}: Height of contour, scaled to maximum of 1.
 \item \code{after_stat(level_low)}, \code{after_stat(level_high)},
 \item \code{after_stat(level_mid)}: (contour bands only) Lower and upper bin

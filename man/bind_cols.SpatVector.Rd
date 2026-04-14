@@ -4,7 +4,7 @@
 \name{bind_cols.SpatVector}
 \alias{bind_cols.SpatVector}
 \alias{bind_spat_cols}
-\title{Bind multiple \code{SpatVector} \code{sf} and data frames objects by column}
+\title{Bind multiple \code{SpatVector}, \code{sf} and data frames objects by column}
 \usage{
 bind_spat_cols(
   ...,
@@ -26,13 +26,13 @@ A \code{SpatVector} with the corresponding columns. The geometry and CRS
 would correspond to the first \code{SpatVector} of \code{...}.
 }
 \description{
-Bind any number of \code{SpatVector}, data frames and \code{sf} object by column,
+Bind any number of \code{SpatVector}, data frames and \code{sf} objects by column,
 making a wider result. This is similar to \code{do.call(cbind, dfs)}.
 
-Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to combine
-\code{SpatVector} and data frames objects. \code{bind_spat_cols()} binds the rows in
-order in which they appear so it is easy to create meaningless results
-without realizing it.
+Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to
+combine \code{SpatVector} and data frames objects. \code{bind_spat_cols()}
+binds the rows in order in which they appear so it is easy to create
+meaningless results without realizing it.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -43,7 +43,7 @@ without realizing it.
 \section{Methods}{
 
 
-Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function for
+Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for
 \code{SpatVector} objects. Note that for the second and subsequent arguments on
 \code{...} the geometry would not be \code{cbind}ed, and only the data frame (-ish)
 columns would be kept.
