@@ -135,7 +135,8 @@ the input.</p>
 
 <p><a href="https://lifecycle.r-lib.org/articles/stages.html#questioning" class="external-link"><img src="figures/lifecycle-questioning.svg" alt="[Questioning]"></a></p>
 <p>Actual implementation of <code>drop_na().SpatRaster</code> can be understood as a
-masking method based on the values of the layers (see <code><a href="https://rspatial.github.io/terra/reference/mask.html" class="external-link">terra::mask()</a></code>).</p>
+masking method based on the values of the layers (see
+<code><a href="https://rspatial.github.io/terra/reference/mask.html" class="external-link">terra::mask()</a></code>).</p>
 <p><code>SpatRaster</code> layers are considered as columns and <code>SpatRaster</code> cells as rows,
 so rows (cells) with any <code>NA</code> value on any layer would get a <code>NA</code> value. It
 is possible also to mask the cells (rows) based on the values of specific

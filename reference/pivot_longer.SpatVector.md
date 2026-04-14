@@ -6,7 +6,7 @@ number of columns. The inverse transformation is
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md)
 
 Learn more in
-[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html).
+[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
 
 ## Usage
 

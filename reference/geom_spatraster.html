@@ -235,9 +235,10 @@ adjust the scales. That means that also the
 
 <p><code>geom_spatraster()</code> understands the following aesthetics:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
 <li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
-</ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a>
-layer with all the layers of the <code>SpatRaster</code> object. Use <code>facet_wrap(~lyr)</code>
-to display properly the <code>SpatRaster</code> layers.</p>
+</ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a
+<a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer with all the layers of the <code>SpatRaster</code>
+object. Use <code>facet_wrap(~lyr)</code> to properly display the <code>SpatRaster</code>
+layers.</p>
 <p>If <code>fill</code> is used, it should contain the name of one layer that is present
 on the <code>SpatRaster</code> (i.e.
 <code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Names of the

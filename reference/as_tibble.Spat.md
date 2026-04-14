@@ -108,7 +108,7 @@ initial object in WKT format (see
 ## About layer/column names
 
 When coercing `SpatRaster` objects to data frames, `x` and `y` names are
-reserved for geographic coordinates of each cell of the `SpatRaster` It
+reserved for geographic coordinates of each cell of the `SpatRaster`. It
 should be also noted that
 [terra](https://CRAN.R-project.org/package=terra) allows layers with
 duplicated names.

@@ -79,7 +79,7 @@ library(dplyr)
 
 lux <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 
-# Leave some blanks for demo purporses
+# Leave some blanks for demo purposes
 
 lux_blnk <- lux |>
   mutate(NAME_1 = if_else(NAME_1 != NAME_2, NA, NAME_2))

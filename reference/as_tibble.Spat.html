@@ -156,14 +156,14 @@ object in WKT format (see <code><a href="pull_crs.html">pull_crs()</a></code>).<
 
 
 <p>When coercing <code>SpatRaster</code> objects to data frames, <code>x</code> and <code>y</code> names are
-reserved for geographic coordinates of each cell of the <code>SpatRaster</code> It
-should be also noted that <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> allows layers with duplicated
-names.</p>
+reserved for geographic coordinates of each cell of the <code>SpatRaster</code>. It
+should be also noted that <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> allows layers with
+duplicated names.</p>
 <p>In the process of coercing a <code>SpatRaster</code> to a tibble, <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a>
 may rename the layers of your <code>SpatRaster</code> for overcoming this issue.
 Specifically, layers may be renamed on the following cases:</p><ul><li><p>Layers with duplicated names.</p></li>
-<li><p>When coercing to a tibble, if <code>xy = TRUE</code>, layers named <code>x</code> or <code>y</code> would be
-renamed.</p></li>
+<li><p>When coercing to a tibble, if <code>xy = TRUE</code>, layers named <code>x</code> or
+<code>y</code> would be renamed.</p></li>
 <li><p>When working with tidyverse methods (i.e. <code><a href="filter.Spat.html">filter.SpatRaster()</a></code>), the
 latter would happen as well.</p></li>
 </ul><p><a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> would display a message informing of the changes on the

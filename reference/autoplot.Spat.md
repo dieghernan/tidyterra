@@ -2,7 +2,7 @@
 
 [`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
 uses [ggplot2](https://CRAN.R-project.org/package=ggplot2) to draw plots
-as the ones produced by
+like those produced by
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)/[`terra::plotRGB()`](https://rspatial.github.io/terra/reference/plotRGB.html)
 in a single command.
 

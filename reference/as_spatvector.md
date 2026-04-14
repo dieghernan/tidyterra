@@ -45,10 +45,11 @@ as_spatvector(x, ...)
 
 - crs:
 
-  A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or and spatial
-  object from [sf](https://CRAN.R-project.org/package=sf) or
-  [terra](https://CRAN.R-project.org/package=terra) that includes the
-  target coordinate reference system. See
+  A CRS in several formats (PROJ.4, WKT, EPSG code, ..) or a spatial
+  object from
+  **[sf](https://r-spatial.github.io/sf/reference/st_crs.html)** or
+  **[terra](https://rspatial.github.io/terra/reference/crs.html)** that
+  includes the target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
   and **Details**.
 
@@ -87,7 +88,7 @@ on the following:
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-for retrieving CRS, and the corresponding utils
+for retrieving CRS and the corresponding utils
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

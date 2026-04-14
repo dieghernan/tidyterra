@@ -1,6 +1,6 @@
-# Bind multiple `SpatVector` `sf` and data frames objects by column
+# Bind multiple `SpatVector`, `sf` and data frames objects by column
 
-Bind any number of `SpatVector`, data frames and `sf` object by column,
+Bind any number of `SpatVector`, data frames and `sf` objects by column,
 making a wider result. This is similar to `do.call(cbind, dfs)`.
 
 Where possible prefer using a
@@ -46,7 +46,7 @@ would correspond to the first `SpatVector` of `...`.
 ## Methods
 
 Implementation of the
-[`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
+[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
 function for `SpatVector` objects. Note that for the second and
 subsequent arguments on `...` the geometry would not be `cbind`ed, and
 only the data frame (-ish) columns would be kept.

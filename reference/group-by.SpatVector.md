@@ -68,8 +68,8 @@ family functions for `SpatVector` objects.
 
 **When mixing** [terra](https://CRAN.R-project.org/package=terra)
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a grouped `SpatVector` (i.e, subsetting a `SpatVector` like
-`v[1:3,1:2]`) the `groups` attribute can be corrupted.
+a grouped `SpatVector` (i.e. subsetting a `SpatVector` like
+`v[1:3,1:2]`), the `groups` attribute can be corrupted.
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) would try to
 re-group the `SpatVector`. This would be triggered the next time you use
 a [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your

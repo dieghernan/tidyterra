@@ -295,9 +295,9 @@ CRAN release: 2023-03-17
       [`tally.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
     - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
       [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md)
-  - Already implemented methods now works with
+  - Already implemented methods now work with
     [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html).
-  - Internal review of code. Now the methods does not rely on
+  - Internal review of code. Now the methods do not rely on
     [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
     coercion. In fact coercion between object classes is avoided as much
     as possible.

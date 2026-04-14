@@ -131,7 +131,7 @@ name of the layer on the `SpatRaster`.
 The CRS of the `SpatRaster` can be retrieved with
 `attr(fortifiedSpatRaster, "crs")`.
 
-It is possible to convert the fortified object onto a `SpatRaster` again
+It is possible to convert the fortified object to a `SpatRaster` again
 with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md).
 

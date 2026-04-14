@@ -1,8 +1,8 @@
 # Mutating joins for `SpatVector` objects
 
 Mutating joins add columns from `y` to `x`, matching observations based
-on the keys. There are four mutating joins: the inner join, and the
-three outer joins.
+on the keys. There are four mutating joins: the inner join and the three
+outer joins.
 
 See
 [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)

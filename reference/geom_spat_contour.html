@@ -281,9 +281,9 @@ aesthetics.</p>
 <p>These geom computes internally some variables that are available for use as
 aesthetics, using (for example) <code>aes(color = after_stat(&lt;computed&gt;))</code> (see
 <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>
-<li><p><code>after_stat(level)</code>: Height of contour. For contour lines, this is numeric
-vector that represents bin boundaries. For contour bands, this is an
-ordered factor that represents bin ranges.</p></li>
+<li><p><code>after_stat(level)</code>: Height of contour. For contour lines, this is
+a numeric vector that represents bin boundaries. For contour bands,
+this is an ordered factor that represents bin ranges.</p></li>
 <li><p><code>after_stat(nlevel)</code>: Height of contour, scaled to maximum of 1.</p></li>
 <li><p><code>after_stat(level_low)</code>, <code>after_stat(level_high)</code>,</p></li>
 <li><p><code>after_stat(level_mid)</code>: (contour bands only) Lower and upper bin

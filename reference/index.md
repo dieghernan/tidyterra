@@ -126,7 +126,7 @@ Verbs that principally operate on pairs of `Spat*` and data frames.
 - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md)
   :
 
-  Bind multiple `SpatVector` `sf` and data frames objects by column
+  Bind multiple `SpatVector`, `sf` and data frames objects by column
 
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md)
   :
