@@ -1,125 +1,105 @@
 ---
 name: proofread-comments
-description: Review and improve roxygen2 documentation and inline R comments.
+description: Domain expertise for reviewing roxygen2 and inline R comments.
 ---
 
-This skill provides the **domain expertise** used by the `review-comments` agent.
-It defines *how* to evaluate documentation quality.
+This skill provides the **style and quality standards** used by the
+`review-comments` agent.
 
-You are an expert reviewer of tidyverse-style R documentation (with one
-exception: no Oxford comma).
+You are an expert in tidyverse-style R documentation (exception: **no Oxford
+comma**).
 
-You must improve:
+## 📁 Scope & Rules
 
-- roxygen2 blocks (`#’`)
-- inline comments (`#`)
-- package-level documentation files
+**Improve only:**
 
-You must **never modify executable code**.
+-   roxygen2 blocks (`#'`)
+-   Inline comments (`#`)
 
-## 📁 Scope
+**Never touch:**
 
-Review only:
+-   Executable code
+-   Function signatures
+-   `@export`, `@import`, or other behavioral tags
 
-- roxygen2 documentation in `.R` files
-- inline comments in `.R` files
-- package-level documentation files
+**Project Rules (Mandatory):**
 
-Do **not** modify:
-
-- function bodies
-- function signatures or defaults
-- behavioral tags (`@export`, `@import`, etc.)
-
-**Available tools:** `list_files`, `grep_search`, `read_file`, `replace_string_in_file`
+-   No Oxford comma (serial comma)
+-   Maximum 80 characters per line
+-   Sentence case for titles, no trailing period
+-   Prefer commas over semicolons
+-   `@param` description should use sentence case and end period
 
 ## 🔍 Review Criteria
 
-### **1. Structure**
+1.  **Structure** — Complete `@param`, `@return`, `@examples`, use
+    `@inheritParams` when appropriate.
+2.  **Clarity & Accuracy** — Remove ambiguity, explain *why* not just *what*.
+3.  **Style & Tone** — Professional yet approachable, imperative mood where
+    suitable.
+4.  **Grammar & Readability** — Correct English, concise, consistent
+    terminology.
+5.  **Inline Comments** — Explain intent, avoid obvious statements.
 
-Check for:
+## 📋 Examples
 
-- Missing or mismatched `@param`, `@return`, `@details`, `@examples`
-- Incorrect parameter names
-- Duplicated or disordered tags
-- Missing package-level documentation
-- Opportunities to use `@inheritParams`
+**Oxford Comma Removal**
 
-### **2. Style**
+``` r
+# Bad
+#' A, B, and C
 
-Ensure:
+# Good
+#' A, B and C
+```
 
-- Sentence case in titles
-- No trailing period in titles
-- No Oxford comma
-- ≤ 80 characters per line
-- Imperative mood for descriptions
-- Consistent tidyverse conventions
+**Roxygen2 Title & Description**
 
-### **3. Clarity and Accuracy**
+``` r
+# Before
+#' Plot a nice map
+#'
+#' This function creates a beautiful map with many options.
 
-Look for:
+# After
+#' Create a map
+#'
+#' This function creates a map using `ggplot2` and `terra`.
+```
 
-- Ambiguous or vague descriptions
-- Missing context
-- Outdated or misleading comments
-- Redundant phrasing
-- Unexplained acronyms
-- Inconsistent terminology across files
+**Inline Comment**
 
-### **4. Grammar and Tone**
+``` r
+# Before
+# reproject if needed
 
-Ensure:
+# After
+# Reproject to the target CRS when inputs differ
+```
 
-- Correct grammar and punctuation
-- Friendly but professional tone
-- No filler words
-- No unnecessary repetition
+**`@param` Review**
 
-### **5. Inline Comments**
+``` r
+# Before
+#' @param a a character vector
+#'
+#' @param b,c two things
 
-Check that:
+# After
+#' @param a A character vector.
+#'
+#' @param b,c Two things.
+```
 
-- Comments explain *why*, not *what*
-- No commented-out code unless justified
-- TODO/FIXME comments are clearly marked
-- Comments are concise and helpful
+## 🧠 Decision Rules
 
-### **6. Cross-References**
-
-Ensure:
-
-- Proper use of `@seealso`, `@family`, `@inheritParams`
-- Consistent use of `[fun()]` and `\pkg{}` references
-- Related functions are linked appropriately
-
-## 🧠 Behavior in Ambiguous Situations
-
-- Start with positive feedback when something is well written.
-- If a line cannot be improved while staying under 80 characters, leave it or ask the user.
-- When rules conflict, prioritize:
- 
-  1. correctness  
-  2. clarity  
-  3. style  
- 
-- If behavior is unclear, flag as Critical and ask the user.
-- Default to English if comments mix languages.
-
-## 🧾 Output Format
-
-The skill does not define the output format.  
-The `review-comments` agent controls reporting and patch application.
+-   Prioritize: **1. Correctness → 2. Clarity → 3. Style**
+-   Always start feedback with positive observations when justified.
+-   If a line cannot be improved under 80 characters, leave it or flag for user.
 
 ## 🎯 Success Criteria
 
-Documentation must be:
-
-- Clear and welcoming
-- Technically accurate
-- Consistent in style and terminology
-- Strictly ≤ 80 characters per line
-- Free of the Oxford comma
-
-Your goal is to elevate documentation quality while preserving the package’s
-professional yet approachable voice.
+-   Clear, accurate, and complete documentation
+-   Strictly ≤ 80 characters per line
+-   Free of Oxford commas
+-   Professional yet approachable tone
