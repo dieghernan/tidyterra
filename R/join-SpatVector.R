@@ -21,12 +21,12 @@
 #'
 #' @importFrom dplyr inner_join
 #'
-#' @param x A `SpatVector` created with [terra::vect()].
 #' @param y A data frame or other object coercible to a data frame. **If a
 #'   `SpatVector` of `sf` object** is provided it would return an error (see
 #'   [terra::intersect()] for performing spatial joins).
 #'
 #' @inheritParams dplyr::full_join
+#' @inheritParams as_sf
 #'
 #' @return A `SpatVector` object.
 #'

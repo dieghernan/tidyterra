@@ -16,16 +16,15 @@
 #' @param xycols A vector of integers of length 2 determining the position of
 #'   the columns that hold the `x` and `y` coordinates.
 #'
-#' @param digits integer to set the precision for detecting whether points are
+#' @param digits Integer to set the precision for detecting whether points are
 #'   on a regular grid (a low number of digits is a low precision).
 #'
-#' @param crs A CRS in several formats (PROJ.4, WKT, EPSG code, ..)
-#'   or a spatial object from **[sf][sf::st_crs()]** or
-#'   **[terra][terra::crs()]**.
-#'   that includes the target coordinate reference system. See [pull_crs()] and
+#' @param crs A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a
+#'   spatial object from [sf][sf::st_crs()] or [terra][terra::crs()] that
+#'   includes the target coordinate reference system. See [pull_crs()] and
 #'   **Details**.
 #'
-#' @param ... additional arguments passed on to [terra::rast()].
+#' @param ... Additional arguments passed on to [terra::rast()].
 #'
 #' @details
 #'

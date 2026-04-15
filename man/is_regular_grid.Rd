@@ -11,7 +11,7 @@ is_regular_grid(xy, digits = 6)
 \item{xy}{A matrix, data frame or tibble of at least two columns representing
 x and y coordinates.}
 
-\item{digits}{integer to set the precision for detecting whether points are
+\item{digits}{Integer to set the precision for detecting whether points are
 on a regular grid (a low number of digits is a low precision).}
 }
 \value{

@@ -36,7 +36,7 @@
 #'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
 #'   integer (representing an [EPSG](https://epsg.io/) code).
 #'
-#' @param ... ignored
+#' @param ... Ignored.
 #'
 #' @details
 #'

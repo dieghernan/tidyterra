@@ -30,7 +30,7 @@
 created with \code{\link[terra:vect]{terra::vect()}}, a \code{SpatGraticule} (see \code{\link[terra:graticule]{terra::graticule()}})
 or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 
-\item{...}{other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
+\item{...}{Other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} or \code{\link[=geom_spatvector]{geom_spatvector()}}.}
 
 \item{rgb}{Logical. Should be plotted as a RGB image? If \code{NULL} (the default)

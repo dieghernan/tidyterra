@@ -32,7 +32,7 @@ column locations).}
 \item{name}{An optional parameter that specifies the column to be used
 as names for a named vector. Specified in a similar manner as \code{var}.}
 
-\item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}}
+\item{...}{Arguments passed on to \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.}
 }
 \value{
 A vector the same number of cells/geometries as \code{.data}.

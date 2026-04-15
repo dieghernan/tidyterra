@@ -23,16 +23,16 @@ as_spatvector(x, ...)
 \item{x}{A \link[tibble:tbl_df]{tibble}, data frame or \CRANpkg{sf} object of
 class \code{\link[sf:st_sf]{sf}} or \code{\link[sf:st_sfc]{sfc}}.}
 
-\item{...}{additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
+\item{...}{Additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{geom}{character. The field name(s) with the geometry data. Either
+\item{geom}{Character. The field name(s) with the geometry data. Either
 two names for x and y coordinates of points, or a single name for a single
 column with WKT geometries.}
 
-\item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, ..)
-or a spatial object from \strong{\link[sf:st_crs]{sf}} or
-\strong{\link[terra:crs]{terra}} that includes the target coordinate
-reference system. See \code{\link[=pull_crs]{pull_crs()}} and \strong{Details}.}
+\item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a
+spatial object from \link[sf:st_crs]{sf} or \link[terra:crs]{terra} that
+includes the target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and
+\strong{Details}.}
 }
 \value{
 A \code{SpatVector}.

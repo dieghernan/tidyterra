@@ -25,7 +25,7 @@
 #'   [autoplot.SpatRaster()] would try to guess.
 #'
 #' @param nrow,ncol Number of rows and columns on the facet.
-#' @param ... other arguments passed to [geom_spatraster()],
+#' @param ... Other arguments passed to [geom_spatraster()],
 #'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
 #' @section Methods:

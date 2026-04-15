@@ -8,7 +8,7 @@
 compare_spatrasters(x, y, digits = 6)
 }
 \arguments{
-\item{x, y}{\code{SpatRaster} objects}
+\item{x, y}{\code{SpatRaster} objects.}
 
 \item{digits}{Integer to set the precision for comparing the extent and
 the resolution.}

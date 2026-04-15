@@ -52,7 +52,7 @@ This argument is passed on as \code{repair} to \code{\link[vctrs:vec_as_names]{v
 See there for more details on these terms and the strategies used
 to enforce them.}
 
-\item{maxcell}{positive integer. Maximum number of cells to use for
+\item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
 \item{pivot}{Logical. When \code{TRUE} the \code{SpatRaster} would be provided on

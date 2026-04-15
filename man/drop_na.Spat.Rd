@@ -15,7 +15,7 @@
 \item{data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}} or a \code{SpatRaster}
 \code{\link[terra:rast]{terra::rast()}}.}
 
-\item{...}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}>  Attributes to inspect
+\item{...}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> Attributes to inspect
 for missing values. If empty, all attributes are used.}
 }
 \value{

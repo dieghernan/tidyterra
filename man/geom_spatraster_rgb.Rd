@@ -39,7 +39,7 @@ considered as the red (\code{r}), green (\code{g}) and blue (\code{b}) channel.}
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
 
-\item{maxcell}{positive integer. Maximum number of cells to use for
+\item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
 \item{max_col_value}{Number giving the maximum of the color values range.
@@ -78,7 +78,7 @@ lists which parameters it can accept.
 
 \item{zlim}{numeric vector of length 2. Range of values to plot (optional). If this is set, and \code{stretch="lin"} is used, then the values are stretched within the range of \code{zlim}. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast}
 
-\item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
+\item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the date-line in Equal Area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}

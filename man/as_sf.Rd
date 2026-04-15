@@ -8,9 +8,9 @@
 as_sf(x, ...)
 }
 \arguments{
-\item{x}{A \code{SpatVector}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
+\item{...}{Additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
 A \code{\link[sf:st_sf]{sf}} object with an additional \code{tbl_df} class for

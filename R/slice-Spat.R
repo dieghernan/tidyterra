@@ -44,8 +44,6 @@
 #' @inherit select.Spat return
 #' @importFrom dplyr slice
 #'
-#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
 #' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
 #'   See also [terra::trim()], [terra::extend()].
@@ -61,6 +59,8 @@
 #'   See [terra::mask()].
 #' @param na.rm Logical, should cells that present a value of `NA` removed when
 #'   computing `slice_min()/slice_max()`?. The default is `TRUE`.
+#'
+#' @inheritParams mutate.Spat
 #' @inheritParams dplyr::slice
 #'
 #' @section \CRANpkg{terra} equivalent:

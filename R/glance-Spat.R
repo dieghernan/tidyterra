@@ -3,8 +3,8 @@
 #' Glance accepts a model object and returns a [tibble::tibble()] with exactly
 #' one row of `Spat`. The summaries are typically geographic information.
 #'
-#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
+#' @inheritParams glimpse.Spat
+#'
 #' @param ... Ignored by this method.
 #'
 #' @importFrom generics glance

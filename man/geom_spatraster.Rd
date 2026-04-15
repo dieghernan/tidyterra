@@ -57,14 +57,14 @@ than combining with them.}
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
 
-\item{maxcell}{positive integer. Maximum number of cells to use for
+\item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
 an associated \link[terra:coltab]{coltab}. Should the coltab be used on the
 plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
-\item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
+\item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the date-line in Equal Area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}

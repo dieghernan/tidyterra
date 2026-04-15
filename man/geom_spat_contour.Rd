@@ -88,7 +88,7 @@ lists which parameters it can accept.
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
 
-\item{maxcell}{positive integer. Maximum number of cells to use for
+\item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
 \item{bins}{Number of contour bins. Overridden by \code{breaks}.}
@@ -120,7 +120,7 @@ but unobserved levels are omitted.}
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
 than combining with them.}
 
-\item{mask_projection}{logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
+\item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the date-line in Equal Area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}

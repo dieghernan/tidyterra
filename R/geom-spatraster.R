@@ -24,14 +24,14 @@
 #' @param inherit.aes If `FALSE`, overrides the default aesthetics, rather
 #'   than combining with them.
 #'
-#' @param maxcell positive integer. Maximum number of cells to use for
+#' @param maxcell Positive integer. Maximum number of cells to use for
 #'   the plot.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
 #'   an associated [coltab][terra::coltab()]. Should the coltab be used on the
 #'   plot? See also [scale_fill_coltab()].
 #'
-#' @param mask_projection logical, defaults to `FALSE`. If `TRUE`, mask out
+#' @param mask_projection Logical, defaults to `FALSE`. If `TRUE`, mask out
 #'   areas outside the input extent. For example, to avoid data wrapping
 #'   around the date-line in Equal Area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the `SpatRaster`.

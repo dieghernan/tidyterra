@@ -11,7 +11,7 @@
 \method{summarize}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 }
 \arguments{
-\item{.data}{A \code{SpatVector}.}
+\item{.data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Name-value pairs of
 summary functions. The name will be the name of the variable in the result.
@@ -42,7 +42,7 @@ informs you of how the result will be grouped unless the result is
 ungrouped, the option \code{"dplyr.summarise.inform"} is set to \code{FALSE}, or when
 \code{summarise()} is called from a function in a package.}
 
-\item{.dissolve}{logical. Should borders between aggregated geometries
+\item{.dissolve}{Logical. Should borders between aggregated geometries
 be dissolved?}
 }
 \value{

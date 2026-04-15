@@ -11,7 +11,7 @@
 #' various metadata from a grouped `SpatVector`.
 #'
 #' @keywords internal
-#' @param x a `SpatVector`.
+#' @inheritParams as_sf
 #'
 #' @family helpers
 #'

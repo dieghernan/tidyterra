@@ -22,7 +22,7 @@
 \method{add_count}{SpatVector}(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 }
 \arguments{
-\item{x}{A \code{SpatVector}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Variables to group
 by.}
@@ -42,11 +42,11 @@ If omitted, it will default to \code{n}. If there's already a column called \cod
 it will use \code{nn}. If there's a column called \code{n} and \code{nn}, it'll use
 \code{nnn}, and so on, adding \code{n}s until it gets a new name.}
 
-\item{.drop}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Argument not longer
-supported; empty groups are always removed (see \code{\link[dplyr:count]{dplyr::count()}},
+\item{.drop}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Argument no longer
+supported, empty groups are always removed (see \code{\link[dplyr:count]{dplyr::count()}},
 \code{.drop = TRUE} argument).}
 
-\item{.dissolve}{logical. Should borders between aggregated geometries
+\item{.dissolve}{Logical. Should borders between aggregated geometries
 be dissolved?}
 }
 \value{

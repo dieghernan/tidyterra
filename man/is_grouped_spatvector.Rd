@@ -8,7 +8,7 @@
 is_grouped_spatvector(x)
 }
 \arguments{
-\item{x}{a \code{SpatVector}.}
+\item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 }
 \description{
 The easiest way to create a grouped \code{SpatVector} is to call the

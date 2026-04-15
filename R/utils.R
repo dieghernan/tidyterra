@@ -40,8 +40,8 @@ restore_attr <- function(x, template) {
 }
 
 #' Create safe index name
-#' @param x pattern to create
-#' @param y object with names (Can perform `names(y)`) to assess.
+#' @param x Pattern to create.
+#' @param y Object with names (can perform `names(y)`) to assess.
 #' @noRd
 make_safe_index <- function(x, y) {
   nams <- names(y)

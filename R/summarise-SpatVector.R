@@ -24,10 +24,9 @@
 #' @family dplyr.groups
 #' @family dplyr.methods
 #'
-#' @param .data A `SpatVector`.
-#'
+#' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::summarise
-#' @param .dissolve logical. Should borders between aggregated geometries
+#' @param .dissolve Logical. Should borders between aggregated geometries
 #'   be dissolved?
 #'
 #' @importFrom dplyr summarise

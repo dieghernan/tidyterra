@@ -13,9 +13,9 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @param x A `SpatVector`.
+#' @param x A `SpatVector` created with [terra::vect()].
 #'
-#' @param ... additional arguments passed on to [sf::st_as_sf()].
+#' @param ... Additional arguments passed on to [sf::st_as_sf()].
 #'
 #' @family coerce
 #'

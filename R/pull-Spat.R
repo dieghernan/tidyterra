@@ -37,7 +37,7 @@
 #'   [quasiquotation][rlang::topic-inject] (you can unquote column names and
 #'   column locations).
 #'
-#' @param ...  Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat]
+#' @param ... Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat].
 #'
 #' @return A vector the same number of cells/geometries as `.data`.
 #'

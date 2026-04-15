@@ -13,7 +13,7 @@ a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} obje
 \code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
 integer (representing an \href{https://epsg.io/}{EPSG} code).}
 
-\item{...}{ignored}
+\item{...}{Ignored.}
 }
 \value{
 A WKT representation of the corresponding CRS.

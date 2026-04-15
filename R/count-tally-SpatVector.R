@@ -23,10 +23,11 @@
 #'
 #' @importFrom dplyr count
 #'
-#' @param x A `SpatVector`.
-#' @param .drop `r lifecycle::badge("deprecated")` Argument not longer
-#'   supported; empty groups are always removed (see [dplyr::count()],
+#' @param .drop `r lifecycle::badge("deprecated")` Argument no longer
+#'   supported, empty groups are always removed (see [dplyr::count()],
 #'   `.drop = TRUE` argument).
+#'
+#' @inheritParams as_sf x
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'

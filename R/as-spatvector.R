@@ -17,16 +17,13 @@
 #' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
 #'   class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
 #'
-#' @param ... additional arguments passed on to [terra::vect()].
+#' @param ... Additional arguments passed on to [terra::vect()].
 #'
-#' @param geom character. The field name(s) with the geometry data. Either
+#' @param geom Character. The field name(s) with the geometry data. Either
 #'   two names for x and y coordinates of points, or a single name for a single
 #'   column with WKT geometries.
 #'
-#' @param crs A CRS in several formats (PROJ.4, WKT, EPSG code, ..)
-#'   or a spatial object from **[sf][sf::st_crs()]** or
-#'   **[terra][terra::crs()]** that includes the target coordinate
-#'   reference system. See [pull_crs()] and **Details**.
+#' @inheritParams as_spatraster
 #'
 #' @details
 #'
