@@ -56,7 +56,7 @@ pull(.data, var = -1, name = NULL, ...)
 - ...:
 
   Arguments passed on to
-  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
+  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md).
 
 ## Value
 

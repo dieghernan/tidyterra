@@ -113,7 +113,7 @@ geom_spatraster_contour_filled(
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - bins:
 
@@ -158,7 +158,7 @@ geom_spatraster_contour_filled(
 
 - mask_projection:
 
-  logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
+  Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
   input extent. For example, to avoid data wrapping around the date-line
   in Equal Area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)

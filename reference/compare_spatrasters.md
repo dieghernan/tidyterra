@@ -17,7 +17,7 @@ compare_spatrasters(x, y, digits = 6)
 
 - x, y:
 
-  `SpatRaster` objects
+  `SpatRaster` objects.
 
 - digits:
 

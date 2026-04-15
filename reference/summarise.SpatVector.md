@@ -24,7 +24,8 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .data:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
@@ -73,7 +74,7 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .dissolve:
 
-  logical. Should borders between aggregated geometries be dissolved?
+  Logical. Should borders between aggregated geometries be dissolved?
 
 ## Value
 

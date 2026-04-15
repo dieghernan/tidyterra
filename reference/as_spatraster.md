@@ -21,7 +21,7 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - ...:
 
-  additional arguments passed on to
+  Additional arguments passed on to
   [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html).
 
 - xycols:
@@ -31,17 +31,16 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - crs:
 
-  A CRS in several formats (PROJ.4, WKT, EPSG code, ..) or a spatial
-  object from
-  **[sf](https://r-spatial.github.io/sf/reference/st_crs.html)** or
-  **[terra](https://rspatial.github.io/terra/reference/crs.html)**. that
+  A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial
+  object from [sf](https://r-spatial.github.io/sf/reference/st_crs.html)
+  or [terra](https://rspatial.github.io/terra/reference/crs.html) that
   includes the target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
   and **Details**.
 
 - digits:
 
-  integer to set the precision for detecting whether points are on a
+  Integer to set the precision for detecting whether points are on a
   regular grid (a low number of digits is a low precision).
 
 ## Value

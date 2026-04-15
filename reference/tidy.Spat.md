@@ -76,7 +76,7 @@ tidy(x, ..., crs = "")
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - pivot:
 

@@ -34,21 +34,20 @@ as_spatvector(x, ...)
 
 - ...:
 
-  additional arguments passed on to
+  Additional arguments passed on to
   [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - geom:
 
-  character. The field name(s) with the geometry data. Either two names
+  Character. The field name(s) with the geometry data. Either two names
   for x and y coordinates of points, or a single name for a single
   column with WKT geometries.
 
 - crs:
 
-  A CRS in several formats (PROJ.4, WKT, EPSG code, ..) or a spatial
-  object from
-  **[sf](https://r-spatial.github.io/sf/reference/st_crs.html)** or
-  **[terra](https://rspatial.github.io/terra/reference/crs.html)** that
+  A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial
+  object from [sf](https://r-spatial.github.io/sf/reference/st_crs.html)
+  or [terra](https://rspatial.github.io/terra/reference/crs.html) that
   includes the target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
   and **Details**.

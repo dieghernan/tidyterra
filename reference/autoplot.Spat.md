@@ -45,7 +45,7 @@ autoplot(object, ...)
 
 - ...:
 
-  other arguments passed to
+  Other arguments passed to
   [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
   [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
   or

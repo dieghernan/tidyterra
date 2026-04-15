@@ -41,13 +41,13 @@ depending on the type of `Spat*` object:
 - `SpatVector`: the methods are implemented using
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
   coercion. Rows correspond to geometries and columns correspond to
-  attributes of the geometry.
+  attributes of each geometry.
 
-- `SpatRaster`: The implementation on `SpatRaster` objects differs,
-  since the methods could be applied to layers or to cells.
-  **tidyterra**’s overall approach is to treat the layers as columns of
-  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` would
-  select the first layer of a `SpatRaster`).
+- `SpatRaster`: The implementation for `SpatRaster` objects differs
+  because methods can be applied to layers or cells. **tidyterra**’s
+  overall approach is to treat the layers as columns of a tibble and the
+  cells as rows (i.e. `select(SpatRaster, 1)` would select the first
+  layer of a `SpatRaster`).
 
 The implemented methods return the same type of object as the input,
 unless the expected behavior of the method is to return another type of
@@ -63,7 +63,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Select layers                                                                                                                                                                                      |
 | [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Create/modify layers                                                                                                                                                                               |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)                                                                                | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Modify cells values and (additionally) remove outer cells.                                                                                                                                         |
+| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Modify cell values and optionally remove outer cells.                                                                                                                                              |
 | [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                  | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
 | [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)                                                                                        | ✔️                                                                                                                                                                                                    | ✔️ Additional methods for slicing by row and column.                                                                                                                                                  |
 | [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)                                                                                          | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
@@ -93,9 +93,9 @@ Current methods and functions provided by **tidyterra** are:
 
 A note on performance
 
-**tidyterra** is conceived as a user-friendly wrapper of **terra** using
-the **tidyverse** methods and verbs. This approach therefore has a
-**cost in terms of performance**.
+**tidyterra** is a user-friendly wrapper around **terra** that uses
+**tidyverse** methods and verbs. This approach has a **performance
+cost**.
 
 If you frequently use **terra** or work with large raster files,
 **terra** is much more performant. Whenever possible, each **tidyterra**
@@ -123,8 +123,8 @@ install.packages("tidyterra")
 
 ### `SpatRasters`
 
-This is a basic example which shows you how to manipulate and plot
-`SpatRaster` objects:
+This basic example shows how to manipulate and plot `SpatRaster`
+objects:
 
 ``` r
 library(tidyterra)
@@ -250,8 +250,8 @@ Asia](https://dieghernan.github.io/tidyterra/README-hypso-1.png)
 
 ### `SpatVectors`
 
-This is a basic example which shows you how to manipulate and plot
-`SpatVector` objects:
+This basic example shows how to manipulate and plot `SpatVector`
+objects:
 
 ``` r
 vect(system.file("ex/lux.shp", package = "terra")) |>

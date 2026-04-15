@@ -18,11 +18,12 @@ as_sf(x, ...)
 
 - x:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
-  additional arguments passed on to
+  Additional arguments passed on to
   [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html).
 
 ## Value

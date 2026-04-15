@@ -142,7 +142,7 @@ v |>
 
 # Two variables
 v |>
-  mutate(even = as.double(cpro) %% 2 == 0, ) |>
+  mutate(even = as.double(cpro) %% 2 == 0) |>
   arrange(desc(even), desc(iso2))
 #>  class       : SpatVector 
 #>  geometry    : polygons 

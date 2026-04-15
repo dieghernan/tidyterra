@@ -42,7 +42,8 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 - x:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
@@ -72,14 +73,14 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 - .drop:
 
-  **\[deprecated\]** Argument not longer supported; empty groups are
+  **\[deprecated\]** Argument no longer supported, empty groups are
   always removed (see
   [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html),
   `.drop = TRUE` argument).
 
 - .dissolve:
 
-  logical. Should borders between aggregated geometries be dissolved?
+  Logical. Should borders between aggregated geometries be dissolved?
 
 ## Value
 

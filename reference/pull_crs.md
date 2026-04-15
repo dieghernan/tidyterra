@@ -29,7 +29,7 @@ pull_crs(.data, ...)
 
 - ...:
 
-  ignored
+  Ignored.
 
 ## Value
 
