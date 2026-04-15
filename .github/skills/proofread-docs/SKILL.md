@@ -1,69 +1,218 @@
 ---
 name: proofread-docs
-description: Domain expertise for reviewing prose documentation (vignettes, README, etc.).
+description: |
+  Domain expertise for reviewing prose documentation (vignettes, README, etc.).
 ---
 
-This skill provides the **style and quality standards** used by the
-`review-docs` agent.
+# Skill: Proofread documentation files
 
-You are an experienced technical writer specializing in R package documentation.
+## Goal
 
-## 📁 Scope & Rules
+You proofread and improve **documentation prose** in:
 
-**Review only prose documentation files** (vignettes, README, man/\*.Rmd,
-NEWS.md, etc.).
+-   `vignettes/` (Quarto or R Markdown)
+-   `README` and other top‑level docs
+-   Package website content derived from these files
 
-**Never modify executable code chunks or chunk options.**
+You focus on:
 
-**Project Rules (Mandatory):**
+-   Correctness
+-   Clarity
+-   Consistency with the package's style
 
--   No Oxford comma
--   Maximum 80 characters per line
--   Friendly, professional, and welcoming tone
--   Consistent terminology across the package
+You never modify executable code.
 
-## 🔍 Review Criteria
+--------------------------------------------------------------------------------
 
-1.  **Clarity & Flow** — Easy to follow for both new and experienced users.
-2.  **Accuracy** — Technically correct and up-to-date.
-3.  **Tone** — Welcoming without being overly casual.
-4.  **Formatting** — Proper headings, lists, links, and callouts
-    (Quarto/RMarkdown).
-5.  **Consistency** — Terminology, style, and cross-references.
+## Scope
 
-## 📋 Examples
+You work on:
 
-**Paragraph Improvement**
+-   Narrative text
+-   Section headings
+-   Lists and callouts
+-   Captions and inline explanations
+-   Comments inside code chunks (if present)
 
-``` markdown
-# Before
-This function does many things and it is very useful and you can use it to do lots of spatial stuff.
+You do **not**:
 
-# After
-This function creates maps and performs spatial operations using `terra`
-objects.
-```
+-   Change code examples’ behavior
+-   Modify data, configuration, or YAML semantics
+-   Reorganize content structure unless explicitly requested
 
-**Link & Oxford Comma**
+--------------------------------------------------------------------------------
 
-``` markdown
-# Before
-See the functions plot, reproject, and extract.
+## Global style rules
 
-# After
-See the functions `plot()`, `reproject()` and `extract()`.
-```
+Apply these rules to all prose:
 
-## 🧠 Decision Rules
+-   **Line length:**\
+    Wrap text so lines are **≤ 80 characters**, unless it is:
+    -   A URL
+    -   A code block
+    -   A table or other structured block that would break if wrapped
+-   **Tone:**\
+    Professional, concise, and approachable. Avoid slang and jokes.
+-   **Sentence case:**\
+    Use sentence case for sentences. Start with a capital letter, end with a
+    period.
+-   **No Oxford comma:**\
+    Use commas in lists without the Oxford comma.
+-   **Function and argument names:**\
+    Wrap function names and arguments in backticks: `` `my_fun()` ``, `` `x` ``.
+-   **Package names:**\
+    Wrap package names in backticks when referring to them in prose:
+    `` `tidyterra` ``.
+-   **Acronyms:**\
+    Use standard uppercase for domain acronyms (CRS, EPSG, WKT, etc.).
 
--   Prioritize: **1. Correctness → 2. Clarity → 3. Style**
--   Start reports with positive feedback when deserved.
--   Preserve technical meaning and original intent.
+--------------------------------------------------------------------------------
 
-## 🎯 Success Criteria
+## Headings and structure
 
--   Clear, welcoming, and user-friendly documentation
--   Technically accurate and consistent
--   Strictly ≤ 80 characters per line
--   Free of Oxford commas
--   Maintains the package’s friendly professional voice
+-   Use clear, descriptive headings.
+-   Prefer sentence case for headings.
+-   Avoid redundant nesting (e.g., “Introduction” inside an “Introduction”).
+-   Keep heading text concise and informative.
+
+If you see inconsistent heading levels, you may suggest a more coherent
+structure, but do not reorder sections unless explicitly requested.
+
+--------------------------------------------------------------------------------
+
+## Paragraphs and flow
+
+-   Keep paragraphs focused on a single idea.
+-   Use transitions to connect related paragraphs when needed.
+-   Avoid long, dense paragraphs; split when they exceed \~5 sentences.
+
+You may:
+
+-   Reorder sentences within a paragraph for clarity
+-   Merge very short, fragmented sentences when it improves flow
+
+--------------------------------------------------------------------------------
+
+## Lists
+
+-   Use lists for sequences, steps, or grouped items.
+-   Keep list items parallel in structure (all verbs, all nouns, etc.).
+-   For bullet items:
+    -   Start with a capital letter.
+    -   End with a period if the item is a full sentence.
+
+--------------------------------------------------------------------------------
+
+## Callouts
+
+For Quarto or R Markdown callouts (e.g., `::: {.callout-note}`):
+
+-   Use them for:
+    -   Notes
+    -   Tips
+    -   Warnings
+    -   Important caveats
+-   Wrap text inside callouts to ≤ 80 characters when possible.
+-   Keep the callout type aligned with its content (do not turn a warning into a
+    note).
+
+Do not change the callout type unless the current one is clearly wrong.
+
+--------------------------------------------------------------------------------
+
+## Code chunks and inline code
+
+-   Do not change code behavior.
+-   You may:
+    -   Fix typos in comments inside code chunks
+    -   Improve surrounding explanatory text
+-   Do not:
+    -   Reformat code
+    -   Add or remove code lines
+    -   Change chunk options
+
+Inline code in prose (e.g., `` `my_fun()` ``) should be:
+
+-   Used for function names, arguments, and short expressions
+-   Left unwrapped even if it exceeds 80 characters
+
+--------------------------------------------------------------------------------
+
+## Tables
+
+-   Do not reflow or wrap table rows if it would break the table.
+-   You may:
+    -   Improve column headings for clarity
+    -   Fix typos in cell text
+-   If a table is very wide, you may suggest splitting it, but do not perform
+    the split yourself.
+
+--------------------------------------------------------------------------------
+
+## URLs, images, and YAML
+
+-   **URLs:**\
+    Leave URLs as is, even if they exceed 80 characters. You may suggest
+    reference‑style links in comments, but do not enforce them.
+
+-   **Images:**\
+    You may improve alt text and captions for clarity and accessibility. Do not
+    change file paths.
+
+-   **YAML headers:**\
+    Do not modify YAML semantics. You may fix obvious typos in titles or
+    descriptions, but do not rewrap or restructure YAML.
+
+--------------------------------------------------------------------------------
+
+## Cross‑document consistency
+
+When possible, keep:
+
+-   Terminology consistent across vignettes and README
+-   Function names and arguments consistently backticked
+-   Descriptions of the same concept aligned in meaning
+
+If you notice conflicting descriptions of the same feature, you may point it out
+and suggest harmonization.
+
+--------------------------------------------------------------------------------
+
+## Prioritization
+
+When making changes, prioritize in this order:
+
+1.  **Correctness:** Fix errors that change meaning or mislead the reader.
+2.  **Clarity:** Improve confusing or vague wording.
+3.  **Consistency:** Align with the package's style and terminology.
+4.  **Polish:** Minor phrasing, rhythm, or word choice improvements.
+
+If a change would improve polish but risks altering meaning, do not apply it.
+
+--------------------------------------------------------------------------------
+
+## Conflict and edge cases
+
+-   **Unwrap‑resistant content:**\
+    If wrapping to ≤ 80 characters would break URLs, tables, code blocks, or
+    YAML, leave them unwrapped.
+
+-   **Ambiguous explanations:**\
+    If you cannot safely infer the correct meaning, keep the original and
+    optionally suggest a clearer alternative with a note that it may need author
+    review.
+
+-   **Legacy formats:**\
+    If you see `.Rmd` and `.qmd` mixed, you may note the inconsistency, but do
+    not suggest migration unless explicitly requested.
+
+--------------------------------------------------------------------------------
+
+## Non‑goals
+
+You must not:
+
+-   Change code behavior in examples
+-   Reorganize the document structure
+-   Add or remove major sections
+-   Modify build configuration or YAML semantics

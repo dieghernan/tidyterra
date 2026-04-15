@@ -3,103 +3,183 @@ name: proofread-comments
 description: Domain expertise for reviewing roxygen2 and inline R comments.
 ---
 
-This skill provides the **style and quality standards** used by the
-`review-comments` agent.
+# Skill: Proofread comments and roxygen2 documentation
 
-You are an expert in tidyverse-style R documentation (exception: **no Oxford
-comma**).
+## Goal
 
-## 📁 Scope & Rules
+You proofread and improve **roxygen2 documentation comments** and **inline code
+comments** in R source files, without changing code behavior.
 
-**Improve only:**
+You focus on:
 
--   roxygen2 blocks (`#'`)
--   Inline comments (`#`)
+-   Correctness
+-   Clarity
+-   Consistency with the package's style
 
-**Never touch:**
+You never modify executable code.
 
--   Executable code
--   Function signatures
--   `@export`, `@import`, or other behavioral tags
+--------------------------------------------------------------------------------
 
-**Project Rules (Mandatory):**
+## Scope
 
--   No Oxford comma (serial comma)
--   Maximum 80 characters per line
--   Sentence case for titles, no trailing period
--   Prefer commas over semicolons
--   `@param` description should use sentence case and end period
+You work only on:
 
-## 🔍 Review Criteria
+-   roxygen2 comments starting with `#'`
+-   Inline comments starting with `#` that are not roxygen2
 
-1.  **Structure** — Complete `@param`, `@return`, `@examples`, use
-    `@inheritParams` when appropriate.
-2.  **Clarity & Accuracy** — Remove ambiguity, explain *why* not just *what*.
-3.  **Style & Tone** — Professional yet approachable, imperative mood where
-    suitable.
-4.  **Grammar & Readability** — Correct English, concise, consistent
-    terminology.
-5.  **Inline Comments** — Explain intent, avoid obvious statements.
+You do **not**:
 
-## 📋 Examples
+-   Edit R code, function bodies, or expressions
+-   Change function signatures or arguments
+-   Modify tests, data, or non‑comment content
 
-**Oxford Comma Removal**
+If a change would alter behavior, you must not suggest it.
 
-``` r
-# Bad
-#' A, B, and C
+--------------------------------------------------------------------------------
 
-# Good
-#' A, B and C
-```
+## Global style rules
 
-**Roxygen2 Title & Description**
+Apply these rules to all comments and roxygen2 text:
 
-``` r
-# Before
-#' Plot a nice map
-#'
-#' This function creates a beautiful map with many options.
+-   **Line length:**\
+    Wrap text so lines are **≤ 80 characters**, unless it is:
+    -   A URL
+    -   A code example
+    -   A table or other structured block that would break if wrapped
+-   **Tone:**\
+    Professional, concise, and approachable. Avoid slang and jokes.
+-   **Sentence case:**\
+    Use sentence case for sentences. Start with a capital letter, end with a
+    period.
+-   **No Oxford comma:**\
+    Use commas in lists without the Oxford comma.
+-   **Function and argument names:**\
+    Wrap function names and arguments in backticks: `` `my_fun()` ``, `` `x` ``.
+-   **Acronyms:**\
+    Use standard uppercase for domain acronyms (CRS, EPSG, WKT, etc.).
 
-# After
-#' Create a map
-#'
-#' This function creates a map using `ggplot2` and `terra`.
-```
+--------------------------------------------------------------------------------
 
-**Inline Comment**
+## Roxygen2 documentation rules
 
-``` r
-# Before
-# reproject if needed
+You improve roxygen2 comments while preserving meaning.
 
-# After
-# Reproject to the target CRS when inputs differ
-```
+### General
 
-**`@param` Review**
+-   **Do:**
+    -   Fix grammar, spelling, and punctuation
+    -   Improve clarity and flow
+    -   Ensure consistent terminology across tags
+    -   Wrap text to ≤ 80 characters where possible
+-   **Do not:**
+    -   Invent behavior not present in the code
+    -   Remove important details
+    -   Change examples’ semantics
 
-``` r
-# Before
-#' @param a a character vector
-#'
-#' @param b,c two things
+### `@title`
 
-# After
-#' @param a A character vector.
-#'
-#' @param b,c Two things.
-```
+-   Short, descriptive, sentence case.
+-   No trailing period.
+-   Avoid repeating the function name if possible.
 
-## 🧠 Decision Rules
+### `@description`
 
--   Prioritize: **1. Correctness → 2. Clarity → 3. Style**
--   Always start feedback with positive observations when justified.
--   If a line cannot be improved under 80 characters, leave it or flag for user.
+-   One or more sentences in sentence case.
+-   End each sentence with a period.
+-   Explain what the function does and why it is useful.
+-   Wrap lines to ≤ 80 characters.
 
-## 🎯 Success Criteria
+### `@details`
 
--   Clear, accurate, and complete documentation
--   Strictly ≤ 80 characters per line
--   Free of Oxford commas
--   Professional yet approachable tone
+-   Use for longer explanations, caveats, and background.
+-   Organize into short paragraphs.
+-   Wrap lines to ≤ 80 characters.
+-   Prefer “This function” over “The function”.
+
+### `@param`
+
+-   Format:
+
+    ``` r
+    #' @param x Description in sentence case, ending with a period.
+    ```
+
+### `@return`
+
+-   One or two sentences describing the returned object.
+-   Mention type and key structure when relevant.
+-   Wrap at ≤ 80 characters.
+
+### `@examples`
+
+-   Do not change code behavior.
+-   You may:
+    -   Fix obvious typos in comments inside examples
+    -   Improve surrounding explanatory text
+-   Do not:
+    -   Reformat code
+
+    -   Add or remove example lines
+
+## Inline code comments rules
+
+You improve inline comments that start with `#` (non‑roxygen).
+
+### Purpose
+
+-   Explain **why** the code exists, not restate what is obvious.
+-   Prefer constraints, assumptions, and intent over narration.
+
+### Style
+
+-   Imperative mood:
+    -   Good: `# Reproject to match input CRS`
+    -   Avoid: `# Reprojects to match input CRS`
+-   Sentence case, end with a period for full sentences.
+-   Keep comments close to the code they describe.
+-   Wrap at ≤ 80 characters when possible.
+
+### When to leave as is
+
+If a comment is:
+
+-   Ambiguous and requires domain knowledge you do not have, or
+-   Tightly coupled to external documentation
+
+then:
+
+-   Do not rewrite it.
+-   Optionally suggest a clearer alternative and mark it as uncertain.
+
+## Prioritization
+
+When making changes, prioritize in this order:
+
+1.  **Correctness:** Fix errors that change meaning or mislead the reader.
+2.  **Clarity:** Improve confusing or vague wording.
+3.  **Consistency:** Align with the package's style and terminology.
+4.  **Polish:** Minor phrasing, rhythm, or word choice improvements.
+
+If a change would improve polish but risks altering meaning, do not apply it.
+
+## Conflict and edge cases
+
+-   **Unwrap‑resistant content:** If wrapping to ≤ 80 characters would break
+    URLs, tables, or code‑like structures, leave them unwrapped.
+
+-   **Ambiguous descriptions:** If you cannot safely infer the correct meaning,
+    keep the original and optionally suggest a clearer alternative with a note
+    that it may need author review.
+
+-   **Multi‑line tags:** Ensure all lines in a multi‑line tag form a coherent
+    paragraph and follow the same style rules.
+
+## Non‑goals
+
+You must not:
+
+-   Change code behavior
+-   Add new roxygen2 tags
+-   Remove existing tags
+-   Reorder functions or sections
+-   Modify non‑comment code

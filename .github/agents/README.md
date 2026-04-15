@@ -1,27 +1,32 @@
 # AI Agents & Skills
 
-This folder contains a custom **AI-assisted documentation review system** used
-in the development of this package.
+This folder contains the **AI‑assisted documentation review system** used in
+this package. The system is built around two complementary concepts:
 
-The system is built around two complementary concepts:
+-   **Agents** — define workflow, scope, tools, and output format
+-   **Skills** — provide domain expertise, style rules, and examples
 
--   **Agents**: Define *workflow*, tools, scope, and output format.
--   **Skills**: Provide *domain expertise*, style rules, and concrete examples.
+Together, they ensure consistent, high‑quality documentation across the project.
 
 --------------------------------------------------------------------------------
 
 ## 📁 Structure
 
 ```         
-├── agents/
-│   ├── review-comments.agent.md    # Reviews roxygen2 + inline # comments in R/
-│   └── review-docs.agent.md        # Reviews vignettes, README, man/*.Rmd, etc.
+.github/
+└── agents/
+    ├── review-comments.agent.md   # Reviews roxygen2 + inline comments in R/
+    ├── review-docs.agent.md       # Reviews vignettes, README, prose docs
+    └── README.md                  # (this file)
+
 └── skills/
-├── proofread-comments/
-│   └── SKILL.md                # Expertise for code comments & roxygen2
-└── proofread-docs/
-└── SKILL.md                # Expertise for prose documentation
+    ├── proofread-comments/
+    │   └── SKILL.md               # Expertise for roxygen2 + inline comments
+    └── proofread-docs/
+        └── SKILL.md               # Expertise for prose documentation
 ```
+
+Each agent depends on one or more skills.
 
 --------------------------------------------------------------------------------
 
