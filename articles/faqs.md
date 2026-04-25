@@ -446,7 +446,7 @@ following approach:
 
 ``` r
 packageVersion("ggplot2")
-#> [1] '4.0.2'
+#> [1] '4.0.3'
 
 library(terra)
 library(tidyterra)

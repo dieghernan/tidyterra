@@ -23,6 +23,8 @@ A BibTeX entry for LaTeX users is:
 }
 ```
 
+![](wild_files/figure-html/unnamed-chunk-1-1.png)
+
 ## Publications
 
 Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., & Meyer, B.
