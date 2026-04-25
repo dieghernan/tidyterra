@@ -37,4 +37,29 @@ src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 </div>
 ```
 
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(ggplot2)
+
+bibtex::read.bib("INPUBS.bib") |>
+  lapply(function(x) {
+    data.frame(year = as.integer(x[1]$year))
+  }) |>
+  bind_rows() |>
+  ggplot(aes(x = year)) +
+  geom_bar(fill = "#516a54") +
+  labs(
+    title = "tidyterra",
+    subtitle = "Citations by year",
+    caption = "Source: https://www.dimensions.ai/",
+    y = "",
+    x = ""
+  ) +
+  theme_minimal()
+```
+
 ## Publications
