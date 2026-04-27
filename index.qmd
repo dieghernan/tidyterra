@@ -259,7 +259,7 @@ ggplot() +
   ) +
   labs(
     fill = "",
-    title = "Average temperature in Castille and Leon (Spain)",
+    title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
 ```
@@ -273,7 +273,7 @@ cat(
     '<img src="',
     img_url,
     '" alt="Average temperature in ',
-    'Castille and Leon, Spain" width="100%" />'
+    'Castile and Leon, Spain" width="100%" />'
   )
 )
 ```
@@ -302,7 +302,7 @@ ggplot(prov) +
   coord_sf(crs = 25830) +
   labs(
     fill = "Variation",
-    title = "Variation of Temperature in Castile and León (Spain)",
+    title = "Variation of Temperature in Castile and Leon (Spain)",
     subtitle = "Average Temperatures: June vs. May"
   )
 ```
@@ -316,7 +316,7 @@ cat(
     '<img src="',
     img_url,
     '" alt="Variation of temperature in ',
-    'Castille and Leon, Spain" width="100%" />'
+    'Castile and Leon, Spain" width="100%" />'
   )
 )
 ```

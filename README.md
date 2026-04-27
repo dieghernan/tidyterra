@@ -216,12 +216,12 @@ ggplot() +
   ) +
   labs(
     fill = "",
-    title = "Average temperature in Castille and Leon (Spain)",
+    title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castille and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
 
 ``` r
 # Create maximum differences of two months
@@ -245,12 +245,12 @@ ggplot(prov) +
   coord_sf(crs = 25830) +
   labs(
     fill = "Variation",
-    title = "Variation of Temperature in Castile and León (Spain)",
+    title = "Variation of Temperature in Castile and Leon (Spain)",
     subtitle = "Average Temperatures: June vs. May"
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Variation of temperature in Castille and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Variation of temperature in Castile and Leon, Spain" width="100%" />
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
 with **ggplot2**:

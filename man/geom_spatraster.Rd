@@ -205,7 +205,7 @@ aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 
 \examples{
 \donttest{
-# Avg temperature on spring in Castille and Leon (Spain)
+# Avg temperature on spring in Castile and Leon (Spain)
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)

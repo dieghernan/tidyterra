@@ -59,7 +59,7 @@ knitr::opts_chunk$set(
 spatial data objects as provided by the **terra** package [@R-terra], using the
 verbs of the packages included in the **tidyverse** [@R-tidyverse], such as
 **dplyr** [@R-dplyr], **tidyr** [@R-tidyr], or **tibble** [@R-tibble]. This
-This makes spatial data manipulation and analysis easier and faster for users
+makes spatial data manipulation and analysis easier and faster for users
 already familiar with the **tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2** package
@@ -182,7 +182,7 @@ library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once
 library(scales) # Additional library for labels
 
-# Temperatures in Castille and Leon (selected months)
+# Temperatures in Castile and Leon (selected months)
 rastertemp <- terra::rast(system.file(
   "extdata/cyl_temp.tif",
   package = "tidyterra"
@@ -205,7 +205,7 @@ ggplot() +
   ) +
   labs(
     fill = "",
-    title = "Average temperature in Castille and Leon (Spain)",
+    title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
 ```
@@ -234,7 +234,7 @@ ggplot() +
   theme_grey() +
   labs(
     fill = "º Celsius",
-    title = "Variation of temperature in Castille and Leon (Spain)",
+    title = "Variation of temperature in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
 ```
