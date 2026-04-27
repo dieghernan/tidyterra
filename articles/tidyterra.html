@@ -109,7 +109,7 @@
     <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><p><a href="https://doi.org/10.21105/joss.05751" class="external-link"><img src="https://joss.theoj.org/papers/10.21105/joss.05751/status.svg" alt="DOI"></a></p>
 <section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p><strong>tidyterra</strong> is an <strong>R</strong> <span class="citation" data-cites="r-project">(<a href="#ref-r-project" role="doc-biblioref">R Core Team 2023</a>)</span> package that allows manipulation of spatial data objects as provided by the <strong>terra</strong> package <span class="citation" data-cites="R-terra">(<a href="#ref-R-terra" role="doc-biblioref">Hijmans 2023</a>)</span>, using the verbs of the packages included in the <strong>tidyverse</strong> <span class="citation" data-cites="R-tidyverse">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, such as <strong>dplyr</strong> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <strong>tidyr</strong> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, et al. 2023</a>)</span>, or <strong>tibble</strong> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>. This This makes spatial data manipulation and analysis easier and faster for users already familiar with the <strong>tidyverse</strong>.</p>
+<p><strong>tidyterra</strong> is an <strong>R</strong> <span class="citation" data-cites="r-project">(<a href="#ref-r-project" role="doc-biblioref">R Core Team 2023</a>)</span> package that allows manipulation of spatial data objects as provided by the <strong>terra</strong> package <span class="citation" data-cites="R-terra">(<a href="#ref-R-terra" role="doc-biblioref">Hijmans 2023</a>)</span>, using the verbs of the packages included in the <strong>tidyverse</strong> <span class="citation" data-cites="R-tidyverse">(<a href="#ref-R-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>, such as <strong>dplyr</strong> <span class="citation" data-cites="R-dplyr">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2023</a>)</span>, <strong>tidyr</strong> <span class="citation" data-cites="R-tidyr">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham, Vaughan, et al. 2023</a>)</span>, or <strong>tibble</strong> <span class="citation" data-cites="R-tibble">(<a href="#ref-R-tibble" role="doc-biblioref">Müller and Wickham 2023</a>)</span>. This makes spatial data manipulation and analysis easier and faster for users already familiar with the <strong>tidyverse</strong>.</p>
 <p>Furthermore, <strong>tidyterra</strong> extends the functionality of the <strong>ggplot2</strong> package <span class="citation" data-cites="R-ggplot2">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> by providing additional <code>geoms</code> and <code>stats</code><a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The term &lt;code&gt;geoms&lt;/code&gt; refers to geometric objects, and &lt;code&gt;stats&lt;/code&gt; refers to statistical transformations, following the naming conventions of &lt;strong&gt;ggplot2&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a> like <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code>, as well as carefully chosen scales and color palettes specifically designed for map production.</p>
 <p><strong>tidyterra</strong> can manipulate the following classes of <strong>terra</strong> objects:</p>
 <ol type="1">
@@ -144,7 +144,7 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span> <span class="co"># Load all tidyverse packages at once</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span> <span class="co"># Additional library for labels</span></span>
 <span></span>
-<span><span class="co"># Temperatures in Castille and Leon (selected months)</span></span>
+<span><span class="co"># Temperatures in Castile and Leon (selected months)</span></span>
 <span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span></span>
 <span>  <span class="st">"extdata/cyl_temp.tif"</span>,</span>
 <span>  package <span class="op">=</span> <span class="st">"tidyterra"</span></span>
@@ -167,7 +167,7 @@
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Average temperature in Castille and Leon (Spain)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Average temperature in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
@@ -193,7 +193,7 @@ Faceted map with multi-layer raster file.
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_grey</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    fill <span class="op">=</span> <span class="st">"º Celsius"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castille and Leon (Spain)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Difference between April and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">

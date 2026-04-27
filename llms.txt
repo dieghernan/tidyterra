@@ -162,12 +162,12 @@ ggplot() +
   ) +
   labs(
     fill = "",
-    title = "Average temperature in Castille and Leon (Spain)",
+    title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
 ```
 
-![Average temperature in Castille and Leon,
+![Average temperature in Castile and Leon,
 Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)
 
 ``` r
@@ -192,12 +192,12 @@ ggplot(prov) +
   coord_sf(crs = 25830) +
   labs(
     fill = "Variation",
-    title = "Variation of Temperature in Castile and León (Spain)",
+    title = "Variation of Temperature in Castile and Leon (Spain)",
     subtitle = "Average Temperatures: June vs. May"
   )
 ```
 
-![Variation of temperature in Castille and Leon,
+![Variation of temperature in Castile and Leon,
 Spain](https://dieghernan.github.io/tidyterra/README-example-temp2-1.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles

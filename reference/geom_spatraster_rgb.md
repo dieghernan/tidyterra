@@ -184,7 +184,7 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
 ``` r
 # \donttest{
 
-# Tile of Castille and Leon (Spain) from OpenStreetMap
+# Tile of Castile and Leon (Spain) from OpenStreetMap
 file_path <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 library(terra)

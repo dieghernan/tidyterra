@@ -11,9 +11,8 @@ packages included in the **tidyverse** ([Wickham et al.
 2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
 2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
 2023](#ref-R-tidyr)), or **tibble** ([Müller and Wickham
-2023](#ref-R-tibble)). This This makes spatial data manipulation and
-analysis easier and faster for users already familiar with the
-**tidyverse**.
+2023](#ref-R-tibble)). This makes spatial data manipulation and analysis
+easier and faster for users already familiar with the **tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2**
 package ([Wickham 2016](#ref-R-ggplot2)) by providing additional `geoms`
@@ -145,7 +144,7 @@ library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once
 library(scales) # Additional library for labels
 
-# Temperatures in Castille and Leon (selected months)
+# Temperatures in Castile and Leon (selected months)
 rastertemp <- terra::rast(system.file(
   "extdata/cyl_temp.tif",
   package = "tidyterra"
@@ -168,7 +167,7 @@ ggplot() +
   ) +
   labs(
     fill = "",
-    title = "Average temperature in Castille and Leon (Spain)",
+    title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
 ```
@@ -202,7 +201,7 @@ ggplot() +
   theme_grey() +
   labs(
     fill = "º Celsius",
-    title = "Variation of temperature in Castille and Leon (Spain)",
+    title = "Variation of temperature in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
 ```
