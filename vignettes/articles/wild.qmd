@@ -41,7 +41,6 @@ src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 #| echo: false
 #| message: false
 #| warning: false
-
 library(dplyr)
 library(ggplot2)
 
