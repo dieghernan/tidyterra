@@ -271,6 +271,13 @@ probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
 
+Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
+Jardine, S. L. (2026). Projected temperature and precipitation expand
+modeled distributions of *Reynoutria* spp. While modeled distribution
+changes for *Ludwigia* spp. Are scenario-dependent at watershed scales
+in the Pacific Northwest, USA. *River Research and Applications*.
+<https://doi.org/10.1002/rra.70141>
+
 Su, X., Popescu, N., Insuk, C., Lausen, C., & Xu, J. (2025). High
 Diversity and Low Genetic Differentiation Among Geographic Populations
 of *Myotis yumanensis* in Western Canada. *Animals*, *15*(4), 578.
