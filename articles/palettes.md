@@ -3,7 +3,7 @@
 This page shows a [Lightbox
 gallery](https://biati-digital.github.io/glightbox/) of maps that can be
 displayed with the gradient fill scales included with **tidyterra**. A
-basic example to generate this map is:
+basic example for generating maps like these is:
 
 ``` r
 library(tidyterra)
@@ -21,11 +21,11 @@ ggplot() +
 
 ## `scale_fill_terrain_*` and `scale_fill_wiki_*`
 
-Check
+See
 [`scale_fill_terrain_c()`](https://dieghernan.github.io/tidyterra/reference/scale_terrain.md)
 and
 [`scale_fill_wiki_c()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md)
-for more info.
+for details.
 
 [![Terrain and wiki palettes in
 tidyterra](palettes_files/figure-html/terr_wiki-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/terr_wiki-1.png)
@@ -35,9 +35,9 @@ tidyterra](palettes_files/figure-html/terr_wiki-2.png)](https://dieghernan.githu
 
 ## `scale_fill_whitebox_*`
 
-Check
+See
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md)
-for more info.
+for details.
 
 [![Whitebox palettes in
 tidyterra](palettes_files/figure-html/whitebox-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/whitebox-1.png)
@@ -74,9 +74,9 @@ tidyterra](palettes_files/figure-html/whitebox-11.png)](https://dieghernan.githu
 
 ## `scale_fill_hypso_*`
 
-Check
+See
 [`scale_fill_hypso_c()`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md)
-for more info.
+for details.
 
 [![Hypso palettes in
 tidyterra](palettes_files/figure-html/hypso-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/hypso-1.png)
@@ -179,9 +179,9 @@ tidyterra](palettes_files/figure-html/hypso-33.png)](https://dieghernan.github.i
 
 ## `scale_fill_cross_blended_*`
 
-Check
+See
 [`scale_fill_cross_blended_c()`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md)
-for more info.
+for details.
 
 [![Cross-blended palettes in
 tidyterra](palettes_files/figure-html/cross-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/cross-1.png)
@@ -197,9 +197,9 @@ tidyterra](palettes_files/figure-html/cross-4.png)](https://dieghernan.github.io
 
 ## `scale_fill_grass_*`
 
-Check
+See
 [`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
-for more info. Plots produced using `use_grass_range = FALSE`.
+for details. Plots produced using `use_grass_range = FALSE`.
 
 [![GRASS palettes in
 tidyterra](palettes_files/figure-html/grass-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/grass-1.png)
@@ -356,9 +356,9 @@ tidyterra](palettes_files/figure-html/grass-51.png)](https://dieghernan.github.i
 
 ## `scale_fill_princess_*`
 
-Check
+See
 [`scale_fill_princess_c()`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md)
-for more info.
+for details.
 
 [![Princess palettes in
 tidyterra](palettes_files/figure-html/princess-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/princess-1.png)

@@ -104,7 +104,7 @@ objects to data frame-like structures by performing data
 transformations, which can affect performance.
 
 When manipulating large raster files (i.e. more than 10,000,000 cells),
-it is recommended to use native **terra** syntax, which is specially
+it is recommended to use native **terra** syntax, which is specifically
 designed for handling this type of data. For plotting, the geoms
 resample `SpatRaster` objects with more than 500,000 cells by default to
 speed up rendering (as
@@ -149,10 +149,14 @@ rastertemp <- terra::rast(system.file(
   "extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 # Rename with the tidyverse
 rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 
 
 # Plot with facets
@@ -170,11 +174,9 @@ ggplot() +
     title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 ```
-
-![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
-
-Faceted map with multi-layer raster file.
 
 In the following example, we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
@@ -189,9 +191,13 @@ and it also includes an overlay of a `SpatVector` for reference:
 incr_temp <- rastertemp |>
   mutate(var = June - April) |>
   select(Variation = var)
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 
 # Overlay an SpatVector
 cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#> Error:
+#> ! [vect] file does not exist:
 
 # Contour map with overlay
 ggplot() +
@@ -204,12 +210,9 @@ ggplot() +
     title = "Variation of temperature in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
+#> Error:
+#> ! objeto 'incr_temp' no encontrado
 ```
-
-![Contour map of temperature variation with a SpatVector
-overlay](./fig-ex2-1.png)
-
-Contour map of temperature variation with a SpatVector overlay
 
 ## Additional materials
 
@@ -231,7 +234,7 @@ for his advice and support in adapting some of the methods, as well as
 for the suggestions that helped us improve the functionalities of the
 package. I am also thankful to [Dewey
 Dunnington](https://dewey.dunnington.ca/), Brent Thorne and the rest of
-contributors of the **ggspatial** package, which served as a key
+the contributors to the **ggspatial** package, which served as a key
 reference during the initial stages of the development of **tidyterra**.
 
 **tidyterra** also incorporates some pieces of code adapted from

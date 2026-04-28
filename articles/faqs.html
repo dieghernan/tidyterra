@@ -106,7 +106,7 @@
 
 
 
-    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and their solutions, primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
+    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and their answers, primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a Bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -124,7 +124,7 @@
 </section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray color<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.) have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; could be used as well for the same purpose in most of the cases, However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.) have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -219,7 +219,7 @@ Figure 1: NA values on ggplot2
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Labelling contours"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Labeling contours"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># With options and aes</span></span>
 <span></span>
@@ -263,7 +263,7 @@ Figure 1: NA values on ggplot2
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"mono"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Labelling contours"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Labeling contours"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"With options: b/w plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div id="fig-textcontour" class="quarto-layout-panel">
@@ -347,7 +347,7 @@ Figure 2: Contour labels with tidyterra
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"mono"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Labelling contours"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Labeling contours"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"tidyterra and metR: b/w plot"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">""</span></span>
@@ -365,7 +365,7 @@ Figure 3: Alternative (metR): Contour labeling combining tidyterra and metR pac
 </div>
 </section></section><section class="level2"><h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
 </h2>
-<p>Since <strong>tidyterra</strong> leverages on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> use of scales:</p>
+<p>Since <strong>tidyterra</strong> builds on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> documentation on scales:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -522,7 +522,7 @@ Figure 5: Changing default ggplot2 color palettes
 <img src="faqs_files/figure-html/fig-blurrytile-1.png" style="width:100.0%" data-ref-parent="fig-blurrytile">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-blurrytile-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Plot with resampled raster (EPGS:4326).
+(a) Plot with resampled raster (EPSG:4326).
 </figcaption></figure>
 </div>
 </div>
@@ -532,7 +532,7 @@ Figure 5: Changing default ggplot2 color palettes
 <img src="faqs_files/figure-html/fig-blurrytile-2.png" style="width:100.0%" data-ref-parent="fig-blurrytile">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-blurrytile-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Plot with native CRS - not resampled (EPGS:3857).
+(b) Plot with native CRS - not resampled (EPSG:3857).
 </figcaption></figure>
 </div>
 </div>
@@ -678,7 +678,7 @@ Figure 8: Spatial axis breaks with ggplot2
 <p>We omitted the legends in this section’s figures to improve readability.</p>
 </blockquote>
 </div>
-<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the Corine Land Cover Dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and it has been added the corresponding color table as of &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
+<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the Corine Land Cover Dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and the corresponding color table added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -822,7 +822,7 @@ Figure 10: Color tables: tidyterra package
 </div>
 </section><section class="level2"><h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
 </h2>
-<p>Absolutely! Here is an example (thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
+<p>Yes. Here is an example (thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
@@ -909,7 +909,7 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 </div>
 </div>
 </div>
-</section><section class="level2"><h2 id="how-to-overlay-a-spatraster-over-a-rgb-tile">How to overlay a <code>SpatRaster</code> over a RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-over-a-rgb-tile"></a>
+</section><section class="level2"><h2 id="how-to-overlay-a-spatraster-on-an-rgb-tile">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-on-an-rgb-tile"></a>
 </h2>
 <p>This is straightforward: use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, and then add your data layers on top:</p>
 <div class="cell">

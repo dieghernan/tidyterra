@@ -13,8 +13,8 @@ use
 The underlying implementation is based on
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
 
-`stat_spatraster()` is provided as a complementary function, so the
-`geom` can be modified.
+`stat_spatraster()` complements `geom_spatraster()` when you need to
+change the `geom`.
 
 ## Usage
 
@@ -148,9 +148,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - geom:
 
-  The geometric object to use display the data. Recommended `geom` for
-  `SpatRaster` are `"raster"` (the default), `"point"`,`"text"` and
-  `"label"`.
+  Geom used to display the data. Recommended values for `SpatRaster` are
+  `"raster"` (the default), `"point"`, `"text"` and `"label"`.
 
 ## Value
 
@@ -200,22 +199,21 @@ For `alpha` use computed variable. See section **Computed variables**.
 ### `stat_spatraster()`
 
 `stat_spatraster()` understands the same aesthetics as
-`geom_spatraster()` when using `geom = "raster"` (the default):
+`geom_spatraster()` when `geom = "raster"` (the default):
 
 - [`fill`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
-When `geom = "raster"` the `fill` argument would behave as in
-`geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
-understand the aesthetics of the required `geom` and
-`aes(fill = <name_of_lyr>)` would not be applicable.
+When `geom = "raster"`, the `fill` argument behaves as in
+`geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
+understands the aesthetics required by that `geom`, so
+`aes(fill = <name_of_lyr>)` is not applicable.
 
-Note also that mapping of aesthetics `x` and `y` is provided by default,
-so the user does not need to add those aesthetics on
-[`aes()`](https://ggplot2.tidyverse.org/reference/aes.html). In all the
-cases the aesthetics should be mapped by using computed variables. See
-section **Computed variables** and **Examples**.
+The `x` and `y` aesthetics are mapped by default, so you do not need to
+add them in [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
+In every case, aesthetics should be mapped with computed variables. See
+**Computed variables** and **Examples**.
 
 ## Facets
 

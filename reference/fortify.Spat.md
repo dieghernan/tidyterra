@@ -87,19 +87,19 @@ fortify(model, data, ..., crs = "")
 
 - pivot:
 
-  Logical. When `TRUE` the `SpatRaster` would be provided on [long
+  Logical. When `TRUE`, a `SpatRaster` is returned in [long
   format](https://tidyr.tidyverse.org/reference/pivot_longer.html). When
-  `FALSE` (the default) it would be provided as a data frame with a
-  column for each layer. See **Details**.
+  `FALSE` (the default), it is returned as a data frame with one column
+  per layer. See **Details**.
 
 - crs:
 
-  Input potentially including or representing a CRS. It could be a
-  `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf/sfc` object,
+  a `SpatRaster/SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character (for example a [proj4
-  string](https://proj.org/en/9.3/operations/projections/index.html)) or
-  a integer (representing an [EPSG](https://epsg.io/) code).
+  a character string (for example a [proj4
+  string](https://proj.org/en/9.3/operations/projections/index.html)),
+  or an integer representing an [EPSG](https://epsg.io/) code.
 
 ## Value
 

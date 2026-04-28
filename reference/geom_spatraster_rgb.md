@@ -2,8 +2,8 @@
 
 This geom is used to visualise `SpatRaster` objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
-as RGB images. The layers are combined such that they represent the red,
-green and blue channel.
+as RGB images. The layers are combined so they represent the red, green
+and blue channels.
 
 For plotting `SpatRaster` objects by layer values use
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md).
@@ -33,7 +33,7 @@ geom_spatraster_rgb(
 
 ## Source
 
-Based on the `layer_spatial()` implementation on
+Based on the `layer_spatial()` implementation in the
 [ggspatial](https://CRAN.R-project.org/package=ggspatial) package.
 Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
 [ggspatial
@@ -56,8 +56,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - r, g, b:
 
-  Integer representing the number of layer of `data` to be considered as
-  the red (`r`), green (`g`) and blue (`b`) channel.
+  Integer giving the layer number in `data` used for the red (`r`),
+  green (`g`) and blue (`b`) channel.
 
 - alpha:
 
@@ -70,7 +70,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - max_col_value:
 
-  Number giving the maximum of the color values range. When this is
+  Number giving the upper bound of the color value range. When this is
   `255` (the default), the result is computed most efficiently. See
   [`grDevices::rgb()`](https://rdrr.io/r/grDevices/rgb.html).
 
@@ -167,8 +167,8 @@ reprojected**.
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
 [`grDevices::rgb()`](https://rdrr.io/r/grDevices/rgb.html).
 
-You can get also RGB tiles from the
-[maptiles](https://CRAN.R-project.org/package=maptiles) package, see
+You can also get RGB tiles from the
+[maptiles](https://CRAN.R-project.org/package=maptiles) package. See
 [`maptiles::get_tiles()`](https://rdrr.io/pkg/maptiles/man/get_tiles.html).
 
 Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:

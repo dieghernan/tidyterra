@@ -1,4 +1,4 @@
-# Coerce a `SpatVector` or `SpatRaster` object to data frames
+# Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
 methods for `SpatRaster` and `SpatVector` objects.
@@ -101,41 +101,40 @@ method.
 
 ### `SpatRaster` and `SpatVector`
 
-The tibble is returned with an attribute including the CRS of the
-initial object in WKT format (see
+The returned tibble includes the CRS of the original object as an
+attribute in WKT format (see
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)).
 
 ## About layer/column names
 
-When coercing `SpatRaster` objects to data frames, `x` and `y` names are
-reserved for geographic coordinates of each cell of the `SpatRaster`. It
-should be also noted that
-[terra](https://CRAN.R-project.org/package=terra) allows layers with
-duplicated names.
+When coercing `SpatRaster` objects to data frames, `x` and `y` are
+reserved names for the geographic coordinates of each cell.
+[terra](https://CRAN.R-project.org/package=terra) also allows layers
+with duplicated names.
 
-In the process of coercing a `SpatRaster` to a tibble,
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) may rename the
-layers of your `SpatRaster` for overcoming this issue. Specifically,
-layers may be renamed on the following cases:
+When coercing a `SpatRaster` to a tibble,
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) may rename its
+layers to avoid these issues. Specifically, layers may be renamed in the
+following cases:
 
 - Layers with duplicated names.
 
-- When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y`
-  would be renamed.
+- When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` are
+  renamed.
 
 - When working with tidyverse methods (i.e.
   [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)),
-  the latter would happen as well.
+  the same renaming would happen.
 
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) would display
-a message informing of the changes on the names of the layer.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) displays a
+message describing the renamed layers.
 
-The same issue happens for `SpatVector` with names `geometry` (when
-`geom = c("WKT", "HEX")`) and `x`, `y` (when `geom = "XY"`). These are
-reserved names representing the geometry of the `SpatVector` (see
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)).
-If `geom` is not `NULL` then the logic described for `SpatRaster` would
-apply as well for the columns of the `SpatVector`.
+The same issue affects `SpatVector` objects with reserved names such as
+`geometry` (when `geom = c("WKT", "HEX")`) and `x`, `y` (when
+`geom = "XY"`). These names represent geometry columns in
+[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
+If `geom` is not `NULL`, the same renaming logic described for
+`SpatRaster` also applies to `SpatVector` columns.
 
 ## See also
 

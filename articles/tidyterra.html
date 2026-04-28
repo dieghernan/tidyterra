@@ -128,7 +128,7 @@
 </section><section class="level2"><h2 id="a-note-on-performance">A note on performance<a class="anchor" aria-label="anchor" href="#a-note-on-performance"></a>
 </h2>
 <p>The development philosophy of <strong>tidyterra</strong> is to adapt <strong>terra</strong> objects to data frame-like structures by performing data transformations, which can affect performance.</p>
-<p>When manipulating large raster files (i.e. more than 10,000,000 cells), it is recommended to use native <strong>terra</strong> syntax, which is specially designed for handling this type of data. For plotting, the geoms resample <code>SpatRaster</code> objects with more than 500,000 cells by default to speed up rendering (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does); you can override this upper limit with the geom’s <code>maxcell</code> argument.</p>
+<p>When manipulating large raster files (i.e. more than 10,000,000 cells), it is recommended to use native <strong>terra</strong> syntax, which is specifically designed for handling this type of data. For plotting, the geoms resample <code>SpatRaster</code> objects with more than 500,000 cells by default to speed up rendering (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does); you can override this upper limit with the geom’s <code>maxcell</code> argument.</p>
 <p>Also note that, when possible, each <strong>tidyterra</strong> help page references its equivalent <strong>terra</strong> function.</p>
 </section><section class="level2"><h2 id="example-of-use">Example of use<a class="anchor" aria-label="anchor" href="#example-of-use"></a>
 </h2>
@@ -149,10 +149,14 @@
 <span>  <span class="st">"extdata/cyl_temp.tif"</span>,</span>
 <span>  package <span class="op">=</span> <span class="st">"tidyterra"</span></span>
 <span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! [rast] filename is empty. Provide a valid filename</span></span>
 <span></span>
 <span><span class="co"># Rename with the tidyverse</span></span>
 <span><span class="va">rastertemp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>April <span class="op">=</span> <span class="va">tavg_04</span>, May <span class="op">=</span> <span class="va">tavg_05</span>, June <span class="op">=</span> <span class="va">tavg_06</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! objeto 'rastertemp' no encontrado</span></span>
 <span></span>
 <span></span>
 <span><span class="co"># Plot with facets</span></span>
@@ -169,21 +173,22 @@
 <span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Average temperature in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./fig-ex1-1.png" alt="Faceted map with multi-layer raster file." width="100%"><p class="caption">
-Faceted map with multi-layer raster file.
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! objeto 'rastertemp' no encontrado</span></span></code></pre></div>
 <p>In the following example, we combine a common <strong>dplyr</strong> workflow (<code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> + <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select()</a></code>) and plot the result. In this case, the plot is a contour plot of the original <code>SpatRaster</code> using <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> and it also includes an overlay of a <code>SpatVector</code> for reference:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Compute the variation between April and June and apply a different palette</span></span>
 <span><span class="va">incr_temp</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>var <span class="op">=</span> <span class="va">June</span> <span class="op">-</span> <span class="va">April</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>Variation <span class="op">=</span> <span class="va">var</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! objeto 'rastertemp' no encontrado</span></span>
 <span></span>
 <span><span class="co"># Overlay an SpatVector</span></span>
 <span><span class="va">cyl_vect</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! [vect] file does not exist:</span></span>
 <span></span>
 <span><span class="co"># Contour map with overlay</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -195,12 +200,9 @@ Faceted map with multi-layer raster file.
 <span>    fill <span class="op">=</span> <span class="st">"º Celsius"</span>,</span>
 <span>    title <span class="op">=</span> <span class="st">"Variation of temperature in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Difference between April and June"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./fig-ex2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%"><p class="caption">
-Contour map of temperature variation with a SpatVector overlay
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! objeto 'incr_temp' no encontrado</span></span></code></pre></div>
 </section><section class="level2"><h2 id="additional-materials">Additional materials<a class="anchor" aria-label="anchor" href="#additional-materials"></a>
 </h2>
 <p>The package includes extensive documentation available online at <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a> including:</p>
@@ -210,7 +212,7 @@ Contour map of temperature variation with a SpatVector overlay
 <li>Additional articles and vignettes, as well as a complete demo of the different color palettes included on the package (see <a href="https://dieghernan.github.io/tidyterra/articles/palettes.html">Palettes</a>).</li>
 </ul></section><section class="level2 appendix"><h2 class="appendix" id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>I would like to thank <a href="https://github.com/rhijmans" class="external-link">Robert J. Hijmans</a> for his advice and support in adapting some of the methods, as well as for the suggestions that helped us improve the functionalities of the package. I am also thankful to <a href="https://dewey.dunnington.ca/" class="external-link">Dewey Dunnington</a>, Brent Thorne and the rest of contributors of the <strong>ggspatial</strong> package, which served as a key reference during the initial stages of the development of <strong>tidyterra</strong>.</p>
+<p>I would like to thank <a href="https://github.com/rhijmans" class="external-link">Robert J. Hijmans</a> for his advice and support in adapting some of the methods, as well as for the suggestions that helped us improve the functionalities of the package. I am also thankful to <a href="https://dewey.dunnington.ca/" class="external-link">Dewey Dunnington</a>, Brent Thorne and the rest of the contributors to the <strong>ggspatial</strong> package, which served as a key reference during the initial stages of the development of <strong>tidyterra</strong>.</p>
 <p><strong>tidyterra</strong> also incorporates some pieces of code adapted from <strong>ggplot2</strong> for computing contours, which relies on the package <strong>isoband</strong> <span class="citation" data-cites="R-isoband">(<a href="#ref-R-isoband" role="doc-biblioref">Wickham et al. 2022</a>)</span> developed by <a href="https://clauswilke.com/" class="external-link">Claus O. Wilke</a>.</p>
 </section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>

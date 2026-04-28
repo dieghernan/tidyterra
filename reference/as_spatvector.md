@@ -1,9 +1,9 @@
-# Method for coercing objects to `SpatVector`
+# Coerce objects to `SpatVector`
 
-`as_spatvector()` turns an existing object into a `SpatVector`. This is
-a wrapper of
+`as_spatvector()` turns an existing object into a `SpatVector`. It wraps
+the
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-S4 method for signature `data.frame`.
+S4 method for the `data.frame` signature.
 
 ## Usage
 
@@ -39,8 +39,8 @@ as_spatvector(x, ...)
 
 - geom:
 
-  Character. The field name(s) with the geometry data. Either two names
-  for x and y coordinates of points, or a single name for a single
+  Character vector naming the fields that contain the geometry data. Use
+  two names for point coordinates (`x` and `y`), or one name for a
   column with WKT geometries.
 
 - crs:
@@ -60,13 +60,13 @@ A `SpatVector`.
 
 This function differs from
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-on the following:
+in the following ways:
 
-- geometries with `NA` or `""` values are removed prior to conversion
+- Rows with geometry values `NA` or `""` are removed before conversion.
 
 - If `x` is a grouped data frame (see
-  [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html))
-  the grouping vars are transferred and a "grouped" `SpatVector` is
+  [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)),
+  the grouping variables are transferred and a grouped `SpatVector` is
   created (see
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)).
 
@@ -76,7 +76,7 @@ on the following:
   the `crs` is inferred from
   [`attr(x, "crs")`](https://rdrr.io/r/base/attr.html).
 
-- Handles correctly the conversion of `EMPTY` geometries between
+- It handles the conversion of `EMPTY` geometries between
   [sf](https://CRAN.R-project.org/package=sf) and
   [terra](https://CRAN.R-project.org/package=terra).
 

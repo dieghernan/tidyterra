@@ -134,16 +134,15 @@ the plot.</p></dd>
 
 
 <dt id="arg-pivot">pivot<a class="anchor" aria-label="anchor" href="#arg-pivot"></a></dt>
-<dd><p>Logical. When <code>TRUE</code> the <code>SpatRaster</code> would be provided on
-<a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default) it would
-be provided as a data frame with a column for each layer. See <strong>Details</strong>.</p></dd>
+<dd><p>Logical. When <code>TRUE</code>, a <code>SpatRaster</code> is returned in <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default), it is returned
+as a data frame with one column per layer. See <strong>Details</strong>.</p></dd>
 
 
 <dt id="arg-crs">crs<a class="anchor" aria-label="anchor" href="#arg-crs"></a></dt>
-<dd><p>Input potentially including or representing a CRS. It could be
-a <code>sf/sfc</code> object, a <code>SpatRaster/SpatVector</code> object, a <code>crs</code> object from
-<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">proj4 string</a>) or a
-integer (representing an <a href="https://epsg.io/" class="external-link">EPSG</a> code).</p></dd>
+<dd><p>Input that includes or represents a CRS. It can be an <code>sf/sfc</code>
+object, a <code>SpatRaster/SpatVector</code> object, a <code>crs</code> object from
+<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character string (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">proj4 string</a>), or
+an integer representing an <a href="https://epsg.io/" class="external-link">EPSG</a> code.</p></dd>
 
 </dl></div>
     <div class="section level2">

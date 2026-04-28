@@ -1,8 +1,11 @@
-# Turn `Spat*` object into a tidy tibble
+# Tidy `Spat*` objects for plotting
 
-Turn `Spat*` object into a tidy tibble. This is similar to
-[`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
-and it is provided just in case
+[`tidy()`](https://generics.r-lib.org/reference/tidy.html) methods for
+`SpatRaster`, `SpatVector`, `SpatGraticule` and `SpatExtent` objects.
+These methods return a tibble for `SpatRaster` objects and `sf` objects
+for vector-based inputs. This interface is similar to
+[`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
+and is provided in case the
 [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
 method is deprecated in the future.
 
@@ -80,19 +83,19 @@ tidy(x, ..., crs = "")
 
 - pivot:
 
-  Logical. When `TRUE` the `SpatRaster` would be provided on [long
+  Logical. When `TRUE`, a `SpatRaster` is returned in [long
   format](https://tidyr.tidyverse.org/reference/pivot_longer.html). When
-  `FALSE` (the default) it would be provided as a data frame with a
-  column for each layer. See **Details**.
+  `FALSE` (the default), it is returned as a data frame with one column
+  per layer. See **Details**.
 
 - crs:
 
-  Input potentially including or representing a CRS. It could be a
-  `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf/sfc` object,
+  a `SpatRaster/SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character (for example a [proj4
-  string](https://proj.org/en/9.3/operations/projections/index.html)) or
-  a integer (representing an [EPSG](https://epsg.io/) code).
+  a character string (for example a [proj4
+  string](https://proj.org/en/9.3/operations/projections/index.html)),
+  or an integer representing an [EPSG](https://epsg.io/) code.
 
 ## Value
 
@@ -112,37 +115,38 @@ method.
 
 ### `SpatRaster`
 
-Return a tibble that can be used with `ggplot2::geom_*` like
-[`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html),
-[`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
-etc.
+Returns a tibble that can be used with `ggplot2::geom_*`, such as
+[`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html)
+and
+[`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
 
-The resulting tibble includes the coordinates on the columns `x, y`. The
-values of each layer are included as additional columns named as per the
-name of the layer on the `SpatRaster`.
+The resulting tibble includes coordinates in the `x` and `y` columns.
+The values of each layer are added as extra columns using the layer
+names from the `SpatRaster`.
 
 The CRS of the `SpatRaster` can be retrieved with
 `attr(tidySpatRaster, "crs")`.
 
-It is possible to convert the tidy object onto a `SpatRaster` again with
+You can convert the tidy object back to a `SpatRaster` with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md).
 
-When `pivot = TRUE` the `SpatRaster` is provided in a "long" format (see
+When `pivot = TRUE`, the `SpatRaster` is returned in long format (see
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
 The tidy object has the following columns:
 
-- `x,y`: Coordinates (center) of the cell on the corresponding CRS.
+- `x`, `y`: Coordinates of the cell centre in the corresponding CRS.
 
-- `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
+- `lyr`: Name of the `SpatRaster` layer associated with `value`.
 
-- `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+- `value`: Cell value for the corresponding `lyr`.
 
-This option may be useful when using several `geom_*` and for faceting.
+This option can be useful when combining several `geom_*` layers or when
+faceting.
 
 ### `SpatVector`, `SpatGraticule` and `SpatExtent`
 
-Return a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
-that can be used with
+Returns an [`sf`](https://r-spatial.github.io/sf/reference/sf.html)
+object that can be used with
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
 ## See also
@@ -193,7 +197,7 @@ r_tidy
 #> 10  175. -36.9        NA
 #> # ℹ 23,156 more rows
 
-# Back to a SpatRaster with
+# Convert back to a `SpatRaster`.
 as_spatraster(r_tidy)
 #> class       : SpatRaster 
 #> size        : 162, 143, 1  (nrow, ncol, nlyr)

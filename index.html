@@ -122,7 +122,7 @@
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <p>The full manual of the most recent release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
-<p><strong>tidyverse</strong> methods implemented on <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
+<p><strong>tidyverse</strong> methods implemented in <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.</p></li>
 <li><p><code>SpatRaster</code>: The implementation for <code>SpatRaster</code> objects differs because methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a <code>SpatRaster</code>).</p></li>
@@ -318,7 +318,7 @@ A note on performance
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>tidyterra</strong> is a user-friendly wrapper around <strong>terra</strong> that uses <strong>tidyverse</strong> methods and verbs. This approach has a <strong>performance cost</strong>.</p>
-<p>If you frequently use <strong>terra</strong> or work with large raster files, <strong>terra</strong> is much more performant. Whenever possible, each <strong>tidyterra</strong> function refers to its equivalent on <strong>terra</strong>.</p>
+<p>If you frequently use <strong>terra</strong> or work with large raster files, <strong>terra</strong> is usually much faster. Whenever possible, each <strong>tidyterra</strong> function refers to its equivalent on <strong>terra</strong>.</p>
 <p>As a rule of thumb, if your raster has fewer than 10,000,000 data slots (i.e. <code>terra::ncell(your_rast) * terra::nlyr(your_rast) &lt; 1e7</code>), <strong>tidyterra</strong> is a good fit.</p>
 <p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
 </div>
@@ -477,7 +477,7 @@ A note on performance
 </div>
 </div>
 <div class="section level2">
-<h2 id="i-need-your-feedback">I need your feedback<a class="anchor" aria-label="anchor" href="#i-need-your-feedback"></a>
+<h2 id="feedback">Feedback<a class="anchor" aria-label="anchor" href="#feedback"></a>
 </h2>
 <p>Please leave your feedback or open an issue on <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link uri">https://github.com/dieghernan/tidyterra/issues</a>.</p>
 </div>
@@ -488,7 +488,7 @@ A note on performance
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link">[tidyterra]</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="acknowledgement">Acknowledgement<a class="anchor" aria-label="anchor" href="#acknowledgement"></a>
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
 <p><strong>tidyterra</strong>’s <strong>ggplot2</strong> geoms are based on <a href="https://github.com/paleolimbot/ggspatial" class="external-link"><strong>ggspatial</strong></a> implementation, by <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link"><strong>ggspatial</strong> contributors</a>.</p>
 </div>

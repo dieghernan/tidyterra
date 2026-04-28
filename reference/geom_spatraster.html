@@ -5,15 +5,15 @@ does.
 For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
 geom_spatraster_rgb().
 The underlying implementation is based on ggplot2::geom_raster().
-stat_spatraster() is provided as a complementary function, so the geom
-can be modified."><meta property="og:description" content="This geom is used to visualise SpatRaster objects (see terra::rast()).
+stat_spatraster() complements geom_spatraster() when you need to change
+the geom."><meta property="og:description" content="This geom is used to visualise SpatRaster objects (see terra::rast()).
 The geom is designed for visualise the object by layers, as terra::plot()
 does.
 For plotting SpatRaster objects as map tiles (i.e. RGB SpatRaster), use
 geom_spatraster_rgb().
 The underlying implementation is based on ggplot2::geom_raster().
-stat_spatraster() is provided as a complementary function, so the geom
-can be modified."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
+stat_spatraster() complements geom_spatraster() when you need to change
+the geom."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -79,8 +79,8 @@ does.</p>
 <p>For plotting <code>SpatRaster</code> objects as map tiles (i.e. RGB <code>SpatRaster</code>), use
 <code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
-<p><code>stat_spatraster()</code> is provided as a complementary function, so the <code>geom</code>
-can be modified.</p>
+<p><code>stat_spatraster()</code> complements <code>geom_spatraster()</code> when you need to change
+the <code>geom</code>.</p>
     </div>
 
     <div class="section level2">
@@ -200,8 +200,8 @@ lists which parameters it can accept.</p></li>
 
 
 <dt id="arg-geom">geom<a class="anchor" aria-label="anchor" href="#arg-geom"></a></dt>
-<dd><p>The geometric object to use display the data. Recommended <code>geom</code>
-for <code>SpatRaster</code> are <code>"raster"</code> (the default), <code>"point"</code>,<code>"text"</code> and
+<dd><p>Geom used to display the data. Recommended values for
+<code>SpatRaster</code> are <code>"raster"</code> (the default), <code>"point"</code>, <code>"text"</code> and
 <code>"label"</code>.</p></dd>
 
 </dl></div>
@@ -254,16 +254,15 @@ mapped <code>fill</code> aesthetic.</p>
 
 
 <p><code>stat_spatraster()</code> understands the same aesthetics as <code>geom_spatraster()</code>
-when using <code>geom = "raster"</code> (the default):</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
+when <code>geom = "raster"</code> (the default):</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
 <li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
-</ul><p>When <code>geom = "raster"</code> the <code>fill</code> argument would behave as in
-<code>geom_spatraster()</code>. If another <code>geom</code> is used <code>stat_spatraster()</code> would
-understand the aesthetics of the required <code>geom</code> and
-<code>aes(fill = &lt;name_of_lyr&gt;)</code> would not be applicable.</p>
-<p>Note also that mapping of aesthetics <code>x</code> and <code>y</code> is provided by default,
-so the user does not need to add those aesthetics on <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code>. In all the
-cases the aesthetics should be mapped by using computed variables. See
-section <strong>Computed variables</strong> and <strong>Examples</strong>.</p>
+</ul><p>When <code>geom = "raster"</code>, the <code>fill</code> argument behaves as in
+<code>geom_spatraster()</code>. If another <code>geom</code> is used, <code>stat_spatraster()</code>
+understands the aesthetics required by that <code>geom</code>, so
+<code>aes(fill = &lt;name_of_lyr&gt;)</code> is not applicable.</p>
+<p>The <code>x</code> and <code>y</code> aesthetics are mapped by default, so you do not need to add
+them in <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code>. In every case, aesthetics should be mapped with computed
+variables. See <strong>Computed variables</strong> and <strong>Examples</strong>.</p>
 </div>
 
     </div>

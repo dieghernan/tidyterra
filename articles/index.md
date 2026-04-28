@@ -19,7 +19,7 @@
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/articles/wild.md):
 
-  Use of **tidyterra** in publications.
+  Uses of **tidyterra** in publications.
 
 ### FAQs
 

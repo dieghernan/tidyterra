@@ -9,7 +9,7 @@ implemented for `Spat*` objects.
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 ## dplyr methods
 
@@ -361,7 +361,7 @@ implemented for `Spat*` objects.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ## Helpers
 
@@ -392,13 +392,13 @@ tibbles.
 - [`as_spatvector()`](https://dieghernan.github.io/tidyterra/reference/as_spatvector.md)
   :
 
-  Method for coercing objects to `SpatVector`
+  Coerce objects to `SpatVector`
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 - [`fortify(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
   [`fortify(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
@@ -414,7 +414,7 @@ tibbles.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ### Other helpers
 

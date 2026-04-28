@@ -2,8 +2,8 @@
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and their solutions, primarily focused
-on the integration of **terra** and **ggplot2**. You can ask for help or
+using the **tidyterra** package and their answers, primarily focused on
+the integration of **terra** and **ggplot2**. You can ask for help or
 search previous questions using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
@@ -118,7 +118,7 @@ r <- rast(holyrood)
 
 ggplot() +
   geom_spatraster_contour_text(data = r) +
-  labs(title = "Labelling contours")
+  labs(title = "Labeling contours")
 
 # With options and aes
 
@@ -162,7 +162,7 @@ ggplot(r) +
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
-    title = "Labelling contours",
+    title = "Labeling contours",
     subtitle = "With options: b/w plot"
   )
 ```
@@ -231,7 +231,7 @@ ggplot(r, aes(x, y)) +
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
-    title = "Labelling contours",
+    title = "Labeling contours",
     subtitle = "tidyterra and metR: b/w plot",
     x = "",
     y = ""
@@ -245,8 +245,8 @@ metR packages with customized styling.
 
 ## Using a different color scale
 
-Since **tidyterra** leverages on **ggplot2**, please refer to
-**ggplot2** use of scales:
+Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
+documentation on scales:
 
 ``` r
 library(terra)
@@ -384,11 +384,11 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-blurrytile-1.png)
 
-\(a\) Plot with resampled raster (EPGS:4326).
+\(a\) Plot with resampled raster (EPSG:4326).
 
 ![](faqs_files/figure-html/fig-blurrytile-2.png)
 
-\(b\) Plot with native CRS - not resampled (EPGS:3857).
+\(b\) Plot with native CRS - not resampled (EPSG:3857).
 
 Figure 6: Example of impact of resampling on blurriness of the tile
 
@@ -609,7 +609,7 @@ Figure 10: Color tables: tidyterra package
 
 ## Use with gganimate
 
-Absolutely! Here is an example (thanks to
+Yes. Here is an example (thanks to
 [@frzambra](https://github.com/frzambra)):
 
 ``` r
@@ -690,7 +690,7 @@ autoplot(r) +
 Figure 12: Map with north arrow (top right) and scale bar (bottom left)
 annotations added using ggspatial.
 
-## How to overlay a `SpatRaster` over a RGB tile
+## How to overlay a `SpatRaster` on an RGB tile
 
 This is straightforward: use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
@@ -927,12 +927,12 @@ and metR for terrain relief representation.
 1.  Digital Elevation Model, representing the elevation of the
     corresponding area.
 
-2.  `na.value = NA` could be used as well for the same purpose in most
-    of the cases, However, when the proportion of non-`NA`s is small it
-    can produce undesired results, see
+2.  `na.value = NA` can also be used for the same purpose in most cases.
+    However, when the proportion of non-`NA`s is small it can produce
+    undesired results, see
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 3.  The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors, and it has been
-    added the corresponding color table as of
+    converted to their corresponding labels and factors, and the
+    corresponding color table added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

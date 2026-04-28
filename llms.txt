@@ -35,7 +35,7 @@ A BibTeX entry for LaTeX users is:
 The full manual of the most recent release of **tidyterra** on **CRAN**
 is online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented on **tidyterra** work differently
+**tidyverse** methods implemented in **tidyterra** work differently
 depending on the type of `Spat*` object:
 
 - `SpatVector`: the methods are implemented using
@@ -98,7 +98,7 @@ A note on performance
 cost**.
 
 If you frequently use **terra** or work with large raster files,
-**terra** is much more performant. Whenever possible, each **tidyterra**
+**terra** is usually much faster. Whenever possible, each **tidyterra**
 function refers to its equivalent on **terra**.
 
 As a rule of thumb, if your raster has fewer than 10,000,000 data slots
@@ -281,7 +281,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 ![A SpatVector plotted with
 tidyterra](https://dieghernan.github.io/tidyterra/README-spatvec-1.png)
 
-## I need your feedback
+## Feedback
 
 Please leave your feedback or open an issue on
 <https://github.com/dieghernan/tidyterra/issues>.
@@ -296,7 +296,7 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
-## Acknowledgement
+## Acknowledgements
 
 **tidyterra**’s **ggplot2** geoms are based on
 [**ggspatial**](https://github.com/paleolimbot/ggspatial)
@@ -315,7 +315,7 @@ implemented for `Spat*` objects.
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 ## dplyr methods
 
@@ -667,7 +667,7 @@ implemented for `Spat*` objects.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ## Helpers
 
@@ -698,13 +698,13 @@ tibbles.
 - [`as_spatvector()`](https://dieghernan.github.io/tidyterra/reference/as_spatvector.md)
   :
 
-  Method for coercing objects to `SpatVector`
+  Coerce objects to `SpatVector`
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 - [`fortify(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
   [`fortify(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
@@ -720,7 +720,7 @@ tibbles.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ### Other helpers
 
@@ -776,7 +776,7 @@ tibbles.
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/articles/wild.md):
 
-  Use of **tidyterra** in publications.
+  Uses of **tidyterra** in publications.
 
 ### FAQs
 
