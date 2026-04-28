@@ -5,7 +5,7 @@
 \alias{as_tibble.Spat}
 \alias{as_tibble.SpatRaster}
 \alias{as_tibble.SpatVector}
-\title{Coerce a \code{SpatVector} or \code{SpatRaster} object to data frames}
+\title{Coerce \code{SpatRaster} and \code{SpatVector} objects to tibbles}
 \usage{
 \method{as_tibble}{SpatRaster}(
   x,
@@ -72,38 +72,36 @@ A \link[tibble:tbl_df]{tibble}.
 Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} method.
 \subsection{\code{SpatRaster} and \code{SpatVector}}{
 
-The tibble is returned with an attribute including the CRS of the initial
-object in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
+The returned tibble includes the CRS of the original object as an attribute
+in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 }
 }
 
 \section{About layer/column names}{
 
 
-When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} names are
-reserved for geographic coordinates of each cell of the \code{SpatRaster}. It
-should be also noted that \CRANpkg{terra} allows layers with
-duplicated names.
+When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} are reserved
+names for the geographic coordinates of each cell. \CRANpkg{terra} also
+allows layers with duplicated names.
 
-In the process of coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra}
-may rename the layers of your \code{SpatRaster} for overcoming this issue.
-Specifically, layers may be renamed on the following cases:
+When coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra} may rename its
+layers to avoid these issues. Specifically, layers may be renamed in the
+following cases:
 \itemize{
 \item Layers with duplicated names.
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or
-\code{y} would be renamed.
+\code{y} are renamed.
 \item When working with tidyverse methods (i.e. \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}), the
-latter would happen as well.
+same renaming would happen.
 }
 
-\CRANpkg{tidyterra} would display a message informing of the changes on the
-names of the layer.
+\CRANpkg{tidyterra} displays a message describing the renamed layers.
 
-The same issue happens for \code{SpatVector} with names \code{geometry} (when
-\code{geom = c("WKT", "HEX")}) and \code{x}, \code{y} (when \code{geom = "XY"}). These are
-reserved names representing the geometry of the \code{SpatVector} (see
-\code{\link[terra:as.data.frame]{terra::as.data.frame()}}). If \code{geom} is not \code{NULL} then the logic described
-for \code{SpatRaster} would apply as well for the columns of the \code{SpatVector}.
+The same issue affects \code{SpatVector} objects with reserved names such as
+\code{geometry} (when \code{geom = c("WKT", "HEX")}) and \code{x}, \code{y} (when
+\code{geom = "XY"}). These names represent geometry columns in
+\code{\link[terra:as.data.frame]{terra::as.data.frame()}}. If \code{geom} is not \code{NULL}, the same renaming logic
+described for \code{SpatRaster} also applies to \code{SpatVector} columns.
 }
 
 \examples{

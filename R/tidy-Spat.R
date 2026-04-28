@@ -1,16 +1,18 @@
-#' Turn `Spat*` object into a tidy tibble
+#' Tidy `Spat*` objects for plotting
 #'
-#' Turn `Spat*` object into a tidy tibble. This is similar to
-#' [`fortify.Spat`], and it is provided just in case [ggplot2::fortify()]
-#' method is deprecated in the future.
+#' `tidy()` methods for `SpatRaster`, `SpatVector`, `SpatGraticule` and
+#' `SpatExtent` objects. These methods return a tibble for `SpatRaster`
+#' objects and `sf` objects for vector-based inputs. This interface is similar
+#' to [`fortify.Spat`] and is provided in case the [ggplot2::fortify()] method
+#' is deprecated in the future.
 #'
 #' @param x A `SpatRaster` created with [terra::rast()], a `SpatVector`
 #'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
 #'   or a `SpatExtent` (see [terra::ext()]).
 #' @param ... Ignored by these methods.
-#' @param pivot Logical. When `TRUE` the `SpatRaster` would be provided on
-#'   [long format][tidyr::pivot_longer()]. When `FALSE` (the default) it would
-#'   be provided as a data frame with a column for each layer. See **Details**.
+#' @param pivot Logical. When `TRUE`, a `SpatRaster` is returned in [long
+#'   format][tidyr::pivot_longer()]. When `FALSE` (the default), it is returned
+#'   as a data frame with one column per layer. See **Details**.
 #' @inheritParams geom_spatraster
 #' @inheritParams as_tibble.Spat
 #' @inheritParams generics::tidy
@@ -42,31 +44,32 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Return a tibble that can be used with `ggplot2::geom_*` like
-#' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
+#' Returns a tibble that can be used with `ggplot2::geom_*`, such as
+#' [ggplot2::geom_point()] and [ggplot2::geom_raster()].
 #'
-#' The resulting tibble includes the coordinates on the columns `x, y`. The
-#' values of each layer are included as additional columns named as per the
-#' name of the layer on the `SpatRaster`.
+#' The resulting tibble includes coordinates in the `x` and `y` columns. The
+#' values of each layer are added as extra columns using the layer names from
+#' the `SpatRaster`.
 #'
 #' The CRS of the `SpatRaster` can be retrieved with
 #' `attr(tidySpatRaster, "crs")`.
 #'
-#' It is possible to convert the tidy object onto a `SpatRaster` again with
+#' You can convert the tidy object back to a `SpatRaster` with
 #' [as_spatraster()].
 #'
-#' When `pivot = TRUE` the `SpatRaster` is provided in a "long" format (see
-#' [tidyr::pivot_longer()]). The tidy object has the following
-#' columns:
-#' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
-#' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
-#' * `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+#' When `pivot = TRUE`, the `SpatRaster` is returned in long format (see
+#' [tidyr::pivot_longer()]). The tidy object has the following columns:
+#' * `x`, `y`: Coordinates of the cell centre in the corresponding CRS.
+#' * `lyr`: Name of the `SpatRaster` layer associated with `value`.
+#' * `value`: Cell value for the corresponding `lyr`.
 #'
-#' This option may be useful when using several `geom_*` and for faceting.
+#' This option can be useful when combining several `geom_*` layers or when
+#' faceting.
 #'
 #' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
-#' Return a [`sf`][sf::st_sf] object that can be used with [ggplot2::geom_sf()].
+#' Returns an [`sf`][sf::st_sf] object that can be used with
+#' [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{
@@ -80,7 +83,7 @@
 #'
 #' r_tidy
 #'
-#' # Back to a SpatRaster with
+#' # Convert back to a `SpatRaster`.
 #' as_spatraster(r_tidy)
 #'
 #' # SpatVector
@@ -169,11 +172,11 @@ tidy.SpatGraticule <- function(x, ...) {
 #' @export
 #' @encoding UTF-8
 #' @name tidy.Spat
-#' @param crs Input potentially including or representing a CRS. It could be
-#'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
-#'   [sf::st_crs()], a character (for example a [proj4
-#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
-#'   integer (representing an [EPSG](https://epsg.io/) code).
+#' @param crs Input that includes or represents a CRS. It can be an `sf/sfc`
+#'   object, a `SpatRaster/SpatVector` object, a `crs` object from
+#'   [sf::st_crs()], a character string (for example a [proj4
+#'   string](https://proj.org/en/9.3/operations/projections/index.html)), or
+#'   an integer representing an [EPSG](https://epsg.io/) code.
 tidy.SpatExtent <- function(x, ..., crs = "") {
   as_sf(terra::vect(x, crs = pull_crs(crs)))
 }

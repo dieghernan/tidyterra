@@ -22,10 +22,10 @@ and provides `geom_spat*()` geoms for plotting these objects with
 
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
-tidyverse verbs—especially `dplyr` and `tidyr` methods—**tidyterra** lets users
-manipulate `Spat*` objects in a style similar to working with tabular data.
+tidyverse verbs—especially **dplyr** and **tidyr** methods—**tidyterra** lets
+users manipulate `Spat*` objects in a style similar to working with tabular data.
 
-Note: **terra** is generally more performant. Learning some **terra** syntax is
+Note: **terra** is generally faster. Learning some **terra** syntax is
 recommended because **tidyterra** functions call, where possible, the
 corresponding **terra** equivalents.
 
@@ -143,8 +143,8 @@ manner analogous to how row operations affect data frames.
 
 ### `SpatVectors`
 
-Since **tidyterra** 0.4.0, most `dplyr` and `tidyr` verbs work with `SpatVector`
-objects, so you can arrange, group, and summarise their attributes.
+Since **tidyterra** version 0.4.0, most **dplyr** and **tidyr** verbs work with
+`SpatVector` objects, so you can arrange, group, and summarise their attributes.
 
 
 ``` r

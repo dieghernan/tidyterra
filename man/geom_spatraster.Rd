@@ -97,8 +97,8 @@ lists which parameters it can accept.
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
 
-\item{geom}{The geometric object to use display the data. Recommended \code{geom}
-for \code{SpatRaster} are \code{"raster"} (the default), \code{"point"},\code{"text"} and
+\item{geom}{Geom used to display the data. Recommended values for
+\code{SpatRaster} are \code{"raster"} (the default), \code{"point"}, \code{"text"} and
 \code{"label"}.}
 }
 \value{
@@ -114,8 +114,8 @@ For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster})
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
-\code{stat_spatraster()} is provided as a complementary function, so the \code{geom}
-can be modified.
+\code{stat_spatraster()} complements \code{\link[=geom_spatraster]{geom_spatraster()}} when you need to change
+the \code{geom}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -166,21 +166,20 @@ For \code{alpha} use computed variable. See section \strong{Computed variables}.
 \subsection{\code{stat_spatraster()}}{
 
 \code{stat_spatraster()} understands the same aesthetics as \code{geom_spatraster()}
-when using \code{geom = "raster"} (the default):
+when \code{geom = "raster"} (the default):
 \itemize{
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
-When \code{geom = "raster"} the \code{fill} argument would behave as in
-\code{geom_spatraster()}. If another \code{geom} is used \code{stat_spatraster()} would
-understand the aesthetics of the required \code{geom} and
-\verb{aes(fill = <name_of_lyr>)} would not be applicable.
+When \code{geom = "raster"}, the \code{fill} argument behaves as in
+\code{geom_spatraster()}. If another \code{geom} is used, \code{stat_spatraster()}
+understands the aesthetics required by that \code{geom}, so
+\verb{aes(fill = <name_of_lyr>)} is not applicable.
 
-Note also that mapping of aesthetics \code{x} and \code{y} is provided by default,
-so the user does not need to add those aesthetics on \code{aes()}. In all the
-cases the aesthetics should be mapped by using computed variables. See
-section \strong{Computed variables} and \strong{Examples}.
+The \code{x} and \code{y} aesthetics are mapped by default, so you do not need to add
+them in \code{aes()}. In every case, aesthetics should be mapped with computed
+variables. See \strong{Computed variables} and \strong{Examples}.
 }
 }
 

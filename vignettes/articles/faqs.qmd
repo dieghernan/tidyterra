@@ -15,7 +15,7 @@ knitr:
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about using the
-**tidyterra** package and their solutions, primarily focused on the
+**tidyterra** package and their answers, primarily focused on the
 integration of **terra** and **ggplot2**. You can ask for help or search
 previous questions using the following links.
 
@@ -57,8 +57,8 @@ This is the default behavior of **ggplot2**. **tidyterra** color scales
 (i.e., `scale_fill_whitebox_c()`, etc.) have `na.value = "transparent"` by
 default, which prevents `NA` values from being filled[^2].
 
-[^2]: `na.value = NA` could be used as well for the same purpose in most of the
-    cases, However, when the proportion of non-`NA`s is small it can produce
+[^2]: `na.value = NA` can also be used for the same purpose in most cases.
+    However, when the proportion of non-`NA`s is small it can produce
     undesired results, see
     [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
@@ -132,7 +132,7 @@ r <- rast(holyrood)
 
 ggplot() +
   geom_spatraster_contour_text(data = r) +
-  labs(title = "Labelling contours")
+  labs(title = "Labeling contours")
 
 # With options and aes
 
@@ -176,7 +176,7 @@ ggplot(r) +
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
-    title = "Labelling contours",
+    title = "Labeling contours",
     subtitle = "With options: b/w plot"
   )
 ```
@@ -236,7 +236,7 @@ ggplot(r, aes(x, y)) +
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
-    title = "Labelling contours",
+    title = "Labeling contours",
     subtitle = "tidyterra and metR: b/w plot",
     x = "",
     y = ""
@@ -245,8 +245,8 @@ ggplot(r, aes(x, y)) +
 
 ## Using a different color scale {#use-scale}
 
-Since **tidyterra** leverages on **ggplot2**, please refer to **ggplot2** use of
-scales:
+Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
+documentation on scales:
 
 ```{r}
 #| label: fig-greys
@@ -325,8 +325,8 @@ the `maxcell` argument to avoid resampling and ensure the **ggplot2** map uses
 #| label: fig-blurrytile
 #| fig-cap: "Example of impact of resampling on blurriness of the tile"
 #| fig-subcap:
-#|   - "Plot with resampled raster (EPGS:4326)."
-#|   - "Plot with native CRS - not resampled (EPGS:3857)."
+#|   - "Plot with resampled raster (EPSG:4326)."
+#|   - "Plot with native CRS - not resampled (EPSG:3857)."
 #| layout-ncol: 2
 #| column: page
 library(terra)
@@ -483,8 +483,8 @@ color tables. This example uses `clc_edinburgh.tif`, available online in the
 which contains data from the Corine Land Cover Dataset (2018) for Edinburgh[^3].
 
 [^3]: The original file has been cropped, the numeric values have been converted
-    to their corresponding labels and factors, and it has been added the
-    corresponding color table as of
+    to their corresponding labels and factors, and the corresponding color
+    table added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.
 
 ```{r}
@@ -558,7 +558,7 @@ ggplot() +
 
 ## Use with gganimate {#gganimate}
 
-Absolutely! Here is an example (thanks to
+Yes. Here is an example (thanks to
 [\@frzambra](https://github.com/frzambra)):
 
 ```{r}
@@ -640,7 +640,7 @@ autoplot(r) +
   )
 ```
 
-## How to overlay a `SpatRaster` over a RGB tile
+## How to overlay a `SpatRaster` on an RGB tile
 
 This is straightforward: use `geom_spatraster_rgb()` for the background tile,
 and then add your data layers on top:

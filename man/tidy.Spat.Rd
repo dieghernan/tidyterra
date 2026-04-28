@@ -7,7 +7,7 @@
 \alias{tidy.SpatVector}
 \alias{tidy.SpatGraticule}
 \alias{tidy.SpatExtent}
-\title{Turn \verb{Spat*} object into a tidy tibble}
+\title{Tidy \verb{Spat*} objects for plotting}
 \usage{
 \method{tidy}{SpatRaster}(
   x,
@@ -52,14 +52,13 @@ to enforce them.}
 \item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{pivot}{Logical. When \code{TRUE} the \code{SpatRaster} would be provided on
-\link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default) it would
-be provided as a data frame with a column for each layer. See \strong{Details}.}
+\item{pivot}{Logical. When \code{TRUE}, a \code{SpatRaster} is returned in \link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default), it is returned
+as a data frame with one column per layer. See \strong{Details}.}
 
-\item{crs}{Input potentially including or representing a CRS. It could be
-a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
-integer (representing an \href{https://epsg.io/}{EPSG} code).}
+\item{crs}{Input that includes or represents a CRS. It can be an \code{sf/sfc}
+object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}), or
+an integer representing an \href{https://epsg.io/}{EPSG} code.}
 }
 \value{
 \code{\link[=tidy.SpatVector]{tidy.SpatVector()}}, \code{\link[=tidy.SpatGraticule]{tidy.SpatGraticule()}} and \code{\link[=tidy.SpatExtent]{tidy.SpatExtent()}}
@@ -68,9 +67,11 @@ return a \code{\link[sf:st_sf]{sf}} object.
 \code{\link[=tidy.SpatRaster]{tidy.SpatRaster()}} returns a \link[tibble:tbl_df]{tibble}. See \strong{Methods}.
 }
 \description{
-Turn \verb{Spat*} object into a tidy tibble. This is similar to
-\code{\link{fortify.Spat}}, and it is provided just in case \code{\link[ggplot2:fortify]{ggplot2::fortify()}}
-method is deprecated in the future.
+\code{tidy()} methods for \code{SpatRaster}, \code{SpatVector}, \code{SpatGraticule} and
+\code{SpatExtent} objects. These methods return a tibble for \code{SpatRaster}
+objects and \code{sf} objects for vector-based inputs. This interface is similar
+to \code{\link{fortify.Spat}} and is provided in case the \code{\link[ggplot2:fortify]{ggplot2::fortify()}} method
+is deprecated in the future.
 }
 \section{Methods}{
 
@@ -78,34 +79,35 @@ method is deprecated in the future.
 Implementation of the \strong{generic} \code{\link[generics:tidy]{generics::tidy()}} method.
 \subsection{\code{SpatRaster}}{
 
-Return a tibble that can be used with \verb{ggplot2::geom_*} like
-\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, etc.
+Returns a tibble that can be used with \verb{ggplot2::geom_*}, such as
+\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}} and \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
-The resulting tibble includes the coordinates on the columns \verb{x, y}. The
-values of each layer are included as additional columns named as per the
-name of the layer on the \code{SpatRaster}.
+The resulting tibble includes coordinates in the \code{x} and \code{y} columns. The
+values of each layer are added as extra columns using the layer names from
+the \code{SpatRaster}.
 
 The CRS of the \code{SpatRaster} can be retrieved with
 \code{attr(tidySpatRaster, "crs")}.
 
-It is possible to convert the tidy object onto a \code{SpatRaster} again with
+You can convert the tidy object back to a \code{SpatRaster} with
 \code{\link[=as_spatraster]{as_spatraster()}}.
 
-When \code{pivot = TRUE} the \code{SpatRaster} is provided in a "long" format (see
-\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The tidy object has the following
-columns:
+When \code{pivot = TRUE}, the \code{SpatRaster} is returned in long format (see
+\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The tidy object has the following columns:
 \itemize{
-\item \verb{x,y}: Coordinates (center) of the cell on the corresponding CRS.
-\item \code{lyr}: Indicating the name of the \code{SpatRaster} layer of \code{value}.
-\item \code{value}: The value of the \code{SpatRaster} in the corresponding \code{lyr}.
+\item \code{x}, \code{y}: Coordinates of the cell centre in the corresponding CRS.
+\item \code{lyr}: Name of the \code{SpatRaster} layer associated with \code{value}.
+\item \code{value}: Cell value for the corresponding \code{lyr}.
 }
 
-This option may be useful when using several \verb{geom_*} and for faceting.
+This option can be useful when combining several \verb{geom_*} layers or when
+faceting.
 }
 
 \subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
 
-Return a \code{\link[sf:st_sf]{sf}} object that can be used with \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
+Returns an \code{\link[sf:st_sf]{sf}} object that can be used with
+\code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
 }
 }
 
@@ -121,7 +123,7 @@ r_tidy <- tidy(r)
 
 r_tidy
 
-# Back to a SpatRaster with
+# Convert back to a `SpatRaster`.
 as_spatraster(r_tidy)
 
 # SpatVector

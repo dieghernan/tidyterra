@@ -5,7 +5,8 @@
 \alias{geom_spatraster_rgb}
 \title{Visualise \code{SpatRaster} objects as images}
 \source{
-Based on the \code{layer_spatial()} implementation on \CRANpkg{ggspatial} package.
+Based on the \code{layer_spatial()} implementation in the \CRANpkg{ggspatial}
+package.
 Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
 }
 \usage{
@@ -33,8 +34,8 @@ geom_spatraster_rgb(
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
 
-\item{r, g, b}{Integer representing the number of layer of \code{data} to be
-considered as the red (\code{r}), green (\code{g}) and blue (\code{b}) channel.}
+\item{r, g, b}{Integer giving the layer number in \code{data} used for the red
+(\code{r}), green (\code{g}) and blue (\code{b}) channel.}
 
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
@@ -42,7 +43,7 @@ considered as the red (\code{r}), green (\code{g}) and blue (\code{b}) channel.}
 \item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{max_col_value}{Number giving the maximum of the color values range.
+\item{max_col_value}{Number giving the upper bound of the color value range.
 When this is \code{255} (the default), the result is computed most efficiently.
 See \code{\link[grDevices:rgb]{grDevices::rgb()}}.}
 
@@ -88,8 +89,8 @@ A \CRANpkg{ggplot2} layer
 }
 \description{
 This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as
-RGB images. The layers are combined such that they represent the red,
-green and blue channel.
+RGB images. The layers are combined so they represent the red, green and
+blue channels.
 
 For plotting \code{SpatRaster} objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
 
@@ -150,7 +151,7 @@ ggplot(cyl_sf) +
 \seealso{
 \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}}, \code{\link[grDevices:rgb]{grDevices::rgb()}}.
 
-You can get also RGB tiles from the \CRANpkg{maptiles} package, see
+You can also get RGB tiles from the \CRANpkg{maptiles} package. See
 \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
 Other \CRANpkg{ggplot2} utils:

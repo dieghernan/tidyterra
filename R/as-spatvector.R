@@ -1,9 +1,9 @@
-#' Method for coercing objects to `SpatVector`
+#' Coerce objects to `SpatVector`
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing object into a `SpatVector`. This is a
-#' wrapper of [terra::vect()] S4 method for signature `data.frame`.
+#' `as_spatvector()` turns an existing object into a `SpatVector`. It wraps the
+#' [terra::vect()] S4 method for the `data.frame` signature.
 #'
 #' @return
 #' A `SpatVector`.
@@ -19,24 +19,24 @@
 #'
 #' @param ... Additional arguments passed on to [terra::vect()].
 #'
-#' @param geom Character. The field name(s) with the geometry data. Either
-#'   two names for x and y coordinates of points, or a single name for a single
+#' @param geom Character vector naming the fields that contain the geometry
+#'   data. Use two names for point coordinates (`x` and `y`), or one name for a
 #'   column with WKT geometries.
 #'
 #' @inheritParams as_spatraster
 #'
 #' @details
 #'
-#' This function differs from [terra::vect()] on the following:
+#' This function differs from [terra::vect()] in the following ways:
 #'
-#' * geometries with `NA` or `""` values are removed prior to conversion
-#' * If `x` is a grouped data frame (see [dplyr::group_by()]) the grouping
-#'   vars are transferred and a "grouped" `SpatVector` is created (see
+#' * Rows with geometry values `NA` or `""` are removed before conversion.
+#' * If `x` is a grouped data frame (see [dplyr::group_by()]), the grouping
+#'   variables are transferred and a grouped `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
 #' * If no `crs` is provided and the tibble has been created with the method
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
-#' * Handles correctly the conversion of `EMPTY` geometries between
+#' * It handles the conversion of `EMPTY` geometries between
 #'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #' @family coerce
@@ -96,24 +96,24 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
     )
   }
 
-  # Work always with tibble
+  # Always work with a tibble.
   tbl <- as_tibble(x)
 
-  # Issue: Convert coords to numeric if x,y
-  # With tibble and integer values, terra::vect() gives errors
+  # Convert point coordinates to numeric. Integer columns can fail in
+  # `terra::vect()`.
   if (length(geom) == 2) {
     tbl[[geom[1]]] <- as.double(tbl[[geom[1]]])
     tbl[[geom[2]]] <- as.double(tbl[[geom[2]]])
   }
 
-  # Issue: Convert single geom to char and change blanks for NAs
+  # Convert a single geometry column to character and treat blanks as `NA`.
   if (length(geom) == 1) {
     val <- as.character(tbl[[geom]])
     val[val == ""] <- NA
     tbl[[geom]] <- val
   }
 
-  # Issue: Remove empty geoms
+  # Remove rows with missing geometry values.
   tbl_end <- tidyr::drop_na(tbl, dplyr::all_of(geom))
 
   if (nrow(tbl) != nrow(tbl_end)) {
@@ -123,12 +123,11 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
     ))
   }
 
-  # Create SpatVector
-  # crs
+  # Resolve the CRS before creating the `SpatVector`.
   crs_attr <- attr(x, "crs")
   crs <- pull_crs(crs)
 
-  # Check from attrs
+  # Fall back to the CRS stored in the input attributes.
   if (is.na(crs)) {
     crs <- crs_attr
   }
@@ -139,12 +138,12 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
 
-  # No CRS if none provided
+  # Remove the CRS if none was supplied.
   if (crs == "") {
     terra::crs(v) <- NULL
   }
 
-  # Make groups
+  # Restore grouping metadata when present.
   if (dplyr::is_grouped_df(x) || is_rowwise_df(x)) {
     v <- group_prepare_spat(v, x)
   }
@@ -156,7 +155,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
 #' @export
 #' @encoding UTF-8
 as_spatvector.sf <- function(x, ...) {
-  # If none are empty, can convert safely
+  # Convert directly when there are no empty geometries.
 
   if (!any(sf::st_is_empty(x))) {
     v <- terra::vect(x)
@@ -166,20 +165,20 @@ as_spatvector.sf <- function(x, ...) {
 
   sf_col <- attr(x, "sf_column")
 
-  # Create template with basic metadata
+  # Create a template with the required metadata.
   template <- as_tbl_internal(terra::vect(x[!sf::st_is_empty(x), sf_col]))
   attr_template <- attributes(template)
 
-  # Get tibble
+  # Extract the non-geometry columns.
   tbl <- sf::st_drop_geometry(x)
 
-  # Check and manipulate empty geoms
+  # Replace empty geometries with valid empty WKT values.
   gg <- as.character(sf::st_as_text(sf::st_geometry(x)))
 
   if (any(sf::st_is_empty(x))) {
     gtype <- tolower(attr_template$geomtype)
 
-    # Needs to be MULTI except for POINT
+    # Use MULTI geometries except for points.
     empty_geom <- switch(gtype,
       "polygons" = "MULTIPOLYGON EMPTY",
       "lines" = "MULTILINESTRING EMPTY",
@@ -189,12 +188,12 @@ as_spatvector.sf <- function(x, ...) {
     gg[sf::st_is_empty(x)] <- empty_geom
   }
 
-  # Rebuild tibble
+  # Rebuild the tibble with the geometry column.
   dfgeom <- data.frame(x = gg)
   names(dfgeom) <- sf_col
   final_tibble <- dplyr::bind_cols(tbl, dfgeom)
 
-  # Add grouping if already grouped
+  # Restore grouping when the input is grouped.
   if (dplyr::is_grouped_df(x)) {
     vars_sf <- dplyr::group_vars(x)
     final_tibble <- dplyr::group_by(final_tibble, across_all_of(vars_sf))
@@ -226,19 +225,19 @@ as_spatvector.SpatVector <- function(x, ...) {
   x
 }
 
-#' Rebuild objects created with as_tbl_internal to `SpatVector`
-#' Strict version, used attributes for creating a template
-#' `SpatVector` and then transfer the values
+#' Rebuild objects created with `as_tbl_internal()` to `SpatVector`
+#' This strict internal helper uses the stored attributes to recreate a
+#' template `SpatVector` and then transfer the values.
 #' @noRd
 as_spatvect_attr <- function(x) {
   if (inherits(x, "SpatVector")) {
     return(x)
   }
 
-  # Get attributes
+  # Retrieve the stored attributes.
   attrs <- attributes(x)
 
-  # Check if any geometry is NA or "" and replace by the corresponding value
+  # Replace missing or blank geometries with a matching empty geometry.
 
   gg <- as.character(x[["geometry"]])
 
@@ -247,7 +246,7 @@ as_spatvect_attr <- function(x) {
   if (anyNA(gg)) {
     gtype <- tolower(attrs$geomtype)
 
-    # Needs to be MULTI except for POINT
+    # Use MULTI geometries except for points.
     empty_geom <- switch(gtype,
       "polygons" = "MULTIPOLYGON EMPTY",
       "lines" = "MULTILINESTRING EMPTY",
@@ -261,7 +260,7 @@ as_spatvect_attr <- function(x) {
 
   v <- terra::vect(x, geom = "geometry", crs = attrs$crs)
 
-  # Make groups
+  # Restore grouping metadata when present.
   if (dplyr::is_grouped_df(x)) {
     vars <- dplyr::group_vars(x)
 

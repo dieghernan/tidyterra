@@ -25,7 +25,7 @@ as_spat_internal <- function(x) {
   ))
 }
 
-# Restore attributes from template
+# Restore missing attributes from a template object.
 restore_attr <- function(x, template) {
   init_attr <- attributes(x)
   temp_attr <- attributes(template)
@@ -39,9 +39,9 @@ restore_attr <- function(x, template) {
   x
 }
 
-#' Create safe index name
-#' @param x Pattern to create.
-#' @param y Object with names (can perform `names(y)`) to assess.
+#' Create a safe index name
+#' @param x Base string used to create the index name.
+#' @param y Object whose names, as returned by `names(y)`, are checked.
 #' @noRd
 make_safe_index <- function(x, y) {
   nams <- names(y)

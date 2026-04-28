@@ -55,14 +55,13 @@ to enforce them.}
 \item{maxcell}{Positive integer. Maximum number of cells to use for
 the plot.}
 
-\item{pivot}{Logical. When \code{TRUE} the \code{SpatRaster} would be provided on
-\link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default) it would
-be provided as a data frame with a column for each layer. See \strong{Details}.}
+\item{pivot}{Logical. When \code{TRUE}, a \code{SpatRaster} is returned in \link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default), it is returned
+as a data frame with one column per layer. See \strong{Details}.}
 
-\item{crs}{Input potentially including or representing a CRS. It could be
-a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
-integer (representing an \href{https://epsg.io/}{EPSG} code).}
+\item{crs}{Input that includes or represents a CRS. It can be an \code{sf/sfc}
+object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}), or
+an integer representing an \href{https://epsg.io/}{EPSG} code.}
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}}, \code{\link[=fortify.SpatGraticule]{fortify.SpatGraticule()}} and \code{\link[=fortify.SpatExtent]{fortify.SpatExtent()}}

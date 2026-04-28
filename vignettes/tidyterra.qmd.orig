@@ -140,7 +140,7 @@ data frame-like structures by performing data transformations, which can affect
 performance.
 
 When manipulating large raster files (i.e. more than 10,000,000 cells), it is
-recommended to use native **terra** syntax, which is specially designed for
+recommended to use native **terra** syntax, which is specifically designed for
 handling this type of data. For plotting, the geoms resample `SpatRaster`
 objects with more than 500,000 cells by default to speed up rendering (as
 `terra::plot()` does); you can override this upper limit with the geom's
@@ -257,7 +257,7 @@ I would like to thank [Robert J. Hijmans](https://github.com/rhijmans) for his
 advice and support in adapting some of the methods, as well as for the
 suggestions that helped us improve the functionalities of the package. I am also
 thankful to [Dewey Dunnington](https://dewey.dunnington.ca/), Brent Thorne and
-the rest of contributors of the **ggspatial** package, which served as a key
+the rest of the contributors to the **ggspatial** package, which served as a key
 reference during the initial stages of the development of **tidyterra**.
 
 **tidyterra** also incorporates some pieces of code adapted from **ggplot2** for

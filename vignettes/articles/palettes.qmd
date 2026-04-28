@@ -35,7 +35,7 @@ knitr:
 
 This page shows a [Lightbox gallery](https://biati-digital.github.io/glightbox/)
 of maps that can be displayed with the gradient fill scales included with
-**tidyterra**. A basic example to generate this map is:
+**tidyterra**. A basic example for generating maps like these is:
 
 ```{r}
 #| eval: false
@@ -54,7 +54,7 @@ ggplot() +
 
 ## `scale_fill_terrain_*` and `scale_fill_wiki_*`
 
-Check `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for more info.
+See `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for details.
 
 ```{r}
 #| label: terr_wiki
@@ -94,7 +94,7 @@ print(ss)
 
 ## `scale_fill_whitebox_*`
 
-Check `scale_fill_whitebox_c()` for more info.
+See `scale_fill_whitebox_c()` for details.
 
 ```{r}
 #| label: whitebox
@@ -133,7 +133,7 @@ for (i in allpals) {
 
 ## `scale_fill_hypso_*`
 
-Check `scale_fill_hypso_c()` for more info.
+See `scale_fill_hypso_c()` for details.
 
 ```{r}
 #| label: hypso
@@ -159,7 +159,7 @@ for (i in allpals) {
 
 ## `scale_fill_cross_blended_*`
 
-Check `scale_fill_cross_blended_c()` for more info.
+See `scale_fill_cross_blended_c()` for details.
 
 ```{r}
 #| label: cross
@@ -185,7 +185,7 @@ for (i in allpals) {
 
 ## `scale_fill_grass_*`
 
-Check `scale_fill_grass_c()` for more info. Plots produced using
+See `scale_fill_grass_c()` for details. Plots produced using
 `use_grass_range = FALSE`.
 
 ```{r}
@@ -212,7 +212,7 @@ for (i in allpals) {
 
 ## `scale_fill_princess_*`
 
-Check `scale_fill_princess_c()` for more info.
+See `scale_fill_princess_c()` for details.
 
 ```{r}
 #| label: princess

@@ -67,7 +67,7 @@ A BibTeX entry for LaTeX users is:
 The full manual of the most recent release of **tidyterra** on **CRAN**
 is online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented on **tidyterra** work differently
+**tidyverse** methods implemented in **tidyterra** work differently
 depending on the type of `Spat*` object:
 
 - `SpatVector`: the methods are implemented using
@@ -129,7 +129,7 @@ Current methods and functions provided by **tidyterra** are:
 > cost**.
 >
 > If you frequently use **terra** or work with large raster files,
-> **terra** is much more performant. Whenever possible, each
+> **terra** is usually much faster. Whenever possible, each
 > **tidyterra** function refers to its equivalent on **terra**.
 >
 > As a rule of thumb, if your raster has fewer than 10,000,000 data
@@ -330,7 +330,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 
 <img src="https://dieghernan.github.io/tidyterra/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
 
-## I need your feedback
+## Feedback
 
 Please leave your feedback or open an issue on
 <https://github.com/dieghernan/tidyterra/issues>.
@@ -345,7 +345,7 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
-## Acknowledgement
+## Acknowledgements
 
 **tidyterra**’s **ggplot2** geoms are based on
 [**ggspatial**](https://github.com/paleolimbot/ggspatial)

@@ -4,11 +4,11 @@
 #'
 #' @description
 #'
-#' `stat_spatraster()` is provided as a complementary function, so the `geom`
-#' can be modified.
+#' `stat_spatraster()` complements [geom_spatraster()] when you need to change
+#' the `geom`.
 #'
-#' @param geom The geometric object to use display the data. Recommended `geom`
-#'   for `SpatRaster` are `"raster"` (the default), `"point"`,`"text"` and
+#' @param geom Geom used to display the data. Recommended values for
+#'   `SpatRaster` are `"raster"` (the default), `"point"`, `"text"` and
 #'   `"label"`.
 #' @seealso
 #'
@@ -22,20 +22,19 @@
 #' ## `stat_spatraster()`
 #'
 #' `stat_spatraster()` understands the same aesthetics as `geom_spatraster()`
-#' when using `geom = "raster"` (the default):
+#' when `geom = "raster"` (the default):
 #'
 #' * [`fill`][ggplot2::aes_colour_fill_alpha]
 #' * [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' When `geom = "raster"` the `fill` argument would behave as in
-#' `geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
-#' understand the aesthetics of the required `geom` and
-#' `aes(fill = <name_of_lyr>)` would not be applicable.
+#' When `geom = "raster"`, the `fill` argument behaves as in
+#' `geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
+#' understands the aesthetics required by that `geom`, so
+#' `aes(fill = <name_of_lyr>)` is not applicable.
 #'
-#' Note also that mapping of aesthetics `x` and `y` is provided by default,
-#' so the user does not need to add those aesthetics on `aes()`. In all the
-#' cases the aesthetics should be mapped by using computed variables. See
-#' section **Computed variables** and **Examples**.
+#' The `x` and `y` aesthetics are mapped by default, so you do not need to add
+#' them in `aes()`. In every case, aesthetics should be mapped with computed
+#' variables. See **Computed variables** and **Examples**.
 #' @examples
 #' \donttest{
 #' # Using stat_spatraster
@@ -94,7 +93,7 @@ stat_spatraster <- function(
 
   # 1. Work with aes ----
 
-  # Prepare aes for StatTerraSpatRaster
+  # Prepare aesthetics for `StatTerraSpatRaster`.
   mapping <- cleanup_aesthetics(mapping, "group")
 
   spatraster <- NULL
@@ -110,8 +109,7 @@ stat_spatraster <- function(
     )
   )
 
-  # Do this only if provided geom is raster
-  # to mimick geom_spatraster
+  # Only do this when `geom = "raster"` to mimic `geom_spatraster()`.
 
   if (geom == "raster") {
     dots <- list(...)
@@ -173,10 +171,10 @@ stat_spatraster <- function(
     )
   )
 
-  # From ggspatial
-  # If the SpatRaster has crs add a geom_sf for training scales
-  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-  # using the first layer's CRS as the base CRS for coord_sf().
+  # From `ggspatial`.
+  # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
+  # scales. This mimics using the first layer CRS as the base CRS for
+  # `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
