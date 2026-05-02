@@ -27,11 +27,11 @@ v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 #### About the file
 
-The file `holyroodpark.tif` represents the DEM[¹](#fn1) of [Holyrood
-Park, Edinburgh
-(Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park), including
-[Arthur’s Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an
-extinct volcano, pretty much as the famous [Maungawhau / Mount
+The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park,
+Edinburgh (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park),
+including [Arthur’s
+Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct
+volcano, pretty much as the famous [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano
 represented in
 [`datasets::volcano`](https://rdrr.io/r/datasets/volcano.html).
@@ -46,9 +46,10 @@ This is the default behavior of **ggplot2**. **tidyterra** color scales
 (i.e.,
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
 etc.) have `na.value = "transparent"` by default, which prevents `NA`
-values from being filled[²](#fn2).
+values from being filled[^2].
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -108,6 +109,7 @@ Use
 [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental):
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -186,6 +188,7 @@ you can use your `SpatRaster` straight away with the **metR** package
 `bins/binwidth/breaks` to align both labels and lines:
 
 ``` r
+
 library(metR)
 br <- seq(100, 250, 10)
 labs <- c(100, 140, 180, 220)
@@ -249,6 +252,7 @@ Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
 documentation on scales:
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -283,6 +287,7 @@ Yes, use `options("ggplot2.continuous.fill")` to modify the default
 colors in your session.
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -328,6 +333,7 @@ avoid resampling and ensure the **ggplot2** map uses **EPSG:3857** with
 `ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -398,6 +404,7 @@ This is a **ggplot2** default behavior, but you can modify it using the
 `ggplot2::coord_sf(datum)` argument:
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -445,6 +452,7 @@ solution so far. Please see
 following approach:
 
 ``` r
+
 packageVersion("ggplot2")
 #> [1] '4.0.3'
 
@@ -501,9 +509,10 @@ with color tables. This example uses `clc_edinburgh.tif`, available
 online in the [data-raw
 folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
 which contains data from the Corine Land Cover Dataset (2018) for
-Edinburgh[³](#fn3).
+Edinburgh[^3].
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -536,6 +545,7 @@ plot(r_coltab, legend = FALSE)
 Figure 9: Color tables: Native plot with terra package
 
 ``` r
+
 # a. autoplot
 autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
   labs(title = "autoplot method")
@@ -613,6 +623,7 @@ Yes. Here is an example (thanks to
 [@frzambra](https://github.com/frzambra)):
 
 ``` r
+
 library(gganimate)
 library(tidyterra)
 library(geodata)
@@ -660,6 +671,7 @@ and
 [`ggspatial::annotation_scale()`](https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html)):
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -697,6 +709,7 @@ This is straightforward: use
 for the background tile, and then add your data layers on top:
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -763,6 +776,7 @@ You can create variations with binned legends and filled contours using
 [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md):
 
 ``` r
+
 # Binned
 ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
@@ -822,6 +836,7 @@ The final plot requires coordinate adjustment with
 [`coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
 ``` r
+
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -862,6 +877,7 @@ Thanks to this extension mechanism, you can use additional `geoms` and
 `stats` from **ggplot2**:
 
 ``` r
+
 # Point plot
 ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   geom_point(
@@ -894,6 +910,7 @@ for meteorological data visualization. As shown previously (see
 create rich, complex plots.
 
 ``` r
+
 # load libraries and files
 library(terra)
 library(tidyterra)
@@ -922,17 +939,15 @@ ggplot(r, aes(x, y)) +
 Figure 17: Relief rendering combining tidyterra for raster visualization
 and metR for terrain relief representation.
 
-------------------------------------------------------------------------
-
-1.  Digital Elevation Model, representing the elevation of the
+[^1]: Digital Elevation Model, representing the elevation of the
     corresponding area.
 
-2.  `na.value = NA` can also be used for the same purpose in most cases.
-    However, when the proportion of non-`NA`s is small it can produce
-    undesired results, see
+[^2]: `na.value = NA` can also be used for the same purpose in most
+    cases. However, when the proportion of non-`NA`s is small it can
+    produce undesired results, see
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
-3.  The original file has been cropped, the numeric values have been
+[^3]: The original file has been cropped, the numeric values have been
     converted to their corresponding labels and factors, and the
     corresponding color table added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

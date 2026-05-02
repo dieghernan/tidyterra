@@ -108,6 +108,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 #> terra 1.9.11
 library(dplyr)

@@ -50,6 +50,7 @@ Other [generics](https://CRAN.R-project.org/package=generics) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 # SpatVector

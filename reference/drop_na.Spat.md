@@ -102,6 +102,7 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")

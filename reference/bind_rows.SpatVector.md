@@ -82,6 +82,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 

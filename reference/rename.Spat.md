@@ -114,6 +114,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)

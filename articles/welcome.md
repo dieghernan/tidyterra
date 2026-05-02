@@ -36,6 +36,7 @@ fewer than 1e7 “slots” (i.e.,
 Load **tidyterra** together with core tidyverse packages:
 
 ``` r
+
 library(tidyterra)
 library(dplyr)
 library(tidyr)
@@ -43,39 +44,39 @@ library(tidyr)
 
 Currently, the following methods are available:
 
-| tidyverse method                                                                                                                                            | `SpatVector`                                                                                                                                                                                          | `SpatRaster`                                                                                                                                                                                          |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)                                                                              | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Select layers                                                                                                                                                                                      |
-| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Create/modify layers                                                                                                                                                                               |
-| [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)                                                                                | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️ Modify cell values and (optionally) remove outer cells.                                                                                                                                            |
-| [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)                                                                                  | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)                                                                                        | ✔️                                                                                                                                                                                                    | ✔️ Additional methods for slicing by row and column.                                                                                                                                                  |
-| [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)                                                                                          | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)                                                                                      | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)                                                                                  | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)                                                                                  | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)                                                                                    | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html)                                                                                       | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) family                                                                     | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)                                                                                | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) family                                                                           | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)                                                                                    | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html)                         | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html)                                                                                    | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md) |                                                                                                                                                                                                       |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)                                                                                    | ✔️                                                                                                                                                                                                    | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed.                                                                                                        |
-| [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html)                                                                              | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)                                                                                          | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)                                                                          | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)                                                                            | ✔️                                                                                                                                                                                                    |                                                                                                                                                                                                       |
-| [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)                                                                              | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)                                                                                | ✔️ to **sf** via [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)                                                                                                           | To a **tibble** with coordinates.                                                                                                                                                                     |
-| `ggplot2::geom_*()`                                                                                                                                         | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)                                                                                                            | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md). |
-| [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html)                                                                                        | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)                                                                                    | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
-| [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html)                                                                      | ✔️                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                    |
+| tidyverse method | `SpatVector` | `SpatRaster` |
+|----|----|----|
+| [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | ✔️ | ✔️ |
+| [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
+| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create/modify layers |
+| [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html) | ✔️ | ✔️ |
+| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and (optionally) remove outer cells. |
+| [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ |  |
+| [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html) | ✔️ | ✔️ Additional methods for slicing by row and column. |
+| [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html) | ✔️ | ✔️ |
+| [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html) | ✔️ | ✔️ |
+| [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html) | ✔️ | ✔️ |
+| [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html) | ✔️ |  |
+| [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) | ✔️ |  |
+| [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) | ✔️ | ✔️ |
+| [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) family | ✔️ |  |
+| [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) | ✔️ |  |
+| [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) family | ✔️ |  |
+| [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) | ✔️ |  |
+| [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
+| [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
+| [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md) |  |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
+| [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
+| [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) | ✔️ |  |
+| [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) | ✔️ |  |
+| [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** via [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md). |
+| [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
+| [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
+| [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html) | ✔️ | ✔️ |
 
 Let’s see some of these methods in action.
 
@@ -84,6 +85,7 @@ Let’s see some of these methods in action.
 Example using a `SpatRaster`:
 
 ``` r
+
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -144,6 +146,7 @@ work with `SpatVector` objects, so you can arrange, group, and summarise
 their attributes.
 
 ``` r
+
 lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- vect(lux)
@@ -185,6 +188,7 @@ geom uses
 and can be reprojected to match other spatial layers.
 
 ``` r
+
 library(ggplot2)
 
 # A faceted SpatRaster
@@ -203,6 +207,7 @@ ggplot() +
 A faceted map using SpatRaster
 
 ``` r
+
 # Contour lines for a specific layer
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -221,6 +226,7 @@ ggplot() +
 Contour lines plot for a SpatRaster
 
 ``` r
+
 # Contour filled
 
 ggplot() +
@@ -236,6 +242,7 @@ Contour filled plot for a SpatRaster
 tidyterra also supports RGB `SpatRasters` for imagery:
 
 ``` r
+
 # Read a vector
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
@@ -261,6 +268,7 @@ A map combining a RGB SpatRaster and a SpatVector
 bathymetric maps:
 
 ``` r
+
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
@@ -306,6 +314,7 @@ Plot `SpatVectors` with
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md):
 
 ``` r
+
 lux <- system.file("ex/lux.shp", package = "terra")
 
 v_lux <- terra::vect(lux)
@@ -332,6 +341,7 @@ to render the layer.
 You can also aggregate `SpatVectors` easily:
 
 ``` r
+
 # Dissolving
 v_lux |>
   # Create categories
@@ -354,6 +364,7 @@ v_lux |>
 Dissolving SpatVectors by group
 
 ``` r
+
 
 # Same but keeping internal boundaries
 v_lux |>

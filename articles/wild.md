@@ -266,6 +266,12 @@ Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
 Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
 <https://ddd.uab.cat/record/301073>
 
+Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
+Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche
+conservatism and evolutionary dynamics in Octopodidae: A phylogenetic
+comparative approach. *Journal of Biogeography*, *53*(4), e70222.
+<https://doi.org/10.1111/jbi.70222>
+
 Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.

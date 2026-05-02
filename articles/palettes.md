@@ -6,6 +6,7 @@ displayed with the gradient fill scales included with **tidyterra**. A
 basic example for generating maps like these is:
 
 ``` r
+
 library(tidyterra)
 library(terra)
 library(ggplot2)

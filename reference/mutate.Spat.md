@@ -174,6 +174,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 # SpatRaster method

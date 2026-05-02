@@ -44,6 +44,7 @@ Coercing objects:
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")

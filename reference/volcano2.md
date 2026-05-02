@@ -47,6 +47,7 @@ Other datasets:
 ## Examples
 
 ``` r
+
 data("volcano2")
 filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 title(main = "volcano2 data: filled contour map")

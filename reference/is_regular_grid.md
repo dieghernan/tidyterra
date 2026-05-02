@@ -41,6 +41,7 @@ Other helpers:
 ## Examples
 
 ``` r
+
 p <- matrix(1:90, nrow = 45, ncol = 2)
 
 is_regular_grid(p)

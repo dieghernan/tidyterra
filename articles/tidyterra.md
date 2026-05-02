@@ -16,7 +16,7 @@ easier and faster for users already familiar with the **tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2**
 package ([Wickham 2016](#ref-R-ggplot2)) by providing additional `geoms`
-and `stats`[¹](#fn1) like
+and `stats`[^1] like
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
 and
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md),
@@ -85,7 +85,7 @@ objects using the **ggplot2** syntax. Although packages like
 representation of `SpatRaster` objects via **ggplot2**, **tidyterra**
 functions provide additional support for advanced mapping. This support
 includes the integration of faceted maps, contours, and the automatic
-conversion of spatial layers to the same CRS[²](#fn2) via
+conversion of spatial layers to the same CRS[^2] via
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 Furthermore, **tidyterra** also provides support for `SpatVector`
 objects, similar to the native support of **sf** objects in the
@@ -122,6 +122,7 @@ its equivalent **terra** function.
 easily installed using the following commands in **R**:
 
 ``` r
+
 install.packages("tidyterra")
 ```
 
@@ -130,6 +131,7 @@ The latest development version is hosted on
 using the following command in **R**:
 
 ``` r
+
 remotes::install_github("dieghernan/tidyterra")
 ```
 
@@ -140,6 +142,7 @@ seamlessly plot a `SpatRaster` object with **ggplot2** using the
 function:
 
 ``` r
+
 library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once
 library(scales) # Additional library for labels
@@ -185,6 +188,7 @@ original `SpatRaster` using
 and it also includes an overlay of a `SpatVector` for reference:
 
 ``` r
+
 # Compute the variation between April and June and apply a different palette
 incr_temp <- rastertemp |>
   mutate(var = June - April) |>
@@ -337,10 +341,8 @@ Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022.
 *isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
 Grids*. <https://CRAN.R-project.org/package=isoband>.
 
-------------------------------------------------------------------------
-
-1.  The term `geoms` refers to geometric objects, and `stats` refers to
-    statistical transformations, following the naming conventions of
+[^1]: The term `geoms` refers to geometric objects, and `stats` refers
+    to statistical transformations, following the naming conventions of
     **ggplot2**
 
-2.  CRS; Coordinate reference system
+[^2]: CRS; Coordinate reference system

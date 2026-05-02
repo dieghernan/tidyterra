@@ -72,6 +72,7 @@ Other helpers:
 ## Examples
 
 ``` r
+
 # sf objects
 
 sfobj <- sf::st_as_sfc("MULTIPOINT ((0 0), (1 1))", crs = 4326)

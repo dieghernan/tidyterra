@@ -58,6 +58,7 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
