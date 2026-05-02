@@ -54,11 +54,11 @@ VignetteBuilder:
 Config/Needs/coverage: covr
 Config/Needs/website: geodata, dieghernan/gitdevr, ragg, styler, metR,
     ggspatial, cpp11, remotes, gganimate, gifski, tidyverse, bibtex
-Config/roxygen2/version: 8.0.0.9000
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Encoding: UTF-8
 LazyData: true
-Roxygen: list(markdown = TRUE)
 X-schema.org-keywords: r, terra, ggplot-extension, r-spatial, rspatial,
     cran, cran-r, r-package, rstats, rstats-package
