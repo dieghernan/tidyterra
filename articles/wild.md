@@ -221,6 +221,11 @@ Large-scale modelling wind damage vulnerability through combination of
 high-resolution forest resources maps and ForestGALES. *Forest
 Ecosystems*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 
+Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
+NASA earth observation data products*. National Aeronautics; Space
+Administration, Goddard Space Flight Center.
+<https://github.com/nasa/NASAaccess>
+
 Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
 A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
 Villalobos, F., Marquet, P. A., Svenning, J.-C., & Enquist, B. J.
