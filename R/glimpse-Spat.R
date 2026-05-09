@@ -235,10 +235,7 @@ decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
   if (type %in% c("lon", "lat")) {
     label <- paste0(x_int, "\u00b0 ", m_int, "' ", s, '\" ', lab)
   } else {
-    label <- paste0(
-      c(x_int, m_int, s),
-      c("\u00b0", "'", '\"')
-    )
+    label <- paste0(c(x_int, m_int, s), c("\u00b0", "'", '\"'))
     label <- label[c(x_int, m_int, s) != 0]
     label <- paste0(label, collapse = " ")
   }
@@ -336,14 +333,7 @@ tterra_header_string_rgb <- function(x) {
   ch_end <- paste0(ch_name, " (", nm, ")", collapse = ", ")
   pl <- ifelse(length(rgb_info) == 1, "channel", "channels")
 
-  tterra_header(
-    "SpatRaster with ",
-    length(rgb_info),
-    " RGB ",
-    pl,
-    ": ",
-    ch_end
-  )
+  tterra_header("SpatRaster with ", length(rgb_info), " RGB ", pl, ": ", ch_end)
 }
 
 tterra_header_string_ctab <- function(x) {

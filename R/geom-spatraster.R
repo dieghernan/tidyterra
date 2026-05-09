@@ -247,10 +247,7 @@ geom_spatraster <- function(
   }
 
   if (all(use_coltab, any(terra::has.colors(data)))) {
-    layer_spatrast <- c(
-      layer_spatrast,
-      scale_fill_coltab(data = data)
-    )
+    layer_spatrast <- c(layer_spatrast, scale_fill_coltab(data = data))
   }
 
   layer_spatrast
@@ -278,15 +275,13 @@ StatTerraSpatRaster <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(
-          c(
-            "*" = "Use {.code facet_wrap(~lyr)} for faceting or",
-            "*" = paste(
-              "Use {.code aes(fill = <name_of_layer>)}",
-              "for displaying single layers"
-            )
+        cli::cli_bullets(c(
+          "*" = "Use {.code facet_wrap(~lyr)} for faceting or",
+          "*" = paste(
+            "Use {.code aes(fill = <name_of_layer>)}",
+            "for displaying single layers"
           )
-        )
+        ))
       }
     }
     # add coord to the params, so it can be forwarded to compute_group()
@@ -362,11 +357,7 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   init_rast <- raster
 
   # Create template for projection
-  template <- terra::project(
-    x = init_rast,
-    y = coord_crs,
-    mask = mask
-  )
+  template <- terra::project(x = init_rast, y = coord_crs, mask = mask)
 
   # Try to keep the same number of cells on the template
   template <- terra::spatSample(
@@ -495,10 +486,7 @@ prepare_aes_spatraster <- function(
 
   # Create first the default result object, would be overriden
 
-  result_obj <- list(
-    namelayer = FALSE,
-    map = mapinit
-  )
+  result_obj <- list(namelayer = FALSE, map = mapinit)
 
   # Capture all info
   fill_from_dots <- "fill" %in% names(dots)
@@ -509,11 +497,9 @@ prepare_aes_spatraster <- function(
   }
 
   # Extract from aes
-  fill_from_aes <- unname(vapply(
-    mapinit,
-    rlang::as_label,
-    character(1)
-  )["fill"])
+  fill_from_aes <- unname(vapply(mapinit, rlang::as_label, character(1))[
+    "fill"
+  ])
   fill_not_provided <- is.na(fill_from_aes)
   is_layer <- fill_from_aes %in% raster_names
 

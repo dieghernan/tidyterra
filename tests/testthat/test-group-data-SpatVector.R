@@ -4,11 +4,7 @@ test_that("group_data(<SpatVector>) returns a tibble", {
   skip_on_cran()
 
   df <- dplyr::tibble(x = 1:3)
-  df_v <- dplyr::tibble(
-    x = 1:3,
-    lon = as.double(4:6),
-    lat = as.double(7:9)
-  )
+  df_v <- dplyr::tibble(x = 1:3, lon = as.double(4:6), lat = as.double(7:9))
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 
@@ -27,11 +23,7 @@ test_that("Ungroup_data(<SpatVector>) returns the right value", {
   skip_on_cran()
 
   df <- dplyr::tibble(x = 1:3)
-  df_v <- dplyr::tibble(
-    x = 1:3,
-    lon = as.double(4:6),
-    lat = as.double(7:9)
-  )
+  df_v <- dplyr::tibble(x = 1:3, lon = as.double(4:6), lat = as.double(7:9))
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
 
@@ -44,11 +36,7 @@ test_that("group_data(<rowwise) return the right value", {
   skip_on_cran()
 
   df <- dplyr::tibble(x = 1:3)
-  df_v <- dplyr::tibble(
-    x = 1:3,
-    lon = as.double(4:6),
-    lat = as.double(7:9)
-  )
+  df_v <- dplyr::tibble(x = 1:3, lon = as.double(4:6), lat = as.double(7:9))
 
   df_v <- terra::vect(df_v, crs = "EPSG:4326")
   rf <- rowwise(df_v)

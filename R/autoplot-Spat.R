@@ -96,11 +96,7 @@ autoplot.SpatRaster <- function(
   }
 
   if (rgb) {
-    gg <- gg +
-      geom_spatraster_rgb(
-        data = object,
-        ...
-      )
+    gg <- gg + geom_spatraster_rgb(data = object, ...)
     # Done, no facets or scales on RGB
     return(gg)
   }
@@ -109,12 +105,7 @@ autoplot.SpatRaster <- function(
   if (is.null(use_coltab)) {
     use_coltab <- any(terra::has.colors(object))
   }
-  gg <- gg +
-    geom_spatraster(
-      data = object,
-      use_coltab = use_coltab,
-      ...
-    )
+  gg <- gg + geom_spatraster(data = object, use_coltab = use_coltab, ...)
 
   if (!use_coltab) {
     todf <- terra::as.data.frame(object[1, ], na.rm = TRUE, xy = FALSE)
@@ -132,12 +123,7 @@ autoplot.SpatRaster <- function(
     facets <- terra::nlyr(object) > 1
   }
 
-  if (
-    all(
-      facets,
-      isFALSE(rgb)
-    )
-  ) {
+  if (all(facets, isFALSE(rgb))) {
     gg <- gg + ggplot2::facet_wrap(~lyr, nrow = nrow, ncol = ncol)
   }
 

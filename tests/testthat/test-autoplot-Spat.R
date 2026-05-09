@@ -57,39 +57,18 @@ test_that("Test SpatRaster coltab", {
   r$another <- rep_len(letters[2:5], terra::ncell(r))
 
   # No facets
-  expect_s3_class(
-    r |>
-      select(1) |>
-      autoplot(facets = FALSE),
-    "ggplot"
-  )
+  expect_s3_class(r |> select(1) |> autoplot(facets = FALSE), "ggplot")
 
   # No facets auto
-  expect_s3_class(
-    r |>
-      select(1) |>
-      autoplot(),
-    "ggplot"
-  )
+  expect_s3_class(r |> select(1) |> autoplot(), "ggplot")
 
   # Change n facets
-  expect_s3_class(
-    autoplot(r, nrow = 2, ncol = 1),
-    "ggplot"
-  )
+  expect_s3_class(autoplot(r, nrow = 2, ncol = 1), "ggplot")
   # Force to no facets
 
-  expect_s3_class(
-    r |>
-      autoplot(ncol = 2, facets = FALSE),
-    "ggplot"
-  )
+  expect_s3_class(r |> autoplot(ncol = 2, facets = FALSE), "ggplot")
 
-  expect_s3_class(
-    r |>
-      autoplot(ncol = 2, use_coltab = FALSE),
-    "ggplot"
-  )
+  expect_s3_class(r |> autoplot(ncol = 2, use_coltab = FALSE), "ggplot")
 })
 
 test_that("Test SpatVector", {
@@ -97,9 +76,7 @@ test_that("Test SpatVector", {
   f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f)
 
-  expect_silent(
-    ss <- autoplot(v)
-  )
+  expect_silent(ss <- autoplot(v))
 
   guide <- ggplot2::get_guide_data(ss, "fill")
   expect_null(guide)
@@ -118,27 +95,14 @@ test_that("Test SpatExtent", {
 
   # Regular
   ss <- autoplot(e)
-  expect_identical(
-    nrow(ggplot2::get_layer_data(ss)),
-    1L
-  )
+  expect_identical(nrow(ggplot2::get_layer_data(ss)), 1L)
 
   # Aes
-  aes <- autoplot(
-    e,
-    fill = "red",
-    alpha = 0.2
-  )
+  aes <- autoplot(e, fill = "red", alpha = 0.2)
 
-  expect_identical(
-    ggplot2::get_layer_data(aes)$fill,
-    "red"
-  )
+  expect_identical(ggplot2::get_layer_data(aes)$fill, "red")
 
-  expect_identical(
-    ggplot2::get_layer_data(aes)$alpha,
-    0.2
-  )
+  expect_identical(ggplot2::get_layer_data(aes)$alpha, 0.2)
 })
 
 test_that("Test SpatGraticule", {
@@ -147,27 +111,15 @@ test_that("Test SpatGraticule", {
 
   # Regular
   ss <- autoplot(g)
-  expect_gt(
-    nrow(ggplot2::get_layer_data(ss)),
-    5
-  )
+  expect_gt(nrow(ggplot2::get_layer_data(ss)), 5)
 
   # Aes
 
   with_aes <- autoplot(g, color = "red", linetype = 2, linewidth = 3)
 
-  expect_identical(
-    unique(ggplot2::get_layer_data(with_aes)$colour),
-    "red"
-  )
+  expect_identical(unique(ggplot2::get_layer_data(with_aes)$colour), "red")
 
-  expect_identical(
-    unique(ggplot2::get_layer_data(with_aes)$linetype),
-    2
-  )
+  expect_identical(unique(ggplot2::get_layer_data(with_aes)$linetype), 2)
 
-  expect_identical(
-    unique(ggplot2::get_layer_data(with_aes)$linewidth),
-    3
-  )
+  expect_identical(unique(ggplot2::get_layer_data(with_aes)$linewidth), 3)
 })

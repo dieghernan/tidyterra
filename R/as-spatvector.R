@@ -178,11 +178,11 @@ as_spatvector.sf <- function(x, ...) {
   if (any(sf::st_is_empty(x))) {
     gtype <- tolower(attr_template$geomtype)
 
-    # Use MULTI geometries except for points.
+    # Use MULTI geometries.
     empty_geom <- switch(gtype,
       "polygons" = "MULTIPOLYGON EMPTY",
       "lines" = "MULTILINESTRING EMPTY",
-      "POINT EMPTY"
+      "MULTIPOINT EMPTY"
     )
 
     gg[sf::st_is_empty(x)] <- empty_geom
@@ -250,7 +250,7 @@ as_spatvect_attr <- function(x) {
     empty_geom <- switch(gtype,
       "polygons" = "MULTIPOLYGON EMPTY",
       "lines" = "MULTILINESTRING EMPTY",
-      "POINT EMPTY"
+      "MULTIPOINT EMPTY"
     )
 
     gg[is.na(gg)] <- empty_geom

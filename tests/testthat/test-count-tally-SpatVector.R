@@ -36,7 +36,7 @@ test_that("informs if n column already present, unless overridden", {
   df1$lon <- df1$n
   df1$lat <- df1$n
 
-  df1 <- terra::vect(df1)
+  df1 <- terra::vect(df1, crs = "EPSG:4326")
 
   expect_message(out <- count(df1, n), "already present")
   expect_s4_class(out, "SpatVector")
@@ -52,7 +52,7 @@ test_that("informs if n column already present, unless overridden", {
   df2 <- tibble(n = c(1, 1, 2, 2, 2), nn = 1:5)
   df2$lon <- df2$n
   df2$lat <- df2$n
-  df2 <- terra::vect(df2)
+  df2 <- terra::vect(df2, crs = "EPSG:4326")
 
   expect_message(out <- count(df2, n), "already present")
   expect_named(out, c("n", "nn"))
@@ -67,7 +67,7 @@ test_that("name must be string", {
   df1 <- data.frame(x = c(1, 1, 2, 2, 2))
   df1$lon <- df1$x
   df1$lat <- df1$x
-  df1 <- terra::vect(df1)
+  df1 <- terra::vect(df1, crs = "EPSG:4326")
 
   expect_snapshot(error = TRUE, count(df1, x, name = 1))
   expect_snapshot(error = TRUE, count(df1, x, name = letters))
@@ -76,7 +76,7 @@ test_that("name must be string", {
 test_that(".drop argument deprecated", {
   skip_on_cran()
 
-  df <- terra::vect(tibble(lat = 1, lon = 1))
+  df <- terra::vect(tibble(lat = 1, lon = 1), crs = "EPSG:4326")
   df <- cbind(df, tibble(f = factor("b", levels = c("a", "b", "c"))))
 
   expect_snapshot(res <- count(df, f, .drop = FALSE))
@@ -91,16 +91,13 @@ test_that("output preserves grouping", {
   df <- data.frame(g = c(1, 2, 2, 2))
   df$lon <- 1:4
   df$lat <- 1:4
-  df <- terra::vect(df)
+  df <- terra::vect(df, crs = "EPSG:4326")
   exp <- data.frame(g = c(1, 2), n = c(1, 3))
   exp$lon <- 1:2
   exp$lat <- 1:2
-  exp <- terra::vect(exp)
+  exp <- terra::vect(exp, crs = "EPSG:4326")
 
-  expect_equal(
-    df |> count(g) |> as_tibble(),
-    exp |> as_tibble()
-  )
+  expect_equal(df |> count(g) |> as_tibble(), exp |> as_tibble())
 
   expect_equal(
     df |> group_by(g) |> count() |> as_tibble(),

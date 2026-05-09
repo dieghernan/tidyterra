@@ -85,10 +85,7 @@ compare_spatrasters <- function(x, y, digits = 6) {
   if (!all(equal_crs, equal_ext, equal_res)) {
     title <- "Results of {.fun tidyterra::compare_spatrasters}:"
 
-    title <- paste(
-      title,
-      "\nThe following attributes are not equal:\n"
-    )
+    title <- paste(title, "\nThe following attributes are not equal:\n")
     cli::cli_alert_warning(title)
 
     # Bullets

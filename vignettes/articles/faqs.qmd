@@ -15,16 +15,16 @@ knitr:
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about using the
-**tidyterra** package and their answers, primarily focused on the
-integration of **terra** and **ggplot2**. You can ask for help or search
-previous questions using the following links.
+**tidyterra** package and their answers, primarily focused on the integration of
+**terra** and **ggplot2**. You can ask for help or search previous questions
+using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
--   Report a Bug \[[link](https://github.com/dieghernan/tidyterra/issues)\].
--   Ask a question
-    \[[link](https://github.com/dieghernan/tidyterra/discussions)\].
+- Report a Bug \[[link](https://github.com/dieghernan/tidyterra/issues)\].
+- Ask a question
+  \[[link](https://github.com/dieghernan/tidyterra/discussions)\].
 
 ### Example data
 
@@ -44,23 +44,15 @@ much as the famous [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano represented
 in `datasets::volcano`.
 
-[^1]: Digital Elevation Model, representing the elevation of the corresponding
-    area.
-
 The original file has been cropped and down-sampled for demo purposes.
 `holyroodpark.tif` is available online in the `data-raw` folder at
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
 ## `NA` values are shown in gray color {#nas-remove}
 
-This is the default behavior of **ggplot2**. **tidyterra** color scales
-(i.e., `scale_fill_whitebox_c()`, etc.) have `na.value = "transparent"` by
-default, which prevents `NA` values from being filled[^2].
-
-[^2]: `na.value = NA` can also be used for the same purpose in most cases.
-    However, when the proportion of non-`NA`s is small it can produce
-    undesired results, see
-    [#120](https://github.com/dieghernan/tidyterra/issues/120).
+This is the default behavior of **ggplot2**. **tidyterra** color scales (i.e.,
+`scale_fill_whitebox_c()`, etc.) have `na.value = "transparent"` by default,
+which prevents `NA` values from being filled[^2].
 
 ```{r}
 #| label: fig-remove_nas
@@ -482,11 +474,6 @@ color tables. This example uses `clc_edinburgh.tif`, available online in the
 [data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
 which contains data from the Corine Land Cover Dataset (2018) for Edinburgh[^3].
 
-[^3]: The original file has been cropped, the numeric values have been converted
-    to their corresponding labels and factors, and the corresponding color
-    table added as described in
-    <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.
-
 ```{r}
 #| label: fig-coltab
 #| fig-cap: "Color tables: Native plot with terra package"
@@ -558,8 +545,7 @@ ggplot() +
 
 ## Use with gganimate {#gganimate}
 
-Yes. Here is an example (thanks to
-[\@frzambra](https://github.com/frzambra)):
+Yes. Here is an example (thanks to [\@frzambra](https://github.com/frzambra)):
 
 ```{r}
 #| label: gganimate
@@ -852,3 +838,15 @@ ggplot(r, aes(x, y)) +
   guides(alpha = "none", fill = guide_legend(reverse = TRUE)) +
   labs(x = "", y = "", title = "tidyterra and metR: reliefs")
 ```
+
+[^1]: Digital Elevation Model, representing the elevation of the corresponding
+    area.
+
+[^2]: `na.value = NA` can also be used for the same purpose in most cases.
+    However, when the proportion of non-`NA`s is small it can produce undesired
+    results, see [#120](https://github.com/dieghernan/tidyterra/issues/120).
+
+[^3]: The original file has been cropped, the numeric values have been converted
+    to their corresponding labels and factors, and the corresponding color table
+    added as described in
+    <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

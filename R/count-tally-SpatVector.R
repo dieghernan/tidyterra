@@ -230,12 +230,7 @@ add_count.SpatVector <- function(
   }
 
   # Prepare a template for groups
-  template <- dplyr::add_count(
-    as_tibble(x),
-    ...,
-    sort = sort,
-    name = name
-  )
+  template <- dplyr::add_count(as_tibble(x), ..., sort = sort, name = name)
   # Ensure groups
   vend <- ungroup(vend)
 

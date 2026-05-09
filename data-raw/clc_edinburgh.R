@@ -88,8 +88,7 @@ id2 <- clc_code |>
   mutate(id = row_number())
 
 
-id_end <- id |>
-  left_join(id2)
+id_end <- id |> left_join(id2)
 
 # Asign factors
 levels(r) <- id_end
@@ -109,8 +108,7 @@ coltab(r) <- coltab_CLC
 plot(r)
 
 
-autoplot(r) +
-  guides(fill = guide_legend(ncol = 1))
+autoplot(r) + guides(fill = guide_legend(ncol = 1))
 
 
 unlink("data-raw/clc_edinburgh.tif")

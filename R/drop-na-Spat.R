@@ -92,7 +92,7 @@ drop_na.SpatVector <- function(data, ...) {
       cli::col_red("All geometries dropped."),
       "\nReturning empty {.cls SpatVector}"
     ))
-    vend <- terra::vect("POINT EMPTY")
+    vend <- terra::vect("MULTIPOINT EMPTY")
     terra::crs(vend) <- pull_crs(data)
 
     return(vend)

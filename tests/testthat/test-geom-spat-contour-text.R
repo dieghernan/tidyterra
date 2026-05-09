@@ -116,10 +116,7 @@ test_that("Test plot", {
   # Regular plot
 
   p <- ggplot() +
-    geom_spatraster_contour_text(
-      data = r,
-      breaks = c(1000, 2000)
-    )
+    geom_spatraster_contour_text(data = r, breaks = c(1000, 2000))
 
   expect_s3_class(p, "ggplot")
 

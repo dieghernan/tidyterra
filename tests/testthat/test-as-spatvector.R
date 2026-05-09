@@ -1,9 +1,6 @@
 test_that("Error check", {
   skip_on_cran()
-  as_tbl <- data.frame(
-    x = 1:10,
-    y = 1:10
-  )
+  as_tbl <- data.frame(x = 1:10, y = 1:10)
 
   expect_snapshot(as_spatvector(as_tbl), error = TRUE)
   expect_snapshot(as_spatvector(as_tbl, geom = NA), error = TRUE)
@@ -66,10 +63,7 @@ test_that("Regenerate vector properly with WKT", {
   expect_identical(pull_crs(v), pull_crs(regen))
 
   # Compare values
-  expect_identical(
-    as_tibble(v),
-    as_tibble(regen)
-  )
+  expect_identical(as_tibble(v), as_tibble(regen))
 
   # If nothing provided
   noatr <- tib
@@ -77,10 +71,7 @@ test_that("Regenerate vector properly with WKT", {
 
   fromnonatr <- as_spatvector(noatr, geom = "geometry")
 
-  expect_false(identical(
-    as_tibble(fromnonatr),
-    as_tibble(v)
-  ))
+  expect_false(identical(as_tibble(fromnonatr), as_tibble(v)))
 
   expect_s4_class(fromnonatr, "SpatVector")
 
@@ -110,10 +101,7 @@ test_that("Regenerate vector properly with lon,lat", {
   expect_identical(pull_crs(v), pull_crs(regen))
 
   # Compare values
-  expect_identical(
-    as_tibble(v),
-    as_tibble(regen)
-  )
+  expect_identical(as_tibble(v), as_tibble(regen))
 
   # If nothing provided
   noatr <- tib
@@ -121,10 +109,7 @@ test_that("Regenerate vector properly with lon,lat", {
 
   fromnonatr <- as_spatvector(noatr, geom = c("x", "y"))
 
-  expect_false(identical(
-    as_tibble(fromnonatr),
-    as_tibble(v)
-  ))
+  expect_false(identical(as_tibble(fromnonatr), as_tibble(v)))
 
   expect_s4_class(fromnonatr, "SpatVector")
 
@@ -218,10 +203,7 @@ test_that("Works with sf", {
 
   expect_true(is_grouped_spatvector(fromsfgrouped))
 
-  expect_identical(
-    dplyr::group_data(sfobj_grouped),
-    group_data(fromsfgrouped)
-  )
+  expect_identical(dplyr::group_data(sfobj_grouped), group_data(fromsfgrouped))
 
   # Keep rowwise
   sfobj_rowwise <- dplyr::rowwise(sfobj)
@@ -232,10 +214,7 @@ test_that("Works with sf", {
 
   expect_true(is_rowwise_spatvector(fromsfrowwise))
 
-  expect_identical(
-    dplyr::group_data(sfobj_rowwise),
-    group_data(fromsfrowwise)
-  )
+  expect_identical(dplyr::group_data(sfobj_rowwise), group_data(fromsfrowwise))
 
   # Keep geoms even with other names
   sf2 <- sf::st_sf(x = 1, geom2 = sf::st_geometry(sfobj))
@@ -330,10 +309,7 @@ test_that("Check internal", {
 
   # Test bypass
   bypass_v <- as_spat_internal(v)
-  expect_identical(
-    as_tbl_internal(v),
-    as_tbl_internal(bypass_v)
-  )
+  expect_identical(as_tbl_internal(v), as_tbl_internal(bypass_v))
 
   # From internal
   tbl <- as_tbl_internal(v)
@@ -341,10 +317,7 @@ test_that("Check internal", {
 
   v2 <- as_spat_internal(tbl)
 
-  expect_identical(
-    as_tbl_internal(v),
-    as_tbl_internal(v2)
-  )
+  expect_identical(as_tbl_internal(v), as_tbl_internal(v2))
 
   # Now remove attribs
   tbl2 <- tbl
@@ -374,10 +347,7 @@ test_that("Check internal grouped", {
 
   expect_true(is_grouped_spatvector(gr_tbl_regen))
 
-  expect_identical(
-    as_tbl_internal(gr_v),
-    as_tbl_internal(gr_tbl_regen)
-  )
+  expect_identical(as_tbl_internal(gr_v), as_tbl_internal(gr_tbl_regen))
 
   # Should match also with groups on gr_tbl
 
@@ -405,10 +375,7 @@ test_that("Check internal rowwise", {
 
   expect_true(is_rowwise_spatvector(gr_tbl_regen))
 
-  expect_identical(
-    as_tbl_internal(gr_v),
-    as_tbl_internal(gr_tbl_regen)
-  )
+  expect_identical(as_tbl_internal(gr_v), as_tbl_internal(gr_tbl_regen))
 
   # Should match also with groups on gr_tbl
 
@@ -450,10 +417,7 @@ test_that("Check internal NULL: POLYGONS", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 
   # MULTIPOLYGON
   mpol_df <- as_tbl_internal(mpol)
@@ -471,10 +435,7 @@ test_that("Check internal NULL: POLYGONS", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newmpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 })
 
 
@@ -507,10 +468,7 @@ test_that("Check internal NULL: LINES", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 
   # MULTILINESTRING
   mpol_df <- as_tbl_internal(mpol)
@@ -528,10 +486,7 @@ test_that("Check internal NULL: LINES", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newmpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 })
 
 
@@ -568,10 +523,7 @@ test_that("Check internal NULL: POINTS", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 
   # MULTIPOINT
   mpol_df <- as_tbl_internal(mpol)
@@ -589,10 +541,7 @@ test_that("Check internal NULL: POINTS", {
 
   # Check conversion to sf
   tosf <- sf::st_as_sf(newmpol)
-  expect_identical(
-    sf::st_is_empty(tosf),
-    tosf$is_empty
-  )
+  expect_identical(sf::st_is_empty(tosf), tosf$is_empty)
 })
 
 

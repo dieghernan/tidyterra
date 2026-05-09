@@ -9,7 +9,7 @@ test_that("distinct equivalent to terra unique", {
     lat = c(0, 0, 1, 1)
   )
 
-  v <- terra::vect(df)
+  v <- terra::vect(df, crs = "EPSG:4326")
 
   expect_equal(as_tibble(distinct(v)), as_tibble(terra::unique(v)))
 
@@ -28,7 +28,7 @@ test_that("distinct for single column works as expected", {
     lat = c(0, 0, 1, 1)
   )
 
-  v <- terra::vect(df)
+  v <- terra::vect(df, crs = "EPSG:4326")
   vend <- distinct(v, x, .keep_all = TRUE)
 
   expect_equal(ncol(vend), ncol(v))
@@ -46,7 +46,7 @@ test_that("Remove unique geometries on specific calls", {
     lat = c(0, 0, 0, 0)
   )
 
-  v <- terra::vect(df)
+  v <- terra::vect(df, crs = "EPSG:4326")
 
   vend <- distinct(v, geometry, .keep_all = TRUE)
 
@@ -71,12 +71,13 @@ test_that("Name handling", {
     lat = c(0, 0, 0, 0)
   )
 
-  v <- terra::vect(df)
+  v <- terra::vect(df, crs = "EPSG:4326")
 
   # With all
-  expect_snapshot(
-    expect_message(vall <- distinct(v), "with duplicated/reserved")
-  )
+  expect_snapshot(expect_message(
+    vall <- distinct(v),
+    "with duplicated/reserved"
+  ))
   expect_identical(names(vall), c("x", "y", "geometry.1"))
 
   expect_message(vend <- distinct(v, geometry, .keep_all = TRUE))

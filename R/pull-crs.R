@@ -90,21 +90,12 @@
 #' cat(fromsf1)
 pull_crs <- function(.data, ...) {
   # Spat* objects handled by crs
-  if (
-    any(
-      inherits(.data, "SpatRaster"),
-      inherits(.data, "SpatVector")
-    )
-  ) {
+  if (any(inherits(.data, "SpatRaster"), inherits(.data, "SpatVector"))) {
     .data <- terra::crs(.data)
   }
 
   if (
-    any(
-      inherits(.data, "sf"),
-      inherits(.data, "sfc"),
-      inherits(.data, "crs")
-    )
+    any(inherits(.data, "sf"), inherits(.data, "sfc"), inherits(.data, "crs"))
   ) {
     return(sf::st_crs(.data)$wkt)
   }
@@ -124,12 +115,7 @@ pull_crs <- function(.data, ...) {
   }
 
   # Characters and numerics are handled by sf
-  if (
-    any(
-      inherits(.data, "character"),
-      inherits(.data, "numeric")
-    )
-  ) {
+  if (any(inherits(.data, "character"), inherits(.data, "numeric"))) {
     return(sf::st_crs(.data)$wkt)
   }
 

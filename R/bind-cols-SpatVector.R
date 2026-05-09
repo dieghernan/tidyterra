@@ -67,18 +67,13 @@
 #' try(bind_spat_cols(sv, sfobj))
 bind_spat_cols <- function(
   ...,
-  .name_repair = c(
-    "unique",
-    "universal",
-    "check_unique",
-    "minimal"
-  )
+  .name_repair = c("unique", "universal", "check_unique", "minimal")
 ) {
   dots <- rlang::list2(...)
 
   # Return empty on none
   if (length(dots) == 0) {
-    return(terra::vect("POINT EMPTY"))
+    return(terra::vect("MULTIPOINT EMPTY"))
   }
 
   # Make it work with list

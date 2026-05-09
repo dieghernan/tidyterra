@@ -22,10 +22,7 @@ test_that("Back and fort", {
   # Reorder names
   nc_unpivot <- nc_unpivot[names(nc)]
 
-  expect_identical(
-    as_tbl_internal(nc),
-    as_tbl_internal(nc_unpivot)
-  )
+  expect_identical(as_tbl_internal(nc), as_tbl_internal(nc_unpivot))
 })
 
 
@@ -55,10 +52,7 @@ test_that("Remove geometry from values", {
   # Reorder names
   nc_unpivot <- nc_unpivot[names(nc)]
 
-  expect_identical(
-    as_tbl_internal(nc),
-    as_tbl_internal(nc_unpivot)
-  )
+  expect_identical(as_tbl_internal(nc), as_tbl_internal(nc_unpivot))
 })
 
 test_that("Remove geometry from names", {
@@ -87,10 +81,7 @@ test_that("Remove geometry from names", {
   # Reorder names
   nc_unpivot <- nc_unpivot[names(nc)]
 
-  expect_identical(
-    as_tbl_internal(nc),
-    as_tbl_internal(nc_unpivot)
-  )
+  expect_identical(as_tbl_internal(nc), as_tbl_internal(nc_unpivot))
 })
 
 test_that("can pivot all cols to wide", {
@@ -154,11 +145,7 @@ test_that("implicit missings turn into explicit missings", {
 test_that("error when overwriting existing column", {
   skip_on_cran()
 
-  df <- tibble::tibble(
-    a = c(1, 1),
-    key = c("a", "b"),
-    val = c(1, 2)
-  )
+  df <- tibble::tibble(a = c(1, 1), key = c("a", "b"), val = c(1, 2))
   df$lat <- 1
   df$lon <- 1
 
@@ -318,10 +305,7 @@ test_that("`id_cols = everything()` excludes `names_from` and `values_from`", {
   res_tbl <- as_tibble(res)
   attr(res_tbl, "crs") <- NULL
 
-  expect_identical(
-    res_tbl,
-    tibble::tibble(key = "x", a = 1L)
-  )
+  expect_identical(res_tbl, tibble::tibble(key = "x", a = 1L))
 })
 
 

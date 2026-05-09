@@ -37,13 +37,7 @@ test_that("Replace NA with SpatVectors", {
   expect_false(anyNA(df2[, 3]))
   expect_true("AnotherValue" %in% df2[, 3])
 
-  replaced3 <- replace_na(
-    v,
-    list(
-      attr_1 = "Values",
-      attr_3 = "Values"
-    )
-  )
+  replaced3 <- replace_na(v, list(attr_1 = "Values", attr_3 = "Values"))
 
   expect_s4_class(replaced3, "SpatVector")
 
@@ -58,11 +52,7 @@ test_that("Replace NA with SpatVectors", {
 
 test_that("Replace na with SpatRaster", {
   skip_on_cran()
-  r <- terra::rast(
-    extent = c(0, 10, 0, 10),
-    nlyr = 3,
-    resolution = c(2.5, 2.5)
-  )
+  r <- terra::rast(extent = c(0, 10, 0, 10), nlyr = 3, resolution = c(2.5, 2.5))
 
   names(r) <- paste0("lyr_", seq_len(terra::nlyr(r)))
 
@@ -91,13 +81,7 @@ test_that("Replace na with SpatRaster", {
 
   # Check with double replacement
 
-  rep2 <- replace_na.SpatRaster(
-    r,
-    replace = list(
-      lyr_2 = -10,
-      lyr_3 = -20
-    )
-  )
+  rep2 <- replace_na.SpatRaster(r, replace = list(lyr_2 = -10, lyr_3 = -20))
   expect_s4_class(rep2, "SpatRaster")
   expect_true(compare_spatrasters(r, rep2))
   tbl3 <- as_tibble(rep2, na.rm = FALSE)
@@ -128,21 +112,9 @@ test_that("Replace na with SpatRaster", {
   tbl_char <- as_tibble(r_char)
   tbl_char$a_char <- as.character(tbl_char$a_char)
 
-  tbl_char <- tidyr::replace_na(
-    tbl_char,
-    list(
-      lyr_1 = 5,
-      a_char = "Char"
-    )
-  )
+  tbl_char <- tidyr::replace_na(tbl_char, list(lyr_1 = 5, a_char = "Char"))
 
-  r_subs <- replace_na(
-    r_char,
-    list(
-      lyr_1 = 5,
-      a_char = "Char"
-    )
-  )
+  r_subs <- replace_na(r_char, list(lyr_1 = 5, a_char = "Char"))
 
   expect_s4_class(r_subs, "SpatRaster")
   expect_true(compare_spatrasters(r, r_subs))

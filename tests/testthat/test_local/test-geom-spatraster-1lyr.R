@@ -41,33 +41,21 @@ test_that("geom_spatraster one layer with CRS", {
   # Scales
   vdiffr::expect_doppelganger(
     "crs_02: w/scale cont",
-    p +
-      scale_fill_terrain_c()
+    p + scale_fill_terrain_c()
   )
 
   vdiffr::expect_doppelganger(
     "crs_03: w/scale breaks",
-    p +
-      scale_fill_terrain_b()
+    p + scale_fill_terrain_b()
   )
 
   # Using facets
-  vdiffr::expect_doppelganger(
-    "crs_04: w/facets",
-    p +
-      facet_wrap(~lyr)
-  )
+  vdiffr::expect_doppelganger("crs_04: w/facets", p + facet_wrap(~lyr))
 
   # Using aes
   expect_warning(
     ggplot() +
-      geom_spatraster(
-        data = r,
-        aes(
-          fill = elevation_m,
-          color = "red"
-        )
-      )
+      geom_spatraster(data = r, aes(fill = elevation_m, color = "red"))
   )
 
   p_aes <- ggplot() +
@@ -114,15 +102,13 @@ test_that("geom_spatraster one layer with CRS", {
 
   vdiffr::expect_doppelganger(
     "crs_09: change crs",
-    p_rast_first +
-      coord_sf(crs = 3035)
+    p_rast_first + coord_sf(crs = 3035)
   )
 
   # With vector after
   vdiffr::expect_doppelganger(
     "crs_10: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA, color = "white")
+    p_rast_first + geom_sf(data = v_sf, fill = NA, color = "white")
   )
 
   # With vector and crs after
@@ -145,8 +131,7 @@ test_that("geom_spatraster one layer with CRS", {
 
   vdiffr::expect_doppelganger(
     "crs_13: With sf first and crs",
-    p_sf_first +
-      coord_sf(crs = 3857)
+    p_sf_first + coord_sf(crs = 3857)
   )
 
   # Suppress colors
@@ -157,16 +142,12 @@ test_that("geom_spatraster one layer with CRS", {
   vdiffr::expect_doppelganger("crs_14: suppress colors", nocols)
   vdiffr::expect_doppelganger(
     "crs_14: suppress colors and overlay",
-    nocols +
-      geom_spatraster(data = r, alpha = 0.8)
+    nocols + geom_spatraster(data = r, alpha = 0.8)
   )
   # Stat works
   st1 <- ggplot() +
     geom_spatraster(data = r, aes(fill = after_stat(lyr)))
-  vdiffr::expect_doppelganger(
-    "crs_15: stat works",
-    st1
-  )
+  vdiffr::expect_doppelganger("crs_15: stat works", st1)
 
   # Check wrap
 
@@ -178,19 +159,13 @@ test_that("geom_spatraster one layer with CRS", {
   p <- ggplot() +
     geom_spatraster(data = asia, mask_projection = FALSE) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger(
-    "crs_16: Wrap",
-    p
-  )
+  vdiffr::expect_doppelganger("crs_16: Wrap", p)
 
   # With true
   p <- ggplot() +
     geom_spatraster(data = asia, mask_projection = TRUE) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger(
-    "crs_17: No Wrap",
-    p
-  )
+  vdiffr::expect_doppelganger("crs_17: No Wrap", p)
 })
 
 
@@ -232,40 +207,27 @@ test_that("geom_spatraster one layer without CRS", {
 
   vdiffr::expect_doppelganger(
     "nocrs_01b: regular with coord_equal",
-    p +
-      coord_equal()
+    p + coord_equal()
   )
 
   # Scales
   vdiffr::expect_doppelganger(
     "nocrs_02: w/scale cont",
-    p +
-      scale_fill_terrain_c()
+    p + scale_fill_terrain_c()
   )
 
   vdiffr::expect_doppelganger(
     "nocrs_03: w/scale breaks",
-    p +
-      scale_fill_terrain_b()
+    p + scale_fill_terrain_b()
   )
 
   # Using facets
-  vdiffr::expect_doppelganger(
-    "nocrs_04: w/facets",
-    p +
-      facet_wrap(~lyr)
-  )
+  vdiffr::expect_doppelganger("nocrs_04: w/facets", p + facet_wrap(~lyr))
 
   # Using aes
   expect_warning(
     ggplot() +
-      geom_spatraster(
-        data = r,
-        aes(
-          fill = elevation_m,
-          color = "red"
-        )
-      )
+      geom_spatraster(data = r, aes(fill = elevation_m, color = "red"))
   )
 
   p_aes <- ggplot() +
@@ -312,15 +274,13 @@ test_that("geom_spatraster one layer without CRS", {
 
   vdiffr::expect_doppelganger(
     "nocrs_09: change crs",
-    p_rast_first +
-      coord_sf(crs = raster_crs)
+    p_rast_first + coord_sf(crs = raster_crs)
   )
 
   # With vector
   vdiffr::expect_doppelganger(
     "nocrs_10: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA, color = "red")
+    p_rast_first + geom_sf(data = v_sf, fill = NA, color = "red")
   )
 
   # Would align only if sf/coord on the same crs
@@ -338,8 +298,7 @@ test_that("geom_spatraster one layer without CRS", {
 
   vdiffr::expect_doppelganger(
     "nocrs_12: With sf reprojected",
-    p_rast_first +
-      geom_sf(data = new_v, fill = NA)
+    p_rast_first + geom_sf(data = new_v, fill = NA)
   )
 
   # Suppress colors
@@ -350,16 +309,12 @@ test_that("geom_spatraster one layer without CRS", {
   vdiffr::expect_doppelganger("nocrs_14: suppress colors", nocols)
   vdiffr::expect_doppelganger(
     "nocrs_14: suppress colors and overlay",
-    nocols +
-      geom_spatraster(data = r, alpha = 0.8)
+    nocols + geom_spatraster(data = r, alpha = 0.8)
   )
   # Stat works
   st1 <- ggplot() +
     geom_spatraster(data = r, aes(fill = after_stat(lyr)))
-  vdiffr::expect_doppelganger(
-    "nocrs_15: stat works",
-    st1
-  )
+  vdiffr::expect_doppelganger("nocrs_15: stat works", st1)
 })
 
 
@@ -398,9 +353,7 @@ test_that("geom_spatraster one facets", {
 
   # Change crs
 
-  p <- p +
-    coord_sf(crs = 3035) +
-    scale_fill_terrain_c()
+  p <- p + coord_sf(crs = 3035) + scale_fill_terrain_c()
 
   vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })

@@ -4,7 +4,7 @@ test_that("bind_spat_cols() handles empty argument", {
 
   expect_equal(
     as.data.frame(bind_spat_cols(), geom = "WKT"),
-    data.frame(geometry = "POINT EMPTY")
+    data.frame(geometry = "MULTIPOINT EMPTY")
   )
 })
 
@@ -19,13 +19,7 @@ test_that("bind_spat_cols() repairs names", {
 
   expect_snapshot(
     repaired <- tibble::as_tibble(
-      data.frame(
-        a = 1,
-        b = 2,
-        a = 1,
-        b = 2,
-        check.names = FALSE
-      ),
+      data.frame(a = 1, b = 2, a = 1, b = 2, check.names = FALSE),
       .name_repair = "unique"
     )
   )
@@ -40,12 +34,7 @@ test_that("bind_spat_cols() honours .name_repair=", {
   aa <- terra::vect("POINT (0 0)")
   aa <- bind_spat_cols(aa, data.frame(a = 1))
 
-  expect_snapshot(
-    res <- bind_spat_cols(
-      aa,
-      data.frame(a = 2)
-    )
-  )
+  expect_snapshot(res <- bind_spat_cols(aa, data.frame(a = 2)))
   expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))
 
   expect_error(bind_spat_cols(

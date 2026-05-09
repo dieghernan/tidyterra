@@ -20,8 +20,8 @@
       # invalid .id
       df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
       df2 <- data.frame(x = 4:6, lat = 1:3, lon = 1:3)
-      df1 <- terra::vect(df1)
-      df2 <- terra::vect(df2)
+      df1 <- terra::vect(df1, crs = "EPSG:4326")
+      df2 <- terra::vect(df2, crs = "EPSG:4326")
       (expect_error(bind_spat_rows(df1, df2, .id = 5)))
     Output
       <error/rlang_error>

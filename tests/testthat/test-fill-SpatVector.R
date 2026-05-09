@@ -162,8 +162,7 @@ test_that("fill respects existing grouping and `.by`", {
   expect_identical(out$y, c(1, 1, NA))
   expect_identical(group_vars(out), "x")
 
-  out <- df |>
-    fill(y, .by = x)
+  out <- df |> fill(y, .by = x)
   expect_identical(out$y, c(1, 1, NA))
   expect_identical(group_vars(out), character())
 })

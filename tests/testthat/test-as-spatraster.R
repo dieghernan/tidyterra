@@ -34,10 +34,7 @@ test_that("Regenerate raster properly", {
   expect_true(compare_spatrasters(r, regen))
 
   # Compare values
-  expect_identical(
-    dplyr::as_tibble(r),
-    dplyr::as_tibble(regen)
-  )
+  expect_identical(dplyr::as_tibble(r), dplyr::as_tibble(regen))
 
   # Check if no crs is provided: use default
   default_crs <- as_spatraster(tib)
@@ -78,15 +75,9 @@ test_that("Irregular grids", {
   expect_error(as_spatraster(p_jitter_y))
 
   # Lower digits
-  expect_s4_class(
-    as_spatraster(p_jitter_x, digits = 3),
-    "SpatRaster"
-  )
+  expect_s4_class(as_spatraster(p_jitter_x, digits = 3), "SpatRaster")
 
-  expect_s4_class(
-    as_spatraster(p_jitter_y, digits = 3),
-    "SpatRaster"
-  )
+  expect_s4_class(as_spatraster(p_jitter_y, digits = 3), "SpatRaster")
 })
 
 test_that("Check with chars", {
@@ -105,10 +96,7 @@ test_that("Check with chars", {
   df_res <- terra::as.data.frame(newspat, na.rm = TRUE, xy = FALSE)
   df_res$letter <- as.character(df_res$letter)
 
-  expect_equal(
-    sort(unique(df$letter)),
-    sort(unique(df_res$letter))
-  )
+  expect_equal(sort(unique(df$letter)), sort(unique(df_res$letter)))
 })
 
 test_that("Check with mixed type of cols", {
@@ -151,10 +139,7 @@ test_that("Check internal", {
   terra::crs(r) <- pull_crs("EPSG:3857")
 
   # Test bypass
-  expect_silent(compare_spatrasters(
-    r,
-    as_spat_internal(r)
-  ))
+  expect_silent(compare_spatrasters(r, as_spat_internal(r)))
 
   # From internal
   tbl <- as_tbl_internal(r)

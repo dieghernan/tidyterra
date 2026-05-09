@@ -7,8 +7,7 @@ library(dplyr)
 
 udb <- units::valid_udunits()
 
-unitsdb <- udb |>
-  select(abb = symbol, name = name_singular)
+unitsdb <- udb |> select(abb = symbol, name = name_singular)
 
 
 usethis::use_data(whitebox_coltab, unitsdb, overwrite = TRUE, internal = TRUE)

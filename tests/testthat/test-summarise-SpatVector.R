@@ -362,9 +362,7 @@ test_that("can't use `.by` with `.groups`", {
   v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
   v_g <- group_by(v, CNTY_ID)
 
-  expect_error(
-    summarise(v_g, .by = x, .groups = "drop")
-  )
+  expect_error(summarise(v_g, .by = x, .groups = "drop"))
 })
 
 test_that("catches `.by` with grouped-df", {
@@ -375,9 +373,7 @@ test_that("catches `.by` with grouped-df", {
 
   gdf <- group_by(df_v, x)
 
-  expect_error(
-    summarise(gdf, .by = x)
-  )
+  expect_error(summarise(gdf, .by = x))
 })
 
 test_that("catches `.by` with rowwise-df", {
@@ -387,7 +383,5 @@ test_that("catches `.by` with rowwise-df", {
   df_v <- cbind(v[1, ], df)
   rdf <- rowwise(df_v)
 
-  expect_error(
-    summarise(rdf, .by = x)
-  )
+  expect_error(summarise(rdf, .by = x))
 })

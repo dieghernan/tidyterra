@@ -311,13 +311,9 @@ test_that("can't use `.by` with `.preserve`", {
   df$lon <- 1
   df <- as_spatvector(df)
 
-  expect_error(
-    filter(df, .by = x, .preserve = TRUE)
-  )
+  expect_error(filter(df, .by = x, .preserve = TRUE))
 
-  expect_error(
-    filter_out(df, .by = x, .preserve = TRUE)
-  )
+  expect_error(filter_out(df, .by = x, .preserve = TRUE))
 })
 
 test_that("catches `.by` with grouped-df", {
@@ -330,13 +326,9 @@ test_that("catches `.by` with grouped-df", {
 
   gdf <- group_by(df, x)
 
-  expect_error(
-    filter(gdf, .by = x)
-  )
+  expect_error(filter(gdf, .by = x))
 
-  expect_error(
-    filter_out(gdf, .by = x)
-  )
+  expect_error(filter_out(gdf, .by = x))
 })
 
 test_that("catches `.by` with rowwise-df", {
@@ -349,12 +341,8 @@ test_that("catches `.by` with rowwise-df", {
 
   rdf <- rowwise(df)
 
-  expect_error(
-    filter(rdf, .by = x)
-  )
-  expect_error(
-    filter_out(rdf, .by = x)
-  )
+  expect_error(filter(rdf, .by = x))
+  expect_error(filter_out(rdf, .by = x))
 })
 
 test_that("catches `by` typo (#6647)", {
@@ -366,7 +354,5 @@ test_that("catches `by` typo (#6647)", {
   df <- as_spatvector(df)
 
   expect_error(filter(df, by = x))
-  expect_error(
-    filter_out(df, by = x)
-  )
+  expect_error(filter_out(df, by = x))
 })

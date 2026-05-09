@@ -4,7 +4,7 @@ test_that("rowwise status preserved by major verbs", {
   v$lat <- 1
   v$lon <- 1
 
-  v <- terra::vect(v)
+  v <- terra::vect(v, crs = "EPSG:4326")
 
   rf <- rowwise(v, "x")
   out <- arrange(rf, y)
@@ -51,7 +51,7 @@ test_that("rowwise nature preserved by subsetting ops", {
   v$lat <- 1
   v$lon <- 1
 
-  v <- terra::vect(v)
+  v <- terra::vect(v, crs = "EPSG:4326")
 
   rf <- rowwise(v, "x")
 
@@ -103,7 +103,7 @@ test_that("can re-rowwise", {
   v$lat <- 1
   v$lon <- 1
 
-  v <- terra::vect(v)
+  v <- terra::vect(v, crs = "EPSG:4326")
 
   rf1 <- rowwise(v, "x")
   rf2 <- rowwise(rf1, y)
@@ -116,7 +116,7 @@ test_that("Error handling", {
   v$lat <- 1
   v$lon <- 1
 
-  v <- terra::vect(v)
+  v <- terra::vect(v, crs = "EPSG:4326")
 
   gr <- group_by(v, x)
   expect_error(rowwise(gr, y))

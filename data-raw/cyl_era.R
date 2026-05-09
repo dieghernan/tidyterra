@@ -62,10 +62,7 @@ cols <- c(cols, "white")
 eng <- gsub("zoico", "zoic", levels(p), fixed = TRUE)
 eng <- gsub("brico", "bric", eng, fixed = TRUE)
 eng <- gsub("Sin determinar", "Undetermined", eng, fixed = TRUE)
-df <- data.frame(
-  value = seq_len(nlevels(p)),
-  era = eng
-)
+df <- data.frame(value = seq_len(nlevels(p)), era = eng)
 
 
 levels(z) <- df
@@ -82,8 +79,7 @@ library(tidyterra)
 ggplot() +
   geom_spatraster(data = z)
 
-v2 <- mapSpain::esp_get_ccaa("Castilla y León", epsg = 3857) |>
-  vect()
+v2 <- mapSpain::esp_get_ccaa("Castilla y León", epsg = 3857) |> vect()
 cyl_era <- crop(z, v2)
 plot(cyl_era)
 

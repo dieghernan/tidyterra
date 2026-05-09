@@ -38,9 +38,7 @@ dual <- modify |>
   pull(pal)
 
 getdual <- modify |>
-  filter(
-    pal %in% dual
-  ) |>
+  filter(pal %in% dual) |>
   mutate(pal = ifelse(limit < 0, paste0(pal, "_bathy"), paste0(pal, "_hypso")))
 
 hypso <- getdual |>
@@ -56,9 +54,7 @@ names(bathy) <- names(hypso)
 # Additional adjustment on dual palettes
 
 adjust_dual <- getdual <- modify |>
-  filter(
-    pal %in% dual
-  ) |>
+  filter(pal %in% dual) |>
   filter(limit < 0) |>
   select(pal) |>
   unique()
@@ -157,10 +153,7 @@ ggplot() +
       barwidth = 20
     )
   ) +
-  labs(
-    fill = "elevation (m)",
-    title = "Hypsometric map of Asia"
-  ) +
+  labs(fill = "elevation (m)", title = "Hypsometric map of Asia") +
   theme_minimal() +
   theme(legend.position = "bottom")
 

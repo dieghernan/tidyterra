@@ -21,17 +21,15 @@ test_that("For SpatVector", {
   v2$geometry <- 1
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "WKT"))
 
-  expect_false(
-    all(
-      names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]
-    )
-  )
+  expect_false(all(
+    names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]
+  ))
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   expect_snapshot(res <- dplyr::as_tibble(v2, geom = "HEX"))
-  expect_false(
-    all(names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))])
-  )
+  expect_false(all(
+    names(v2)[seq_len(ncol(v2))] == names(res)[seq_len(ncol(v2))]
+  ))
   expect_equal(setdiff(names(res), names(v2)), "geometry.1")
 
   # With point
@@ -40,9 +38,9 @@ test_that("For SpatVector", {
   p$y <- "B"
 
   expect_snapshot(res_p <- dplyr::as_tibble(p, geom = "XY"))
-  expect_false(
-    all(names(p)[seq_len(ncol(p))] == names(res_p)[seq_len(ncol(p))])
-  )
+  expect_false(all(
+    names(p)[seq_len(ncol(p))] == names(res_p)[seq_len(ncol(p))]
+  ))
   expect_equal(setdiff(names(res_p), names(p)), c("x.1", "y.1"))
 })
 
@@ -95,17 +93,11 @@ test_that("For SpatRaster", {
   tbl_opts <- dplyr::as_tibble(r, na.rm = TRUE)
 
   expect_gt(nrow(tbl), nrow(tbl_opts))
-  expect_equal(
-    colnames(tbl_opts),
-    colnames(tbl)
-  )
+  expect_equal(colnames(tbl_opts), colnames(tbl))
 
   tbl_opts_xy <- as_tibble(r, xy = TRUE)
 
-  expect_gt(
-    ncol(tbl_opts_xy),
-    ncol(tbl)
-  )
+  expect_gt(ncol(tbl_opts_xy), ncol(tbl))
 })
 
 test_that("For SpatRaster Internal", {
@@ -121,8 +113,5 @@ test_that("For SpatRaster Internal", {
 
   expect_s4_class(regen, "SpatRaster")
   expect_true(compare_spatrasters(r, regen))
-  expect_identical(
-    as_tibble(r),
-    as_tibble(regen)
-  )
+  expect_identical(as_tibble(r), as_tibble(regen))
 })

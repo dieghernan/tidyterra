@@ -107,15 +107,14 @@ online: <https://dieghernan.github.io/tidyterra/>
 **tidyverse** methods implemented in **tidyterra** work differently depending on
 the type of `Spat*` object:
 
--   `SpatVector`: the methods are implemented using `terra::as.data.frame()`
-    coercion. Rows correspond to geometries and columns correspond to attributes
-    of each geometry.
+- `SpatVector`: the methods are implemented using `terra::as.data.frame()`
+  coercion. Rows correspond to geometries and columns correspond to attributes
+  of each geometry.
 
--   `SpatRaster`: The implementation for `SpatRaster` objects differs because
-    methods can be applied to layers or cells. **tidyterra**'s overall
-    approach is to treat the layers as columns of a tibble and the cells as rows
-    (i.e. `select(SpatRaster, 1)` would select the first layer of a
-    `SpatRaster`).
+- `SpatRaster`: The implementation for `SpatRaster` objects differs because
+  methods can be applied to layers or cells. **tidyterra**'s overall approach is
+  to treat the layers as columns of a tibble and the cells as rows (i.e.
+  `select(SpatRaster, 1)` would select the first layer of a `SpatRaster`).
 
 The implemented methods return the same type of object as the input, unless the
 expected behavior of the method is to return another type of object (for

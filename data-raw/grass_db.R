@@ -31,8 +31,7 @@ for (i in rest) {
 
 dev.off()
 
-paltest <- init |>
-  filter(pal == "population")
+paltest <- init |> filter(pal == "population")
 
 mycols <- tidyterra:::tidyterra_ramp2(
   paltest$hex,

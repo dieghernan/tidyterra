@@ -101,8 +101,7 @@ test_that("geom_spatraster several layer with CRS", {
 
   vdiffr::expect_doppelganger(
     "crs_06: change crs",
-    p_rast_first +
-      coord_sf(crs = "ESRI:102003")
+    p_rast_first + coord_sf(crs = "ESRI:102003")
   )
 
   # Mixing different types of factors

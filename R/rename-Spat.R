@@ -83,12 +83,7 @@ rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
   .fn <- rlang::as_function(.fn)
   .cols <- rlang::enquo(.cols)
 
-  df_rename <- dplyr::rename_with(
-    df,
-    .fn,
-    !!.cols,
-    ...
-  )
+  df_rename <- dplyr::rename_with(df, .fn, !!.cols, ...)
 
   final_rast <- .data
   names(final_rast) <- names(df_rename)

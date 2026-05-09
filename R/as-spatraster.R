@@ -182,10 +182,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   nlyrs <- ncol(values)
 
   temp_list <- lapply(seq_len(nlyrs), function(x) {
-    terra::setValues(
-      r_temp,
-      unlist(values[, x])
-    )
+    terra::setValues(r_temp, unlist(values[, x]))
   })
 
   # Finally unlist rasters and fix names

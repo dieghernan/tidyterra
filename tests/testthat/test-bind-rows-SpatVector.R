@@ -5,8 +5,8 @@ test_that("bind_spat_rows() handles simple inputs", {
 
   df1 <- data.frame(x = 1:2, y = letters[1:2], lat = 1:2, lon = 1:2)
   df2 <- data.frame(x = 3:4, y = letters[3:4], lat = 1:2, lon = 1:2)
-  df1 <- terra::vect(df1)
-  df2 <- terra::vect(df2)
+  df1 <- terra::vect(df1, crs = "EPSG:4326")
+  df2 <- terra::vect(df2, crs = "EPSG:4326")
   out <- bind_spat_rows(df1, df2)
   expect_equal(as.data.frame(out), data.frame(x = 1:4, y = letters[1:4]))
 })
@@ -38,8 +38,8 @@ test_that("bind_spat_rows() returns union of columns", {
 
   df1 <- data.frame(x = 1, lat = 1, lon = 1)
   df2 <- data.frame(y = 2, lat = 1, lon = 1)
-  df1 <- terra::vect(df1)
-  df2 <- terra::vect(df2)
+  df1 <- terra::vect(df1, crs = "EPSG:4326")
+  df2 <- terra::vect(df2, crs = "EPSG:4326")
   out <- bind_spat_rows(df1, df2)
 
   expect_equal(as.data.frame(out), data.frame(x = c(1, NA), y = c(NA, 2)))
@@ -67,29 +67,17 @@ test_that("bind_spat_rows() creates a column of identifiers", {
 
   # with
   out <- bind_spat_rows(a = df1, b = df2, .id = "id")
-  expect_equal(
-    as.data.frame(out),
-    data.frame(id = c("a", "a", "b"), x = 1:3)
-  )
+  expect_equal(as.data.frame(out), data.frame(id = c("a", "a", "b"), x = 1:3))
 
   out <- bind_spat_rows(list(a = df1, b = df2), .id = "id")
-  expect_equal(
-    as.data.frame(out),
-    data.frame(id = c("a", "a", "b"), x = 1:3)
-  )
+  expect_equal(as.data.frame(out), data.frame(id = c("a", "a", "b"), x = 1:3))
 
   # or without names
   out <- bind_spat_rows(df1, df2, .id = "id")
-  expect_equal(
-    as.data.frame(out),
-    data.frame(id = c("1", "1", "2"), x = 1:3)
-  )
+  expect_equal(as.data.frame(out), data.frame(id = c("1", "1", "2"), x = 1:3))
 
   out <- bind_spat_rows(list(df1, df2), .id = "id")
-  expect_equal(
-    as.data.frame(out),
-    data.frame(id = c("1", "1", "2"), x = 1:3)
-  )
+  expect_equal(as.data.frame(out), data.frame(id = c("1", "1", "2"), x = 1:3))
 })
 
 
@@ -170,7 +158,7 @@ test_that("bind_spat_rows() return empty point", {
   empt <- bind_spat_rows()
   expect_identical(
     as_tibble(empt, geom = "WKT"),
-    as_tibble(terra::vect("POINT EMPTY"), geom = "WKT")
+    as_tibble(terra::vect("MULTIPOINT EMPTY"), geom = "WKT")
   )
 })
 
@@ -201,8 +189,8 @@ test_that("bind_spat_rows() give informative errors", {
     "invalid .id"
     df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
     df2 <- data.frame(x = 4:6, lat = 1:3, lon = 1:3)
-    df1 <- terra::vect(df1)
-    df2 <- terra::vect(df2)
+    df1 <- terra::vect(df1, crs = "EPSG:4326")
+    df2 <- terra::vect(df2, crs = "EPSG:4326")
     (expect_error(bind_spat_rows(df1, df2, .id = 5)))
 
     "invalid type"

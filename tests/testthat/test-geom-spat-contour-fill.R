@@ -36,10 +36,7 @@ test_that("Errors and messages", {
   # Issue a warning on no contours
 
   ff <- ggplot() +
-    geom_spatraster_contour_filled(
-      data = r,
-      breaks = c(0, 1)
-    )
+    geom_spatraster_contour_filled(data = r, breaks = c(0, 1))
   expect_snapshot(end <- ggplot_build(ff), error = TRUE)
 })
 
@@ -78,10 +75,7 @@ test_that("Test plot", {
   p_more_aes <- ggplot() +
     geom_spatraster_contour_filled(
       data = r,
-      aes(
-        z = tavg_05,
-        fill = after_stat(level_low)
-      ),
+      aes(z = tavg_05, fill = after_stat(level_low)),
       binwidth = 3,
       color = "red",
       linetype = "dotted"
@@ -94,11 +88,7 @@ test_that("Test plot", {
 
   binw <- ggplot() +
     geom_sf(data = v_sf, fill = "grey80") +
-    geom_spatraster_contour_filled(
-      data = single,
-      binwidth = 2,
-      alpha = 0.7
-    ) +
+    geom_spatraster_contour_filled(data = single, binwidth = 2, alpha = 0.7) +
     geom_spatraster_contour(
       data = single,
       binwidth = 2,

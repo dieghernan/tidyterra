@@ -23,10 +23,7 @@ test_that("group_by(<grouped df>, add add groups", {
 
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- v1[1:4, ]
-  thedf <- data.frame(
-    x = 1:4,
-    g = rep(1:2, each = 2)
-  )
+  thedf <- data.frame(x = 1:4, g = rep(1:2, each = 2))
 
   df <- cbind(v[, 0], thedf)
 
@@ -49,10 +46,7 @@ test_that("joins preserve grouping", {
 
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v <- v1[1:4, ]
-  thedf <- data.frame(
-    x = 1:4,
-    g = rep(1:2, each = 2)
-  )
+  thedf <- data.frame(x = 1:4, g = rep(1:2, each = 2))
 
   v <- cbind(v[, 0], thedf)
 
@@ -80,14 +74,8 @@ test_that("can partially `ungroup()`", {
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   gdf <- group_by(v1, cpro, iso2)
 
-  expect_identical(
-    as_tibble(ungroup(gdf, cpro)),
-    as_tibble(group_by(v1, iso2))
-  )
-  expect_identical(
-    as_tibble(ungroup(gdf, cpro, iso2)),
-    as_tibble(v1)
-  )
+  expect_identical(as_tibble(ungroup(gdf, cpro)), as_tibble(group_by(v1, iso2)))
+  expect_identical(as_tibble(ungroup(gdf, cpro, iso2)), as_tibble(v1))
 })
 
 test_that("can fully `ungroup()`", {
@@ -95,17 +83,11 @@ test_that("can fully `ungroup()`", {
 
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  expect_identical(
-    as_tibble(ungroup(v1)),
-    as_tibble(v1)
-  )
+  expect_identical(as_tibble(ungroup(v1)), as_tibble(v1))
 
   gdf <- group_by(v1, cpro, iso2)
 
-  expect_identical(
-    as_tibble(ungroup(gdf)),
-    as_tibble(v1)
-  )
+  expect_identical(as_tibble(ungroup(gdf)), as_tibble(v1))
 })
 
 test_that("mutate does not lose variables", {
@@ -147,12 +129,8 @@ test_that("group_by orders by groups", {
 
   expect_equal(group_data(df)$a, letters[1:4])
 
-  df <- cbind(
-    df[, 0],
-    data.frame(a = sample(sqrt(1:3), 30, replace = TRUE))
-  )
-  df <- df |>
-    group_by(a)
+  df <- cbind(df[, 0], data.frame(a = sample(sqrt(1:3), 30, replace = TRUE)))
+  df <- df |> group_by(a)
 
   expect_equal(group_data(df)$a, sqrt(1:3))
 })
@@ -167,7 +145,7 @@ test_that("distinct keep groups", {
     lat = c(0, 0, 0, 0, 1)
   )
 
-  v <- terra::vect(df)
+  v <- terra::vect(df, crs = "EPSG:4326")
   v <- group_by(v, y)
 
   # Keep group with callings

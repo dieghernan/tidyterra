@@ -77,7 +77,7 @@ depending on the type of `Spat*` object:
 - `SpatRaster`: The implementation for `SpatRaster` objects differs
   because methods can be applied to layers or cells. **tidyterra**’s
   overall approach is to treat the layers as columns of a tibble and the
-  cells as rows (i.e. `select(SpatRaster, 1)` would select the first
+  cells as rows (i.e. `select(SpatRaster, 1)` would select the first
   layer of a `SpatRaster`).
 
 The implemented methods return the same type of object as the input,
@@ -188,15 +188,15 @@ library(terra)
 rastertemp <- rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
 rastertemp
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson (ESRI:54030) 
-#> source      : cyl_temp.tif 
-#> names       :   tavg_04,   tavg_05,  tavg_06 
-#> min values  :  1.885463,  5.817587, 10.46338 
-#> max values  : 13.283829, 16.740898, 21.11378
+#> coord. ref. : World_Robinson
+#> source      : cyl_temp.tif
+#> names       :   tavg_04,   tavg_05,   tavg_06
+#> min values  :  1.885463,  5.817587, 10.463377
+#> max values  : 13.283829, 16.740898, 21.113781
 
 # Rename
 rastertemp <- rastertemp |>

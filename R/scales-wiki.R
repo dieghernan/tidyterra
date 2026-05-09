@@ -106,10 +106,7 @@ scale_fill_wiki_d <- function(
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    palette = wiki_pal(
-      alpha = alpha,
-      direction = direction
-    ),
+    palette = wiki_pal(alpha = alpha, direction = direction),
     na.translate = na.translate,
     drop = drop,
     ...
@@ -136,10 +133,7 @@ scale_colour_wiki_d <- function(
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    palette = wiki_pal(
-      alpha = alpha,
-      direction = direction
-    ),
+    palette = wiki_pal(alpha = alpha, direction = direction),
     na.translate = na.translate,
     drop = drop,
     ...

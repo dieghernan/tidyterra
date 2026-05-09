@@ -4,10 +4,7 @@ test_that("Rename SpatRasters", {
   raster <- terra::rast(file)
 
   s2 <- rename(raster, b1 = cyl_tile_1)
-  expect_identical(
-    names(s2),
-    c("b1", "cyl_tile_2", "cyl_tile_3")
-  )
+  expect_identical(names(s2), c("b1", "cyl_tile_2", "cyl_tile_3"))
 
   expect_true(compare_spatrasters(raster, s2))
 
@@ -16,10 +13,7 @@ test_that("Rename SpatRasters", {
 
   expect_true(compare_spatrasters(raster, s3))
 
-  expect_identical(
-    names(s3),
-    c("this_first", "this_second", "cyl_tile_3")
-  )
+  expect_identical(names(s3), c("this_first", "this_second", "cyl_tile_3"))
 })
 
 test_that("Rename SpatRasters with", {
@@ -31,10 +25,7 @@ test_that("Rename SpatRasters with", {
 
   expect_true(compare_spatrasters(raster, s2))
 
-  expect_identical(
-    names(s2),
-    toupper(names(raster))
-  )
+  expect_identical(names(s2), toupper(names(raster)))
 
   # End with
 
@@ -44,10 +35,7 @@ test_that("Rename SpatRasters with", {
 
   expect_identical(
     names(s3),
-    c(
-      toupper(names(raster)[-3]),
-      tolower(names(raster)[3])
-    )
+    c(toupper(names(raster)[-3]), tolower(names(raster)[3]))
   )
 })
 
@@ -61,10 +49,7 @@ test_that("Rename SpatVectors", {
 
   expect_s4_class(s2, "SpatVector")
 
-  expect_identical(
-    names(s2),
-    c("b1", names(vector)[-1])
-  )
+  expect_identical(names(s2), c("b1", names(vector)[-1]))
 
   # Several renames
   s3 <- rename(vector, this_first = iso2, this_second = cpro)
@@ -86,21 +71,12 @@ test_that("Rename SpatVectors with", {
 
   expect_s4_class(s2, "SpatVector")
 
-  expect_identical(
-    names(s2),
-    c(
-      toupper(names(vector))[-3],
-      names(vector)[3]
-    )
-  )
+  expect_identical(names(s2), c(toupper(names(vector))[-3], names(vector)[3]))
 
   # Several renames
   s3 <- rename_with(s2, tolower, .cols = dplyr::ends_with("2"))
 
-  expect_identical(
-    names(s3),
-    c("iso2", "CPRO", "name")
-  )
+  expect_identical(names(s3), c("iso2", "CPRO", "name"))
 })
 
 

@@ -40,10 +40,7 @@ test_that("grouped arrange ignores group, unless requested with .by_group", {
   df <- terra::vect(df, geom = c("g", "x"), keepgeom = TRUE)
   gf <- group_by(df, g)
 
-  expect_equal(
-    as_tibble(arrange(gf, x)),
-    as_tibble(gf)[4:1, ]
-  )
+  expect_equal(as_tibble(arrange(gf, x)), as_tibble(gf)[4:1, ])
   expect_equal(
     as_tibble(arrange(gf, x, .by_group = TRUE)),
     as_tibble(gf)[c(4, 2, 3, 1), , ]
@@ -70,7 +67,7 @@ test_that("arrange defaults to the C locale", {
   df <- tibble(x = x)
   df$lon <- 1
   df$lat <- 1
-  df <- terra::vect(df, geom = c("lon", "lat"))
+  df <- terra::vect(df, geom = c("lon", "lat"), crs = "EPSG:4326")
 
   res <- arrange(df, x)
   expect_identical(res$x, c("A", "B", "a", "b"))
@@ -87,7 +84,7 @@ test_that("locale can be set to an English locale", {
   df <- tibble(x = x)
   df$lon <- 1
   df$lat <- 1
-  df <- terra::vect(df, geom = c("lon", "lat"))
+  df <- terra::vect(df, geom = c("lon", "lat"), crs = "EPSG:4326")
 
   res <- arrange(df, x, .locale = "en")
   expect_identical(res$x, c("a", "A", "b", "B"))
@@ -102,7 +99,7 @@ test_that("non-English locales can be used", {
   df <- tibble(x = x)
   df$lon <- 1
   df$lat <- 1
-  df <- terra::vect(df, geom = c("lon", "lat"))
+  df <- terra::vect(df, geom = c("lon", "lat"), crs = "EPSG:4326")
 
   # American English locale puts it right after `o`
   res <- arrange(df, x, .locale = "en")

@@ -310,10 +310,7 @@ test_that("Several layers not all coltab", {
   r$nocol <- as.factor(rep_len(c("D", "E", NA), 16))
 
   ll <- data.frame(id = 1:2, lev = c("A", "B"))
-  coltb <- data.frame(
-    value = 1:2,
-    t(col2rgb(c("red", "yellow"), alpha = TRUE))
-  )
+  coltb <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
   terra::coltab(r, layer = 1) <- coltb
 
   expect_identical(terra::has.colors(r), c(TRUE, FALSE))

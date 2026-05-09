@@ -84,10 +84,7 @@ scale_fill_terrain_d <- function(
 
   ggplot2::discrete_scale(
     aesthetics = "fill",
-    palette = terrain_pal(
-      alpha = alpha,
-      direction = direction
-    ),
+    palette = terrain_pal(alpha = alpha, direction = direction),
     na.translate = na.translate,
     drop = drop,
     ...
@@ -114,10 +111,7 @@ scale_colour_terrain_d <- function(
 
   ggplot2::discrete_scale(
     aesthetics = "colour",
-    palette = terrain_pal(
-      alpha = alpha,
-      direction = direction
-    ),
+    palette = terrain_pal(alpha = alpha, direction = direction),
     na.translate = na.translate,
     drop = drop,
     ...

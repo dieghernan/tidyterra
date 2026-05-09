@@ -13,8 +13,7 @@ autoplot(r)
 
 terra::has.colors(xend)
 
-pp <- as_tibble(r) |>
-  filter(startsWith(LABEL3, "S"))
+pp <- as_tibble(r) |> filter(startsWith(LABEL3, "S"))
 
 unique(pp$LABEL3)
 end <- unique(pp$LABEL3)

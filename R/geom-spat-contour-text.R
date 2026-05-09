@@ -227,12 +227,10 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
       l_lab <- length(lab)
 
       if (l_br != l_lab) {
-        cli::cli_abort(
-          paste0(
-            "Number of labels ({l_lab}) must match the ",
-            "number of breaks ({l_br})."
-          )
-        )
+        cli::cli_abort(paste0(
+          "Number of labels ({l_lab}) must match the ",
+          "number of breaks ({l_br})."
+        ))
       }
     }
 
@@ -271,13 +269,7 @@ df_to_isolines <- function(path_df) {
     df <- path_df[path_df$level == x, ]
     df$piece2 <- (df$piece - min(df$piece)) + 1
 
-    lst <- list(
-      rename = list(
-        x = df$x,
-        y = df$y,
-        id = as.integer(df$piece2)
-      )
-    )
+    lst <- list(rename = list(x = df$x, y = df$y, id = as.integer(df$piece2)))
     names(lst) <- x
     lst
   })
@@ -308,11 +300,7 @@ keep_mid_true <- function(x) {
   }
 
   last <- length(x) - match(TRUE, rev(x)) + 1
-  c(
-    rep(FALSE, first),
-    rep(TRUE, last - first),
-    rep(FALSE, length(x) - last)
-  )
+  c(rep(FALSE, first), rep(TRUE, last - first), rep(FALSE, length(x) - last))
 }
 
 resolve_text_unit <- function(unit) {

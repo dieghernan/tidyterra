@@ -7,11 +7,7 @@ library(dplyr)
 cyl <- esp_get_prov("Castilla y León", epsg = 3035, resolution = 3)
 
 cyl <- cyl |>
-  select(
-    iso2 = iso2.prov.code,
-    cpro,
-    name = cldr.prov.name.en
-  ) |>
+  select(iso2 = iso2.prov.code, cpro, name = cldr.prov.name.en) |>
   st_make_valid()
 
 p <- iconv(cyl$name, to = "ASCII//TRANSLIT")

@@ -1,145 +1,142 @@
 # tidyterra 1.1.0
 
--   New **dplyr** minimum version: **1.2.0**.
+- New **dplyr** minimum version: **1.2.0**.
 
 ## New Methods
 
--   `add_count.SpatVector()` (#195).
--   `filter_out.SpatVector()` (#196).
+- `add_count.SpatVector()` (#195).
+- `filter_out.SpatVector()` (#196).
 
 ## Changes in arguments
 
--   In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
-    `summarise.SpatVector()` this was implemented in version 1.0.0. The
-    following **tidyterra** methods now also support it as new arguments (#193):
-    -   `mutate.SpatVector()`.
-    -   `filter.SpatVector()`.
-    -   `?slice.Spat` methods for `SpatVector`.
-    -   `fill.SpatVector()`.
--   Other arguments added to methods:
-    -   `?mutate.Spat`: New arguments `.keep, .before, .after` (see
-        `dplyr::mutate()`).
-    -   `arrange.SpatVector()`: `.locale` added (see `dplyr::arrange()`).
-    -   `filter.SpatVector()`: `.preserve` argument support added (previously it
-        was ignored).
-        -   In `count.SpatVector()`:
-            -   The `wt` argument for weighted counts is now supported.
-            -   The `.drop` argument is deprecated (it never really worked).
+- In **dplyr** **1.2.0** `.by` has moved from experimental to stable. In
+  `summarise.SpatVector()` this was implemented in version 1.0.0. The following
+  **tidyterra** methods now also support it as new arguments (#193):
+  - `mutate.SpatVector()`.
+  - `filter.SpatVector()`.
+  - `?slice.Spat` methods for `SpatVector`.
+  - `fill.SpatVector()`.
+- Other arguments added to methods:
+  - `?mutate.Spat`: New arguments `.keep, .before, .after` (see
+    `dplyr::mutate()`).
+  - `arrange.SpatVector()`: `.locale` added (see `dplyr::arrange()`).
+  - `filter.SpatVector()`: `.preserve` argument support added (previously it was
+    ignored).
+    - In `count.SpatVector()`:
+      - The `wt` argument for weighted counts is now supported.
+      - The `.drop` argument is deprecated (it never really worked).
 
 ## Deprecations
 
--   `?transmute.Spat` is now marked as superseded, following
-    `dplyr::transmute()` in **dplyr 1.1.0** (January 2023). Use
-    `mutate(.keep = "none")`.
+- `?transmute.Spat` is now marked as superseded, following `dplyr::transmute()`
+  in **dplyr 1.1.0** (January 2023). Use `mutate(.keep = "none")`.
 
 ## Other changes
 
--   Migrate vignettes and articles to Quarto.
+- Migrate vignettes and articles to Quarto.
 
 # tidyterra 1.0.0
 
--   Minimal **R** version required updated to **\>= 4.1.0**.
--   Minimal **ggplot2** version required **\>= 4.0.0**.
--   Adapt deprecation of **ggplot2** (4.0.0):
-    -   `geom_spatvector_label()` / `geom_spatvector_text()`: `label.size`
-        aesthetic replaced by `linewidth`. Also `nudge_x` and `nudge_y` are not
-        explicitly documented and are passed to `ggplot2::geom_sf_label()` /
-        `_text()` via dots (`...`).
--   `get_coltab_pal()` can extract colors with alpha values (#180).
--   New dependency **generics** added to Imports. New methods (`SpatRaster`,
-    `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
-    -   `?tidy.Spat`.
-    -   `?glance.Spat`.
-    -   `?required_pkgs.Spat`.
--   `?fortify.Spat` methods now use `?tidy.Spat` methods under the hood:
-    -   New `fortify.SpatExtent()` method.
--   New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
--   `summarise.SpatVector()` supports now the `.by` argument.
--   `geom_spatraster_contour_text()` is now a stable function.
--   **testthat**: Internal changes in tests:
-    -   Move snapshot testing to its own directory, that is included in
-        `.Rbuildignore`: .`/tests/testthat/test_ci`.
+- Minimal **R** version required updated to **\>= 4.1.0**.
+- Minimal **ggplot2** version required **\>= 4.0.0**.
+- Adapt deprecation of **ggplot2** (4.0.0):
+  - `geom_spatvector_label()` / `geom_spatvector_text()`: `label.size` aesthetic
+    replaced by `linewidth`. Also `nudge_x` and `nudge_y` are not explicitly
+    documented and are passed to `ggplot2::geom_sf_label()` / `_text()` via dots
+    (`...`).
+- `get_coltab_pal()` can extract colors with alpha values (#180).
+- New dependency **generics** added to Imports. New methods (`SpatRaster`,
+  `SpatVector`, `SpatGraticule`, `SpatExtent`) included:
+  - `?tidy.Spat`.
+  - `?glance.Spat`.
+  - `?required_pkgs.Spat`.
+- `?fortify.Spat` methods now use `?tidy.Spat` methods under the hood:
+  - New `fortify.SpatExtent()` method.
+- New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
+- `summarise.SpatVector()` supports now the `.by` argument.
+- `geom_spatraster_contour_text()` is now a stable function.
+- **testthat**: Internal changes in tests:
+  - Move snapshot testing to its own directory, that is included in
+    `.Rbuildignore`: .`/tests/testthat/test_ci`.
 
 # tidyterra 0.7.2
 
--   Hotfix: Correct error on tests for **CRAN**.
+- Hotfix: Correct error on tests for **CRAN**.
 
 # tidyterra 0.7.1
 
--   New arguments in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`
-    avoid `SpatRaster` to wrapping around on some projections (see #115 and
-    #169, by \@dramanica).
--   Fix an old bug exposed after **terra 1.8-42**: Plots crash when using
-    `ggplot2::facet_wrap()` in combination with `coord_sf()` (or with implicit
-    change of CRS due to other `sf/Spat*` objects).
+- New arguments in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`
+  avoid `SpatRaster` to wrapping around on some projections (see #115 and #169,
+  by \@dramanica).
+- Fix an old bug exposed after **terra 1.8-42**: Plots crash when using
+  `ggplot2::facet_wrap()` in combination with `coord_sf()` (or with implicit
+  change of CRS due to other `sf/Spat*` objects).
 
 # tidyterra 0.7.0
 
--   Minimal version of **terra** required is `1.8-10`.
--   Remove **metR** from Suggests.
--   Improve handling of factors when several layers have different levels. This
-    is done using `terra::combineLevels()` (**terra** \>= `1.8-10`). See
-    <https://stackoverflow.com/questions/79340152>.
--   `scales` that use limits now truncate the legend when the `limits` argument
-    is provided (#165 \@Fan-iX). Scales impacted:
-    -   `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
-    -   `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
-    -   `scale_*_grass_c` and `scale_*_grass_b`.
--   `geom_spatraster()` and the overall pivoting of `SpatRaster` are now less
-    strict with different layer classes: if several layers can be defined as
-    numeric (i.e. `double`, `integer` and `numeric`), the pivoting (and
-    therefore the plot) can be performed. This is consistent with
-    `tidyr::pivot_longer()` behavior
-    (<https://stackoverflow.com/questions/79292989>).
+- Minimal version of **terra** required is `1.8-10`.
+- Remove **metR** from Suggests.
+- Improve handling of factors when several layers have different levels. This is
+  done using `terra::combineLevels()` (**terra** \>= `1.8-10`). See
+  <https://stackoverflow.com/questions/79340152>.
+- `scales` that use limits now truncate the legend when the `limits` argument is
+  provided (#165 \@Fan-iX). Scales impacted:
+  - `scale_*_cross_blended_tint_c` and `scale_*_cross_blended_tint_b`.
+  - `scale_*_hypso_tint_c` and `scale_*_hypso_tint_b`.
+  - `scale_*_grass_c` and `scale_*_grass_b`.
+- `geom_spatraster()` and the overall pivoting of `SpatRaster` are now less
+  strict with different layer classes: if several layers can be defined as
+  numeric (i.e. `double`, `integer` and `numeric`), the pivoting (and therefore
+  the plot) can be performed. This is consistent with `tidyr::pivot_longer()`
+  behavior (<https://stackoverflow.com/questions/79292989>).
 
 # tidyterra 0.6.2
 
--   Add (limited) support for `SpatGraticule` (see `terra::graticule()`) #155.
--   New arguments in `geom_spatraster_rgb()`: `stretch` and `zlim`. See
-    `terra::plotRGB()` for clarification.
--   `geom_spatraster()` suggests `geom_spatraster_rgb()` when a `SpatRaster`
-    with RGB specification is detected (`terra::has.RGB()` is `TRUE`)
+- Add (limited) support for `SpatGraticule` (see `terra::graticule()`) #155.
+- New arguments in `geom_spatraster_rgb()`: `stretch` and `zlim`. See
+  `terra::plotRGB()` for clarification.
+- `geom_spatraster()` suggests `geom_spatraster_rgb()` when a `SpatRaster` with
+  RGB specification is detected (`terra::has.RGB()` is `TRUE`)
 
 # tidyterra 0.6.1
 
--   Add new scales:
-    -   `grass_db` and `scale_fill_grass_c()` family. This is an implementation
-        of `terra::map.pal()`, that is the default palette for `terra::plot()`
-        (`> 1.7.78`).
-    -   `autoplot.SpatRaster()` now uses also `grass_db` as the default palette.
-    -   Add `scale_fill_princess_c()` scale family.
--   Fix tests.
+- Add new scales:
+  - `grass_db` and `scale_fill_grass_c()` family. This is an implementation of
+    `terra::map.pal()`, that is the default palette for `terra::plot()`
+    (`> 1.7.78`).
+  - `autoplot.SpatRaster()` now uses also `grass_db` as the default palette.
+  - Add `scale_fill_princess_c()` scale family.
+- Fix tests.
 
 # tidyterra 0.6.0
 
--   Requires **ggplot2** (\>= 3.5.0).
--   New methods for `SpatVector` objects:
-    -   `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
-    -   `fill.SpatVector()`.
--   New geom `geom_spatraster_contour_text()` implemented on top of
-    `isoband::isolines_grob()`
-    [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
--   `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
-    using `?tibble::print.tbl_df` approach for the header and the footer. The
-    body is still displayed transposed as of `dplyr::glimpse()`. See
-    `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for
-    examples.
--   `as_sf()` converts a `SpatVector` to a `sf` object with an additional
-    `tbl_df` class for pretty printing.
--   `fortify.SpatRaster()` gains a new argument `pivot` that allows better
-    integration with other **ggplot2** geoms when pivoting. This is a wrapper of
-    `tidyr::pivot_longer()`.
--   Tidy documentation.
--   **metR** added to Suggests.
+- Requires **ggplot2** (\>= 3.5.0).
+- New methods for `SpatVector` objects:
+  - `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()`.
+  - `fill.SpatVector()`.
+- New geom `geom_spatraster_contour_text()` implemented on top of
+  `isoband::isolines_grob()`
+  [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
+- `glimpse.SpatRaster()` and `glimpse.SpatVector()` now displays information
+  using `?tibble::print.tbl_df` approach for the header and the footer. The body
+  is still displayed transposed as of `dplyr::glimpse()`. See
+  `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for examples.
+- `as_sf()` converts a `SpatVector` to a `sf` object with an additional `tbl_df`
+  class for pretty printing.
+- `fortify.SpatRaster()` gains a new argument `pivot` that allows better
+  integration with other **ggplot2** geoms when pivoting. This is a wrapper of
+  `tidyr::pivot_longer()`.
+- Tidy documentation.
+- **metR** added to Suggests.
 
 # tidyterra 0.5.2
 
--   Adapt tests to **ggplot2** 3.5.0 (#129) @teunbrand.
--   Reduce package size, specially relevant in the external raster `asia.tif`.
+- Adapt tests to **ggplot2** 3.5.0 (#129) @teunbrand.
+- Reduce package size, specially relevant in the external raster `asia.tif`.
 
 # tidyterra 0.5.1
 
--   Adjust tests for `as_sf()` (#124).
+- Adjust tests for `as_sf()` (#124).
 
 # tidyterra 0.5.0
 
@@ -152,135 +149,132 @@
 
 Other changes on this version:
 
--   Support for `SpatRaster` objects with a color table
-    -   `autoplot.SpatRaster()` can detect now `SpatRaster` objects with color
-        tables.
-    -   `geom_spatraster()` can detect now `SpatRaster` objects with color
-        tables.
-    -   New scales for plotting `SpatRaster` objects with color tables:
-        `scale_fill_coltab()` and rest of family scales (`colour`).
-    -   tidyverse verbs keeps the associated `coltab` of a `SpatRaster`.
--   By default all the discrete scales of **tidyterra** now have the following
-    setup: `na.translate = FALSE`.
--   By default, all the non-discrete (e.g. continuous or breaks) scales of
-    **tidyterra** have now `na.value = "transparent"` (#120).
--   Enhanced `glimpse.Spat()` with meta-information on type of geometry, CRS,
-    etc.
--   New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
+- Support for `SpatRaster` objects with a color table
+  - `autoplot.SpatRaster()` can detect now `SpatRaster` objects with color
+    tables.
+  - `geom_spatraster()` can detect now `SpatRaster` objects with color tables.
+  - New scales for plotting `SpatRaster` objects with color tables:
+    `scale_fill_coltab()` and rest of family scales (`colour`).
+  - tidyverse verbs keeps the associated `coltab` of a `SpatRaster`.
+- By default all the discrete scales of **tidyterra** now have the following
+  setup: `na.translate = FALSE`.
+- By default, all the non-discrete (e.g. continuous or breaks) scales of
+  **tidyterra** have now `na.value = "transparent"` (#120).
+- Enhanced `glimpse.Spat()` with meta-information on type of geometry, CRS, etc.
+- New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
 
 # tidyterra 0.4.1
 
--   Release for JOSS paper. No relevant changes.
+- Release for JOSS paper. No relevant changes.
 
 # tidyterra 0.4.0
 
--   This release focuses heavily on `SpatVector` objects. The improvements have
-    been:
-    -   New methods for `SpatVector`:
-        -   `glimpse.SpatVector()`
-        -   `arrange.SpatVector()`
-        -   `distinct.SpatVector()`
-        -   `inner_join.SpatVector()`, `left_join.SpatVector()`,
-            `right_join.SpatVector()` and `full_join.SpatVector()`
-        -   `semi_join.SpatVector()` and `anti_join.SpatVector()`
-        -   `summarise.SpatVector()`
-        -   `rowwise.SpatVector()`
-        -   `group_by.SpatVector()`,`ungroup.SpatVector()`
-        -   `count.SpatVector()`, `tally.SpatVector()`
-        -   `bind_spat_cols()`, `bind_spat_rows()`
-    -   Already implemented methods now work with `dplyr::group_by()`.
-    -   Internal review of code. Now the methods do not rely on `sf::st_as_sf()`
-        coercion. In fact coercion between object classes is avoided as much as
-        possible.
--   New `glimpse.SpatRaster()` method for `SpatRaster`.
--   Other coercing and helper functions:
-    -   `as_spatvector()`
-    -   `as_sf()`
-    -   `is_grouped_spatvector()`
+- This release focuses heavily on `SpatVector` objects. The improvements have
+  been:
+  - New methods for `SpatVector`:
+    - `glimpse.SpatVector()`
+    - `arrange.SpatVector()`
+    - `distinct.SpatVector()`
+    - `inner_join.SpatVector()`, `left_join.SpatVector()`,
+      `right_join.SpatVector()` and `full_join.SpatVector()`
+    - `semi_join.SpatVector()` and `anti_join.SpatVector()`
+    - `summarise.SpatVector()`
+    - `rowwise.SpatVector()`
+    - `group_by.SpatVector()`,`ungroup.SpatVector()`
+    - `count.SpatVector()`, `tally.SpatVector()`
+    - `bind_spat_cols()`, `bind_spat_rows()`
+  - Already implemented methods now work with `dplyr::group_by()`.
+  - Internal review of code. Now the methods do not rely on `sf::st_as_sf()`
+    coercion. In fact coercion between object classes is avoided as much as
+    possible.
+- New `glimpse.SpatRaster()` method for `SpatRaster`.
+- Other coercing and helper functions:
+  - `as_spatvector()`
+  - `as_sf()`
+  - `is_grouped_spatvector()`
 
 # tidyterra 0.3.2
 
--   Fix a bug on `pull_crs()` that returned `"NA"` on `sf` objects with any
-    field equal to `NA` (#74).
--   Improve docs on `scales_*` (#73) .
--   Remove dependency on **crayon** package (superseded) in favor of **cli**.
--   Remove **tidyverse** from Suggests.
+- Fix a bug on `pull_crs()` that returned `"NA"` on `sf` objects with any field
+  equal to `NA` (#74).
+- Improve docs on `scales_*` (#73) .
+- Remove dependency on **crayon** package (superseded) in favor of **cli**.
+- Remove **tidyverse** from Suggests.
 
 # tidyterra 0.3.1
 
--   New **ggplot2** methods added:
-    -   Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
-        -   `autoplot.SpatRaster()` now is smarter on identifying the type of
-            plot to produce. Can still be overridden with arguments.
-    -   Methods for fortifying `SpatRaster` and `SpatVector` objects:
-        `fortify.SpatRaster()`, `fortify.SpatVector()`.
--   Three additional palettes are included on `hypso.colors()`: `"artic"`,
-    `"meyers"` and `"nordisk-familjebok"`.
--   Added colour scales to all palettes: `scale_colour_*`.
--   Remove use of `ggplot2::aes_string()`.
--   Adapt `geom_spatraster_contour()` and `geom_spatraster_contour_filled()` to
-    the changes introduced in **ggplot2 (3.4.0)**, most notably the adoption of
-    `linewidth = .2`, by default.
+- New **ggplot2** methods added:
+  - Methods for `autoplot.SpatVector()`, `autoplot.SpatRaster()`.
+    - `autoplot.SpatRaster()` now is smarter on identifying the type of plot to
+      produce. Can still be overridden with arguments.
+  - Methods for fortifying `SpatRaster` and `SpatVector` objects:
+    `fortify.SpatRaster()`, `fortify.SpatVector()`.
+- Three additional palettes are included on `hypso.colors()`: `"artic"`,
+  `"meyers"` and `"nordisk-familjebok"`.
+- Added colour scales to all palettes: `scale_colour_*`.
+- Remove use of `ggplot2::aes_string()`.
+- Adapt `geom_spatraster_contour()` and `geom_spatraster_contour_filled()` to
+  the changes introduced in **ggplot2 (3.4.0)**, most notably the adoption of
+  `linewidth = .2`, by default.
 
 # tidyterra 0.3.0
 
--   Package back to **CRAN**.
--   Libraries **dplyr**, **tidyr**, **tibble** are not attached by default.
-    Needed functions are reexported instead.
--   Improvements on `geom_spatraster()`:
-    -   Now in `geom_spatraster()` is possible to avoid the default `fill` of
-        the layer using `geom_spatraster(fill = NA)` or
-        `geom_spatraster(aes(fill = NULL))`.
-    -   `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
-    -   Internal: Better handling of `aes()` and layers
--   Add new function `stat_spatraster()`.
--   Reduce the size of external files.
+- Package back to **CRAN**.
+- Libraries **dplyr**, **tidyr**, **tibble** are not attached by default. Needed
+  functions are reexported instead.
+- Improvements on `geom_spatraster()`:
+  - Now in `geom_spatraster()` is possible to avoid the default `fill` of the
+    layer using `geom_spatraster(fill = NA)` or
+    `geom_spatraster(aes(fill = NULL))`.
+  - `aes(fill = ggplot2::after_stat())` now works on `geom_spatraster()`.
+  - Internal: Better handling of `aes()` and layers
+- Add new function `stat_spatraster()`.
+- Reduce the size of external files.
 
 # tidyterra 0.2.2
 
--   Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
-    packages are listed on 'Depends' and are attached before **tidyterra** when
-    `library` or `require` is called. Messages on load can be suppressed with
-    `suppressPackageStartupMessages(library(tidyterra))`.
+- Changes on how **dplyr**, **tibble** and **tidyr** are attached. Now these
+  packages are listed on 'Depends' and are attached before **tidyterra** when
+  `library` or `require` is called. Messages on load can be suppressed with
+  `suppressPackageStartupMessages(library(tidyterra))`.
 
 # tidyterra 0.2.1
 
--   Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
--   Improve faceting when the plot facets are created using non-Spat\* layers.
--   Precompute vignettes.
+- Now `geom_spatraster_rgb()` works with `facet_wrap()` (#35)
+- Improve faceting when the plot facets are created using non-Spat\* layers.
+- Precompute vignettes.
 
 # tidyterra 0.2.0
 
--   Recreate `extdata/volcano2.tif` using official DEM information from New
-    Zealand. Source: [Auckland LiDAR 1m DEM
-    (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
--   Add `volcano2` dataset.
--   Fix errors on `slice_min()` and `slice_max()` for `SpatRaster` objects
-    (#20). Also add a new argument `na.rm`.
--   Add new gradient scales for use on hypsometry:
-    -   `scale_fill_hypso_c()`
-    -   `scale_fill_whitebox_c()`
-    -   `scale_fill_wiki_c()`
-    -   `scale_fill_cross_blended_c()`
--   Add new `asia.tif` file on `extdata`.
+- Recreate `extdata/volcano2.tif` using official DEM information from New
+  Zealand. Source: [Auckland LiDAR 1m DEM
+  (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
+- Add `volcano2` dataset.
+- Fix errors on `slice_min()` and `slice_max()` for `SpatRaster` objects (#20).
+  Also add a new argument `na.rm`.
+- Add new gradient scales for use on hypsometry:
+  - `scale_fill_hypso_c()`
+  - `scale_fill_whitebox_c()`
+  - `scale_fill_wiki_c()`
+  - `scale_fill_cross_blended_c()`
+- Add new `asia.tif` file on `extdata`.
 
 # tidyterra 0.1.0
 
--   Add DOI.
--   **CRAN** release.
+- Add DOI.
+- **CRAN** release.
 
 # tidyterra 0.0.1
 
--   Improvements on performance:
-    -   Conversion to **tibble** is avoided as much as possible.
-    -   Internally use `data.tables` instead of `tibbles`.
-    -   The package is compatible with **dtplyr**.
--   `as_spatraster()` handles tibbles with characters and factors.
--   Simplification and tests for `geom_spatraster()` and
-    `geom_spatraster_rgb()`.
--   New methods:
-    -   `pull()`
-    -   `transmute()`
-    -   `rename()`
--   New geoms:
-    -   `geom_spatraster_contour()` family.
+- Improvements on performance:
+  - Conversion to **tibble** is avoided as much as possible.
+  - Internally use `data.tables` instead of `tibbles`.
+  - The package is compatible with **dtplyr**.
+- `as_spatraster()` handles tibbles with characters and factors.
+- Simplification and tests for `geom_spatraster()` and `geom_spatraster_rgb()`.
+- New methods:
+  - `pull()`
+  - `transmute()`
+  - `rename()`
+- New geoms:
+  - `geom_spatraster_contour()` family.

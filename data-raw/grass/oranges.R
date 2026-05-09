@@ -53,10 +53,7 @@ library(ggplot2)
 library(tidyterra)
 ggplot() +
   geom_spatraster(data = r) +
-  scale_fill_gradientn(
-    colours = pal_df$hex,
-    na.value = "lightblue"
-  )
+  scale_fill_gradientn(colours = pal_df$hex, na.value = "lightblue")
 
 
 as_tibble_col(pal_df)

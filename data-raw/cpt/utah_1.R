@@ -83,8 +83,7 @@ nn <- unique(plyr::round_any(nn, 10, f = ceiling))
 make_hex$limit <- nn
 
 # Add palette name
-pal <- gsub(paste0(".", tools::file_ext(url)), "", basename(url)) |>
-  tolower()
+pal <- gsub(paste0(".", tools::file_ext(url)), "", basename(url)) |> tolower()
 
 make_hex <- make_hex |>
   mutate(pal = pal) |>
@@ -102,8 +101,7 @@ saveRDS(coltab_end, f_rds)
 # Post-mortem
 test <- readRDS(f_rds)
 
-ramp_cols <- test |>
-  pull(hex)
+ramp_cols <- test |> pull(hex)
 
 
 ramp_pal <- colorRampPalette(ramp_cols)

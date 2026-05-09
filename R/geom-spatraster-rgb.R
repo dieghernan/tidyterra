@@ -117,9 +117,7 @@ geom_spatraster_rgb <- function(
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,
-    ggplot2::aes(
-      spatraster = .data$spatraster
-    )
+    ggplot2::aes(spatraster = .data$spatraster)
   )
 
   # Select the RGB channels.
@@ -145,9 +143,7 @@ geom_spatraster_rgb <- function(
   crs_terra <- pull_crs(data)
 
   layer_spatrast <- ggplot2::layer(
-    data = tibble::tibble(
-      spatraster = list(data)
-    ),
+    data = tibble::tibble(spatraster = list(data)),
     mapping = mapping,
     stat = StatTerraSpatRasterRGB,
     geom = GeomTerraSpatRasterRGB,
@@ -247,18 +243,10 @@ GeomTerraSpatRasterRGB <- ggplot2::ggproto(
 
     # Convert the data vector to a raster matrix.
     x_pos <- as.integer(
-      (data$x - min(data$x)) /
-        ggplot2::resolution(
-          data$x,
-          FALSE
-        )
+      (data$x - min(data$x)) / ggplot2::resolution(data$x, FALSE)
     )
     y_pos <- as.integer(
-      (data$y - min(data$y)) /
-        ggplot2::resolution(
-          data$y,
-          FALSE
-        )
+      (data$y - min(data$y)) / ggplot2::resolution(data$y, FALSE)
     )
 
     nrow <- max(y_pos) + 1

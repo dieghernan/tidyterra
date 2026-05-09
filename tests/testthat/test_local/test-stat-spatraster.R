@@ -35,22 +35,12 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   vdiffr::expect_doppelganger("crslyr1_01: regular", p)
 
   # Using facets
-  vdiffr::expect_doppelganger(
-    "crslyr1_02: w/facets",
-    p +
-      facet_wrap(~lyr)
-  )
+  vdiffr::expect_doppelganger("crslyr1_02: w/facets", p + facet_wrap(~lyr))
 
   # Using aes
   expect_warning(
     ggplot() +
-      stat_spatraster(
-        data = r,
-        aes(
-          fill = elevation_m,
-          color = "red"
-        )
-      )
+      stat_spatraster(data = r, aes(fill = elevation_m, color = "red"))
   )
 
   p_aes <- ggplot() +
@@ -109,22 +99,12 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   vdiffr::expect_doppelganger("nocrslyr1_01: regular", p)
 
   # Using facets
-  vdiffr::expect_doppelganger(
-    "nocrslyr1_02: w/facets",
-    p +
-      facet_wrap(~lyr)
-  )
+  vdiffr::expect_doppelganger("nocrslyr1_02: w/facets", p + facet_wrap(~lyr))
 
   # Using aes
   expect_warning(
     ggplot() +
-      stat_spatraster(
-        data = r,
-        aes(
-          fill = elevation_m,
-          color = "red"
-        )
-      )
+      stat_spatraster(data = r, aes(fill = elevation_m, color = "red"))
   )
 
   p_aes <- ggplot() +

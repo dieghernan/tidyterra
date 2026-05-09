@@ -22,17 +22,11 @@ test_that("Discrete scale", {
   # Reverse also with alpha
   expect_snapshot(p + scale_fill_wiki_d(direction = 0.5), error = TRUE)
 
-  p4 <- p +
-    scale_fill_wiki_d(
-      direction = -1,
-      alpha = 0.7
-    )
+  p4 <- p + scale_fill_wiki_d(direction = -1, alpha = 0.7)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
-  expect_true(
-    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
-  )
+  expect_true(all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev))
 })
 
 test_that("Continous scale", {
@@ -59,25 +53,15 @@ test_that("Continous scale", {
   # Reverse also with alpha
   expect_snapshot(p + scale_fill_wiki_c(direction = 0.5), error = TRUE)
 
-  p4 <- p +
-    scale_fill_wiki_c(
-      direction = -1,
-      alpha = 0.7
-    )
+  p4 <- p + scale_fill_wiki_c(direction = -1, alpha = 0.7)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
 
-  expect_true(
-    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
-  )
+  expect_true(all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev))
 })
 
 test_that("Breaking scale", {
-  d <- data.frame(
-    x = 1:10,
-    y = 1:10,
-    z = 31:40
-  )
+  d <- data.frame(x = 1:10, y = 1:10, z = 31:40)
 
   # Three cuts
   br <- c(32, 37)
@@ -85,14 +69,12 @@ test_that("Breaking scale", {
   p_init <- ggplot2::ggplot(d) +
     ggplot2::geom_col(aes(x, y, fill = z))
 
-  p <- p_init +
-    ggplot2::scale_fill_viridis_b(breaks = br)
+  p <- p_init + ggplot2::scale_fill_viridis_b(breaks = br)
 
   init <- ggplot2::layer_data(p)$fill
   expect_true(length(unique(init)) == 3)
 
-  p2 <- p_init +
-    scale_fill_wiki_b(breaks = br)
+  p2 <- p_init + scale_fill_wiki_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$fill
   expect_true(!any(init %in% mod))
@@ -102,11 +84,7 @@ test_that("Breaking scale", {
   # Alpha
   expect_snapshot(p_init + scale_fill_wiki_b(alpha = -1), error = TRUE)
 
-  p3 <- p_init +
-    scale_fill_wiki_b(
-      alpha = 0.9,
-      breaks = br
-    )
+  p3 <- p_init + scale_fill_wiki_b(alpha = 0.9, breaks = br)
 
   mod_alpha <- ggplot2::layer_data(p3)$fill
 
@@ -116,12 +94,7 @@ test_that("Breaking scale", {
   # Reverse also with alpha
   expect_snapshot(p + scale_fill_wiki_b(direction = 0.5), error = TRUE)
 
-  p4 <- p_init +
-    scale_fill_wiki_b(
-      direction = -1,
-      alpha = 0.7,
-      breaks = br
-    )
+  p4 <- p_init + scale_fill_wiki_b(direction = -1, alpha = 0.7, breaks = br)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$fill
   expect_true(length(unique(mod_alpha_rev)) == 3)
@@ -162,17 +135,11 @@ test_that("Discrete scale col", {
   # Reverse also with alpha
   expect_snapshot(p + scale_colour_wiki_d(direction = 0.5), error = TRUE)
 
-  p4 <- p +
-    scale_colour_wiki_d(
-      direction = -1,
-      alpha = 0.7
-    )
+  p4 <- p + scale_colour_wiki_d(direction = -1, alpha = 0.7)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
-  expect_true(
-    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
-  )
+  expect_true(all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev))
 })
 
 test_that("Continous scale col", {
@@ -203,25 +170,15 @@ test_that("Continous scale col", {
   # Reverse also with alpha
   expect_snapshot(p + scale_colour_wiki_c(direction = 0.5), error = TRUE)
 
-  p4 <- p +
-    scale_colour_wiki_c(
-      direction = -1,
-      alpha = 0.7
-    )
+  p4 <- p + scale_colour_wiki_c(direction = -1, alpha = 0.7)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
 
-  expect_true(
-    all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev)
-  )
+  expect_true(all(rev(alpha(mod, alpha = 0.7)) == mod_alpha_rev))
 })
 
 test_that("Breaking scale col", {
-  d <- data.frame(
-    x = 1:10,
-    y = 1:10,
-    z = 31:40
-  )
+  d <- data.frame(x = 1:10, y = 1:10, z = 31:40)
 
   # Three cuts
   br <- c(32, 37)
@@ -229,19 +186,16 @@ test_that("Breaking scale col", {
   p_init <- ggplot2::ggplot(d) +
     ggplot2::geom_point(aes(x, y, colour = z))
 
-  p <- p_init +
-    ggplot2::scale_colour_viridis_b(breaks = br)
+  p <- p_init + ggplot2::scale_colour_viridis_b(breaks = br)
 
   init <- ggplot2::layer_data(p)$colour
   expect_true(length(unique(init)) == 3)
 
-  p2 <- p_init +
-    scale_colour_wiki_b(breaks = br)
+  p2 <- p_init + scale_colour_wiki_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$colour
 
-  p3 <- p_init +
-    scale_color_wiki_b(breaks = br)
+  p3 <- p_init + scale_color_wiki_b(breaks = br)
 
   mod3 <- ggplot2::layer_data(p3)$colour
 
@@ -254,11 +208,7 @@ test_that("Breaking scale col", {
   # Alpha
   expect_snapshot(p_init + scale_colour_wiki_b(alpha = -1), error = TRUE)
 
-  p3 <- p_init +
-    scale_colour_wiki_b(
-      alpha = 0.9,
-      breaks = br
-    )
+  p3 <- p_init + scale_colour_wiki_b(alpha = 0.9, breaks = br)
 
   mod_alpha <- ggplot2::layer_data(p3)$colour
 
@@ -268,12 +218,7 @@ test_that("Breaking scale col", {
   # Reverse also with alpha
   expect_snapshot(p + scale_colour_wiki_b(direction = 0.5), error = TRUE)
 
-  p4 <- p_init +
-    scale_colour_wiki_b(
-      direction = -1,
-      alpha = 0.7,
-      breaks = br
-    )
+  p4 <- p_init + scale_colour_wiki_b(direction = -1, alpha = 0.7, breaks = br)
 
   mod_alpha_rev <- ggplot2::layer_data(p4)$colour
   expect_true(length(unique(mod_alpha_rev)) == 3)

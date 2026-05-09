@@ -8,12 +8,7 @@ test_that("contour breaks can be set manually", {
   # shifting the range by 0.2 hits another execution branch
   # in contour_breaks()
   expect_length(contour_breaks(range + 0.2, bins = 5), 6)
-  expect_equal(
-    ggplot2::resolution(
-      contour_breaks(range, binwidth = 0.3)
-    ),
-    0.3
-  )
+  expect_equal(ggplot2::resolution(contour_breaks(range, binwidth = 0.3)), 0.3)
   expect_equal(
     contour_breaks(range),
     contour_breaks(range, breaks = scales::fullseq)
@@ -64,10 +59,7 @@ test_that("Errors and messages", {
   terra::crs(r) <- NA
 
   ff <- ggplot() +
-    geom_spatraster_contour(
-      data = r,
-      breaks = c(0, 1)
-    )
+    geom_spatraster_contour(data = r, breaks = c(0, 1))
   expect_snapshot(end <- ggplot_build(ff))
 })
 
@@ -96,28 +88,18 @@ test_that("Test plot", {
   r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
 
   p_facet <- ggplot() +
-    geom_spatraster_contour(
-      data = r2,
-      aes(color = after_stat(level))
-    ) +
+    geom_spatraster_contour(data = r2, aes(color = after_stat(level))) +
     facet_wrap(~lyr)
 
   expect_s3_class(p_facet, "ggplot")
 
-  expect_s3_class(
-    p_facet +
-      coord_sf(crs = 3035),
-    "ggplot"
-  )
+  expect_s3_class(p_facet + coord_sf(crs = 3035), "ggplot")
 
   # Aes for a single layer
   p_more_aes <- ggplot() +
     geom_spatraster_contour(
       data = r2,
-      aes(
-        z = elevation_m2,
-        color = after_stat(nlevel)
-      ),
+      aes(z = elevation_m2, color = after_stat(nlevel)),
       binwidth = 500,
       linetype = "dotted"
     )
@@ -132,10 +114,7 @@ test_that("Test plot", {
 
   # With false
   p <- ggplot() +
-    geom_spatraster_contour(
-      data = asia,
-      mask_projection = FALSE
-    ) +
+    geom_spatraster_contour(data = asia, mask_projection = FALSE) +
     coord_sf(crs = "+proj=eqearth")
   expect_s3_class(p, "ggplot")
 
@@ -192,8 +171,7 @@ test_that("geom_spatraster one facets", {
   expect_s3_class(p, "ggplot")
   # Change crs
 
-  p <- p +
-    coord_sf(crs = 3035)
+  p <- p + coord_sf(crs = 3035)
 
   expect_s3_class(p, "ggplot")
 })

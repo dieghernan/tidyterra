@@ -8,10 +8,7 @@ test_that("empty slice drops all rows", {
   gdf <- group_by(df, g)
 
   expect_identical(as_tibble(slice(df)), as_tibble(df[integer(), ]))
-  expect_identical(
-    slice(gdf) |> as_tibble(),
-    gdf[integer(), ] |> as_tibble()
-  )
+  expect_identical(slice(gdf) |> as_tibble(), gdf[integer(), ] |> as_tibble())
 })
 
 test_that("slicing SpatVector yields SpatVector", {
@@ -24,10 +21,7 @@ test_that("slicing SpatVector yields SpatVector", {
   expect_s4_class(df, "SpatVector")
   expect_s4_class(sliced, "SpatVector")
 
-  expect_equal(
-    sliced |> as_tbl_internal(),
-    df |> as_tbl_internal() |> slice(1)
-  )
+  expect_equal(sliced |> as_tbl_internal(), df |> as_tbl_internal() |> slice(1))
 })
 
 test_that("slice keeps positive indices, ignoring out of range", {
@@ -65,7 +59,7 @@ test_that("slice drops negative indices, ignoring out of range", {
 test_that("slice errors if positive and negative indices mixed", {
   skip_on_cran()
 
-  empty <- terra::vect("POINT EMPTY")
+  empty <- terra::vect("MULTIPOINT EMPTY")
   expect_snapshot(error = TRUE, {
     slice(empty, 1, -1)
   })
@@ -95,7 +89,7 @@ test_that("slice ignores 0 and NA", {
 test_that("slice errors if index is not numeric", {
   skip_on_cran()
 
-  empty <- terra::vect("POINT EMPTY")
+  empty <- terra::vect("MULTIPOINT EMPTY")
   expect_snapshot(error = TRUE, {
     slice(empty, "a")
   })
@@ -116,7 +110,7 @@ test_that("slice preserves groups if requested", {
 test_that("slice handles zero-row and zero-column inputs", {
   skip_on_cran()
 
-  df <- terra::vect("POINT EMPTY")
+  df <- terra::vect("MULTIPOINT EMPTY")
   expect_equal(slice(df, 1) |> as_tibble(), tibble::tibble())
 
   df <- tibble::tibble(.rows = 10)
@@ -381,14 +375,8 @@ test_that("slice_min/max() count from back with negative n/prop", {
   )
 
   # and can be larger than group size
-  expect_equal(
-    slice_min(df, x, n = -10) |> as_tibble(),
-    df[0, ] |> as_tibble()
-  )
-  expect_equal(
-    slice_max(df, x, n = -10) |> as_tibble(),
-    df[0, ] |> as_tibble()
-  )
+  expect_equal(slice_min(df, x, n = -10) |> as_tibble(), df[0, ] |> as_tibble())
+  expect_equal(slice_max(df, x, n = -10) |> as_tibble(), df[0, ] |> as_tibble())
 })
 
 test_that("slice_min/max() can order by multiple variables", {
@@ -538,14 +526,8 @@ test_that("slice_head/tail() count from back with negative n/prop", {
   )
 
   # and can be larger than group size
-  expect_equal(
-    slice_head(df, n = -10) |> as_tibble(),
-    df[0, ] |> as_tibble()
-  )
-  expect_equal(
-    slice_tail(df, n = -10) |> as_tibble(),
-    df[0, ] |> as_tibble()
-  )
+  expect_equal(slice_head(df, n = -10) |> as_tibble(), df[0, ] |> as_tibble())
+  expect_equal(slice_tail(df, n = -10) |> as_tibble(), df[0, ] |> as_tibble())
 })
 
 test_that("slice_head/slice_tail drop from opposite end when n/prop negative", {
@@ -573,14 +555,8 @@ test_that("slice_head/slice_tail handle infinite n/prop", {
 
   expect_identical(slice_head(df, n = Inf) |> as_tibble(), as_tibble(df))
   expect_identical(slice_tail(df, n = Inf) |> as_tibble(), as_tibble(df))
-  expect_identical(
-    slice_head(df, n = -Inf) |> as_tibble(),
-    as_tibble(df[0, ])
-  )
-  expect_identical(
-    slice_tail(df, n = -Inf) |> as_tibble(),
-    as_tibble(df[0, ])
-  )
+  expect_identical(slice_head(df, n = -Inf) |> as_tibble(), as_tibble(df[0, ]))
+  expect_identical(slice_tail(df, n = -Inf) |> as_tibble(), as_tibble(df[0, ]))
 
   expect_identical(slice_head(df, prop = Inf) |> as_tibble(), as_tibble(df))
   expect_identical(slice_tail(df, prop = Inf) |> as_tibble(), as_tibble(df))

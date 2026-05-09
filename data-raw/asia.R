@@ -27,10 +27,7 @@ ggplot() +
     breaks = c(-10000, -5000, 0, 2500, 5000, 8000),
     guide = guide_colorbar()
   ) +
-  labs(
-    fill = "elevation (m)",
-    title = "Hypsometric map of Asia"
-  ) +
+  labs(fill = "elevation (m)", title = "Hypsometric map of Asia") +
   theme_minimal()
 unlink("inst/extdata/asia.tif")
 terra::writeRaster(asia, "inst/extdata/asia.tif")

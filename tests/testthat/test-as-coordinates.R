@@ -13,32 +13,16 @@ test_that("as_coordinates return a skeleton", {
   df <- as_coordinates(r)
 
   expect_s3_class(df, "tbl")
-  expect_true(all(
-    names(df) ==
-      c(
-        "cellindex",
-        "rowindex",
-        "colindex"
-      )
-  ))
+  expect_true(all(names(df) == c("cellindex", "rowindex", "colindex")))
 
   expect_true(nrow(df) == terra::ncell(r))
   expect_true(ncol(df) == 3)
 
-  expect_equal(
-    unique(sort(df$rowindex)),
-    seq_len(terra::nrow(r))
-  )
+  expect_equal(unique(sort(df$rowindex)), seq_len(terra::nrow(r)))
 
-  expect_equal(
-    unique(sort(df$colindex)),
-    seq_len(terra::ncol(r))
-  )
+  expect_equal(unique(sort(df$colindex)), seq_len(terra::ncol(r)))
 
-  expect_equal(
-    df$cellindex,
-    seq_len(terra::ncell(r))
-  )
+  expect_equal(df$cellindex, seq_len(terra::ncell(r)))
 })
 
 test_that("as_coordinates return a raster", {

@@ -110,12 +110,10 @@ pivot_longer.SpatVector <- function(
 
   # nocov start
   if (!"geometry" %in% names(pivoted)) {
-    cli::cli_abort(
-      paste0(
-        "Can't rebuild the {.cls SpatVector}, ",
-        "{.val geometry} column lost after pivoting"
-      )
-    )
+    cli::cli_abort(paste0(
+      "Can't rebuild the {.cls SpatVector}, ",
+      "{.val geometry} column lost after pivoting"
+    ))
   }
   # nocov end
 

@@ -46,10 +46,7 @@ library(ggplot2)
 library(tidyterra)
 ggplot() +
   geom_spatraster(data = r) +
-  scale_fill_gradientn(
-    colours = pal_df$hex,
-    na.value = "lightblue"
-  )
+  scale_fill_gradientn(colours = pal_df$hex, na.value = "lightblue")
 
 
 extfile <- paste0("./data-raw/grass/", pal, ".rds")

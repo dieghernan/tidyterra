@@ -17,9 +17,7 @@ test_that("SpatRaster", {
 
   col_pos <- which(names(mod) == "tavg_05")
 
-  expect_true(
-    all(c(names(mod2)[-col_pos], names(mod2)[col_pos]) == names(mod))
-  )
+  expect_true(all(c(names(mod2)[-col_pos], names(mod2)[col_pos]) == names(mod)))
 })
 
 
@@ -43,7 +41,5 @@ test_that("SpatVector", {
 
   col_pos <- which(names(mod) == "cpro")
 
-  expect_true(
-    all(c(names(mod2)[-col_pos], names(mod2)[col_pos]) == names(mod))
-  )
+  expect_true(all(c(names(mod2)[-col_pos], names(mod2)[col_pos]) == names(mod)))
 })

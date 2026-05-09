@@ -25,9 +25,7 @@ test_that("Errors and messages", {
     geom_spatraster(data = r) +
     ggplot2::coord_radial()
 
-  expect_error(
-    ggplot2::ggplot_build(s)
-  )
+  expect_error(ggplot2::ggplot_build(s))
 })
 
 
@@ -61,8 +59,7 @@ test_that("Regular tests", {
   expect_lt(nrow(data_1), 10)
 
   # Projected
-  res_p <- res +
-    ggplot2::coord_sf(crs = 3035)
+  res_p <- res + ggplot2::coord_sf(crs = 3035)
 
   data_2 <- ggplot2::get_layer_data(res_p)
   expect_lt(nrow(data_2), 15)
@@ -106,10 +103,7 @@ test_that("Coltabs", {
   terra::values(r) <- as.factor(rep_len(c("A", "B"), 16))
 
   ll <- data.frame(id = 1:2, lev = c("A", "B"))
-  coltb <- data.frame(
-    value = 1:2,
-    t(col2rgb(c("red", "yellow"), alpha = TRUE))
-  )
+  coltb <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
   terra::coltab(r, layer = 1) <- coltb
 
   the_plot <- ggplot2::ggplot() +
@@ -126,10 +120,7 @@ test_that("Coltabs", {
   fill_dots <- ggplot2::ggplot() +
     geom_spatraster(data = r, use_coltab = FALSE, fill = "blue", alpha = 0.3)
 
-  expect_identical(
-    unique(ggplot2::get_layer_data(fill_dots)$fill),
-    "blue"
-  )
+  expect_identical(unique(ggplot2::get_layer_data(fill_dots)$fill), "blue")
   fill_dots_override <- ggplot2::ggplot() +
     geom_spatraster(
       data = r,

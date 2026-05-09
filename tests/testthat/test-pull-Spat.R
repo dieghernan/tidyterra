@@ -5,24 +5,15 @@ test_that("With SpatRaster", {
   r <- terra::rast(f)
   df <- as_tibble(r)
 
-  expect_identical(
-    dplyr::pull(df, 1),
-    pull(r, 1)
-  )
+  expect_identical(dplyr::pull(df, 1), pull(r, 1))
 
-  expect_identical(
-    dplyr::pull(df, -1),
-    pull(r, -1)
-  )
+  expect_identical(dplyr::pull(df, -1), pull(r, -1))
 
   # Cut
   r2 <- r |> mutate(is_fact = cut(tavg_04, seq(0, 20, 5)))
 
   # With na.rm FALSE should have more lenght
-  expect_lt(
-    length(pull(r2, na.rm = TRUE)),
-    length(pull(r2, na.rm = FALSE))
-  )
+  expect_lt(length(pull(r2, na.rm = TRUE)), length(pull(r2, na.rm = FALSE)))
 
   expect_false(anyNA(pull(r2, na.rm = TRUE)))
   expect_true(anyNA(pull(r2, na.rm = FALSE)))
@@ -31,19 +22,14 @@ test_that("With SpatRaster", {
 
   expect_true(is.factor(pull(r2, "is_fact")))
   expect_true(is.factor(pull(r2, is_fact)))
-  expect_identical(
-    dplyr::pull(df2, is_fact),
-    pull(r2, is_fact)
-  )
+  expect_identical(dplyr::pull(df2, is_fact), pull(r2, is_fact))
 
   # This should change
 
-  expect_false(
-    any(
-      pull(r2, 1, xy = TRUE) == pull(r2, 1, xy = FALSE),
-      na.rm = TRUE
-    )
-  )
+  expect_false(any(
+    pull(r2, 1, xy = TRUE) == pull(r2, 1, xy = FALSE),
+    na.rm = TRUE
+  ))
 
   # This would error
 
@@ -70,10 +56,7 @@ test_that("With SpatVector", {
   v <- terra::vect(f)
   df <- as_tibble(v)
 
-  expect_identical(
-    dplyr::pull(df, 1),
-    pull(v, 1)
-  )
+  expect_identical(dplyr::pull(df, 1), pull(v, 1))
 
   # Expect error if trying to get without opt
   expect_error(pull(v, geometry), "object 'geometry' not found")
@@ -82,10 +65,7 @@ test_that("With SpatVector", {
   v_c <- terra::centroids(v)
   df_c <- as_tibble(v_c, geom = "XY")
 
-  expect_identical(
-    pull(v_c, x, geom = "XY"),
-    dplyr::pull(df_c, x)
-  )
+  expect_identical(pull(v_c, x, geom = "XY"), dplyr::pull(df_c, x))
 
   # Check with geometries Named
   wktgeom <- pull(v, geometry, iso2, geom = "WKT")

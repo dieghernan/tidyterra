@@ -36,13 +36,7 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   # Using aes
   expect_warning(
     ggplot() +
-      stat_spatraster(
-        data = r,
-        aes(
-          fill = elevation_m,
-          color = "red"
-        )
-      )
+      stat_spatraster(data = r, aes(fill = elevation_m, color = "red"))
   )
 
   p_aes <- ggplot() +

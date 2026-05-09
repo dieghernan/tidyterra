@@ -116,16 +116,10 @@ test_that("Test plot", {
   # Regular plot
 
   p <- ggplot() +
-    geom_spatraster_contour_text(
-      data = r,
-      breaks = c(1000, 2000)
-    )
+    geom_spatraster_contour_text(data = r, breaks = c(1000, 2000))
 
   vdiffr::expect_doppelganger("01-regular", p)
-  vdiffr::expect_doppelganger(
-    "02-projected",
-    p + coord_sf(crs = 3035)
-  )
+  vdiffr::expect_doppelganger("02-projected", p + coord_sf(crs = 3035))
 
   # Faceted
   r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
@@ -141,8 +135,7 @@ test_that("Test plot", {
   vdiffr::expect_doppelganger("03-faceted with aes", p_facet)
   vdiffr::expect_doppelganger(
     "04-faceted with aes and crs",
-    p_facet +
-      coord_sf(crs = 3035)
+    p_facet + coord_sf(crs = 3035)
   )
 
   # Aes for a single layer
@@ -166,8 +159,7 @@ test_that("Test plot", {
   vdiffr::expect_doppelganger("05-aes for layer", p_more_aes)
   vdiffr::expect_doppelganger(
     "06-aes for layer aes and crs",
-    p_more_aes +
-      coord_sf(crs = 3035)
+    p_more_aes + coord_sf(crs = 3035)
   )
 
   # Check wrap
@@ -184,10 +176,7 @@ test_that("Test plot", {
       mask_projection = FALSE
     ) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger(
-    "07-Wrap",
-    p
-  )
+  vdiffr::expect_doppelganger("07-Wrap", p)
 
   # With true
   p <- ggplot() +
@@ -197,10 +186,7 @@ test_that("Test plot", {
       mask_projection = TRUE
     ) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger(
-    "08-No Wrap",
-    p
-  )
+  vdiffr::expect_doppelganger("08-No Wrap", p)
 
   # Facet
   a2 <- asia / 2
@@ -216,10 +202,7 @@ test_that("Test plot", {
     facet_wrap(~lyr) +
     coord_sf(crs = "+proj=eqearth")
 
-  vdiffr::expect_doppelganger(
-    "09-No Wrap facet",
-    p
-  )
+  vdiffr::expect_doppelganger("09-No Wrap facet", p)
 })
 
 
@@ -258,8 +241,7 @@ test_that("geom_spatraster one facets", {
 
   # Change crs
 
-  p <- p +
-    coord_sf(crs = 3035)
+  p <- p + coord_sf(crs = 3035)
 
   vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })

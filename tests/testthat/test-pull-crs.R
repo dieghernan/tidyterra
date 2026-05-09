@@ -57,14 +57,5 @@ test_that("Check crs", {
   # Characters
   fromchar <- pull_crs("epsg:4326")
 
-  expect_true(all.equal(
-    base,
-    sfc,
-    sf2,
-    sf_na_check,
-    crs2,
-    r2,
-    v2,
-    fromchar
-  ))
+  expect_true(all.equal(base, sfc, sf2, sf_na_check, crs2, r2, v2, fromchar))
 })

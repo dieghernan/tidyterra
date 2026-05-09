@@ -51,10 +51,7 @@ test_that("geom_spatraster_rgb with CRS", {
 
   rgbs <- make_hexcol(r)
 
-  expect_identical(
-    tab$hexcol,
-    rgbs$hexcol
-  )
+  expect_identical(tab$hexcol, rgbs$hexcol)
 
   # test with vdiffr
 
@@ -76,10 +73,7 @@ test_that("geom_spatraster_rgb with CRS", {
 
   expect_snapshot(
     p_res <- ggplot() +
-      geom_spatraster_rgb(
-        data = r,
-        maxcell = 20
-      )
+      geom_spatraster_rgb(data = r, maxcell = 20)
   )
 
   vdiffr::expect_doppelganger("crs_03: resampled", p_res)
@@ -88,11 +82,7 @@ test_that("geom_spatraster_rgb with CRS", {
 
   expect_snapshot(
     p_res_int <- ggplot() +
-      geom_spatraster_rgb(
-        data = r,
-        maxcell = 20,
-        interpolate = TRUE
-      )
+      geom_spatraster_rgb(data = r, maxcell = 20, interpolate = TRUE)
   )
 
   vdiffr::expect_doppelganger("crs_04: resampled interpolated", p_res_int)
@@ -103,15 +93,13 @@ test_that("geom_spatraster_rgb with CRS", {
 
   vdiffr::expect_doppelganger(
     "crs_05: change crs",
-    p_rast_first +
-      coord_sf(crs = 3035)
+    p_rast_first + coord_sf(crs = 3035)
   )
 
   # With vector after
   vdiffr::expect_doppelganger(
     "crs_06: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA)
+    p_rast_first + geom_sf(data = v_sf, fill = NA)
   )
 
   # With vector first
@@ -125,8 +113,7 @@ test_that("geom_spatraster_rgb with CRS", {
 
   vdiffr::expect_doppelganger(
     "crs_08: With sf first and crs",
-    p_sf_first +
-      coord_sf(crs = 4326)
+    p_sf_first + coord_sf(crs = 4326)
   )
 
   p_maxcol <- ggplot() +
@@ -175,10 +162,7 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   rgbs <- make_hexcol(r)
 
-  expect_identical(
-    tab$hexcol,
-    rgbs$hexcol
-  )
+  expect_identical(tab$hexcol, rgbs$hexcol)
 
   # test with vdiffr
 
@@ -200,10 +184,7 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   expect_message(
     ggplot() +
-      geom_spatraster_rgb(
-        data = r,
-        maxcell = 20
-      ),
+      geom_spatraster_rgb(data = r, maxcell = 20),
     regexp = "resampled"
   )
 
@@ -215,11 +196,7 @@ test_that("geom_spatraster_rgb with CRS masked", {
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20,
-      interpolate = TRUE
-    )
+    geom_spatraster_rgb(data = r, maxcell = 20, interpolate = TRUE)
 
   vdiffr::expect_doppelganger("crsmask_04: resampled interpolated", p_res_int)
 
@@ -229,15 +206,13 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   vdiffr::expect_doppelganger(
     "crsmask_05: change crs",
-    p_rast_first +
-      coord_sf(crs = 3035)
+    p_rast_first + coord_sf(crs = 3035)
   )
 
   # With vector after
   vdiffr::expect_doppelganger(
     "crsmask_06: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA)
+    p_rast_first + geom_sf(data = v_sf, fill = NA)
   )
 
   # With vector first
@@ -251,8 +226,7 @@ test_that("geom_spatraster_rgb with CRS masked", {
 
   vdiffr::expect_doppelganger(
     "crsmask_08: With sf first and crs",
-    p_sf_first +
-      coord_sf(crs = 4326)
+    p_sf_first + coord_sf(crs = 4326)
   )
 
   # Check max_cols
@@ -303,10 +277,7 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   rgbs <- make_hexcol(r)
 
-  expect_identical(
-    tab$hexcol,
-    rgbs$hexcol
-  )
+  expect_identical(tab$hexcol, rgbs$hexcol)
 
   # test with vdiffr
 
@@ -332,10 +303,7 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   expect_message(
     ggplot() +
-      geom_spatraster_rgb(
-        data = r,
-        maxcell = 20
-      ),
+      geom_spatraster_rgb(data = r, maxcell = 20),
     regexp = "resampled"
   )
 
@@ -347,11 +315,7 @@ test_that("geom_spatraster_rgb with no CRS", {
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20,
-      interpolate = TRUE
-    )
+    geom_spatraster_rgb(data = r, maxcell = 20, interpolate = TRUE)
 
   vdiffr::expect_doppelganger("nocrs_04: resampled interpolated", p_res_int)
 
@@ -361,24 +325,20 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   vdiffr::expect_doppelganger(
     "nocrs_05: change crs",
-    p_rast_first +
-      coord_sf(crs = raster_crs)
+    p_rast_first + coord_sf(crs = raster_crs)
   )
 
   # With vector
   vdiffr::expect_doppelganger(
     "nocrs_06: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA)
+    p_rast_first + geom_sf(data = v_sf, fill = NA)
   )
 
   # Would align only if sf/coord on the same crs
 
   vdiffr::expect_doppelganger(
     "nocrs_07: With crs and sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA) +
-      coord_sf(crs = raster_crs)
+    p_rast_first + geom_sf(data = v_sf, fill = NA) + coord_sf(crs = raster_crs)
   )
 
   # Reproject vector
@@ -387,8 +347,7 @@ test_that("geom_spatraster_rgb with no CRS", {
 
   vdiffr::expect_doppelganger(
     "nocrs_08: With sf reprojected",
-    p_rast_first +
-      geom_sf(data = new_v, fill = NA)
+    p_rast_first + geom_sf(data = new_v, fill = NA)
   )
 
   p_maxcol <- ggplot() +
@@ -443,10 +402,7 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   rgbs <- make_hexcol(r)
 
-  expect_identical(
-    tab$hexcol,
-    rgbs$hexcol
-  )
+  expect_identical(tab$hexcol, rgbs$hexcol)
 
   # test with vdiffr
 
@@ -472,10 +428,7 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   expect_message(
     ggplot() +
-      geom_spatraster_rgb(
-        data = r,
-        maxcell = 20
-      ),
+      geom_spatraster_rgb(data = r, maxcell = 20),
     regexp = "resampled"
   )
 
@@ -487,16 +440,9 @@ test_that("geom_spatraster_rgb with no CRS masked", {
   # Resampling and interpolating
 
   p_res_int <- ggplot() +
-    geom_spatraster_rgb(
-      data = r,
-      maxcell = 20,
-      interpolate = TRUE
-    )
+    geom_spatraster_rgb(data = r, maxcell = 20, interpolate = TRUE)
 
-  vdiffr::expect_doppelganger(
-    "nocrsmask_04: resampled interpolated",
-    p_res_int
-  )
+  vdiffr::expect_doppelganger("nocrsmask_04: resampled interpolated", p_res_int)
 
   # With crs
   p_rast_first <- ggplot() +
@@ -504,24 +450,20 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   vdiffr::expect_doppelganger(
     "nocrsmask_05: change crs",
-    p_rast_first +
-      coord_sf(crs = raster_crs)
+    p_rast_first + coord_sf(crs = raster_crs)
   )
 
   # With vector
   vdiffr::expect_doppelganger(
     "nocrsmask_06: With sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA)
+    p_rast_first + geom_sf(data = v_sf, fill = NA)
   )
 
   # Would align only if sf/coord on the same crs
 
   vdiffr::expect_doppelganger(
     "nocrsmask_07: With crs and sf",
-    p_rast_first +
-      geom_sf(data = v_sf, fill = NA) +
-      coord_sf(crs = raster_crs)
+    p_rast_first + geom_sf(data = v_sf, fill = NA) + coord_sf(crs = raster_crs)
   )
 
   # Reproject vector
@@ -530,8 +472,7 @@ test_that("geom_spatraster_rgb with no CRS masked", {
 
   vdiffr::expect_doppelganger(
     "nocrsmask_08: With sf reprojected",
-    p_rast_first +
-      geom_sf(data = new_v, fill = NA)
+    p_rast_first + geom_sf(data = new_v, fill = NA)
   )
 
   p_maxcol <- ggplot() +
@@ -575,8 +516,7 @@ test_that("geom_spatraster facets", {
 
   # Change crs
 
-  p <- p +
-    coord_sf(crs = 25829)
+  p <- p + coord_sf(crs = 25829)
 
   vdiffr::expect_doppelganger("crsfacet_03: change crs", p)
 })

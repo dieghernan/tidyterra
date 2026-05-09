@@ -87,7 +87,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   dots <- rlang::list2(...)
   # Return empty on none
   if (length(dots) == 0) {
-    return(terra::vect("POINT EMPTY"))
+    return(terra::vect("MULTIPOINT EMPTY"))
   }
 
   # Make it work with list
@@ -201,12 +201,10 @@ bind_spat_rows <- function(..., .id = NULL) {
 
 crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
-    cli::cli_alert_warning(
-      paste0(
-        "Reprojecting object {.field {index}} in {.arg ...} since it",
-        " doesn't have the same CRS as object {.field 1}"
-      )
-    )
+    cli::cli_alert_warning(paste0(
+      "Reprojecting object {.field {index}} in {.arg ...} since it",
+      " doesn't have the same CRS as object {.field 1}"
+    ))
   }
 
   if (inherits(a, c("sf", "sfc"))) {

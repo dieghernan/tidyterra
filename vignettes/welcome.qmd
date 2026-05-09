@@ -98,15 +98,15 @@ f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 temp <- rast(f)
 
 temp
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson (ESRI:54030) 
-#> source      : cyl_temp.tif 
-#> names       :   tavg_04,   tavg_05,  tavg_06 
-#> min values  :  1.885463,  5.817587, 10.46338 
-#> max values  : 13.283829, 16.740898, 21.11378
+#> coord. ref. : World_Robinson
+#> source      : cyl_temp.tif
+#> names       :   tavg_04,   tavg_05,   tavg_06
+#> min values  :  1.885463,  5.817587, 10.463377
+#> max values  : 13.283829, 16.740898, 21.113781
 
 mod <- temp |>
   select(-1) |>
@@ -116,15 +116,15 @@ mod <- temp |>
   rename(difference = newcol)
 
 mod
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson (ESRI:54030) 
+#> coord. ref. : World_Robinson
 #> source(s)   : memory
-#> names       : difference,   tavg_05,  tavg_06 
-#> min values  :   2.817647,  5.817587, 10.46338 
-#> max values  :   5.307511, 16.740898, 21.11378
+#> names       : difference,   tavg_05,   tavg_06
+#> min values  :   2.817647,  5.817587, 10.463377
+#> max values  :   5.307511, 16.740898, 21.113781
 ```
 
 In this example we:
@@ -164,16 +164,16 @@ v_lux |>
   ) |>
   # Arrange
   arrange(desc(gr))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 4  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :          gr     n   tot_pop mean_area
-#>  type        :      <fact> <int>     <num>     <num>
-#>  values      :   (147,183]     2 3.594e+05       244
-#>                (40.7,76.1]     1 4.819e+04       185
-#>                (4.99,40.7]     9 1.944e+05     209.8
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 4  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :          gr     n tot_pop mean_area
+#> type        :      <fact> <int>   <num>     <num>
+#> values      :   (147,183]     2  359427       244
+#>               (40.7,76.1]     1   48187       185
+#>               (4.99,40.7]     9  194391   209.778
 ```
 
 As with `SpatRaster`, essential properties such as geometry and CRS are
@@ -275,15 +275,15 @@ maps:
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
 
 asia
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 164, 306, 1  (nrow, ncol, nlyr)
 #> resolution  : 31836.23, 31847.57  (x, y)
-#> extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
-#> source      : asia.tif 
-#> name        : file44bc291153f2 
-#> min value   :        -9558.468 
-#> max value   :         5801.927
+#> extent      : 7619120, 1.736101e+07, -1304745, 3918256  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> source      : asia.tif
+#> name        : file44bc291153f2
+#> min value   :     -9558.467773
+#> max value   :      5801.927246
 
 ggplot() +
   geom_spatraster(data = asia) +

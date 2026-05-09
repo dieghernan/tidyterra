@@ -16,7 +16,7 @@
 ---
 
     Code
-      glimpse(v, geom = "WKT", width = 50)
+      glimpse(v, geom = "WKT", width = 5)
     Output
       #  A SpatVector 9 x 3
       #  Geometry type: Polygons
@@ -24,10 +24,10 @@
       #  CRS projection units: meter <m>
       #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
       
-      $ iso2     <chr> "ES-AV", "ES-BU", "ES-LE", "ES-~
-      $ cpro     <chr> "05", "09", "24", "34", "37", "~
-      $ name     <chr> "Avila", "Burgos", "Leon", "Pal~
-      $ geometry <chr> "POLYGON ((3126360.2417 2066777~
+      $ iso2     <chr> ~
+      $ cpro     <chr> ~
+      $ name     <chr> ~
+      $ geometry <chr> ~
 
 ---
 

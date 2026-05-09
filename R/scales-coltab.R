@@ -155,13 +155,11 @@ scale_color_coltab <- scale_colour_coltab
 #' @encoding UTF-8
 get_coltab_pal <- function(x) {
   if (!inherits(x, "SpatRaster")) {
-    cli::cli_alert_info(
-      paste(
-        "{.fun tidyterra::get_coltab_pal} only works with",
-        "{.cls SpatRaster} objects, not {.cls {class(x)}}.",
-        "Returning {.field NULL}"
-      )
-    )
+    cli::cli_alert_info(paste(
+      "{.fun tidyterra::get_coltab_pal} only works with",
+      "{.cls SpatRaster} objects, not {.cls {class(x)}}.",
+      "Returning {.field NULL}"
+    ))
     return(NULL)
   }
 
@@ -181,11 +179,10 @@ get_coltab_pal <- function(x) {
       terra::values(tmpr) <- vals
       df <- as_tibble(terra::cats(tmpr)[[1]])
 
-      coltb <- data.frame(
-        t(
-          col2rgb(terrain.colors(nrow(df), rev = TRUE), alpha = TRUE)
-        )
-      )
+      coltb <- data.frame(t(col2rgb(
+        terrain.colors(nrow(df), rev = TRUE),
+        alpha = TRUE
+      )))
       coltbend <- cbind(df[, 1], coltb)
       terra::coltab(tmpr) <- coltbend
       # Substitute layer

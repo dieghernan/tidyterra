@@ -4,17 +4,11 @@ across_all_of <- function(vars) {
 
 as_spat_internal <- function(x) {
   if (
-    any(
-      inherits(x, "SpatRaster"),
-      isTRUE(attr(x, "source") == "SpatRaster")
-    )
+    any(inherits(x, "SpatRaster"), isTRUE(attr(x, "source") == "SpatRaster"))
   ) {
     return(as_spatrast_attr(x))
   } else if (
-    any(
-      inherits(x, "SpatVector"),
-      isTRUE(attr(x, "source") == "SpatVector")
-    )
+    any(inherits(x, "SpatVector"), isTRUE(attr(x, "source") == "SpatVector"))
   ) {
     return(as_spatvect_attr(x))
   }

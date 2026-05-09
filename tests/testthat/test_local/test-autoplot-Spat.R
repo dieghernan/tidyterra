@@ -14,17 +14,13 @@ test_that("Test SpatRaster", {
   # No facets
   vdiffr::expect_doppelganger(
     "norgb_03: no facets forced",
-    r |>
-      select(1) |>
-      autoplot(facets = FALSE)
+    r |> select(1) |> autoplot(facets = FALSE)
   )
 
   # No facets auto
   vdiffr::expect_doppelganger(
     "norgb_03: no facets auto",
-    r |>
-      select(1) |>
-      autoplot()
+    r |> select(1) |> autoplot()
   )
 
   # Change n facets
@@ -35,9 +31,7 @@ test_that("Test SpatRaster", {
 
   vdiffr::expect_doppelganger(
     "norgb_05: four cols",
-    r |>
-      mutate(other = tavg_04 * 2) |>
-      autoplot(ncol = 4)
+    r |> mutate(other = tavg_04 * 2) |> autoplot(ncol = 4)
   )
 
   # Force to no facets
@@ -47,23 +41,14 @@ test_that("Test SpatRaster", {
     autoplot(ncol = 4, facets = FALSE)
 
   expect_snapshot(b <- ggplot2::ggplot_build(forced))
-  vdiffr::expect_doppelganger(
-    "norgb_06: force no facets",
-    forced
-  )
+  vdiffr::expect_doppelganger("norgb_06: force no facets", forced)
 
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   r <- terra::rast(f)
 
-  vdiffr::expect_doppelganger(
-    "rgb_01: regular",
-    autoplot(r)
-  )
+  vdiffr::expect_doppelganger("rgb_01: regular", autoplot(r))
 
-  vdiffr::expect_doppelganger(
-    "rgb_01: regular_forced",
-    autoplot(r, rgb = TRUE)
-  )
+  vdiffr::expect_doppelganger("rgb_01: regular_forced", autoplot(r, rgb = TRUE))
 
   vdiffr::expect_doppelganger(
     "rgb_02: with opts",
@@ -72,8 +57,7 @@ test_that("Test SpatRaster", {
 
   vdiffr::expect_doppelganger(
     "rgb_03: change coords",
-    autoplot(r) +
-      ggplot2::coord_sf(crs = 3035)
+    autoplot(r) + ggplot2::coord_sf(crs = 3035)
   )
 
   vdiffr::expect_doppelganger(
@@ -98,17 +82,13 @@ test_that("Test SpatRaster", {
   # No facets
   vdiffr::expect_doppelganger(
     "coltab_02: no facets forced",
-    r |>
-      select(1) |>
-      autoplot(facets = FALSE)
+    r |> select(1) |> autoplot(facets = FALSE)
   )
 
   # No facets auto
   vdiffr::expect_doppelganger(
     "coltab_03: no facets auto",
-    r |>
-      select(1) |>
-      autoplot()
+    r |> select(1) |> autoplot()
   )
 
   # Change n facets
@@ -120,13 +100,11 @@ test_that("Test SpatRaster", {
 
   vdiffr::expect_doppelganger(
     "coltab_5: force no facets",
-    r |>
-      autoplot(ncol = 2, facets = FALSE)
+    r |> autoplot(ncol = 2, facets = FALSE)
   )
   vdiffr::expect_doppelganger(
     "coltab_6: Not use coltab",
-    r |>
-      autoplot(ncol = 2, use_coltab = FALSE)
+    r |> autoplot(ncol = 2, use_coltab = FALSE)
   )
 })
 
@@ -146,8 +124,7 @@ test_that("test SpatVector", {
   # Inherit aes
   vdiffr::expect_doppelganger(
     "vector_03: aes inherited",
-    autoplot(v, aes(fill = iso2)) +
-      geom_spatvector_label(aes(label = iso2))
+    autoplot(v, aes(fill = iso2)) + geom_spatvector_label(aes(label = iso2))
   )
 })
 
@@ -165,11 +142,7 @@ test_that("test SpatExtent", {
   # Aes
   vdiffr::expect_doppelganger(
     "extent_02: params",
-    autoplot(
-      e,
-      fill = "red",
-      alpha = 0.2
-    )
+    autoplot(e, fill = "red", alpha = 0.2)
   )
 })
 
