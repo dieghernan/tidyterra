@@ -128,17 +128,18 @@ nb <- v |>
 nb |>
   rowwise() |>
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79 nb_mean
-#>  type        :   <num>   <num>   <num>
-#>  values      :      10      19    14.5
-#>                     10      12      11
-#>                    208     260     234
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79 nb_mean
+#> type        :   <num>   <num>   <num>
+#> values      :      10      19    14.5
+#>                    10      12      11
+#>                   208     260     234
+#>               ...
 
 # Additional examples
 # \donttest{
@@ -146,34 +147,36 @@ nb |>
 nb |>
   rowwise() |>
   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79     m
-#>  type        :   <num>   <num> <num>
-#>  values      :      10      19  14.5
-#>                     10      12    11
-#>                    208     260   234
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79     m
+#> type        :   <num>   <num> <num>
+#> values      :      10      19  14.5
+#>                    10      12    11
+#>                   208     260   234
+#>               ...
 
 # Compute the minimum of x and y in each row
 
 nb |>
   rowwise() |>
   mutate(min = min(c_across(NWBIR74:NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79   min
-#>  type        :   <num>   <num> <num>
-#>  values      :      10      19    10
-#>                     10      12    10
-#>                    208     260   208
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79   min
+#> type        :   <num>   <num> <num>
+#> values      :      10      19    10
+#>                    10      12    10
+#>                   208     260   208
+#>               ...
 
 # Summarising
 v |>

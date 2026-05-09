@@ -178,17 +178,18 @@ attribute. Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nb_mean <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">NWBIR74</span>, <span class="va">NWBIR79</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 100, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : nc.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat NAD27 (EPSG:4267) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       : NWBIR74 NWBIR79 nb_mean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :   &lt;num&gt;   &lt;num&gt;   &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :      10      19    14.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     10      12      11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    208     260     234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 100, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : nc.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : NWBIR74 NWBIR79 nb_mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :   &lt;num&gt;   &lt;num&gt;   &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :      10      19    14.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    10      12      11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   208     260     234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Additional examples</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
@@ -196,34 +197,36 @@ attribute. Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">NWBIR74</span><span class="op">:</span><span class="va">NWBIR79</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 100, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : nc.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat NAD27 (EPSG:4267) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       : NWBIR74 NWBIR79     m</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :   &lt;num&gt;   &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :      10      19  14.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     10      12    11</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    208     260   234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 100, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : nc.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : NWBIR74 NWBIR79     m</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :   &lt;num&gt;   &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :      10      19  14.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    10      12    11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   208     260   234</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Compute the minimum of x and y in each row</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">NWBIR74</span><span class="op">:</span><span class="va">NWBIR79</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 100, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : nc.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat NAD27 (EPSG:4267) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       : NWBIR74 NWBIR79   min</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :   &lt;num&gt;   &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :      10      19    10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     10      12    10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    208     260   208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 100, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : nc.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat NAD27 (EPSG:4267)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : NWBIR74 NWBIR79   min</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :   &lt;num&gt;   &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :      10      19    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    10      12    10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   208     260   208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Summarising</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>

@@ -125,17 +125,18 @@ by_name1 <- p |> group_by(NAME_1)
 
 # grouping doesn't change how the SpatVector looks
 by_name1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        : <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                    1 Diekirch     2 Diekirch   218 3.254e+04
-#>                    1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 6  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        : <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     1 Diekirch     1 Clervaux   312 18081
+#>                   1 Diekirch     2 Diekirch   218 32543
+#>                   1 Diekirch     3  Redange   259 18664
+#>               ...
 
 # But add metadata for grouping: See the coercion to tibble
 
@@ -169,32 +170,33 @@ by_name1 |> summarise(
   pop = mean(POP),
   area = sum(AREA)
 )
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 3  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1       pop  area
-#>  type        :        <chr>     <num> <num>
-#>  values      :     Diekirch 1.824e+04  1128
-#>                Grevenmacher  2.37e+04   527
-#>                  Luxembourg 1.099e+05   906
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 3  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     pop  area
+#> type        :        <chr>   <num> <num>
+#> values      :     Diekirch 18237.2  1128
+#>               Grevenmacher 23697.7   527
+#>                 Luxembourg  109932   906
 
 # Each call to summarise() removes a layer of grouping
 by_name2_name1 <- p |> group_by(NAME_2, NAME_1)
 
 by_name2_name1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        : <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                    1 Diekirch     2 Diekirch   218 3.254e+04
-#>                    1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 6  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        : <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     1 Diekirch     1 Clervaux   312 18081
+#>                   1 Diekirch     2 Diekirch   218 32543
+#>                   1 Diekirch     3  Redange   259 18664
+#>               ...
 group_data(by_name2_name1)
 #> # A tibble: 12 × 3
 #>    NAME_2           NAME_1             .rows
@@ -214,16 +216,17 @@ group_data(by_name2_name1)
 
 by_name2 <- by_name2_name1 |> summarise(n = dplyr::n())
 by_name2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 3  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   NAME_2     NAME_1     n
-#>  type        :    <chr>      <chr> <int>
-#>  values      : Capellen Luxembourg     1
-#>                Clervaux   Diekirch     1
-#>                Diekirch   Diekirch     1
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 3  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   NAME_2     NAME_1     n
+#> type        :    <chr>      <chr> <int>
+#> values      : Capellen Luxembourg     1
+#>               Clervaux   Diekirch     1
+#>               Diekirch   Diekirch     1
+#>               ...
 group_data(by_name2)
 #> # A tibble: 12 × 2
 #>    NAME_2                 .rows
@@ -245,14 +248,14 @@ group_data(by_name2)
 by_name2 |>
   ungroup() |>
   summarise(n = sum(n))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 1, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :     n
-#>  type        : <int>
-#>  values      :    12
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 1, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :     n
+#> type        : <int>
+#> values      :    12
 
 # By default, group_by() overrides existing grouping
 by_name2_name1 |>
@@ -271,16 +274,17 @@ by_name2_name1 |>
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        :   <num> <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     100     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                     50     1 Diekirch     2 Diekirch   218 3.254e+04
-#>                  33.33     1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        :   <num> <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     100     1 Diekirch     1 Clervaux   312 18081
+#>                    50     1 Diekirch     2 Diekirch   218 32543
+#>               33.3333     1 Diekirch     3  Redange   259 18664
+#>               ...
 # }
 ```

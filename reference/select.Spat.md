@@ -113,39 +113,39 @@ spatrast <- rast(
 )
 
 spatrast |> select(1)
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 10, 10, 1  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
 #> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> name        : lyr.1 
-#> min value   :     1 
-#> max value   :   100 
+#> name        : lyr.1
+#> min value   :     1
+#> max value   :   100
 
 # By name
 spatrast |> select(lyr.1:lyr.4)
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 10, 10, 4  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
 #> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : lyr.1, lyr.2, lyr.3, lyr.4 
-#> min values  :     1,   101,   201,   301 
-#> max values  :   100,   200,   300,   400 
+#> names       : lyr.1, lyr.2, lyr.3, lyr.4
+#> min values  :     1,   101,   201,   301
+#> max values  :   100,   200,   300,   400
 
 # Rename
 spatrast |> select(a = lyr.1, c = lyr.6)
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 10, 10, 2  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
 #> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       :   a,   c 
-#> min values  :   1, 501 
-#> max values  : 100, 600 
+#> names       :   a,   c
+#> min values  :   1, 501
+#> max values  : 100, 600
 
 # SpatVector method
 
@@ -154,41 +154,44 @@ f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f)
 
 v
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
-#>                ES-LE    24   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
+#>               ES-LE    24   Leon
+#>               ...
 
 v |> select(1, 3)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 2  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2   name
-#>  type        : <chr>  <chr>
-#>  values      : ES-AV  Avila
-#>                ES-BU Burgos
-#>                ES-LE   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2   name
+#> type        : <chr>  <chr>
+#> values      : ES-AV  Avila
+#>               ES-BU Burgos
+#>               ES-LE   Leon
+#>               ...
 
 v |> select(iso2, name2 = cpro)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 2  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2 name2
-#>  type        : <chr> <chr>
-#>  values      : ES-AV    05
-#>                ES-BU    09
-#>                ES-LE    24
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2 name2
+#> type        : <chr> <chr>
+#> values      : ES-AV    05
+#>               ES-BU    09
+#>               ES-LE    24
+#>               ...
 ```

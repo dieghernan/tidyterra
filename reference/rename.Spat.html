@@ -184,43 +184,43 @@ call.</p>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>aa <span class="op">=</span> <span class="fl">1</span>, bb <span class="op">=</span> <span class="fl">2</span>, cc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 212, 261, 6  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 2445.985, 2445.985  (x, y)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> source(s)   : memory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,         35,         35,  1,  2,  3 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,        251,        250,  1,  2,  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,         35,         35,  1,  2,  3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,        251,        250,  1,  2,  3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  this_first <span class="op">=</span> <span class="va">cyl_tile_1</span>,</span></span>
 <span class="r-in"><span>  this_second <span class="op">=</span> <span class="va">cyl_tile_2</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 212, 261, 6  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 2445.985, 2445.985  (x, y)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> source(s)   : memory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       : this_first, this_second, cyl_tile_3, aa, bb, cc </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,          35,         35,  1,  2,  3 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,         251,        250,  1,  2,  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : this_first, this_second, cyl_tile_3, aa, bb, cc</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,          35,         35,  1,  2,  3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,         251,        250,  1,  2,  3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">spatrast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename_with</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="va">toupper</span>,</span></span>
 <span class="r-in"><span>  .cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 212, 261, 6  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 2445.985, 2445.985  (x, y)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> source(s)   : memory</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,         35,         35,  1,  2,  3 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,        251,        250,  1,  2,  3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> min values  :         35,         35,         35,  1,  2,  3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> max values  :        253,        251,        250,  1,  2,  3</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -199,31 +199,32 @@ r_tidy
 
 # Convert back to a `SpatRaster`.
 as_spatraster(r_tidy)
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 162, 143, 1  (nrow, ncol, nlyr)
 #> resolution  : 4.916776e-05, 4.916772e-05  (x, y)
 #> extent      : 174.7611, 174.7682, -36.87992, -36.87195  (xmin, xmax, ymin, ymax)
-#> coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 #> source(s)   : memory
-#> name        : elevation 
-#> min value   :  76.56599 
-#> max value   : 195.50436 
+#> name        :  elevation
+#> min value   :  76.565987
+#> max value   : 195.504364
 
 # SpatVector
 cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 cyl
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
-#>                ES-LE    24   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
+#>               ES-LE    24   Leon
+#>               ...
 
 tidy(cyl)
 #> Simple feature collection with 9 features and 3 fields

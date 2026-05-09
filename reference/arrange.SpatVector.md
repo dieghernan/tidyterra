@@ -110,7 +110,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ``` r
 
 library(terra)
-#> terra 1.9.11
+#> terra 1.9.25
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’
@@ -130,44 +130,47 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 v |>
   arrange(desc(iso2))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro       name
-#>  type        : <chr> <chr>      <chr>
-#>  values      : ES-ZA    49     Zamora
-#>                ES-VA    47 Valladolid
-#>                ES-SO    42      Soria
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro       name
+#> type        : <chr> <chr>      <chr>
+#> values      : ES-ZA    49     Zamora
+#>               ES-VA    47 Valladolid
+#>               ES-SO    42      Soria
+#>               ...
 
 # Two variables
 v |>
   mutate(even = as.double(cpro) %% 2 == 0) |>
   arrange(desc(even), desc(iso2))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro     name      even
-#>  type        : <chr> <chr>    <chr> <logical>
-#>  values      : ES-SO    42    Soria      TRUE
-#>                ES-SG    40  Segovia      TRUE
-#>                 ES-P    34 Palencia      TRUE
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro     name  even
+#> type        : <chr> <chr>    <chr> <lgl>
+#> values      : ES-SO    42    Soria  TRUE
+#>               ES-SG    40  Segovia  TRUE
+#>                ES-P    34 Palencia  TRUE
+#>               ...
 
 # With new variables
 v |>
   mutate(area_geom = terra::expanse(v)) |>
   arrange(area_geom)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro     name area_geom
-#>  type        : <chr> <chr>    <chr>     <num>
-#>  values      : ES-SG    40  Segovia 6.921e+09
-#>                 ES-P    34 Palencia 8.042e+09
-#>                ES-AV    05    Avila 8.053e+09
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro     name   area_geom
+#> type        : <chr> <chr>    <chr>       <num>
+#> values      : ES-SG    40  Segovia 6.92148e+09
+#>                ES-P    34 Palencia 8.04248e+09
+#>               ES-AV    05    Avila 8.05299e+09
+#>               ...
 ```

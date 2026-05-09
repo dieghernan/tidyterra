@@ -153,30 +153,32 @@ first element with a message.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># You can supply individual SpatVector as arguments:</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 4, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  cpro     name  iso2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    05       NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA     Leon ES-LE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA Palencia  ES-P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 4, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  cpro     name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :    05       NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA     Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA Palencia  ES-P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># When you supply a column name with the `.id` argument, a new</span></span></span>
 <span class="r-in"><span><span class="co"># column is created to link each row to its original data frame</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 4, 4  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :    id  cpro     name  iso2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1    05       NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2    NA     Leon ES-LE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2    NA Palencia  ES-P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 4, 4  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :    id  cpro     name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     1    05       NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   2    NA     Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   2    NA Palencia  ES-P</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Use with sf</span></span></span>
@@ -192,64 +194,60 @@ first element with a message.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 Leon ES-LE POLYGON ((3049427 2233673, ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 2, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  cpro  name  iso2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    05    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA  Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 2, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  cpro  name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :    05    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA  Leon ES-LE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Would reproject with a message on different CRS</span></span></span>
 <span class="r-in"><span><span class="va">sfobj_3857</span> <span class="op">&lt;-</span> <span class="fu"><a href="as_spatvector.html">as_spatvector</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:3857"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj_3857</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` since it doesn't have the same CRS as object <span style="color: #00BB00;">1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 2, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  cpro  name  iso2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    05    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA  Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 2, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  cpro  name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :    05    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA  Leon ES-LE</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># And with data frames with a message</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj</span>, <span class="va">mtcars</span>, .id <span class="op">=</span> <span class="st">"id2"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result would present empty geoms</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 34, 15  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :   id2  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1    05    NA    NA    NA    NA    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    2    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    3    NA    NA    NA    21     6   160   110   3.9  2.62</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  (and 5 more)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 34, 15  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :   id2  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt   (and 5 more)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     1    05    NA    NA    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   2    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   3    NA    NA    NA    21     6   160   110   3.9  2.62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Use lists</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">v1</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span>, <span class="va">sfobj</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  cpro  name  iso2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    05    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA  Leon ES-LE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  cpro  name  iso2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :    05    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA  Leon ES-LE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  NA    NA    NA</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Or named list combined with .id</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
@@ -258,21 +256,16 @@ first element with a message.</p></li>
 <span class="r-in"><span><span class="op">)</span>, .id <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result would present empty geoms</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 15  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : SpatVector    05    NA    NA    NA    NA    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        sf    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    mtcars    NA    NA    NA    21     6   160   110   3.9  2.62</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  (and 5 more)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 15  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt   (and 5 more)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : SpatVector    05    NA    NA    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                       sf    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   mtcars    NA    NA    NA    21     6   160   110   3.9  2.62</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

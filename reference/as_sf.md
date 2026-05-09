@@ -52,17 +52,18 @@ v <- terra::vect(f)
 
 # This is ungrouped
 v
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
-#>                ES-LE    24   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
+#>               ES-LE    24   Leon
+#>               ...
 is_grouped_spatvector(v)
 #> [1] FALSE
 
@@ -81,17 +82,18 @@ v$gr2 <- rep(c("F", "G", "F"), 3)
 gr_v <- group_by(v, gr, gr2)
 
 gr_v
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 5  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name    gr   gr2
-#>  type        : <chr> <chr>  <chr> <chr> <chr>
-#>  values      : ES-AV    05  Avila     C     F
-#>                ES-BU    09 Burgos     A     G
-#>                ES-LE    24   Leon     A     F
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name    gr   gr2
+#> type        : <chr> <chr>  <chr> <chr> <chr>
+#> values      : ES-AV    05  Avila     C     F
+#>               ES-BU    09 Burgos     A     G
+#>               ES-LE    24   Leon     A     F
+#>               ...
 is_grouped_spatvector(gr_v)
 #> [1] TRUE
 

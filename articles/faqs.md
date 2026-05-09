@@ -524,16 +524,16 @@ has.colors(r_coltab)
 #> [1] TRUE
 
 r_coltab
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 196, 311, 1  (nrow, ncol, nlyr)
 #> resolution  : 178.8719, 177.9949  (x, y)
 #> extent      : -380397.3, -324768.1, 7533021, 7567908  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
-#> source      : clc_edinburgh.tif 
-#> color table : 1 
-#> categories  : label 
-#> name        :                   label 
-#> min value   : Continuous urban fabric 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> source      : clc_edinburgh.tif
+#> color table : 1
+#> categories  : label
+#> name        :                   label
+#> min value   : Continuous urban fabric
 #> max value   :           Sea and ocean
 
 # Native handling by terra packages

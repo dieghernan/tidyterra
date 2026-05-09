@@ -157,32 +157,33 @@ df <- data.frame(
 )
 
 v
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
-#>                ES-LE    24   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
+#>               ES-LE    24   Leon
+#>               ...
 
 # Semi join
 semi <- v |> semi_join(df)
 #> Joining with `by = join_by(cpro)`
 
 semi
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
 
 autoplot(semi, aes(fill = iso2)) + labs(title = "Semi Join")
 
@@ -193,16 +194,17 @@ anti <- v |> anti_join(df)
 #> Joining with `by = join_by(cpro)`
 
 anti
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 7, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro      name
-#>  type        : <chr> <chr>     <chr>
-#>  values      : ES-LE    24      Leon
-#>                 ES-P    34  Palencia
-#>                ES-SA    37 Salamanca
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 7, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro      name
+#> type        : <chr> <chr>     <chr>
+#> values      : ES-LE    24      Leon
+#>                ES-P    34  Palencia
+#>               ES-SA    37 Salamanca
+#>               ...
 
 autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 

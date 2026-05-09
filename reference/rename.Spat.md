@@ -120,41 +120,41 @@ f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 spatrast
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc 
-#> min values  :         35,         35,         35,  1,  2,  3 
-#> max values  :        253,        251,        250,  1,  2,  3 
+#> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc
+#> min values  :         35,         35,         35,  1,  2,  3
+#> max values  :        253,        251,        250,  1,  2,  3
 
 spatrast |> rename(
   this_first = cyl_tile_1,
   this_second = cyl_tile_2
 )
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : this_first, this_second, cyl_tile_3, aa, bb, cc 
-#> min values  :         35,          35,         35,  1,  2,  3 
-#> max values  :        253,         251,        250,  1,  2,  3 
+#> names       : this_first, this_second, cyl_tile_3, aa, bb, cc
+#> min values  :         35,          35,         35,  1,  2,  3
+#> max values  :        253,         251,        250,  1,  2,  3
 
 spatrast |> rename_with(
   toupper,
   .cols = starts_with("c")
 )
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC 
-#> min values  :         35,         35,         35,  1,  2,  3 
-#> max values  :        253,        251,        250,  1,  2,  3 
+#> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC
+#> min values  :         35,         35,         35,  1,  2,  3
+#> max values  :        253,        251,        250,  1,  2,  3
 ```

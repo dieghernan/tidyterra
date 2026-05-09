@@ -153,15 +153,15 @@ diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
 diss
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : start_with_s     n  mean
-#>  type        :    <logical> <int> <num>
-#>  values      :        FALSE     6    28
-#>                        TRUE     3 39.67
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : start_with_s     n    mean
+#> type        :        <lgl> <int>   <num>
+#> values      :        FALSE     6      28
+#>                       TRUE     3 39.6667
 
 autoplot(diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Dissolved")
@@ -173,15 +173,15 @@ no_diss <- gr_v |>
 
 # Same statistic
 no_diss
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : start_with_s     n  mean
-#>  type        :    <logical> <int> <num>
-#>  values      :        FALSE     6    28
-#>                        TRUE     3 39.67
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : start_with_s     n    mean
+#> type        :        <lgl> <int>   <num>
+#> values      :        FALSE     6      28
+#>                       TRUE     3 39.6667
 
 autoplot(no_diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Not Dissolved")

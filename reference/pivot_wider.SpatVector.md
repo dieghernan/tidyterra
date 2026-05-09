@@ -231,15 +231,16 @@ xtra |>
     id_cols = iso2:name, values_from = value,
     names_from = label
   )
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 5  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name     extra        NA
-#>  type        : <chr> <chr>  <chr> <logical> <logical>
-#>  values      : ES-BU    09 Burgos      TRUE      <NA>
-#>                ES-LE    24   Leon      TRUE      <NA>
-#>                ES-AV    05  Avila      <NA>      <NA>
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name extra    NA
+#> type        : <chr> <chr>  <chr> <lgl> <lgl>
+#> values      : ES-BU    09 Burgos  TRUE    NA
+#>               ES-LE    24   Leon  TRUE    NA
+#>               ES-AV    05  Avila    NA    NA
+#>               ...
 # }
 ```

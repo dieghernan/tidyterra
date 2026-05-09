@@ -105,13 +105,13 @@ names(spatrast)
 spatrast |>
   relocate(bb, .before = cyl_tile_3) |>
   relocate(cyl_tile_1, .after = last_col())
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : cyl_tile_2, bb, cyl_tile_3, aa, cc, cyl_tile_1 
-#> min values  :         35,  2,         35,  1,  3,         35 
-#> max values  :        251,  2,        250,  1,  3,        253 
+#> names       : cyl_tile_2, bb, cyl_tile_3, aa, cc, cyl_tile_1
+#> min values  :         35,  2,         35,  1,  3,         35
+#> max values  :        251,  2,        250,  1,  3,        253
 ```

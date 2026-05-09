@@ -83,15 +83,15 @@ library(terra)
 r <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
 r
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 30, 3, 1  (nrow, ncol, nlyr)
 #> resolution  : 1, 1  (x, y)
 #> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> name        : lyr.1 
-#> min value   :     1 
-#> max value   :    90 
+#> name        : lyr.1
+#> min value   :     1
+#> max value   :    90
 
 # Create tibble
 as_tbl <- as_tibble(r, xy = TRUE)
@@ -115,13 +115,13 @@ as_tbl
 # From tibble
 newrast <- as_spatraster(as_tbl, crs = "EPSG:3857")
 newrast
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 30, 3, 1  (nrow, ncol, nlyr)
 #> resolution  : 1, 1  (x, y)
 #> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> name        : lyr.1 
-#> min value   :     1 
-#> max value   :    90 
+#> name        : lyr.1
+#> min value   :     1
+#> max value   :    90
 ```

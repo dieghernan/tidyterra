@@ -91,30 +91,32 @@ v2 <- v[3:5, c("name", "iso2")]
 
 # You can supply individual SpatVector as arguments:
 bind_spat_rows(v1, v2)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 4, 3  (geometries, attributes)
-#>  extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro     name  iso2
-#>  type        : <chr>    <chr> <chr>
-#>  values      :    05       NA    NA
-#>                   NA     Leon ES-LE
-#>                   NA Palencia  ES-P
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 4, 3  (geometries, attributes)
+#> extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro     name  iso2
+#> type        : <chr>    <chr> <chr>
+#> values      :    05       NA    NA
+#>                  NA     Leon ES-LE
+#>                  NA Palencia  ES-P
+#>               ...
 
 # When you supply a column name with the `.id` argument, a new
 # column is created to link each row to its original data frame
 bind_spat_rows(v1, v2, .id = "id")
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 4, 4  (geometries, attributes)
-#>  extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :    id  cpro     name  iso2
-#>  type        : <chr> <chr>    <chr> <chr>
-#>  values      :     1    05       NA    NA
-#>                    2    NA     Leon ES-LE
-#>                    2    NA Palencia  ES-P
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 4, 4  (geometries, attributes)
+#> extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :    id  cpro     name  iso2
+#> type        : <chr> <chr>    <chr> <chr>
+#> values      :     1    05       NA    NA
+#>                   2    NA     Leon ES-LE
+#>                   2    NA Palencia  ES-P
+#>               ...
 
 # \donttest{
 # Use with sf
@@ -130,64 +132,60 @@ sfobj
 #> 1 Leon ES-LE POLYGON ((3049427 2233673, ...
 
 bind_spat_rows(v1, sfobj)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro  name  iso2
-#>  type        : <chr> <chr> <chr>
-#>  values      :    05    NA    NA
-#>                   NA  Leon ES-LE
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro  name  iso2
+#> type        : <chr> <chr> <chr>
+#> values      :    05    NA    NA
+#>                  NA  Leon ES-LE
 
 # Would reproject with a message on different CRS
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
 #> ! Reprojecting object 2 in `...` since it doesn't have the same CRS as object 1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro  name  iso2
-#>  type        : <chr> <chr> <chr>
-#>  values      :    05    NA    NA
-#>                   NA  Leon ES-LE
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro  name  iso2
+#> type        : <chr> <chr> <chr>
+#> values      :    05    NA    NA
+#>                  NA  Leon ES-LE
 
 # And with data frames with a message
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #> ! Object 3 in `...` is <data.frame> 
 #> The result would present empty geoms
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 34, 15  (geometries, attributes)
-#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :   id2  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt
-#>  type        : <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>
-#>  values      :     1    05    NA    NA    NA    NA    NA    NA    NA    NA
-#>                    2    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA
-#>                    3    NA    NA    NA    21     6   160   110   3.9  2.62
-#>  (and 5 more)
-#>              
-#>              
-#>              
-#>              
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 34, 15  (geometries, attributes)
+#> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :   id2  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt   (and 5 more)
+#> type        : <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>
+#> values      :     1    05    NA    NA    NA    NA    NA    NA    NA    NA
+#>                   2    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA
+#>                   3    NA    NA    NA    21     6   160   110   3.9  2.62
+#>               ...
 
 # Use lists
 bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 3  (geometries, attributes)
-#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro  name  iso2
-#>  type        : <chr> <chr> <chr>
-#>  values      :    05    NA    NA
-#>                   NA  Leon ES-LE
-#>                   NA    NA    NA
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 3  (geometries, attributes)
+#> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro  name  iso2
+#> type        : <chr> <chr> <chr>
+#> values      :    05    NA    NA
+#>                  NA  Leon ES-LE
+#>                  NA    NA    NA
 
 # Or named list combined with .id
 bind_spat_rows(list(
@@ -196,20 +194,15 @@ bind_spat_rows(list(
 ), .id = "source")
 #> ! Object 3 in `...` is <data.frame> 
 #> The result would present empty geoms
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 15  (geometries, attributes)
-#>  extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt
-#>  type        :      <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>
-#>  values      : SpatVector    05    NA    NA    NA    NA    NA    NA    NA    NA
-#>                        sf    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA
-#>                    mtcars    NA    NA    NA    21     6   160   110   3.9  2.62
-#>  (and 5 more)
-#>              
-#>              
-#>              
-#>              
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 15  (geometries, attributes)
+#> extent      : 2926589, 3126360, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :     source  cpro  name  iso2   mpg   cyl  disp    hp  drat    wt   (and 5 more)
+#> type        :      <chr> <chr> <chr> <chr> <num> <num> <num> <num> <num> <num>
+#> values      : SpatVector    05    NA    NA    NA    NA    NA    NA    NA    NA
+#>                       sf    NA  Leon ES-LE    NA    NA    NA    NA    NA    NA
+#>                   mtcars    NA    NA    NA    21     6   160   110   3.9  2.62
 # }
 ```

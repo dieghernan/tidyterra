@@ -89,17 +89,18 @@ df2 <- data.frame(letters = letters[seq_len(nrow(sv))])
 
 # Data frame
 bind_spat_cols(sv, df2)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name letters
-#>  type        : <chr> <chr>  <chr>   <chr>
-#>  values      : ES-AV    05  Avila       a
-#>                ES-BU    09 Burgos       b
-#>                ES-LE    24   Leon       c
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name letters
+#> type        : <chr> <chr>  <chr>   <chr>
+#> values      : ES-AV    05  Avila       a
+#>               ES-BU    09 Burgos       b
+#>               ES-LE    24   Leon       c
+#>               ...
 
 # Another SpatVector
 bind_spat_cols(sv[1:2, ], sv[3:4, ])
@@ -110,52 +111,49 @@ bind_spat_cols(sv[1:2, ], sv[3:4, ])
 #> • `iso2` -> `iso2...4`
 #> • `cpro` -> `cpro...5`
 #> • `name` -> `name...6`
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 6  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : iso2...1 cpro...2 name...3 iso2...4 cpro...5 name...6
-#>  type        :    <chr>    <chr>    <chr>    <chr>    <chr>    <chr>
-#>  values      :    ES-AV       05    Avila    ES-LE       24     Leon
-#>                   ES-BU       09   Burgos     ES-P       34 Palencia
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 6  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : iso2...1 cpro...2 name...3 iso2...4 cpro...5 name...6
+#> type        :    <chr>    <chr>    <chr>    <chr>    <chr>    <chr>
+#> values      :    ES-AV       05    Avila    ES-LE       24     Leon
+#>                  ES-BU       09   Burgos     ES-P       34 Palencia
 
 # sf objects
 sfobj <- sf::read_sf(system.file("shape/nc.shp", package = "sf"))
 
 bind_spat_cols(sv[1:9, ], sfobj[1:9, ])
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 17  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name  AREA PERIMETER CNTY_ CNTY_ID      NAME  FIPS
-#>  type        : <chr> <chr>  <chr> <num>     <num> <num>   <num>     <chr> <chr>
-#>  values      : ES-AV    05  Avila 0.114     1.442  1825    1825      Ashe 37009
-#>                ES-BU    09 Burgos 0.061     1.231  1827    1827 Alleghany 37005
-#>                ES-LE    24   Leon 0.143      1.63  1828    1828     Surry 37171
-#>     FIPSNO (and 7 more)
-#>      <num>             
-#>  3.701e+04             
-#>    3.7e+04             
-#>  3.717e+04             
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 17  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  AREA PERIMETER CNTY_ CNTY_ID      NAME  FIPS FIPSNO   (and 7 more)
+#> type        : <chr> <chr>  <chr> <num>     <num> <num>   <num>     <chr> <chr>  <num>
+#> values      : ES-AV    05  Avila 0.114     1.442  1825    1825      Ashe 37009  37009
+#>               ES-BU    09 Burgos 0.061     1.231  1827    1827 Alleghany 37005  37005
+#>               ES-LE    24   Leon 0.143      1.63  1828    1828     Surry 37171  37171
+#>               ...
 
 # Mixed
 
 end <- bind_spat_cols(sv, sfobj[seq_len(nrow(sv)), 1:2], df2)
 
 end
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 6  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name  AREA PERIMETER letters
-#>  type        : <chr> <chr>  <chr> <num>     <num>   <chr>
-#>  values      : ES-AV    05  Avila 0.114     1.442       a
-#>                ES-BU    09 Burgos 0.061     1.231       b
-#>                ES-LE    24   Leon 0.143      1.63       c
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 6  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  AREA PERIMETER letters
+#> type        : <chr> <chr>  <chr> <num>     <num>   <chr>
+#> values      : ES-AV    05  Avila 0.114     1.442       a
+#>               ES-BU    09 Burgos 0.061     1.231       b
+#>               ES-LE    24   Leon 0.143      1.63       c
+#>               ...
 glimpse(end)
 #> #  A SpatVector 9 x 6
 #> #  Geometry type: Polygons

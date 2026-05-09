@@ -163,7 +163,7 @@ help page under the <code>Default locale</code> section.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.9.11</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> terra 1.9.25</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
@@ -183,46 +183,49 @@ help page under the <code>Default locale</code> section.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro       name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-ZA    49     Zamora</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-VA    47 Valladolid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-SO    42      Soria</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro       name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-ZA    49     Zamora</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-VA    47 Valladolid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SO    42      Soria</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Two variables</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>even <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/double.html" class="external-link">as.double</a></span><span class="op">(</span><span class="va">cpro</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html" class="external-link">%%</a></span> <span class="fl">2</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">even</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 4  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro     name      even</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;logical&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-SO    42    Soria      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-SG    40  Segovia      TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ES-P    34 Palencia      TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 4  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro     name  even</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;lgl&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-SO    42    Soria  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SG    40  Segovia  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-P    34 Palencia  TRUE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With new variables</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>area_geom <span class="op">=</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/expanse.html" class="external-link">expanse</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">area_geom</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 4  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro     name area_geom</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-SG    40  Segovia 6.921e+09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ES-P    34 Palencia 8.042e+09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-AV    05    Avila 8.053e+09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 4  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro     name   area_geom</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;       &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-SG    40  Segovia 6.92148e+09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-P    34 Palencia 8.04248e+09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-AV    05    Avila 8.05299e+09</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

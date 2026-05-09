@@ -142,52 +142,52 @@ f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
 p |> count(NAME_1, sort = TRUE)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1     n
-#>  type        :        <chr> <int>
-#>  values      :     Diekirch     5
-#>                  Luxembourg     4
-#>                Grevenmacher     3
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     n
+#> type        :        <chr> <int>
+#> values      :     Diekirch     5
+#>                 Luxembourg     4
+#>               Grevenmacher     3
 
 p |> count(pop = ifelse(POP < 20000, "A", "B"))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   pop     n
-#>  type        : <chr> <int>
-#>  values      :     A     5
-#>                    B     7
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   pop     n
+#> type        : <chr> <int>
+#> values      :     A     5
+#>                   B     7
 
 # tally() is a lower-level function that assumes you've done the grouping
 p |> tally()
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 1, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :     n
-#>  type        : <int>
-#>  values      :    12
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 1, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :     n
+#> type        : <int>
+#> values      :    12
 
 p |>
   group_by(NAME_1) |>
   tally()
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1     n
-#>  type        :        <chr> <int>
-#>  values      :     Diekirch     5
-#>                Grevenmacher     3
-#>                  Luxembourg     4
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     n
+#> type        :        <chr> <int>
+#> values      :     Diekirch     5
+#>               Grevenmacher     3
+#>                 Luxembourg     4
 
 # Dissolve geometries by default
 

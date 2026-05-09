@@ -315,15 +315,15 @@
 <span><span class="va">temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">f</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">temp</span></span>
-<span><span class="co">#&gt; class       : SpatRaster </span></span>
+<span><span class="co">#&gt; class       : SpatRaster</span></span>
 <span><span class="co">#&gt; size        : 87, 118, 3  (nrow, ncol, nlyr)</span></span>
 <span><span class="co">#&gt; resolution  : 3881.255, 3881.255  (x, y)</span></span>
 <span><span class="co">#&gt; extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : World_Robinson (ESRI:54030) </span></span>
-<span><span class="co">#&gt; source      : cyl_temp.tif </span></span>
-<span><span class="co">#&gt; names       :   tavg_04,   tavg_05,  tavg_06 </span></span>
-<span><span class="co">#&gt; min values  :  1.885463,  5.817587, 10.46338 </span></span>
-<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.11378</span></span>
+<span><span class="co">#&gt; coord. ref. : World_Robinson</span></span>
+<span><span class="co">#&gt; source      : cyl_temp.tif</span></span>
+<span><span class="co">#&gt; names       :   tavg_04,   tavg_05,   tavg_06</span></span>
+<span><span class="co">#&gt; min values  :  1.885463,  5.817587, 10.463377</span></span>
+<span><span class="co">#&gt; max values  : 13.283829, 16.740898, 21.113781</span></span>
 <span></span>
 <span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="va">temp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -333,15 +333,15 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>difference <span class="op">=</span> <span class="va">newcol</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mod</span></span>
-<span><span class="co">#&gt; class       : SpatRaster </span></span>
+<span><span class="co">#&gt; class       : SpatRaster</span></span>
 <span><span class="co">#&gt; size        : 87, 118, 3  (nrow, ncol, nlyr)</span></span>
 <span><span class="co">#&gt; resolution  : 3881.255, 3881.255  (x, y)</span></span>
 <span><span class="co">#&gt; extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : World_Robinson (ESRI:54030) </span></span>
+<span><span class="co">#&gt; coord. ref. : World_Robinson</span></span>
 <span><span class="co">#&gt; source(s)   : memory</span></span>
-<span><span class="co">#&gt; names       : difference,   tavg_05,  tavg_06 </span></span>
-<span><span class="co">#&gt; min values  :   2.817647,  5.817587, 10.46338 </span></span>
-<span><span class="co">#&gt; max values  :   5.307511, 16.740898, 21.11378</span></span></code></pre></div>
+<span><span class="co">#&gt; names       : difference,   tavg_05,   tavg_06</span></span>
+<span><span class="co">#&gt; min values  :   2.817647,  5.817587, 10.463377</span></span>
+<span><span class="co">#&gt; max values  :   5.307511, 16.740898, 21.113781</span></span></code></pre></div>
 <p>In this example we:</p>
 <ul>
 <li>Removed the first layer (<code>tavg_04</code>).</li>
@@ -372,16 +372,16 @@
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Arrange</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">gr</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 3, 4  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span></span>
-<span><span class="co">#&gt;  names       :          gr     n   tot_pop mean_area</span></span>
-<span><span class="co">#&gt;  type        :      &lt;fact&gt; &lt;int&gt;     &lt;num&gt;     &lt;num&gt;</span></span>
-<span><span class="co">#&gt;  values      :   (147,183]     2 3.594e+05       244</span></span>
-<span><span class="co">#&gt;                (40.7,76.1]     1 4.819e+04       185</span></span>
-<span><span class="co">#&gt;                (4.99,40.7]     9 1.944e+05     209.8</span></span></code></pre></div>
+<span><span class="co">#&gt; class       : SpatVector</span></span>
+<span><span class="co">#&gt; geometry    : polygons</span></span>
+<span><span class="co">#&gt; dimensions  : 3, 4  (geometries, attributes)</span></span>
+<span><span class="co">#&gt; extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : lon/lat WGS 84 (EPSG:4326)</span></span>
+<span><span class="co">#&gt; names       :          gr     n tot_pop mean_area</span></span>
+<span><span class="co">#&gt; type        :      &lt;fact&gt; &lt;int&gt;   &lt;num&gt;     &lt;num&gt;</span></span>
+<span><span class="co">#&gt; values      :   (147,183]     2  359427       244</span></span>
+<span><span class="co">#&gt;               (40.7,76.1]     1   48187       185</span></span>
+<span><span class="co">#&gt;               (4.99,40.7]     9  194391   209.778</span></span></code></pre></div>
 <p>As with <code>SpatRaster</code>, essential properties such as geometry and CRS are preserved during these operations.</p>
 </section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with ggplot2<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
@@ -462,15 +462,15 @@ A map combining a RGB SpatRaster and a SpatVector
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">asia</span></span>
-<span><span class="co">#&gt; class       : SpatRaster </span></span>
+<span><span class="co">#&gt; class       : SpatRaster</span></span>
 <span><span class="co">#&gt; size        : 164, 306, 1  (nrow, ncol, nlyr)</span></span>
 <span><span class="co">#&gt; resolution  : 31836.23, 31847.57  (x, y)</span></span>
-<span><span class="co">#&gt; extent      : 7619120, 17361007, -1304745, 3918256  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) </span></span>
-<span><span class="co">#&gt; source      : asia.tif </span></span>
-<span><span class="co">#&gt; name        : file44bc291153f2 </span></span>
-<span><span class="co">#&gt; min value   :        -9558.468 </span></span>
-<span><span class="co">#&gt; max value   :         5801.927</span></span>
+<span><span class="co">#&gt; extent      : 7619120, 1.736101e+07, -1304745, 3918256  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)</span></span>
+<span><span class="co">#&gt; source      : asia.tif</span></span>
+<span><span class="co">#&gt; name        : file44bc291153f2</span></span>
+<span><span class="co">#&gt; min value   :     -9558.467773</span></span>
+<span><span class="co">#&gt; max value   :      5801.927246</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">asia</span><span class="op">)</span> <span class="op">+</span></span>

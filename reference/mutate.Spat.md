@@ -186,15 +186,15 @@ mod <- spatrast |>
   select(tavg_04, exp_lyr1)
 
 mod
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 87, 118, 2  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
+#> coord. ref. : World_Robinson
 #> source(s)   : memory
-#> names       :   tavg_04, exp_lyr1 
-#> min values  :  1.885463, 1.207493 
-#> max values  : 13.283829, 3.774934 
+#> names       :   tavg_04, exp_lyr1
+#> min values  :  1.885463, 1.207493
+#> max values  : 13.283829, 3.774934
 plot(mod)
 
 
@@ -205,15 +205,16 @@ v <- vect(f)
 v |>
   mutate(cpro2 = paste0(cpro, "-CyL")) |>
   select(cpro, cpro2)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 2  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro  cpro2
-#>  type        : <chr>  <chr>
-#>  values      :    05 05-CyL
-#>                   09 09-CyL
-#>                   24 24-CyL
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro  cpro2
+#> type        : <chr>  <chr>
+#> values      :    05 05-CyL
+#>                  09 09-CyL
+#>                  24 24-CyL
+#>               ...
 ```

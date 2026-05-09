@@ -169,17 +169,18 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># grouping doesn't change how the SpatVector looks</span></span></span>
 <span class="r-in"><span><span class="va">by_name1</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 12, 6  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : lux.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;     &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     2 Diekirch   218 3.254e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     3  Redange   259 1.866e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 12, 6  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : lux.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     1 Diekirch     1 Clervaux   312 18081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   1 Diekirch     2 Diekirch   218 32543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   1 Diekirch     3  Redange   259 18664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># But add metadata for grouping: See the coercion to tibble</span></span></span>
 <span class="r-in"><span></span></span>
@@ -213,32 +214,33 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span>  pop <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">POP</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 3, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :       NAME_1       pop  area</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :        &lt;chr&gt;     &lt;num&gt; &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     Diekirch 1.824e+04  1128</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Grevenmacher  2.37e+04   527</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  Luxembourg 1.099e+05   906</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :       NAME_1     pop  area</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :        &lt;chr&gt;   &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     Diekirch 18237.2  1128</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Grevenmacher 23697.7   527</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 Luxembourg  109932   906</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Each call to summarise() removes a layer of grouping</span></span></span>
 <span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">NAME_2</span>, <span class="va">NAME_1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">by_name2_name1</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 12, 6  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : lux.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;     &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     2 Diekirch   218 3.254e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    1 Diekirch     3  Redange   259 1.866e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 12, 6  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : lux.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     1 Diekirch     1 Clervaux   312 18081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   1 Diekirch     2 Diekirch   218 32543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   1 Diekirch     3  Redange   259 18664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_data</a></span><span class="op">(</span><span class="va">by_name2_name1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    NAME_2           NAME_1             .rows</span>
@@ -258,16 +260,17 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">by_name2</span> <span class="op">&lt;-</span> <span class="va">by_name2_name1</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">by_name2</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 12, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :   NAME_2     NAME_1     n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :    &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : Capellen Luxembourg     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Clervaux   Diekirch     1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Diekirch   Diekirch     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 12, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :   NAME_2     NAME_1     n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :    &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : Capellen Luxembourg     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Clervaux   Diekirch     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Diekirch   Diekirch     1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_data</a></span><span class="op">(</span><span class="va">by_name2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 12 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    NAME_2                 .rows</span>
@@ -289,14 +292,14 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span><span class="va">by_name2</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 1, 1  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :     n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;int&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :    12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 1, 1  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :     n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;int&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :    12</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># By default, group_by() overrides existing grouping</span></span></span>
 <span class="r-in"><span><span class="va">by_name2_name1</span> <span class="op">|&gt;</span></span></span>
@@ -315,17 +318,18 @@ attribute. Use <code><a href="https://dplyr.tidyverse.org/reference/group_by.htm
 <span class="r-in"><span><span class="va">p</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span>ID_COMB <span class="op">=</span> <span class="va">ID_1</span> <span class="op">*</span> <span class="fl">100</span> <span class="op">/</span> <span class="va">ID_2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">ID_COMB</span>, .before <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 12, 7  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : lux.shp</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : lon/lat WGS 84 (EPSG:4326) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA       POP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        :   &lt;num&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;     &lt;num&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      :     100     1 Diekirch     1 Clervaux   312 1.808e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     50     1 Diekirch     2 Diekirch   218 3.254e+04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  33.33     1 Diekirch     3  Redange   259 1.866e+04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 12, 7  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : lux.shp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : lon/lat WGS 84 (EPSG:4326)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA   POP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        :   &lt;num&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt;    &lt;chr&gt; &lt;num&gt; &lt;num&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      :     100     1 Diekirch     1 Clervaux   312 18081</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    50     1 Diekirch     2 Diekirch   218 32543</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               33.3333     1 Diekirch     3  Redange   259 18664</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

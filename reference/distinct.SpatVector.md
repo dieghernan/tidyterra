@@ -94,16 +94,17 @@ v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 # All duplicates
 ex1 <- distinct(v)
 ex1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 34, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
-#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
-#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
-#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
-#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 34, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr
+#> type        : <num>        <chr> <num>      <chr> <num> <num> <chr>
+#> values      :     1     Diekirch     5      Wiltz   263 16735     A
+#>                   2 Grevenmacher     6 Echternach   188 18899     C
+#>                   3   Luxembourg     8   Capellen   185 48187     A
+#>               ...
 
 nrow(ex1)
 #> [1] 34
@@ -111,32 +112,32 @@ nrow(ex1)
 # Duplicates by NAME_1
 ex2 <- distinct(v, gr)
 ex2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :    gr
-#>  type        : <chr>
-#>  values      :     A
-#>                    C
-#>                    B
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :    gr
+#> type        : <chr>
+#> values      :     A
+#>                   C
+#>                   B
 nrow(ex2)
 #> [1] 3
 
 # Same but keeping all cols
 ex2b <- distinct(v, gr, .keep_all = TRUE)
 ex2b
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA       POP
-#>  type        : <chr> <num>        <chr> <num>      <chr> <num>     <num>
-#>  values      :     A     1     Diekirch     5      Wiltz   263 1.674e+04
-#>                    C     2 Grevenmacher     6 Echternach   188  1.89e+04
-#>                    B     1     Diekirch     1   Clervaux   312 1.808e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA   POP
+#> type        : <chr> <num>        <chr> <num>      <chr> <num> <num>
+#> values      :     A     1     Diekirch     5      Wiltz   263 16735
+#>                   C     2 Grevenmacher     6 Echternach   188 18899
+#>                   B     1     Diekirch     1   Clervaux   312 18081
 nrow(ex2b)
 #> [1] 3
 
@@ -144,31 +145,32 @@ nrow(ex2b)
 ex3 <- distinct(v, geometry)
 
 ex3
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 0  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 0  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 nrow(ex3)
 #> [1] 12
 # Same as terra::unique()
 terra::unique(ex3)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 0  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 0  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 
 # Unique keeping info
 distinct(v, geometry, .keep_all = TRUE)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
-#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
-#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
-#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
-#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr
+#> type        : <num>        <chr> <num>      <chr> <num> <num> <chr>
+#> values      :     1     Diekirch     5      Wiltz   263 16735     A
+#>                   2 Grevenmacher     6 Echternach   188 18899     C
+#>                   3   Luxembourg     8   Capellen   185 48187     A
+#>               ...
 ```

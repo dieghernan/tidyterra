@@ -110,16 +110,17 @@ v <- vect(matrix(1:80, ncol = 2), crs = "EPSG:3857")
 v$cat <- sample(LETTERS[1:4], size = nrow(v), replace = TRUE)
 
 v
-#>  class       : SpatVector 
-#>  geometry    : points 
-#>  dimensions  : 40, 1  (geometries, attributes)
-#>  extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
-#>  names       :   cat
-#>  type        : <chr>
-#>  values      :     A
-#>                    C
-#>                    D
+#> class       : SpatVector
+#> geometry    : points
+#> dimensions  : 40, 1  (geometries, attributes)
+#> extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> names       :   cat
+#> type        : <chr>
+#> values      :     A
+#>                   C
+#>                   D
+#>               ...
 
 # Create tibble
 as_tbl <- as_tibble(v, geom = "WKT")
@@ -143,14 +144,15 @@ as_tbl
 # From tibble
 newvect <- as_spatvector(as_tbl, geom = "geometry", crs = "EPSG:3857")
 newvect
-#>  class       : SpatVector 
-#>  geometry    : points 
-#>  dimensions  : 40, 1  (geometries, attributes)
-#>  extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
-#>  names       :   cat
-#>  type        : <chr>
-#>  values      :     A
-#>                    C
-#>                    D
+#> class       : SpatVector
+#> geometry    : points
+#> dimensions  : 40, 1  (geometries, attributes)
+#> extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> names       :   cat
+#> type        : <chr>
+#> values      :     A
+#>                   C
+#>                   D
+#>               ...
 ```

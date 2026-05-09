@@ -206,32 +206,33 @@ conditions.</p>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 9, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  source      : cyl.gpkg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro   name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV    05  Avila</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-LE    24   Leon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> source      : cyl.gpkg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro   name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-AV    05  Avila</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-BU    09 Burgos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-LE    24   Leon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Semi join</span></span></span>
 <span class="r-in"><span><span class="va">semi</span> <span class="op">&lt;-</span> <span class="va">v</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter-joins.html" class="external-link">semi_join</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining with `by = join_by(cpro)`</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">semi</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 2, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro   name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-AV    05  Avila</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-BU    09 Burgos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 2, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro   name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-AV    05  Avila</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-BU    09 Burgos</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">semi</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">iso2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Semi Join"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter-joins.SpatVector-1.png" alt="" width="2188" height="1352"></span>
@@ -242,16 +243,17 @@ conditions.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Joining with `by = join_by(cpro)`</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">anti</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  class       : SpatVector </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  geometry    : polygons </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dimensions  : 7, 3  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  names       :  iso2  cpro      name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  type        : &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  values      : ES-LE    24      Leon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 ES-P    34  Palencia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-SA    37 Salamanca</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 7, 3  (geometries, attributes)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro      name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-LE    24      Leon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-P    34  Palencia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SA    37 Salamanca</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">anti</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">iso2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Anti Join"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter-joins.SpatVector-2.png" alt="" width="2188" height="1352"></span>
