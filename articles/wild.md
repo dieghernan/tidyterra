@@ -27,6 +27,11 @@ A BibTeX entry for LaTeX users is:
 
 ## Publications
 
+Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
+Ríos, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
+Characterization of Lichen Flora in Antarctic Nunataks. *Journal of
+Fungi*, *12*(5). <https://doi.org/10.3390/jof12050314>
+
 Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., & Meyer, B.
 (2025). Mapping encounters between Antarctic krill fishing vessels and
 air-breathing krill predators using acoustic data from the fishery.
@@ -51,7 +56,7 @@ Environmental Letters*, *9*(2), e20146.
 
 Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
 hummingbird-pollinated plant is not strongly influenced by hummingbird
-abundance. *American Journal of Botany*, e70034.
+abundance. *American Journal of Botany*, *112*(5), e70034.
 <https://doi.org/10.1002/ajb2.70034>
 
 Copot, O., & Lõhmus, A. (2026). Assessment of multiple outcomes of
@@ -91,7 +96,7 @@ species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11).
 
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
 (2025). How to Approach the Definition of WUI in Northern Europe. *Fire
-and Materials*. <https://doi.org/10.1002/fam.3264>
+and Materials*, *49*(5), 787–804. <https://doi.org/10.1002/fam.3264>
 
 Fard, P., Hügel, J., Keivabu, R. C., Dominici, F., Zagheni, E., Estiri,
 H., & Patel, C. J. (2025). Developing a Spatiotemporal Repository of
@@ -110,6 +115,10 @@ Risk of Invasion of the Neophyte *Pluchea ovalis* (Pers.) DC.
 (Asteraceae) in the Canarian Archipelago Using an Ensemble of Species
 Distribution Modelling. *Diversity*, *17*(3), 195.
 <https://doi.org/10.3390/d17030195>
+
+Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
+Wind, waves, wing loading and the flight energetics of giant petrels.
+*Functional Ecology*. <https://doi.org/10.1111/1365-2435.70352>
 
 Hattendorf, C., & Lühken, R. (2025a). *Dirofilaria immitis* and *D.
 repens* in Europe: A systematic literature review on vectors, host
@@ -154,7 +163,7 @@ sequestration trade-offs in the Mediterranean. *Sustainability*,
 
 Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
-centuries of collection records. *New Phytologist*, nph.70321.
+centuries of collection records. *New Phytologist*.
 <https://doi.org/10.1111/nph.70321>
 
 Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H.,
@@ -189,7 +198,8 @@ of an endangered songbird. *Movement Ecology*.
 
 Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., & Merow,
 C. (2026). Flexible methods for species distribution modeling with small
-samples. *Ecography*, e08112. <https://doi.org/10.1002/ecog.08112>
+samples. *Ecography*, *2026*(2), e08112.
+<https://doi.org/10.1002/ecog.08112>
 
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
@@ -312,7 +322,7 @@ export crop. *Nature Food*. <https://doi.org/10.1038/s43016-025-01130-1>
 Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The Relationship
 Between Soil Organic Matter Composition and Soil Enzymes Activities in
 Various Land Use Types in the Upper Watershed of Danjiangkou Reservoir
-in China. *Land Degradation & Development*.
+in China. *Land Degradation & Development*, *36*(8), 2557–2570.
 <https://doi.org/10.1002/ldr.5516>
 
 Wieczorkowski, J. D., Rajaovelona, L. R., Hermans, J., Stévart, T.,
