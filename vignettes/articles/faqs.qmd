@@ -176,8 +176,8 @@ ggplot(r) +
 ### Other alternatives
 
 With `fortify.SpatRaster()`, you can use your `SpatRaster` directly with the
-**metR** package (see [Hexagonal grids and other geoms](#fort)). Use
-`bins`, `binwidth` or `breaks` to align both labels and lines:
+**metR** package (see [Hexagonal grids and other geoms](#fort)). Use `bins`,
+`binwidth` or `breaks` to align both labels and lines:
 
 ```{r}
 #| label: fig-metr
@@ -413,10 +413,7 @@ ggplot() +
 
 ## Modify the number of axis breaks {#axis-breaks}
 
-This is a long-standing issue in **ggplot2** with no satisfactory solution so
-far. Please see
-[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622) (and
-consider contributing if you have insights). You can try the following approach:
+Of course. Use the **scales** package:
 
 ```{r}
 #| label: fig-breaks
@@ -425,9 +422,7 @@ consider contributing if you have insights). You can try the following approach:
 #| fig-cap: Spatial axis breaks with ggplot2
 #| fig-subcap:
 #|   - "Default axis breaks."
-#|   - "Custom-defined breaks."
-
-packageVersion("ggplot2")
+#|   - "Breaks modified using the scales package."
 
 library(terra)
 library(tidyterra)
@@ -443,20 +438,11 @@ ggplot() +
   labs(title = "Default axis breaks")
 
 # Modify breaks on x and y
-
-# FIXME: This must be transformed to EPSG:4326, but the reason needs review.
-extent <- r |>
-  project("EPSG:4326") |>
-  ext() |>
-  as.vector()
-y_br <- pretty(c(extent[c("ymin", "ymax")]), n = 3)
-x_br <- pretty(c(extent[c("xmin", "xmax")]), n = 3)
-
 ggplot() +
   geom_spatraster(data = r) +
-  scale_y_continuous(breaks = y_br) +
-  scale_x_continuous(breaks = x_br) +
-  labs(title = "Three breaks on x and y axes")
+  scale_y_continuous(breaks = scales::breaks_pretty(n = 5)) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 5)) +
+  labs(title = "Three breaks on x and y axes with scales::breaks_pretty()")
 ```
 
 ## Plotting a `SpatRaster` with color tables
@@ -771,8 +757,7 @@ ggplot(r, aes(x, y, z = elevation)) +
 ```
 
 Note that you do not need to call `fortify.SpatRaster()` directly because
-**ggplot2** invokes it implicitly when you use
-`ggplot(data = a_spatraster)`.
+**ggplot2** invokes it implicitly when you use `ggplot(data = a_spatraster)`.
 
 Thanks to this extension mechanism, you can use additional `geoms` and `stats`
 from **ggplot2**:
