@@ -2,7 +2,7 @@
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and their answers, primarily focused on
+using the **tidyterra** package and their answers, primarily focusing on
 the integration of **terra** and **ggplot2**. You can ask for help or
 search previous questions using the following links.
 
@@ -10,7 +10,7 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
-- Report a Bug
+- Report a bug
   \[[link](https://github.com/dieghernan/tidyterra/issues)\].
 - Ask a question
   \[[link](https://github.com/dieghernan/tidyterra/discussions)\].
@@ -40,7 +40,7 @@ The original file has been cropped and down-sampled for demo purposes.
 `holyroodpark.tif` is available online in the `data-raw` folder at
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
-## `NA` values are shown in gray color
+## `NA` values are shown in gray
 
 This is the default behavior of **ggplot2**. **tidyterra** color scales
 (i.e.,
@@ -54,7 +54,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-# Get a raster data from Holyrood Park, Edinburgh
+# Get raster data from Holyrood Park, Edinburgh.
 holyrood <- "holyroodpark.tif"
 
 r <- holyrood |>
@@ -67,15 +67,15 @@ def <- ggplot() +
 
 def +
   labs(
-    title = "Default on ggplot2",
-    subtitle = "NA values in grey"
+    title = "Default in ggplot2",
+    subtitle = "NA values in gray"
   )
 
 # Modify with scales
 def +
   scale_fill_continuous(na.value = "transparent") +
   labs(
-    title = "Default colors on ggplot2",
+    title = "Default colors in ggplot2",
     subtitle = "But NAs are not plotted"
   )
 
@@ -83,7 +83,7 @@ def +
 def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
-    title = "Use any fill_* scale of ggplot2",
+    title = "Use any ggplot2 fill scale",
     subtitle = "Note that na.value = 'orange'"
   )
 ```
@@ -100,7 +100,7 @@ def +
 
 \(c\) NA values mapped with another color.
 
-Figure 1: NA values on ggplot2
+Figure 1: NA values in ggplot2
 
 ## Labeling contours
 
@@ -124,16 +124,16 @@ ggplot() +
 
 # With options and aes
 
-# Use a labeller function so only selected breaks are labelled
+# Use a labeler function so only selected breaks are labeled.
 labeller <- function(labs) {
-  # Must return a function
+  # Must return a function.
   function(x) {
     x[!x %in% labs] <- NA
     scales::label_comma(suffix = " m.")(x)
   }
 }
 
-# Common labels across ggplot
+# Common labels across ggplot.
 
 labs <- c(100, 140, 180, 220)
 
@@ -146,7 +146,7 @@ ggplot(r) +
       color = after_stat(level)
     ),
     breaks = seq(100, 250, 10),
-    # Just label some isolines
+    # Label selected isolines.
     label_format = labeller(labs = labs),
     family = "mono",
     fontface = "bold"
@@ -175,17 +175,17 @@ ggplot(r) +
 
 ![](faqs_files/figure-html/fig-textcontour-2.png)
 
-\(b\) Alternative: Labelled contours.
+\(b\) Alternative: labeled contours.
 
 Figure 2: Contour labels with tidyterra
 
 ### Other alternatives
 
-Thanks to
-[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
-you can use your `SpatRaster` straight away with the **metR** package
-(see [Hexagonal grids and other geoms](#fort)). Use the argument(s)
-`bins/binwidth/breaks` to align both labels and lines:
+With
+[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
+you can use your `SpatRaster` directly with the **metR** package (see
+[Hexagonal grids and other geoms](#fort)). Use `bins`, `binwidth` or
+`breaks` to align both labels and lines:
 
 ``` r
 
@@ -193,7 +193,7 @@ library(metR)
 br <- seq(100, 250, 10)
 labs <- c(100, 140, 180, 220)
 
-# Replicate previous map with tidyterra + metR strategy
+# Replicate the previous map with tidyterra and metR.
 ggplot(r, aes(x, y)) +
   geom_spatraster_contour(
     data = r,
@@ -202,7 +202,7 @@ ggplot(r, aes(x, y)) +
       color = after_stat(level)
     ),
     breaks = br,
-    # Don't inherit fortified aes
+    # Do not inherit fortified aesthetics.
     inherit.aes = FALSE
   ) +
   geom_text_contour(
@@ -261,19 +261,19 @@ holyrood <- "holyroodpark.tif"
 
 r <- rast(holyrood)
 
-# Hillshade with grey colors
+# Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
 hill <- shade(slope, aspect, 10, 340)
 
 ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE) +
-  # Note the scale, grey colours
+  # Use a grayscale palette.
   scale_fill_gradientn(
     colours = grey(0:100 / 100),
     na.value = "transparent"
   ) +
-  labs(title = "A hillshade plot with grey colors")
+  labs(title = "A hillshade plot with gray colors")
 ```
 
 ![](faqs_files/figure-html/fig-greys-1.png)
@@ -299,14 +299,13 @@ r <- rast(holyrood)
 p <- ggplot() +
   geom_spatraster(data = r)
 
-
-# Set options
+# Set options.
 tmp <- getOption("ggplot2.continuous.fill") # store current setting
 options(ggplot2.continuous.fill = scale_fill_grass_c)
 
 p
 
-# restore previous setting
+# Restore the previous setting.
 options(ggplot2.continuous.fill = tmp)
 
 p
@@ -340,7 +339,7 @@ library(ggplot2)
 library(sf)
 library(maptiles)
 
-# Get a tile from a point on sf format
+# Get a tile from a point in sf format.
 p <- st_point(c(-3.166011, 55.945235)) |>
   st_sfc(crs = 4326) |>
   st_buffer(500)
@@ -361,11 +360,10 @@ ggplot() +
 st_crs(tile1)$epsg
 #> [1] 4326
 
-# The tile was in EPSG 4326
+# The tile was in EPSG:4326.
 
-# get tile in 3857
+# Get the tile in EPSG:3857.
 p2 <- st_transform(p, 3857)
-
 
 tile2 <- get_tiles(
   p2,
@@ -378,11 +376,11 @@ tile2 <- get_tiles(
 st_crs(tile2)$epsg
 #> [1] 3857
 
-# Now the tile is EPSG:3857
+# Now the tile is EPSG:3857.
 
 ggplot() +
   geom_spatraster_rgb(data = tile2, maxcell = Inf) +
-  # Force crs to be 3857
+  # Force the CRS to EPSG:3857.
   coord_sf(crs = 3857) +
   labs(title = "CRS EPSG:3857") +
   theme_void()
@@ -398,7 +396,7 @@ ggplot() +
 
 Figure 6: Example of impact of resampling on blurriness of the tile
 
-## Avoid degrees labeling on axis
+## Avoid degree labels on axes
 
 This is a **ggplot2** default behavior, but you can modify it using the
 `ggplot2::coord_sf(datum)` argument:
@@ -421,14 +419,13 @@ ggplot() +
     subtitle = paste("But SpatRaster is EPSG:", st_crs(r)$epsg)
   )
 
-
-# Use datum
+# Use datum.
 
 ggplot() +
   geom_spatraster(data = r) +
   coord_sf(datum = pull_crs(r)) +
   labs(
-    title = "Axis on the units of the SpatRaster",
+    title = "Axis in the units of the SpatRaster",
     subtitle = paste("EPSG:", st_crs(r)$epsg)
   )
 ```
@@ -441,9 +438,9 @@ ggplot() +
 
 \(b\) Native coordinate system units.
 
-Figure 7: Degree labelling with ggplot2
+Figure 7: Degree labels with ggplot2
 
-## Modifying the number of breaks on axis
+## Modify the number of axis breaks
 
 This is a long-standing issue in **ggplot2** with no satisfactory
 solution so far. Please see
@@ -471,7 +468,7 @@ ggplot() +
 
 # Modify breaks on x and y
 
-# Need to be in EPSG:4326, but don't know why...
+# FIXME: This must be transformed to EPSG:4326, but the reason needs review.
 extent <- r |>
   project("EPSG:4326") |>
   ext() |>
@@ -479,12 +476,11 @@ extent <- r |>
 y_br <- pretty(c(extent[c("ymin", "ymax")]), n = 3)
 x_br <- pretty(c(extent[c("xmin", "xmax")]), n = 3)
 
-
 ggplot() +
   geom_spatraster(data = r) +
   scale_y_continuous(breaks = y_br) +
   scale_x_continuous(breaks = x_br) +
-  labs(title = "Three breaks in x and y axis")
+  labs(title = "Three breaks on x and y axes")
 ```
 
 ![](faqs_files/figure-html/fig-breaks-1.png)
@@ -517,7 +513,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 
-# Get a SpatRaster with coltab
+# Get a SpatRaster with a color table.
 r_coltab <- rast("clc_edinburgh.tif")
 
 has.colors(r_coltab)
@@ -536,26 +532,26 @@ r_coltab
 #> min value   : Continuous urban fabric
 #> max value   :           Sea and ocean
 
-# Native handling by terra packages
+# Native handling by the terra package.
 plot(r_coltab, legend = FALSE)
 ```
 
 ![](faqs_files/figure-html/fig-coltab-1.png)
 
-Figure 9: Color tables: Native plot with terra package
+Figure 9: Color tables: native plot with terra package
 
 ``` r
 
-# a. autoplot
+# Autoplot method.
 autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
   labs(title = "autoplot method")
 
-# b. geom_spatraster
+# geom_spatraster method.
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
   labs(title = "geom_spatraster method")
 
-# c. Using scale_fill_coltab
+# scale_fill_coltab method.
 ggplot() +
   geom_spatraster(
     data = r_coltab,
@@ -566,7 +562,7 @@ ggplot() +
   scale_fill_coltab(data = r_coltab) +
   labs(title = "scale_fill_coltab method")
 
-# d. Extract named colors and scale_fill_manual
+# Extract named colors and use scale_fill_manual().
 cols <- get_coltab_pal(r_coltab)
 
 cols |> head()
@@ -583,7 +579,7 @@ cols |> head()
 #>                                   Airports 
 #>                                  "#E6CCE6"
 
-# And now
+# Use the extracted colors.
 ggplot() +
   geom_spatraster(
     data = r_coltab,
@@ -601,19 +597,19 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-tidyterra-1.png)
 
-\(a\) autoplot method
+\(a\) autoplot method.
 
 ![](faqs_files/figure-html/fig-tidyterra-2.png)
 
-\(b\) geom_spatraster method
+\(b\) geom_spatraster method.
 
 ![](faqs_files/figure-html/fig-tidyterra-3.png)
 
-\(c\) scale_fill_coltab method
+\(c\) scale_fill_coltab method.
 
 ![](faqs_files/figure-html/fig-tidyterra-4.png)
 
-\(d\) named colors and scale_fill_manual method
+\(d\) named colors and scale_fill_manual method.
 
 Figure 10: Color tables: tidyterra package
 
@@ -632,7 +628,6 @@ library(ggplot2)
 temp <- worldclim_country("che", "tavg", path = ".")
 
 che_cont <- gadm("che", level = 0, path = ".")
-
 
 temp_m <- crop(temp, che_cont, mask = TRUE)
 names(temp_m) <- month.name
@@ -718,12 +713,11 @@ library(sf)
 library(maptiles)
 library(geodata)
 
-
-# Area of interest
+# Area of interest.
 aoi <- gadm(country = "CHE", path = ".", level = 0) |>
   project("EPSG:3857")
 
-# Tile
+# Tile.
 rgb_tile <- get_tiles(
   aoi,
   crop = TRUE,
@@ -733,13 +727,13 @@ rgb_tile <- get_tiles(
   cachedir = "."
 )
 
-# Clim (mean prec)
+# Climate data (mean precipitation).
 clim <- worldclim_country("CHE", var = "prec", path = ".") |>
   project(rgb_tile) |>
   mask(aoi) |>
   terra::mean()
 
-# Labels
+# Labels.
 cap_lab <- paste0(
   c(
     "Tiles © Esri - Source: Esri",
@@ -777,7 +771,7 @@ You can create variations with binned legends and filled contours using
 
 ``` r
 
-# Binned
+# Binned legend.
 ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
   geom_spatraster(data = clim) +
@@ -796,7 +790,7 @@ ggplot(aoi) +
     caption = cap_lab
   )
 
-# Filled contour
+# Filled contour.
 ggplot(aoi) +
   geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
   geom_spatraster_contour_filled(data = clim, bins = 4) +
@@ -845,13 +839,13 @@ holyrood <- "holyroodpark.tif"
 
 r <- rast(holyrood)
 
-# With hex grid
+# With a hexagonal grid.
 ggplot(r, aes(x, y, z = elevation)) +
   stat_summary_hex(
     fun = mean,
     color = NA,
     linewidth = 0,
-    # Bins size determines the number of cells displayed
+    # Bin size determines the number of cells displayed.
     bins = 30
   ) +
   coord_sf(crs = pull_crs(r)) +
@@ -870,7 +864,7 @@ cells.
 
 Note that you do not need to call
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
-directly; **ggplot2** invokes it implicitly when you use
+directly because **ggplot2** invokes it implicitly when you use
 `ggplot(data = a_spatraster)`.
 
 Thanks to this extension mechanism, you can use additional `geoms` and
@@ -878,7 +872,7 @@ Thanks to this extension mechanism, you can use additional `geoms` and
 
 ``` r
 
-# Point plot
+# Point plot.
 ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   geom_point(
     aes(size = elevation, alpha = elevation),
@@ -911,7 +905,7 @@ create rich, complex plots.
 
 ``` r
 
-# load libraries and files
+# Load libraries and files.
 library(terra)
 library(tidyterra)
 library(ggplot2)

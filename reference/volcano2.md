@@ -31,8 +31,8 @@ Information needed for regenerating the original `SpatRaster` file:
 
 - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
 
-- coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
-  (`EPSG:2193`)
+- Coordinate reference system: NZGD2000 / New Zealand Transverse
+  Mercator 2000 (`EPSG:2193`)
 
 ## See also
 

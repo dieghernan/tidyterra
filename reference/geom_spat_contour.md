@@ -174,11 +174,11 @@ geom_spatraster_contour_filled(
 
   One of:
 
-  - `NULL` for no labels. This produced the same result as
+  - `NULL` for no labels. This produces the same result as
     `geom_spatraster_contour()`.
 
-  - A character vector giving labels (must be same length as the breaks
-    produced by `bins`, `binwidth`, or `breaks`).
+  - A character vector giving labels (must have the same length as the
+    breaks produced by `bins`, `binwidth`, or `breaks`).
 
   - A function that takes the breaks as input and returns labels as
     output, as the default setup

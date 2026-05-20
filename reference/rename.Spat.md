@@ -2,7 +2,7 @@
 
 [`rename()`](https://dplyr.tidyverse.org/reference/rename.html) changes
 the names of individual layers/attributes using `new_name = old_name`
-syntax;
+syntax.
 [`rename_with()`](https://dplyr.tidyverse.org/reference/rename.html)
 renames layers/attributes using a function.
 

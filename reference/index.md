@@ -245,7 +245,7 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 
 ### Scales
 
-Gradient colour schemes, palettes and hypsometric tints.
+Gradient color schemes, palettes and hypsometric tints.
 
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md)
   [`scale_colour_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md)
@@ -365,13 +365,13 @@ implemented for `Spat*` objects.
 
 ## Helpers
 
-Additional set of functions provided by
+Additional functions provided by
 [tidyterra](https://CRAN.R-project.org/package=tidyterra).
 
 ### Coercing objects
 
-Convert Spat\* to other type of objects or create `SpatRasters` from
-tibbles.
+Convert `Spat*` objects to other object types or create `SpatRaster`
+objects from tibbles.
 
 - [`as_coordinates()`](https://dieghernan.github.io/tidyterra/reference/as_coordinates.md)
   :
@@ -429,7 +429,7 @@ tibbles.
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
   : Extract CRS on WKT format
 
-## Built in data
+## Built-in data
 
 - [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md)
   : Cross-blended hypsometric tints

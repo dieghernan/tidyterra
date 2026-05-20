@@ -2,7 +2,7 @@
 
 [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 creates a new `SpatVector`. It returns one geometry for each combination
-of grouping variables; if there are no grouping variables, the output
+of grouping variables. If there are no grouping variables, the output
 will have a single geometry summarising all observations in the input
 and combining all the geometries of the `SpatVector`. It will contain
 one column for each grouping variable and one column for each of the

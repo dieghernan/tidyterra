@@ -33,7 +33,7 @@ relocate(.data, ..., .before = NULL, .after = NULL)
 
   \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
   Destination of layers/attributes selected by `...`. Supplying neither
-  will move layers/attributes to the left-hand side; specifying both is
+  will move layers/attributes to the left-hand side. Specifying both is
   an error.
 
 ## Value

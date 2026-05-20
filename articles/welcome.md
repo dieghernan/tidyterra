@@ -2,7 +2,7 @@
 
 ## The tidyterra package
 
-**tidyterra** adds common tidyverse methods for `SpatRaster` and
+**tidyterra** adds common **tidyverse** methods for `SpatRaster` and
 `SpatVector` objects from the
 [**terra**](https://CRAN.R-project.org/package=terra) package, and
 provides `geom_spat*()` geoms for plotting these objects with
@@ -12,13 +12,13 @@ provides `geom_spat*()` geoms for plotting these objects with
 
 `Spat*` objects differ from regular data frames: they are S4 objects
 with their own syntax and computational methods (implemented in
-**terra**). By providing tidyverse verbs—especially **dplyr** and
-**tidyr** methods—**tidyterra** lets users manipulate `Spat*` objects in
-a style similar to working with tabular data.
+**terra**). By providing **tidyverse** verbs, especially **dplyr** and
+**tidyr** methods, **tidyterra** lets users manipulate `Spat*` objects
+in a style similar to working with tabular data.
 
-Note: **terra** is generally faster. Learning some **terra** syntax is
-recommended because **tidyterra** functions call, where possible, the
-corresponding **terra** equivalents.
+Note that **terra** is generally faster. Learning some **terra** syntax
+is recommended because **tidyterra** functions call the corresponding
+**terra** equivalents when possible.
 
 ## A note for advanced terra users
 
@@ -90,17 +90,12 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 temp
-#> class       : SpatRaster
-#> size        : 87, 118, 3  (nrow, ncol, nlyr)
-#> resolution  : 3881.255, 3881.255  (x, y)
-#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
-#> source      : cyl_temp.tif
-#> names       :   tavg_04,   tavg_05,   tavg_06
-#> min values  :  1.885463,  5.817587, 10.463377
-#> max values  : 13.283829, 16.740898, 21.113781
+#> Error:
+#> ! objeto 'temp' no encontrado
 
 mod <- temp |>
   select(-1) |>
@@ -108,17 +103,12 @@ mod <- temp |>
   relocate(newcol, .before = 1) |>
   replace_na(list(newcol = 3)) |>
   rename(difference = newcol)
+#> Error:
+#> ! objeto 'temp' no encontrado
 
 mod
-#> class       : SpatRaster
-#> size        : 87, 118, 3  (nrow, ncol, nlyr)
-#> resolution  : 3881.255, 3881.255  (x, y)
-#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
-#> source(s)   : memory
-#> names       : difference,   tavg_05,   tavg_06
-#> min values  :   2.817647,  5.817587, 10.463377
-#> max values  :   5.307511, 16.740898, 21.113781
+#> Error:
+#> ! objeto 'mod' no encontrado
 ```
 
 In this example we:
@@ -152,16 +142,16 @@ lux <- system.file("ex/lux.shp", package = "terra")
 v_lux <- vect(lux)
 
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary
+  # Summarize by group.
   summarise(
     n = n(),
     tot_pop = sum(POP),
     mean_area = mean(AREA)
   ) |>
-  # Arrange
+  # Arrange groups.
   arrange(desc(gr))
 #> class       : SpatVector
 #> geometry    : polygons
@@ -191,7 +181,7 @@ and can be reprojected to match other spatial layers.
 
 library(ggplot2)
 
-# A faceted SpatRaster
+# A faceted SpatRaster.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -200,18 +190,18 @@ ggplot() +
     palette = "muted",
     na.value = "white"
   )
+#> Error:
+#> ! objeto 'temp' no encontrado
 ```
-
-![A faceted map using SpatRaster](./fig-faceted-1.png)
-
-A faceted map using SpatRaster
 
 ``` r
 
-# Contour lines for a specific layer
+# Contour lines for a specific layer.
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 ggplot() +
   geom_spatraster(data = volcano2) +
@@ -219,50 +209,52 @@ ggplot() +
   scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
+#> Error in `geom_spatraster()`:
+#> ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not
+#>   <matrix/array>. See `?terra::vect()`
 ```
-
-![Contour lines plot for a SpatRaster](./fig-contourlines-1.png)
-
-Contour lines plot for a SpatRaster
 
 ``` r
 
-# Contour filled
+# Filled contours.
 
 ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
   scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
+#> Error in `geom_spatraster_contour_filled()`:
+#> ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects,
+#>   not <matrix/array>. See `?terra::vect()`
 ```
-
-![Contour filled plot for a SpatRaster](./fig-contourfilled-1.png)
-
-Contour filled plot for a SpatRaster
 
 tidyterra also supports RGB `SpatRasters` for imagery:
 
 ``` r
 
-# Read a vector
+# Read a vector.
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
+#> Error:
+#> ! [vect] file does not exist:
 
-# Read a tile
+# Read a tile.
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 rgb_plot <- ggplot(v) +
   geom_spatraster_rgb(data = r_rgb) +
   geom_spatvector(fill = NA, size = 1)
+#> Error:
+#> ! objeto 'v' no encontrado
 
 rgb_plot
+#> Error:
+#> ! objeto 'rgb_plot' no encontrado
 ```
-
-![A map combining a RGB SpatRaster and a SpatVector](./fig-rgb-1.png)
-
-A map combining a RGB SpatRaster and a SpatVector
 
 **tidyterra** includes color scales suitable for hypsometric and
 bathymetric maps:
@@ -270,17 +262,12 @@ bathymetric maps:
 ``` r
 
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
 asia
-#> class       : SpatRaster
-#> size        : 164, 306, 1  (nrow, ncol, nlyr)
-#> resolution  : 31836.23, 31847.57  (x, y)
-#> extent      : 7619120, 1.736101e+07, -1304745, 3918256  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
-#> source      : asia.tif
-#> name        : file44bc291153f2
-#> min value   :     -9558.467773
-#> max value   :      5801.927246
+#> Error:
+#> ! objeto 'asia' no encontrado
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -302,11 +289,9 @@ ggplot() +
     legend.ticks = element_line(colour = "black", linewidth = 0.3),
     legend.direction = "horizontal"
   )
+#> Error:
+#> ! objeto 'asia' no encontrado
 ```
-
-![Map of Asia including hypsometric tints](./fig-hypso-1.png)
-
-Map of Asia including hypsometric tints
 
 ### `SpatVectors`
 
@@ -344,10 +329,10 @@ You can also aggregate `SpatVectors` easily:
 
 # Dissolving
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary
+  # Summarize by group.
   summarise(
     n = n(),
     tot_pop = sum(POP),
@@ -366,12 +351,12 @@ Dissolving SpatVectors by group
 ``` r
 
 
-# Same but keeping internal boundaries
+# Repeat while keeping internal boundaries.
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary without dissolving
+  # Summarize by group without dissolving.
   summarise(
     n = n(),
     tot_pop = sum(POP),

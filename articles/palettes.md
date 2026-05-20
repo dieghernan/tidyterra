@@ -15,7 +15,7 @@ r <- rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
 
 ggplot() +
   geom_spatraster(data = r) +
-  # Use the palette you like, in this case:
+  # Use the selected palette.
   scale_fill_hypso_c() +
   theme_void()
 ```

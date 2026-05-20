@@ -29,4 +29,4 @@
 - [tidyterra
   FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.md):
 
-  Frequently Asked Questions on the use of tidyterra.
+  Frequently asked questions about using tidyterra.

@@ -76,7 +76,7 @@ r
 required_pkgs(r)
 #> [1] "terra"
 
-#  With vectors
+# With vectors
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 v
 #> class       : SpatVector
