@@ -442,16 +442,9 @@ Figure 7: Degree labels with ggplot2
 
 ## Modify the number of axis breaks
 
-This is a long-standing issue in **ggplot2** with no satisfactory
-solution so far. Please see
-[ggplot2/issues/4622](https://github.com/tidyverse/ggplot2/issues/4622)
-(and consider contributing if you have insights). You can try the
-following approach:
+Of course. Use the **scales** package:
 
 ``` r
-
-packageVersion("ggplot2")
-#> [1] '4.0.3'
 
 library(terra)
 library(tidyterra)
@@ -467,20 +460,11 @@ ggplot() +
   labs(title = "Default axis breaks")
 
 # Modify breaks on x and y
-
-# FIXME: This must be transformed to EPSG:4326, but the reason needs review.
-extent <- r |>
-  project("EPSG:4326") |>
-  ext() |>
-  as.vector()
-y_br <- pretty(c(extent[c("ymin", "ymax")]), n = 3)
-x_br <- pretty(c(extent[c("xmin", "xmax")]), n = 3)
-
 ggplot() +
   geom_spatraster(data = r) +
-  scale_y_continuous(breaks = y_br) +
-  scale_x_continuous(breaks = x_br) +
-  labs(title = "Three breaks on x and y axes")
+  scale_y_continuous(breaks = scales::breaks_pretty(n = 5)) +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 5)) +
+  labs(title = "Three breaks on x and y axes with scales::breaks_pretty()")
 ```
 
 ![](faqs_files/figure-html/fig-breaks-1.png)
@@ -489,7 +473,7 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-breaks-2.png)
 
-\(b\) Custom-defined breaks.
+\(b\) Breaks modified using the scales package.
 
 Figure 8: Spatial axis breaks with ggplot2
 
