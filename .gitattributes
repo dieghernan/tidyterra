@@ -1,0 +1,55 @@
+* text=auto eol=lf
+
+# R package metadata and scripts
+*.R text eol=lf
+*.Rd text eol=lf
+*.Rmd text eol=lf
+*.qmd text eol=lf
+*.Rproj text eol=lf
+DESCRIPTION text eol=lf
+NAMESPACE text eol=lf
+CITATION text eol=lf
+LICENSE text eol=lf
+
+# Text-based data, docs and config
+*.asc text eol=lf
+*.bib text eol=lf
+*.cff text eol=lf
+*.cpt text eol=lf
+*.csl text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.xml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.svg text eol=lf
+
+# Binary R data
+*.rda binary
+*.RData binary
+*.rds binary
+*.Rds binary
+
+# Binary spatial data
+*.gpkg binary
+*.tif binary
+*.tiff binary
+
+# Images and generated graphics
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.png binary
+*.webp binary
+
+# Archives and compressed artifacts
+*.7z binary
+*.bz2 binary
+*.gz binary
+*.tar binary
+*.xz binary
+*.zip binary
