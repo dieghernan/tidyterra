@@ -28,9 +28,9 @@
 #'
 #' @section Solving issues:
 #'
-#' * On **non-equal CRS**, try [terra::project()].
-#' * On **non-equal extent** try [terra::resample()].
-#' * On **non-equal resolution** you can try [terra::resample()],
+#' - On **non-equal CRS**, try [terra::project()].
+#' - On **non-equal extent** try [terra::resample()].
+#' - On **non-equal resolution** you can try [terra::resample()],
 #'   [terra::aggregate()] or [terra::disagg()].
 #'
 #' @examples

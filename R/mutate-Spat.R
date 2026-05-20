@@ -25,10 +25,10 @@
 #'
 #' \CRANpkg{terra} provides several ways to modify `Spat*` objects:
 #'
-#' * [terra::ifel()].
-#' * [terra::classify()].
-#' * [terra::clamp()].
-#' * [terra::app()], [terra::lapp()], [terra::tapp()].
+#' - [terra::ifel()].
+#' - [terra::classify()].
+#' - [terra::clamp()].
+#' - [terra::app()], [terra::lapp()], [terra::tapp()].
 #'
 #' @family single table verbs
 #' @family dplyr.cols

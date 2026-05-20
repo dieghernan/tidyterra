@@ -4,14 +4,14 @@
 #'
 #' Implementation of the classic color palette [terrain.colors()]:
 #'
-#' * `scale_*_terrain_d()`: For discrete values.
-#' * `scale_*_terrain_c()`: For continuous values.
-#' * `scale_*_terrain_b()`: For binning continuous values.
+#' - `scale_*_terrain_d()`: For discrete values.
+#' - `scale_*_terrain_c()`: For continuous values.
+#' - `scale_*_terrain_b()`: For binning continuous values.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -178,7 +178,6 @@ scale_colour_terrain_c <- function(
   )
 }
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_terrain
@@ -253,13 +252,11 @@ terrain_pal <- function(alpha = 1, direction = 1) {
 #' @usage NULL
 scale_color_terrain_d <- scale_colour_terrain_d
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
 scale_color_terrain_c <- scale_colour_terrain_c
-
 
 #' @export
 #' @encoding UTF-8

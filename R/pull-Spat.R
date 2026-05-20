@@ -26,9 +26,9 @@
 #' @inheritParams dplyr::pull
 #'
 #' @param var A variable specified as:
-#'   * a literal layer/attribute name.
-#'   * a positive integer, giving the position counting from the left.
-#'   * a negative integer, giving the position counting from the right.
+#'   - a literal layer/attribute name.
+#'   - a positive integer, giving the position counting from the left.
+#'   - a negative integer, giving the position counting from the right.
 #'
 #'   The default returns the last layer/attribute (on the assumption that's the
 #'   column you've created most recently).
@@ -67,10 +67,10 @@
 #'
 #' ## `SpatVector`
 #'
-#' When passing `geom = "WKT"/geom = "HEX"` to `...`,  the geometry of the
+#' When passing `geom = "WKT"/geom = "HEX"` to `...`, the geometry of the
 #' `SpatVector` can be pulled passing `var = geometry`. Similarly to
 #' `SpatRaster` method, when using `geom = "XY"` the `x,y` coordinates can be
-#' pulled with `var = x/var = y`. See  [terra::as.data.frame()] options.
+#' pulled with `var = x/var = y`. See [terra::as.data.frame()] options.
 #'
 #' @examples
 #'

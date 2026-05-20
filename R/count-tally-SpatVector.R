@@ -5,7 +5,7 @@
 #' `df |> count(a, b)` is roughly equivalent to
 #' `df |> group_by(a, b) |> summarise(n = n())`. `count()` is paired with
 #' `tally()`, a lower-level helper that is equivalent to
-#' `df |> summarise(n = n())`.  Supply `wt` to perform weighted counts,
+#' `df |> summarise(n = n())`. Supply `wt` to perform weighted counts,
 #' switching the summary from `n = n()` to `n = sum(wt)`.
 #'
 #' `add_count()` is equivalent to `count()` but use [mutate()] instead of
@@ -91,7 +91,7 @@ count.SpatVector <- function(
       when = "1.1.0",
       what = "tidyterra::count.SpatVector(.drop)",
       details = paste0(
-        "Argument not longer supported; empty groups are always removed",
+        "Argument no longer supported. Empty groups are always removed",
         "(see `dplyr::count()`, `.drop = TRUE` argument)."
       )
     )

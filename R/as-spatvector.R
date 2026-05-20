@@ -29,14 +29,14 @@
 #'
 #' This function differs from [terra::vect()] in the following ways:
 #'
-#' * Rows with geometry values `NA` or `""` are removed before conversion.
-#' * If `x` is a grouped data frame (see [dplyr::group_by()]), the grouping
+#' - Rows with geometry values `NA` or `""` are removed before conversion.
+#' - If `x` is a grouped data frame (see [dplyr::group_by()]), the grouping
 #'   variables are transferred and a grouped `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
-#' * If no `crs` is provided and the tibble has been created with the method
+#' - If no `crs` is provided and the tibble has been created with the method
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
-#' * It handles the conversion of `EMPTY` geometries between
+#' - It handles the conversion of `EMPTY` geometries between
 #'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #' @family coerce

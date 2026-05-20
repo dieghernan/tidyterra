@@ -6,16 +6,16 @@
 #' tables](https://grass.osgeo.org/grass83/manuals/r.colors.html). The
 #' following fill scales and palettes are provided:
 #'
-#' * `scale_*_grass_d()`: For discrete values.
-#' * `scale_*_grass_c()`: For continuous values.
-#' * `scale_*_grass_b()`: For binning continuous values.
-#' * `grass.colors()`: Gradient color palette. See also
+#' - `scale_*_grass_d()`: For discrete values.
+#' - `scale_*_grass_c()`: For continuous values.
+#' - `scale_*_grass_b()`: For binning continuous values.
+#' - `grass.colors()`: Gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to

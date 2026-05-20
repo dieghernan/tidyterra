@@ -63,8 +63,8 @@
 #' @section Aesthetics:
 #'
 #' `geom_spatraster()` understands the following aesthetics:
-#' * [`fill`][ggplot2::aes_colour_fill_alpha]
-#' * [`alpha`][ggplot2::aes_colour_fill_alpha]
+#' - [`fill`][ggplot2::aes_colour_fill_alpha]
+#' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a
 #' \CRANpkg{ggplot2} layer with all the layers of the `SpatRaster`
@@ -95,8 +95,8 @@
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
-#' * `after_stat(value)`: Values of the `SpatRaster.`
-#' * `after_stat(lyr)`: Name of the layer.
+#' - `after_stat(value)`: Values of the `SpatRaster.`
+#' - `after_stat(lyr)`: Name of the layer.
 #'
 #' @export
 #' @encoding UTF-8

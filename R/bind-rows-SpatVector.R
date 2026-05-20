@@ -36,10 +36,10 @@
 #' The first argument should be a `SpatVector`. Each subsequent argument can be
 #' a `SpatVector`, `sf/sfc` object, or data frame:
 #'
-#' * If subsequent `SpatVector/sf/sfc` objects present a different CRS than
+#' - If subsequent `SpatVector/sf/sfc` objects present a different CRS than
 #'   the first element, those elements would be reprojected to the CRS of the
 #'   first element with a message.
-#' * If any element of `...` is a tibble/data frame the rows would be
+#' - If any element of `...` is a tibble/data frame the rows would be
 #'   `cbind`ed with empty geometries with a message.
 #'
 #' @examples

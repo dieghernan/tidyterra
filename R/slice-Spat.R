@@ -11,12 +11,12 @@
 #'
 #' It is accompanied by a number of helpers for common use cases:
 #'
-#' * `slice_head()` and `slice_tail()` select the first or last
+#' - `slice_head()` and `slice_tail()` select the first or last
 #'   cells/geometries.
-#' * `slice_sample()` randomly selects cells/geometries.
-#' * `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
+#' - `slice_sample()` randomly selects cells/geometries.
+#' - `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
 #'   of a `SpatRaster`.
-#' * `slice_colrows()` subsets regions of the `SpatRaster` by row and column
+#' - `slice_colrows()` subsets regions of the `SpatRaster` by row and column
 #'   position of a `SpatRaster`.
 #'
 #' You can get a skeleton of your `SpatRaster` with the cell, column and row

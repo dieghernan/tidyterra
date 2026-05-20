@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 ## The tidyterra package
 
-**tidyterra** adds common tidyverse methods for `SpatRaster` and `SpatVector`
+**tidyterra** adds common **tidyverse** methods for `SpatRaster` and `SpatVector`
 objects from the [**terra**](https://CRAN.R-project.org/package=terra) package,
 and provides `geom_spat*()` geoms for plotting these objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
@@ -35,12 +35,12 @@ and provides `geom_spat*()` geoms for plotting these objects with
 
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
-tidyverse verbs—especially **dplyr** and **tidyr** methods—**tidyterra** lets
+**tidyverse** verbs, especially **dplyr** and **tidyr** methods, **tidyterra** lets
 users manipulate `Spat*` objects in a style similar to working with tabular data.
 
-Note: **terra** is generally faster. Learning some **terra** syntax is
-recommended because **tidyterra** functions call, where possible, the
-corresponding **terra** equivalents.
+Note that **terra** is generally faster. Learning some **terra** syntax is
+recommended because **tidyterra** functions call the corresponding **terra**
+equivalents when possible.
 
 ## A note for advanced terra users
 
@@ -149,16 +149,16 @@ lux <- system.file("ex/lux.shp", package = "terra")
 v_lux <- vect(lux)
 
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary
+  # Summarize by group.
   summarise(
     n = n(),
     tot_pop = sum(POP),
     mean_area = mean(AREA)
   ) |>
-  # Arrange
+  # Arrange groups.
   arrange(desc(gr))
 ```
 
@@ -178,7 +178,7 @@ uses `ggplot2::coord_sf()` and can be reprojected to match other spatial layers.
 #| fig-asp: 0.3
 library(ggplot2)
 
-# A faceted SpatRaster
+# A faceted SpatRaster.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -192,7 +192,7 @@ ggplot() +
 ```{r}
 #| label: fig-contourlines
 #| fig-cap: Contour lines plot for a SpatRaster
-# Contour lines for a specific layer
+# Contour lines for a specific layer.
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
@@ -209,7 +209,7 @@ ggplot() +
 #| label: fig-contourfilled
 #| fig-cap: Contour filled plot for a SpatRaster
 
-# Contour filled
+# Filled contours.
 
 ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
@@ -222,12 +222,12 @@ tidyterra also supports RGB `SpatRasters` for imagery:
 ```{r}
 #| label: fig-rgb
 #| fig-cap: A map combining a RGB SpatRaster and a SpatVector
-# Read a vector
+# Read a vector.
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
 
-# Read a tile
+# Read a tile.
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
@@ -302,10 +302,10 @@ You can also aggregate `SpatVectors` easily:
 #|    - Dissolving SpatVectors by group (keeping internal boundaries)
 # Dissolving
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary
+  # Summarize by group.
   summarise(
     n = n(),
     tot_pop = sum(POP),
@@ -316,12 +316,12 @@ v_lux |>
   geom_spatvector_label(aes(label = gr)) +
   coord_sf(crs = 3857)
 
-# Same but keeping internal boundaries
+# Repeat while keeping internal boundaries.
 v_lux |>
-  # Create categories
+  # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>
   group_by(gr) |>
-  # Summary without dissolving
+  # Summarize by group without dissolving.
   summarise(
     n = n(),
     tot_pop = sum(POP),

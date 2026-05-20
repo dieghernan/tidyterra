@@ -131,9 +131,9 @@ or picas (\code{"pc"}).}
 
 \item{label_format}{One of:
 \itemize{
-\item \code{NULL} for no labels. This produced the same result as
+\item \code{NULL} for no labels. This produces the same result as
 \code{geom_spatraster_contour()}.
-\item A character vector giving labels (must be same length as the breaks
+\item A character vector giving labels (must have the same length as the breaks
 produced by \code{bins}, \code{binwidth}, or \code{breaks}).
 \item A function that takes the breaks as input and returns labels as output,
 as the default setup (\code{\link[scales:label_number]{scales::label_number()}}).
@@ -146,7 +146,7 @@ the isolines. Uses \code{\link[isoband:label_placer_minmax]{label_placer_minmax(
 A \CRANpkg{ggplot2} layer
 }
 \description{
-These geoms create contours of \code{SpatRaster} objects.  To specify a valid
+These geoms create contours of \code{SpatRaster} objects. To specify a valid
 surface, you should specify the layer on \code{aes(z = layer_name)}, otherwise all
 the layers are considered for creating contours. See also \strong{Facets}
 section.

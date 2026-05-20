@@ -76,10 +76,10 @@ in position \code{1} and \code{2}. Hence, \code{pull(.data, 1)} and
 
 \subsection{\code{SpatVector}}{
 
-When passing \code{geom = "WKT"/geom = "HEX"} to \code{...},  the geometry of the
+When passing \code{geom = "WKT"/geom = "HEX"} to \code{...}, the geometry of the
 \code{SpatVector} can be pulled passing \code{var = geometry}. Similarly to
 \code{SpatRaster} method, when using \code{geom = "XY"} the \verb{x,y} coordinates can be
-pulled with \code{var = x/var = y}. See  \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
+pulled with \code{var = x/var = y}. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
 }
 }
 

@@ -37,7 +37,7 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{rename()} changes the names of individual layers/attributes using
-\code{new_name = old_name} syntax; \code{rename_with()} renames layers/attributes
+\code{new_name = old_name} syntax. \code{rename_with()} renames layers/attributes
 using a function.
 }
 \section{\CRANpkg{terra} equivalent}{

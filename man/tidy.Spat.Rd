@@ -95,7 +95,7 @@ You can convert the tidy object back to a \code{SpatRaster} with
 When \code{pivot = TRUE}, the \code{SpatRaster} is returned in long format (see
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The tidy object has the following columns:
 \itemize{
-\item \code{x}, \code{y}: Coordinates of the cell centre in the corresponding CRS.
+\item \code{x}, \code{y}: Coordinates of the cell center in the corresponding CRS.
 \item \code{lyr}: Name of the \code{SpatRaster} layer associated with \code{value}.
 \item \code{value}: Cell value for the corresponding \code{lyr}.
 }

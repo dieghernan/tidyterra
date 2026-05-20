@@ -1,11 +1,9 @@
-Acknowledgement
 Acknowledgements
 CMD
 CodeFactor
 Colorimetric
 Coords
 DSM
-Deprecations
 EPSG
 ETOPO
 Geospatial
@@ -49,9 +47,9 @@ codecov
 colour
 colours
 coltab
-coord
 cpt
 de
+deprecations
 disaggregated
 downsampled
 downup
@@ -77,7 +75,6 @@ magrittr
 metR
 millimetres
 natively
-performant
 picas
 pkgdown
 plotmath

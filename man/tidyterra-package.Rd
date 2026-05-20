@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Extension of the 'tidyverse' for 'SpatRaster' and 'SpatVector' objects of the 'terra' package. It includes also new 'geom_' functions that provide a convenient way of visualizing 'terra' objects with 'ggplot2'.
+Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from the 'terra' package. It also includes 'geom_' functions that provide a convenient way to visualize 'terra' objects with 'ggplot2'.
 }
 \seealso{
 Useful links:

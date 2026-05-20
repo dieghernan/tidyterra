@@ -57,7 +57,7 @@ A \code{SpatVector} object with an additional attribute.
 \code{df |> count(a, b)} is roughly equivalent to
 \code{df |> group_by(a, b) |> summarise(n = n())}. \code{count()} is paired with
 \code{tally()}, a lower-level helper that is equivalent to
-\code{df |> summarise(n = n())}.  Supply \code{wt} to perform weighted counts,
+\code{df |> summarise(n = n())}. Supply \code{wt} to perform weighted counts,
 switching the summary from \code{n = n()} to \code{n = sum(wt)}.
 
 \code{add_count()} is equivalent to \code{count()} but use \code{\link[=mutate]{mutate()}} instead of

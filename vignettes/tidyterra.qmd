@@ -14,7 +14,7 @@ author:
   - name: Diego Hernangómez
     orcid: 0000-0001-8457-4658
 date: "2023-07-18"
-description: Paper published on The Journal of Open Source Software.
+description: Paper published in the Journal of Open Source Software.
 bibliography: paper.bib
 citation:
   type: article-journal
@@ -54,7 +54,7 @@ Furthermore, **tidyterra** extends the functionality of the **ggplot2** package
 and color palettes specifically designed for map production.
 
 [^1]: The term `geoms` refers to geometric objects, and `stats` refers to
-    statistical transformations, following the naming conventions of **ggplot2**
+    statistical transformations, following the naming conventions of **ggplot2**.
 
 **tidyterra** can manipulate the following classes of **terra** objects:
 
@@ -65,8 +65,8 @@ and color palettes specifically designed for map production.
     consisting of equally sized rectangles. Each rectangle can contain one or
     more values.
 
-The first stable version of **tidyterra** was included on CRAN on April 24,
-2022, and has been actively used by other packages (such as **ebvcuve**
+The first stable version of **tidyterra** was released on CRAN on April 24,
+2022, and has been actively used by other packages (such as **ebvcube**
 [@R-ebvcube], **biomod2** [@R-biomod2], **inlabru** [@R-inlabru], **RCzechia**
 [@R-rczechia] and **sparrpowR** [@R-sparrpowr]) and cited in academic research
 and publications (@bahlburg2023, @moraga2023, @Leonardi2023, @meister2023) ever
@@ -92,7 +92,7 @@ While other popular packages designed for spatial data handling, such as **sf**
 **tidyverse** as part of their infrastructure, **terra** objects lack this
 integration natively. Although **terra** offers a wide set of functions for
 transforming and visualizing `SpatRaster` and `SpatVector` objects, some users
-who are not familiar with this package would need to make an additional effort
+who are not familiar with this package may need to make an additional effort
 to learn that syntax. This may imply an additional challenge during their
 initial steps in the field of spatial analysis.
 
@@ -112,12 +112,11 @@ same CRS[^2] via `ggplot2::coord_sf()`. Furthermore, **tidyterra** also provides
 support for `SpatVector` objects, similar to the native support of **sf**
 objects in the **ggplot2** package.
 
-[^2]: CRS; Coordinate reference system
+[^2]: CRS, coordinate reference system.
 
-Lastly, **tidyterra** provides a collection of color palettes specifically
-designed for representing spatial phenomena [@whitebox]. Additionally, it
-implements the cross-blended hypsometric tints described by
-@Patterson_Jenny_2011.
+Finally, **tidyterra** provides a collection of color palettes specifically
+designed for representing spatial phenomena [@whitebox]. It also implements the
+cross-blended hypsometric tints described by @Patterson_Jenny_2011.
 
 ## A note on performance
 
@@ -129,7 +128,7 @@ When manipulating large raster files (i.e. more than 10,000,000 cells), it is
 recommended to use native **terra** syntax, which is specifically designed for
 handling this type of data. For plotting, the geoms resample `SpatRaster`
 objects with more than 500,000 cells by default to speed up rendering (as
-`terra::plot()` does); you can override this upper limit with the geom's
+`terra::plot()` does), and you can override this upper limit with the geom's
 `maxcell` argument.
 
 Also note that, when possible, each **tidyterra** help page references its
@@ -139,7 +138,7 @@ equivalent **terra** function.
 
 **tidyterra** is available on
 [**CRAN**](https://CRAN.R-project.org/package=tidyterra), so it can be easily
-installed using the following commands in **R**:
+installed from **R** with:
 
 
 ``` r
@@ -147,8 +146,8 @@ install.packages("tidyterra")
 ```
 
 The latest development version is hosted on
-[GitHub](https://github.com/dieghernan/tidyterra) and can be installed using the
-following command in **R**:
+[GitHub](https://github.com/dieghernan/tidyterra) and can be installed from
+**R** with:
 
 
 ``` r
@@ -156,27 +155,30 @@ remotes::install_github("dieghernan/tidyterra")
 ```
 
 The following example demonstrates how to manipulate a `SpatRaster` object using
-the **dplyr** syntax. Additionally, it illustrates how to seamlessly plot a
-`SpatRaster` object with **ggplot2** using the `geom_spatraster()` function:
+the **dplyr** syntax. It also shows how to plot a `SpatRaster` object with
+**ggplot2** using the `geom_spatraster()` function:
 
 
 ``` r
 library(tidyterra)
-library(tidyverse) # Load all tidyverse packages at once
-library(scales) # Additional library for labels
+library(tidyverse) # Load all tidyverse packages at once.
+library(scales) # Additional library for labels.
 
-# Temperatures in Castile and Leon (selected months)
+# Temperatures in Castile and Leon (selected months).
 rastertemp <- terra::rast(system.file(
   "extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
+#> Error:
+#> ! [rast] filename is empty. Provide a valid filename
 
-# Rename with the tidyverse
+# Rename with the tidyverse.
 rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 
-
-# Plot with facets
+# Plot with facets.
 ggplot() +
   geom_spatraster(data = rastertemp) +
   facet_wrap(~lyr, ncol = 2) +
@@ -191,12 +193,9 @@ ggplot() +
     title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 ```
-
-<div class="figure">
-<img src="./fig-ex1-1.png" alt="Faceted map with multi-layer raster file." width="100%" />
-<p class="caption">Faceted map with multi-layer raster file.</p>
-</div>
 
 In the following example, we combine a common **dplyr** workflow (`mutate()` +
 `select()`) and plot the result. In this case, the plot is a contour plot of
@@ -205,15 +204,19 @@ includes an overlay of a `SpatVector` for reference:
 
 
 ``` r
-# Compute the variation between April and June and apply a different palette
+# Compute the variation between April and June and apply a different palette.
 incr_temp <- rastertemp |>
   mutate(var = June - April) |>
   select(Variation = var)
+#> Error:
+#> ! objeto 'rastertemp' no encontrado
 
-# Overlay an SpatVector
+# Overlay a SpatVector.
 cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#> Error:
+#> ! [vect] file does not exist:
 
-# Contour map with overlay
+# Contour map with overlay.
 ggplot() +
   geom_spatraster_contour_filled(data = incr_temp) +
   geom_spatvector(data = cyl_vect, fill = NA) +
@@ -224,12 +227,9 @@ ggplot() +
     title = "Variation of temperature in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
+#> Error:
+#> ! objeto 'incr_temp' no encontrado
 ```
-
-<div class="figure">
-<img src="./fig-ex2-1.png" alt="Contour map of temperature variation with a SpatVector overlay" width="100%" />
-<p class="caption">Contour map of temperature variation with a SpatVector overlay</p>
-</div>
 
 ## Additional materials
 
@@ -237,10 +237,10 @@ The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
 -   Details on each function, including (if possible) the equivalent **terra**
-    function, in case users prefer to include those on their workflows.
--   Working examples on the use of the functions and creation of plots.
+    function, in case users prefer to include those in their workflows.
+-   Working examples using the functions and creating plots.
 -   Additional articles and vignettes, as well as a complete demo of the
-    different color palettes included on the package (see
+    different color palettes included in the package (see
     [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements {.appendix}

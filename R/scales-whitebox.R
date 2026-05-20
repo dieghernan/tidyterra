@@ -5,17 +5,17 @@
 #' Implementation of the gradient palettes provided by
 #' [WhiteboxTools](https://github.com/jblindsay/whitebox-tools). Three
 #' scales are provided:
-#' * `scale_*_whitebox_d()`: For discrete values.
-#' * `scale_*_whitebox_c()`: For continuous values.
-#' * `scale_*_whitebox_b()`: For binning continuous values.
+#' - `scale_*_whitebox_d()`: For discrete values.
+#' - `scale_*_whitebox_c()`: For continuous values.
+#' - `scale_*_whitebox_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `whitebox.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -287,7 +287,6 @@ scale_colour_whitebox_b <- function(
   )
 }
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_whitebox
@@ -334,7 +333,6 @@ whitebox.colors <- function(
   }
 }
 
-
 whitebox_pal <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- whitebox.colors(
@@ -359,20 +357,17 @@ extract_pal <- function(df, palette) {
   df
 }
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_whitebox
 #' @usage NULL
 scale_color_whitebox_d <- scale_colour_whitebox_d
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_whitebox
 #' @usage NULL
 scale_color_whitebox_c <- scale_colour_whitebox_c
-
 
 #' @export
 #' @encoding UTF-8

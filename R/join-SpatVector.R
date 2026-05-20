@@ -208,7 +208,6 @@ right_join.SpatVector <- function(
 #' @export
 dplyr::right_join
 
-
 #' @importFrom dplyr full_join
 #' @export
 #' @encoding UTF-8
@@ -247,14 +246,13 @@ full_join.SpatVector <- function(
 #' @export
 dplyr::full_join
 
-
 #' Filtering joins for `SpatVector` objects
 #'
 #' @description
 #' Filtering joins filter rows from `x` based on the presence or absence of
 #' matches in `y`:
-#' * [semi_join()] return all rows from `x` with a match in `y`.
-#' * [anti_join()] return all rows from `x` without a match in `y`.
+#' - [semi_join()] return all rows from `x` with a match in `y`.
+#' - [anti_join()] return all rows from `x` without a match in `y`.
 #'
 #' See [dplyr::semi_join()] for details.
 #'
@@ -359,7 +357,6 @@ anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
 
 #' @export
 dplyr::anti_join
-
 
 error_spat_join <- function(y) {
   if (inherits(y, c("SpatVector", "sf"))) {

@@ -1,9 +1,9 @@
 #' Drop attributes of `Spat*` objects containing missing values
 #'
 #' @description
-#' * `SpatVector`: `drop_na()` method drops geometries where any attribute
+#' - `SpatVector`: `drop_na()` method drops geometries where any attribute
 #' specified by `...` contains a missing value.
-#' * `SpatRaster`: `drop_na()` method drops cells where any layer specified by
+#' - `SpatRaster`: `drop_na()` method drops cells where any layer specified by
 #' `...` contains a missing value.
 #'
 #' @return A `Spat*` object of the same class as `data`. See **Methods**.

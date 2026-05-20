@@ -47,7 +47,7 @@ r <- rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
 
 ggplot() +
   geom_spatraster(data = r) +
-  # Use the palette you like, in this case:
+  # Use the selected palette.
   scale_fill_hypso_c() +
   theme_void()
 ```
@@ -80,14 +80,11 @@ ss <- baseplot +
   theme(plot.background = element_rect(fill = "white"))
 
 print(ss)
-
-
 ss <- baseplot +
   scale_fill_wiki_c() +
   labs(title = "wiki") +
   theme_void() +
   theme(plot.background = element_rect(fill = "white"))
-
 
 print(ss)
 ```
@@ -117,15 +114,12 @@ allpals <- sort(c(
   "bl_yl_rd",
   "deep"
 ))
-
-
 for (i in allpals) {
   ss <- baseplot +
     scale_fill_whitebox_c(palette = i) +
     labs(title = paste0(i)) +
     theme_void() +
     theme(plot.background = element_rect(fill = "white"))
-
 
   print(ss)
 }
@@ -152,7 +146,6 @@ for (i in allpals) {
     theme_void() +
     theme(plot.background = element_rect(fill = "white"))
 
-
   print(ss)
 }
 ```
@@ -177,7 +170,6 @@ for (i in allpals) {
     labs(title = paste0(i)) +
     theme_void() +
     theme(plot.background = element_rect(fill = "white"))
-
 
   print(ss)
 }
@@ -205,7 +197,6 @@ for (i in allpals) {
     theme_void() +
     theme(plot.background = element_rect(fill = "white"))
 
-
   print(ss)
 }
 ```
@@ -230,7 +221,6 @@ for (i in allpals) {
     labs(title = paste0(i)) +
     theme_void() +
     theme(plot.background = element_rect(fill = "white"))
-
 
   print(ss)
 }

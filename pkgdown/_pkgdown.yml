@@ -3,7 +3,7 @@ url: https://dieghernan.github.io/tidyterra
 figures:
   dpi: 300
   fig.retina: 2
-  
+
 development:
   mode: auto
 
@@ -47,7 +47,7 @@ template:
 
 home:
   title: >
-    tidyterra | tidyverse methods and ggplot2 functions for terra objects
+    tidyterra | tidyverse methods and ggplot2 helpers for terra objects
 
 reference:
 - title: "**tibble** methods"
@@ -110,7 +110,8 @@ reference:
     `Spat*` objects.
   contents: starts_with("geom_")
 - subtitle: Scales
-  desc: Gradient colour schemes, palettes and hypsometric tints.
+  desc: >
+    Gradient color schemes, palettes and hypsometric tints.
   contents: starts_with("scale_")
 
 - title: "**generics** methods"
@@ -122,16 +123,17 @@ reference:
 
 - title: Helpers
   desc: >
-    Additional set of functions provided by <a
+    Additional functions provided by <a
     href="https://CRAN.R-project.org/package=tidyterra"
     class="external-link"><span class="pkg">tidyterra</span></a>.
 - subtitle: Coercing objects
   desc: >
-    Convert Spat* to other type of objects or create `SpatRasters` from tibbles.
+    Convert `Spat*` objects to other object types or create `SpatRaster`
+    objects from tibbles.
   contents: has_concept("coerce")
 - subtitle: Other helpers
   contents: has_concept("helpers")
-- title: Built in data
+- title: Built-in data
   contents: has_concept("datasets")
 - title: About the package
   contents: tidyterra-package

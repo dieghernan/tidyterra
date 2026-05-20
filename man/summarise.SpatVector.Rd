@@ -50,7 +50,7 @@ A \code{SpatVector}.
 }
 \description{
 \code{summarise()} creates a new \code{SpatVector}. It returns one geometry for each
-combination of grouping variables; if there are no grouping variables, the
+combination of grouping variables. If there are no grouping variables, the
 output will have a single geometry summarising all observations in the input
 and combining all the geometries of the \code{SpatVector}. It will contain one
 column for each grouping variable and one column for each of

@@ -72,7 +72,7 @@
 #'
 #' autoplot(ctab)
 #'
-#' #  With vectors
+#' # With vectors
 #' v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' autoplot(v)
 #'

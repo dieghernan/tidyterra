@@ -31,9 +31,9 @@
 #'
 #' @note
 #' Information needed for regenerating the original `SpatRaster` file:
-#' * resolution: `c(5, 5)`
-#' * extent: `1756969, 1757579, 5917003, 5917873`  (xmin, xmax, ymin, ymax)
-#' * coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
+#' - resolution: `c(5, 5)`
+#' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
+#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator 2000
 #'   (`EPSG:2193`)
 #'
 #' @examples
@@ -155,7 +155,7 @@ NULL
 #' @source
 #'
 #' Derived from:
-#' * Patterson, T., & Jenny, B. (2011). The Development and Rationale of
+#' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
 #'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
 #'   31 - 46. \doi{10.14714/CP69.20}.
 #'

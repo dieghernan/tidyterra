@@ -184,10 +184,10 @@ Install **tidyterra** from
 install.packages("tidyterra")
 ```
 
-Check the docs of the developing version in
+Check the documentation for the development version at
 <https://dieghernan.github.io/tidyterra/dev/>
 
-You can install the developing version of **tidyterra** like so:
+You can install the development version of **tidyterra** with:
 
 ```{r}
 #| eval: false
@@ -267,12 +267,12 @@ cat(
 ```{r}
 #| label: example-temp2
 #| fig-show: hide
-# Create maximum differences of two months
+# Create the maximum difference between two months.
 variation <- rastertemp |>
   mutate(diff = June - May) |>
   select(variation = diff)
 
-# Add also a overlay of a SpatVector
+# Add a SpatVector overlay.
 prov <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 ggplot(prov) +
@@ -288,8 +288,8 @@ ggplot(prov) +
   coord_sf(crs = 25830) +
   labs(
     fill = "Variation",
-    title = "Variation of Temperature in Castile and Leon (Spain)",
-    subtitle = "Average Temperatures: June vs. May"
+    title = "Temperature variation in Castile and Leon (Spain)",
+    subtitle = "Average temperatures: June vs. May"
   )
 ```
 

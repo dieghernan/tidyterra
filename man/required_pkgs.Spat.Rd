@@ -47,7 +47,7 @@ r <- rast(file_path)
 r
 required_pkgs(r)
 
-#  With vectors
+# With vectors
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 v
 required_pkgs(v)

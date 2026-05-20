@@ -55,9 +55,9 @@
 #' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
 #' [tidyr::pivot_longer()]). The fortified object has the following
 #' columns:
-#' * `x,y`: Coordinates (center) of the cell on the corresponding CRS.
-#' * `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
-#' * `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+#' - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
+#' - `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
+#' - `value`: The value of the `SpatRaster` in the corresponding `lyr`.
 #'
 #' This option may be useful when using several `geom_*` and for faceting, see
 #' **Examples**.

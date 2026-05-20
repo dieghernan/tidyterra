@@ -2,7 +2,7 @@
 #'
 #' @description
 #'
-#' These geoms create contours of `SpatRaster` objects.  To specify a valid
+#' These geoms create contours of `SpatRaster` objects. To specify a valid
 #' surface, you should specify the layer on `aes(z = layer_name)`, otherwise all
 #' the layers are considered for creating contours. See also **Facets**
 #' section.
@@ -29,9 +29,9 @@
 #' [ggplot2::geom_contour()].
 #'
 #' The \CRANpkg{metR} package also provides a set of alternative functions:
-#' * `metR::geom_contour2()`.
-#' * `metR::geom_text_contour()` and `metR::geom_label_contour()`.
-#' * `metR::geom_contour_tanaka()`.
+#' - `metR::geom_contour2()`.
+#' - `metR::geom_text_contour()` and `metR::geom_label_contour()`.
+#' - `metR::geom_contour_tanaka()`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -44,21 +44,21 @@
 #'
 #' `geom_spatraster_contour()` / `geom_spatraster_contour_text()` understands
 #' the following aesthetics:
-#' * [`alpha`][ggplot2::aes_colour_fill_alpha]
-#' * [`colour`][ggplot2::aes_colour_fill_alpha]
-#' * [`group`][ggplot2::aes_group_order]
-#' * [`linetype`][ggplot2::aes_linetype_size_shape]
-#' * [`linewidth`][ggplot2::aes_linetype_size_shape]
+#' - [`alpha`][ggplot2::aes_colour_fill_alpha]
+#' - [`colour`][ggplot2::aes_colour_fill_alpha]
+#' - [`group`][ggplot2::aes_group_order]
+#' - [`linetype`][ggplot2::aes_linetype_size_shape]
+#' - [`linewidth`][ggplot2::aes_linetype_size_shape]
 #' `geom_spatraster_contour_text()` understands also:
-#' * [`size`][ggplot2::aes_linetype_size_shape]
-#' * `label`
-#' * `family`
-#' * `fontface`
+#' - [`size`][ggplot2::aes_linetype_size_shape]
+#' - `label`
+#' - `family`
+#' - `fontface`
 #'
 #' Additionally, `geom_spatraster_contour_filled()` understands also the
 #' following aesthetics, as well as the ones listed above:
-#' * [`fill`][ggplot2::aes_colour_fill_alpha]
-#' * `subgroup`
+#' - [`fill`][ggplot2::aes_colour_fill_alpha]
+#' - `subgroup`
 #'
 #' Check [ggplot2::geom_contour()] for more info on contours and
 #' `vignette("ggplot2-specs", package = "ggplot2")` for an overview of the
@@ -69,17 +69,17 @@
 #' These geom computes internally some variables that are available for use as
 #' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
 #' [ggplot2::after_stat()]).
-#' * `after_stat(lyr)`: Name of the layer.
-#' * `after_stat(level)`: Height of contour. For contour lines, this is
+#' - `after_stat(lyr)`: Name of the layer.
+#' - `after_stat(level)`: Height of contour. For contour lines, this is
 #'    a numeric vector that represents bin boundaries. For contour bands,
 #'    this is an ordered factor that represents bin ranges.
-#' * `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
-#' * `after_stat(level_low)`, `after_stat(level_high)`,
-#' * `after_stat(level_mid)`: (contour bands only) Lower and upper bin
+#' - `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
+#' - `after_stat(level_low)`, `after_stat(level_high)`,
+#' - `after_stat(level_mid)`: (contour bands only) Lower and upper bin
 #'    boundaries for each band, as well the mid point between the boundaries.
 #'
 #' @section Dropped variables:
-#' * `z`: After contouring, the `z` values of individual data points are no
+#' - `z`: After contouring, the `z` values of individual data points are no
 #'   longer available.
 #'
 #' @examples

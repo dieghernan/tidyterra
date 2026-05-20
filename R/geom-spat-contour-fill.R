@@ -58,7 +58,6 @@ geom_spatraster_contour_filled <- function(
   data <- resample_spat(data, maxcell)
 
   # 3. Create a nested list with each layer----
-  # 3. Create a nested list with each layer----
   raster_list <- as.list(data)
 
   # Now create the data frame
@@ -239,7 +238,6 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     data
   }
 )
-
 
 # Helpers ----
 

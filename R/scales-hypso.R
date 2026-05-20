@@ -7,28 +7,28 @@
 #'
 #' The following scales and palettes are provided:
 #'
-#' * `scale_*_hypso_d()`: For discrete values.
-#' * `scale_*_hypso_c()`: For continuous values.
-#' * `scale_*_hypso_b()`: For binning continuous values.
-#' * `hypso.colors()`: A gradient color palette. See also
+#' - `scale_*_hypso_d()`: For discrete values.
+#' - `scale_*_hypso_c()`: For continuous values.
+#' - `scale_*_hypso_b()`: For binning continuous values.
+#' - `hypso.colors()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' An additional set of scales is provided. These scales can act as
 #' [hypsometric (or bathymetric)
 #' tints](https://en.wikipedia.org/wiki/Hypsometric_tints).
 #'
-#' * `scale_*_hypso_tint_d()`: For discrete values.
-#' * `scale_*_hypso_tint_c()`: For continuous values.
-#' * `scale_*_hypso_tint_b()`: For binning continuous values.
-#' * `hypso.colors2()`: A gradient color palette. See also
+#' - `scale_*_hypso_tint_d()`: For discrete values.
+#' - `scale_*_hypso_tint_c()`: For continuous values.
+#' - `scale_*_hypso_tint_b()`: For binning continuous values.
+#' - `hypso.colors2()`: A gradient color palette. See also
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' See **Details**.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -394,10 +394,10 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' the limits of the palette are redefined. Instead of treating the color
 #' palette as a continuous gradient, they are rescaled to act as a hypsometric
 #' tint. A rough description of these tints are:
-#' * Blue colors: Negative values.
-#' * Green colors: 0 to 1.000 values.
-#' * Browns: 1000 to 4.000 values.
-#' * Whites: Values higher than 4.000.
+#' - Blue colors: Negative values.
+#' - Green colors: 0 to 1.000 values.
+#' - Browns: 1000 to 4.000 values.
+#' - Whites: Values higher than 4.000.
 #'
 #' The following orientation would vary depending on the palette definition
 #' (see [hypsometric_tints_db] for an example on how this could be achieved).
@@ -777,7 +777,6 @@ hypso_pal <- function(alpha = 1, direction = 1, palette) {
   }
 }
 
-
 hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- hypso.colors2(
@@ -814,7 +813,6 @@ scale_color_hypso_c <- scale_colour_hypso_c
 #' @rdname scale_hypso
 #' @usage NULL
 scale_color_hypso_tint_c <- scale_colour_hypso_tint_c
-
 
 #' @export
 #' @encoding UTF-8

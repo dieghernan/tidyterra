@@ -59,9 +59,9 @@
 #'
 #' When `pivot = TRUE`, the `SpatRaster` is returned in long format (see
 #' [tidyr::pivot_longer()]). The tidy object has the following columns:
-#' * `x`, `y`: Coordinates of the cell centre in the corresponding CRS.
-#' * `lyr`: Name of the `SpatRaster` layer associated with `value`.
-#' * `value`: Cell value for the corresponding `lyr`.
+#' - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
+#' - `lyr`: Name of the `SpatRaster` layer associated with `value`.
+#' - `value`: Cell value for the corresponding `lyr`.
 #'
 #' This option can be useful when combining several `geom_*` layers or when
 #' faceting.
@@ -161,7 +161,7 @@ tidy.SpatGraticule <- function(x, ...) {
     msg <- paste(
       "Need {.pkg terra} {.strong 1.8.5} or later for ",
       "{.fn tidy.SpatGraticule} method. Current {.pkg terra} ",
-      "version is  {.strong {tvers}}"
+      "version is {.strong {tvers}}"
     )
     cli::cli_abort(msg)
   }

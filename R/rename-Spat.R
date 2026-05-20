@@ -2,7 +2,7 @@
 #'
 #' @description
 #' `rename()` changes the names of individual layers/attributes using
-#' `new_name = old_name` syntax; `rename_with()` renames layers/attributes
+#' `new_name = old_name` syntax. `rename_with()` renames layers/attributes
 #' using a function.
 #'
 #' @export

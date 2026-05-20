@@ -50,10 +50,10 @@
 #' When coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra} may rename its
 #' layers to avoid these issues. Specifically, layers may be renamed in the
 #' following cases:
-#' * Layers with duplicated names.
-#' * When coercing to a tibble, if `xy = TRUE`, layers named `x` or
+#' - Layers with duplicated names.
+#' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or
 #'   `y` are renamed.
-#' * When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
+#' - When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
 #'   same renaming would happen.
 #'
 #' \CRANpkg{tidyterra} displays a message describing the renamed layers.
@@ -311,7 +311,6 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
 
 #' @export
 tibble::as_tibble
-
 
 #' Validate grouped output after reconstruction.
 #' Mixing \CRANpkg{terra} syntax with tidy syntax can modify grouped data, for

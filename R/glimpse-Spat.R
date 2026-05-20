@@ -149,10 +149,8 @@ glimpse.SpatVector <- function(
   invisible(x)
 }
 
-
 #' @export
 dplyr::glimpse
-
 
 # Helpers ----
 
@@ -205,7 +203,6 @@ get_named_crs <- function(x) {
   r
 }
 
-
 # To convert lon lat from decimal to pretty
 decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
   type <- match.arg(type)
@@ -242,7 +239,6 @@ decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
 
   label
 }
-
 
 # Main style
 tterra_head_style <- cli::make_ansi_style(grey(0.6), grey = TRUE)

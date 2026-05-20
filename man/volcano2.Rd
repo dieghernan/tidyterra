@@ -27,8 +27,8 @@ most up-to-date land and seabed data.
 Information needed for regenerating the original \code{SpatRaster} file:
 \itemize{
 \item resolution: \code{c(5, 5)}
-\item extent: \verb{1756969, 1757579, 5917003, 5917873}  (xmin, xmax, ymin, ymax)
-\item coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
+\item extent: \verb{1756969, 1757579, 5917003, 5917873} (xmin, xmax, ymin, ymax)
+\item Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator 2000
 (\code{EPSG:2193})
 }
 }

@@ -16,17 +16,17 @@
 #' ```
 #'
 #' Three scales are provided:
-#' * `scale_*_wiki_d()`: For discrete values.
-#' * `scale_*_wiki_c()`: For continuous values.
-#' * `scale_*_wiki_b()`: For binning continuous values.
+#' - `scale_*_wiki_d()`: For discrete values.
+#' - `scale_*_wiki_c()`: For continuous values.
+#' - `scale_*_wiki_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `wiki.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -300,7 +300,6 @@ wiki.colors <- function(n, alpha = 1, rev = FALSE) {
   }
 }
 
-# Create ramp
 # Create ramp
 tidyterra_ramp <- function(colors, n, alpha = 1, rev = FALSE) {
   if (rev) {

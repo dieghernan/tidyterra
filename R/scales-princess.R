@@ -5,17 +5,17 @@
 #' Implementation of the gradient palettes presented in
 #' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>. Three
 #' scales are provided:
-#' * `scale_*_princess_d()`: For discrete values.
-#' * `scale_*_princess_c()`: For continuous values.
-#' * `scale_*_princess_b()`: For binning continuous values.
+#' - `scale_*_princess_d()`: For discrete values.
+#' - `scale_*_princess_c()`: For continuous values.
+#' - `scale_*_princess_b()`: For binning continuous values.
 #'
 #' Additionally, a color palette `princess.colors()` is provided. See also
 #' [grDevices::terrain.colors()] for details.
 #'
 #' Additional arguments `...` are passed to:
-#' * Discrete values: [ggplot2::discrete_scale()].
-#' * Continuous values: [ggplot2::continuous_scale()].
-#' * Binned continuous values: [ggplot2::binned_scale()].
+#' - Discrete values: [ggplot2::discrete_scale()].
+#' - Continuous values: [ggplot2::continuous_scale()].
+#' - Binned continuous values: [ggplot2::binned_scale()].
 #'
 #' **Note that** \CRANpkg{tidyterra} documents only a selection of these
 #' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
@@ -324,7 +324,6 @@ princess.colors <- function(n, palette = "snow", alpha = 1, rev = FALSE) {
   }
 }
 
-
 princess_pal <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- princess.colors(
@@ -338,20 +337,17 @@ princess_pal <- function(alpha = 1, direction = 1, palette) {
   }
 }
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_princess
 #' @usage NULL
 scale_color_princess_d <- scale_colour_princess_d
 
-
 #' @export
 #' @encoding UTF-8
 #' @rdname scale_princess
 #' @usage NULL
 scale_color_princess_c <- scale_colour_princess_c
-
 
 #' @export
 #' @encoding UTF-8

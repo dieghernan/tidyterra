@@ -96,7 +96,7 @@ ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") |>
 
 autoplot(ctab)
 
-#  With vectors
+# With vectors
 v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 autoplot(v)
 

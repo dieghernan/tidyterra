@@ -17,7 +17,7 @@
 #'
 #' @param .before,.after <[`tidy-select`][dplyr::dplyr_tidy_select]> Destination
 #'   of layers/attributes selected by `...`. Supplying neither will move
-#'   layers/attributes to the left-hand side; specifying both is an error.
+#'   layers/attributes to the left-hand side. Specifying both is an error.
 #'
 #' @inherit select.Spat return
 #'

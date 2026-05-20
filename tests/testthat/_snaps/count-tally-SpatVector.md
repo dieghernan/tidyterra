@@ -21,7 +21,7 @@
     Condition
       Warning:
       The `.drop` argument of `count.SpatVector()` is deprecated as of tidyterra 1.1.0.
-      i Argument not longer supported; empty groups are always removed(see `dplyr::count()`, `.drop = TRUE` argument).
+      i Argument no longer supported. Empty groups are always removed(see `dplyr::count()`, `.drop = TRUE` argument).
 
 # can only explicitly chain together multiple tallies
 
