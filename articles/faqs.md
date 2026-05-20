@@ -462,9 +462,9 @@ ggplot() +
 # Modify breaks on x and y
 ggplot() +
   geom_spatraster(data = r) +
-  scale_y_continuous(breaks = scales::breaks_pretty(n = 5)) +
-  scale_x_continuous(breaks = scales::breaks_pretty(n = 5)) +
-  labs(title = "Three breaks on x and y axes with scales::breaks_pretty()")
+  scale_y_continuous(breaks = scales::breaks_extended(n = 5)) +
+  scale_x_continuous(breaks = scales::breaks_extended(n = 5)) +
+  labs(title = "Three breaks on x and y axes with scales::breaks_extended()")
 ```
 
 ![](faqs_files/figure-html/fig-breaks-1.png)
