@@ -16,15 +16,15 @@
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
-#' @param rgb Logical. Should be plotted as a RGB image? If `NULL` (the default)
-#'   [autoplot.SpatRaster()] would try to guess.
-#' @param use_coltab Logical. Should be plotted with the corresponding
-#'   [terra::coltab()]? If `NULL` (the default) [autoplot.SpatRaster()] would
-#'   try to guess. See also [scale_fill_coltab()].
-#' @param facets Logical. Should facets be displayed? If `NULL` (the default)
-#'   [autoplot.SpatRaster()] would try to guess.
+#' @param rgb Logical. If `TRUE`, plot as an RGB image. If `NULL` (the default),
+#'   [autoplot.SpatRaster()] tries to guess.
+#' @param use_coltab Logical. If `TRUE`, plot with the corresponding
+#'   [terra::coltab()]. If `NULL` (the default), [autoplot.SpatRaster()] tries
+#'   to guess. See also [scale_fill_coltab()].
+#' @param facets Logical. If `TRUE`, display facets. If `NULL` (the default),
+#'   [autoplot.SpatRaster()] tries to guess.
 #'
-#' @param nrow,ncol Number of rows and columns on the facet.
+#' @param nrow,ncol Number of rows and columns in the facet.
 #' @param ... Other arguments passed to [geom_spatraster()],
 #'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'

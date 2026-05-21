@@ -31,7 +31,8 @@
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @inheritParams scale_cross_blended
 #' @param palette A valid palette name. The name is matched to the list of
-#'   available palettes, ignoring upper vs. lower case. Values available are:
+#'   available palettes, ignoring upper vs. lower case. The available values
+#'   are listed below.
 #'
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'

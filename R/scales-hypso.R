@@ -45,7 +45,8 @@
 #' @inheritParams scale_cross_blended
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [hypsometric_tints_db] for more info. Values available are:
+#'   [hypsometric_tints_db] for more info. The available values are listed
+#'   below.
 #'
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
@@ -399,20 +400,20 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' - Browns: 1000 to 4.000 values.
 #' - Whites: Values higher than 4.000.
 #'
-#' The following orientation would vary depending on the palette definition
-#' (see [hypsometric_tints_db] for an example on how this could be achieved).
+#' The following orientation varies depending on the palette definition (see
+#' [hypsometric_tints_db] for an example of how this can be achieved).
 #'
 #' Note that the setup of the palette may not always be suitable for your
 #' specific data. For example, a `SpatRaster` of small parts of the globe (and
 #' with a limited range of elevations) may not be well represented. As an
-#' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
-#' almost as a uniform color. This could be adjusted using the
-#' `limits`/`values` arguments.
+#' example, a `SpatRaster` with a range of values on `[100, 200]` appears
+#' almost as a uniform color. This can be adjusted using the `limits`/`values`
+#' arguments.
 #'
-#' When passing `limits` argument to `scale_*_hypso_tint_*` the colors would
-#' be restricted to those specified by this argument, keeping the distribution
-#' of the tint. You can combine this with `oob` (i.e.
-#' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
+#' When passing the `limits` argument to `scale_*_hypso_tint_*`, the colors are
+#' restricted to those specified by this argument, keeping the distribution of
+#' the tint. You can combine this with `oob` (i.e. `oob = scales::oob_squish`)
+#' to avoid blank pixels in the plot.
 #'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,

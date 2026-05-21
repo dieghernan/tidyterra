@@ -46,8 +46,8 @@ it will use \code{nn}. If there's a column called \code{n} and \code{nn}, it'll 
 supported, empty groups are always removed (see \code{\link[dplyr:count]{dplyr::count()}},
 \code{.drop = TRUE} argument).}
 
-\item{.dissolve}{Logical. Should borders between aggregated geometries
-be dissolved?}
+\item{.dissolve}{Logical. If \code{TRUE}, dissolve borders between aggregated
+geometries.}
 }
 \value{
 A \code{SpatVector} object with an additional attribute.

@@ -46,8 +46,8 @@ geom_spatraster_contour_text <- function(
     )
   )
 
-  # aes(z=...) would select the layer to plot
-  # Extract value of aes(z)
+  # `aes(z = ...)` selects the layer to plot.
+  # Extract value of `aes(z)`.
 
   if ("z" %in% names(mapping)) {
     namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
@@ -58,7 +58,7 @@ geom_spatraster_contour_text <- function(
 
     # Subset by layer
     data <- terra::subset(data, namelayer)
-    # Remove z from aes, would be provided later on the Stat
+    # Remove z from aes, it is provided later on the Stat.
     mapping <- cleanup_aesthetics(mapping, "z")
   }
 
@@ -114,10 +114,9 @@ geom_spatraster_contour_text <- function(
     )
   )
 
-  # From ggspatial
-  # If the SpatRaster has crs add a geom_sf for training scales
-  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-  # using the first layer's CRS as the base CRS for coord_sf().
+  # From ggspatial.
+  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
+  # mimics using the first layer CRS as the base CRS for coord_sf().
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -182,7 +181,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     label_format = scales::label_number(),
     label_placer = isoband::label_placer_minmax()
   ) {
-    # must be sorted on group
+    # Must be sorted by group.
     data <- data[order(data$group), , drop = FALSE]
 
     # Override label with default level if it was not provided

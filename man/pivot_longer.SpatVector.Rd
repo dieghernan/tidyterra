@@ -131,8 +131,8 @@ Learn more in \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}.
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} method.
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behaviour. This means that the result would
-have always the geometry of \code{data}.
+The geometry column has sticky behavior. This means that the result always
+has the geometry of \code{data}.
 }
 }
 

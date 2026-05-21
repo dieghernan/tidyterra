@@ -4,7 +4,7 @@
       gg <- bind_spat_rows(df2, df_init)
     Message
       ! Object 2 in `...` is <data.frame> 
-      The result would present empty geoms
+      The result includes empty geometries
 
 # bind_spat_rows respects named rowwise
 
@@ -12,7 +12,7 @@
       gg <- bind_spat_rows(df2, df_init)
     Message
       ! Object 2 in `...` is <data.frame> 
-      The result would present empty geoms
+      The result includes empty geometries
 
 # bind_spat_rows() give informative errors
 
@@ -51,7 +51,7 @@
       v2 <- terra::project(v[2, ], "EPSG:3857")
       (expect_message(vend <- bind_spat_rows(v1, v2)))
     Output
-      <cliMessage: ! Reprojecting object 2 in `...` since it doesn't have the same CRS as object 1
+      <cliMessage: ! Reprojecting object 2 in `...` since it does not have the same CRS as object 1
       >
     Code
       expect_s4_class(vend, "SpatVector")
@@ -61,7 +61,7 @@
       expect_s3_class(v2_sf, "sf")
       (expect_message(vend2 <- bind_spat_rows(v1, v2_sf)))
     Output
-      <cliMessage: ! Reprojecting object 2 in `...` since it doesn't have the same CRS as object 1
+      <cliMessage: ! Reprojecting object 2 in `...` since it does not have the same CRS as object 1
       >
     Code
       expect_s4_class(vend2, "SpatVector")
@@ -71,9 +71,9 @@
       (expect_message(vend3 <- bind_spat_rows(v1, v2_sf, df1)))
     Message
       ! Object 3 in `...` is <data.frame> 
-      The result would present empty geoms
+      The result includes empty geometries
     Output
-      <cliMessage: ! Reprojecting object 2 in `...` since it doesn't have the same CRS as object 1
+      <cliMessage: ! Reprojecting object 2 in `...` since it does not have the same CRS as object 1
       >
     Code
       expect_s4_class(vend3, "SpatVector")

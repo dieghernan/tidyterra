@@ -16,24 +16,24 @@
 #' @param data A `SpatRaster` object.
 #'
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
-#'   **Aesthetics** specially in the use of `fill` aesthetic.
+#'   **Aesthetics**, especially in the use of the `fill` aesthetic.
 #'
 #' @param na.rm If `TRUE`, the default, missing values are silently removed. If
 #'   `FALSE`, missing values are removed with a warning.
 #'
-#' @param inherit.aes If `FALSE`, overrides the default aesthetics, rather
-#'   than combining with them.
+#' @param inherit.aes If `FALSE`, override the default aesthetics rather than
+#'   combining with them.
 #'
 #' @param maxcell Positive integer. Maximum number of cells to use for
 #'   the plot.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
-#'   an associated [coltab][terra::coltab()]. Should the coltab be used on the
-#'   plot? See also [scale_fill_coltab()].
+#'   an associated [coltab][terra::coltab()]. If `TRUE`, use the coltab on the
+#'   plot. See also [scale_fill_coltab()].
 #'
 #' @param mask_projection Logical, defaults to `FALSE`. If `TRUE`, mask out
 #'   areas outside the input extent. For example, to avoid data wrapping
-#'   around the date-line in Equal Area projections. This argument is passed
+#'   around the dateline in equal-area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the `SpatRaster`.
 #'
 #' @inheritParams ggplot2::geom_raster
@@ -52,8 +52,8 @@
 #'
 #' @section Coords:
 #'
-#' When the `SpatRaster` does not present a CRS (i.e.,
-#' `terra::crs(rast) == ""`) the geom does not make any assumption on the
+#' When the `SpatRaster` does not have a CRS (i.e.,
+#' `terra::crs(rast) == ""`) the geom does not make any assumption about the
 #' scales.
 #'
 #' On `SpatRaster` that have a CRS, the geom uses [ggplot2::coord_sf()] to
@@ -77,7 +77,7 @@
 #' layers can be retrieved using `names(rast)`.
 #'
 #' Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
-#' `geom_spatraster(..., fill = <color value(s)>)` would create a layer with no
+#' `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no
 #' mapped `fill` aesthetic.
 #'
 #' `fill` can use computed variables.
@@ -230,10 +230,9 @@ geom_spatraster <- function(
     )
   )
 
-  # From ggspatial
-  # If the SpatRaster has crs add a geom_sf for training scales
-  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-  # using the first layer's CRS as the base CRS for coord_sf().
+  # From ggspatial.
+  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
+  # mimics using the first layer CRS as the base CRS for coord_sf().
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -484,7 +483,7 @@ prepare_aes_spatraster <- function(
     )
   )
 
-  # Create first the default result object, would be overriden
+  # Create the default result object first, this may be overridden.
 
   result_obj <- list(namelayer = FALSE, map = mapinit)
 

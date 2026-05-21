@@ -159,9 +159,9 @@ tidy.SpatGraticule <- function(x, ...) {
   tvers <- packageVersion("terra")
   if (tvers < "1.8.5") {
     msg <- paste(
-      "Need {.pkg terra} {.strong 1.8.5} or later for ",
-      "{.fn tidy.SpatGraticule} method. Current {.pkg terra} ",
-      "version is {.strong {tvers}}"
+      "{.pkg terra} {.strong 1.8.5} or later is required for the",
+      "{.fn tidy.SpatGraticule} method. The current {.pkg terra}",
+      "version is {.strong {tvers}}."
     )
     cli::cli_abort(msg)
   }

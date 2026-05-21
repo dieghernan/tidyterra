@@ -73,7 +73,7 @@ readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dpl
 The goal of **tidyterra** is to provide common methods of the [**tidyverse**
 packages](https://tidyverse.org/packages/) for objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package: `SpatRaster` and
-`SpatVector`. It also provides `geoms` for plotting these objects with
+`SpatVector`. It also provides geoms for plotting these objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 Please cite **tidyterra** as:
@@ -114,7 +114,7 @@ the type of `Spat*` object:
 -   `SpatRaster`: The implementation for `SpatRaster` objects differs because
     methods can be applied to layers or cells. **tidyterra**'s overall
     approach is to treat the layers as columns of a tibble and the cells as rows
-    (i.e. `select(SpatRaster, 1)` would select the first layer of a
+    (i.e. `select(SpatRaster, 1)` selects the first layer of a
     `SpatRaster`).
 
 The implemented methods return the same type of object as the input, unless the
@@ -224,9 +224,9 @@ install.packages(
 ```
 :::
 
-## Example
+## Examples
 
-### `SpatRasters`
+### `SpatRaster` objects
 
 This basic example shows how to manipulate and plot `SpatRaster` objects:
 
@@ -396,7 +396,7 @@ cat(
 )
 ```
 
-### `SpatVectors`
+### `SpatVector` objects
 
 This basic example shows how to manipulate and plot `SpatVector` objects:
 
@@ -444,7 +444,7 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 
 ## Acknowledgements
 
-**tidyterra**'s **ggplot2** geoms are based on
-[**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation, by
+**tidyterra**'s **ggplot2** geoms are based on the
+[**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation by
 [Dewey Dunnington](https://github.com/paleolimbot) and [**ggspatial**
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).

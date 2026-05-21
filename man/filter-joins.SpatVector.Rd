@@ -15,7 +15,7 @@
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. \strong{If a
-\code{SpatVector} of \code{sf} object} is provided it would return an error (see
+\code{SpatVector} or \code{sf} object} is provided it returns an error (see
 \code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -79,9 +79,8 @@ See \code{\link[dplyr:semi_join]{dplyr::semi_join()}} for details.
 Implementation of the \strong{generic} \code{\link[dplyr:semi_join]{dplyr::semi_join()}} family
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behaviour. This means that the result would
-have always the geometry of \code{x} for the records that matches the join
-conditions.
+The geometry column has sticky behavior. This means that the result always
+has the geometry of \code{x} for the records that match the join conditions.
 }
 }
 

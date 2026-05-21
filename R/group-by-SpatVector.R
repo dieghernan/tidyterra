@@ -30,11 +30,11 @@
 #' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax**
 #' on a grouped `SpatVector` (i.e. subsetting a `SpatVector` like
 #' `v[1:3,1:2]`), the `groups` attribute can be corrupted.
-#' \CRANpkg{tidyterra} would try to re-group the `SpatVector`. This would be
-#' triggered the next time you use a \CRANpkg{dplyr} verb on your `SpatVector`.
+#' \CRANpkg{tidyterra} tries to re-group the `SpatVector`. This is triggered
+#' the next time you use a \CRANpkg{dplyr} verb on your `SpatVector`.
 #'
-#' Note also that some operations (as `terra::spatSample()`) would create a new
-#' `SpatVector`. In these cases, the result won't preserve the `groups`
+#' Note also that some operations, such as `terra::spatSample()`, create a new
+#' `SpatVector`. In these cases, the result does not preserve the `groups`
 #' attribute. Use [group_by()] to re-group.
 #'
 #' @details
@@ -50,10 +50,10 @@
 #'
 #' by_name1 <- p |> group_by(NAME_1)
 #'
-#' # grouping doesn't change how the SpatVector looks
+#' # Grouping does not change how the SpatVector looks.
 #' by_name1
 #'
-#' # But add metadata for grouping: See the coercion to tibble
+#' # But it adds metadata for grouping. See the coercion to tibble.
 #'
 #' # Not grouped
 #' p_tbl <- as_tibble(p)

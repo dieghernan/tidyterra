@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "tidyterra",
-  "description": "Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from the 'terra' package. It also includes 'geom_' functions that provide a convenient way to visualize 'terra' objects with 'ggplot2'.",
+  "description": "Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from the 'terra' package. It also provides 'ggplot2' geoms to visualize 'terra' objects.",
   "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
   "relatedLink": ["https://dieghernan.github.io/tidyterra/", "https://CRAN.R-project.org/package=tidyterra"],
   "codeRepository": "https://github.com/dieghernan/tidyterra",
@@ -377,7 +377,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2468.826KB",
+  "fileSize": "2470.399KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

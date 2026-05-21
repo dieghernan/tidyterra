@@ -27,9 +27,9 @@ to \code{TRUE} are kept. See \strong{Methods}.}
 \item{.preserve}{Relevant when the \code{.data} input is grouped. If \code{.preserve = FALSE} (the default), the grouping structure is recalculated based on the
 resulting data, otherwise the grouping is kept as is.}
 
-\item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
-On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent of the result may be
-different of the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
+\item{.keep_extent}{Logical. If \code{TRUE}, keep the extent of the resulting
+\code{SpatRaster}. On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent may
+differ from the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
 
 \item{.by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
@@ -48,7 +48,7 @@ combined with the \code{&} operator. To combine comma separated conditions using
 \code{|} instead, wrap them in \code{\link[dplyr:when_any]{dplyr::when_any()}}.
 
 Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. This subtle
-behaviour can impact how you write your conditions when missing values are
+behavior can affect how you write your conditions when missing values are
 involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
 \strong{It is possible to filter a \code{SpatRaster} by its geographic coordinates}.
@@ -64,11 +64,11 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} method.
 \subsection{\code{SpatRaster}}{
 
-Cells that do not fulfill the conditions on \code{...} are returned with value
+Cells that do not meet the conditions on \code{...} are returned with value
 \code{NA}. On a multi-layer \code{SpatRaster} the \code{NA} is propagated across all the
 layers.
 
-If \code{.keep_extent = TRUE} the returning \code{SpatRaster} has the same CRS, extent,
+If \code{.keep_extent = TRUE} the returned \code{SpatRaster} has the same CRS, extent,
 resolution and hence the same number of cells as \code{.data}. If
 \code{.keep_extent = FALSE} the outer \code{NA} cells are trimmed with \code{\link[terra:trim]{terra::trim()}},
 so the extent and number of cells may differ. The output will still have

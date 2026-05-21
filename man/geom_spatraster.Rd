@@ -36,7 +36,7 @@ stat_spatraster(
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
-\strong{Aesthetics} specially in the use of \code{fill} aesthetic.}
+\strong{Aesthetics}, especially in the use of the \code{fill} aesthetic.}
 
 \item{data}{A \code{SpatRaster} object.}
 
@@ -51,8 +51,8 @@ display. To include legend keys for all levels, even
 when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
 but unobserved levels are omitted.}
 
-\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
-than combining with them.}
+\item{inherit.aes}{If \code{FALSE}, override the default aesthetics rather than
+combining with them.}
 
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
@@ -61,12 +61,12 @@ than combining with them.}
 the plot.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
-an associated \link[terra:coltab]{coltab}. Should the coltab be used on the
-plot? See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+an associated \link[terra:coltab]{coltab}. If \code{TRUE}, use the coltab on the
+plot. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
@@ -126,8 +126,8 @@ the \code{geom}.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not present a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption on the
+When the \code{SpatRaster} does not have a CRS (i.e.,
+\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
 scales.
 
 On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
@@ -155,7 +155,7 @@ on the \code{SpatRaster} (i.e.
 layers can be retrieved using \code{names(rast)}.
 
 Using \code{geom_spatraster(..., mapping = aes(fill = NULL))} or
-\verb{geom_spatraster(..., fill = <color value(s)>)} would create a layer with no
+\verb{geom_spatraster(..., fill = <color value(s)>)} creates a layer with no
 mapped \code{fill} aesthetic.
 
 \code{fill} can use computed variables.

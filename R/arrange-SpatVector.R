@@ -19,8 +19,8 @@
 #'
 #' @inheritParams dplyr::arrange
 #' @param .data A `SpatVector` created with [terra::vect()].
-#' @param .by_group If `TRUE`, will sort first by grouping variable. Applies to
-#'   grouped `SpatVector` only.
+#' @param .by_group If `TRUE`, sort first by grouping variable. This applies to
+#'   grouped `SpatVector` objects only.
 #'
 #' @return A `SpatVector` object.
 #'

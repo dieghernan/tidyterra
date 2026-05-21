@@ -42,27 +42,27 @@ Implementation of the \strong{generic} \code{\link[tidyr:drop_na]{tidyr::drop_na
 \subsection{\code{SpatVector}}{
 
 The implementation of this method is performed on a \code{by-attribute} basis,
-meaning that \code{NAs} are assessed on the attributes (columns) of each vector
-(rows). The result is a \code{SpatVector} with potentially less geometries than
-the input.
+meaning that \code{NA} values are assessed on the attributes (columns) of each
+vector (rows). The result is a \code{SpatVector} with potentially fewer
+geometries than the input.
 }
 
 \subsection{\code{SpatRaster}}{
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 
-Actual implementation of \verb{drop_na().SpatRaster} can be understood as a
+The implementation of \verb{drop_na().SpatRaster} can be understood as a
 masking method based on the values of the layers (see
 \code{\link[terra:mask]{terra::mask()}}).
 
 \code{SpatRaster} layers are considered as columns and \code{SpatRaster} cells as rows,
-so rows (cells) with any \code{NA} value on any layer would get a \code{NA} value. It
-is possible also to mask the cells (rows) based on the values of specific
+so rows (cells) with any \code{NA} value on any layer get an \code{NA} value. It is
+also possible to mask the cells (rows) based on the values of specific
 layers (columns).
 
-\code{drop_na()} would effectively remove outer cells that are \code{NA} (see
+\code{drop_na()} effectively removes outer cells that are \code{NA} (see
 \code{\link[terra:trim]{terra::trim()}}), so the extent of the resulting object may differ from the
-extent of the input (see \code{\link[terra:resample]{terra::resample()}} for more info).
+extent of the input (see \code{\link[terra:resample]{terra::resample()}} for more information).
 
 Check the \strong{Examples} to have a better understanding of this method.
 \subsection{Feedback needed!}{

@@ -66,7 +66,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
   check_index <- as.logical(!is.na(df_na[1, ]))
 
   # Replace on new raster using a loop
-  # New raster for init the loop
+  # Create a new raster to initialize the loop.
   newrast <- data
 
   for (i in seq_len(terra::nlyr(newrast))) {

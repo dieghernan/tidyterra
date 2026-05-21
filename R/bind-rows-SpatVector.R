@@ -2,13 +2,13 @@
 #'
 #' @description
 #' Bind any number of `SpatVector`, data frames and `sf/sfc` objects by row,
-#' making a longer result. This is similar to `do.call(rbind, dfs)`, but the
-#' output will contain all columns that appear in any of the inputs.
+#' making a longer result. This is similar to `do.call(rbind, data_frames)`,
+#' but the output will contain all columns that appear in any of the inputs.
 #'
-#' @param ... Objects to combine. The first argument should be a `SpatVector`
-#'   and each of the subsequent arguments can either be a `SpatVector`, a
-#'   `sf/sfc` object or a data frame. Columns are matched by name, and any
-#'   missing columns will be filled with `NA`.
+#' @param ... Objects to combine. The first argument must be a `SpatVector`.
+#'   Each subsequent argument can be a `SpatVector`, `sf/sfc` object or data
+#'   frame. Columns are matched by name, and any missing columns are filled with
+#'   `NA`.
 #' @inheritParams dplyr::bind_rows
 #'
 #' @return A `SpatVector` of the same type as the first element of `...`.
@@ -36,11 +36,11 @@
 #' The first argument should be a `SpatVector`. Each subsequent argument can be
 #' a `SpatVector`, `sf/sfc` object, or data frame:
 #'
-#' - If subsequent `SpatVector/sf/sfc` objects present a different CRS than
-#'   the first element, those elements would be reprojected to the CRS of the
+#' - If subsequent `SpatVector/sf/sfc` objects have a different CRS than the
+#'   first element, those elements are reprojected to the CRS of the
 #'   first element with a message.
-#' - If any element of `...` is a tibble/data frame the rows would be
-#'   `cbind`ed with empty geometries with a message.
+#' - If any element of `...` is a tibble/data frame, the rows are column-bound
+#'   with empty geometries with a message.
 #'
 #' @examples
 #'
@@ -127,7 +127,7 @@ bind_spat_rows <- function(..., .id = NULL) {
     if (i == 1) {
       frst <- as_tibble(x)
 
-      # If first is only geometry, add a mock var
+      # If first is only geometry, add a mock variable.
       if (nrow(frst) == 0) {
         frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
       }
@@ -135,7 +135,7 @@ bind_spat_rows <- function(..., .id = NULL) {
       return(frst)
     }
 
-    # Rest of cases
+    # Remaining cases.
 
     if (inherits(x, "SpatVector")) {
       return(as_tibble(x))
@@ -148,8 +148,8 @@ bind_spat_rows <- function(..., .id = NULL) {
     x
   })
 
-  # Now get all geoms
-  # Ensure all are SpatVectors and add ids if required
+  # Get all geometries.
+  # Ensure all are SpatVectors and add ids if required.
   allspatvect <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
@@ -158,8 +158,8 @@ bind_spat_rows <- function(..., .id = NULL) {
       return(x[, 0])
     }
 
-    # If tibble convert (internally) to SpatVector
-    # Rest as tibble
+    # Convert tibbles internally to SpatVector.
+    # Keep the rest as tibble.
     if (!inherits(x, "data.frame")) {
       cli::cli_abort(paste(
         "In {.fun tidyterra::bind_spat_rows}:",
@@ -169,7 +169,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 
     cli::cli_alert_warning(paste(
       "Object {.field {i}} in {.arg ...} is {.cls {class(x)}}",
-      cli::col_grey("\nThe result would present empty geoms")
+      cli::col_grey("\nThe result includes empty geometries")
     ))
 
     x <- as_tibble(x)
@@ -182,10 +182,10 @@ bind_spat_rows <- function(..., .id = NULL) {
     as_spat_internal(x)[, 0]
   })
 
-  # Get geoms
+  # Get geometries.
   vend <- do.call("rbind", allspatvect)
 
-  # Get binded rows
+  # Get bound rows.
   if (length(named_list) == length(alltibbs)) {
     names(alltibbs) <- named_list
   }
@@ -193,7 +193,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   binded <- dplyr::bind_rows(alltibbs, .id = .id)
   vend <- cbind(vend[, 0], binded)
 
-  # Regen groups
+  # Regenerate groups.
   vend <- group_prepare_spat(vend, binded)
 
   vend
@@ -203,7 +203,7 @@ crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
     cli::cli_alert_warning(paste0(
       "Reprojecting object {.field {index}} in {.arg ...} since it",
-      " doesn't have the same CRS as object {.field 1}"
+      " does not have the same CRS as object {.field 1}"
     ))
   }
 

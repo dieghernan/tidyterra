@@ -56,7 +56,7 @@ geom_spatraster_contour_filled(
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
-\strong{Aesthetics} specially in the use of \code{fill} aesthetic.}
+\strong{Aesthetics}, especially in the use of the \code{fill} aesthetic.}
 
 \item{data}{A \code{SpatRaster} object.}
 
@@ -117,12 +117,12 @@ display. To include legend keys for all levels, even
 when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
 but unobserved levels are omitted.}
 
-\item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics, rather
-than combining with them.}
+\item{inherit.aes}{If \code{FALSE}, override the default aesthetics rather than
+combining with them.}
 
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 
 \item{size.unit}{How the \code{size} aesthetic is interpreted: as millimetres
@@ -221,8 +221,8 @@ longer available.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not present a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption on the
+When the \code{SpatRaster} does not have a CRS (i.e.,
+\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
 scales.
 
 On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to

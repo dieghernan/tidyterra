@@ -53,7 +53,7 @@
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. \strong{If a
-\code{SpatVector} of \code{sf} object} is provided it would return an error (see
+\code{SpatVector} or \code{sf} object} is provided it returns an error (see
 \code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -130,15 +130,14 @@ See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inner_join()}} family
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behaviour. This means that the result would
-have always the geometry of \code{x} for the records that matches the join
-conditions.
+The geometry column has sticky behavior. This means that the result always
+has the geometry of \code{x} for the records that match the join conditions.
 
 Note that for \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_join()}} it is possible to return
 empty geometries (since \code{y} is expected to be a data frame with no
 geometries). Although this kind of joining operations may not be common on
-spatial manipulation, it is possible that the function crashes, since
-handling of \code{EMPTY} geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
+spatial manipulation, the function may crash because handling of \code{EMPTY}
+geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
 }
 }
 

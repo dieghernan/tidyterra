@@ -24,7 +24,7 @@ The same \code{SpatVector} object with an additional attribute.
 }
 \description{
 \code{rowwise()} allows you to compute on a \code{SpatVector} a row-at-a-time.
-This is most useful when a vectorised function doesn't exist.
+This is most useful when a vectorised function does not exist.
 
 Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
 row-wise grouping. The exception is \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}, which return a
@@ -42,13 +42,13 @@ Implementation of the \strong{generic} \code{\link[dplyr:rowwise]{dplyr::rowwise
 \code{SpatVector} objects.
 
 \strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax} on a
-row-wise \code{SpatVector} (i.e, subsetting a \code{SpatVector} like \code{v[1:3,1:2]}) the
-\code{groups} attribute can be corrupted. \CRANpkg{tidyterra} would try to
-re-generate the \code{SpatVector}. This would be triggered the next time you use
-a \CRANpkg{dplyr} verb on your \code{SpatVector}.
+row-wise \code{SpatVector} (i.e. subsetting a \code{SpatVector} like \code{v[1:3,1:2]}),
+the \code{groups} attribute can be corrupted. \CRANpkg{tidyterra} tries to
+regenerate the \code{SpatVector}. This is triggered the next time you use a
+\CRANpkg{dplyr} verb on your \code{SpatVector}.
 
-Note also that some operations (as \code{terra::spatSample()}) would create a new
-\code{SpatVector}. In these cases, the result won't preserve the \code{groups}
+Note also that some operations, such as \code{terra::spatSample()}, create a new
+\code{SpatVector}. In these cases, the result does not preserve the \code{groups}
 attribute. Use \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} to re-group.
 }
 

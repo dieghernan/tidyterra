@@ -6,14 +6,14 @@
 \title{Princess palettes database}
 \format{
 A \link[tibble:tbl_df]{tibble} of 75 rows and
-5 columns. with the following fields:
+5 columns with the following fields:
 
 \describe{
-\item{pal}{ Name of the palette.}
+\item{pal}{Name of the palette.}
 \item{r}{Value of the red channel (RGB color mode).}
 \item{g}{Value of the green channel (RGB color mode).}
 \item{b}{Value of the blue channel (RGB color mode).}
-\item{hex}{ Hex code of the color.}
+\item{hex}{Hex code of the color.}
 }
 }
 \source{

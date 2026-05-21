@@ -54,7 +54,7 @@
 #' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or
 #'   `y` are renamed.
 #' - When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
-#'   same renaming would happen.
+#'   same renaming happens.
 #'
 #' \CRANpkg{tidyterra} displays a message describing the renamed layers.
 #'

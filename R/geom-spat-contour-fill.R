@@ -34,8 +34,8 @@ geom_spatraster_contour_filled <- function(
     )
   )
 
-  # aes(z=...) would select the layer to plot
-  # Extract value of aes(z)
+  # `aes(z = ...)` selects the layer to plot.
+  # Extract value of `aes(z)`.
 
   if ("z" %in% names(mapping)) {
     namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
@@ -46,7 +46,7 @@ geom_spatraster_contour_filled <- function(
 
     # Subset by layer
     data <- terra::subset(data, namelayer)
-    # Remove z from aes, would be provided later on the Stat
+    # Remove z from aes, it is provided later on the Stat.
     mapping <- cleanup_aesthetics(mapping, "z")
   }
 
@@ -99,10 +99,9 @@ geom_spatraster_contour_filled <- function(
     )
   )
 
-  # From ggspatial
-  # If the SpatRaster has crs add a geom_sf for training scales
-  # use an emtpy geom_sf() with same CRS as the raster to mimic behaviour of
-  # using the first layer's CRS as the base CRS for coord_sf().
+  # From ggspatial.
+  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
+  # mimics using the first layer CRS as the base CRS for coord_sf().
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -162,7 +161,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
       nly <- length(unique(data$lyr))
       if (nly > 1) {
         cli::cli_alert_warning(paste(
-          cli::style_bold("{.fun tidyterra::geom_spat_countour_filled}:"),
+          cli::style_bold("{.fun tidyterra::geom_spatraster_contour_filled}:"),
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
@@ -175,7 +174,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
         ))
       }
     }
-    # add coord to the params, so it can be forwarded to compute_group()
+    # Add coord to the params, so it can be forwarded to compute_group().
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,

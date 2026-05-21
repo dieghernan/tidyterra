@@ -88,16 +88,16 @@ expand the scale by 5\% on each side for continuous variables, and by
 \item{alpha}{The alpha transparency: could be \code{NA} or a number in [0,1].
 See argument \code{alpha} in \code{\link[=scale_fill_terrain_d]{scale_fill_terrain_d()}}.}
 
-\item{na.translate}{Should \code{NA} values be removed from the legend? Default
-is \code{TRUE}.}
+\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
+The default is \code{TRUE}.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
 not filled. See also
 \href{https://github.com/dieghernan/tidyterra/issues/120}{#120}.}
 
-\item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{TRUE}) removes unused factors.}
+\item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
+The default (\code{TRUE}) removes unused factors.}
 }
 \value{
 The corresponding \CRANpkg{ggplot2} layer with the values applied to the

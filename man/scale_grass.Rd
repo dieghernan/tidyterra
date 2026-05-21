@@ -152,11 +152,11 @@ breaks are given explicitly.}
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
-\item{na.translate}{Should \code{NA} values be removed from the legend? Default
-is \code{TRUE}.}
+\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
+The default is \code{TRUE}.}
 
-\item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{TRUE}) removes unused factors.}
+\item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
+The default (\code{TRUE}) removes unused factors.}
 
 \item{values}{if colours should not be evenly positioned along the gradient
 this vector gives the position (between 0 and 1) for each colour in the
@@ -176,8 +176,8 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 (see \code{\link[ggplot2:coord_cartesian]{coord_cartesian()}}).
 }}
 
-\item{use_grass_range}{Logical. Should the scale use the suggested range
-when plotting? See \strong{Details}.}
+\item{use_grass_range}{Logical. If \code{TRUE}, use the suggested range when
+plotting. See \strong{Details}.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
@@ -225,11 +225,11 @@ default color palettes provided by \code{\link[terra:plot]{terra::plot()}} (\CRA
 }
 \details{
 Some palettes are mapped by default to a specific range of values (see
-\link{grass_db}). However, it is possible to modify this behaviour with the
-\code{use_grass_range} argument, When \code{FALSE} the color scales would be mapped
-to the range of values of the \code{color/fill} aesthethics, See \strong{Examples}.
+\link{grass_db}). However, it is possible to modify this behavior with the
+\code{use_grass_range} argument. When \code{FALSE}, the color scales are mapped to the
+range of values of the \code{color/fill} aesthetics. See \strong{Examples}.
 
-When passing \code{limits} argument the colors would be restricted of those
+When passing the \code{limits} argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You can
 combine this with \code{oob} (i.e. \code{oob = scales::oob_squish}) to avoid blank
 pixels in the plot.

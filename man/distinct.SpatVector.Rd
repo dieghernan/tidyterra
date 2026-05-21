@@ -13,8 +13,8 @@
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Optional variables to
 use when determining uniqueness. If there are multiple rows for a given
 combination of inputs, only the first row will be preserved. If omitted,
-will use all variables in the data frame. There is a reserved variable
-name, \code{geometry}, that would remove duplicate geometries. See \strong{Methods}.}
+all variables in the data frame are used. There is a reserved variable
+name, \code{geometry}, that removes duplicate geometries. See \strong{Methods}.}
 
 \item{.keep_all}{If \code{TRUE}, keep all variables in \code{.data}.
 If a combination of \code{...} is not distinct, this keeps the

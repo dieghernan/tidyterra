@@ -33,15 +33,15 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @param na.translate Should `NA` values be removed from the legend? Default
-#'   is `TRUE`.
+#' @param na.translate Logical. If `TRUE`, remove `NA` values from the legend.
+#'   The default is `TRUE`.
 #' @param na.value Missing values will be replaced with this value. By default,
 #'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
 #'   not filled. See also
 #'   [#120](https://github.com/dieghernan/tidyterra/issues/120).
 #'
-#' @param drop Should unused factor levels be omitted from the scale? The
-#'   default (`TRUE`) removes unused factors.
+#' @param drop Logical. If `TRUE`, omit unused factor levels from the scale.
+#'   The default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #'
@@ -49,8 +49,8 @@
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [grass_db] for more info.
 #'
-#' @param use_grass_range Logical. Should the scale use the suggested range
-#'   when plotting? See **Details**.
+#' @param use_grass_range Logical. If `TRUE`, use the suggested range when
+#'   plotting. See **Details**.
 #' @seealso [grass_db], [terra::plot()],
 #' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
 #'
@@ -79,11 +79,11 @@
 #'
 #' @details
 #' Some palettes are mapped by default to a specific range of values (see
-#' [grass_db]). However, it is possible to modify this behaviour with the
-#' `use_grass_range` argument, When `FALSE` the color scales would be mapped
-#' to the range of values of the `color/fill` aesthethics, See **Examples**.
+#' [grass_db]). However, it is possible to modify this behavior with the
+#' `use_grass_range` argument. When `FALSE`, the color scales are mapped to the
+#' range of values of the `color/fill` aesthetics. See **Examples**.
 #'
-#' When passing `limits` argument the colors would be restricted of those
+#' When passing the `limits` argument, the colors are restricted to those
 #' specified by this argument, keeping the distribution of the palette. You can
 #' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
 #' pixels in the plot.

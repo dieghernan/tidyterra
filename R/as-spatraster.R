@@ -95,7 +95,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     initcrs <- attr(x, "crs")
     x <- x[, 1:4]
 
-    # lyrs
+    # Layers.
     names(x) <- c("x", "y", "name", "value")
     x <- tidyr::pivot_wider(x)
 
@@ -120,11 +120,11 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   x_arrange <- dplyr::bind_cols(xy_cols, values)
 
   # Create SpatRaster
-  # crs
+  # CRS.
   crs_attr <- attr(x, "crs")
   crs <- pull_crs(crs)
 
-  # Check from attrs
+  # Check from attributes.
   if (is.na(crs)) {
     crs <- crs_attr
   }
@@ -137,7 +137,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   # Check class of columns
   col_classes <- unlist(lapply(values, is.numeric))
 
-  # If all are numeric happy days!
+  # If all columns are numeric, create the raster directly.
   if (all(col_classes)) {
     newrast <- terra::rast(
       x_arrange,

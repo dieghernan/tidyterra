@@ -1,8 +1,8 @@
-#' Extract CRS on WKT format
+#' Extract CRS in WKT format
 #'
 #' @description
 #'
-#' Extract the WKT version of the CRS associated to a string, number of
+#' Extract the WKT version of the CRS associated with a string, number of
 #' sf/Spat* object.
 #'
 #' The
@@ -21,7 +21,7 @@
 #'
 #' @seealso
 #'
-#' [terra::crs()], [sf::st_crs()] for knowing how these packages handle
+#' [terra::crs()] and [sf::st_crs()] to learn how these packages handle
 #' CRS definitions.
 #'
 #' @family helpers
@@ -49,7 +49,7 @@
 #'
 #' `terra::project(bb, "epsg:25830")`
 #'
-#' Knowing the WKT would help to smooth workflows when working with different
+#' Knowing the WKT helps smooth workflows when working with different
 #' packages and object types.
 #'
 #' @section Internals:
@@ -89,7 +89,7 @@
 #'
 #' cat(fromsf1)
 pull_crs <- function(.data, ...) {
-  # Spat* objects handled by crs
+  # Spat* objects are handled by CRS.
   if (any(inherits(.data, "SpatRaster"), inherits(.data, "SpatVector"))) {
     .data <- terra::crs(.data)
   }

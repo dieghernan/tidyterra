@@ -31,8 +31,8 @@
 #'
 #' ## `SpatVector`
 #'
-#' The geometry column has a sticky behaviour. This means that the result would
-#' have always the geometry of `data`.
+#' The geometry column has sticky behavior. This means that the result always
+#' has the geometry of `data`.
 #'
 #' @examples
 #' \donttest{
@@ -111,7 +111,7 @@ pivot_longer.SpatVector <- function(
   # nocov start
   if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(paste0(
-      "Can't rebuild the {.cls SpatVector}, ",
+      "Cannot rebuild the {.cls SpatVector}, ",
       "{.val geometry} column lost after pivoting"
     ))
   }

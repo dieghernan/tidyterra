@@ -49,11 +49,11 @@ Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_
 \strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax}
 on a grouped \code{SpatVector} (i.e. subsetting a \code{SpatVector} like
 \code{v[1:3,1:2]}), the \code{groups} attribute can be corrupted.
-\CRANpkg{tidyterra} would try to re-group the \code{SpatVector}. This would be
-triggered the next time you use a \CRANpkg{dplyr} verb on your \code{SpatVector}.
+\CRANpkg{tidyterra} tries to re-group the \code{SpatVector}. This is triggered
+the next time you use a \CRANpkg{dplyr} verb on your \code{SpatVector}.
 
-Note also that some operations (as \code{terra::spatSample()}) would create a new
-\code{SpatVector}. In these cases, the result won't preserve the \code{groups}
+Note also that some operations, such as \code{terra::spatSample()}, create a new
+\code{SpatVector}. In these cases, the result does not preserve the \code{groups}
 attribute. Use \code{\link[=group_by]{group_by()}} to re-group.
 }
 
@@ -66,10 +66,10 @@ p <- vect(f)
 
 by_name1 <- p |> group_by(NAME_1)
 
-# grouping doesn't change how the SpatVector looks
+# Grouping does not change how the SpatVector looks.
 by_name1
 
-# But add metadata for grouping: See the coercion to tibble
+# But it adds metadata for grouping. See the coercion to tibble.
 
 # Not grouped
 p_tbl <- as_tibble(p)

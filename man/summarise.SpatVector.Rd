@@ -42,8 +42,8 @@ informs you of how the result will be grouped unless the result is
 ungrouped, the option \code{"dplyr.summarise.inform"} is set to \code{FALSE}, or when
 \code{summarise()} is called from a function in a package.}
 
-\item{.dissolve}{Logical. Should borders between aggregated geometries
-be dissolved?}
+\item{.dissolve}{Logical. If \code{TRUE}, dissolve borders between aggregated
+geometries.}
 }
 \value{
 A \code{SpatVector}.

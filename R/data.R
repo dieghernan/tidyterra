@@ -23,7 +23,8 @@
 #' (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
 #'
 #' DEM for LiDAR data from the Auckland region captured in 2013. The original
-#' data has been downsampled to a resolution of 5m due to disk space constrains.
+#' data has been downsampled to a resolution of 5 m due to disk space
+#' constraints.
 #'
 #' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 #'
@@ -33,8 +34,8 @@
 #' Information needed for regenerating the original `SpatRaster` file:
 #' - resolution: `c(5, 5)`
 #' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
-#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator 2000
-#'   (`EPSG:2193`)
+#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
+#'   2000 (`EPSG:2193`)
 #'
 #' @examples
 #'
@@ -67,8 +68,8 @@ NULL
 #' @description
 #' A [tibble][tibble::tbl_df] including the color map of
 #' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. All the
-#' palettes includes also a definition of colors limits in terms of elevation
-#' (meters), that can be used with [ggplot2::scale_fill_gradientn()].
+#' palettes. It also includes a definition of color limits in terms of
+#' elevation (meters) that can be used with [ggplot2::scale_fill_gradientn()].
 #'
 #' @docType data
 #'
@@ -77,15 +78,15 @@ NULL
 #' @name hypsometric_tints_db
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(hypsometric_tints_db)` rows and
-#' `r ncol(hypsometric_tints_db)` columns. with the following fields:
+#' `r ncol(hypsometric_tints_db)` columns with the following fields:
 #'
 #' \describe{
-#'   \item{pal}{ Name of the palette.}
+#'   \item{pal}{Name of the palette.}
 #'   \item{limit}{Recommended elevation limit (in meters) for each color.}
 #'   \item{r}{Value of the red channel (RGB color mode).}
 #'   \item{g}{Value of the green channel (RGB color mode).}
 #'   \item{b}{Value of the blue channel (RGB color mode).}
-#'   \item{hex}{ Hex code of the color.}
+#'   \item{hex}{Hex code of the color.}
 #' }
 #'
 #' @source
@@ -130,8 +131,8 @@ NULL
 #' @description
 #' A [tibble][tibble::tbl_df] including the color map of
 #' `r length(unique(cross_blended_hypsometric_tints_db$pal))` gradient palettes.
-#' All the palettes includes also a definition of colors limits in terms of
-#' elevation (meters), that can be used with [ggplot2::scale_fill_gradientn()].
+#' All palettes also include a definition of color limits in terms of elevation
+#' (meters) that can be used with [ggplot2::scale_fill_gradientn()].
 #'
 #' @docType data
 #'
@@ -140,16 +141,16 @@ NULL
 #' @name cross_blended_hypsometric_tints_db
 #' @format
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
-#' `r ncol(cross_blended_hypsometric_tints_db)` columns. with the following
+#' `r ncol(cross_blended_hypsometric_tints_db)` columns with the following
 #' fields:
 #'
 #' \describe{
-#'   \item{pal}{ Name of the palette.}
+#'   \item{pal}{Name of the palette.}
 #'   \item{limit}{Recommended elevation limit (in meters) for each color.}
 #'   \item{r}{Value of the red channel (RGB color mode).}
 #'   \item{g}{Value of the green channel (RGB color mode).}
 #'   \item{b}{Value of the blue channel (RGB color mode).}
-#'   \item{hex}{ Hex code of the color.}
+#'   \item{hex}{Hex code of the color.}
 #' }
 #'
 #' @source
@@ -157,7 +158,7 @@ NULL
 #' Derived from:
 #' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
 #'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-#'   31 - 46. \doi{10.14714/CP69.20}.
+#'   31-46. \doi{10.14714/CP69.20}.
 #'
 #' @details
 #' From Patterson & Jenny (2011):
@@ -210,8 +211,8 @@ NULL
 #'
 #' @description
 #' A [tibble][tibble::tbl_df] including the color map of
-#' `r length(unique(grass_db$pal))` gradient palettes. Some palettes includes
-#' also a definition of colors limits that can be used with
+#' `r length(unique(grass_db$pal))` gradient palettes. Some palettes also
+#' include a definition of color limits that can be used with
 #' [ggplot2::scale_fill_gradientn()].
 #'
 #' @docType data
@@ -220,16 +221,16 @@ NULL
 #'
 #' @name grass_db
 #' @format
-#' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns. with
+#' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns with
 #' the following fields:
 #'
 #' \describe{
-#'   \item{pal}{ Name of the palette.}
+#'   \item{pal}{Name of the palette.}
 #'   \item{limit}{(Optional) limit for each color.}
 #'   \item{r}{Value of the red channel (RGB color mode).}
 #'   \item{g}{Value of the green channel (RGB color mode).}
 #'   \item{b}{Value of the blue channel (RGB color mode).}
-#'   \item{hex}{ Hex code of the color.}
+#'   \item{hex}{Hex code of the color.}
 #' }
 #'
 #' @section \CRANpkg{terra} equivalent:
@@ -301,14 +302,14 @@ NULL
 #' @name princess_db
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(princess_db)` rows and
-#' `r ncol(princess_db)` columns. with the following fields:
+#' `r ncol(princess_db)` columns with the following fields:
 #'
 #' \describe{
-#'   \item{pal}{ Name of the palette.}
+#'   \item{pal}{Name of the palette.}
 #'   \item{r}{Value of the red channel (RGB color mode).}
 #'   \item{g}{Value of the green channel (RGB color mode).}
 #'   \item{b}{Value of the blue channel (RGB color mode).}
-#'   \item{hex}{ Hex code of the color.}
+#'   \item{hex}{Hex code of the color.}
 #' }
 #'
 #' @source

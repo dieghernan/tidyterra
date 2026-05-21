@@ -92,7 +92,7 @@ following cases:
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or
 \code{y} are renamed.
 \item When working with tidyverse methods (i.e. \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}), the
-same renaming would happen.
+same renaming happens.
 }
 
 \CRANpkg{tidyterra} displays a message describing the renamed layers.

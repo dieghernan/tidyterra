@@ -57,52 +57,52 @@ reference:
     `Spat*` objects.
   contents: has_concept("tibble.methods")
 
-- title: dplyr methods
+- title: "**dplyr** methods"
   desc: >
     Methods from <a href="https://CRAN.R-project.org/package=dplyr"
     class="external-link"><span class="pkg">dplyr</span></a> implemented for
     `Spat*` objects.
 - subtitle: Rows
   desc: |
-    Verbs that principally operate on rows.
+    Verbs that mainly operate on rows.
   contents: has_concept("dplyr.rows")
 - subtitle: Columns
   desc: |
-    Verbs that principally operate on columns.
+    Verbs that mainly operate on columns.
   contents: has_concept("dplyr.cols")
 - subtitle: Groups
   desc: |
-    Verbs that principally operate on groups of rows.
+    Verbs that mainly operate on groups of rows.
   contents: has_concept("dplyr.groups")
-- subtitle: "`SpatVector` and Data frames"
+- subtitle: "`SpatVector` and data frames"
   desc: >
-    Verbs that principally operate on pairs of `Spat*` and data frames.
+    Verbs that mainly operate on pairs of `Spat*` objects and data frames.
   contents: has_concept("dplyr.pairs")
 
-- title: tidyr methods
+- title: "**tidyr** methods"
   desc: >
     Methods from <a href="https://CRAN.R-project.org/package=tidyr"
     class="external-link"><span class="pkg">tidyr</span></a> implemented for
     `Spat*` objects.
 - subtitle: Pivoting
-  description: >
-    Pivoting changes the representation of a `SpatVector` object, without
-    changing the data inside of it.
+  desc: >
+    Pivoting changes the representation of a `SpatVector` object without
+    changing its data.
   contents: has_concept("tidyr.pivot")
 - subtitle: Missing values
-  description: >
+  desc: >
     Tools for converting between implicit (absent rows) and explicit (`NA`)
-    missing values, handling explicit `NA`s.
+    missing values, and for handling explicit `NA` values.
   contents: has_concept("tidyr.missing")
 
-- title: ggplot2 methods
+- title: "**ggplot2** methods"
   desc: >
     Methods from <a href="https://CRAN.R-project.org/package=ggplot2"
     class="external-link"><span class="pkg">ggplot2</span></a> implemented for
     `Spat*` objects.
   contents: has_concept("ggplot2.methods")
 
-- title: ggplot2 utils
+- title: "**ggplot2** utils"
 - subtitle: Geoms
   desc: >
     Create <a href="https://CRAN.R-project.org/package=ggplot2"
@@ -161,7 +161,7 @@ articles:
 - title: FAQs
   desc: >
     **tidyterra** FAQs. See also <a
-    href="https://github.com/dieghernan/tidyterra/discussions"
-    >/tidyterra/discussions</a>.
+    href="https://github.com/dieghernan/tidyterra/discussions">tidyterra
+    discussions</a>.
   contents:
   - articles/faqs

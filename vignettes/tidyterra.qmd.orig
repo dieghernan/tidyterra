@@ -58,21 +58,21 @@ knitr::opts_chunk$set(
 **tidyterra** is an **R** [@r-project] package that allows manipulation of
 spatial data objects as provided by the **terra** package [@R-terra], using the
 verbs of the packages included in the **tidyverse** [@R-tidyverse], such as
-**dplyr** [@R-dplyr], **tidyr** [@R-tidyr], or **tibble** [@R-tibble]. This
+**dplyr** [@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This
 makes spatial data manipulation and analysis easier and faster for users
 already familiar with the **tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2** package
-[@R-ggplot2] by providing additional `geoms` and `stats`[^1] like
+[@R-ggplot2] by providing additional geoms and stats[^1] like
 `geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
 and color palettes specifically designed for map production.
 
-[^1]: The term `geoms` refers to geometric objects, and `stats` refers to
+[^1]: The term geoms refers to geometric objects, and stats refers to
     statistical transformations, following the naming conventions of **ggplot2**.
 
 **tidyterra** can manipulate the following classes of **terra** objects:
 
-1.  `SpatVector` objects, which represent vector data such as points, lines, or
+1.  `SpatVector` objects, which represent vector data such as points, lines or
     polygon geometries.
 
 2.  `SpatRaster` objects, which represent raster data in the form of a grid
@@ -80,18 +80,18 @@ and color palettes specifically designed for map production.
     more values.
 
 The first stable version of **tidyterra** was released on CRAN on April 24,
-2022, and has been actively used by other packages (such as **ebvcube**
+2022, and has been actively used by other packages, such as **ebvcube**
 [@R-ebvcube], **biomod2** [@R-biomod2], **inlabru** [@R-inlabru], **RCzechia**
-[@R-rczechia] and **sparrpowR** [@R-sparrpowr]) and cited in academic research
+[@R-rczechia] and **sparrpowR** [@R-sparrpowr], and cited in academic research
 and publications (@bahlburg2023, @moraga2023, @Leonardi2023, @meister2023) ever
 since.
 
 ## Statement of need
 
 The [**tidyverse**](https://tidyverse.org/) is a compilation of **R** packages
-that share an underlying design philosophy, grammar, and data structures. The
+that share an underlying design philosophy, grammar and data structures. The
 packages within the tidyverse are widely used by **R** users for tidying,
-transforming, and visualizing data.
+transforming and visualizing data.
 
 The **tidyverse** is designed to work with tidy data (*"every column is a
 variable, every row is an observation, every cell is a single value"*),
@@ -121,7 +121,7 @@ using the **ggplot2** syntax. Although packages like **rasterVis**
 [@R-rastervis] and **ggspatial** [@R-ggspatial] already allow the representation
 of `SpatRaster` objects via **ggplot2**, **tidyterra** functions provide
 additional support for advanced mapping. This support includes the integration
-of faceted maps, contours, and the automatic conversion of spatial layers to the
+of faceted maps, contours and the automatic conversion of spatial layers to the
 same CRS[^2] via `ggplot2::coord_sf()`. Furthermore, **tidyterra** also provides
 support for `SpatVector` objects, similar to the native support of **sf**
 objects in the **ggplot2** package.
@@ -242,8 +242,8 @@ ggplot() +
 The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
--   Details on each function, including (if possible) the equivalent **terra**
-    function, in case users prefer to include those in their workflows.
+-   Details on each function, including the equivalent **terra** function when
+    available, in case users prefer to include those in their workflows.
 -   Working examples using the functions and creating plots.
 -   Additional articles and vignettes, as well as a complete demo of the
     different color palettes included in the package (see

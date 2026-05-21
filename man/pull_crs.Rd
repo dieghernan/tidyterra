@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{pull_crs}
 \alias{pull_crs}
-\title{Extract CRS on WKT format}
+\title{Extract CRS in WKT format}
 \usage{
 pull_crs(.data, ...)
 }
@@ -19,7 +19,7 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 A WKT representation of the corresponding CRS.
 }
 \description{
-Extract the WKT version of the CRS associated to a string, number of
+Extract the WKT version of the CRS associated with a string, number of
 sf/Spat* object.
 
 The
@@ -38,7 +38,7 @@ While \CRANpkg{sf} equivalent is:
 
 \code{terra::project(bb, "epsg:25830")}
 
-Knowing the WKT would help to smooth workflows when working with different
+Knowing the WKT helps smooth workflows when working with different
 packages and object types.
 }
 \section{Internals}{
@@ -81,7 +81,7 @@ all(
 cat(fromsf1)
 }
 \seealso{
-\code{\link[terra:crs]{terra::crs()}}, \code{\link[sf:st_crs]{sf::st_crs()}} for knowing how these packages handle
+\code{\link[terra:crs]{terra::crs()}} and \code{\link[sf:st_crs]{sf::st_crs()}} to learn how these packages handle
 CRS definitions.
 
 Other helpers:

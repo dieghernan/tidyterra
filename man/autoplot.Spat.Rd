@@ -33,17 +33,17 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 \item{...}{Other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} or \code{\link[=geom_spatvector]{geom_spatvector()}}.}
 
-\item{rgb}{Logical. Should be plotted as a RGB image? If \code{NULL} (the default)
-\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
+\item{rgb}{Logical. If \code{TRUE}, plot as an RGB image. If \code{NULL} (the default),
+\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
 
-\item{use_coltab}{Logical. Should be plotted with the corresponding
-\code{\link[terra:coltab]{terra::coltab()}}? If \code{NULL} (the default) \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would
-try to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+\item{use_coltab}{Logical. If \code{TRUE}, plot with the corresponding
+\code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (the default), \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries
+to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
-\item{facets}{Logical. Should facets be displayed? If \code{NULL} (the default)
-\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} would try to guess.}
+\item{facets}{Logical. If \code{TRUE}, display facets. If \code{NULL} (the default),
+\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
 
-\item{nrow, ncol}{Number of rows and columns on the facet.}
+\item{nrow, ncol}{Number of rows and columns in the facet.}
 }
 \value{
 A \CRANpkg{ggplot2} layer

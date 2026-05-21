@@ -5,16 +5,16 @@
 \alias{grass_db}
 \title{GRASS color tables}
 \format{
-A tibble of 2920 rows and 6 columns. with
+A tibble of 2920 rows and 6 columns with
 the following fields:
 
 \describe{
-\item{pal}{ Name of the palette.}
+\item{pal}{Name of the palette.}
 \item{limit}{(Optional) limit for each color.}
 \item{r}{Value of the red channel (RGB color mode).}
 \item{g}{Value of the green channel (RGB color mode).}
 \item{b}{Value of the blue channel (RGB color mode).}
-\item{hex}{ Hex code of the color.}
+\item{hex}{Hex code of the color.}
 }
 }
 \source{
@@ -23,8 +23,8 @@ also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRAS
 }
 \description{
 A \link[tibble:tbl_df]{tibble} including the color map of
-51 gradient palettes. Some palettes includes
-also a definition of colors limits that can be used with
+51 gradient palettes. Some palettes also
+include a definition of color limits that can be used with
 \code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
 }
 \details{

@@ -33,7 +33,7 @@ knitr:
     out.width: "100%"
 ---
 
-This page shows a [Lightbox gallery](https://biati-digital.github.io/glightbox/)
+This page shows a [lightbox gallery](https://biati-digital.github.io/glightbox/)
 of maps that can be displayed with the gradient fill scales included with
 **tidyterra**. A basic example for generating maps like these is:
 
@@ -177,7 +177,7 @@ for (i in allpals) {
 
 ## `scale_fill_grass_*`
 
-See `scale_fill_grass_c()` for details. Plots produced using
+See `scale_fill_grass_c()` for details. These plots are produced with
 `use_grass_range = FALSE`.
 
 ```{r}

@@ -2,22 +2,22 @@
 #'
 #' @description
 #' Bind any number of `SpatVector`, data frames and `sf` objects by column,
-#' making a wider result. This is similar to `do.call(cbind, dfs)`.
+#' making a wider result. This is similar to `do.call(cbind, data_frames)`.
 #'
 #' Where possible prefer using a [join][mutate-joins.SpatVector] to
 #' combine `SpatVector` and data frames objects. `bind_spat_cols()`
 #' binds the rows in order in which they appear so it is easy to create
 #' meaningless results without realizing it.
 #'
-#' @param ... Objects to combine. The first argument should be a `SpatVector`
-#'   and each of the subsequent arguments can either be a `SpatVector`, a `sf`
-#'   object or a data frame. Inputs are [recycled][vctrs::theory-faq-recycling]
-#'   to the same length, then matched by position.
+#' @param ... Objects to combine. The first argument must be a `SpatVector`.
+#'   Each subsequent argument can be a `SpatVector`, `sf` object or data frame.
+#'   Inputs are [recycled][vctrs::theory-faq-recycling] to the same length, then
+#'   matched by position.
 #'
 #' @inheritParams dplyr::bind_cols
 #'
 #' @return A `SpatVector` with the corresponding columns. The geometry and CRS
-#' would correspond to the first `SpatVector` of `...`.
+#' correspond to the first `SpatVector` of `...`.
 #'
 #' @export
 #' @encoding UTF-8
@@ -37,8 +37,8 @@
 #'
 #' Implementation of the [dplyr::bind_cols()] function for
 #' `SpatVector` objects. Note that for the second and subsequent arguments on
-#' `...` the geometry would not be `cbind`ed, and only the data frame (-ish)
-#' columns would be kept.
+#' `...`, the geometry is not `cbind`ed, and only the data frame-like columns
+#' are kept.
 #'
 #' @examples
 #' library(terra)
@@ -101,7 +101,7 @@ bind_spat_cols <- function(
     if (i == 1) {
       frst <- as_tibble(x)
 
-      # If first is only geometry, add a mock var
+      # If first is only geometry, add a mock variable.
       if (nrow(frst) == 0) {
         frst <- tibble::tibble(first_empty = seq_len(nrow(x)))
       }
@@ -109,7 +109,7 @@ bind_spat_cols <- function(
       return(frst)
     }
 
-    # Rest of cases
+    # Remaining cases.
 
     if (inherits(x, "SpatVector")) {
       return(as_tibble(x))

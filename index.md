@@ -35,7 +35,7 @@ readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dpl
 The goal of **tidyterra** is to provide common methods of the
 [**tidyverse** packages](https://tidyverse.org/packages/) for objects
 created with the [**terra**](https://CRAN.R-project.org/package=terra)
-package: `SpatRaster` and `SpatVector`. It also provides `geoms` for
+package: `SpatRaster` and `SpatVector`. It also provides geoms for
 plotting these objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
@@ -77,8 +77,8 @@ depending on the type of `Spat*` object:
 - `SpatRaster`: The implementation for `SpatRaster` objects differs
   because methods can be applied to layers or cells. **tidyterra**’s
   overall approach is to treat the layers as columns of a tibble and the
-  cells as rows (i.e. `select(SpatRaster, 1)` would select the first
-  layer of a `SpatRaster`).
+  cells as rows (i.e. `select(SpatRaster, 1)` selects the first layer of
+  a `SpatRaster`).
 
 The implemented methods return the same type of object as the input,
 unless the expected behavior of the method is to return another type of
@@ -160,10 +160,10 @@ install.packages("tidyterra")
 
 <div class="pkgdown-devel">
 
-Check the docs of the developing version in
+Check the documentation for the development version at
 <https://dieghernan.github.io/tidyterra/dev/>
 
-You can install the developing version of **tidyterra** like so:
+You can install the development version of **tidyterra** with:
 
 ``` r
 # install.packages("pak")
@@ -186,9 +186,9 @@ install.packages(
 
 </div>
 
-## Example
+## Examples
 
-### `SpatRasters`
+### `SpatRaster` objects
 
 This basic example shows how to manipulate and plot `SpatRaster`
 objects:
@@ -205,7 +205,7 @@ rastertemp
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source      : cyl_temp.tif
 #> names       :   tavg_04,   tavg_05,   tavg_06
 #> min values  :  1.885463,  5.817587, 10.463377
@@ -237,12 +237,12 @@ ggplot() +
 <img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
 
 ``` r
-# Create maximum differences of two months
+# Create the maximum difference between two months.
 variation <- rastertemp |>
   mutate(diff = June - May) |>
   select(variation = diff)
 
-# Add also a overlay of a SpatVector
+# Add a SpatVector overlay.
 prov <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 ggplot(prov) +
@@ -258,8 +258,8 @@ ggplot(prov) +
   coord_sf(crs = 25830) +
   labs(
     fill = "Variation",
-    title = "Variation of Temperature in Castile and Leon (Spain)",
-    subtitle = "Average Temperatures: June vs. May"
+    title = "Temperature variation in Castile and Leon (Spain)",
+    subtitle = "Average temperatures: June vs. May"
   )
 ```
 
@@ -311,7 +311,7 @@ ggplot() +
 
 <img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
 
-### `SpatVectors`
+### `SpatVector` objects
 
 This basic example shows how to manipulate and plot `SpatVector`
 objects:
@@ -360,8 +360,7 @@ the tag
 
 ## Acknowledgements
 
-**tidyterra**’s **ggplot2** geoms are based on
-[**ggspatial**](https://github.com/paleolimbot/ggspatial)
-implementation, by [Dewey Dunnington](https://github.com/paleolimbot)
-and [**ggspatial**
+**tidyterra**’s **ggplot2** geoms are based on the
+[**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation
+by [Dewey Dunnington](https://github.com/paleolimbot) and [**ggspatial**
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).

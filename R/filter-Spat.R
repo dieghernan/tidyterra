@@ -10,7 +10,7 @@
 #' `|` instead, wrap them in [dplyr::when_any()].
 #'
 #' Both `filter()` and `filter_out()` treat `NA` like `FALSE`. This subtle
-#' behaviour can impact how you write your conditions when missing values are
+#' behavior can affect how you write your conditions when missing values are
 #' involved. See [dplyr::filter()].
 #'
 #' **It is possible to filter a `SpatRaster` by its geographic coordinates**.
@@ -40,9 +40,9 @@
 #'   in `.data`. If multiple expressions are included, they are combined with
 #'   the `&` operator. Only cells/geometries for which all conditions evaluate
 #'   to `TRUE` are kept. See **Methods**.
-#' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
-#'   On `FALSE`, [terra::trim()] is called so the extent of the result may be
-#'   different of the extent of the output. See also [drop_na.SpatRaster()].
+#' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
+#'   `SpatRaster`. On `FALSE`, [terra::trim()] is called so the extent may
+#'   differ from the extent of the output. See also [drop_na.SpatRaster()].
 #'
 #' @inherit select.Spat return
 #'
@@ -52,11 +52,11 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Cells that do not fulfill the conditions on `...` are returned with value
+#' Cells that do not meet the conditions on `...` are returned with value
 #' `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across all the
 #' layers.
 #'
-#' If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS, extent,
+#' If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS, extent,
 #' resolution and hence the same number of cells as `.data`. If
 #' `.keep_extent = FALSE` the outer `NA` cells are trimmed with [terra::trim()],
 #' so the extent and number of cells may differ. The output will still have

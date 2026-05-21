@@ -49,10 +49,10 @@ transmute.SpatRaster <- function(.data, ...) {
 
   final_df <- dplyr::bind_cols(xy, values_transm)
 
-  # To data.table and rearrange attrs
+  # Convert to data.table and rearrange attributes.
   final_df <- data.table::as.data.table(final_df)
 
-  # Spatial attrs
+  # Spatial attributes.
   init_att <- attributes(df)
   final_att <- attributes(final_df)
 

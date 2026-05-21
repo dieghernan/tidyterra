@@ -46,7 +46,7 @@
     Code
       end <- ggplot_build(aa)
     Message
-      ! `tidyterra::geom_spat_countour_filled()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
+      ! `tidyterra::geom_spatraster_contour_filled()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
         Use `facet_wrap(~lyr)` for faceting or
         Use `aes(fill = <name_of_layer>)` for displaying single layers
 

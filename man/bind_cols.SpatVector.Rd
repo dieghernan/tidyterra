@@ -12,10 +12,10 @@ bind_spat_cols(
 )
 }
 \arguments{
-\item{...}{Objects to combine. The first argument should be a \code{SpatVector}
-and each of the subsequent arguments can either be a \code{SpatVector}, a \code{sf}
-object or a data frame. Inputs are \link[vctrs:theory-faq-recycling]{recycled}
-to the same length, then matched by position.}
+\item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
+Each subsequent argument can be a \code{SpatVector}, \code{sf} object or data frame.
+Inputs are \link[vctrs:theory-faq-recycling]{recycled} to the same length, then
+matched by position.}
 
 \item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or
 \code{"check_unique"}. See \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}} for the meaning of these
@@ -23,11 +23,11 @@ options.}
 }
 \value{
 A \code{SpatVector} with the corresponding columns. The geometry and CRS
-would correspond to the first \code{SpatVector} of \code{...}.
+correspond to the first \code{SpatVector} of \code{...}.
 }
 \description{
 Bind any number of \code{SpatVector}, data frames and \code{sf} objects by column,
-making a wider result. This is similar to \code{do.call(cbind, dfs)}.
+making a wider result. This is similar to \code{do.call(cbind, data_frames)}.
 
 Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to
 combine \code{SpatVector} and data frames objects. \code{bind_spat_cols()}
@@ -45,8 +45,8 @@ meaningless results without realizing it.
 
 Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for
 \code{SpatVector} objects. Note that for the second and subsequent arguments on
-\code{...} the geometry would not be \code{cbind}ed, and only the data frame (-ish)
-columns would be kept.
+\code{...}, the geometry is not \code{cbind}ed, and only the data frame-like columns
+are kept.
 }
 
 \examples{

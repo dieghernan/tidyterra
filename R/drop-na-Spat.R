@@ -36,26 +36,26 @@
 #' ## `SpatVector`
 #'
 #' The implementation of this method is performed on a `by-attribute` basis,
-#' meaning that `NAs` are assessed on the attributes (columns) of each vector
-#' (rows). The result is a `SpatVector` with potentially less geometries than
-#' the input.
+#' meaning that `NA` values are assessed on the attributes (columns) of each
+#' vector (rows). The result is a `SpatVector` with potentially fewer
+#' geometries than the input.
 #'
 #' ## `SpatRaster`
 #'
 #' `r lifecycle::badge('questioning')`
 #'
-#' Actual implementation of `drop_na().SpatRaster` can be understood as a
+#' The implementation of `drop_na().SpatRaster` can be understood as a
 #' masking method based on the values of the layers (see
 #' [terra::mask()]).
 #'
 #' `SpatRaster` layers are considered as columns and `SpatRaster` cells as rows,
-#' so rows (cells) with any `NA` value on any layer would get a `NA` value. It
-#' is possible also to mask the cells (rows) based on the values of specific
+#' so rows (cells) with any `NA` value on any layer get an `NA` value. It is
+#' also possible to mask the cells (rows) based on the values of specific
 #' layers (columns).
 #'
-#' `drop_na()` would effectively remove outer cells that are `NA` (see
+#' `drop_na()` effectively removes outer cells that are `NA` (see
 #' [terra::trim()]), so the extent of the resulting object may differ from the
-#' extent of the input (see [terra::resample()] for more info).
+#' extent of the input (see [terra::resample()] for more information).
 #'
 #' Check the **Examples** to have a better understanding of this method.
 #'

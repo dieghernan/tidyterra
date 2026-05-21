@@ -12,7 +12,8 @@ value is the corresponding altitude in meters.
 \href{https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/}{Auckland LiDAR 1m DEM (2013)}.
 
 DEM for LiDAR data from the Auckland region captured in 2013. The original
-data has been downsampled to a resolution of 5m due to disk space constrains.
+data has been downsampled to a resolution of 5 m due to disk space
+constraints.
 
 Data License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
 }
@@ -28,8 +29,8 @@ Information needed for regenerating the original \code{SpatRaster} file:
 \itemize{
 \item resolution: \code{c(5, 5)}
 \item extent: \verb{1756969, 1757579, 5917003, 5917873} (xmin, xmax, ymin, ymax)
-\item Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator 2000
-(\code{EPSG:2193})
+\item Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
+2000 (\code{EPSG:2193})
 }
 }
 \examples{

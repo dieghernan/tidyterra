@@ -14,7 +14,7 @@ as_spat_internal <- function(x) {
   }
 
   cli::cli_abort(paste(
-    "Can't convert {.arg x} back to a {.cls Spat*} object.",
+    "Cannot convert {.arg x} back to a {.cls Spat*} object.",
     "Something went wrong"
   ))
 }

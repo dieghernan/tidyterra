@@ -40,8 +40,8 @@ Defaults to all columns in \code{data} except for the columns specified through
 will be evaluated on \code{data} after removing the columns specified through
 \code{names_from} and \code{values_from}.
 
-Note that "\code{geometry}" columns is sticky, hence it would be
-removed from \code{names_from} and \code{values_from}.}
+Note that "\code{geometry}" columns are sticky, hence they are removed from
+\code{names_from} and \code{values_from}.}
 
 \item{id_expand}{Should the values in the \code{id_cols} columns be expanded by
 \code{\link[tidyr:expand]{expand()}} before pivoting? This results in more rows, the output will
@@ -138,8 +138,8 @@ decreasing the number of rows. The inverse transformation is
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}} method.
 \subsection{\code{SpatVector}}{
 
-The geometry column has a sticky behaviour. This means that the result would
-have always the geometry of \code{data}.
+The geometry column has sticky behavior. This means that the result always
+has the geometry of \code{data}.
 }
 }
 

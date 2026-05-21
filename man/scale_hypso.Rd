@@ -151,7 +151,8 @@ hypso.colors2(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-\link{hypsometric_tints_db} for more info. Values available are:
+\link{hypsometric_tints_db} for more info. The available values are listed
+below.
 \code{"arctic"}, \code{"arctic_bathy"}, \code{"arctic_hypso"}, \code{"c3t1"}, \code{"colombia"}, \code{"colombia_bathy"}, \code{"colombia_hypso"}, \code{"dem_poster"}, \code{"dem_print"}, \code{"dem_screen"}, \code{"etopo1"}, \code{"etopo1_bathy"}, \code{"etopo1_hypso"}, \code{"gmt_globe"}, \code{"gmt_globe_bathy"}, \code{"gmt_globe_hypso"}, \code{"meyers"}, \code{"meyers_bathy"}, \code{"meyers_hypso"}, \code{"moon"}, \code{"moon_bathy"}, \code{"moon_hypso"}, \code{"nordisk-familjebok"}, \code{"nordisk-familjebok_bathy"}, \code{"nordisk-familjebok_hypso"}, \code{"pakistan"}, \code{"spain"}, \code{"usgs-gswa2"}, \code{"utah_1"}, \code{"wiki-2.0"}, \code{"wiki-2.0_bathy"}, \code{"wiki-2.0_hypso"}, \code{"wiki-schwarzwald-cont"}.}
 
 \item{...}{
@@ -214,11 +215,11 @@ breaks are given explicitly.}
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
-\item{na.translate}{Should \code{NA} values be removed from the legend? Default
-is \code{TRUE}.}
+\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
+The default is \code{TRUE}.}
 
-\item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{TRUE}) removes unused factors.}
+\item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
+The default (\code{TRUE}) removes unused factors.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
@@ -304,20 +305,20 @@ tint. A rough description of these tints are:
 \item Whites: Values higher than 4.000.
 }
 
-The following orientation would vary depending on the palette definition
-(see \link{hypsometric_tints_db} for an example on how this could be achieved).
+The following orientation varies depending on the palette definition (see
+\link{hypsometric_tints_db} for an example of how this can be achieved).
 
 Note that the setup of the palette may not always be suitable for your
 specific data. For example, a \code{SpatRaster} of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
-example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would appear
-almost as a uniform color. This could be adjusted using the
-\code{limits}/\code{values} arguments.
+example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} appears
+almost as a uniform color. This can be adjusted using the \code{limits}/\code{values}
+arguments.
 
-When passing \code{limits} argument to \verb{scale_*_hypso_tint_*} the colors would
-be restricted to those specified by this argument, keeping the distribution
-of the tint. You can combine this with \code{oob} (i.e.
-\code{oob = scales::oob_squish}) to avoid blank pixels in the plot.
+When passing the \code{limits} argument to \verb{scale_*_hypso_tint_*}, the colors are
+restricted to those specified by this argument, keeping the distribution of
+the tint. You can combine this with \code{oob} (i.e. \code{oob = scales::oob_squish})
+to avoid blank pixels in the plot.
 
 \code{hypso.colors2()} provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,

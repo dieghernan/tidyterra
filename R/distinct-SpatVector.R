@@ -18,8 +18,8 @@
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables to
 #'   use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
-#'   will use all variables in the data frame. There is a reserved variable
-#'   name, `geometry`, that would remove duplicate geometries. See **Methods**.
+#'   all variables in the data frame are used. There is a reserved variable
+#'   name, `geometry`, that removes duplicate geometries. See **Methods**.
 #'
 #' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::distinct
@@ -79,8 +79,8 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Get dots via select
   dots_labs <- names(select(as_tbl_internal(.data[1, ]), ...))
 
-  # If call is empty or geomtry included, use internal
-  # since we need geometry column
+  # If the call is empty or includes geometry, use the internal path because
+  # the geometry column is needed.
   if (rlang::dots_n(...) == 0 || "geometry" %in% dots_labs) {
     a_tbl <- as_tbl_internal(.data)
     dist <- dplyr::distinct(a_tbl, ..., .keep_all = .keep_all)

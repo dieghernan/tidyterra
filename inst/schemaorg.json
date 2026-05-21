@@ -32,7 +32,7 @@
       "name": "ggplot2 authors"
     }
   ],
-  "description": "Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from the 'terra' package. It also includes 'geom_' functions that provide a convenient way to visualize 'terra' objects with 'ggplot2'.",
+  "description": "Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from the 'terra' package. It also provides 'ggplot2' geoms to visualize 'terra' objects.",
   "license": "https://spdx.org/licenses/MIT",
   "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
   "programmingLanguage": {

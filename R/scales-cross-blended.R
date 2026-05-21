@@ -40,21 +40,22 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @param na.translate Should `NA` values be removed from the legend? Default
-#'   is `TRUE`.
+#' @param na.translate Logical. If `TRUE`, remove `NA` values from the legend.
+#'   The default is `TRUE`.
 #' @param na.value Missing values will be replaced with this value. By default,
 #'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
 #'   not filled. See also
 #'   [#120](https://github.com/dieghernan/tidyterra/issues/120).
 #'
-#' @param drop Should unused factor levels be omitted from the scale? The
-#'   default (`TRUE`) removes unused factors.
+#' @param drop Logical. If `TRUE`, omit unused factor levels from the scale.
+#'   The default (`TRUE`) removes unused factors.
 #' @inheritParams ggplot2::scale_fill_viridis_b
 #' @inheritParams ggplot2::continuous_scale
 #'
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [cross_blended_hypsometric_tints_db] for more info. Values available are:
+#'   [cross_blended_hypsometric_tints_db] for more info. The available values
+#'   are listed below.
 #'
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
@@ -425,19 +426,19 @@ cross_blended.colors <- function(
 #' - Browns: 1000 to 4.000 values.
 #' - Whites: Values higher than 4.000.
 #'
-#' The following orientation would vary depending on the palette definition
-#' (see [cross_blended_hypsometric_tints_db] for an example on how this could
-#' be achieved).
+#' The following orientation varies depending on the palette definition (see
+#' [cross_blended_hypsometric_tints_db] for an example of how this can be
+#' achieved).
 #'
 #' Note that the setup of the palette may not always be suitable for your
 #' specific data. For example, a `SpatRaster` of small parts of the globe (and
 #' with a limited range of elevations) may not be well represented. As an
-#' example, a `SpatRaster` with a range of values on `[100, 200]` would appear
-#' almost as a uniform color. This could be adjusted using the
-#' `limits`/`values` arguments.
+#' example, a `SpatRaster` with a range of values on `[100, 200]` appears
+#' almost as a uniform color. This can be adjusted using the `limits`/`values`
+#' arguments.
 #'
-#' When passing `limits` argument to `scale_*_cross_blended_tint_*` the
-#' colors would be restricted to those specified by this argument, keeping the
+#' When passing the `limits` argument to `scale_*_cross_blended_tint_*`, the
+#' colors are restricted to those specified by this argument, keeping the
 #' distribution of the tint. You can combine this with `oob` (i.e.
 #' `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 #'

@@ -132,11 +132,11 @@ breaks are given explicitly.}
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
-\item{na.translate}{Should \code{NA} values be removed from the legend? Default
-is \code{TRUE}.}
+\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
+The default is \code{TRUE}.}
 
-\item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{TRUE}) removes unused factors.}
+\item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
+The default (\code{TRUE}) removes unused factors.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are

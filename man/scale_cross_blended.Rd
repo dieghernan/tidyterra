@@ -157,7 +157,8 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-\link{cross_blended_hypsometric_tints_db} for more info. Values available are:
+\link{cross_blended_hypsometric_tints_db} for more info. The available values
+are listed below.
 \code{"arid"}, \code{"cold_humid"}, \code{"polar"}, \code{"warm_humid"}.}
 
 \item{...}{
@@ -220,11 +221,11 @@ breaks are given explicitly.}
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
-\item{na.translate}{Should \code{NA} values be removed from the legend? Default
-is \code{TRUE}.}
+\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
+The default is \code{TRUE}.}
 
-\item{drop}{Should unused factor levels be omitted from the scale? The
-default (\code{TRUE}) removes unused factors.}
+\item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
+The default (\code{TRUE}) removes unused factors.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
@@ -308,19 +309,19 @@ tint. A rough description of these tints are:
 \item Whites: Values higher than 4.000.
 }
 
-The following orientation would vary depending on the palette definition
-(see \link{cross_blended_hypsometric_tints_db} for an example on how this could
-be achieved).
+The following orientation varies depending on the palette definition (see
+\link{cross_blended_hypsometric_tints_db} for an example of how this can be
+achieved).
 
 Note that the setup of the palette may not always be suitable for your
 specific data. For example, a \code{SpatRaster} of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
-example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} would appear
-almost as a uniform color. This could be adjusted using the
-\code{limits}/\code{values} arguments.
+example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} appears
+almost as a uniform color. This can be adjusted using the \code{limits}/\code{values}
+arguments.
 
-When passing \code{limits} argument to \verb{scale_*_cross_blended_tint_*} the
-colors would be restricted to those specified by this argument, keeping the
+When passing the \code{limits} argument to \verb{scale_*_cross_blended_tint_*}, the
+colors are restricted to those specified by this argument, keeping the
 distribution of the tint. You can combine this with \code{oob} (i.e.
 \code{oob = scales::oob_squish}) to avoid blank pixels in the plot.
 

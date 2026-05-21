@@ -10,10 +10,10 @@
 bind_spat_rows(..., .id = NULL)
 }
 \arguments{
-\item{...}{Objects to combine. The first argument should be a \code{SpatVector}
-and each of the subsequent arguments can either be a \code{SpatVector}, a
-\code{sf/sfc} object or a data frame. Columns are matched by name, and any
-missing columns will be filled with \code{NA}.}
+\item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
+Each subsequent argument can be a \code{SpatVector}, \code{sf/sfc} object or data
+frame. Columns are matched by name, and any missing columns are filled with
+\code{NA}.}
 
 \item{.id}{The name of an optional identifier column. Provide a string to
 create an output column that identifies each input. The column will use
@@ -24,8 +24,8 @@ A \code{SpatVector} of the same type as the first element of \code{...}.
 }
 \description{
 Bind any number of \code{SpatVector}, data frames and \code{sf/sfc} objects by row,
-making a longer result. This is similar to \code{do.call(rbind, dfs)}, but the
-output will contain all columns that appear in any of the inputs.
+making a longer result. This is similar to \code{do.call(rbind, data_frames)},
+but the output will contain all columns that appear in any of the inputs.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -42,11 +42,11 @@ Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function
 The first argument should be a \code{SpatVector}. Each subsequent argument can be
 a \code{SpatVector}, \code{sf/sfc} object, or data frame:
 \itemize{
-\item If subsequent \code{SpatVector/sf/sfc} objects present a different CRS than
-the first element, those elements would be reprojected to the CRS of the
+\item If subsequent \code{SpatVector/sf/sfc} objects have a different CRS than the
+first element, those elements are reprojected to the CRS of the
 first element with a message.
-\item If any element of \code{...} is a tibble/data frame the rows would be
-\code{cbind}ed with empty geometries with a message.
+\item If any element of \code{...} is a tibble/data frame, the rows are column-bound
+with empty geometries with a message.
 }
 }
 

@@ -26,8 +26,8 @@
 #'
 #' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::summarise
-#' @param .dissolve Logical. Should borders between aggregated geometries
-#'   be dissolved?
+#' @param .dissolve Logical. If `TRUE`, dissolve borders between aggregated
+#'   geometries.
 #'
 #' @importFrom dplyr summarise
 #'
@@ -84,7 +84,7 @@ summarise.SpatVector <- function(
   # Try find .by vectors
   by_groups <- group_by(.data, {{ .by }})
 
-  # Get dfs
+  # Get data frames.
   df <- as_tibble(.data)
   df_summ <- dplyr::summarise(df, ..., .groups = .groups, .by = {{ .by }})
 

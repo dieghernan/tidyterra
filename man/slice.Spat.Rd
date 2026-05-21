@@ -116,8 +116,8 @@ beyond the number of rows in the input are silently ignored. See
 
 \item{.preserve}{Ignored for \verb{Spat*} objects.}
 
-\item{.keep_extent}{Should the extent of the resulting \code{SpatRaster} be kept?
-See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
+\item{.keep_extent}{Logical. If \code{TRUE}, keep the extent of the resulting
+\code{SpatRaster}. See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
 
 \item{.by, by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
@@ -142,8 +142,8 @@ them in a data frame or tibble.}
 may return more rows than you request. Use \code{FALSE} to ignore ties,
 and return the first \code{n} rows.}
 
-\item{na.rm}{Logical, should cells that present a value of \code{NA} removed when
-computing \code{slice_min()/slice_max()}?. The default is \code{TRUE}.}
+\item{na.rm}{Logical. If \code{TRUE}, remove cells with \code{NA} values when computing
+\code{slice_min()/slice_max()}. The default is \code{TRUE}.}
 
 \item{na_rm}{Should missing values in \code{order_by} be removed from the result?
 If \code{FALSE}, \code{NA} values are sorted to the end (like in \code{\link[dplyr:arrange]{arrange()}}), so
@@ -159,7 +159,7 @@ weights.}
 \item{replace}{Should sampling be performed with (\code{TRUE}) or without
 (\code{FALSE}, the default) replacement.}
 
-\item{cols, rows}{Integer col/row values of the \code{SpatRaster}}
+\item{cols, rows}{Integer column and row values of the \code{SpatRaster}.}
 
 \item{inverse}{If \code{TRUE}, \code{.data} is inverse-masked to the given selection.
 See \code{\link[terra:mask]{terra::mask()}}.}
@@ -207,7 +207,7 @@ The result is a \code{SpatRaster} with the CRS and resolution of the input and
 where cell values of the selected cells/columns/rows are preserved.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
-The non-selected cells would present a value of \code{NA}.
+The non-selected cells have a value of \code{NA}.
 }
 
 \subsection{\code{SpatVector}}{

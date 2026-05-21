@@ -81,7 +81,7 @@ lists which parameters it can accept.
 
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 }
 \value{
@@ -111,8 +111,8 @@ No \code{aes()} is required. In fact, \code{aes()} will be ignored.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not present a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption on the
+When the \code{SpatRaster} does not have a CRS (i.e.,
+\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
 scales.
 
 On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to

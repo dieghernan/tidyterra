@@ -22,7 +22,7 @@
 #' @importFrom dplyr inner_join
 #'
 #' @param y A data frame or other object coercible to a data frame. **If a
-#'   `SpatVector` of `sf` object** is provided it would return an error (see
+#'   `SpatVector` or `sf` object** is provided it returns an error (see
 #'   [terra::intersect()] for performing spatial joins).
 #'
 #' @inheritParams dplyr::full_join
@@ -40,15 +40,14 @@
 #'
 #' ## `SpatVector`
 #'
-#' The geometry column has a sticky behaviour. This means that the result would
-#' have always the geometry of `x` for the records that matches the join
-#' conditions.
+#' The geometry column has sticky behavior. This means that the result always
+#' has the geometry of `x` for the records that match the join conditions.
 #'
 #' Note that for [right_join()] and [full_join()] it is possible to return
 #' empty geometries (since `y` is expected to be a data frame with no
 #' geometries). Although this kind of joining operations may not be common on
-#' spatial manipulation, it is possible that the function crashes, since
-#' handling of `EMPTY` geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
+#' spatial manipulation, the function may crash because handling of `EMPTY`
+#' geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
 #'
 #' @examples
 #' library(terra)
@@ -282,9 +281,8 @@ dplyr::full_join
 #'
 #' ## `SpatVector`
 #'
-#' The geometry column has a sticky behaviour. This means that the result would
-#' have always the geometry of `x` for the records that matches the join
-#' conditions.
+#' The geometry column has sticky behavior. This means that the result always
+#' has the geometry of `x` for the records that match the join conditions.
 #'
 #' @examples
 #' library(terra)

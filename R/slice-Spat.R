@@ -45,8 +45,8 @@
 #' @importFrom dplyr slice
 #'
 #' @param .preserve Ignored for `Spat*` objects.
-#' @param .keep_extent Should the extent of the resulting `SpatRaster` be kept?
-#'   See also [terra::trim()], [terra::extend()].
+#' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
+#'   `SpatRaster`. See also [terra::trim()], [terra::extend()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
 #'   Provide either positive values to keep, or negative values to drop.
 #'
@@ -54,11 +54,11 @@
 #'   beyond the number of rows in the input are silently ignored. See
 #'   **Methods**.
 #'
-#' @param cols,rows Integer col/row values of the `SpatRaster`
+#' @param cols,rows Integer column and row values of the `SpatRaster`.
 #' @param inverse If `TRUE`, `.data` is inverse-masked to the given selection.
 #'   See [terra::mask()].
-#' @param na.rm Logical, should cells that present a value of `NA` removed when
-#'   computing `slice_min()/slice_max()`?. The default is `TRUE`.
+#' @param na.rm Logical. If `TRUE`, remove cells with `NA` values when computing
+#'   `slice_min()/slice_max()`. The default is `TRUE`.
 #'
 #' @inheritParams mutate.Spat
 #' @inheritParams dplyr::slice
@@ -77,7 +77,7 @@
 #' where cell values of the selected cells/columns/rows are preserved.
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
-#' The non-selected cells would present a value of `NA`.
+#' The non-selected cells have a value of `NA`.
 #'
 #' ## `SpatVector`
 #'

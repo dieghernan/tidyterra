@@ -3,7 +3,7 @@
 #' @description
 #'
 #' `rowwise()` allows you to compute on a `SpatVector` a row-at-a-time.
-#' This is most useful when a vectorised function doesn't exist.
+#' This is most useful when a vectorised function does not exist.
 #'
 #' Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
 #' row-wise grouping. The exception is [summarise.SpatVector()], which return a
@@ -40,13 +40,13 @@
 #' `SpatVector` objects.
 #'
 #' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax** on a
-#' row-wise `SpatVector` (i.e, subsetting a `SpatVector` like `v[1:3,1:2]`) the
-#' `groups` attribute can be corrupted. \CRANpkg{tidyterra} would try to
-#' re-generate the `SpatVector`. This would be triggered the next time you use
-#' a \CRANpkg{dplyr} verb on your `SpatVector`.
+#' row-wise `SpatVector` (i.e. subsetting a `SpatVector` like `v[1:3,1:2]`),
+#' the `groups` attribute can be corrupted. \CRANpkg{tidyterra} tries to
+#' regenerate the `SpatVector`. This is triggered the next time you use a
+#' \CRANpkg{dplyr} verb on your `SpatVector`.
 #'
-#' Note also that some operations (as `terra::spatSample()`) would create a new
-#' `SpatVector`. In these cases, the result won't preserve the `groups`
+#' Note also that some operations, such as `terra::spatSample()`, create a new
+#' `SpatVector`. In these cases, the result does not preserve the `groups`
 #' attribute. Use [rowwise.SpatVector()] to re-group.
 #'
 #' @details
