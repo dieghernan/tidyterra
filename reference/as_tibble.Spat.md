@@ -124,7 +124,7 @@ following cases:
 
 - When working with tidyverse methods (i.e.
   [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)),
-  the same renaming would happen.
+  the same renaming happens.
 
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) displays a
 message describing the renamed layers.

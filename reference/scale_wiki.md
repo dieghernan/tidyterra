@@ -197,7 +197,8 @@ wiki.colors(n, alpha = 1, rev = FALSE)
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - na.value:
 
@@ -208,8 +209,8 @@ wiki.colors(n, alpha = 1, rev = FALSE)
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - direction:
 

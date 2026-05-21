@@ -21,9 +21,9 @@ distinct(.data, ..., .keep_all = FALSE)
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   Optional variables to use when determining uniqueness. If there are
   multiple rows for a given combination of inputs, only the first row
-  will be preserved. If omitted, will use all variables in the data
-  frame. There is a reserved variable name, `geometry`, that would
-  remove duplicate geometries. See **Methods**.
+  will be preserved. If omitted, all variables in the data frame are
+  used. There is a reserved variable name, `geometry`, that removes
+  duplicate geometries. See **Methods**.
 
 - .keep_all:
 

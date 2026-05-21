@@ -74,7 +74,7 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .dissolve:
 
-  Logical. Should borders between aggregated geometries be dissolved?
+  Logical. If `TRUE`, dissolve borders between aggregated geometries.
 
 ## Value
 

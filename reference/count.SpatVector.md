@@ -80,7 +80,7 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 - .dissolve:
 
-  Logical. Should borders between aggregated geometries be dissolved?
+  Logical. If `TRUE`, dissolve borders between aggregated geometries.
 
 ## Value
 

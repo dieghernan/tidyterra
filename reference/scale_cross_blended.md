@@ -186,8 +186,8 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md)
-  for more info. Values available are: `"arid"`, `"cold_humid"`,
-  `"polar"`, `"warm_humid"`.
+  for more info. The available values are listed below. `"arid"`,
+  `"cold_humid"`, `"polar"`, `"warm_humid"`.
 
 - ...:
 
@@ -290,12 +290,13 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - na.value:
 
@@ -364,20 +365,20 @@ to act as a hypsometric tint. A rough description of these tints are:
 
 - Whites: Values higher than 4.000.
 
-The following orientation would vary depending on the palette definition
+The following orientation varies depending on the palette definition
 (see
 [cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md)
-for an example on how this could be achieved).
+for an example of how this can be achieved).
 
 Note that the setup of the palette may not always be suitable for your
 specific data. For example, a `SpatRaster` of small parts of the globe
 (and with a limited range of elevations) may not be well represented. As
-an example, a `SpatRaster` with a range of values on `[100, 200]` would
-appear almost as a uniform color. This could be adjusted using the
+an example, a `SpatRaster` with a range of values on `[100, 200]`
+appears almost as a uniform color. This can be adjusted using the
 `limits`/`values` arguments.
 
-When passing `limits` argument to `scale_*_cross_blended_tint_*` the
-colors would be restricted to those specified by this argument, keeping
+When passing the `limits` argument to `scale_*_cross_blended_tint_*`,
+the colors are restricted to those specified by this argument, keeping
 the distribution of the tint. You can combine this with `oob` (i.e.
 `oob = scales::oob_squish`) to avoid blank pixels in the plot.
 

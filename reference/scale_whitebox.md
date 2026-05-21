@@ -100,9 +100,10 @@ Copyright (c) 2017-2021 John Lindsay.
 - palette:
 
   A valid palette name. The name is matched to the list of available
-  palettes, ignoring upper vs. lower case. Values available are:
-  `"atlas"`, `"high_relief"`, `"arid"`, `"soft"`, `"muted"`, `"purple"`,
-  `"viridi"`, `"gn_yl"`, `"pi_y_g"`, `"bl_yl_rd"`, `"deep"`.
+  palettes, ignoring upper vs. lower case. The available values are
+  listed below. `"atlas"`, `"high_relief"`, `"arid"`, `"soft"`,
+  `"muted"`, `"purple"`, `"viridi"`, `"gn_yl"`, `"pi_y_g"`,
+  `"bl_yl_rd"`, `"deep"`.
 
 - ...:
 
@@ -219,12 +220,13 @@ Copyright (c) 2017-2021 John Lindsay.
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - na.value:
 

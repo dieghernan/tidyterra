@@ -93,24 +93,14 @@
 <h2 class="pkg-version" data-toc-text="1.0.0" id="tidyterra-100">tidyterra 1.0.0<a class="anchor" aria-label="anchor" href="#tidyterra-100"></a></h2><p class="text-muted">CRAN release: 2026-01-23</p>
 <ul><li>The minimum supported <strong>R</strong> version is now 4.1.0.</li>
 <li>The minimum supported <strong>ggplot2</strong> version is now 4.0.0.</li>
-<li>Adapt deprecations from <strong>ggplot2</strong> 4.0.0:
-<ul><li>
-<code><a href="../reference/ggspatvector.html">geom_spatvector_label()</a></code> / <code><a href="../reference/ggspatvector.html">geom_spatvector_text()</a></code>: <code>label.size</code> aesthetic replaced by <code>linewidth</code>. Also <code>nudge_x</code> and <code>nudge_y</code> are not explicitly documented and are passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf_label()</a></code> / <code>_text()</code> via dots (<code>...</code>).</li>
-</ul></li>
+<li>
+<strong>ggplot2</strong> 4.0.0 deprecations have been adapted: in <code><a href="../reference/ggspatvector.html">geom_spatvector_label()</a></code> and <code><a href="../reference/ggspatvector.html">geom_spatvector_text()</a></code>, the <code>label.size</code> aesthetic has been replaced by <code>linewidth</code>. Also, <code>nudge_x</code> and <code>nudge_y</code> are not explicitly documented and are passed to <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf_label()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf_text()</a></code> through dots (<code>...</code>).</li>
 <li>
 <code><a href="../reference/scale_coltab.html">get_coltab_pal()</a></code> can extract colors with alpha values (<a href="https://github.com/dieghernan/tidyterra/issues/180" class="external-link">#180</a>).</li>
-<li>Add <strong>generics</strong> to Imports and add new methods for <code>SpatRaster</code>, <code>SpatVector</code>, <code>SpatGraticule</code> and <code>SpatExtent</code> objects:
-<ul><li>
-<code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code>.</li>
 <li>
-<code><a href="../reference/glance.Spat.html">?glance.Spat</a></code>.</li>
+<strong>generics</strong> has been added to Imports, with new <code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code>, <code><a href="../reference/glance.Spat.html">?glance.Spat</a></code> and <code><a href="../reference/required_pkgs.Spat.html">?required_pkgs.Spat</a></code> methods for <code>SpatRaster</code>, <code>SpatVector</code>, <code>SpatGraticule</code> and <code>SpatExtent</code> objects.</li>
 <li>
-<code><a href="../reference/required_pkgs.Spat.html">?required_pkgs.Spat</a></code>.</li>
-</ul></li>
-<li>
-<code><a href="../reference/fortify.Spat.html">?fortify.Spat</a></code> methods now use <code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code> methods under the hood:
-<ul><li>New <code><a href="../reference/fortify.Spat.html">fortify.SpatExtent()</a></code> method.</li>
-</ul></li>
+<code><a href="../reference/fortify.Spat.html">?fortify.Spat</a></code> methods now use <code><a href="../reference/tidy.Spat.html">?tidy.Spat</a></code> methods under the hood. This includes the new <code><a href="../reference/fortify.Spat.html">fortify.SpatExtent()</a></code> method.</li>
 <li>New <code><a href="../reference/autoplot.Spat.html">autoplot.SpatExtent()</a></code> and <code><a href="../reference/autoplot.Spat.html">autoplot.SpatGraticule()</a></code> methods.</li>
 <li>
 <code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code> now supports the <code>.by</code> argument.</li>
@@ -126,52 +116,40 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2><p class="text-muted">CRAN release: 2025-04-07</p>
 <ul><li>New argument in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code>, it avoids <code>SpatRaster</code> wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
-<li>Fix an old bug exposed after <strong>terra 1.8-42</strong>: Plots crash when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> (or with implicit change of CRS due to other <code>sf/Spat*</code> objects).</li>
+<li>Fixed an old bug exposed after <strong>terra</strong> 1.8-42, where plots crashed when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> or with an implicit CRS change due to other <code>sf/Spat*</code> objects.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.0" id="tidyterra-070">tidyterra 0.7.0<a class="anchor" aria-label="anchor" href="#tidyterra-070"></a></h2><p class="text-muted">CRAN release: 2025-02-03</p>
 <ul><li>The minimum supported <strong>terra</strong> version is now 1.8-10.</li>
-<li>Remove <strong>metR</strong> from Suggests.</li>
-<li>Improve handling of factors when several layers have different levels. This is done using <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> (<strong>terra</strong> &gt;= <code>1.8-10</code>). See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
 <li>
-<code>scales</code> that use limits now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>). Scales impacted:
-<ul><li>
-<code>scale_*_cross_blended_tint_c</code> and <code>scale_*_cross_blended_tint_b</code>.</li>
+<strong>metR</strong> has been removed from Suggests.</li>
+<li>Factor handling has been improved when several layers have different levels. This uses <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> from <strong>terra</strong> &gt;= <code>1.8-10</code>. See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
 <li>
-<code>scale_*_hypso_tint_c</code> and <code>scale_*_hypso_tint_b</code>.</li>
-<li>
-<code>scale_*_grass_c</code> and <code>scale_*_grass_b</code>.</li>
-</ul></li>
+<code>scale_*_cross_blended_tint_c()</code>, <code>scale_*_cross_blended_tint_b()</code>, <code>scale_*_hypso_tint_c()</code>, <code>scale_*_hypso_tint_b()</code>, <code>scale_*_grass_c()</code> and <code>scale_*_grass_b()</code> now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>).</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (i.e. <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>
-<ul><li>Add (limited) support for <code>SpatGraticule</code> (see <code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>) <a href="https://github.com/dieghernan/tidyterra/issues/155" class="external-link">#155</a>.</li>
+<ul><li>Added limited support for <code>SpatGraticule</code> objects (see <code><a href="https://rspatial.github.io/terra/reference/graticule.html" class="external-link">terra::graticule()</a></code>, <a href="https://github.com/dieghernan/tidyterra/issues/155" class="external-link">#155</a>).</li>
 <li>New arguments in <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>: <code>stretch</code> and <code>zlim</code>. See <code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code> for clarification.</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> suggests <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> when a <code>SpatRaster</code> with RGB specification is detected (<code><a href="https://rspatial.github.io/terra/reference/RGB.html" class="external-link">terra::has.RGB()</a></code> is <code>TRUE</code>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.1" id="tidyterra-061">tidyterra 0.6.1<a class="anchor" aria-label="anchor" href="#tidyterra-061"></a></h2><p class="text-muted">CRAN release: 2024-06-08</p>
-<ul><li>Add new scales:
 <ul><li>
-<code>grass_db</code> and the <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> family, an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, the default palette for <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<code>&gt; 1.7.78</code>).</li>
-<li>
 <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> now also uses <code>grass_db</code> as the default palette.</li>
-<li>Add the <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> scale family.</li>
-</ul></li>
-<li>Fix tests.</li>
+<li>
+<code>grass_db</code> and the <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> family have been added as an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, the default palette for <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<code>&gt; 1.7.78</code>).</li>
+<li>The <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> scale family has been added.</li>
+<li>Tests have been fixed.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.0" id="tidyterra-060">tidyterra 0.6.0<a class="anchor" aria-label="anchor" href="#tidyterra-060"></a></h2><p class="text-muted">CRAN release: 2024-04-22</p>
-<ul><li>Requires <strong>ggplot2</strong> (&gt;= 3.5.0).</li>
-<li>New methods for <code>SpatVector</code> objects:
-<ul><li>
-<code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code>.</li>
+<ul><li>The minimum supported <strong>ggplot2</strong> version is now 3.5.0.</li>
 <li>
-<code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code>.</li>
-</ul></li>
+<code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code> has been added.</li>
 <li>New geom <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> implemented on top of <code><a href="http://isoband.r-lib.org/reference/isolines_grob.html" class="external-link">isoband::isolines_grob()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg" alt="Experimental"></a>.</li>
 <li>
 <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now display information using <code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as of <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
@@ -179,13 +157,15 @@
 <code><a href="../reference/as_sf.html">as_sf()</a></code> converts a <code>SpatVector</code> to a <code>sf</code> object with an additional <code>tbl_df</code> class for pretty printing.</li>
 <li>
 <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> gains a new argument <code>pivot</code> that allows better integration with other <strong>ggplot2</strong> geoms when pivoting. This is a wrapper of <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>.</li>
-<li>Tidy documentation.</li>
+<li>
+<code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code> have been added.</li>
+<li>Documentation has been tidied.</li>
 <li>
 <strong>metR</strong> added to Suggests.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.2" id="tidyterra-052">tidyterra 0.5.2<a class="anchor" aria-label="anchor" href="#tidyterra-052"></a></h2><p class="text-muted">CRAN release: 2024-01-19</p>
-<ul><li>Adapt tests to <strong>ggplot2</strong> 3.5.0 (<a href="https://github.com/dieghernan/tidyterra/issues/129" class="external-link">#129</a>) <a href="https://github.com/teunbrand" class="external-link">@teunbrand</a>.</li>
+<ul><li>Tests have been adapted to <strong>ggplot2</strong> 3.5.0 (<a href="https://github.com/dieghernan/tidyterra/issues/129" class="external-link">#129</a>, <a href="https://github.com/teunbrand" class="external-link">@teunbrand</a>).</li>
 <li>Reduce package size, especially relevant in the external raster <code>asia.tif</code>.</li>
 </ul></div>
     <div class="section level2">
@@ -199,15 +179,14 @@
 <p>Hernangómez, D. (2023). “Using the tidyverse with terra objects: the tidyterra package.” <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751. ISSN 2475-9066, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a></p>
 </blockquote>
 <p>Other changes in this version:</p>
-<ul><li>Support for <code>SpatRaster</code> objects with a color table.
 <ul><li>
 <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> can now detect <code>SpatRaster</code> objects with color tables.</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can now detect <code>SpatRaster</code> objects with color tables.</li>
-<li>New scales for plotting <code>SpatRaster</code> objects with color tables: <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and rest of family scales (<code>colour</code>).</li>
+<li>
+<code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> and its <code>colour</code> family scales have been added for plotting <code>SpatRaster</code> objects with color tables.</li>
 <li>
 <strong>tidyverse</strong> verbs keep the associated <code>coltab</code> of a <code>SpatRaster</code>.</li>
-</ul></li>
 <li>By default, all the discrete scales of <strong>tidyterra</strong> now have the following setup: <code>na.translate = FALSE</code>.</li>
 <li>By default, all non-discrete scales of <strong>tidyterra</strong> now have <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
 <li>Enhanced <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> with meta-information on type of geometry, CRS, etc.</li>
@@ -219,71 +198,49 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="tidyterra-040">tidyterra 0.4.0<a class="anchor" aria-label="anchor" href="#tidyterra-040"></a></h2><p class="text-muted">CRAN release: 2023-03-17</p>
-<ul><li>This release focuses heavily on <code>SpatVector</code> objects. The improvements are:
-<ul><li>New methods for <code>SpatVector</code>:
-<ul><li><code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code></li>
-<li><code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code></li>
-<li><code><a href="../reference/distinct.SpatVector.html">distinct.SpatVector()</a></code></li>
-<li>
-<code><a href="../reference/mutate-joins.SpatVector.html">inner_join.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">left_join.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">right_join.SpatVector()</a></code> and <code><a href="../reference/mutate-joins.SpatVector.html">full_join.SpatVector()</a></code>
-</li>
-<li>
-<code><a href="../reference/filter-joins.SpatVector.html">semi_join.SpatVector()</a></code> and <code><a href="../reference/filter-joins.SpatVector.html">anti_join.SpatVector()</a></code>
-</li>
-<li><code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code></li>
-<li><code><a href="../reference/rowwise.SpatVector.html">rowwise.SpatVector()</a></code></li>
-<li>
-<code><a href="../reference/group-by.SpatVector.html">group_by.SpatVector()</a></code>, <code><a href="../reference/group-by.SpatVector.html">ungroup.SpatVector()</a></code>
-</li>
-<li>
-<code><a href="../reference/count.SpatVector.html">count.SpatVector()</a></code>, <code><a href="../reference/count.SpatVector.html">tally.SpatVector()</a></code>
-</li>
-<li>
-<code><a href="../reference/bind_cols.SpatVector.html">bind_spat_cols()</a></code>, <code><a href="../reference/bind_rows.SpatVector.html">bind_spat_rows()</a></code>
-</li>
-</ul></li>
+<ul><li>This release focuses heavily on <code>SpatVector</code> objects, adding <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code>, <code><a href="../reference/arrange.SpatVector.html">arrange.SpatVector()</a></code>, <code><a href="../reference/distinct.SpatVector.html">distinct.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">inner_join.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">left_join.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">right_join.SpatVector()</a></code>, <code><a href="../reference/mutate-joins.SpatVector.html">full_join.SpatVector()</a></code>, <code><a href="../reference/filter-joins.SpatVector.html">semi_join.SpatVector()</a></code>, <code><a href="../reference/filter-joins.SpatVector.html">anti_join.SpatVector()</a></code>, <code><a href="../reference/summarise.SpatVector.html">summarise.SpatVector()</a></code>, <code><a href="../reference/rowwise.SpatVector.html">rowwise.SpatVector()</a></code>, <code><a href="../reference/group-by.SpatVector.html">group_by.SpatVector()</a></code>, <code><a href="../reference/group-by.SpatVector.html">ungroup.SpatVector()</a></code>, <code><a href="../reference/count.SpatVector.html">count.SpatVector()</a></code>, <code><a href="../reference/count.SpatVector.html">tally.SpatVector()</a></code>, <code><a href="../reference/bind_cols.SpatVector.html">bind_spat_cols()</a></code> and <code><a href="../reference/bind_rows.SpatVector.html">bind_spat_rows()</a></code>.</li>
 <li>Already implemented methods now work with <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code>.</li>
-<li>Internal review of code. The methods no longer rely on <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> coercion. Coercion between object classes is avoided as much as possible.</li>
-</ul></li>
+<li>The <code>SpatVector</code> methods no longer rely on <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> coercion internally. Coercion between object classes is avoided as much as possible.</li>
 <li>New <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> method for <code>SpatRaster</code>.</li>
-<li>Other coercion and helper functions:
-<ul><li><code><a href="../reference/as_spatvector.html">as_spatvector()</a></code></li>
-<li><code><a href="../reference/as_sf.html">as_sf()</a></code></li>
-<li><code><a href="../reference/is_grouped_spatvector.html">is_grouped_spatvector()</a></code></li>
-</ul></li>
+<li>
+<code><a href="../reference/as_sf.html">as_sf()</a></code>, <code><a href="../reference/as_spatvector.html">as_spatvector()</a></code> and <code><a href="../reference/is_grouped_spatvector.html">is_grouped_spatvector()</a></code> have been added.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.2" id="tidyterra-032">tidyterra 0.3.2<a class="anchor" aria-label="anchor" href="#tidyterra-032"></a></h2><p class="text-muted">CRAN release: 2023-02-24</p>
-<ul><li>Fix a bug on <code><a href="../reference/pull_crs.html">pull_crs()</a></code> that returned <code>"NA"</code> on <code>sf</code> objects with any field equal to <code>NA</code> (<a href="https://github.com/dieghernan/tidyterra/issues/74" class="external-link">#74</a>).</li>
-<li>Improve docs on <code>scales_*</code> (<a href="https://github.com/dieghernan/tidyterra/issues/73" class="external-link">#73</a>).</li>
-<li>Remove dependency on <strong>crayon</strong> package (superseded) in favor of <strong>cli</strong>.</li>
-<li>Remove <strong>tidyverse</strong> from Suggests.</li>
+<ul><li>
+<code><a href="../reference/pull_crs.html">pull_crs()</a></code> no longer returns <code>"NA"</code> for <code>sf</code> objects with any field equal to <code>NA</code> (<a href="https://github.com/dieghernan/tidyterra/issues/74" class="external-link">#74</a>).</li>
+<li>
+<code>scales_*</code> documentation has been improved (<a href="https://github.com/dieghernan/tidyterra/issues/73" class="external-link">#73</a>).</li>
+<li>The dependency on the superseded <strong>crayon</strong> package has been removed in favor of <strong>cli</strong>.</li>
+<li>
+<strong>tidyverse</strong> has been removed from Suggests.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="tidyterra-031">tidyterra 0.3.1<a class="anchor" aria-label="anchor" href="#tidyterra-031"></a></h2><p class="text-muted">CRAN release: 2022-11-09</p>
-<ul><li>New <strong>ggplot2</strong> methods:
-<ul><li>Methods for <code><a href="../reference/autoplot.Spat.html">autoplot.SpatVector()</a></code>, <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code>.
 <ul><li>
-<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> is now smarter when identifying the type of plot to produce. Can still be overridden with arguments.</li>
-</ul></li>
-<li>Methods for fortifying <code>SpatRaster</code> and <code>SpatVector</code> objects: <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code>.</li>
-</ul></li>
+<code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> and <code><a href="../reference/autoplot.Spat.html">autoplot.SpatVector()</a></code> methods have been added. <code><a href="../reference/autoplot.Spat.html">autoplot.SpatRaster()</a></code> is now smarter when identifying the type of plot to produce, and can still be overridden with arguments.</li>
+<li>
+<code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="../reference/fortify.Spat.html">fortify.SpatVector()</a></code> methods have been added.</li>
 <li>Three additional palettes are included in <code><a href="../reference/scale_hypso.html">hypso.colors()</a></code>: <code>"artic"</code>, <code>"meyers"</code> and <code>"nordisk-familjebok"</code>.</li>
-<li>Add colour scales to all palettes: <code>scale_colour_*</code>.</li>
-<li>Remove use of <code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_string()</a></code>.</li>
-<li>Adapt <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> to the changes introduced in <strong>ggplot2 (3.4.0)</strong>, most notably the adoption of <code>linewidth = .2</code>, by default.</li>
+<li>
+<code>scale_colour_*</code> scales have been added to all palettes.</li>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">ggplot2::aes_string()</a></code> is no longer used.</li>
+<li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> have been adapted to the changes introduced in <strong>ggplot2</strong> 3.4.0, most notably the adoption of <code>linewidth = .2</code> by default.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
 <ul><li>Package back on <strong>CRAN</strong>.</li>
 <li>Libraries <strong>dplyr</strong>, <strong>tidyr</strong> and <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</li>
-<li>Improvements on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>:
-<ul><li>In <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>, it is now possible to avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</li>
 <li>
-<code>aes(fill = ggplot2::after_stat())</code> now works on <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code>.</li>
-<li>Internal: Better handling of <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> and layers.</li>
-</ul></li>
-<li>Add new function <code><a href="../reference/geom_spatraster.html">stat_spatraster()</a></code>.</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can now avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> now supports <code>aes(fill = ggplot2::after_stat())</code>.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> now handles <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> and layers better internally.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">stat_spatraster()</a></code> has been added.</li>
 <li>Reduce the size of external files.</li>
 </ul></div>
     <div class="section level2">
@@ -294,47 +251,38 @@
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2><p class="text-muted">CRAN release: 2022-09-23</p>
 <ul><li>
 <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> now works with <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap()</a></code> (<a href="https://github.com/dieghernan/tidyterra/issues/35" class="external-link">#35</a>).</li>
-<li>Improve faceting when the plot facets are created using non-Spat* layers.</li>
-<li>Precompute vignettes.</li>
+<li>Faceting has been improved when plot facets are created using non-<code>Spat*</code> layers.</li>
+<li>Vignettes have been precomputed.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="tidyterra-020">tidyterra 0.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-020"></a></h2><p class="text-muted">CRAN release: 2022-06-21</p>
-<ul><li>Recreate <code>extdata/volcano2.tif</code> using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
-<li>Add the <code>volcano2</code> dataset.</li>
-<li>Fix errors on <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> for <code>SpatRaster</code> objects (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>). Also add the <code>na.rm</code> argument.</li>
-<li>Add new gradient scales for use on hypsometry:
-<ul><li><code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code></li>
-<li><code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code></li>
-<li><code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code></li>
-<li><code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code></li>
-</ul></li>
-<li>Add the new <code>asia.tif</code> file to <code>extdata</code>.</li>
+<ul><li>
+<code>asia.tif</code> has been added to <code>extdata</code>.</li>
+<li>
+<code>extdata/volcano2.tif</code> has been recreated using official DEM information from New Zealand. Source: <a href="https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/" class="external-link">Auckland LiDAR 1m DEM (2013)</a>.</li>
+<li>
+<code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code>, <code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code>, <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code> and <code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code> have been added as new gradient scales for hypsometry.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_min()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_max()</a></code> no longer error for <code>SpatRaster</code> objects. The <code>na.rm</code> argument has also been added (<a href="https://github.com/dieghernan/tidyterra/issues/20" class="external-link">#20</a>).</li>
+<li>The <code>volcano2</code> dataset has been added.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="tidyterra-010">tidyterra 0.1.0<a class="anchor" aria-label="anchor" href="#tidyterra-010"></a></h2><p class="text-muted">CRAN release: 2022-05-24</p>
-<ul><li>Add DOI.</li>
+<ul><li>DOI has been added.</li>
 <li>
 <strong>CRAN</strong> release.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="tidyterra-001">tidyterra 0.0.1<a class="anchor" aria-label="anchor" href="#tidyterra-001"></a></h2>
-<ul><li>Performance improvements:
-<ul><li>Conversion to <strong>tibble</strong> is avoided as much as possible.</li>
-<li>Internally use <code>data.tables</code> instead of <code>tibbles</code>.</li>
-<li>The package is compatible with <strong>dtplyr</strong>.</li>
-</ul></li>
+<ul><li>Performance has been improved by avoiding conversion to <strong>tibble</strong> as much as possible, using <code>data.table</code> objects internally instead of <code>tibble</code> objects and adding compatibility with <strong>dtplyr</strong>.</li>
 <li>
-<code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> handles tibbles with characters and factors.</li>
-<li>Simplification and tests for <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</li>
-<li>New methods:
-<ul><li><code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code></li>
-<li><code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code></li>
-<li><code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename()</a></code></li>
-</ul></li>
-<li>New geoms:
-<ul><li>
-<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> family.</li>
-</ul></li>
+<code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> now handles tibbles with characters and factors.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> have been simplified and tested.</li>
+<li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour()</a></code> and its family have been added.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/transmute.html" class="external-link">transmute()</a></code> methods have been added.</li>
 </ul></div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>

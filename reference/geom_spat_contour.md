@@ -67,7 +67,7 @@ geom_spatraster_contour_filled(
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics** specially in the use of `fill` aesthetic.
+  See **Aesthetics**, especially in the use of the `fill` aesthetic.
 
 - data:
 
@@ -153,14 +153,14 @@ geom_spatraster_contour_filled(
 
 - inherit.aes:
 
-  If `FALSE`, overrides the default aesthetics, rather than combining
-  with them.
+  If `FALSE`, override the default aesthetics rather than combining with
+  them.
 
 - mask_projection:
 
   Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -263,9 +263,9 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)

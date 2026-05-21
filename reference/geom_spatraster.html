@@ -121,7 +121,7 @@ Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey D
 
 <dl><dt id="arg-mapping">mapping<a class="anchor" aria-label="anchor" href="#arg-mapping"></a></dt>
 <dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. See
-<strong>Aesthetics</strong> specially in the use of <code>fill</code> aesthetic.</p></dd>
+<strong>Aesthetics</strong>, especially in the use of the <code>fill</code> aesthetic.</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -144,8 +144,8 @@ but unobserved levels are omitted.</p></dd>
 
 
 <dt id="arg-inherit-aes">inherit.aes<a class="anchor" aria-label="anchor" href="#arg-inherit-aes"></a></dt>
-<dd><p>If <code>FALSE</code>, overrides the default aesthetics, rather
-than combining with them.</p></dd>
+<dd><p>If <code>FALSE</code>, override the default aesthetics rather than
+combining with them.</p></dd>
 
 
 <dt id="arg-interpolate">interpolate<a class="anchor" aria-label="anchor" href="#arg-interpolate"></a></dt>
@@ -160,14 +160,14 @@ the plot.</p></dd>
 
 <dt id="arg-use-coltab">use_coltab<a class="anchor" aria-label="anchor" href="#arg-use-coltab"></a></dt>
 <dd><p>Logical. Only applicable to <code>SpatRaster</code> objects that have
-an associated <a href="https://rspatial.github.io/terra/reference/colors.html" class="external-link">coltab</a>. Should the coltab be used on the
-plot? See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
+an associated <a href="https://rspatial.github.io/terra/reference/colors.html" class="external-link">coltab</a>. If <code>TRUE</code>, use the coltab on the
+plot. See also <code><a href="scale_coltab.html">scale_fill_coltab()</a></code>.</p></dd>
 
 
 <dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
 <dd><p>Logical, defaults to <code>FALSE</code>. If <code>TRUE</code>, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to <code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
@@ -221,8 +221,8 @@ lists which parameters it can accept.</p></li>
 
 
 
-<p>When the <code>SpatRaster</code> does not present a CRS (i.e.,
-<code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
+<p>When the <code>SpatRaster</code> does not have a CRS (i.e.,
+<code>terra::crs(rast) == ""</code>) the geom does not make any assumption about the
 scales.</p>
 <p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
 adjust the scales. That means that also the
@@ -244,7 +244,7 @@ on the <code>SpatRaster</code> (i.e.
 <code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Names of the
 layers can be retrieved using <code>names(rast)</code>.</p>
 <p>Using <code>geom_spatraster(..., mapping = aes(fill = NULL))</code> or
-<code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> would create a layer with no
+<code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> creates a layer with no
 mapped <code>fill</code> aesthetic.</p>
 <p><code>fill</code> can use computed variables.</p>
 <p>For <code>alpha</code> use computed variable. See section <strong>Computed variables</strong>.</p>

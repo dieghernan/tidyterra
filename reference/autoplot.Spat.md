@@ -53,25 +53,25 @@ autoplot(object, ...)
 
 - rgb:
 
-  Logical. Should be plotted as a RGB image? If `NULL` (the default)
-  `autoplot.SpatRaster()` would try to guess.
+  Logical. If `TRUE`, plot as an RGB image. If `NULL` (the default),
+  `autoplot.SpatRaster()` tries to guess.
 
 - use_coltab:
 
-  Logical. Should be plotted with the corresponding
-  [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html)?
-  If `NULL` (the default) `autoplot.SpatRaster()` would try to guess.
-  See also
+  Logical. If `TRUE`, plot with the corresponding
+  [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html).
+  If `NULL` (the default), `autoplot.SpatRaster()` tries to guess. See
+  also
   [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md).
 
 - facets:
 
-  Logical. Should facets be displayed? If `NULL` (the default)
-  `autoplot.SpatRaster()` would try to guess.
+  Logical. If `TRUE`, display facets. If `NULL` (the default),
+  `autoplot.SpatRaster()` tries to guess.
 
 - nrow, ncol:
 
-  Number of rows and columns on the facet.
+  Number of rows and columns in the facet.
 
 ## Value
 

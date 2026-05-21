@@ -6,7 +6,7 @@ including the color map of 15 gradient palettes.
 ## Format
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
-75 rows and 5 columns. with the following fields:
+75 rows and 5 columns with the following fields:
 
 - pal:
 

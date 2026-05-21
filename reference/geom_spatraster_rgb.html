@@ -176,7 +176,7 @@ lists which parameters it can accept.</p></li>
 <dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
 <dd><p>Logical, defaults to <code>FALSE</code>. If <code>TRUE</code>, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to <code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 </dl></div>
@@ -203,8 +203,8 @@ to <code><a href="https://rspatial.github.io/terra/reference/project.html" class
 
 
 
-<p>When the <code>SpatRaster</code> does not present a CRS (i.e.,
-<code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
+<p>When the <code>SpatRaster</code> does not have a CRS (i.e.,
+<code>terra::crs(rast) == ""</code>) the geom does not make any assumption about the
 scales.</p>
 <p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
 adjust the scales. That means that also the

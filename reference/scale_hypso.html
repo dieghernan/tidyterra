@@ -271,7 +271,8 @@ see the full range of arguments accepted by these scales.</p>
 <dl><dt id="arg-palette">palette<a class="anchor" aria-label="anchor" href="#arg-palette"></a></dt>
 <dd><p>A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-<a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for more info. Values available are:
+<a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for more info. The available values are listed
+below.
 <code>"arctic"</code>, <code>"arctic_bathy"</code>, <code>"arctic_hypso"</code>, <code>"c3t1"</code>, <code>"colombia"</code>, <code>"colombia_bathy"</code>, <code>"colombia_hypso"</code>, <code>"dem_poster"</code>, <code>"dem_print"</code>, <code>"dem_screen"</code>, <code>"etopo1"</code>, <code>"etopo1_bathy"</code>, <code>"etopo1_hypso"</code>, <code>"gmt_globe"</code>, <code>"gmt_globe_bathy"</code>, <code>"gmt_globe_hypso"</code>, <code>"meyers"</code>, <code>"meyers_bathy"</code>, <code>"meyers_hypso"</code>, <code>"moon"</code>, <code>"moon_bathy"</code>, <code>"moon_hypso"</code>, <code>"nordisk-familjebok"</code>, <code>"nordisk-familjebok_bathy"</code>, <code>"nordisk-familjebok_hypso"</code>, <code>"pakistan"</code>, <code>"spain"</code>, <code>"usgs-gswa2"</code>, <code>"utah_1"</code>, <code>"wiki-2.0"</code>, <code>"wiki-2.0_bathy"</code>, <code>"wiki-2.0_hypso"</code>, <code>"wiki-schwarzwald-cont"</code>.</p></dd>
 
 
@@ -346,13 +347,13 @@ reversed.</p></dd>
 
 
 <dt id="arg-na-translate">na.translate<a class="anchor" aria-label="anchor" href="#arg-na-translate"></a></dt>
-<dd><p>Should <code>NA</code> values be removed from the legend? Default
-is <code>TRUE</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, remove <code>NA</code> values from the legend.
+The default is <code>TRUE</code>.</p></dd>
 
 
 <dt id="arg-drop">drop<a class="anchor" aria-label="anchor" href="#arg-drop"></a></dt>
-<dd><p>Should unused factor levels be omitted from the scale? The
-default (<code>TRUE</code>) removes unused factors.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, omit unused factor levels from the scale.
+The default (<code>TRUE</code>) removes unused factors.</p></dd>
 
 
 <dt id="arg-na-value">na.value<a class="anchor" aria-label="anchor" href="#arg-na-value"></a></dt>
@@ -411,18 +412,18 @@ tint. A rough description of these tints are:</p><ul><li><p>Blue colors: Negativ
 <li><p>Green colors: 0 to 1.000 values.</p></li>
 <li><p>Browns: 1000 to 4.000 values.</p></li>
 <li><p>Whites: Values higher than 4.000.</p></li>
-</ul><p>The following orientation would vary depending on the palette definition
-(see <a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for an example on how this could be achieved).</p>
+</ul><p>The following orientation varies depending on the palette definition (see
+<a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for an example of how this can be achieved).</p>
 <p>Note that the setup of the palette may not always be suitable for your
 specific data. For example, a <code>SpatRaster</code> of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
-example, a <code>SpatRaster</code> with a range of values on <code>[100, 200]</code> would appear
-almost as a uniform color. This could be adjusted using the
-<code>limits</code>/<code>values</code> arguments.</p>
-<p>When passing <code>limits</code> argument to <code>scale_*_hypso_tint_*</code> the colors would
-be restricted to those specified by this argument, keeping the distribution
-of the tint. You can combine this with <code>oob</code> (i.e.
-<code>oob = scales::oob_squish</code>) to avoid blank pixels in the plot.</p>
+example, a <code>SpatRaster</code> with a range of values on <code>[100, 200]</code> appears
+almost as a uniform color. This can be adjusted using the <code>limits</code>/<code>values</code>
+arguments.</p>
+<p>When passing the <code>limits</code> argument to <code>scale_*_hypso_tint_*</code>, the colors are
+restricted to those specified by this argument, keeping the distribution of
+the tint. You can combine this with <code>oob</code> (i.e. <code>oob = scales::oob_squish</code>)
+to avoid blank pixels in the plot.</p>
 <p><code>hypso.colors2()</code> provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,
 <code>hypso.colors()</code> provides a uniform gradient across colors. See

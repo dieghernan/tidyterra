@@ -130,8 +130,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 - mask_projection:
 
   Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -152,9 +152,9 @@ ignored.
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)

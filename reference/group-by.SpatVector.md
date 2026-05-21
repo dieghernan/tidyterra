@@ -70,15 +70,15 @@ family functions for `SpatVector` objects.
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
 a grouped `SpatVector` (i.e. subsetting a `SpatVector` like
 `v[1:3,1:2]`), the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) would try to
-re-group the `SpatVector`. This would be triggered the next time you use
-a [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
+re-group the `SpatVector`. This is triggered the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
 `SpatVector`.
 
-Note also that some operations (as
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html))
-would create a new `SpatVector`. In these cases, the result won't
-preserve the `groups` attribute. Use
+Note also that some operations, such as
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+create a new `SpatVector`. In these cases, the result does not preserve
+the `groups` attribute. Use
 [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) to
 re-group.
 
@@ -123,7 +123,7 @@ p <- vect(f)
 
 by_name1 <- p |> group_by(NAME_1)
 
-# grouping doesn't change how the SpatVector looks
+# Grouping does not change how the SpatVector looks.
 by_name1
 #> class       : SpatVector
 #> geometry    : polygons
@@ -138,7 +138,7 @@ by_name1
 #>                   1 Diekirch     3  Redange   259 18664
 #>               ...
 
-# But add metadata for grouping: See the coercion to tibble
+# But it adds metadata for grouping. See the coercion to tibble.
 
 # Not grouped
 p_tbl <- as_tibble(p)

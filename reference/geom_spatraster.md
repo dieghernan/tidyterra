@@ -58,7 +58,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics** specially in the use of `fill` aesthetic.
+  See **Aesthetics**, especially in the use of the `fill` aesthetic.
 
 - data:
 
@@ -80,8 +80,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - inherit.aes:
 
-  If `FALSE`, overrides the default aesthetics, rather than combining
-  with them.
+  If `FALSE`, override the default aesthetics rather than combining with
+  them.
 
 - interpolate:
 
@@ -96,15 +96,15 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   Logical. Only applicable to `SpatRaster` objects that have an
   associated
-  [coltab](https://rspatial.github.io/terra/reference/colors.html).
-  Should the coltab be used on the plot? See also
+  [coltab](https://rspatial.github.io/terra/reference/colors.html). If
+  `TRUE`, use the coltab on the plot. See also
   [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md).
 
 - mask_projection:
 
   Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -161,9 +161,9 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -189,8 +189,8 @@ present on the `SpatRaster` (i.e.
 layers can be retrieved using `names(rast)`.
 
 Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
-`geom_spatraster(..., fill = <color value(s)>)` would create a layer
-with no mapped `fill` aesthetic.
+`geom_spatraster(..., fill = <color value(s)>)` creates a layer with no
+mapped `fill` aesthetic.
 
 `fill` can use computed variables.
 

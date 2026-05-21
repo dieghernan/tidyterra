@@ -273,13 +273,13 @@ reversed.</p></dd>
 
 
 <dt id="arg-na-translate">na.translate<a class="anchor" aria-label="anchor" href="#arg-na-translate"></a></dt>
-<dd><p>Should <code>NA</code> values be removed from the legend? Default
-is <code>TRUE</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, remove <code>NA</code> values from the legend.
+The default is <code>TRUE</code>.</p></dd>
 
 
 <dt id="arg-drop">drop<a class="anchor" aria-label="anchor" href="#arg-drop"></a></dt>
-<dd><p>Should unused factor levels be omitted from the scale? The
-default (<code>TRUE</code>) removes unused factors.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, omit unused factor levels from the scale.
+The default (<code>TRUE</code>) removes unused factors.</p></dd>
 
 
 <dt id="arg-values">values<a class="anchor" aria-label="anchor" href="#arg-values"></a></dt>
@@ -303,8 +303,8 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 
 
 <dt id="arg-use-grass-range">use_grass_range<a class="anchor" aria-label="anchor" href="#arg-use-grass-range"></a></dt>
-<dd><p>Logical. Should the scale use the suggested range
-when plotting? See <strong>Details</strong>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, use the suggested range when
+plotting. See <strong>Details</strong>.</p></dd>
 
 
 <dt id="arg-na-value">na.value<a class="anchor" aria-label="anchor" href="#arg-na-value"></a></dt>
@@ -337,10 +337,10 @@ not filled. See also
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Some palettes are mapped by default to a specific range of values (see
-<a href="grass_db.html">grass_db</a>). However, it is possible to modify this behaviour with the
-<code>use_grass_range</code> argument, When <code>FALSE</code> the color scales would be mapped
-to the range of values of the <code>color/fill</code> aesthethics, See <strong>Examples</strong>.</p>
-<p>When passing <code>limits</code> argument the colors would be restricted of those
+<a href="grass_db.html">grass_db</a>). However, it is possible to modify this behavior with the
+<code>use_grass_range</code> argument. When <code>FALSE</code>, the color scales are mapped to the
+range of values of the <code>color/fill</code> aesthetics. See <strong>Examples</strong>.</p>
+<p>When passing the <code>limits</code> argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You can
 combine this with <code>oob</code> (i.e. <code>oob = scales::oob_squish</code>) to avoid blank
 pixels in the plot.</p>

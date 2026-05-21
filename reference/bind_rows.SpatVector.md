@@ -1,9 +1,9 @@
 # Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
 
 Bind any number of `SpatVector`, data frames and `sf/sfc` objects by
-row, making a longer result. This is similar to `do.call(rbind, dfs)`,
-but the output will contain all columns that appear in any of the
-inputs.
+row, making a longer result. This is similar to
+`do.call(rbind, data_frames)`, but the output will contain all columns
+that appear in any of the inputs.
 
 ## Usage
 
@@ -15,10 +15,10 @@ bind_spat_rows(..., .id = NULL)
 
 - ...:
 
-  Objects to combine. The first argument should be a `SpatVector` and
-  each of the subsequent arguments can either be a `SpatVector`, a
-  `sf/sfc` object or a data frame. Columns are matched by name, and any
-  missing columns will be filled with `NA`.
+  Objects to combine. The first argument must be a `SpatVector`. Each
+  subsequent argument can be a `SpatVector`, `sf/sfc` object or data
+  frame. Columns are matched by name, and any missing columns are filled
+  with `NA`.
 
 - .id:
 
@@ -43,12 +43,12 @@ function for `SpatVector` objects.
 The first argument should be a `SpatVector`. Each subsequent argument
 can be a `SpatVector`, `sf/sfc` object, or data frame:
 
-- If subsequent `SpatVector/sf/sfc` objects present a different CRS than
-  the first element, those elements would be reprojected to the CRS of
-  the first element with a message.
+- If subsequent `SpatVector/sf/sfc` objects have a different CRS than
+  the first element, those elements are reprojected to the CRS of the
+  first element with a message.
 
-- If any element of `...` is a tibble/data frame the rows would be
-  `cbind`ed with empty geometries with a message.
+- If any element of `...` is a tibble/data frame, the rows are
+  column-bound with empty geometries with a message.
 
 ## See also
 
@@ -146,7 +146,7 @@ bind_spat_rows(v1, sfobj)
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
-#> ! Reprojecting object 2 in `...` since it doesn't have the same CRS as object 1
+#> ! Reprojecting object 2 in `...` since it does not have the same CRS as object 1
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 2, 3  (geometries, attributes)
@@ -161,7 +161,7 @@ bind_spat_rows(v1, sfobj_3857)
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result would present empty geoms
+#> The result includes empty geometries
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 34, 15  (geometries, attributes)
@@ -193,7 +193,7 @@ bind_spat_rows(list(
   mtcars = mtcars[1, ]
 ), .id = "source")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result would present empty geoms
+#> The result includes empty geometries
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 3, 15  (geometries, attributes)

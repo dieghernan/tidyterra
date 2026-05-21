@@ -5,7 +5,7 @@
 **tidyterra** adds common **tidyverse** methods for `SpatRaster` and
 `SpatVector` objects from the
 [**terra**](https://CRAN.R-project.org/package=terra) package, and
-provides `geom_spat*()` geoms for plotting these objects with
+provides `geom_spat*()` geoms for plotting them with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -28,7 +28,7 @@ is recommended because **tidyterra** functions call the corresponding
 slower than their **terra** counterparts.
 
 As a rule of thumb, **tidyterra** is most suitable for objects with
-fewer than 1e7 “slots” (i.e.,
+fewer than 10,000,000 data slots (i.e.,
 `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`).
 
 ## Get started with tidyterra
@@ -80,7 +80,7 @@ Currently, the following methods are available:
 
 Let’s see some of these methods in action.
 
-### `SpatRasters`
+### `SpatRaster` objects
 
 Example using a `SpatRaster`:
 
@@ -90,12 +90,17 @@ library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 temp <- rast(f)
-#> Error:
-#> ! [rast] filename is empty. Provide a valid filename
 
 temp
-#> Error:
-#> ! objeto 'temp' no encontrado
+#> class       : SpatRaster
+#> size        : 87, 118, 3  (nrow, ncol, nlyr)
+#> resolution  : 3881.255, 3881.255  (x, y)
+#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
+#> coord. ref. : World_Robinson (ESRI:54030)
+#> source      : cyl_temp.tif
+#> names       :   tavg_04,   tavg_05,   tavg_06
+#> min values  :  1.885463,  5.817587, 10.463377
+#> max values  : 13.283829, 16.740898, 21.113781
 
 mod <- temp |>
   select(-1) |>
@@ -103,12 +108,17 @@ mod <- temp |>
   relocate(newcol, .before = 1) |>
   replace_na(list(newcol = 3)) |>
   rename(difference = newcol)
-#> Error:
-#> ! objeto 'temp' no encontrado
 
 mod
-#> Error:
-#> ! objeto 'mod' no encontrado
+#> class       : SpatRaster
+#> size        : 87, 118, 3  (nrow, ncol, nlyr)
+#> resolution  : 3881.255, 3881.255  (x, y)
+#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
+#> coord. ref. : World_Robinson (ESRI:54030)
+#> source(s)   : memory
+#> names       : difference,   tavg_05,   tavg_06
+#> min values  :   2.817647,  5.817587, 10.463377
+#> max values  :   5.307511, 16.740898, 21.113781
 ```
 
 In this example we:
@@ -121,18 +131,18 @@ In this example we:
 - Renamed `newcol` to `difference`.
 
 Throughout these steps, core properties of the `SpatRaster` (number of
-cells, rows and columns, extent, resolution, and CRS) remain unchanged.
+cells, rows and columns, extent, resolution and CRS) remain unchanged.
 Other verbs such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
-[`slice()`](https://dplyr.tidyverse.org/reference/slice.html), or
+[`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) may
 alter these properties in a manner analogous to how row operations
 affect data frames.
 
-### `SpatVectors`
+### `SpatVector` objects
 
 Since **tidyterra** version 0.4.0, most **dplyr** and **tidyr** verbs
-work with `SpatVector` objects, so you can arrange, group, and summarise
+work with `SpatVector` objects, so you can arrange, group and summarise
 their attributes.
 
 ``` r
@@ -170,7 +180,7 @@ preserved during these operations.
 
 ## Plotting with ggplot2
 
-### `SpatRasters`
+### `SpatRaster` objects
 
 When a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != ""`), the
 geom uses
@@ -190,9 +200,11 @@ ggplot() +
     palette = "muted",
     na.value = "white"
   )
-#> Error:
-#> ! objeto 'temp' no encontrado
 ```
+
+![A faceted map using a SpatRaster.](./fig-faceted-1.png)
+
+A faceted map using a SpatRaster.
 
 ``` r
 
@@ -200,8 +212,6 @@ ggplot() +
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
 volcano2 <- rast(f_volcano)
-#> Error:
-#> ! [rast] filename is empty. Provide a valid filename
 
 ggplot() +
   geom_spatraster(data = volcano2) +
@@ -209,10 +219,11 @@ ggplot() +
   scale_fill_whitebox_c() +
   coord_sf(expand = FALSE) +
   labs(fill = "elevation")
-#> Error in `geom_spatraster()`:
-#> ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not
-#>   <matrix/array>. See `?terra::vect()`
 ```
+
+![Contour line plot for a SpatRaster.](./fig-contourlines-1.png)
+
+Contour line plot for a SpatRaster.
 
 ``` r
 
@@ -222,12 +233,13 @@ ggplot() +
   geom_spatraster_contour_filled(data = volcano2) +
   scale_fill_whitebox_d(palette = "atlas") +
   labs(fill = "elevation")
-#> Error in `geom_spatraster_contour_filled()`:
-#> ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects,
-#>   not <matrix/array>. See `?terra::vect()`
 ```
 
-tidyterra also supports RGB `SpatRasters` for imagery:
+![Filled contour plot for a SpatRaster.](./fig-contourfilled-1.png)
+
+Filled contour plot for a SpatRaster.
+
+**tidyterra** also supports RGB `SpatRaster` objects for imagery:
 
 ``` r
 
@@ -235,26 +247,22 @@ tidyterra also supports RGB `SpatRasters` for imagery:
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- vect(f_v)
-#> Error:
-#> ! [vect] file does not exist:
 
 # Read a tile.
 f_rgb <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 r_rgb <- rast(f_rgb)
-#> Error:
-#> ! [rast] filename is empty. Provide a valid filename
 
 rgb_plot <- ggplot(v) +
   geom_spatraster_rgb(data = r_rgb) +
   geom_spatvector(fill = NA, size = 1)
-#> Error:
-#> ! objeto 'v' no encontrado
 
 rgb_plot
-#> Error:
-#> ! objeto 'rgb_plot' no encontrado
 ```
+
+![A map combining an RGB SpatRaster and a SpatVector.](./fig-rgb-1.png)
+
+A map combining an RGB SpatRaster and a SpatVector.
 
 **tidyterra** includes color scales suitable for hypsometric and
 bathymetric maps:
@@ -262,12 +270,17 @@ bathymetric maps:
 ``` r
 
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
-#> Error:
-#> ! [rast] filename is empty. Provide a valid filename
 
 asia
-#> Error:
-#> ! objeto 'asia' no encontrado
+#> class       : SpatRaster
+#> size        : 164, 306, 1  (nrow, ncol, nlyr)
+#> resolution  : 31836.23, 31847.57  (x, y)
+#> extent      : 7619120, 1.736101e+07, -1304745, 3918256  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> source      : asia.tif
+#> name        : file44bc291153f2
+#> min value   :     -9558.467773
+#> max value   :      5801.927246
 
 ggplot() +
   geom_spatraster(data = asia) +
@@ -289,13 +302,15 @@ ggplot() +
     legend.ticks = element_line(colour = "black", linewidth = 0.3),
     legend.direction = "horizontal"
   )
-#> Error:
-#> ! objeto 'asia' no encontrado
 ```
 
-### `SpatVectors`
+![Map of Asia including hypsometric tints.](./fig-hypso-1.png)
 
-Plot `SpatVectors` with
+Map of Asia including hypsometric tints.
+
+### `SpatVector` objects
+
+Plot `SpatVector` objects with
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md):
 
 ``` r
@@ -311,9 +326,9 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-![Choropleth map with a SpatVector object](./fig-lux_ggplot-1.png)
+![Choropleth map with a SpatVector object.](./fig-lux_ggplot-1.png)
 
-Choropleth map with a SpatVector object
+Choropleth map with a SpatVector object.
 
 Implementation-wise, **tidyterra** converts
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
@@ -323,7 +338,7 @@ and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to render the layer.
 
-You can also aggregate `SpatVectors` easily:
+You can also aggregate `SpatVector` objects easily:
 
 ``` r
 
@@ -344,9 +359,9 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Dissolving SpatVectors by group](./fig-aggregate-1.png)
+![Dissolving SpatVector objects by group.](./fig-aggregate-1.png)
 
-Dissolving SpatVectors by group
+Dissolving SpatVector objects by group.
 
 ``` r
 
@@ -369,7 +384,7 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Dissolving SpatVectors by group (keeping internal
-boundaries)](./fig-aggregate-2.png)
+![Dissolving SpatVector objects by group, keeping internal
+boundaries.](./fig-aggregate-2.png)
 
-Dissolving SpatVectors by group (keeping internal boundaries)
+Dissolving SpatVector objects by group, keeping internal boundaries.

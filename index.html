@@ -23,8 +23,8 @@
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="tidyterra | tidyverse methods and ggplot2 helpers for terra objects
 ">
-<meta name="description" content="Provides tidyverse methods for SpatRaster and SpatVector objects from the terra package. It also includes geom_ functions that provide a convenient way to visualize terra objects with ggplot2.">
-<meta property="og:description" content="Provides tidyverse methods for SpatRaster and SpatVector objects from the terra package. It also includes geom_ functions that provide a convenient way to visualize terra objects with ggplot2.">
+<meta name="description" content="Provides tidyverse methods for SpatRaster and SpatVector objects from the terra package. It also provides ggplot2 geoms to visualize terra objects.">
+<meta property="og:description" content="Provides tidyverse methods for SpatRaster and SpatVector objects from the terra package. It also provides ggplot2 geoms to visualize terra objects.">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -102,7 +102,7 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <strong>tidyterra</strong> is to provide common methods of the <a href="https://tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong> packages</a> for objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package: <code>SpatRaster</code> and <code>SpatVector</code>. It also provides <code>geoms</code> for plotting these objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
+<p>The goal of <strong>tidyterra</strong> is to provide common methods of the <a href="https://tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong> packages</a> for objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package: <code>SpatRaster</code> and <code>SpatVector</code>. It also provides geoms for plotting these objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
 <p>Please cite <strong>tidyterra</strong> as:</p>
 <p>Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra package. <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a>.</p>
 <p>A BibTeX entry for LaTeX users is:</p>
@@ -125,7 +125,7 @@
 <p><strong>tidyverse</strong> methods implemented in <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.</p></li>
-<li><p><code>SpatRaster</code>: The implementation for <code>SpatRaster</code> objects differs because methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> would select the first layer of a <code>SpatRaster</code>).</p></li>
+<li><p><code>SpatRaster</code>: The implementation for <code>SpatRaster</code> objects differs because methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>).</p></li>
 </ul>
 <p>The implemented methods return the same type of object as the input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble).</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
@@ -335,11 +335,11 @@ A note on performance
 
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <div class="section level3">
-<h3 id="spatrasters">
-<code>SpatRasters</code><a class="anchor" aria-label="anchor" href="#spatrasters"></a>
+<h3 id="spatraster-objects">
+<code>SpatRaster</code> objects<a class="anchor" aria-label="anchor" href="#spatraster-objects"></a>
 </h3>
 <p>This basic example shows how to manipulate and plot <code>SpatRaster</code> objects:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -354,7 +354,7 @@ A note on performance
 <span><span class="co">#&gt; size        : 87, 118, 3  (nrow, ncol, nlyr)</span></span>
 <span><span class="co">#&gt; resolution  : 3881.255, 3881.255  (x, y)</span></span>
 <span><span class="co">#&gt; extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt; coord. ref. : World_Robinson</span></span>
+<span><span class="co">#&gt; coord. ref. : World_Robinson (ESRI:54030)</span></span>
 <span><span class="co">#&gt; source      : cyl_temp.tif</span></span>
 <span><span class="co">#&gt; names       :   tavg_04,   tavg_05,   tavg_06</span></span>
 <span><span class="co">#&gt; min values  :  1.885463,  5.817587, 10.463377</span></span>
@@ -383,12 +383,12 @@ A note on performance
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create maximum differences of two months</span></span>
+<code class="sourceCode R"><span><span class="co"># Create the maximum difference between two months.</span></span>
 <span><span class="va">variation</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">June</span> <span class="op">-</span> <span class="va">May</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>variation <span class="op">=</span> <span class="va">diff</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Add also a overlay of a SpatVector</span></span>
+<span><span class="co"># Add a SpatVector overlay.</span></span>
 <span><span class="va">prov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">prov</span><span class="op">)</span> <span class="op">+</span></span>
@@ -404,8 +404,8 @@ A note on performance
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">25830</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    fill <span class="op">=</span> <span class="st">"Variation"</span>,</span>
-<span>    title <span class="op">=</span> <span class="st">"Variation of Temperature in Castile and Leon (Spain)"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Average Temperatures: June vs. May"</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Temperature variation in Castile and Leon (Spain)"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Average temperatures: June vs. May"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Variation of temperature in Castile and Leon, Spain" width="100%"></p>
 <p><strong>tidyterra</strong> also provides a geom for plotting RGB <code>SpatRaster</code> tiles with <strong>ggplot2</strong>:</p>
@@ -446,8 +446,8 @@ A note on performance
 <p><img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%"></p>
 </div>
 <div class="section level3">
-<h3 id="spatvectors">
-<code>SpatVectors</code><a class="anchor" aria-label="anchor" href="#spatvectors"></a>
+<h3 id="spatvector-objects">
+<code>SpatVector</code> objects<a class="anchor" aria-label="anchor" href="#spatvector-objects"></a>
 </h3>
 <p>This basic example shows how to manipulate and plot <code>SpatVector</code> objects:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
@@ -490,7 +490,7 @@ A note on performance
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p><strong>tidyterra</strong>’s <strong>ggplot2</strong> geoms are based on <a href="https://github.com/paleolimbot/ggspatial" class="external-link"><strong>ggspatial</strong></a> implementation, by <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link"><strong>ggspatial</strong> contributors</a>.</p>
+<p><strong>tidyterra</strong>’s <strong>ggplot2</strong> geoms are based on the <a href="https://github.com/paleolimbot/ggspatial" class="external-link"><strong>ggspatial</strong></a> implementation by <a href="https://github.com/paleolimbot" class="external-link">Dewey Dunnington</a> and <a href="https://github.com/paleolimbot/ggspatial/graphs/contributors" class="external-link"><strong>ggspatial</strong> contributors</a>.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

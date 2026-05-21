@@ -224,12 +224,13 @@ Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - values:
 
@@ -258,7 +259,7 @@ Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
 
 - use_grass_range:
 
-  Logical. Should the scale use the suggested range when plotting? See
+  Logical. If `TRUE`, use the suggested range when plotting. See
   **Details**.
 
 - na.value:
@@ -293,12 +294,11 @@ layer with the values applied to the `fill/colour`
 
 Some palettes are mapped by default to a specific range of values (see
 [grass_db](https://dieghernan.github.io/tidyterra/reference/grass_db.md)).
-However, it is possible to modify this behaviour with the
-`use_grass_range` argument, When `FALSE` the color scales would be
-mapped to the range of values of the `color/fill` aesthethics, See
-**Examples**.
+However, it is possible to modify this behavior with the
+`use_grass_range` argument. When `FALSE`, the color scales are mapped to
+the range of values of the `color/fill` aesthetics. See **Examples**.
 
-When passing `limits` argument the colors would be restricted of those
+When passing the `limits` argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You
 can combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid
 blank pixels in the plot.

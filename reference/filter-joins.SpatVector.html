@@ -96,7 +96,7 @@ matches in <code>y</code>:</p><ul><li><p><code><a href="https://dplyr.tidyverse.
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>A data frame or other object coercible to a data frame. <strong>If a
-<code>SpatVector</code> of <code>sf</code> object</strong> is provided it would return an error (see
+<code>SpatVector</code> or <code>sf</code> object</strong> is provided it returns an error (see
 <code><a href="https://rspatial.github.io/terra/reference/intersect.html" class="external-link">terra::intersect()</a></code> for performing spatial joins).</p></dd>
 
 
@@ -156,9 +156,8 @@ it is a potentially expensive operation so you must opt into it.</p></dd>
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The geometry column has a sticky behaviour. This means that the result would
-have always the geometry of <code>x</code> for the records that matches the join
-conditions.</p>
+<p>The geometry column has sticky behavior. This means that the result always
+has the geometry of <code>x</code> for the records that match the join conditions.</p>
 </div>
 
     </div>

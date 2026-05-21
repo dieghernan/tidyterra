@@ -134,7 +134,7 @@ implemented on top of <code><a href="http://isoband.r-lib.org/reference/isolines
 
 <dl><dt id="arg-mapping">mapping<a class="anchor" aria-label="anchor" href="#arg-mapping"></a></dt>
 <dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. See
-<strong>Aesthetics</strong> specially in the use of <code>fill</code> aesthetic.</p></dd>
+<strong>Aesthetics</strong>, especially in the use of the <code>fill</code> aesthetic.</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -207,14 +207,14 @@ but unobserved levels are omitted.</p></dd>
 
 
 <dt id="arg-inherit-aes">inherit.aes<a class="anchor" aria-label="anchor" href="#arg-inherit-aes"></a></dt>
-<dd><p>If <code>FALSE</code>, overrides the default aesthetics, rather
-than combining with them.</p></dd>
+<dd><p>If <code>FALSE</code>, override the default aesthetics rather than
+combining with them.</p></dd>
 
 
 <dt id="arg-mask-projection">mask_projection<a class="anchor" aria-label="anchor" href="#arg-mask-projection"></a></dt>
 <dd><p>Logical, defaults to <code>FALSE</code>. If <code>TRUE</code>, mask out
 areas outside the input extent. For example, to avoid data wrapping
-around the date-line in Equal Area projections. This argument is passed
+around the dateline in equal-area projections. This argument is passed
 to <code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> when reprojecting the <code>SpatRaster</code>.</p></dd>
 
 
@@ -301,8 +301,8 @@ longer available.</p></li>
 
 
 
-<p>When the <code>SpatRaster</code> does not present a CRS (i.e.,
-<code>terra::crs(rast) == ""</code>) the geom does not make any assumption on the
+<p>When the <code>SpatRaster</code> does not have a CRS (i.e.,
+<code>terra::crs(rast) == ""</code>) the geom does not make any assumption about the
 scales.</p>
 <p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
 adjust the scales. That means that also the

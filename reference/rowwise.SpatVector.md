@@ -2,7 +2,7 @@
 
 [`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) allows
 you to compute on a `SpatVector` a row-at-a-time. This is most useful
-when a vectorised function doesn't exist.
+when a vectorised function does not exist.
 
 Most [dplyr](https://CRAN.R-project.org/package=dplyr) verbs
 implementation in
@@ -63,17 +63,17 @@ function for `SpatVector` objects.
 
 **When mixing** [terra](https://CRAN.R-project.org/package=terra)
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a row-wise `SpatVector` (i.e, subsetting a `SpatVector` like
-`v[1:3,1:2]`) the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) would try to
-re-generate the `SpatVector`. This would be triggered the next time you
-use a [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
+a row-wise `SpatVector` (i.e. subsetting a `SpatVector` like
+`v[1:3,1:2]`), the `groups` attribute can be corrupted.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
+regenerate the `SpatVector`. This is triggered the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
 `SpatVector`.
 
-Note also that some operations (as
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html))
-would create a new `SpatVector`. In these cases, the result won't
-preserve the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
+Note also that some operations, such as
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+create a new `SpatVector`. In these cases, the result does not preserve
+the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
 
 ## See also
 

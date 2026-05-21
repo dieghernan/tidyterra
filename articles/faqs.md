@@ -2,7 +2,7 @@
 
 This document is a compendium of [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and their answers, primarily focusing on
+using the **tidyterra** package and its answers, primarily focused on
 the integration of **terra** and **ggplot2**. You can ask for help or
 search previous questions using the following links.
 
@@ -36,7 +36,7 @@ Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano
 represented in
 [`datasets::volcano`](https://rdrr.io/r/datasets/volcano.html).
 
-The original file has been cropped and down-sampled for demo purposes.
+The original file has been cropped and downsampled for demo purposes.
 `holyroodpark.tif` is available online in the `data-raw` folder at
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
@@ -76,7 +76,7 @@ def +
   scale_fill_continuous(na.value = "transparent") +
   labs(
     title = "Default colors in ggplot2",
-    subtitle = "But NAs are not plotted"
+    subtitle = "But NA values are not plotted"
   )
 
 # Use a different scale provided by ggplot2
@@ -122,7 +122,7 @@ ggplot() +
   geom_spatraster_contour_text(data = r) +
   labs(title = "Labeling contours")
 
-# With options and aes
+# With options and aes.
 
 # Use a labeler function so only selected breaks are labeled.
 labeller <- function(labs) {
@@ -154,13 +154,13 @@ ggplot(r) +
   scale_linewidth_continuous(range = c(0.1, 0.5), breaks = labs) +
   scale_color_gradient(low = "grey50", high = "grey10", breaks = labs) +
   scale_size_continuous(range = c(2, 3), breaks = labs) +
-  # Integrate scales
+  # Integrate scales.
   guides(
     linewidth = guide_legend("meters"),
     size = guide_legend("meters"),
     color = guide_legend("meters")
   ) +
-  # Theme and titles
+  # Theme and titles.
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
@@ -224,13 +224,13 @@ ggplot(r, aes(x, y)) +
   scale_linewidth_continuous(range = c(0.1, 0.5), breaks = labs) +
   scale_color_gradient(low = "grey50", high = "grey10", breaks = labs) +
   scale_size_continuous(range = c(2, 3), breaks = labs) +
-  # Integrate scales
+  # Integrate scales.
   guides(
     linewidth = guide_legend("meters"),
     size = guide_legend("meters"),
     color = guide_legend("meters")
   ) +
-  # Theme and titles
+  # Theme and titles.
   theme_bw() +
   theme(text = element_text(family = "mono")) +
   labs(
@@ -392,9 +392,9 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-blurrytile-2.png)
 
-\(b\) Plot with native CRS - not resampled (EPSG:3857).
+\(b\) Plot with native CRS, not resampled (EPSG:3857).
 
-Figure 6: Example of impact of resampling on blurriness of the tile
+Figure 6: Example of the impact of resampling on tile blurriness.
 
 ## Avoid degree labels on axes
 
@@ -459,7 +459,7 @@ ggplot() +
   geom_spatraster(data = r) +
   labs(title = "Default axis breaks")
 
-# Modify breaks on x and y
+# Modify breaks on x and y.
 ggplot() +
   geom_spatraster(data = r) +
   scale_y_continuous(breaks = scales::breaks_extended(n = 5)) +
@@ -522,7 +522,7 @@ plot(r_coltab, legend = FALSE)
 
 ![](faqs_files/figure-html/fig-coltab-1.png)
 
-Figure 9: Color tables: native plot with terra package
+Figure 9: Color tables: native plot with the terra package.
 
 ``` r
 
@@ -595,7 +595,7 @@ ggplot() +
 
 \(d\) named colors and scale_fill_manual method.
 
-Figure 10: Color tables: tidyterra package
+Figure 10: Color tables: tidyterra package.
 
 ## Use with gganimate
 
@@ -693,7 +693,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 library(sf)
-# Get example data
+# Get example data.
 library(maptiles)
 library(geodata)
 
@@ -721,7 +721,7 @@ clim <- worldclim_country("CHE", var = "prec", path = ".") |>
 cap_lab <- paste0(
   c(
     "Tiles © Esri - Source: Esri",
-    "Data: © Copyright 2020-2022, worldclim.org."
+    "Data: © Copyright 2020-2022, WorldClim.org."
   ),
   collapse = "\n"
 )
@@ -788,7 +788,7 @@ ggplot(aoi) +
   labs(
     title = tit_lab,
     subtitle = "With overlay and filled contour",
-    fill = "Precipitation (mm.)",
+    fill = "Precipitation (mm)",
     caption = cap_lab
   )
 ```
@@ -851,8 +851,8 @@ Note that you do not need to call
 directly because **ggplot2** invokes it implicitly when you use
 `ggplot(data = a_spatraster)`.
 
-Thanks to this extension mechanism, you can use additional `geoms` and
-`stats` from **ggplot2**:
+Thanks to this extension mechanism, you can use additional geoms and
+stats from **ggplot2**:
 
 ``` r
 
@@ -926,6 +926,6 @@ and metR for terrain relief representation.
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors, and the
+    converted to their corresponding labels and factors and the
     corresponding color table added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

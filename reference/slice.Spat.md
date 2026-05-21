@@ -154,7 +154,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - .keep_extent:
 
-  Should the extent of the resulting `SpatRaster` be kept? See also
+  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. See
+  also
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
   [`terra::extend()`](https://rspatial.github.io/terra/reference/extend.html).
 
@@ -194,8 +195,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - na.rm:
 
-  Logical, should cells that present a value of `NA` removed when
-  computing `slice_min()/slice_max()`?. The default is `TRUE`.
+  Logical. If `TRUE`, remove cells with `NA` values when computing
+  `slice_min()/slice_max()`. The default is `TRUE`.
 
 - na_rm:
 
@@ -220,7 +221,7 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - cols, rows:
 
-  Integer col/row values of the `SpatRaster`
+  Integer column and row values of the `SpatRaster`.
 
 - inverse:
 
@@ -248,7 +249,7 @@ The result is a `SpatRaster` with the CRS and resolution of the input
 and where cell values of the selected cells/columns/rows are preserved.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
-output. The non-selected cells would present a value of `NA`.
+output. The non-selected cells have a value of `NA`.
 
 ### `SpatVector`
 

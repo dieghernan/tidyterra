@@ -230,8 +230,8 @@ beyond the number of rows in the input are silently ignored. See
 
 
 <dt id="arg--keep-extent">.keep_extent<a class="anchor" aria-label="anchor" href="#arg--keep-extent"></a></dt>
-<dd><p>Should the extent of the resulting <code>SpatRaster</code> be kept?
-See also <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/extend.html" class="external-link">terra::extend()</a></code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, keep the extent of the resulting
+<code>SpatRaster</code>. See also <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/extend.html" class="external-link">terra::extend()</a></code>.</p></dd>
 
 
 <dt id="arg--by-by">.by, by<a class="anchor" aria-label="anchor" href="#arg--by-by"></a></dt>
@@ -265,8 +265,8 @@ and return the first <code>n</code> rows.</p></dd>
 
 
 <dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
-<dd><p>Logical, should cells that present a value of <code>NA</code> removed when
-computing <code>slice_min()/slice_max()</code>?. The default is <code>TRUE</code>.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, remove cells with <code>NA</code> values when computing
+<code>slice_min()/slice_max()</code>. The default is <code>TRUE</code>.</p></dd>
 
 
 <dt id="arg-na-rm">na_rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
@@ -290,7 +290,7 @@ weights.</p></dd>
 
 
 <dt id="arg-cols-rows">cols, rows<a class="anchor" aria-label="anchor" href="#arg-cols-rows"></a></dt>
-<dd><p>Integer col/row values of the <code>SpatRaster</code></p></dd>
+<dd><p>Integer column and row values of the <code>SpatRaster</code>.</p></dd>
 
 
 <dt id="arg-inverse">inverse<a class="anchor" aria-label="anchor" href="#arg-inverse"></a></dt>
@@ -321,7 +321,7 @@ See <code><a href="https://rspatial.github.io/terra/reference/mask.html" class="
 <p>The result is a <code>SpatRaster</code> with the CRS and resolution of the input and
 where cell values of the selected cells/columns/rows are preserved.</p>
 <p>Use <code>.keep_extent = TRUE</code> to preserve the extent of <code>.data</code> on the output.
-The non-selected cells would present a value of <code>NA</code>.</p>
+The non-selected cells have a value of <code>NA</code>.</p>
 </div>
 
 <div class="section">

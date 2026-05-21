@@ -10,13 +10,13 @@ that allows manipulation of spatial data objects as provided by the
 packages included in the **tidyverse** ([Wickham et al.
 2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
 2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
-2023](#ref-R-tidyr)), or **tibble** ([Müller and Wickham
+2023](#ref-R-tidyr)) or **tibble** ([Müller and Wickham
 2023](#ref-R-tibble)). This makes spatial data manipulation and analysis
 easier and faster for users already familiar with the **tidyverse**.
 
 Furthermore, **tidyterra** extends the functionality of the **ggplot2**
-package ([Wickham 2016](#ref-R-ggplot2)) by providing additional `geoms`
-and `stats`[^1] like
+package ([Wickham 2016](#ref-R-ggplot2)) by providing additional geoms
+and stats[^1] like
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
 and
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md),
@@ -26,18 +26,18 @@ designed for map production.
 **tidyterra** can manipulate the following classes of **terra** objects:
 
 1.  `SpatVector` objects, which represent vector data such as points,
-    lines, or polygon geometries.
+    lines or polygon geometries.
 
 2.  `SpatRaster` objects, which represent raster data in the form of a
     grid consisting of equally sized rectangles. Each rectangle can
     contain one or more values.
 
 The first stable version of **tidyterra** was released on CRAN on April
-24, 2022, and has been actively used by other packages (such as
+24, 2022, and has been actively used by other packages, such as
 **ebvcube** ([Quoss et al. 2021](#ref-R-ebvcube)), **biomod2**
 ([Thuiller et al. 2023](#ref-R-biomod2)), **inlabru** ([Bachl et al.
 2019](#ref-R-inlabru)), **RCzechia** ([Lacko 2023](#ref-R-rczechia)) and
-**sparrpowR** ([Buller et al. 2021](#ref-R-sparrpowr))) and cited in
+**sparrpowR** ([Buller et al. 2021](#ref-R-sparrpowr)), and cited in
 academic research and publications (Bahlburg et al.
 ([2023](#ref-bahlburg2023)), Moraga ([2024](#ref-moraga2023)), Leonardi
 et al. ([2023](#ref-Leonardi2023)), Meister et al.
@@ -46,9 +46,9 @@ et al. ([2023](#ref-Leonardi2023)), Meister et al.
 ## Statement of need
 
 The [**tidyverse**](https://tidyverse.org/) is a compilation of **R**
-packages that share an underlying design philosophy, grammar, and data
+packages that share an underlying design philosophy, grammar and data
 structures. The packages within the tidyverse are widely used by **R**
-users for tidying, transforming, and visualizing data.
+users for tidying, transforming and visualizing data.
 
 The **tidyverse** is designed to work with tidy data (*“every column is
 a variable, every row is an observation, every cell is a single
@@ -84,7 +84,7 @@ objects using the **ggplot2** syntax. Although packages like
 **ggspatial** ([Dunnington 2023](#ref-R-ggspatial)) already allow the
 representation of `SpatRaster` objects via **ggplot2**, **tidyterra**
 functions provide additional support for advanced mapping. This support
-includes the integration of faceted maps, contours, and the automatic
+includes the integration of faceted maps, contours and the automatic
 conversion of spatial layers to the same CRS[^2] via
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 Furthermore, **tidyterra** also provides support for `SpatVector`
@@ -152,14 +152,10 @@ rastertemp <- terra::rast(system.file(
   "extdata/cyl_temp.tif",
   package = "tidyterra"
 ))
-#> Error:
-#> ! [rast] filename is empty. Provide a valid filename
 
 # Rename with the tidyverse.
 rastertemp <- rastertemp |>
   rename(April = tavg_04, May = tavg_05, June = tavg_06)
-#> Error:
-#> ! objeto 'rastertemp' no encontrado
 
 # Plot with facets.
 ggplot() +
@@ -176,9 +172,11 @@ ggplot() +
     title = "Average temperature in Castile and Leon (Spain)",
     subtitle = "Months of April, May and June"
   )
-#> Error:
-#> ! objeto 'rastertemp' no encontrado
 ```
+
+![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
+
+Faceted map with multi-layer raster file.
 
 In the following example, we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
@@ -194,13 +192,9 @@ and it also includes an overlay of a `SpatVector` for reference:
 incr_temp <- rastertemp |>
   mutate(var = June - April) |>
   select(Variation = var)
-#> Error:
-#> ! objeto 'rastertemp' no encontrado
 
 # Overlay a SpatVector.
 cyl_vect <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-#> Error:
-#> ! [vect] file does not exist:
 
 # Contour map with overlay.
 ggplot() +
@@ -213,17 +207,20 @@ ggplot() +
     title = "Variation of temperature in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
-#> Error:
-#> ! objeto 'incr_temp' no encontrado
 ```
+
+![Contour map of temperature variation with a SpatVector
+overlay](./fig-ex2-1.png)
+
+Contour map of temperature variation with a SpatVector overlay
 
 ## Additional materials
 
 The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
-- Details on each function, including (if possible) the equivalent
-  **terra** function, in case users prefer to include those in their
+- Details on each function, including the equivalent **terra** function
+  when available, in case users prefer to include those in their
   workflows.
 - Working examples using the functions and creating plots.
 - Additional articles and vignettes, as well as a complete demo of the
@@ -343,8 +340,8 @@ Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022.
 *isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
 Grids*. <https://CRAN.R-project.org/package=isoband>.
 
-[^1]: The term `geoms` refers to geometric objects, and `stats` refers
-    to statistical transformations, following the naming conventions of
+[^1]: The term geoms refers to geometric objects, and stats refers to
+    statistical transformations, following the naming conventions of
     **ggplot2**.
 
 [^2]: CRS, coordinate reference system.

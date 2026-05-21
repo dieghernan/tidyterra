@@ -62,9 +62,8 @@ pull(.data, var = -1, name = NULL, ...)
 
 A vector the same number of cells/geometries as `.data`.
 
-On `SpatRaster` objects, note that the default (`na.rm = FALSE`) would
-remove empty cells, so you may need to pass (`na.rm = FALSE`) to `...`.
-See
+On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
+empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent

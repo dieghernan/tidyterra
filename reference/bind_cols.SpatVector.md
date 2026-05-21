@@ -1,7 +1,7 @@
 # Bind multiple `SpatVector`, `sf` and data frames objects by column
 
 Bind any number of `SpatVector`, data frames and `sf` objects by column,
-making a wider result. This is similar to `do.call(cbind, dfs)`.
+making a wider result. This is similar to `do.call(cbind, data_frames)`.
 
 Where possible prefer using a
 [join](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md)
@@ -22,9 +22,9 @@ bind_spat_cols(
 
 - ...:
 
-  Objects to combine. The first argument should be a `SpatVector` and
-  each of the subsequent arguments can either be a `SpatVector`, a `sf`
-  object or a data frame. Inputs are
+  Objects to combine. The first argument must be a `SpatVector`. Each
+  subsequent argument can be a `SpatVector`, `sf` object or data frame.
+  Inputs are
   [recycled](https://vctrs.r-lib.org/reference/theory-faq-recycling.html)
   to the same length, then matched by position.
 
@@ -37,7 +37,7 @@ bind_spat_cols(
 ## Value
 
 A `SpatVector` with the corresponding columns. The geometry and CRS
-would correspond to the first `SpatVector` of `...`.
+correspond to the first `SpatVector` of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -48,8 +48,8 @@ would correspond to the first `SpatVector` of `...`.
 Implementation of the
 [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
 function for `SpatVector` objects. Note that for the second and
-subsequent arguments on `...` the geometry would not be `cbind`ed, and
-only the data frame (-ish) columns would be kept.
+subsequent arguments on `...`, the geometry is not `cbind`ed, and only
+the data frame-like columns are kept.
 
 ## See also
 

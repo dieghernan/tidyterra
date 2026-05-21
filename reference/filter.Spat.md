@@ -13,7 +13,7 @@ using `|` instead, wrap them in
 
 Both [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
 [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)
-treat `NA` like `FALSE`. This subtle behaviour can impact how you write
+treat `NA` like `FALSE`. This subtle behavior can affect how you write
 your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
@@ -65,10 +65,11 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 
 - .keep_extent:
 
-  Should the extent of the resulting `SpatRaster` be kept? On `FALSE`,
+  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. On
+  `FALSE`,
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)
-  is called so the extent of the result may be different of the extent
-  of the output. See also
+  is called so the extent may differ from the extent of the output. See
+  also
   [`drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.md).
 
 - .by:
@@ -92,11 +93,11 @@ method.
 
 ### `SpatRaster`
 
-Cells that do not fulfill the conditions on `...` are returned with
-value `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across
-all the layers.
+Cells that do not meet the conditions on `...` are returned with value
+`NA`. On a multi-layer `SpatRaster` the `NA` is propagated across all
+the layers.
 
-If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS,
+If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS,
 extent, resolution and hence the same number of cells as `.data`. If
 `.keep_extent = FALSE` the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),

@@ -1,6 +1,6 @@
-# Extract CRS on WKT format
+# Extract CRS in WKT format
 
-Extract the WKT version of the CRS associated to a string, number of
+Extract the WKT version of the CRS associated with a string, number of
 sf/Spat\* object.
 
 The [Well-known text
@@ -48,8 +48,8 @@ While [sf](https://CRAN.R-project.org/package=sf) equivalent is:
 
 `terra::project(bb, "epsg:25830")`
 
-Knowing the WKT would help to smooth workflows when working with
-different packages and object types.
+Knowing the WKT helps smooth workflows when working with different
+packages and object types.
 
 ## Internals
 
@@ -60,9 +60,10 @@ and
 
 ## See also
 
-[`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html),
+[`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html)
+and
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
-for knowing how these packages handle CRS definitions.
+to learn how these packages handle CRS definitions.
 
 Other helpers:
 [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.md),

@@ -11,14 +11,14 @@ implemented for `Spat*` objects.
 
   Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
-## dplyr methods
+## **dplyr** methods
 
 Methods from [dplyr](https://CRAN.R-project.org/package=dplyr)
 implemented for `Spat*` objects.
 
 ### Rows
 
-Verbs that principally operate on rows.
+Verbs that mainly operate on rows.
 
 - [`arrange(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md)
   :
@@ -56,7 +56,7 @@ Verbs that principally operate on rows.
 
 ### Columns
 
-Verbs that principally operate on columns.
+Verbs that mainly operate on columns.
 
 - [`glimpse(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
   [`glimpse(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
@@ -93,7 +93,7 @@ Verbs that principally operate on columns.
 
 ### Groups
 
-Verbs that principally operate on groups of rows.
+Verbs that mainly operate on groups of rows.
 
 - [`count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
   [`tally(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md)
@@ -119,9 +119,9 @@ Verbs that principally operate on groups of rows.
 
   Summarise each group of a `SpatVector` down to one geometry
 
-### `SpatVector` and Data frames
+### `SpatVector` and data frames
 
-Verbs that principally operate on pairs of `Spat*` and data frames.
+Verbs that mainly operate on pairs of `Spat*` objects and data frames.
 
 - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md)
   :
@@ -147,15 +147,15 @@ Verbs that principally operate on pairs of `Spat*` and data frames.
 
   Mutating joins for `SpatVector` objects
 
-## tidyr methods
+## **tidyr** methods
 
 Methods from [tidyr](https://CRAN.R-project.org/package=tidyr)
 implemented for `Spat*` objects.
 
 ### Pivoting
 
-Pivoting changes the representation of a `SpatVector` object, without
-changing the data inside of it.
+Pivoting changes the representation of a `SpatVector` object without
+changing its data.
 
 - [`pivot_longer(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.md)
   :
@@ -170,7 +170,7 @@ changing the data inside of it.
 ### Missing values
 
 Tools for converting between implicit (absent rows) and explicit (`NA`)
-missing values, handling explicit `NA`s.
+missing values, and for handling explicit `NA` values.
 
 - [`drop_na(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.md)
   [`drop_na(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.md)
@@ -189,7 +189,7 @@ missing values, handling explicit `NA`s.
 
   Replace `NA`s with specified values
 
-## ggplot2 methods
+## **ggplot2** methods
 
 Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
 implemented for `Spat*` objects.
@@ -210,7 +210,7 @@ implemented for `Spat*` objects.
 
   Fortify `Spat*` Objects
 
-## ggplot2 utils
+## **ggplot2** utils
 
 ### Geoms
 
@@ -427,7 +427,7 @@ objects from tibbles.
   : Check if x and y positions conforms a regular grid
 
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-  : Extract CRS on WKT format
+  : Extract CRS in WKT format
 
 ## Built-in data
 

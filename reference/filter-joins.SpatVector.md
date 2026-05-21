@@ -33,8 +33,7 @@ anti_join(x, y, by = NULL, copy = FALSE, ...)
 - y:
 
   A data frame or other object coercible to a data frame. **If a
-  `SpatVector` of `sf` object** is provided it would return an error
-  (see
+  `SpatVector` or `sf` object** is provided it returns an error (see
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
   for performing spatial joins).
 
@@ -104,9 +103,9 @@ family
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `x` for the records that matches the
-join conditions.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `x` for the records that match the join
+conditions.
 
 ## See also
 

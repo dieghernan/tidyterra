@@ -1,6 +1,6 @@
 # Gradient palettes in tidyterra
 
-This page shows a [Lightbox
+This page shows a [lightbox
 gallery](https://biati-digital.github.io/glightbox/) of maps that can be
 displayed with the gradient fill scales included with **tidyterra**. A
 basic example for generating maps like these is:
@@ -200,7 +200,7 @@ tidyterra](palettes_files/figure-html/cross-4.png)](https://dieghernan.github.io
 
 See
 [`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
-for details. Plots produced using `use_grass_range = FALSE`.
+for details. These plots are produced with `use_grass_range = FALSE`.
 
 [![GRASS palettes in
 tidyterra](palettes_files/figure-html/grass-1.png)](https://dieghernan.github.io/tidyterra/articles/palettes_files/figure-html/grass-1.png)

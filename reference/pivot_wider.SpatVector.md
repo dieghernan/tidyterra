@@ -52,8 +52,8 @@ pivot_wider(
   expression is supplied, it will be evaluated on `data` after removing
   the columns specified through `names_from` and `values_from`.
 
-  Note that "`geometry`" columns is sticky, hence it would be removed
-  from `names_from` and `values_from`.
+  Note that "`geometry`" columns are sticky, hence they are removed from
+  `names_from` and `values_from`.
 
 - id_expand:
 
@@ -177,8 +177,8 @@ method.
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `data`.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `data`.
 
 ## See also
 

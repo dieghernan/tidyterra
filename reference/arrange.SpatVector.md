@@ -26,8 +26,8 @@ arrange(.data, ..., .by_group = FALSE, .locale = NULL)
 
 - .by_group:
 
-  If `TRUE`, will sort first by grouping variable. Applies to grouped
-  `SpatVector` only.
+  If `TRUE`, sort first by grouping variable. This applies to grouped
+  `SpatVector` objects only.
 
 - .locale:
 
