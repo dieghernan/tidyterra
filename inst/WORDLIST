@@ -15,12 +15,10 @@ ISSN
 JOSS
 LiDAR
 Licence
-Lightbox
 Maungawhau
 NZGD
 ORCID
 PROJ
-Precompute
 RCzechia
 SpatRaster
 SpatRasters
@@ -34,7 +32,6 @@ Whenua
 WhiteboxTools
 Wilke
 XY
-aesthethics
 bathymetric
 bathymetry
 behaviour
@@ -55,7 +52,7 @@ downsampled
 downup
 dplyr
 dtplyr
-ebvcuve
+ebvcube
 fullseq
 geom's
 geoms
@@ -67,9 +64,9 @@ grey
 hypsometric
 hypsometry
 inlabru
-ish
 isoband
 isolines
+lightbox
 lin
 magrittr
 metR
@@ -78,9 +75,11 @@ natively
 picas
 pkgdown
 plotmath
+pre
 proj
 ptype
 purrr
+quasiquotation
 rasterVis
 readr
 reprojected
@@ -100,10 +99,12 @@ testthat
 tibble
 tibbles
 tidyr
+tidyselect
 tidyverse
 ungroup
 ungrouped
 unmapped
+unnesting
 updown
 visualise
 xmax

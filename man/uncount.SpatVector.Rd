@@ -50,6 +50,7 @@ uncount(v, copies)
 \code{\link[tidyr:uncount]{tidyr::uncount()}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=nest.SpatVector]{nest.SpatVector()}},

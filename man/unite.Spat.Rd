@@ -70,6 +70,7 @@ unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 \code{\link[tidyr:unite]{tidyr::unite()}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=nest.SpatVector]{nest.SpatVector()}},

@@ -174,6 +174,7 @@ Other \CRANpkg{tidyr} verbs for pivoting:
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=nest.SpatVector]{nest.SpatVector()}},

@@ -78,6 +78,7 @@ v |>
 \code{\link[tidyr:nest]{tidyr::nest()}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
