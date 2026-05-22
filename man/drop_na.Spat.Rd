@@ -139,9 +139,11 @@ Other \CRANpkg{tidyr} verbs for handling missing values:
 
 Other \CRANpkg{tidyr} methods:
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
-\code{\link{replace_na.Spat}}
+\code{\link{replace_na.Spat}},
+\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.missing}

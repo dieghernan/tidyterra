@@ -4,11 +4,11 @@
 %   R/drop-na-Spat.R, R/fill-SpatVector.R, R/filter-Spat.R, R/fortify-Spat.R,
 %   R/glance-Spat.R, R/glimpse-Spat.R, R/group-by-SpatVector.R,
 %   R/group-data-SpatVector.R, R/join-SpatVector.R, R/mutate-Spat.R,
-%   R/pivot-long-SpatVector.R, R/pivot-wide-SpatVector.R, R/pull-Spat.R,
-%   R/relocate-Spat.R, R/rename-Spat.R, R/replace-na-Spat.R,
+%   R/nest-SpatVector.R, R/pivot-long-SpatVector.R, R/pivot-wide-SpatVector.R,
+%   R/pull-Spat.R, R/relocate-Spat.R, R/rename-Spat.R, R/replace-na-Spat.R,
 %   R/required-pkgs-Spat.R, R/rowwise-SpatVector.R, R/select-Spat.R,
 %   R/slice-Spat.R, R/summarise-SpatVector.R, R/tidy-Spat.R,
-%   R/tidyterra-package.R, R/transmute-Spat.R
+%   R/tidyterra-package.R, R/transmute-Spat.R, R/unite-Spat.R
 \docType{import}
 \encoding{UTF-8}
 \name{reexports}
@@ -46,6 +46,7 @@
 \alias{semi_join}
 \alias{anti_join}
 \alias{mutate}
+\alias{nest}
 \alias{pivot_longer}
 \alias{pivot_wider}
 \alias{pull}
@@ -68,6 +69,7 @@
 \alias{aes}
 \alias{after_stat}
 \alias{transmute}
+\alias{unite}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -83,6 +85,6 @@ below to see their documentation.
 
   \item{tibble}{\code{\link[tibble:as_tibble]{as_tibble()}}}
 
-  \item{tidyr}{\code{\link[tidyr:drop_na]{drop_na()}}, \code{\link[tidyr:fill]{fill()}}, \code{\link[tidyr:pivot_longer]{pivot_longer()}}, \code{\link[tidyr:pivot_wider]{pivot_wider()}}, \code{\link[tidyr:replace_na]{replace_na()}}}
+  \item{tidyr}{\code{\link[tidyr:drop_na]{drop_na()}}, \code{\link[tidyr:fill]{fill()}}, \code{\link[tidyr:nest]{nest()}}, \code{\link[tidyr:pivot_longer]{pivot_longer()}}, \code{\link[tidyr:pivot_wider]{pivot_wider()}}, \code{\link[tidyr:replace_na]{replace_na()}}, \code{\link[tidyr:unite]{unite()}}}
 }}
 

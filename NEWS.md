@@ -1,6 +1,8 @@
 # tidyterra (development version)
 
 - `group_split.SpatVector()` splits grouped `SpatVector` objects into a list of `SpatVector` objects.
+- `nest.SpatVector()` creates nested `SpatVector` list-columns.
+- `unite.Spat*()` combines several `SpatRaster` layers or `SpatVector` attributes.
 
 # tidyterra 1.1.0
 

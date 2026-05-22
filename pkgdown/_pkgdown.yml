@@ -94,6 +94,14 @@ reference:
     Tools for converting between implicit (absent rows) and explicit (`NA`)
     missing values, and for handling explicit `NA` values.
   contents: has_concept("tidyr.missing")
+- subtitle: Character vectors
+  desc: >
+    Tools for working with character layers and attributes.
+  contents: has_concept("tidyr.character")
+- subtitle: Nesting
+  desc: >
+    Tools for storing `SpatVector` objects in nested list-columns.
+  contents: has_concept("tidyr.nest")
 
 - title: "**ggplot2** methods"
   desc: >
