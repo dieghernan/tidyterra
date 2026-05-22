@@ -25,6 +25,9 @@
 #'
 #' - [n_groups()] gives the total number of groups.
 #'
+#' - [group_split()] `r lifecycle::badge("experimental")` returns one
+#'   `SpatVector` for each group.
+#'
 #' See [dplyr::group_data()].
 #'
 #' @param .data,.tbl,x A `SpatVector`.
@@ -69,6 +72,8 @@
 #'
 #' group_indices(v)
 #'
+#' group_split(v)
+#'
 #' # Grouped by one var
 #' gv <- group_by(v, gr_1)
 #'
@@ -87,6 +92,8 @@
 #' group_data(gv)
 #'
 #' group_indices(gv)
+#'
+#' group_split(gv)
 #'
 #' # Grouped by several vars
 #'
@@ -107,6 +114,8 @@
 #' group_data(gv2)
 #'
 #' group_indices(gv2)
+#'
+#' group_split(gv2)
 group_data.SpatVector <- function(.data) {
   # Dispatch to dplyr
   dplyr::group_data(tbl_for_groups(.data))
@@ -193,6 +202,29 @@ n_groups.SpatVector <- function(x) {
 
 #' @export
 dplyr::n_groups
+
+#' @export
+#' @encoding UTF-8
+#' @rdname group_data.SpatVector
+#' @importFrom dplyr group_split
+group_split.SpatVector <- function(.tbl, ..., .keep = TRUE) {
+  tbl <- as_tibble(.tbl)
+  ind <- make_safe_index("tterra_index", tbl)
+  tbl[[ind]] <- seq_len(nrow(tbl))
+
+  split_tbls <- dplyr::group_split(tbl, ..., .keep = .keep)
+
+  lapply(split_tbls, function(x) {
+    split_index <- as.integer(x[[ind]])
+    split_attrs <- x[setdiff(names(x), ind)]
+
+    vend <- cbind(.tbl[split_index, 0], split_attrs)
+    group_prepare_spat(vend, split_attrs)
+  })
+}
+
+#' @export
+dplyr::group_split
 
 # Helper
 tbl_for_groups <- function(x) {

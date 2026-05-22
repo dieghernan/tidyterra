@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+- `group_split.SpatVector()` splits grouped `SpatVector` objects into a list of `SpatVector` objects.
+
 # tidyterra 1.1.0
 
 - The minimum supported **dplyr** version is now 1.2.0.
