@@ -9,9 +9,13 @@ test_that("nest() creates SpatVector list-columns", {
   expect_named(nested, c("cpro", "data"))
   expect_true(all(vapply(nested$data, inherits, logical(1), "SpatVector")))
   expect_equal(sum(vapply(nested$data, nrow, double(1))), nrow(v))
-  expect_true(all(vapply(nested$data, function(x) {
-    identical(pull_crs(x), pull_crs(v))
-  }, logical(1))))
+  expect_true(all(vapply(
+    nested$data,
+    function(x) {
+      identical(pull_crs(x), pull_crs(v))
+    },
+    logical(1)
+  )))
 })
 
 test_that("nest() preserves grouped data frame output", {

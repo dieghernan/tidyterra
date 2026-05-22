@@ -80,7 +80,11 @@ nest.SpatVector <- function(
 tidyr::nest
 
 is_nested_spat <- function(x) {
-  all(vapply(x, function(y) {
-    is.data.frame(y) && "geometry" %in% names(y)
-  }, logical(1)))
+  all(vapply(
+    x,
+    function(y) {
+      is.data.frame(y) && "geometry" %in% names(y)
+    },
+    logical(1)
+  ))
 }

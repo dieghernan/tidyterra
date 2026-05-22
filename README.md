@@ -102,6 +102,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::arrange()` | ✔️ |  |
 | `dplyr::glimpse()` | ✔️ | ✔️ |
 | `dplyr::inner_join()` family | ✔️ |  |
+| `dplyr::cross_join()` | ✔️ |  |
 | `dplyr::summarise()` | ✔️ |  |
 | `dplyr::group_by()` family | ✔️ |  |
 | `dplyr::rowwise()` | ✔️ |  |
@@ -114,6 +115,7 @@ Current methods and functions provided by **tidyterra** are:
 | `tidyr::nest()` | ✔️ |  |
 | `tidyr::pivot_longer()` | ✔️ |  |
 | `tidyr::pivot_wider()` | ✔️ |  |
+| `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
 | `ggplot2::fortify()` | ✔️ to **sf** via `sf::st_as_sf()` | To a **tibble** with coordinates. |

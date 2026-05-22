@@ -75,7 +75,8 @@ Other \CRANpkg{tidyr} methods:
 \code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
-\code{\link{replace_na.Spat}}
+\code{\link{replace_na.Spat}},
+\code{\link[=uncount.SpatVector]{uncount.SpatVector()}}
 }
 \concept{tidyr.character}
 \concept{tidyr.methods}

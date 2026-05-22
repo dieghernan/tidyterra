@@ -19,7 +19,7 @@ the following fields:
 }
 \source{
 Derived from \url{https://github.com/OSGeo/grass/tree/main/lib/gis/colors}. See
-also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
+also \href{https://grass.osgeo.org/grass-stable/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
 }
 \description{
 A \link[tibble:tbl_df]{tibble} including the color map of

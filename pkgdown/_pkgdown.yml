@@ -89,6 +89,10 @@ reference:
     Pivoting changes the representation of a `SpatVector` object without
     changing its data.
   contents: has_concept("tidyr.pivot")
+- subtitle: Rows
+  desc: >
+    Tools for duplicating `SpatVector` features.
+  contents: has_concept("tidyr.rows")
 - subtitle: Missing values
   desc: >
     Tools for converting between implicit (absent rows) and explicit (`NA`)

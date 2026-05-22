@@ -38,3 +38,11 @@
       Error in `error_spat_join()`:
       ! `y` should not be <SpatVector>. For spatial joins use `terra::intersect()`
 
+---
+
+    Code
+      cross_join(df1, df1)
+    Condition
+      Error in `error_spat_join()`:
+      ! `y` should not be <SpatVector>. For spatial joins use `terra::intersect()`
+

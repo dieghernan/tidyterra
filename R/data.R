@@ -241,7 +241,7 @@ NULL
 #'
 #' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
 #' also [r.color - GRASS GIS
-#' Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
+#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 #'
 #' @references
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System

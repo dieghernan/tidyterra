@@ -16,6 +16,7 @@ list(
     ),
     tidyr.methods = "Other \\CRANpkg{tidyr} methods:",
     tidyr.pivot = "Other \\CRANpkg{tidyr} verbs for pivoting:",
+    tidyr.rows = "Other \\CRANpkg{tidyr} verbs for rows:",
     tidyr.missing = paste0(
       "Other \\CRANpkg{tidyr} verbs for handling ",
       "missing values:"

@@ -80,6 +80,7 @@ try(bind_spat_cols(sv, sfobj))
 
 Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_rows.SpatVector}},
+\code{\link{cross-join.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{mutate-joins.SpatVector}}
 
@@ -87,11 +88,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
