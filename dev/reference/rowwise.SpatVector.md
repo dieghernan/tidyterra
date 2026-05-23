@@ -2,7 +2,7 @@
 
 [`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) allows
 you to compute on a `SpatVector` a row-at-a-time. This is most useful
-when a vectorised function doesn't exist.
+when a vectorised function does not exist.
 
 Most [dplyr](https://CRAN.R-project.org/package=dplyr) verbs
 implementation in
@@ -44,7 +44,7 @@ rowwise(data, ...)
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)
   you can not create new variables here but instead you can select
   multiple variables with (e.g.)
-  [`tidyselect::everything()`](https://tidyselect.r-lib.org/reference/everything.html).
+  [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
 
@@ -63,17 +63,17 @@ function for `SpatVector` objects.
 
 **When mixing** [terra](https://CRAN.R-project.org/package=terra)
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a row-wise `SpatVector` (i.e, subsetting a `SpatVector` like
-`v[1:3,1:2]`) the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) would try to
-re-generate the `SpatVector`. This would be triggered the next time you
-use a [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
+a row-wise `SpatVector` (i.e. subsetting a `SpatVector` like
+`v[1:3,1:2]`), the `groups` attribute can be corrupted.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
+regenerate the `SpatVector`. This is triggered the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
 `SpatVector`.
 
-Note also that some operations (as
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html))
-would create a new `SpatVector`. In these cases, the result won't
-preserve the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
+Note also that some operations, such as
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+create a new `SpatVector`. In these cases, the result does not preserve
+the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
 
 ## See also
 
@@ -83,6 +83,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on group of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -90,11 +91,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -128,17 +131,18 @@ nb <- v |>
 nb |>
   rowwise() |>
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79 nb_mean
-#>  type        :   <num>   <num>   <num>
-#>  values      :      10      19    14.5
-#>                     10      12      11
-#>                    208     260     234
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79 nb_mean
+#> type        :   <num>   <num>   <num>
+#> values      :      10      19    14.5
+#>                    10      12      11
+#>                   208     260     234
+#>               ...
 
 # Additional examples
 # \donttest{
@@ -146,34 +150,36 @@ nb |>
 nb |>
   rowwise() |>
   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79     m
-#>  type        :   <num>   <num> <num>
-#>  values      :      10      19  14.5
-#>                     10      12    11
-#>                    208     260   234
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79     m
+#> type        :   <num>   <num> <num>
+#> values      :      10      19  14.5
+#>                    10      12    11
+#>                   208     260   234
+#>               ...
 
 # Compute the minimum of x and y in each row
 
 nb |>
   rowwise() |>
   mutate(min = min(c_across(NWBIR74:NWBIR79)))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 100, 3  (geometries, attributes)
-#>  extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
-#>  source      : nc.shp
-#>  coord. ref. : lon/lat NAD27 (EPSG:4267) 
-#>  names       : NWBIR74 NWBIR79   min
-#>  type        :   <num>   <num> <num>
-#>  values      :      10      19    10
-#>                     10      12    10
-#>                    208     260   208
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 100, 3  (geometries, attributes)
+#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)
+#> source      : nc.shp
+#> coord. ref. : lon/lat NAD27 (EPSG:4267)
+#> names       : NWBIR74 NWBIR79   min
+#> type        :   <num>   <num> <num>
+#> values      :      10      19    10
+#>                    10      12    10
+#>                   208     260   208
+#>               ...
 
 # Summarising
 v |>

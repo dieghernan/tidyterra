@@ -1,8 +1,8 @@
 # Mutating joins for `SpatVector` objects
 
 Mutating joins add columns from `y` to `x`, matching observations based
-on the keys. There are four mutating joins: the inner join, and the
-three outer joins.
+on the keys. The four mutating joins are: inner join, left join, right
+join and full join.
 
 See
 [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
@@ -66,8 +66,7 @@ full_join(
 - y:
 
   A data frame or other object coercible to a data frame. **If a
-  `SpatVector` of `sf` object** is provided it would return an error
-  (see
+  `SpatVector` or `sf` object** is provided it returns an error (see
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
   for performing spatial joins).
 
@@ -157,18 +156,18 @@ family
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `x` for the records that matches the
-join conditions.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `x` for the records that match the join
+conditions.
 
-Note that for
+For
 [`right_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
 and
-[`full_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
-it is possible to return empty geometries (since `y` is expected to be a
-data frame with no geometries). Although this kind of joining operations
-may not be common on spatial manipulation, it is possible that the
-function crashes, since handling of `EMPTY` geometries differs on
+[`full_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
+empty geometries may be returned (since `y` is expected to be a data
+frame with no geometries). Although these join operations are not common
+in spatial workflows, the function may crash because handling of `EMPTY`
+geometries differs between
 [terra](https://CRAN.R-project.org/package=terra) and
 [sf](https://CRAN.R-project.org/package=sf).
 
@@ -184,6 +183,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs `Spat*`/data.frame:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -191,11 +191,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),

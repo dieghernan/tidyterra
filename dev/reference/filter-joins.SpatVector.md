@@ -33,8 +33,7 @@ anti_join(x, y, by = NULL, copy = FALSE, ...)
 - y:
 
   A data frame or other object coercible to a data frame. **If a
-  `SpatVector` of `sf` object** is provided it would return an error
-  (see
+  `SpatVector` or `sf` object** is provided it returns an error (see
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
   for performing spatial joins).
 
@@ -104,9 +103,9 @@ family
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `x` for the records that matches the
-join conditions.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `x` for the records that match the join
+conditions.
 
 ## See also
 
@@ -118,6 +117,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs `Spat*`/data.frame:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -125,10 +125,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -157,32 +159,33 @@ df <- data.frame(
 )
 
 v
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
-#>                ES-LE    24   Leon
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
+#>               ES-LE    24   Leon
+#>               ...
 
 # Semi join
 semi <- v |> semi_join(df)
 #> Joining with `by = join_by(cpro)`
 
 semi
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
 
 autoplot(semi, aes(fill = iso2)) + labs(title = "Semi Join")
 
@@ -193,16 +196,17 @@ anti <- v |> anti_join(df)
 #> Joining with `by = join_by(cpro)`
 
 anti
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 7, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro      name
-#>  type        : <chr> <chr>     <chr>
-#>  values      : ES-LE    24      Leon
-#>                 ES-P    34  Palencia
-#>                ES-SA    37 Salamanca
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 7, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2049224, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro      name
+#> type        : <chr> <chr>     <chr>
+#> values      : ES-LE    24      Leon
+#>                ES-P    34  Palencia
+#>               ES-SA    37 Salamanca
+#>               ...
 
 autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 

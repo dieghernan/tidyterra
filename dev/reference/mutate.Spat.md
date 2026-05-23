@@ -1,4 +1,4 @@
-# Create, modify, and delete cell values/layers/attributes of `Spat*` objects
+# Create, modify and delete cell values/layers/attributes of `Spat*` objects
 
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) adds new
 layers/attributes and preserves existing ones on a `Spat*` object.
@@ -88,7 +88,7 @@ mutate(
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -110,7 +110,7 @@ method.
 ### `SpatRaster`
 
 Add new layers and preserves existing ones. The result is a `SpatRaster`
-with the same extent, resolution and CRS than `.data`. Only the values
+with the same extent, resolution and CRS as `.data`. Only the values
 (and possibly the number) of layers is modified.
 
 ### `SpatVector`
@@ -157,11 +157,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
@@ -174,6 +176,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 # SpatRaster method
@@ -185,15 +188,15 @@ mod <- spatrast |>
   select(tavg_04, exp_lyr1)
 
 mod
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 87, 118, 2  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson 
+#> coord. ref. : World_Robinson
 #> source(s)   : memory
-#> names       :   tavg_04, exp_lyr1 
-#> min values  :  1.885463, 1.207493 
-#> max values  : 13.283829, 3.774934 
+#> names       :   tavg_04, exp_lyr1
+#> min values  :  1.885463, 1.207493
+#> max values  : 13.283829, 3.774934
 plot(mod)
 
 
@@ -204,15 +207,16 @@ v <- vect(f)
 v |>
   mutate(cpro2 = paste0(cpro, "-CyL")) |>
   select(cpro, cpro2)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 2  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro  cpro2
-#>  type        : <chr>  <chr>
-#>  values      :    05 05-CyL
-#>                   09 09-CyL
-#>                   24 24-CyL
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro  cpro2
+#> type        : <chr>  <chr>
+#> values      :    05 05-CyL
+#>                  09 09-CyL
+#>                  24 24-CyL
+#>               ...
 ```

@@ -21,7 +21,7 @@ is_regular_grid(xy, digits = 6)
 
 - digits:
 
-  integer to set the precision for detecting whether points are on a
+  Integer to set the precision for detecting whether points are on a
   regular grid (a low number of digits is a low precision).
 
 ## Value
@@ -41,6 +41,7 @@ Other helpers:
 ## Examples
 
 ``` r
+
 p <- matrix(1:90, nrow = 45, ncol = 2)
 
 is_regular_grid(p)

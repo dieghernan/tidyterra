@@ -52,8 +52,8 @@ pivot_wider(
   expression is supplied, it will be evaluated on `data` after removing
   the columns specified through `names_from` and `values_from`.
 
-  Note that "`geometry`" columns is sticky, hence it would be removed
-  from `names_from` and `values_from`.
+  Note that "`geometry`" columns are sticky, hence they are removed from
+  `names_from` and `values_from`.
 
 - id_expand:
 
@@ -177,8 +177,8 @@ method.
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `data`.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `data`.
 
 ## See also
 
@@ -189,10 +189,14 @@ pivoting:
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
+[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
+[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
+[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
+[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
@@ -231,15 +235,16 @@ xtra |>
     id_cols = iso2:name, values_from = value,
     names_from = label
   )
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 5  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name     extra        NA
-#>  type        : <chr> <chr>  <chr> <logical> <logical>
-#>  values      : ES-BU    09 Burgos      TRUE      <NA>
-#>                ES-LE    24   Leon      TRUE      <NA>
-#>                ES-AV    05  Avila      <NA>      <NA>
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name extra    NA
+#> type        : <chr> <chr>  <chr> <lgl> <lgl>
+#> values      : ES-BU    09 Burgos  TRUE    NA
+#>               ES-LE    24   Leon  TRUE    NA
+#>               ES-AV    05  Avila    NA    NA
+#>               ...
 # }
 ```

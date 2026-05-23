@@ -6,7 +6,7 @@ number of columns. The inverse transformation is
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md)
 
 Learn more in
-[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html).
+[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
 
 ## Usage
 
@@ -167,8 +167,8 @@ method.
 
 ### `SpatVector`
 
-The geometry column has a sticky behaviour. This means that the result
-would have always the geometry of `data`.
+The geometry column has sticky behavior. This means that the result
+always has the geometry of `data`.
 
 ## See also
 
@@ -179,10 +179,14 @@ pivoting:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
+[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
+[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
+[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
+[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
@@ -191,11 +195,6 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 
 library(dplyr)
 library(tidyr)
-#> 
-#> Attaching package: ‘tidyr’
-#> The following object is masked from ‘package:terra’:
-#> 
-#>     extract
 library(ggplot2)
 library(terra)
 

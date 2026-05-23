@@ -1,9 +1,9 @@
 # Subset cells/geometries of `Spat*` objects
 
-These functions are used to subset a data frame, applying the
-expressions in `...` to determine which rows should be kept (for
+These functions subset a data frame by applying the expressions in `...`
+to determine which rows should be kept (for
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html)) or
-dropped ( for
+dropped (for
 [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)).
 
 Multiple conditions can be supplied separated by a comma. These will be
@@ -13,13 +13,12 @@ using `|` instead, wrap them in
 
 Both [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
 [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)
-treat `NA` like `FALSE`. This subtle behaviour can impact how you write
+treat `NA` like `FALSE`. This subtle behavior can affect how you write
 your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
-**It is possible to filter a `SpatRaster` by its geographic
-coordinates**. You need to use `filter(.data, x > 42)`. Note that `x`
-and `y` are reserved names on
+**You can filter a `SpatRaster` by its geographic coordinates**. Use
+`filter(.data, x > 42)`. Note that `x` and `y` are reserved names on
 [terra](https://CRAN.R-project.org/package=terra), since they refer to
 the geographic coordinates of the layer.
 
@@ -51,7 +50,7 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
-  Expressions that return a logical value, and are defined in terms of
+  Expressions that return a logical value and are defined in terms of
   the layers/attributes in `.data`. If multiple expressions are
   included, they are combined with the `&` operator. Only
   cells/geometries for which all conditions evaluate to `TRUE` are kept.
@@ -65,10 +64,11 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 
 - .keep_extent:
 
-  Should the extent of the resulting `SpatRaster` be kept? On `FALSE`,
+  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. On
+  `FALSE`,
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)
-  is called so the extent of the result may be different of the extent
-  of the output. See also
+  is called so the extent may differ from the extent of the output. See
+  also
   [`drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md).
 
 - .by:
@@ -82,7 +82,7 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## Methods
 
@@ -92,16 +92,16 @@ method.
 
 ### `SpatRaster`
 
-Cells that do not fulfill the conditions on `...` are returned with
-value `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across
-all the layers.
+Cells that do not meet the conditions on `...` are returned with value
+`NA`. On a multi-layer `SpatRaster` the `NA` is propagated across all
+the layers.
 
-If `.keep_extent = TRUE` the returning `SpatRaster` has the same CRS,
-extent, resolution and hence the same number of cells than `.data`. If
+If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS,
+extent, resolution and hence the same number of cells as `.data`. If
 `.keep_extent = FALSE` the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
-so the extent and number of cells may differ. The output would present
-in any case the same CRS and resolution than `.data`.
+so the extent and number of cells may differ. The output will still have
+the same CRS and resolution as `.data`.
 
 `x` and `y` variables (i.e. the longitude and latitude of the
 `SpatRaster`) are also available internally for filtering. See
@@ -135,10 +135,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -152,6 +154,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
@@ -200,25 +203,25 @@ glimpse(v)
 #> $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
 #> $ name <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia", "S…
 v |> filter(cpro < 10)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
 
 # Same as
 v |> filter_out(cpro >= 10)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name
-#>  type        : <chr> <chr>  <chr>
-#>  values      : ES-AV    05  Avila
-#>                ES-BU    09 Burgos
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name
+#> type        : <chr> <chr>  <chr>
+#> values      : ES-AV    05  Avila
+#>               ES-BU    09 Burgos
 ```

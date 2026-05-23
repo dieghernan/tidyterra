@@ -1,7 +1,7 @@
-# Bind multiple `SpatVector` `sf` and data frames objects by column
+# Bind multiple `SpatVector`, `sf` and data frames objects by column
 
-Bind any number of `SpatVector`, data frames and `sf` object by column,
-making a wider result. This is similar to `do.call(cbind, dfs)`.
+Bind any number of `SpatVector`, data frames and `sf` objects by column,
+making a wider result. This is similar to `do.call(cbind, data_frames)`.
 
 Where possible prefer using a
 [join](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
@@ -22,9 +22,9 @@ bind_spat_cols(
 
 - ...:
 
-  Objects to combine. The first argument should be a `SpatVector` and
-  each of the subsequent arguments can either be a `SpatVector`, a `sf`
-  object or a data frame. Inputs are
+  Objects to combine. The first argument must be a `SpatVector`. Each
+  subsequent argument can be a `SpatVector`, `sf` object or data frame.
+  Inputs are
   [recycled](https://vctrs.r-lib.org/reference/theory-faq-recycling.html)
   to the same length, then matched by position.
 
@@ -37,7 +37,7 @@ bind_spat_cols(
 ## Value
 
 A `SpatVector` with the corresponding columns. The geometry and CRS
-would correspond to the the first `SpatVector` of `...`.
+correspond to the first `SpatVector` of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -46,10 +46,10 @@ would correspond to the the first `SpatVector` of `...`.
 ## Methods
 
 Implementation of the
-[`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
+[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
 function for `SpatVector` objects. Note that for the second and
-subsequent arguments on `...` the geometry would not be `cbind`ed, and
-only the data frame (-ish) columns would be kept.
+subsequent arguments on `...`, the geometry is not `cbind`ed and only
+the data frame-like columns are kept.
 
 ## See also
 
@@ -58,6 +58,7 @@ only the data frame (-ish) columns would be kept.
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs `Spat*`/data.frame:
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
 
@@ -65,11 +66,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -89,17 +92,18 @@ df2 <- data.frame(letters = letters[seq_len(nrow(sv))])
 
 # Data frame
 bind_spat_cols(sv, df2)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name letters
-#>  type        : <chr> <chr>  <chr>   <chr>
-#>  values      : ES-AV    05  Avila       a
-#>                ES-BU    09 Burgos       b
-#>                ES-LE    24   Leon       c
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name letters
+#> type        : <chr> <chr>  <chr>   <chr>
+#> values      : ES-AV    05  Avila       a
+#>               ES-BU    09 Burgos       b
+#>               ES-LE    24   Leon       c
+#>               ...
 
 # Another SpatVector
 bind_spat_cols(sv[1:2, ], sv[3:4, ])
@@ -110,52 +114,49 @@ bind_spat_cols(sv[1:2, ], sv[3:4, ])
 #> • `iso2` -> `iso2...4`
 #> • `cpro` -> `cpro...5`
 #> • `name` -> `name...6`
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 6  (geometries, attributes)
-#>  extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : iso2...1 cpro...2 name...3 iso2...4 cpro...5 name...6
-#>  type        :    <chr>    <chr>    <chr>    <chr>    <chr>    <chr>
-#>  values      :    ES-AV       05    Avila    ES-LE       24     Leon
-#>                   ES-BU       09   Burgos     ES-P       34 Palencia
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 6  (geometries, attributes)
+#> extent      : 2987054, 3296229, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : iso2...1 cpro...2 name...3 iso2...4 cpro...5 name...6
+#> type        :    <chr>    <chr>    <chr>    <chr>    <chr>    <chr>
+#> values      :    ES-AV       05    Avila    ES-LE       24     Leon
+#>                  ES-BU       09   Burgos     ES-P       34 Palencia
 
 # sf objects
 sfobj <- sf::read_sf(system.file("shape/nc.shp", package = "sf"))
 
 bind_spat_cols(sv[1:9, ], sfobj[1:9, ])
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 17  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name  AREA PERIMETER CNTY_ CNTY_ID      NAME  FIPS
-#>  type        : <chr> <chr>  <chr> <num>     <num> <num>   <num>     <chr> <chr>
-#>  values      : ES-AV    05  Avila 0.114     1.442  1825    1825      Ashe 37009
-#>                ES-BU    09 Burgos 0.061     1.231  1827    1827 Alleghany 37005
-#>                ES-LE    24   Leon 0.143      1.63  1828    1828     Surry 37171
-#>     FIPSNO (and 7 more)
-#>      <num>             
-#>  3.701e+04             
-#>    3.7e+04             
-#>  3.717e+04             
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 17  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  AREA PERIMETER CNTY_ CNTY_ID      NAME  FIPS FIPSNO   (and 7 more)
+#> type        : <chr> <chr>  <chr> <num>     <num> <num>   <num>     <chr> <chr>  <num>
+#> values      : ES-AV    05  Avila 0.114     1.442  1825    1825      Ashe 37009  37009
+#>               ES-BU    09 Burgos 0.061     1.231  1827    1827 Alleghany 37005  37005
+#>               ES-LE    24   Leon 0.143      1.63  1828    1828     Surry 37171  37171
+#>               ...
 
 # Mixed
 
 end <- bind_spat_cols(sv, sfobj[seq_len(nrow(sv)), 1:2], df2)
 
 end
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 6  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro   name  AREA PERIMETER letters
-#>  type        : <chr> <chr>  <chr> <num>     <num>   <chr>
-#>  values      : ES-AV    05  Avila 0.114     1.442       a
-#>                ES-BU    09 Burgos 0.061     1.231       b
-#>                ES-LE    24   Leon 0.143      1.63       c
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 6  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  AREA PERIMETER letters
+#> type        : <chr> <chr>  <chr> <num>     <num>   <chr>
+#> values      : ES-AV    05  Avila 0.114     1.442       a
+#>               ES-BU    09 Burgos 0.061     1.231       b
+#>               ES-LE    24   Leon 0.143      1.63       c
+#>               ...
 glimpse(end)
 #> #  A SpatVector 9 x 6
 #> #  Geometry type: Polygons

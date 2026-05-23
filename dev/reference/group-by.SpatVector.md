@@ -68,17 +68,17 @@ family functions for `SpatVector` objects.
 
 **When mixing** [terra](https://CRAN.R-project.org/package=terra)
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a grouped `SpatVector` (i.e, subsetting a `SpatVector` like
-`v[1:3,1:2]`) the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) would try to
-re-group the `SpatVector`. This would be triggered the next time you use
-a [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
+a grouped `SpatVector` (i.e. subsetting a `SpatVector` like
+`v[1:3,1:2]`), the `groups` attribute can be corrupted.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
+re-group the `SpatVector`. This is triggered the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
 `SpatVector`.
 
-Note also that some operations (as
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html))
-would create a new `SpatVector`. In these cases, the result won't
-preserve the `groups` attribute. Use
+Note also that some operations, such as
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+create a new `SpatVector`. In these cases, the result does not preserve
+the `groups` attribute. Use
 [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) to
 re-group.
 
@@ -90,6 +90,7 @@ re-group.
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on group of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
@@ -98,10 +99,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -123,21 +126,22 @@ p <- vect(f)
 
 by_name1 <- p |> group_by(NAME_1)
 
-# grouping doesn't change how the SpatVector looks
+# Grouping does not change how the SpatVector looks.
 by_name1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        : <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                    1 Diekirch     2 Diekirch   218 3.254e+04
-#>                    1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 6  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        : <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     1 Diekirch     1 Clervaux   312 18081
+#>                   1 Diekirch     2 Diekirch   218 32543
+#>                   1 Diekirch     3  Redange   259 18664
+#>               ...
 
-# But add metadata for grouping: See the coercion to tibble
+# But it adds metadata for grouping. See the coercion to tibble.
 
 # Not grouped
 p_tbl <- as_tibble(p)
@@ -169,32 +173,33 @@ by_name1 |> summarise(
   pop = mean(POP),
   area = sum(AREA)
 )
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 3  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1       pop  area
-#>  type        :        <chr>     <num> <num>
-#>  values      :     Diekirch 1.824e+04  1128
-#>                Grevenmacher  2.37e+04   527
-#>                  Luxembourg 1.099e+05   906
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 3  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     pop  area
+#> type        :        <chr>   <num> <num>
+#> values      :     Diekirch 18237.2  1128
+#>               Grevenmacher 23697.7   527
+#>                 Luxembourg  109932   906
 
 # Each call to summarise() removes a layer of grouping
 by_name2_name1 <- p |> group_by(NAME_2, NAME_1)
 
 by_name2_name1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 6  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        : <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                    1 Diekirch     2 Diekirch   218 3.254e+04
-#>                    1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 6  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        : <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     1 Diekirch     1 Clervaux   312 18081
+#>                   1 Diekirch     2 Diekirch   218 32543
+#>                   1 Diekirch     3  Redange   259 18664
+#>               ...
 group_data(by_name2_name1)
 #> # A tibble: 12 × 3
 #>    NAME_2           NAME_1             .rows
@@ -214,16 +219,17 @@ group_data(by_name2_name1)
 
 by_name2 <- by_name2_name1 |> summarise(n = dplyr::n())
 by_name2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 3  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   NAME_2     NAME_1     n
-#>  type        :    <chr>      <chr> <int>
-#>  values      : Capellen Luxembourg     1
-#>                Clervaux   Diekirch     1
-#>                Diekirch   Diekirch     1
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 3  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   NAME_2     NAME_1     n
+#> type        :    <chr>      <chr> <int>
+#> values      : Capellen Luxembourg     1
+#>               Clervaux   Diekirch     1
+#>               Diekirch   Diekirch     1
+#>               ...
 group_data(by_name2)
 #> # A tibble: 12 × 2
 #>    NAME_2                 .rows
@@ -245,14 +251,14 @@ group_data(by_name2)
 by_name2 |>
   ungroup() |>
   summarise(n = sum(n))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 1, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :     n
-#>  type        : <int>
-#>  values      :    12
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 1, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :     n
+#> type        : <int>
+#> values      :    12
 
 # By default, group_by() overrides existing grouping
 by_name2_name1 |>
@@ -271,16 +277,17 @@ by_name2_name1 |>
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  source      : lux.shp
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA       POP
-#>  type        :   <num> <num>    <chr> <num>    <chr> <num>     <num>
-#>  values      :     100     1 Diekirch     1 Clervaux   312 1.808e+04
-#>                     50     1 Diekirch     2 Diekirch   218 3.254e+04
-#>                  33.33     1 Diekirch     3  Redange   259 1.866e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> source      : lux.shp
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       : ID_COMB  ID_1   NAME_1  ID_2   NAME_2  AREA   POP
+#> type        :   <num> <num>    <chr> <num>    <chr> <num> <num>
+#> values      :     100     1 Diekirch     1 Clervaux   312 18081
+#>                    50     1 Diekirch     2 Diekirch   218 32543
+#>               33.3333     1 Diekirch     3  Redange   259 18664
+#>               ...
 # }
 ```

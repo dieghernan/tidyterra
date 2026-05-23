@@ -23,13 +23,26 @@ A BibTeX entry for LaTeX users is:
 }
 ```
 
+![](wild_files/figure-html/unnamed-chunk-1-1.png)
+
 ## Publications
+
+Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
+Ríos, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
+Characterization of Lichen Flora in Antarctic Nunataks. *Journal of
+Fungi*, *12*(5). <https://doi.org/10.3390/jof12050314>
 
 Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., & Meyer, B.
 (2025). Mapping encounters between Antarctic krill fishing vessels and
 air-breathing krill predators using acoustic data from the fishery.
 *Proceedings of the National Academy of Sciences*, *122*(25),
 e2417203122. <https://doi.org/10.1073/pnas.2417203122>
+
+Bausilio, G., Di Martire, D., Allocca, V., Coda, S., De Vita, P.,
+Guerriero, L., & Calcaterra, D. (2026). Integrated analysis for a
+resilient urban planning using ensemble modeling and machine learning
+algorithms. *International Journal of Disaster Risk Reduction*, *138*,
+106124. <https://doi.org/10.1016/j.ijdrr.2026.106124>
 
 Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
 and landscapes: Conservation insights for Italian small ruminant
@@ -43,13 +56,19 @@ Environmental Letters*, *9*(2), e20146.
 
 Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
 hummingbird-pollinated plant is not strongly influenced by hummingbird
-abundance. *American Journal of Botany*, e70034.
+abundance. *American Journal of Botany*, *112*(5), e70034.
 <https://doi.org/10.1002/ajb2.70034>
 
 Copot, O., & Lõhmus, A. (2026). Assessment of multiple outcomes of
 habitat models can significantly affect conservation decisions for
 threatened species. *Scientific Reports*.
 <https://doi.org/10.1038/s41598-026-35987-4>
+
+Corak, K., Courtney, C., Ellerbrock, B., Kamath, P., Manching, H. K.,
+Poland, J., Neilsen, M., Hulse-Kemp, A. M., & Rife, T. W. (2026).
+GeoNav: Enhancing field phenotyping with high-precision global
+navigation systems integration in the Field Book mobile application.
+*Crop Science*, *66*(2), e70254. <https://doi.org/10.1002/csc2.70254>
 
 Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
 Enhancing tsunami evacuation strategies in Puerto Rico using open-source
@@ -77,7 +96,7 @@ species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11).
 
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
 (2025). How to Approach the Definition of WUI in Northern Europe. *Fire
-and Materials*. <https://doi.org/10.1002/fam.3264>
+and Materials*, *49*(5), 787–804. <https://doi.org/10.1002/fam.3264>
 
 Fard, P., Hügel, J., Keivabu, R. C., Dominici, F., Zagheni, E., Estiri,
 H., & Patel, C. J. (2025). Developing a Spatiotemporal Repository of
@@ -96,6 +115,10 @@ Risk of Invasion of the Neophyte *Pluchea ovalis* (Pers.) DC.
 (Asteraceae) in the Canarian Archipelago Using an Ensemble of Species
 Distribution Modelling. *Diversity*, *17*(3), 195.
 <https://doi.org/10.3390/d17030195>
+
+Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
+Wind, waves, wing loading and the flight energetics of giant petrels.
+*Functional Ecology*. <https://doi.org/10.1111/1365-2435.70352>
 
 Hattendorf, C., & Lühken, R. (2025a). *Dirofilaria immitis* and *D.
 repens* in Europe: A systematic literature review on vectors, host
@@ -140,7 +163,7 @@ sequestration trade-offs in the Mediterranean. *Sustainability*,
 
 Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
-centuries of collection records. *New Phytologist*, nph.70321.
+centuries of collection records. *New Phytologist*.
 <https://doi.org/10.1111/nph.70321>
 
 Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H.,
@@ -175,7 +198,8 @@ of an endangered songbird. *Movement Ecology*.
 
 Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., & Merow,
 C. (2026). Flexible methods for species distribution modeling with small
-samples. *Ecography*, e08112. <https://doi.org/10.1002/ecog.08112>
+samples. *Ecography*, *2026*(2), e08112.
+<https://doi.org/10.1002/ecog.08112>
 
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
@@ -206,6 +230,11 @@ Merlin, M., Locatelli, T., Gardiner, B., & Astrup, R. (2025).
 Large-scale modelling wind damage vulnerability through combination of
 high-resolution forest resources maps and ForestGALES. *Forest
 Ecosystems*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
+
+Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
+NASA earth observation data products*. National Aeronautics; Space
+Administration, Goddard Space Flight Center.
+<https://github.com/nasa/NASAaccess>
 
 Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
 A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
@@ -252,10 +281,23 @@ Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
 Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
 <https://ddd.uab.cat/record/301073>
 
+Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
+Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche
+conservatism and evolutionary dynamics in Octopodidae: A phylogenetic
+comparative approach. *Journal of Biogeography*, *53*(4), e70222.
+<https://doi.org/10.1111/jbi.70222>
+
 Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
+
+Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
+Jardine, S. L. (2026). Projected temperature and precipitation expand
+modeled distributions of *Reynoutria* spp. While modeled distribution
+changes for *Ludwigia* spp. Are scenario-dependent at watershed scales
+in the Pacific Northwest, USA. *River Research and Applications*.
+<https://doi.org/10.1002/rra.70141>
 
 Su, X., Popescu, N., Insuk, C., Lausen, C., & Xu, J. (2025). High
 Diversity and Low Genetic Differentiation Among Geographic Populations
@@ -280,8 +322,14 @@ export crop. *Nature Food*. <https://doi.org/10.1038/s43016-025-01130-1>
 Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The Relationship
 Between Soil Organic Matter Composition and Soil Enzymes Activities in
 Various Land Use Types in the Upper Watershed of Danjiangkou Reservoir
-in China. *Land Degradation & Development*.
+in China. *Land Degradation & Development*, *36*(8), 2557–2570.
 <https://doi.org/10.1002/ldr.5516>
+
+Wieczorkowski, J. D., Rajaovelona, L. R., Hermans, J., Stévart, T.,
+Razanajatovo, H., Droissart, V., Pennington, R. T., Zizka, A., &
+Lehmann, C. E. R. (2026). Orchids in the open: Understanding
+biodiversity beyond Madagascar’s forests. *Diversity and Distributions*,
+*32*(3), e70172. <https://doi.org/10.1111/ddi.70172>
 
 Wiethase, J. H. (2023). *Advancing ecosystem understanding: Identifying
 the drivers of habitat degradation, species distributions and species

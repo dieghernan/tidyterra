@@ -14,7 +14,7 @@ Additionally, a color palette `whitebox.colors()` is provided. See also
 [`grDevices::terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html)
 for details.
 
-Additional arguments `...` would be passed on to:
+Additional arguments `...` are passed to:
 
 - Discrete values:
   [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
@@ -26,7 +26,7 @@ Additional arguments `...` would be passed on to:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional arguments, check the
+documents only a selection of these additional arguments, check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -100,9 +100,10 @@ Copyright (c) 2017-2021 John Lindsay.
 - palette:
 
   A valid palette name. The name is matched to the list of available
-  palettes, ignoring upper vs. lower case. Values available are:
-  `"atlas"`, `"high_relief"`, `"arid"`, `"soft"`, `"muted"`, `"purple"`,
-  `"viridi"`, `"gn_yl"`, `"pi_y_g"`, `"bl_yl_rd"`, `"deep"`.
+  palettes, ignoring upper vs. lower case. The available values are
+  listed below. `"atlas"`, `"high_relief"`, `"arid"`, `"soft"`,
+  `"muted"`, `"purple"`, `"viridi"`, `"gn_yl"`, `"pi_y_g"`,
+  `"bl_yl_rd"`, `"deep"`.
 
 - ...:
 
@@ -219,12 +220,13 @@ Copyright (c) 2017-2021 John Lindsay.
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - na.value:
 

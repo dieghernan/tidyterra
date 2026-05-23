@@ -18,8 +18,8 @@ altitude in meters.
 (2013)](https://data.linz.govt.nz/layer/53405-auckland-lidar-1m-dem-2013/).
 
 DEM for LiDAR data from the Auckland region captured in 2013. The
-original data has been downsampled to a resolution of 5m due to disk
-space constrains.
+original data has been downsampled to a resolution of 5 m due to disk
+space constraints.
 
 Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
@@ -31,8 +31,8 @@ Information needed for regenerating the original `SpatRaster` file:
 
 - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
 
-- coord. ref. : NZGD2000 / New Zealand Transverse Mercator 2000
-  (`EPSG:2193`)
+- Coordinate reference system: NZGD2000 / New Zealand Transverse
+  Mercator 2000 (`EPSG:2193`)
 
 ## See also
 
@@ -47,6 +47,7 @@ Other datasets:
 ## Examples
 
 ``` r
+
 data("volcano2")
 filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 title(main = "volcano2 data: filled contour map")

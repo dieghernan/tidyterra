@@ -13,8 +13,8 @@ use
 The underlying implementation is based on
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
 
-`stat_spatraster()` is provided as a complementary function, so the
-`geom` can be modified.
+`stat_spatraster()` complements `geom_spatraster()` when you need to
+change the `geom`.
 
 ## Usage
 
@@ -26,7 +26,7 @@ geom_spatraster(
   show.legend = NA,
   inherit.aes = FALSE,
   interpolate = FALSE,
-  maxcell = 500000,
+  maxcell = 5e+05,
   use_coltab = TRUE,
   mask_projection = FALSE,
   ...
@@ -39,7 +39,7 @@ stat_spatraster(
   na.rm = TRUE,
   show.legend = NA,
   inherit.aes = FALSE,
-  maxcell = 500000,
+  maxcell = 5e+05,
   ...
 )
 ```
@@ -58,7 +58,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics** specially in the use of `fill` aesthetic.
+  See **Aesthetics**, especially in the use of the `fill` aesthetic.
 
 - data:
 
@@ -80,8 +80,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - inherit.aes:
 
-  If `FALSE`, overrides the default aesthetics, rather than combining
-  with them.
+  If `FALSE`, override the default aesthetics rather than combining with
+  them.
 
 - interpolate:
 
@@ -90,19 +90,21 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - use_coltab:
 
   Logical. Only applicable to `SpatRaster` objects that have an
-  associated coltab. Should the coltab be used on the plot? See also
+  associated
+  [coltab](https://rspatial.github.io/terra/reference/colors.html). If
+  `TRUE`, use the coltab on the plot. See also
   [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md).
 
 - mask_projection:
 
-  logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -146,9 +148,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - geom:
 
-  The geometric object to use display the data. Recommended `geom` for
-  `SpatRaster` are `"raster"` (the default), `"point"`,`"text"` and
-  `"label"`.
+  Geom used to display the data. Recommended values for `SpatRaster` are
+  `"raster"` (the default), `"point"`, `"text"` and `"label"`.
 
 ## Value
 
@@ -160,9 +161,9 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -179,8 +180,8 @@ reprojected**.
 
 If `fill` is not provided, `geom_spatraster()` creates a
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer with all the
-layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to display
-properly the `SpatRaster` layers.
+layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to properly
+display the `SpatRaster` layers.
 
 If `fill` is used, it should contain the name of one layer that is
 present on the `SpatRaster` (i.e.
@@ -188,8 +189,8 @@ present on the `SpatRaster` (i.e.
 layers can be retrieved using `names(rast)`.
 
 Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
-`geom_spatraster(..., fill = <color value(s)>)` would create a layer
-with no mapped `fill` aesthetic.
+`geom_spatraster(..., fill = <color value(s)>)` creates a layer with no
+mapped `fill` aesthetic.
 
 `fill` can use computed variables.
 
@@ -197,23 +198,22 @@ For `alpha` use computed variable. See section **Computed variables**.
 
 ### `stat_spatraster()`
 
-`stat_spatraster()` understands the same aesthetics than
-`geom_spatraster()` when using `geom = "raster"` (the default):
+`stat_spatraster()` understands the same aesthetics as
+`geom_spatraster()` when `geom = "raster"` (the default):
 
 - [`fill`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
-When `geom = "raster"` the `fill` argument would behave as in
-`geom_spatraster()`. If another `geom` is used `stat_spatraster()` would
-understand the aesthetics of the required `geom` and
-`aes(fill = <name_of_lyr>)` would not be applicable.
+When `geom = "raster"`, the `fill` argument behaves as in
+`geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
+understands the aesthetics required by that `geom`, so
+`aes(fill = <name_of_lyr>)` is not applicable.
 
-Note also that mapping of aesthetics `x` and `y` is provided by default,
-so the user does not need to add those aesthetics on
-[`aes()`](https://ggplot2.tidyverse.org/reference/aes.html). In all the
-cases the aesthetics should be mapped by using computed variables. See
-section **Computed variables** and **Examples**.
+The `x` and `y` aesthetics are mapped by default, so you do not need to
+add them in [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
+In every case, aesthetics should be mapped with computed variables. See
+**Computed variables** and **Examples**.
 
 ## Facets
 
@@ -258,7 +258,7 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
 
 ``` r
 # \donttest{
-# Avg temperature on spring in Castille and Leon (Spain)
+# Avg temperature on spring in Castile and Leon (Spain)
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)

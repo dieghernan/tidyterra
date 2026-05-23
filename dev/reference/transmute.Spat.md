@@ -1,4 +1,4 @@
-# Create, modify, and delete cell values/layers/attributes of `Spat*` objects
+# Create, modify and delete cell values/layers/attributes of `Spat*` objects
 
 **\[superseded\]**
 
@@ -44,7 +44,7 @@ transmute(.data, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## Methods
 
@@ -69,15 +69,16 @@ v <- vect(f)
 
 v |>
   transmute(cpro2 = paste0(cpro, "-CyL"))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 1  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  source      : cyl.gpkg
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  cpro2
-#>  type        :  <chr>
-#>  values      : 05-CyL
-#>                09-CyL
-#>                24-CyL
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 1  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> source      : cyl.gpkg
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  cpro2
+#> type        :  <chr>
+#> values      : 05-CyL
+#>               09-CyL
+#>               24-CyL
+#>               ...
 ```

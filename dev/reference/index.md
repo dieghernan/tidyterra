@@ -9,16 +9,16 @@ implemented for `Spat*` objects.
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
-## dplyr methods
+## **dplyr** methods
 
 Methods from [dplyr](https://CRAN.R-project.org/package=dplyr)
 implemented for `Spat*` objects.
 
 ### Rows
 
-Verbs that principally operate on rows.
+Verbs that mainly operate on rows.
 
 - [`arrange(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md)
   :
@@ -56,7 +56,7 @@ Verbs that principally operate on rows.
 
 ### Columns
 
-Verbs that principally operate on columns.
+Verbs that mainly operate on columns.
 
 - [`glimpse(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
   [`glimpse(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
@@ -68,7 +68,7 @@ Verbs that principally operate on columns.
   [`mutate(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
   :
 
-  Create, modify, and delete cell values/layers/attributes of `Spat*`
+  Create, modify and delete cell values/layers/attributes of `Spat*`
   objects
 
 - [`pull(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md)
@@ -93,7 +93,7 @@ Verbs that principally operate on columns.
 
 ### Groups
 
-Verbs that principally operate on groups of rows.
+Verbs that mainly operate on groups of rows.
 
 - [`count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   [`tally(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
@@ -108,6 +108,9 @@ Verbs that principally operate on groups of rows.
 
   Group a `SpatVector` by one or more variables
 
+- [`group_trim(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md)
+  **\[experimental\]** : Trim grouping structure
+
 - [`rowwise(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
   :
 
@@ -119,19 +122,24 @@ Verbs that principally operate on groups of rows.
 
   Summarise each group of a `SpatVector` down to one geometry
 
-### `SpatVector` and Data frames
+### `SpatVector` and data frames
 
-Verbs that principally operate on pairs of `Spat*` and data frames.
+Verbs that mainly operate on pairs of `Spat*` objects and data frames.
 
 - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md)
   :
 
-  Bind multiple `SpatVector` `sf` and data frames objects by column
+  Bind multiple `SpatVector`, `sf` and data frames objects by column
 
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md)
   :
 
   Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
+
+- [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md)
+  :
+
+  Cross joins for `SpatVector` objects
 
 - [`semi_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md)
   [`anti_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md)
@@ -147,15 +155,15 @@ Verbs that principally operate on pairs of `Spat*` and data frames.
 
   Mutating joins for `SpatVector` objects
 
-## tidyr methods
+## **tidyr** methods
 
 Methods from [tidyr](https://CRAN.R-project.org/package=tidyr)
 implemented for `Spat*` objects.
 
 ### Pivoting
 
-Pivoting changes the representation of a `SpatVector` object, without
-changing the data inside of it.
+Pivoting changes the representation of a `SpatVector` object without
+changing its data.
 
 - [`pivot_longer(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md)
   :
@@ -167,10 +175,24 @@ changing the data inside of it.
 
   Pivot `SpatVector` from long to wide
 
+### Rows
+
+Tools for duplicating `SpatVector` features.
+
+- [`uncount(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md)
+  :
+
+  Duplicate `SpatVector` rows
+
 ### Missing values
 
 Tools for converting between implicit (absent rows) and explicit (`NA`)
-missing values, handling explicit `NA`s.
+missing values and for handling explicit `NA` values.
+
+- [`complete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
+  :
+
+  Complete missing combinations in a `SpatVector`
 
 - [`drop_na(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md)
   [`drop_na(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md)
@@ -189,7 +211,26 @@ missing values, handling explicit `NA`s.
 
   Replace `NA`s with specified values
 
-## ggplot2 methods
+### Character vectors
+
+Tools for working with character layers and attributes.
+
+- [`unite(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+  [`unite(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+  :
+
+  Unite `Spat*` layers or attributes
+
+### Nesting
+
+Tools for storing `SpatVector` objects in nested list-columns.
+
+- [`nest(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md)
+  :
+
+  Nest `SpatVector` rows
+
+## **ggplot2** methods
 
 Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
 implemented for `Spat*` objects.
@@ -210,7 +251,7 @@ implemented for `Spat*` objects.
 
   Fortify `Spat*` Objects
 
-## ggplot2 utils
+## **ggplot2** utils
 
 ### Geoms
 
@@ -245,7 +286,7 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 
 ### Scales
 
-Gradient colour schemes, palettes and hypsometric tints.
+Gradient color schemes, palettes and hypsometric tints.
 
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   [`scale_colour_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
@@ -361,17 +402,17 @@ implemented for `Spat*` objects.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ## Helpers
 
-Additional set of functions provided by
+Additional helper functions provided by
 [tidyterra](https://CRAN.R-project.org/package=tidyterra).
 
 ### Coercing objects
 
-Convert Spat\* to other type of objects or create `SpatRasters` from
-tibbles.
+Convert `Spat*` objects to other object types or create `SpatRaster`
+objects from tibbles.
 
 - [`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md)
   :
@@ -392,13 +433,13 @@ tibbles.
 - [`as_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatvector.md)
   :
 
-  Method for coercing objects to `SpatVector`
+  Coerce objects to `SpatVector`
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   :
 
-  Coerce a `SpatVector` or `SpatRaster` object to data frames
+  Coerce `SpatRaster` and `SpatVector` objects to tibbles
 
 - [`fortify(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   [`fortify(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
@@ -414,7 +455,7 @@ tibbles.
   [`tidy(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
   :
 
-  Turn `Spat*` object into a tidy tibble
+  Tidy `Spat*` objects for plotting
 
 ### Other helpers
 
@@ -427,9 +468,9 @@ tibbles.
   : Check if x and y positions conforms a regular grid
 
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
-  : Extract CRS on WKT format
+  : Extract CRS in WKT format
 
-## Built in data
+## Built-in data
 
 - [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md)
   : Cross-blended hypsometric tints

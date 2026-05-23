@@ -9,11 +9,11 @@ associated to a `SpatRaster`.
 You can also get a vector of colors named with the corresponding factor
 with `get_coltab_pal()`.
 
-Additional arguments `...` would be passed on to
+Additional arguments `...` are passed to
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
 
 **Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-just documents a selection of these additional arguments, check
+documents only a selection of these additional arguments, check
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
 to see the full range of arguments accepted.
 
@@ -141,7 +141,8 @@ get_coltab_pal(x)
 
 - na.translate:
 
-  Should `NA` values be removed from the legend? Default is `TRUE`.
+  Logical. If `TRUE`, remove `NA` values from the legend. The default is
+  `TRUE`.
 
 - na.value:
 
@@ -152,8 +153,8 @@ get_coltab_pal(x)
 
 - drop:
 
-  Should unused factor levels be omitted from the scale? The default
-  (`TRUE`) removes unused factors.
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 ## Value
 

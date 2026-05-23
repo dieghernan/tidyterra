@@ -1,14 +1,14 @@
-# Extract CRS on WKT format
+# Extract CRS in WKT format
 
-Extract the WKT version of the CRS associated to a string, number of
-sf/Spat\* object.
+Extract the WKT version of the CRS associated with a string, number or
+`sf/Spat*` object.
 
 The [Well-known text
 (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
 representation of coordinate reference systems (CRS) is a character
-string that identifies precisely the arguments of each CRS. This is the
-current standard used on [sf](https://CRAN.R-project.org/package=sf) and
-[terra](https://CRAN.R-project.org/package=terra) packages.
+string that identifies precisely the arguments of each CRS. It is the
+standard used by [sf](https://CRAN.R-project.org/package=sf) and
+[terra](https://CRAN.R-project.org/package=terra).
 
 ## Usage
 
@@ -29,7 +29,7 @@ pull_crs(.data, ...)
 
 - ...:
 
-  ignored
+  Ignored.
 
 ## Value
 
@@ -37,32 +37,34 @@ A WKT representation of the corresponding CRS.
 
 ## Details
 
-Although the WKT representation is the same,
+Although the WKT representation is the same, the
 [sf](https://CRAN.R-project.org/package=sf) and
-[terra](https://CRAN.R-project.org/package=terra) API slightly differs.
+[terra](https://CRAN.R-project.org/package=terra) APIs differ slightly.
 For example, [sf](https://CRAN.R-project.org/package=sf) can do:
 
 `sf::st_transform(x, 25830)`
 
-While [sf](https://CRAN.R-project.org/package=sf) equivalent is:
+While the [terra](https://CRAN.R-project.org/package=terra) equivalent
+is:
 
 `terra::project(bb, "epsg:25830")`
 
-Knowing the WKT would help to smooth workflows when working with
-different packages and object types.
+Knowing the WKT helps smooth workflows when working with different
+packages and object types.
 
 ## Internals
 
-This is a thin wrapper of
+A thin wrapper around
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).
 
 ## See also
 
-[`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html),
+[`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html)
+and
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
-for knowing how these packages handle CRS definitions.
+to learn how these packages handle CRS definitions.
 
 Other helpers:
 [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md),
@@ -72,6 +74,7 @@ Other helpers:
 ## Examples
 
 ``` r
+
 # sf objects
 
 sfobj <- sf::st_as_sfc("MULTIPOINT ((0 0), (1 1))", crs = 4326)

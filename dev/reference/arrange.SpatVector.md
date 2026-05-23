@@ -26,8 +26,8 @@ arrange(.data, ..., .by_group = FALSE, .locale = NULL)
 
 - .by_group:
 
-  If `TRUE`, will sort first by grouping variable. Applies to grouped
-  `SpatVector` only.
+  If `TRUE`, sort first by grouping variable. This applies to grouped
+  `SpatVector` objects only.
 
 - .locale:
 
@@ -90,11 +90,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -108,8 +110,9 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
-#> terra 1.9.1
+#> terra 1.9.27
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’
@@ -129,44 +132,47 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 v |>
   arrange(desc(iso2))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro       name
-#>  type        : <chr> <chr>      <chr>
-#>  values      : ES-ZA    49     Zamora
-#>                ES-VA    47 Valladolid
-#>                ES-SO    42      Soria
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro       name
+#> type        : <chr> <chr>      <chr>
+#> values      : ES-ZA    49     Zamora
+#>               ES-VA    47 Valladolid
+#>               ES-SO    42      Soria
+#>               ...
 
 # Two variables
 v |>
-  mutate(even = as.double(cpro) %% 2 == 0, ) |>
+  mutate(even = as.double(cpro) %% 2 == 0) |>
   arrange(desc(even), desc(iso2))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro     name      even
-#>  type        : <chr> <chr>    <chr> <logical>
-#>  values      : ES-SO    42    Soria      TRUE
-#>                ES-SG    40  Segovia      TRUE
-#>                 ES-P    34 Palencia      TRUE
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro     name  even
+#> type        : <chr> <chr>    <chr> <lgl>
+#> values      : ES-SO    42    Soria  TRUE
+#>               ES-SG    40  Segovia  TRUE
+#>                ES-P    34 Palencia  TRUE
+#>               ...
 
 # With new variables
 v |>
   mutate(area_geom = terra::expanse(v)) |>
   arrange(area_geom)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 9, 4  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       :  iso2  cpro     name area_geom
-#>  type        : <chr> <chr>    <chr>     <num>
-#>  values      : ES-SG    40  Segovia 6.921e+09
-#>                 ES-P    34 Palencia 8.042e+09
-#>                ES-AV    05    Avila 8.053e+09
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 4  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro     name   area_geom
+#> type        : <chr> <chr>    <chr>       <num>
+#> values      : ES-SG    40  Segovia 6.92148e+09
+#>                ES-P    34 Palencia 8.04248e+09
+#>               ES-AV    05    Avila 8.05299e+09
+#>               ...
 ```

@@ -37,7 +37,7 @@ drop_na(data, ...)
 
 ## Value
 
-A `Spat*` object of the same class than `data`. See **Methods**.
+A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -52,30 +52,30 @@ method.
 ### `SpatVector`
 
 The implementation of this method is performed on a `by-attribute`
-basis, meaning that `NAs` are assessed on the attributes (columns) of
-each vector (rows). The result is a `SpatVector` with potentially less
-geometries than the input.
+basis, meaning that `NA` values are assessed on the attributes (columns)
+of each vector (rows). The result is a `SpatVector` with potentially
+fewer geometries than the input.
 
 ### `SpatRaster`
 
 **\[questioning\]**
 
-Actual implementation of `drop_na().SpatRaster` can be understood as a
+The implementation of `drop_na().SpatRaster` can be understood as a
 masking method based on the values of the layers (see
 [`terra::mask()`](https://rspatial.github.io/terra/reference/mask.html)).
 
 `SpatRaster` layers are considered as columns and `SpatRaster` cells as
-rows, so rows (cells) with any `NA` value on any layer would get a `NA`
-value. It is possible also to mask the cells (rows) based on the values
-of specific layers (columns).
+rows, so rows (cells) with any `NA` value on any layer become `NA`. You
+can also mask the cells (rows) based on the values of specific layers
+(columns).
 
-[`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) would
-effectively remove outer cells that are `NA` (see
+[`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
+effectively removes outer cells that are `NA` (see
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)),
-so the extent of the resulting object may differ of the extent of the
+so the extent of the resulting object may differ from the extent of the
 input (see
 [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html)
-for more info).
+for more information).
 
 Check the **Examples** to have a better understanding of this method.
 
@@ -90,18 +90,24 @@ implementation of this method for `SpatRaster` may change in the future.
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
+[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
+[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
+[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
+[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")

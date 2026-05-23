@@ -1,14 +1,14 @@
 # Cross-blended hypsometric tints
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-including the color map of 4 gradient palettes. All the palettes
-includes also a definition of colors limits in terms of elevation
-(meters), that can be used with
+including the color map of 4 gradient palettes. All palettes also
+include a definition of color limits in terms of elevation (meters) that
+can be used with
 [`ggplot2::scale_fill_gradientn()`](https://ggplot2.tidyverse.org/reference/scale_gradient.html).
 
 ## Format
 
-A tibble of 41 rows and 6 columns. with the following fields:
+A tibble of 41 rows and 6 columns with the following fields:
 
 - pal:
 
@@ -40,7 +40,7 @@ Derived from:
 
 - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-  31 - 46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
+  31-46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
 
 ## Details
 

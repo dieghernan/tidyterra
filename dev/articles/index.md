@@ -19,14 +19,14 @@
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/dev/articles/wild.md):
 
-  Use of **tidyterra** in publications.
+  Uses of tidyterra in publications.
 
 ### FAQs
 
-**tidyterra** FAQs. See also
-[/tidyterra/discussions](https://github.com/dieghernan/tidyterra/discussions).
+**tidyterra** FAQs. See also [tidyterra
+discussions](https://github.com/dieghernan/tidyterra/discussions).
 
 - [tidyterra
   FAQs](https://dieghernan.github.io/tidyterra/dev/articles/faqs.md):
 
-  Frequently Asked Questions on the use of tidyterra.
+  Frequently asked questions about using tidyterra.

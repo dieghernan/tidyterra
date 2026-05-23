@@ -33,12 +33,12 @@ relocate(.data, ..., .before = NULL, .after = NULL)
 
   \<[`tidy-select`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html)\>
   Destination of layers/attributes selected by `...`. Supplying neither
-  will move layers/attributes to the left-hand side; specifying both is
+  will move layers/attributes to the left-hand side. Specifying both is
   an error.
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -75,11 +75,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -92,6 +94,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
@@ -104,13 +107,13 @@ names(spatrast)
 spatrast |>
   relocate(bb, .before = cyl_tile_3) |>
   relocate(cyl_tile_1, .after = last_col())
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : cyl_tile_2, bb, cyl_tile_3, aa, cc, cyl_tile_1 
-#> min values  :         35,  2,         35,  1,  3,         35 
-#> max values  :        251,  2,        250,  1,  3,        253 
+#> names       : cyl_tile_2, bb, cyl_tile_3, aa, cc, cyl_tile_1
+#> min values  :         35,  2,         35,  1,  3,         35
+#> max values  :        251,  2,        250,  1,  3,        253
 ```

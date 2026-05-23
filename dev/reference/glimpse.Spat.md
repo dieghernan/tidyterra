@@ -2,7 +2,7 @@
 
 [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) is like a
 transposed version of [`print()`](https://rdrr.io/r/base/print.html):
-layers/columns run down the page, and data runs across. This makes it
+layers/columns run down the page and data runs across. This makes it
 possible to see every layer/column in a `Spat*` object.
 
 ## Usage
@@ -78,10 +78,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -95,6 +97,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 # SpatVector
@@ -137,7 +140,7 @@ v |>
 #> $ cpro     <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
 #> $ name     <chr> "Avila", "Burgos", "Leon", "Palencia", "Salamanca", "Segovia"…
 #> $ a        <dbl> 30, 30, 30, 30, 30, 30, 30, 30, 30
-#> $ geometry <chr> "POLYGON ((3126360.2417 2066777.7545, 3125073.9752 2065007.29…
+#> $ geometry <chr> "POLYGON ((3126360.241699999 2066777.7545, 3125073.9751999993…
 
 # SpatRaster
 r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))

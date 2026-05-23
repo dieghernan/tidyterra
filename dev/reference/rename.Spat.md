@@ -2,7 +2,7 @@
 
 [`rename()`](https://dplyr.tidyverse.org/reference/rename.html) changes
 the names of individual layers/attributes using `new_name = old_name`
-syntax;
+syntax.
 [`rename_with()`](https://dplyr.tidyverse.org/reference/rename.html)
 renames layers/attributes using a function.
 
@@ -51,7 +51,7 @@ rename_with(.data, .fn, .cols = everything(), ...)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -97,11 +97,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -114,46 +116,47 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 spatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)
 
 spatrast
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc 
-#> min values  :         35,         35,         35,  1,  2,  3 
-#> max values  :        253,        251,        250,  1,  2,  3 
+#> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc
+#> min values  :         35,         35,         35,  1,  2,  3
+#> max values  :        253,        251,        250,  1,  2,  3
 
 spatrast |> rename(
   this_first = cyl_tile_1,
   this_second = cyl_tile_2
 )
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : this_first, this_second, cyl_tile_3, aa, bb, cc 
-#> min values  :         35,          35,         35,  1,  2,  3 
-#> max values  :        253,         251,        250,  1,  2,  3 
+#> names       : this_first, this_second, cyl_tile_3, aa, bb, cc
+#> min values  :         35,          35,         35,  1,  2,  3
+#> max values  :        253,         251,        250,  1,  2,  3
 
 spatrast |> rename_with(
   toupper,
   .cols = starts_with("c")
 )
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 212, 261, 6  (nrow, ncol, nlyr)
 #> resolution  : 2445.985, 2445.985  (x, y)
 #> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC 
-#> min values  :         35,         35,         35,  1,  2,  3 
-#> max values  :        253,        251,        250,  1,  2,  3 
+#> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC
+#> min values  :         35,         35,         35,  1,  2,  3
+#> max values  :        253,        251,        250,  1,  2,  3
 ```

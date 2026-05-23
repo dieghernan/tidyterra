@@ -25,7 +25,8 @@ is_grouped_spatvector(x)
 
 - x:
 
-  a `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 ## See also
 

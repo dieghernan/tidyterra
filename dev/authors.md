@@ -23,8 +23,8 @@ Source:
 
 Hernangómez D (2023). “Using the tidyverse with terra objects: the
 tidyterra package.” *Journal of Open Source Software*, **8**(91), 5751.
-ISSN 2475-9066,
-[doi:10.21105/joss.05751](https://doi.org/10.21105/joss.05751),
+ISSN 2475-9066.
+[doi:10.21105/joss.05751](https://doi.org/10.21105/joss.05751).
 <https://doi.org/10.21105/joss.05751>.
 
     @Article{R-tidyterra,

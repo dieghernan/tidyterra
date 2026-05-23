@@ -1,10 +1,10 @@
 # Fortify `Spat*` Objects
 
 Fortify `SpatRaster` and `SpatVector` objects to data frames. This
-provide native compatibility with
+provides native compatibility with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 
-**Note that** these methods are now implemented as a wrapper of
+**Note that** these methods are now implemented as a wrapper around
 [`tidy.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
 methods.
 
@@ -83,23 +83,23 @@ fortify(model, data, ..., crs = "")
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - pivot:
 
-  Logical. When `TRUE` the `SpatRaster` would be provided on [long
+  Logical. When `TRUE`, a `SpatRaster` is returned in [long
   format](https://tidyr.tidyverse.org/reference/pivot_longer.html). When
-  `FALSE` (the default) it would be provided as a data frame with a
-  column for each layer. See **Details**.
+  `FALSE` (the default), it is returned as a data frame with one column
+  per layer. See **Details**.
 
 - crs:
 
-  Input potentially including or representing a CRS. It could be a
-  `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf/sfc` object,
+  a `SpatRaster/SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character (for example a [proj4
-  string](https://proj.org/en/9.3/operations/projections/index.html)) or
-  a integer (representing an [EPSG](https://epsg.io/) code).
+  a character string (for example a [proj4
+  string](https://proj.org/en/9.3/operations/projections/index.html)),
+  or an integer representing an [EPSG](https://epsg.io/) code.
 
 ## Value
 
@@ -119,7 +119,7 @@ method.
 
 ### `SpatRaster`
 
-Return a tibble than can be used with `ggplot2::geom_*` like
+Return a tibble that can be used with `ggplot2::geom_*` like
 [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html),
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
 etc.
@@ -131,14 +131,13 @@ name of the layer on the `SpatRaster`.
 The CRS of the `SpatRaster` can be retrieved with
 `attr(fortifiedSpatRaster, "crs")`.
 
-It is possible to convert the fortified object onto a `SpatRaster` again
-with
+You can convert the fortified object back to a `SpatRaster` with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md).
 
 When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format
 (see
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
-The fortified object would have the following columns:
+The fortified object has the following columns:
 
 - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
 
@@ -152,7 +151,7 @@ see **Examples**.
 ### `SpatVector`, `SpatGraticule` and `SpatExtent`
 
 Return a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
-than can be used with
+that can be used with
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
 ## See also

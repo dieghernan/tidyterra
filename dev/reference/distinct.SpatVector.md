@@ -21,9 +21,9 @@ distinct(.data, ..., .keep_all = FALSE)
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   Optional variables to use when determining uniqueness. If there are
   multiple rows for a given combination of inputs, only the first row
-  will be preserved. If omitted, will use all variables in the data
-  frame. There is a reserved variable name, `geometry`, that would
-  remove duplicate geometries. See **Methods**.
+  will be preserved. If omitted, all variables in the data frame are
+  used. There is a reserved variable name, `geometry`, that removes
+  duplicate geometries. See **Methods**.
 
 - .keep_all:
 
@@ -46,8 +46,8 @@ method.
 
 ### `SpatVector`
 
-It is possible to remove duplicate geometries including the geometry
-variable explicitly in the `...` call. See **Examples**.
+You can remove duplicate geometries by passing the reserved name
+`geometry` to `...`. See **Examples**.
 
 ## See also
 
@@ -65,10 +65,12 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -82,6 +84,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 v <- vect(system.file("ex/lux.shp", package = "terra"))
@@ -93,16 +96,17 @@ v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 # All duplicates
 ex1 <- distinct(v)
 ex1
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 34, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
-#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
-#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
-#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
-#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 34, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr
+#> type        : <num>        <chr> <num>      <chr> <num> <num> <chr>
+#> values      :     1     Diekirch     5      Wiltz   263 16735     A
+#>                   2 Grevenmacher     6 Echternach   188 18899     C
+#>                   3   Luxembourg     8   Capellen   185 48187     A
+#>               ...
 
 nrow(ex1)
 #> [1] 34
@@ -110,32 +114,32 @@ nrow(ex1)
 # Duplicates by NAME_1
 ex2 <- distinct(v, gr)
 ex2
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :    gr
-#>  type        : <chr>
-#>  values      :     A
-#>                    C
-#>                    B
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :    gr
+#> type        : <chr>
+#> values      :     A
+#>                   C
+#>                   B
 nrow(ex2)
 #> [1] 3
 
 # Same but keeping all cols
 ex2b <- distinct(v, gr, .keep_all = TRUE)
 ex2b
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA       POP
-#>  type        : <chr> <num>        <chr> <num>      <chr> <num>     <num>
-#>  values      :     A     1     Diekirch     5      Wiltz   263 1.674e+04
-#>                    C     2 Grevenmacher     6 Echternach   188  1.89e+04
-#>                    B     1     Diekirch     1   Clervaux   312 1.808e+04
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.72324, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :    gr  ID_1       NAME_1  ID_2     NAME_2  AREA   POP
+#> type        : <chr> <num>        <chr> <num>      <chr> <num> <num>
+#> values      :     A     1     Diekirch     5      Wiltz   263 16735
+#>                   C     2 Grevenmacher     6 Echternach   188 18899
+#>                   B     1     Diekirch     1   Clervaux   312 18081
 nrow(ex2b)
 #> [1] 3
 
@@ -143,31 +147,32 @@ nrow(ex2b)
 ex3 <- distinct(v, geometry)
 
 ex3
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 0  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 0  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 nrow(ex3)
 #> [1] 12
 # Same as terra::unique()
 terra::unique(ex3)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 0  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 0  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 
 # Unique keeping info
 distinct(v, geometry, .keep_all = TRUE)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 12, 7  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :  ID_1       NAME_1  ID_2     NAME_2  AREA       POP    gr
-#>  type        : <num>        <chr> <num>      <chr> <num>     <num> <chr>
-#>  values      :     1     Diekirch     5      Wiltz   263 1.674e+04     A
-#>                    2 Grevenmacher     6 Echternach   188  1.89e+04     C
-#>                    3   Luxembourg     8   Capellen   185 4.819e+04     A
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 12, 7  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :  ID_1       NAME_1  ID_2     NAME_2  AREA   POP    gr
+#> type        : <num>        <chr> <num>      <chr> <num> <num> <chr>
+#> values      :     1     Diekirch     5      Wiltz   263 16735     A
+#>                   2 Grevenmacher     6 Echternach   188 18899     C
+#>                   3   Luxembourg     8   Capellen   185 48187     A
+#>               ...
 ```

@@ -32,6 +32,9 @@ objects in various ways:
 - [`n_groups()`](https://dplyr.tidyverse.org/reference/group_data.html)
   gives the total number of groups.
 
+- [`group_split()`](https://dplyr.tidyverse.org/reference/group_split.html)
+  **\[experimental\]** returns one `SpatVector` for each group.
+
 See
 [`dplyr::group_data()`](https://dplyr.tidyverse.org/reference/group_data.html).
 
@@ -58,6 +61,9 @@ group_size(x)
 
 # S3 method for class 'SpatVector'
 n_groups(x)
+
+# S3 method for class 'SpatVector'
+group_split(.tbl, ..., .keep = TRUE)
 ```
 
 ## Arguments
@@ -116,6 +122,21 @@ group_data(v)
 group_indices(v)
 #> [1] 1 1 1 1 1 1 1 1 1
 
+group_split(v)
+#> [[1]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  gr_1  gr_2
+#> type        : <chr> <chr>  <chr> <chr> <chr>
+#> values      : ES-AV    05  Avila     A     C
+#>               ES-BU    09 Burgos     A     D
+#>               ES-LE    24   Leon     B     C
+#>               ...
+#> 
+
 # Grouped by one var
 gv <- group_by(v, gr_1)
 
@@ -158,6 +179,33 @@ group_data(gv)
 
 group_indices(gv)
 #> [1] 1 1 2 1 1 2 1 1 2
+
+group_split(gv)
+#> [[1]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 6, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro     name  gr_1  gr_2
+#> type        : <chr> <chr>    <chr> <chr> <chr>
+#> values      : ES-AV    05    Avila     A     C
+#>               ES-BU    09   Burgos     A     D
+#>                ES-P    34 Palencia     A     D
+#>               ...
+#> 
+#> [[2]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 5  (geometries, attributes)
+#> extent      : 2920108, 3216695, 2063930, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro    name  gr_1  gr_2
+#> type        : <chr> <chr>   <chr> <chr> <chr>
+#> values      : ES-LE    24    Leon     B     C
+#>               ES-SG    40 Segovia     B     D
+#>               ES-ZA    49  Zamora     B     C
+#> 
 
 # Grouped by several vars
 
@@ -215,4 +263,51 @@ group_data(gv2)
 
 group_indices(gv2)
 #> [1] 1 2 3 2 1 4 1 2 3
+
+group_split(gv2)
+#> [[1]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 5  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2202718  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro      name  gr_1  gr_2
+#> type        : <chr> <chr>     <chr> <chr> <chr>
+#> values      : ES-AV    05     Avila     A     C
+#>               ES-SA    37 Salamanca     A     C
+#>               ES-SO    42     Soria     A     C
+#> 
+#> [[2]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 5  (geometries, attributes)
+#> extent      : 3038927, 3296229, 2122461, 2331004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro       name  gr_1  gr_2
+#> type        : <chr> <chr>      <chr> <chr> <chr>
+#> values      : ES-BU    09     Burgos     A     D
+#>                ES-P    34   Palencia     A     D
+#>               ES-VA    47 Valladolid     A     D
+#> 
+#> [[3]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 5  (geometries, attributes)
+#> extent      : 2920108, 3125372, 2132694, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro   name  gr_1  gr_2
+#> type        : <chr> <chr>  <chr> <chr> <chr>
+#> values      : ES-LE    24   Leon     B     C
+#>               ES-ZA    49 Zamora     B     C
+#> 
+#> [[4]]
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 1, 5  (geometries, attributes)
+#> extent      : 3088030, 3216695, 2063930, 2161552  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2  cpro    name  gr_1  gr_2
+#> type        : <chr> <chr>   <chr> <chr> <chr>
+#> values      : ES-SG    40 Segovia     B     D
+#> 
 ```

@@ -2,8 +2,8 @@
 
 These geoms create contours of `SpatRaster` objects. To specify a valid
 surface, you should specify the layer on `aes(z = layer_name)`,
-otherwise all the layers would be consider for creating contours. See
-also **Facets** section.
+otherwise all the layers are considered for creating contours. See also
+**Facets** section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
@@ -19,7 +19,7 @@ geom_spatraster_contour(
   mapping = NULL,
   data,
   ...,
-  maxcell = 500000,
+  maxcell = 5e+05,
   bins = NULL,
   binwidth = NULL,
   breaks = NULL,
@@ -33,7 +33,7 @@ geom_spatraster_contour_text(
   mapping = NULL,
   data,
   ...,
-  maxcell = 500000,
+  maxcell = 5e+05,
   bins = NULL,
   binwidth = NULL,
   breaks = NULL,
@@ -50,7 +50,7 @@ geom_spatraster_contour_filled(
   mapping = NULL,
   data,
   ...,
-  maxcell = 500000,
+  maxcell = 5e+05,
   bins = NULL,
   binwidth = NULL,
   breaks = NULL,
@@ -67,7 +67,7 @@ geom_spatraster_contour_filled(
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics** specially in the use of `fill` aesthetic.
+  See **Aesthetics**, especially in the use of the `fill` aesthetic.
 
 - data:
 
@@ -113,7 +113,7 @@ geom_spatraster_contour_filled(
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - bins:
 
@@ -153,14 +153,14 @@ geom_spatraster_contour_filled(
 
 - inherit.aes:
 
-  If `FALSE`, overrides the default aesthetics, rather than combining
-  with them.
+  If `FALSE`, override the default aesthetics rather than combining with
+  them.
 
 - mask_projection:
 
-  logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -174,11 +174,11 @@ geom_spatraster_contour_filled(
 
   One of:
 
-  - `NULL` for no labels. This produced the same result than
+  - `NULL` for no labels. This produces the same result as
     `geom_spatraster_contour()`.
 
-  - A character vector giving labels (must be same length as the breaks
-    produced by `bins`, `binwidth`, or `breaks`).
+  - A character vector giving labels (must have the same length as the
+    breaks produced by `bins`, `binwidth`, or `breaks`).
 
   - A function that takes the breaks as input and returns labels as
     output, as the default setup
@@ -244,7 +244,7 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 - `after_stat(lyr)`: Name of the layer.
 
-- `after_stat(level)`: Height of contour. For contour lines, this is
+- `after_stat(level)`: Height of contour. For contour lines, this is a
   numeric vector that represents bin boundaries. For contour bands, this
   is an ordered factor that represents bin ranges.
 
@@ -263,9 +263,9 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -350,7 +350,7 @@ ggplot() +
 ggplot() +
   geom_spatraster_contour_filled(
     data = r, breaks = seq(80, 200, 10),
-    alpha = .7
+    alpha = 0.7
   ) +
   geom_spatraster_contour(
     data = r, breaks = seq(80, 200, 2.5),

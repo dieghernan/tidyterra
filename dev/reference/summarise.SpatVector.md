@@ -2,7 +2,7 @@
 
 [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 creates a new `SpatVector`. It returns one geometry for each combination
-of grouping variables; if there are no grouping variables, the output
+of grouping variables. If there are no grouping variables, the output
 will have a single geometry summarising all observations in the input
 and combining all the geometries of the `SpatVector`. It will contain
 one column for each grouping variable and one column for each of the
@@ -24,7 +24,8 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .data:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
@@ -73,7 +74,7 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 - .dissolve:
 
-  logical. Should borders between aggregated geometries be dissolved?
+  Logical. If `TRUE`, dissolve borders between aggregated geometries.
 
 ## Value
 
@@ -113,6 +114,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on group of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -120,11 +122,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -144,7 +148,7 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 # Grouped
 gr_v <- v |>
-  mutate(start_with_s = substr(name, 1, 1) == "S") |>
+  mutate(start_with_s = startsWith(name, "S")) |>
   group_by(start_with_s)
 
 # Dissolving
@@ -152,15 +156,15 @@ diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
 diss
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : start_with_s     n  mean
-#>  type        :    <logical> <int> <num>
-#>  values      :        FALSE     6    28
-#>                        TRUE     3 39.67
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : start_with_s     n    mean
+#> type        :        <lgl> <int>   <num>
+#> values      :        FALSE     6      28
+#>                       TRUE     3 39.6667
 
 autoplot(diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Dissolved")
@@ -172,15 +176,15 @@ no_diss <- gr_v |>
 
 # Same statistic
 no_diss
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 3  (geometries, attributes)
-#>  extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035) 
-#>  names       : start_with_s     n  mean
-#>  type        :    <logical> <int> <num>
-#>  values      :        FALSE     6    28
-#>                        TRUE     3 39.67
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 3  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       : start_with_s     n    mean
+#> type        :        <lgl> <int>   <num>
+#> values      :        FALSE     6      28
+#>                       TRUE     3 39.6667
 
 autoplot(no_diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Not Dissolved")

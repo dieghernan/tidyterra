@@ -1,15 +1,14 @@
 # Subset cells/rows/columns/geometries using their positions
 
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) methods
-lets you index cells/rows/columns/geometries by their (integer)
-locations. It allows you to select, remove, and duplicate those
+let you index cells/rows/columns/geometries by their (integer)
+locations. They allow you to select, remove, or duplicate those
 dimensions of a `Spat*` object.
 
-**If you want to slice your `SpatRaster` by geographic coordinates** use
-[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
-method.
+**If you want to slice your `SpatRaster` by geographic coordinates, use
+[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)**.
 
-It is accompanied by a number of helpers for common use cases:
+It includes helpers for common use cases:
 
 - [`slice_head()`](https://dplyr.tidyverse.org/reference/slice.html) and
   [`slice_tail()`](https://dplyr.tidyverse.org/reference/slice.html)
@@ -154,7 +153,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - .keep_extent:
 
-  Should the extent of the resulting `SpatRaster` be kept? See also
+  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. See
+  also
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
   [`terra::extend()`](https://rspatial.github.io/terra/reference/extend.html).
 
@@ -194,8 +194,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - na.rm:
 
-  Logical, should cells that present a value of `NA` removed when
-  computing `slice_min()/slice_max()`?. The default is `TRUE`.
+  Logical. If `TRUE`, remove cells with `NA` values when computing
+  `slice_min()/slice_max()`. The default is `TRUE`.
 
 - na_rm:
 
@@ -220,7 +220,7 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - cols, rows:
 
-  Integer col/row values of the `SpatRaster`
+  Integer column and row values of the `SpatRaster`.
 
 - inverse:
 
@@ -229,7 +229,7 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 ## Value
 
-A `Spat*` object of the same class than `.data`. See **Methods**.
+A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -248,7 +248,7 @@ The result is a `SpatRaster` with the CRS and resolution of the input
 and where cell values of the selected cells/columns/rows are preserved.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
-output. The non-selected cells would present a value of `NA`.
+output. The non-selected cells have a value of `NA`.
 
 ### `SpatVector`
 
@@ -290,11 +290,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -307,6 +309,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

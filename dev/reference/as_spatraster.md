@@ -1,8 +1,8 @@
 # Coerce a data frame to `SpatRaster`
 
-`as_spatraster()` turns an existing data frame or
+`as_spatraster()` converts a data frame or
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) into
-a `SpatRaster`. This is a wrapper of
+a `SpatRaster`. It wraps the
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
 S4 method for signature `data.frame`.
 
@@ -21,7 +21,7 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - ...:
 
-  additional arguments passed on to
+  Additional arguments passed on to
   [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html).
 
 - xycols:
@@ -31,17 +31,16 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - crs:
 
-  A CRS on several formats (PROJ.4, WKT, EPSG code, ..) or and spatial
-  object from
-  **[sf](https://r-spatial.github.io/sf/reference/st_crs.html)** or
-  **[terra](https://rspatial.github.io/terra/reference/crs.html)**. that
+  A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial
+  object from [sf](https://r-spatial.github.io/sf/reference/st_crs.html)
+  or [terra](https://rspatial.github.io/terra/reference/crs.html) that
   includes the target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   and **Details**.
 
 - digits:
 
-  integer to set the precision for detecting whether points are on a
+  Integer to set the precision for detecting whether points are on a
   regular grid (a low number of digits is a low precision).
 
 ## Value
@@ -63,7 +62,7 @@ the `crs` is inferred from
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
-for retrieving CRS, and the corresponding utils
+for retrieving CRS and the corresponding utils
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).
@@ -84,15 +83,15 @@ library(terra)
 r <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 
 r
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 30, 3, 1  (nrow, ncol, nlyr)
 #> resolution  : 1, 1  (x, y)
 #> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> name        : lyr.1 
-#> min value   :     1 
-#> max value   :    90 
+#> name        : lyr.1
+#> min value   :     1
+#> max value   :    90
 
 # Create tibble
 as_tbl <- as_tibble(r, xy = TRUE)
@@ -116,13 +115,13 @@ as_tbl
 # From tibble
 newrast <- as_spatraster(as_tbl, crs = "EPSG:3857")
 newrast
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 30, 3, 1  (nrow, ncol, nlyr)
 #> resolution  : 1, 1  (x, y)
 #> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)
-#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857) 
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
 #> source(s)   : memory
-#> name        : lyr.1 
-#> min value   :     1 
-#> max value   :    90 
+#> name        : lyr.1
+#> min value   :     1
+#> max value   :    90
 ```

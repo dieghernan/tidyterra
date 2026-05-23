@@ -42,7 +42,8 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 - x:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
@@ -72,14 +73,14 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 - .drop:
 
-  **\[deprecated\]** Argument not longer supported; empty groups are
+  **\[deprecated\]** Argument no longer supported, empty groups are
   always removed (see
   [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html),
   `.drop = TRUE` argument).
 
 - .dissolve:
 
-  logical. Should borders between aggregated geometries be dissolved?
+  Logical. If `TRUE`, dissolve borders between aggregated geometries.
 
 ## Value
 
@@ -109,6 +110,7 @@ this. See also
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on group of rows:
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
@@ -116,11 +118,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
@@ -141,52 +145,52 @@ f <- system.file("ex/lux.shp", package = "terra")
 p <- vect(f)
 
 p |> count(NAME_1, sort = TRUE)
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1     n
-#>  type        :        <chr> <int>
-#>  values      :     Diekirch     5
-#>                  Luxembourg     4
-#>                Grevenmacher     3
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     n
+#> type        :        <chr> <int>
+#> values      :     Diekirch     5
+#>                 Luxembourg     4
+#>               Grevenmacher     3
 
 p |> count(pop = ifelse(POP < 20000, "A", "B"))
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 2, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   pop     n
-#>  type        : <chr> <int>
-#>  values      :     A     5
-#>                    B     7
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 2, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   pop     n
+#> type        : <chr> <int>
+#> values      :     A     5
+#>                   B     7
 
 # tally() is a lower-level function that assumes you've done the grouping
 p |> tally()
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 1, 1  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :     n
-#>  type        : <int>
-#>  values      :    12
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 1, 1  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :     n
+#> type        : <int>
+#> values      :    12
 
 p |>
   group_by(NAME_1) |>
   tally()
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 3, 2  (geometries, attributes)
-#>  extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :       NAME_1     n
-#>  type        :        <chr> <int>
-#>  values      :     Diekirch     5
-#>                Grevenmacher     3
-#>                  Luxembourg     4
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 3, 2  (geometries, attributes)
+#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :       NAME_1     n
+#> type        :        <chr> <int>
+#> values      :     Diekirch     5
+#>               Grevenmacher     3
+#>                 Luxembourg     4
 
 # Dissolve geometries by default
 

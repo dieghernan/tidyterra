@@ -1,13 +1,12 @@
 # Extract a single layer/attribute
 
 [`pull()`](https://dplyr.tidyverse.org/reference/pull.html) is similar
-to `$` on a data frame. It's mostly useful because it looks a little
-nicer in pipes and it can optionally name the output.
+to `$` on a data frame. It is mostly useful because it looks nicer in
+pipes and can optionally name the output.
 
-**It is possible to extract the geographic coordinates of a
-`SpatRaster`**. You need to use `pull(.data, x, xy = TRUE)`. `x` and `y`
-are reserved names on terra, since they refer to the geographic
-coordinates of the layer.
+**You can extract the geographic coordinates of a `SpatRaster`**. Use
+`pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names on terra,
+since they refer to the geographic coordinates of the layer.
 
 See **Examples** and section **About layer names** on
 [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
@@ -56,15 +55,14 @@ pull(.data, var = -1, name = NULL, ...)
 - ...:
 
   Arguments passed on to
-  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
+  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
 
 ## Value
 
 A vector the same number of cells/geometries as `.data`.
 
-On `SpatRaster` objects, note that the default (`na.rm = FALSE`) would
-remove empty cells, so you may need to pass (`na.rm = FALSE`) to `...`.
-See
+On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
+empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
@@ -119,11 +117,13 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
+[`cross-join.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
 [`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group-trim.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
@@ -136,6 +136,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 ## Examples
 
 ``` r
+
 library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 r <- rast(f)

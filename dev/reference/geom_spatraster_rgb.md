@@ -2,8 +2,8 @@
 
 This geom is used to visualise `SpatRaster` objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
-as RGB images. The layers are combined such that they represent the red,
-green and blue channel.
+as RGB images. The layers are combined so they represent the red, green
+and blue channels.
 
 For plotting `SpatRaster` objects by layer values use
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md).
@@ -22,7 +22,7 @@ geom_spatraster_rgb(
   g = 2,
   b = 3,
   alpha = 1,
-  maxcell = 500000,
+  maxcell = 5e+05,
   max_col_value = 255,
   ...,
   stretch = NULL,
@@ -33,7 +33,7 @@ geom_spatraster_rgb(
 
 ## Source
 
-Based on the `layer_spatial()` implementation on
+Based on the `layer_spatial()` implementation in the
 [ggspatial](https://CRAN.R-project.org/package=ggspatial) package.
 Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
 [ggspatial
@@ -56,8 +56,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - r, g, b:
 
-  Integer representing the number of layer of `data` to be considered as
-  the red (`r`), green (`g`) and blue (`b`) channel.
+  Integer giving the layer number in `data` used for the red (`r`),
+  green (`g`) and blue (`b`) channel.
 
 - alpha:
 
@@ -66,11 +66,11 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - maxcell:
 
-  positive integer. Maximum number of cells to use for the plot.
+  Positive integer. Maximum number of cells to use for the plot.
 
 - max_col_value:
 
-  Number giving the maximum of the color values range. When this is
+  Number giving the upper bound of the color value range. When this is
   `255` (the default), the result is computed most efficiently. See
   [`grDevices::rgb()`](https://rdrr.io/r/grDevices/rgb.html).
 
@@ -129,9 +129,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - mask_projection:
 
-  logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
-  input extent. For example, to avoid data wrapping around the date-line
-  in Equal Area projections. This argument is passed to
+  Logical, defaults to `FALSE`. If `TRUE`, mask out areas outside the
+  input extent. For example, to avoid data wrapping around the dateline
+  in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
   when reprojecting the `SpatRaster`.
 
@@ -152,9 +152,9 @@ ignored.
 
 ## Coords
 
-When the `SpatRaster` does not present a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption on the
-scales.
+When the `SpatRaster` does not have a CRS (i.e.,
+`terra::crs(rast) == ""`) the geom does not make any assumption about
+the scales.
 
 On `SpatRaster` that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -167,8 +167,8 @@ reprojected**.
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
 [`grDevices::rgb()`](https://rdrr.io/r/grDevices/rgb.html).
 
-You can get also RGB tiles from the
-[maptiles](https://CRAN.R-project.org/package=maptiles) package, see
+You can also get RGB tiles from the
+[maptiles](https://CRAN.R-project.org/package=maptiles) package. See
 [`maptiles::get_tiles()`](https://rdrr.io/pkg/maptiles/man/get_tiles.html).
 
 Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
@@ -184,7 +184,7 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
 ``` r
 # \donttest{
 
-# Tile of Castille and Leon (Spain) from OpenStreetMap
+# Tile of Castile and Leon (Spain) from OpenStreetMap
 file_path <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 
 library(terra)

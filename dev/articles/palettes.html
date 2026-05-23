@@ -13,8 +13,8 @@
 <link rel="manifest" href="../site.webmanifest">
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="../katex-auto.js"></script><script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,7 @@
     font-size: 1.25rem;
   }
 </style>
-<p>This page shows a <a href="https://biati-digital.github.io/glightbox/" class="external-link">Lightbox gallery</a> of maps that can be displayed with the gradient fill scales included with <strong>tidyterra</strong>. A basic code to generate this map is:</p>
+<p>This page shows a <a href="https://biati-digital.github.io/glightbox/" class="external-link">lightbox gallery</a> of maps that can be displayed with the gradient fill scales included with <strong>tidyterra</strong>. A basic example for generating maps like these is:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -130,7 +130,7 @@
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># Use the palette you like, in this case:</span></span>
+<span>  <span class="co"># Use the selected palette.</span></span>
 <span>  <span class="fu"><a href="../reference/scale_hypso.html">scale_fill_hypso_c</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -138,7 +138,7 @@
 <code>scale_fill_terrain_*</code> and <code>scale_fill_wiki_*</code>
 <a class="anchor" aria-label="anchor" href="#scale_fill_terrain_-and-scale_fill_wiki_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_terrain.html">scale_fill_terrain_c()</a></code> and <code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code> for more info.</p>
+<p>See <code><a href="../reference/scale_terrain.html">scale_fill_terrain_c()</a></code> and <code><a href="../reference/scale_wiki.html">scale_fill_wiki_c()</a></code> for details.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -152,7 +152,7 @@
 </section><section class="level2"><h2 id="scale_fill_whitebox_">
 <code>scale_fill_whitebox_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_whitebox_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code> for more info.</p>
+<p>See <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code> for details.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -203,7 +203,7 @@
 </section><section class="level2"><h2 id="scale_fill_hypso_">
 <code>scale_fill_hypso_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_hypso_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code> for more info.</p>
+<p>See <code><a href="../reference/scale_hypso.html">scale_fill_hypso_c()</a></code> for details.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -342,7 +342,7 @@
 </section><section class="level2"><h2 id="scale_fill_cross_blended_">
 <code>scale_fill_cross_blended_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_cross_blended_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code> for more info.</p>
+<p>See <code><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c()</a></code> for details.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -364,7 +364,7 @@
 </section><section class="level2"><h2 id="scale_fill_grass_">
 <code>scale_fill_grass_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_grass_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> for more info. Plots produced using <code>use_grass_range = FALSE</code>.</p>
+<p>See <code><a href="../reference/scale_grass.html">scale_fill_grass_c()</a></code> for details. These plots are produced with <code>use_grass_range = FALSE</code>.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -575,7 +575,7 @@
 </section><section class="level2"><h2 id="scale_fill_princess_">
 <code>scale_fill_princess_*</code><a class="anchor" aria-label="anchor" href="#scale_fill_princess_"></a>
 </h2>
-<p>Check <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> for more info.</p>
+<p>See <code><a href="../reference/scale_princess.html">scale_fill_princess_c()</a></code> for details.</p>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
