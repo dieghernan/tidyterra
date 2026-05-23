@@ -5,7 +5,7 @@
 wraps
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and preserves groups created with
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md).
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
 
 ## Usage
 

@@ -4,7 +4,7 @@ The easiest way to create a grouped `SpatVector` is to call the
 [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
 method on a `SpatVector`: this will take care of capturing the
 unevaluated expressions for you. See
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 for details.
 
 This function is the adapted version of

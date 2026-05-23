@@ -117,7 +117,7 @@ includes the target coordinate reference system. See <code><a href="pull_crs.htm
     <p>This function differs from <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code> in the following ways:</p><ul><li><p>Rows with geometry values <code>NA</code> or <code>""</code> are removed before conversion.</p></li>
 <li><p>If <code>x</code> is a grouped data frame (see <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code>), the grouping
 variables are transferred and a grouped <code>SpatVector</code> is created (see
-<code><a href="group-by.SpatVector.html">group_by.SpatVector()</a></code>).</p></li>
+<code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>).</p></li>
 <li><p>If no <code>crs</code> is provided and the tibble has been created with the method
 <code><a href="as_tibble.Spat.html">as_tibble.SpatVector()</a></code>, the <code>crs</code> is inferred from
 <code><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr(x, "crs")</a></code>.</p></li>

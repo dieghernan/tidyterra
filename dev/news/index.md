@@ -5,19 +5,19 @@
 - [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
   supports
   [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
-- [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.md)
+- [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
+  matches each `SpatVector` feature in `x` with every row in `y`.
+- [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md)
   splits grouped `SpatVector` objects into a list of `SpatVector`
   objects.
-- [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md)
-  matches each `SpatVector` feature in `x` with every row in `y`.
-- [`group_trim.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md)
+- [`group_trim.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_trim.SpatVector.md)
   drops unused factor levels in grouping variables.
 - [`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md)
   creates nested `SpatVector` list-columns.
 - [`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md)
   duplicates `SpatVector` features according to a weighting variable.
-- `unite.Spat*()` combines several `SpatRaster` layers or `SpatVector`
-  attributes.
+- [`?unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+  combines several `SpatRaster` layers or `SpatVector` attributes.
 
 ## tidyterra 1.1.0
 
@@ -303,8 +303,8 @@ CRAN release: 2023-03-17
   [`anti_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md),
   [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
-  [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+  [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
   [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
   [`tally.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
   [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md)

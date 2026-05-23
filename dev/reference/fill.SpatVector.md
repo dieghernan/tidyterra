@@ -52,7 +52,7 @@ function for `SpatVector`.
 ## Grouped `SpatVector`
 
 With grouped `SpatVector` created by
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`fill()`](https://tidyr.tidyverse.org/reference/fill.html) will be
 applied *within* each group, meaning that it won't fill across group
 boundaries.
@@ -75,7 +75,7 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
 [`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 

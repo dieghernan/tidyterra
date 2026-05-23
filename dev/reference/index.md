@@ -102,14 +102,11 @@ Verbs that mainly operate on groups of rows.
 
   Count the observations in each `SpatVector` group
 
-- [`group_by(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)
-  [`ungroup(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)
+- [`group_by(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
+  [`ungroup(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
   :
 
   Group a `SpatVector` by one or more variables
-
-- [`group_trim(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.md)
-  **\[experimental\]** : Trim grouping structure
 
 - [`rowwise(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
   :
@@ -136,7 +133,7 @@ Verbs that mainly operate on pairs of `Spat*` objects and data frames.
 
   Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
 
-- [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.md)
+- [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
   :
 
   Cross joins for `SpatVector` objects

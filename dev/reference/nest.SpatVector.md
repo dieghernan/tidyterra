@@ -60,6 +60,10 @@ nest(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)
 
 A tibble with one or more list-columns of `SpatVector` objects.
 
+## [terra](https://CRAN.R-project.org/package=terra) equivalent
+
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
+
 ## Methods
 
 Implementation of the **generic**
@@ -75,7 +79,8 @@ objects and cannot be passed directly to
 
 ## See also
 
-[`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html)
+[`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html),
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
@@ -85,34 +90,12 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
 [`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
 ``` r
-library(dplyr)
-library(tidyr)
-#> 
-#> Attaching package: ‘tidyr’
-#> The following object is masked from ‘package:terra’:
-#> 
-#>     extract
-
 v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-
-nest(v, .by = cpro)
-#> # A tibble: 9 × 2
-#>   cpro  data          
-#>   <chr> <list>        
-#> 1 05    <SpatVctr[,2]>
-#> 2 09    <SpatVctr[,2]>
-#> 3 24    <SpatVctr[,2]>
-#> 4 34    <SpatVctr[,2]>
-#> 5 37    <SpatVctr[,2]>
-#> 6 40    <SpatVctr[,2]>
-#> 7 42    <SpatVctr[,2]>
-#> 8 47    <SpatVctr[,2]>
-#> 9 49    <SpatVctr[,2]>
 
 v |>
   group_by(cpro) |>
@@ -130,4 +113,25 @@ v |>
 #> 7 42    <SpatVctr[,2]>
 #> 8 47    <SpatVctr[,2]>
 #> 9 49    <SpatVctr[,2]>
+
+# Convert to named SpatVectorCollection.
+nested <- nest(v, .by = cpro)
+
+sv <- pull(nested, data)
+names(sv) <- pull(nested, cpro)
+
+terra::svc(sv)
+#>  class       : SpatVectorCollection
+#>  length      : 9
+#>  geometry    : polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>                polygons (1)
+#>  crs (first) : ETRS89-extended / LAEA Europe (EPSG:3035)
+#>  names       : 05, 09, 24, 34, 37, 40, 42, 47, 49
 ```

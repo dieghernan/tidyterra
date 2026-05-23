@@ -186,7 +186,7 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
 [`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
@@ -195,6 +195,11 @@ Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 
 library(dplyr)
 library(tidyr)
+#> 
+#> Attaching package: ‘tidyr’
+#> The following object is masked from ‘package:terra’:
+#> 
+#>     extract
 library(ggplot2)
 library(terra)
 

@@ -14,8 +14,6 @@ group_vars() gives names of grouping variables as character vector.
 groups() gives the names of the grouping variables as a list of symbols.
 group_size() gives the size of each group.
 n_groups() gives the total number of groups.
-group_split()  returns one
-SpatVector for each group.
 
 
 See dplyr::group_data()."><meta property="og:description" content="This collection of functions accesses data about grouped SpatVector objects
@@ -33,8 +31,6 @@ group_vars() gives names of grouping variables as character vector.
 groups() gives the names of the grouping variables as a list of symbols.
 group_size() gives the size of each group.
 n_groups() gives the total number of groups.
-group_split()  returns one
-SpatVector for each group.
 
 
 See dplyr::group_data()."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
@@ -111,8 +107,6 @@ that gives the group that each row belongs to.</p></li>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">groups()</a></code> gives the names of the grouping variables as a list of symbols.</p></li>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_size()</a></code> gives the size of each group.</p></li>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">n_groups()</a></code> gives the total number of groups.</p></li>
-<li><p><code><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="figures/lifecycle-experimental.svg" alt="[Experimental]"></a> returns one
-<code>SpatVector</code> for each group.</p></li>
 </ul><p>See <code><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">dplyr::group_data()</a></code>.</p>
     </div>
 
@@ -137,10 +131,7 @@ that gives the group that each row belongs to.</p></li>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_size</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">n_groups</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="va">.tbl</span>, <span class="va">...</span>, .keep <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">n_groups</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -201,21 +192,6 @@ lists or vectors. These functions does not return <code>SpatVector</code> object
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_indices</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 1 1 1 1 1 1 1</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro   name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-AV    05  Avila     A     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-BU    09 Burgos     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-LE    24   Leon     B     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Grouped by one var</span></span></span>
 <span class="r-in"><span><span class="va">gv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">gr_1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -258,33 +234,6 @@ lists or vectors. These functions does not return <code>SpatVector</code> object
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_indices</a></span><span class="op">(</span><span class="va">gv</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 1 2 1 1 2 1 1 2</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="va">gv</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 6, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2331004  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro     name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-AV    05    Avila     A     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-BU    09   Burgos     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-P    34 Palencia     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2920108, 3216695, 2063930, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro    name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-LE    24    Leon     B     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SG    40 Segovia     B     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-ZA    49  Zamora     B     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Grouped by several vars</span></span></span>
 <span class="r-in"><span></span></span>
@@ -342,53 +291,6 @@ lists or vectors. These functions does not return <code>SpatVector</code> object
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_data.html" class="external-link">group_indices</a></span><span class="op">(</span><span class="va">gv2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1 2 3 2 1 4 1 2 3</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="va">gv2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2892687, 3341372, 2017622, 2202718  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro      name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-AV    05     Avila     A     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SA    37 Salamanca     A     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-SO    42     Soria     A     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 3038927, 3296229, 2122461, 2331004  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro       name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-BU    09     Burgos     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                ES-P    34   Palencia     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-VA    47 Valladolid     A     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 2, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 2920108, 3125372, 2132694, 2361600  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro   name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-LE    24   Leon     B     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               ES-ZA    49 Zamora     B     C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 1, 5  (geometries, attributes)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> extent      : 3088030, 3216695, 2063930, 2161552  (xmin, xmax, ymin, ymax)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> names       :  iso2  cpro    name  gr_1  gr_2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> type        : &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> values      : ES-SG    40 Segovia     B     D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

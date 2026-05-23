@@ -24,8 +24,8 @@
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/cross-join.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.html</loc></url>
@@ -39,9 +39,10 @@
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/grass_db.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group-trim.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/dev/reference/group_trim.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/index.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/dev/reference/is_grouped_spatvector.html</loc></url>

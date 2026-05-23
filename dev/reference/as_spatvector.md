@@ -68,7 +68,7 @@ in the following ways:
   [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)),
   the grouping variables are transferred and a grouped `SpatVector` is
   created (see
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group-by.SpatVector.md)).
+  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)).
 
 - If no `crs` is provided and the tibble has been created with the
   method
