@@ -1,5 +1,13 @@
 # tidyterra (development version)
 
+This release includes several improvements and new features generated with AI.
+
+- Package documentation was reviewed and updated with AI-assisted editing.
+
+## New methods
+
+AI-assisted generated methods.
+
 - `complete.SpatVector()` supports `tidyr::complete()`.
 - `cross_join.SpatVector()` matches each `SpatVector` feature in `x` with every
   row in `y`.
