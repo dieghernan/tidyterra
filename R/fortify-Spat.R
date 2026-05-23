@@ -1,11 +1,11 @@
 #' Fortify `Spat*` Objects
 #'
 #' @description
-#' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provide
+#' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provides
 #' native compatibility with [ggplot2::ggplot()].
 #'
-#' **Note that** these methods are now implemented as a wrapper of [`tidy.Spat`]
-#' methods.
+#' **Note that** these methods are now implemented as a wrapper around
+#' [`tidy.Spat`] methods.
 #'
 #' @param model A `SpatRaster` created with [terra::rast()], a `SpatVector`
 #'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
@@ -49,8 +49,8 @@
 #' The CRS of the `SpatRaster` can be retrieved with
 #' `attr(fortifiedSpatRaster, "crs")`.
 #'
-#' It is possible to convert the fortified object to a `SpatRaster`
-#' again with [as_spatraster()].
+#' You can convert the fortified object back to a `SpatRaster` with
+#' [as_spatraster()].
 #'
 #' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
 #' [tidyr::pivot_longer()]). The fortified object has the following

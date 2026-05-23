@@ -52,14 +52,19 @@ r |>
 \code{\link[tidyr:replace_na]{tidyr::replace_na()}}
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
-\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
+\code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
+\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.missing}

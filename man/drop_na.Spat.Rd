@@ -56,8 +56,8 @@ masking method based on the values of the layers (see
 \code{\link[terra:mask]{terra::mask()}}).
 
 \code{SpatRaster} layers are considered as columns and \code{SpatRaster} cells as rows,
-so rows (cells) with any \code{NA} value on any layer get an \code{NA} value. It is
-also possible to mask the cells (rows) based on the values of specific
+so rows (cells) with any \code{NA} value on any layer become \code{NA}. You can also
+mask the cells (rows) based on the values of specific
 layers (columns).
 
 \code{drop_na()} effectively removes outer cells that are \code{NA} (see
@@ -134,14 +134,19 @@ r |>
 \code{\link[tidyr:drop_na]{tidyr::drop_na()}}
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link{replace_na.Spat}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
+\code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
-\code{\link{replace_na.Spat}}
+\code{\link{replace_na.Spat}},
+\code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
+\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.missing}

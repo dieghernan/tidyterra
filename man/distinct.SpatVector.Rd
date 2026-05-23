@@ -38,8 +38,8 @@ Keep only unique/distinct rows and geometries from a \code{SpatVector}.
 Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} method.
 \subsection{\code{SpatVector}}{
 
-It is possible to remove duplicate geometries including the geometry
-variable explicitly in the \code{...} call. See \strong{Examples}.
+You can remove duplicate geometries by passing the reserved name
+\code{geometry} to \code{...}. See \strong{Examples}.
 }
 }
 
@@ -93,10 +93,12 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

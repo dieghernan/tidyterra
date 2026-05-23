@@ -7,7 +7,7 @@
 #'
 #' @param ... Objects to combine. The first argument must be a `SpatVector`.
 #'   Each subsequent argument can be a `SpatVector`, `sf/sfc` object or data
-#'   frame. Columns are matched by name, and any missing columns are filled with
+#'   frame. Columns are matched by name and any missing columns are filled with
 #'   `NA`.
 #' @inheritParams dplyr::bind_rows
 #'
@@ -202,7 +202,7 @@ bind_spat_rows <- function(..., .id = NULL) {
 crs_compare <- function(a, b, index) {
   if (!identical(pull_crs(a), pull_crs(b))) {
     cli::cli_alert_warning(paste0(
-      "Reprojecting object {.field {index}} in {.arg ...} since it",
+      "Reprojecting object {.field {index}} in {.arg ...} because it",
       " does not have the same CRS as object {.field 1}"
     ))
   }

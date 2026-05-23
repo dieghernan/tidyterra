@@ -117,6 +117,7 @@ p |>
 
 Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
@@ -124,11 +125,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

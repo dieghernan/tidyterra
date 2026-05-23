@@ -112,7 +112,7 @@ pivot_longer.SpatVector <- function(
   if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(paste0(
       "Cannot rebuild the {.cls SpatVector}, ",
-      "{.val geometry} column lost after pivoting"
+      "the {.val geometry} column was lost after pivoting"
     ))
   }
   # nocov end
@@ -138,7 +138,7 @@ remove_geom_col <- function(data, exp, var_name = "any") {
   sel_names <- names(nm)
   if ("geometry" %in% sel_names) {
     cli::cli_alert_warning(
-      "Ommiting {.val geometry} column from {.arg {var_name}} argument."
+      "Omitting {.val geometry} column from {.arg {var_name}} argument."
     )
 
     sel_names <- setdiff(sel_names, "geometry")

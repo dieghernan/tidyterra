@@ -1,11 +1,11 @@
 #' Extract a single layer/attribute
 #'
 #' @description
-#' `pull()` is similar to `$` on a data frame. It's mostly useful because it
-#' looks a little nicer in pipes and it can optionally name the output.
+#' `pull()` is similar to `$` on a data frame. It is mostly useful because it
+#' looks nicer in pipes and can optionally name the output.
 #'
-#' **It is possible to extract the geographic coordinates of a `SpatRaster`**.
-#' You need to use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
+#' **You can extract the geographic coordinates of a `SpatRaster`**.
+#' Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
 #' names on terra, since they refer to the geographic coordinates of the layer.
 #'
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].

@@ -87,7 +87,7 @@ stat_spatraster <- function(
     cli::cli_abort(paste(
       "{.fun tidyterra::stat_spatraster} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}"
+      "See {.help terra::vect}."
     ))
   }
 

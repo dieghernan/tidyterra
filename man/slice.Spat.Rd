@@ -168,14 +168,14 @@ See \code{\link[terra:mask]{terra::mask()}}.}
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
-\code{slice()} methods lets you index cells/rows/columns/geometries by their
-(integer) locations. It allows you to select, remove, and duplicate those
+\code{slice()} methods let you index cells/rows/columns/geometries by their
+(integer) locations. They allow you to select, remove, or duplicate those
 dimensions of a \verb{Spat*} object.
 
-\strong{If you want to slice your \code{SpatRaster} by geographic coordinates} use
-\code{\link[=filter.SpatRaster]{filter.SpatRaster()}} method.
+\strong{If you want to slice your \code{SpatRaster} by geographic coordinates, use
+\code{\link[=filter.SpatRaster]{filter.SpatRaster()}}}.
 
-It is accompanied by a number of helpers for common use cases:
+It includes helpers for common use cases:
 \itemize{
 \item \code{slice_head()} and \code{slice_tail()} select the first or last
 cells/geometries.
@@ -307,11 +307,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

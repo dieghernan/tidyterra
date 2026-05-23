@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' Extract the WKT version of the CRS associated with a string, number of
-#' sf/Spat* object.
+#' Extract the WKT version of the CRS associated with a string, number or
+#' `sf/Spat*` object.
 #'
 #' The
 #'
@@ -16,8 +16,8 @@
 #'
 #' ```
 #' representation of coordinate reference systems (CRS) is a character string
-#' that identifies precisely the arguments of each CRS. This is the current
-#' standard used on \CRANpkg{sf} and \CRANpkg{terra} packages.
+#' that identifies precisely the arguments of each CRS. It is the standard
+#' used by \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #' @seealso
 #'
@@ -40,12 +40,12 @@
 #'
 #' @details
 #'
-#' Although the WKT representation is the same, \CRANpkg{sf} and \CRANpkg{terra}
-#' API slightly differs. For example, \CRANpkg{sf} can do:
+#' Although the WKT representation is the same, the \CRANpkg{sf} and
+#' \CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
 #'
 #' `sf::st_transform(x, 25830)`
 #'
-#' While \CRANpkg{sf} equivalent is:
+#' While the \CRANpkg{terra} equivalent is:
 #'
 #' `terra::project(bb, "epsg:25830")`
 #'
@@ -54,7 +54,7 @@
 #'
 #' @section Internals:
 #'
-#' This is a thin wrapper of [sf::st_crs()] and [terra::crs()].
+#' A thin wrapper around [sf::st_crs()] and [terra::crs()].
 #'
 #' @examples
 #'
@@ -121,7 +121,7 @@ pull_crs <- function(.data, ...) {
 
   # All the rest, return empty with an alert
   cli::cli_alert_warning(paste(
-    "On {.fun tidyterra::pull_crs}\nNo wkt equivalent found.",
+    "On {.fun tidyterra::pull_crs}:\nNo WKT equivalent found.",
     "Returning {.val {NA}}"
   ))
   NA

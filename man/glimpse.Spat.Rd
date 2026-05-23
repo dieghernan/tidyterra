@@ -33,7 +33,7 @@ be used within a data pipeline.
 }
 \description{
 \code{glimpse()} is like a transposed version of \code{\link[=print]{print()}}: layers/columns run
-down the page, and data runs across. This makes it possible to see every
+down the page and data runs across. This makes it possible to see every
 layer/column in a \verb{Spat*} object.
 }
 \section{\CRANpkg{terra} equivalent}{
@@ -92,10 +92,12 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

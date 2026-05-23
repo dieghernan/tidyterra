@@ -151,7 +151,7 @@ geom_spatraster_contour <- function(
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_contour} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}"
+      "See {.help terra::vect}."
     ))
   }
 
@@ -297,13 +297,15 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(c(
-          " " = "Use {.code facet_wrap(~lyr)} for faceting or",
-          " " = paste(
-            "Use {.code aes(fill = <name_of_layer>)}",
-            "for displaying single layers"
+        cli::cli_bullets(
+          c(
+            "*" = "Use {.code facet_wrap(~lyr)} for faceting",
+            "*" = paste0(
+              "Use {.code aes(fill = <name_of_layer>)} ",
+              "to display a single layer"
+            )
           )
-        ))
+        )
       }
     }
     # Add coord to the params, so it can be forwarded to compute_group().

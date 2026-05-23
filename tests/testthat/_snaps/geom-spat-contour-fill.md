@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster_contour_filled(data = v)
     Condition
       Error in `geom_spatraster_contour_filled()`:
-      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster_contour_filled(data = 1:3)
     Condition
       Error in `geom_spatraster_contour_filled()`:
-      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
 
 ---
 
@@ -47,6 +47,6 @@
       end <- ggplot_build(aa)
     Message
       ! `tidyterra::geom_spatraster_contour_filled()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-        Use `facet_wrap(~lyr)` for faceting or
-        Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` for faceting
+      * Use `aes(fill = <name_of_layer>)` to display a single layer
 

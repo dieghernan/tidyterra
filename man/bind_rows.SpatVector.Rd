@@ -12,7 +12,7 @@ bind_spat_rows(..., .id = NULL)
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
 Each subsequent argument can be a \code{SpatVector}, \code{sf/sfc} object or data
-frame. Columns are matched by name, and any missing columns are filled with
+frame. Columns are matched by name and any missing columns are filled with
 \code{NA}.}
 
 \item{.id}{The name of an optional identifier column. Provide a string to
@@ -97,6 +97,7 @@ bind_spat_rows(list(
 
 Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
+\code{\link{cross-join.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{mutate-joins.SpatVector}}
 
@@ -104,11 +105,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{bind_cols.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},

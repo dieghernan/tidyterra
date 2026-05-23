@@ -1,4 +1,4 @@
-#' Create, modify, and delete cell values/layers/attributes of `Spat*` objects
+#' Create, modify and delete cell values/layers/attributes of `Spat*` objects
 #'
 #' @description
 #' `r lifecycle::badge("superseded")`

@@ -1,9 +1,9 @@
 #' Subset cells/geometries of `Spat*` objects
 #'
 #' @description
-#' These functions are used to subset a data frame, applying the expressions in
-#' `...` to determine which rows should be kept (for `filter()`) or dropped (
-#' for `filter_out()`).
+#' These functions subset a data frame by applying the expressions in `...`
+#' to determine which rows should be kept (for `filter()`) or dropped (for
+#' `filter_out()`).
 #'
 #' Multiple conditions can be supplied separated by a comma. These will be
 #' combined with the `&` operator. To combine comma separated conditions using
@@ -13,8 +13,8 @@
 #' behavior can affect how you write your conditions when missing values are
 #' involved. See [dplyr::filter()].
 #'
-#' **It is possible to filter a `SpatRaster` by its geographic coordinates**.
-#' You need to use `filter(.data, x > 42)`. Note that `x` and `y` are reserved
+#' **You can filter a `SpatRaster` by its geographic coordinates**.
+#' Use `filter(.data, x > 42)`. Note that `x` and `y` are reserved
 #' names on \CRANpkg{terra}, since they refer to the geographic coordinates of
 #' the layer.
 #'
@@ -36,7 +36,7 @@
 #' @inheritParams dplyr::filter
 #'
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Expressions that
-#'   return a logical value, and are defined in terms of the layers/attributes
+#'   return a logical value and are defined in terms of the layers/attributes
 #'   in `.data`. If multiple expressions are included, they are combined with
 #'   the `&` operator. Only cells/geometries for which all conditions evaluate
 #'   to `TRUE` are kept. See **Methods**.

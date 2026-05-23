@@ -17,13 +17,12 @@
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
-#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of arguments accepted by these scales.
+#' **Note that** \CRANpkg{tidyterra} documents only a subset of these
+#' additional arguments, so see the \CRANpkg{ggplot2} functions listed above for
+#' the full range.
 #'
-#' These palettes are an implementation of [terra::map.pal()], that is the
-#' default color palettes provided by [terra::plot()] (\CRANpkg{terra}
-#' `> 1.7.78`).
+#' These palettes implement [terra::map.pal()], the default color palettes used
+#' by [terra::plot()] in \CRANpkg{terra} versions above 1.7.78.
 #'
 #' @export
 #' @encoding UTF-8
@@ -79,8 +78,7 @@
 #'
 #' @details
 #' Some palettes are mapped by default to a specific range of values (see
-#' [grass_db]). However, it is possible to modify this behavior with the
-#' `use_grass_range` argument. When `FALSE`, the color scales are mapped to the
+#' [grass_db]). Set `use_grass_range = FALSE` to map the color scales to the
 #' range of values of the `color/fill` aesthetics. See **Examples**.
 #'
 #' When passing the `limits` argument, the colors are restricted to those

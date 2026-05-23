@@ -77,14 +77,19 @@ lux_blnk |>
 \code{\link[tidyr:fill]{tidyr::fill()}}
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
 \code{\link{replace_na.Spat}}
 
 Other \CRANpkg{tidyr} methods:
+\code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
+\code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
-\code{\link{replace_na.Spat}}
+\code{\link{replace_na.Spat}},
+\code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
+\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.missing}

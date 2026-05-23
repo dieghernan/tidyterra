@@ -8,13 +8,13 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 1.1.0
+version: 1.1.0.9000
 doi: 10.21105/joss.05751
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.tidyterra
-abstract: Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects from
-  the 'terra' package. It also provides 'ggplot2' geoms to visualize 'terra' objects.
+abstract: Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects created
+  by the 'terra' package and 'ggplot2' geoms to visualize those objects.
 authors:
 - family-names: Hernangómez
   given-names: Diego

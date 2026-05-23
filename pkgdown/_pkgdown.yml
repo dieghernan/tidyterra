@@ -89,11 +89,23 @@ reference:
     Pivoting changes the representation of a `SpatVector` object without
     changing its data.
   contents: has_concept("tidyr.pivot")
+- subtitle: Rows
+  desc: >
+    Tools for duplicating `SpatVector` features.
+  contents: has_concept("tidyr.rows")
 - subtitle: Missing values
   desc: >
     Tools for converting between implicit (absent rows) and explicit (`NA`)
-    missing values, and for handling explicit `NA` values.
+    missing values and for handling explicit `NA` values.
   contents: has_concept("tidyr.missing")
+- subtitle: Character vectors
+  desc: >
+    Tools for working with character layers and attributes.
+  contents: has_concept("tidyr.character")
+- subtitle: Nesting
+  desc: >
+    Tools for storing `SpatVector` objects in nested list-columns.
+  contents: has_concept("tidyr.nest")
 
 - title: "**ggplot2** methods"
   desc: >
@@ -123,13 +135,13 @@ reference:
 
 - title: Helpers
   desc: >
-    Additional functions provided by <a
+    Additional helper functions provided by <a
     href="https://CRAN.R-project.org/package=tidyterra"
     class="external-link"><span class="pkg">tidyterra</span></a>.
 - subtitle: Coercing objects
   desc: >
-    Convert `Spat*` objects to other object types or create `SpatRaster`
-    objects from tibbles.
+    Convert `Spat*` objects to other object types or create `SpatRaster` objects
+    from tibbles.
   contents: has_concept("coerce")
 - subtitle: Other helpers
   contents: has_concept("helpers")

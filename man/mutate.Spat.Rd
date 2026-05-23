@@ -5,7 +5,7 @@
 \alias{mutate.Spat}
 \alias{mutate.SpatRaster}
 \alias{mutate.SpatVector}
-\title{Create, modify, and delete cell values/layers/attributes of \verb{Spat*} objects}
+\title{Create, modify and delete cell values/layers/attributes of \verb{Spat*} objects}
 \usage{
 \method{mutate}{SpatRaster}(
   .data,
@@ -149,11 +149,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},

@@ -2,9 +2,9 @@
 #'
 #' @description
 #'
-#' [as_sf()] turns a `SpatVector` to [`sf`][sf::st_sf] object. This is a wrapper
-#' of [sf::st_as_sf()] with the particularity that the groups created with
-#' [group_by.SpatVector()] are preserved.
+#' [as_sf()] coerces a `SpatVector` into an [`sf`][sf::st_sf] object. It wraps
+#' [sf::st_as_sf()] and preserves groups created with
+#' [group_by.SpatVector()].
 #'
 #' @return
 #' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for

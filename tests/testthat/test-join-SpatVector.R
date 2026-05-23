@@ -65,6 +65,9 @@ test_that("joins preserve groups", {
 
   semi_join(gf1, gf2, by = "a")
   expect_equal(group_vars(out), "a")
+
+  out <- cross_join(gf1, data.frame(b = c("x", "y")))
+  expect_equal(group_vars(out), "a")
 })
 
 test_that("rowwise group structure is updated after a join", {
@@ -95,4 +98,5 @@ test_that("Test errors", {
   expect_snapshot(right_join(df1, df1), error = TRUE)
   expect_snapshot(semi_join(df1, sf::st_as_sf(df1)), error = TRUE)
   expect_snapshot(anti_join(df1, df1), error = TRUE)
+  expect_snapshot(cross_join(df1, df1), error = TRUE)
 })

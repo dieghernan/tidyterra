@@ -2,9 +2,9 @@
 #'
 #' @description
 #'
-#' `as_spatraster()` turns an existing data frame or [tibble][tibble::tbl_df]
-#' into a `SpatRaster`. This is a wrapper of [terra::rast()] S4 method for
-#' signature `data.frame`.
+#' `as_spatraster()` converts a data frame or [tibble][tibble::tbl_df] into a
+#' `SpatRaster`. It wraps the [terra::rast()] S4 method for signature
+#' `data.frame`.
 #'
 #' @return
 #' A `SpatRaster`.

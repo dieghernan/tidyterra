@@ -113,8 +113,8 @@ A \code{SpatVector} object.
 }
 \description{
 Mutating joins add columns from \code{y} to \code{x}, matching observations based on
-the keys. There are four mutating joins: the inner join and the three outer
-joins.
+the keys. The four mutating joins are: inner join, left join, right join and
+full join.
 
 See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 }
@@ -133,11 +133,11 @@ Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inne
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.
 
-Note that for \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_join()}} it is possible to return
-empty geometries (since \code{y} is expected to be a data frame with no
-geometries). Although this kind of joining operations may not be common on
-spatial manipulation, the function may crash because handling of \code{EMPTY}
-geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
+For \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_join()}}, empty geometries may be returned
+(since \code{y} is expected to be a data frame with no
+geometries). Although these join operations are not common in spatial
+workflows, the function may crash because handling of \code{EMPTY}
+geometries differs between \CRANpkg{terra} and \CRANpkg{sf}.
 }
 }
 
@@ -197,6 +197,7 @@ ggplot(full, aes(x, y)) +
 Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
+\code{\link{cross-join.SpatVector}},
 \code{\link{filter-joins.SpatVector}}
 
 Other \CRANpkg{dplyr} methods:
@@ -204,11 +205,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{pull.Spat}},
 \code{\link{relocate.Spat}},

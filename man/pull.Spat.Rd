@@ -42,11 +42,11 @@ empty cells, so you may need to pass (\code{na.rm = FALSE}) to \code{...}. See
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 }
 \description{
-\code{pull()} is similar to \code{$} on a data frame. It's mostly useful because it
-looks a little nicer in pipes and it can optionally name the output.
+\code{pull()} is similar to \code{$} on a data frame. It is mostly useful because it
+looks nicer in pipes and can optionally name the output.
 
-\strong{It is possible to extract the geographic coordinates of a \code{SpatRaster}}.
-You need to use \code{pull(.data, x, xy = TRUE)}. \code{x} and \code{y} are reserved
+\strong{You can extract the geographic coordinates of a \code{SpatRaster}}.
+Use \code{pull(.data, x, xy = TRUE)}. \code{x} and \code{y} are reserved
 names on terra, since they refer to the geographic coordinates of the layer.
 
 See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
@@ -123,11 +123,13 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link{cross-join.SpatVector}},
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
 \code{\link{filter.Spat}},
 \code{\link{glimpse.Spat}},
 \code{\link{group-by.SpatVector}},
+\code{\link{group-trim.SpatVector}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
 \code{\link{relocate.Spat}},

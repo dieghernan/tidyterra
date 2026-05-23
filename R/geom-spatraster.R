@@ -155,16 +155,16 @@ geom_spatraster <- function(
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}"
+      "See {.help terra::vect}."
     ))
   }
 
   # Kindly warn in RGB
   if (terra::has.RGB(data)) {
     cli::cli_alert_warning(paste(
-      "RGB specification detected. Maybe use",
-      cli::style_bold("{.fun tidyterra::geom_spatraster_rgb}:"),
-      "instead?"
+      "RGB specification detected. Use",
+      cli::style_bold("{.fun tidyterra::geom_spatraster_rgb}"),
+      "instead."
     ))
   }
 
@@ -274,13 +274,15 @@ StatTerraSpatRaster <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(c(
-          "*" = "Use {.code facet_wrap(~lyr)} for faceting or",
-          "*" = paste(
-            "Use {.code aes(fill = <name_of_layer>)}",
-            "for displaying single layers"
+        cli::cli_bullets(
+          c(
+            "*" = "Use {.code facet_wrap(~lyr)} for faceting",
+            "*" = paste0(
+              "Use {.code aes(fill = <name_of_layer>)} ",
+              "to display a single layer"
+            )
           )
-        ))
+        )
       }
     }
     # add coord to the params, so it can be forwarded to compute_group()
