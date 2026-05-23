@@ -1,16 +1,15 @@
 # tidyterra (development version)
 
 - `complete.SpatVector()` supports `tidyr::complete()`.
-- `group_split.SpatVector()` splits grouped `SpatVector` objects into a list of
-  `SpatVector` objects.
 - `cross_join.SpatVector()` matches each `SpatVector` feature in `x` with every
   row in `y`.
+- `group_split.SpatVector()` splits grouped `SpatVector` objects into a list of
+  `SpatVector` objects.
 - `group_trim.SpatVector()` drops unused factor levels in grouping variables.
 - `nest.SpatVector()` creates nested `SpatVector` list-columns.
 - `uncount.SpatVector()` duplicates `SpatVector` features according to a
   weighting variable.
-- `unite.Spat*()` combines several `SpatRaster` layers or `SpatVector`
-  attributes.
+- `?unite.Spat` combines several `SpatRaster` layers or `SpatVector` attributes.
 
 # tidyterra 1.1.0
 

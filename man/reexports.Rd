@@ -4,13 +4,14 @@
 %   R/distinct-SpatVector.R, R/drop-na-Spat.R, R/fill-SpatVector.R,
 %   R/filter-Spat.R, R/fortify-Spat.R, R/glance-Spat.R, R/glimpse-Spat.R,
 %   R/group-by-SpatVector.R, R/group-data-SpatVector.R,
-%   R/group-trim.SpatVector.R, R/join-SpatVector.R, R/join-cross.SpatVector.R,
-%   R/mutate-Spat.R, R/nest-SpatVector.R, R/pivot-long-SpatVector.R,
-%   R/pivot-wide-SpatVector.R, R/pull-Spat.R, R/relocate-Spat.R,
-%   R/rename-Spat.R, R/replace-na-Spat.R, R/required-pkgs-Spat.R,
-%   R/rowwise-SpatVector.R, R/select-Spat.R, R/slice-Spat.R,
-%   R/summarise-SpatVector.R, R/tidy-Spat.R, R/tidyterra-package.R,
-%   R/transmute-Spat.R, R/uncount-SpatVector.R, R/unite-Spat.R
+%   R/group-split-SpatVector.R, R/group-trim.SpatVector.R, R/join-SpatVector.R,
+%   R/join-cross.SpatVector.R, R/mutate-Spat.R, R/nest-SpatVector.R,
+%   R/pivot-long-SpatVector.R, R/pivot-wide-SpatVector.R, R/pull-Spat.R,
+%   R/relocate-Spat.R, R/rename-Spat.R, R/replace-na-Spat.R,
+%   R/required-pkgs-Spat.R, R/rowwise-SpatVector.R, R/select-Spat.R,
+%   R/slice-Spat.R, R/summarise-SpatVector.R, R/tidy-Spat.R,
+%   R/tidyterra-package.R, R/transmute-Spat.R, R/uncount-SpatVector.R,
+%   R/unite-Spat.R
 \docType{import}
 \encoding{UTF-8}
 \name{reexports}

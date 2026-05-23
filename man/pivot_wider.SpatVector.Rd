@@ -183,7 +183,7 @@ Other \CRANpkg{tidyr} methods:
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link{replace_na.Spat}},
 \code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
-\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
+\code{\link{unite.Spat}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.pivot}

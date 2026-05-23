@@ -10,13 +10,13 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @rdname group-trim.SpatVector
-#' @name group-trim.SpatVector
+#' @rdname group_trim.SpatVector
+#' @name group_trim.SpatVector
 #'
 #' @seealso [dplyr::group_trim()].
 #'
-#' @family dplyr.groups
-#' @family dplyr.methods
+#' @keywords internal
+#' @family dplyr.group_funs
 #'
 #' @importFrom dplyr group_trim
 #'
@@ -31,7 +31,7 @@
 #' objects.
 #'
 #' @details
-#' See **Details** on [dplyr::group_by()].
+#' See **Details** on [dplyr::group_trim()].
 #'
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

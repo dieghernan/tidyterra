@@ -9,10 +9,14 @@
 #'
 #' @return A tibble with one or more list-columns of `SpatVector` objects.
 #'
-#' @seealso [tidyr::nest()]
+#' @seealso [tidyr::nest()], [terra::svc()]
 #'
 #' @family tidyr.nest
 #' @family tidyr.methods
+#'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::svc()].
 #'
 #' @section Methods:
 #'
@@ -25,16 +29,19 @@
 #' and cannot be passed directly to [tidyr::unnest()].
 #'
 #' @examples
-#' library(dplyr)
-#' library(tidyr)
-#'
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-#'
-#' nest(v, .by = cpro)
 #'
 #' v |>
 #'   group_by(cpro) |>
 #'   nest()
+#'
+#' # Convert to named SpatVectorCollection.
+#' nested <- nest(v, .by = cpro)
+#'
+#' sv <- pull(nested, data)
+#' names(sv) <- pull(nested, cpro)
+#'
+#' terra::svc(sv)
 #'
 #' @export
 #' @encoding UTF-8

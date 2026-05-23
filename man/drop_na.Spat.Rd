@@ -146,7 +146,7 @@ Other \CRANpkg{tidyr} methods:
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
 \code{\link{replace_na.Spat}},
 \code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
-\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
+\code{\link{unite.Spat}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.missing}

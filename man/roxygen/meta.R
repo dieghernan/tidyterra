@@ -10,12 +10,13 @@ list(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
       "group of rows:"
     ),
+    dplyr.group_funs = "Other \\CRANpkg{dplyr} grouping methods:",
     dplyr.pairs = paste0(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
       "pairs \\code{Spat*}/data.frame:"
     ),
     tidyr.methods = "Other \\CRANpkg{tidyr} methods:",
-    tidyr.character = "Other \\CRANpkg{tidyr} character functions:",
+    tidyr.character = "Other \\CRANpkg{tidyr} character methods:",
     tidyr.pivot = "Other \\CRANpkg{tidyr} verbs for pivoting:",
     tidyr.rows = "Other \\CRANpkg{tidyr} verbs for rows:",
     tidyr.missing = paste0(
@@ -25,7 +26,7 @@ list(
     ggplot2.utils = "Other \\CRANpkg{ggplot2} utils:",
     ggplot2.methods = "Other \\CRANpkg{ggplot2} methods:",
     joins = "Other joins:",
-    grouping = "Other grouping functions:",
+    grouping = "Other grouping methods:",
     gradients = "Other gradient scales and palettes for hypsometry:"
   )
 )

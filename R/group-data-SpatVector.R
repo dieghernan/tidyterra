@@ -8,25 +8,15 @@
 #'   The columns give the values of the grouping variables. The last column,
 #'   always called `.rows`, is a list of integer vectors that gives the
 #'   location of the rows in each group.
-#'
 #' - [group_keys()] returns a tibble describing the groups.
-#'
 #' - [group_rows()] returns a list of integer vectors giving the rows that
 #'   each group contains.
-#'
 #' - [group_indices()] returns an integer vector the same length as `.data`
 #'   that gives the group that each row belongs to.
-#'
 #' - [group_vars()] gives names of grouping variables as character vector.
-#'
 #' - [groups()] gives the names of the grouping variables as a list of symbols.
-#'
 #' - [group_size()] gives the size of each group.
-#'
 #' - [n_groups()] gives the total number of groups.
-#'
-#' - [group_split()] `r lifecycle::badge("experimental")` returns one
-#'   `SpatVector` for each group.
 #'
 #' See [dplyr::group_data()].
 #'
@@ -72,8 +62,6 @@
 #'
 #' group_indices(v)
 #'
-#' group_split(v)
-#'
 #' # Grouped by one var
 #' gv <- group_by(v, gr_1)
 #'
@@ -92,8 +80,6 @@
 #' group_data(gv)
 #'
 #' group_indices(gv)
-#'
-#' group_split(gv)
 #'
 #' # Grouped by several vars
 #'
@@ -114,8 +100,6 @@
 #' group_data(gv2)
 #'
 #' group_indices(gv2)
-#'
-#' group_split(gv2)
 group_data.SpatVector <- function(.data) {
   # Dispatch to dplyr
   dplyr::group_data(tbl_for_groups(.data))
@@ -202,29 +186,6 @@ n_groups.SpatVector <- function(x) {
 
 #' @export
 dplyr::n_groups
-
-#' @export
-#' @encoding UTF-8
-#' @rdname group_data.SpatVector
-#' @importFrom dplyr group_split
-group_split.SpatVector <- function(.tbl, ..., .keep = TRUE) {
-  tbl <- as_tibble(.tbl)
-  ind <- make_safe_index("tterra_index", tbl)
-  tbl[[ind]] <- seq_len(nrow(tbl))
-
-  split_tbls <- dplyr::group_split(tbl, ..., .keep = .keep)
-
-  lapply(split_tbls, function(x) {
-    split_index <- as.integer(x[[ind]])
-    split_attrs <- x[setdiff(names(x), ind)]
-
-    vend <- cbind(.tbl[split_index, 0], split_attrs)
-    group_prepare_spat(vend, split_attrs)
-  })
-}
-
-#' @export
-dplyr::group_split
 
 # Helper
 tbl_for_groups <- function(x) {

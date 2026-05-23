@@ -42,6 +42,7 @@
 #' @export
 #' @encoding UTF-8
 #' @rdname unite.Spat
+#' @name unite.Spat
 #' @importFrom tidyr unite
 unite.SpatRaster <- function(
   data,

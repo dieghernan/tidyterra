@@ -49,6 +49,12 @@ A tibble with one or more list-columns of \code{SpatVector} objects.
 \description{
 \code{nest()} creates list-columns of \code{SpatVector} objects.
 }
+\section{\CRANpkg{terra} equivalent}{
+
+
+\code{\link[terra:svc]{terra::svc()}}.
+}
+
 \section{Methods}{
 
 
@@ -62,20 +68,23 @@ and cannot be passed directly to \code{\link[tidyr:unnest]{tidyr::unnest()}}.
 }
 
 \examples{
-library(dplyr)
-library(tidyr)
-
 v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-
-nest(v, .by = cpro)
 
 v |>
   group_by(cpro) |>
   nest()
 
+# Convert to named SpatVectorCollection.
+nested <- nest(v, .by = cpro)
+
+sv <- pull(nested, data)
+names(sv) <- pull(nested, cpro)
+
+terra::svc(sv)
+
 }
 \seealso{
-\code{\link[tidyr:nest]{tidyr::nest()}}
+\code{\link[tidyr:nest]{tidyr::nest()}}, \code{\link[terra:svc]{terra::svc()}}
 
 Other \CRANpkg{tidyr} methods:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},
@@ -85,7 +94,7 @@ Other \CRANpkg{tidyr} methods:
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},
 \code{\link{replace_na.Spat}},
 \code{\link[=uncount.SpatVector]{uncount.SpatVector()}},
-\code{\link[=unite.SpatRaster]{unite.SpatRaster()}}
+\code{\link{unite.Spat}}
 }
 \concept{tidyr.methods}
 \concept{tidyr.nest}

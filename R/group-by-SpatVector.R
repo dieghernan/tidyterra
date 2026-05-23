@@ -8,13 +8,14 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @rdname group-by.SpatVector
-#' @name group-by.SpatVector
+#' @rdname group_by.SpatVector
+#' @name group_by.SpatVector
 #'
 #' @seealso [dplyr::group_by()], [dplyr::ungroup()]
 #'
 #' @family dplyr.groups
 #' @family dplyr.methods
+#' @family dplyr.group_funs
 #'
 #' @importFrom dplyr group_by
 #' @param .data,x A `SpatVector` object. See **Methods**.

@@ -7,8 +7,8 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @rdname cross-join.SpatVector
-#' @name cross-join.SpatVector
+#' @rdname cross_join.SpatVector
+#' @name cross_join.SpatVector
 #'
 #' @seealso [dplyr::cross_join()]
 #'

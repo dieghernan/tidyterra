@@ -9,7 +9,6 @@
 \alias{groups.SpatVector}
 \alias{group_size.SpatVector}
 \alias{n_groups.SpatVector}
-\alias{group_split.SpatVector}
 \title{Grouping metadata for \code{SpatVector} objects}
 \usage{
 \method{group_data}{SpatVector}(.data)
@@ -25,8 +24,6 @@
 \method{group_size}{SpatVector}(x)
 
 \method{n_groups}{SpatVector}(x)
-
-\method{group_split}{SpatVector}(.tbl, ..., .keep = TRUE)
 }
 \arguments{
 \item{.data, .tbl, x}{A \code{SpatVector}.}
@@ -54,8 +51,6 @@ that gives the group that each row belongs to.
 \item \code{\link[=groups]{groups()}} gives the names of the grouping variables as a list of symbols.
 \item \code{\link[=group_size]{group_size()}} gives the size of each group.
 \item \code{\link[=n_groups]{n_groups()}} gives the total number of groups.
-\item \code{\link[=group_split]{group_split()}} \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}} returns one
-\code{SpatVector} for each group.
 }
 
 See \code{\link[dplyr:group_data]{dplyr::group_data()}}.
@@ -85,8 +80,6 @@ group_data(v)
 
 group_indices(v)
 
-group_split(v)
-
 # Grouped by one var
 gv <- group_by(v, gr_1)
 
@@ -105,8 +98,6 @@ group_rows(gv)
 group_data(gv)
 
 group_indices(gv)
-
-group_split(gv)
 
 # Grouped by several vars
 
@@ -127,7 +118,5 @@ group_rows(gv2)
 group_data(gv2)
 
 group_indices(gv2)
-
-group_split(gv2)
 }
 \keyword{internal}
