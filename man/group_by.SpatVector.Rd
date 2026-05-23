@@ -3,9 +3,12 @@
 \encoding{UTF-8}
 \name{group_by.SpatVector}
 \alias{group_by.SpatVector}
+\alias{ungroup.SpatVector}
 \title{Group a \code{SpatVector} by one or more variables}
 \usage{
 \method{group_by}{SpatVector}(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))
+
+\method{ungroup}{SpatVector}(x, ...)
 }
 \arguments{
 \item{.data, x}{A \code{SpatVector} object. See \strong{Methods}.}

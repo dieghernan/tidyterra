@@ -131,7 +131,7 @@ dplyr::group_by
 #' @importFrom dplyr ungroup
 #' @export
 #' @encoding UTF-8
-#' @name group-by.SpatVector
+#' @name group_by.SpatVector
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
   getattr <- attr(x, "tblclass")
