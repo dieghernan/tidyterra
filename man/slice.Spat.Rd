@@ -168,14 +168,14 @@ See \code{\link[terra:mask]{terra::mask()}}.}
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
-\code{slice()} methods lets you index cells/rows/columns/geometries by their
-(integer) locations. It allows you to select, remove, and duplicate those
+\code{slice()} methods let you index cells/rows/columns/geometries by their
+(integer) locations. They allow you to select, remove, or duplicate those
 dimensions of a \verb{Spat*} object.
 
-\strong{If you want to slice your \code{SpatRaster} by geographic coordinates} use
-\code{\link[=filter.SpatRaster]{filter.SpatRaster()}} method.
+\strong{If you want to slice your \code{SpatRaster} by geographic coordinates, use
+\code{\link[=filter.SpatRaster]{filter.SpatRaster()}}}.
 
-It is accompanied by a number of helpers for common use cases:
+It includes helpers for common use cases:
 \itemize{
 \item \code{slice_head()} and \code{slice_tail()} select the first or last
 cells/geometries.

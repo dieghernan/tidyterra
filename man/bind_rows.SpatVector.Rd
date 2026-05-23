@@ -12,7 +12,7 @@ bind_spat_rows(..., .id = NULL)
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
 Each subsequent argument can be a \code{SpatVector}, \code{sf/sfc} object or data
-frame. Columns are matched by name, and any missing columns are filled with
+frame. Columns are matched by name and any missing columns are filled with
 \code{NA}.}
 
 \item{.id}{The name of an optional identifier column. Provide a string to

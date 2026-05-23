@@ -70,11 +70,11 @@ return a \code{\link[sf:st_sf]{sf}} object.
 \code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \link[tibble:tbl_df]{tibble}. See \strong{Methods}.
 }
 \description{
-Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provide
+Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provides
 native compatibility with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 
-\strong{Note that} these methods are now implemented as a wrapper of \code{\link{tidy.Spat}}
-methods.
+\strong{Note that} these methods are now implemented as a wrapper around
+\code{\link{tidy.Spat}} methods.
 }
 \section{Methods}{
 
@@ -92,8 +92,8 @@ name of the layer on the \code{SpatRaster}.
 The CRS of the \code{SpatRaster} can be retrieved with
 \code{attr(fortifiedSpatRaster, "crs")}.
 
-It is possible to convert the fortified object to a \code{SpatRaster}
-again with \code{\link[=as_spatraster]{as_spatraster()}}.
+You can convert the fortified object back to a \code{SpatRaster} with
+\code{\link[=as_spatraster]{as_spatraster()}}.
 
 When \code{pivot = TRUE} the \code{SpatRaster} is fortified in a "long" format (see
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The fortified object has the following

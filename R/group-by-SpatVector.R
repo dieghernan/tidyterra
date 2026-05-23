@@ -169,7 +169,7 @@ group_prepare_spat <- function(x, template) {
   # Gives an error
   # nocov start
   if (!inherits(template, "data.frame")) {
-    cli::cli_abort("Using bad grouping template")
+    cli::cli_abort("Bad grouping template")
   }
   # nocov end
 

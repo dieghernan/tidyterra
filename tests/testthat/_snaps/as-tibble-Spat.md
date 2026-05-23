@@ -3,7 +3,7 @@
     Code
       res <- dplyr::as_tibble(v2, geom = "WKT")
     Message
-      i Column(s) with duplicated/reserved names detected. See About layer/column
+      i Column(s) with duplicated or reserved names detected. See About layer/column
       names section on `tidyterra::as_tibble.SpatRaster()`
       ! Renaming columns:
     Output
@@ -14,7 +14,7 @@
     Code
       res <- dplyr::as_tibble(v2, geom = "HEX")
     Message
-      i Column(s) with duplicated/reserved names detected. See About layer/column
+      i Column(s) with duplicated or reserved names detected. See About layer/column
       names section on `tidyterra::as_tibble.SpatRaster()`
       ! Renaming columns:
     Output
@@ -25,7 +25,7 @@
     Code
       res_p <- dplyr::as_tibble(p, geom = "XY")
     Message
-      i Column(s) with duplicated/reserved names detected. See About layer/column
+      i Column(s) with duplicated or reserved names detected. See About layer/column
       names section on `tidyterra::as_tibble.SpatRaster()`
       ! Renaming columns:
     Output

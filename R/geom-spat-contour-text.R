@@ -32,7 +32,7 @@ geom_spatraster_contour_text <- function(
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_contour_text} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}"
+      "See {.help terra::vect}."
     ))
   }
 

@@ -96,7 +96,7 @@ reference:
 - subtitle: Missing values
   desc: >
     Tools for converting between implicit (absent rows) and explicit (`NA`)
-    missing values, and for handling explicit `NA` values.
+    missing values and for handling explicit `NA` values.
   contents: has_concept("tidyr.missing")
 - subtitle: Character vectors
   desc: >
@@ -135,13 +135,13 @@ reference:
 
 - title: Helpers
   desc: >
-    Additional functions provided by <a
+    Additional helper functions provided by <a
     href="https://CRAN.R-project.org/package=tidyterra"
     class="external-link"><span class="pkg">tidyterra</span></a>.
 - subtitle: Coercing objects
   desc: >
-    Convert `Spat*` objects to other object types or create `SpatRaster`
-    objects from tibbles.
+    Convert `Spat*` objects to other object types or create `SpatRaster` objects
+    from tibbles.
   contents: has_concept("coerce")
 - subtitle: Other helpers
   contents: has_concept("helpers")

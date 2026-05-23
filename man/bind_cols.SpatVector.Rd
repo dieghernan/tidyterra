@@ -45,7 +45,7 @@ meaningless results without realizing it.
 
 Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for
 \code{SpatVector} objects. Note that for the second and subsequent arguments on
-\code{...}, the geometry is not \code{cbind}ed, and only the data frame-like columns
+\code{...}, the geometry is not \code{cbind}ed and only the data frame-like columns
 are kept.
 }
 

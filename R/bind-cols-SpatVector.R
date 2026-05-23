@@ -37,7 +37,7 @@
 #'
 #' Implementation of the [dplyr::bind_cols()] function for
 #' `SpatVector` objects. Note that for the second and subsequent arguments on
-#' `...`, the geometry is not `cbind`ed, and only the data frame-like columns
+#' `...`, the geometry is not `cbind`ed and only the data frame-like columns
 #' are kept.
 #'
 #' @examples

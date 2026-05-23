@@ -17,9 +17,9 @@ A \code{\link[sf:st_sf]{sf}} object with an additional \code{tbl_df} class for
 pretty printing.
 }
 \description{
-\code{\link[=as_sf]{as_sf()}} turns a \code{SpatVector} to \code{\link[sf:st_sf]{sf}} object. This is a wrapper
-of \code{\link[sf:st_as_sf]{sf::st_as_sf()}} with the particularity that the groups created with
-\code{\link[=group_by.SpatVector]{group_by.SpatVector()}} are preserved.
+\code{\link[=as_sf]{as_sf()}} coerces a \code{SpatVector} into an \code{\link[sf:st_sf]{sf}} object. It wraps
+\code{\link[sf:st_as_sf]{sf::st_as_sf()}} and preserves groups created with
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }
 \examples{
 

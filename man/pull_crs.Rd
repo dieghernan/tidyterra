@@ -19,22 +19,22 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 A WKT representation of the corresponding CRS.
 }
 \description{
-Extract the WKT version of the CRS associated with a string, number of
-sf/Spat* object.
+Extract the WKT version of the CRS associated with a string, number or
+\verb{sf/Spat*} object.
 
 The
 \href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
 representation of coordinate reference systems (CRS) is a character string
-that identifies precisely the arguments of each CRS. This is the current
-standard used on \CRANpkg{sf} and \CRANpkg{terra} packages.
+that identifies precisely the arguments of each CRS. It is the standard
+used by \CRANpkg{sf} and \CRANpkg{terra}.
 }
 \details{
-Although the WKT representation is the same, \CRANpkg{sf} and \CRANpkg{terra}
-API slightly differs. For example, \CRANpkg{sf} can do:
+Although the WKT representation is the same, the \CRANpkg{sf} and
+\CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
 
 \code{sf::st_transform(x, 25830)}
 
-While \CRANpkg{sf} equivalent is:
+While the \CRANpkg{terra} equivalent is:
 
 \code{terra::project(bb, "epsg:25830")}
 
@@ -44,7 +44,7 @@ packages and object types.
 \section{Internals}{
 
 
-This is a thin wrapper of \code{\link[sf:st_crs]{sf::st_crs()}} and \code{\link[terra:crs]{terra::crs()}}.
+A thin wrapper around \code{\link[sf:st_crs]{sf::st_crs()}} and \code{\link[terra:crs]{terra::crs()}}.
 }
 
 \examples{

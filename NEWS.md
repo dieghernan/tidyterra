@@ -64,7 +64,7 @@
 
 # tidyterra 0.7.2
 
-- Hotfix: Correct test errors on **CRAN**.
+- Hotfix: fix test errors on **CRAN**.
 
 # tidyterra 0.7.1
 
@@ -124,7 +124,7 @@
 - `as_sf()` converts a `SpatVector` to a `sf` object with an additional `tbl_df`
   class for pretty printing.
 - `fortify.SpatRaster()` gains a new argument `pivot` that allows better
-  integration with other **ggplot2** geoms when pivoting. This is a wrapper of
+  integration with other **ggplot2** geoms when pivoting. This wraps
   `tidyr::pivot_longer()`.
 - `pivot_longer.SpatVector()` and `pivot_wider.SpatVector()` have been added.
 - Documentation has been tidied.

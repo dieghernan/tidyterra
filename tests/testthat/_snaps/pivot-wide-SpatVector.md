@@ -4,7 +4,7 @@
       nc_unpivot <- pivot_wider(nc_pivoted, values_from = c(births, geometry),
       names_from = "year")
     Message
-      ! Ommiting "geometry" column from `values_from` argument.
+      ! Omitting "geometry" column from `values_from` argument.
 
 # Remove geometry from names
 
@@ -12,7 +12,7 @@
       nc_unpivot <- pivot_wider(nc_pivoted, values_from = births, names_from = c(
         geometry, year))
     Message
-      ! Ommiting "geometry" column from `names_from` argument.
+      ! Omitting "geometry" column from `names_from` argument.
 
 # error when overwriting existing column
 

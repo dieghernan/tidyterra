@@ -2,14 +2,14 @@
 #'
 #' @description
 #'
-#' `slice()` methods lets you index cells/rows/columns/geometries by their
-#' (integer) locations. It allows you to select, remove, and duplicate those
+#' `slice()` methods let you index cells/rows/columns/geometries by their
+#' (integer) locations. They allow you to select, remove, or duplicate those
 #' dimensions of a `Spat*` object.
 #'
-#' **If you want to slice your `SpatRaster` by geographic coordinates** use
-#' [filter.SpatRaster()] method.
+#' **If you want to slice your `SpatRaster` by geographic coordinates, use
+#' [filter.SpatRaster()]**.
 #'
-#' It is accompanied by a number of helpers for common use cases:
+#' It includes helpers for common use cases:
 #'
 #' - `slice_head()` and `slice_tail()` select the first or last
 #'   cells/geometries.

@@ -5,7 +5,7 @@
 \alias{transmute.Spat}
 \alias{transmute.SpatRaster}
 \alias{transmute.SpatVector}
-\title{Create, modify, and delete cell values/layers/attributes of \verb{Spat*} objects}
+\title{Create, modify and delete cell values/layers/attributes of \verb{Spat*} objects}
 \usage{
 \method{transmute}{SpatRaster}(.data, ...)
 

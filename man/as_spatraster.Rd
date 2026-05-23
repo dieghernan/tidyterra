@@ -27,9 +27,9 @@ on a regular grid (a low number of digits is a low precision).}
 A \code{SpatRaster}.
 }
 \description{
-\code{as_spatraster()} turns an existing data frame or \link[tibble:tbl_df]{tibble}
-into a \code{SpatRaster}. This is a wrapper of \code{\link[terra:rast]{terra::rast()}} S4 method for
-signature \code{data.frame}.
+\code{as_spatraster()} converts a data frame or \link[tibble:tbl_df]{tibble} into a
+\code{SpatRaster}. It wraps the \code{\link[terra:rast]{terra::rast()}} S4 method for signature
+\code{data.frame}.
 }
 \details{
 If no \code{crs} is provided and the tibble has been created with the method

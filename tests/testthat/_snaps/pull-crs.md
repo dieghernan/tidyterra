@@ -3,6 +3,6 @@
     Code
       res <- pull_crs(list(1))
     Message
-      ! On `tidyterra::pull_crs()`
-      No wkt equivalent found. Returning NA
+      ! On `tidyterra::pull_crs()`:
+      No WKT equivalent found. Returning NA
 

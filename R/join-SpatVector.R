@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Mutating joins add columns from `y` to `x`, matching observations based on
-#' the keys. There are four mutating joins: the inner join and the three outer
-#' joins.
+#' the keys. The four mutating joins are: inner join, left join, right join and
+#' full join.
 #'
 #' See [dplyr::inner_join()] for details.
 #'
@@ -43,11 +43,11 @@
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.
 #'
-#' Note that for [right_join()] and [full_join()] it is possible to return
-#' empty geometries (since `y` is expected to be a data frame with no
-#' geometries). Although this kind of joining operations may not be common on
-#' spatial manipulation, the function may crash because handling of `EMPTY`
-#' geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
+#' For [right_join()] and [full_join()], empty geometries may be returned
+#' (since `y` is expected to be a data frame with no
+#' geometries). Although these join operations are not common in spatial
+#' workflows, the function may crash because handling of `EMPTY`
+#' geometries differs between \CRANpkg{terra} and \CRANpkg{sf}.
 #'
 #' @examples
 #' library(terra)
@@ -359,7 +359,7 @@ dplyr::anti_join
 error_spat_join <- function(y) {
   if (inherits(y, c("SpatVector", "sf"))) {
     cli::cli_abort(paste(
-      "{.arg y} should not be {.cls {class(y)}}. For spatial joins use",
+      "{.arg y} should not be {.cls {class(y)}}. For spatial joins, use",
       "{.fun terra::intersect}"
     ))
   }

@@ -215,18 +215,16 @@ Additional arguments \code{...} are passed to:
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-\strong{Note that} \CRANpkg{tidyterra} documents only a selection of these
-additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-see the full range of arguments accepted by these scales.
+\strong{Note that} \CRANpkg{tidyterra} documents only a subset of these
+additional arguments, so see the \CRANpkg{ggplot2} functions listed above for
+the full range.
 
-These palettes are an implementation of \code{\link[terra:map.pal]{terra::map.pal()}}, that is the
-default color palettes provided by \code{\link[terra:plot]{terra::plot()}} (\CRANpkg{terra}
-\verb{> 1.7.78}).
+These palettes implement \code{\link[terra:map.pal]{terra::map.pal()}}, the default color palettes used
+by \code{\link[terra:plot]{terra::plot()}} in \CRANpkg{terra} versions above 1.7.78.
 }
 \details{
 Some palettes are mapped by default to a specific range of values (see
-\link{grass_db}). However, it is possible to modify this behavior with the
-\code{use_grass_range} argument. When \code{FALSE}, the color scales are mapped to the
+\link{grass_db}). Set \code{use_grass_range = FALSE} to map the color scales to the
 range of values of the \code{color/fill} aesthetics. See \strong{Examples}.
 
 When passing the \code{limits} argument, the colors are restricted to those

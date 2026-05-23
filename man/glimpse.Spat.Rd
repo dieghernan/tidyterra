@@ -33,7 +33,7 @@ be used within a data pipeline.
 }
 \description{
 \code{glimpse()} is like a transposed version of \code{\link[=print]{print()}}: layers/columns run
-down the page, and data runs across. This makes it possible to see every
+down the page and data runs across. This makes it possible to see every
 layer/column in a \verb{Spat*} object.
 }
 \section{\CRANpkg{terra} equivalent}{

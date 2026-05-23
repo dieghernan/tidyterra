@@ -2,7 +2,7 @@
 #'
 #' @description
 #' `glimpse()` is like a transposed version of [print()]: layers/columns run
-#' down the page, and data runs across. This makes it possible to see every
+#' down the page and data runs across. This makes it possible to see every
 #' layer/column in a `Spat*` object.
 #'
 #' @export

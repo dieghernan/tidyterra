@@ -270,7 +270,7 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
     cli::cli_alert_info(
       paste(
         for_message,
-        "with duplicated/reserved names detected.",
+        "with duplicated or reserved names detected.",
         "See {.strong About layer/column names} section on",
         "{.fun tidyterra::as_tibble.SpatRaster}"
       ),

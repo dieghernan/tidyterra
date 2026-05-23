@@ -76,7 +76,7 @@ test_that("Name handling", {
   # With all
   expect_snapshot(expect_message(
     vall <- distinct(v),
-    "with duplicated/reserved"
+    "with duplicated or reserved"
   ))
   expect_identical(names(vall), c("x", "y", "geometry.1"))
 

@@ -92,7 +92,7 @@ geom_spatraster_rgb <- function(
     cli::cli_abort(paste(
       "{.fun tidyterra::geom_spatraster_rgb} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}"
+      "See {.help terra::vect}."
     ))
   }
 
@@ -108,7 +108,7 @@ geom_spatraster_rgb <- function(
     )
   ) {
     cli::cli_abort(paste(
-      "Incorrect number of layers on {.arg {c('r','g','b')}}. data has",
+      "Incorrect layer selection in {.arg {c('r','g','b')}}. Data has",
       "{terra::nlyr(data)}",
       "layer{?s}."
     ))

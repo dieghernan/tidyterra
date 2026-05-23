@@ -113,8 +113,8 @@ A \code{SpatVector} object.
 }
 \description{
 Mutating joins add columns from \code{y} to \code{x}, matching observations based on
-the keys. There are four mutating joins: the inner join and the three outer
-joins.
+the keys. The four mutating joins are: inner join, left join, right join and
+full join.
 
 See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 }
@@ -133,11 +133,11 @@ Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inne
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.
 
-Note that for \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_join()}} it is possible to return
-empty geometries (since \code{y} is expected to be a data frame with no
-geometries). Although this kind of joining operations may not be common on
-spatial manipulation, the function may crash because handling of \code{EMPTY}
-geometries differs on \CRANpkg{terra} and \CRANpkg{sf}.
+For \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_join()}}, empty geometries may be returned
+(since \code{y} is expected to be a data frame with no
+geometries). Although these join operations are not common in spatial
+workflows, the function may crash because handling of \code{EMPTY}
+geometries differs between \CRANpkg{terra} and \CRANpkg{sf}.
 }
 }
 

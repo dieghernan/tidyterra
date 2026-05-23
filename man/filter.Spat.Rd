@@ -19,7 +19,7 @@
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Expressions that
-return a logical value, and are defined in terms of the layers/attributes
+return a logical value and are defined in terms of the layers/attributes
 in \code{.data}. If multiple expressions are included, they are combined with
 the \code{&} operator. Only cells/geometries for which all conditions evaluate
 to \code{TRUE} are kept. See \strong{Methods}.}
@@ -39,9 +39,9 @@ details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
-These functions are used to subset a data frame, applying the expressions in
-\code{...} to determine which rows should be kept (for \code{filter()}) or dropped (
-for \code{filter_out()}).
+These functions subset a data frame by applying the expressions in \code{...}
+to determine which rows should be kept (for \code{filter()}) or dropped (for
+\code{filter_out()}).
 
 Multiple conditions can be supplied separated by a comma. These will be
 combined with the \code{&} operator. To combine comma separated conditions using
@@ -51,8 +51,8 @@ Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. 
 behavior can affect how you write your conditions when missing values are
 involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
-\strong{It is possible to filter a \code{SpatRaster} by its geographic coordinates}.
-You need to use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
+\strong{You can filter a \code{SpatRaster} by its geographic coordinates}.
+Use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
 names on \CRANpkg{terra}, since they refer to the geographic coordinates of
 the layer.
 
