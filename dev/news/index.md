@@ -2,6 +2,16 @@
 
 ## tidyterra (development version)
 
+This release includes several improvements and new features generated
+with AI.
+
+- Package documentation was reviewed and updated with AI-assisted
+  editing.
+
+### New methods
+
+AI-assisted generated methods.
+
 - [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
   supports
   [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
