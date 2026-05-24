@@ -24,6 +24,12 @@ test_that("group_modify() binds SpatVector group results", {
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   v$grp <- rep(c("a", "b"), length.out = nrow(v))
 
+  expect_snapshot(
+    error = TRUE,
+    v |>
+      group_modify(~ head(.x, 0))
+  )
+
   out <- v |>
     group_by(grp) |>
     group_modify(~ mutate(.x, key = .y$grp))
@@ -31,4 +37,16 @@ test_that("group_modify() binds SpatVector group results", {
   expect_s4_class(out, "SpatVector")
   expect_equal(nrow(out), nrow(v))
   expect_true("key" %in% names(out))
+})
+
+test_that("Split keys", {
+  skip_on_cran()
+  expect_identical(
+    split_keys(tibble::tibble()),
+    list(tibble::tibble())
+  )
+  expect_length(
+    split_keys(tibble::tibble(a = letters[1:3])),
+    3
+  )
 })

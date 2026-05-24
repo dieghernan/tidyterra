@@ -75,9 +75,11 @@ dplyr::group_map
 group_modify.SpatVector <- function(.data, .f, ..., .keep = FALSE) {
   mapped <- group_map(.data, .f, ..., .keep = .keep)
 
+  # nocov start
   if (length(mapped) == 0) {
     return(.data[0, ])
   }
+  # nocov end
 
   if (!all(vapply(mapped, inherits, logical(1), "SpatVector"))) {
     cli::cli_abort(paste0(
