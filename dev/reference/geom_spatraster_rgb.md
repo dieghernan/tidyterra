@@ -35,7 +35,7 @@ geom_spatraster_rgb(
 
 Based on the `layer_spatial()` implementation in the
 [ggspatial](https://CRAN.R-project.org/package=ggspatial) package.
-Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
+Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to
 [ggspatial
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 

@@ -2,6 +2,8 @@
 
 ### Articles
 
+Introductory guides and palette examples.
+
 - [Welcome to
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/welcome.md):
 
@@ -23,7 +25,7 @@
 
 ### FAQs
 
-**tidyterra** FAQs. See also [tidyterra
+Frequently asked questions about **tidyterra**. See also [tidyterra
 discussions](https://github.com/dieghernan/tidyterra/discussions).
 
 - [tidyterra

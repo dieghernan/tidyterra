@@ -84,7 +84,7 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 ## Value
 
-A `SpatVector` object with an additional attribute.
+A `SpatVector` object with updated grouping metadata.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

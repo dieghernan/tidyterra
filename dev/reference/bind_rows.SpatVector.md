@@ -1,4 +1,4 @@
-# Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
+# Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
 
 Bind any number of `SpatVector`, data frames and `sf/sfc` objects by
 row, making a longer result. This is similar to
@@ -41,7 +41,7 @@ Implementation of the
 function for `SpatVector` objects.
 
 The first argument should be a `SpatVector`. Each subsequent argument
-can be a `SpatVector`, `sf/sfc` object, or data frame:
+can be a `SpatVector`, `sf/sfc` object or data frame:
 
 - If subsequent `SpatVector/sf/sfc` objects have a different CRS than
   the first element, those elements are reprojected to the CRS of the

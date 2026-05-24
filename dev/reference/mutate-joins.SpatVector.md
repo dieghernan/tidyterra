@@ -65,10 +65,11 @@ full_join(
 
 - y:
 
-  A data frame or other object coercible to a data frame. **If a
-  `SpatVector` or `sf` object** is provided it returns an error (see
+  A data frame or other object coercible to a data frame. If a
+  `SpatVector` or `sf` object is provided, this method returns an error.
+  See
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
-  for performing spatial joins).
+  for spatial joins.
 
 - by:
 

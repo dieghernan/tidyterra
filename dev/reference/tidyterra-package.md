@@ -1,8 +1,8 @@
 # tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects
 
-Provides 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects
-created by the 'terra' package and 'ggplot2' geoms to visualize those
-objects.
+Provides common 'tidyverse' methods for 'SpatRaster' and 'SpatVector'
+objects created by the 'terra' package, plus 'ggplot2' geoms for
+visualizing those objects.
 
 ## See also
 

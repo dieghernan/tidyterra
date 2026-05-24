@@ -53,7 +53,7 @@ ungroup(x, ...)
 
 ## Value
 
-A `SpatVector` object with an additional attribute.
+A `SpatVector` object with updated grouping metadata.
 
 ## Details
 

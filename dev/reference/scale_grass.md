@@ -1,7 +1,7 @@
 # GRASS scales
 
 Implementation of [GRASS color
-tables](https://grass.osgeo.org/grass83/manuals/r.colors.html). The
+tables](https://grass.osgeo.org/grass-stable/manuals/r.colors.html). The
 following fill scales and palettes are provided:
 
 - `scale_*_grass_d()`: For discrete values.
@@ -113,7 +113,7 @@ grass.colors(n, palette = "viridis", alpha = 1, rev = FALSE)
 
 Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>.
 See also [r.color - GRASS GIS
-Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
+Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 
 ## Arguments
 

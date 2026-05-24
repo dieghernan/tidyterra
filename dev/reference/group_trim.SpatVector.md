@@ -1,7 +1,7 @@
 # Trim grouping structure
 
-**\[experimental\]** Drop unused levels of all factors that are used as
-grouping variables, then recalculates the grouping structure.
+**\[experimental\]** This method drops unused levels of all factors that
+are used as grouping variables and recalculates the grouping structure.
 
 [`group_trim()`](https://dplyr.tidyverse.org/reference/group_trim.html)
 is particularly useful after a
@@ -28,7 +28,7 @@ group_trim(.tbl, .drop = group_by_drop_default(.tbl))
 
 ## Value
 
-A `SpatVector` object with an additional attribute.
+A `SpatVector` object with updated grouping metadata.
 
 ## Details
 

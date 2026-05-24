@@ -71,7 +71,8 @@ method.
 ### `SpatVector`
 
 [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
-preserves the geometry column while expanding missing combinations.
+preserves the geometry column while expanding missing combinations. New
+combinations receive empty geometries.
 
 ## See also
 

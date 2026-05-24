@@ -2,15 +2,15 @@
 
 ## tidyterra (development version)
 
-This release includes several improvements and new features generated
-with AI.
+This release includes user-facing methods generated with AI assistance
+and documentation reviewed with AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI-assisted
   editing.
 
 ### New methods
 
-AI-assisted generated methods.
+The following methods were generated with AI assistance.
 
 - [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
   supports
@@ -47,6 +47,9 @@ CRAN release: 2026-03-11
 - [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   now supports weighted counts with `wt`. The `.drop` argument is
   deprecated because empty groups are always removed.
+- [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
+  now supports `.by`, matching the stable **dplyr** 1.2.0 argument
+  ([\#193](https://github.com/dieghernan/tidyterra/issues/193)).
 - [`filter.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   now supports `.by`, matching the stable **dplyr** 1.2.0 argument
   ([\#193](https://github.com/dieghernan/tidyterra/issues/193)).
@@ -55,9 +58,6 @@ CRAN release: 2026-03-11
 - [`filter_out.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   filters out matching `SpatVector` geometries
   ([\#196](https://github.com/dieghernan/tidyterra/issues/196)).
-- [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
-  now supports `.by`, matching the stable **dplyr** 1.2.0 argument
-  ([\#193](https://github.com/dieghernan/tidyterra/issues/193)).
 - `mutate.Spat` now supports `.keep`, `.before` and `.after`, matching
   [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html).
 - [`mutate.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
@@ -95,6 +95,11 @@ CRAN release: 2026-01-23
 - [`get_coltab_pal()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   can extract colors with alpha values
   ([\#180](https://github.com/dieghernan/tidyterra/issues/180)).
+- New
+  [`autoplot.SpatExtent()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  and
+  [`autoplot.SpatGraticule()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  methods.
 - **generics** has been added to Imports, with new
   [`?tidy.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md),
   [`?glance.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.md)
@@ -108,15 +113,10 @@ CRAN release: 2026-01-23
   methods under the hood. This includes the new
   [`fortify.SpatExtent()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   method.
-- New
-  [`autoplot.SpatExtent()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
-  and
-  [`autoplot.SpatGraticule()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
-  methods.
-- [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-  now supports the `.by` argument.
 - [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
   is now a stable function.
+- [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
+  now supports the `.by` argument.
 - **testthat**: Move snapshot testing to its own directory, which is
   included in `.Rbuildignore`: `./tests/testthat/test_ci`.
 
@@ -211,9 +211,8 @@ CRAN release: 2024-04-22
 - The minimum supported **ggplot2** version is now 3.5.0.
 - [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
   has been added.
-- New geom
-  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
-  implemented on top of
+- [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
+  has been implemented on top of
   [`isoband::isolines_grob()`](http://isoband.r-lib.org/reference/isolines_grob.md)
   [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 - [`glimpse.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
@@ -250,15 +249,16 @@ CRAN release: 2024-01-19
 - Tests have been adapted to **ggplot2** 3.5.0
   ([\#129](https://github.com/dieghernan/tidyterra/issues/129),
   [@teunbrand](https://github.com/teunbrand)).
-- Reduce package size, especially relevant in the external raster
+- Package size has been reduced, especially in the external raster
   `asia.tif`.
 
 ## tidyterra 0.5.1
 
 CRAN release: 2023-12-15
 
-- Adjust tests for
+- Tests for
   [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md)
+  have been adjusted
   ([\#124](https://github.com/dieghernan/tidyterra/issues/124)).
 
 ## tidyterra 0.5.0
@@ -279,7 +279,7 @@ Other changes in this version:
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   can now detect `SpatRaster` objects with color tables.
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
-  and its `colour` family scales have been added for plotting
+  and its `scale_colour_*()` family scales have been added for plotting
   `SpatRaster` objects with color tables.
 - **tidyverse** verbs keep the associated `coltab` of a `SpatRaster`.
 - By default, all the discrete scales of **tidyterra** now have the
@@ -287,9 +287,8 @@ Other changes in this version:
 - By default, all non-discrete scales of **tidyterra** now have
   `na.value = "transparent"`
   ([\#120](https://github.com/dieghernan/tidyterra/issues/120)).
-- Enhanced
-  [`glimpse.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
-  with meta-information on type of geometry, CRS, etc.
+- [`glimpse.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
+  now shows metadata on geometry type, CRS and other fields.
 - New messaging interface thanks to [**cli**](https://cli.r-lib.org/)
   package.
 
@@ -357,7 +356,7 @@ CRAN release: 2022-11-09
   [`autoplot.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
   methods have been added.
   [`autoplot.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
-  is now smarter when identifying the type of plot to produce, and can
+  is now smarter when identifying the type of plot to produce and can
   still be overridden with arguments.
 - [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   and
@@ -366,7 +365,7 @@ CRAN release: 2022-11-09
 - Three additional palettes are included in
   [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md):
   `"artic"`, `"meyers"` and `"nordisk-familjebok"`.
-- `scale_colour_*` scales have been added to all palettes.
+- `scale_colour_*()` scales have been added to all palettes.
 - [`ggplot2::aes_string()`](https://ggplot2.tidyverse.org/reference/aes_.html)
   is no longer used.
 - [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)

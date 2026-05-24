@@ -40,8 +40,8 @@ as_spatvector(x, ...)
 - geom:
 
   Character vector naming the fields that contain the geometry data. Use
-  two names for point coordinates (`x` and `y`), or one name for a
-  column with WKT geometries.
+  two names for point coordinates (`x` and `y`) or one name for a column
+  with WKT geometries.
 
 - crs:
 

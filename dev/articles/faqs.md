@@ -1,10 +1,10 @@
 # tidyterra FAQs
 
-This document is a compendium of [frequently asked
-questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and its answers, primarily focused on
-the integration of **terra** and **ggplot2**. You can ask for help or
-search previous questions using the following links.
+This document collects [frequently asked
+questions](https://github.com/dieghernan/tidyterra/discussions) and
+answers about using the **tidyterra** package, with a focus on the
+integration of **terra** and **ggplot2**. You can ask for help or search
+previous questions using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -21,7 +21,7 @@ the tag
 
 This article uses a sample of **LiDAR for Scotland Phase 5 - DSM**
 provided by [The Scottish Remote Sensing
-Portal](https://remotesensingdata.gov.scot/). This data is made
+Portal](https://remotesensingdata.gov.scot/). These data are made
 available under the [Open Government Licence
 v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
@@ -31,7 +31,7 @@ The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park,
 Edinburgh (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park),
 including [Arthur’s
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct
-volcano, pretty much as the famous [Maungawhau / Mount
+volcano, much like the famous [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano
 represented in
 [`datasets::volcano`](https://rdrr.io/r/datasets/volcano.html).
@@ -42,11 +42,11 @@ The original file has been cropped and downsampled for demo purposes.
 
 ## `NA` values are shown in gray
 
-This is the default behavior of **ggplot2**. **tidyterra** color scales
-(i.e.,
+This is the default behavior of **ggplot2**. **tidyterra** color scales,
+for example
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md),
-etc.) have `na.value = "transparent"` by default, which prevents `NA`
-values from being filled[^2].
+have `na.value = "transparent"` by default, which prevents `NA` values
+from being filled[^2].
 
 ``` r
 
@@ -122,7 +122,7 @@ ggplot() +
   geom_spatraster_contour_text(data = r) +
   labs(title = "Labeling contours")
 
-# With options and aes.
+# With options and aesthetics.
 
 # Use a labeler function so only selected breaks are labeled.
 labeller <- function(labs) {
@@ -212,7 +212,7 @@ ggplot(r, aes(x, y)) +
       size = after_stat(level)
     ),
     breaks = br,
-    # Text options
+    # Text options.
     check_overlap = TRUE,
     label.placer = label_placer_minmax(),
     stroke = 0.3,
@@ -442,7 +442,7 @@ Figure 7: Degree labels with ggplot2
 
 ## Modify the number of axis breaks
 
-Of course. Use the **scales** package:
+Yes. Use the **scales** package:
 
 ``` r
 
@@ -488,7 +488,7 @@ Figure 8: Spatial axis breaks with ggplot2
 with color tables. This example uses `clc_edinburgh.tif`, available
 online in the [data-raw
 folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
-which contains data from the Corine Land Cover Dataset (2018) for
+which contains data from the CORINE Land Cover dataset (2018) for
 Edinburgh[^3].
 
 ``` r
@@ -683,9 +683,9 @@ annotations added using ggspatial.
 
 ## How to overlay a `SpatRaster` on an RGB tile
 
-This is straightforward: use
+Use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
-for the background tile, and then add your data layers on top:
+for the background tile, then add your data layers on top:
 
 ``` r
 
@@ -882,10 +882,10 @@ transparency scaled by elevation values.
 
 ### tidyterra and metR
 
-**metR** is a package that provides **ggplot2** extensions, primarily
-for meteorological data visualization. As shown previously (see
-[Labeling contours](#label-contour)), you can combine both packages to
-create rich, complex plots.
+The **metR** package provides **ggplot2** extensions, primarily for
+meteorological data visualization. As shown previously (see [Labeling
+contours](#label-contour)), you can combine both packages to create
+rich, complex plots.
 
 ``` r
 
@@ -921,11 +921,11 @@ and metR for terrain relief representation.
     corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most
-    cases. However, when the proportion of non-`NA`s is small it can
-    produce undesired results, see
+    cases. However, when the proportion of non-`NA` cells is small it
+    can produce undesired results. See
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been
     converted to their corresponding labels and factors and the
-    corresponding color table added as described in
+    corresponding color table has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

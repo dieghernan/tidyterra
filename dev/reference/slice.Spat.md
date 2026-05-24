@@ -2,11 +2,11 @@
 
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) methods
 let you index cells/rows/columns/geometries by their (integer)
-locations. They allow you to select, remove, or duplicate those
+locations. They allow you to select, remove or duplicate those
 dimensions of a `Spat*` object.
 
-**If you want to slice your `SpatRaster` by geographic coordinates, use
-[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)**.
+If you want to slice by geographic coordinates, use
+[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md).
 
 It includes helpers for common use cases:
 
@@ -17,8 +17,8 @@ It includes helpers for common use cases:
 - [`slice_sample()`](https://dplyr.tidyverse.org/reference/slice.html)
   randomly selects cells/geometries.
 
-- `slice_rows()` and `slice_cols()` allow to subset entire rows or
-  columns, of a `SpatRaster`.
+- `slice_rows()` and `slice_cols()` subset entire rows or columns of a
+  `SpatRaster`.
 
 - `slice_colrows()` subsets regions of the `SpatRaster` by row and
   column position of a `SpatRaster`.
@@ -140,8 +140,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
-  Integer row values. Provide either positive values to keep, or
-  negative values to drop.
+  Integer row values. Provide either positive values to keep or negative
+  values to drop.
 
   The values provided must be either all positive or all negative.
   Indices beyond the number of rows in the input are silently ignored.
@@ -262,13 +262,8 @@ group.
 ## See also
 
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html),
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html).
-
-You can get a skeleton of your `SpatRaster` with the cell, column and
-row index with
-[`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md).
-
-If you want to slice by geographic coordinates use
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+[`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md),
 [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md).
 
 Other single table verbs:

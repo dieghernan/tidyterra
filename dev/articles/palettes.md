@@ -2,7 +2,7 @@
 
 This page shows a [lightbox
 gallery](https://biati-digital.github.io/glightbox/) of maps that can be
-displayed with the gradient fill scales included with **tidyterra**. A
+displayed with the gradient fill scales included in **tidyterra**. A
 basic example for generating maps like these is:
 
 ``` r

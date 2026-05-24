@@ -45,9 +45,7 @@ See dplyr::group_split() for more information."><meta property="og:image" conten
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -115,10 +113,8 @@ forwarded to <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a><
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A list of <code>SpatVector</code> objects. Each <code>SpatVector</code> contains the rows
-of <code>.tbl</code> for the associated group and all the columns, including the
-grouping variables. Note that this returns a <a href="https://vctrs.r-lib.org/reference/list_of.html" class="external-link">list_of</a>
-which is slightly stricter than a simple list but is useful for
-representing lists where every element has the same type.</p>
+of <code>.tbl</code> for the associated group and all columns. When <code>.keep = TRUE</code>,
+the output includes the grouping variables.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

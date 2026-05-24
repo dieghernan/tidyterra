@@ -23,8 +23,8 @@
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="tidyterra | tidyverse methods and ggplot2 helpers for terra objects
 ">
-<meta name="description" content="Provides tidyverse methods for SpatRaster and SpatVector objects created by the terra package and ggplot2 geoms to visualize those objects.">
-<meta property="og:description" content="Provides tidyverse methods for SpatRaster and SpatVector objects created by the terra package and ggplot2 geoms to visualize those objects.">
+<meta name="description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created by the terra package, plus ggplot2 geoms for visualizing those objects.">
+<meta property="og:description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created by the terra package, plus ggplot2 geoms for visualizing those objects.">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -60,9 +60,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+<li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -126,7 +124,7 @@
 <p><strong>tidyverse</strong> methods implemented in <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.</p></li>
-<li><p><code>SpatRaster</code>: The implementation for <code>SpatRaster</code> objects differs because methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>).</p></li>
+<li><p><code>SpatRaster</code>: For <code>SpatRaster</code> objects, methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>).</p></li>
 </ul>
 <p>The implemented methods return the same type of object as the input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble).</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
@@ -257,7 +255,7 @@
 <tr>
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
-<td>✔️ Remove cell values with <code>NA</code> on any layer. Additionally, outer cells with <code>NA</code> are removed.</td>
+<td>✔️ Remove cell values with <code>NA</code> on any layer and outer cells with <code>NA</code>.</td>
 </tr>
 <tr>
 <td><code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code></td>
@@ -456,7 +454,7 @@ A note on performance
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># Change the CRS and datum (useful for relabeling graticules).</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span>, datum <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example: Plotting a tile in tidyterra" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example of plotting a tile in tidyterra" width="100%"></p>
 <p><strong>tidyterra</strong> provides specific scales for plotting hypsometric maps with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
@@ -522,7 +520,7 @@ A note on performance
 <div class="section level2">
 <h2 id="need-help">Need help?<a class="anchor" aria-label="anchor" href="#need-help"></a>
 </h2>
-<p>Check our <a href="https://dieghernan.github.io/tidyterra/articles/faqs.html">FAQs</a> or open a new <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">issue</a>!</p>
+<p>Check the <a href="https://dieghernan.github.io/tidyterra/articles/faqs.html">FAQs</a> or open a new <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">issue</a>.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link">[tidyterra]</a>.</p>
 </div>
 <div class="section level2">

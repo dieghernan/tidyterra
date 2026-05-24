@@ -45,11 +45,8 @@ group_split(.tbl, ..., .keep = TRUE)
 ## Value
 
 A list of `SpatVector` objects. Each `SpatVector` contains the rows of
-`.tbl` for the associated group and all the columns, including the
-grouping variables. Note that this returns a
-[list_of](https://vctrs.r-lib.org/reference/list_of.html) which is
-slightly stricter than a simple list but is useful for representing
-lists where every element has the same type.
+`.tbl` for the associated group and all columns. When `.keep = TRUE`,
+the output includes the grouping variables.
 
 ## Details
 

@@ -58,9 +58,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+<li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -107,7 +105,7 @@
 
 
 
-    <p>This document is a compendium of <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using the <strong>tidyterra</strong> package and its answers, primarily focused on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
+    <p>This document collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> and answers about using the <strong>tidyterra</strong> package, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -117,15 +115,15 @@
 </h3>
 <section class="level4"><h4 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a>
 </h4>
-<p>This article uses a sample of <strong>LiDAR for Scotland Phase 5 - DSM</strong> provided by <a href="https://remotesensingdata.gov.scot/" class="external-link">The Scottish Remote Sensing Portal</a>. This data is made available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="external-link">Open Government Licence v3</a>.</p>
+<p>This article uses a sample of <strong>LiDAR for Scotland Phase 5 - DSM</strong> provided by <a href="https://remotesensingdata.gov.scot/" class="external-link">The Scottish Remote Sensing Portal</a>. These data are made available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="external-link">Open Government Licence v3</a>.</p>
 </section><section class="level4"><h4 id="about-the-file">About the file<a class="anchor" aria-label="anchor" href="#about-the-file"></a>
 </h4>
-<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, pretty much as the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
+<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, much like the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
 <p>The original file has been cropped and downsampled for demo purposes. <code>holyroodpark.tif</code> is available online in the <code>data-raw</code> folder at <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>.</p>
 </section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales (i.e., <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, etc.) have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt;s is small it can produce undesired results, see &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales, for example <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt; cells is small it can produce undesired results. See &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -222,7 +220,7 @@ Figure 1: NA values in ggplot2
 <span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Labeling contours"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># With options and aes.</span></span>
+<span><span class="co"># With options and aesthetics.</span></span>
 <span></span>
 <span><span class="co"># Use a labeler function so only selected breaks are labeled.</span></span>
 <span><span class="va">labeller</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">labs</span><span class="op">)</span> <span class="op">{</span></span>
@@ -326,7 +324,7 @@ Figure 2: Contour labels with tidyterra
 <span>      size <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">level</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="va">br</span>,</span>
-<span>    <span class="co"># Text options</span></span>
+<span>    <span class="co"># Text options.</span></span>
 <span>    check_overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>    label.placer <span class="op">=</span> <span class="fu"><a href="https://eliocamp.github.io/metR/reference/label_placers.html" class="external-link">label_placer_minmax</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    stroke <span class="op">=</span> <span class="fl">0.3</span>,</span>
@@ -603,7 +601,7 @@ Figure 7: Degree labels with ggplot2
 </div>
 </section><section class="level2"><h2 id="axis-breaks">Modify the number of axis breaks<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
 </h2>
-<p>Of course. Use the <strong>scales</strong> package:</p>
+<p>Yes. Use the <strong>scales</strong> package:</p>
 <div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -663,7 +661,7 @@ Figure 8: Spatial axis breaks with ggplot2
 <p>We omitted the legends in this section’s figures to improve readability.</p>
 </blockquote>
 </div>
-<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the Corine Land Cover Dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors and the corresponding color table added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
+<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors and the corresponding color table has been added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -895,7 +893,7 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 </div>
 </section><section class="level2"><h2 id="how-to-overlay-a-spatraster-on-an-rgb-tile">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-on-an-rgb-tile"></a>
 </h2>
-<p>This is straightforward: use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, and then add your data layers on top:</p>
+<p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, then add your data layers on top:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1106,7 +1104,7 @@ Figure 16: Elevation data represented as points with size and transparency scal
 </div>
 <section class="level3"><h3 id="tidyterra-and-metr">tidyterra and metR<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
 </h3>
-<p><strong>metR</strong> is a package that provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
+<p>The <strong>metR</strong> package provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load libraries and files.</span></span>

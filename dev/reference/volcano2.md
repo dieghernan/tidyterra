@@ -4,7 +4,7 @@ Probably you already know the
 [volcano](https://rdrr.io/r/datasets/volcano.html) dataset. This dataset
 provides updated information of Maungawhau (Mt. Eden) from [Toitu Te
 Whenua Land Information New Zealand](https://data.linz.govt.nz/), the
-Government's agency that provides free online access to New Zealand’s
+Government's agency that provides free online access to New Zealand's
 most up-to-date land and seabed data.
 
 ## Format

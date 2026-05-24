@@ -1,20 +1,20 @@
 # Group `SpatVector` objects by rows
 
 [`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) allows
-you to compute on a `SpatVector` a row-at-a-time. This is most useful
+you to compute on a `SpatVector` one row at a time. This is most useful
 when a vectorised function does not exist.
 
-Most [dplyr](https://CRAN.R-project.org/package=dplyr) verbs
-implementation in
+Most [dplyr](https://CRAN.R-project.org/package=dplyr) verb
+implementations in
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) preserve
 row-wise grouping. The exception is
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md),
-which return a [grouped
+which returns a [grouped
 SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
 You can explicitly ungroup with
 [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 or
-[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html),
+[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
 or convert to a grouped `SpatVector` with
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
 
@@ -37,18 +37,18 @@ rowwise(data, ...)
   Variables to be preserved when calling
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md).
   This is typically a set of variables whose combination uniquely
-  identify each row. See
+  identifies each row. See
   [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
   **NB**: unlike
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
-  you can not create new variables here but instead you can select
+  you cannot create new variables here but instead you can select
   multiple variables with (e.g.)
   [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
 
-The same `SpatVector` object with an additional attribute.
+The same `SpatVector` object with updated grouping metadata.
 
 ## Details
 

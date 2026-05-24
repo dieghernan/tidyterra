@@ -58,9 +58,7 @@
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+<li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -109,12 +107,12 @@
 
     <!-- welcome.qmd is generated from welcome.qmd.orig. Please edit that file --><section class="level2"><h2 id="the-tidyterra-package">The tidyterra package<a class="anchor" aria-label="anchor" href="#the-tidyterra-package"></a>
 </h2>
-<p><strong>tidyterra</strong> adds common <strong>tidyverse</strong> methods for <code>SpatRaster</code> and <code>SpatVector</code> objects from the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package, and provides <code>geom_spat*()</code> geoms for plotting them with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
+<p><strong>tidyterra</strong> adds common <strong>tidyverse</strong> methods for <code>SpatRaster</code> and <code>SpatVector</code> objects from the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package. It also provides <code>geom_spat*()</code> geoms for plotting them with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
 <section class="level3"><h3 id="why-tidyterra">Why tidyterra?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
 <p><code>Spat*</code> objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in <strong>terra</strong>). By providing <strong>tidyverse</strong> verbs, especially <strong>dplyr</strong> and <strong>tidyr</strong> methods, <strong>tidyterra</strong> lets users manipulate <code>Spat*</code> objects in a style similar to working with tabular data.</p>
 <p>Note that <strong>terra</strong> is generally faster. Learning some <strong>terra</strong> syntax is recommended because <strong>tidyterra</strong> functions call the corresponding <strong>terra</strong> equivalents when possible.</p>
-</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced terra users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
+</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced <strong>terra</strong> users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
 <p><strong>tidyterra</strong> is not optimized for performance. Operations such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> can be slower than their <strong>terra</strong> counterparts.</p>
 <p>As a rule of thumb, <strong>tidyterra</strong> is most suitable for objects with fewer than 10,000,000 data slots (i.e., <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 1e7</code>).</p>
@@ -253,7 +251,7 @@
 <tr class="even">
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
-<td>✔️ Remove cell values with <code>NA</code> on any layer. Additionally, outer cells with <code>NA</code> are removed.</td>
+<td>✔️ Remove cell values with <code>NA</code> on any layer and outer cells with <code>NA</code>.</td>
 </tr>
 <tr class="odd">
 <td><code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code></td>
@@ -329,11 +327,11 @@
 </tr>
 </tbody>
 </table>
-<p>Let’s see some of these methods in action.</p>
+<p>Now let us see some of these methods in action.</p>
 <section class="level3"><h3 id="spatraster-objects">
 <code>SpatRaster</code> objects<a class="anchor" aria-label="anchor" href="#spatraster-objects"></a>
 </h3>
-<p>Example using a <code>SpatRaster</code>:</p>
+<p>This example uses a <code>SpatRaster</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="va">f</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span>
@@ -376,7 +374,7 @@
 <li>Replaced <code>NA</code> values in <code>newcol</code> with <code>3</code>.</li>
 <li>Renamed <code>newcol</code> to <code>difference</code>.</li>
 </ul>
-<p>Throughout these steps, core properties of the <code>SpatRaster</code> (number of cells, rows and columns, extent, resolution and CRS) remain unchanged. Other verbs such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> may alter these properties in a manner analogous to how row operations affect data frames.</p>
+<p>Throughout these steps, core properties of the <code>SpatRaster</code> (number of cells, rows, columns, extent, resolution and CRS) remain unchanged. Other verbs such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> may alter these properties in a manner analogous to how row operations affect data frames.</p>
 </section><section class="level3"><h3 id="spatvector-objects">
 <code>SpatVector</code> objects<a class="anchor" aria-label="anchor" href="#spatvector-objects"></a>
 </h3>
@@ -545,7 +543,7 @@ Choropleth map with a SpatVector object.
 <p>Implementation-wise, <strong>tidyterra</strong> converts <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code> output to <strong>sf</strong> via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
 <p>You can also aggregate <code>SpatVector</code> objects easily:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Dissolving</span></span>
+<code class="sourceCode R"><span><span class="co"># Dissolve by group.</span></span>
 <span><span class="va">v_lux</span> <span class="op">|&gt;</span></span>
 <span>  <span class="co"># Create categories.</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>gr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">POP</span> <span class="op">/</span> <span class="fl">1000</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>

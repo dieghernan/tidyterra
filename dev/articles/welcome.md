@@ -4,7 +4,7 @@
 
 **tidyterra** adds common **tidyverse** methods for `SpatRaster` and
 `SpatVector` objects from the
-[**terra**](https://CRAN.R-project.org/package=terra) package, and
+[**terra**](https://CRAN.R-project.org/package=terra) package. It also
 provides `geom_spat*()` geoms for plotting them with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
@@ -20,7 +20,7 @@ Note that **terra** is generally faster. Learning some **terra** syntax
 is recommended because **tidyterra** functions call the corresponding
 **terra** equivalents when possible.
 
-## A note for advanced terra users
+## A note for advanced **terra** users
 
 **tidyterra** is not optimized for performance. Operations such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
@@ -67,7 +67,7 @@ Currently, the following methods are available:
 | [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
 | [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
@@ -83,11 +83,11 @@ Currently, the following methods are available:
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html) | ✔️ | ✔️ |
 
-Let’s see some of these methods in action.
+Now let us see some of these methods in action.
 
 ### `SpatRaster` objects
 
-Example using a `SpatRaster`:
+This example uses a `SpatRaster`:
 
 ``` r
 
@@ -136,7 +136,7 @@ In this example we:
 - Renamed `newcol` to `difference`.
 
 Throughout these steps, core properties of the `SpatRaster` (number of
-cells, rows and columns, extent, resolution and CRS) remain unchanged.
+cells, rows, columns, extent, resolution and CRS) remain unchanged.
 Other verbs such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or
@@ -347,7 +347,7 @@ You can also aggregate `SpatVector` objects easily:
 
 ``` r
 
-# Dissolving
+# Dissolve by group.
 v_lux |>
   # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>

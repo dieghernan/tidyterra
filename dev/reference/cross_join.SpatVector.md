@@ -22,8 +22,8 @@ cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
 
 - y:
 
-  A data frame or other object coercible to a data frame. **If a
-  `SpatVector` or `sf` object** is provided it returns an error.
+  A data frame or other object coercible to a data frame. If a
+  `SpatVector` or `sf` object is provided, this method returns an error.
 
 - ...:
 
@@ -57,6 +57,9 @@ method.
 
 The geometry column has sticky behavior. The result repeats each
 geometry in `x` once for every row in `y`.
+
+If `y` has a column named `geometry`, it is treated as a regular
+attribute and receives the suffix from `suffix`.
 
 ## See also
 

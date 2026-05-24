@@ -121,17 +121,18 @@ Verbs that mainly operate on groups of rows.
 
 ### `SpatVector` and data frames
 
-Verbs that mainly operate on pairs of `Spat*` objects and data frames.
+Verbs that mainly operate on pairs of `SpatVector` objects and data
+frames.
 
 - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf` and data frames objects by column
+  Bind multiple `SpatVector`, `sf` and data frame objects by column
 
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
+  Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
 
 - [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
   :
@@ -248,7 +249,7 @@ implemented for `Spat*` objects.
 
   Fortify `Spat*` Objects
 
-## **ggplot2** utils
+## **ggplot2** helpers
 
 ### Geoms
 
@@ -283,7 +284,7 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 
 ### Scales
 
-Gradient color schemes, palettes and hypsometric tints.
+Color scales, palettes and hypsometric tints.
 
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   [`scale_colour_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
@@ -456,6 +457,8 @@ objects from tibbles.
 
 ### Other helpers
 
+Utilities for CRS handling, package checks and raster comparison.
+
 - [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md)
   :
 
@@ -468,6 +471,8 @@ objects from tibbles.
   : Extract CRS in WKT format
 
 ## Built-in data
+
+Example data and palette databases included with **tidyterra**.
 
 - [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md)
   : Cross-blended hypsometric tints

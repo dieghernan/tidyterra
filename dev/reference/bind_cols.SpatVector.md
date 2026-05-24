@@ -1,12 +1,12 @@
-# Bind multiple `SpatVector`, `sf` and data frames objects by column
+# Bind multiple `SpatVector`, `sf` and data frame objects by column
 
 Bind any number of `SpatVector`, data frames and `sf` objects by column,
 making a wider result. This is similar to `do.call(cbind, data_frames)`.
 
 Where possible prefer using a
 [join](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
-to combine `SpatVector` and data frames objects. `bind_spat_cols()`
-binds the rows in order in which they appear so it is easy to create
+to combine `SpatVector` and data frame objects. `bind_spat_cols()` binds
+the rows in order in which they appear so it is easy to create
 meaningless results without realizing it.
 
 ## Usage
