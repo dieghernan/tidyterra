@@ -37,6 +37,16 @@ Verbs that mainly operate on rows.
 
   Subset cells/geometries of `Spat*` objects
 
+- [`rows_insert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_append(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_update(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  :
+
+  Row operations for `SpatVector` objects
+
 - [`slice(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
   [`slice(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
   [`slice_head(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
@@ -108,6 +118,11 @@ Verbs that mainly operate on groups of rows.
 
   Group a `SpatVector` by one or more variables
 
+- [`reframe(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md)
+  :
+
+  Reframe each group of a `SpatVector`
+
 - [`rowwise(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
   :
 
@@ -153,6 +168,21 @@ frames.
 
   Mutating joins for `SpatVector` objects
 
+- [`nest_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md)
+  :
+
+  Nest join `SpatVector` objects
+
+- [`rows_insert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_append(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_update(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  :
+
+  Row operations for `SpatVector` objects
+
 ## **tidyr** methods
 
 Methods from [tidyr](https://CRAN.R-project.org/package=tidyr)
@@ -197,6 +227,11 @@ missing values and for handling explicit `NA` values.
   :
 
   Drop attributes of `Spat*` objects containing missing values
+
+- [`expand(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md)
+  :
+
+  Expand `SpatVector` attribute combinations
 
 - [`fill(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
   :

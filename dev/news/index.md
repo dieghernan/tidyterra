@@ -2,8 +2,8 @@
 
 ## tidyterra (development version)
 
-This release includes user-facing methods generated with AI assistance
-and documentation reviewed with AI-assisted editing.
+This release adds tidyverse methods for `SpatVector` objects and
+includes documentation reviewed with AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI-assisted
   editing.
@@ -17,6 +17,16 @@ The following methods were generated with AI assistance.
   [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
 - [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
   matches each `SpatVector` feature in `x` with every row in `y`.
+- [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md)
+  returns attribute combinations for `SpatVector` objects.
+- [`group_map.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md)
+  and
+  [`group_modify.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md)
+  apply functions to grouped `SpatVector` objects.
+- [`group_nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md)
+  and
+  [`nest_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md)
+  create tibbles with `SpatVector` list-columns.
 - [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md)
   splits grouped `SpatVector` objects into a list of `SpatVector`
   objects.
@@ -24,6 +34,13 @@ The following methods were generated with AI assistance.
   drops unused factor levels in grouping variables.
 - [`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md)
   creates nested `SpatVector` list-columns.
+- [`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md)
+  creates nested joins for `SpatVector` inputs.
+- [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md)
+  can return any number of rows per `SpatVector` group.
+- [`rows_insert.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
+  and related `rows_*()` methods update `SpatVector` rows while
+  preserving geometries.
 - [`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md)
   duplicates `SpatVector` features according to a weighting variable.
 - [`?unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)

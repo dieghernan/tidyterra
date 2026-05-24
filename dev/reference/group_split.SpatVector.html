@@ -150,6 +150,8 @@ objects.</p>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">dplyr::group_split()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/svc.html" class="external-link">terra::svc()</a></code></p>
 <p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> grouping methods:
 <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>,
+<code><a href="group_map.SpatVector.html">group_map.SpatVector()</a></code>,
+<code><a href="group_nest.SpatVector.html">group_nest.SpatVector()</a></code>,
 <code><a href="group_trim.SpatVector.html">group_trim.SpatVector()</a></code></p></div>
     </div>
 
@@ -199,7 +201,7 @@ objects.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               ES-ZA    49  Zamora     C</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># We can coerce the result to a SpatVectorCollection.</span></span></span>
+<span class="r-in"><span><span class="co"># Coerce the result to a SpatVectorCollection.</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_split.html" class="external-link">group_split</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>

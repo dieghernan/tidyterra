@@ -28,9 +28,27 @@ is_grouped_spatvector(x)
   A `SpatVector` created with
   [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
+## Value
+
+`TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
+
 ## See also
 
 Other helpers:
 [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md),
 [`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md),
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
+
+## Examples
+
+``` r
+v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+is_grouped_spatvector(v)
+#> [1] FALSE
+
+grouped <- group_by(v, iso2)
+
+is_grouped_spatvector(grouped)
+#> [1] TRUE
+```

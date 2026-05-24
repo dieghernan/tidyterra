@@ -57,7 +57,7 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<p>This release includes user-facing methods generated with AI assistance and documentation reviewed with AI-assisted editing.</p>
+<p>This release adds tidyverse methods for <code>SpatVector</code> objects and includes documentation reviewed with AI-assisted editing.</p>
 <ul><li>Package documentation was reviewed and updated with AI-assisted editing.</li>
 </ul><div class="section level3">
 <h3 id="new-methods-development-version">New methods<a class="anchor" aria-label="anchor" href="#new-methods-development-version"></a></h3>
@@ -67,11 +67,23 @@
 <li>
 <code><a href="../reference/cross_join.SpatVector.html">cross_join.SpatVector()</a></code> matches each <code>SpatVector</code> feature in <code>x</code> with every row in <code>y</code>.</li>
 <li>
+<code><a href="../reference/expand.SpatVector.html">expand.SpatVector()</a></code> returns attribute combinations for <code>SpatVector</code> objects.</li>
+<li>
+<code><a href="../reference/group_map.SpatVector.html">group_map.SpatVector()</a></code> and <code><a href="../reference/group_map.SpatVector.html">group_modify.SpatVector()</a></code> apply functions to grouped <code>SpatVector</code> objects.</li>
+<li>
+<code><a href="../reference/group_nest.SpatVector.html">group_nest.SpatVector()</a></code> and <code><a href="../reference/group_nest.SpatVector.html">nest_by.SpatVector()</a></code> create tibbles with <code>SpatVector</code> list-columns.</li>
+<li>
 <code><a href="../reference/group_split.SpatVector.html">group_split.SpatVector()</a></code> splits grouped <code>SpatVector</code> objects into a list of <code>SpatVector</code> objects.</li>
 <li>
 <code><a href="../reference/group_trim.SpatVector.html">group_trim.SpatVector()</a></code> drops unused factor levels in grouping variables.</li>
 <li>
 <code><a href="../reference/nest.SpatVector.html">nest.SpatVector()</a></code> creates nested <code>SpatVector</code> list-columns.</li>
+<li>
+<code><a href="../reference/nest_join.SpatVector.html">nest_join.SpatVector()</a></code> creates nested joins for <code>SpatVector</code> inputs.</li>
+<li>
+<code><a href="../reference/reframe.SpatVector.html">reframe.SpatVector()</a></code> can return any number of rows per <code>SpatVector</code> group.</li>
+<li>
+<code><a href="../reference/rows.SpatVector.html">rows_insert.SpatVector()</a></code> and related <code>rows_*()</code> methods update <code>SpatVector</code> rows while preserving geometries.</li>
 <li>
 <code><a href="../reference/uncount.SpatVector.html">uncount.SpatVector()</a></code> duplicates <code>SpatVector</code> features according to a weighting variable.</li>
 <li>

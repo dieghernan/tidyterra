@@ -50,7 +50,7 @@ Currently, the following methods are available:
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
 | [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create/modify layers |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html) | ✔️ | ✔️ |
-| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and (optionally) remove outer cells. |
+| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ |  |
 | [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html) | ✔️ | ✔️ Additional methods for slicing by row and column. |
 | [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html) | ✔️ | ✔️ |
@@ -60,15 +60,19 @@ Currently, the following methods are available:
 | [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) | ✔️ |  |
 | [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) | ✔️ | ✔️ |
 | [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) family | ✔️ |  |
+| [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html) | ✔️ |  |
 | [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html) | ✔️ |  |
 | [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) | ✔️ |  |
+| [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html) | ✔️ |  |
 | [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) family | ✔️ |  |
 | [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) | ✔️ |  |
 | [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
+| `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md) |  |
 | [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
+| [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
 | [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
 | [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html) | ✔️ |  |

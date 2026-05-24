@@ -1,7 +1,9 @@
 # Trim grouping structure
 
-**\[experimental\]** This method drops unused levels of all factors that
-are used as grouping variables and recalculates the grouping structure.
+**\[experimental\]**
+
+This method drops unused levels of all factors that are used as grouping
+variables and recalculates the grouping structure.
 
 [`group_trim()`](https://dplyr.tidyverse.org/reference/group_trim.html)
 is particularly useful after a
@@ -48,6 +50,8 @@ for `SpatVector` objects.
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+[`group_map.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md),
+[`group_nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md),
 [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md)
 
 ## Examples

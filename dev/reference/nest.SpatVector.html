@@ -141,6 +141,7 @@ and cannot be passed directly to <code><a href="https://tidyr.tidyverse.org/refe
 <p>Other <a href="https://CRAN.R-project.org/package=tidyr" class="external-link"><span class="pkg">tidyr</span></a> methods:
 <code><a href="complete.SpatVector.html">complete.SpatVector()</a></code>,
 <code><a href="drop_na.Spat.html">drop_na.Spat</a></code>,
+<code><a href="expand.SpatVector.html">expand.SpatVector()</a></code>,
 <code><a href="fill.SpatVector.html">fill.SpatVector()</a></code>,
 <code><a href="pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code>,
 <code><a href="pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code>,
@@ -170,7 +171,7 @@ and cannot be passed directly to <code><a href="https://tidyr.tidyverse.org/refe
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 47    <span style="color: #949494;">&lt;SpatVctr[,2]&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 49    <span style="color: #949494;">&lt;SpatVctr[,2]&gt;</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Convert to named SpatVectorCollection.</span></span></span>
+<span class="r-in"><span><span class="co"># Convert to a named SpatVectorCollection.</span></span></span>
 <span class="r-in"><span><span class="va">nested</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">nest</a></span><span class="op">(</span><span class="va">v</span>, .by <span class="op">=</span> <span class="va">cpro</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">nested</span>, <span class="va">data</span><span class="op">)</span></span></span>

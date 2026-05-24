@@ -81,6 +81,8 @@ for `SpatVector` objects.
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+[`group_map.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md),
+[`group_nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md),
 [`group_trim.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_trim.SpatVector.md)
 
 ## Examples
@@ -130,7 +132,7 @@ v |>
 #>               ES-ZA    49  Zamora     C
 #> 
 
-# We can coerce the result to a SpatVectorCollection.
+# Coerce the result to a SpatVectorCollection.
 v |>
   group_by(group) |>
   group_split() |>

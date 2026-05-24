@@ -85,6 +85,7 @@ objects and cannot be passed directly to
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
 [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
+[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
@@ -114,7 +115,7 @@ v |>
 #> 8 47    <SpatVctr[,2]>
 #> 9 49    <SpatVctr[,2]>
 
-# Convert to named SpatVectorCollection.
+# Convert to a named SpatVectorCollection.
 nested <- nest(v, .by = cpro)
 
 sv <- pull(nested, data)
