@@ -74,7 +74,7 @@ v |>
   group_by(cpro) |>
   nest()
 
-# Convert to named SpatVectorCollection.
+# Convert to a named SpatVectorCollection.
 nested <- nest(v, .by = cpro)
 
 sv <- pull(nested, data)
@@ -89,6 +89,7 @@ terra::svc(sv)
 Other \CRANpkg{tidyr} methods:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
+\code{\link[=expand.SpatVector]{expand.SpatVector()}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}},

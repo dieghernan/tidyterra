@@ -10,6 +10,9 @@ is_grouped_spatvector(x)
 \arguments{
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 }
+\value{
+\code{TRUE} if \code{x} is a grouped \code{SpatVector}, otherwise \code{FALSE}.
+}
 \description{
 The easiest way to create a grouped \code{SpatVector} is to call the
 \code{group_by()} method on a \code{SpatVector}: this will take care of capturing
@@ -19,6 +22,16 @@ This function is the adapted version of \code{\link[dplyr:is_grouped_df]{dplyr::
 
 See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the accessory functions that retrieve
 various metadata from a grouped \code{SpatVector}.
+}
+\examples{
+v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+is_grouped_spatvector(v)
+
+grouped <- group_by(v, iso2)
+
+is_grouped_spatvector(grouped)
+
 }
 \seealso{
 Other helpers:

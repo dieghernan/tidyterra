@@ -1,6 +1,6 @@
 # tidyterra (development version)
 
-This release includes user-facing methods generated with AI assistance and
+This release adds tidyverse methods for `SpatVector` objects and includes
 documentation reviewed with AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI-assisted editing.
@@ -12,10 +12,19 @@ The following methods were generated with AI assistance.
 - `complete.SpatVector()` supports `tidyr::complete()`.
 - `cross_join.SpatVector()` matches each `SpatVector` feature in `x` with every
   row in `y`.
+- `expand.SpatVector()` returns attribute combinations for `SpatVector` objects.
+- `group_map.SpatVector()` and `group_modify.SpatVector()` apply functions to
+  grouped `SpatVector` objects.
+- `group_nest.SpatVector()` and `nest_by.SpatVector()` create tibbles with
+  `SpatVector` list-columns.
 - `group_split.SpatVector()` splits grouped `SpatVector` objects into a list of
   `SpatVector` objects.
 - `group_trim.SpatVector()` drops unused factor levels in grouping variables.
 - `nest.SpatVector()` creates nested `SpatVector` list-columns.
+- `nest_join.SpatVector()` creates nested joins for `SpatVector` inputs.
+- `reframe.SpatVector()` can return any number of rows per `SpatVector` group.
+- `rows_insert.SpatVector()` and related `rows_*()` methods update `SpatVector`
+  rows while preserving geometries.
 - `uncount.SpatVector()` duplicates `SpatVector` features according to a
   weighting variable.
 - `?unite.Spat` combines several `SpatRaster` layers or `SpatVector` attributes.

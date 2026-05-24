@@ -73,6 +73,7 @@ unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 Other \CRANpkg{tidyr} methods:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},
 \code{\link{drop_na.Spat}},
+\code{\link[=expand.SpatVector]{expand.SpatVector()}},
 \code{\link[=fill.SpatVector]{fill.SpatVector()}},
 \code{\link[=nest.SpatVector]{nest.SpatVector()}},
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}},

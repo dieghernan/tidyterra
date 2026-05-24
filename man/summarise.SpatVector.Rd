@@ -113,6 +113,7 @@ Other single table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link{rename.Spat}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}
@@ -120,6 +121,7 @@ Other single table verbs:
 Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}}
 
 Other \CRANpkg{dplyr} methods:
@@ -135,9 +137,12 @@ Other \CRANpkg{dplyr} methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
+\code{\link[=nest_join.SpatVector]{nest_join.SpatVector()}},
 \code{\link{pull.Spat}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
+\code{\link{rows.SpatVector}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}}

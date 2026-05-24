@@ -16,6 +16,17 @@
 #'
 #' @inheritParams as_sf
 #'
+#' @returns `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
+#'
+#' @examples
+#' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+#'
+#' is_grouped_spatvector(v)
+#'
+#' grouped <- group_by(v, iso2)
+#'
+#' is_grouped_spatvector(grouped)
+#'
 #' @keywords internal
 is_grouped_spatvector <- function(x) {
   att <- attributes(x)

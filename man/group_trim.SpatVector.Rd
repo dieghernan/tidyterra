@@ -17,6 +17,7 @@ A \code{SpatVector} object with updated grouping metadata.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 This method drops unused levels of all factors that are used as grouping
 variables and recalculates the grouping structure.
 
@@ -49,6 +50,8 @@ v |>
 
 Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+\code{\link[=group_map.SpatVector]{group_map.SpatVector()}},
+\code{\link[=group_nest.SpatVector]{group_nest.SpatVector()}},
 \code{\link[=group_split.SpatVector]{group_split.SpatVector()}}
 }
 \concept{dplyr.group_functions}

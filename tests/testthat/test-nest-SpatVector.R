@@ -16,6 +16,14 @@ test_that("nest() creates SpatVector list-columns", {
     },
     logical(1)
   )))
+
+  sv <- pull(nested, data)
+  names(sv) <- pull(nested, cpro)
+  svc <- terra::svc(sv)
+
+  expect_s4_class(svc, "SpatVectorCollection")
+  expect_length(svc, nrow(nested))
+  expect_named(svc, nested$cpro)
 })
 
 test_that("nest() preserves grouped data frame output", {
@@ -29,6 +37,13 @@ test_that("nest() preserves grouped data frame output", {
   expect_true(dplyr::is_grouped_df(nested))
   expect_identical(group_vars(nested), "cpro")
   expect_true(all(vapply(nested$data, inherits, logical(1), "SpatVector")))
+
+  sv <- pull(nested, data)
+  names(sv) <- pull(nested, cpro)
+  svc <- terra::svc(sv)
+
+  expect_s4_class(svc, "SpatVectorCollection")
+  expect_length(svc, nrow(nested))
 })
 
 test_that("nest() requires nested geometry", {
