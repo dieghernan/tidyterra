@@ -10,9 +10,6 @@
 #'
 #' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
 #'
-#' @return
-#' A `SpatVector`.
-#'
 #' @export
 #' @encoding UTF-8
 #' @rdname summarise.SpatVector
@@ -24,12 +21,15 @@
 #' @family dplyr.groups
 #' @family dplyr.methods
 #'
+#' @importFrom dplyr summarise
+#'
 #' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::summarise
 #' @param .dissolve Logical. If `TRUE`, dissolve borders between aggregated
 #'   geometries.
 #'
-#' @importFrom dplyr summarise
+#' @returns
+#' A `SpatVector`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -122,10 +122,10 @@ summarise.SpatVector <- function(
 #' @export
 dplyr::summarise
 
-#' @rdname summarise.SpatVector
-#' @importFrom dplyr summarize
 #' @export
 #' @encoding UTF-8
+#' @rdname summarise.SpatVector
+#' @importFrom dplyr summarize
 summarize.SpatVector <- summarise.SpatVector
 
 #' @export

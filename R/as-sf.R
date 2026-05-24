@@ -6,18 +6,18 @@
 #' [sf::st_as_sf()] and preserves groups created with
 #' [group_by.SpatVector()].
 #'
-#' @return
-#' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
-#' pretty printing.
-#'
 #' @export
 #' @encoding UTF-8
+#'
+#' @family coerce
 #'
 #' @param x A `SpatVector` created with [terra::vect()].
 #'
 #' @param ... Additional arguments passed on to [sf::st_as_sf()].
 #'
-#' @family coerce
+#' @returns
+#' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
+#' pretty printing.
 #'
 #' @examples
 #'

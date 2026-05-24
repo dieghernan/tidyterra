@@ -29,7 +29,7 @@ data? The default is \code{TRUE} except when \code{.data} has been previously
 grouped with \code{.drop = FALSE}. See \code{\link[dplyr:group_by_drop_default]{group_by_drop_default()}} for details.}
 }
 \value{
-A \code{SpatVector} object with an additional attribute.
+A \code{SpatVector} object with updated grouping metadata.
 }
 \description{
 Most data operations are done on groups defined by variables.
@@ -150,6 +150,6 @@ Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_split.SpatVector]{group_split.SpatVector()}},
 \code{\link[=group_trim.SpatVector]{group_trim.SpatVector()}}
 }
-\concept{dplyr.group_funs}
+\concept{dplyr.group_functions}
 \concept{dplyr.groups}
 \concept{dplyr.methods}

@@ -39,7 +39,7 @@
 #'
 #' @param ... Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat].
 #'
-#' @return A vector the same number of cells/geometries as `.data`.
+#' @returns A vector the same number of cells/geometries as `.data`.
 #'
 #' On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
 #' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See

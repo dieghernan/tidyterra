@@ -11,6 +11,15 @@
 #' @rdname relocate.Spat
 #' @name relocate.Spat
 #'
+#' @seealso [dplyr::relocate()]
+#'
+#' @family dplyr.cols
+#' @family dplyr.methods
+#'
+#' @importFrom dplyr relocate
+#'
+#' @inherit select.Spat return
+#'
 #' @inheritParams select.Spat
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> layers/attributes to
 #'   move.
@@ -18,15 +27,6 @@
 #' @param .before,.after <[`tidy-select`][dplyr::dplyr_tidy_select]> Destination
 #'   of layers/attributes selected by `...`. Supplying neither will move
 #'   layers/attributes to the left-hand side. Specifying both is an error.
-#'
-#' @inherit select.Spat return
-#'
-#' @seealso [dplyr::relocate()]
-#'
-#' @family dplyr.cols
-#' @family dplyr.methods
-#'
-#' @importFrom dplyr relocate
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -74,9 +74,9 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
   finalrast
 }
 
-#' @rdname relocate.Spat
 #' @export
 #' @encoding UTF-8
+#' @rdname relocate.Spat
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
   # Use own method
   # With template

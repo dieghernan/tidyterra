@@ -11,7 +11,7 @@ You can find the `.R` file that generates the `.Rd` by reading the comment in th
 
 ## Bigger changes
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
+If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it's needed. 
 If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
 [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
 See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.

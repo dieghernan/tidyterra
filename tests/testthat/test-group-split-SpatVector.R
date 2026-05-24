@@ -10,6 +10,7 @@ test_that("group_split() returns SpatVector partitions", {
   split_tbl <- dplyr::group_split(as_tibble(gv))
 
   expect_type(split_v, "list")
+  expect_identical(class(split_v), "list")
   expect_length(split_v, length(split_tbl))
   expect_true(all(vapply(split_v, inherits, logical(1), "SpatVector")))
   expect_true(all(vapply(

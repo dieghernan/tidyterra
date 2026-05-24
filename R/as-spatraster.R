@@ -6,11 +6,15 @@
 #' `SpatRaster`. It wraps the [terra::rast()] S4 method for signature
 #' `data.frame`.
 #'
-#' @return
-#' A `SpatRaster`.
-#'
 #' @export
 #' @encoding UTF-8
+#'
+#' @seealso
+#'
+#' [pull_crs()] for retrieving CRS and the corresponding utils [sf::st_crs()]
+#' and [terra::crs()].
+#'
+#' @family coerce
 #'
 #' @param x A [tibble][tibble::tbl_df] or data frame.
 #' @param xycols A vector of integers of length 2 determining the position of
@@ -26,18 +30,14 @@
 #'
 #' @param ... Additional arguments passed on to [terra::rast()].
 #'
+#' @returns
+#' A `SpatRaster`.
+#'
 #' @details
 #'
 #' If no `crs` is provided and the tibble has been created with the method
 #' [as_tibble.SpatRaster()], the `crs` is inferred from
 #' [`attr(x, "crs")`][attr()].
-#'
-#' @family coerce
-#'
-#' @seealso
-#'
-#' [pull_crs()] for retrieving CRS and the corresponding utils [sf::st_crs()]
-#' and [terra::crs()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -70,22 +70,21 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   }
 
   if (!inherits(x, "data.frame")) {
-    cli::cli_abort(
-      "{.arg x} should be a {.cls data.frame/tbl}, not {.cls {class(x)}}"
-    )
+    cli::cli_abort(paste0(
+      "{.arg x} must be a {.cls data.frame} or {.cls tbl}, ",
+      "not {.cls {class(x)}}."
+    ))
   }
 
   if (length(xycols) != 2) {
     cli::cli_abort(paste(
-      "{.arg xycols} should have a length of {.val {as.integer(2)}},",
-      "not {.val {length(xycols)}}"
+      "{.arg xycols} must have length {.val {as.integer(2)}},",
+      "not {.val {length(xycols)}}."
     ))
   }
 
   if (!is.numeric(xycols)) {
-    cli::cli_abort(
-      "{.arg xycols} should be a {.cls integer}, not {.cls {class(xycols)}}"
-    )
+    cli::cli_abort("{.arg xycols} must be numeric, not {.cls {class(xycols)}}.")
   }
 
   xycols <- as.integer(xycols)

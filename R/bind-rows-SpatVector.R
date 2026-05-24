@@ -1,29 +1,29 @@
-#' Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
+#' Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
 #'
 #' @description
 #' Bind any number of `SpatVector`, data frames and `sf/sfc` objects by row,
 #' making a longer result. This is similar to `do.call(rbind, data_frames)`,
 #' but the output will contain all columns that appear in any of the inputs.
 #'
-#' @param ... Objects to combine. The first argument must be a `SpatVector`.
-#'   Each subsequent argument can be a `SpatVector`, `sf/sfc` object or data
-#'   frame. Columns are matched by name and any missing columns are filled with
-#'   `NA`.
-#' @inheritParams dplyr::bind_rows
-#'
-#' @return A `SpatVector` of the same type as the first element of `...`.
-#' @aliases bind.Spat
 #' @export
 #' @encoding UTF-8
-#'
-#' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @rdname bind_rows.SpatVector
 #' @name bind_rows.SpatVector
 #'
+#' @aliases bind.Spat
 #' @seealso [dplyr::bind_rows()]
 #'
+#' @family dplyr.pairs
+#' @family dplyr.methods
+#'
+#' @inheritParams dplyr::bind_rows
+#'
+#' @param ... Objects to combine. The first argument must be a `SpatVector`.
+#'   Each subsequent argument can be a `SpatVector`, `sf/sfc` object or data
+#'   frame. Columns are matched by name and any missing columns are filled with
+#'   `NA`.
+#' @returns A `SpatVector` of the same type as the first element of `...`.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' `rbind()` method
@@ -34,7 +34,7 @@
 #' `SpatVector` objects.
 #'
 #' The first argument should be a `SpatVector`. Each subsequent argument can be
-#' a `SpatVector`, `sf/sfc` object, or data frame:
+#' a `SpatVector`, `sf/sfc` object or data frame:
 #'
 #' - If subsequent `SpatVector/sf/sfc` objects have a different CRS than the
 #'   first element, those elements are reprojected to the CRS of the

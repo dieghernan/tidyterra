@@ -11,9 +11,9 @@ Authors@R: c(
     person("Andrea", "Manica", role = "ctb",
            comment = c(ORCID = "0000-0003-1895-450X"))
   )
-Description: Provides 'tidyverse' methods for 'SpatRaster' and
-    'SpatVector' objects created by the 'terra' package and 'ggplot2'
-    geoms to visualize those objects.
+Description: Provides common 'tidyverse' methods for 'SpatRaster' and
+    'SpatVector' objects created by the 'terra' package, plus 'ggplot2'
+    geoms for visualizing those objects.
 License: MIT + file LICENSE
 URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra

@@ -5,19 +5,10 @@
 #' `mutate()` adds new layers/attributes and preserves existing ones on a
 #' `Spat*` object.
 #'
-#' @inherit select.Spat return
-#'
-#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
-#'
-#' @inheritParams dplyr::mutate
-#'
 #' @export
 #' @encoding UTF-8
 #' @rdname mutate.Spat
 #' @name mutate.Spat
-#'
-#' @importFrom dplyr mutate
 #'
 #' @seealso
 #'
@@ -33,6 +24,15 @@
 #' @family single table verbs
 #' @family dplyr.cols
 #' @family dplyr.methods
+#'
+#' @importFrom dplyr mutate
+#'
+#' @inherit select.Spat return
+#'
+#' @inheritParams dplyr::mutate
+#'
+#' @param .data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
+#'   created with [terra::vect()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

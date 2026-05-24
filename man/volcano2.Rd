@@ -21,7 +21,7 @@ Data License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
 Probably you already know the \link{volcano} dataset. This dataset provides
 updated information of Maungawhau (Mt. Eden) from
 \href{https://data.linz.govt.nz/}{Toitu Te Whenua Land Information New Zealand},
-the Government's agency that provides free online access to New Zealand’s
+the Government's agency that provides free online access to New Zealand's
 most up-to-date land and seabed data.
 }
 \note{

@@ -10,8 +10,8 @@
 \arguments{
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{y}{A data frame or other object coercible to a data frame. \strong{If a
-\code{SpatVector} or \code{sf} object} is provided it returns an error.}
+\item{y}{A data frame or other object coercible to a data frame. If a
+\code{SpatVector} or \code{sf} object is provided, this method returns an error.}
 
 \item{...}{Additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 
@@ -40,6 +40,9 @@ Implementation of the \strong{generic} \code{\link[dplyr:cross_join]{dplyr::cros
 
 The geometry column has sticky behavior. The result repeats each geometry in
 \code{x} once for every row in \code{y}.
+
+If \code{y} has a column named \code{geometry}, it is treated as a regular attribute
+and receives the suffix from \code{suffix}.
 }
 }
 

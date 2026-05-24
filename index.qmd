@@ -111,9 +111,9 @@ the type of `Spat*` object:
   coercion. Rows correspond to geometries and columns correspond to attributes
   of each geometry.
 
-- `SpatRaster`: The implementation for `SpatRaster` objects differs because
-  methods can be applied to layers or cells. **tidyterra**'s overall approach is
-  to treat the layers as columns of a tibble and the cells as rows (i.e.
+- `SpatRaster`: For `SpatRaster` objects, methods can be applied to layers or
+  cells. **tidyterra**'s overall approach is to treat the layers as columns of a
+  tibble and the cells as rows (i.e.
   `select(SpatRaster, 1)` selects the first layer of a `SpatRaster`).
 
 The implemented methods return the same type of object as the input, unless the
@@ -145,7 +145,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::count()`, `tally()` | ✔️ |  |
 | `dplyr::add_count()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | `tidyr::complete()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
 | `tidyr::fill()` | ✔️ |  |
@@ -349,7 +349,7 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="Example: Plotting a tile in tidyterra"',
+    '" alt="Example of plotting a tile in tidyterra"',
     ' width="100%" />'
   )
 )
@@ -440,8 +440,8 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
-Check our [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
-open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
+Check the [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
+open a new [issue](https://github.com/dieghernan/tidyterra/issues).
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).

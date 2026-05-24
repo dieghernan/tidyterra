@@ -4,7 +4,7 @@
 \name{bind_cols.SpatVector}
 \alias{bind_cols.SpatVector}
 \alias{bind_spat_cols}
-\title{Bind multiple \code{SpatVector}, \code{sf} and data frames objects by column}
+\title{Bind multiple \code{SpatVector}, \code{sf} and data frame objects by column}
 \usage{
 bind_spat_cols(
   ...,
@@ -30,7 +30,7 @@ Bind any number of \code{SpatVector}, data frames and \code{sf} objects by colum
 making a wider result. This is similar to \code{do.call(cbind, data_frames)}.
 
 Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to
-combine \code{SpatVector} and data frames objects. \code{bind_spat_cols()}
+combine \code{SpatVector} and data frame objects. \code{bind_spat_cols()}
 binds the rows in order in which they appear so it is easy to create
 meaningless results without realizing it.
 }

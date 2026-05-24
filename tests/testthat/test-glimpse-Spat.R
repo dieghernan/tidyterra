@@ -14,9 +14,7 @@ test_that("Glimpse SpatVectors", {
   expect_snapshot(glimpse(v))
 
   # With opts
-  expect_snapshot(
-    glimpse(v, geom = "WKT", width = 5)
-  )
+  expect_snapshot(glimpse(v, geom = "WKT", width = 5))
 
   skip_if_not_installed("vctrs")
   expect_snapshot(glimpse(v, width = 50, n = 2))

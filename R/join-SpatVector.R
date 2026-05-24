@@ -21,14 +21,14 @@
 #'
 #' @importFrom dplyr inner_join
 #'
-#' @param y A data frame or other object coercible to a data frame. **If a
-#'   `SpatVector` or `sf` object** is provided it returns an error (see
-#'   [terra::intersect()] for performing spatial joins).
-#'
 #' @inheritParams dplyr::full_join
 #' @inheritParams as_sf
 #'
-#' @return A `SpatVector` object.
+#' @param y A data frame or other object coercible to a data frame. If a
+#'   `SpatVector` or `sf` object is provided, this method returns an error. See
+#'   [terra::intersect()] for spatial joins.
+#'
+#' @returns A `SpatVector` object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -131,10 +131,10 @@ inner_join.SpatVector <- function(
 #' @export
 dplyr::inner_join
 
-#' @importFrom dplyr left_join
 #' @export
 #' @encoding UTF-8
 #' @name mutate-joins.SpatVector
+#' @importFrom dplyr left_join
 left_join.SpatVector <- function(
   x,
   y,
@@ -169,10 +169,10 @@ left_join.SpatVector <- function(
 #' @export
 dplyr::left_join
 
-#' @importFrom dplyr right_join
 #' @export
 #' @encoding UTF-8
 #' @name mutate-joins.SpatVector
+#' @importFrom dplyr right_join
 right_join.SpatVector <- function(
   x,
   y,
@@ -207,10 +207,10 @@ right_join.SpatVector <- function(
 #' @export
 dplyr::right_join
 
-#' @importFrom dplyr full_join
 #' @export
 #' @encoding UTF-8
 #' @name mutate-joins.SpatVector
+#' @importFrom dplyr full_join
 full_join.SpatVector <- function(
   x,
   y,
@@ -269,7 +269,7 @@ dplyr::full_join
 #'
 #' @inheritParams mutate-joins.SpatVector
 #'
-#' @return A `SpatVector` object.
+#' @returns A `SpatVector` object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -334,10 +334,10 @@ semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
 #' @export
 dplyr::semi_join
 
-#' @importFrom dplyr anti_join
 #' @export
 #' @encoding UTF-8
 #' @name filter-joins.SpatVector
+#' @importFrom dplyr anti_join
 anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   error_spat_join(y)
   # Use own method
@@ -359,8 +359,8 @@ dplyr::anti_join
 error_spat_join <- function(y) {
   if (inherits(y, c("SpatVector", "sf"))) {
     cli::cli_abort(paste(
-      "{.arg y} should not be {.cls {class(y)}}. For spatial joins, use",
-      "{.fun terra::intersect}"
+      "{.arg y} must not be {.cls {class(y)}}. For spatial joins, use",
+      "{.fun terra::intersect}."
     ))
   }
 }

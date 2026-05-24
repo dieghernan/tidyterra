@@ -3,24 +3,24 @@
 #' Glance accepts a model object and returns a [tibble::tibble()] with exactly
 #' one row of `Spat`. The summaries are typically geographic information.
 #'
-#' @inheritParams glimpse.Spat
-#'
-#' @param ... Ignored by this method.
-#'
-#' @importFrom generics glance
 #' @export
 #' @encoding UTF-8
-#'
-#' @family generics.methods
-#'
-#' @return
-#' glance methods always return a one-row data frame. See **Methods**.
 #'
 #' @rdname glance.Spat
 #' @name glance.Spat
 #'
 #' @seealso
 #' [`glimpse.Spat`], [generics::glance()].
+#'
+#' @family generics.methods
+#'
+#' @importFrom generics glance
+#' @inheritParams glimpse.Spat
+#'
+#' @param ... Ignored by this method.
+#'
+#' @returns
+#' glance methods always return a one-row data frame. See **Methods**.
 #'
 #' @section Methods:
 #'
@@ -79,9 +79,9 @@ glance.SpatRaster <- function(x, ...) {
   initial
 }
 
-#' @rdname glance.Spat
 #' @export
 #' @encoding UTF-8
+#' @rdname glance.Spat
 glance.SpatVector <- function(x, ...) {
   initial <- tibble::tibble(
     geometry = terra::geomtype(x),

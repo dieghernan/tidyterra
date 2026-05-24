@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster_rgb(data = v)
     Condition
       Error in `geom_spatraster_rgb()`:
-      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster_rgb(data = 1:3)
     Condition
       Error in `geom_spatraster_rgb()`:
-      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
 
 ---
 
@@ -20,7 +20,7 @@
       ggplot() + geom_spatraster_rgb(data = r_subset)
     Condition
       Error in `geom_spatraster_rgb()`:
-      ! Incorrect number of layers on `r`, `g`, and `b`. data has 2 layers.
+      ! Incorrect layer selection in `r`, `g`, and `b`. Data has 2 layers.
 
 ---
 
@@ -28,7 +28,7 @@
       ggplot() + geom_spatraster_rgb(data = select(r_subset, 1))
     Condition
       Error in `geom_spatraster_rgb()`:
-      ! Incorrect number of layers on `r`, `g`, and `b`. data has 1 layer.
+      ! Incorrect layer selection in `r`, `g`, and `b`. Data has 1 layer.
 
 ---
 

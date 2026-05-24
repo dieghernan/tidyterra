@@ -2,13 +2,13 @@
 #'
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 #'
-#' @name %>%
-#' @rdname pipe
-#' @keywords internal
 #' @export
-#' @importFrom magrittr %>%
+#' @rdname pipe
+#' @name %>%
 #' @usage lhs \%>\% rhs
+#' @importFrom magrittr %>%
 #' @param lhs A value or the magrittr placeholder.
 #' @param rhs A function call using the magrittr semantics.
-#' @return The result of calling `rhs(lhs)`.
+#' @returns The result of calling `rhs(lhs)`.
+#' @keywords internal
 NULL

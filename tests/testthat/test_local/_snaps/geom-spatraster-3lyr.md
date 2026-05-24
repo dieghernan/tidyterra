@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster(data = v)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster(data = 1:3)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
 
 ---
 
@@ -20,13 +20,13 @@
       end <- ggplot_build(s)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-      * Use `facet_wrap(~lyr)` for faceting or
-      * Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` to facet layers.
+      * Use `aes(fill = <name_of_layer>)` to display a single layer.
     Condition
       Warning:
       Computation failed in `stat_terra_spat_raster()`.
       Caused by error in `reproject_raster_on_stat()`:
-      ! `geom_spatraster_*()` on <SpatRaster>s with crs must be used with `ggplot2::coord_sf()`.
+      ! `geom_spatraster_*()` on <SpatRaster>s with CRS must be used with `ggplot2::coord_sf()`.
 
 ---
 
@@ -34,8 +34,8 @@
       end <- ggplot2::ggplot_build(p)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-      * Use `facet_wrap(~lyr)` for faceting or
-      * Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` to facet layers.
+      * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
 ---
 
@@ -46,7 +46,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>
+      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
 
 ---
 
@@ -57,7 +57,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "char" and "char2" of class <factor>
+      ! Plotting only layer "char" and "char2" of class <factor>.
 
 ---
 
@@ -79,8 +79,8 @@
     Code
       expect_message(ggplot2::ggplot_build(p))
     Message
-      * Use `facet_wrap(~lyr)` for faceting or
-      * Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` to facet layers.
+      * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
 ---
 
@@ -91,7 +91,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>
+      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
 
 ---
 
@@ -102,7 +102,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "char" and "char2" of class <factor>
+      ! Plotting only layer "char" and "char2" of class <factor>.
 
 ---
 
@@ -116,5 +116,5 @@
     Code
       p <- ggplot() + geom_spatraster(data = tile)
     Message
-      ! RGB specification detected. Maybe use `tidyterra::geom_spatraster_rgb()`: instead?
+      ! RGB specification detected. Use `tidyterra::geom_spatraster_rgb()` instead.
 

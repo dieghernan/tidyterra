@@ -26,10 +26,16 @@
 #'
 #' @name scale_whitebox
 #'
+#' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
+#'
+#' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
+#'
+#' @family gradients
+#'
+#' @inheritParams scale_cross_blended
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @inheritParams scale_cross_blended
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. The available values
 #'   are listed below.
@@ -46,15 +52,9 @@
 #'
 #' ```
 #'
-#' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
-#'
-#' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
-#'
-#' @return
+#' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
-#'
-#' @family gradients
 #'
 #' @source <https://github.com/jblindsay/whitebox-tools>, under
 #' MIT License. Copyright (c) 2017-2021 John Lindsay.
@@ -101,11 +101,11 @@ scale_fill_whitebox_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -132,11 +132,11 @@ scale_colour_whitebox_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -164,11 +164,11 @@ scale_fill_whitebox_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
@@ -198,11 +198,11 @@ scale_colour_whitebox_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
@@ -232,11 +232,11 @@ scale_fill_whitebox_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
@@ -266,11 +266,11 @@ scale_colour_whitebox_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- nrow(extract_pal(whitebox_coltab, palette = palette))
@@ -351,7 +351,7 @@ extract_pal <- function(df, palette) {
   palette <- tolower(palette)
 
   if (!palette %in% df$pal) {
-    cli::cli_abort("{.arg palette} does not match any given palette")
+    cli::cli_abort("{.arg palette} is not a known palette.")
   }
 
   df <- df[df$pal == palette, ]

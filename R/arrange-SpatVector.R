@@ -22,7 +22,7 @@
 #' @param .by_group If `TRUE`, sort first by grouping variable. This applies to
 #'   grouped `SpatVector` objects only.
 #'
-#' @return A `SpatVector` object.
+#' @returns A `SpatVector` object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

@@ -15,7 +15,7 @@ as_spat_internal <- function(x) {
 
   cli::cli_abort(paste(
     "Cannot convert {.arg x} back to a {.cls Spat*} object.",
-    "Something went wrong"
+    "Required reconstruction attributes are missing."
   ))
 }
 

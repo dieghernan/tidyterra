@@ -37,24 +37,24 @@
 #'
 #' @name scale_wiki
 #'
-#' @inheritParams scale_cross_blended
-#' @inheritDotParams ggplot2::discrete_scale breaks:drop
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels
-#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams ggplot2::continuous_scale
-#'
 #' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
 #'
 #' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
 #'
-#' @return
-#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-#' `fill/colour` aesthetics.
-#'
 #' @family gradients
 #'
 #' @importFrom ggplot2 alpha
+#'
+#' @inheritParams scale_cross_blended
+#' @inheritParams ggplot2::scale_fill_viridis_b
+#' @inheritParams ggplot2::continuous_scale
+#'
+#' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels
+#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
+#' @returns
+#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
+#' `fill/colour` aesthetics.
 #'
 #' @examples
 #' \donttest{
@@ -97,11 +97,11 @@ scale_fill_wiki_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -124,11 +124,11 @@ scale_colour_wiki_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -157,11 +157,11 @@ scale_fill_wiki_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- length(wiki_cols)
@@ -189,11 +189,11 @@ scale_colour_wiki_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- length(wiki_cols)
@@ -227,11 +227,11 @@ scale_fill_wiki_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- length(wiki_cols)
@@ -259,11 +259,11 @@ scale_colour_wiki_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   length_pal <- length(wiki_cols)

@@ -6,8 +6,8 @@
 \title{Visualise \code{SpatRaster} objects as images}
 \source{
 Based on the \code{layer_spatial()} implementation in the \CRANpkg{ggspatial}
-package.
-Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
+package. Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and to
+\href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
 }
 \usage{
 geom_spatraster_rgb(

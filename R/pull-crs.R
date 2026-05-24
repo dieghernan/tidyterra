@@ -19,17 +19,15 @@
 #' that identifies precisely the arguments of each CRS. It is the standard
 #' used by \CRANpkg{sf} and \CRANpkg{terra}.
 #'
+#' @export
+#' @encoding UTF-8
+#'
 #' @seealso
 #'
 #' [terra::crs()] and [sf::st_crs()] to learn how these packages handle
 #' CRS definitions.
 #'
 #' @family helpers
-#' @export
-#' @encoding UTF-8
-#'
-#' @return A WKT representation of the corresponding CRS.
-#'
 #' @param .data Input potentially including or representing a CRS. It could be
 #'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
 #'   [sf::st_crs()], a character (for example a [proj4
@@ -37,6 +35,8 @@
 #'   integer (representing an [EPSG](https://epsg.io/) code).
 #'
 #' @param ... Ignored.
+#'
+#' @returns A WKT representation of the corresponding CRS.
 #'
 #' @details
 #'
@@ -121,8 +121,8 @@ pull_crs <- function(.data, ...) {
 
   # All the rest, return empty with an alert
   cli::cli_alert_warning(paste(
-    "On {.fun tidyterra::pull_crs}:\nNo WKT equivalent found.",
-    "Returning {.val {NA}}"
+    "{.fun tidyterra::pull_crs} could not find a WKT equivalent.",
+    "Returning {.val {NA}}."
   ))
   NA
 }

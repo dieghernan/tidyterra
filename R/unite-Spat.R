@@ -5,15 +5,22 @@
 #' `unite()` combines multiple layers or attributes by pasting their values
 #' together.
 #'
-#' @param data A `SpatRaster` or `SpatVector`.
-#' @inheritParams tidyr::unite
-#'
-#' @return A `SpatRaster` or `SpatVector` object.
+#' @export
+#' @encoding UTF-8
+#' @rdname unite.Spat
+#' @name unite.Spat
 #'
 #' @seealso [tidyr::unite()]
 #'
 #' @family tidyr.character
 #' @family tidyr.methods
+#'
+#' @importFrom tidyr unite
+#'
+#' @inheritParams tidyr::unite
+#'
+#' @param data A `SpatRaster` or `SpatVector`.
+#' @returns A `SpatRaster` or `SpatVector` object.
 #'
 #' @section Methods:
 #'
@@ -39,11 +46,6 @@
 #'
 #' unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 #'
-#' @export
-#' @encoding UTF-8
-#' @rdname unite.Spat
-#' @name unite.Spat
-#' @importFrom tidyr unite
 unite.SpatRaster <- function(
   data,
   col,

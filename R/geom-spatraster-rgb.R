@@ -10,14 +10,15 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
-#' @return A \CRANpkg{ggplot2} layer
-#' @family ggplot2.utils
+#' @export
+#' @encoding UTF-8
+#' @seealso
+#' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
 #'
-#' @source
-#' Based on the `layer_spatial()` implementation in the \CRANpkg{ggspatial}
-#' package.
-#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
-#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#' You can also get RGB tiles from the \CRANpkg{maptiles} package. See
+#' [maptiles::get_tiles()].
+#'
+#' @family ggplot2.utils
 #'
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
@@ -28,24 +29,23 @@
 #' @param max_col_value Number giving the upper bound of the color value range.
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
-#' @seealso
-#' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
-#'
-#' You can also get RGB tiles from the \CRANpkg{maptiles} package. See
-#' [maptiles::get_tiles()].
-#'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()]
-#'
-#' @inheritSection geom_spatraster Coords
 #'
 #' @section Aesthetics:
 #'
 #' No `aes()` is required. In fact, `aes()` will be ignored.
 #'
-#' @export
-#' @encoding UTF-8
+#' @inheritSection geom_spatraster Coords
+#'
+#' @source
+#' Based on the `layer_spatial()` implementation in the \CRANpkg{ggspatial}
+#' package. Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to
+#' [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#'
 #' @examples
 #' \donttest{
 #'

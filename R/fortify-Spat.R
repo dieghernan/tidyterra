@@ -7,31 +7,31 @@
 #' **Note that** these methods are now implemented as a wrapper around
 #' [`tidy.Spat`] methods.
 #'
-#' @param model A `SpatRaster` created with [terra::rast()], a `SpatVector`
-#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
-#'   or a `SpatExtent` (see [terra::ext()]).
-#' @param data Not used by this method.
-#' @inheritParams tidy.Spat
-#' @importFrom ggplot2 fortify
 #' @export
 #' @encoding UTF-8
-#'
-#' @family ggplot2.utils
-#' @family ggplot2.methods
-#' @family coerce
-#'
-#' @return
-#'
-#' [fortify.SpatVector()], [fortify.SpatGraticule()] and [fortify.SpatExtent()]
-#' return a [`sf`][sf::st_sf] object.
-#'
-#' [fortify.SpatRaster()] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @rdname fortify.Spat
 #' @name fortify.Spat
 #'
 #' @seealso [`tidy.Spat`], [sf::st_as_sf()], [`as_tibble.Spat`],
 #'   [as_spatraster()], [ggplot2::fortify()].
+#'
+#' @family ggplot2.utils
+#' @family ggplot2.methods
+#' @family coerce
+#'
+#' @importFrom ggplot2 fortify
+#' @inheritParams tidy.Spat
+#' @param model A `SpatRaster` created with [terra::rast()], a `SpatVector`
+#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
+#'   or a `SpatExtent` (see [terra::ext()]).
+#' @param data Not used by this method.
+#' @returns
+#'
+#' [fortify.SpatVector()], [fortify.SpatGraticule()] and [fortify.SpatExtent()]
+#' return a [`sf`][sf::st_sf] object.
+#'
+#' [fortify.SpatRaster()] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @section Methods:
 #'

@@ -6,24 +6,24 @@
 #' - `SpatRaster`: `drop_na()` method drops cells where any layer specified by
 #' `...` contains a missing value.
 #'
-#' @return A `Spat*` object of the same class as `data`. See **Methods**.
-#'
-#' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
-#'   [terra::rast()].
-#' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]> Attributes to inspect
-#'   for missing values. If empty, all attributes are used.
-#'
 #' @export
 #' @encoding UTF-8
 #'
 #' @rdname drop_na.Spat
 #' @name drop_na.Spat
 #'
-#' @importFrom tidyr drop_na
-#'
 #' @seealso [tidyr::drop_na()]
 #' @family tidyr.missing
 #' @family tidyr.methods
+#'
+#' @importFrom tidyr drop_na
+#'
+#' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
+#'   [terra::rast()].
+#' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]> Attributes to inspect
+#'   for missing values. If empty, all attributes are used.
+#'
+#' @returns A `Spat*` object of the same class as `data`. See **Methods**.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

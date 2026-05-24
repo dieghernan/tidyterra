@@ -5,10 +5,16 @@
 #' Wrappers of [ggplot2::geom_sf()] family used to visualise `SpatVector`
 #' objects (see [terra::vect()]).
 #'
-#' @return A \CRANpkg{ggplot2} layer
-#' @family ggplot2.utils
+#' @export
+#' @encoding UTF-8
 #'
 #' @name ggspatvector
+#'
+#' @seealso [ggplot2::geom_sf()]
+#'
+#' @family ggplot2.utils
+#'
+#' @inheritParams ggplot2::geom_sf
 #'
 #' @param data A `SpatVector` object, see [terra::vect()].
 #'
@@ -16,10 +22,7 @@
 #'   These are often aesthetics, used to set an aesthetic to a fixed value,
 #'   like `colour = "red"` or `linewidth = 3`.
 #'
-#' @inheritParams ggplot2::geom_sf
-#'
-#' @seealso [ggplot2::geom_sf()]
-#'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @details
 #'
 #' These functions are wrappers of [ggplot2::geom_sf()] functions. Since a
@@ -32,9 +35,6 @@
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
-#'
-#' @export
-#' @encoding UTF-8
 #'
 #' @examples
 #' \donttest{

@@ -2,10 +2,7 @@ test_that("complete() expands missing SpatVector combinations", {
   skip_on_cran()
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-  v2 <- dplyr::mutate(
-    v,
-    grp = ifelse(iso2 %in% c("ES-AV", "ES-BU"), "a", "b")
-  )
+  v2 <- dplyr::mutate(v, grp = ifelse(iso2 %in% c("ES-AV", "ES-BU"), "a", "b"))
 
   completed <- complete(v2, grp, tidyr::nesting(iso2, name))
 

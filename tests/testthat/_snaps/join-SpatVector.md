@@ -4,7 +4,7 @@
       inner_join(df1, df1)
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <SpatVector>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <SpatVector>. For spatial joins, use `terra::intersect()`.
 
 ---
 
@@ -12,7 +12,7 @@
       left_join(df1, df1)
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <SpatVector>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <SpatVector>. For spatial joins, use `terra::intersect()`.
 
 ---
 
@@ -20,7 +20,7 @@
       right_join(df1, df1)
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <SpatVector>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <SpatVector>. For spatial joins, use `terra::intersect()`.
 
 ---
 
@@ -28,7 +28,7 @@
       semi_join(df1, sf::st_as_sf(df1))
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <sf/data.frame>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <sf/data.frame>. For spatial joins, use `terra::intersect()`.
 
 ---
 
@@ -36,7 +36,7 @@
       anti_join(df1, df1)
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <SpatVector>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <SpatVector>. For spatial joins, use `terra::intersect()`.
 
 ---
 
@@ -44,5 +44,5 @@
       cross_join(df1, df1)
     Condition
       Error in `error_spat_join()`:
-      ! `y` should not be <SpatVector>. For spatial joins, use `terra::intersect()`
+      ! `y` must not be <SpatVector>. For spatial joins, use `terra::intersect()`.
 

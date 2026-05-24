@@ -17,14 +17,6 @@
 #'
 #' @rdname geom_spat_contour
 #' @name geom_spat_contour
-#' @order 1
-#'
-#' @inheritParams geom_spatraster
-#' @inheritParams ggplot2::geom_contour
-#' @inheritParams ggplot2::geom_text
-#'
-#' @return A \CRANpkg{ggplot2} layer
-#' @family ggplot2.utils
 #' @seealso
 #' [ggplot2::geom_contour()].
 #'
@@ -33,12 +25,15 @@
 #' - `metR::geom_text_contour()` and `metR::geom_label_contour()`.
 #' - `metR::geom_contour_tanaka()`.
 #'
+#' @family ggplot2.utils
+#' @inheritParams geom_spatraster
+#' @inheritParams ggplot2::geom_contour
+#' @inheritParams ggplot2::geom_text
+#'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::contour()]
-#'
-#' @inheritSection geom_spatraster Coords
-#' @inheritSection geom_spatraster Facets
 #'
 #' @section Aesthetics:
 #'
@@ -81,6 +76,9 @@
 #' @section Dropped variables:
 #' - `z`: After contouring, the `z` values of individual data points are no
 #'   longer available.
+#'
+#' @inheritSection geom_spatraster Coords
+#' @inheritSection geom_spatraster Facets
 #'
 #' @examples
 #' \donttest{
@@ -133,6 +131,8 @@
 #'   ) +
 #'   scale_fill_hypso_d()
 #' }
+#'
+#' @order 1
 #'
 geom_spatraster_contour <- function(
   mapping = NULL,
@@ -297,15 +297,13 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(
-          c(
-            "*" = "Use {.code facet_wrap(~lyr)} for faceting",
-            "*" = paste0(
-              "Use {.code aes(fill = <name_of_layer>)} ",
-              "to display a single layer"
-            )
+        cli::cli_bullets(c(
+          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
+          "*" = paste0(
+            "Use {.code aes(fill = <name_of_layer>)} ",
+            "to display a single layer."
           )
-        )
+        ))
       }
     }
     # Add coord to the params, so it can be forwarded to compute_group().
@@ -460,7 +458,7 @@ iso_to_path <- function(iso, group = 1) {
     cli::cli_warn(paste(
       "In",
       cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
-      "Zero contours were generated"
+      "zero contours were generated."
     ))
     return(data.frame())
   }

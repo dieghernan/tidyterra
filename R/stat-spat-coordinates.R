@@ -5,18 +5,16 @@
 #'
 #' Wrapper of [ggplot2::stat_sf_coordinates()].
 #'
-#' @rdname stat_spat_coordinates
-#'
 #' @export
 #' @encoding UTF-8
-#' @family ggplot2.utils
-#' @return A \CRANpkg{ggplot2} layer
-#' @keywords internal
+#' @rdname stat_spat_coordinates
 #'
+#' @family ggplot2.utils
 #' @inheritParams ggspatvector
 #' @inheritParams ggplot2::stat_sf_coordinates
 #' @param ... Other arguments passed on to [ggplot2::stat_sf_coordinates()].
 #'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @details
 #'
 #' See [ggplot2::stat_sf_coordinates()] for details.
@@ -42,6 +40,8 @@
 #'     stat = "sf_coordinates"
 #'   )
 #' }
+#'
+#' @keywords internal
 #'
 stat_spat_coordinates <- function(
   mapping = aes(),

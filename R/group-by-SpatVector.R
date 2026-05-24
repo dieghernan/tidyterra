@@ -15,13 +15,17 @@
 #'
 #' @family dplyr.groups
 #' @family dplyr.methods
-#' @family dplyr.group_funs
+#' @family dplyr.group_functions
 #'
 #' @importFrom dplyr group_by
-#' @param .data,x A `SpatVector` object. See **Methods**.
 #' @inheritParams dplyr::group_by
 #'
-#' @return A `SpatVector` object with an additional attribute.
+#' @param .data,x A `SpatVector` object. See **Methods**.
+#' @returns A `SpatVector` object with updated grouping metadata.
+#'
+#' @details
+#'
+#' See **Details** on [dplyr::group_by()].
 #'
 #' @section Methods:
 #'
@@ -37,10 +41,6 @@
 #' Note also that some operations, such as `terra::spatSample()`, create a new
 #' `SpatVector`. In these cases, the result does not preserve the `groups`
 #' attribute. Use [group_by()] to re-group.
-#'
-#' @details
-#'
-#' See **Details** on [dplyr::group_by()].
 #'
 #' @examples
 #' \donttest{
@@ -128,10 +128,10 @@ group_by.SpatVector <- function(
 #' @export
 dplyr::group_by
 
-#' @importFrom dplyr ungroup
 #' @export
 #' @encoding UTF-8
 #' @name group_by.SpatVector
+#' @importFrom dplyr ungroup
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
   getattr <- attr(x, "tblclass")
@@ -153,9 +153,9 @@ ungroup.SpatVector <- function(x, ...) {
 #' @export
 dplyr::ungroup
 
-#' @importFrom dplyr group_by_drop_default
 #' @export
 #' @encoding UTF-8
+#' @importFrom dplyr group_by_drop_default
 dplyr::group_by_drop_default
 
 # Internal
@@ -170,7 +170,7 @@ group_prepare_spat <- function(x, template) {
   # Gives an error
   # nocov start
   if (!inherits(template, "data.frame")) {
-    cli::cli_abort("Bad grouping template")
+    cli::cli_abort("The grouping template must be a data frame.")
   }
   # nocov end
 

@@ -17,12 +17,12 @@
 #'
 #' @importFrom dplyr cross_join
 #'
-#' @param y A data frame or other object coercible to a data frame. **If a
-#'   `SpatVector` or `sf` object** is provided it returns an error.
 #' @inheritParams as_sf
 #' @inheritParams dplyr::cross_join
 #'
-#' @return A `SpatVector` object.
+#' @param y A data frame or other object coercible to a data frame. If a
+#'   `SpatVector` or `sf` object is provided, this method returns an error.
+#' @returns A `SpatVector` object.
 #'
 #' @section Methods:
 #'
@@ -32,6 +32,9 @@
 #'
 #' The geometry column has sticky behavior. The result repeats each geometry in
 #' `x` once for every row in `y`.
+#'
+#' If `y` has a column named `geometry`, it is treated as a regular attribute
+#' and receives the suffix from `suffix`.
 #'
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -58,6 +61,11 @@ cross_join.SpatVector <- function(
     copy = copy,
     suffix = suffix
   )
+
+  geom_col <- paste0("geometry", suffix[[1]])
+  if ("geometry" %in% names(y) && geom_col %in% names(joined_tbl)) {
+    names(joined_tbl)[names(joined_tbl) == geom_col] <- "geometry"
+  }
 
   joined_tbl <- restore_attr(joined_tbl, x_tbl)
   joined <- as_spat_internal(joined_tbl)

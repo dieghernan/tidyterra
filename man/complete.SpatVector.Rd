@@ -54,7 +54,7 @@ Implementation of the \strong{generic} \code{\link[tidyr:complete]{tidyr::comple
 \subsection{\code{SpatVector}}{
 
 \code{complete()} preserves the geometry column while expanding missing
-combinations.
+combinations. New combinations receive empty geometries.
 }
 }
 

@@ -20,12 +20,15 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @name scale_coltab
 #' @rdname scale_coltab
 #'
-#' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @name scale_coltab
+#' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
+#'   [ggplot2::scale_fill_manual()],
 #'
 #' @inheritParams scale_cross_blended
+#'
+#' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #'
 #' @param data,x A `SpatRaster` with one or several color tables.
 #'   See [terra::has.colors()].
@@ -33,10 +36,7 @@
 #' @param alpha The alpha transparency: could be `NA` or a number in \[0,1\].
 #'   See argument `alpha` in [scale_fill_terrain_d()].
 #'
-#' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
-#'   [ggplot2::scale_fill_manual()],
-#'
-#' @return
+#' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
@@ -85,7 +85,7 @@ scale_fill_coltab <- function(
     getcols <- getcols
   } else {
     if (alpha < 0 || alpha > 1) {
-      cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+      cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
     }
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
@@ -104,9 +104,9 @@ scale_fill_coltab <- function(
   )
 }
 
-#' @rdname scale_coltab
 #' @export
 #' @encoding UTF-8
+#' @rdname scale_coltab
 scale_colour_coltab <- function(
   data,
   ...,
@@ -125,7 +125,7 @@ scale_colour_coltab <- function(
     getcols <- getcols
   } else {
     if (alpha < 0 || alpha > 1) {
-      cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+      cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
     }
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
@@ -150,9 +150,9 @@ scale_colour_coltab <- function(
 #' @usage NULL
 scale_color_coltab <- scale_colour_coltab
 
-#' @rdname scale_coltab
 #' @export
 #' @encoding UTF-8
+#' @rdname scale_coltab
 get_coltab_pal <- function(x) {
   if (!inherits(x, "SpatRaster")) {
     cli::cli_alert_info(paste(

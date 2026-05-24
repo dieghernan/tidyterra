@@ -4,7 +4,7 @@
       p + scale_colour_grass_d(alpha = -1)
     Condition
       Error in `scale_colour_grass_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -12,7 +12,7 @@
       p + scale_colour_grass_d(direction = 0.5)
     Condition
       Error in `scale_colour_grass_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale
 
@@ -20,7 +20,7 @@
       p + scale_colour_grass_c(alpha = -1)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -28,7 +28,7 @@
       p + scale_colour_grass_c(direction = 0.5)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale no range
 
@@ -36,7 +36,7 @@
       p + scale_colour_grass_c(palette = "x", use_grass_range = FALSE)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -44,7 +44,7 @@
       p + scale_colour_grass_c(alpha = -1)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -52,7 +52,7 @@
       p + scale_colour_grass_c(direction = -12)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale
 
@@ -60,7 +60,7 @@
       p_init + scale_color_grass_b(alpha = -1)
     Condition
       Error in `scale_color_grass_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -68,7 +68,7 @@
       p + scale_colour_grass_b(direction = 0.5)
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale no range
 
@@ -76,7 +76,7 @@
       p + scale_colour_grass_b(palette = "x")
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -84,7 +84,7 @@
       p + scale_colour_grass_b(palette = "x")
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -92,7 +92,7 @@
       p + scale_colour_grass_b(alpha = -1)
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -100,7 +100,7 @@
       p + scale_colour_grass_b(direction = -12)
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Discrete scale fill
 
@@ -108,7 +108,7 @@
       p + scale_fill_grass_d(alpha = -1)
     Condition
       Error in `scale_fill_grass_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -116,7 +116,7 @@
       p + scale_fill_grass_d(direction = 0.5)
     Condition
       Error in `scale_fill_grass_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale fill
 
@@ -124,7 +124,7 @@
       p + scale_fill_grass_c(alpha = -1)
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -132,7 +132,7 @@
       p + scale_fill_grass_c(direction = 0.5)
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale fill no range
 
@@ -140,7 +140,7 @@
       p + scale_fill_grass_c(palette = "x")
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -148,7 +148,7 @@
       p + scale_fill_grass_c(alpha = -1)
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -156,7 +156,7 @@
       p + scale_fill_grass_c(direction = -12)
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale fill
 
@@ -164,7 +164,7 @@
       p_init + scale_fill_grass_b(alpha = -1)
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -172,7 +172,7 @@
       p + scale_fill_grass_b(direction = 0.5)
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale fill no range
 
@@ -180,7 +180,7 @@
       p + scale_fill_grass_b(palette = "x")
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -188,7 +188,7 @@
       p + scale_fill_grass_b(palette = "x")
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::grass_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
 
 ---
 
@@ -196,7 +196,7 @@
       p + scale_fill_grass_b(alpha = -1)
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -204,7 +204,7 @@
       p + scale_fill_grass_b(direction = -12)
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Palettes
 
@@ -212,5 +212,5 @@
       grass.colors(20, "xx")
     Condition
       Error in `extract_pal()`:
-      ! `palette` does not match any given palette
+      ! `palette` is not a known palette.
 

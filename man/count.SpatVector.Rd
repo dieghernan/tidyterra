@@ -50,7 +50,7 @@ supported, empty groups are always removed (see \code{\link[dplyr:count]{dplyr::
 geometries.}
 }
 \value{
-A \code{SpatVector} object with an additional attribute.
+A \code{SpatVector} object with updated grouping metadata.
 }
 \description{
 \code{count()} lets you quickly count the unique values of one or more variables:

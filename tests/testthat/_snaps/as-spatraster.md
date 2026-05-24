@@ -4,7 +4,7 @@
       as_spatraster(as_tbl, xycols = 2)
     Condition
       Error in `as_spatraster()`:
-      ! `xycols` should have a length of 2, not 1
+      ! `xycols` must have length 2, not 1.
 
 ---
 
@@ -12,7 +12,7 @@
       as_spatraster(as_tbl, xycols = c("x", "y"))
     Condition
       Error in `as_spatraster()`:
-      ! `xycols` should be a <integer>, not <character>
+      ! `xycols` must be numeric, not <character>.
 
 ---
 
@@ -20,7 +20,7 @@
       as_spatraster(as_tbl, xycols = 1:3)
     Condition
       Error in `as_spatraster()`:
-      ! `xycols` should have a length of 2, not 3
+      ! `xycols` must have length 2, not 3.
 
 ---
 
@@ -28,7 +28,7 @@
       as_spatraster(as.matrix(as_tbl))
     Condition
       Error in `as_spatraster()`:
-      ! `x` should be a <data.frame/tbl>, not <matrix/array>
+      ! `x` must be a <data.frame> or <tbl>, not <matrix/array>.
 
 # Regenerate raster properly
 

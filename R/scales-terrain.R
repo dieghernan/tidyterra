@@ -22,20 +22,20 @@
 #'
 #' @name scale_terrain
 #'
-#' @inheritDotParams ggplot2::discrete_scale breaks:drop
-#' @inheritDotParams ggplot2::continuous_scale breaks:labels
-#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @inheritParams scale_cross_blended
-#'
 #' @seealso
 #' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
 #' on additional `...` arguments.
 #'
-#' @return
+#' @family gradients
+#'
+#' @inheritParams scale_cross_blended
+#'
+#' @inheritDotParams ggplot2::discrete_scale breaks:drop
+#' @inheritDotParams ggplot2::continuous_scale breaks:labels
+#' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
+#' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
-#'
-#' @family gradients
 #'
 #' @examples
 #' \donttest{
@@ -75,11 +75,11 @@ scale_fill_terrain_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -102,11 +102,11 @@ scale_colour_terrain_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -129,11 +129,11 @@ scale_fill_terrain_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::continuous_scale(
@@ -159,11 +159,11 @@ scale_colour_terrain_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::continuous_scale(
@@ -189,11 +189,11 @@ scale_fill_terrain_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::binned_scale(
@@ -219,11 +219,11 @@ scale_colour_terrain_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::binned_scale(

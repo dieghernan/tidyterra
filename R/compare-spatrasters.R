@@ -9,19 +9,19 @@
 #' This function compares those attributes informing of the results. See
 #' **Solving issues** section for minimal guidance.
 #'
-#' @return
-#' A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects are
-#' compatible, plus an informative message flagging the issues found (if any).
-#'
-#' @param x,y `SpatRaster` objects.
-#' @param digits Integer to set the precision for comparing the extent and
-#'   the resolution.
-#'
-#' @family helpers
 #' @export
 #' @encoding UTF-8
 #'
 #' @seealso [terra::identical()]
+#' @family helpers
+#' @param x,y `SpatRaster` objects.
+#' @param digits Integer to set the precision for comparing the extent and
+#'   the resolution.
+#'
+#' @returns
+#' A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects are
+#' compatible, plus an informative message flagging the issues found (if any).
+#'
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::identical()]

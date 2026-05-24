@@ -4,7 +4,7 @@
       p + scale_fill_wiki_d(alpha = -1)
     Condition
       Error in `scale_fill_wiki_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -12,7 +12,7 @@
       p + scale_fill_wiki_d(direction = 0.5)
     Condition
       Error in `scale_fill_wiki_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale
 
@@ -20,7 +20,7 @@
       p + scale_fill_wiki_c(alpha = -1)
     Condition
       Error in `scale_fill_wiki_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -28,7 +28,7 @@
       p + scale_fill_wiki_c(direction = 0.5)
     Condition
       Error in `scale_fill_wiki_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale
 
@@ -36,7 +36,7 @@
       p_init + scale_fill_wiki_b(alpha = -1)
     Condition
       Error in `scale_fill_wiki_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -44,7 +44,7 @@
       p + scale_fill_wiki_b(direction = 0.5)
     Condition
       Error in `scale_fill_wiki_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Palette
 
@@ -60,7 +60,7 @@
       p + scale_colour_wiki_d(alpha = -1)
     Condition
       Error in `scale_colour_wiki_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -68,7 +68,7 @@
       p + scale_colour_wiki_d(direction = 0.5)
     Condition
       Error in `scale_colour_wiki_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale col
 
@@ -76,7 +76,7 @@
       p + scale_colour_wiki_c(alpha = -1)
     Condition
       Error in `scale_colour_wiki_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -84,7 +84,7 @@
       p + scale_colour_wiki_c(direction = 0.5)
     Condition
       Error in `scale_colour_wiki_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale col
 
@@ -92,7 +92,7 @@
       p_init + scale_colour_wiki_b(alpha = -1)
     Condition
       Error in `scale_colour_wiki_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -100,5 +100,5 @@
       p + scale_colour_wiki_b(direction = 0.5)
     Condition
       Error in `scale_colour_wiki_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 

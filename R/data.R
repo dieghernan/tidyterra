@@ -5,14 +5,16 @@
 #' Probably you already know the [volcano] dataset. This dataset provides
 #' updated information of Maungawhau (Mt. Eden) from
 #' [Toitu Te Whenua Land Information New Zealand](https://data.linz.govt.nz/),
-#' the Government's agency that provides free online access to New Zealand’s
+#' the Government's agency that provides free online access to New Zealand's
 #' most up-to-date land and seabed data.
 #'
+#' @name volcano2
 #' @docType data
+#'
+#' @seealso [volcano]
 #'
 #' @family datasets
 #'
-#' @name volcano2
 #' @format
 #' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
 #' value is the corresponding altitude in meters.
@@ -27,8 +29,6 @@
 #' constraints.
 #'
 #' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-#'
-#' @seealso [volcano]
 #'
 #' @note
 #' Information needed for regenerating the original `SpatRaster` file:
@@ -71,11 +71,13 @@ NULL
 #' palettes. It also includes a definition of color limits in terms of
 #' elevation (meters) that can be used with [ggplot2::scale_fill_gradientn()].
 #'
+#' @name hypsometric_tints_db
 #' @docType data
+#'
+#' @seealso [scale_fill_hypso_c()]
 #'
 #' @family datasets
 #'
-#' @name hypsometric_tints_db
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(hypsometric_tints_db)` rows and
 #' `r ncol(hypsometric_tints_db)` columns with the following fields:
@@ -91,8 +93,6 @@ NULL
 #'
 #' @source
 #' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
-#'
-#' @seealso [scale_fill_hypso_c()]
 #'
 #' @examples
 #' \donttest{
@@ -134,11 +134,24 @@ NULL
 #' All palettes also include a definition of color limits in terms of elevation
 #' (meters) that can be used with [ggplot2::scale_fill_gradientn()].
 #'
+#' @name cross_blended_hypsometric_tints_db
 #' @docType data
+#'
+#' @seealso [scale_fill_cross_blended_c()]
 #'
 #' @family datasets
 #'
-#' @name cross_blended_hypsometric_tints_db
+#' @details
+#' From Patterson & Jenny (2011):
+#'
+#'    *More recently, the role and design of hypsometric tints have come under
+#'     scrutiny. One reason for this is the concern that people misread
+#'     elevation colors as climate or vegetation information. Cross-blended
+#'     hypsometric tints, introduced in 2009, are a partial solution to this
+#'     problem. They use variable lowland colors customized to match the
+#'     differing natural environments of world regions, which merge into
+#'     one another.*
+#'
 #' @format
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
 #' `r ncol(cross_blended_hypsometric_tints_db)` columns with the following
@@ -159,19 +172,6 @@ NULL
 #' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
 #'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
 #'   31-46. \doi{10.14714/CP69.20}.
-#'
-#' @details
-#' From Patterson & Jenny (2011):
-#'
-#'    *More recently, the role and design of hypsometric tints have come under
-#'     scrutiny. One reason for this is the concern that people misread
-#'     elevation colors as climate or vegetation information. Cross-blended
-#'     hypsometric tints, introduced in 2009, are a partial solution to this
-#'     problem. They use variable lowland colors customized to match the
-#'     differing natural environments of world regions, which merge into
-#'     one another.*
-#'
-#' @seealso [scale_fill_cross_blended_c()]
 #'
 #' @examples
 #' \donttest{
@@ -215,11 +215,23 @@ NULL
 #' include a definition of color limits that can be used with
 #' [ggplot2::scale_fill_gradientn()].
 #'
+#' @name grass_db
 #' @docType data
+#'
+#' @seealso [scale_fill_grass_c()]
 #'
 #' @family datasets
 #'
-#' @name grass_db
+#' @details
+#' Summary of palettes provided, description and recommended use:
+#'
+#' ```{r child = "man/chunks/grassdec.Rmd"}
+#' ```
+#'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::map.pal()]
+#'
 #' @format
 #' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns with
 #' the following fields:
@@ -233,10 +245,6 @@ NULL
 #'   \item{hex}{Hex code of the color.}
 #' }
 #'
-#' @section \CRANpkg{terra} equivalent:
-#'
-#' [terra::map.pal()]
-#'
 #' @source
 #'
 #' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
@@ -247,14 +255,6 @@ NULL
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System
 #' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
 #' <https://grass.osgeo.org>.
-#'
-#' @details
-#' Summary of palettes provided, description and recommended use:
-#'
-#' ```{r child = "man/chunks/grassdec.Rmd"}
-#' ```
-#'
-#' @seealso [scale_fill_grass_c()]
 #'
 #' @examples
 #' \donttest{
@@ -295,11 +295,13 @@ NULL
 #' A [tibble][tibble::tbl_df] including the color map of
 #' `r length(unique(princess_db$pal))` gradient palettes.
 #'
+#' @name princess_db
 #' @docType data
+#'
+#' @seealso [scale_fill_princess_c()]
 #'
 #' @family datasets
 #'
-#' @name princess_db
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(princess_db)` rows and
 #' `r ncol(princess_db)` columns with the following fields:
@@ -314,8 +316,6 @@ NULL
 #'
 #' @source
 #' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.
-#'
-#' @seealso [scale_fill_princess_c()]
 #'
 #' @examples
 #' \donttest{

@@ -4,15 +4,21 @@
 #'
 #' `nest()` creates list-columns of `SpatVector` objects.
 #'
-#' @param .data A `SpatVector`.
-#' @inheritParams tidyr::nest
-#'
-#' @return A tibble with one or more list-columns of `SpatVector` objects.
+#' @export
+#' @encoding UTF-8
+#' @rdname nest.SpatVector
 #'
 #' @seealso [tidyr::nest()], [terra::svc()]
 #'
 #' @family tidyr.nest
 #' @family tidyr.methods
+#'
+#' @importFrom tidyr nest
+#'
+#' @inheritParams tidyr::nest
+#'
+#' @param .data A `SpatVector`.
+#' @returns A tibble with one or more list-columns of `SpatVector` objects.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -43,10 +49,6 @@
 #'
 #' terra::svc(sv)
 #'
-#' @export
-#' @encoding UTF-8
-#' @rdname nest.SpatVector
-#' @importFrom tidyr nest
 nest.SpatVector <- function(
   .data,
   ...,

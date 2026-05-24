@@ -36,8 +36,5 @@ test_that("nest() requires nested geometry", {
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  expect_error(
-    nest(v, data = c(iso2, name)),
-    "geometry"
-  )
+  expect_error(nest(v, data = c(iso2, name)), "geometry")
 })

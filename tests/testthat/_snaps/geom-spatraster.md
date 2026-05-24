@@ -19,8 +19,8 @@
       ss <- ggplot2::ggplot_build(s)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
-      * Use `facet_wrap(~lyr)` for faceting
-      * Use `aes(fill = <name_of_layer>)` to display a single layer
+      * Use `facet_wrap(~lyr)` to facet layers.
+      * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
 ---
 
@@ -30,7 +30,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04" of class <numeric>
+      ! Plotting only layer "tavg_04" of class <numeric>.
 
 ---
 
@@ -40,5 +40,5 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04" and "another" of class <factor>
+      ! Plotting only layer "tavg_04" and "another" of class <factor>.
 

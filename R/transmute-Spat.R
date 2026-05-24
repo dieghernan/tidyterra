@@ -7,20 +7,18 @@
 #' computations. It's superseded because you can perform the same job
 #' with `mutate(.keep = "none")`.
 #'
-#' @rdname transmute.Spat
-#' @name transmute.Spat
-#' @keywords internal
-#'
-#' @seealso
-#' [`mutate.Spat`], [dplyr::transmute()] methods.
-#'
-#' @inheritParams mutate.Spat
-#'
 #' @export
 #' @encoding UTF-8
 #'
+#' @rdname transmute.Spat
+#' @name transmute.Spat
+#' @seealso
+#' [`mutate.Spat`], [dplyr::transmute()] methods.
+#'
 #' @importFrom dplyr transmute
 #' @inherit mutate.Spat return
+#'
+#' @inheritParams mutate.Spat
 #'
 #' @section Methods:
 #' Implementation of the **generic** [dplyr::transmute()] method.
@@ -34,6 +32,8 @@
 #'
 #' v |>
 #'   transmute(cpro2 = paste0(cpro, "-CyL"))
+#' @keywords internal
+#'
 transmute.SpatRaster <- function(.data, ...) {
   df <- as_tbl_internal(.data)
 

@@ -10,16 +10,16 @@
 #' @export
 #' @encoding UTF-8
 #'
-#' @return
-#' `invisible()` if is regular or an error message otherwise
-#'
-#' @param xy A matrix, data frame or tibble of at least two columns representing
-#'   x and y coordinates.
-#' @inheritParams as_spatraster
-#'
 #' @seealso [as_spatraster()]
 #'
 #' @family helpers
+#'
+#' @inheritParams as_spatraster
+#'
+#' @param xy A matrix, data frame or tibble of at least two columns representing
+#'   x and y coordinates.
+#' @returns
+#' `invisible()` if is regular or an error message otherwise
 #'
 #' @examples
 #'

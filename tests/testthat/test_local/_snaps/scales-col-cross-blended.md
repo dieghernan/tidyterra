@@ -4,7 +4,7 @@
       p + scale_colour_cross_blended_d(alpha = -1)
     Condition
       Error in `scale_colour_cross_blended_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -12,7 +12,7 @@
       p + scale_colour_cross_blended_d(direction = 0.5)
     Condition
       Error in `scale_colour_cross_blended_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Discrete scale tint
 
@@ -20,7 +20,7 @@
       aa <- ggplot2::ggplot_build(s)
     Condition
       Error in `extract_pal()`:
-      ! `palette` does not match any given palette
+      ! `palette` is not a known palette.
 
 ---
 
@@ -28,7 +28,7 @@
       p + scale_colour_cross_blended_tint_d(alpha = -1)
     Condition
       Error in `scale_colour_cross_blended_tint_d()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -36,7 +36,7 @@
       p + scale_colour_cross_blended_tint_d(direction = -12)
     Condition
       Error in `scale_colour_cross_blended_tint_d()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale
 
@@ -44,7 +44,7 @@
       p + scale_colour_cross_blended_c(alpha = -1)
     Condition
       Error in `scale_colour_cross_blended_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -52,7 +52,7 @@
       p + scale_colour_cross_blended_c(direction = 0.5)
     Condition
       Error in `scale_colour_cross_blended_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Continous scale tint
 
@@ -60,7 +60,7 @@
       p + scale_colour_cross_blended_tint_c(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_c()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
 
 ---
 
@@ -68,7 +68,7 @@
       p + scale_colour_cross_blended_tint_c(alpha = -1)
     Condition
       Error in `scale_colour_cross_blended_tint_c()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -76,7 +76,7 @@
       p + scale_colour_cross_blended_tint_c(direction = -12)
     Condition
       Error in `scale_colour_cross_blended_tint_c()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale
 
@@ -84,7 +84,7 @@
       p_init + scale_color_cross_blended_b(alpha = -1)
     Condition
       Error in `scale_color_cross_blended_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -92,7 +92,7 @@
       p + scale_colour_cross_blended_b(direction = 0.5)
     Condition
       Error in `scale_colour_cross_blended_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 
 # Breaking scale tint
 
@@ -100,7 +100,7 @@
       p + scale_colour_cross_blended_tint_b(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
 
 ---
 
@@ -108,7 +108,7 @@
       p + scale_colour_cross_blended_tint_b(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `palette` "palette" does not match any given palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
 
 ---
 
@@ -116,7 +116,7 @@
       p + scale_colour_cross_blended_tint_b(alpha = -1)
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 ---
 
@@ -124,5 +124,5 @@
       p + scale_colour_cross_blended_tint_b(direction = -12)
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `direction` must be 1 or -1
+      ! `direction` must be either 1 or -1.
 

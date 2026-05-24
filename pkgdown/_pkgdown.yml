@@ -76,7 +76,7 @@ reference:
   contents: has_concept("dplyr.groups")
 - subtitle: "`SpatVector` and data frames"
   desc: >
-    Verbs that mainly operate on pairs of `Spat*` objects and data frames.
+    Verbs that mainly operate on pairs of `SpatVector` objects and data frames.
   contents: has_concept("dplyr.pairs")
 
 - title: "**tidyr** methods"
@@ -114,7 +114,7 @@ reference:
     `Spat*` objects.
   contents: has_concept("ggplot2.methods")
 
-- title: "**ggplot2** utils"
+- title: "**ggplot2** helpers"
 - subtitle: Geoms
   desc: >
     Create <a href="https://CRAN.R-project.org/package=ggplot2"
@@ -123,7 +123,7 @@ reference:
   contents: starts_with("geom_")
 - subtitle: Scales
   desc: >
-    Gradient color schemes, palettes and hypsometric tints.
+    Color scales, palettes and hypsometric tints.
   contents: starts_with("scale_")
 
 - title: "**generics** methods"
@@ -144,8 +144,12 @@ reference:
     from tibbles.
   contents: has_concept("coerce")
 - subtitle: Other helpers
+  desc: >
+    Utilities for CRS handling, package checks and raster comparison.
   contents: has_concept("helpers")
 - title: Built-in data
+  desc: >
+    Example data and palette databases included with **tidyterra**.
   contents: has_concept("datasets")
 - title: About the package
   contents: tidyterra-package
@@ -158,7 +162,8 @@ authors:
 
 articles:
 - title: Articles
-  navbar:
+  desc: >
+    Introductory guides and palette examples.
   contents:
   - welcome
   - articles/palettes
@@ -172,7 +177,7 @@ articles:
 
 - title: FAQs
   desc: >
-    **tidyterra** FAQs. See also <a
+    Frequently asked questions about **tidyterra**. See also <a
     href="https://github.com/dieghernan/tidyterra/discussions">tidyterra
     discussions</a>.
   contents:

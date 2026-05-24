@@ -108,7 +108,7 @@ slice_colrows(.data, ...)
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Integer row values.
-Provide either positive values to keep, or negative values to drop.
+Provide either positive values to keep or negative values to drop.
 
 The values provided must be either all positive or all negative. Indices
 beyond the number of rows in the input are silently ignored. See
@@ -169,19 +169,18 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
 \code{slice()} methods let you index cells/rows/columns/geometries by their
-(integer) locations. They allow you to select, remove, or duplicate those
+(integer) locations. They allow you to select, remove or duplicate those
 dimensions of a \verb{Spat*} object.
 
-\strong{If you want to slice your \code{SpatRaster} by geographic coordinates, use
-\code{\link[=filter.SpatRaster]{filter.SpatRaster()}}}.
+If you want to slice by geographic coordinates, use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
 It includes helpers for common use cases:
 \itemize{
 \item \code{slice_head()} and \code{slice_tail()} select the first or last
 cells/geometries.
 \item \code{slice_sample()} randomly selects cells/geometries.
-\item \code{slice_rows()} and \code{slice_cols()} allow to subset entire rows or columns,
-of a \code{SpatRaster}.
+\item \code{slice_rows()} and \code{slice_cols()} subset entire rows or columns of a
+\code{SpatRaster}.
 \item \code{slice_colrows()} subsets regions of the \code{SpatRaster} by row and column
 position of a \code{SpatRaster}.
 }
@@ -282,12 +281,8 @@ gv |>
 }
 }
 \seealso{
-\code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:spatSample]{terra::spatSample()}}.
-
-You can get a skeleton of your \code{SpatRaster} with the cell, column and row
-index with \code{\link[=as_coordinates]{as_coordinates()}}.
-
-If you want to slice by geographic coordinates use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
+\code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:spatSample]{terra::spatSample()}}, \code{\link[=as_coordinates]{as_coordinates()}},
+\code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
 Other single table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},

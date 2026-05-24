@@ -11,8 +11,14 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
-#' @return A \CRANpkg{ggplot2} layer
+#' @export
+#' @encoding UTF-8
+#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
+#' [ggplot2::facet_wrap()]
+#'
 #' @family ggplot2.utils
+#' @inheritParams ggplot2::geom_raster
+#'
 #' @param data A `SpatRaster` object.
 #'
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
@@ -36,16 +42,7 @@
 #'   around the dateline in equal-area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the `SpatRaster`.
 #'
-#' @inheritParams ggplot2::geom_raster
-#'
-#' @source
-#' Based on the `layer_spatial()` implementation on \CRANpkg{ggspatial} package.
-#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
-#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
-#'
-#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
-#' [ggplot2::facet_wrap()]
-#'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
@@ -98,8 +95,11 @@
 #' - `after_stat(value)`: Values of the `SpatRaster.`
 #' - `after_stat(lyr)`: Name of the layer.
 #'
-#' @export
-#' @encoding UTF-8
+#' @source
+#' Based on the `layer_spatial()` implementation on \CRANpkg{ggspatial} package.
+#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#'
 #' @examples
 #' \donttest{
 #' # Avg temperature on spring in Castile and Leon (Spain)
@@ -274,15 +274,13 @@ StatTerraSpatRaster <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(
-          c(
-            "*" = "Use {.code facet_wrap(~lyr)} for faceting",
-            "*" = paste0(
-              "Use {.code aes(fill = <name_of_layer>)} ",
-              "to display a single layer"
-            )
+        cli::cli_bullets(c(
+          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
+          "*" = paste0(
+            "Use {.code aes(fill = <name_of_layer>)} ",
+            "to display a single layer."
           )
-        )
+        ))
       }
     }
     # add coord to the params, so it can be forwarded to compute_group()
@@ -344,7 +342,7 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   if (is.na(coord_crs)) {
     cli::cli_abort(
       paste(
-        "{.fun geom_spatraster_*} on {.cls SpatRaster}s with crs",
+        "{.fun geom_spatraster_*} on {.cls SpatRaster}s with CRS",
         "must be used with {.fun ggplot2::coord_sf}."
       ),
       call. = TRUE
@@ -451,7 +449,7 @@ check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
   cli::cli_warn("Mixed layer classes found in {.fun {fn}}.")
   cli::cli_alert_warning(paste(
     "Plotting only{qty(length(extract_vars))}",
-    "layer {.val {names(newr)}} of class {.cls {final}}"
+    "layer {.val {names(newr)}} of class {.cls {final}}."
   ))
 
   # If it is factor, use combineLevels (terra >= 1.8-10)

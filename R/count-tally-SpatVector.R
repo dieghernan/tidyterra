@@ -23,15 +23,15 @@
 #'
 #' @importFrom dplyr count
 #'
-#' @param .drop `r lifecycle::badge("deprecated")` Argument no longer
-#'   supported, empty groups are always removed (see [dplyr::count()],
-#'   `.drop = TRUE` argument).
-#'
 #' @inheritParams as_sf x
 #' @inheritParams dplyr::count
 #' @inheritParams summarise.SpatVector
 #'
-#' @return A `SpatVector` object with an additional attribute.
+#' @param .drop `r lifecycle::badge("deprecated")` Argument no longer
+#'   supported, empty groups are always removed (see [dplyr::count()],
+#'   `.drop = TRUE` argument).
+#'
+#' @returns A `SpatVector` object with updated grouping metadata.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -140,9 +140,9 @@ count.SpatVector <- function(
 #' @export
 dplyr::count
 
-#' @importFrom dplyr tally
 #' @export
 #' @name count.SpatVector
+#' @importFrom dplyr tally
 tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   # Use terra method on ungrouped
   if (!is_grouped_spatvector(x)) {
@@ -193,10 +193,10 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 #' @export
 dplyr::tally
 
-#' @importFrom dplyr add_count
 #' @export
 #' @encoding UTF-8
 #' @name count.SpatVector
+#' @importFrom dplyr add_count
 add_count.SpatVector <- function(
   x,
   ...,

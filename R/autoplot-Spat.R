@@ -5,16 +5,21 @@
 #'
 #' Implementation of [ggplot2::autoplot()] method.
 #'
-#' @return A \CRANpkg{ggplot2} layer
+#' @export
+#' @encoding UTF-8
+#' @rdname autoplot.Spat
+#' @name autoplot.Spat
+#'
+#' @seealso [ggplot2::autoplot()]
+#'
 #' @family ggplot2.utils
 #' @family ggplot2.methods
+#'
+#' @importFrom ggplot2 autoplot
 #'
 #' @param object A `SpatRaster` created with [terra::rast()], a `SpatVector`
 #'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
 #'   or a `SpatExtent` (see [terra::ext()]).
-#'
-#' @rdname autoplot.Spat
-#' @name autoplot.Spat
 #'
 #' @param rgb Logical. If `TRUE`, plot as an RGB image. If `NULL` (the default),
 #'   [autoplot.SpatRaster()] tries to guess.
@@ -28,6 +33,7 @@
 #' @param ... Other arguments passed to [geom_spatraster()],
 #'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @section Methods:
 #'
 #' Implementation of the **generic** [ggplot2::autoplot()] method.
@@ -40,12 +46,6 @@
 #'
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
 #' or [geom_spatvector_label()].
-#'
-#' @export
-#' @encoding UTF-8
-#' @importFrom ggplot2 autoplot
-#'
-#' @seealso [ggplot2::autoplot()]
 #'
 #' @examples
 #' \donttest{

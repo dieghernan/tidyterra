@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster(data = v)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster(data = 1:3)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
 
 ---
 

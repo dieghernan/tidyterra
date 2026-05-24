@@ -1,12 +1,13 @@
 # tidyterra (development version)
 
-This release includes several improvements and new features generated with AI.
+This release includes user-facing methods generated with AI assistance and
+documentation reviewed with AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI-assisted editing.
 
 ## New methods
 
-AI-assisted generated methods.
+The following methods were generated with AI assistance.
 
 - `complete.SpatVector()` supports `tidyr::complete()`.
 - `cross_join.SpatVector()` matches each `SpatVector` feature in `x` with every
@@ -31,12 +32,12 @@ AI-assisted generated methods.
 - `arrange.SpatVector()` now supports `.locale`, matching `dplyr::arrange()`.
 - `count.SpatVector()` now supports weighted counts with `wt`. The `.drop`
   argument is deprecated because empty groups are always removed.
+- `fill.SpatVector()` now supports `.by`, matching the stable **dplyr** 1.2.0
+  argument (#193).
 - `filter.SpatVector()` now supports `.by`, matching the stable **dplyr** 1.2.0
   argument (#193).
 - `filter.SpatVector()` now supports `.preserve`, which was previously ignored.
 - `filter_out.SpatVector()` filters out matching `SpatVector` geometries (#196).
-- `fill.SpatVector()` now supports `.by`, matching the stable **dplyr** 1.2.0
-  argument (#193).
 - `mutate.Spat` now supports `.keep`, `.before` and `.after`, matching
   `dplyr::mutate()`.
 - `mutate.SpatVector()` now supports `.by`, matching the stable **dplyr** 1.2.0
@@ -58,14 +59,14 @@ AI-assisted generated methods.
   are passed to `ggplot2::geom_sf_label()` and `ggplot2::geom_sf_text()` through
   dots (`...`).
 - `get_coltab_pal()` can extract colors with alpha values (#180).
+- New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
 - **generics** has been added to Imports, with new `?tidy.Spat`, `?glance.Spat`
   and `?required_pkgs.Spat` methods for `SpatRaster`, `SpatVector`,
   `SpatGraticule` and `SpatExtent` objects.
 - `?fortify.Spat` methods now use `?tidy.Spat` methods under the hood. This
   includes the new `fortify.SpatExtent()` method.
-- New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
-- `summarise.SpatVector()` now supports the `.by` argument.
 - `geom_spatraster_contour_text()` is now a stable function.
+- `summarise.SpatVector()` now supports the `.by` argument.
 - **testthat**: Move snapshot testing to its own directory, which is included in
   `.Rbuildignore`: `./tests/testthat/test_ci`.
 
@@ -121,7 +122,7 @@ AI-assisted generated methods.
 
 - The minimum supported **ggplot2** version is now 3.5.0.
 - `fill.SpatVector()` has been added.
-- New geom `geom_spatraster_contour_text()` implemented on top of
+- `geom_spatraster_contour_text()` has been implemented on top of
   `isoband::isolines_grob()`
   [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 - `glimpse.SpatRaster()` and `glimpse.SpatVector()` now display information
@@ -140,11 +141,11 @@ AI-assisted generated methods.
 # tidyterra 0.5.2
 
 - Tests have been adapted to **ggplot2** 3.5.0 (#129, @teunbrand).
-- Reduce package size, especially relevant in the external raster `asia.tif`.
+- Package size has been reduced, especially in the external raster `asia.tif`.
 
 # tidyterra 0.5.1
 
-- Adjust tests for `as_sf()` (#124).
+- Tests for `as_sf()` have been adjusted (#124).
 
 # tidyterra 0.5.0
 
@@ -159,14 +160,14 @@ Other changes in this version:
 
 - `autoplot.SpatRaster()` can now detect `SpatRaster` objects with color tables.
 - `geom_spatraster()` can now detect `SpatRaster` objects with color tables.
-- `scale_fill_coltab()` and its `colour` family scales have been added for
-  plotting `SpatRaster` objects with color tables.
+- `scale_fill_coltab()` and its `scale_colour_*()` family scales have been added
+  for plotting `SpatRaster` objects with color tables.
 - **tidyverse** verbs keep the associated `coltab` of a `SpatRaster`.
 - By default, all the discrete scales of **tidyterra** now have the following
   setup: `na.translate = FALSE`.
 - By default, all non-discrete scales of **tidyterra** now have
   `na.value = "transparent"` (#120).
-- Enhanced `glimpse.Spat()` with meta-information on type of geometry, CRS, etc.
+- `glimpse.Spat()` now shows metadata on geometry type, CRS and other fields.
 - New messaging interface thanks to [**cli**](https://cli.r-lib.org/) package.
 
 # tidyterra 0.4.1
@@ -201,11 +202,11 @@ Other changes in this version:
 
 - `autoplot.SpatRaster()` and `autoplot.SpatVector()` methods have been added.
   `autoplot.SpatRaster()` is now smarter when identifying the type of plot to
-  produce, and can still be overridden with arguments.
+  produce and can still be overridden with arguments.
 - `fortify.SpatRaster()` and `fortify.SpatVector()` methods have been added.
 - Three additional palettes are included in `hypso.colors()`: `"artic"`,
   `"meyers"` and `"nordisk-familjebok"`.
-- `scale_colour_*` scales have been added to all palettes.
+- `scale_colour_*()` scales have been added to all palettes.
 - `ggplot2::aes_string()` is no longer used.
 - `geom_spatraster_contour()` and `geom_spatraster_contour_filled()` have been
   adapted to the changes introduced in **ggplot2** 3.4.0, most notably the

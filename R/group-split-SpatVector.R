@@ -14,29 +14,35 @@
 #'
 #' See [dplyr::group_split()] for more information.
 #'
+#' @export
+#' @encoding UTF-8
+#' @rdname group_split.SpatVector
+#'
+#' @name group_split.SpatVector
+#' @seealso [dplyr::group_split()], [terra::svc()]
+#'
+#' @family dplyr.group_functions
+#'
+#' @importFrom dplyr group_split
+#' @inheritParams dplyr::group_split
+#'
+#' @param .tbl A `SpatVector` object. See **Methods**.
+#' @param ... If `.tbl` is an ungrouped `SpatVector`, a grouping specification,
+#'   forwarded to [group_by.SpatVector()].
+#'
+#' @returns A list of `SpatVector` objects. Each `SpatVector` contains the rows
+#'   of `.tbl` for the associated group and all columns. When `.keep = TRUE`,
+#'   the output includes the grouping variables.
+#'
+#' @details
+#' See **Details** on [dplyr::group_split()].
+#'
 #' @section Lifecycle:
 #' `group_split()` is not stable because you can achieve very similar results by
 #' manipulating the nested column returned from
 #' [`nest(.by =)`][nest.SpatVector()]. That also retains the group keys all
 #' within a single data structure. `group_split()` may be deprecated in the
 #' future.
-#'
-#' @param .tbl A `SpatVector` object. See **Methods**.
-#' @param ... If `.tbl` is an ungrouped `SpatVector`, a grouping specification,
-#'   forwarded to [group_by.SpatVector()].
-#'
-#' @inheritParams dplyr::group_split
-#'
-#' @returns A list of `SpatVector` objects. Each `SpatVector` contains the rows
-#'   of `.tbl` for the associated group and all the columns, including the
-#'   grouping variables. Note that this returns a [list_of][vctrs::list_of()]
-#'   which is slightly stricter than a simple list but is useful for
-#'   representing lists where every element has the same type.
-#'
-#' @keywords internal
-#' @family dplyr.group_funs
-#'
-#' @seealso [dplyr::group_split()], [terra::svc()]
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -46,9 +52,6 @@
 #'
 #' Implementation of the **generic** [dplyr::group_split()] for `SpatVector`
 #' objects.
-#'
-#' @details
-#' See **Details** on [dplyr::group_split()].
 #'
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -64,11 +67,7 @@
 #'   group_by(group) |>
 #'   group_split() |>
 #'   terra::svc()
-#' @export
-#' @encoding UTF-8
-#' @importFrom dplyr group_split
-#' @name group_split.SpatVector
-#' @rdname group_split.SpatVector
+#' @keywords internal
 group_split.SpatVector <- function(.tbl, ..., .keep = TRUE) {
   tbl <- as_tibble(.tbl)
   ind <- make_safe_index("tterra_index", tbl)

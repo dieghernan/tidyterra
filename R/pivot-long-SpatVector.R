@@ -9,21 +9,21 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @importFrom tidyr pivot_longer
+#' @rdname pivot_longer.SpatVector
+#' @name pivot_longer.SpatVector
+#'
+#' @seealso [tidyr::pivot_longer()]
 #'
 #' @family tidyr.pivot
 #' @family tidyr.methods
 #'
-#' @rdname pivot_longer.SpatVector
-#' @name pivot_longer.SpatVector
-#'
-#' @param data A `SpatVector` to pivot.
+#' @importFrom tidyr pivot_longer
 #'
 #' @inheritParams tidyr::pivot_longer
 #'
-#' @return A `SpatVector` object.
+#' @param data A `SpatVector` to pivot.
 #'
-#' @seealso [tidyr::pivot_longer()]
+#' @returns A `SpatVector` object.
 #'
 #' @section Methods:
 #'
@@ -111,8 +111,8 @@ pivot_longer.SpatVector <- function(
   # nocov start
   if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(paste0(
-      "Cannot rebuild the {.cls SpatVector}, ",
-      "the {.val geometry} column was lost after pivoting"
+      "Cannot rebuild the {.cls SpatVector}. ",
+      "The {.val geometry} column was lost after pivoting."
     ))
   }
   # nocov end

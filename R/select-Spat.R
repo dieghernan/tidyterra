@@ -10,6 +10,12 @@
 #' @rdname select.Spat
 #' @name select.Spat
 #'
+#' @seealso [dplyr::select()], [terra::subset()]
+#'
+#' @family single table verbs
+#' @family dplyr.cols
+#' @family dplyr.methods
+#'
 #' @importFrom dplyr select
 #'
 #' @inheritParams mutate.Spat
@@ -19,13 +25,7 @@
 #'   used as if they were positions in the `Spat*` object, so expressions like
 #'   `x:y` can be used to select a range of layers/attributes.
 #'
-#' @return A `Spat*` object of the same class as `.data`. See **Methods**.
-#'
-#' @seealso [dplyr::select()], [terra::subset()]
-#'
-#' @family single table verbs
-#' @family dplyr.cols
-#' @family dplyr.methods
+#' @returns A `Spat*` object of the same class as `.data`. See **Methods**.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

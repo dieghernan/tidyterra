@@ -165,15 +165,13 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
           "Plotting {.field {nly}} overlapping layer{?s}:",
           "{.val {unique(data$lyr)}}. Either:"
         ))
-        cli::cli_bullets(
-          c(
-            "*" = "Use {.code facet_wrap(~lyr)} for faceting",
-            "*" = paste0(
-              "Use {.code aes(fill = <name_of_layer>)} ",
-              "to display a single layer"
-            )
+        cli::cli_bullets(c(
+          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
+          "*" = paste0(
+            "Use {.code aes(fill = <name_of_layer>)} ",
+            "to display a single layer."
           )
-        )
+        ))
       }
     }
     # Add coord to the params, so it can be forwarded to compute_group().
@@ -274,7 +272,7 @@ iso_to_polygon <- function(iso, group = 1, name_layer = NULL) {
     cli::cli_warn(paste(
       "In",
       cli::style_bold("{.fun tidyterra::geom_spatraster_contour_filled}:"),
-      "Zero contours were generated"
+      "zero contours were generated."
     ))
     return(NULL)
   }

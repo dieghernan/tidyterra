@@ -5,22 +5,22 @@
 #' `as_coordinates()` can be used to obtain the position of each cell on the
 #' `SpatRaster` matrix.
 #'
+#' @export
+#' @encoding UTF-8
+#'
+#' @seealso [slice.SpatRaster()]
+#'
+#' @family coerce
 #' @param x A `SpatRaster` object.
 #' @param as.raster If `TRUE`, the result is a `SpatRaster` object with three
 #'   layers indicating the position of each cell (cell number, row and column).
 #'
-#' @return
+#' @returns
 #' A [tibble][tibble::tbl_df] or a `SpatRaster` (if `as.raster = TRUE`) with
 #' the same number of rows (or cells) as the number of cells in `x`.
 #'
 #' When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
 #' extension and resolution as `x`.
-#'
-#' @family coerce
-#' @export
-#' @encoding UTF-8
-#'
-#' @seealso [slice.SpatRaster()]
 #'
 #' @examples
 #'

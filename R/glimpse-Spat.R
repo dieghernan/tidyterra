@@ -17,9 +17,6 @@
 #'
 #' @importFrom dplyr glimpse
 #'
-#' @return original `x` is (invisibly) returned, allowing `glimpse()` to
-#' be used within a data pipeline.
-#'
 #' @inheritParams as_tibble.Spat
 #' @inheritParams pillar::glimpse
 #'
@@ -28,6 +25,9 @@
 #' @param max_extra_cols Number of extra columns or layers to print abbreviated
 #'   information for, if `n` is too small for the `Spat*` object.
 #' @param n Maximum number of rows to show.
+#'
+#' @returns original `x` is (invisibly) returned, allowing `glimpse()` to
+#' be used within a data pipeline.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -115,9 +115,9 @@ glimpse.SpatRaster <- function(
   invisible(x)
 }
 
-#' @rdname glimpse.Spat
 #' @export
 #' @encoding UTF-8
+#' @rdname glimpse.Spat
 glimpse.SpatVector <- function(
   x,
   width = NULL,

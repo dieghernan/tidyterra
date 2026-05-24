@@ -12,24 +12,24 @@
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
 preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
-of variables whose combination uniquely identify each row. See
+of variables whose combination uniquely identifies each row. See
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
-\strong{NB}: unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} you can not create new variables
+\strong{NB}: unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} you cannot create new variables
 here but instead you can select multiple variables with (e.g.)
 \code{\link[tidyselect:everything]{everything()}}.}
 }
 \value{
-The same \code{SpatVector} object with an additional attribute.
+The same \code{SpatVector} object with updated grouping metadata.
 }
 \description{
-\code{rowwise()} allows you to compute on a \code{SpatVector} a row-at-a-time.
+\code{rowwise()} allows you to compute on a \code{SpatVector} one row at a time.
 This is most useful when a vectorised function does not exist.
 
-Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
-row-wise grouping. The exception is \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}, which return a
-\link[=group_by.SpatVector]{grouped SpatVector}. You can explicitly ungroup with
-\code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}}, or convert to a grouped \code{SpatVector}
+Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
+row-wise grouping. The exception is \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}, which returns
+a \link[=group_by.SpatVector]{grouped SpatVector}. You can explicitly ungroup with
+\code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}} or convert to a grouped \code{SpatVector}
 with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }
 \details{

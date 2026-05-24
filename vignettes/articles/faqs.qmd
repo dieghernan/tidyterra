@@ -13,9 +13,9 @@ knitr:
     out.width: "100%"
 ---
 
-This document is a compendium of [frequently asked
-questions](https://github.com/dieghernan/tidyterra/discussions) about using the
-**tidyterra** package and its answers, primarily focused on the integration of
+This document collects [frequently asked
+questions](https://github.com/dieghernan/tidyterra/discussions) and answers
+about using the **tidyterra** package, with a focus on the integration of
 **terra** and **ggplot2**. You can ask for help or search previous questions
 using the following links.
 
@@ -31,16 +31,16 @@ You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 #### Source
 
 This article uses a sample of **LiDAR for Scotland Phase 5 - DSM** provided by
-[The Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/). This
-data is made available under the [Open Government Licence
+[The Scottish Remote Sensing Portal](https://remotesensingdata.gov.scot/). These
+data are made available under the [Open Government Licence
 v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 #### About the file
 
 The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park, Edinburgh
 (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park), including [Arthur's
-Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct volcano, pretty
-much as the famous [Maungawhau / Mount
+Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct volcano, much
+like the famous [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano represented
 in `datasets::volcano`.
 
@@ -50,8 +50,8 @@ The original file has been cropped and downsampled for demo purposes.
 
 ## `NA` values are shown in gray {#nas-remove}
 
-This is the default behavior of **ggplot2**. **tidyterra** color scales (i.e.,
-`scale_fill_whitebox_c()`, etc.) have `na.value = "transparent"` by default,
+This is the default behavior of **ggplot2**. **tidyterra** color scales, for
+example `scale_fill_whitebox_c()`, have `na.value = "transparent"` by default,
 which prevents `NA` values from being filled[^2].
 
 ```{r}
@@ -126,7 +126,7 @@ ggplot() +
   geom_spatraster_contour_text(data = r) +
   labs(title = "Labeling contours")
 
-# With options and aes.
+# With options and aesthetics.
 
 # Use a labeler function so only selected breaks are labeled.
 labeller <- function(labs) {
@@ -206,7 +206,7 @@ ggplot(r, aes(x, y)) +
       size = after_stat(level)
     ),
     breaks = br,
-    # Text options
+    # Text options.
     check_overlap = TRUE,
     label.placer = label_placer_minmax(),
     stroke = 0.3,
@@ -413,7 +413,7 @@ ggplot() +
 
 ## Modify the number of axis breaks {#axis-breaks}
 
-Of course. Use the **scales** package:
+Yes. Use the **scales** package:
 
 ```{r}
 #| label: fig-breaks
@@ -454,7 +454,7 @@ We omitted the legends in this section's figures to improve readability.
 **tidyterra** provides several methods for handling `SpatRaster` objects with
 color tables. This example uses `clc_edinburgh.tif`, available online in the
 [data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
-which contains data from the Corine Land Cover Dataset (2018) for Edinburgh[^3].
+which contains data from the CORINE Land Cover dataset (2018) for Edinburgh[^3].
 
 ```{r}
 #| label: fig-coltab
@@ -609,8 +609,8 @@ autoplot(r) +
 
 ## How to overlay a `SpatRaster` on an RGB tile
 
-This is straightforward: use `geom_spatraster_rgb()` for the background tile,
-and then add your data layers on top:
+Use `geom_spatraster_rgb()` for the background tile, then add your data layers
+on top:
 
 ```{r}
 #| label: fig-overlay_cont
@@ -787,7 +787,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 
 ### tidyterra and metR
 
-**metR** is a package that provides **ggplot2** extensions, primarily for
+The **metR** package provides **ggplot2** extensions, primarily for
 meteorological data visualization. As shown previously (see [Labeling
 contours](#label-contour)), you can combine both packages to create rich,
 complex plots.
@@ -823,10 +823,11 @@ ggplot(r, aes(x, y)) +
     area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most cases.
-    However, when the proportion of non-`NA`s is small it can produce undesired
-    results, see [#120](https://github.com/dieghernan/tidyterra/issues/120).
+    However, when the proportion of non-`NA` cells is small it can produce
+    undesired results. See
+    [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been converted
     to their corresponding labels and factors and the corresponding color table
-    added as described in
+    has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

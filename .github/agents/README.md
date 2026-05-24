@@ -63,7 +63,7 @@ argument-hint: Review documentation files.
 These agents and skills help maintain high-quality, consistent documentation
 across the package by:
 
-- Enforcing package’s house style (especially **no Oxford comma** and **≤ 80
+- Enforcing package's house style (especially **no Oxford comma** and **≤ 80
   characters per line**)
 - Improving clarity, accuracy, and user-friendliness
 - Preventing accidental changes to executable code

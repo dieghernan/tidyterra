@@ -26,23 +26,25 @@ knitr::opts_chunk$set(
 
 ## The tidyterra package
 
-**tidyterra** adds common **tidyverse** methods for `SpatRaster` and `SpatVector`
-objects from the [**terra**](https://CRAN.R-project.org/package=terra) package,
-and provides `geom_spat*()` geoms for plotting them with
+**tidyterra** adds common **tidyverse** methods for `SpatRaster` and
+`SpatVector` objects from the
+[**terra**](https://CRAN.R-project.org/package=terra) package. It also provides
+`geom_spat*()` geoms for plotting them with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
 
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
-**tidyverse** verbs, especially **dplyr** and **tidyr** methods, **tidyterra** lets
-users manipulate `Spat*` objects in a style similar to working with tabular data.
+**tidyverse** verbs, especially **dplyr** and **tidyr** methods,
+**tidyterra** lets users manipulate `Spat*` objects in a style similar to
+working with tabular data.
 
 Note that **terra** is generally faster. Learning some **terra** syntax is
 recommended because **tidyterra** functions call the corresponding **terra**
 equivalents when possible.
 
-## A note for advanced terra users
+## A note for advanced **terra** users
 
 **tidyterra** is not optimized for performance. Operations such as `filter()`
 and `mutate()` can be slower than their **terra** counterparts.
@@ -88,7 +90,7 @@ Currently, the following methods are available:
 | `dplyr::count()`, `tally()` | ✔️ |  |
 | `dplyr::add_count()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | `tidyr::complete()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
 | `tidyr::fill()` | ✔️ |  |
@@ -104,11 +106,11 @@ Currently, the following methods are available:
 | `generics::glance()` | ✔️ | ✔️ |
 | `generics::required_pkgs()` | ✔️ | ✔️ |
 
-Let's see some of these methods in action.
+Now let us see some of these methods in action.
 
 ### `SpatRaster` objects
 
-Example using a `SpatRaster`:
+This example uses a `SpatRaster`:
 
 ```{r}
 #| label: simple_example
@@ -139,7 +141,7 @@ In this example we:
 -   Renamed `newcol` to `difference`.
 
 Throughout these steps, core properties of the `SpatRaster` (number of cells,
-rows and columns, extent, resolution and CRS) remain unchanged. Other verbs
+rows, columns, extent, resolution and CRS) remain unchanged. Other verbs
 such as `filter()`, `slice()` or `drop_na()` may alter these properties in a
 manner analogous to how row operations affect data frames.
 
@@ -306,7 +308,7 @@ You can also aggregate `SpatVector` objects easily:
 #| fig-cap:
 #|    - Dissolving SpatVector objects by group.
 #|    - Dissolving SpatVector objects by group, keeping internal boundaries.
-# Dissolving
+# Dissolve by group.
 v_lux |>
   # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>

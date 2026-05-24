@@ -2,13 +2,13 @@
 #'
 #' @description
 #'
-#' `rowwise()` allows you to compute on a `SpatVector` a row-at-a-time.
+#' `rowwise()` allows you to compute on a `SpatVector` one row at a time.
 #' This is most useful when a vectorised function does not exist.
 #'
-#' Most \CRANpkg{dplyr} verbs implementation in \CRANpkg{tidyterra} preserve
-#' row-wise grouping. The exception is [summarise.SpatVector()], which return a
-#' [grouped SpatVector][group_by.SpatVector]. You can explicitly ungroup with
-#' [ungroup.SpatVector()] or [as_tibble()], or convert to a grouped `SpatVector`
+#' Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
+#' row-wise grouping. The exception is [summarise.SpatVector()], which returns
+#' a [grouped SpatVector][group_by.SpatVector]. You can explicitly ungroup with
+#' [ungroup.SpatVector()] or [as_tibble()] or convert to a grouped `SpatVector`
 #' with [group_by.SpatVector()].
 #'
 #' @export
@@ -25,14 +25,18 @@
 #' @param data A `SpatVector` object. See **Methods**.
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> Variables to be
 #'   preserved when calling [summarise.SpatVector()]. This is typically a set
-#'   of variables whose combination uniquely identify each row. See
+#'   of variables whose combination uniquely identifies each row. See
 #'   [dplyr::rowwise()].
 #'
-#'   **NB**: unlike [group_by.SpatVector()] you can not create new variables
+#'   **NB**: unlike [group_by.SpatVector()] you cannot create new variables
 #'   here but instead you can select multiple variables with (e.g.)
 #'   [everything()].
 #'
-#' @return The same `SpatVector` object with an additional attribute.
+#' @returns The same `SpatVector` object with updated grouping metadata.
+#'
+#' @details
+#'
+#' See **Details** on [dplyr::rowwise()].
 #'
 #' @section Methods:
 #'
@@ -48,10 +52,6 @@
 #' Note also that some operations, such as `terra::spatSample()`, create a new
 #' `SpatVector`. In these cases, the result does not preserve the `groups`
 #' attribute. Use [rowwise.SpatVector()] to re-group.
-#'
-#' @details
-#'
-#' See **Details** on [dplyr::rowwise()].
 #'
 #' @examples
 #' library(terra)

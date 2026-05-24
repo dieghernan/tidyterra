@@ -25,14 +25,7 @@ test_that("unite() combines SpatRaster layers", {
   r <- terra::rast(system.file("extdata/cyl_temp.tif", package = "tidyterra"))
 
   united <- unite(r, "label", tavg_04, tavg_05, sep = "-")
-  united_keep <- unite(
-    r,
-    "label",
-    tavg_04,
-    tavg_05,
-    sep = "-",
-    remove = FALSE
-  )
+  united_keep <- unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 
   expect_s4_class(united, "SpatRaster")
   expect_named(united, c("label", "tavg_06"))

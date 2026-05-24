@@ -32,6 +32,8 @@
 #' @family dplyr.methods
 #'
 #' @importFrom dplyr filter
+#' @inherit select.Spat return
+#'
 #' @inheritParams select.Spat
 #' @inheritParams dplyr::filter
 #'
@@ -43,8 +45,6 @@
 #' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
 #'   `SpatRaster`. On `FALSE`, [terra::trim()] is called so the extent may
 #'   differ from the extent of the output. See also [drop_na.SpatRaster()].
-#'
-#' @inherit select.Spat return
 #'
 #' @section Methods:
 #'
@@ -164,10 +164,10 @@ filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 #' @export
 dplyr::filter
 
-#' @importFrom dplyr filter_out
 #' @export
 #' @encoding UTF-8
 #' @rdname filter.Spat
+#' @importFrom dplyr filter_out
 filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)

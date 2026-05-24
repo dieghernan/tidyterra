@@ -26,7 +26,7 @@ class \code{\link[sf:st_sf]{sf}} or \code{\link[sf:st_sfc]{sfc}}.}
 \item{...}{Additional arguments passed on to \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{geom}{Character vector naming the fields that contain the geometry
-data. Use two names for point coordinates (\code{x} and \code{y}), or one name for a
+data. Use two names for point coordinates (\code{x} and \code{y}) or one name for a
 column with WKT geometries.}
 
 \item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a

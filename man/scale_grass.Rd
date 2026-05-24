@@ -16,7 +16,7 @@
 \title{GRASS scales}
 \source{
 Derived from \url{https://github.com/OSGeo/grass/tree/main/lib/gis/colors}. See
-also \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
+also \href{https://grass.osgeo.org/grass-stable/manuals/r.colors.html}{r.color - GRASS GIS Manual}.
 }
 \usage{
 scale_fill_grass_d(
@@ -198,7 +198,7 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} \code{aes()}.
 }
 \description{
-Implementation of \href{https://grass.osgeo.org/grass83/manuals/r.colors.html}{GRASS color tables}. The
+Implementation of \href{https://grass.osgeo.org/grass-stable/manuals/r.colors.html}{GRASS color tables}. The
 following fill scales and palettes are provided:
 \itemize{
 \item \verb{scale_*_grass_d()}: For discrete values.

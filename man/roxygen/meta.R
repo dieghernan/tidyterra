@@ -10,7 +10,7 @@ list(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
       "group of rows:"
     ),
-    dplyr.group_funs = "Other \\CRANpkg{dplyr} grouping methods:",
+    dplyr.group_functions = "Other \\CRANpkg{dplyr} grouping methods:",
     dplyr.pairs = paste0(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
       "pairs \\code{Spat*}/data.frame:"

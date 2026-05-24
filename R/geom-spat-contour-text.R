@@ -1,16 +1,16 @@
 #' @export
 #' @encoding UTF-8
 #' @rdname geom_spat_contour
-#' @order 2
+#' @inheritParams isoband::isolines_grob
 #'
 #' @param label_format One of:
 #'   - `NULL` for no labels. This produces the same result as
 #'     `geom_spatraster_contour()`.
 #'   - A character vector giving labels (must have the same length as the breaks
-#'     produced by `bins`, `binwidth`, or `breaks`).
+#'     produced by `bins`, `binwidth` or `breaks`).
 #'   - A function that takes the breaks as input and returns labels as output,
 #'     as the default setup ([scales::label_number()]).
-#' @inheritParams isoband::isolines_grob
+#' @order 2
 #'
 geom_spatraster_contour_text <- function(
   mapping = NULL,

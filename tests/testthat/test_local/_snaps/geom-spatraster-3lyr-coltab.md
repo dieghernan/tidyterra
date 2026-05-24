@@ -4,8 +4,8 @@
       pp <- ggplot2::ggplot_build(p)
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: cut1, cut2, and cut3. Either:
-      * Use `facet_wrap(~lyr)` for faceting or
-      * Use `aes(fill = <name_of_layer>)` for displaying single layers
+      * Use `facet_wrap(~lyr)` to facet layers.
+      * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
 ---
 
@@ -24,7 +24,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "cut1", "cut2", and "cut3" of class <factor>
+      ! Plotting only layer "cut1", "cut2", and "cut3" of class <factor>.
 
 ---
 

@@ -15,15 +15,15 @@
 #'
 #' @importFrom dplyr distinct
 #'
+#' @inheritParams arrange.SpatVector .data
+#' @inheritParams dplyr::distinct
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables to
 #'   use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
 #'   all variables in the data frame are used. There is a reserved variable
 #'   name, `geometry`, that removes duplicate geometries. See **Methods**.
 #'
-#' @inheritParams arrange.SpatVector .data
-#' @inheritParams dplyr::distinct
-#' @return A `SpatVector` object.
+#' @returns A `SpatVector` object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

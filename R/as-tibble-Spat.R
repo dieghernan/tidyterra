@@ -4,29 +4,29 @@
 #'
 #' [as_tibble()] methods for `SpatRaster` and `SpatVector` objects.
 #'
-#' @rdname as_tibble.Spat
-#' @name as_tibble.Spat
-#'
-#' @return
-#' A [tibble][tibble::tbl_df].
-#'
-#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
-#'   created with [terra::vect()].
-#' @param ... Arguments passed on to [terra::as.data.frame()].
-#'
-#' @inheritParams terra::as.data.frame
-#' @inheritParams tibble::as_tibble
-#'
 #' @export
 #' @encoding UTF-8
-#' @importFrom terra as.data.frame
-#' @importFrom tibble as_tibble
-#' @importFrom tibble tibble
+#' @rdname as_tibble.Spat
+#' @name as_tibble.Spat
 #'
 #' @seealso [tibble::as_tibble()], [terra::as.data.frame()]
 #'
 #' @family coerce
 #' @family tibble.methods
+#'
+#' @importFrom terra as.data.frame
+#' @importFrom tibble as_tibble
+#' @importFrom tibble tibble
+#'
+#' @inheritParams terra::as.data.frame
+#' @inheritParams tibble::as_tibble
+#'
+#' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
+#'   created with [terra::vect()].
+#' @param ... Arguments passed on to [terra::as.data.frame()].
+#'
+#' @returns
+#' A [tibble][tibble::tbl_df].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -168,7 +168,7 @@ as_tibble.SpatVector <- function(
 as_tbl_internal <- function(x) {
   if (!inherits(x, c("SpatRaster", "SpatVector"))) {
     cli::cli_abort(
-      "{.arg x} is not of {.cls SpatRaster} or {.cls SpatVector} object"
+      "{.arg x} must be a {.cls SpatRaster} or {.cls SpatVector} object."
     )
   }
 
@@ -328,9 +328,9 @@ check_regroups <- function(x) {
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
         "{.fun tidyterra::group_vars.SpatVector} missing on data.",
-        " Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
+        "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
-      cli::cli_bullets(c(i = "Ungrouping data"))
+      cli::cli_bullets(c(i = "Ungrouping data."))
       return(dplyr::ungroup(x))
     }
 
@@ -377,9 +377,9 @@ check_regroups <- function(x) {
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
         "{.fun tidyterra::group_vars.SpatVector} missing on data.",
-        " Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
+        "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
-      cli::cli_bullets(c(i = "Ungrouping data"))
+      cli::cli_bullets(c(i = "Ungrouping data."))
       return(dplyr::ungroup(x))
     }
 

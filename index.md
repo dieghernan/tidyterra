@@ -74,11 +74,10 @@ depending on the type of `Spat*` object:
   `terra::as.data.frame()` coercion. Rows correspond to geometries and
   columns correspond to attributes of each geometry.
 
-- `SpatRaster`: The implementation for `SpatRaster` objects differs
-  because methods can be applied to layers or cells. **tidyterra**’s
-  overall approach is to treat the layers as columns of a tibble and the
-  cells as rows (i.e. `select(SpatRaster, 1)` selects the first layer of
-  a `SpatRaster`).
+- `SpatRaster`: For `SpatRaster` objects, methods can be applied to
+  layers or cells. **tidyterra**’s overall approach is to treat the
+  layers as columns of a tibble and the cells as rows (i.e.
+  `select(SpatRaster, 1)` selects the first layer of a `SpatRaster`).
 
 The implemented methods return the same type of object as the input,
 unless the expected behavior of the method is to return another type of
@@ -109,7 +108,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::count()`, `tally()` | ✔️ |  |
 | `dplyr::add_count()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | `tidyr::complete()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
 | `tidyr::fill()` | ✔️ |  |
@@ -284,7 +283,7 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example: Plotting a tile in tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example of plotting a tile in tidyterra" width="100%" />
 
 **tidyterra** provides specific scales for plotting hypsometric maps
 with **ggplot2**:
@@ -355,9 +354,9 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
-Check our
+Check the
 [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
-open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
+open a new [issue](https://github.com/dieghernan/tidyterra/issues).
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag

@@ -4,6 +4,19 @@
 #'
 #' Replace `NA`s values on layers/attributes with specified values
 #'
+#' @export
+#' @encoding UTF-8
+#' @rdname replace_na.Spat
+#' @name replace_na.Spat
+#' @seealso [tidyr::replace_na()]
+#'
+#' @family tidyr.missing
+#' @family tidyr.methods
+#'
+#' @importFrom tidyr replace_na
+#'
+#' @inherit drop_na.Spat return
+#'
 #' @param data A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
 #' @param replace A named list of values, with one value for each
@@ -11,19 +24,6 @@
 #'   `replace` will be cast to the type of the column in `data` that it is being
 #'   used as a replacement in.
 #' @param ... Additional arguments for methods. Currently unused.
-#'
-#' @inherit drop_na.Spat return
-#'
-#' @export
-#' @encoding UTF-8
-#' @rdname replace_na.Spat
-#' @name replace_na.Spat
-#' @importFrom tidyr replace_na
-#'
-#' @seealso [tidyr::replace_na()]
-#'
-#' @family tidyr.missing
-#' @family tidyr.methods
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

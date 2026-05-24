@@ -7,13 +7,18 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @importFrom tidyr pivot_wider
+#' @rdname pivot_wider.SpatVector
+#' @name pivot_wider.SpatVector
+#'
+#' @seealso [tidyr::pivot_wider()]
 #'
 #' @family tidyr.pivot
 #' @family tidyr.methods
 #'
-#' @rdname pivot_wider.SpatVector
-#' @name pivot_wider.SpatVector
+#' @importFrom tidyr pivot_wider
+#'
+#' @inheritParams pivot_longer.SpatVector
+#' @inheritParams tidyr::pivot_wider
 #'
 #' @param id_cols <[`tidy-select`][tidyr::tidyr_tidy_select]> A set of columns
 #'   that uniquely identify each observation. Typically used when you have
@@ -29,12 +34,7 @@
 #'   Note that "`geometry`" columns are sticky, hence they are removed from
 #'   `names_from` and `values_from`.
 #'
-#' @inheritParams pivot_longer.SpatVector
-#' @inheritParams tidyr::pivot_wider
-#'
-#' @seealso [tidyr::pivot_wider()]
-#'
-#' @return A `SpatVector` object.
+#' @returns A `SpatVector` object.
 #'
 #' @section Methods:
 #'
@@ -125,8 +125,8 @@ pivot_wider.SpatVector <- function(
   # nocov start
   if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(paste0(
-      "Cannot rebuild the {.cls SpatVector}, ",
-      "the {.val geometry} column was lost after pivoting"
+      "Cannot rebuild the {.cls SpatVector}. ",
+      "The {.val geometry} column was lost after pivoting."
     ))
   }
   # nocov end

@@ -8,20 +8,20 @@
 #'
 #' @export
 #' @encoding UTF-8
-#' @importFrom tidyr fill
+#' @rdname fill.SpatVector
+#' @name fill.SpatVector
+#'
+#' @seealso [tidyr::fill()]
 #'
 #' @family tidyr.missing
 #' @family tidyr.methods
 #'
-#' @rdname fill.SpatVector
-#' @name fill.SpatVector
+#' @importFrom tidyr fill
 #'
-#' @param data A `SpatVector`.
 #' @inheritParams tidyr::fill
 #'
-#' @seealso [tidyr::fill()]
-#'
-#' @return A `SpatVector` object.
+#' @param data A `SpatVector`.
+#' @returns A `SpatVector` object.
 #'
 #' @section Methods:
 #'

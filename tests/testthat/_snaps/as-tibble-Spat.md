@@ -38,5 +38,5 @@
       as_tbl_internal(ntibble)
     Condition
       Error in `as_tbl_internal()`:
-      ! `x` is not of <SpatRaster> or <SpatVector> object
+      ! `x` must be a <SpatRaster> or <SpatVector> object.
 

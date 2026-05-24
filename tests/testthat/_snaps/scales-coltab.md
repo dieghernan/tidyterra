@@ -39,7 +39,7 @@
       p + scale_color_coltab(data = r, alpha = -1)
     Condition
       Error in `scale_color_coltab()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 
 # Discrete scale fill
 
@@ -54,5 +54,5 @@
       p + scale_fill_coltab(data = r, alpha = -1)
     Condition
       Error in `scale_fill_coltab()`:
-      ! `alpha` -1 not in [0,1]
+      ! `alpha` must be between 0 and 1.
 

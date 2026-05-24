@@ -17,10 +17,8 @@ forwarded to \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.}
 }
 \value{
 A list of \code{SpatVector} objects. Each \code{SpatVector} contains the rows
-of \code{.tbl} for the associated group and all the columns, including the
-grouping variables. Note that this returns a \link[vctrs:list_of]{list_of}
-which is slightly stricter than a simple list but is useful for
-representing lists where every element has the same type.
+of \code{.tbl} for the associated group and all columns. When \code{.keep = TRUE},
+the output includes the grouping variables.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -84,5 +82,5 @@ Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{\link[=group_trim.SpatVector]{group_trim.SpatVector()}}
 }
-\concept{dplyr.group_funs}
+\concept{dplyr.group_functions}
 \keyword{internal}

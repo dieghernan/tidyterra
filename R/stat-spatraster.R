@@ -1,15 +1,12 @@
-#' @export
-#' @encoding UTF-8
-#' @rdname geom_spatraster
-#'
 #' @description
 #'
 #' `stat_spatraster()` complements [geom_spatraster()] when you need to change
 #' the `geom`.
 #'
-#' @param geom Geom used to display the data. Recommended values for
-#'   `SpatRaster` are `"raster"` (the default), `"point"`, `"text"` and
-#'   `"label"`.
+#' @export
+#' @encoding UTF-8
+#' @rdname geom_spatraster
+#'
 #' @seealso
 #'
 #' Recommended `geoms`:
@@ -17,6 +14,9 @@
 #' - [ggplot2::geom_label()].
 #' - [ggplot2::geom_text()].
 #'
+#' @param geom Geom used to display the data. Recommended values for
+#'   `SpatRaster` are `"raster"` (the default), `"point"`, `"text"` and
+#'   `"label"`.
 #' @section Aesthetics:
 #'
 #' ## `stat_spatraster()`

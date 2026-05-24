@@ -20,22 +20,20 @@
 #'
 #' See [dplyr::group_data()].
 #'
-#' @param .data,.tbl,x A `SpatVector`.
-#' @inheritParams dplyr::group_data
-#'
-#' @keywords internal
-#'
-#' @return
-#'
-#' See the description of the method. The results are usually tibbles,
-#' lists or vectors. These functions does not return `SpatVector` objects.
-#'
+#' @export
+#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @name group_data.SpatVector
 #'
-#' @export
-#' @encoding UTF-8
 #' @importFrom dplyr group_data
+#'
+#' @inheritParams dplyr::group_data
+#'
+#' @param .data,.tbl,x A `SpatVector`.
+#' @returns
+#'
+#' See the description of the method. The results are usually tibbles,
+#' lists or vectors. These functions does not return `SpatVector` objects.
 #'
 #' @examples
 #' library(terra)
@@ -100,6 +98,8 @@
 #' group_data(gv2)
 #'
 #' group_indices(gv2)
+#' @keywords internal
+#'
 group_data.SpatVector <- function(.data) {
   # Dispatch to dplyr
   dplyr::group_data(tbl_for_groups(.data))
@@ -119,9 +119,9 @@ group_keys.SpatVector <- function(.tbl, ...) {
 #' @export
 dplyr::group_keys
 
-#' @importFrom dplyr group_rows
 #' @export
 #' @encoding UTF-8
+#' @importFrom dplyr group_rows
 dplyr::group_rows
 
 #' @export

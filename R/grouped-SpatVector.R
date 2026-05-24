@@ -10,13 +10,13 @@
 #' See also [group_data.SpatVector()] for the accessory functions that retrieve
 #' various metadata from a grouped `SpatVector`.
 #'
-#' @keywords internal
-#' @inheritParams as_sf
-#'
-#' @family helpers
-#'
 #' @export
 #' @encoding UTF-8
+#' @family helpers
+#'
+#' @inheritParams as_sf
+#'
+#' @keywords internal
 is_grouped_spatvector <- function(x) {
   att <- attributes(x)
 

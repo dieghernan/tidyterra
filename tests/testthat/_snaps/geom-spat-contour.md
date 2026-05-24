@@ -28,7 +28,7 @@
       end <- ggplot_build(ff)
     Condition
       Warning:
-      In `tidyterra::geom_spatraster_contour()`: Zero contours were generated
+      In `tidyterra::geom_spatraster_contour()`: zero contours were generated.
       Warning in `min()`:
       no non-missing arguments to min; returning Inf
       Warning in `max()`:

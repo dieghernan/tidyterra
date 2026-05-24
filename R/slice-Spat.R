@@ -3,19 +3,18 @@
 #' @description
 #'
 #' `slice()` methods let you index cells/rows/columns/geometries by their
-#' (integer) locations. They allow you to select, remove, or duplicate those
+#' (integer) locations. They allow you to select, remove or duplicate those
 #' dimensions of a `Spat*` object.
 #'
-#' **If you want to slice your `SpatRaster` by geographic coordinates, use
-#' [filter.SpatRaster()]**.
+#' If you want to slice by geographic coordinates, use [filter.SpatRaster()].
 #'
 #' It includes helpers for common use cases:
 #'
 #' - `slice_head()` and `slice_tail()` select the first or last
 #'   cells/geometries.
 #' - `slice_sample()` randomly selects cells/geometries.
-#' - `slice_rows()` and `slice_cols()` allow to subset entire rows or columns,
-#'   of a `SpatRaster`.
+#' - `slice_rows()` and `slice_cols()` subset entire rows or columns of a
+#'   `SpatRaster`.
 #' - `slice_colrows()` subsets regions of the `SpatRaster` by row and column
 #'   position of a `SpatRaster`.
 #'
@@ -30,25 +29,24 @@
 #' @name slice.Spat
 #'
 #' @seealso
-#' [dplyr::slice()], [terra::spatSample()].
-#'
-#' You can get a skeleton of your `SpatRaster` with the cell, column and row
-#' index with [as_coordinates()].
-#'
-#' If you want to slice by geographic coordinates use [filter.SpatRaster()].
+#' [dplyr::slice()], [terra::spatSample()], [as_coordinates()],
+#' [filter.SpatRaster()].
 #'
 #' @family single table verbs
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'
-#' @inherit select.Spat return
 #' @importFrom dplyr slice
+#'
+#' @inherit select.Spat return
+#' @inheritParams mutate.Spat
+#' @inheritParams dplyr::slice
 #'
 #' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
 #'   `SpatRaster`. See also [terra::trim()], [terra::extend()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
-#'   Provide either positive values to keep, or negative values to drop.
+#'   Provide either positive values to keep or negative values to drop.
 #'
 #'   The values provided must be either all positive or all negative. Indices
 #'   beyond the number of rows in the input are silently ignored. See
@@ -59,9 +57,6 @@
 #'   See [terra::mask()].
 #' @param na.rm Logical. If `TRUE`, remove cells with `NA` values when computing
 #'   `slice_min()/slice_max()`. The default is `TRUE`.
-#'
-#' @inheritParams mutate.Spat
-#' @inheritParams dplyr::slice
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

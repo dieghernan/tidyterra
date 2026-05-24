@@ -4,7 +4,7 @@
       as_spatvector(as_tbl)
     Condition
       Error in `as_spatvector()`:
-      ! Columns `lon` and `lat` not found in `x`
+      ! Columns `lon` and `lat` are not found in `x`.
 
 ---
 
@@ -12,7 +12,7 @@
       as_spatvector(as_tbl, geom = NA)
     Condition
       Error in `as_spatvector()`:
-      ! `geom` should be a <character>, not <logical>
+      ! `geom` must be a <character> vector, not <logical>.
 
 ---
 
@@ -20,7 +20,7 @@
       as_spatvector(as_tbl, geom = c("a", "b", "c"))
     Condition
       Error in `as_spatvector()`:
-      ! `geom` should be of length 1 or 2, not 3
+      ! `geom` must have length 1 or 2, not 3.
 
 ---
 
@@ -28,5 +28,5 @@
       as_spatvector(as_tbl, geom = 1)
     Condition
       Error in `as_spatvector()`:
-      ! `geom` should be a <character>, not <numeric>
+      ! `geom` must be a <character> vector, not <numeric>.
 

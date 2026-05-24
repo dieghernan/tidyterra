@@ -14,9 +14,9 @@
 \arguments{
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{y}{A data frame or other object coercible to a data frame. \strong{If a
-\code{SpatVector} or \code{sf} object} is provided it returns an error (see
-\code{\link[terra:intersect]{terra::intersect()}} for performing spatial joins).}
+\item{y}{A data frame or other object coercible to a data frame. If a
+\code{SpatVector} or \code{sf} object is provided, this method returns an error. See
+\code{\link[terra:intersect]{terra::intersect()}} for spatial joins.}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
 vector of variables to join by.

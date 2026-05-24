@@ -4,15 +4,21 @@
 #'
 #' `uncount()` duplicates rows according to a weighting variable.
 #'
-#' @param data A `SpatVector`.
-#' @inheritParams tidyr::uncount
-#'
-#' @return A `SpatVector` object.
+#' @export
+#' @encoding UTF-8
+#' @rdname uncount.SpatVector
 #'
 #' @seealso [tidyr::uncount()]
 #'
 #' @family tidyr.rows
 #' @family tidyr.methods
+#'
+#' @importFrom tidyr uncount
+#'
+#' @inheritParams tidyr::uncount
+#'
+#' @param data A `SpatVector`.
+#' @returns A `SpatVector` object.
 #'
 #' @section Methods:
 #'
@@ -30,17 +36,7 @@
 #'
 #' uncount(v, copies)
 #'
-#' @export
-#' @encoding UTF-8
-#' @rdname uncount.SpatVector
-#' @importFrom tidyr uncount
-uncount.SpatVector <- function(
-  data,
-  weights,
-  ...,
-  .remove = TRUE,
-  .id = NULL
-) {
+uncount.SpatVector <- function(data, weights, ..., .remove = TRUE, .id = NULL) {
   tbl <- as_tbl_internal(data)
 
   uncounted <- tidyr::uncount(

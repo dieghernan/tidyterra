@@ -134,7 +134,7 @@ or picas (\code{"pc"}).}
 \item \code{NULL} for no labels. This produces the same result as
 \code{geom_spatraster_contour()}.
 \item A character vector giving labels (must have the same length as the breaks
-produced by \code{bins}, \code{binwidth}, or \code{breaks}).
+produced by \code{bins}, \code{binwidth} or \code{breaks}).
 \item A function that takes the breaks as input and returns labels as output,
 as the default setup (\code{\link[scales:label_number]{scales::label_number()}}).
 }}

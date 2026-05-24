@@ -6,30 +6,8 @@
 #' to [`fortify.Spat`] and is provided in case the [ggplot2::fortify()] method
 #' is deprecated in the future.
 #'
-#' @param x A `SpatRaster` created with [terra::rast()], a `SpatVector`
-#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
-#'   or a `SpatExtent` (see [terra::ext()]).
-#' @param ... Ignored by these methods.
-#' @param pivot Logical. When `TRUE`, a `SpatRaster` is returned in [long
-#'   format][tidyr::pivot_longer()]. When `FALSE` (the default), it is returned
-#'   as a data frame with one column per layer. See **Details**.
-#' @inheritParams geom_spatraster
-#' @inheritParams as_tibble.Spat
-#' @inheritParams generics::tidy
-#'
-#' @importFrom generics tidy
 #' @export
 #' @encoding UTF-8
-#'
-#' @family generics.methods
-#' @family coerce
-#'
-#' @return
-#'
-#' [`tidy.SpatVector()`], [`tidy.SpatGraticule()`] and [`tidy.SpatExtent()`]
-#' return a [`sf`][sf::st_sf] object.
-#'
-#' [`tidy.SpatRaster()`] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @rdname tidy.Spat
 #' @name tidy.Spat
@@ -37,6 +15,28 @@
 #' @seealso
 #' [sf::st_as_sf()], [`as_tibble.Spat`], [as_spatraster()], [`fortify.Spat`],
 #' [generics::tidy()].
+#'
+#' @family generics.methods
+#' @family coerce
+#'
+#' @importFrom generics tidy
+#' @inheritParams geom_spatraster
+#' @inheritParams as_tibble.Spat
+#' @inheritParams generics::tidy
+#'
+#' @param x A `SpatRaster` created with [terra::rast()], a `SpatVector`
+#'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
+#'   or a `SpatExtent` (see [terra::ext()]).
+#' @param ... Ignored by these methods.
+#' @param pivot Logical. When `TRUE`, a `SpatRaster` is returned in [long
+#'   format][tidyr::pivot_longer()]. When `FALSE` (the default), it is returned
+#'   as a data frame with one column per layer. See **Details**.
+#' @returns
+#'
+#' [`tidy.SpatVector()`], [`tidy.SpatGraticule()`] and [`tidy.SpatExtent()`]
+#' return a [`sf`][sf::st_sf] object.
+#'
+#' [`tidy.SpatRaster()`] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
 #' @section Methods:
 #'

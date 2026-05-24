@@ -3,7 +3,7 @@
 #' @description
 #'
 #' Implementation of [GRASS color
-#' tables](https://grass.osgeo.org/grass83/manuals/r.colors.html). The
+#' tables](https://grass.osgeo.org/grass-stable/manuals/r.colors.html). The
 #' following fill scales and palettes are provided:
 #'
 #' - `scale_*_grass_d()`: For discrete values.
@@ -29,6 +29,16 @@
 #'
 #' @name scale_grass
 #'
+#' @seealso [grass_db], [terra::plot()],
+#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
+#'
+#' See also \CRANpkg{ggplot2} docs on additional `...` arguments:
+#'
+#' @family gradients
+#'
+#' @inheritParams ggplot2::scale_fill_viridis_b
+#' @inheritParams ggplot2::continuous_scale
+#'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
@@ -41,40 +51,15 @@
 #'
 #' @param drop Logical. If `TRUE`, omit unused factor levels from the scale.
 #'   The default (`TRUE`) removes unused factors.
-#' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams ggplot2::continuous_scale
-#'
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [grass_db] for more info.
 #'
 #' @param use_grass_range Logical. If `TRUE`, use the suggested range when
 #'   plotting. See **Details**.
-#' @seealso [grass_db], [terra::plot()],
-#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
-#'
-#' See also \CRANpkg{ggplot2} docs on additional `...` arguments:
-#'
-#' @return
+#' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` `aes()`.
-#'
-#' @family gradients
-#'
-#' @section \CRANpkg{terra} equivalent:
-#'
-#' [terra::map.pal()]
-#'
-#' @source
-#'
-#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
-#' also [r.color - GRASS GIS
-#' Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
-#'
-#' @references
-#' GRASS Development Team (2024). *Geographic Resources Analysis Support System
-#' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
-#' <https://grass.osgeo.org>.
 #'
 #' @details
 #' Some palettes are mapped by default to a specific range of values (see
@@ -85,6 +70,21 @@
 #' specified by this argument, keeping the distribution of the palette. You can
 #' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
 #' pixels in the plot.
+#'
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::map.pal()]
+#'
+#' @source
+#'
+#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
+#' also [r.color - GRASS GIS
+#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
+#'
+#' @references
+#' GRASS Development Team (2024). *Geographic Resources Analysis Support System
+#' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
+#' <https://grass.osgeo.org>.
 #'
 #' @examples
 #' \donttest{
@@ -156,11 +156,11 @@ scale_fill_grass_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -187,11 +187,11 @@ scale_colour_grass_d <- function(
   drop = TRUE
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   ggplot2::discrete_scale(
@@ -228,11 +228,11 @@ scale_fill_grass_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   # Use pal limits
@@ -240,7 +240,7 @@ scale_fill_grass_c <- function(
 
   if (!palette %in% coltab$pal) {
     cli::cli_abort(paste(
-      "{.arg palette} {.val palette} does not match any given palette.",
+      "{.arg palette} {.val palette} is not a known palette.",
       "See {.help tidyterra::grass_db}"
     ))
   }
@@ -295,11 +295,11 @@ scale_colour_grass_c <- function(
   guide = "colourbar"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   # Use pal limits
@@ -307,7 +307,7 @@ scale_colour_grass_c <- function(
 
   if (!palette %in% coltab$pal) {
     cli::cli_abort(paste(
-      "{.arg palette} {.val palette} does not match any given palette.",
+      "{.arg palette} {.val palette} is not a known palette.",
       "See {.help tidyterra::grass_db}"
     ))
   }
@@ -368,11 +368,11 @@ scale_fill_grass_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   # Use pal limits
@@ -380,7 +380,7 @@ scale_fill_grass_b <- function(
 
   if (!palette %in% coltab$pal) {
     cli::cli_abort(paste(
-      "{.arg palette} {.val palette} does not match any given palette.",
+      "{.arg palette} {.val palette} is not a known palette.",
       "See {.help tidyterra::grass_db}"
     ))
   }
@@ -435,11 +435,11 @@ scale_colour_grass_b <- function(
   guide = "coloursteps"
 ) {
   if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} {.field {alpha}} not in {.field [0,1]}")
+    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
   }
 
   if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be {.field 1} or {.field -1}")
+    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
   }
 
   # Use pal limits
@@ -447,7 +447,7 @@ scale_colour_grass_b <- function(
 
   if (!palette %in% coltab$pal) {
     cli::cli_abort(paste(
-      "{.arg palette} {.val palette} does not match any given palette.",
+      "{.arg palette} {.val palette} is not a known palette.",
       "See {.help tidyterra::grass_db}"
     ))
   }
