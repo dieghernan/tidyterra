@@ -27,6 +27,13 @@ test_that("group_split() returns SpatVector partitions", {
   })
   expect_identical(split_v_tbl, as.list(split_tbl))
   expect_equal(sum(vapply(split_v, nrow, double(1))), nrow(v))
+
+  names(split_v) <- dplyr::pull(group_keys(gv), cpro)
+  svc <- terra::svc(split_v)
+
+  expect_s4_class(svc, "SpatVectorCollection")
+  expect_length(svc, length(split_v))
+  expect_named(svc, dplyr::pull(group_keys(gv), cpro))
 })
 
 test_that("group_split() supports temporary groups and .keep", {
@@ -51,4 +58,9 @@ test_that("group_split() supports temporary groups and .keep", {
     },
     logical(1)
   )))
+
+  svc <- terra::svc(split_v)
+
+  expect_s4_class(svc, "SpatVectorCollection")
+  expect_length(svc, length(split_v))
 })

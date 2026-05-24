@@ -138,15 +138,19 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::arrange()` | ✔️ |  |
 | `dplyr::glimpse()` | ✔️ | ✔️ |
 | `dplyr::inner_join()` family | ✔️ |  |
+| `dplyr::nest_join()` | ✔️ |  |
 | `dplyr::cross_join()` | ✔️ |  |
 | `dplyr::summarise()` | ✔️ |  |
+| `dplyr::reframe()` | ✔️ |  |
 | `dplyr::group_by()` family | ✔️ |  |
 | `dplyr::rowwise()` | ✔️ |  |
 | `dplyr::count()`, `tally()` | ✔️ |  |
 | `dplyr::add_count()` | ✔️ |  |
+| `dplyr::rows_*()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
 | `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | `tidyr::complete()` | ✔️ |  |
+| `tidyr::expand()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
 | `tidyr::fill()` | ✔️ |  |
 | `tidyr::nest()` | ✔️ |  |

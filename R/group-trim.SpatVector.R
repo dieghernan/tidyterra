@@ -2,6 +2,7 @@
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
+#'
 #' This method drops unused levels of all factors that are used as grouping
 #' variables and recalculates the grouping structure.
 #'

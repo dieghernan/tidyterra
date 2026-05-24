@@ -41,7 +41,7 @@
 #'   group_by(cpro) |>
 #'   nest()
 #'
-#' # Convert to named SpatVectorCollection.
+#' # Convert to a named SpatVectorCollection.
 #' nested <- nest(v, .by = cpro)
 #'
 #' sv <- pull(nested, data)

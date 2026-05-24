@@ -3,6 +3,7 @@
 #' See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 #'
 #' @export
+#' @encoding UTF-8
 #' @rdname pipe
 #' @name %>%
 #' @usage lhs \%>\% rhs

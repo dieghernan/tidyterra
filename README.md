@@ -76,8 +76,9 @@ depending on the type of `Spat*` object:
 
 - `SpatRaster`: For `SpatRaster` objects, methods can be applied to
   layers or cells. **tidyterra**’s overall approach is to treat the
-  layers as columns of a tibble and the cells as rows (i.e.
-  `select(SpatRaster, 1)` selects the first layer of a `SpatRaster`).
+  layers as columns of a tibble and the cells as rows
+  (i.e. `select(SpatRaster, 1)` selects the first layer of a
+  `SpatRaster`).
 
 Implemented methods return the same type of object as the input unless
 the method is expected to return another type of object (for example,
@@ -91,7 +92,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
 | `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
-| `dplyr::filter()` | ✔️ | ✔️ Modify cell values and remove outer cells. |
+| `dplyr::filter()` | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | `dplyr::filter_out()` | ✔️ |  |
 | `dplyr::slice()` | ✔️ | ✔️ Additional methods for slicing by row and column. |
 | `dplyr::pull()` | ✔️ | ✔️ |
@@ -101,15 +102,19 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::arrange()` | ✔️ |  |
 | `dplyr::glimpse()` | ✔️ | ✔️ |
 | `dplyr::inner_join()` family | ✔️ |  |
+| `dplyr::nest_join()` | ✔️ |  |
 | `dplyr::cross_join()` | ✔️ |  |
 | `dplyr::summarise()` | ✔️ |  |
+| `dplyr::reframe()` | ✔️ |  |
 | `dplyr::group_by()` family | ✔️ |  |
 | `dplyr::rowwise()` | ✔️ |  |
 | `dplyr::count()`, `tally()` | ✔️ |  |
 | `dplyr::add_count()` | ✔️ |  |
+| `dplyr::rows_*()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
 | `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
 | `tidyr::complete()` | ✔️ |  |
+| `tidyr::expand()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
 | `tidyr::fill()` | ✔️ |  |
 | `tidyr::nest()` | ✔️ |  |

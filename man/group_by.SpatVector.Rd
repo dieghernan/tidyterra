@@ -123,6 +123,7 @@ p |>
 
 Other \CRANpkg{dplyr} verbs that operate on group of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
@@ -138,15 +139,20 @@ Other \CRANpkg{dplyr} methods:
 \code{\link{glimpse.Spat}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
+\code{\link[=nest_join.SpatVector]{nest_join.SpatVector()}},
 \code{\link{pull.Spat}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
+\code{\link{rows.SpatVector}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
 \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
 Other \CRANpkg{dplyr} grouping methods:
+\code{\link[=group_map.SpatVector]{group_map.SpatVector()}},
+\code{\link[=group_nest.SpatVector]{group_nest.SpatVector()}},
 \code{\link[=group_split.SpatVector]{group_split.SpatVector()}},
 \code{\link[=group_trim.SpatVector]{group_trim.SpatVector()}}
 }

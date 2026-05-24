@@ -62,7 +62,7 @@
 #'   group_by(group) |>
 #'   group_split()
 #'
-#' # We can coerce the result to a SpatVectorCollection.
+#' # Coerce the result to a SpatVectorCollection.
 #' v |>
 #'   group_by(group) |>
 #'   group_split() |>

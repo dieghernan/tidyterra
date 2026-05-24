@@ -60,7 +60,9 @@ Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{filter-joins.SpatVector}},
-\code{\link{mutate-joins.SpatVector}}
+\code{\link{mutate-joins.SpatVector}},
+\code{\link[=nest_join.SpatVector]{nest_join.SpatVector()}},
+\code{\link{rows.SpatVector}}
 
 Other \CRANpkg{dplyr} methods:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
@@ -74,9 +76,12 @@ Other \CRANpkg{dplyr} methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{\link{mutate-joins.SpatVector}},
 \code{\link{mutate.Spat}},
+\code{\link[=nest_join.SpatVector]{nest_join.SpatVector()}},
 \code{\link{pull.Spat}},
+\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link{relocate.Spat}},
 \code{\link{rename.Spat}},
+\code{\link{rows.SpatVector}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link{select.Spat}},
 \code{\link{slice.Spat}},
