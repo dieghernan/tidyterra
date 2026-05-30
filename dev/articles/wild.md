@@ -28,7 +28,7 @@ A BibTeX entry for LaTeX users is:
 ## Publications
 
 Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
-Ríos, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
+Rı́os, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
 Characterization of Lichen Flora in Antarctic Nunataks. *Journal of
 Fungi*, *12*(5). <https://doi.org/10.3390/jof12050314>
 
@@ -109,6 +109,11 @@ Fu, F., Wang, S., Wu, X., Chen, S., Tan, Z., Ye, C., & Grünzweig, J. M.
 ecological restoration. *Communications Earth & Environment*, *6*(1),
 667. <https://doi.org/10.1038/s43247-025-02649-8>
 
+Gao, Y., Añez, N., & Chaves, L. F. (2026). High spatial resolution
+ensemble species distribution modeling of Rhodnius prolixus, vector of
+Chagas disease, in western Venezuela. *GeoHealth*, *10*(5),
+e2025GH001628. <https://doi.org/10.1029/2025GH001628>
+
 Garcı́a-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
 Naranjo-Cigala, A., & Arévalo, J. R. (2025). Assessing the Potential
 Risk of Invasion of the Neophyte *Pluchea ovalis* (Pers.) DC.
@@ -117,7 +122,7 @@ Distribution Modelling. *Diversity*, *17*(3), 195.
 <https://doi.org/10.3390/d17030195>
 
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
-Wind, waves, wing loading and the flight energetics of giant petrels.
+Wind, waves, wing loading and the flight energetics of giant petrels.
 *Functional Ecology*. <https://doi.org/10.1111/1365-2435.70352>
 
 Hattendorf, C., & Lühken, R. (2025a). *Dirofilaria immitis* and *D.
@@ -165,6 +170,15 @@ Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
 centuries of collection records. *New Phytologist*.
 <https://doi.org/10.1111/nph.70321>
+
+Larocca Conte, G., Zuvela, L., Cruz-Pérez, R., Barreto-Vélez, T.,
+Becerra-Santillan, N., Campbell, S. F., Chu, H. P., Dam, T.,
+Grullón-Penkova, I. F., Kleit, M., Ortiz-Iglesias, D. A., Rubio-Lebrón,
+L. C., Cavaleri, M. A., Reed, S. C., Sihi, D., Wood, T. E., & O’Connell,
+C. S. (2026). Lowland tropical forests remain a methane sink under
+warming and long-term hurricane disturbance recovery. *Agricultural and
+Forest Meteorology*, *386*, 111225.
+<https://doi.org/10.1016/j.agrformet.2026.111225>
 
 Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H.,
 Lofts, S., Griffiths, R., Fidler, D., Jones, B., Panagos, P., Sawicka,
@@ -291,6 +305,13 @@ Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
+
+Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
+M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
+T., Meremikwu, M., Moses, L., Redding, D. W., & Friant, S. (2026). Local
+heterogeneity in Lassa fever serology in rural Nigeria: Implications for
+vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
+*20*(5), 1–18. <https://doi.org/10.1371/journal.pntd.0014379>
 
 Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
 Jardine, S. L. (2026). Projected temperature and precipitation expand
