@@ -125,12 +125,7 @@ Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
 Wind, waves, wing loading and the flight energetics of giant petrels.
 *Functional Ecology*. <https://doi.org/10.1111/1365-2435.70352>
 
-Hattendorf, C., & Lühken, R. (2025a). *Dirofilaria immitis* and *D.
-repens* in Europe: A systematic literature review on vectors, host
-range, and the spatial distribution in the 20th and 21st century.
-*bioRxiv*. <https://doi.org/10.1101/2025.02.17.638693>
-
-Hattendorf, C., & Lühken, R. (2025b). Vectors, host range, and spatial
+Hattendorf, C., & Lühken, R. (2025). Vectors, host range, and spatial
 distribution of *Dirofilaria immitis* and *D. repens* in Europe: A
 systematic review. *Infectious Diseases of Poverty*, *14*(1), 58.
 <https://doi.org/10.1186/s40249-025-01328-2>
