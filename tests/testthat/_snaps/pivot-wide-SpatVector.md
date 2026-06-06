@@ -33,3 +33,11 @@
       ! Can't select columns that don't exist.
       x Column `name` doesn't exist.
 
+# Errors
+
+    Code
+      pv <- pivot_wider(df, names_from = key, values_from = val)
+    Condition
+      Error in `pivot_wider()`:
+      ! Cannot rebuild the <SpatVector>. The "geometry" column was lost after pivoting.
+

@@ -163,19 +163,15 @@ get_named_crs <- function(x) {
 
   d <- try(terra::crs(pulled, describe = TRUE), silent = TRUE)
 
-  # nocov start
   if (inherits(d, "try-error")) {
     return(NA)
   }
-  # nocov end
 
   r <- terra::crs(pulled, proj = TRUE)
 
-  # nocov start
   if (inherits(r, "try-error")) {
     return(NA)
   }
-  # nocov end
 
   if (!(d$name %in% c(NA, "unknown", "unnamed"))) {
     if (startsWith(r, "+proj=longlat")) {
@@ -195,11 +191,10 @@ get_named_crs <- function(x) {
     r <- try
   }
 
-  # nocov start
   if (is.na(r) || r == "" || is.null(r)) {
     r <- NA
   }
-  # nocov end
+
   r
 }
 

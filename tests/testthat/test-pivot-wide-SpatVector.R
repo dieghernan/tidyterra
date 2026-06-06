@@ -350,3 +350,23 @@ test_that("`id_expand` does a cartesian expansion of `id_cols`", {
     )
   )
 })
+test_that("Errors", {
+  local_mocked_bindings(tt_sel_wider_id_cols = function(...) {
+    "s"
+  })
+
+  df <- tibble::tibble(key = c("x", "y", "z"), val = 1:3)
+
+  df$lat <- 1
+  df$lon <- 1
+  df$s <- letters[1:3]
+
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  expect_s4_class(df, "SpatVector")
+
+  expect_snapshot(
+    error = TRUE,
+    pv <- pivot_wider(df, names_from = key, values_from = val)
+  )
+})

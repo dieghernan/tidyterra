@@ -244,3 +244,12 @@ test_that("Long geoms", {
   expect_snapshot(glimpse(a_rast, n = NULL, max_extra_cols = NULL))
   expect_snapshot(glimpse(a_rast, n = -1, max_extra_cols = -1))
 })
+
+test_that("Name crs", {
+  expect_false(is.na(get_named_crs(4326)))
+
+  local_mocked_bindings(pull_crs = function(...) {
+    "aa"
+  })
+  expect_true(is.na(get_named_crs(4326)))
+})

@@ -168,11 +168,9 @@ group_prepare_spat <- function(x, template) {
 
   # template is not df
   # Gives an error
-  # nocov start
   if (!inherits(template, "data.frame")) {
     cli::cli_abort("The grouping template must be a data frame.")
   }
-  # nocov end
 
   if (dplyr::is_grouped_df(template)) {
     attr(x, "tblclass") <- "grouped_df"

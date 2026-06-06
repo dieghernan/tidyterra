@@ -245,6 +245,25 @@ test_that("adjusting `cols_vary` works fine with `values_drop_na`", {
   )
 })
 
+test_that("Errors", {
+  local_mocked_bindings(remove_geom_col = function(tmpl, ...) {
+    "geometry"
+  })
+  df <- tibble::tibble(id = c("a", "b"), x = c(1, NA), y = c(3, 4))
+  df$lat <- 1
+  df$lon <- 1
+  df <- terra::vect(df, crs = "EPSG:3857")
+
+  expect_snapshot(
+    error = TRUE,
+    out <- pivot_longer(
+      df,
+      c(x, y),
+      cols_vary = "slowest",
+      values_drop_na = TRUE
+    )
+  )
+})
 
 # Helpers ----
 test_that("Check tidyselect: var1:var10", {

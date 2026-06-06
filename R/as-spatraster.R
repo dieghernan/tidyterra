@@ -66,7 +66,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   # Materialize lazy dtplyr input.
   if (inherits(x, "dtplyr_step")) {
-    x <- tibble::as_tibble(x)
+    x <- tibble::as_tibble(x) # nocov
   }
 
   if (!inherits(x, "data.frame")) {
