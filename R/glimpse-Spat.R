@@ -170,7 +170,7 @@ get_named_crs <- function(x) {
   r <- terra::crs(pulled, proj = TRUE)
 
   if (inherits(r, "try-error")) {
-    return(NA)
+    return(NA) # nocov
   }
 
   if (!(d$name %in% c(NA, "unknown", "unnamed"))) {
@@ -192,7 +192,7 @@ get_named_crs <- function(x) {
   }
 
   if (is.na(r) || r == "" || is.null(r)) {
-    r <- NA
+    r <- NA # nocov
   }
 
   r

@@ -183,6 +183,8 @@ test_that("ungroup.rowwise_df gives a ungrouped SpatVector", {
 })
 
 test_that("Internal errors", {
+  expect_identical(group_prepare_spat("a_nothing"), "a_nothing")
+
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   expect_snapshot(error = TRUE, group_prepare_spat(v1, "a"))
 })
