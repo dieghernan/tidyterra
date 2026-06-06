@@ -51,7 +51,7 @@
 #' v |>
 #'   glimpse() |>
 #'   mutate(a = 30) |>
-#'   # with options
+#'   # With options.
 #'   glimpse(geom = "WKT")
 #'
 #' # SpatRaster
@@ -132,9 +132,9 @@ glimpse.SpatVector <- function(
   tterra_header("A SpatVector ", nr, " x ", nc)
   # Geom type
   tterra_header("Geometry type: ", tools::toTitleCase(terra::geomtype(x)))
-  # CRS info
+  # CRS information.
   tterra_header_string_crs(x)
-  # Extent info
+  # Extent information.
   tterra_header_string_ext(x)
 
   # Body
@@ -163,19 +163,15 @@ get_named_crs <- function(x) {
 
   d <- try(terra::crs(pulled, describe = TRUE), silent = TRUE)
 
-  # nocov start
   if (inherits(d, "try-error")) {
     return(NA)
   }
-  # nocov end
 
   r <- terra::crs(pulled, proj = TRUE)
 
-  # nocov start
   if (inherits(r, "try-error")) {
-    return(NA)
+    return(NA) # nocov
   }
-  # nocov end
 
   if (!(d$name %in% c(NA, "unknown", "unnamed"))) {
     if (startsWith(r, "+proj=longlat")) {
@@ -195,17 +191,16 @@ get_named_crs <- function(x) {
     r <- try
   }
 
-  # nocov start
   if (is.na(r) || r == "" || is.null(r)) {
-    r <- NA
+    r <- NA # nocov
   }
-  # nocov end
+
   r
 }
 
 # To convert lon lat from decimal to pretty
 decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
-  type <- match.arg(type)
+  type <- rlang::arg_match(type)
   coordinit <- x
   x <- abs(x)
   x_int <- as.integer(x)
@@ -380,11 +375,11 @@ tterra_body <- function(
     extra_cols <- x[, setdiff(names(x), names(col_sel))]
   }
 
-  # Main body via glimpse
+  # Render the main body with `dplyr::glimpse()`.
   capt <- utils::capture.output(dplyr::glimpse(col_sel, width = width))
   cli::cat_line(capt[-c(1:2)])
 
-  # Make footer
+  # Render the footer.
   if (!is.null(extra_cols)) {
     extra_text <- vapply(
       extra_cols,

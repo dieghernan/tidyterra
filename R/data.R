@@ -2,22 +2,29 @@
 #'
 #' @description
 #'
-#' Probably you already know the [volcano] dataset. This dataset provides
-#' updated information of Maungawhau (Mt. Eden) from
+#' You may already know the [volcano] dataset. This dataset provides updated
+#' information for Maungawhau (Mt. Eden) from
 #' [Toitu Te Whenua Land Information New Zealand](https://data.linz.govt.nz/),
-#' the Government's agency that provides free online access to New Zealand's
+#' the government agency that provides free online access to New Zealand's
 #' most up-to-date land and seabed data.
 #'
 #' @name volcano2
 #' @docType data
 #'
+#' @format
+#' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
+#' value is the corresponding altitude in meters.
+#'
 #' @seealso [volcano]
 #'
 #' @family datasets
 #'
-#' @format
-#' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
-#' value is the corresponding altitude in meters.
+#' @note
+#' Information needed for regenerating the original `SpatRaster` file:
+#' - resolution: `c(5, 5)`
+#' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
+#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
+#'   2000 (`EPSG:2193`)
 #'
 #' @source
 #'
@@ -28,14 +35,7 @@
 #' data has been downsampled to a resolution of 5 m due to disk space
 #' constraints.
 #'
-#' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-#'
-#' @note
-#' Information needed for regenerating the original `SpatRaster` file:
-#' - resolution: `c(5, 5)`
-#' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
-#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
-#'   2000 (`EPSG:2193`)
+#' Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 #'
 #' @examples
 #'
@@ -67,16 +67,12 @@ NULL
 #'
 #' @description
 #' A [tibble][tibble::tbl_df] including the color map of
-#' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. All the
-#' palettes. It also includes a definition of color limits in terms of
-#' elevation (meters) that can be used with [ggplot2::scale_fill_gradientn()].
+#' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. Each palette
+#' also includes a definition of color limits in terms of elevation (meters)
+#' that can be used with [ggplot2::scale_fill_gradientn()].
 #'
 #' @name hypsometric_tints_db
 #' @docType data
-#'
-#' @seealso [scale_fill_hypso_c()]
-#'
-#' @family datasets
 #'
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(hypsometric_tints_db)` rows and
@@ -90,6 +86,10 @@ NULL
 #'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{Hex code of the color.}
 #' }
+#'
+#' @seealso [scale_fill_hypso_c()]
+#'
+#' @family datasets
 #'
 #' @source
 #' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
@@ -134,13 +134,6 @@ NULL
 #' All palettes also include a definition of color limits in terms of elevation
 #' (meters) that can be used with [ggplot2::scale_fill_gradientn()].
 #'
-#' @name cross_blended_hypsometric_tints_db
-#' @docType data
-#'
-#' @seealso [scale_fill_cross_blended_c()]
-#'
-#' @family datasets
-#'
 #' @details
 #' From Patterson & Jenny (2011):
 #'
@@ -151,6 +144,9 @@ NULL
 #'     problem. They use variable lowland colors customized to match the
 #'     differing natural environments of world regions, which merge into
 #'     one another.*
+#'
+#' @name cross_blended_hypsometric_tints_db
+#' @docType data
 #'
 #' @format
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
@@ -166,12 +162,17 @@ NULL
 #'   \item{hex}{Hex code of the color.}
 #' }
 #'
+#' @seealso [scale_fill_cross_blended_c()]
+#'
+#' @family datasets
+#'
 #' @source
 #'
 #' Derived from:
+#'
 #' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
-#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-#'   31-46. \doi{10.14714/CP69.20}.
+#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31-46.
+#'   \doi{10.14714/CP69.20}.
 #'
 #' @examples
 #' \donttest{
@@ -215,22 +216,14 @@ NULL
 #' include a definition of color limits that can be used with
 #' [ggplot2::scale_fill_gradientn()].
 #'
-#' @name grass_db
-#' @docType data
-#'
-#' @seealso [scale_fill_grass_c()]
-#'
-#' @family datasets
-#'
 #' @details
 #' Summary of palettes provided, description and recommended use:
 #'
 #' ```{r child = "man/chunks/grassdec.Rmd"}
 #' ```
 #'
-#' @section \CRANpkg{terra} equivalent:
-#'
-#' [terra::map.pal()]
+#' @name grass_db
+#' @docType data
 #'
 #' @format
 #' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns with
@@ -245,16 +238,15 @@ NULL
 #'   \item{hex}{Hex code of the color.}
 #' }
 #'
-#' @source
+#' @seealso [scale_fill_grass_c()]
 #'
-#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
-#' also [r.color - GRASS GIS
-#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
+#' @family datasets
 #'
-#' @references
-#' GRASS Development Team (2024). *Geographic Resources Analysis Support System
-#' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
-#' <https://grass.osgeo.org>.
+#' @section \CRANpkg{terra} equivalent:
+#'
+#' [terra::map.pal()]
+#'
+#' @inherit scale_grass source references
 #'
 #' @examples
 #' \donttest{
@@ -298,10 +290,6 @@ NULL
 #' @name princess_db
 #' @docType data
 #'
-#' @seealso [scale_fill_princess_c()]
-#'
-#' @family datasets
-#'
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(princess_db)` rows and
 #' `r ncol(princess_db)` columns with the following fields:
@@ -313,6 +301,10 @@ NULL
 #'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{Hex code of the color.}
 #' }
+#'
+#' @seealso [scale_fill_princess_c()]
+#'
+#' @family datasets
 #'
 #' @source
 #' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.

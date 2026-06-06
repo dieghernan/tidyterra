@@ -62,7 +62,7 @@ v |> glimpse(n = 2)
 v |>
   glimpse() |>
   mutate(a = 30) |>
-  # with options
+  # With options.
   glimpse(geom = "WKT")
 
 # SpatRaster

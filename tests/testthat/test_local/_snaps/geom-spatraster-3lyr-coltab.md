@@ -24,7 +24,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "cut1", "cut2", and "cut3" of class <factor>.
+      ! Plotting only layers "cut1", "cut2", and "cut3" of class <factor>.
 
 ---
 

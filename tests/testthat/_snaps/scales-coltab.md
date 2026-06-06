@@ -3,35 +3,35 @@
     Code
       res <- get_coltab_pal(df)
     Message
-      i `tidyterra::get_coltab_pal()` only works with <SpatRaster> objects, not <data.frame>. Returning NULL
+      i `tidyterra::get_coltab_pal()` only works with <SpatRaster> objects, not <data.frame>. Returning "NULL".
 
 ---
 
     Code
       res <- get_coltab_pal(r)
     Message
-      i `x` does not have a color table. Returning NULL
+      i `x` does not have a color table. Returning "NULL".
 
 # Give informative messages
 
     Code
       res <- get_coltab_pal(df)
     Message
-      i `tidyterra::get_coltab_pal()` only works with <SpatRaster> objects, not <data.frame>. Returning NULL
+      i `tidyterra::get_coltab_pal()` only works with <SpatRaster> objects, not <data.frame>. Returning "NULL".
 
 ---
 
     Code
       res <- get_coltab_pal(r)
     Message
-      i `x` does not have a color table. Returning NULL
+      i `x` does not have a color table. Returning "NULL".
 
 # Discrete scale color
 
     Code
       pnull <- p + scale_color_coltab(data = terra::rast())
     Message
-      i `x` does not have a color table. Returning NULL
+      i `x` does not have a color table. Returning "NULL".
 
 ---
 
@@ -46,7 +46,7 @@
     Code
       pnull <- p + scale_fill_coltab(data = terra::rast())
     Message
-      i `x` does not have a color table. Returning NULL
+      i `x` does not have a color table. Returning "NULL".
 
 ---
 

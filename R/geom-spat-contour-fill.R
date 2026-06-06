@@ -16,67 +16,12 @@ geom_spatraster_contour_filled <- function(
   inherit.aes = TRUE,
   mask_projection = FALSE
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster_contour_filled} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "geom_spatraster_contour_filled")
 
-  # 1. Work with aes ----
-  mapping <- override_aesthetics(
-    mapping,
-    ggplot2::aes(
-      spatraster = .data$spatraster,
-      # For faceting
-      lyr = .data$lyr
-    )
-  )
-
-  # `aes(z = ...)` selects the layer to plot.
-  # Extract value of `aes(z)`.
-
-  if ("z" %in% names(mapping)) {
-    namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
-
-    if (!namelayer %in% names(data)) {
-      cli::cli_abort(paste("Layer {.val {namelayer}} not found in {.arg data}"))
-    }
-
-    # Subset by layer
-    data <- terra::subset(data, namelayer)
-    # Remove z from aes, it is provided later on the Stat.
-    mapping <- cleanup_aesthetics(mapping, "z")
-  }
-
-  # 2. Check if resample is needed----
-
-  # Check mixed types
-  data <- check_mixed_cols(data)
-
-  data <- resample_spat(data, maxcell)
-
-  # 3. Create a nested list with each layer----
-  raster_list <- as.list(data)
-
-  # Now create the data frame
-  data_tbl <- tibble::tibble(
-    spatraster = list(NULL),
-    # For faceting: As factors for keeping orders
-    lyr = factor(names(data), levels = names(data))
-  )
-
-  names(data_tbl$spatraster) <- names(data)
-
-  # Each layer to a row
-  for (i in seq_len(terra::nlyr(data))) {
-    data_tbl$spatraster[[i]] <- raster_list[[i]]
-  }
-
-  # 4. Build layer ----
-
-  crs_terra <- pull_crs(data)
+  contour_data <- prepare_spatraster_contour_data(mapping, data, maxcell)
+  mapping <- contour_data$mapping
+  data_tbl <- contour_data$data
+  crs_terra <- contour_data$crs
 
   # Create layer
   layer_spatrast <- ggplot2::layer(
@@ -101,7 +46,7 @@ geom_spatraster_contour_filled <- function(
 
   # From ggspatial.
   # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # mimics using the first layer CRS as the base CRS for coord_sf().
+  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -156,7 +101,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     params
   },
   compute_layer = function(self, data, params, layout) {
-    # warn if not using facets
+    # Warn when layers overlap because facets are not used.
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
       nly <- length(unique(data$lyr))
       if (nly > 1) {
@@ -194,27 +139,26 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     coord_crs = NA,
     mask_projection = FALSE
   ) {
-    # Extract raster from group
+    # Extract the raster from the current group.
     rast <- data$spatraster[[1]]
 
-    # Reproject if needed
+    # Reproject if needed.
     rast <- reproject_raster_on_stat(rast, coord_crs, mask = mask_projection)
-    # To data and prepare
+    # Convert to a data frame and prepare output.
     prepare_iso <- pivot_longer_spat(rast)
-    # Keep initial data
+    # Keep the initial data.
     data_rest <- data
-    # Don't need spatraster any more and increase size
-    # Set to NA
+    # Drop the raster payload before joining to reduce the output size.
     data_rest$spatraster <- NA
 
-    # Now adjust min and max value, since reprojection may affect vals
+    # Adjust minimum and maximum values because reprojection may affect them.
     prepare_iso$value <- pmin(max(z.range), prepare_iso$value)
     prepare_iso$value <- pmax(min(z.range), prepare_iso$value)
 
-    # Now create data with values from raster
+    # Create data with values from the raster.
     names(prepare_iso) <- c("x", "y", "lyr", "z")
 
-    # Port functions from ggplot2
+    # Reuse contour break logic from ggplot2.
     breaks <- contour_breaks(z.range, bins, binwidth, breaks)
 
     isobands <- xyz_to_isobands(prepare_iso, breaks)
@@ -228,8 +172,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     path_df$nlevel <- scales::rescale_max(path_df$level_high)
     path_df$lyr <- data_rest$lyr[[1]]
 
-    # Re-create data
-    # Remove group, we get that from path_df
+    # Re-create data and remove `group`, which comes from `path_df`.
     data_rest <- remove_columns(data_rest, "group")
 
     data <- dplyr::left_join(path_df, data_rest, by = "lyr")
@@ -240,7 +183,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
 
 # Helpers ----
 
-# From ggplot2
+# From ggplot2.
 
 xyz_to_isobands <- function(data, breaks) {
   isoband::isobands(
@@ -259,9 +202,8 @@ pretty_isoband_levels <- function(isoband_levels, dig.lab = 3) {
   label_low <- format(as.numeric(interval_low), digits = dig.lab, trim = TRUE)
   label_high <- format(as.numeric(interval_high), digits = dig.lab, trim = TRUE)
 
-  # from the isoband::isobands() docs:
-  # the intervals specifying isobands are closed at their lower boundary
-  # and open at their upper boundary
+  # From the `isoband::isobands()` docs: isoband intervals are closed at their
+  # lower boundary and open at their upper boundary.
   sprintf("(%s, %s]", label_low, label_high)
 }
 

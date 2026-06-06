@@ -75,8 +75,8 @@
 #' # Unique keeping info
 #' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
-  # Identify if geometry is called on dots
-  # Get dots via select
+  # Check whether `...` selects the geometry column.
+  # Resolve selected column names with `select()`.
   dots_labs <- names(select(as_tbl_internal(.data[1, ]), ...))
 
   # If the call is empty or includes geometry, use the internal path because

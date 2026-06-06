@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster(data = v)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::rast()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster(data = 1:3)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <integer>. See `?terra::rast()`.
 
 ---
 
@@ -46,7 +46,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
+      ! Plotting only layers "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
 
 ---
 
@@ -57,7 +57,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "char" and "char2" of class <factor>.
+      ! Plotting only layers "char" and "char2" of class <factor>.
 
 ---
 
@@ -91,7 +91,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
+      ! Plotting only layers "tavg_04", "tavg_05", and "tavg_06" of class <numeric>.
 
 ---
 
@@ -102,7 +102,7 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "char" and "char2" of class <factor>.
+      ! Plotting only layers "char" and "char2" of class <factor>.
 
 ---
 

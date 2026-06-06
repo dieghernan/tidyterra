@@ -1,9 +1,18 @@
-#' Visualise `SpatVector` objects
+#' Plot `SpatVector` objects
 #'
 #' @description
 #'
-#' Wrappers of [ggplot2::geom_sf()] family used to visualise `SpatVector`
+#' Wrappers of the [ggplot2::geom_sf()] family used to plot `SpatVector`
 #' objects (see [terra::vect()]).
+#'
+#' @details
+#'
+#' These functions are wrappers of [ggplot2::geom_sf()] functions. Since a
+#' [fortify.SpatVector()] method is provided, \CRANpkg{ggplot2} treat a
+#' `SpatVector` in the same way that a [`sf`][sf::st_sf] object. A side effect
+#' is that you can use [ggplot2::geom_sf()] directly with `SpatVector` objects.
+#'
+#' See [ggplot2::geom_sf()] for details on aesthetics, etc.
 #'
 #' @export
 #' @encoding UTF-8
@@ -23,15 +32,6 @@
 #'   like `colour = "red"` or `linewidth = 3`.
 #'
 #' @returns A \CRANpkg{ggplot2} layer
-#' @details
-#'
-#' These functions are wrappers of [ggplot2::geom_sf()] functions. Since a
-#' [fortify.SpatVector()] method is provided, \CRANpkg{ggplot2} treat a
-#' `SpatVector` in the same way that a [`sf`][sf::st_sf] object. A side effect
-#' is that you can use [ggplot2::geom_sf()] directly with `SpatVector` objects.
-#'
-#' See [ggplot2::geom_sf()] for details on aesthetics, etc.
-#'
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]

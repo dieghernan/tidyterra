@@ -216,6 +216,23 @@ test_that("Works with sf", {
 
   expect_identical(dplyr::group_data(sfobj_rowwise), group_data(fromsfrowwise))
 
+  # Keep rowwise empty
+
+  empty_sf <- terra::vect("POLYGON EMPTY", crs = pull_crs(sfobj)) |> as_sf()
+  empty_sf <- data.frame(iso2 = "XXX", geom = "POLYGON EMPTY") |>
+    sf::st_as_sf(wkt = "geom", crs = pull_crs(sfobj))
+  sfobj_rowwise <- sfobj |>
+    dplyr::bind_rows(empty_sf) |>
+    dplyr::rowwise()
+
+  expect_true(is_rowwise_df(sfobj_rowwise))
+
+  fromsfrowwise <- as_spatvector(sfobj_rowwise)
+
+  expect_true(is_rowwise_spatvector(fromsfrowwise))
+
+  expect_identical(dplyr::group_data(sfobj_rowwise), group_data(fromsfrowwise))
+
   # Keep geoms even with other names
   sf2 <- sf::st_sf(x = 1, geom2 = sf::st_geometry(sfobj))
   expect_true(attr(sf2, "sf_column") == "geom2")

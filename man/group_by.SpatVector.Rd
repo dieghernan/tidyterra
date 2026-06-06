@@ -112,7 +112,7 @@ by_name2_name1 |>
   group_vars()
 
 # You can group by expressions: this is a short-hand
-# for a mutate() followed by a group_by()
+# For a mutate() followed by a group_by().
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)
@@ -121,7 +121,7 @@ p |>
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:ungroup]{dplyr::ungroup()}}
 
-Other \CRANpkg{dplyr} verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},
 \code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},

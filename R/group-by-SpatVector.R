@@ -6,6 +6,10 @@
 #' [group_by.SpatVector()] adds new attributes to an existing `SpatVector`
 #' indicating the corresponding groups. See **Methods**.
 #'
+#' @details
+#'
+#' See **Details** on [dplyr::group_by()].
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname group_by.SpatVector
@@ -22,10 +26,6 @@
 #'
 #' @param .data,x A `SpatVector` object. See **Methods**.
 #' @returns A `SpatVector` object with updated grouping metadata.
-#'
-#' @details
-#'
-#' See **Details** on [dplyr::group_by()].
 #'
 #' @section Methods:
 #'
@@ -98,7 +98,7 @@
 #'   group_vars()
 #'
 #' # You can group by expressions: this is a short-hand
-#' # for a mutate() followed by a group_by()
+#' # For a mutate() followed by a group_by().
 #' p |>
 #'   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
 #'   relocate(ID_COMB, .before = 1)
@@ -159,20 +159,18 @@ dplyr::ungroup
 dplyr::group_by_drop_default
 
 # Internal
-# Assign groups to a SpatVector given the info of a template
+# Assign groups to a `SpatVector` using template metadata.
 group_prepare_spat <- function(x, template) {
-  # x not SpatVector
+  # Check that `x` is a `SpatVector`.
   if (!inherits(x, "SpatVector")) {
     return(x)
   }
 
-  # template is not df
+  # Check that the template is a data frame.
   # Gives an error
-  # nocov start
   if (!inherits(template, "data.frame")) {
     cli::cli_abort("The grouping template must be a data frame.")
   }
-  # nocov end
 
   if (dplyr::is_grouped_df(template)) {
     attr(x, "tblclass") <- "grouped_df"

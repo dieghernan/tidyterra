@@ -3,12 +3,12 @@
 #' @description
 #' `summarise()` creates a new `SpatVector`. It returns one geometry for each
 #' combination of grouping variables. If there are no grouping variables, the
-#' output will have a single geometry summarising all observations in the input
+#' output will have a single geometry summarizing all observations in the input
 #' and combining all the geometries of the `SpatVector`. It will contain one
 #' column for each grouping variable and one column for each of
 #' the summary statistics that you have specified.
 #'
-#' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
+#' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.
 #'
 #' @export
 #' @encoding UTF-8
@@ -56,7 +56,7 @@
 #'   mutate(start_with_s = startsWith(name, "S")) |>
 #'   group_by(start_with_s)
 #'
-#' # Dissolving
+#' # Dissolve geometries.
 #' diss <- gr_v |>
 #'   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 #'
@@ -65,11 +65,11 @@
 #' autoplot(diss, aes(fill = start_with_s)) +
 #'   ggplot2::labs(title = "Dissolved")
 #'
-#' # Not dissolving
+#' # Keep geometries separate.
 #' no_diss <- gr_v |>
 #'   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 #'
-#' # Same statistic
+#' # Same statistic.
 #' no_diss
 #'
 #' autoplot(no_diss, aes(fill = start_with_s)) +
@@ -81,7 +81,7 @@ summarise.SpatVector <- function(
   .groups = NULL,
   .dissolve = TRUE
 ) {
-  # Try find .by vectors
+  # Resolve `.by` groups.
   by_groups <- group_by(.data, {{ .by }})
 
   # Get data frames.
@@ -98,7 +98,7 @@ summarise.SpatVector <- function(
       dissolve = .dissolve
     )
   } else if (is_rowwise_spatvector(spatv)) {
-    # Do nothing, rowwise respect rows
+    # Rowwise grouping already respects rows.
     newgeom <- spatv
   } else if (is_grouped_spatvector(by_groups)) {
     spatv$tterra_index <- group_indices(by_groups)

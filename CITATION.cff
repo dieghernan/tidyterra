@@ -14,7 +14,7 @@ identifiers:
 - type: doi
   value: 10.32614/CRAN.package.tidyterra
 abstract: Provides common 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects
-  created by the 'terra' package, plus 'ggplot2' geoms for visualizing those objects.
+  created with the 'terra' package, plus 'ggplot2' geoms for plotting those objects.
 authors:
 - family-names: Hernangómez
   given-names: Diego

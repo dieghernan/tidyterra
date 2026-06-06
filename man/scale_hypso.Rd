@@ -151,8 +151,8 @@ hypso.colors2(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-\link{hypsometric_tints_db} for more info. The available values are listed
-below.
+\link{hypsometric_tints_db} for more information. The available values are
+listed below.
 \code{"arctic"}, \code{"arctic_bathy"}, \code{"arctic_hypso"}, \code{"c3t1"}, \code{"colombia"}, \code{"colombia_bathy"}, \code{"colombia_hypso"}, \code{"dem_poster"}, \code{"dem_print"}, \code{"dem_screen"}, \code{"etopo1"}, \code{"etopo1_bathy"}, \code{"etopo1_hypso"}, \code{"gmt_globe"}, \code{"gmt_globe_bathy"}, \code{"gmt_globe_hypso"}, \code{"meyers"}, \code{"meyers_bathy"}, \code{"meyers_hypso"}, \code{"moon"}, \code{"moon_bathy"}, \code{"moon_hypso"}, \code{"nordisk-familjebok"}, \code{"nordisk-familjebok_bathy"}, \code{"nordisk-familjebok_hypso"}, \code{"pakistan"}, \code{"spain"}, \code{"usgs-gswa2"}, \code{"utah_1"}, \code{"wiki-2.0"}, \code{"wiki-2.0_bathy"}, \code{"wiki-2.0_hypso"}, \code{"wiki-schwarzwald-cont"}.}
 
 \item{...}{
@@ -396,7 +396,7 @@ ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 }
-# Display all the cpl_city palettes
+# Display all the cpt-city palettes
 
 pals <- unique(hypsometric_tints_db$pal)
 
@@ -416,7 +416,7 @@ for (i in pals) {
   )
 }
 par(opar)
-# Display all the cpl_city palettes on version 2
+# Display all the cpt-city palettes on version 2
 
 pals <- unique(hypsometric_tints_db$pal)
 

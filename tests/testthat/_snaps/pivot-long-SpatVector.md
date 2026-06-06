@@ -19,6 +19,14 @@
     Message
       ! Omitting "geometry" column from `cols` argument.
 
+# Errors
+
+    Code
+      out <- pivot_longer(df, c(x, y), cols_vary = "slowest", values_drop_na = TRUE)
+    Condition
+      Error in `pivot_longer()`:
+      ! Cannot rebuild the <SpatVector>. The "geometry" column was lost after pivoting.
+
 # Check tidyselect: var1:var10
 
     Code

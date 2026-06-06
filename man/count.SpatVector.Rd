@@ -90,7 +90,7 @@ p |> count(NAME_1, sort = TRUE)
 
 p |> count(pop = ifelse(POP < 20000, "A", "B"))
 
-# tally() is a lower-level function that assumes you've done the grouping
+# tally() is a lower-level function that assumes grouping is already done.
 p |> tally()
 
 p |>
@@ -115,7 +115,7 @@ p |>
 \seealso{
 \code{\link[dplyr:count]{dplyr::count()}}, \code{\link[dplyr:tally]{dplyr::tally()}}
 
-Other \CRANpkg{dplyr} verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},

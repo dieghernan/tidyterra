@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{geom_spatraster_rgb}
 \alias{geom_spatraster_rgb}
-\title{Visualise \code{SpatRaster} objects as images}
+\title{Plot \code{SpatRaster} objects as images}
 \source{
 Based on the \code{layer_spatial()} implementation in the \CRANpkg{ggspatial}
 package. Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and to
@@ -88,9 +88,8 @@ to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{Spa
 A \CRANpkg{ggplot2} layer
 }
 \description{
-This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as
-RGB images. The layers are combined so they represent the red, green and
-blue channels.
+This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as RGB images.
+The layers are combined so they represent the red, green and blue channels.
 
 For plotting \code{SpatRaster} objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
 
@@ -154,7 +153,7 @@ ggplot(cyl_sf) +
 You can also get RGB tiles from the \CRANpkg{maptiles} package. See
 \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

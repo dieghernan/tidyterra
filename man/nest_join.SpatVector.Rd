@@ -19,7 +19,7 @@
 \arguments{
 \item{x}{A \code{SpatVector}.}
 
-\item{y}{A data frame. Spatial \code{y} inputs are not supported; use spatial
+\item{y}{A data frame. Spatial \code{y} inputs are not supported, use spatial
 joins from \CRANpkg{terra} for that workflow.}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -100,7 +100,7 @@ nest_join(v, extra, by = "cpro")
 \seealso{
 \code{\link[dplyr:nest_join]{dplyr::nest_join()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},

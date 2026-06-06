@@ -187,7 +187,7 @@ following aesthetics, as well as the ones listed above:
 \item \code{subgroup}
 }
 
-Check \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}} for more info on contours and
+Check \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}} for more information on contours and
 \code{vignette("ggplot2-specs", package = "ggplot2")} for an overview of the
 aesthetics.
 }
@@ -195,7 +195,7 @@ aesthetics.
 \section{Computed variables}{
 
 
-These geom computes internally some variables that are available for use as
+These geoms compute some variables internally that are available for use as
 aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
@@ -233,8 +233,8 @@ adjust the scales. That means that also the
 \section{Facets}{
 
 
-You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer of
-the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+You can use \code{facet_wrap(~lyr)} to create a faceted plot by each layer of the
+\code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \examples{
@@ -300,7 +300,7 @@ The \CRANpkg{metR} package also provides a set of alternative functions:
 \item \code{metR::geom_contour_tanaka()}.
 }
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

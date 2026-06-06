@@ -62,7 +62,7 @@ v2 <- v[3:5, c("name", "iso2")]
 bind_spat_rows(v1, v2)
 
 # When you supply a column name with the `.id` argument, a new
-# column is created to link each row to its original data frame
+# A column is created to link each row to its original data frame.
 bind_spat_rows(v1, v2, .id = "id")
 
 \donttest{
@@ -95,7 +95,7 @@ bind_spat_rows(list(
 \seealso{
 \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},

@@ -1,3 +1,32 @@
+test_that("grass_scale_params prepares colors and scale values", {
+  params <- grass_scale_params(
+    palette = "srtm_plus",
+    alpha = 1,
+    direction = -1,
+    values = NULL,
+    limits = NULL,
+    use_grass_range = TRUE
+  )
+  pal_cols <- grass_db[grass_db$pal == "srtm_plus", ]
+
+  expect_identical(params$colors, rev(as.character(pal_cols$hex)))
+  expect_equal(params$limits, range(pal_cols$limit))
+  expect_equal(params$values, scales::rescale(pal_cols$limit))
+
+  params_no_range <- grass_scale_params(
+    palette = "srtm_plus",
+    alpha = 0.5,
+    direction = 1,
+    values = c(10, 20, 30),
+    limits = c(0, 40),
+    use_grass_range = FALSE
+  )
+
+  expect_equal(params_no_range$colors, ggplot2::alpha(pal_cols$hex, 0.5))
+  expect_equal(params_no_range$values, scales::rescale(c(10, 20, 30)))
+  expect_equal(params_no_range$limits, c(0, 40))
+})
+
 test_that("Discrete scale", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 

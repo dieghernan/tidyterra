@@ -80,13 +80,8 @@ scale_fill_coltab <- function(
   if (is.null(getcols)) {
     return(ggplot2::geom_blank())
   }
-  if (is.na(alpha)) {
-    # In alpha NA use the alpha of the coltab
-    getcols <- getcols
-  } else {
-    if (alpha < 0 || alpha > 1) {
-      cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-    }
+  if (!is.na(alpha)) {
+    check_alpha(alpha)
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
 
@@ -120,13 +115,8 @@ scale_colour_coltab <- function(
     return(ggplot2::geom_blank())
   }
 
-  if (is.na(alpha)) {
-    # In alpha NA use the alpha of the coltab
-    getcols <- getcols
-  } else {
-    if (alpha < 0 || alpha > 1) {
-      cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-    }
+  if (!is.na(alpha)) {
+    check_alpha(alpha)
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
 
@@ -158,14 +148,14 @@ get_coltab_pal <- function(x) {
     cli::cli_alert_info(paste(
       "{.fun tidyterra::get_coltab_pal} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(x)}}.",
-      "Returning {.field NULL}"
+      "Returning {.val NULL}."
     ))
     return(NULL)
   }
 
   if (!any(terra::has.colors(x))) {
     cli::cli_alert_info(
-      "{.arg x} does not have a color table. Returning {.field NULL}",
+      "{.arg x} does not have a color table. Returning {.val NULL}.",
     )
     return(NULL)
   }

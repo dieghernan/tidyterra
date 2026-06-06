@@ -56,7 +56,7 @@
 #'
 #' p |> count(pop = ifelse(POP < 20000, "A", "B"))
 #'
-#' # tally() is a lower-level function that assumes you've done the grouping
+#' # tally() is a lower-level function that assumes grouping is already done.
 #' p |> tally()
 #'
 #' p |>

@@ -729,7 +729,7 @@ slice_colrows.SpatRaster <- function(
   }
 
   # Crop to selected range
-  # cols
+  # Columns.
   range_col <- range(sliced$colindex)
   keepindex_col <- seq(range_col[1], range_col[2], by = 1)
 

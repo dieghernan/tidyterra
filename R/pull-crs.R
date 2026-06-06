@@ -19,6 +19,20 @@
 #' that identifies precisely the arguments of each CRS. It is the standard
 #' used by \CRANpkg{sf} and \CRANpkg{terra}.
 #'
+#' @details
+#'
+#' Although the WKT representation is the same, the \CRANpkg{sf} and
+#' \CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
+#'
+#' `sf::st_transform(x, 25830)`
+#'
+#' While the \CRANpkg{terra} equivalent is:
+#'
+#' `terra::project(bb, "epsg:25830")`
+#'
+#' Knowing the WKT helps smooth workflows when working with different
+#' packages and object types.
+#'
 #' @export
 #' @encoding UTF-8
 #'
@@ -38,34 +52,20 @@
 #'
 #' @returns A WKT representation of the corresponding CRS.
 #'
-#' @details
-#'
-#' Although the WKT representation is the same, the \CRANpkg{sf} and
-#' \CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
-#'
-#' `sf::st_transform(x, 25830)`
-#'
-#' While the \CRANpkg{terra} equivalent is:
-#'
-#' `terra::project(bb, "epsg:25830")`
-#'
-#' Knowing the WKT helps smooth workflows when working with different
-#' packages and object types.
-#'
 #' @section Internals:
 #'
 #' A thin wrapper around [sf::st_crs()] and [terra::crs()].
 #'
 #' @examples
 #'
-#' # sf objects
+#' # sf objects.
 #'
 #' sfobj <- sf::st_as_sfc("MULTIPOINT ((0 0), (1 1))", crs = 4326)
 #'
 #' fromsf1 <- pull_crs(sfobj)
 #' fromsf2 <- pull_crs(sf::st_crs(sfobj))
 #'
-#' # terra
+#' # terra objects.
 #'
 #' v <- terra::vect(sfobj)
 #' r <- terra::rast(v)
@@ -73,7 +73,7 @@
 #' fromterra1 <- pull_crs(v)
 #' fromterra2 <- pull_crs(r)
 #'
-#' # integers
+#' # Integers.
 #' fromint <- pull_crs(4326)
 #'
 #' # Characters

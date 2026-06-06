@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster_contour(data = v)
     Condition
       Error in `geom_spatraster_contour()`:
-      ! `tidyterra::geom_spatraster_contour()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster_contour()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::rast()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster_contour(data = 1:3)
     Condition
       Error in `geom_spatraster_contour()`:
-      ! `tidyterra::geom_spatraster_contour()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster_contour()` only works with <SpatRaster> objects, not <integer>. See `?terra::rast()`.
 
 ---
 
@@ -20,7 +20,7 @@
       ggplot() + geom_spatraster_contour(data = r, aes(z = noexist))
     Condition
       Error in `geom_spatraster_contour()`:
-      ! Layer "noexist" not found in `data`
+      ! Layer "noexist" not found in `data`.
 
 ---
 

@@ -6,13 +6,19 @@
 #' `SpatRaster`. It wraps the [terra::rast()] S4 method for signature
 #' `data.frame`.
 #'
+#' @details
+#'
+#' If no `crs` is provided and the tibble has been created with the method
+#' [as_tibble.SpatRaster()], the `crs` is inferred from
+#' [`attr(x, "crs")`][attr()].
+#'
 #' @export
 #' @encoding UTF-8
 #'
 #' @seealso
 #'
-#' [pull_crs()] for retrieving CRS and the corresponding utils [sf::st_crs()]
-#' and [terra::crs()].
+#' [pull_crs()] for retrieving CRS and the corresponding utilities
+#' [sf::st_crs()] and [terra::crs()].
 #'
 #' @family coerce
 #'
@@ -32,12 +38,6 @@
 #'
 #' @returns
 #' A `SpatRaster`.
-#'
-#' @details
-#'
-#' If no `crs` is provided and the tibble has been created with the method
-#' [as_tibble.SpatRaster()], the `crs` is inferred from
-#' [`attr(x, "crs")`][attr()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -64,9 +64,9 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     return(x)
   }
 
-  # Create from dtplyr
+  # Materialize lazy dtplyr input.
   if (inherits(x, "dtplyr_step")) {
-    x <- tibble::as_tibble(x)
+    x <- tibble::as_tibble(x) # nocov
   }
 
   if (!inherits(x, "data.frame")) {
@@ -89,51 +89,35 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   xycols <- as.integer(xycols)
 
-  # Check if is fortified pivoted and widen it
+  # Widen fortified pivoted input.
   if (isTRUE(attr(x, "pvt_fort"))) {
     initcrs <- attr(x, "crs")
     x <- x[, 1:4]
 
-    # Layers.
+    # Restore layer columns.
     names(x) <- c("x", "y", "name", "value")
     x <- tidyr::pivot_wider(x)
 
     attr(x, "crs") <- initcrs
   }
 
-  # To tibble
+  # Work with a tibble.
   x <- tibble::as_tibble(x)
 
-  # Rearrange cols
-  xy_cols <- x[xycols]
-  values <- x[-xycols]
+  prepared <- prepare_spatraster_cols(x, xycols)
+  xy_cols <- prepared$xy_cols
+  values <- prepared$values
+  layer_names <- prepared$layer_names
 
-  names(xy_cols) <- c("x", "y")
-  layer_names <- names(values)
-
-  # Check if grid is regular
+  # Check that points form a regular grid.
   is_regular_grid(xy_cols, digits = digits)
 
-  names(values) <- paste0("lyr", seq_len(ncol(values)))
+  x_arrange <- prepared$x_arrange
 
-  x_arrange <- dplyr::bind_cols(xy_cols, values)
+  # Resolve CRS before creating the SpatRaster.
+  crs <- resolve_spatraster_crs(crs, attr(x, "crs"))
 
-  # Create SpatRaster
-  # CRS.
-  crs_attr <- attr(x, "crs")
-  crs <- pull_crs(crs)
-
-  # Check from attributes.
-  if (is.na(crs)) {
-    crs <- crs_attr
-  }
-
-  if (is.na(pull_crs(crs))) {
-    crs <- NA
-  }
-
-  # Issue: work with layer/columns with NA
-  # Check class of columns
+  # Non-numeric layers need the slower path below.
   col_classes <- unlist(lapply(values, is.numeric))
 
   # If all columns are numeric, create the raster directly.
@@ -150,12 +134,11 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
     return(newrast)
   }
 
-  # If not, different strategy:
-  # a. Create a template raster with index for values
-  # b. Extract full grid and attach values
-  # c. Add values to template grid
+  # Create a template raster with an index for values.
+  # Extract full grid and attach values.
+  # Add values to template grid.
 
-  # xyvalues plus index
+  # xyvalues plus index.
 
   xyvalind <- x_arrange[, 1:2]
   xyvalind$valindex <- seq_len(nrow(xyvalind))
@@ -178,21 +161,10 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   # Now assign values to raster
   terra::nlyr(r_temp) <- 1
 
-  nlyrs <- ncol(values)
-
-  temp_list <- lapply(seq_len(nlyrs), function(x) {
-    terra::setValues(r_temp, unlist(values[, x]))
-  })
-
-  # Finally unlist rasters and fix names
-  defortify <- do.call("c", temp_list)
-
-  names(defortify) <- layer_names
-
-  defortify
+  build_raster_layers(r_temp, values, layer_names)
 }
 
-#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`
+#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`.
 #' Strict version, used attributes for creating a template
 #' `SpatRaster` and then transfer the values
 #'
@@ -212,13 +184,11 @@ as_spatrast_attr <- function(x) {
   values <- dplyr::select(x, -c(1, 2))
   values <- data.table::as.data.table(values)
 
-  nlyrs <- ncol(values)
-
   # Create a list of rasters for each layer
   # and assign value
 
-  temp_list <- lapply(seq_len(nlyrs), function(x) {
-    terra::setValues(
+  build_raster_layers(
+    function() {
       terra::rast(
         nrows = attrs$dims[1],
         ncols = attrs$dims[2],
@@ -226,14 +196,56 @@ as_spatrast_attr <- function(x) {
         crs = attrs$crs,
         extent = attrs$ext,
         resolution = attrs$res
-      ),
-      unlist(values[, x])
-    )
+      )
+    },
+    values,
+    names(values)
+  )
+}
+
+prepare_spatraster_cols <- function(x, xycols) {
+  xy_cols <- x[xycols]
+  values <- x[-xycols]
+
+  names(xy_cols) <- c("x", "y")
+  layer_names <- names(values)
+  names(values) <- paste0("lyr", seq_len(ncol(values)))
+
+  list(
+    xy_cols = xy_cols,
+    values = values,
+    layer_names = layer_names,
+    x_arrange = dplyr::bind_cols(xy_cols, values)
+  )
+}
+
+resolve_spatraster_crs <- function(crs, crs_attr) {
+  crs <- pull_crs(crs)
+
+  if (is.na(crs)) {
+    crs <- crs_attr
+  }
+
+  if (is.na(pull_crs(crs))) {
+    crs <- NA
+  }
+
+  crs
+}
+
+build_raster_layers <- function(template, values, layer_names) {
+  if (!is.function(template)) {
+    template <- local({
+      raster_template <- template
+      function() raster_template
+    })
+  }
+
+  temp_list <- lapply(seq_len(ncol(values)), function(i) {
+    terra::setValues(template(), unlist(values[, i]))
   })
 
-  # Finally unlist rasters and fix name
   defortify <- do.call("c", temp_list)
-  names(defortify) <- names(values)
-
+  names(defortify) <- layer_names
   defortify
 }

@@ -18,7 +18,7 @@ A \link[tibble:tbl_df]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE
 the same number of rows (or cells) as the number of cells in \code{x}.
 
 When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same CRS,
-extension and resolution as \code{x}.
+extent and resolution as \code{x}.
 }
 \description{
 \code{as_coordinates()} can be used to obtain the position of each cell on the

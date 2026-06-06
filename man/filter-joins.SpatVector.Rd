@@ -120,7 +120,7 @@ autoplot(anti, aes(fill = iso2)) + labs(title = "Anti Join")
 \seealso{
 \code{\link[dplyr:semi_join]{dplyr::semi_join()}}, \code{\link[dplyr:anti_join]{dplyr::anti_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},

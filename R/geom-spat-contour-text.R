@@ -28,67 +28,12 @@ geom_spatraster_contour_text <- function(
   inherit.aes = TRUE,
   mask_projection = FALSE
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster_contour_text} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "geom_spatraster_contour_text")
 
-  # 1. Work with aes ----
-  mapping <- override_aesthetics(
-    mapping,
-    ggplot2::aes(
-      spatraster = .data$spatraster,
-      # For faceting
-      lyr = .data$lyr
-    )
-  )
-
-  # `aes(z = ...)` selects the layer to plot.
-  # Extract value of `aes(z)`.
-
-  if ("z" %in% names(mapping)) {
-    namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
-
-    if (!namelayer %in% names(data)) {
-      cli::cli_abort(paste("Layer {.val {namelayer}} not found in {.arg data}"))
-    }
-
-    # Subset by layer
-    data <- terra::subset(data, namelayer)
-    # Remove z from aes, it is provided later on the Stat.
-    mapping <- cleanup_aesthetics(mapping, "z")
-  }
-
-  # 2. Check if resample is needed----
-
-  # Check mixed types
-  data <- check_mixed_cols(data)
-
-  data <- resample_spat(data, maxcell)
-
-  # 3. Create a nested list with each layer----
-  raster_list <- as.list(data)
-
-  # Now create the data frame
-  data_tbl <- tibble::tibble(
-    spatraster = list(NULL),
-    # For faceting: As factors for keeping orders
-    lyr = factor(names(data), levels = names(data))
-  )
-
-  names(data_tbl$spatraster) <- names(data)
-
-  # Each layer to a row
-  for (i in seq_len(terra::nlyr(data))) {
-    data_tbl$spatraster[[i]] <- raster_list[[i]]
-  }
-
-  # 4. Build layer ----
-
-  crs_terra <- pull_crs(data)
+  contour_data <- prepare_spatraster_contour_data(mapping, data, maxcell)
+  mapping <- contour_data$mapping
+  data_tbl <- contour_data$data
+  crs_terra <- contour_data$crs
 
   # Create layer
   layer_spatrast <- ggplot2::layer(
@@ -116,7 +61,7 @@ geom_spatraster_contour_text <- function(
 
   # From ggspatial.
   # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # mimics using the first layer CRS as the base CRS for coord_sf().
+  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -150,7 +95,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
   ),
   handle_na = function(self, data, params) {
     # Drop missing values at the start or end of a line - can't drop in the
-    # middle since you expect those to be shown by a break in the line
+    # Use the middle point, where a line break is expected.
     aesthetics <- c(self$required_aes, self$non_missing_aes)
     complete <- stats::complete.cases(data[names(data) %in% aesthetics])
     kept <- stats::ave(complete, data$group, FUN = keep_mid_true)
@@ -159,7 +104,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     if (!all(kept) && !params$na.rm) {
       cli::cli_warn(paste0(
         "Removed {sum(!kept)} row{?s} containing missing values or values ",
-        "outside the scale range ({.fn GeomSpatRasterContour})."
+        "outside the scale range ({.fn GeomSpatRasterContourText})."
       ))
     }
 
@@ -189,10 +134,10 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
       data$label <- data$level
     }
 
-    # back to isolines object
+    # Convert back to an isolines object.
     iso <- df_to_isolines(data)
 
-    # transform back to coordinate space
+    # Transform back to coordinate space.
     iso <- lapply(iso, coord$transform, panel_params)
 
     # Get aes
@@ -288,10 +233,10 @@ get_aes_iso <- function(x, aesx = "colour") {
   unlist(get_aes)
 }
 
-## from ggplot2 ----
+## From ggplot2 ----
 
 # Trim false values from left and right: keep all values from
-# first TRUE to last TRUE
+# First `TRUE` to last `TRUE`.
 keep_mid_true <- function(x) {
   first <- match(TRUE, x) - 1
   if (is.na(first)) {
@@ -303,7 +248,7 @@ keep_mid_true <- function(x) {
 }
 
 resolve_text_unit <- function(unit) {
-  unit <- rlang::arg_match0(unit, c("mm", "pt", "cm", "in", "pc"))
+  unit <- rlang::arg_match(unit, values = c("mm", "pt", "cm", "in", "pc"))
   switch(unit,
     "mm" = ggplot2::.pt,
     "cm" = ggplot2::.pt * 10,

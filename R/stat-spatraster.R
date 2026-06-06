@@ -83,13 +83,7 @@ stat_spatraster <- function(
   maxcell = 500000,
   ...
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::stat_spatraster} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "stat_spatraster")
 
   # 1. Work with aes ----
 
@@ -173,8 +167,7 @@ stat_spatraster <- function(
 
   # From `ggspatial`.
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
-  # scales. This mimics using the first layer CRS as the base CRS for
-  # `coord_sf()`.
+  # scales. Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(

@@ -4,7 +4,7 @@
 \name{geom_spatraster}
 \alias{geom_spatraster}
 \alias{stat_spatraster}
-\title{Visualise \code{SpatRaster} objects}
+\title{Plot \code{SpatRaster} objects}
 \source{
 Based on the \code{layer_spatial()} implementation on \CRANpkg{ggspatial} package.
 Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
@@ -105,9 +105,8 @@ lists which parameters it can accept.
 A \CRANpkg{ggplot2} layer
 }
 \description{
-This geom is used to visualise \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}).
-The geom is designed for visualise the object by layers, as \code{\link[terra:plot]{terra::plot()}}
-does.
+This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}). It is designed
+to plot the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
 
 For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster}), use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
@@ -186,8 +185,8 @@ variables. See \strong{Computed variables} and \strong{Examples}.
 \section{Facets}{
 
 
-You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer of
-the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+You can use \code{facet_wrap(~lyr)} to create a faceted plot by each layer of the
+\code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \section{Computed variables}{
@@ -197,7 +196,7 @@ This geom computes internally some variables that are available for use as
 aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
-\item \code{after_stat(value)}: Values of the \code{SpatRaster.}
+\item \code{after_stat(value)}: Cell values of the \code{SpatRaster}.
 \item \code{after_stat(lyr)}: Name of the layer.
 }
 }
@@ -290,7 +289,7 @@ Recommended \code{geoms}:
 \item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
 }
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

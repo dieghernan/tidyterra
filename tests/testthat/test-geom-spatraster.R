@@ -135,3 +135,8 @@ test_that("Coltabs", {
     "blue"
   )
 })
+
+test_that("Helpers", {
+  expect_identical(override_aesthetics(), ggplot2::aes())
+  expect_identical(override_aesthetics("default"), "default")
+})

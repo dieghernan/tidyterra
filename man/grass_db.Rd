@@ -30,57 +30,57 @@ include a definition of color limits that can be used with
 \details{
 Summary of palettes provided, description and recommended use:\tabular{llll}{
    \strong{palette} \tab \strong{use} \tab \strong{description} \tab \strong{range} \cr
-   \code{aspect} \tab General \tab aspect oriented grey colors \tab  \cr
-   \code{aspectcolr} \tab General \tab aspect oriented rainbow colors \tab 0 to 360 \cr
-   \code{bcyr} \tab General \tab blue through cyan through yellow to red \tab  \cr
-   \code{bgyr} \tab General \tab blue through green through yellow to red \tab  \cr
-   \code{blues} \tab General \tab white to blue \tab  \cr
-   \code{byg} \tab General \tab blue through yellow to green \tab  \cr
-   \code{byr} \tab General \tab blue through yellow to red \tab  \cr
-   \code{celsius} \tab General \tab blue to red for degree Celsius temperature \tab -80 to 80 \cr
-   \code{corine} \tab Land Cover \tab EU Corine land cover colors \tab 111 to 995 \cr
-   \code{curvature} \tab General \tab for terrain curvatures \tab -0.1 to 0.1 \cr
-   \code{differences} \tab General \tab differences oriented colors \tab  \cr
-   \code{elevation} \tab Topography \tab maps relative ranges of raster values to elevation color ramp \tab  \cr
-   \code{etopo2} \tab Topography \tab colors for ETOPO2 worldwide bathymetry/topography \tab -11000 to 8850 \cr
-   \code{evi} \tab Natural \tab enhanced vegetative index colors \tab -1 to 1 \cr
-   \code{fahrenheit} \tab Temperature \tab blue to red for Fahrenheit temperature \tab -112 to 176 \cr
-   \code{forest_cover} \tab Natural \tab percentage of forest cover \tab 0 to 1 \cr
-   \code{gdd} \tab Natural \tab accumulated growing degree days \tab 0 to 6000 \cr
-   \code{grass} \tab General \tab GRASS GIS green (perceptually uniform) \tab  \cr
-   \code{greens} \tab General \tab white to green \tab  \cr
-   \code{grey} \tab General \tab grey scale \tab  \cr
-   \code{gyr} \tab General \tab green through yellow to red \tab  \cr
-   \code{haxby} \tab Topography \tab relative colors for bathymetry or topography \tab  \cr
-   \code{inferno} \tab General \tab perceptually uniform sequential color table inferno \tab  \cr
-   \code{kelvin} \tab Temperature \tab blue to red for temperature in Kelvin scale \tab 193.15 to 353.15 \cr
-   \code{magma} \tab General \tab perceptually uniform sequential color table magma \tab  \cr
+   \code{aspect} \tab General \tab Aspect-oriented gray colors \tab  \cr
+   \code{aspectcolr} \tab General \tab Aspect-oriented rainbow colors \tab 0 to 360 \cr
+   \code{bcyr} \tab General \tab Blue through cyan and yellow to red \tab  \cr
+   \code{bgyr} \tab General \tab Blue through green and yellow to red \tab  \cr
+   \code{blues} \tab General \tab White to blue \tab  \cr
+   \code{byg} \tab General \tab Blue through yellow to green \tab  \cr
+   \code{byr} \tab General \tab Blue through yellow to red \tab  \cr
+   \code{celsius} \tab General \tab Blue to red for Celsius temperatures \tab -80 to 80 \cr
+   \code{corine} \tab Land cover \tab EU Corine land cover colors \tab 111 to 995 \cr
+   \code{curvature} \tab General \tab Terrain curvature colors \tab -0.1 to 0.1 \cr
+   \code{differences} \tab General \tab Difference-oriented colors \tab  \cr
+   \code{elevation} \tab Topography \tab Relative raster values mapped to an elevation color ramp \tab  \cr
+   \code{etopo2} \tab Topography \tab ETOPO2 worldwide bathymetry and topography colors \tab -11000 to 8850 \cr
+   \code{evi} \tab Natural \tab Enhanced Vegetation Index colors \tab -1 to 1 \cr
+   \code{fahrenheit} \tab Temperature \tab Blue to red for Fahrenheit temperatures \tab -112 to 176 \cr
+   \code{forest_cover} \tab Natural \tab Percentage of forest cover \tab 0 to 1 \cr
+   \code{gdd} \tab Natural \tab Accumulated growing degree days \tab 0 to 6000 \cr
+   \code{grass} \tab General \tab GRASS GIS green, perceptually uniform \tab  \cr
+   \code{greens} \tab General \tab White to green \tab  \cr
+   \code{grey} \tab General \tab Gray scale \tab  \cr
+   \code{gyr} \tab General \tab Green through yellow to red \tab  \cr
+   \code{haxby} \tab Topography \tab Relative colors for bathymetry or topography \tab  \cr
+   \code{inferno} \tab General \tab Perceptually uniform sequential color table, inferno \tab  \cr
+   \code{kelvin} \tab Temperature \tab Blue to red for temperatures in Kelvin \tab 193.15 to 353.15 \cr
+   \code{magma} \tab General \tab Perceptually uniform sequential color table, magma \tab  \cr
    \code{ndvi} \tab Natural \tab Normalized Difference Vegetation Index colors \tab -1 to 1 \cr
    \code{ndwi} \tab Natural \tab Normalized Difference Water Index colors \tab -200 to 200 \cr
-   \code{nlcd} \tab Land Cover \tab US National Land Cover Dataset colors \tab 0 to 95 \cr
-   \code{oranges} \tab General \tab white to orange \tab  \cr
-   \code{plasma} \tab General \tab perceptually uniform sequential color table plasma \tab  \cr
-   \code{population} \tab Human \tab color table covering human population classification breaks \tab 0 to 1000000 \cr
-   \code{population_dens} \tab Human \tab color table covering human population density classification breaks \tab 0 to 1000 \cr
-   \code{precipitation} \tab Climate \tab precipitation color table (0..2000mm) \tab 0 to 7000 \cr
-   \code{precipitation_daily} \tab Climate \tab precipitation color table (0..1000mm) \tab 0 to 100 \cr
-   \code{precipitation_monthly} \tab Climate \tab precipitation color table (0..1000mm) \tab 0 to 1000 \cr
-   \code{rainbow} \tab General \tab rainbow color table \tab  \cr
-   \code{ramp} \tab General \tab color ramp \tab  \cr
-   \code{reds} \tab General \tab white to red \tab  \cr
+   \code{nlcd} \tab Land cover \tab US National Land Cover Dataset colors \tab 0 to 95 \cr
+   \code{oranges} \tab General \tab White to orange \tab  \cr
+   \code{plasma} \tab General \tab Perceptually uniform sequential color table, plasma \tab  \cr
+   \code{population} \tab Human \tab Human population classification breaks \tab 0 to 1000000 \cr
+   \code{population_dens} \tab Human \tab Human population density classification breaks \tab 0 to 1000 \cr
+   \code{precipitation} \tab Climate \tab Precipitation color table, 0 to 2000 mm \tab 0 to 7000 \cr
+   \code{precipitation_daily} \tab Climate \tab Daily precipitation color table, 0 to 1000 mm \tab 0 to 100 \cr
+   \code{precipitation_monthly} \tab Climate \tab Monthly precipitation color table, 0 to 1000 mm \tab 0 to 1000 \cr
+   \code{rainbow} \tab General \tab Rainbow color table \tab  \cr
+   \code{ramp} \tab General \tab Color ramp \tab  \cr
+   \code{reds} \tab General \tab White to red \tab  \cr
    \code{roygbiv} \tab General \tab  \tab  \cr
-   \code{rstcurv} \tab General \tab terrain curvature (from r.resamp.rst) \tab -0.1 to 0.1 \cr
-   \code{ryb} \tab General \tab red through yellow to blue \tab  \cr
-   \code{ryg} \tab General \tab red through yellow to green \tab  \cr
-   \code{sepia} \tab General \tab yellowish-brown through to white \tab  \cr
-   \code{slope} \tab General \tab r.slope.aspect-type slope colors for raster values 0-90 \tab 0 to 90 \cr
-   \code{soilmoisture} \tab Natural \tab soil moisture color table (0.0-1.0) \tab 0 to 1 \cr
-   \code{srtm} \tab Topography \tab color palette for Shuttle Radar Topography Mission elevation \tab -11000 to 8850 \cr
-   \code{srtm_plus} \tab Topography \tab color palette for Shuttle Radar Topography Mission elevation (with seafloor colors) \tab -11000 to 8850 \cr
-   \code{terrain} \tab Topography \tab global elevation color table covering -11000 to +8850m \tab -11000 to 8850 \cr
-   \code{viridis} \tab General \tab perceptually uniform sequential color table viridis \tab  \cr
-   \code{water} \tab Natural \tab water depth \tab  \cr
-   \code{wave} \tab General \tab color wave \tab  \cr
+   \code{rstcurv} \tab General \tab Terrain curvature from r.resamp.rst \tab -0.1 to 0.1 \cr
+   \code{ryb} \tab General \tab Red through yellow to blue \tab  \cr
+   \code{ryg} \tab General \tab Red through yellow to green \tab  \cr
+   \code{sepia} \tab General \tab Yellowish-brown to white \tab  \cr
+   \code{slope} \tab General \tab \code{r.slope.aspect}-style slope colors for raster values from 0 to 90 \tab 0 to 90 \cr
+   \code{soilmoisture} \tab Natural \tab Soil moisture color table, 0.0 to 1.0 \tab 0 to 1 \cr
+   \code{srtm} \tab Topography \tab Shuttle Radar Topography Mission elevation colors \tab -11000 to 8850 \cr
+   \code{srtm_plus} \tab Topography \tab Shuttle Radar Topography Mission elevation colors with seafloor colors \tab -11000 to 8850 \cr
+   \code{terrain} \tab Topography \tab Global elevation color table from -11000 to +8850 m \tab -11000 to 8850 \cr
+   \code{viridis} \tab General \tab Perceptually uniform sequential color table, viridis \tab  \cr
+   \code{water} \tab Natural \tab Water depth \tab  \cr
+   \code{wave} \tab General \tab Color wave \tab  \cr
 }
 }
 \section{\CRANpkg{terra} equivalent}{

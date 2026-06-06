@@ -81,12 +81,12 @@ pivot_longer.SpatVector <- function(
   values_ptypes = NULL,
   values_transform = NULL
 ) {
-  # as tibble with attrbs
+  # Convert to a tibble with attributes.
   tbl <- as_tbl_internal(data)
 
   att <- attributes(tbl)
 
-  # Intercept cols using a template
+  # Resolve columns from a template.
   tmpl <- dplyr::ungroup(tbl[1, ])
   cols_char <- remove_geom_col(tmpl, {{ cols }}, "cols")
 
@@ -107,17 +107,14 @@ pivot_longer.SpatVector <- function(
     values_ptypes = values_ptypes,
     values_transform = values_transform
   )
-
-  # nocov start
   if (!"geometry" %in% names(pivoted)) {
     cli::cli_abort(paste0(
       "Cannot rebuild the {.cls SpatVector}. ",
       "The {.val geometry} column was lost after pivoting."
     ))
   }
-  # nocov end
 
-  # Reconstruct table
+  # Reconstruct the table.
   attr(pivoted, "source") <- att$source
   attr(pivoted, "crs") <- att$crs
   attr(pivoted, "geomtype") <- att$geomtype
@@ -130,8 +127,8 @@ pivot_longer.SpatVector <- function(
 #' @export
 tidyr::pivot_longer
 
-# Helper for removing safely the "geometry" argument from tidyselect expression
-# Returns a vector of characters
+# Safely remove `geometry` from a tidyselect expression.
+# Return a character vector.
 remove_geom_col <- function(data, exp, var_name = "any") {
   nm <- dplyr::select(data, {{ exp }})
 

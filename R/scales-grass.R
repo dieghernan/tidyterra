@@ -24,6 +24,16 @@
 #' These palettes implement [terra::map.pal()], the default color palettes used
 #' by [terra::plot()] in \CRANpkg{terra} versions above 1.7.78.
 #'
+#' @details
+#' Some palettes are mapped by default to a specific range of values (see
+#' [grass_db]). Set `use_grass_range = FALSE` to map the color scales to the
+#' range of values of the `fill/colour` aesthetics. See **Examples**.
+#'
+#' When passing the `limits` argument, the colors are restricted to those
+#' specified by this argument, keeping the distribution of the palette. You can
+#' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
+#' pixels in the plot.
+#'
 #' @export
 #' @encoding UTF-8
 #'
@@ -53,23 +63,13 @@
 #'   The default (`TRUE`) removes unused factors.
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [grass_db] for more info.
+#'   [grass_db] for more information.
 #'
 #' @param use_grass_range Logical. If `TRUE`, use the suggested range when
 #'   plotting. See **Details**.
 #' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` `aes()`.
-#'
-#' @details
-#' Some palettes are mapped by default to a specific range of values (see
-#' [grass_db]). Set `use_grass_range = FALSE` to map the color scales to the
-#' range of values of the `color/fill` aesthetics. See **Examples**.
-#'
-#' When passing the `limits` argument, the colors are restricted to those
-#' specified by this argument, keeping the distribution of the palette. You can
-#' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
-#' pixels in the plot.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -85,6 +85,7 @@
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System
 #' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
 #' <https://grass.osgeo.org>.
+#'
 #'
 #' @examples
 #' \donttest{
@@ -155,21 +156,15 @@ scale_fill_grass_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    palette = grass_pal(
+  pal_discrete_scale(
+    "fill",
+    grass_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -186,21 +181,15 @@ scale_colour_grass_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "colour",
-    palette = grass_pal(
+  pal_discrete_scale(
+    "colour",
+    grass_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -227,54 +216,22 @@ scale_fill_grass_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::grass_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::grass_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  # Check if use grass range
-  if (any(!use_grass_range, anyNA(hypsocol$limit))) {
-    limits <- limits
-    res <- values
-    if (!is.null(values)) res <- scales::rescale(res)
-  } else {
-    if (is.null(values)) {
-      values <- hypsocol$limit
-    }
-    # Reescale
-    if (is.null(limits)) {
-      limits <- range(values)
-    }
-    res <- scales::rescale(values, from = limits)
-  }
+  scale_params <- grass_scale_params(
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    use_grass_range = use_grass_range
+  )
 
   ggplot2::scale_fill_gradientn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -294,54 +251,22 @@ scale_colour_grass_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::grass_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::grass_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  # Check if use grass range
-  if (any(!use_grass_range, anyNA(hypsocol$limit))) {
-    limits <- limits
-    res <- values
-    if (!is.null(values)) res <- scales::rescale(res)
-  } else {
-    if (is.null(values)) {
-      values <- hypsocol$limit
-    }
-    # Reescale
-    if (is.null(limits)) {
-      limits <- range(values)
-    }
-    res <- scales::rescale(values, from = limits)
-  }
+  scale_params <- grass_scale_params(
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    use_grass_range = use_grass_range
+  )
 
   ggplot2::scale_colour_gradientn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -367,54 +292,22 @@ scale_fill_grass_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::grass_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::grass_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  # Check if use grass range
-  if (any(!use_grass_range, anyNA(hypsocol$limit))) {
-    limits <- limits
-    res <- values
-    if (!is.null(values)) res <- scales::rescale(res)
-  } else {
-    if (is.null(values)) {
-      values <- hypsocol$limit
-    }
-    # Reescale
-    if (is.null(limits)) {
-      limits <- range(values)
-    }
-    res <- scales::rescale(values, from = limits)
-  }
+  scale_params <- grass_scale_params(
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    use_grass_range = use_grass_range
+  )
 
   ggplot2::scale_fill_stepsn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -434,54 +327,22 @@ scale_colour_grass_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::grass_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::grass_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  # Check if use grass range
-  if (any(!use_grass_range, anyNA(hypsocol$limit))) {
-    limits <- limits
-    res <- values
-    if (!is.null(values)) res <- scales::rescale(res)
-  } else {
-    if (is.null(values)) {
-      values <- hypsocol$limit
-    }
-    # Reescale
-    if (is.null(limits)) {
-      limits <- range(values)
-    }
-    res <- scales::rescale(values, from = limits)
-  }
+  scale_params <- grass_scale_params(
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    use_grass_range = use_grass_range
+  )
 
   ggplot2::scale_color_stepsn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -564,6 +425,58 @@ grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
 }
 
 # Helpers
+grass_scale_params <- function(
+  palette,
+  alpha,
+  direction,
+  values,
+  limits,
+  use_grass_range,
+  call = rlang::caller_env()
+) {
+  coltab <- tidyterra::grass_db
+
+  if (!palette %in% coltab$pal) {
+    cli::cli_abort(
+      paste(
+        "{.arg palette} {.val {palette}} is not a known palette.",
+        "See {.help tidyterra::grass_db}."
+      ),
+      call = call
+    )
+  }
+
+  pal_cols <- coltab[coltab$pal == palette, ]
+  colors <- as.character(pal_cols$hex)
+  if (direction == -1) {
+    colors <- rev(colors)
+  }
+  if (alpha != 1) {
+    colors <- ggplot2::alpha(colors, alpha = alpha)
+  }
+
+  if (any(!use_grass_range, anyNA(pal_cols$limit))) {
+    rescaled_values <- values
+    if (!is.null(values)) {
+      rescaled_values <- scales::rescale(values)
+    }
+  } else {
+    if (is.null(values)) {
+      values <- pal_cols$limit
+    }
+    if (is.null(limits)) {
+      limits <- range(values)
+    }
+    rescaled_values <- scales::rescale(values, from = limits)
+  }
+
+  list(
+    colors = colors,
+    values = rescaled_values,
+    limits = limits
+  )
+}
+
 grass_pal <- function(alpha = 1, direction = 1, palette) {
   function(n) {
     pal <- grass.colors(

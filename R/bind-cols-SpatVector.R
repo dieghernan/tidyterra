@@ -71,33 +71,32 @@ bind_spat_cols <- function(
 ) {
   dots <- rlang::list2(...)
 
-  # Return empty on none
+  # Return an empty object when there are no inputs.
   if (length(dots) == 0) {
     return(terra::vect("MULTIPOINT EMPTY"))
   }
 
-  # Make it work with list
+  # Support a single list of inputs.
   if (length(dots) == 1 && is.list(dots[[1]])) {
-    # If it is a list, unlist the first level
+    # Unlist the first level.
     dots <- dots[[1]]
   }
 
-  # Checks
-  # Ensure first is SpatVector
+  # Ensure the first input is a `SpatVector`.
   if (!inherits(dots[[1]], "SpatVector")) {
     cli::cli_abort(paste(
-      "Object {.field 1} in {.arg ...} is not a {.cls SpatVector}"
+      "Object {.field 1} in {.arg ...} is not a {.cls SpatVector}."
     ))
   }
 
-  # Get templates
+  # Keep the first input as the reconstruction template.
   template <- dots[[1]]
 
-  # Ensure all are tibbles
+  # Convert inputs to tibbles where needed.
   alltibbs <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
-    # First is always a SpatVector
+    # The first input is always a `SpatVector`.
     if (i == 1) {
       frst <- as_tibble(x)
 
@@ -124,15 +123,14 @@ bind_spat_cols <- function(
 
   endobj <- dplyr::bind_cols(alltibbs, .name_repair = .name_repair)
 
-  # If first was geom only, bind the rest
-  # Use terra cbind method
+  # Use `terra::cbind()` when the first input only has geometry.
   if (dim(template)[2] == 0) {
     vend <- cbind(template, endobj[, -1])
   } else {
     vend <- cbind(template[, 0], endobj)
   }
 
-  # Groups
+  # Restore grouping metadata.
   vend <- group_prepare_spat(vend, endobj)
 
   vend
