@@ -90,7 +90,7 @@ drop_na.SpatVector <- function(data, ...) {
   if (nrow(dropped) == 0) {
     cli::cli_alert_warning(paste0(
       cli::col_red("All geometries dropped."),
-      "\nReturning empty {.cls SpatVector}"
+      "\nReturning an empty {.cls SpatVector}."
     ))
     vend <- terra::vect("MULTIPOINT EMPTY")
     terra::crs(vend) <- pull_crs(data)

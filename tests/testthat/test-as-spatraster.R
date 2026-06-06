@@ -11,6 +11,39 @@ test_that("Error check", {
   expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
 })
 
+test_that("build_raster_layers assigns values by layer", {
+  template <- terra::rast(nrows = 2, ncols = 2)
+  values <- data.frame(
+    first = 1:4,
+    second = 5:8
+  )
+
+  r <- build_raster_layers(template, values, names(values))
+
+  expect_s4_class(r, "SpatRaster")
+  expect_identical(names(r), names(values))
+  expect_equal(terra::values(r[[1]])[, 1], values$first)
+  expect_equal(terra::values(r[[2]])[, 1], values$second)
+})
+
+test_that("prepare_spatraster_cols separates coordinates and values", {
+  prepared <- prepare_spatraster_cols(
+    data.frame(lon = 1:2, lat = 3:4, elevation = 5:6, cover = 7:8),
+    xycols = 1:2
+  )
+
+  expect_equal(names(prepared$xy_cols), c("x", "y"))
+  expect_equal(names(prepared$values), c("lyr1", "lyr2"))
+  expect_equal(prepared$layer_names, c("elevation", "cover"))
+  expect_equal(names(prepared$x_arrange), c("x", "y", "lyr1", "lyr2"))
+})
+
+test_that("resolve_spatraster_crs uses valid input before attributes", {
+  expect_match(resolve_spatraster_crs("EPSG:3857", "EPSG:4326"), "3857")
+  expect_match(resolve_spatraster_crs("", "EPSG:4326"), "4326")
+  expect_true(is.na(resolve_spatraster_crs("", "")))
+})
+
 test_that("Regenerate raster properly", {
   skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

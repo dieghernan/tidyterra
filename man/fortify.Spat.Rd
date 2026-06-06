@@ -166,7 +166,7 @@ ggplot(ex, crs = cyl) +
 \code{\link{tidy.Spat}}, \code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \code{\link{as_tibble.Spat}},
 \code{\link[=as_spatraster]{as_spatraster()}}, \code{\link[ggplot2:fortify]{ggplot2::fortify()}}.
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

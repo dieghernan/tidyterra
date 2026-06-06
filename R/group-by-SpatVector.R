@@ -6,6 +6,10 @@
 #' [group_by.SpatVector()] adds new attributes to an existing `SpatVector`
 #' indicating the corresponding groups. See **Methods**.
 #'
+#' @details
+#'
+#' See **Details** on [dplyr::group_by()].
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname group_by.SpatVector
@@ -22,10 +26,6 @@
 #'
 #' @param .data,x A `SpatVector` object. See **Methods**.
 #' @returns A `SpatVector` object with updated grouping metadata.
-#'
-#' @details
-#'
-#' See **Details** on [dplyr::group_by()].
 #'
 #' @section Methods:
 #'

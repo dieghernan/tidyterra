@@ -4,7 +4,7 @@
       compare_spatrasters(x, terra::crs(x))
     Condition
       Error in `compare_spatrasters()`:
-      ! `x` and `y` must be <SpatRaster>s. `x` is <SpatRaster>, `y` is <character>
+      ! `x` and `y` must be <SpatRaster>s. `x` is <SpatRaster>, `y` is <character>.
 
 ---
 
@@ -12,7 +12,7 @@
       compare_spatrasters(1, "a")
     Condition
       Error in `compare_spatrasters()`:
-      ! `x` and `y` must be <SpatRaster>s. `x` is <numeric>, `y` is <character>
+      ! `x` and `y` must be <SpatRaster>s. `x` is <numeric>, `y` is <character>.
 
 # Different crs
 

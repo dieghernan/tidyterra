@@ -19,6 +19,20 @@
 #' that identifies precisely the arguments of each CRS. It is the standard
 #' used by \CRANpkg{sf} and \CRANpkg{terra}.
 #'
+#' @details
+#'
+#' Although the WKT representation is the same, the \CRANpkg{sf} and
+#' \CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
+#'
+#' `sf::st_transform(x, 25830)`
+#'
+#' While the \CRANpkg{terra} equivalent is:
+#'
+#' `terra::project(bb, "epsg:25830")`
+#'
+#' Knowing the WKT helps smooth workflows when working with different
+#' packages and object types.
+#'
 #' @export
 #' @encoding UTF-8
 #'
@@ -37,20 +51,6 @@
 #' @param ... Ignored.
 #'
 #' @returns A WKT representation of the corresponding CRS.
-#'
-#' @details
-#'
-#' Although the WKT representation is the same, the \CRANpkg{sf} and
-#' \CRANpkg{terra} APIs differ slightly. For example, \CRANpkg{sf} can do:
-#'
-#' `sf::st_transform(x, 25830)`
-#'
-#' While the \CRANpkg{terra} equivalent is:
-#'
-#' `terra::project(bb, "epsg:25830")`
-#'
-#' Knowing the WKT helps smooth workflows when working with different
-#' packages and object types.
 #'
 #' @section Internals:
 #'

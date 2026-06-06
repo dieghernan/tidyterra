@@ -21,6 +21,36 @@ test_that("contour breaks can be set manually", {
   expect_equal(contour_breaks(range, bins = 1), range)
 })
 
+test_that("select_spatraster_layer subsets z aesthetic", {
+  r <- terra::rast(nrows = 2, ncols = 2, nlyrs = 2)
+  names(r) <- c("elevation", "temperature")
+  terra::values(r) <- seq_len(terra::ncell(r) * terra::nlyr(r))
+  mapping <- ggplot2::aes(z = elevation, colour = after_stat(level))
+
+  selected <- select_spatraster_layer(mapping, r)
+
+  expect_identical(names(selected$data), "elevation")
+  expect_false("z" %in% names(selected$mapping))
+  expect_true("colour" %in% names(selected$mapping))
+  expect_error(select_spatraster_layer(ggplot2::aes(z = missing), r), "Layer")
+})
+
+test_that("prepare_spatraster_contour_data builds one row per layer", {
+  r <- terra::rast(nrows = 2, ncols = 2, nlyrs = 2)
+  names(r) <- c("elevation", "temperature")
+  terra::values(r) <- seq_len(terra::ncell(r) * terra::nlyr(r))
+
+  prepared <- prepare_spatraster_contour_data(
+    ggplot2::aes(z = temperature),
+    r,
+    maxcell = 500000
+  )
+
+  expect_identical(nrow(prepared$data), 1L)
+  expect_identical(as.character(prepared$data$lyr), "temperature")
+  expect_false("z" %in% names(prepared$mapping))
+  expect_true(all(c("spatraster", "lyr") %in% names(prepared$mapping)))
+})
 
 test_that("Errors and messages", {
   suppressWarnings(library(ggplot2))

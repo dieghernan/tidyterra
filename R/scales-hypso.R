@@ -153,21 +153,15 @@ scale_fill_hypso_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    palette = hypso_pal(
+  pal_discrete_scale(
+    "fill",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -185,21 +179,15 @@ scale_colour_hypso_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "colour",
-    palette = hypso_pal(
+  pal_discrete_scale(
+    "colour",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -217,26 +205,22 @@ scale_fill_hypso_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(
-    tidyterra::hypsometric_tints_db,
-    palette = palette
-  ))
-
-  ggplot2::continuous_scale(
-    aesthetics = "fill",
-    palette = scales::gradient_n_pal(hypso_pal(
+  pal_gradient_scale(
+    ggplot2::continuous_scale,
+    "fill",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() {
+      nrow(extract_pal(
+        tidyterra::hypsometric_tints_db,
+        palette = palette
+      ))
+    },
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -253,26 +237,22 @@ scale_colour_hypso_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(
-    tidyterra::hypsometric_tints_db,
-    palette = palette
-  ))
-
-  ggplot2::continuous_scale(
-    aesthetics = "colour",
-    palette = scales::gradient_n_pal(hypso_pal(
+  pal_gradient_scale(
+    ggplot2::continuous_scale,
+    "colour",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() {
+      nrow(extract_pal(
+        tidyterra::hypsometric_tints_db,
+        palette = palette
+      ))
+    },
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -289,25 +269,22 @@ scale_fill_hypso_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(
-    tidyterra::hypsometric_tints_db,
-    palette = palette
-  ))
-  ggplot2::binned_scale(
-    aesthetics = "fill",
-    palette = scales::gradient_n_pal(hypso_pal(
+  pal_gradient_scale(
+    ggplot2::binned_scale,
+    "fill",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() {
+      nrow(extract_pal(
+        tidyterra::hypsometric_tints_db,
+        palette = palette
+      ))
+    },
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -324,25 +301,22 @@ scale_colour_hypso_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(
-    tidyterra::hypsometric_tints_db,
-    palette = palette
-  ))
-  ggplot2::binned_scale(
-    aesthetics = "colour",
-    palette = scales::gradient_n_pal(hypso_pal(
+  pal_gradient_scale(
+    ggplot2::binned_scale,
+    "colour",
+    hypso_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() {
+      nrow(extract_pal(
+        tidyterra::hypsometric_tints_db,
+        palette = palette
+      ))
+    },
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -355,7 +329,7 @@ scale_colour_hypso_b <- function(
 #'
 #' @inheritParams wiki.colors
 #' @examples
-#' # Display all the cpl_city palettes
+#' # Display all the cpt-city palettes
 #'
 #' pals <- unique(hypsometric_tints_db$pal)
 #'
@@ -386,9 +360,6 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
   }
 }
 
-#' @export
-#' @encoding UTF-8
-#' @rdname scale_hypso
 #' @details
 #'
 #' On `scale_*_hypso_tint_*` palettes, the position of the gradients and
@@ -420,6 +391,9 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' `hypso.colors()` provides a uniform gradient across colors. See
 #' **Examples**.
 #'
+#' @export
+#' @encoding UTF-8
+#' @rdname scale_hypso
 scale_fill_hypso_tint_d <- function(
   palette = "etopo1_hypso",
   ...,
@@ -428,21 +402,15 @@ scale_fill_hypso_tint_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    palette = hypso_pal2(
+  pal_discrete_scale(
+    "fill",
+    hypso_pal2(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -459,21 +427,15 @@ scale_colour_hypso_tint_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "colour",
-    palette = hypso_pal2(
+  pal_discrete_scale(
+    "colour",
+    hypso_pal2(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -492,47 +454,23 @@ scale_fill_hypso_tint_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::hypsometric_tints_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  if (is.null(values)) {
-    values <- hypsocol$limit
-  }
-  # Reescale
-  if (is.null(limits)) {
-    limits <- range(values)
-  }
-  res <- scales::rescale(values, from = limits)
+  scale_params <- tint_scale_params(
+    coltab = tidyterra::hypsometric_tints_db,
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    help = "tidyterra::hypsometric_tints_db"
+  )
 
   ggplot2::scale_fill_gradientn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -550,47 +488,23 @@ scale_colour_hypso_tint_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::hypsometric_tints_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  if (is.null(values)) {
-    values <- hypsocol$limit
-  }
-  # Reescale
-  if (is.null(limits)) {
-    limits <- range(values)
-  }
-  res <- scales::rescale(values, from = limits)
+  scale_params <- tint_scale_params(
+    coltab = tidyterra::hypsometric_tints_db,
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    help = "tidyterra::hypsometric_tints_db"
+  )
 
   ggplot2::scale_colour_gradientn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -609,47 +523,23 @@ scale_fill_hypso_tint_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::hypsometric_tints_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  if (is.null(values)) {
-    values <- hypsocol$limit
-  }
-  # Reescale
-  if (is.null(limits)) {
-    limits <- range(values)
-  }
-  res <- scales::rescale(values, from = limits)
+  scale_params <- tint_scale_params(
+    coltab = tidyterra::hypsometric_tints_db,
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    help = "tidyterra::hypsometric_tints_db"
+  )
 
   ggplot2::scale_fill_stepsn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -667,47 +557,23 @@ scale_colour_hypso_tint_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
+  check_alpha_direction(alpha, direction)
 
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  # Use pal limits
-  coltab <- tidyterra::hypsometric_tints_db
-
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(paste(
-      "{.arg palette} {.val palette} is not a known palette.",
-      "See {.help tidyterra::hypsometric_tints_db}"
-    ))
-  }
-
-  hypsocol <- coltab[coltab$pal == palette, ]
-  hexcol <- as.character(hypsocol$hex)
-  if (direction == -1) {
-    hexcol <- rev(hexcol)
-  }
-  if (alpha != 1) {
-    hexcol <- ggplot2::alpha(hexcol, alpha = alpha)
-  }
-
-  if (is.null(values)) {
-    values <- hypsocol$limit
-  }
-  # Reescale
-  if (is.null(limits)) {
-    limits <- range(values)
-  }
-  res <- scales::rescale(values, from = limits)
+  scale_params <- tint_scale_params(
+    coltab = tidyterra::hypsometric_tints_db,
+    palette = palette,
+    alpha = alpha,
+    direction = direction,
+    values = values,
+    limits = limits,
+    help = "tidyterra::hypsometric_tints_db"
+  )
 
   ggplot2::scale_colour_stepsn(
     ...,
-    colors = hexcol,
-    values = res,
-    limits = limits,
+    colors = scale_params$colors,
+    values = scale_params$values,
+    limits = scale_params$limits,
     na.value = na.value,
     guide = guide
   )
@@ -716,7 +582,7 @@ scale_colour_hypso_tint_b <- function(
 #' @encoding UTF-8
 #' @rdname scale_hypso
 #' @examples
-#' # Display all the cpl_city palettes on version 2
+#' # Display all the cpt-city palettes on version 2
 #'
 #' pals <- unique(hypsometric_tints_db$pal)
 #'

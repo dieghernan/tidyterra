@@ -16,67 +16,12 @@ geom_spatraster_contour_filled <- function(
   inherit.aes = TRUE,
   mask_projection = FALSE
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster_contour_filled} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "geom_spatraster_contour_filled")
 
-  # 1. Work with aes ----
-  mapping <- override_aesthetics(
-    mapping,
-    ggplot2::aes(
-      spatraster = .data$spatraster,
-      # For faceting
-      lyr = .data$lyr
-    )
-  )
-
-  # `aes(z = ...)` selects the layer to plot.
-  # Extract value of `aes(z)`.
-
-  if ("z" %in% names(mapping)) {
-    namelayer <- vapply(mapping, rlang::as_label, character(1))["z"]
-
-    if (!namelayer %in% names(data)) {
-      cli::cli_abort(paste("Layer {.val {namelayer}} not found in {.arg data}"))
-    }
-
-    # Subset by layer
-    data <- terra::subset(data, namelayer)
-    # Remove z from aes, it is provided later on the Stat.
-    mapping <- cleanup_aesthetics(mapping, "z")
-  }
-
-  # 2. Check if resample is needed----
-
-  # Check mixed types
-  data <- check_mixed_cols(data)
-
-  data <- resample_spat(data, maxcell)
-
-  # 3. Create a nested list with each layer----
-  raster_list <- as.list(data)
-
-  # Now create the data frame
-  data_tbl <- tibble::tibble(
-    spatraster = list(NULL),
-    # For faceting: As factors for keeping orders
-    lyr = factor(names(data), levels = names(data))
-  )
-
-  names(data_tbl$spatraster) <- names(data)
-
-  # Each layer to a row
-  for (i in seq_len(terra::nlyr(data))) {
-    data_tbl$spatraster[[i]] <- raster_list[[i]]
-  }
-
-  # 4. Build layer ----
-
-  crs_terra <- pull_crs(data)
+  contour_data <- prepare_spatraster_contour_data(mapping, data, maxcell)
+  mapping <- contour_data$mapping
+  data_tbl <- contour_data$data
+  crs_terra <- contour_data$crs
 
   # Create layer
   layer_spatrast <- ggplot2::layer(

@@ -4,5 +4,5 @@
       as_sf(r)
     Condition
       Error in `as_sf()`:
-      ! `x` is a <SpatRaster> not a <SpatVector>
+      ! `x` must be a <SpatVector>, not <SpatRaster>.
 

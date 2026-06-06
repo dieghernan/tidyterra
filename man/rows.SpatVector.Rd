@@ -147,7 +147,7 @@ Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link{filter.Spat}},
 \code{\link{slice.Spat}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},

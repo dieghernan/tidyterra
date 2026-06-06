@@ -327,7 +327,7 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "{.fun tidyterra::group_vars.SpatVector} missing on data.",
+        "{.fun tidyterra::group_vars.SpatVector} is missing from data.",
         "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
       cli::cli_bullets(c(i = "Ungrouping data."))
@@ -376,7 +376,7 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "{.fun tidyterra::group_vars.SpatVector} missing on data.",
+        "{.fun tidyterra::group_vars.SpatVector} is missing from data.",
         "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
       cli::cli_bullets(c(i = "Ungrouping data."))

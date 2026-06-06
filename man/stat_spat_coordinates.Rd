@@ -103,7 +103,7 @@ ggplot(cyl) +
 
 }
 \seealso{
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

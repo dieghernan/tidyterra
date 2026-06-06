@@ -14,6 +14,9 @@
 #'
 #' See [dplyr::group_split()] for more information.
 #'
+#' @details
+#' See **Details** on [dplyr::group_split()].
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname group_split.SpatVector
@@ -33,9 +36,6 @@
 #' @returns A list of `SpatVector` objects. Each `SpatVector` contains the rows
 #'   of `.tbl` for the associated group and all columns. When `.keep = TRUE`,
 #'   the output includes the grouping variables.
-#'
-#' @details
-#' See **Details** on [dplyr::group_split()].
 #'
 #' @section Lifecycle:
 #' `group_split()` is not stable because you can achieve very similar results by

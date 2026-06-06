@@ -20,7 +20,7 @@
       ggplot() + geom_spatraster_contour_filled(data = r, aes(z = noexist))
     Condition
       Error in `geom_spatraster_contour_filled()`:
-      ! Layer "noexist" not found in `data`
+      ! Layer "noexist" not found in `data`.
 
 ---
 

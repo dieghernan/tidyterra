@@ -99,21 +99,15 @@ scale_fill_princess_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "fill",
-    palette = princess_pal(
+  pal_discrete_scale(
+    "fill",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -130,21 +124,15 @@ scale_colour_princess_d <- function(
   na.translate = FALSE,
   drop = TRUE
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  ggplot2::discrete_scale(
-    aesthetics = "colour",
-    palette = princess_pal(
+  pal_discrete_scale(
+    "colour",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
     ),
+    alpha = alpha,
+    direction = direction,
     na.translate = na.translate,
     drop = drop,
     ...
@@ -162,23 +150,17 @@ scale_fill_princess_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
-  ggplot2::continuous_scale(
-    aesthetics = "fill",
-    palette = scales::gradient_n_pal(princess_pal(
+  pal_gradient_scale(
+    ggplot2::continuous_scale,
+    "fill",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() nrow(extract_pal(tidyterra::princess_db, palette = palette)),
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -196,23 +178,17 @@ scale_colour_princess_c <- function(
   na.value = "transparent",
   guide = "colourbar"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
-  ggplot2::continuous_scale(
-    aesthetics = "colour",
-    palette = scales::gradient_n_pal(princess_pal(
+  pal_gradient_scale(
+    ggplot2::continuous_scale,
+    "colour",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() nrow(extract_pal(tidyterra::princess_db, palette = palette)),
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -230,23 +206,17 @@ scale_fill_princess_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
-  ggplot2::binned_scale(
-    aesthetics = "fill",
-    palette = scales::gradient_n_pal(princess_pal(
+  pal_gradient_scale(
+    ggplot2::binned_scale,
+    "fill",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() nrow(extract_pal(tidyterra::princess_db, palette = palette)),
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...
@@ -264,23 +234,17 @@ scale_colour_princess_b <- function(
   na.value = "transparent",
   guide = "coloursteps"
 ) {
-  if (alpha < 0 || alpha > 1) {
-    cli::cli_abort("{.arg alpha} must be between {.field 0} and {.field 1}.")
-  }
-
-  if (!direction %in% c(-1, 1)) {
-    cli::cli_abort("{.arg direction} must be either {.field 1} or {.field -1}.")
-  }
-
-  length_pal <- nrow(extract_pal(tidyterra::princess_db, palette = palette))
-
-  ggplot2::binned_scale(
-    aesthetics = "colour",
-    palette = scales::gradient_n_pal(princess_pal(
+  pal_gradient_scale(
+    ggplot2::binned_scale,
+    "colour",
+    princess_pal(
       alpha = alpha,
       direction = direction,
       palette = palette
-    )(length_pal)),
+    ),
+    n = function() nrow(extract_pal(tidyterra::princess_db, palette = palette)),
+    alpha = alpha,
+    direction = direction,
     na.value = na.value,
     guide = guide,
     ...

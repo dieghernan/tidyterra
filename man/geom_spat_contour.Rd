@@ -300,7 +300,7 @@ The \CRANpkg{metR} package also provides a set of alternative functions:
 \item \code{metR::geom_contour_tanaka()}.
 }
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

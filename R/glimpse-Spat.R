@@ -205,7 +205,7 @@ get_named_crs <- function(x) {
 
 # To convert lon lat from decimal to pretty
 decimal_to_degrees <- function(x, type = c("lon", "lat", "null")) {
-  type <- match.arg(type)
+  type <- rlang::arg_match(type)
   coordinit <- x
   x <- abs(x)
   x_int <- as.integer(x)

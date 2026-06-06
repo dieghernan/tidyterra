@@ -66,7 +66,7 @@ Other single table verbs:
 \code{\link{slice.Spat}},
 \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
-Other \CRANpkg{dplyr} verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},

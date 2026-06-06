@@ -396,7 +396,7 @@ ggplot() +
   geom_spatraster(data = factor, aes(fill = cats)) +
   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 }
-# Display all the cpl_city palettes
+# Display all the cpt-city palettes
 
 pals <- unique(hypsometric_tints_db$pal)
 
@@ -416,7 +416,7 @@ for (i in pals) {
   )
 }
 par(opar)
-# Display all the cpl_city palettes on version 2
+# Display all the cpt-city palettes on version 2
 
 pals <- unique(hypsometric_tints_db$pal)
 

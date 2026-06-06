@@ -56,7 +56,7 @@ which prevents `NA` values from being filled[^2].
 
 ```{r}
 #| label: fig-remove_nas
-#| fig-cap: NA values in ggplot2
+#| fig-cap: NA values in ggplot2.
 #| fig-subcap:
 #|   - Default ggplot2 value.
 #|   - Plot with transparent NA values.
@@ -84,7 +84,7 @@ def +
     subtitle = "NA values in gray"
   )
 
-# Modify with scales
+# Modify with scales.
 def +
   scale_fill_continuous(na.value = "transparent") +
   labs(
@@ -92,7 +92,7 @@ def +
     subtitle = "But NA values are not plotted"
   )
 
-# Use a different scale provided by ggplot2
+# Use a different scale provided by ggplot2.
 def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
@@ -110,7 +110,7 @@ Use `geom_spatraster_contour_text()`
 #| label: fig-textcontour
 #| layout-ncol: 1
 #| column: page
-#| fig-cap: Contour labels with tidyterra
+#| fig-cap: Contour labels with tidyterra.
 #| fig-subcap:
 #|   - Simple contour labels.
 #|   - "Alternative: labeled contours."
@@ -137,7 +137,7 @@ labeller <- function(labs) {
   }
 }
 
-# Common labels across ggplot.
+# Common labels across the plot.
 
 labs <- c(100, 140, 180, 220)
 
@@ -169,7 +169,7 @@ ggplot(r) +
   theme(text = element_text(family = "mono")) +
   labs(
     title = "Labeling contours",
-    subtitle = "With options: b/w plot"
+    subtitle = "With options: black-and-white plot"
   )
 ```
 
@@ -181,8 +181,8 @@ With `fortify.SpatRaster()`, you can use your `SpatRaster` directly with the
 
 ```{r}
 #| label: fig-metr
-#| fig-cap: "Alternative (metR): Contour labeling combining tidyterra and metR
-#|   packages with customized styling."
+#| fig-cap: "Alternative (metR): contour labeling combining tidyterra and the
+#|   **metR** package with customized styling."
 library(metR)
 br <- seq(100, 250, 10)
 labs <- c(100, 140, 180, 220)
@@ -229,7 +229,7 @@ ggplot(r, aes(x, y)) +
   theme(text = element_text(family = "mono")) +
   labs(
     title = "Labeling contours",
-    subtitle = "tidyterra and metR: b/w plot",
+    subtitle = "tidyterra and metR: black-and-white plot",
     x = "",
     y = ""
   )
@@ -242,7 +242,7 @@ documentation on scales:
 
 ```{r}
 #| label: fig-greys
-#| fig-cap: Hillshade visualization using grayscale colors to enhance
+#| fig-cap: Hillshade plot using grayscale colors to enhance
 #|   terrain relief.
 library(terra)
 library(tidyterra)
@@ -276,9 +276,9 @@ your session.
 #| label: fig-default
 #| layout-ncol: 1
 #| column: page
-#| fig-cap: Changing default ggplot2 color palettes
+#| fig-cap: Changing default ggplot2 color palettes.
 #| fig-subcap:
-#|   - Use of new default palette via options.
+#|   - Use the new default palette through options.
 #|   - Restoring the default palette.
 library(terra)
 library(tidyterra)
@@ -314,7 +314,7 @@ the `maxcell` argument to avoid resampling and ensure the **ggplot2** map uses
 
 ```{r}
 #| label: fig-blurrytile
-#| fig-cap: "Example of the impact of resampling on tile blurriness."
+#| fig-cap: "Impact of resampling on tile blurriness."
 #| fig-subcap:
 #|   - "Plot with resampled raster (EPSG:4326)."
 #|   - "Plot with native CRS, not resampled (EPSG:3857)."
@@ -373,14 +373,14 @@ ggplot() +
 
 ## Avoid degree labels on axes {#axis-degrees}
 
-This is a **ggplot2** default behavior, but you can modify it using the
+This is **ggplot2** default behavior, but you can modify it using the
 `ggplot2::coord_sf(datum)` argument:
 
 ```{r}
 #| label: fig-modifydatum
 #| layout-ncol: 1
 #| column: page
-#| fig-cap: Degree labels with ggplot2
+#| fig-cap: Degree labels with ggplot2.
 #| fig-subcap:
 #|   - "Automatic longitude/latitude axes."
 #|   - "Native coordinate system units."
@@ -419,7 +419,7 @@ Yes. Use the **scales** package:
 #| label: fig-breaks
 #| layout-ncol: 1
 #| column: page
-#| fig-cap: Spatial axis breaks with ggplot2
+#| fig-cap: Spatial axis breaks with ggplot2.
 #| fig-subcap:
 #|   - "Default axis breaks."
 #|   - "Breaks modified using the scales package."
@@ -458,7 +458,7 @@ which contains data from the CORINE Land Cover dataset (2018) for Edinburgh[^3].
 
 ```{r}
 #| label: fig-coltab
-#| fig-cap: "Color tables: native plot with the terra package."
+#| fig-cap: "Color tables: native plot with the **terra** package."
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -470,7 +470,7 @@ has.colors(r_coltab)
 
 r_coltab
 
-# Native handling by the terra package.
+# Native handling by terra.
 plot(r_coltab, legend = FALSE)
 ```
 
@@ -479,21 +479,21 @@ plot(r_coltab, legend = FALSE)
 #| layout-ncol: 2
 #| fig-cap: "Color tables: tidyterra package."
 #| fig-subcap:
-#|   - "autoplot method."
-#|   - "geom_spatraster method."
-#|   - "scale_fill_coltab method."
-#|   - "named colors and scale_fill_manual method."
+#|   - "`autoplot()` method."
+#|   - "`geom_spatraster()` method."
+#|   - "`scale_fill_coltab()` method."
+#|   - "Named colors and `scale_fill_manual()` method."
 
-# Autoplot method.
+# `autoplot()` method.
 autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "autoplot method")
+  labs(title = "autoplot() method")
 
-# geom_spatraster method.
+# `geom_spatraster()` method.
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "geom_spatraster method")
+  labs(title = "geom_spatraster() method")
 
-# scale_fill_coltab method.
+# `scale_fill_coltab()` method.
 ggplot() +
   geom_spatraster(
     data = r_coltab,
@@ -502,9 +502,9 @@ ggplot() +
     show.legend = FALSE
   ) +
   scale_fill_coltab(data = r_coltab) +
-  labs(title = "scale_fill_coltab method")
+  labs(title = "scale_fill_coltab() method")
 
-# Extract named colors and use scale_fill_manual().
+# Extract named colors and use `scale_fill_manual()`.
 cols <- get_coltab_pal(r_coltab)
 
 cols |> head()
@@ -522,10 +522,10 @@ ggplot() +
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  labs(title = "scale_fill_manual method")
+  labs(title = "scale_fill_manual() method")
 ```
 
-## Use with gganimate {#gganimate}
+## Use with **gganimate** {#gganimate}
 
 Yes. Here is an example (thanks to [\@frzambra](https://github.com/frzambra)):
 
@@ -581,7 +581,7 @@ knitr::include_graphics("che_temp.gif")
 ```{r}
 #| label: fig-northarrow
 #| fig-cap: "Map with north arrow (top right) and scale bar (bottom left)
-#|    annotations added using ggspatial."
+#|    annotations added using **ggspatial**."
 library(terra)
 library(tidyterra)
 library(ggplot2)
@@ -679,7 +679,7 @@ You can create variations with binned legends and filled contours using
 #| label: fig-overlay_alt
 #| layout-ncol: 1
 #| column: page
-#| fig-cap: Alternative overlay approaches
+#| fig-cap: Alternative overlay approaches.
 #| fig-subcap:
 #|   - "Binned precipitation legend."
 #|   - "Contour representation."
@@ -721,7 +721,7 @@ ggplot(aoi) +
   )
 ```
 
-## Hexagonal grids (and other `geoms`) {#fort}
+## Hexagonal grids and other geoms {#fort}
 
 While `SpatRaster` cells are inherently rectangular, you can create plots with
 hexagonal cells using `fortify.SpatRaster()` and `stat_summary_hex()`. The final
@@ -750,7 +750,7 @@ ggplot(r, aes(x, y, z = elevation)) +
   coord_sf(crs = pull_crs(r)) +
   labs(
     title = "Hexagonal SpatRaster",
-    subtitle = "Using fortify (implicit) and stat_summary_hex",
+    subtitle = "Using implicit fortify() and stat_summary_hex()",
     x = NULL,
     y = NULL
   )
@@ -779,7 +779,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   scale_alpha(range = c(0.01, 1)) +
   labs(
     title = "SpatRaster as points",
-    subtitle = "Using fortify (implicit)",
+    subtitle = "Using implicit fortify()",
     x = NULL,
     y = NULL
   )
@@ -794,8 +794,8 @@ complex plots.
 
 ```{r}
 #| label: fig-metrdemo
-#| fig-cap: "Relief rendering combining tidyterra for raster visualization and
-#|   metR for terrain relief representation."
+#| fig-cap: "Relief rendering combining tidyterra for raster plotting and
+#|   **metR** for terrain relief representation."
 # Load libraries and files.
 library(terra)
 library(tidyterra)
@@ -824,7 +824,7 @@ ggplot(r, aes(x, y)) +
 
 [^2]: `na.value = NA` can also be used for the same purpose in most cases.
     However, when the proportion of non-`NA` cells is small it can produce
-    undesired results. See
+    unwanted results. See
     [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been converted

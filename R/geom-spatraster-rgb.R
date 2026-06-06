@@ -1,10 +1,9 @@
-#' Visualise `SpatRaster` objects as images
+#' Plot `SpatRaster` objects as images
 #'
 #' @description
 #'
-#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]) as
-#' RGB images. The layers are combined so they represent the red, green and
-#' blue channels.
+#' This geom plots `SpatRaster` objects (see [terra::rast()]) as RGB images.
+#' The layers are combined so they represent the red, green and blue channels.
 #'
 #' For plotting `SpatRaster` objects by layer values use [geom_spatraster()].
 #'
@@ -23,6 +22,8 @@
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
 #' @inheritParams terra::plotRGB
+#' @inheritSection geom_spatraster Coords
+#'
 #' @param mapping Ignored.
 #' @param r,g,b Integer giving the layer number in `data` used for the red
 #'   (`r`), green (`g`) and blue (`b`) channel.
@@ -37,8 +38,6 @@
 #' @section Aesthetics:
 #'
 #' No `aes()` is required. In fact, `aes()` will be ignored.
-#'
-#' @inheritSection geom_spatraster Coords
 #'
 #' @source
 #' Based on the `layer_spatial()` implementation in the \CRANpkg{ggspatial}
@@ -88,13 +87,7 @@ geom_spatraster_rgb <- function(
   zlim = NULL,
   mask_projection = FALSE
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster_rgb} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "geom_spatraster_rgb")
 
   layers_order <- as.integer(c(r, g, b))
 
@@ -108,9 +101,17 @@ geom_spatraster_rgb <- function(
     )
   ) {
     cli::cli_abort(paste(
-      "Incorrect layer selection in {.arg {c('r','g','b')}}. Data has",
+      "Incorrect layer selection in {.arg {c('r', 'g', 'b')}}.",
+      "{.arg data} has",
       "{terra::nlyr(data)}",
       "layer{?s}."
+    ))
+  }
+
+  if (terra::nlyr(data) > 3) {
+    cli::cli_alert_warning(paste(
+      "{.arg data} has {terra::nlyr(data)} layer{?s}.",
+      "Selecting layers {c(r,g,b)}."
     ))
   }
 

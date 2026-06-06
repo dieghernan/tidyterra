@@ -6,6 +6,15 @@
 #' [dplyr::group_map()] and [dplyr::group_modify()] are purrr-style functions
 #' that can be used to iterate on grouped `SpatVector` objects.
 #'
+#' @details
+#' Each conceptual group is exposed to `.f` with two pieces of information:
+#' `.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a one-row
+#' tibble with one column per grouping variable that identifies the group.
+#'
+#' These methods also work on ungrouped `SpatVector` objects. In that case,
+#' `.f` is applied to the entire object and `.y` is a one-row tibble with no
+#' columns.
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname group_map.SpatVector
@@ -27,15 +36,6 @@
 #' - `group_map()` returns a list of results from calling `.f` on each group.
 #' - `group_modify()` returns a `SpatVector`. In that case, `.f` must return
 #'   `SpatVector` objects.
-#'
-#' @details
-#' Each conceptual group is exposed to `.f` with two pieces of information:
-#' `.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a one-row
-#' tibble with one column per grouping variable that identifies the group.
-#'
-#' These methods also work on ungrouped `SpatVector` objects. In that case,
-#' `.f` is applied to the entire object and `.y` is a one-row tibble with no
-#' columns.
 #'
 #' @section Methods:
 #'

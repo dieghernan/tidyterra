@@ -57,11 +57,13 @@
 #'
 as_sf <- function(x, ...) {
   if (!inherits(x, "SpatVector")) {
-    cli::cli_abort("{.arg x} is a {.cls {class(x)}} not a {.cls SpatVector}")
+    cli::cli_abort(
+      "{.arg x} must be a {.cls SpatVector}, not {.cls {class(x)}}."
+    )
   }
   sfobj <- sf::st_as_sf(x, ...)
 
-  # Make a sf/tibble object
+  # Make an sf/tibble object.
   # https://github.com/r-spatial/sf/issues/951
   # This boosts performance
   template <- sf::st_as_sf(tibble::tibble(x = 1, y = 1), coords = c("x", "y"))

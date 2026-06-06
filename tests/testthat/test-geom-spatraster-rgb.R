@@ -19,6 +19,19 @@ test_that("RGB errors", {
     ggplot2::ggplot() +
       geom_spatraster_rgb(data = r1)
   )
+
+  r2 <- r |> select(1:2)
+  expect_snapshot(
+    error = TRUE,
+    ggplot2::ggplot() +
+      geom_spatraster_rgb(data = r2)
+  )
+
+  r2 <- r |> mutate(another = 1 + 2)
+  expect_snapshot(
+    ss <- ggplot2::ggplot() +
+      geom_spatraster_rgb(data = r2)
+  )
 })
 
 test_that("stretch and zlim", {

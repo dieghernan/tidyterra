@@ -9,6 +9,9 @@
 #' `group_trim()` is particularly useful after a [filter()] that is intended
 #' to select a subset of groups.
 #'
+#' @details
+#' See **Details** on [dplyr::group_trim()].
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname group_trim.SpatVector
@@ -24,9 +27,6 @@
 #' @param .drop See [group_by.SpatVector()].
 #'
 #' @returns A `SpatVector` object with updated grouping metadata.
-#'
-#' @details
-#' See **Details** on [dplyr::group_trim()].
 #'
 #' @section Methods:
 #'

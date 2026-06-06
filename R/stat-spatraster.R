@@ -83,13 +83,7 @@ stat_spatraster <- function(
   maxcell = 500000,
   ...
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::stat_spatraster} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "stat_spatraster")
 
   # 1. Work with aes ----
 

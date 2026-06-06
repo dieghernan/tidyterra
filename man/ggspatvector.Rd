@@ -7,7 +7,7 @@
 \alias{geom_spatvector_label}
 \alias{geom_spatvector_text}
 \alias{stat_spatvector}
-\title{Visualise \code{SpatVector} objects}
+\title{Plot \code{SpatVector} objects}
 \usage{
 geom_spatvector(
   mapping = aes(),
@@ -113,7 +113,7 @@ to use \code{position_jitter()}, give the position as \code{"jitter"}.
 A \CRANpkg{ggplot2} layer
 }
 \description{
-Wrappers of \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to visualise \code{SpatVector}
+Wrappers of the \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to plot \code{SpatVector}
 objects (see \code{\link[terra:vect]{terra::vect()}}).
 }
 \details{
@@ -173,7 +173,7 @@ ggplot(cyl) +
 \seealso{
 \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}
 
-Other \CRANpkg{ggplot2} utils:
+Other \CRANpkg{ggplot2} utilities:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

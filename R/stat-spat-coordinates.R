@@ -5,6 +5,10 @@
 #'
 #' Wrapper of [ggplot2::stat_sf_coordinates()].
 #'
+#' @details
+#'
+#' See [ggplot2::stat_sf_coordinates()] for details.
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname stat_spat_coordinates
@@ -15,10 +19,6 @@
 #' @param ... Other arguments passed on to [ggplot2::stat_sf_coordinates()].
 #'
 #' @returns A \CRANpkg{ggplot2} layer
-#' @details
-#'
-#' See [ggplot2::stat_sf_coordinates()] for details.
-#'
 #' @examples
 #' \donttest{
 #' cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

@@ -4,7 +4,7 @@
       empty <- drop_na(v)
     Message
       ! All geometries dropped.
-      Returning empty <SpatVector>
+      Returning an empty <SpatVector>.
 
 ---
 
@@ -12,7 +12,7 @@
       emptycrs <- drop_na(nocrs)
     Message
       ! All geometries dropped.
-      Returning empty <SpatVector>
+      Returning an empty <SpatVector>.
 
 # Drop na with SpatRaster
 

@@ -19,7 +19,7 @@
 #' @inheritParams dplyr::nest_join
 #'
 #' @param x A `SpatVector`.
-#' @param y A data frame. Spatial `y` inputs are not supported; use spatial
+#' @param y A data frame. Spatial `y` inputs are not supported, use spatial
 #'   joins from \CRANpkg{terra} for that workflow.
 #' @returns A [tibble][tibble::tbl_df].
 #'

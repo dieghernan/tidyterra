@@ -1,10 +1,9 @@
-#' Visualise `SpatRaster` objects
+#' Plot `SpatRaster` objects
 #'
 #' @description
 #'
-#' This geom is used to visualise `SpatRaster` objects (see [terra::rast()]).
-#' The geom is designed for visualise the object by layers, as [terra::plot()]
-#' does.
+#' This geom plots `SpatRaster` objects (see [terra::rast()]). It is designed
+#' to plot the object by layers, as [terra::plot()] does.
 #'
 #' For plotting `SpatRaster` objects as map tiles (i.e. RGB `SpatRaster`), use
 #' [geom_spatraster_rgb()].
@@ -92,7 +91,7 @@
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
-#' - `after_stat(value)`: Values of the `SpatRaster.`
+#' - `after_stat(value)`: Cell values of the `SpatRaster`.
 #' - `after_stat(lyr)`: Name of the layer.
 #'
 #' @source
@@ -151,13 +150,7 @@ geom_spatraster <- function(
   mask_projection = FALSE,
   ...
 ) {
-  if (!inherits(data, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::geom_spatraster} only works with",
-      "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-      "See {.help terra::vect}."
-    ))
-  }
+  check_spatraster(data, "geom_spatraster")
 
   # Kindly warn in RGB
   if (terra::has.RGB(data)) {
@@ -403,6 +396,31 @@ cleanup_aesthetics <- function(mapping, remove = c("r", "g", "b", "fill")) {
   new_aes <- mapping[keepaes]
   class(new_aes) <- "uneval"
   new_aes
+}
+
+select_spatraster_layer <- function(
+  mapping,
+  data,
+  aes = "z",
+  call = rlang::caller_env()
+) {
+  if (!aes %in% names(mapping)) {
+    return(list(mapping = mapping, data = data))
+  }
+
+  namelayer <- vapply(mapping, rlang::as_label, character(1))[aes]
+
+  if (!namelayer %in% names(data)) {
+    cli::cli_abort(
+      "Layer {.val {namelayer}} not found in {.arg data}.",
+      call = call
+    )
+  }
+
+  list(
+    mapping = cleanup_aesthetics(mapping, aes),
+    data = terra::subset(data, namelayer)
+  )
 }
 
 resample_spat <- function(r, maxcell = 50000) {

@@ -11,6 +11,10 @@
 #' [ungroup.SpatVector()] or [as_tibble()] or convert to a grouped `SpatVector`
 #' with [group_by.SpatVector()].
 #'
+#' @details
+#'
+#' See **Details** on [dplyr::rowwise()].
+#'
 #' @export
 #' @encoding UTF-8
 #' @rdname rowwise.SpatVector
@@ -33,10 +37,6 @@
 #'   [everything()].
 #'
 #' @returns The same `SpatVector` object with updated grouping metadata.
-#'
-#' @details
-#'
-#' See **Details** on [dplyr::rowwise()].
 #'
 #' @section Methods:
 #'

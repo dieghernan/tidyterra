@@ -8,12 +8,12 @@ list(
     dplyr.cols = "Other \\CRANpkg{dplyr} verbs that operate on columns:",
     dplyr.groups = paste0(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
-      "group of rows:"
+      "groups of rows:"
     ),
     dplyr.group_functions = "Other \\CRANpkg{dplyr} grouping methods:",
     dplyr.pairs = paste0(
       "Other \\CRANpkg{dplyr} verbs that operate on ",
-      "pairs \\code{Spat*}/data.frame:"
+      "pairs of \\code{Spat*} and data frame objects:"
     ),
     tidyr.methods = "Other \\CRANpkg{tidyr} methods:",
     tidyr.character = "Other \\CRANpkg{tidyr} character methods:",
@@ -23,7 +23,7 @@ list(
       "Other \\CRANpkg{tidyr} verbs for handling ",
       "missing values:"
     ),
-    ggplot2.utils = "Other \\CRANpkg{ggplot2} utils:",
+    ggplot2.utils = "Other \\CRANpkg{ggplot2} utilities:",
     ggplot2.methods = "Other \\CRANpkg{ggplot2} methods:",
     joins = "Other joins:",
     grouping = "Other grouping methods:",

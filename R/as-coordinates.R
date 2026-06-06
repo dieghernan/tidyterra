@@ -20,7 +20,7 @@
 #' the same number of rows (or cells) as the number of cells in `x`.
 #'
 #' When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
-#' extension and resolution as `x`.
+#' extent and resolution as `x`.
 #'
 #' @examples
 #'
@@ -38,12 +38,12 @@
 as_coordinates <- function(x, as.raster = FALSE) {
   if (!inherits(x, "SpatRaster")) {
     cli::cli_abort(paste(
-      "{.fun tidyterra::as_coordinates} needs a {.cls SpatRaster} object,",
-      "not a {.cls {class(x)}} object"
+      "{.fun tidyterra::as_coordinates} requires a {.cls SpatRaster} object,",
+      "not {.cls {class(x)}}."
     ))
   }
 
-  # Create skeleton
+  # Create cell, row and column indexes.
   df <- data.frame(cellindex = seq_len(terra::ncell(x)))
   rowcol <- as.data.frame(terra::rowColFromCell(x, df$cellindex))
   names(rowcol) <- c("rowindex", "colindex")
@@ -55,7 +55,7 @@ as_coordinates <- function(x, as.raster = FALSE) {
     return(tbl)
   }
 
-  # If not, create a raster
+  # Otherwise, create a raster.
 
   template <- terra::rast(x)
   terra::crs(template) <- terra::crs(x)

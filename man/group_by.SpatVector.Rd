@@ -121,7 +121,7 @@ p |>
 \seealso{
 \code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:ungroup]{dplyr::ungroup()}}
 
-Other \CRANpkg{dplyr} verbs that operate on group of rows:
+Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},
 \code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},

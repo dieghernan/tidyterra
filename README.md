@@ -64,7 +64,7 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-The full manual of the most recent release of **tidyterra** on **CRAN**
+The full manual for the most recent release of **tidyterra** on **CRAN**
 is online: <https://dieghernan.github.io/tidyterra/>
 
 **tidyverse** methods implemented in **tidyterra** work differently
@@ -74,15 +74,14 @@ depending on the type of `Spat*` object:
   `terra::as.data.frame()` coercion. Rows correspond to geometries and
   columns correspond to attributes of each geometry.
 
-- `SpatRaster`: For `SpatRaster` objects, methods can be applied to
-  layers or cells. **tidyterra**’s overall approach is to treat the
-  layers as columns of a tibble and the cells as rows
-  (i.e. `select(SpatRaster, 1)` selects the first layer of a
-  `SpatRaster`).
+- `SpatRaster`: methods can be applied to layers or cells.
+  **tidyterra**'s overall approach is to treat the layers as columns of
+  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
+  the first layer of a `SpatRaster`).
 
-Implemented methods return the same type of object as the input unless
-the method is expected to return another type of object (for example,
-`as_tibble()` returns a tibble).
+Implemented methods return the same type of object as the input, unless
+the method is expected to return another type of object. For example,
+`as_tibble()` returns a tibble.
 
 Current methods and functions provided by **tidyterra** are:
 
@@ -168,7 +167,7 @@ You can install the development version of **tidyterra** with:
 pak::pak("dieghernan/tidyterra")
 ```
 
-Alternatively, you can install **tidyterra** using the
+Alternatively, you can install **tidyterra** using
 [r-universe](https://dieghernan.r-universe.dev/tidyterra):
 
 ``` r
@@ -356,7 +355,7 @@ the tag
 
 ## Acknowledgements
 
-**tidyterra**’s **ggplot2** geoms are based on the
+**tidyterra**'s **ggplot2** geoms are based on the
 [**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation
 by [Dewey Dunnington](https://github.com/paleolimbot) and [**ggspatial**
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).

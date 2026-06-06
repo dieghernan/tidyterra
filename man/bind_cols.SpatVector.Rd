@@ -78,7 +78,7 @@ try(bind_spat_cols(sv, sfobj))
 \seealso{
 \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs \code{Spat*}/data.frame:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},
