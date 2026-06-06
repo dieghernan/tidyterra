@@ -1,15 +1,15 @@
 # tidyterra
 
-The goal of **tidyterra** is to provide common methods of the
-[**tidyverse** packages](https://tidyverse.org/packages/) for objects
-created with the [**terra**](https://CRAN.R-project.org/package=terra)
-package: `SpatRaster` and `SpatVector`. It also provides geoms for
-plotting these objects with
-[**ggplot2**](https://ggplot2.tidyverse.org/).
+The goal of **tidyterra** is to provide common
+[**tidyverse**](https://tidyverse.org/packages/) methods for
+`SpatRaster` and `SpatVector` objects created with the
+[**terra**](https://CRAN.R-project.org/package=terra) package. It also
+provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms for
+plotting those objects.
 
 Please cite **tidyterra** as:
 
-Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+Hernangómez, D. (2023). Using the tidyverse with terra objects: the
 tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
 <https://doi.org/10.21105/joss.05751>.
 
@@ -32,8 +32,8 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-The full manual of the most recent release of **tidyterra** on **CRAN**
-is online: <https://dieghernan.github.io/tidyterra/>
+The full manual for the latest release of **tidyterra** on **CRAN** is
+online: <https://dieghernan.github.io/tidyterra/>
 
 **tidyverse** methods implemented in **tidyterra** work differently
 depending on the type of `Spat*` object:
@@ -43,16 +43,15 @@ depending on the type of `Spat*` object:
   coercion. Rows correspond to geometries and columns correspond to
   attributes of each geometry.
 
-- `SpatRaster`: For `SpatRaster` objects, methods can be applied to
-  layers or cells. **tidyterra**’s overall approach is to treat the
-  layers as columns of a tibble and the cells as rows (i.e.
-  `select(SpatRaster, 1)` selects the first layer of a `SpatRaster`).
+- `SpatRaster`: methods can be applied to layers or cells.
+  **tidyterra**’s overall approach is to treat the layers as columns of
+  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
+  the first layer of a `SpatRaster`).
 
-The implemented methods return the same type of object as the input,
-unless the expected behavior of the method is to return another type of
-object (for example,
+Implemented methods return the same type of object as the input, unless
+the method is expected to return another type of object. For example,
 [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-returns a tibble).
+returns a tibble.
 
 Current methods and functions provided by **tidyterra** are:
 
@@ -101,7 +100,7 @@ Current methods and functions provided by **tidyterra** are:
 
 A note on performance
 
-**tidyterra** is a user-friendly wrapper around **terra** that uses
+**tidyterra** is a user-friendly wrapper around **terra** that provides
 **tidyverse** methods and verbs. This approach has a **performance
 cost**.
 
@@ -131,7 +130,7 @@ You can install the development version of **tidyterra** with:
 pak::pak("dieghernan/tidyterra")
 ```
 
-Alternatively, you can install **tidyterra** using the
+Alternatively, you can install **tidyterra** using
 [r-universe](https://dieghernan.r-universe.dev/tidyterra):
 
 ``` r
@@ -200,7 +199,7 @@ Spain](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)
 
 ``` r
 
-# Create the maximum difference between two months.
+# Create the difference between two months.
 variation <- rastertemp |>
   mutate(diff = June - May) |>
   select(variation = diff)
@@ -226,7 +225,7 @@ ggplot(prov) +
   )
 ```
 
-![Variation of temperature in Castile and Leon,
+![Temperature variation in Castile and Leon,
 Spain](https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
@@ -247,8 +246,8 @@ ggplot(prov) +
 ![Example of plotting a tile in
 tidyterra](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
 
-**tidyterra** provides specific scales for plotting hypsometric maps
-with **ggplot2**:
+**tidyterra** provides scales for plotting hypsometric maps with
+**ggplot2**:
 
 ``` r
 

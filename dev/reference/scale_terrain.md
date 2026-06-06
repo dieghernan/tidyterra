@@ -1,4 +1,4 @@
-# Terrain colour scales from grDevices
+# Terrain color scales from grDevices
 
 Implementation of the classic color palette
 [`terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html):

@@ -46,57 +46,57 @@ Summary of palettes provided, description and recommended use:
 |  |  |  |  |
 |----|----|----|----|
 | **palette** | **use** | **description** | **range** |
-| `aspect` | General | aspect oriented grey colors |  |
-| `aspectcolr` | General | aspect oriented rainbow colors | 0 to 360 |
-| `bcyr` | General | blue through cyan through yellow to red |  |
-| `bgyr` | General | blue through green through yellow to red |  |
-| `blues` | General | white to blue |  |
-| `byg` | General | blue through yellow to green |  |
-| `byr` | General | blue through yellow to red |  |
-| `celsius` | General | blue to red for degree Celsius temperature | -80 to 80 |
-| `corine` | Land Cover | EU Corine land cover colors | 111 to 995 |
-| `curvature` | General | for terrain curvatures | -0.1 to 0.1 |
-| `differences` | General | differences oriented colors |  |
-| `elevation` | Topography | maps relative ranges of raster values to elevation color ramp |  |
-| `etopo2` | Topography | colors for ETOPO2 worldwide bathymetry/topography | -11000 to 8850 |
-| `evi` | Natural | enhanced vegetative index colors | -1 to 1 |
-| `fahrenheit` | Temperature | blue to red for Fahrenheit temperature | -112 to 176 |
-| `forest_cover` | Natural | percentage of forest cover | 0 to 1 |
-| `gdd` | Natural | accumulated growing degree days | 0 to 6000 |
-| `grass` | General | GRASS GIS green (perceptually uniform) |  |
-| `greens` | General | white to green |  |
-| `grey` | General | grey scale |  |
-| `gyr` | General | green through yellow to red |  |
-| `haxby` | Topography | relative colors for bathymetry or topography |  |
-| `inferno` | General | perceptually uniform sequential color table inferno |  |
-| `kelvin` | Temperature | blue to red for temperature in Kelvin scale | 193.15 to 353.15 |
-| `magma` | General | perceptually uniform sequential color table magma |  |
+| `aspect` | General | Aspect-oriented gray colors |  |
+| `aspectcolr` | General | Aspect-oriented rainbow colors | 0 to 360 |
+| `bcyr` | General | Blue through cyan and yellow to red |  |
+| `bgyr` | General | Blue through green and yellow to red |  |
+| `blues` | General | White to blue |  |
+| `byg` | General | Blue through yellow to green |  |
+| `byr` | General | Blue through yellow to red |  |
+| `celsius` | General | Blue to red for Celsius temperatures | -80 to 80 |
+| `corine` | Land cover | EU Corine land cover colors | 111 to 995 |
+| `curvature` | General | Terrain curvature colors | -0.1 to 0.1 |
+| `differences` | General | Difference-oriented colors |  |
+| `elevation` | Topography | Relative raster values mapped to an elevation color ramp |  |
+| `etopo2` | Topography | ETOPO2 worldwide bathymetry and topography colors | -11000 to 8850 |
+| `evi` | Natural | Enhanced Vegetation Index colors | -1 to 1 |
+| `fahrenheit` | Temperature | Blue to red for Fahrenheit temperatures | -112 to 176 |
+| `forest_cover` | Natural | Percentage of forest cover | 0 to 1 |
+| `gdd` | Natural | Accumulated growing degree days | 0 to 6000 |
+| `grass` | General | GRASS GIS green, perceptually uniform |  |
+| `greens` | General | White to green |  |
+| `grey` | General | Gray scale |  |
+| `gyr` | General | Green through yellow to red |  |
+| `haxby` | Topography | Relative colors for bathymetry or topography |  |
+| `inferno` | General | Perceptually uniform sequential color table, inferno |  |
+| `kelvin` | Temperature | Blue to red for temperatures in Kelvin | 193.15 to 353.15 |
+| `magma` | General | Perceptually uniform sequential color table, magma |  |
 | `ndvi` | Natural | Normalized Difference Vegetation Index colors | -1 to 1 |
 | `ndwi` | Natural | Normalized Difference Water Index colors | -200 to 200 |
-| `nlcd` | Land Cover | US National Land Cover Dataset colors | 0 to 95 |
-| `oranges` | General | white to orange |  |
-| `plasma` | General | perceptually uniform sequential color table plasma |  |
-| `population` | Human | color table covering human population classification breaks | 0 to 1000000 |
-| `population_dens` | Human | color table covering human population density classification breaks | 0 to 1000 |
-| `precipitation` | Climate | precipitation color table (0..2000mm) | 0 to 7000 |
-| `precipitation_daily` | Climate | precipitation color table (0..1000mm) | 0 to 100 |
-| `precipitation_monthly` | Climate | precipitation color table (0..1000mm) | 0 to 1000 |
-| `rainbow` | General | rainbow color table |  |
-| `ramp` | General | color ramp |  |
-| `reds` | General | white to red |  |
+| `nlcd` | Land cover | US National Land Cover Dataset colors | 0 to 95 |
+| `oranges` | General | White to orange |  |
+| `plasma` | General | Perceptually uniform sequential color table, plasma |  |
+| `population` | Human | Human population classification breaks | 0 to 1000000 |
+| `population_dens` | Human | Human population density classification breaks | 0 to 1000 |
+| `precipitation` | Climate | Precipitation color table, 0 to 2000 mm | 0 to 7000 |
+| `precipitation_daily` | Climate | Daily precipitation color table, 0 to 1000 mm | 0 to 100 |
+| `precipitation_monthly` | Climate | Monthly precipitation color table, 0 to 1000 mm | 0 to 1000 |
+| `rainbow` | General | Rainbow color table |  |
+| `ramp` | General | Color ramp |  |
+| `reds` | General | White to red |  |
 | `roygbiv` | General |  |  |
-| `rstcurv` | General | terrain curvature (from r.resamp.rst) | -0.1 to 0.1 |
-| `ryb` | General | red through yellow to blue |  |
-| `ryg` | General | red through yellow to green |  |
-| `sepia` | General | yellowish-brown through to white |  |
-| `slope` | General | r.slope.aspect-type slope colors for raster values 0-90 | 0 to 90 |
-| `soilmoisture` | Natural | soil moisture color table (0.0-1.0) | 0 to 1 |
-| `srtm` | Topography | color palette for Shuttle Radar Topography Mission elevation | -11000 to 8850 |
-| `srtm_plus` | Topography | color palette for Shuttle Radar Topography Mission elevation (with seafloor colors) | -11000 to 8850 |
-| `terrain` | Topography | global elevation color table covering -11000 to +8850m | -11000 to 8850 |
-| `viridis` | General | perceptually uniform sequential color table viridis |  |
-| `water` | Natural | water depth |  |
-| `wave` | General | color wave |  |
+| `rstcurv` | General | Terrain curvature from r.resamp.rst | -0.1 to 0.1 |
+| `ryb` | General | Red through yellow to blue |  |
+| `ryg` | General | Red through yellow to green |  |
+| `sepia` | General | Yellowish-brown to white |  |
+| `slope` | General | `r.slope.aspect`-style slope colors for raster values from 0 to 90 | 0 to 90 |
+| `soilmoisture` | Natural | Soil moisture color table, 0.0 to 1.0 | 0 to 1 |
+| `srtm` | Topography | Shuttle Radar Topography Mission elevation colors | -11000 to 8850 |
+| `srtm_plus` | Topography | Shuttle Radar Topography Mission elevation colors with seafloor colors | -11000 to 8850 |
+| `terrain` | Topography | Global elevation color table from -11000 to +8850 m | -11000 to 8850 |
+| `viridis` | General | Perceptually uniform sequential color table, viridis |  |
+| `water` | Natural | Water depth |  |
+| `wave` | General | Color wave |  |
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

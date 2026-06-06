@@ -302,12 +302,12 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
   [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   :
 
-  Visualise `SpatRaster` objects
+  Plot `SpatRaster` objects
 
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   :
 
-  Visualise `SpatRaster` objects as images
+  Plot `SpatRaster` objects as images
 
 - [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
@@ -315,11 +315,11 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
   [`stat_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   :
 
-  Visualise `SpatVector` objects
+  Plot `SpatVector` objects
 
 ### Scales
 
-Color scales, palettes and hypsometric tints.
+Color scales, palettes and hypsometric tints for maps.
 
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   [`scale_colour_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
@@ -386,7 +386,7 @@ Color scales, palettes and hypsometric tints.
   [`scale_colour_terrain_b()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.md)
   :
 
-  Terrain colour scales from grDevices
+  Terrain color scales from grDevices
 
 - [`scale_fill_whitebox_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md)
   [`scale_colour_whitebox_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md)
@@ -492,7 +492,7 @@ objects from tibbles.
 
 ### Other helpers
 
-Utilities for CRS handling, package checks and raster comparison.
+Utilities for CRS handling, package checks and `SpatRaster` comparison.
 
 - [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md)
   :

@@ -107,10 +107,10 @@
 
     <!-- welcome.qmd is generated from welcome.qmd.orig. Please edit that file --><section class="level2"><h2 id="the-tidyterra-package">The tidyterra package<a class="anchor" aria-label="anchor" href="#the-tidyterra-package"></a>
 </h2>
-<p><strong>tidyterra</strong> adds common <strong>tidyverse</strong> methods for <code>SpatRaster</code> and <code>SpatVector</code> objects from the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package. It also provides <code>geom_spat*()</code> geoms for plotting them with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
+<p><strong>tidyterra</strong> provides common <strong>tidyverse</strong> methods for <code>SpatRaster</code> and <code>SpatVector</code> objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package. It also provides <code>geom_spat*()</code> geoms for plotting those objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
 <section class="level3"><h3 id="why-tidyterra">Why tidyterra?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
-<p><code>Spat*</code> objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in <strong>terra</strong>). By providing <strong>tidyverse</strong> verbs, especially <strong>dplyr</strong> and <strong>tidyr</strong> methods, <strong>tidyterra</strong> lets users manipulate <code>Spat*</code> objects in a style similar to working with tabular data.</p>
+<p><code>Spat*</code> objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in <strong>terra</strong>). By providing <strong>tidyverse</strong> verbs, especially <strong>dplyr</strong> and <strong>tidyr</strong> methods, <strong>tidyterra</strong> lets users manipulate <code>Spat*</code> objects in a style familiar from tabular data workflows.</p>
 <p>Note that <strong>terra</strong> is generally faster. Learning some <strong>terra</strong> syntax is recommended because <strong>tidyterra</strong> functions call the corresponding <strong>terra</strong> equivalents when possible.</p>
 </section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced <strong>terra</strong> users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
@@ -123,7 +123,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span></code></pre></div>
-<p>Currently, the following methods are available:</p>
+<p>The following methods are available:</p>
 <table class="table caption-top">
 <colgroup>
 <col style="width: 26%">
@@ -347,7 +347,7 @@
 </tr>
 </tbody>
 </table>
-<p>Now let us see some of these methods in action.</p>
+<p>The following sections show some of these methods in action.</p>
 <section class="level3"><h3 id="spatraster-objects">
 <code>SpatRaster</code> objects<a class="anchor" aria-label="anchor" href="#spatraster-objects"></a>
 </h3>
@@ -398,7 +398,7 @@
 </section><section class="level3"><h3 id="spatvector-objects">
 <code>SpatVector</code> objects<a class="anchor" aria-label="anchor" href="#spatvector-objects"></a>
 </h3>
-<p>Since <strong>tidyterra</strong> version 0.4.0, most <strong>dplyr</strong> and <strong>tidyr</strong> verbs work with <code>SpatVector</code> objects, so you can arrange, group and summarise their attributes.</p>
+<p>Most <strong>dplyr</strong> and <strong>tidyr</strong> verbs work with <code>SpatVector</code> objects, so you can arrange, group and summarize their attributes.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lux</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"ex/lux.shp"</span>, package <span class="op">=</span> <span class="st">"terra"</span><span class="op">)</span></span>
 <span></span>
@@ -436,7 +436,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># A faceted SpatRaster.</span></span>
+<span><span class="co"># Faceted SpatRaster.</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">temp</span><span class="op">)</span> <span class="op">+</span></span>
@@ -446,8 +446,8 @@
 <span>    na.value <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-faceted-1.png" alt="A faceted map using a SpatRaster." width="100%"><p class="caption">
-A faceted map using a SpatRaster.
+<img src="./fig-faceted-1.png" alt="Faceted map using a SpatRaster." width="100%"><p class="caption">
+Faceted map using a SpatRaster.
 </p>
 </div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -497,8 +497,8 @@ Filled contour plot for a SpatRaster.
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-rgb-1.png" alt="A map combining an RGB SpatRaster and a SpatVector." width="100%"><p class="caption">
-A map combining an RGB SpatRaster and a SpatVector.
+<img src="./fig-rgb-1.png" alt="Map combining an RGB SpatRaster and a SpatVector." width="100%"><p class="caption">
+Map combining an RGB SpatRaster and a SpatVector.
 </p>
 </div>
 <p><strong>tidyterra</strong> includes color scales suitable for hypsometric and bathymetric maps:</p>
@@ -560,7 +560,7 @@ Map of Asia including hypsometric tints.
 Choropleth map with a SpatVector object.
 </p>
 </div>
-<p>Implementation-wise, <strong>tidyterra</strong> converts <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code> output to <strong>sf</strong> via <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
+<p>Internally, <strong>tidyterra</strong> converts <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code> output to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
 <p>You can also aggregate <code>SpatVector</code> objects easily:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Dissolve by group.</span></span>

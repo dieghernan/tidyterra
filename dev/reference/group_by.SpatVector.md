@@ -88,7 +88,7 @@ re-group.
 [`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
@@ -282,7 +282,7 @@ by_name2_name1 |>
 #> [1] "NAME_2" "NAME_1" "ID_1"   "ID_2"  
 
 # You can group by expressions: this is a short-hand
-# for a mutate() followed by a group_by()
+# For a mutate() followed by a group_by().
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)

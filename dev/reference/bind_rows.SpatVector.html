@@ -116,7 +116,7 @@ with empty geometries with a message.</p></li>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">dplyr::bind_rows()</a></code></p>
-<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verbs that operate on pairs <code>Spat*</code>/data.frame:
+<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verbs that operate on pairs of <code>Spat*</code> and data frame objects:
 <code><a href="bind_cols.SpatVector.html">bind_cols.SpatVector</a></code>,
 <code><a href="cross_join.SpatVector.html">cross_join.SpatVector()</a></code>,
 <code><a href="filter-joins.SpatVector.html">filter-joins.SpatVector</a></code>,
@@ -171,7 +171,7 @@ with empty geometries with a message.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># When you supply a column name with the `.id` argument, a new</span></span></span>
-<span class="r-in"><span><span class="co"># column is created to link each row to its original data frame</span></span></span>
+<span class="r-in"><span><span class="co"># A column is created to link each row to its original data frame.</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">v2</span>, .id <span class="op">=</span> <span class="st">"id"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
@@ -213,7 +213,7 @@ with empty geometries with a message.</p></li>
 <span class="r-in"><span><span class="va">sfobj_3857</span> <span class="op">&lt;-</span> <span class="fu"><a href="as_spatvector.html">as_spatvector</a></span><span class="op">(</span><span class="va">sfobj</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="st">"EPSG:3857"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj_3857</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` because it does not have the same CRS as object <span style="color: #00BB00;">1</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Reprojecting object <span style="color: #00BB00;">2</span> in `...` because it does not have the same CRS as object <span style="color: #00BB00;">1</span>.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 2, 3  (geometries, attributes)</span>
@@ -228,7 +228,7 @@ with empty geometries with a message.</p></li>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">bind_spat_rows</span><span class="op">(</span><span class="va">v1</span>, <span class="va">sfobj</span>, <span class="va">mtcars</span>, .id <span class="op">=</span> <span class="st">"id2"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result includes empty geometries</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result includes empty geometries.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 34, 15  (geometries, attributes)</span>
@@ -260,7 +260,7 @@ with empty geometries with a message.</p></li>
 <span class="r-in"><span>  mtcars <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="op">)</span>, .id <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Object <span style="color: #00BB00;">3</span> in `...` is <span style="color: #0000BB;">&lt;data.frame&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result includes empty geometries</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">The result includes empty geometries.</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 3, 15  (geometries, attributes)</span>

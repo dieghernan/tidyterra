@@ -75,14 +75,14 @@ Other helpers:
 
 ``` r
 
-# sf objects
+# sf objects.
 
 sfobj <- sf::st_as_sfc("MULTIPOINT ((0 0), (1 1))", crs = 4326)
 
 fromsf1 <- pull_crs(sfobj)
 fromsf2 <- pull_crs(sf::st_crs(sfobj))
 
-# terra
+# terra objects.
 
 v <- terra::vect(sfobj)
 r <- terra::rast(v)
@@ -90,7 +90,7 @@ r <- terra::rast(v)
 fromterra1 <- pull_crs(v)
 fromterra2 <- pull_crs(r)
 
-# integers
+# Integers.
 fromint <- pull_crs(4326)
 
 # Characters

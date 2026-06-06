@@ -105,7 +105,7 @@
 
 
 
-    <p>This document collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> and answers about using the <strong>tidyterra</strong> package, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
+    <p>This article collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> and answers about using the <strong>tidyterra</strong> package, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -118,12 +118,12 @@
 <p>This article uses a sample of <strong>LiDAR for Scotland Phase 5 - DSM</strong> provided by <a href="https://remotesensingdata.gov.scot/" class="external-link">The Scottish Remote Sensing Portal</a>. These data are made available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" class="external-link">Open Government Licence v3</a>.</p>
 </section><section class="level4"><h4 id="about-the-file">About the file<a class="anchor" aria-label="anchor" href="#about-the-file"></a>
 </h4>
-<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, much like the famous <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
-<p>The original file has been cropped and downsampled for demo purposes. <code>holyroodpark.tif</code> is available online in the <code>data-raw</code> folder at <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>.</p>
+<p>The file <code>holyroodpark.tif</code> represents the DEM<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Digital Elevation Model, representing the elevation of the corresponding area.&lt;/p&gt;"><sup>1</sup></a> of <a href="https://en.wikipedia.org/wiki/Holyrood_Park" class="external-link">Holyrood Park, Edinburgh (Scotland)</a>, including <a href="https://en.wikipedia.org/wiki/Arthur%27s_Seat" class="external-link">Arthur’s Seat</a>, an extinct volcano, much like the well-known <a href="https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden" class="external-link">Maungawhau / Mount Eden</a> volcano represented in <code><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">datasets::volcano</a></code>.</p>
+<p>The original file has been cropped and downsampled for demonstration purposes. <code>holyroodpark.tif</code> is available online in the <code>data-raw</code> folder at <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link uri">https://github.com/dieghernan/tidyterra/tree/main/data-raw</a>.</p>
 </section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales, for example <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt; cells is small it can produce undesired results. See &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales, for example <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt; cells is small it can produce unwanted results. See &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -136,7 +136,7 @@
 <span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">elevation</span> <span class="op">&gt;</span> <span class="fl">80</span> <span class="op">&amp;</span> <span class="va">elevation</span> <span class="op">&lt;</span> <span class="fl">180</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Default</span></span>
+<span><span class="co"># Default behavior.</span></span>
 <span><span class="va">def</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span></span>
 <span></span>
@@ -146,7 +146,7 @@
 <span>    subtitle <span class="op">=</span> <span class="st">"NA values in gray"</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Modify with scales</span></span>
+<span><span class="co"># Modify with scales.</span></span>
 <span><span class="va">def</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_continuous</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"transparent"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
@@ -154,7 +154,7 @@
 <span>    subtitle <span class="op">=</span> <span class="st">"But NA values are not plotted"</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Use a different scale provided by ggplot2</span></span>
+<span><span class="co"># Use a different scale provided by ggplot2.</span></span>
 <span><span class="va">def</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
@@ -201,7 +201,7 @@
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-remove_nas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 1: NA values in ggplot2
+Figure 1: NA values in ggplot2.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="label-contour">Labeling contours<a class="anchor" aria-label="anchor" href="#label-contour"></a>
@@ -231,7 +231,7 @@ Figure 1: NA values in ggplot2
 <span>  <span class="op">}</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="co"># Common labels across ggplot.</span></span>
+<span><span class="co"># Common labels across the plot.</span></span>
 <span></span>
 <span><span class="va">labs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">140</span>, <span class="fl">180</span>, <span class="fl">220</span><span class="op">)</span></span>
 <span></span>
@@ -263,7 +263,7 @@ Figure 1: NA values in ggplot2
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"mono"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Labeling contours"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"With options: b/w plot"</span></span>
+<span>    subtitle <span class="op">=</span> <span class="st">"With options: black-and-white plot"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div id="fig-textcontour" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-textcontour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -293,7 +293,7 @@ Figure 1: NA values in ggplot2
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-textcontour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 2: Contour labels with tidyterra
+Figure 2: Contour labels with tidyterra.
 </figcaption></figure>
 </div>
 <section class="level3"><h3 id="other-alternatives">Other alternatives<a class="anchor" aria-label="anchor" href="#other-alternatives"></a>
@@ -347,7 +347,7 @@ Figure 2: Contour labels with tidyterra
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"mono"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Labeling contours"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"tidyterra and metR: b/w plot"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"tidyterra and metR: black-and-white plot"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    y <span class="op">=</span> <span class="st">""</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -357,7 +357,7 @@ Figure 2: Contour labels with tidyterra
 <img src="faqs_files/figure-html/fig-metr-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 3: Alternative (metR): Contour labeling combining tidyterra and metR packages with customized styling.
+Figure 3: Alternative (metR): contour labeling combining tidyterra and the <strong>metR</strong> package with customized styling.
 </figcaption></figure>
 </div>
 </div>
@@ -394,7 +394,7 @@ Figure 3: Alternative (metR): Contour labeling combining tidyterra and metR pac
 <img src="faqs_files/figure-html/fig-greys-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-greys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 4: Hillshade visualization using grayscale colors to enhance terrain relief.
+Figure 4: Hillshade plot using grayscale colors to enhance terrain relief.
 </figcaption></figure>
 </div>
 </div>
@@ -433,7 +433,7 @@ Figure 4: Hillshade visualization using grayscale colors to enhance terrain rel
 <img src="faqs_files/figure-html/fig-default-1.png" style="width:100.0%" data-ref-parent="fig-default">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-default-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Use of new default palette via options.
+(a) Use the new default palette through options.
 </figcaption></figure>
 </div>
 </div>
@@ -452,7 +452,7 @@ Figure 4: Hillshade visualization using grayscale colors to enhance terrain rel
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-default-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 5: Changing default ggplot2 color palettes
+Figure 5: Changing default ggplot2 color palettes.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
@@ -536,12 +536,12 @@ Figure 5: Changing default ggplot2 color palettes
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blurrytile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 6: Example of the impact of resampling on tile blurriness.
+Figure 6: Impact of resampling on tile blurriness.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="axis-degrees">Avoid degree labels on axes<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
 </h2>
-<p>This is a <strong>ggplot2</strong> default behavior, but you can modify it using the <code>ggplot2::coord_sf(datum)</code> argument:</p>
+<p>This is the default behavior in <strong>ggplot2</strong>, but you can modify it using the <code>ggplot2::coord_sf(datum)</code> argument:</p>
 <div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -596,7 +596,7 @@ Figure 6: Example of the impact of resampling on tile blurriness.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modifydatum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 7: Degree labels with ggplot2
+Figure 7: Degree labels with ggplot2.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="axis-breaks">Modify the number of axis breaks<a class="anchor" aria-label="anchor" href="#axis-breaks"></a>
@@ -650,7 +650,7 @@ Figure 7: Degree labels with ggplot2
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-breaks-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 8: Spatial axis breaks with ggplot2
+Figure 8: Spatial axis breaks with ggplot2.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="plotting-a-spatraster-with-color-tables">Plotting a <code>SpatRaster</code> with color tables<a class="anchor" aria-label="anchor" href="#plotting-a-spatraster-with-color-tables"></a>
@@ -687,7 +687,7 @@ Figure 8: Spatial axis breaks with ggplot2
 <span><span class="co">#&gt; min value   : Continuous urban fabric</span></span>
 <span><span class="co">#&gt; max value   :           Sea and ocean</span></span>
 <span></span>
-<span><span class="co"># Native handling by the terra package.</span></span>
+<span><span class="co"># Native handling by terra.</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_coltab</span>, legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-coltab" class="quarto-float quarto-figure quarto-figure-center">
@@ -695,22 +695,22 @@ Figure 8: Spatial axis breaks with ggplot2
 <img src="faqs_files/figure-html/fig-coltab-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coltab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 9: Color tables: native plot with the terra package.
+Figure 9: Color tables: native plot with the <strong>terra</strong> package.
 </figcaption></figure>
 </div>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Autoplot method.</span></span>
+<code class="sourceCode R"><span><span class="co"># `autoplot()` method.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"autoplot method"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"autoplot() method"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># geom_spatraster method.</span></span>
+<span><span class="co"># `geom_spatraster()` method.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_spatraster method"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"geom_spatraster() method"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># scale_fill_coltab method.</span></span>
+<span><span class="co"># `scale_fill_coltab()` method.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">r_coltab</span>,</span>
@@ -719,9 +719,9 @@ Figure 9: Color tables: native plot with the terra package.
 <span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_coltab.html">scale_fill_coltab</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r_coltab</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_coltab method"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_coltab() method"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Extract named colors and use scale_fill_manual().</span></span>
+<span><span class="co"># Extract named colors and use `scale_fill_manual()`.</span></span>
 <span><span class="va">cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/scale_coltab.html">get_coltab_pal</a></span><span class="op">(</span><span class="va">r_coltab</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cols</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -751,7 +751,7 @@ Figure 9: Color tables: native plot with the terra package.
 <span>    na.value <span class="op">=</span> <span class="st">"transparent"</span>,</span>
 <span>    na.translate <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_manual method"</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"scale_fill_manual() method"</span><span class="op">)</span></span></code></pre></div>
 <div id="fig-tidyterra" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-tidyterra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
@@ -761,7 +761,7 @@ Figure 9: Color tables: native plot with the terra package.
 <img src="faqs_files/figure-html/fig-tidyterra-1.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) autoplot method.
+(a) <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> method.
 </figcaption></figure>
 </div>
 </div>
@@ -771,7 +771,7 @@ Figure 9: Color tables: native plot with the terra package.
 <img src="faqs_files/figure-html/fig-tidyterra-2.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) geom_spatraster method.
+(b) <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> method.
 </figcaption></figure>
 </div>
 </div>
@@ -783,7 +783,7 @@ Figure 9: Color tables: native plot with the terra package.
 <img src="faqs_files/figure-html/fig-tidyterra-3.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c) scale_fill_coltab method.
+(c) <code><a href="../reference/scale_coltab.html">scale_fill_coltab()</a></code> method.
 </figcaption></figure>
 </div>
 </div>
@@ -793,7 +793,7 @@ Figure 9: Color tables: native plot with the terra package.
 <img src="faqs_files/figure-html/fig-tidyterra-4.png" style="width:100.0%" data-ref-parent="fig-tidyterra">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyterra-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d) named colors and scale_fill_manual method.
+(d) Named colors and <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual()</a></code> method.
 </figcaption></figure>
 </div>
 </div>
@@ -803,9 +803,10 @@ Figure 9: Color tables: native plot with the terra package.
 Figure 10: Color tables: tidyterra package.
 </figcaption></figure>
 </div>
-</section><section class="level2"><h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
+</section><section class="level2"><h2 id="gganimate">Use with <strong>gganimate</strong>
+<a class="anchor" aria-label="anchor" href="#gganimate"></a>
 </h2>
-<p>Yes. Here is an example (thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>):</p>
+<p>Yes. Here is an example, thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com" class="external-link">gganimate</a></span><span class="op">)</span></span>
@@ -886,7 +887,7 @@ Figure 11: Animation of average monthly temperatures.
 <img src="faqs_files/figure-html/fig-northarrow-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-northarrow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotations added using ggspatial.
+Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotations added using <strong>ggspatial</strong>.
 </figcaption></figure>
 </div>
 </div>
@@ -1027,10 +1028,10 @@ Figure 13: Continuous precipitation data overlaid as semi-transparent layer on 
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 14: Alternative overlay approaches
+Figure 14: Alternative overlay approaches.
 </figcaption></figure>
 </div>
-</section><section class="level2"><h2 id="fort">Hexagonal grids (and other <code>geoms</code>)<a class="anchor" aria-label="anchor" href="#fort"></a>
+</section><section class="level2"><h2 id="fort">Hexagonal grids and other geoms<a class="anchor" aria-label="anchor" href="#fort"></a>
 </h2>
 <p>While <code>SpatRaster</code> cells are inherently rectangular, you can create plots with hexagonal cells using <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/stat_summary_2d.html" class="external-link">stat_summary_hex()</a></code>. The final plot requires coordinate adjustment with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code>:</p>
 <div class="cell">
@@ -1055,7 +1056,7 @@ Figure 14: Alternative overlay approaches
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fu"><a href="../reference/pull_crs.html">pull_crs</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Hexagonal SpatRaster"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Using fortify (implicit) and stat_summary_hex"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Using implicit fortify() and stat_summary_hex()"</span>,</span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -1070,7 +1071,7 @@ Figure 15: Elevation data aggregated and visualized as hexagonal grid cells.
 </div>
 </div>
 </div>
-<p>Note that you do not need to call <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> directly because <strong>ggplot2</strong> invokes it implicitly when you use <code>ggplot(data = a_spatraster)</code>.</p>
+<p>You do not need to call <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> directly because <strong>ggplot2</strong> invokes it implicitly when you use <code>ggplot(data = a_spatraster)</code>.</p>
 <p>Thanks to this extension mechanism, you can use additional geoms and stats from <strong>ggplot2</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="downlit sourceCode r">
@@ -1087,7 +1088,7 @@ Figure 15: Elevation data aggregated and visualized as hexagonal grid cells.
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_alpha.html" class="external-link">scale_alpha</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"SpatRaster as points"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Using fortify (implicit)"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Using implicit fortify()"</span>,</span>
 <span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>    y <span class="op">=</span> <span class="cn">NULL</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -1134,7 +1135,7 @@ Figure 16: Elevation data represented as points with size and transparency scal
 <img src="faqs_files/figure-html/fig-metrdemo-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 17: Relief rendering combining tidyterra for raster visualization and metR for terrain relief representation.
+Figure 17: Relief rendering combining tidyterra for raster plotting and <strong>metR</strong> for terrain relief representation.
 </figcaption></figure>
 </div>
 </div>

@@ -121,7 +121,7 @@ v |> glimpse(n = 2)
 v |>
   glimpse() |>
   mutate(a = 30) |>
-  # with options
+  # With options.
   glimpse(geom = "WKT")
 #> #  A SpatVector 9 x 3
 #> #  Geometry type: Polygons

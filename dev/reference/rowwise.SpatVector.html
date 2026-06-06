@@ -94,8 +94,8 @@ with <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>.<
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Variables to be
-preserved when calling <code><a href="summarise.SpatVector.html">summarise.SpatVector()</a></code>. This is typically a set
-of variables whose combination uniquely identifies each row. See
+preserved when calling <code><a href="summarise.SpatVector.html">summarise.SpatVector()</a></code>. This is typically a set of
+variables whose combination uniquely identifies each row. See
 <code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code>.</p>
 <p><strong>NB</strong>: unlike <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code> you cannot create new variables
 here but instead you can select multiple variables with (e.g.)
@@ -129,7 +129,7 @@ attribute. Use <code>rowwise.SpatVector()</code> to re-group.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code></p>
-<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verbs that operate on group of rows:
+<p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verbs that operate on groups of rows:
 <code><a href="count.SpatVector.html">count.SpatVector()</a></code>,
 <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>,
 <code><a href="reframe.SpatVector.html">reframe.SpatVector()</a></code>,
@@ -196,7 +196,7 @@ attribute. Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Additional examples</span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co"># use c_across() to more easily select many variables</span></span></span>
+<span class="r-in"><span><span class="co"># Use c_across() to select many variables more easily.</span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/c_across.html" class="external-link">c_across</a></span><span class="op">(</span><span class="va">NWBIR74</span><span class="op">:</span><span class="va">NWBIR79</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -231,7 +231,7 @@ attribute. Use <code>rowwise.SpatVector()</code> to re-group.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                   208     260   208</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               ...</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Summarising</span></span></span>
+<span class="r-in"><span><span class="co"># Summarize.</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>mean_bir <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">BIR74</span>, <span class="va">BIR79</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>

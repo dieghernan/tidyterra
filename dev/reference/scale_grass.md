@@ -122,7 +122,7 @@ Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [grass_db](https://dieghernan.github.io/tidyterra/dev/reference/grass_db.md)
-  for more info.
+  for more information.
 
 - ...:
 
@@ -296,7 +296,7 @@ layer with the values applied to the `fill/colour`
 Some palettes are mapped by default to a specific range of values (see
 [grass_db](https://dieghernan.github.io/tidyterra/dev/reference/grass_db.md)).
 Set `use_grass_range = FALSE` to map the color scales to the range of
-values of the `color/fill` aesthetics. See **Examples**.
+values of the `fill/colour` aesthetics. See **Examples**.
 
 When passing the `limits` argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You

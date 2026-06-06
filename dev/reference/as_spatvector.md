@@ -87,7 +87,7 @@ in the following ways:
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
-for retrieving CRS and the corresponding utils
+for retrieving CRS and the corresponding utilities
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

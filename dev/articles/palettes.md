@@ -1,9 +1,9 @@
 # Gradient palettes in tidyterra
 
 This page shows a [lightbox
-gallery](https://biati-digital.github.io/glightbox/) of maps that can be
-displayed with the gradient fill scales included in **tidyterra**. A
-basic example for generating maps like these is:
+gallery](https://biati-digital.github.io/glightbox/) of maps created
+with the gradient fill scales included in **tidyterra**. A basic example
+for creating maps like these is:
 
 ``` r
 

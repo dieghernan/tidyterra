@@ -1,8 +1,8 @@
-# Visualise `SpatRaster` objects
+# Plot `SpatRaster` objects
 
-This geom is used to visualise `SpatRaster` objects (see
+This geom plots `SpatRaster` objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)).
-The geom is designed for visualise the object by layers, as
+It is designed to plot the object by layers, as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
 does.
 
@@ -217,8 +217,8 @@ In every case, aesthetics should be mapped with computed variables. See
 
 ## Facets
 
-You can use ` facet_wrap(~lyr)` for creating a faceted plot by each
-layer of the `SpatRaster` object. See
+You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of
+the `SpatRaster` object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 
@@ -228,7 +228,7 @@ This geom computes internally some variables that are available for use
 as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
-- `after_stat(value)`: Values of the `SpatRaster.`
+- `after_stat(value)`: Cell values of the `SpatRaster`.
 
 - `after_stat(lyr)`: Name of the layer.
 
@@ -246,7 +246,7 @@ Recommended `geoms`:
 
 - [`ggplot2::geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),

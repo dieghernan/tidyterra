@@ -267,7 +267,7 @@ the following aesthetics:</p><ul><li><p><code><a href="https://ggplot2.tidyverse
 </ul><p>Additionally, <code>geom_spatraster_contour_filled()</code> understands also the
 following aesthetics, as well as the ones listed above:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
 <li><p><code>subgroup</code></p></li>
-</ul><p>Check <code><a href="https://ggplot2.tidyverse.org/reference/geom_contour.html" class="external-link">ggplot2::geom_contour()</a></code> for more info on contours and
+</ul><p>Check <code><a href="https://ggplot2.tidyverse.org/reference/geom_contour.html" class="external-link">ggplot2::geom_contour()</a></code> for more information on contours and
 <code><a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html" class="external-link">vignette("ggplot2-specs", package = "ggplot2")</a></code> for an overview of the
 aesthetics.</p>
     </div>
@@ -276,7 +276,7 @@ aesthetics.</p>
 
 
 
-<p>These geom computes internally some variables that are available for use as
+<p>These geoms compute some variables internally that are available for use as
 aesthetics, using (for example) <code>aes(color = after_stat(&lt;computed&gt;))</code> (see
 <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>
 <li><p><code>after_stat(level)</code>: Height of contour. For contour lines, this is
@@ -311,8 +311,8 @@ adjust the scales. That means that also the
 
 
 
-<p>You can use <code> facet_wrap(~lyr)</code> for creating a faceted plot by each layer of
-the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
+<p>You can use <code>facet_wrap(~lyr)</code> to create a faceted plot by each layer of the
+<code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -320,7 +320,7 @@ the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse
 <p>The <a href="https://CRAN.R-project.org/package=metR" class="external-link"><span class="pkg">metR</span></a> package also provides a set of alternative functions:</p><ul><li><p><code><a href="https://eliocamp.github.io/metR/reference/geom_contour2.html" class="external-link">metR::geom_contour2()</a></code>.</p></li>
 <li><p><code><a href="https://eliocamp.github.io/metR/reference/geom_text_contour.html" class="external-link">metR::geom_text_contour()</a></code> and <code><a href="https://eliocamp.github.io/metR/reference/geom_text_contour.html" class="external-link">metR::geom_label_contour()</a></code>.</p></li>
 <li><p><code><a href="https://eliocamp.github.io/metR/reference/geom_contour_tanaka.html" class="external-link">metR::geom_contour_tanaka()</a></code>.</p></li>
-</ul><p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> utils:
+</ul><p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> utilities:
 <code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,
 <code><a href="fortify.Spat.html">fortify.Spat</a></code>,
 <code><a href="geom_spatraster.html">geom_spatraster()</a></code>,

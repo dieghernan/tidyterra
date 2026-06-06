@@ -1,9 +1,9 @@
 # Hypsometric palettes database
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-including the color map of 33 gradient palettes. All the palettes. It
-also includes a definition of color limits in terms of elevation
-(meters) that can be used with
+including the color map of 33 gradient palettes. Each palette also
+includes a definition of color limits in terms of elevation (meters)
+that can be used with
 [`ggplot2::scale_fill_gradientn()`](https://ggplot2.tidyverse.org/reference/scale_gradient.html).
 
 ## Format

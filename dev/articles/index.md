@@ -12,7 +12,7 @@ Introductory guides and palette examples.
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/palettes.md):
 
-  A gallery of maps using the gradients provided by tidyterra.
+  A gallery of maps using the gradient scales provided by tidyterra.
 
 ### In the wild
 

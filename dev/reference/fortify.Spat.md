@@ -162,7 +162,7 @@ that can be used with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md),
 [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),

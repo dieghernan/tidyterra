@@ -1,7 +1,7 @@
 # Extract coordinates from `SpatVector` objects
 
 `stat_spat_coordinates()` extracts the coordinates from `SpatVector`
-objects and summarises them to one pair of coordinates (x and y) per
+objects and summarizes them to one pair of coordinates (x and y) per
 geometry.
 
 ## Usage
@@ -116,7 +116,7 @@ for details.
 
 ## See also
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),

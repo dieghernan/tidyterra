@@ -2,10 +2,10 @@
 
 ## The tidyterra package
 
-**tidyterra** adds common **tidyverse** methods for `SpatRaster` and
-`SpatVector` objects from the
+**tidyterra** provides common **tidyverse** methods for `SpatRaster` and
+`SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides `geom_spat*()` geoms for plotting them with
+provides `geom_spat*()` geoms for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -14,7 +14,7 @@ provides `geom_spat*()` geoms for plotting them with
 with their own syntax and computational methods (implemented in
 **terra**). By providing **tidyverse** verbs, especially **dplyr** and
 **tidyr** methods, **tidyterra** lets users manipulate `Spat*` objects
-in a style similar to working with tabular data.
+in a style familiar from tabular data workflows.
 
 Note that **terra** is generally faster. Learning some **terra** syntax
 is recommended because **tidyterra** functions call the corresponding
@@ -42,7 +42,7 @@ library(dplyr)
 library(tidyr)
 ```
 
-Currently, the following methods are available:
+The following methods are available:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
 |----|----|----|
@@ -87,7 +87,7 @@ Currently, the following methods are available:
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html) | ✔️ | ✔️ |
 
-Now let us see some of these methods in action.
+The following sections show some of these methods in action.
 
 ### `SpatRaster` objects
 
@@ -150,9 +150,8 @@ affect data frames.
 
 ### `SpatVector` objects
 
-Since **tidyterra** version 0.4.0, most **dplyr** and **tidyr** verbs
-work with `SpatVector` objects, so you can arrange, group and summarise
-their attributes.
+Most **dplyr** and **tidyr** verbs work with `SpatVector` objects, so
+you can arrange, group and summarize their attributes.
 
 ``` r
 
@@ -200,7 +199,7 @@ and can be reprojected to match other spatial layers.
 
 library(ggplot2)
 
-# A faceted SpatRaster.
+# Faceted SpatRaster.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -211,9 +210,9 @@ ggplot() +
   )
 ```
 
-![A faceted map using a SpatRaster.](./fig-faceted-1.png)
+![Faceted map using a SpatRaster.](./fig-faceted-1.png)
 
-A faceted map using a SpatRaster.
+Faceted map using a SpatRaster.
 
 ``` r
 
@@ -269,9 +268,9 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![A map combining an RGB SpatRaster and a SpatVector.](./fig-rgb-1.png)
+![Map combining an RGB SpatRaster and a SpatVector.](./fig-rgb-1.png)
 
-A map combining an RGB SpatRaster and a SpatVector.
+Map combining an RGB SpatRaster and a SpatVector.
 
 **tidyterra** includes color scales suitable for hypsometric and
 bathymetric maps:
@@ -339,9 +338,9 @@ ggplot(v_lux) +
 
 Choropleth map with a SpatVector object.
 
-Implementation-wise, **tidyterra** converts
+Internally, **tidyterra** converts
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-output to **sf** via
+output to **sf** with
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)

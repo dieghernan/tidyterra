@@ -66,7 +66,7 @@ attribute and receives the suffix from `suffix`.
 [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs `Spat*`/data.frame:
+operate on pairs of `Spat*` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),

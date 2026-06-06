@@ -174,7 +174,7 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 
 - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-  31 - 46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
+  31-46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
 
 - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
   Generalized Environmental Mapping.* Online, Accessed June 10, 2022.
@@ -186,7 +186,7 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md)
-  for more info. The available values are listed below. `"arid"`,
+  for more information. The available values are listed below. `"arid"`,
   `"cold_humid"`, `"polar"`, `"warm_humid"`.
 
 - ...:

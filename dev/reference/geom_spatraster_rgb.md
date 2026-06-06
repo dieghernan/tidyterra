@@ -1,6 +1,6 @@
-# Visualise `SpatRaster` objects as images
+# Plot `SpatRaster` objects as images
 
-This geom is used to visualise `SpatRaster` objects (see
+This geom plots `SpatRaster` objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
 as RGB images. The layers are combined so they represent the red, green
 and blue channels.
@@ -171,7 +171,7 @@ You can also get RGB tiles from the
 [maptiles](https://CRAN.R-project.org/package=maptiles) package. See
 [`maptiles::get_tiles()`](https://rdrr.io/pkg/maptiles/man/get_tiles.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),

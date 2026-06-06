@@ -80,7 +80,7 @@ the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
 [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
@@ -148,7 +148,7 @@ nb |>
 
 # Additional examples
 # \donttest{
-# use c_across() to more easily select many variables
+# Use c_across() to select many variables more easily.
 nb |>
   rowwise() |>
   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
@@ -183,7 +183,7 @@ nb |>
 #>                   208     260   208
 #>               ...
 
-# Summarising
+# Summarize.
 v |>
   rowwise() |>
   summarise(mean_bir = mean(BIR74, BIR79)) |>

@@ -182,16 +182,16 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [hypsometric_tints_db](https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.md)
-  for more info. The available values are listed below. `"arctic"`,
-  `"arctic_bathy"`, `"arctic_hypso"`, `"c3t1"`, `"colombia"`,
-  `"colombia_bathy"`, `"colombia_hypso"`, `"dem_poster"`, `"dem_print"`,
-  `"dem_screen"`, `"etopo1"`, `"etopo1_bathy"`, `"etopo1_hypso"`,
-  `"gmt_globe"`, `"gmt_globe_bathy"`, `"gmt_globe_hypso"`, `"meyers"`,
-  `"meyers_bathy"`, `"meyers_hypso"`, `"moon"`, `"moon_bathy"`,
-  `"moon_hypso"`, `"nordisk-familjebok"`, `"nordisk-familjebok_bathy"`,
-  `"nordisk-familjebok_hypso"`, `"pakistan"`, `"spain"`, `"usgs-gswa2"`,
-  `"utah_1"`, `"wiki-2.0"`, `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`,
-  `"wiki-schwarzwald-cont"`.
+  for more information. The available values are listed below.
+  `"arctic"`, `"arctic_bathy"`, `"arctic_hypso"`, `"c3t1"`,
+  `"colombia"`, `"colombia_bathy"`, `"colombia_hypso"`, `"dem_poster"`,
+  `"dem_print"`, `"dem_screen"`, `"etopo1"`, `"etopo1_bathy"`,
+  `"etopo1_hypso"`, `"gmt_globe"`, `"gmt_globe_bathy"`,
+  `"gmt_globe_hypso"`, `"meyers"`, `"meyers_bathy"`, `"meyers_hypso"`,
+  `"moon"`, `"moon_bathy"`, `"moon_hypso"`, `"nordisk-familjebok"`,
+  `"nordisk-familjebok_bathy"`, `"nordisk-familjebok_hypso"`,
+  `"pakistan"`, `"spain"`, `"usgs-gswa2"`, `"utah_1"`, `"wiki-2.0"`,
+  `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`, `"wiki-schwarzwald-cont"`.
 
 - ...:
 
@@ -490,7 +490,7 @@ ggplot() +
   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 
 # }
-# Display all the cpl_city palettes
+# Display all the cpt-city palettes
 
 pals <- unique(hypsometric_tints_db$pal)
 
@@ -511,7 +511,7 @@ for (i in pals) {
 }
 par(opar)
 
-# Display all the cpl_city palettes on version 2
+# Display all the cpt-city palettes on version 2
 
 pals <- unique(hypsometric_tints_db$pal)
 

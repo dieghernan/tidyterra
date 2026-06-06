@@ -116,14 +116,14 @@ f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
 v <- terra::vect(f)
 
-# Add NAs
+# Add missing values.
 v <- v |> mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
 
-# Init
+# Initial plot.
 plot(v, col = "red")
 
 
-# Mask with lyr.1
+# Drop geometries with missing values in iso2.
 v |>
   drop_na(iso2) |>
   plot(col = "red")
@@ -139,32 +139,32 @@ r <- rast(
 )
 terra::values(r) <- seq_len(ncell(r) * nlyr(r))
 
-# Add NAs
+# Add missing values.
 r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
 
-# Init
+# Initial plot.
 plot(r, nc = 3)
 
 
-# Mask with lyr.1
+# Mask with lyr.1.
 r |>
   drop_na(lyr.1) |>
   plot(nc = 3)
 
 
-# Mask with lyr.2
+# Mask with lyr.2.
 r |>
   drop_na(lyr.2) |>
   plot(nc = 3)
 
 
-# Mask with lyr.3
+# Mask with lyr.3.
 r |>
   drop_na(lyr.3) |>
   plot(nc = 3)
 
 
-# Auto-mask all layers
+# Mask all layers.
 r |>
   drop_na() |>
   plot(nc = 3)

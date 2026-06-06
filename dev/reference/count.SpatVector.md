@@ -108,7 +108,7 @@ this. See also
 [`dplyr::tally()`](https://dplyr.tidyverse.org/reference/count.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
@@ -169,7 +169,7 @@ p |> count(pop = ifelse(POP < 20000, "A", "B"))
 #> values      :     A     5
 #>                   B     7
 
-# tally() is a lower-level function that assumes you've done the grouping
+# tally() is a lower-level function that assumes grouping is already done.
 p |> tally()
 #> class       : SpatVector
 #> geometry    : polygons

@@ -3,12 +3,12 @@
 [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 creates a new `SpatVector`. It returns one geometry for each combination
 of grouping variables. If there are no grouping variables, the output
-will have a single geometry summarising all observations in the input
+will have a single geometry summarizing all observations in the input
 and combining all the geometries of the `SpatVector`. It will contain
 one column for each grouping variable and one column for each of the
 summary statistics that you have specified.
 
-`summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
+`summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.
 
 ## Usage
 
@@ -112,7 +112,7 @@ Other single table verbs:
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
@@ -154,7 +154,7 @@ gr_v <- v |>
   mutate(start_with_s = startsWith(name, "S")) |>
   group_by(start_with_s)
 
-# Dissolving
+# Dissolve geometries.
 diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
@@ -173,11 +173,11 @@ autoplot(diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Dissolved")
 
 
-# Not dissolving
+# Keep geometries separate.
 no_diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 
-# Same statistic
+# Same statistic.
 no_diss
 #> class       : SpatVector
 #> geometry    : polygons

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>tidyterra | tidyverse methods and ggplot2 helpers for terra objects
+<title>tidyterra | tidyverse methods and ggplot2 geoms for terra objects
  • tidyterra</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
@@ -21,10 +21,10 @@
 <link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="tidyterra | tidyverse methods and ggplot2 helpers for terra objects
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="tidyterra | tidyverse methods and ggplot2 geoms for terra objects
 ">
-<meta name="description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created by the terra package, plus ggplot2 geoms for visualizing those objects.">
-<meta property="og:description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created by the terra package, plus ggplot2 geoms for visualizing those objects.">
+<meta name="description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created with the terra package, plus ggplot2 geoms for plotting those objects.">
+<meta property="og:description" content="Provides common tidyverse methods for SpatRaster and SpatVector objects created with the terra package, plus ggplot2 geoms for plotting those objects.">
 <meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@dhernangomez">
@@ -101,9 +101,9 @@
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p>The goal of <strong>tidyterra</strong> is to provide common methods of the <a href="https://tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong> packages</a> for objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package: <code>SpatRaster</code> and <code>SpatVector</code>. It also provides geoms for plotting these objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
+<p>The goal of <strong>tidyterra</strong> is to provide common <a href="https://tidyverse.org/packages/" class="external-link"><strong>tidyverse</strong></a> methods for <code>SpatRaster</code> and <code>SpatVector</code> objects created with the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a> package. It also provides <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a> geoms for plotting those objects.</p>
 <p>Please cite <strong>tidyterra</strong> as:</p>
-<p>Hernangómez, D., (2023). Using the tidyverse with terra objects: the tidyterra package. <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a>.</p>
+<p>Hernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. <em>Journal of Open Source Software</em>, <em>8</em>(91), 5751, <a href="https://doi.org/10.21105/joss.05751" class="external-link uri">https://doi.org/10.21105/joss.05751</a>.</p>
 <p>A BibTeX entry for LaTeX users is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bib"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">Hernang</span>ó<span class="ot">mez2023</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="dt">doi</span> = {10.21105/joss.05751},</span>
@@ -120,13 +120,13 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The full manual of the most recent release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
+<p>The full manual for the latest release of <strong>tidyterra</strong> on <strong>CRAN</strong> is online: <a href="https://dieghernan.github.io/tidyterra/" class="uri">https://dieghernan.github.io/tidyterra/</a></p>
 <p><strong>tidyverse</strong> methods implemented in <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: the methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.</p></li>
-<li><p><code>SpatRaster</code>: For <code>SpatRaster</code> objects, methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>).</p></li>
+<li><p><code>SpatRaster</code>: methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows (i.e. <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>).</p></li>
 </ul>
-<p>The implemented methods return the same type of object as the input, unless the expected behavior of the method is to return another type of object (for example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble).</p>
+<p>Implemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble.</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
 <table class="table">
 <colgroup>
@@ -361,7 +361,7 @@ A note on performance
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>tidyterra</strong> is a user-friendly wrapper around <strong>terra</strong> that uses <strong>tidyverse</strong> methods and verbs. This approach has a <strong>performance cost</strong>.</p>
+<p><strong>tidyterra</strong> is a user-friendly wrapper around <strong>terra</strong> that provides <strong>tidyverse</strong> methods and verbs. This approach has a <strong>performance cost</strong>.</p>
 <p>If you frequently use <strong>terra</strong> or work with large raster files, <strong>terra</strong> is usually much faster. Whenever possible, each <strong>tidyterra</strong> function refers to its equivalent on <strong>terra</strong>.</p>
 <p>As a rule of thumb, if your raster has fewer than 10,000,000 data slots (i.e. <code>terra::ncell(your_rast) * terra::nlyr(your_rast) &lt; 1e7</code>), <strong>tidyterra</strong> is a good fit.</p>
 <p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
@@ -378,7 +378,7 @@ A note on performance
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/tidyterra"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, you can install <strong>tidyterra</strong> using the <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
+<p>Alternatively, you can install <strong>tidyterra</strong> using <a href="https://dieghernan.r-universe.dev/tidyterra" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Enable this universe</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
@@ -439,7 +439,7 @@ A note on performance
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create the maximum difference between two months.</span></span>
+<code class="sourceCode R"><span><span class="co"># Create the difference between two months.</span></span>
 <span><span class="va">variation</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">June</span> <span class="op">-</span> <span class="va">May</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span>variation <span class="op">=</span> <span class="va">diff</span><span class="op">)</span></span>
@@ -463,7 +463,7 @@ A note on performance
 <span>    title <span class="op">=</span> <span class="st">"Temperature variation in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Average temperatures: June vs. May"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Variation of temperature in Castile and Leon, Spain" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%"></p>
 <p><strong>tidyterra</strong> also provides a geom for plotting RGB <code>SpatRaster</code> tiles with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rgb_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
@@ -475,7 +475,7 @@ A note on performance
 <span>  <span class="co"># Change the CRS and datum (useful for relabeling graticules).</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span>, datum <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example of plotting a tile in tidyterra" width="100%"></p>
-<p><strong>tidyterra</strong> provides specific scales for plotting hypsometric maps with <strong>ggplot2</strong>:</p>
+<p><strong>tidyterra</strong> provides scales for plotting hypsometric maps with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>

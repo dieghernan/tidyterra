@@ -55,7 +55,7 @@ can be a `SpatVector`, `sf/sfc` object or data frame:
 [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs `Spat*`/data.frame:
+operate on pairs of `Spat*` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
@@ -111,7 +111,7 @@ bind_spat_rows(v1, v2)
 #>               ...
 
 # When you supply a column name with the `.id` argument, a new
-# column is created to link each row to its original data frame
+# A column is created to link each row to its original data frame.
 bind_spat_rows(v1, v2, .id = "id")
 #> class       : SpatVector
 #> geometry    : polygons
@@ -153,7 +153,7 @@ bind_spat_rows(v1, sfobj)
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
-#> ! Reprojecting object 2 in `...` because it does not have the same CRS as object 1
+#> ! Reprojecting object 2 in `...` because it does not have the same CRS as object 1.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 2, 3  (geometries, attributes)
@@ -168,7 +168,7 @@ bind_spat_rows(v1, sfobj_3857)
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result includes empty geometries
+#> The result includes empty geometries.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 34, 15  (geometries, attributes)
@@ -200,7 +200,7 @@ bind_spat_rows(list(
   mtcars = mtcars[1, ]
 ), .id = "source")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result includes empty geometries
+#> The result includes empty geometries.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 3, 15  (geometries, attributes)

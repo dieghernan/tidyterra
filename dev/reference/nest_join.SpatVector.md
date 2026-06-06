@@ -28,7 +28,7 @@ nest_join(
 
 - y:
 
-  A data frame. Spatial `y` inputs are not supported; use spatial joins
+  A data frame. Spatial `y` inputs are not supported, use spatial joins
   from [terra](https://CRAN.R-project.org/package=terra) for that
   workflow.
 
@@ -126,7 +126,7 @@ a list-column with matching rows from `y`.
 [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs `Spat*`/data.frame:
+operate on pairs of `Spat*` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),

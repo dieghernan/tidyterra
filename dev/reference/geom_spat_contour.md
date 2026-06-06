@@ -231,13 +231,13 @@ following aesthetics, as well as the ones listed above:
 
 Check
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html)
-for more info on contours and
+for more information on contours and
 [`vignette("ggplot2-specs", package = "ggplot2")`](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html)
 for an overview of the aesthetics.
 
 ## Computed variables
 
-These geom computes internally some variables that are available for use
+These geoms compute some variables internally that are available for use
 as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
@@ -274,8 +274,8 @@ reprojected**.
 
 ## Facets
 
-You can use ` facet_wrap(~lyr)` for creating a faceted plot by each
-layer of the `SpatRaster` object. See
+You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of
+the `SpatRaster` object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 
@@ -294,7 +294,7 @@ provides a set of alternative functions:
 
 - [`metR::geom_contour_tanaka()`](https://eliocamp.github.io/metR/reference/geom_contour_tanaka.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),
