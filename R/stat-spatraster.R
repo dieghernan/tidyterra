@@ -167,8 +167,7 @@ stat_spatraster <- function(
 
   # From `ggspatial`.
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
-  # scales. This mimics using the first layer CRS as the base CRS for
-  # `coord_sf()`.
+  # scales. Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(

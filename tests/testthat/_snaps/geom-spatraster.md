@@ -4,7 +4,7 @@
       ggplot2::ggplot() + geom_spatraster(data = cyl)
     Condition
       Error in `geom_spatraster()`:
-      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::rast()`.
 
 ---
 
@@ -40,5 +40,5 @@
       Warning:
       Mixed layer classes found in `tidyterra::geom_spat*()`.
     Message
-      ! Plotting only layer "tavg_04" and "another" of class <factor>.
+      ! Plotting only layers "tavg_04" and "another" of class <factor>.
 

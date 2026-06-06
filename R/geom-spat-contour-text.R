@@ -61,7 +61,7 @@ geom_spatraster_contour_text <- function(
 
   # From ggspatial.
   # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # mimics using the first layer CRS as the base CRS for coord_sf().
+  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -95,7 +95,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
   ),
   handle_na = function(self, data, params) {
     # Drop missing values at the start or end of a line - can't drop in the
-    # middle since you expect those to be shown by a break in the line
+    # Use the middle point, where a line break is expected.
     aesthetics <- c(self$required_aes, self$non_missing_aes)
     complete <- stats::complete.cases(data[names(data) %in% aesthetics])
     kept <- stats::ave(complete, data$group, FUN = keep_mid_true)
@@ -134,10 +134,10 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
       data$label <- data$level
     }
 
-    # back to isolines object
+    # Convert back to an isolines object.
     iso <- df_to_isolines(data)
 
-    # transform back to coordinate space
+    # Transform back to coordinate space.
     iso <- lapply(iso, coord$transform, panel_params)
 
     # Get aes
@@ -233,10 +233,10 @@ get_aes_iso <- function(x, aesx = "colour") {
   unlist(get_aes)
 }
 
-## from ggplot2 ----
+## From ggplot2 ----
 
 # Trim false values from left and right: keep all values from
-# first TRUE to last TRUE
+# First `TRUE` to last `TRUE`.
 keep_mid_true <- function(x) {
   first <- match(TRUE, x) - 1
   if (is.na(first)) {

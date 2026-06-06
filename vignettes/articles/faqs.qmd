@@ -13,7 +13,7 @@ knitr:
     out.width: "100%"
 ---
 
-This document collects [frequently asked
+This article collects [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) and answers
 about using the **tidyterra** package, with a focus on the integration of
 **terra** and **ggplot2**. You can ask for help or search previous questions
@@ -40,11 +40,11 @@ v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park, Edinburgh
 (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park), including [Arthur's
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct volcano, much
-like the famous [Maungawhau / Mount
+like the well-known [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano represented
 in `datasets::volcano`.
 
-The original file has been cropped and downsampled for demo purposes.
+The original file has been cropped and downsampled for demonstration purposes.
 `holyroodpark.tif` is available online in the `data-raw` folder at
 <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
@@ -74,7 +74,7 @@ r <- holyrood |>
   rast() |>
   filter(elevation > 80 & elevation < 180)
 
-# Default
+# Default behavior.
 def <- ggplot() +
   geom_spatraster(data = r)
 
@@ -373,7 +373,7 @@ ggplot() +
 
 ## Avoid degree labels on axes {#axis-degrees}
 
-This is **ggplot2** default behavior, but you can modify it using the
+This is the default behavior in **ggplot2**, but you can modify it using the
 `ggplot2::coord_sf(datum)` argument:
 
 ```{r}
@@ -527,7 +527,8 @@ ggplot() +
 
 ## Use with **gganimate** {#gganimate}
 
-Yes. Here is an example (thanks to [\@frzambra](https://github.com/frzambra)):
+Yes. Here is an example, thanks to
+[\@frzambra](https://github.com/frzambra):
 
 ```{r}
 #| label: gganimate
@@ -756,7 +757,7 @@ ggplot(r, aes(x, y, z = elevation)) +
   )
 ```
 
-Note that you do not need to call `fortify.SpatRaster()` directly because
+You do not need to call `fortify.SpatRaster()` directly because
 **ggplot2** invokes it implicitly when you use `ggplot(data = a_spatraster)`.
 
 Thanks to this extension mechanism, you can use additional geoms and stats from

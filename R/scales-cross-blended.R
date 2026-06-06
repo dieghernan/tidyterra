@@ -61,8 +61,8 @@
 #'   The default (`TRUE`) removes unused factors.
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [cross_blended_hypsometric_tints_db] for more info. The available values
-#'   are listed below.
+#'   [cross_blended_hypsometric_tints_db] for more information. The available
+#'   values are listed below.
 #'
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'
@@ -82,8 +82,8 @@
 #' @source
 #'
 #' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
-#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31 -
-#'   46. \doi{10.14714/CP69.20}.
+#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31-46.
+#'   \doi{10.14714/CP69.20}.
 #'
 #' - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
 #'   Generalized Environmental Mapping.* Online, Accessed June 10, 2022.

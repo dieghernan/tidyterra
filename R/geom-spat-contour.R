@@ -58,13 +58,13 @@
 #' - [`fill`][ggplot2::aes_colour_fill_alpha]
 #' - `subgroup`
 #'
-#' Check [ggplot2::geom_contour()] for more info on contours and
+#' Check [ggplot2::geom_contour()] for more information on contours and
 #' `vignette("ggplot2-specs", package = "ggplot2")` for an overview of the
 #' aesthetics.
 #'
 #' @section Computed variables:
 #'
-#' These geom computes internally some variables that are available for use as
+#' These geoms compute some variables internally that are available for use as
 #' aesthetics, using (for example) `aes(color = after_stat(<computed>))` (see
 #' [ggplot2::after_stat()]).
 #' - `after_stat(lyr)`: Name of the layer.
@@ -177,7 +177,7 @@ geom_spatraster_contour <- function(
 
   # From ggspatial.
   # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # mimics using the first layer CRS as the base CRS for coord_sf().
+  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -273,7 +273,7 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     params
   },
   compute_layer = function(self, data, params, layout) {
-    # warn if not using facets
+    # Warn when layers overlap because facets are not used.
     if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
       nly <- length(unique(data$lyr))
       if (nly > 1) {
@@ -311,27 +311,26 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     coord_crs = NA,
     mask_projection = FALSE
   ) {
-    # Extract raster from group
+    # Extract the raster from the current group.
     rast <- data$spatraster[[1]]
 
-    # Reproject if needed
+    # Reproject if needed.
     rast <- reproject_raster_on_stat(rast, coord_crs, mask = mask_projection)
-    # To data and prepare
+    # Convert to a data frame and prepare output.
     prepare_iso <- pivot_longer_spat(rast)
-    # Keep initial data
+    # Keep the initial data.
     data_rest <- data
-    # Don't need spatraster any more and increase size
-    # Set to NA
+    # Drop the raster payload before joining to reduce the output size.
     data_rest$spatraster <- NA
 
-    # Now adjust min and max value, since reprojection may affect vals
+    # Adjust minimum and maximum values because reprojection may affect them.
     prepare_iso$value <- pmin(max(z.range), prepare_iso$value)
     prepare_iso$value <- pmax(min(z.range), prepare_iso$value)
 
-    # Now create data with values from raster
+    # Create data with values from the raster.
     names(prepare_iso) <- c("x", "y", "lyr", "z")
 
-    # Port functions from ggplot2
+    # Reuse contour break logic from ggplot2.
     breaks <- contour_breaks(z.range, bins, binwidth, breaks)
 
     isolines <- xyz_to_isolines(prepare_iso, breaks)
@@ -341,13 +340,12 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     path_df$nlevel <- scales::rescale_max(path_df$level)
     path_df$lyr <- data_rest$lyr[[1]]
 
-    # Re-create data
-    # Remove group, we get that from path_df
+    # Re-create data and remove `group`, which comes from `path_df`.
     data_rest <- remove_columns(data_rest, "group")
 
     data <- dplyr::left_join(path_df, data_rest, by = "lyr")
 
-    # Final cleanup
+    # Final cleanup.
     data <- remove_columns(data, ".size")
 
     data
@@ -356,7 +354,7 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
 
 # Helpers ----
 
-# From ggplot2
+# From ggplot2.
 allow_lambda <- function(x) {
   if (rlang::is_formula(x)) rlang::as_function(x) else x
 }
@@ -379,16 +377,15 @@ contour_breaks <- function(
     breaks_fun <- breaks
   }
 
-  # If no arguments set, use pretty bins
+  # Use pretty bins when no arguments are set.
   if (is.null(bins) && is.null(binwidth)) {
     breaks <- pretty(z_range, 10)
     return(breaks)
   }
 
-  # If provided, use bins to calculate binwidth
+  # Use `bins` to calculate `binwidth` when provided.
   if (!is.null(bins)) {
-    # round lower limit down and upper limit up to make sure
-    # we generate bins that span the data range nicely
+    # Round limits outward so bins span the data range.
     accuracy <- signif(diff(z_range), 1) / 10
     z_range[1] <- floor(z_range[1] / accuracy) * accuracy
     z_range[2] <- ceiling(z_range[2] / accuracy) * accuracy
@@ -410,12 +407,12 @@ contour_breaks <- function(
     return(breaks)
   }
 
-  # if we haven't returned yet, compute breaks from binwidth
+  # Otherwise, compute breaks from `binwidth`.
   breaks_fun(z_range, binwidth)
 }
 
 isoband_z_matrix <- function(data) {
-  # Convert vector of data to raster
+  # Convert a data vector to a raster matrix.
   x_pos <- as.integer(factor(data$x, levels = sort(unique(data$x))))
   y_pos <- as.integer(factor(data$y, levels = sort(unique(data$y))))
 
@@ -454,7 +451,7 @@ iso_to_path <- function(iso, group = 1) {
   ids <- unlist(lapply(iso, "[[", "id"), use.names = FALSE)
   item_id <- rep(seq_along(iso), lengths)
 
-  # Add leading zeros so that groups can be properly sorted
+  # Add leading zeros so groups can be sorted properly.
   groups <- paste(
     group,
     sprintf("%03d", item_id),

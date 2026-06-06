@@ -88,11 +88,11 @@ pivot_wider.SpatVector <- function(
   values_fn = NULL,
   unused_fn = NULL
 ) {
-  # as tibble with attrbs
+  # Convert to a tibble with attributes.
   tbl <- as_tbl_internal(data)
   att <- attributes(tbl)
 
-  # Intercept cols using a template
+  # Resolve columns from a template.
   tmpl <- dplyr::ungroup(tbl[1, ])
   names_from_char <- remove_geom_col(tmpl, {{ names_from }}, "names_from")
   values_from_char <- remove_geom_col(tmpl, {{ values_from }}, "values_from")
@@ -128,7 +128,7 @@ pivot_wider.SpatVector <- function(
     ))
   }
 
-  # Reconstruct table
+  # Reconstruct the table.
   attr(pivoted, "source") <- att$source
   attr(pivoted, "crs") <- att$crs
   attr(pivoted, "geomtype") <- att$geomtype
@@ -141,8 +141,8 @@ pivot_wider.SpatVector <- function(
 #' @export
 tidyr::pivot_wider
 
-# Based on tidyr:::select_wider_id_cols
-# Retuns always a character vector
+# Based on `tidyr:::select_wider_id_cols()`.
+# Always return a character vector.
 tt_sel_wider_id_cols <- function(
   data,
   id_cols = NULL,
@@ -151,16 +151,16 @@ tt_sel_wider_id_cols <- function(
 ) {
   id_cols_quo <- rlang::enquo(id_cols)
 
-  # Remove known non-id-cols so they are never selected
+  # Remove known non-id columns so they are never selected.
   data <- data[setdiff(names(data), c(names_from_cols, values_from_cols))]
 
   if (rlang::quo_is_null(id_cols_quo)) {
-    # Default selects everything in `data` after non-id-cols have been removed
+    # Default to everything in `data` after non-id columns are removed.
     idnm <- names(data)
   } else {
     idnm <- names(dplyr::select(data, {{ id_cols }}))
   }
-  # geometry is top-level var always
+  # `geometry` is always a top-level variable.
   idnm <- unique(c("geometry", idnm))
 
   idnm

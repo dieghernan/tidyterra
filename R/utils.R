@@ -89,7 +89,7 @@ check_spatraster <- function(data, fn, call = rlang::caller_env()) {
       paste(
         "{.fun tidyterra::{fn}} only works with",
         "{.cls SpatRaster} objects, not {.cls {class(data)}}.",
-        "See {.help terra::vect}."
+        "See {.help terra::rast}."
       ),
       call = call
     )
@@ -179,8 +179,8 @@ tint_scale_params <- function(
   if (!palette %in% coltab$pal) {
     cli::cli_abort(
       paste(
-        "{.arg palette} {.val palette} is not a known palette.",
-        "See {.help {help}}"
+        "{.arg palette} {.val {palette}} is not a known palette.",
+        "See {.help {help}}."
       ),
       call = call
     )

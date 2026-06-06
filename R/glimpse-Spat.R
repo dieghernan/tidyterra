@@ -51,7 +51,7 @@
 #' v |>
 #'   glimpse() |>
 #'   mutate(a = 30) |>
-#'   # with options
+#'   # With options.
 #'   glimpse(geom = "WKT")
 #'
 #' # SpatRaster
@@ -132,9 +132,9 @@ glimpse.SpatVector <- function(
   tterra_header("A SpatVector ", nr, " x ", nc)
   # Geom type
   tterra_header("Geometry type: ", tools::toTitleCase(terra::geomtype(x)))
-  # CRS info
+  # CRS information.
   tterra_header_string_crs(x)
-  # Extent info
+  # Extent information.
   tterra_header_string_ext(x)
 
   # Body
@@ -375,11 +375,11 @@ tterra_body <- function(
     extra_cols <- x[, setdiff(names(x), names(col_sel))]
   }
 
-  # Main body via glimpse
+  # Render the main body with `dplyr::glimpse()`.
   capt <- utils::capture.output(dplyr::glimpse(col_sel, width = width))
   cli::cat_line(capt[-c(1:2)])
 
-  # Make footer
+  # Render the footer.
   if (!is.null(extra_cols)) {
     extra_text <- vapply(
       extra_cols,

@@ -135,10 +135,10 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   }
 
   # Create a template raster with an index for values.
-  # b. Extract full grid and attach values
-  # c. Add values to template grid
+  # Extract full grid and attach values.
+  # Add values to template grid.
 
-  # xyvalues plus index
+  # xyvalues plus index.
 
   xyvalind <- x_arrange[, 1:2]
   xyvalind$valindex <- seq_len(nrow(xyvalind))
@@ -164,7 +164,7 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   build_raster_layers(r_temp, values, layer_names)
 }
 
-#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`
+#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`.
 #' Strict version, used attributes for creating a template
 #' `SpatRaster` and then transfer the values
 #'

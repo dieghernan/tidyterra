@@ -1,6 +1,6 @@
 ---
 title: "Gradient palettes in tidyterra"
-description: A gallery of maps using the gradients provided by tidyterra.
+description: A gallery of maps using the gradient scales provided by tidyterra.
 lightbox:
   match: auto
   desc-position: bottom
@@ -35,7 +35,7 @@ knitr:
 
 This page shows a [lightbox gallery](https://biati-digital.github.io/glightbox/)
 of maps created with the gradient fill scales included in **tidyterra**. A
-basic example for generating maps like these is:
+basic example for creating maps like these is:
 
 ```{r}
 #| eval: false

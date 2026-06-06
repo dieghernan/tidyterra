@@ -12,7 +12,7 @@
 \alias{scale_color_terrain_d}
 \alias{scale_color_terrain_c}
 \alias{scale_color_terrain_b}
-\title{Terrain colour scales from \pkg{grDevices}}
+\title{Terrain color scales from \pkg{grDevices}}
 \usage{
 scale_fill_terrain_d(
   ...,

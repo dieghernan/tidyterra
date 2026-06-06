@@ -60,7 +60,7 @@
       p + scale_colour_cross_blended_tint_c(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_c()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`.
 
 ---
 
@@ -100,7 +100,7 @@
       p + scale_colour_cross_blended_tint_b(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`.
 
 ---
 
@@ -108,7 +108,7 @@
       p + scale_colour_cross_blended_tint_b(palette = "x")
     Condition
       Error in `scale_colour_cross_blended_tint_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`.
 
 ---
 

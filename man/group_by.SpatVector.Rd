@@ -112,7 +112,7 @@ by_name2_name1 |>
   group_vars()
 
 # You can group by expressions: this is a short-hand
-# for a mutate() followed by a group_by()
+# For a mutate() followed by a group_by().
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)

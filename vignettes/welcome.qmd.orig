@@ -26,10 +26,10 @@ knitr::opts_chunk$set(
 
 ## The tidyterra package
 
-**tidyterra** adds common **tidyverse** methods for `SpatRaster` and
-`SpatVector` objects from the
+**tidyterra** provides common **tidyverse** methods for `SpatRaster` and
+`SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also provides
-`geom_spat*()` geoms for plotting them with
+`geom_spat*()` geoms for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -37,8 +37,8 @@ knitr::opts_chunk$set(
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
 **tidyverse** verbs, especially **dplyr** and **tidyr** methods,
-**tidyterra** lets users manipulate `Spat*` objects in a style similar to
-working with tabular data.
+**tidyterra** lets users manipulate `Spat*` objects in a style familiar from
+tabular data workflows.
 
 Note that **terra** is generally faster. Learning some **terra** syntax is
 recommended because **tidyterra** functions call the corresponding **terra**
@@ -65,7 +65,7 @@ library(dplyr)
 library(tidyr)
 ```
 
-Currently, the following methods are available:
+The following methods are available:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
 |---------------------|---------------------|--------------------------------------|

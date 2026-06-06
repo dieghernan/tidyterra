@@ -44,9 +44,9 @@ vignette: >
 **tidyterra** is an **R** [@r-project] package that lets users manipulate
 spatial data objects provided by the **terra** package [@R-terra], using verbs
 from packages in the **tidyverse** [@R-tidyverse], such as **dplyr**
-[@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This
-makes spatial data manipulation and analysis easier and faster for users
-already familiar with the **tidyverse**.
+[@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This makes spatial
+data manipulation and analysis more approachable for users already familiar
+with the **tidyverse**.
 
 **tidyterra** also extends the functionality of the **ggplot2** package
 [@R-ggplot2] by providing additional geoms and stats[^1] like
@@ -77,7 +77,7 @@ cited in academic research and publications (@bahlburg2023, @moraga2023,
 The [**tidyverse**](https://tidyverse.org/) is a collection of **R** packages
 that share an underlying design philosophy, grammar and data structures. The
 packages within the tidyverse are widely used by **R** users for tidying,
-transforming and visualizing data.
+transforming and plotting data.
 
 The **tidyverse** is designed to work with tidy data (*"every column is a
 variable, every row is an observation, every cell is a single value"*),
@@ -90,27 +90,27 @@ class `foo` by creating the corresponding S3 method `mutate.foo()`.
 While other popular packages designed for spatial data handling, such as **sf**
 [@R-sf] or **stars** [@R-stars], already provide integration with the
 **tidyverse** as part of their infrastructure, **terra** objects lack this
-integration natively. Although **terra** offers a wide set of functions for
-transforming and visualizing `SpatRaster` and `SpatVector` objects, some users
+integration natively. Although **terra** offers a wide range of functions for
+transforming and plotting `SpatRaster` and `SpatVector` objects, some users
 who are not familiar with this package may need to make an additional effort
 to learn that syntax. This may imply an additional challenge during their
 initial steps in the field of spatial analysis.
 
 The **tidyterra** package was developed to address this integration gap. By
-providing the corresponding S3 methods, data analysts can apply the same syntax
+providing the corresponding S3 methods, users can apply the same syntax
 and functions they are already familiar with for rectangular data to the objects
 provided by **terra**. This enables users who are not familiar with spatial data
 analysis to approach this area more easily.
 
 In addition, **tidyterra** offers functions for plotting **terra** objects
 using the **ggplot2** syntax. Although packages like **rasterVis**
-[@R-rastervis] and **ggspatial** [@R-ggspatial] already allow the representation
-of `SpatRaster` objects with **ggplot2**, **tidyterra** functions provide
-additional support for advanced mapping. This support includes the integration
-of faceted maps, contours and the automatic conversion of spatial layers to the
-same CRS[^2] through `ggplot2::coord_sf()`. **tidyterra** also provides
-support for `SpatVector` objects, similar to the native support of **sf**
-objects in the **ggplot2** package.
+[@R-rastervis] and **ggspatial** [@R-ggspatial] already support plotting
+`SpatRaster` objects with **ggplot2**, **tidyterra** functions provide
+additional support for advanced mapping. This support includes faceted maps,
+contours and automatic conversion of spatial layers to the same CRS[^2]
+through `ggplot2::coord_sf()`. **tidyterra** also provides support for
+`SpatVector` objects, similar to the native support of **sf** objects in
+**ggplot2**.
 
 [^2]: CRS stands for coordinate reference system.
 
@@ -219,7 +219,7 @@ ggplot() +
   theme_grey() +
   labs(
     fill = "º Celsius",
-    title = "Variation of temperature in Castile and Leon (Spain)",
+    title = "Temperature variation in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
 ```
@@ -235,7 +235,8 @@ The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
 -   Details on each function, including the equivalent **terra** function when
-    available, in case users prefer to include those in their workflows.
+    available, for users who prefer to include those functions in their
+    workflows.
 -   Working examples using the functions and creating plots.
 -   Additional articles and vignettes and a complete demo of the
     different color palettes included in the package (see

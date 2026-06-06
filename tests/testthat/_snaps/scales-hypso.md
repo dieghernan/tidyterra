@@ -60,7 +60,7 @@
       perr <- p + scale_fill_hypso_tint_c(palette = "aa")
     Condition
       Error in `scale_fill_hypso_tint_c()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::hypsometric_tints_db()`
+      ! `palette` "aa" is not a known palette. See `?tidyterra::hypsometric_tints_db()`.
 
 ---
 
@@ -100,7 +100,7 @@
       perr <- p + scale_fill_hypso_tint_b(palette = "aa")
     Condition
       Error in `scale_fill_hypso_tint_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::hypsometric_tints_db()`
+      ! `palette` "aa" is not a known palette. See `?tidyterra::hypsometric_tints_db()`.
 
 ---
 
@@ -188,7 +188,7 @@
       perr <- p + scale_color_hypso_tint_c(palette = "aa")
     Condition
       Error in `scale_color_hypso_tint_c()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::hypsometric_tints_db()`
+      ! `palette` "aa" is not a known palette. See `?tidyterra::hypsometric_tints_db()`.
 
 ---
 
@@ -228,7 +228,7 @@
       perr <- p + scale_colour_hypso_tint_b(palette = "aa")
     Condition
       Error in `scale_colour_hypso_tint_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::hypsometric_tints_db()`
+      ! `palette` "aa" is not a known palette. See `?tidyterra::hypsometric_tints_db()`.
 
 ---
 

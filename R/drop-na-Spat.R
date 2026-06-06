@@ -72,13 +72,13 @@
 #'
 #' v <- terra::vect(f)
 #'
-#' # Add NAs
+#' # Add missing values.
 #' v <- v |> mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
 #'
-#' # Init
+#' # Initial plot.
 #' plot(v, col = "red")
 #'
-#' # Mask with lyr.1
+#' # Drop geometries with missing values in iso2.
 #' v |>
 #'   drop_na(iso2) |>
 #'   plot(col = "red")
@@ -122,35 +122,34 @@ drop_na.SpatVector <- function(data, ...) {
 #' )
 #' terra::values(r) <- seq_len(ncell(r) * nlyr(r))
 #'
-#' # Add NAs
+#' # Add missing values.
 #' r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
 #'
-#' # Init
+#' # Initial plot.
 #' plot(r, nc = 3)
 #'
-#' # Mask with lyr.1
+#' # Mask with lyr.1.
 #' r |>
 #'   drop_na(lyr.1) |>
 #'   plot(nc = 3)
 #'
-#' # Mask with lyr.2
+#' # Mask with lyr.2.
 #' r |>
 #'   drop_na(lyr.2) |>
 #'   plot(nc = 3)
 #'
-#' # Mask with lyr.3
+#' # Mask with lyr.3.
 #' r |>
 #'   drop_na(lyr.3) |>
 #'   plot(nc = 3)
 #'
-#' # Auto-mask all layers
+#' # Mask all layers.
 #' r |>
 #'   drop_na() |>
 #'   plot(nc = 3)
 #' }
 drop_na.SpatRaster <- function(data, ...) {
-  # Don't need to convert to data.frame
-  # Create a matrix to assess results
+  # Create a matrix to assess results without converting to a data frame.
   m <- matrix(nrow = terra::nlyr(data), ncol = terra::nlyr(data))
   diag(m) <- seq_len(terra::nlyr(data))
 
@@ -161,21 +160,21 @@ drop_na.SpatRaster <- function(data, ...) {
 
   # Use template to identify operations
   if (nrow(dropped) == 0) {
-    # All dropped
+    # Mask all layers.
     to_mask <- seq_len(terra::nlyr(data))
   } else {
     to_mask <- as.integer(dropped[1, ])
     to_mask <- to_mask[!is.na(to_mask)]
   }
 
-  # Subset with a loop
+  # Mask each selected layer.
   end <- data
   for (i in to_mask) {
     mask <- terra::subset(data, i)
     end <- terra::mask(end, mask)
   }
 
-  # Trim extent
+  # Trim the extent.
   newrast <- terra::trim(end)
 
   newrast

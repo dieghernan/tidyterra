@@ -185,8 +185,8 @@ variables. See \strong{Computed variables} and \strong{Examples}.
 \section{Facets}{
 
 
-You can use \code{ facet_wrap(~lyr)} for creating a faceted plot by each layer of
-the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+You can use \code{facet_wrap(~lyr)} to create a faceted plot by each layer of the
+\code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \section{Computed variables}{

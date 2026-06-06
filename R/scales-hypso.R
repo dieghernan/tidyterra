@@ -52,8 +52,8 @@
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [hypsometric_tints_db] for more info. The available values are listed
-#'   below.
+#'   [hypsometric_tints_db] for more information. The available values are
+#'   listed below.
 #'
 #' ```{r, echo=FALSE, results="asis", message = FALSE, warning = FALSE}
 #'

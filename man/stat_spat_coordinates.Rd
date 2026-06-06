@@ -72,7 +72,7 @@ A \CRANpkg{ggplot2} layer
 }
 \description{
 \code{stat_spat_coordinates()} extracts the coordinates from \code{SpatVector} objects
-and summarises them to one pair of coordinates (x and y) per geometry.
+and summarizes them to one pair of coordinates (x and y) per geometry.
 }
 \details{
 Wrapper of \code{\link[ggplot2:stat_sf_coordinates]{ggplot2::stat_sf_coordinates()}}.

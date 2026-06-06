@@ -36,7 +36,7 @@
       p + scale_colour_grass_c(palette = "x", use_grass_range = FALSE)
     Condition
       Error in `scale_colour_grass_c()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 
@@ -76,7 +76,7 @@
       p + scale_colour_grass_b(palette = "x")
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 
@@ -84,7 +84,7 @@
       p + scale_colour_grass_b(palette = "x")
     Condition
       Error in `scale_colour_grass_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 
@@ -140,7 +140,7 @@
       p + scale_fill_grass_c(palette = "x")
     Condition
       Error in `scale_fill_grass_c()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 
@@ -180,7 +180,7 @@
       p + scale_fill_grass_b(palette = "x")
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 
@@ -188,7 +188,7 @@
       p + scale_fill_grass_b(palette = "x")
     Condition
       Error in `scale_fill_grass_b()`:
-      ! `palette` "palette" is not a known palette. See `?tidyterra::grass_db()`
+      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
 
 ---
 

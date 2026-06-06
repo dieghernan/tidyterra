@@ -51,12 +51,12 @@ A \code{SpatVector}.
 \description{
 \code{summarise()} creates a new \code{SpatVector}. It returns one geometry for each
 combination of grouping variables. If there are no grouping variables, the
-output will have a single geometry summarising all observations in the input
+output will have a single geometry summarizing all observations in the input
 and combining all the geometries of the \code{SpatVector}. It will contain one
 column for each grouping variable and one column for each of
 the summary statistics that you have specified.
 
-\code{summarise.SpatVector()} and \code{summarize.SpatVector()} are synonyms
+\code{summarise.SpatVector()} and \code{summarize.SpatVector()} are synonyms.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -87,7 +87,7 @@ gr_v <- v |>
   mutate(start_with_s = startsWith(name, "S")) |>
   group_by(start_with_s)
 
-# Dissolving
+# Dissolve geometries.
 diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
@@ -96,11 +96,11 @@ diss
 autoplot(diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Dissolved")
 
-# Not dissolving
+# Keep geometries separate.
 no_diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 
-# Same statistic
+# Same statistic.
 no_diss
 
 autoplot(no_diss, aes(fill = start_with_s)) +

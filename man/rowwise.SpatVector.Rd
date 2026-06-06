@@ -11,8 +11,8 @@
 \item{data}{A \code{SpatVector} object. See \strong{Methods}.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
-preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
-of variables whose combination uniquely identifies each row. See
+preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set of
+variables whose combination uniquely identifies each row. See
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
 \strong{NB}: unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} you cannot create new variables
@@ -70,7 +70,7 @@ nb |>
 
 # Additional examples
 \donttest{
-# use c_across() to more easily select many variables
+# Use c_across() to select many variables more easily.
 nb |>
   rowwise() |>
   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
@@ -81,7 +81,7 @@ nb |>
   rowwise() |>
   mutate(min = min(c_across(NWBIR74:NWBIR79)))
 
-# Summarising
+# Summarize.
 v |>
   rowwise() |>
   summarise(mean_bir = mean(BIR74, BIR79)) |>

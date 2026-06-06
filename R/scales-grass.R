@@ -27,7 +27,7 @@
 #' @details
 #' Some palettes are mapped by default to a specific range of values (see
 #' [grass_db]). Set `use_grass_range = FALSE` to map the color scales to the
-#' range of values of the `color/fill` aesthetics. See **Examples**.
+#' range of values of the `fill/colour` aesthetics. See **Examples**.
 #'
 #' When passing the `limits` argument, the colors are restricted to those
 #' specified by this argument, keeping the distribution of the palette. You can
@@ -63,7 +63,7 @@
 #'   The default (`TRUE`) removes unused factors.
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
-#'   [grass_db] for more info.
+#'   [grass_db] for more information.
 #'
 #' @param use_grass_range Logical. If `TRUE`, use the suggested range when
 #'   plotting. See **Details**.
@@ -85,6 +85,7 @@
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System
 #' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
 #' <https://grass.osgeo.org>.
+#'
 #'
 #' @examples
 #' \donttest{
@@ -438,8 +439,8 @@ grass_scale_params <- function(
   if (!palette %in% coltab$pal) {
     cli::cli_abort(
       paste(
-        "{.arg palette} {.val palette} is not a known palette.",
-        "See {.help tidyterra::grass_db}"
+        "{.arg palette} {.val {palette}} is not a known palette.",
+        "See {.help tidyterra::grass_db}."
       ),
       call = call
     )

@@ -38,7 +38,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
    \code{byg} \tab General \tab Blue through yellow to green \tab  \cr
    \code{byr} \tab General \tab Blue through yellow to red \tab  \cr
    \code{celsius} \tab General \tab Blue to red for Celsius temperatures \tab -80 to 80 \cr
-   \code{corine} \tab Land Cover \tab EU Corine land cover colors \tab 111 to 995 \cr
+   \code{corine} \tab Land cover \tab EU Corine land cover colors \tab 111 to 995 \cr
    \code{curvature} \tab General \tab Terrain curvature colors \tab -0.1 to 0.1 \cr
    \code{differences} \tab General \tab Difference-oriented colors \tab  \cr
    \code{elevation} \tab Topography \tab Relative raster values mapped to an elevation color ramp \tab  \cr
@@ -57,7 +57,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
    \code{magma} \tab General \tab Perceptually uniform sequential color table, magma \tab  \cr
    \code{ndvi} \tab Natural \tab Normalized Difference Vegetation Index colors \tab -1 to 1 \cr
    \code{ndwi} \tab Natural \tab Normalized Difference Water Index colors \tab -200 to 200 \cr
-   \code{nlcd} \tab Land Cover \tab US National Land Cover Dataset colors \tab 0 to 95 \cr
+   \code{nlcd} \tab Land cover \tab US National Land Cover Dataset colors \tab 0 to 95 \cr
    \code{oranges} \tab General \tab White to orange \tab  \cr
    \code{plasma} \tab General \tab Perceptually uniform sequential color table, plasma \tab  \cr
    \code{population} \tab Human \tab Human population classification breaks \tab 0 to 1000000 \cr
@@ -73,7 +73,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
    \code{ryb} \tab General \tab Red through yellow to blue \tab  \cr
    \code{ryg} \tab General \tab Red through yellow to green \tab  \cr
    \code{sepia} \tab General \tab Yellowish-brown to white \tab  \cr
-   \code{slope} \tab General \tab r.slope.aspect-style slope colors for raster values from 0 to 90 \tab 0 to 90 \cr
+   \code{slope} \tab General \tab \code{r.slope.aspect}-style slope colors for raster values from 0 to 90 \tab 0 to 90 \cr
    \code{soilmoisture} \tab Natural \tab Soil moisture color table, 0.0 to 1.0 \tab 0 to 1 \cr
    \code{srtm} \tab Topography \tab Shuttle Radar Topography Mission elevation colors \tab -11000 to 8850 \cr
    \code{srtm_plus} \tab Topography \tab Shuttle Radar Topography Mission elevation colors with seafloor colors \tab -11000 to 8850 \cr

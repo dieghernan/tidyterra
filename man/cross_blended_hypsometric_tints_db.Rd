@@ -22,8 +22,8 @@ fields:
 Derived from:
 \itemize{
 \item Patterson, T., & Jenny, B. (2011). The Development and Rationale of
-Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69),
-31-46. \doi{10.14714/CP69.20}.
+Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69), 31-46.
+\doi{10.14714/CP69.20}.
 }
 }
 \description{

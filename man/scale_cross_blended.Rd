@@ -27,8 +27,8 @@
 \source{
 \itemize{
 \item Patterson, T., & Jenny, B. (2011). The Development and Rationale of
-Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69), 31 -
-46. \doi{10.14714/CP69.20}.
+Cross-blended Hypsometric Tints. \emph{Cartographic Perspectives,} (69), 31-46.
+\doi{10.14714/CP69.20}.
 \item Patterson, T. (2004). \emph{Using Cross-blended Hypsometric Tints for
 Generalized Environmental Mapping.} Online, Accessed June 10, 2022.
 }
@@ -157,8 +157,8 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-\link{cross_blended_hypsometric_tints_db} for more info. The available values
-are listed below.
+\link{cross_blended_hypsometric_tints_db} for more information. The available
+values are listed below.
 \code{"arid"}, \code{"cold_humid"}, \code{"polar"}, \code{"warm_humid"}.}
 
 \item{...}{

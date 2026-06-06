@@ -4,7 +4,7 @@
       ggplot2::ggplot() + geom_spatraster_rgb(data = cyl)
     Condition
       Error in `geom_spatraster_rgb()`:
-      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster_rgb()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::rast()`.
 
 ---
 

@@ -90,7 +90,7 @@ grass.colors(n, palette = "viridis", alpha = 1, rev = FALSE)
 \arguments{
 \item{palette}{A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-\link{grass_db} for more info.}
+\link{grass_db} for more information.}
 
 \item{...}{
   Arguments passed on to \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale}}, \code{\link[ggplot2:continuous_scale]{ggplot2::continuous_scale}}, \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale}}
@@ -225,7 +225,7 @@ by \code{\link[terra:plot]{terra::plot()}} in \CRANpkg{terra} versions above 1.7
 \details{
 Some palettes are mapped by default to a specific range of values (see
 \link{grass_db}). Set \code{use_grass_range = FALSE} to map the color scales to the
-range of values of the \code{color/fill} aesthetics. See \strong{Examples}.
+range of values of the \code{fill/colour} aesthetics. See \strong{Examples}.
 
 When passing the \code{limits} argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You can

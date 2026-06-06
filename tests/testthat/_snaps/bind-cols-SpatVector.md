@@ -38,5 +38,5 @@
     Output
       <error/rlang_error>
       Error in `bind_spat_cols()`:
-      ! Object 1 in `...` is not a <SpatVector>
+      ! Object 1 in `...` is not a <SpatVector>.
 

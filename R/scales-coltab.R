@@ -148,14 +148,14 @@ get_coltab_pal <- function(x) {
     cli::cli_alert_info(paste(
       "{.fun tidyterra::get_coltab_pal} only works with",
       "{.cls SpatRaster} objects, not {.cls {class(x)}}.",
-      "Returning {.field NULL}"
+      "Returning {.val NULL}."
     ))
     return(NULL)
   }
 
   if (!any(terra::has.colors(x))) {
     cli::cli_alert_info(
-      "{.arg x} does not have a color table. Returning {.field NULL}",
+      "{.arg x} does not have a color table. Returning {.val NULL}.",
     )
     return(NULL)
   }

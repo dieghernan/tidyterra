@@ -15,13 +15,13 @@ DEM for LiDAR data from the Auckland region captured in 2013. The original
 data has been downsampled to a resolution of 5 m due to disk space
 constraints.
 
-Data License: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
+Data license: \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}.
 }
 \description{
-Probably you already know the \link{volcano} dataset. This dataset provides
-updated information of Maungawhau (Mt. Eden) from
+You may already know the \link{volcano} dataset. This dataset provides updated
+information for Maungawhau (Mt. Eden) from
 \href{https://data.linz.govt.nz/}{Toitu Te Whenua Land Information New Zealand},
-the Government's agency that provides free online access to New Zealand's
+the government agency that provides free online access to New Zealand's
 most up-to-date land and seabed data.
 }
 \note{

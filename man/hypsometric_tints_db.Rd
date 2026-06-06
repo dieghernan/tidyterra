@@ -22,9 +22,9 @@ cpt-city: \url{https://phillips.shef.ac.uk/pub/cpt-city/}.
 }
 \description{
 A \link[tibble:tbl_df]{tibble} including the color map of
-33 gradient palettes. All the
-palettes. It also includes a definition of color limits in terms of
-elevation (meters) that can be used with \code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
+33 gradient palettes. Each palette
+also includes a definition of color limits in terms of elevation (meters)
+that can be used with \code{\link[ggplot2:scale_fill_gradientn]{ggplot2::scale_fill_gradientn()}}.
 }
 \examples{
 \donttest{

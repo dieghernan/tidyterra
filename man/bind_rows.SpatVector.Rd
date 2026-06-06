@@ -62,7 +62,7 @@ v2 <- v[3:5, c("name", "iso2")]
 bind_spat_rows(v1, v2)
 
 # When you supply a column name with the `.id` argument, a new
-# column is created to link each row to its original data frame
+# A column is created to link each row to its original data frame.
 bind_spat_rows(v1, v2, .id = "id")
 
 \donttest{

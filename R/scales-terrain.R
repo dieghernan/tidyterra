@@ -1,4 +1,4 @@
-#' Terrain colour scales from \pkg{grDevices}
+#' Terrain color scales from \pkg{grDevices}
 #'
 #' @description
 #'

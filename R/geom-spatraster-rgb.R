@@ -111,7 +111,7 @@ geom_spatraster_rgb <- function(
   if (terra::nlyr(data) > 3) {
     cli::cli_alert_warning(paste(
       "{.arg data} has {terra::nlyr(data)} layer{?s}.",
-      "Selecting layers {c(r,g,b)}."
+      "Selecting layers {.val {c(r, g, b)}}."
     ))
   }
 
@@ -165,8 +165,7 @@ geom_spatraster_rgb <- function(
 
   # From `ggspatial`.
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
-  # scales. This mimics using the first layer CRS as the base CRS for
-  # `coord_sf()`.
+  # scales. Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(

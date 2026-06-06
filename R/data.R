@@ -2,10 +2,10 @@
 #'
 #' @description
 #'
-#' Probably you already know the [volcano] dataset. This dataset provides
-#' updated information of Maungawhau (Mt. Eden) from
+#' You may already know the [volcano] dataset. This dataset provides updated
+#' information for Maungawhau (Mt. Eden) from
 #' [Toitu Te Whenua Land Information New Zealand](https://data.linz.govt.nz/),
-#' the Government's agency that provides free online access to New Zealand's
+#' the government agency that provides free online access to New Zealand's
 #' most up-to-date land and seabed data.
 #'
 #' @name volcano2
@@ -35,7 +35,7 @@
 #' data has been downsampled to a resolution of 5 m due to disk space
 #' constraints.
 #'
-#' Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+#' Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 #'
 #' @examples
 #'
@@ -67,9 +67,9 @@ NULL
 #'
 #' @description
 #' A [tibble][tibble::tbl_df] including the color map of
-#' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. All the
-#' palettes. It also includes a definition of color limits in terms of
-#' elevation (meters) that can be used with [ggplot2::scale_fill_gradientn()].
+#' `r length(unique(hypsometric_tints_db$pal))` gradient palettes. Each palette
+#' also includes a definition of color limits in terms of elevation (meters)
+#' that can be used with [ggplot2::scale_fill_gradientn()].
 #'
 #' @name hypsometric_tints_db
 #' @docType data
@@ -169,9 +169,10 @@ NULL
 #' @source
 #'
 #' Derived from:
+#'
 #' - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
-#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-#'   31-46. \doi{10.14714/CP69.20}.
+#'   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69), 31-46.
+#'   \doi{10.14714/CP69.20}.
 #'
 #' @examples
 #' \donttest{
@@ -245,16 +246,7 @@ NULL
 #'
 #' [terra::map.pal()]
 #'
-#' @source
-#'
-#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
-#' also [r.color - GRASS GIS
-#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
-#'
-#' @references
-#' GRASS Development Team (2024). *Geographic Resources Analysis Support System
-#' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
-#' <https://grass.osgeo.org>.
+#' @inherit scale_grass source references
 #'
 #' @examples
 #' \donttest{

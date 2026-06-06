@@ -4,7 +4,7 @@
       ggplot() + geom_spatraster_contour_filled(data = v)
     Condition
       Error in `geom_spatraster_contour_filled()`:
-      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <SpatVector>. See `?terra::rast()`.
 
 ---
 
@@ -12,7 +12,7 @@
       ggplot() + geom_spatraster_contour_filled(data = 1:3)
     Condition
       Error in `geom_spatraster_contour_filled()`:
-      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <integer>. See `?terra::vect()`.
+      ! `tidyterra::geom_spatraster_contour_filled()` only works with <SpatRaster> objects, not <integer>. See `?terra::rast()`.
 
 ---
 
