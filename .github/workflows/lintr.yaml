@@ -63,6 +63,7 @@ jobs:
         extra-packages: |
           local::.
           any::lintr
+          any::jsonlite
 
     - name: Run lintr
       run: |
@@ -80,3 +81,144 @@ jobs:
       with:
         sarif_file: lintr-results.sarif
         wait-for-processing: true
+        
+    - name: Install jarl
+      uses: etiennebacher/setup-jarl@v0.1.1
+      continue-on-error: true
+      with:
+        args: "--version"
+
+    - name: Run jarl
+      run: |
+        jarl check . --output-format json > jarl-results.json
+      continue-on-error: true
+
+    - name: Convert jarl results to SARIF
+      run: |
+        library(jsonlite)
+
+        `%||%` <- function(x, y) {
+          if (is.null(x) || length(x) == 0) y else x
+        }
+
+        as_sarif_uri <- function(path) {
+          path <- gsub("\\\\", "/", path)
+          path <- sub("^\\./", "", path)
+          path
+        }
+
+        as_file_uri <- function(path) {
+          path <- normalizePath(path, winslash = "/", mustWork = FALSE)
+          if (.Platform$OS.type == "windows") {
+            paste0("file:///", path, "/")
+          } else {
+            paste0("file://", path, "/")
+          }
+        }
+
+        jarl <- fromJSON("jarl-results.json", simplifyVector = FALSE)
+        diagnostics <- jarl$diagnostics %||% list()
+
+        rule_ids <- unique(vapply(
+          diagnostics,
+          function(x) x$message$name %||% "jarl",
+          character(1)
+        ))
+
+        rules <- lapply(rule_ids, function(id) {
+          diagnostic <- diagnostics[[match(
+            id,
+            vapply(
+              diagnostics,
+              function(x) x$message$name %||% "jarl",
+              character(1)
+            )
+          )]]
+
+          list(
+            id = id,
+            fullDescription = list(
+              text = diagnostic$message$body %||% id
+            ),
+            help = list(
+              text = diagnostic$message$suggestion %||% ""
+            ),
+            defaultConfiguration = list(
+              level = "warning"
+            )
+          )
+        })
+
+        rule_index <- setNames(seq_along(rule_ids) - 1L, rule_ids)
+
+        results <- lapply(diagnostics, function(x) {
+          id <- x$message$name %||% "jarl"
+
+          msg <- paste(
+            c(
+              x$message$body %||% id,
+              if (!is.null(x$message$suggestion)) {
+                paste("Suggestion:", x$message$suggestion)
+              }
+            ),
+            collapse = "\n"
+          )
+
+          list(
+            ruleId = id,
+            ruleIndex = unname(rule_index[[id]]),
+            message = list(text = msg),
+            locations = list(
+              list(
+                physicalLocation = list(
+                  artifactLocation = list(
+                    uri = as_sarif_uri(x$filename %||% ""),
+                    uriBaseId = "ROOTPATH"
+                  ),
+                  region = list(
+                    startLine = max(1L, x$location$row %||% 1L),
+                    startColumn = max(1L, x$location$column %||% 1L)
+                  )
+                )
+              )
+            )
+          )
+        })
+
+        sarif <- list(
+          `$schema` = "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+          version = "2.1.0",
+          runs = list(
+            list(
+              tool = list(
+                driver = list(
+                  name = "jarl",
+                  informationUri = "https://jarl.etiennebacher.com/",
+                  rules = rules
+                )
+              ),
+              columnKind = "utf16CodeUnits",
+              originalUriBaseIds = list(
+                ROOTPATH = list(
+                  uri = as_file_uri(getwd())
+                )
+              ),
+              results = results
+            )
+          )
+        )
+
+        write_json(
+          sarif,
+          "jarl-results.sarif",
+          auto_unbox = TRUE,
+          pretty = TRUE
+        )
+      shell: Rscript {0}
+
+    - name: Upload analysis results to GitHub
+      uses: github/codeql-action/upload-sarif@v4
+      with:
+        sarif_file: jarl-results.sarif
+        wait-for-processing: true
+
