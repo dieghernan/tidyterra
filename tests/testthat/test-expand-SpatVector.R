@@ -8,5 +8,5 @@ test_that("expand() returns attribute combinations as a tibble", {
 
   expect_s3_class(out, "tbl_df")
   expect_false(inherits(out, "SpatVector"))
-  expect_equal(names(out), c("grp", "cpro"))
+  expect_named(out, c("grp", "cpro"))
 })

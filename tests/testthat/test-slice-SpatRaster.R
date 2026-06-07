@@ -591,7 +591,7 @@ test_that("Slice RowCols", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(!any(sort(unique(df$colindex)) %in% -cls))
+  expect_false(any(sort(unique(df$colindex)) %in% -cls))
   expect_true(all(sort(unique(df$rowindex)) == rws))
 
   # Mixed index: Keeps
@@ -606,6 +606,6 @@ test_that("Slice RowCols", {
 
   df <- terra::as.data.frame(sliced, na.rm = TRUE)
 
-  expect_true(!any(sort(unique(df$colindex)) %in% -cls))
+  expect_false(any(sort(unique(df$colindex)) %in% -cls))
   expect_true(all(sort(unique(df$rowindex)) == rws))
 })

@@ -17,7 +17,7 @@ test_that("make_safe_index iterates until make safe name", {
 
   nnames <- paste0("a_", sprintf("%03d", seq_len(ncol(df))))
   names(df) <- nnames
-  expect_identical(names(df), nnames)
+  expect_named(df, nnames)
 
   # Add a
   df_new <- cbind(df, data.frame(a = 1))

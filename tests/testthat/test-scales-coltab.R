@@ -22,7 +22,7 @@ test_that("Can extract a color table", {
   # Test equalities
   l <- pull(r, era) |> levels()
 
-  expect_identical(names(pal), l)
+  expect_named(pal, l)
 
   cls <- dplyr::bind_rows(terra::coltab(r))
   cats <- dplyr::bind_rows(terra::cats(r))
@@ -57,7 +57,7 @@ test_that("Can extract a color table on several layers", {
     unique() |>
     sort()
 
-  expect_identical(names(pal), c(l1, l2))
+  expect_named(pal, c(l1, l2))
 })
 
 test_that("Can extract several color tables on layers", {
@@ -191,7 +191,7 @@ test_that("Discrete scale color", {
   p2 <- p + scale_color_coltab(data = r)
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_color_coltab(data = r, alpha = -1), error = TRUE)
@@ -269,7 +269,7 @@ test_that("Discrete scale fill", {
   p2 <- p + scale_fill_coltab(data = r)
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_coltab(data = r, alpha = -1), error = TRUE)

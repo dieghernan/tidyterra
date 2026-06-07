@@ -148,7 +148,7 @@ test_that("transmute", {
     )
   )
 
-  expect_identical(terra::has.colors(d1), TRUE)
+  expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
   # transmute a new var with no coltab
@@ -161,7 +161,7 @@ test_that("transmute", {
     )
   )
 
-  expect_identical(terra::has.colors(d2), FALSE)
+  expect_false(terra::has.colors(d2))
 
   # Adding a new layer with different coltab
   newctb <- terra::rast(r)

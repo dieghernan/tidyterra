@@ -61,7 +61,7 @@ test_that("Tidy SpatRasters pivot", {
   fort <- tidy(r, pivot = TRUE)
 
   expect_equal(ncol(fort), 4)
-  expect_equal(names(fort), c("x", "y", "lyr", "value"))
+  expect_named(fort, c("x", "y", "lyr", "value"))
 
   # Can go back to SpatRaster
   back <- as_spatraster(fort)

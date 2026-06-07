@@ -8,7 +8,7 @@ test_that("Discrete scale", {
   p2 <- p + scale_fill_cross_blended_d()
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_cross_blended_d(alpha = -1), error = TRUE)
@@ -64,7 +64,7 @@ test_that("Discrete scale tint", {
   expect_snapshot(ggplot2::ggplot_build(perr), error = TRUE)
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_cross_blended_tint_d(alpha = -1), error = TRUE)
@@ -121,7 +121,7 @@ test_that("Continous scale", {
   p2 <- p + scale_fill_cross_blended_c()
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_cross_blended_c(alpha = -1), error = TRUE)
@@ -174,7 +174,7 @@ test_that("Continous scale tint", {
   p2 <- p + scale_fill_cross_blended_tint_c()
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_snapshot(
     perr <- p + scale_fill_cross_blended_tint_c(palette = "aa"),
@@ -244,7 +244,7 @@ test_that("Breaking scale", {
   p2 <- p_init + scale_fill_cross_blended_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 
@@ -307,7 +307,7 @@ test_that("Breaking scale tint", {
   p2 <- p_init + scale_fill_cross_blended_tint_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 
@@ -410,7 +410,7 @@ test_that("Discrete scale col", {
   p2 <- p + scale_colour_cross_blended_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_cross_blended_d()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -470,7 +470,7 @@ test_that("Discrete scale col tint", {
   p2 <- p + scale_colour_cross_blended_tint_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_cross_blended_tint_d()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -537,7 +537,7 @@ test_that("Continous scale col", {
   p2 <- p + scale_colour_cross_blended_c()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_cross_blended_c()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -597,7 +597,7 @@ test_that("Continous scale col tint", {
   p2 <- p + scale_colour_cross_blended_tint_c()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_cross_blended_tint_c()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -681,7 +681,7 @@ test_that("Breaking scale col", {
 
   expect_identical(mod, mod3)
 
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 
@@ -761,7 +761,7 @@ test_that("Breaking scale col tint", {
 
   expect_identical(mod, mod3)
 
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 

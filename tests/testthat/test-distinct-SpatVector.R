@@ -78,12 +78,12 @@ test_that("Name handling", {
     vall <- distinct(v),
     "with duplicated or reserved"
   ))
-  expect_identical(names(vall), c("x", "y", "geometry.1"))
+  expect_named(vall, c("x", "y", "geometry.1"))
 
   expect_message(vend <- distinct(v, geometry, .keep_all = TRUE))
   expect_equal(ncol(vend), ncol(v))
   expect_equal(nrow(vend), 1)
-  expect_identical(names(vend), c("x", "y", "geometry.1"))
+  expect_named(vend, c("x", "y", "geometry.1"))
 
   # Keep false
   expect_message(vend2 <- distinct(v, geometry, .keep_all = FALSE))
@@ -111,7 +111,7 @@ test_that("grouped distinct always includes group cols", {
   out <- df |>
     group_by(g) |>
     distinct(x)
-  expect_identical(names(out), c("g", "x"))
+  expect_named(out, c("g", "x"))
 })
 
 test_that("empty grouped distinct equivalent to empty ungrouped", {

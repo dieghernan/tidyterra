@@ -8,7 +8,7 @@ test_that("Discrete scale", {
   p2 <- p + scale_colour_cross_blended_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_colour_cross_blended_d(alpha = -1), error = TRUE)
@@ -105,7 +105,7 @@ test_that("Continous scale", {
   p2 <- p + scale_colour_cross_blended_c()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_colour_cross_blended_c(alpha = -1), error = TRUE)
@@ -179,12 +179,12 @@ test_that("Continous scale tint", {
 
   mod <- ggplot2::layer_data(p2)$colour
 
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Reverse
   p2_rev <- p + scale_colour_cross_blended_tint_c(direction = -1)
   mod_rev <- ggplot2::layer_data(p2_rev)$colour
-  expect_true(!any(mod_rev %in% mod))
+  expect_false(any(mod_rev %in% mod))
 
   # Alpha
   p2_alpha <- p + scale_colour_cross_blended_tint_c(alpha = 0.5)
@@ -195,7 +195,7 @@ test_that("Continous scale tint", {
   p3 <- p + scale_color_cross_blended_tint_c(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$colour
   expect_identical(mod_lims, mod)
-  expect_true(!any(mod_lims %in% init))
+  expect_false(any(mod_lims %in% init))
 
   # Modify also with values
   p4 <- p +
@@ -204,8 +204,8 @@ test_that("Continous scale tint", {
       limits = c(19, 27)
     )
   mod_values <- ggplot2::layer_data(p4)$colour
-  expect_true(!any(mod_values %in% mod_lims))
-  expect_true(!any(mod_values %in% mod))
+  expect_false(any(mod_values %in% mod_lims))
+  expect_false(any(mod_values %in% mod))
   expect_true(any(mod_values %in% init))
 })
 
@@ -226,7 +226,7 @@ test_that("Breaking scale", {
   p2 <- p_init + scale_colour_cross_blended_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 
@@ -309,12 +309,12 @@ test_that("Breaking scale tint", {
 
   mod <- ggplot2::layer_data(p2)$colour
 
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Reverse
   p2_rev <- p + scale_color_cross_blended_tint_b(direction = -1)
   mod_rev <- ggplot2::layer_data(p2_rev)$colour
-  expect_true(!any(mod_rev %in% mod))
+  expect_false(any(mod_rev %in% mod))
 
   # Alpha
   p2_alpha <- p + scale_colour_cross_blended_tint_b(alpha = 0.5)
@@ -325,7 +325,7 @@ test_that("Breaking scale tint", {
 
   p3 <- p + scale_colour_cross_blended_tint_b(limits = c(20, 26))
   mod_lims <- ggplot2::layer_data(p3)$colour
-  expect_true(!any(mod_lims %in% mod))
+  expect_false(any(mod_lims %in% mod))
   expect_false(all(mod_lims %in% init))
 
   # Modify also with values
@@ -335,9 +335,9 @@ test_that("Breaking scale tint", {
       limits = c(19, 27)
     )
   mod_values <- ggplot2::layer_data(p4)$colour
-  expect_true(!any(mod_values %in% mod_lims))
-  expect_true(!any(mod_values %in% mod))
-  expect_true(!any(mod_values %in% init))
+  expect_false(any(mod_values %in% mod_lims))
+  expect_false(any(mod_values %in% mod))
+  expect_false(any(mod_values %in% init))
 })
 
 

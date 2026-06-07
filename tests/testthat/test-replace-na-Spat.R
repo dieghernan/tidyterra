@@ -46,7 +46,7 @@ test_that("Replace NA with SpatVectors", {
 
   # No NAs in the dataframe
   df3 <- terra::as.data.frame(replaced3)
-  expect_true(!anyNA(df3))
+  expect_false(anyNA(df3))
 })
 
 

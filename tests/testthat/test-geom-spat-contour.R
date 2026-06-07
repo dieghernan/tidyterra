@@ -29,7 +29,7 @@ test_that("select_spatraster_layer subsets z aesthetic", {
 
   selected <- select_spatraster_layer(mapping, r)
 
-  expect_identical(names(selected$data), "elevation")
+  expect_named(selected$data, "elevation")
   expect_false("z" %in% names(selected$mapping))
   expect_true("colour" %in% names(selected$mapping))
   expect_error(select_spatraster_layer(ggplot2::aes(z = missing), r), "Layer")
