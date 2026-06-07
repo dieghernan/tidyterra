@@ -8,7 +8,7 @@ test_that("Discrete scale", {
   p2 <- p + scale_fill_wiki_d()
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_wiki_d(alpha = -1), error = TRUE)
@@ -39,7 +39,7 @@ test_that("Continous scale", {
   p2 <- p + scale_fill_wiki_c()
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   # Alpha
   expect_snapshot(p + scale_fill_wiki_c(alpha = -1), error = TRUE)
@@ -77,7 +77,7 @@ test_that("Breaking scale", {
   p2 <- p_init + scale_fill_wiki_b(breaks = br)
 
   mod <- ggplot2::layer_data(p2)$fill
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 
@@ -117,7 +117,7 @@ test_that("Discrete scale col", {
   p2 <- p + scale_colour_wiki_d()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_wiki_d()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -152,7 +152,7 @@ test_that("Continous scale col", {
   p2 <- p + scale_colour_wiki_c()
 
   mod <- ggplot2::layer_data(p2)$colour
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   p3 <- p + scale_color_wiki_c()
   mod3 <- ggplot2::layer_data(p3)$colour
@@ -201,7 +201,7 @@ test_that("Breaking scale col", {
 
   expect_identical(mod, mod3)
 
-  expect_true(!any(init %in% mod))
+  expect_false(any(init %in% mod))
 
   expect_true(length(unique(mod)) == 3)
 

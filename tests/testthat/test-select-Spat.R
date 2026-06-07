@@ -89,7 +89,7 @@ test_that("grouping variables preserved with a msg, unless already selected", {
   expect_snapshot({
     res <- select(df, x)
   })
-  expect_identical(names(res), c("g", "x"))
+  expect_named(res, c("g", "x"))
 
   df <- data.frame(a = 1, b = 2, c = 3)
   df <- terra::vect(df, geom = c("a", "b"), keepgeom = TRUE)

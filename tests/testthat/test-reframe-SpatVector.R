@@ -11,7 +11,7 @@ test_that("reframe() returns a SpatVector with repeated group geometries", {
   expect_s4_class(out, "SpatVector")
   expect_identical(pull_crs(out), pull_crs(v))
   expect_equal(nrow(out), 4)
-  expect_equal(names(out), c("grp", "value"))
+  expect_named(out, c("grp", "value"))
 })
 
 test_that("reframe() works with rowwise SpatVectors", {
@@ -25,7 +25,7 @@ test_that("reframe() works with rowwise SpatVectors", {
 
   expect_s4_class(out, "SpatVector")
   expect_equal(nrow(out), nrow(v) * 2)
-  expect_equal(names(out), "value")
+  expect_named(out, "value")
 })
 
 test_that("reframe() errors on .by with rowwise SpatVectors", {
@@ -49,7 +49,7 @@ test_that("reframe() works with .by on ungrouped SpatVectors", {
 
   expect_s4_class(out, "SpatVector")
   expect_equal(nrow(out), 4)
-  expect_equal(names(out), c("grp", "value"))
+  expect_named(out, c("grp", "value"))
 })
 
 test_that("reframe() works on ungrouped SpatVectors without .by", {
@@ -61,5 +61,5 @@ test_that("reframe() works on ungrouped SpatVectors without .by", {
 
   expect_s4_class(out, "SpatVector")
   expect_equal(nrow(out), 2)
-  expect_equal(names(out), "value")
+  expect_named(out, "value")
 })

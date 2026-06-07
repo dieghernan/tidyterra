@@ -64,7 +64,7 @@ test_that("grouping by constant adds column", {
 
   v1 <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
   grouped <- group_by(v1, "cyl") |> summarise(foo = dplyr::n())
-  expect_equal(names(grouped), c('"cyl"', "foo"))
+  expect_named(grouped, c('"cyl"', "foo"))
   expect_equal(nrow(grouped), 1L)
 })
 
@@ -103,7 +103,7 @@ test_that("mutate does not lose variables", {
   by_a <- summarise(by_ab, x = sum(x), .groups = "drop_last")
   by_a_quartile <- group_by(by_a, quartile = dplyr::ntile(x, 4))
 
-  expect_equal(names(by_a_quartile), c("a", "b", "x", "quartile"))
+  expect_named(by_a_quartile, c("a", "b", "x", "quartile"))
 })
 
 

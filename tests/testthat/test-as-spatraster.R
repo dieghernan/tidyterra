@@ -32,10 +32,10 @@ test_that("prepare_spatraster_cols separates coordinates and values", {
     xycols = 1:2
   )
 
-  expect_equal(names(prepared$xy_cols), c("x", "y"))
-  expect_equal(names(prepared$values), c("lyr1", "lyr2"))
+  expect_named(prepared$xy_cols, c("x", "y"))
+  expect_named(prepared$values, c("lyr1", "lyr2"))
   expect_equal(prepared$layer_names, c("elevation", "cover"))
-  expect_equal(names(prepared$x_arrange), c("x", "y", "lyr1", "lyr2"))
+  expect_named(prepared$x_arrange, c("x", "y", "lyr1", "lyr2"))
 })
 
 test_that("resolve_spatraster_crs uses valid input before attributes", {

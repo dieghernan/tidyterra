@@ -185,10 +185,10 @@ test_that("Coltab SpatRaster", {
 
 
 test_that("Test formats", {
-  expect_true(grepl("W", decimal_to_degrees(-79.890, "lon"), fixed = TRUE))
-  expect_true(grepl("E", decimal_to_degrees(79.890, "lon"), fixed = TRUE))
-  expect_true(grepl("S", decimal_to_degrees(-79.890, "lat"), fixed = TRUE))
-  expect_true(grepl("N", decimal_to_degrees(79.890, "lat"), fixed = TRUE))
+  expect_match(decimal_to_degrees(-79.890, "lon"), "W", fixed = TRUE)
+  expect_match(decimal_to_degrees(79.890, "lon"), "E", fixed = TRUE)
+  expect_match(decimal_to_degrees(-79.890, "lat"), "S", fixed = TRUE)
+  expect_match(decimal_to_degrees(79.890, "lat"), "N", fixed = TRUE)
 
   skip_on_cran()
   expect_snapshot(decimal_to_degrees(-79.890, "lon"))

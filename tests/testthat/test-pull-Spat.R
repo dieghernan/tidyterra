@@ -45,7 +45,7 @@ test_that("With SpatRaster", {
   expect_true(all(a == b, na.rm = TRUE))
 
   expect_true(length(unique(names(a))) > 0)
-  expect_true(is.null(unique(names(b))))
+  expect_null(unique(names(b)))
 })
 
 
@@ -70,7 +70,7 @@ test_that("With SpatVector", {
   # Check with geometries Named
   wktgeom <- pull(v, geometry, iso2, geom = "WKT")
 
-  expect_identical(names(wktgeom), pull(v, iso2))
+  expect_named(wktgeom, pull(v, iso2))
 
   thegeom <- terra::geom(v, wkt = TRUE)
   un_wktgeom <- unname(wktgeom)

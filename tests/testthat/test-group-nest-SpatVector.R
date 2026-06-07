@@ -7,7 +7,7 @@ test_that("group_nest() returns SpatVector list-columns", {
   out <- group_nest(v, grp)
 
   expect_s3_class(out, "tbl_df")
-  expect_equal(names(out), c("grp", "data"))
+  expect_named(out, c("grp", "data"))
   expect_true(all(vapply(out$data, inherits, logical(1), "SpatVector")))
 
   sv <- pull(out, data)

@@ -16,7 +16,7 @@ test_that("Test SpatRaster", {
   r2 <- r |> mutate(across(everything(), ~ cut(.x, c(0, 10, 12, 20))))
   expect_silent(p2 <- autoplot(r2))
   p_guide <- ggplot2::get_guide_data(p2, "fill")
-  expect_true(is.character(p_guide$.value))
+  expect_type(p_guide$.value, "character")
 
   # No facets
 
