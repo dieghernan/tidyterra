@@ -34,8 +34,8 @@ knitr:
 ---
 
 This page shows a [lightbox gallery](https://biati-digital.github.io/glightbox/)
-of maps created with the gradient fill scales included in **tidyterra**. A
-basic example for creating maps like these is:
+of maps created with the gradient fill scales included in **tidyterra**. A basic
+example for creating maps like these is:
 
 ```{r}
 #| eval: false

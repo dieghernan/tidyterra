@@ -57,18 +57,15 @@ knitr::opts_chunk$set(
 
 **tidyterra** is an **R** [@r-project] package that lets users manipulate
 spatial data objects provided by the **terra** package [@R-terra], using verbs
-from packages in the **tidyverse** [@R-tidyverse], such as **dplyr**
-[@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This makes spatial
-data manipulation and analysis more approachable for users already familiar
-with the **tidyverse**.
+from packages in the **tidyverse** [@R-tidyverse], such as **dplyr** [@R-dplyr],
+**tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This makes spatial data
+manipulation and analysis more approachable for users already familiar with the
+**tidyverse**.
 
 **tidyterra** also extends the functionality of the **ggplot2** package
 [@R-ggplot2] by providing additional geoms and stats[^1] like
 `geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
 and color palettes specifically designed for map production.
-
-[^1]: The term geoms refers to geometric objects and stats refers to
-    statistical transformations, following **ggplot2** naming conventions.
 
 **tidyterra** can manipulate the following classes of **terra** objects:
 
@@ -105,28 +102,25 @@ While other popular packages designed for spatial data handling, such as **sf**
 [@R-sf] or **stars** [@R-stars], already provide integration with the
 **tidyverse** as part of their infrastructure, **terra** objects lack this
 integration natively. Although **terra** offers a wide range of functions for
-transforming and plotting `SpatRaster` and `SpatVector` objects, some users
-who are not familiar with this package may need to make an additional effort
-to learn that syntax. This may imply an additional challenge during their
-initial steps in the field of spatial analysis.
+transforming and plotting `SpatRaster` and `SpatVector` objects, some users who
+are not familiar with this package may need to make an additional effort to
+learn that syntax. This may imply an additional challenge during their initial
+steps in the field of spatial analysis.
 
 The **tidyterra** package was developed to address this integration gap. By
-providing the corresponding S3 methods, users can apply the same syntax
-and functions they are already familiar with for rectangular data to the objects
+providing the corresponding S3 methods, users can apply the same syntax and
+functions they are already familiar with for rectangular data to the objects
 provided by **terra**. This enables users who are not familiar with spatial data
 analysis to approach this area more easily.
 
-In addition, **tidyterra** offers functions for plotting **terra** objects
-using the **ggplot2** syntax. Although packages like **rasterVis**
-[@R-rastervis] and **ggspatial** [@R-ggspatial] already support plotting
-`SpatRaster` objects with **ggplot2**, **tidyterra** functions provide
-additional support for advanced mapping. This support includes faceted maps,
-contours and automatic conversion of spatial layers to the same CRS[^2]
-through `ggplot2::coord_sf()`. **tidyterra** also provides support for
-`SpatVector` objects, similar to the native support of **sf** objects in
-**ggplot2**.
-
-[^2]: CRS stands for coordinate reference system.
+In addition, **tidyterra** offers functions for plotting **terra** objects using
+the **ggplot2** syntax. Although packages like **rasterVis** [@R-rastervis] and
+**ggspatial** [@R-ggspatial] already support plotting `SpatRaster` objects with
+**ggplot2**, **tidyterra** functions provide additional support for advanced
+mapping. This support includes faceted maps, contours and automatic conversion
+of spatial layers to the same CRS[^2] through `ggplot2::coord_sf()`.
+**tidyterra** also provides support for `SpatVector` objects, similar to the
+native support of **sf** objects in **ggplot2**.
 
 Finally, **tidyterra** provides a collection of color palettes specifically
 designed for representing spatial phenomena [@whitebox]. It also implements the
@@ -209,9 +203,9 @@ ggplot() +
 ```
 
 In the following example, we combine a common **dplyr** workflow (`mutate()` +
-`select()`) and plot the result. In this case, the plot is a contour plot of
-the original `SpatRaster` using `geom_spatraster_contour_filled()` and includes
-an overlay of a `SpatVector` for reference:
+`select()`) and plot the result. In this case, the plot is a contour plot of the
+original `SpatRaster` using `geom_spatraster_contour_filled()` and includes an
+overlay of a `SpatVector` for reference:
 
 ```{r}
 #| label: fig-ex2
@@ -242,25 +236,29 @@ ggplot() +
 The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
--   Details on each function, including the equivalent **terra** function when
-    available, for users who prefer to include those functions in their
-    workflows.
--   Working examples using the functions and creating plots.
--   Additional articles and vignettes and a complete demo of the
-    different color palettes included in the package (see
-    [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
+- Details on each function, including the equivalent **terra** function when
+  available, for users who prefer to include those functions in their workflows.
+- Working examples using the functions and creating plots.
+- Additional articles and vignettes and a complete demo of the different color
+  palettes included in the package (see
+  [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements {.appendix}
 
 I would like to thank [Robert J. Hijmans](https://github.com/rhijmans) for his
 advice and support in adapting some of the methods and for the suggestions that
-helped us improve the package features. I am also thankful to
-[Dewey Dunnington](https://dewey.dunnington.ca/), Brent Thorne and
-the rest of the contributors to the **ggspatial** package, which served as a key
-reference during the initial stages of the development of **tidyterra**.
+helped us improve the package features. I am also thankful to [Dewey
+Dunnington](https://dewey.dunnington.ca/), Brent Thorne and the rest of the
+contributors to the **ggspatial** package, which served as a key reference
+during the initial stages of the development of **tidyterra**.
 
 **tidyterra** also incorporates some pieces of code adapted from **ggplot2** for
 computing contours, which relies on the package **isoband** [@R-isoband]
 developed by [Claus O. Wilke](https://clauswilke.com/).
 
 ## References
+
+[^1]: The term geoms refers to geometric objects and stats refers to statistical
+    transformations, following **ggplot2** naming conventions.
+
+[^2]: CRS stands for coordinate reference system.

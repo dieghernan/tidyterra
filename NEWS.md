@@ -3,7 +3,10 @@
 This release adds tidyverse methods for `SpatVector` objects and includes
 documentation reviewed with explicit AI-assisted editing.
 
-- Package documentation was reviewed and updated with AI assistance, including roxygen2 comments, generated Rd files, documentation chunks, prose documentation, user-facing CLI messages and the snapshots affected by those message changes.
+- Package documentation was reviewed and updated with AI assistance, including
+  roxygen2 comments, generated Rd files, documentation chunks, prose
+  documentation, user-facing CLI messages and the snapshots affected by those
+  message changes.
 
 ## New methods
 

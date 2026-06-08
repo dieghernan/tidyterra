@@ -527,8 +527,7 @@ ggplot() +
 
 ## Use with **gganimate** {#gganimate}
 
-Yes. Here is an example, thanks to
-[\@frzambra](https://github.com/frzambra):
+Yes. Here is an example, thanks to [\@frzambra](https://github.com/frzambra):
 
 ```{r}
 #| label: gganimate
@@ -757,8 +756,8 @@ ggplot(r, aes(x, y, z = elevation)) +
   )
 ```
 
-You do not need to call `fortify.SpatRaster()` directly because
-**ggplot2** invokes it implicitly when you use `ggplot(data = a_spatraster)`.
+You do not need to call `fortify.SpatRaster()` directly because **ggplot2**
+invokes it implicitly when you use `ggplot(data = a_spatraster)`.
 
 Thanks to this extension mechanism, you can use additional geoms and stats from
 **ggplot2**:

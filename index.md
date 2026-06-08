@@ -76,7 +76,7 @@ depending on the type of `Spat*` object:
 
 - `SpatRaster`: methods can be applied to layers or cells.
   **tidyterra**’s overall approach is to treat the layers as columns of
-  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
+  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
   the first layer of a `SpatRaster`).
 
 Implemented methods return the same type of object as the input, unless

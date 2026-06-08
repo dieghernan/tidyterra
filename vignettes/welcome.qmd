@@ -23,9 +23,9 @@ vignette: >
 
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
-**tidyverse** verbs, especially **dplyr** and **tidyr** methods,
-**tidyterra** lets users manipulate `Spat*` objects in a style familiar from
-tabular data workflows.
+**tidyverse** verbs, especially **dplyr** and **tidyr** methods, **tidyterra**
+lets users manipulate `Spat*` objects in a style familiar from tabular data
+workflows.
 
 Note that **terra** is generally faster. Learning some **terra** syntax is
 recommended because **tidyterra** functions call the corresponding **terra**
@@ -54,7 +54,7 @@ library(tidyr)
 The following methods are available:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
-|---------------------|---------------------|--------------------------------------|
+|----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
 | `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
@@ -141,17 +141,17 @@ mod
 
 In this example we:
 
--   Removed the first layer (`tavg_04`).
--   Created a new layer `newcol` as the difference between `tavg_06` and
-    `tavg_05`.
--   Relocated `newcol` to be the first layer.
--   Replaced `NA` values in `newcol` with `3`.
--   Renamed `newcol` to `difference`.
+- Removed the first layer (`tavg_04`).
+- Created a new layer `newcol` as the difference between `tavg_06` and
+  `tavg_05`.
+- Relocated `newcol` to be the first layer.
+- Replaced `NA` values in `newcol` with `3`.
+- Renamed `newcol` to `difference`.
 
 Throughout these steps, core properties of the `SpatRaster` (number of cells,
-rows, columns, extent, resolution and CRS) remain unchanged. Other verbs
-such as `filter()`, `slice()` or `drop_na()` may alter these properties in a
-manner analogous to how row operations affect data frames.
+rows, columns, extent, resolution and CRS) remain unchanged. Other verbs such as
+`filter()`, `slice()` or `drop_na()` may alter these properties in a manner
+analogous to how row operations affect data frames.
 
 ### `SpatVector` objects
 

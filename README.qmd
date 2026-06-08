@@ -101,8 +101,8 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-The full manual for the latest release of **tidyterra** on **CRAN** is
-online: <https://dieghernan.github.io/tidyterra/>
+The full manual for the latest release of **tidyterra** on **CRAN** is online:
+<https://dieghernan.github.io/tidyterra/>
 
 **tidyverse** methods implemented in **tidyterra** work differently depending on
 the type of `Spat*` object:
@@ -111,10 +111,10 @@ the type of `Spat*` object:
   coercion. Rows correspond to geometries and columns correspond to attributes
   of each geometry.
 
-- `SpatRaster`: methods can be applied to layers or
-  cells. **tidyterra**'s overall approach is to treat the layers as columns of a
-  tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects the first
-  layer of a `SpatRaster`).
+- `SpatRaster`: methods can be applied to layers or cells. **tidyterra**'s
+  overall approach is to treat the layers as columns of a tibble and the cells
+  as rows (i.e. `select(SpatRaster, 1)` selects the first layer of a
+  `SpatRaster`).
 
 Implemented methods return the same type of object as the input, unless the
 method is expected to return another type of object. For example, `as_tibble()`
@@ -346,8 +346,7 @@ cat(
 )
 ```
 
-**tidyterra** provides scales for plotting hypsometric maps with
-**ggplot2**:
+**tidyterra** provides scales for plotting hypsometric maps with **ggplot2**:
 
 ```{r}
 #| label: hypso
