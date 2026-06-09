@@ -201,7 +201,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
       label_placer = label_placer
     )
   },
-  draw_key = ggplot2::draw_key_path,
+  draw_key = ggplot2::draw_key_path
 )
 
 # Helpers----

@@ -155,7 +155,7 @@ get_coltab_pal <- function(x) {
 
   if (!any(terra::has.colors(x))) {
     cli::cli_alert_info(
-      "{.arg x} does not have a color table. Returning {.val NULL}.",
+      "{.arg x} does not have a color table. Returning {.val NULL}."
     )
     return(NULL)
   }

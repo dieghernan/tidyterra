@@ -278,7 +278,7 @@ test_that("can override default keys, geometry sticky", {
     ~row, ~name, ~var, ~value,
     1, "Sam", "age", 10,
     2, "Sam", "height", 1.5,
-    3, "Bob", "age", 20,
+    3, "Bob", "age", 20
   )
 
   df$lat <- 1

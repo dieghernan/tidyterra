@@ -76,7 +76,7 @@ test_that("can handle missing combinations", {
   df <- tibble::tribble(
     ~id, ~x_1, ~x_2, ~y_2,
     "A",    1,    2, "a",
-    "B",    3,    4, "b",
+    "B",    3,    4, "b"
   )
   df$lat <- 1
   df$lon <- 1
@@ -114,7 +114,7 @@ test_that("original col order is preserved", {
   df <- tibble::tribble(
     ~id, ~z_1, ~y_1, ~x_1, ~z_2, ~y_2, ~x_2,
     "A",    1,    2,    3,    4,    5,    6,
-    "B",    7,    8,    9,   10,   11,   12,
+    "B",    7,    8,    9,   10,   11,   12
   )
   df$lat <- 1
   df$lon <- 1
