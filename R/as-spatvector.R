@@ -110,7 +110,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   # Convert a single geometry column to character and treat blanks as `NA`.
   if (length(geom) == 1) {
     val <- as.character(tbl[[geom]])
-    val[val == ""] <- NA
+    val[!nzchar(val)] <- NA
     tbl[[geom]] <- val
   }
 
@@ -140,7 +140,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   v <- terra::vect(tbl_end, geom = geom, crs = crs, ...)
 
   # Remove the CRS if none was supplied.
-  if (crs == "") {
+  if (!nzchar(crs)) {
     terra::crs(v) <- NULL
   }
 
@@ -242,7 +242,7 @@ as_spatvect_attr <- function(x) {
 
   gg <- as.character(x[["geometry"]])
 
-  gg[gg == ""] <- NA
+  gg[!nzchar(gg)] <- NA
 
   if (anyNA(gg)) {
     gtype <- tolower(attrs$geomtype)

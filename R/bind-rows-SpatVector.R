@@ -101,7 +101,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Named lists
   if (!is.null(names(dots))) {
     maybe_names <- names(dots)
-    maybe_names <- maybe_names[maybe_names != ""]
+    maybe_names <- maybe_names[nzchar(maybe_names)]
     maybe_names <- maybe_names[!is.na(maybe_names)]
     if (length(maybe_names) == length(named_list)) {
       named_list <- as.character(maybe_names)

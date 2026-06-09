@@ -67,7 +67,7 @@ glance.SpatRaster <- function(x, ...) {
 
   # Get source
   f <- unique(terra::sources(x))
-  f[f == ""] <- NA
+  f[!nzchar(f)] <- NA
 
   initial$source <- paste0(basename(f), collapse = ", ")
 
@@ -96,7 +96,7 @@ glance.SpatVector <- function(x, ...) {
 
   # Get source
   f <- unique(terra::sources(x))
-  f[f == ""] <- NA
+  f[!nzchar(f)] <- NA
 
   initial$source <- paste0(basename(f), collapse = ", ")
   # CRS

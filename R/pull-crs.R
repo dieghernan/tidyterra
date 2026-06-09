@@ -108,10 +108,8 @@ pull_crs <- function(.data, ...) {
     return(NA)
   }
 
-  if (inherits(.data, "character")) {
-    if (.data == "") {
-      return(NA)
-    }
+  if ((inherits(.data, "character")) && (!nzchar(.data))) {
+    return(NA)
   }
 
   # Characters and numerics are handled by sf

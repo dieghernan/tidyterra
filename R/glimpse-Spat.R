@@ -184,14 +184,14 @@ get_named_crs <- function(x) {
     }
   }
 
-  if (r == "") {
+  if (!nzchar(r)) {
     try <- unlist(strsplit(pulled, "\n"))[1]
     try <- unlist(strsplit(try, "[", fixed = TRUE))[[2]]
     try <- gsub('"|,$', "", try)
     r <- try
   }
 
-  if (is.na(r) || r == "" || is.null(r)) {
+  if (is.na(r) || !nzchar(r) || is.null(r)) {
     r <- NA # nocov
   }
 
