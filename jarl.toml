@@ -1,7 +1,7 @@
 [lint]
 ignore = ["implicit_assignment", "duplicated_arguments"]
 exclude = ["data-raw/"]
-extend-select = ["TESTTHAT"]
+extend-select = ["TESTTHAT", "DPLYR", "pipe_consistency", "unnecessary_nesting", "nzchar", "quotes", "fixed_regex"]
 check-roxygen = true
 fix-roxygen = true
 
@@ -10,3 +10,6 @@ operator = "<-"
 
 [lint.quotes]
 quote = "double"
+
+[lint.pipe_consistency]
+pipe = "|>"
