@@ -10,6 +10,3 @@ operator = "<-"
 
 [lint.quotes]
 quote = "double"
-
-[lint.pipe_consistency]
-pipe = "|>"
