@@ -1,14 +1,13 @@
-#' Discrete scales based in the color table of a `SpatRaster`
+#' Discrete scales based on `SpatRaster` color tables
 #'
 #' @description
 #'
 #' Some categorical `SpatRaster` objects may have an associated color table.
-#' This function extract those values. These functions generates scales and
-#' vector of colors based on the color table [terra::coltab()] associated to a
-#' `SpatRaster`.
+#' These functions generate scales and color vectors based on the color table
+#' from [terra::coltab()] associated with a `SpatRaster`.
 #'
-#' You can also get a vector of colors named with the corresponding
-#' factor with [get_coltab_pal()].
+#' You can also get a vector of colors named with the corresponding factor with
+#' [get_coltab_pal()].
 #'
 #' Additional arguments `...` are passed to
 #' [ggplot2::discrete_scale()].
@@ -49,7 +48,7 @@
 #'
 #' plot(r)
 #'
-#' # Get coltab
+#' # Get the color table palette.
 #' coltab_pal <- get_coltab_pal(r)
 #'
 #' coltab_pal
@@ -64,7 +63,7 @@
 #' # Default plot
 #' gg
 #'
-#' # With coltabs
+#' # With color tables
 #' gg +
 #'   scale_fill_coltab(data = r)
 #' }
@@ -86,7 +85,7 @@ scale_fill_coltab <- function(
   }
 
   if (isTRUE(na.translate)) {
-    # Unname
+    # Drop names so `NA` handling follows ggplot2's manual scale behavior.
     getcols <- unname(getcols)
   }
 
@@ -121,7 +120,7 @@ scale_colour_coltab <- function(
   }
 
   if (isTRUE(na.translate)) {
-    # Unname
+    # Drop names so `NA` handling follows ggplot2's manual scale behavior.
     getcols <- unname(getcols)
   }
 
@@ -159,11 +158,11 @@ get_coltab_pal <- function(x) {
     )
     return(NULL)
   }
-  # Complete layers with no coltabs
+  # Fill missing color tables before extracting labels.
   iter <- seq_len(terra::nlyr(x))[!terra::has.colors(x)]
   if (length(iter) > 0 && min(iter) > 0) {
     for (h in iter) {
-      # Assign coltab
+      # Assign a generated color table.
       tmpr <- terra::subset(x, h)
       vals <- as.factor(pull(tmpr))
       terra::values(tmpr) <- vals
@@ -175,18 +174,18 @@ get_coltab_pal <- function(x) {
       )))
       coltbend <- cbind(df[, 1], coltb)
       terra::coltab(tmpr) <- coltbend
-      # Substitute layer
+      # Replace the layer with its color-table version.
       x[[h]] <- tmpr
     }
   }
 
   lcats <- terra::cats(x)
-  # Get active cats by layer
+  # Get active categories by layer.
   actcats <- lapply(seq_len(terra::nlyr(x)), function(p) {
     terra::activeCat(x[[p]])
   })
 
-  # Prepare data frame with categories
+  # Prepare category data frames.
   lcats <- lapply(seq_len(terra::nlyr(x)), function(i) {
     i_df <- lcats[[i]]
     if (is.null(i_df)) {
@@ -199,7 +198,7 @@ get_coltab_pal <- function(x) {
     df
   })
 
-  # Add seq to names
+  # Add a sequence suffix to layer names.
   nm <- paste0(names(x), "_", seq_len(terra::nlyr(x)))
 
   names(lcats) <- nm

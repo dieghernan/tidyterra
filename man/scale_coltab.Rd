@@ -6,7 +6,7 @@
 \alias{scale_fill_coltab}
 \alias{scale_colour_coltab}
 \alias{get_coltab_pal}
-\title{Discrete scales based in the color table of a \code{SpatRaster}}
+\title{Discrete scales based on \code{SpatRaster} color tables}
 \usage{
 scale_fill_coltab(
   data,
@@ -105,12 +105,11 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 }
 \description{
 Some categorical \code{SpatRaster} objects may have an associated color table.
-This function extract those values. These functions generates scales and
-vector of colors based on the color table \code{\link[terra:coltab]{terra::coltab()}} associated to a
-\code{SpatRaster}.
+These functions generate scales and color vectors based on the color table
+from \code{\link[terra:coltab]{terra::coltab()}} associated with a \code{SpatRaster}.
 
-You can also get a vector of colors named with the corresponding
-factor with \code{\link[=get_coltab_pal]{get_coltab_pal()}}.
+You can also get a vector of colors named with the corresponding factor with
+\code{\link[=get_coltab_pal]{get_coltab_pal()}}.
 
 Additional arguments \code{...} are passed to
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
@@ -128,7 +127,7 @@ r <- rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
 
 plot(r)
 
-# Get coltab
+# Get the color table palette.
 coltab_pal <- get_coltab_pal(r)
 
 coltab_pal
@@ -143,7 +142,7 @@ gg <- ggplot() +
 # Default plot
 gg
 
-# With coltabs
+# With color tables
 gg +
   scale_fill_coltab(data = r)
 }

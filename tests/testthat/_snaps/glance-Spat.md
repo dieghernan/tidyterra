@@ -137,7 +137,7 @@
       # A tibble: 1 x 16
          nrow  ncol  nlyr ncell  xres  yres  xmin  xmax  ymin  ymax crs      crs_units
         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <chr>    <lgl>    
-      1   180   360     1 64800     1     1  -180   180   -90    90 CRS: No~ NA       
+      1   180   360     1 64800     1     1  -180   180   -90    90 CRS: no~ NA       
       # i 4 more variables: source <chr>, has_rgb <lgl>, has_colors <lgl>,
       #   has_time <lgl>
 
@@ -149,7 +149,7 @@
       # A tibble: 1 x 10
         geometry  nrow  ncol  xmin  xmax  ymin  ymax source crs              crs_units
         <chr>    <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <chr>  <chr>            <lgl>    
-      1 points   64800     1 -180.  180. -89.5  89.5 NA     CRS: Not Define~ NA       
+      1 points   64800     1 -180.  180. -89.5  89.5 NA     CRS: not define~ NA       
 
 ---
 
@@ -159,7 +159,7 @@
       # A tibble: 1 x 16
          nrow  ncol  nlyr ncell  xres  yres  xmin  xmax  ymin  ymax crs      crs_units
         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <chr>    <lgl>    
-      1     4     3     1    12     1     1     0     3     0     4 CRS: No~ NA       
+      1     4     3     1    12     1     1     0     3     0     4 CRS: no~ NA       
       # i 4 more variables: source <chr>, has_rgb <lgl>, has_colors <lgl>,
       #   has_time <lgl>
 

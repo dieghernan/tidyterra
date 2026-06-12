@@ -262,7 +262,7 @@ scale_colour_princess_b <- function(
 #'
 #' pals <- unique(princess_db$pal)
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))

@@ -5,7 +5,7 @@
     Message
       i Layer(s) with duplicated or reserved names detected. See About layer/column
       names section on `tidyterra::as_tibble.SpatRaster()`
-      ! Renaming columns:
+      ! Renaming columns and layers:
     Output
       * `a` -> `a.1`
 
@@ -16,7 +16,7 @@
     Message
       i Layer(s) with duplicated or reserved names detected. See About layer/column
       names section on `tidyterra::as_tibble.SpatRaster()`
-      ! Renaming columns:
+      ! Renaming columns and layers:
     Output
       * `x` -> `x.1`
       * `x` -> `x.2`

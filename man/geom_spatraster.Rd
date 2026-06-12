@@ -61,8 +61,8 @@ combining with them.}
 the plot.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
-an associated \link[terra:coltab]{coltab}. If \code{TRUE}, use the coltab on the
-plot. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+an associated color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{TRUE}, use that
+color table on the plot. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
@@ -145,7 +145,7 @@ adjust the scales. That means that also the
 
 If \code{fill} is not provided, \code{geom_spatraster()} creates a
 \CRANpkg{ggplot2} layer with all the layers of the \code{SpatRaster}
-object. Use \code{facet_wrap(~lyr)} to properly display the \code{SpatRaster}
+object. Use \code{facet_wrap(~lyr)} to display the \code{SpatRaster}
 layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present

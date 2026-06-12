@@ -276,7 +276,7 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
       ),
       wrap = TRUE
     )
-    cli::cli_alert_warning("Renaming columns:")
+    cli::cli_alert_warning("Renaming columns and layers:")
   }
   if (geom == "XY") {
     names_with_coords <- c("x", "y", init_names)
@@ -341,7 +341,7 @@ check_regroups <- function(x) {
       return(dplyr::group_by(ung, across_all_of(regroup_vars)))
     }
 
-    # Check rows have been kept
+    # Check that rows have been kept.
     dif_rows <- all(sum(group_size(x)) == nrow(x))
 
     if (isFALSE(dif_rows)) {
@@ -359,7 +359,7 @@ check_regroups <- function(x) {
     # Rowwise data does not need grouping variables here.
 
     if (identical(gvars, character(0))) {
-      # Check rows have been kept
+      # Check that rows have been kept.
       dif_rows <- all(sum(group_size(x)) == nrow(x))
 
       if (isFALSE(dif_rows)) {
@@ -390,7 +390,7 @@ check_regroups <- function(x) {
       return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
     }
 
-    # Check rows have been kept
+    # Check that rows have been kept.
     dif_rows <- all(sum(group_size(x)) == nrow(x))
 
     if (isFALSE(dif_rows)) {

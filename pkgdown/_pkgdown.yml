@@ -47,7 +47,7 @@ template:
 
 home:
   title: >
-    tidyterra | tidyverse methods and ggplot2 geoms for terra objects
+    tidyterra | tidyverse methods and ggplot2 helpers for terra objects
 
 reference:
 - title: "**tibble** methods"

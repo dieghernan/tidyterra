@@ -11,20 +11,13 @@
 #' @name volcano2
 #' @docType data
 #'
-#' @format
-#' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
-#' value is the corresponding altitude in meters.
-#'
 #' @seealso [volcano]
 #'
 #' @family datasets
 #'
-#' @note
-#' Information needed for regenerating the original `SpatRaster` file:
-#' - resolution: `c(5, 5)`
-#' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
-#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
-#'   2000 (`EPSG:2193`)
+#' @format
+#' A matrix of `r dim(volcano2)[1]` rows and `r dim(volcano2)[2]` columns. Each
+#' value is the corresponding altitude in meters.
 #'
 #' @source
 #'
@@ -36,6 +29,13 @@
 #' constraints.
 #'
 #' Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+#'
+#' @note
+#' Information needed for regenerating the original `SpatRaster` file:
+#' - resolution: `c(5, 5)`
+#' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
+#' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
+#'   2000 (`EPSG:2193`)
 #'
 #' @examples
 #'
@@ -74,6 +74,10 @@ NULL
 #' @name hypsometric_tints_db
 #' @docType data
 #'
+#' @seealso [scale_fill_hypso_c()]
+#'
+#' @family datasets
+#'
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(hypsometric_tints_db)` rows and
 #' `r ncol(hypsometric_tints_db)` columns with the following fields:
@@ -86,10 +90,6 @@ NULL
 #'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{Hex code of the color.}
 #' }
-#'
-#' @seealso [scale_fill_hypso_c()]
-#'
-#' @family datasets
 #'
 #' @source
 #' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
@@ -148,6 +148,10 @@ NULL
 #' @name cross_blended_hypsometric_tints_db
 #' @docType data
 #'
+#' @seealso [scale_fill_cross_blended_c()]
+#'
+#' @family datasets
+#'
 #' @format
 #' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
 #' `r ncol(cross_blended_hypsometric_tints_db)` columns with the following
@@ -161,10 +165,6 @@ NULL
 #'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{Hex code of the color.}
 #' }
-#'
-#' @seealso [scale_fill_cross_blended_c()]
-#'
-#' @family datasets
 #'
 #' @source
 #'
@@ -225,6 +225,12 @@ NULL
 #' @name grass_db
 #' @docType data
 #'
+#' @seealso [scale_fill_grass_c()]
+#'
+#' @family datasets
+#'
+#' @inherit scale_grass source references
+#'
 #' @format
 #' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns with
 #' the following fields:
@@ -238,15 +244,9 @@ NULL
 #'   \item{hex}{Hex code of the color.}
 #' }
 #'
-#' @seealso [scale_fill_grass_c()]
-#'
-#' @family datasets
-#'
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::map.pal()]
-#'
-#' @inherit scale_grass source references
 #'
 #' @examples
 #' \donttest{
@@ -290,6 +290,10 @@ NULL
 #' @name princess_db
 #' @docType data
 #'
+#' @seealso [scale_fill_princess_c()]
+#'
+#' @family datasets
+#'
 #' @format
 #' A [tibble][tibble::tbl_df] of `r nrow(princess_db)` rows and
 #' `r ncol(princess_db)` columns with the following fields:
@@ -301,10 +305,6 @@ NULL
 #'   \item{b}{Value of the blue channel (RGB color mode).}
 #'   \item{hex}{Hex code of the color.}
 #' }
-#'
-#' @seealso [scale_fill_princess_c()]
-#'
-#' @family datasets
 #'
 #' @source
 #' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.

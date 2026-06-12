@@ -86,7 +86,6 @@
 #' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
 #' <https://grass.osgeo.org>.
 #'
-#'
 #' @examples
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -368,7 +367,7 @@ scale_color_grass_b <- scale_colour_grass_b
 #'
 #' # In batches
 #' pals <- pals_all[c(1:25)]
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))
@@ -424,7 +423,7 @@ grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
   }
 }
 
-# Helpers
+# Helpers ----
 grass_scale_params <- function(
   palette,
   alpha,

@@ -5,19 +5,18 @@
 #' Extract the WKT version of the CRS associated with a string, number or
 #' `sf/Spat*` object.
 #'
-#' The
-#'
 #' ```{r, echo=FALSE, results='asis'}
-#' full_url <- paste0("[Well-known text (WKT)](",
-#'                    "https://en.wikipedia.org/wiki/Well-known_text_",
-#'                    "representation_of_coordinate_reference_systems)")
+#' full_url <- paste0(
+#'   "[Well-known text (WKT)](",
+#'   "https://en.wikipedia.org/wiki/Well-known_text_",
+#'   "representation_of_coordinate_reference_systems)"
+#' )
 #'
 #' cat(full_url)
-#'
 #' ```
-#' representation of coordinate reference systems (CRS) is a character string
-#' that identifies precisely the arguments of each CRS. It is the standard
-#' used by \CRANpkg{sf} and \CRANpkg{terra}.
+#' is a character string representation of coordinate reference systems (CRS).
+#' It identifies the parameters of each CRS precisely and is the standard used
+#' by \CRANpkg{sf} and \CRANpkg{terra}.
 #'
 #' @details
 #'
@@ -76,7 +75,7 @@
 #' # Integers.
 #' fromint <- pull_crs(4326)
 #'
-#' # Characters
+#' # Characters.
 #' fromchar <- pull_crs("epsg:4326")
 #'
 #' all(
@@ -112,12 +111,12 @@ pull_crs <- function(.data, ...) {
     return(NA)
   }
 
-  # Characters and numerics are handled by sf
+  # Characters and numerics are handled by sf.
   if (any(inherits(.data, "character"), inherits(.data, "numeric"))) {
     return(sf::st_crs(.data)$wkt)
   }
 
-  # All the rest, return empty with an alert
+  # Return `NA` with an alert for all other inputs.
   cli::cli_alert_warning(paste(
     "{.fun tidyterra::pull_crs} could not find a WKT equivalent.",
     "Returning {.val {NA}}."

@@ -41,25 +41,25 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
    \code{corine} \tab Land cover \tab EU Corine land cover colors \tab 111 to 995 \cr
    \code{curvature} \tab General \tab Terrain curvature colors \tab -0.1 to 0.1 \cr
    \code{differences} \tab General \tab Difference-oriented colors \tab  \cr
-   \code{elevation} \tab Topography \tab Relative raster values mapped to an elevation color ramp \tab  \cr
+   \code{elevation} \tab Topography \tab Relative raster values mapped to elevation colors \tab  \cr
    \code{etopo2} \tab Topography \tab ETOPO2 worldwide bathymetry and topography colors \tab -11000 to 8850 \cr
    \code{evi} \tab Natural \tab Enhanced Vegetation Index colors \tab -1 to 1 \cr
    \code{fahrenheit} \tab Temperature \tab Blue to red for Fahrenheit temperatures \tab -112 to 176 \cr
    \code{forest_cover} \tab Natural \tab Percentage of forest cover \tab 0 to 1 \cr
    \code{gdd} \tab Natural \tab Accumulated growing degree days \tab 0 to 6000 \cr
-   \code{grass} \tab General \tab GRASS GIS green, perceptually uniform \tab  \cr
+   \code{grass} \tab General \tab Perceptually uniform GRASS GIS green \tab  \cr
    \code{greens} \tab General \tab White to green \tab  \cr
-   \code{grey} \tab General \tab Gray scale \tab  \cr
+   \code{grey} \tab General \tab Grayscale \tab  \cr
    \code{gyr} \tab General \tab Green through yellow to red \tab  \cr
    \code{haxby} \tab Topography \tab Relative colors for bathymetry or topography \tab  \cr
-   \code{inferno} \tab General \tab Perceptually uniform sequential color table, inferno \tab  \cr
+   \code{inferno} \tab General \tab Inferno perceptually uniform sequential color table \tab  \cr
    \code{kelvin} \tab Temperature \tab Blue to red for temperatures in Kelvin \tab 193.15 to 353.15 \cr
-   \code{magma} \tab General \tab Perceptually uniform sequential color table, magma \tab  \cr
+   \code{magma} \tab General \tab Magma perceptually uniform sequential color table \tab  \cr
    \code{ndvi} \tab Natural \tab Normalized Difference Vegetation Index colors \tab -1 to 1 \cr
    \code{ndwi} \tab Natural \tab Normalized Difference Water Index colors \tab -200 to 200 \cr
    \code{nlcd} \tab Land cover \tab US National Land Cover Dataset colors \tab 0 to 95 \cr
    \code{oranges} \tab General \tab White to orange \tab  \cr
-   \code{plasma} \tab General \tab Perceptually uniform sequential color table, plasma \tab  \cr
+   \code{plasma} \tab General \tab Plasma perceptually uniform sequential color table \tab  \cr
    \code{population} \tab Human \tab Human population classification breaks \tab 0 to 1000000 \cr
    \code{population_dens} \tab Human \tab Human population density classification breaks \tab 0 to 1000 \cr
    \code{precipitation} \tab Climate \tab Precipitation color table, 0 to 2000 mm \tab 0 to 7000 \cr
@@ -78,7 +78,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
    \code{srtm} \tab Topography \tab Shuttle Radar Topography Mission elevation colors \tab -11000 to 8850 \cr
    \code{srtm_plus} \tab Topography \tab Shuttle Radar Topography Mission elevation colors with seafloor colors \tab -11000 to 8850 \cr
    \code{terrain} \tab Topography \tab Global elevation color table from -11000 to +8850 m \tab -11000 to 8850 \cr
-   \code{viridis} \tab General \tab Perceptually uniform sequential color table, viridis \tab  \cr
+   \code{viridis} \tab General \tab Viridis perceptually uniform sequential color table \tab  \cr
    \code{water} \tab Natural \tab Water depth \tab  \cr
    \code{wave} \tab General \tab Color wave \tab  \cr
 }

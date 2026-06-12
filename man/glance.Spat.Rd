@@ -18,7 +18,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{...}{Ignored by this method.}
 }
 \value{
-glance methods always return a one-row data frame. See \strong{Methods}.
+\code{glance()} methods always return a one-row data frame. See \strong{Methods}.
 }
 \description{
 Glance accepts a model object and returns a \code{\link[tibble:tibble]{tibble::tibble()}} with exactly
@@ -28,7 +28,7 @@ one row of \code{Spat}. The summaries are typically geographic information.
 
 
 Implementation of the \strong{generic} \code{\link[generics:glance]{generics::glance()}} method for
-\verb{Spat*}. objects.
+\verb{Spat*} objects.
 }
 
 \examples{

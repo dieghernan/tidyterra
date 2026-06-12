@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{is_regular_grid}
 \alias{is_regular_grid}
-\title{Check if x and y positions conforms a regular grid}
+\title{Check whether x and y positions form a regular grid}
 \usage{
 is_regular_grid(xy, digits = 6)
 }
@@ -15,11 +15,11 @@ x and y coordinates.}
 on a regular grid (a low number of digits is a low precision).}
 }
 \value{
-\code{invisible()} if is regular or an error message otherwise
+\code{invisible()} if the coordinates form a regular grid. Otherwise, an error.
 }
 \description{
-Assess if the coordinates x,y of an object conforms a regular grid. This
-function is called by its side effects.
+Assess whether the \code{x} and \code{y} coordinates of an object form a regular grid.
+This function is called for its side effects.
 
 This function is internally called by \code{\link[=as_spatraster]{as_spatraster()}}.
 }
@@ -29,12 +29,12 @@ p <- matrix(1:90, nrow = 45, ncol = 2)
 
 is_regular_grid(p)
 
-# Jitter location
+# Jitter locations.
 set.seed(1234)
 jitter <- runif(length(p)) / 10e4
 p_jitter <- p + jitter
 
-# Need to adjust digits
+# Adjust digits.
 is_regular_grid(p_jitter, digits = 4)
 
 }

@@ -20,12 +20,12 @@
 #' @param ... Ignored by this method.
 #'
 #' @returns
-#' glance methods always return a one-row data frame. See **Methods**.
+#' `glance()` methods always return a one-row data frame. See **Methods**.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [generics::glance()] method for
-#' `Spat*`. objects.
+#' `Spat*` objects.
 #'
 #' @examples
 #'
@@ -56,22 +56,22 @@ glance.SpatRaster <- function(x, ...) {
   ex_df <- tibble::as_tibble_row(ex)
   initial <- dplyr::bind_cols(initial, ex_df)
 
-  # CRS
+  # Add CRS information.
   crsnamed <- get_named_crs(x)
   if (is.na(crsnamed)) {
-    crsnamed <- "CRS: Not Defined / Empty"
+    crsnamed <- "CRS: not defined or empty"
   }
 
   initial$crs <- crsnamed
   initial$crs_units <- get_crs_units(x)
 
-  # Get source
+  # Get source.
   f <- unique(terra::sources(x))
   f[!nzchar(f)] <- NA
 
   initial$source <- paste0(basename(f), collapse = ", ")
 
-  # Additional
+  # Add additional metadata.
   initial$has_rgb <- terra::has.RGB(x)
   initial$has_colors <- any(terra::has.colors(x))
   initial$has_time <- any(terra::has.time(x))
@@ -94,15 +94,15 @@ glance.SpatVector <- function(x, ...) {
   ex_df <- tibble::as_tibble_row(ex)
   initial <- dplyr::bind_cols(initial, ex_df)
 
-  # Get source
+  # Get source.
   f <- unique(terra::sources(x))
   f[!nzchar(f)] <- NA
 
   initial$source <- paste0(basename(f), collapse = ", ")
-  # CRS
+  # Add CRS information.
   crsnamed <- get_named_crs(x)
   if (is.na(crsnamed)) {
-    crsnamed <- "CRS: Not Defined / Empty"
+    crsnamed <- "CRS: not defined or empty"
   }
 
   initial$crs <- crsnamed

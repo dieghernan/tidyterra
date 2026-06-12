@@ -239,7 +239,7 @@ pals <- c(
   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
 )
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -261,7 +261,7 @@ par(opar)
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},

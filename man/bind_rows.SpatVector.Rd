@@ -61,8 +61,8 @@ v2 <- v[3:5, c("name", "iso2")]
 # You can supply individual SpatVector as arguments:
 bind_spat_rows(v1, v2)
 
-# When you supply a column name with the `.id` argument, a new
-# A column is created to link each row to its original data frame.
+# When you supply a column name with the `.id` argument, a new column is
+# created to link each row to its original data frame.
 bind_spat_rows(v1, v2, .id = "id")
 
 \donttest{

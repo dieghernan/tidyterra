@@ -22,8 +22,6 @@
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
 #' @inheritParams terra::plotRGB
-#' @inheritSection geom_spatraster Coords
-#'
 #' @param mapping Ignored.
 #' @param r,g,b Integer giving the layer number in `data` used for the red
 #'   (`r`), green (`g`) and blue (`b`) channel.
@@ -31,6 +29,7 @@
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
 #' @returns A \CRANpkg{ggplot2} layer
+#' @inheritSection geom_spatraster Coords
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()]

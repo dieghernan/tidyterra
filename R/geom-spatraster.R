@@ -33,8 +33,8 @@
 #'   the plot.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
-#'   an associated [coltab][terra::coltab()]. If `TRUE`, use the coltab on the
-#'   plot. See also [scale_fill_coltab()].
+#'   an associated color table from [terra::coltab()]. If `TRUE`, use that
+#'   color table on the plot. See also [scale_fill_coltab()].
 #'
 #' @param mask_projection Logical, defaults to `FALSE`. If `TRUE`, mask out
 #'   areas outside the input extent. For example, to avoid data wrapping
@@ -64,7 +64,7 @@
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a
 #' \CRANpkg{ggplot2} layer with all the layers of the `SpatRaster`
-#' object. Use `facet_wrap(~lyr)` to properly display the `SpatRaster`
+#' object. Use `facet_wrap(~lyr)` to display the `SpatRaster`
 #' layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
@@ -152,7 +152,7 @@ geom_spatraster <- function(
 ) {
   check_spatraster(data, "geom_spatraster")
 
-  # Kindly warn in RGB
+  # Warn when an RGB raster should use the RGB geom.
   if (terra::has.RGB(data)) {
     cli::cli_alert_warning(paste(
       "RGB specification detected. Use",
@@ -168,17 +168,17 @@ geom_spatraster <- function(
 
   prepared <- prepare_aes_spatraster(mapping, raster_names, dots)
 
-  # Use prepared data
+  # Use prepared data.
   mapping <- prepared$map
 
-  # Check if need to subset the SpatRaster
+  # Check whether the `SpatRaster` needs to be subset.
   if (is.character(prepared$namelayer)) {
-    # Subset the layer from the data
+    # Subset the layer from the data.
     data <- terra::subset(data, prepared$namelayer)
   }
   # 2. Check if resample is needed----
 
-  # Check mixed types
+  # Check mixed types.
   data <- check_mixed_cols(data)
 
   data <- resample_spat(data, maxcell)
@@ -186,16 +186,16 @@ geom_spatraster <- function(
   # 3. Create a nested list with each layer----
   raster_list <- as.list(data)
 
-  # Now create the data frame
+  # Create the data frame.
   data_tbl <- tibble::tibble(
     spatraster = list(NULL),
-    # For faceting: As factors for keeping orders
+    # Keep layer order when faceting.
     lyr = factor(names(data), levels = names(data))
   )
 
   names(data_tbl$spatraster) <- names(data)
 
-  # Each layer to a row
+  # Store one layer per row.
   for (i in seq_len(terra::nlyr(data))) {
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
@@ -204,7 +204,7 @@ geom_spatraster <- function(
 
   crs_terra <- pull_crs(data)
 
-  # Create layer
+  # Create the layer.
   layer_spatrast <- ggplot2::layer(
     data = data_tbl,
     mapping = mapping,
@@ -224,8 +224,8 @@ geom_spatraster <- function(
   )
 
   # From ggspatial.
-  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
+  # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train scales.
+  # This mimics using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -347,10 +347,10 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   }
   init_rast <- raster
 
-  # Create template for projection
+  # Create the projection template.
   template <- terra::project(x = init_rast, y = coord_crs, mask = mask)
 
-  # Try to keep the same number of cells on the template
+  # Try to keep the same number of cells on the template.
   template <- terra::spatSample(
     template,
     terra::ncell(init_rast),
@@ -358,7 +358,7 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
     method = "regular"
   )
 
-  # Reproject
+  # Reproject.
   proj_rast <- terra::project(init_rast, template, mask = mask)
 
   proj_rast

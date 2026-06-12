@@ -26,14 +26,14 @@
 #' - `metR::geom_contour_tanaka()`.
 #'
 #' @family ggplot2.utils
+#'
 #' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::geom_contour
 #' @inheritParams ggplot2::geom_text
 #'
+#' @returns A \CRANpkg{ggplot2} layer
 #' @inheritSection geom_spatraster Coords
 #' @inheritSection geom_spatraster Facets
-#'
-#' @returns A \CRANpkg{ggplot2} layer
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::contour()]
@@ -74,7 +74,7 @@
 #' - `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
 #' - `after_stat(level_low)`, `after_stat(level_high)`,
 #' - `after_stat(level_mid)`: (contour bands only) Lower and upper bin
-#'    boundaries for each band, as well the mid point between the boundaries.
+#'    boundaries for each band, as well as the midpoint between the boundaries.
 #'
 #' @section Dropped variables:
 #' - `z`: After contouring, the `z` values of individual data points are no
@@ -94,7 +94,7 @@
 #' ggplot() +
 #'   geom_spatraster_contour(data = r)
 #'
-#' # Labelled
+#' # Labeled
 #' ggplot() +
 #'   geom_spatraster_contour_text(
 #'     data = r, breaks = c(110, 130, 160, 190),
@@ -154,7 +154,7 @@ geom_spatraster_contour <- function(
   data_tbl <- contour_data$data
   crs_terra <- contour_data$crs
 
-  # Create layer
+  # Create the layer.
   layer_spatrast <- ggplot2::layer(
     data = data_tbl,
     mapping = mapping,
@@ -234,8 +234,8 @@ prepare_spatraster_contour_data <- function(
 }
 
 # Geom ----
-# Provide a Geom* that only changes the defaults of GeomPath
-# Aligned with changes in ggplot2 3.4.0 for geom_sf
+# Provide a `Geom*` that only changes the defaults of `GeomPath`.
+# Align with changes in ggplot2 3.4.0 for `geom_sf()`.
 GeomSpatRasterContour <- ggplot2::ggproto(
   "GeomSpatRasterContour",
   ggplot2::GeomPath,
@@ -246,9 +246,9 @@ GeomSpatRasterContour <- ggplot2::ggproto(
     linetype = 1,
     alpha = NA
   ),
-  # To allow using size in ggplot2 < 3.4.0
+  # Allow using `size` in ggplot2 < 3.4.0.
   non_missing_aes = "size",
-  # Tell ggplot2 to perform automatic renaming
+  # Tell ggplot2 to perform automatic renaming.
   rename_size = TRUE
 )
 
@@ -291,7 +291,7 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
         ))
       }
     }
-    # Add coord to the params, so it can be forwarded to compute_group().
+    # Add coord to params so it can be forwarded to `compute_group()`.
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
@@ -359,7 +359,7 @@ allow_lambda <- function(x) {
   if (rlang::is_formula(x)) rlang::as_function(x) else x
 }
 
-# From ggplot2
+# From ggplot2.
 contour_breaks <- function(
   z_range,
   bins = NULL,
@@ -451,7 +451,7 @@ iso_to_path <- function(iso, group = 1) {
   ids <- unlist(lapply(iso, "[[", "id"), use.names = FALSE)
   item_id <- rep(seq_along(iso), lengths)
 
-  # Add leading zeros so groups can be sorted properly.
+  # Add leading zeros so groups sort correctly.
   groups <- paste(
     group,
     sprintf("%03d", item_id),

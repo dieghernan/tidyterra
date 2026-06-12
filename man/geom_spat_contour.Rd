@@ -206,7 +206,7 @@ this is an ordered factor that represents bin ranges.
 \item \code{after_stat(nlevel)}: Height of contour, scaled to maximum of 1.
 \item \code{after_stat(level_low)}, \code{after_stat(level_high)},
 \item \code{after_stat(level_mid)}: (contour bands only) Lower and upper bin
-boundaries for each band, as well the mid point between the boundaries.
+boundaries for each band, as well as the midpoint between the boundaries.
 }
 }
 
@@ -251,7 +251,7 @@ library(ggplot2)
 ggplot() +
   geom_spatraster_contour(data = r)
 
-# Labelled
+# Labeled
 ggplot() +
   geom_spatraster_contour_text(
     data = r, breaks = c(110, 130, 160, 190),

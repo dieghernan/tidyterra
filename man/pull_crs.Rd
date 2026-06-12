@@ -21,12 +21,10 @@ A WKT representation of the corresponding CRS.
 \description{
 Extract the WKT version of the CRS associated with a string, number or
 \verb{sf/Spat*} object.
-
-The
 \href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
-representation of coordinate reference systems (CRS) is a character string
-that identifies precisely the arguments of each CRS. It is the standard
-used by \CRANpkg{sf} and \CRANpkg{terra}.
+is a character string representation of coordinate reference systems (CRS).
+It identifies the parameters of each CRS precisely and is the standard used
+by \CRANpkg{sf} and \CRANpkg{terra}.
 }
 \details{
 Although the WKT representation is the same, the \CRANpkg{sf} and
@@ -67,7 +65,7 @@ fromterra2 <- pull_crs(r)
 # Integers.
 fromint <- pull_crs(4326)
 
-# Characters
+# Characters.
 fromchar <- pull_crs("epsg:4326")
 
 all(

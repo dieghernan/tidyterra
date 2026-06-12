@@ -267,7 +267,6 @@ test_that("Breaking scale no range", {
 
   # Use tint option
   expect_snapshot(p + scale_colour_grass_b(palette = "x"), error = TRUE)
-  expect_snapshot(p + scale_colour_grass_b(palette = "x"), error = TRUE)
   expect_snapshot(p + scale_colour_grass_b(alpha = -1), error = TRUE)
   expect_snapshot(p + scale_colour_grass_b(direction = -12), error = TRUE)
   p2 <- p + scale_colour_grass_b(palette = "etopo2", use_grass_range = FALSE)
@@ -548,7 +547,6 @@ test_that("Breaking scale fill no range", {
   init <- ggplot2::layer_data(p_init)$fill
 
   # Use tint option
-  expect_snapshot(p + scale_fill_grass_b(palette = "x"), error = TRUE)
   expect_snapshot(p + scale_fill_grass_b(palette = "x"), error = TRUE)
   expect_snapshot(p + scale_fill_grass_b(alpha = -1), error = TRUE)
   expect_snapshot(p + scale_fill_grass_b(direction = -12), error = TRUE)

@@ -186,7 +186,6 @@ test_that("Works with unnamed rowwise_df", {
 })
 test_that("Works with sf", {
   skip_on_cran()
-  skip_on_cran()
 
   sfobj <- sf::read_sf(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 

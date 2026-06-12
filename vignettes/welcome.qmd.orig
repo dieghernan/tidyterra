@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 **tidyterra** provides common **tidyverse** methods for `SpatRaster` and
 `SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also provides
-`geom_spat*()` geoms for plotting those objects with
+`geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -71,7 +71,7 @@ The following methods are available:
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
-| `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
+| `dplyr::mutate()` | ✔️ | ✔️ Create or modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
 | `dplyr::filter()` | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | `dplyr::filter_out()` | ✔️ |  |
@@ -104,7 +104,7 @@ The following methods are available:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** via `sf::st_as_sf()` | To a **tibble** with coordinates. |
+| `ggplot2::fortify()` | ✔️ to **sf** through `sf::st_as_sf()` | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -186,11 +186,11 @@ uses `ggplot2::coord_sf()` and can be reprojected to match other spatial layers.
 
 ```{r}
 #| label: fig-faceted
-#| fig-cap: Faceted map using a SpatRaster.
+#| fig-cap: Faceted map using a SpatRaster object.
 #| fig-asp: 0.3
 library(ggplot2)
 
-# Faceted SpatRaster.
+# Facet a SpatRaster object.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -203,7 +203,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-contourlines
-#| fig-cap: Contour line plot for a SpatRaster.
+#| fig-cap: Contour line plot for a SpatRaster object.
 # Contour lines for a specific layer.
 
 f_volcano <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -219,7 +219,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-contourfilled
-#| fig-cap: Filled contour plot for a SpatRaster.
+#| fig-cap: Filled contour plot for a SpatRaster object.
 
 # Filled contours.
 
@@ -233,7 +233,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-rgb
-#| fig-cap: Map combining an RGB SpatRaster and a SpatVector.
+#| fig-cap: Map combining an RGB SpatRaster object and a SpatVector object.
 # Read a vector.
 
 f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
@@ -251,8 +251,8 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-**tidyterra** includes color scales suitable for hypsometric and bathymetric
-maps:
+**tidyterra** includes color scales and hypsometric tints suitable for
+topographic and bathymetric maps:
 
 ```{r}
 #| label: fig-hypso

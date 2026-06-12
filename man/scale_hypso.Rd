@@ -23,7 +23,7 @@
 \alias{scale_color_hypso_tint_c}
 \alias{scale_color_hypso_b}
 \alias{scale_color_hypso_tint_b}
-\title{Gradient scales for representing hypsometry and bathymetry}
+\title{Gradient scales for hypsometric and bathymetric tints}
 \source{
 cpt-city: \url{https://phillips.shef.ac.uk/pub/cpt-city/}.
 }
@@ -400,7 +400,7 @@ ggplot() +
 
 pals <- unique(hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -420,7 +420,7 @@ par(opar)
 
 pals <- unique(hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -443,7 +443,7 @@ par(opar)
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},

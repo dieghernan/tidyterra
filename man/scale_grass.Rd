@@ -307,7 +307,7 @@ pals_all <- unique(grass_db$pal)
 
 # In batches
 pals <- pals_all[c(1:25)]
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -353,7 +353,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments:
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_hypso}},

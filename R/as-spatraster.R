@@ -135,22 +135,16 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   }
 
   # Create a template raster with an index for values.
-  # Extract full grid and attach values.
-  # Add values to template grid.
-
-  # xyvalues plus index.
-
   xyvalind <- x_arrange[, 1:2]
   xyvalind$valindex <- seq_len(nrow(xyvalind))
 
   values_w_ind <- x_arrange[, -c(1, 2)]
   values_w_ind$valindex <- xyvalind$valindex
 
-  # Create template
-
+  # Create the template.
   r_temp <- terra::rast(xyvalind, crs = crs, ..., type = "xyz", digits = digits)
 
-  # Expand grid
+  # Expand the grid and attach values.
   r_temp_df <- terra::as.data.frame(r_temp, na.rm = FALSE, xy = FALSE)
   r_temp_df <- tibble::as_tibble(r_temp_df)
 
@@ -158,15 +152,15 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   values <- r_temp_df[, -1]
 
-  # Now assign values to raster
+  # Assign values to the raster.
   terra::nlyr(r_temp) <- 1
 
   build_raster_layers(r_temp, values, layer_names)
 }
 
-#' Rebuild objects created with as_tbl_spatattr to `SpatRaster`.
-#' Strict version, used attributes for creating a template
-#' `SpatRaster` and then transfer the values
+#' Rebuild objects created with `as_tbl_spatattr()` to `SpatRaster`.
+#' This strict version uses attributes to create a `SpatRaster` template and
+#' then transfers the values.
 #'
 #' @noRd
 as_spatrast_attr <- function(x) {
@@ -174,19 +168,17 @@ as_spatrast_attr <- function(x) {
     return(x)
   }
 
-  # Create from dtplyr
+  # Create from dtplyr.
   x <- data.table::as.data.table(x)
 
-  # Get attributes
+  # Get attributes.
   attrs <- attributes(x)
 
-  # Get number of layers
+  # Get layer values.
   values <- dplyr::select(x, -c(1, 2))
   values <- data.table::as.data.table(values)
 
-  # Create a list of rasters for each layer
-  # and assign value
-
+  # Create one raster per layer and assign values.
   build_raster_layers(
     function() {
       terra::rast(

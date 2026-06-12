@@ -23,7 +23,7 @@ geom_spatraster_contour_filled <- function(
   data_tbl <- contour_data$data
   crs_terra <- contour_data$crs
 
-  # Create layer
+  # Create the layer.
   layer_spatrast <- ggplot2::layer(
     data = data_tbl,
     mapping = mapping,
@@ -45,8 +45,8 @@ geom_spatraster_contour_filled <- function(
   )
 
   # From ggspatial.
-  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
+  # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train scales.
+  # This mimics using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -119,7 +119,7 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
         ))
       }
     }
-    # Add coord to the params, so it can be forwarded to compute_group().
+    # Add coord to params so it can be forwarded to `compute_group()`.
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
@@ -225,7 +225,7 @@ iso_to_polygon <- function(iso, group = 1, name_layer = NULL) {
   ids <- unlist(lapply(iso, "[[", "id"), use.names = FALSE)
   item_id <- rep(seq_along(iso), lengths)
 
-  # Add leading zeros so that groups can be properly sorted
+  # Add leading zeros so groups sort correctly.
   groups <- paste(group, sprintf("%03d", item_id), sep = "-")
   groups <- factor(groups)
 

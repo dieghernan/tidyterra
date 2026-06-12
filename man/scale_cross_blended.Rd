@@ -409,7 +409,7 @@ ggplot() +
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -429,7 +429,7 @@ par(opar)
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -452,7 +452,7 @@ par(opar)
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},

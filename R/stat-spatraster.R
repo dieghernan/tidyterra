@@ -97,7 +97,7 @@ stat_spatraster <- function(
     mapping,
     ggplot2::aes(
       spatraster = spatraster,
-      # For faceting
+      # Keep layer order when faceting.
       lyr = lyr,
       group = lyr
     )
@@ -111,18 +111,18 @@ stat_spatraster <- function(
 
     prepared <- prepare_aes_spatraster(mapping, raster_names, dots)
 
-    # Use prepared data
+    # Use prepared data.
     mapping <- prepared$map
 
-    # Check if need to subset the SpatRaster
+    # Check whether the `SpatRaster` needs to be subset.
     if (is.character(prepared$namelayer)) {
-      # Subset the layer from the data
+      # Subset the layer from the data.
       data <- terra::subset(data, prepared$namelayer)
     }
   }
   # 2. Check if resample is needed----
 
-  # Check mixed types
+  # Check mixed types.
   data <- check_mixed_cols(data)
 
   data <- resample_spat(data, maxcell)
@@ -130,16 +130,16 @@ stat_spatraster <- function(
   # 3. Create a nested list with each layer----
   raster_list <- as.list(data)
 
-  # Now create the data frame
+  # Create the data frame.
   data_tbl <- tibble::tibble(
     spatraster = list(NULL),
-    # For faceting: As factors for keeping orders
+    # Keep layer order when faceting.
     lyr = factor(names(data), levels = names(data))
   )
 
   names(data_tbl$spatraster) <- names(data)
 
-  # Each layer to a row
+  # Store one layer per row.
   for (i in seq_len(terra::nlyr(data))) {
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
@@ -148,7 +148,7 @@ stat_spatraster <- function(
 
   crs_terra <- pull_crs(data)
 
-  # Create layer
+  # Create the layer.
   layer_spatrast <- ggplot2::layer(
     data = data_tbl,
     mapping = mapping,

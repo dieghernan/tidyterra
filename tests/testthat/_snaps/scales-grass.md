@@ -81,14 +81,6 @@
 ---
 
     Code
-      p + scale_colour_grass_b(palette = "x")
-    Condition
-      Error in `scale_colour_grass_b()`:
-      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
-
----
-
-    Code
       p + scale_colour_grass_b(alpha = -1)
     Condition
       Error in `scale_colour_grass_b()`:
@@ -175,14 +167,6 @@
       ! `direction` must be either 1 or -1.
 
 # Breaking scale fill no range
-
-    Code
-      p + scale_fill_grass_b(palette = "x")
-    Condition
-      Error in `scale_fill_grass_b()`:
-      ! `palette` "x" is not a known palette. See `?tidyterra::grass_db()`.
-
----
 
     Code
       p + scale_fill_grass_b(palette = "x")

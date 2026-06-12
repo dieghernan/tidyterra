@@ -53,8 +53,8 @@
 #' # You can supply individual SpatVector as arguments:
 #' bind_spat_rows(v1, v2)
 #'
-#' # When you supply a column name with the `.id` argument, a new
-#' # A column is created to link each row to its original data frame.
+#' # When you supply a column name with the `.id` argument, a new column is
+#' # created to link each row to its original data frame.
 #' bind_spat_rows(v1, v2, .id = "id")
 #'
 #' \donttest{
@@ -85,20 +85,20 @@
 #' }
 bind_spat_rows <- function(..., .id = NULL) {
   dots <- rlang::list2(...)
-  # Return empty on none
+  # Return an empty object when no inputs are supplied.
   if (length(dots) == 0) {
     return(terra::vect("MULTIPOINT EMPTY"))
   }
 
-  # Make it work with list
+  # Support list input.
   if (length(dots) == 1 && is.list(dots[[1]])) {
-    # If it is a list, unlist the first level
+    # Unlist the first level.
     dots <- dots[[1]]
   }
 
   named_list <- as.character(seq_along(dots))
 
-  # Named lists
+  # Preserve names from named lists.
   if (!is.null(names(dots))) {
     maybe_names <- names(dots)
     maybe_names <- maybe_names[nzchar(maybe_names)]
@@ -108,22 +108,21 @@ bind_spat_rows <- function(..., .id = NULL) {
     }
   }
 
-  # Checks
-  # Ensure first is SpatVector
+  # Ensure the first input is a `SpatVector`.
   if (!inherits(dots[[1]], "SpatVector")) {
     cli::cli_abort(paste(
       "Object {.field 1} in {.arg ...} is not a {.cls SpatVector}."
     ))
   }
 
-  # Get templates
+  # Get the template.
   template <- dots[[1]]
 
-  # First get all as tibbles
+  # Convert all inputs to tibbles first.
   alltibbs <- lapply(seq_along(dots), function(i) {
     x <- dots[[i]]
 
-    # First is always a SpatVector
+    # The first input is always a `SpatVector`.
     if (i == 1) {
       frst <- as_tibble(x)
 
@@ -185,7 +184,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   # Get geometries.
   vend <- do.call("rbind", allspatvect)
 
-  # Get bound rows.
+  # Bind rows.
   if (length(named_list) == length(alltibbs)) {
     names(alltibbs) <- named_list
   }

@@ -37,8 +37,8 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
 
 \item{use_coltab}{Logical. If \code{TRUE}, plot with the corresponding
-\code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (the default), \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries
-to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
+color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (the default),
+\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess. See also \code{\link[=scale_fill_coltab]{scale_fill_coltab()}}.}
 
 \item{facets}{Logical. If \code{TRUE}, display facets. If \code{NULL} (the default),
 \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
@@ -89,7 +89,7 @@ tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") |>
 
 autoplot(tile)
 
-# With coltabs
+# With color tables
 
 ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") |>
   rast()

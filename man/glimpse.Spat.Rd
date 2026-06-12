@@ -5,7 +5,7 @@
 \alias{glimpse.Spat}
 \alias{glimpse.SpatRaster}
 \alias{glimpse.SpatVector}
-\title{Get a nice glimpse of your \verb{Spat*} objects}
+\title{Preview \verb{Spat*} objects}
 \usage{
 \method{glimpse}{SpatRaster}(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
@@ -28,7 +28,7 @@ for \code{SpatRaster} and \code{SpatVector}.}
 information for, if \code{n} is too small for the \verb{Spat*} object.}
 }
 \value{
-original \code{x} is (invisibly) returned, allowing \code{glimpse()} to
+Original \code{x} is invisibly returned, allowing \code{glimpse()} to
 be used within a data pipeline.
 }
 \description{
@@ -46,7 +46,7 @@ layer/column in a \verb{Spat*} object.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:glimpse]{dplyr::glimpse()}} function for
-\verb{Spat*}. objects.
+\verb{Spat*} objects.
 }
 
 \examples{

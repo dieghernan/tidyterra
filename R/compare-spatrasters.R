@@ -6,8 +6,8 @@
 #' CRS, extent and resolution are similar. In those cases you can combine the
 #' objects simply as `c(x, y)`.
 #'
-#' This function compares those attributes informing of the results. See
-#' **Solving issues** section for minimal guidance.
+#' This function compares those attributes and reports the results. See
+#' **Solving issues** for minimal guidance.
 #'
 #' @export
 #' @encoding UTF-8
@@ -19,8 +19,9 @@
 #'   the resolution.
 #'
 #' @returns
-#' A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects are
-#' compatible, plus an informative message flagging the issues found (if any).
+#' An invisible logical `TRUE/FALSE` indicating whether the `SpatRaster`
+#' objects are compatible, plus an informative message flagging any issues
+#' found.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -29,7 +30,7 @@
 #' @section Solving issues:
 #'
 #' - On **non-equal CRS**, try [terra::project()].
-#' - On **non-equal extent** try [terra::resample()].
+#' - On **non-equal extent**, try [terra::resample()].
 #' - On **non-equal resolution** you can try [terra::resample()],
 #'   [terra::aggregate()] or [terra::disagg()].
 #'
@@ -68,7 +69,7 @@ compare_spatrasters <- function(x, y, digits = 6) {
     ))
   }
 
-  # Check crs
+  # Check CRS.
   equal_crs <- terra::crs(x) == terra::crs(y)
   ext1 <- as.vector(terra::ext(x))
   ext2 <- as.vector(terra::ext(y))
@@ -77,18 +78,18 @@ compare_spatrasters <- function(x, y, digits = 6) {
 
   equal_ext <- all(dif_ext == 0)
 
-  # Check resolution
+  # Check resolution.
   dif_res <- round(terra::res(x) - terra::res(y), digits = digits)
   equal_res <- all(dif_res == 0)
 
-  # Results
+  # Report results.
   if (!all(equal_crs, equal_ext, equal_res)) {
     title <- "Results of {.fun tidyterra::compare_spatrasters}:"
 
     title <- paste(title, "\nThe following attributes are not equal:\n")
     cli::cli_alert_warning(title)
 
-    # Bullets
+    # Build bullets.
     b <- vector(mode = "character")
 
     if (!equal_crs) {

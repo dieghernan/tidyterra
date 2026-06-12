@@ -125,7 +125,7 @@ mutate.SpatRaster <- function(
   if (any(terra::has.colors(.data))) {
     ctab_list <- terra::coltab(.data)
 
-    # Assign coltab by layer
+    # Assign color tables by layer.
     l2 <- lapply(seq_len(terra::nlyr(final_rast)), function(x) {
       rr <- terra::subset(final_rast, x)
       if (x <= length(ctab_list)) {

@@ -24,8 +24,8 @@
 #' @param rgb Logical. If `TRUE`, plot as an RGB image. If `NULL` (the default),
 #'   [autoplot.SpatRaster()] tries to guess.
 #' @param use_coltab Logical. If `TRUE`, plot with the corresponding
-#'   [terra::coltab()]. If `NULL` (the default), [autoplot.SpatRaster()] tries
-#'   to guess. See also [scale_fill_coltab()].
+#'   color table from [terra::coltab()]. If `NULL` (the default),
+#'   [autoplot.SpatRaster()] tries to guess. See also [scale_fill_coltab()].
 #' @param facets Logical. If `TRUE`, display facets. If `NULL` (the default),
 #'   [autoplot.SpatRaster()] tries to guess.
 #'
@@ -65,7 +65,7 @@
 #'
 #' autoplot(tile)
 #'
-#' # With coltabs
+#' # With color tables
 #'
 #' ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") |>
 #'   rast()

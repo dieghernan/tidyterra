@@ -27,6 +27,6 @@ list(
     ggplot2.methods = "Other \\CRANpkg{ggplot2} methods:",
     joins = "Other joins:",
     grouping = "Other grouping methods:",
-    gradients = "Other gradient scales and palettes for hypsometry:"
+    gradients = "Other gradient scales, palettes and hypsometric tints:"
   )
 )

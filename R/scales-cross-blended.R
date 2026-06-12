@@ -351,7 +351,7 @@ scale_colour_cross_blended_b <- function(
 #'
 #' pals <- unique(cross_blended_hypsometric_tints_db$pal)
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))
@@ -617,7 +617,7 @@ scale_colour_cross_blended_tint_b <- function(
 #'
 #' pals <- unique(cross_blended_hypsometric_tints_db$pal)
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))

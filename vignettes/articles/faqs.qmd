@@ -374,7 +374,7 @@ ggplot() +
 ## Avoid degree labels on axes {#axis-degrees}
 
 This is the default behavior in **ggplot2**, but you can modify it using the
-`ggplot2::coord_sf(datum)` argument:
+`datum` argument in `ggplot2::coord_sf()`:
 
 ```{r}
 #| label: fig-modifydatum
@@ -422,7 +422,7 @@ Yes. Use the **scales** package:
 #| fig-cap: Spatial axis breaks with ggplot2.
 #| fig-subcap:
 #|   - "Default axis breaks."
-#|   - "Breaks modified using the scales package."
+#|   - "Breaks modified using the **scales** package."
 
 library(terra)
 library(tidyterra)
@@ -477,7 +477,7 @@ plot(r_coltab, legend = FALSE)
 ```{r}
 #| label: fig-tidyterra
 #| layout-ncol: 2
-#| fig-cap: "Color tables: tidyterra package."
+#| fig-cap: "Color tables: **tidyterra** methods."
 #| fig-subcap:
 #|   - "`autoplot()` method."
 #|   - "`geom_spatraster()` method."
@@ -572,7 +572,7 @@ gganimate::animate(anim, duration = 12, device = "ragg_png")
 knitr::include_graphics("che_temp.gif")
 ```
 
-## North arrows and scale bar
+## North arrows and scale bars
 
 **tidyterra** does not provide north arrows or scale bars directly for
 **ggplot2** plots. However, you can use **ggspatial** functions
@@ -609,8 +609,8 @@ autoplot(r) +
 
 ## How to overlay a `SpatRaster` on an RGB tile
 
-Use `geom_spatraster_rgb()` for the background tile, then add your data layers
-on top:
+Use `geom_spatraster_rgb()` for the RGB `SpatRaster` background tile, then add
+your data layers on top:
 
 ```{r}
 #| label: fig-overlay_cont
@@ -785,7 +785,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   )
 ```
 
-### tidyterra and metR
+### **tidyterra** and **metR**
 
 The **metR** package provides **ggplot2** extensions, primarily for
 meteorological data visualization. As shown previously (see [Labeling
@@ -828,6 +828,6 @@ ggplot(r, aes(x, y)) +
     [#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been converted
-    to their corresponding labels and factors and the corresponding color table
+    to their corresponding labels and factors, and the corresponding color table
     has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

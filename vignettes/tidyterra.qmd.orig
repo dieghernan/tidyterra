@@ -56,14 +56,14 @@ knitr::opts_chunk$set(
 ## Summary
 
 **tidyterra** is an **R** [@r-project] package that lets users manipulate
-spatial data objects provided by the **terra** package [@R-terra], using verbs
-from packages in the **tidyverse** [@R-tidyverse], such as **dplyr** [@R-dplyr],
-**tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This makes spatial data
-manipulation and analysis more approachable for users already familiar with the
-**tidyverse**.
+`SpatRaster` and `SpatVector` objects provided by the **terra** package
+[@R-terra], using verbs from packages in the **tidyverse** [@R-tidyverse], such
+as **dplyr** [@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This
+makes spatial data manipulation and analysis more approachable for users already
+familiar with the **tidyverse**.
 
 **tidyterra** also extends the functionality of the **ggplot2** package
-[@R-ggplot2] by providing additional geoms and stats[^1] like
+[@R-ggplot2] by providing additional geoms and stats,[^1] such as
 `geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
 and color palettes specifically designed for map production.
 
@@ -132,12 +132,12 @@ The development philosophy of **tidyterra** is to adapt **terra** objects to
 data frame-like structures by performing data transformations, which can affect
 performance.
 
-When manipulating large raster files (i.e. more than 10,000,000 data slots), it
-is recommended to use native **terra** syntax, which is specifically designed
-for handling this type of data. For plotting, the geoms resample `SpatRaster`
-objects with more than 500,000 cells by default to speed up rendering, as
-`terra::plot()` does. You can override this upper limit with the geom's
-`maxcell` argument.
+When manipulating large `SpatRaster` objects (i.e. more than 10,000,000 data
+slots), it is recommended to use native **terra** syntax, which is specifically
+designed for handling this type of data. For plotting, the geoms resample
+`SpatRaster` objects with more than 500,000 cells by default to speed up
+rendering, as `terra::plot()` does. You can override this upper limit with the
+geom's `maxcell` argument.
 
 When possible, each **tidyterra** help page references its equivalent **terra**
 function.
@@ -170,10 +170,10 @@ the **dplyr** syntax. It also shows how to plot a `SpatRaster` object with
 
 ```{r}
 #| label: fig-ex1
-#| fig-cap: Faceted map with multi-layer raster file.
+#| fig-cap: Faceted map with a multi-layer SpatRaster object.
 library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once.
-library(scales) # Additional library for labels.
+library(scales) # Additional package for labels.
 
 # Temperatures in Castile and Leon (selected months).
 rastertemp <- terra::rast(system.file(
@@ -239,8 +239,8 @@ The package includes extensive documentation available online at
 - Details on each function, including the equivalent **terra** function when
   available, for users who prefer to include those functions in their workflows.
 - Working examples using the functions and creating plots.
-- Additional articles and vignettes and a complete demo of the different color
-  palettes included in the package (see
+- Additional articles and vignettes, including a complete demo of the different
+  color palettes included in the package (see
   [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements {.appendix}

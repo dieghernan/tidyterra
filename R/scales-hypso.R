@@ -1,4 +1,4 @@
-#' Gradient scales for representing hypsometry and bathymetry
+#' Gradient scales for hypsometric and bathymetric tints
 #'
 #' @description
 #'
@@ -333,7 +333,7 @@ scale_colour_hypso_b <- function(
 #'
 #' pals <- unique(hypsometric_tints_db$pal)
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))
@@ -586,7 +586,7 @@ scale_colour_hypso_tint_b <- function(
 #'
 #' pals <- unique(hypsometric_tints_db$pal)
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))

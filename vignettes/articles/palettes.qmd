@@ -59,11 +59,11 @@ See `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for details.
 ```{r}
 #| label: terr_wiki
 #| echo: false
-#| fig-alt: Terrain and wiki palettes in tidyterra
+#| fig-alt: Terrain and wiki gradient palettes in tidyterra
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-wikiterr
-#|   description: Terrain and wiki palettes in tidyterra
+#|   description: Terrain and wiki gradient palettes in tidyterra
 library(tidyterra)
 
 r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
@@ -132,11 +132,11 @@ See `scale_fill_hypso_c()` for details.
 ```{r}
 #| label: hypso
 #| echo: false
-#| fig-alt: Hypso palettes in tidyterra
+#| fig-alt: Hypsometric tint palettes in tidyterra
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-hypso
-#|   description: Hypso palettes in tidyterra
+#|   description: Hypsometric tint palettes in tidyterra
 allpals <- sort(unique(hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -157,11 +157,11 @@ See `scale_fill_cross_blended_c()` for details.
 ```{r}
 #| label: cross
 #| echo: false
-#| fig-alt: Cross-blended palettes in tidyterra
+#| fig-alt: Cross-blended hypsometric tint palettes in tidyterra
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-cross
-#|   description: Cross-blended palettes in tidyterra
+#|   description: Cross-blended hypsometric tint palettes in tidyterra
 allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -183,11 +183,11 @@ See `scale_fill_grass_c()` for details. These plots are produced with
 ```{r}
 #| label: grass
 #| echo: false
-#| fig-alt: GRASS palettes in tidyterra
+#| fig-alt: GRASS color table palettes in tidyterra
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-grass
-#|   description: GRASS palettes in tidyterra
+#|   description: GRASS color table palettes in tidyterra
 allpals <- sort(unique(grass_db$pal))
 
 for (i in allpals) {

@@ -14,16 +14,17 @@ compare_spatrasters(x, y, digits = 6)
 the resolution.}
 }
 \value{
-A invisible logical \code{TRUE/FALSE} indicating if the \code{SpatRaster} objects are
-compatible, plus an informative message flagging the issues found (if any).
+An invisible logical \code{TRUE/FALSE} indicating whether the \code{SpatRaster}
+objects are compatible, plus an informative message flagging any issues
+found.
 }
 \description{
 Two \code{SpatRaster} objects are compatible (in terms of combining layers) if the
 CRS, extent and resolution are similar. In those cases you can combine the
 objects simply as \code{c(x, y)}.
 
-This function compares those attributes informing of the results. See
-\strong{Solving issues} section for minimal guidance.
+This function compares those attributes and reports the results. See
+\strong{Solving issues} for minimal guidance.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -35,7 +36,7 @@ This function compares those attributes informing of the results. See
 
 \itemize{
 \item On \strong{non-equal CRS}, try \code{\link[terra:project]{terra::project()}}.
-\item On \strong{non-equal extent} try \code{\link[terra:resample]{terra::resample()}}.
+\item On \strong{non-equal extent}, try \code{\link[terra:resample]{terra::resample()}}.
 \item On \strong{non-equal resolution} you can try \code{\link[terra:resample]{terra::resample()}},
 \code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disagg]{terra::disagg()}}.
 }

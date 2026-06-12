@@ -35,7 +35,7 @@ geom_spatraster_contour_text <- function(
   data_tbl <- contour_data$data
   crs_terra <- contour_data$crs
 
-  # Create layer
+  # Create the layer.
   layer_spatrast <- ggplot2::layer(
     data = data_tbl,
     mapping = mapping,
@@ -60,8 +60,8 @@ geom_spatraster_contour_text <- function(
   )
 
   # From ggspatial.
-  # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
-  # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
+  # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train scales.
+  # This mimics using the first layer CRS as the base CRS for `coord_sf()`.
 
   if (!is.na(crs_terra)) {
     layer_spatrast <- c(
@@ -86,7 +86,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     label = "a",
     colour = "grey35",
     linewidth = 0.2,
-    # Reduce base size, align with scales
+    # Reduce base size and align with scales.
     size = 3.88 * 0.8,
     linetype = 1,
     alpha = NA,
@@ -129,7 +129,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     # Must be sorted by group.
     data <- data[order(data$group), , drop = FALSE]
 
-    # Override label with default level if it was not provided
+    # Override label with the default level when it was not provided.
     if (data$label[1] == "a") {
       data$label <- data$level
     }
@@ -140,7 +140,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     # Transform back to coordinate space.
     iso <- lapply(iso, coord$transform, panel_params)
 
-    # Get aes
+    # Get aesthetics.
     col_raw <- get_aes_iso(data, "colour")
     alpha_raw <- get_aes_iso(data, "alpha")
     col <- ggplot2::alpha(col_raw, alpha_raw)
@@ -151,22 +151,22 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     size <- get_aes_iso(data, "size")
     size_unit <- resolve_text_unit(size.unit)
 
-    # Get breaks
+    # Get breaks.
     brks <- names(iso)
 
-    # Get label and format
+    # Get labels and format.
     lab <- get_aes_iso(data, "label")
 
     if (rlang::is_function(label_format)) {
       lab <- label_format(as.double(lab))
     } else if (is.null(label_format)) {
-      # Explicit request to no plot labels, modify label_placer
+      # Do not plot labels when explicitly requested.
       label_placer <- isoband::label_placer_none()
     } else {
-      # A vector of values, need to check the length
+      # Check the length of a value vector.
       lab <- label_format
 
-      # Checks
+      # Check label and break lengths.
       l_br <- length(brks)
       l_lab <- length(lab)
 
@@ -178,7 +178,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
       }
     }
 
-    # Implement isolines_grob
+    # Draw the isolines grob.
     isoband::isolines_grob(
       iso,
       gp = grid::gpar(
@@ -222,7 +222,7 @@ df_to_isolines <- function(path_df) {
   end
 }
 
-# Get aes from data for isolines
+# Get aesthetics from data for isolines.
 get_aes_iso <- function(x, aesx = "colour") {
   ind <- unique(x$level)
   get_aes <- lapply(ind, function(y) {
@@ -235,8 +235,8 @@ get_aes_iso <- function(x, aesx = "colour") {
 
 ## From ggplot2 ----
 
-# Trim false values from left and right: keep all values from
-# First `TRUE` to last `TRUE`.
+# Trim false values from the left and right, keeping all values from the first
+# `TRUE` to the last `TRUE`.
 keep_mid_true <- function(x) {
   first <- match(TRUE, x) - 1
   if (is.na(first)) {

@@ -36,8 +36,8 @@ The goal of **tidyterra** is to provide common
 [**tidyverse**](https://tidyverse.org/packages/) methods for
 `SpatRaster` and `SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms for
-plotting those objects.
+provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales
+for plotting those objects.
 
 Please cite **tidyterra** as:
 
@@ -89,7 +89,7 @@ Current methods and functions provided by **tidyterra** are:
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
-| `dplyr::mutate()` | ✔️ | ✔️ Create/modify layers |
+| `dplyr::mutate()` | ✔️ | ✔️ Create or modify layers |
 | `dplyr::transmute()` | ✔️ | ✔️ |
 | `dplyr::filter()` | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | `dplyr::filter_out()` | ✔️ |  |
@@ -122,7 +122,7 @@ Current methods and functions provided by **tidyterra** are:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** via `sf::st_as_sf()` | To a **tibble** with coordinates. |
+| `ggplot2::fortify()` | ✔️ to **sf** through `sf::st_as_sf()` | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -138,7 +138,7 @@ Current methods and functions provided by **tidyterra** are:
 **tidyverse** methods and verbs. This approach has a **performance
 cost**.
 
-If you frequently use **terra** or work with large raster files,
+If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra**
 function refers to its equivalent on **terra**.
 
@@ -273,8 +273,8 @@ ggplot(prov) +
 
 <img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%" />
 
-**tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
-with **ggplot2**:
+**tidyterra** also provides a geom for plotting RGB `SpatRaster`
+objects, such as map tiles, with **ggplot2**:
 
 ``` r
 rgb_tile <- rast(system.file("extdata/cyl_tile.tif", package = "tidyterra"))
@@ -287,10 +287,10 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="Example of plotting a tile in tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%" />
 
-**tidyterra** provides scales for plotting hypsometric maps with
-**ggplot2**:
+**tidyterra** provides scales for plotting maps with hypsometric tints
+and **ggplot2**:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
@@ -338,7 +338,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> #  A SpatVector 12 x 7
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
 #> $ NAME_1   <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…

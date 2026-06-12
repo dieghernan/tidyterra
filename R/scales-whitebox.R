@@ -266,7 +266,7 @@ scale_colour_whitebox_b <- function(
 #'   "viridi", "gn_yl", "pi_y_g", "bl_yl_rd", "deep"
 #' )
 #'
-#' # Helper fun for plotting
+#' # Helper function for plotting
 #'
 #' ncols <- 128
 #' rowcol <- grDevices::n2mfrow(length(pals))
