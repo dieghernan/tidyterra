@@ -397,7 +397,7 @@ colors. See **Examples**.
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),
@@ -494,7 +494,7 @@ ggplot() +
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -515,7 +515,7 @@ par(opar)
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))

@@ -72,7 +72,7 @@ Verbs that mainly operate on columns.
   [`glimpse(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
   :
 
-  Get a nice glimpse of your `Spat*` objects
+  Preview `Spat*` objects
 
 - [`mutate(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
   [`mutate(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md)
@@ -326,7 +326,7 @@ Color scales, palettes and hypsometric tints for maps.
   [`get_coltab_pal()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   :
 
-  Discrete scales based in the color table of a `SpatRaster`
+  Discrete scales based on `SpatRaster` color tables
 
 - [`scale_fill_cross_blended_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
   [`scale_colour_cross_blended_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
@@ -367,7 +367,7 @@ Color scales, palettes and hypsometric tints for maps.
   [`scale_fill_hypso_tint_b()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
   [`scale_colour_hypso_tint_b()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
   [`hypso.colors2()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
-  : Gradient scales for representing hypsometry and bathymetry
+  : Gradient scales for hypsometric and bathymetric tints
 
 - [`scale_fill_princess_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.md)
   [`scale_colour_princess_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.md)
@@ -500,7 +500,7 @@ Utilities for CRS handling, package checks and `SpatRaster` comparison.
   Compare attributes of two `SpatRaster` objects
 
 - [`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md)
-  : Check if x and y positions conforms a regular grid
+  : Check whether x and y positions form a regular grid
 
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   : Extract CRS in WKT format

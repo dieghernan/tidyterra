@@ -57,25 +57,25 @@ Summary of palettes provided, description and recommended use:
 | `corine` | Land cover | EU Corine land cover colors | 111 to 995 |
 | `curvature` | General | Terrain curvature colors | -0.1 to 0.1 |
 | `differences` | General | Difference-oriented colors |  |
-| `elevation` | Topography | Relative raster values mapped to an elevation color ramp |  |
+| `elevation` | Topography | Relative raster values mapped to elevation colors |  |
 | `etopo2` | Topography | ETOPO2 worldwide bathymetry and topography colors | -11000 to 8850 |
 | `evi` | Natural | Enhanced Vegetation Index colors | -1 to 1 |
 | `fahrenheit` | Temperature | Blue to red for Fahrenheit temperatures | -112 to 176 |
 | `forest_cover` | Natural | Percentage of forest cover | 0 to 1 |
 | `gdd` | Natural | Accumulated growing degree days | 0 to 6000 |
-| `grass` | General | GRASS GIS green, perceptually uniform |  |
+| `grass` | General | Perceptually uniform GRASS GIS green |  |
 | `greens` | General | White to green |  |
-| `grey` | General | Gray scale |  |
+| `grey` | General | Grayscale |  |
 | `gyr` | General | Green through yellow to red |  |
 | `haxby` | Topography | Relative colors for bathymetry or topography |  |
-| `inferno` | General | Perceptually uniform sequential color table, inferno |  |
+| `inferno` | General | Inferno perceptually uniform sequential color table |  |
 | `kelvin` | Temperature | Blue to red for temperatures in Kelvin | 193.15 to 353.15 |
-| `magma` | General | Perceptually uniform sequential color table, magma |  |
+| `magma` | General | Magma perceptually uniform sequential color table |  |
 | `ndvi` | Natural | Normalized Difference Vegetation Index colors | -1 to 1 |
 | `ndwi` | Natural | Normalized Difference Water Index colors | -200 to 200 |
 | `nlcd` | Land cover | US National Land Cover Dataset colors | 0 to 95 |
 | `oranges` | General | White to orange |  |
-| `plasma` | General | Perceptually uniform sequential color table, plasma |  |
+| `plasma` | General | Plasma perceptually uniform sequential color table |  |
 | `population` | Human | Human population classification breaks | 0 to 1000000 |
 | `population_dens` | Human | Human population density classification breaks | 0 to 1000 |
 | `precipitation` | Climate | Precipitation color table, 0 to 2000 mm | 0 to 7000 |
@@ -94,7 +94,7 @@ Summary of palettes provided, description and recommended use:
 | `srtm` | Topography | Shuttle Radar Topography Mission elevation colors | -11000 to 8850 |
 | `srtm_plus` | Topography | Shuttle Radar Topography Mission elevation colors with seafloor colors | -11000 to 8850 |
 | `terrain` | Topography | Global elevation color table from -11000 to +8850 m | -11000 to 8850 |
-| `viridis` | General | Perceptually uniform sequential color table, viridis |  |
+| `viridis` | General | Viridis perceptually uniform sequential color table |  |
 | `water` | Natural | Water depth |  |
 | `wave` | General | Color wave |  |
 

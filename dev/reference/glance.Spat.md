@@ -30,13 +30,14 @@ glance(x, ...)
 
 ## Value
 
-glance methods always return a one-row data frame. See **Methods**.
+[`glance()`](https://generics.r-lib.org/reference/glance.html) methods
+always return a one-row data frame. See **Methods**.
 
 ## Methods
 
 Implementation of the **generic**
 [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)
-method for `Spat*`. objects.
+method for `Spat*` objects.
 
 ## See also
 

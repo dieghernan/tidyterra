@@ -5,18 +5,18 @@
 ## Summary
 
 **tidyterra** is an **R** ([R Core Team 2023](#ref-r-project)) package
-that lets users manipulate spatial data objects provided by the
-**terra** package ([Hijmans 2023](#ref-R-terra)), using verbs from
-packages in the **tidyverse** ([Wickham et al. 2019](#ref-R-tidyverse)),
-such as **dplyr** ([Wickham, François, et al. 2023](#ref-R-dplyr)),
-**tidyr** ([Wickham, Vaughan, et al. 2023](#ref-R-tidyr)) or **tibble**
-([Müller and Wickham 2023](#ref-R-tibble)). This makes spatial data
-manipulation and analysis more approachable for users already familiar
-with the **tidyverse**.
+that lets users manipulate `SpatRaster` and `SpatVector` objects
+provided by the **terra** package ([Hijmans 2023](#ref-R-terra)), using
+verbs from packages in the **tidyverse** ([Wickham et al.
+2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
+2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
+2023](#ref-R-tidyr)) or **tibble** ([Müller and Wickham
+2023](#ref-R-tibble)). This makes spatial data manipulation and analysis
+more approachable for users already familiar with the **tidyverse**.
 
 **tidyterra** also extends the functionality of the **ggplot2** package
 ([Wickham 2016](#ref-R-ggplot2)) by providing additional geoms and
-stats[^1] like
+stats,[^1] such as
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
 and
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md),
@@ -101,8 +101,8 @@ The development philosophy of **tidyterra** is to adapt **terra**
 objects to data frame-like structures by performing data
 transformations, which can affect performance.
 
-When manipulating large raster files (i.e. more than 10,000,000 data
-slots), it is recommended to use native **terra** syntax, which is
+When manipulating large `SpatRaster` objects (i.e. more than 10,000,000
+data slots), it is recommended to use native **terra** syntax, which is
 specifically designed for handling this type of data. For plotting, the
 geoms resample `SpatRaster` objects with more than 500,000 cells by
 default to speed up rendering, as
@@ -143,7 +143,7 @@ function:
 
 library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once.
-library(scales) # Additional library for labels.
+library(scales) # Additional package for labels.
 
 # Temperatures in Castile and Leon (selected months).
 rastertemp <- terra::rast(system.file(
@@ -172,9 +172,9 @@ ggplot() +
   )
 ```
 
-![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
+![Faceted map with a multi-layer SpatRaster object.](./fig-ex1-1.png)
 
-Faceted map with multi-layer raster file.
+Faceted map with a multi-layer SpatRaster object.
 
 In the following example, we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
@@ -221,8 +221,8 @@ The package includes extensive documentation available online at
   when available, for users who prefer to include those functions in
   their workflows.
 - Working examples using the functions and creating plots.
-- Additional articles and vignettes and a complete demo of the different
-  color palettes included in the package (see
+- Additional articles and vignettes, including a complete demo of the
+  different color palettes included in the package (see
   [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements

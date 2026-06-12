@@ -222,7 +222,7 @@ xtra <- cyl |>
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ iso2  <chr> "ES-BU", "ES-LE", "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "E…
 #> $ cpro  <chr> "09", "24", "05", "09", "24", "34", "37", "40", "42", "47", "49"

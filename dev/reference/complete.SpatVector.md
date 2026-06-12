@@ -108,7 +108,7 @@ complete(v, grp, tidyr::nesting(iso2, name)) |>
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ grp  <chr> "a", "a", "a", "a", "a", "a", "a", "a", "a", "b", "b", "b", "b", …
 #> $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…

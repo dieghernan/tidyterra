@@ -1,12 +1,10 @@
 # Extract CRS in WKT format
 
 Extract the WKT version of the CRS associated with a string, number or
-`sf/Spat*` object.
-
-The [Well-known text
+`sf/Spat*` object. [Well-known text
 (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
-representation of coordinate reference systems (CRS) is a character
-string that identifies precisely the arguments of each CRS. It is the
+is a character string representation of coordinate reference systems
+(CRS). It identifies the parameters of each CRS precisely and is the
 standard used by [sf](https://CRAN.R-project.org/package=sf) and
 [terra](https://CRAN.R-project.org/package=terra).
 
@@ -93,7 +91,7 @@ fromterra2 <- pull_crs(r)
 # Integers.
 fromint <- pull_crs(4326)
 
-# Characters
+# Characters.
 fromchar <- pull_crs("epsg:4326")
 
 all(

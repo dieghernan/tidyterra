@@ -95,9 +95,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 - use_coltab:
 
   Logical. Only applicable to `SpatRaster` objects that have an
-  associated
-  [coltab](https://rspatial.github.io/terra/reference/colors.html). If
-  `TRUE`, use the coltab on the plot. See also
+  associated color table from
+  [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html).
+  If `TRUE`, use that color table on the plot. See also
   [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md).
 
 - mask_projection:
@@ -180,8 +180,8 @@ reprojected**.
 
 If `fill` is not provided, `geom_spatraster()` creates a
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer with all the
-layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to properly
-display the `SpatRaster` layers.
+layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to display the
+`SpatRaster` layers.
 
 If `fill` is used, it should contain the name of one layer that is
 present on the `SpatRaster` (i.e.

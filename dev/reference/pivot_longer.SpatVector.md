@@ -217,7 +217,7 @@ cyl_temp <- cbind(cyl, temps) |>
 #> #  Geometry type: Polygons
 #> #  Projected CRS: World_Robinson
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
+#> #  Extent (x / y): ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
 #> 
 #> $ iso2    <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", …
 #> $ cpro    <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"

@@ -246,7 +246,7 @@ layer with the values applied to the `fill/colour` aesthetics.
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other gradient scales, palettes and hypsometric tints:
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),

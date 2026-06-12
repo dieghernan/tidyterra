@@ -541,7 +541,7 @@ Figure 6: Impact of resampling on tile blurriness.
 </div>
 </section><section class="level2"><h2 id="axis-degrees">Avoid degree labels on axes<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
 </h2>
-<p>This is the default behavior in <strong>ggplot2</strong>, but you can modify it using the <code>ggplot2::coord_sf(datum)</code> argument:</p>
+<p>This is the default behavior in <strong>ggplot2</strong>, but you can modify it using the <code>datum</code> argument in <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>:</p>
 <div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -643,7 +643,7 @@ Figure 7: Degree labels with ggplot2.
 <img src="faqs_files/figure-html/fig-breaks-2.png" style="width:100.0%" data-ref-parent="fig-breaks">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-breaks-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Breaks modified using the scales package.
+(b) Breaks modified using the <strong>scales</strong> package.
 </figcaption></figure>
 </div>
 </div>
@@ -661,7 +661,7 @@ Figure 8: Spatial axis breaks with ggplot2.
 <p>We omitted the legends in this section’s figures to improve readability.</p>
 </blockquote>
 </div>
-<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors and the corresponding color table has been added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
+<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and the corresponding color table has been added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -800,7 +800,7 @@ Figure 9: Color tables: native plot with the <strong>terra</strong> package.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tidyterra-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 10: Color tables: tidyterra package.
+Figure 10: Color tables: <strong>tidyterra</strong> methods.
 </figcaption></figure>
 </div>
 </section><section class="level2"><h2 id="gganimate">Use with <strong>gganimate</strong>
@@ -853,7 +853,7 @@ Figure 11: Animation of average monthly temperatures.
 </div>
 </div>
 </div>
-</section><section class="level2"><h2 id="north-arrows-and-scale-bar">North arrows and scale bar<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bar"></a>
+</section><section class="level2"><h2 id="north-arrows-and-scale-bars">North arrows and scale bars<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bars"></a>
 </h2>
 <p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots. However, you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
 <div class="cell">
@@ -894,7 +894,7 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 </div>
 </section><section class="level2"><h2 id="how-to-overlay-a-spatraster-on-an-rgb-tile">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-on-an-rgb-tile"></a>
 </h2>
-<p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the background tile, then add your data layers on top:</p>
+<p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the RGB <code>SpatRaster</code> background tile, then add your data layers on top:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1103,7 +1103,9 @@ Figure 16: Elevation data represented as points with size and transparency scal
 </div>
 </div>
 </div>
-<section class="level3"><h3 id="tidyterra-and-metr">tidyterra and metR<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
+<section class="level3"><h3 id="tidyterra-and-metr">
+<strong>tidyterra</strong> and <strong>metR</strong>
+<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
 </h3>
 <p>The <strong>metR</strong> package provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
 <div class="cell">

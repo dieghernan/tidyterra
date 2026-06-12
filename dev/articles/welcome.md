@@ -5,7 +5,7 @@
 **tidyterra** provides common **tidyverse** methods for `SpatRaster` and
 `SpatVector` objects created with the
 [**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides `geom_spat*()` geoms for plotting those objects with
+provides `geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -48,7 +48,7 @@ The following methods are available:
 |----|----|----|
 | [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | ✔️ | ✔️ |
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
-| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create/modify layers |
+| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create or modify layers |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html) | ✔️ | ✔️ |
 | [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ |  |
@@ -81,7 +81,7 @@ The following methods are available:
 | [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
 | [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** via [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
@@ -199,7 +199,7 @@ and can be reprojected to match other spatial layers.
 
 library(ggplot2)
 
-# Faceted SpatRaster.
+# Facet a SpatRaster object.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -210,9 +210,9 @@ ggplot() +
   )
 ```
 
-![Faceted map using a SpatRaster.](./fig-faceted-1.png)
+![Faceted map using a SpatRaster object.](./fig-faceted-1.png)
 
-Faceted map using a SpatRaster.
+Faceted map using a SpatRaster object.
 
 ``` r
 
@@ -229,9 +229,9 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Contour line plot for a SpatRaster.](./fig-contourlines-1.png)
+![Contour line plot for a SpatRaster object.](./fig-contourlines-1.png)
 
-Contour line plot for a SpatRaster.
+Contour line plot for a SpatRaster object.
 
 ``` r
 
@@ -243,9 +243,10 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Filled contour plot for a SpatRaster.](./fig-contourfilled-1.png)
+![Filled contour plot for a SpatRaster
+object.](./fig-contourfilled-1.png)
 
-Filled contour plot for a SpatRaster.
+Filled contour plot for a SpatRaster object.
 
 **tidyterra** also supports RGB `SpatRaster` objects for imagery:
 
@@ -268,12 +269,13 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![Map combining an RGB SpatRaster and a SpatVector.](./fig-rgb-1.png)
+![Map combining an RGB SpatRaster object and a SpatVector
+object.](./fig-rgb-1.png)
 
-Map combining an RGB SpatRaster and a SpatVector.
+Map combining an RGB SpatRaster object and a SpatVector object.
 
-**tidyterra** includes color scales suitable for hypsometric and
-bathymetric maps:
+**tidyterra** includes color scales and hypsometric tints suitable for
+topographic and bathymetric maps:
 
 ``` r
 

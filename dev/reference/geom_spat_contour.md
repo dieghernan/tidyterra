@@ -253,7 +253,7 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 - `after_stat(level_low)`, `after_stat(level_high)`,
 
 - `after_stat(level_mid)`: (contour bands only) Lower and upper bin
-  boundaries for each band, as well the mid point between the
+  boundaries for each band, as well as the midpoint between the
   boundaries.
 
 ## Dropped variables
@@ -319,7 +319,7 @@ ggplot() +
   geom_spatraster_contour(data = r)
 
 
-# Labelled
+# Labeled
 ggplot() +
   geom_spatraster_contour_text(
     data = r, breaks = c(110, 130, 160, 190),

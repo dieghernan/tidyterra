@@ -399,7 +399,8 @@ Figure 6: Impact of resampling on tile blurriness.
 ## Avoid degree labels on axes
 
 This is the default behavior in **ggplot2**, but you can modify it using
-the `ggplot2::coord_sf(datum)` argument:
+the `datum` argument in
+[`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
 ``` r
 
@@ -473,7 +474,7 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-breaks-2.png)
 
-\(b\) Breaks modified using the scales package.
+\(b\) Breaks modified using the **scales** package.
 
 Figure 8: Spatial axis breaks with ggplot2.
 
@@ -603,7 +604,7 @@ method.
 [`scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
 method.
 
-Figure 10: Color tables: tidyterra package.
+Figure 10: Color tables: **tidyterra** methods.
 
 ## Use with **gganimate**
 
@@ -649,7 +650,7 @@ gganimate::animate(anim, duration = 12, device = "ragg_png")
 
 Figure 11: Animation of average monthly temperatures.
 
-## North arrows and scale bar
+## North arrows and scale bars
 
 **tidyterra** does not provide north arrows or scale bars directly for
 **ggplot2** plots. However, you can use **ggspatial** functions
@@ -693,7 +694,8 @@ annotations added using **ggspatial**.
 
 Use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
-for the background tile, then add your data layers on top:
+for the RGB `SpatRaster` background tile, then add your data layers on
+top:
 
 ``` r
 
@@ -888,7 +890,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
 
-### tidyterra and metR
+### **tidyterra** and **metR**
 
 The **metR** package provides **ggplot2** extensions, primarily for
 meteorological data visualization. As shown previously (see [Labeling
@@ -934,6 +936,6 @@ Figure 17: Relief rendering combining tidyterra for raster plotting and
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors and the
+    converted to their corresponding labels and factors, and the
     corresponding color table has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

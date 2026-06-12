@@ -355,7 +355,7 @@ glimpse(v) |> autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 12 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> $ ID_1   <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
 #> $ NAME_1 <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Gr…
@@ -374,7 +374,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 49' 34.44" E / 6° 31' 41.71" E] , [49° 32' 55.33" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 49' 34.44" E / 6° 31' 41.71" E] , [49° 32' 55.33" N / 50° 10' 53.84" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -391,7 +391,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 30' 59.35" E] , [49° 35' 13.15" N / 50° 2' 10.76" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 30' 59.35" E] , [49° 35' 13.15" N / 50° 2' 10.76" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -408,7 +408,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 51' 7.49" E / 6° 22' 54.12" E] , [49° 27' 53.95" N / 49° 59' 2.98" N])
+#> #  Extent (x / y): ([5° 51' 7.49" E / 6° 22' 54.12" E] , [49° 27' 53.95" N / 49° 59' 2.98" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -425,7 +425,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 48' 37.74" E / 6° 30' 59.35" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 48' 37.74" E / 6° 30' 59.35" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
