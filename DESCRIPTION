@@ -13,7 +13,7 @@ Authors@R: c(
   )
 Description: Provides common 'tidyverse' methods for 'SpatRaster' and
     'SpatVector' objects created with the 'terra' package, plus 'ggplot2'
-    geoms and scales for plotting those objects.
+    'geoms' and scales for plotting those objects.
 License: MIT + file LICENSE
 URL: https://dieghernan.github.io/tidyterra/,
     https://github.com/dieghernan/tidyterra
