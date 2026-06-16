@@ -1,11 +1,10 @@
-#' Fortify `Spat*` Objects
+#' Fortify `Spat*` objects
 #'
 #' @description
 #' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provides
 #' native compatibility with [ggplot2::ggplot()].
 #'
-#' **Note that** these methods are now implemented as a wrapper around
-#' [`tidy.Spat`] methods.
+#' These methods are now implemented as wrappers around [`tidy.Spat`] methods.
 #'
 #' @export
 #' @encoding UTF-8
@@ -39,12 +38,12 @@
 #'
 #' ## `SpatRaster`
 #'
-#' Return a tibble that can be used with `ggplot2::geom_*` like
-#' [ggplot2::geom_point()], [ggplot2::geom_raster()], etc.
+#' Returns a tibble that can be used with `ggplot2::geom_*`, such as
+#' [ggplot2::geom_point()] and [ggplot2::geom_raster()].
 #'
-#' The resulting tibble includes the coordinates on the columns `x, y`. The
-#' values of each layer are included as additional columns named as per the
-#' name of the layer on the `SpatRaster`.
+#' The resulting tibble includes coordinates in the `x` and `y` columns. The
+#' values of each layer are added as extra columns using the layer names from
+#' the `SpatRaster`.
 #'
 #' The CRS of the `SpatRaster` can be retrieved with
 #' `attr(fortifiedSpatRaster, "crs")`.
@@ -52,41 +51,41 @@
 #' You can convert the fortified object back to a `SpatRaster` with
 #' [as_spatraster()].
 #'
-#' When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format (see
-#' [tidyr::pivot_longer()]). The fortified object has the following
-#' columns:
-#' - `x,y`: Coordinates (center) of the cell on the corresponding CRS.
-#' - `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
-#' - `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+#' When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
+#' [tidyr::pivot_longer()]). The fortified object has the following columns:
+#' - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
+#' - `lyr`: Name of the `SpatRaster` layer associated with `value`.
+#' - `value`: Cell value for the corresponding `lyr`.
 #'
-#' This option may be useful when using several `geom_*` and for faceting, see
-#' **Examples**.
+#' This option can be useful when combining several `geom_*` layers or when
+#' faceting.
 #'
 #' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
 #'
-#' Return a [`sf`][sf::st_sf] object that can be used with [ggplot2::geom_sf()].
+#' Returns an [`sf`][sf::st_sf] object that can be used with
+#' [ggplot2::geom_sf()].
 #'
 #' @examples
 #' \donttest{
 #'
-#' # Demonstrate the use with ggplot2
+#' # Demonstrate use with ggplot2.
 #' library(ggplot2)
 #'
-#' # Get a SpatRaster
+#' # Get a SpatRaster.
 #' r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
 #'   terra::rast() |>
 #'   terra::project("EPSG:4326")
 #'
-#' # You can now use a SpatRaster with any geom
+#' # You can now use a SpatRaster with any geom.
 #' ggplot(r, maxcell = 50) +
 #'   geom_histogram(aes(x = elevation),
 #'     bins = 20, fill = "lightblue",
 #'     color = "black"
 #'   )
 #'
-#' # For SpatVector, SpatGraticule and SpatExtent you can use now geom_sf()
+#' # For SpatVector, SpatGraticule and SpatExtent, use geom_sf().
 #'
-#' # Create a SpatVector
+#' # Create a SpatVector.
 #' extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 #' cyl <- terra::vect(extfile)
 #'

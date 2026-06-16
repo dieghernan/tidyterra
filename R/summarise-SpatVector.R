@@ -17,7 +17,7 @@
 #'
 #' @seealso [dplyr::summarise()], [terra::aggregate()]
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.groups
 #' @family dplyr.methods
 #'

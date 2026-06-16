@@ -110,7 +110,7 @@ to use \code{position_jitter()}, give the position as \code{"jitter"}.
 }}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 Wrappers of the \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to plot \code{SpatVector}
@@ -173,7 +173,7 @@ ggplot(cyl) +
 \seealso{
 \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

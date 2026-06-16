@@ -143,7 +143,7 @@ as the default setup (\code{\link[scales:label_number]{scales::label_number()}})
 the isolines. Uses \code{\link[isoband:label_placer_minmax]{label_placer_minmax()}} by default.}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 These geoms create contours of \code{SpatRaster} objects. To specify a valid
@@ -221,12 +221,12 @@ longer available.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not have a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
+When the \code{SpatRaster} does not have a CRS, that is,
+\code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
-adjust the scales. That means that also the
+On \code{SpatRaster} objects that have a CRS, the geom uses
+\code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }
 
@@ -300,7 +300,7 @@ The \CRANpkg{metR} package also provides a set of alternative functions:
 \item \code{metR::geom_contour_tanaka()}.
 }
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

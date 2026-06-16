@@ -194,7 +194,7 @@ ggplot(full, aes(x, y)) +
 \code{\link[dplyr:inner_join]{dplyr::inner_join()}}, \code{\link[dplyr:left_join]{dplyr::left_join()}}, \code{\link[dplyr:right_join]{dplyr::right_join()}},
 \code{\link[dplyr:full_join]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},

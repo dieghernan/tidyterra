@@ -26,7 +26,7 @@
       Warning:
       Computation failed in `stat_terra_spat_raster()`.
       Caused by error in `reproject_raster_on_stat()`:
-      ! `geom_spatraster_*()` on <SpatRaster>s with CRS must be used with `ggplot2::coord_sf()`.
+      ! `geom_spatraster_*()` on <SpatRaster> objects with CRS must be used with `ggplot2::coord_sf()`.
 
 ---
 

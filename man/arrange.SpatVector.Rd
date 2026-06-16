@@ -80,7 +80,7 @@ v |>
 \seealso{
 \code{\link[dplyr:arrange]{dplyr::arrange()}}
 
-Other single table verbs:
+Other \CRANpkg{dplyr} single-table verbs:
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
 \code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
@@ -120,4 +120,4 @@ Other \CRANpkg{dplyr} methods:
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}
-\concept{single table verbs}
+\concept{dplyr.single_table}

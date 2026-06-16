@@ -17,9 +17,11 @@
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
-#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of arguments accepted by these scales.
+#' \CRANpkg{tidyterra} documents only a selection of these additional
+#' arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
+#' full range of arguments accepted by these scales.
+#'
+#' @source <https://github.com/LeahSmyth/Princess-Colour-Schemes>.
 #'
 #' @export
 #' @encoding UTF-8
@@ -55,8 +57,6 @@
 #' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
-#'
-#' @source <https://github.com/LeahSmyth/Princess-Colour-Schemes>.
 #'
 #' @examples
 #' \donttest{

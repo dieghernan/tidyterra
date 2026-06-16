@@ -9,6 +9,12 @@
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
+#' @source
+#' Based on the `layer_spatial()` implementation in the \CRANpkg{ggspatial}
+#' package. Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to
+#' [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
+#'
 #' @export
 #' @encoding UTF-8
 #' @seealso
@@ -19,6 +25,7 @@
 #'
 #' @family ggplot2.utils
 #'
+#' @inheritSection geom_spatraster Coords
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
 #' @inheritParams terra::plotRGB
@@ -28,8 +35,7 @@
 #' @param max_col_value Number giving the upper bound of the color value range.
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
-#' @returns A \CRANpkg{ggplot2} layer
-#' @inheritSection geom_spatraster Coords
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()]
@@ -37,12 +43,6 @@
 #' @section Aesthetics:
 #'
 #' No `aes()` is required. In fact, `aes()` will be ignored.
-#'
-#' @source
-#' Based on the `layer_spatial()` implementation in the \CRANpkg{ggspatial}
-#' package. Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to
-#' [ggspatial
-#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #' @examples
 #' \donttest{

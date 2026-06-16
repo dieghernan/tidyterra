@@ -33,7 +33,7 @@ A \code{SpatVector} object.
 Implementation of the \strong{generic} \code{\link[tidyr:uncount]{tidyr::uncount()}} method.
 \subsection{\code{SpatVector}}{
 
-Each duplicated row keeps the geometry of the input feature.
+Each duplicated row keeps the input geometry.
 }
 }
 

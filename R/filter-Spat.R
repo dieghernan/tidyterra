@@ -14,9 +14,9 @@
 #' involved. See [dplyr::filter()].
 #'
 #' **You can filter a `SpatRaster` by its geographic coordinates**.
-#' Use `filter(.data, x > 42)`. Note that `x` and `y` are reserved
-#' names on \CRANpkg{terra}, since they refer to the geographic coordinates of
-#' the layer.
+#' Use `filter(.data, x > 42)`. The names `x` and `y` are reserved in
+#' \CRANpkg{terra} because they refer to the geographic coordinates of the
+#' layer.
 #'
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
@@ -27,7 +27,7 @@
 #'
 #' @seealso [dplyr::filter()]
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'
@@ -57,12 +57,12 @@
 #' layers.
 #'
 #' If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS, extent,
-#' resolution and hence the same number of cells as `.data`. If
+#' resolution and number of cells as `.data`. If
 #' `.keep_extent = FALSE` the outer `NA` cells are trimmed with [terra::trim()],
 #' so the extent and number of cells may differ. The output will still have
 #' the same CRS and resolution as `.data`.
 #'
-#' `x` and `y` variables (i.e. the longitude and latitude of the `SpatRaster`)
+#' `x` and `y` variables, the longitude and latitude of the `SpatRaster`,
 #' are also available internally for filtering. See **Examples**.
 #'
 #' ## `SpatVector`

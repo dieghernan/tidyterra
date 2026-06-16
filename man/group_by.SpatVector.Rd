@@ -46,14 +46,14 @@ Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_
 \code{SpatVector} objects.
 
 \strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax}
-on a grouped \code{SpatVector} (i.e. subsetting a \code{SpatVector} like
-\code{v[1:3,1:2]}), the \code{groups} attribute can be corrupted.
+on a grouped \code{SpatVector}, for example subsetting a \code{SpatVector} like
+\code{v[1:3,1:2]}, the \code{groups} attribute can be corrupted.
 \CRANpkg{tidyterra} tries to re-group the \code{SpatVector}. This is triggered
 the next time you use a \CRANpkg{dplyr} verb on your \code{SpatVector}.
 
-Note also that some operations, such as \code{terra::spatSample()}, create a new
-\code{SpatVector}. In these cases, the result does not preserve the \code{groups}
-attribute. Use \code{\link[=group_by]{group_by()}} to re-group.
+Some operations, such as \code{terra::spatSample()}, create a new \code{SpatVector}.
+In these cases, the result does not preserve the \code{groups} attribute. Use
+\code{\link[=group_by]{group_by()}} to re-group.
 }
 
 \examples{
@@ -70,12 +70,12 @@ by_name1
 
 # But it adds metadata for grouping. See the coercion to tibble.
 
-# Not grouped
+# Not grouped.
 p_tbl <- as_tibble(p)
 class(p_tbl)
 head(p_tbl, 3)
 
-# Grouped
+# Grouped.
 by_name1_tbl <- as_tibble(by_name1)
 class(by_name1_tbl)
 head(by_name1_tbl, 3)
@@ -86,7 +86,7 @@ by_name1 |> summarise(
   area = sum(AREA)
 )
 
-# Each call to summarise() removes a layer of grouping
+# Each call to summarise() removes a layer of grouping.
 by_name2_name1 <- p |> group_by(NAME_2, NAME_1)
 
 by_name2_name1
@@ -96,23 +96,23 @@ by_name2 <- by_name2_name1 |> summarise(n = dplyr::n())
 by_name2
 group_data(by_name2)
 
-# To removing grouping, use ungroup
+# To remove grouping, use ungroup().
 by_name2 |>
   ungroup() |>
   summarise(n = sum(n))
 
-# By default, group_by() overrides existing grouping
+# By default, group_by() overrides existing grouping.
 by_name2_name1 |>
   group_by(ID_1, ID_2) |>
   group_vars()
 
-# Use add = TRUE to instead append
+# Use add = TRUE to append instead.
 by_name2_name1 |>
   group_by(ID_1, ID_2, .add = TRUE) |>
   group_vars()
 
-# You can group by expressions: this is a short-hand
-# For a mutate() followed by a group_by().
+# You can group by expressions. This is shorthand for a mutate() followed
+# by a group_by().
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)

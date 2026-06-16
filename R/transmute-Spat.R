@@ -12,6 +12,8 @@
 #'
 #' @rdname transmute.Spat
 #' @name transmute.Spat
+#' @keywords internal
+#'
 #' @seealso
 #' [`mutate.Spat`], [dplyr::transmute()] methods.
 #'
@@ -32,8 +34,6 @@
 #'
 #' v |>
 #'   transmute(cpro2 = paste0(cpro, "-CyL"))
-#' @keywords internal
-#'
 transmute.SpatRaster <- function(.data, ...) {
   df <- as_tbl_internal(.data)
 

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Provides common 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects created with the 'terra' package, plus 'ggplot2' 'geoms' and scales for plotting those objects.
+Provides methods from 'tidyverse' packages for 'SpatRaster' and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and scales for plotting those objects.
 }
 \seealso{
 Useful links:

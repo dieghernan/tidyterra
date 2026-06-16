@@ -47,8 +47,12 @@ template:
 
 home:
   title: >
-    tidyterra | tidyverse methods and ggplot2 helpers for terra objects
+    tidyterra | methods from tidyverse packages and ggplot2 helpers for Spat* objects
 
+# Reference index convention:
+# - Use `has_concept("<family>")` when a section maps to a roxygen `@family`.
+# - Keep concept names aligned with `man/roxygen/meta.R`.
+# - Use direct selectors only for pages without a family concept.
 reference:
 - title: "**tibble** methods"
   desc: >
@@ -86,12 +90,12 @@ reference:
     `Spat*` objects.
 - subtitle: Pivoting
   desc: >
-    Pivoting changes the representation of a `SpatVector` object without
-    changing its data.
+    Pivoting methods for changing the representation of `SpatVector` objects
+    without changing their geometries.
   contents: has_concept("tidyr.pivot")
 - subtitle: Rows
   desc: >
-    Tools for duplicating `SpatVector` features.
+    Tools for duplicating `SpatVector` geometries.
   contents: has_concept("tidyr.rows")
 - subtitle: Missing values
   desc: >
@@ -104,7 +108,7 @@ reference:
   contents: has_concept("tidyr.character")
 - subtitle: Nesting
   desc: >
-    Tools for storing `SpatVector` objects in nested list-columns.
+    Tools for storing `SpatVector` objects in list-columns.
   contents: has_concept("tidyr.nest")
 
 - title: "**ggplot2** methods"
@@ -115,16 +119,18 @@ reference:
   contents: has_concept("ggplot2.methods")
 
 - title: "**ggplot2** helpers"
-- subtitle: Geoms
+- subtitle: Geoms and helpers
   desc: >
-    Create <a href="https://CRAN.R-project.org/package=ggplot2"
-    class="external-link"><span class="pkg">ggplot2</span></a> layers for
+    Helpers for creating <a href="https://CRAN.R-project.org/package=ggplot2"
+    class="external-link"><span class="pkg">ggplot2</span></a> layers from
     `Spat*` objects.
-  contents: starts_with("geom_")
+  contents: has_concept("ggplot2.utils")
 - subtitle: Scales
   desc: >
-    Color scales, palettes and hypsometric tints for maps.
-  contents: starts_with("scale_")
+    Color scales, palettes and hypsometric tints for spatial plots.
+  contents:
+  - starts_with("scale_")
+  - has_concept("gradients")
 
 - title: "**generics** methods"
   desc: >
@@ -145,7 +151,7 @@ reference:
   contents: has_concept("coerce")
 - subtitle: Other helpers
   desc: >
-    Utilities for CRS handling, package checks and `SpatRaster` comparison.
+    Utilities for CRS handling, package checks and `SpatRaster` comparisons.
   contents: has_concept("helpers")
 - title: Built-in data
   desc: >

@@ -114,9 +114,9 @@ You can also get a vector of colors named with the corresponding factor with
 Additional arguments \code{...} are passed to
 \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}}.
 
-\strong{Note that} \CRANpkg{tidyterra} documents only a selection of these
-additional arguments, check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full
-range of arguments accepted.
+\CRANpkg{tidyterra} documents only a selection of these additional
+arguments, so check \code{\link[ggplot2:discrete_scale]{ggplot2::discrete_scale()}} to see the full range of
+arguments accepted.
 }
 \examples{
 library(terra)

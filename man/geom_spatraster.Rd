@@ -6,7 +6,7 @@
 \alias{stat_spatraster}
 \title{Plot \code{SpatRaster} objects}
 \source{
-Based on the \code{layer_spatial()} implementation on \CRANpkg{ggspatial} package.
+Based on the \code{layer_spatial()} implementation in \CRANpkg{ggspatial}.
 Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
 }
 \usage{
@@ -102,13 +102,14 @@ lists which parameters it can accept.
 \code{"label"}.}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}). It is designed
 to plot the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
 
-For plotting \code{SpatRaster} objects as map tiles (i.e. RGB \code{SpatRaster}), use
+For plotting \code{SpatRaster} objects as map tiles, such as RGB \code{SpatRaster}
+objects, use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
@@ -125,12 +126,12 @@ the \code{geom}.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not have a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
+When the \code{SpatRaster} does not have a CRS, that is,
+\code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
-adjust the scales. That means that also the
+On \code{SpatRaster} objects that have a CRS, the geom uses
+\code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }
 
@@ -149,9 +150,9 @@ object. Use \code{facet_wrap(~lyr)} to display the \code{SpatRaster}
 layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
-on the \code{SpatRaster} (i.e.
-\verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Names of the
-layers can be retrieved using \code{names(rast)}.
+on the \code{SpatRaster} (for example,
+\verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Layer names can
+be retrieved using \code{names(rast)}.
 
 Using \code{geom_spatraster(..., mapping = aes(fill = NULL))} or
 \verb{geom_spatraster(..., fill = <color value(s)>)} creates a layer with no
@@ -159,7 +160,7 @@ mapped \code{fill} aesthetic.
 
 \code{fill} can use computed variables.
 
-For \code{alpha} use computed variable. See section \strong{Computed variables}.
+For \code{alpha}, use a computed variable. See section \strong{Computed variables}.
 
 
 \subsection{\code{stat_spatraster()}}{
@@ -211,22 +212,22 @@ temp_rast <- rast(file_path)
 
 library(ggplot2)
 
-# Display a single layer
+# Display a single layer.
 names(temp_rast)
 
 ggplot() +
   geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +
-  # You can use coord_sf
+  # You can use coord_sf().
   coord_sf(crs = 3857) +
   scale_fill_grass_c(palette = "celsius")
 
-# Display facets
+# Display facets.
 ggplot() +
   geom_spatraster(data = temp_rast) +
   facet_wrap(~lyr, ncol = 2) +
   scale_fill_grass_b(palette = "celsius", breaks = seq(0, 20, 2.5))
 
-# Non spatial rasters
+# Non-spatial rasters.
 
 no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 values(no_crs) <- seq_len(ncell(no_crs))
@@ -234,7 +235,7 @@ values(no_crs) <- seq_len(ncell(no_crs))
 ggplot() +
   geom_spatraster(data = no_crs)
 
-# Downsample
+# Downsample.
 
 ggplot() +
   geom_spatraster(data = no_crs, maxcell = 25)
@@ -289,7 +290,7 @@ Recommended \code{geoms}:
 \item \code{\link[ggplot2:geom_text]{ggplot2::geom_text()}}.
 }
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

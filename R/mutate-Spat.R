@@ -21,7 +21,7 @@
 #' - [terra::clamp()].
 #' - [terra::app()], [terra::lapp()], [terra::tapp()].
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.cols
 #' @family dplyr.methods
 #'

@@ -109,7 +109,7 @@ autoplot(no_diss, aes(fill = start_with_s)) +
 \seealso{
 \code{\link[dplyr:summarise]{dplyr::summarise()}}, \code{\link[terra:aggregate]{terra::aggregate()}}
 
-Other single table verbs:
+Other \CRANpkg{dplyr} single-table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
@@ -149,4 +149,4 @@ Other \CRANpkg{dplyr} methods:
 }
 \concept{dplyr.groups}
 \concept{dplyr.methods}
-\concept{single table verbs}
+\concept{dplyr.single_table}

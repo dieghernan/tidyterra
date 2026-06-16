@@ -1,5 +1,4 @@
 Acknowledgements
-CLI
 CMD
 CodeFactor
 Colorimetric
@@ -45,7 +44,6 @@ cli
 codecov
 colour
 colours
-coltab
 cpt
 de
 deprecations
@@ -109,4 +107,5 @@ xmax
 xmin
 ymax
 ymin
+’s
 ️

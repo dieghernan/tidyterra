@@ -12,9 +12,9 @@
 #' Additional arguments `...` are passed to
 #' [ggplot2::discrete_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
-#' additional arguments, check [ggplot2::discrete_scale()] to see the full
-#' range of arguments accepted.
+#' \CRANpkg{tidyterra} documents only a selection of these additional
+#' arguments, so check [ggplot2::discrete_scale()] to see the full range of
+#' arguments accepted.
 #'
 #' @export
 #' @encoding UTF-8

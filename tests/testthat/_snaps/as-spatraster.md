@@ -37,5 +37,5 @@
     Message
       ! Results of `tidyterra::compare_spatrasters()`: 
       The following attributes are not equal:
-      * crs
+      * CRS
 

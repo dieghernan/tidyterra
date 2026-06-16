@@ -35,10 +35,9 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the [dplyr::bind_cols()] function for
-#' `SpatVector` objects. Note that for the second and subsequent arguments on
-#' `...`, the geometry is not `cbind`ed and only the data frame-like columns
-#' are kept.
+#' Implementation of the [dplyr::bind_cols()] function for `SpatVector`
+#' objects. For the second and subsequent arguments in `...`, the geometry is
+#' not `cbind`ed and only the data frame-like columns are kept.
 #'
 #' @examples
 #' library(terra)
@@ -63,7 +62,7 @@
 #' end
 #' glimpse(end)
 #'
-#' # Row sizes must be compatible when column-binding
+#' # Row sizes must be compatible when column-binding.
 #' try(bind_spat_cols(sv, sfobj))
 bind_spat_cols <- function(
   ...,
@@ -85,7 +84,7 @@ bind_spat_cols <- function(
   # Ensure the first input is a `SpatVector`.
   if (!inherits(dots[[1]], "SpatVector")) {
     cli::cli_abort(paste(
-      "Object {.field 1} in {.arg ...} is not a {.cls SpatVector}."
+      "Object {.val {1}} in {.arg ...} is not a {.cls SpatVector}."
     ))
   }
 

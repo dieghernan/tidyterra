@@ -32,7 +32,7 @@
 #' [dplyr::slice()], [terra::spatSample()], [as_coordinates()],
 #' [filter.SpatRaster()].
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'

@@ -25,6 +25,8 @@
 #' @rdname group_data.SpatVector
 #' @name group_data.SpatVector
 #'
+#' @keywords internal
+#'
 #' @importFrom dplyr group_data
 #'
 #' @inheritParams dplyr::group_data
@@ -33,7 +35,7 @@
 #' @returns
 #'
 #' See the description of the method. The results are usually tibbles,
-#' lists or vectors. These functions does not return `SpatVector` objects.
+#' lists or vectors. These functions do not return `SpatVector` objects.
 #'
 #' @examples
 #' library(terra)
@@ -98,8 +100,6 @@
 #' group_data(gv2)
 #'
 #' group_indices(gv2)
-#' @keywords internal
-#'
 group_data.SpatVector <- function(.data) {
   # Dispatch to dplyr
   dplyr::group_data(tbl_for_groups(.data))

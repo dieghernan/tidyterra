@@ -33,7 +33,7 @@
 #' @param ... Other arguments passed to [geom_spatraster()],
 #'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
-#' @returns A \CRANpkg{ggplot2} layer
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @section Methods:
 #'
 #' Implementation of the **generic** [ggplot2::autoplot()] method.

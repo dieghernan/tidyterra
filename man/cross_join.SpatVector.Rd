@@ -56,7 +56,7 @@ cross_join(v, labels)
 \seealso{
 \code{\link[dplyr:cross_join]{dplyr::cross_join()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link{filter-joins.SpatVector}},

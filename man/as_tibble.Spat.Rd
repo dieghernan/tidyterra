@@ -91,8 +91,8 @@ following cases:
 \item Layers with duplicated names.
 \item When coercing to a tibble, if \code{xy = TRUE}, layers named \code{x} or
 \code{y} are renamed.
-\item When working with tidyverse methods (i.e. \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}), the
-same renaming happens.
+\item When working with methods from tidyverse packages, for example
+\code{\link[=filter.SpatRaster]{filter.SpatRaster()}}, the same renaming happens.
 }
 
 \CRANpkg{tidyterra} displays a message describing the renamed layers.

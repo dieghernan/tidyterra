@@ -95,7 +95,7 @@ bind_spat_rows(list(
 \seealso{
 \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},

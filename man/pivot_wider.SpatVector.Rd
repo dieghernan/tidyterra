@@ -31,8 +31,8 @@
 
 \item{id_cols}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> A set of columns
 that uniquely identify each observation. Typically used when you have
-redundant variables, i.e. variables whose values are perfectly correlated
-with existing variables.
+redundant variables, that is, variables whose values are perfectly
+correlated with existing variables.
 
 Defaults to all columns in \code{data} except for the columns specified through
 \code{names_from} and \code{values_from}. If a
@@ -40,7 +40,7 @@ Defaults to all columns in \code{data} except for the columns specified through
 will be evaluated on \code{data} after removing the columns specified through
 \code{names_from} and \code{values_from}.
 
-Note that "\code{geometry}" columns are sticky, hence they are removed from
+Because "\code{geometry}" columns are sticky, they are removed from
 \code{names_from} and \code{values_from}.}
 
 \item{id_expand}{Should the values in the \code{id_cols} columns be expanded by
@@ -151,7 +151,7 @@ library(ggplot2)
 
 cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-# Add extra row with info
+# Add an extra row with information.
 xtra <- cyl |>
   slice(c(2, 3)) |>
   mutate(
@@ -161,7 +161,7 @@ xtra <- cyl |>
   rbind(cyl) |>
   glimpse()
 
-# Pivot by geom
+# Pivot by geometry.
 xtra |>
   pivot_wider(
     id_cols = iso2:name, values_from = value,

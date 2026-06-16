@@ -52,9 +52,9 @@ behavior can affect how you write your conditions when missing values are
 involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
 \strong{You can filter a \code{SpatRaster} by its geographic coordinates}.
-Use \code{filter(.data, x > 42)}. Note that \code{x} and \code{y} are reserved
-names on \CRANpkg{terra}, since they refer to the geographic coordinates of
-the layer.
+Use \code{filter(.data, x > 42)}. The names \code{x} and \code{y} are reserved in
+\CRANpkg{terra} because they refer to the geographic coordinates of the
+layer.
 
 See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
@@ -69,12 +69,12 @@ Cells that do not meet the conditions on \code{...} are returned with value
 layers.
 
 If \code{.keep_extent = TRUE} the returned \code{SpatRaster} has the same CRS, extent,
-resolution and hence the same number of cells as \code{.data}. If
+resolution and number of cells as \code{.data}. If
 \code{.keep_extent = FALSE} the outer \code{NA} cells are trimmed with \code{\link[terra:trim]{terra::trim()}},
 so the extent and number of cells may differ. The output will still have
 the same CRS and resolution as \code{.data}.
 
-\code{x} and \code{y} variables (i.e. the longitude and latitude of the \code{SpatRaster})
+\code{x} and \code{y} variables, the longitude and latitude of the \code{SpatRaster},
 are also available internally for filtering. See \strong{Examples}.
 }
 
@@ -128,7 +128,7 @@ v |> filter_out(cpro >= 10)
 \seealso{
 \code{\link[dplyr:filter]{dplyr::filter()}}
 
-Other single table verbs:
+Other \CRANpkg{dplyr} single-table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{mutate.Spat}},
 \code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
@@ -168,4 +168,4 @@ Other \CRANpkg{dplyr} methods:
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}
-\concept{single table verbs}
+\concept{dplyr.single_table}

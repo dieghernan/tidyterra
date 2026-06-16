@@ -15,15 +15,15 @@ preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()
 variables whose combination uniquely identifies each row. See
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
-\strong{NB}: unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} you cannot create new variables
-here but instead you can select multiple variables with (e.g.)
+Unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}, you cannot create new variables here.
+Instead, you can select multiple variables, for example with
 \code{\link[tidyselect:everything]{everything()}}.}
 }
 \value{
 The same \code{SpatVector} object with updated grouping metadata.
 }
 \description{
-\code{rowwise()} allows you to compute on a \code{SpatVector} one row at a time.
+\code{rowwise()} lets you compute on a \code{SpatVector} one row at a time.
 This is most useful when a vectorised function does not exist.
 
 Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
@@ -42,14 +42,15 @@ Implementation of the \strong{generic} \code{\link[dplyr:rowwise]{dplyr::rowwise
 \code{SpatVector} objects.
 
 \strong{When mixing} \CRANpkg{terra} \strong{and} \CRANpkg{dplyr} \strong{syntax} on a
-row-wise \code{SpatVector} (i.e. subsetting a \code{SpatVector} like \code{v[1:3,1:2]}),
-the \code{groups} attribute can be corrupted. \CRANpkg{tidyterra} tries to
+row-wise \code{SpatVector}, for example subsetting a \code{SpatVector} like
+\code{v[1:3,1:2]}, the \code{groups} attribute can be corrupted.
+\CRANpkg{tidyterra} tries to
 regenerate the \code{SpatVector}. This is triggered the next time you use a
 \CRANpkg{dplyr} verb on your \code{SpatVector}.
 
-Note also that some operations, such as \code{terra::spatSample()}, create a new
-\code{SpatVector}. In these cases, the result does not preserve the \code{groups}
-attribute. Use \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} to re-group.
+Some operations, such as \code{terra::spatSample()}, create a new \code{SpatVector}.
+In these cases, the result does not preserve the \code{groups} attribute. Use
+\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} to re-group.
 }
 
 \examples{

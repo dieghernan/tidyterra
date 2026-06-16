@@ -17,9 +17,12 @@
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
-#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of arguments accepted by these scales.
+#' \CRANpkg{tidyterra} documents only a selection of these additional
+#' arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
+#' full range of arguments accepted by these scales.
+#'
+#' @source <https://github.com/jblindsay/whitebox-tools>, under
+#' MIT License. Copyright (c) 2017-2021 John Lindsay.
 #'
 #' @export
 #' @encoding UTF-8
@@ -55,9 +58,6 @@
 #' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
-#'
-#' @source <https://github.com/jblindsay/whitebox-tools>, under
-#' MIT License. Copyright (c) 2017-2021 John Lindsay.
 #'
 #' @examples
 #' \donttest{
@@ -314,9 +314,7 @@ whitebox_pal <- function(alpha = 1, direction = 1, palette) {
 extract_pal <- function(df, palette) {
   palette <- tolower(palette)
 
-  if (!palette %in% df$pal) {
-    cli::cli_abort("{.arg palette} is not a known palette.")
-  }
+  check_palette(palette, df$pal)
 
   df <- df[df$pal == palette, ]
   df

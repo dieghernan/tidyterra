@@ -100,7 +100,7 @@ nest_join(v, extra, by = "cpro")
 \seealso{
 \code{\link[dplyr:nest_join]{dplyr::nest_join()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},

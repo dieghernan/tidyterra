@@ -5,10 +5,16 @@
 #' This geom plots `SpatRaster` objects (see [terra::rast()]). It is designed
 #' to plot the object by layers, as [terra::plot()] does.
 #'
-#' For plotting `SpatRaster` objects as map tiles (i.e. RGB `SpatRaster`), use
+#' For plotting `SpatRaster` objects as map tiles, such as RGB `SpatRaster`
+#' objects, use
 #' [geom_spatraster_rgb()].
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
+#'
+#' @source
+#' Based on the `layer_spatial()` implementation in \CRANpkg{ggspatial}.
+#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
+#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
 #' @export
 #' @encoding UTF-8
@@ -41,19 +47,19 @@
 #'   around the dateline in equal-area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the `SpatRaster`.
 #'
-#' @returns A \CRANpkg{ggplot2} layer
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]
 #'
 #' @section Coords:
 #'
-#' When the `SpatRaster` does not have a CRS (i.e.,
-#' `terra::crs(rast) == ""`) the geom does not make any assumption about the
+#' When the `SpatRaster` does not have a CRS, that is,
+#' `terra::crs(rast) == ""`, the geom does not make any assumption about the
 #' scales.
 #'
-#' On `SpatRaster` that have a CRS, the geom uses [ggplot2::coord_sf()] to
-#' adjust the scales. That means that also the
+#' On `SpatRaster` objects that have a CRS, the geom uses
+#' [ggplot2::coord_sf()] to adjust the scales. This means that the
 #' **`SpatRaster` may be reprojected**.
 #'
 #' @section Aesthetics:
@@ -68,9 +74,9 @@
 #' layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
-#' on the `SpatRaster` (i.e.
-#' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Names of the
-#' layers can be retrieved using `names(rast)`.
+#' on the `SpatRaster` (for example,
+#' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Layer names can
+#' be retrieved using `names(rast)`.
 #'
 #' Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
 #' `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no
@@ -78,7 +84,7 @@
 #'
 #' `fill` can use computed variables.
 #'
-#' For `alpha` use computed variable. See section **Computed variables**.
+#' For `alpha`, use a computed variable. See section **Computed variables**.
 #'
 #' @section Facets:
 #'
@@ -94,11 +100,6 @@
 #' - `after_stat(value)`: Cell values of the `SpatRaster`.
 #' - `after_stat(lyr)`: Name of the layer.
 #'
-#' @source
-#' Based on the `layer_spatial()` implementation on \CRANpkg{ggspatial} package.
-#' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
-#' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
-#'
 #' @examples
 #' \donttest{
 #' # Avg temperature on spring in Castile and Leon (Spain)
@@ -109,22 +110,22 @@
 #'
 #' library(ggplot2)
 #'
-#' # Display a single layer
+#' # Display a single layer.
 #' names(temp_rast)
 #'
 #' ggplot() +
 #'   geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +
-#'   # You can use coord_sf
+#'   # You can use coord_sf().
 #'   coord_sf(crs = 3857) +
 #'   scale_fill_grass_c(palette = "celsius")
 #'
-#' # Display facets
+#' # Display facets.
 #' ggplot() +
 #'   geom_spatraster(data = temp_rast) +
 #'   facet_wrap(~lyr, ncol = 2) +
 #'   scale_fill_grass_b(palette = "celsius", breaks = seq(0, 20, 2.5))
 #'
-#' # Non spatial rasters
+#' # Non-spatial rasters.
 #'
 #' no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 #' values(no_crs) <- seq_len(ncell(no_crs))
@@ -132,7 +133,7 @@
 #' ggplot() +
 #'   geom_spatraster(data = no_crs)
 #'
-#' # Downsample
+#' # Downsample.
 #'
 #' ggplot() +
 #'   geom_spatraster(data = no_crs, maxcell = 25)
@@ -156,7 +157,7 @@ geom_spatraster <- function(
   if (terra::has.RGB(data)) {
     cli::cli_alert_warning(paste(
       "RGB specification detected. Use",
-      cli::style_bold("{.fun tidyterra::geom_spatraster_rgb}"),
+      "{.fun tidyterra::geom_spatraster_rgb}",
       "instead."
     ))
   }
@@ -258,24 +259,7 @@ StatTerraSpatRaster <- ggplot2::ggproto(
   ),
   extra_params = c("maxcell", "na.rm", "coord_crs", "mask_projection"),
   compute_layer = function(self, data, params, layout) {
-    # Warn when layers overlap because facets are not used.
-    if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
-      nly <- length(unique(data$lyr))
-      if (nly > 1) {
-        cli::cli_alert_warning(paste(
-          cli::style_bold("{.fun tidyterra::geom_spatraster}:"),
-          "Plotting {.field {nly}} overlapping layer{?s}:",
-          "{.val {unique(data$lyr)}}. Either:"
-        ))
-        cli::cli_bullets(c(
-          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
-          "*" = paste0(
-            "Use {.code aes(fill = <name_of_layer>)} ",
-            "to display a single layer."
-          )
-        ))
-      }
-    }
+    warn_overlapping_layers(data, "geom_spatraster")
     # Add the coordinate CRS so it can be forwarded to `compute_group()`.
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
@@ -334,7 +318,7 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   if (is.na(coord_crs)) {
     cli::cli_abort(
       paste(
-        "{.fun geom_spatraster_*} on {.cls SpatRaster}s with CRS",
+        "{.code geom_spatraster_*()} on {.cls SpatRaster} objects with CRS",
         "must be used with {.fun ggplot2::coord_sf}."
       ),
       call. = TRUE
@@ -427,7 +411,7 @@ resample_spat <- function(r, maxcell = 50000) {
     r <- terra::spatSample(r, maxcell, as.raster = TRUE, method = "regular")
     cli::cli_inform(paste(
       "{.cls SpatRaster} resampled to",
-      "{.field {terra::ncell(r)}} cell{?s}."
+      "{.val {terra::ncell(r)}} cell{?s}."
     ))
   }
 

@@ -46,7 +46,7 @@ color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (th
 \item{nrow, ncol}{Number of rows and columns in the facet.}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 \code{autoplot()} uses \CRANpkg{ggplot2} to draw plots like those
@@ -108,7 +108,7 @@ v |> autoplot(aes(fill = cpro)) +
 \seealso{
 \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

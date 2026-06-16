@@ -226,20 +226,19 @@ as_spatvector.SpatVector <- function(x, ...) {
   x
 }
 
-#' Rebuild objects created with `as_tbl_internal()` to `SpatVector`
-#' This strict internal helper uses the stored attributes to recreate a
-#' template `SpatVector` and then transfer the values.
+#' Rebuild objects created with `as_tbl_internal()` to `SpatVector`.
+#'
+#' This strict helper uses stored attributes to recreate a `SpatVector`.
 #' @noRd
 as_spatvect_attr <- function(x) {
   if (inherits(x, "SpatVector")) {
     return(x)
   }
 
-  # Retrieve the stored attributes.
+  # Retrieve the stored reconstruction attributes.
   attrs <- attributes(x)
 
   # Replace missing or blank geometries with a matching empty geometry.
-
   gg <- as.character(x[["geometry"]])
 
   gg[!nzchar(gg)] <- NA

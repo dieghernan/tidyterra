@@ -30,9 +30,13 @@
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a selection of these
-#' additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-#' see the full range of arguments accepted by these scales.
+#' \CRANpkg{tidyterra} documents only a selection of these additional
+#' arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
+#' full range of arguments accepted by these scales.
+#'
+#' @source
+#'
+#' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
 #' @export
 #' @encoding UTF-8
@@ -69,10 +73,6 @@
 #' @returns
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
-#'
-#' @source
-#'
-#' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
 #' @examples
 #' \donttest{
@@ -374,8 +374,8 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' The following orientation varies depending on the palette definition (see
 #' [hypsometric_tints_db] for an example of how this can be achieved).
 #'
-#' Note that the setup of the palette may not always be suitable for your
-#' specific data. For example, a `SpatRaster` of small parts of the globe (and
+#' The palette setup may not always be suitable for your specific data. For
+#' example, a `SpatRaster` of small parts of the globe (and
 #' with a limited range of elevations) may not be well represented. As an
 #' example, a `SpatRaster` with a range of values on `[100, 200]` appears
 #' almost as a uniform color. This can be adjusted using the `limits`/`values`
@@ -383,8 +383,8 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #'
 #' When passing the `limits` argument to `scale_*_hypso_tint_*`, the colors are
 #' restricted to those specified by this argument, keeping the distribution of
-#' the tint. You can combine this with `oob` (i.e. `oob = scales::oob_squish`)
-#' to avoid blank pixels in the plot.
+#' the tint. You can combine this with `oob`, for example
+#' `oob = scales::oob_squish`, to avoid blank pixels in the plot.
 #'
 #' `hypso.colors2()` provides a gradient color palette where the distance
 #' between colors is different depending of the type of color. In contrast,

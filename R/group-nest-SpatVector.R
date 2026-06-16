@@ -11,6 +11,7 @@
 #' @rdname group_nest.SpatVector
 #' @name group_nest.SpatVector
 #'
+#' @keywords internal
 #' @seealso
 #' [dplyr::group_nest()], [dplyr::nest_by()], [nest.SpatVector()],
 #' [terra::svc()]
@@ -53,7 +54,6 @@
 #' names(sv) <- pull(nested, grp)
 #'
 #' terra::svc(sv)
-#' @keywords internal
 group_nest.SpatVector <- function(.tbl, ..., .key = "data", keep = FALSE) {
   groups <- dplyr::group_keys(group_by(.tbl, ..., .add = TRUE))
   split <- group_split(group_by(.tbl, ..., .add = TRUE), .keep = keep)

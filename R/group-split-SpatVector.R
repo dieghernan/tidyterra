@@ -22,6 +22,7 @@
 #' @rdname group_split.SpatVector
 #'
 #' @name group_split.SpatVector
+#' @keywords internal
 #' @seealso [dplyr::group_split()], [terra::svc()]
 #'
 #' @family dplyr.group_functions
@@ -67,7 +68,6 @@
 #'   group_by(group) |>
 #'   group_split() |>
 #'   terra::svc()
-#' @keywords internal
 group_split.SpatVector <- function(.tbl, ..., .keep = TRUE) {
   tbl <- as_tibble(.tbl)
   ind <- make_safe_index("tterra_index", tbl)

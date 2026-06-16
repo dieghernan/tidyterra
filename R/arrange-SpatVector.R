@@ -11,7 +11,7 @@
 #'
 #' @seealso [dplyr::arrange()]
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.rows
 #' @family dplyr.methods
 #'

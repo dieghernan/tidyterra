@@ -1,7 +1,4 @@
-across_all_of <- function(vars) {
-  dplyr::across(dplyr::all_of(vars))
-}
-
+# Reconstruction helpers ----
 as_spat_internal <- function(x) {
   if (
     any(inherits(x, "SpatRaster"), isTRUE(attr(x, "source") == "SpatRaster"))
@@ -33,6 +30,11 @@ restore_attr <- function(x, template) {
   x
 }
 
+# Selection and name helpers ----
+across_all_of <- function(vars) {
+  dplyr::across(dplyr::all_of(vars))
+}
+
 #' Create a safe index name
 #' @param x Base string used to create the index name.
 #' @param y Object whose names, as returned by `names(y)`, are checked.
@@ -55,10 +57,11 @@ make_safe_index <- function(x, y) {
   x
 }
 
+# Validation and message helpers ----
 check_alpha <- function(alpha, call = rlang::caller_env()) {
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort(
-      "{.arg alpha} must be between {.field 0} and {.field 1}.",
+      "{.arg alpha} must be between {.val {0}} and {.val {1}}.",
       call = call
     )
   }
@@ -75,7 +78,7 @@ check_alpha_direction <- function(
 
   if (!direction %in% c(-1, 1)) {
     cli::cli_abort(
-      "{.arg direction} must be either {.field 1} or {.field -1}.",
+      "{.arg direction} must be either {.val {1}} or {.val {-1}}.",
       call = call
     )
   }
@@ -98,6 +101,66 @@ check_spatraster <- function(data, fn, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
+check_palette <- function(
+  palette,
+  choices,
+  help = NULL,
+  call = rlang::caller_env()
+) {
+  if (palette %in% choices) {
+    return(invisible(NULL))
+  }
+
+  if (is.null(help)) {
+    cli::cli_abort("{.arg palette} is not a known palette.", call = call)
+  }
+
+  cli::cli_abort(
+    paste(
+      "{.arg palette} {.val {palette}} is not a known palette.",
+      "See {.help {help}}."
+    ),
+    call = call
+  )
+}
+
+abort_lost_geometry_after_pivot <- function(call = rlang::caller_env()) {
+  cli::cli_abort(
+    paste0(
+      "Cannot rebuild the {.cls SpatVector}. ",
+      "The {.val geometry} column was lost after pivoting."
+    ),
+    call = call
+  )
+}
+
+warn_overlapping_layers <- function(data, fn) {
+  if (length(unique(data$PANEL)) == length(unique(data$lyr))) {
+    return(invisible(NULL))
+  }
+
+  nly <- length(unique(data$lyr))
+  if (nly <= 1) {
+    return(invisible(NULL))
+  }
+
+  cli::cli_alert_warning(paste(
+    "{.fun tidyterra::{fn}}:",
+    "Plotting {.val {nly}} overlapping layer{?s}:",
+    "{.val {unique(data$lyr)}}. Either:"
+  ))
+  cli::cli_bullets(c(
+    "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
+    "*" = paste0(
+      "Use {.code aes(fill = <name_of_layer>)} ",
+      "to display a single layer."
+    )
+  ))
+
+  invisible(NULL)
+}
+
+# Scale helpers ----
 gradient_pal <- function(pal, n) {
   scales::gradient_n_pal(pal(n))
 }
@@ -176,15 +239,7 @@ tint_scale_params <- function(
   help,
   call = rlang::caller_env()
 ) {
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(
-      paste(
-        "{.arg palette} {.val {palette}} is not a known palette.",
-        "See {.help {help}}."
-      ),
-      call = call
-    )
-  }
+  check_palette(palette, coltab$pal, help = help, call = call)
 
   pal_cols <- coltab[coltab$pal == palette, ]
   colors <- as.character(pal_cols$hex)

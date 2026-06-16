@@ -85,7 +85,7 @@ around the dateline in equal-area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as RGB images.
@@ -110,12 +110,12 @@ No \code{aes()} is required. In fact, \code{aes()} will be ignored.
 \section{Coords}{
 
 
-When the \code{SpatRaster} does not have a CRS (i.e.,
-\code{terra::crs(rast) == ""}) the geom does not make any assumption about the
+When the \code{SpatRaster} does not have a CRS, that is,
+\code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} that have a CRS, the geom uses \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to
-adjust the scales. That means that also the
+On \code{SpatRaster} objects that have a CRS, the geom uses
+\code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }
 
@@ -153,7 +153,7 @@ ggplot(cyl_sf) +
 You can also get RGB tiles from the \CRANpkg{maptiles} package. See
 \code{\link[maptiles:get_tiles]{maptiles::get_tiles()}}.
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

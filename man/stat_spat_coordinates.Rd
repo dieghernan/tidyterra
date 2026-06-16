@@ -68,7 +68,7 @@ the default plot specification, e.g. \code{\link[ggplot2:annotation_borders]{ann
 \item{...}{Other arguments passed on to \code{\link[ggplot2:stat_sf_coordinates]{ggplot2::stat_sf_coordinates()}}.}
 }
 \value{
-A \CRANpkg{ggplot2} layer
+A \CRANpkg{ggplot2} layer.
 }
 \description{
 \code{stat_spat_coordinates()} extracts the coordinates from \code{SpatVector} objects
@@ -103,7 +103,7 @@ ggplot(cyl) +
 
 }
 \seealso{
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{fortify.Spat}},
 \code{\link{geom_spat_contour}},

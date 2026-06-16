@@ -31,7 +31,7 @@
 #'   These are often aesthetics, used to set an aesthetic to a fixed value,
 #'   like `colour = "red"` or `linewidth = 3`.
 #'
-#' @returns A \CRANpkg{ggplot2} layer
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()]

@@ -14,10 +14,9 @@ knitr:
 ---
 
 This article collects [frequently asked
-questions](https://github.com/dieghernan/tidyterra/discussions) and answers
-about using the **tidyterra** package, with a focus on the integration of
-**terra** and **ggplot2**. You can ask for help or search previous questions
-using the following links.
+questions](https://github.com/dieghernan/tidyterra/discussions) about using
+**tidyterra**, with a focus on the integration of **terra** and **ggplot2**. You
+can ask for help or search previous questions using the following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
@@ -50,9 +49,9 @@ The original file has been cropped and downsampled for demonstration purposes.
 
 ## `NA` values are shown in gray {#nas-remove}
 
-This is the default behavior of **ggplot2**. **tidyterra** color scales, for
-example `scale_fill_whitebox_c()`, have `na.value = "transparent"` by default,
-which prevents `NA` values from being filled[^2].
+This is the default behavior of **ggplot2**. **tidyterra** color scales, such as
+`scale_fill_whitebox_c()`, have `na.value = "transparent"` by default, which
+prevents `NA` values from being filled[^2].
 
 ```{r}
 #| label: fig-remove_nas
@@ -97,7 +96,7 @@ def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
     title = "Use any ggplot2 fill scale",
-    subtitle = "Note that na.value = 'orange'"
+    subtitle = "na.value = 'orange'"
   )
 ```
 
@@ -175,9 +174,9 @@ ggplot(r) +
 
 ### Other alternatives
 
-With `fortify.SpatRaster()`, you can use your `SpatRaster` directly with the
-**metR** package (see [Hexagonal grids and other geoms](#fort)). Use `bins`,
-`binwidth` or `breaks` to align both labels and lines:
+With `fortify.SpatRaster()`, you can use your `SpatRaster` directly with
+**metR** (see [Hexagonal grids and other geoms](#fort)). Use `bins`, `binwidth`
+or `breaks` to align both labels and lines:
 
 ```{r}
 #| label: fig-metr
@@ -237,8 +236,8 @@ ggplot(r, aes(x, y)) +
 
 ## Using a different color scale {#use-scale}
 
-Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
-documentation on scales:
+Since **tidyterra** builds on **ggplot2**, refer to **ggplot2** documentation on
+scales:
 
 ```{r}
 #| label: fig-greys
@@ -308,9 +307,9 @@ p
 Blurriness is typically related to the tile source rather than the package. Most
 base tiles are provided in **EPSG:3857**, so verify that your tile uses this CRS
 rather than a different one. If your tile is not in **EPSG:3857**, it has likely
-been reprojected, which involves resampling and causes blurriness. Also, modify
-the `maxcell` argument to avoid resampling and ensure the **ggplot2** map uses
-**EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+been reprojected, which involves resampling and causes blurriness. To avoid
+extra resampling, increase the `maxcell` argument and ensure the **ggplot2** map
+uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
 
 ```{r}
 #| label: fig-blurrytile
@@ -373,7 +372,7 @@ ggplot() +
 
 ## Avoid degree labels on axes {#axis-degrees}
 
-This is the default behavior in **ggplot2**, but you can modify it using the
+This is the default behavior in **ggplot2**, but you can modify it with the
 `datum` argument in `ggplot2::coord_sf()`:
 
 ```{r}
@@ -453,8 +452,8 @@ We omitted the legends in this section's figures to improve readability.
 
 **tidyterra** provides several methods for handling `SpatRaster` objects with
 color tables. This example uses `clc_edinburgh.tif`, available online in the
-[data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
-which contains data from the CORINE Land Cover dataset (2018) for Edinburgh[^3].
+[data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw).
+It contains data from the CORINE Land Cover dataset (2018) for Edinburgh[^3].
 
 ```{r}
 #| label: fig-coltab
@@ -575,7 +574,7 @@ knitr::include_graphics("che_temp.gif")
 ## North arrows and scale bars
 
 **tidyterra** does not provide north arrows or scale bars directly for
-**ggplot2** plots. However, you can use **ggspatial** functions
+**ggplot2** plots, but you can use **ggspatial** functions
 (`ggspatial::annotation_north_arrow()` and `ggspatial::annotation_scale()`):
 
 ```{r}
@@ -787,10 +786,9 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 
 ### **tidyterra** and **metR**
 
-The **metR** package provides **ggplot2** extensions, primarily for
-meteorological data visualization. As shown previously (see [Labeling
-contours](#label-contour)), you can combine both packages to create rich,
-complex plots.
+**metR** provides **ggplot2** extensions, primarily for meteorological data
+visualization. As shown previously (see [Labeling contours](#label-contour)),
+you can combine both packages to create rich, complex plots.
 
 ```{r}
 #| label: fig-metrdemo

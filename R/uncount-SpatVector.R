@@ -26,7 +26,7 @@
 #'
 #' ## `SpatVector`
 #'
-#' Each duplicated row keeps the geometry of the input feature.
+#' Each duplicated row keeps the input geometry.
 #'
 #' @examples
 #' library(tidyr)

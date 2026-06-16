@@ -20,6 +20,7 @@
 #' @rdname group_map.SpatVector
 #' @name group_map.SpatVector
 #'
+#' @keywords internal
 #' @seealso
 #' [dplyr::group_map()] and [dplyr::group_modify()].
 #'
@@ -55,7 +56,6 @@
 #' group_map(group_by(v, grp), ~ nrow(.x))
 #'
 #' group_modify(group_by(v, grp), ~ mutate(.x, key = .y$grp))
-#' @keywords internal
 group_map.SpatVector <- function(.data, .f, ..., .keep = FALSE) {
   .f <- rlang::as_function(.f)
 

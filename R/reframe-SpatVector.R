@@ -11,7 +11,7 @@
 #'
 #' @seealso [dplyr::reframe()], [summarise.SpatVector()]
 #'
-#' @family single table verbs
+#' @family dplyr.single_table
 #' @family dplyr.groups
 #' @family dplyr.methods
 #'

@@ -215,9 +215,8 @@ Additional arguments \code{...} are passed to:
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-\strong{Note that} \CRANpkg{tidyterra} documents only a subset of these
-additional arguments, so see the \CRANpkg{ggplot2} functions listed above for
-the full range.
+\CRANpkg{tidyterra} documents only a subset of these additional arguments,
+so see the \CRANpkg{ggplot2} functions listed above for the full range.
 
 These palettes implement \code{\link[terra:map.pal]{terra::map.pal()}}, the default color palettes used
 by \code{\link[terra:plot]{terra::plot()}} in \CRANpkg{terra} versions above 1.7.78.
@@ -229,8 +228,8 @@ range of values of the \code{fill/colour} aesthetics. See \strong{Examples}.
 
 When passing the \code{limits} argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You can
-combine this with \code{oob} (i.e. \code{oob = scales::oob_squish}) to avoid blank
-pixels in the plot.
+combine this with \code{oob}, for example \code{oob = scales::oob_squish}, to avoid
+blank pixels in the plot.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -353,7 +352,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments:
 
-Other gradient scales, palettes and hypsometric tints:
+Other color scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_hypso}},

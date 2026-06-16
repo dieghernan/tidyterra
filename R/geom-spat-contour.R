@@ -27,13 +27,13 @@
 #'
 #' @family ggplot2.utils
 #'
+#' @inheritSection geom_spatraster Coords
+#' @inheritSection geom_spatraster Facets
 #' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::geom_contour
 #' @inheritParams ggplot2::geom_text
 #'
-#' @returns A \CRANpkg{ggplot2} layer
-#' @inheritSection geom_spatraster Coords
-#' @inheritSection geom_spatraster Facets
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::contour()]
@@ -79,6 +79,8 @@
 #' @section Dropped variables:
 #' - `z`: After contouring, the `z` values of individual data points are no
 #'   longer available.
+#'
+#' @order 1
 #'
 #' @examples
 #' \donttest{
@@ -131,8 +133,6 @@
 #'   ) +
 #'   scale_fill_hypso_d()
 #' }
-#'
-#' @order 1
 #'
 geom_spatraster_contour <- function(
   mapping = NULL,
@@ -273,25 +273,8 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
     params
   },
   compute_layer = function(self, data, params, layout) {
-    # Warn when layers overlap because facets are not used.
-    if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
-      nly <- length(unique(data$lyr))
-      if (nly > 1) {
-        cli::cli_alert_warning(paste(
-          cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
-          "Plotting {.field {nly}} overlapping layer{?s}:",
-          "{.val {unique(data$lyr)}}. Either:"
-        ))
-        cli::cli_bullets(c(
-          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
-          "*" = paste0(
-            "Use {.code aes(fill = <name_of_layer>)} ",
-            "to display a single layer."
-          )
-        ))
-      }
-    }
     # Add coord to params so it can be forwarded to `compute_group()`.
+    warn_overlapping_layers(data, "geom_spatraster_contour")
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
@@ -439,7 +422,7 @@ iso_to_path <- function(iso, group = 1) {
   if (all(lengths == 0)) {
     cli::cli_warn(paste(
       "In",
-      cli::style_bold("{.fun tidyterra::geom_spatraster_contour}:"),
+      "{.fun tidyterra::geom_spatraster_contour}:",
       "zero contours were generated."
     ))
     return(data.frame())

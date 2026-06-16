@@ -284,7 +284,7 @@ gv |>
 \code{\link[dplyr:slice]{dplyr::slice()}}, \code{\link[terra:spatSample]{terra::spatSample()}}, \code{\link[=as_coordinates]{as_coordinates()}},
 \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
-Other single table verbs:
+Other \CRANpkg{dplyr} single-table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
@@ -324,4 +324,4 @@ Other \CRANpkg{dplyr} methods:
 }
 \concept{dplyr.methods}
 \concept{dplyr.rows}
-\concept{single table verbs}
+\concept{dplyr.single_table}

@@ -293,9 +293,9 @@ Additional arguments \code{...} are passed to:
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-\strong{Note that} \CRANpkg{tidyterra} documents only a selection of these
-additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-see the full range of arguments accepted by these scales.
+\CRANpkg{tidyterra} documents only a selection of these additional
+arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
+full range of arguments accepted by these scales.
 }
 \details{
 On \verb{scale_*_cross_blended_tint_*} palettes, the position of the gradients
@@ -313,8 +313,8 @@ The following orientation varies depending on the palette definition (see
 \link{cross_blended_hypsometric_tints_db} for an example of how this can be
 achieved).
 
-Note that the setup of the palette may not always be suitable for your
-specific data. For example, a \code{SpatRaster} of small parts of the globe (and
+The palette setup may not always be suitable for your specific data. For
+example, a \code{SpatRaster} of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
 example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} appears
 almost as a uniform color. This can be adjusted using the \code{limits}/\code{values}
@@ -322,8 +322,8 @@ arguments.
 
 When passing the \code{limits} argument to \verb{scale_*_cross_blended_tint_*}, the
 colors are restricted to those specified by this argument, keeping the
-distribution of the tint. You can combine this with \code{oob} (i.e.
-\code{oob = scales::oob_squish}) to avoid blank pixels in the plot.
+distribution of the tint. You can combine this with \code{oob}, for example
+\code{oob = scales::oob_squish}, to avoid blank pixels in the plot.
 
 \code{cross_blended.colors2()} provides a gradient color palette where the
 distance between colors is different depending of the type of color.
@@ -452,7 +452,7 @@ par(opar)
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
-Other gradient scales, palettes and hypsometric tints:
+Other color scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},

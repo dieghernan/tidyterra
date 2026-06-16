@@ -1,12 +1,11 @@
-# tidyterra (development version)
+# tidyterra 1.2.0
 
-This release adds tidyverse methods for `SpatVector` objects and includes
+This release adds tidyverse-style methods for `SpatVector` objects and includes
 documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance, including
-  roxygen2 comments, generated Rd files, documentation chunks, prose
-  documentation, user-facing CLI messages and the snapshots affected by those
-  message changes.
+  **roxygen2** comments, generated Rd files, documentation chunks, prose
+  documentation and user-facing **cli** messages.
 
 ## New methods
 
@@ -108,9 +107,10 @@ The following methods were generated with AI assistance.
   provided (#165 \@Fan-iX).
 - `geom_spatraster()` and the overall pivoting of `SpatRaster` are now less
   strict with different layer classes: if several layers can be defined as
-  numeric (i.e. `double`, `integer` and `numeric`), the pivoting (and therefore
-  the plot) can be performed. This is consistent with `tidyr::pivot_longer()`
-  behavior (<https://stackoverflow.com/questions/79292989>).
+  numeric (that is, `double`, `integer` and `numeric`), the pivoting (and
+  therefore the plot) can be performed. This is consistent with
+  `tidyr::pivot_longer()` behavior
+  (<https://stackoverflow.com/questions/79292989>).
 
 # tidyterra 0.6.2
 

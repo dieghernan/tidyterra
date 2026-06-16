@@ -7,7 +7,7 @@
 \alias{fortify.SpatVector}
 \alias{fortify.SpatGraticule}
 \alias{fortify.SpatExtent}
-\title{Fortify \verb{Spat*} Objects}
+\title{Fortify \verb{Spat*} objects}
 \usage{
 \method{fortify}{SpatRaster}(
   model,
@@ -73,8 +73,7 @@ return a \code{\link[sf:st_sf]{sf}} object.
 Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provides
 native compatibility with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 
-\strong{Note that} these methods are now implemented as a wrapper around
-\code{\link{tidy.Spat}} methods.
+These methods are now implemented as wrappers around \code{\link{tidy.Spat}} methods.
 }
 \section{Methods}{
 
@@ -82,12 +81,12 @@ native compatibility with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} method.
 \subsection{\code{SpatRaster}}{
 
-Return a tibble that can be used with \verb{ggplot2::geom_*} like
-\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}}, \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, etc.
+Returns a tibble that can be used with \verb{ggplot2::geom_*}, such as
+\code{\link[ggplot2:geom_point]{ggplot2::geom_point()}} and \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
-The resulting tibble includes the coordinates on the columns \verb{x, y}. The
-values of each layer are included as additional columns named as per the
-name of the layer on the \code{SpatRaster}.
+The resulting tibble includes coordinates in the \code{x} and \code{y} columns. The
+values of each layer are added as extra columns using the layer names from
+the \code{SpatRaster}.
 
 The CRS of the \code{SpatRaster} can be retrieved with
 \code{attr(fortifiedSpatRaster, "crs")}.
@@ -95,46 +94,46 @@ The CRS of the \code{SpatRaster} can be retrieved with
 You can convert the fortified object back to a \code{SpatRaster} with
 \code{\link[=as_spatraster]{as_spatraster()}}.
 
-When \code{pivot = TRUE} the \code{SpatRaster} is fortified in a "long" format (see
-\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The fortified object has the following
-columns:
+When \code{pivot = TRUE}, the \code{SpatRaster} is fortified in long format (see
+\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The fortified object has the following columns:
 \itemize{
-\item \verb{x,y}: Coordinates (center) of the cell on the corresponding CRS.
-\item \code{lyr}: Indicating the name of the \code{SpatRaster} layer of \code{value}.
-\item \code{value}: The value of the \code{SpatRaster} in the corresponding \code{lyr}.
+\item \code{x}, \code{y}: Coordinates of the cell center in the corresponding CRS.
+\item \code{lyr}: Name of the \code{SpatRaster} layer associated with \code{value}.
+\item \code{value}: Cell value for the corresponding \code{lyr}.
 }
 
-This option may be useful when using several \verb{geom_*} and for faceting, see
-\strong{Examples}.
+This option can be useful when combining several \verb{geom_*} layers or when
+faceting.
 }
 
 \subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
 
-Return a \code{\link[sf:st_sf]{sf}} object that can be used with \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
+Returns an \code{\link[sf:st_sf]{sf}} object that can be used with
+\code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
 }
 }
 
 \examples{
 \donttest{
 
-# Demonstrate the use with ggplot2
+# Demonstrate use with ggplot2.
 library(ggplot2)
 
-# Get a SpatRaster
+# Get a SpatRaster.
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
   terra::rast() |>
   terra::project("EPSG:4326")
 
-# You can now use a SpatRaster with any geom
+# You can now use a SpatRaster with any geom.
 ggplot(r, maxcell = 50) +
   geom_histogram(aes(x = elevation),
     bins = 20, fill = "lightblue",
     color = "black"
   )
 
-# For SpatVector, SpatGraticule and SpatExtent you can use now geom_sf()
+# For SpatVector, SpatGraticule and SpatExtent, use geom_sf().
 
-# Create a SpatVector
+# Create a SpatVector.
 extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 cyl <- terra::vect(extfile)
 
@@ -166,7 +165,7 @@ ggplot(ex, crs = cyl) +
 \code{\link{tidy.Spat}}, \code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \code{\link{as_tibble.Spat}},
 \code{\link[=as_spatraster]{as_spatraster()}}, \code{\link[ggplot2:fortify]{ggplot2::fortify()}}.
 
-Other \CRANpkg{ggplot2} utilities:
+Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},
 \code{\link{geom_spat_contour}},
 \code{\link[=geom_spatraster]{geom_spatraster()}},

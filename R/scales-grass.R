@@ -17,9 +17,8 @@
 #' - Continuous values: [ggplot2::continuous_scale()].
 #' - Binned continuous values: [ggplot2::binned_scale()].
 #'
-#' **Note that** \CRANpkg{tidyterra} documents only a subset of these
-#' additional arguments, so see the \CRANpkg{ggplot2} functions listed above for
-#' the full range.
+#' \CRANpkg{tidyterra} documents only a subset of these additional arguments,
+#' so see the \CRANpkg{ggplot2} functions listed above for the full range.
 #'
 #' These palettes implement [terra::map.pal()], the default color palettes used
 #' by [terra::plot()] in \CRANpkg{terra} versions above 1.7.78.
@@ -31,8 +30,14 @@
 #'
 #' When passing the `limits` argument, the colors are restricted to those
 #' specified by this argument, keeping the distribution of the palette. You can
-#' combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid blank
-#' pixels in the plot.
+#' combine this with `oob`, for example `oob = scales::oob_squish`, to avoid
+#' blank pixels in the plot.
+#'
+#' @source
+#'
+#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
+#' also [r.color - GRASS GIS
+#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 #'
 #' @export
 #' @encoding UTF-8
@@ -74,12 +79,6 @@
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::map.pal()]
-#'
-#' @source
-#'
-#' Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>. See
-#' also [r.color - GRASS GIS
-#' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 #'
 #' @references
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System
@@ -435,15 +434,7 @@ grass_scale_params <- function(
 ) {
   coltab <- tidyterra::grass_db
 
-  if (!palette %in% coltab$pal) {
-    cli::cli_abort(
-      paste(
-        "{.arg palette} {.val {palette}} is not a known palette.",
-        "See {.help tidyterra::grass_db}."
-      ),
-      call = call
-    )
-  }
+  check_palette(palette, coltab$pal, help = "tidyterra::grass_db", call = call)
 
   pal_cols <- coltab[coltab$pal == palette, ]
   colors <- as.character(pal_cols$hex)

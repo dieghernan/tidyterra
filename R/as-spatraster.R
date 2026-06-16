@@ -158,9 +158,10 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   build_raster_layers(r_temp, values, layer_names)
 }
 
-#' Rebuild objects created with `as_tbl_spatattr()` to `SpatRaster`.
-#' This strict version uses attributes to create a `SpatRaster` template and
-#' then transfers the values.
+#' Rebuild objects created with `as_tbl_spat_attr()` to `SpatRaster`.
+#'
+#' This strict helper uses stored attributes to create a `SpatRaster` template
+#' and then transfers the values.
 #'
 #' @noRd
 as_spatrast_attr <- function(x) {
@@ -168,13 +169,13 @@ as_spatrast_attr <- function(x) {
     return(x)
   }
 
-  # Create from dtplyr.
+  # Materialize lazy tables before reading reconstruction attributes.
   x <- data.table::as.data.table(x)
 
-  # Get attributes.
+  # Retrieve the stored reconstruction attributes.
   attrs <- attributes(x)
 
-  # Get layer values.
+  # Extract layer values from the non-coordinate columns.
   values <- dplyr::select(x, -c(1, 2))
   values <- data.table::as.data.table(values)
 

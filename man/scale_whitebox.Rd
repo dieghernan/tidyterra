@@ -194,9 +194,9 @@ Additional arguments \code{...} are passed to:
 \item Binned continuous values: \code{\link[ggplot2:binned_scale]{ggplot2::binned_scale()}}.
 }
 
-\strong{Note that} \CRANpkg{tidyterra} documents only a selection of these
-additional arguments, check the \CRANpkg{ggplot2} functions listed above to
-see the full range of arguments accepted by these scales.
+\CRANpkg{tidyterra} documents only a selection of these additional
+arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
+full range of arguments accepted by these scales.
 }
 \examples{
 \donttest{
@@ -261,7 +261,7 @@ par(opar)
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
-Other gradient scales, palettes and hypsometric tints:
+Other color scales, palettes and hypsometric tints:
 \code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},

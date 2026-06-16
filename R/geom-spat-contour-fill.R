@@ -101,25 +101,8 @@ StatTerraSpatRasterContourFill <- ggplot2::ggproto(
     params
   },
   compute_layer = function(self, data, params, layout) {
-    # Warn when layers overlap because facets are not used.
-    if (length(unique(data$PANEL)) != length(unique(data$lyr))) {
-      nly <- length(unique(data$lyr))
-      if (nly > 1) {
-        cli::cli_alert_warning(paste(
-          cli::style_bold("{.fun tidyterra::geom_spatraster_contour_filled}:"),
-          "Plotting {.field {nly}} overlapping layer{?s}:",
-          "{.val {unique(data$lyr)}}. Either:"
-        ))
-        cli::cli_bullets(c(
-          "*" = "Use {.code facet_wrap(~lyr)} to facet layers.",
-          "*" = paste0(
-            "Use {.code aes(fill = <name_of_layer>)} ",
-            "to display a single layer."
-          )
-        ))
-      }
-    }
     # Add coord to params so it can be forwarded to `compute_group()`.
+    warn_overlapping_layers(data, "geom_spatraster_contour_filled")
     params$coord_crs <- pull_crs(layout$coord_params$crs)
     ggplot2::ggproto_parent(ggplot2::Stat, self)$compute_layer(
       data,
@@ -213,7 +196,7 @@ iso_to_polygon <- function(iso, group = 1, name_layer = NULL) {
   if (all(lengths == 0)) {
     cli::cli_warn(paste(
       "In",
-      cli::style_bold("{.fun tidyterra::geom_spatraster_contour_filled}:"),
+      "{.fun tidyterra::geom_spatraster_contour_filled}:",
       "zero contours were generated."
     ))
     return(NULL)

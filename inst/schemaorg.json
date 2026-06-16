@@ -32,7 +32,7 @@
       "name": "ggplot2 authors"
     }
   ],
-  "description": "Provides common 'tidyverse' methods for 'SpatRaster' and 'SpatVector' objects created with the 'terra' package, plus 'ggplot2' geoms and scales for plotting those objects.",
+  "description": "Provides methods from 'tidyverse' packages for 'SpatRaster' and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and scales for plotting those objects.",
   "license": "https://spdx.org/licenses/MIT",
   "name": "tidyterra: 'tidyverse' Methods and 'ggplot2' Helpers for 'terra' Objects",
   "programmingLanguage": {
@@ -47,5 +47,5 @@
     "url": "https://cran.r-project.org"
   },
   "runtimePlatform": "R version 4.6.0 (2026-04-24 ucrt)",
-  "version": "1.1.0.9000"
+  "version": "1.2.0"
 }

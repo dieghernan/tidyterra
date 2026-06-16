@@ -1,6 +1,6 @@
 ---
 title: "Gradient palettes in tidyterra"
-description: A gallery of maps using the gradient scales provided by tidyterra.
+description: A gallery of maps using gradient scales provided by tidyterra.
 lightbox:
   match: auto
   desc-position: bottom
@@ -35,7 +35,7 @@ knitr:
 
 This page shows a [lightbox gallery](https://biati-digital.github.io/glightbox/)
 of maps created with the gradient fill scales included in **tidyterra**. A basic
-example for creating maps like these is:
+example for creating similar maps is:
 
 ```{r}
 #| eval: false
@@ -59,11 +59,11 @@ See `scale_fill_terrain_c()` and `scale_fill_wiki_c()` for details.
 ```{r}
 #| label: terr_wiki
 #| echo: false
-#| fig-alt: Terrain and wiki gradient palettes in tidyterra
+#| fig-alt: Terrain and wiki gradient palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-wikiterr
-#|   description: Terrain and wiki gradient palettes in tidyterra
+#|   description: Terrain and wiki gradient palettes in tidyterra.
 library(tidyterra)
 
 r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
@@ -96,11 +96,11 @@ See `scale_fill_whitebox_c()` for details.
 ```{r}
 #| label: whitebox
 #| echo: false
-#| fig-alt: Whitebox palettes in tidyterra
+#| fig-alt: Whitebox palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-whitebox
-#|   description: Whitebox palettes in tidyterra
+#|   description: Whitebox palettes in tidyterra.
 allpals <- sort(c(
   "atlas",
   "high_relief",
@@ -132,11 +132,11 @@ See `scale_fill_hypso_c()` for details.
 ```{r}
 #| label: hypso
 #| echo: false
-#| fig-alt: Hypsometric tint palettes in tidyterra
+#| fig-alt: Hypsometric tint palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-hypso
-#|   description: Hypsometric tint palettes in tidyterra
+#|   description: Hypsometric tint palettes in tidyterra.
 allpals <- sort(unique(hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -157,11 +157,11 @@ See `scale_fill_cross_blended_c()` for details.
 ```{r}
 #| label: cross
 #| echo: false
-#| fig-alt: Cross-blended hypsometric tint palettes in tidyterra
+#| fig-alt: Cross-blended hypsometric tint palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-cross
-#|   description: Cross-blended hypsometric tint palettes in tidyterra
+#|   description: Cross-blended hypsometric tint palettes in tidyterra.
 allpals <- sort(unique(cross_blended_hypsometric_tints_db$pal))
 
 for (i in allpals) {
@@ -183,11 +183,11 @@ See `scale_fill_grass_c()` for details. These plots are produced with
 ```{r}
 #| label: grass
 #| echo: false
-#| fig-alt: GRASS color table palettes in tidyterra
+#| fig-alt: GRASS color table palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-grass
-#|   description: GRASS color table palettes in tidyterra
+#|   description: GRASS color table palettes in tidyterra.
 allpals <- sort(unique(grass_db$pal))
 
 for (i in allpals) {
@@ -208,11 +208,11 @@ See `scale_fill_princess_c()` for details.
 ```{r}
 #| label: princess
 #| echo: false
-#| fig-alt: Princess palettes in tidyterra
+#| fig-alt: Princess palettes in tidyterra.
 #| layout-ncol: 2
 #| lightbox:
 #|   group: r-princess
-#|   description: Princess palettes in tidyterra
+#|   description: Princess palettes in tidyterra.
 allpals <- sort(unique(princess_db$pal))
 
 for (i in allpals) {

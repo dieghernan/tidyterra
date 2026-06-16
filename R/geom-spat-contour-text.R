@@ -94,8 +94,8 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     fontface = 1
   ),
   handle_na = function(self, data, params) {
-    # Drop missing values at the start or end of a line - can't drop in the
-    # Use the middle point, where a line break is expected.
+    # Drop missing values at the start or end of a line.
+    # Keep the middle point, where a line break is expected.
     aesthetics <- c(self$required_aes, self$non_missing_aes)
     complete <- stats::complete.cases(data[names(data) %in% aesthetics])
     kept <- stats::ave(complete, data$group, FUN = keep_mid_true)

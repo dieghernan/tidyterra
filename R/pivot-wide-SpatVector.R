@@ -22,8 +22,8 @@
 #'
 #' @param id_cols <[`tidy-select`][tidyr::tidyr_tidy_select]> A set of columns
 #'   that uniquely identify each observation. Typically used when you have
-#'   redundant variables, i.e. variables whose values are perfectly correlated
-#'   with existing variables.
+#'   redundant variables, that is, variables whose values are perfectly
+#'   correlated with existing variables.
 #'
 #'   Defaults to all columns in `data` except for the columns specified through
 #'   `names_from` and `values_from`. If a
@@ -31,7 +31,7 @@
 #'   will be evaluated on `data` after removing the columns specified through
 #'   `names_from` and `values_from`.
 #'
-#'   Note that "`geometry`" columns are sticky, hence they are removed from
+#'   Because "`geometry`" columns are sticky, they are removed from
 #'   `names_from` and `values_from`.
 #'
 #' @returns A `SpatVector` object.
@@ -53,7 +53,7 @@
 #'
 #' cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'
-#' # Add extra row with info
+#' # Add an extra row with information.
 #' xtra <- cyl |>
 #'   slice(c(2, 3)) |>
 #'   mutate(
@@ -63,7 +63,7 @@
 #'   rbind(cyl) |>
 #'   glimpse()
 #'
-#' # Pivot by geom
+#' # Pivot by geometry.
 #' xtra |>
 #'   pivot_wider(
 #'     id_cols = iso2:name, values_from = value,
@@ -122,10 +122,7 @@ pivot_wider.SpatVector <- function(
     unused_fn = unused_fn
   )
   if (!"geometry" %in% names(pivoted)) {
-    cli::cli_abort(paste0(
-      "Cannot rebuild the {.cls SpatVector}. ",
-      "The {.val geometry} column was lost after pivoting."
-    ))
+    abort_lost_geometry_after_pivot()
   }
 
   # Reconstruct the table.

@@ -53,8 +53,8 @@
 #' - Layers with duplicated names.
 #' - When coercing to a tibble, if `xy = TRUE`, layers named `x` or
 #'   `y` are renamed.
-#' - When working with tidyverse methods (i.e. [filter.SpatRaster()]), the
-#'   same renaming happens.
+#' - When working with methods from tidyverse packages, for example
+#'   [filter.SpatRaster()], the same renaming happens.
 #'
 #' \CRANpkg{tidyterra} displays a message describing the renamed layers.
 #'
@@ -179,9 +179,9 @@ as_tbl_internal <- function(x) {
   }
 }
 
-#' Strict internal version that returns a tibble with the attributes required
-#' to rebuild a `SpatRaster`.
-#' This is the underlying object handled by tidyverse methods.
+#' Strict internal version that stores `SpatRaster` reconstruction metadata.
+#'
+#' This is the tibble representation handled by tidyterra methods.
 #' @noRd
 as_tbl_spat_attr <- function(x) {
   x <- make_safe_names(x)
@@ -189,27 +189,26 @@ as_tbl_spat_attr <- function(x) {
   todf <- data.table::as.data.table(x, xy = TRUE, na.rm = FALSE)
   todf[is.na(todf)] <- NA
 
-  # Store the attributes required to rebuild the object.
+  # Store the class marker used by `as_spat_internal()`.
   attr(todf, "source") <- "SpatRaster"
 
+  # Store spatial metadata required to rebuild the raster.
   attr(todf, "crs") <- terra::crs(x)
-  # Store the extent.
   attr(todf, "ext") <- c(
     terra::xmin(x),
     terra::xmax(x),
     terra::ymin(x),
     terra::ymax(x)
   )
-  # Store dimensions and resolution.
   attr(todf, "dims") <- as.double(dim(x))
   attr(todf, "res") <- as.double(terra::res(x))
 
   todf
 }
 
-#' Strict internal version that returns a tibble with the attributes required
-#' to rebuild a `SpatVector`.
-#' This is the underlying object handled by tidyverse methods.
+#' Strict internal version that stores `SpatVector` reconstruction metadata.
+#'
+#' This is the tibble representation handled by tidyterra methods.
 #' @noRd
 as_tbl_vector_internal <- function(x) {
   x <- make_safe_names(x, geom = "WKT")
@@ -237,7 +236,7 @@ as_tbl_vector_internal <- function(x) {
 
   todf <- check_regroups(todf)
 
-  # Store the attributes required to rebuild the object.
+  # Store spatial metadata required to rebuild the vector.
   attr(todf, "source") <- "SpatVector"
   attr(todf, "crs") <- terra::crs(x)
   attr(todf, "geomtype") <- terra::geomtype(x)
@@ -327,7 +326,7 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "{.fun tidyterra::group_vars.SpatVector} is missing from data.",
+        "Grouping variables are missing from data.",
         "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
       cli::cli_bullets(c(i = "Ungrouping data."))
@@ -376,7 +375,7 @@ check_regroups <- function(x) {
 
     if (isFALSE(any_var)) {
       cli::cli_alert_warning(paste(
-        "{.fun tidyterra::group_vars.SpatVector} is missing from data.",
+        "Grouping variables are missing from data.",
         "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
       ))
       cli::cli_bullets(c(i = "Ungrouping data."))

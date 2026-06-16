@@ -17,6 +17,7 @@
 #' @rdname group_trim.SpatVector
 #' @name group_trim.SpatVector
 #'
+#' @keywords internal
 #' @seealso [dplyr::group_trim()].
 #'
 #' @family dplyr.group_functions
@@ -43,7 +44,6 @@
 #'   filter(group == "B", .preserve = TRUE) |>
 #'   group_trim()
 #'
-#' @keywords internal
 group_trim.SpatVector <- function(.tbl, .drop = group_by_drop_default(.tbl)) {
   trimmed <- dplyr::group_trim(tbl_for_groups(.tbl), .drop = .drop)
   group_prepare_spat(.tbl, trimmed)

@@ -12,6 +12,7 @@
 #'
 #' @export
 #' @encoding UTF-8
+#' @keywords internal
 #' @family helpers
 #'
 #' @inheritParams as_sf
@@ -27,7 +28,6 @@
 #'
 #' is_grouped_spatvector(grouped)
 #'
-#' @keywords internal
 is_grouped_spatvector <- function(x) {
   att <- attributes(x)
 

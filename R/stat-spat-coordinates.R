@@ -13,12 +13,14 @@
 #' @encoding UTF-8
 #' @rdname stat_spat_coordinates
 #'
+#' @keywords internal
+#'
 #' @family ggplot2.utils
 #' @inheritParams ggspatvector
 #' @inheritParams ggplot2::stat_sf_coordinates
 #' @param ... Other arguments passed on to [ggplot2::stat_sf_coordinates()].
 #'
-#' @returns A \CRANpkg{ggplot2} layer
+#' @returns A \CRANpkg{ggplot2} layer.
 #' @examples
 #' \donttest{
 #' cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
@@ -40,8 +42,6 @@
 #'     stat = "sf_coordinates"
 #'   )
 #' }
-#'
-#' @keywords internal
 #'
 stat_spat_coordinates <- function(
   mapping = aes(),

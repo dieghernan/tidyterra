@@ -43,10 +43,9 @@ meaningless results without realizing it.
 \section{Methods}{
 
 
-Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for
-\code{SpatVector} objects. Note that for the second and subsequent arguments on
-\code{...}, the geometry is not \code{cbind}ed and only the data frame-like columns
-are kept.
+Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for \code{SpatVector}
+objects. For the second and subsequent arguments in \code{...}, the geometry is
+not \code{cbind}ed and only the data frame-like columns are kept.
 }
 
 \examples{
@@ -72,13 +71,13 @@ end <- bind_spat_cols(sv, sfobj[seq_len(nrow(sv)), 1:2], df2)
 end
 glimpse(end)
 
-# Row sizes must be compatible when column-binding
+# Row sizes must be compatible when column-binding.
 try(bind_spat_cols(sv, sfobj))
 }
 \seealso{
 \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}
 
-Other \CRANpkg{dplyr} verbs that operate on pairs of \code{Spat*} and data frame objects:
+Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_rows.SpatVector}},
 \code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},
 \code{\link{filter-joins.SpatVector}},

@@ -32,12 +32,12 @@ readr-devel](https://github.com/dieghernan/tidyterra/actions/workflows/check-dpl
 
 <!-- badges: end -->
 
-The goal of **tidyterra** is to provide common
-[**tidyverse**](https://tidyverse.org/packages/) methods for
-`SpatRaster` and `SpatVector` objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales
-for plotting those objects.
+The goal of **tidyterra** is to provide methods from
+[**tidyverse**](https://tidyverse.org/packages/) packages for
+`SpatRaster` and `SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
+[**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for
+plotting those objects.
 
 Please cite **tidyterra** as:
 
@@ -67,17 +67,17 @@ A BibTeX entry for LaTeX users is:
 The full manual for the latest release of **tidyterra** on **CRAN** is
 online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented in **tidyterra** work differently
-depending on the type of `Spat*` object:
+Methods implemented in **tidyterra** work differently depending on the
+type of `Spat*` object:
 
-- `SpatVector`: the methods are implemented using
-  `terra::as.data.frame()` coercion. Rows correspond to geometries and
-  columns correspond to attributes of each geometry.
+- `SpatVector`: Methods are implemented using `terra::as.data.frame()`
+  coercion. Rows correspond to geometries and columns correspond to
+  attributes of each geometry.
 
-- `SpatRaster`: methods can be applied to layers or cells.
+- `SpatRaster`: Methods can be applied to layers or cells.
   **tidyterra**’s overall approach is to treat the layers as columns of
-  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
-  the first layer of a `SpatRaster`).
+  a tibble and the cells as rows. For example, `select(SpatRaster, 1)`
+  selects the first layer of a `SpatRaster`.
 
 Implemented methods return the same type of object as the input, unless
 the method is expected to return another type of object. For example,
@@ -133,7 +133,7 @@ Current methods and functions provided by **tidyterra** are:
 > ### A note on performance
 >
 > **tidyterra** is a user-friendly wrapper around **terra** that
-> provides **tidyverse** methods and verbs. This approach has a
+> provides tidyverse-style methods and verbs. This approach has a
 > **performance cost**.
 >
 > If you frequently use **terra** or work with large `SpatRaster`
@@ -141,7 +141,8 @@ Current methods and functions provided by **tidyterra** are:
 > **tidyterra** function refers to its equivalent on **terra**.
 >
 > As a rule of thumb, if your raster has fewer than 10,000,000 data
-> slots (i.e. `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`),
+> slots, for example
+> `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 > **tidyterra** is a good fit.
 >
 > When plotting rasters, resampling is performed automatically (as
@@ -229,7 +230,7 @@ ggplot() +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
 
 ``` r
 # Create the difference between two months.
@@ -258,7 +259,7 @@ ggplot(prov) +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%" />
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster`
 objects, such as map tiles, with **ggplot2**:
@@ -274,10 +275,10 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%" />
 
-**tidyterra** provides scales for plotting maps with hypsometric tints
-and **ggplot2**:
+**tidyterra** provides **ggplot2** scales for plotting maps with
+hypsometric tints:
 
 ``` r
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
@@ -304,7 +305,7 @@ ggplot() +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
 
 ### `SpatVector` objects
 
@@ -336,7 +337,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
 
 ## Feedback
 

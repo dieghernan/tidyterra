@@ -1,6 +1,6 @@
 ---
 title: "Welcome to tidyterra"
-description: "First steps with the tidyterra package"
+description: "First steps with tidyterra"
 vignette: >
   %\VignetteIndexEntry{Welcome to tidyterra}
   %\VignetteEngine{quarto::html}
@@ -24,11 +24,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-## The tidyterra package
+## tidyterra
 
-**tidyterra** provides common **tidyverse** methods for `SpatRaster` and
-`SpatVector` objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package. It also provides
+**tidyterra** provides methods from **tidyverse** packages for `SpatRaster` and
+`SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
 `geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
@@ -40,9 +40,9 @@ own syntax and computational methods (implemented in **terra**). By providing
 lets users manipulate `Spat*` objects in a style familiar from tabular data
 workflows.
 
-Note that **terra** is generally faster. Learning some **terra** syntax is
-recommended because **tidyterra** functions call the corresponding **terra**
-equivalents when possible.
+**terra** is generally faster. Learning some **terra** syntax is recommended
+because **tidyterra** functions call the corresponding **terra** equivalents
+when possible.
 
 ## A note for advanced **terra** users
 
@@ -50,8 +50,8 @@ equivalents when possible.
 and `mutate()` can be slower than their **terra** counterparts.
 
 As a rule of thumb, **tidyterra** is most suitable for objects with fewer than
-10,000,000 data slots (i.e.,
-`terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`).
+10,000,000 data slots, for example
+`terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.
 
 ## Get started with tidyterra
 
@@ -144,10 +144,10 @@ In this example we:
 - Replaced `NA` values in `newcol` with `3`.
 - Renamed `newcol` to `difference`.
 
-Throughout these steps, core properties of the `SpatRaster` (number of cells,
-rows, columns, extent, resolution and CRS) remain unchanged. Other verbs such as
-`filter()`, `slice()` or `drop_na()` may alter these properties in a manner
-analogous to how row operations affect data frames.
+Throughout these steps, core properties of the `SpatRaster`, including number of
+cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs
+such as `filter()`, `slice()` or `drop_na()` may alter these properties in a
+manner analogous to row operations on data frames.
 
 ### `SpatVector` objects
 
@@ -182,7 +182,8 @@ preserved during these operations.
 ### `SpatRaster` objects
 
 When a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != ""`), the geom
-uses `ggplot2::coord_sf()` and can be reprojected to match other spatial layers.
+uses `ggplot2::coord_sf()` and can reproject the raster to match other spatial
+layers.
 
 ```{r}
 #| label: fig-faceted

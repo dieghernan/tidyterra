@@ -83,7 +83,7 @@ spatrast |> rename_with(
 \seealso{
 \code{\link[dplyr:rename]{dplyr::rename()}}
 
-Other single table verbs:
+Other \CRANpkg{dplyr} single-table verbs:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
 \code{\link{filter.Spat}},
 \code{\link{mutate.Spat}},
@@ -124,4 +124,4 @@ Other \CRANpkg{dplyr} methods:
 }
 \concept{dplyr.cols}
 \concept{dplyr.methods}
-\concept{single table verbs}
+\concept{dplyr.single_table}

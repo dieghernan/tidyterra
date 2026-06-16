@@ -42,16 +42,15 @@ vignette: >
 ## Summary
 
 **tidyterra** is an **R** [@r-project] package that lets users manipulate
-`SpatRaster` and `SpatVector` objects provided by the **terra** package
-[@R-terra], using verbs from packages in the **tidyverse** [@R-tidyverse], such
-as **dplyr** [@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This
-makes spatial data manipulation and analysis more approachable for users already
-familiar with the **tidyverse**.
+`SpatRaster` and `SpatVector` objects provided by **terra** [@R-terra], using
+verbs from packages in the **tidyverse** [@R-tidyverse], such as **dplyr**
+[@R-dplyr], **tidyr** [@R-tidyr] or **tibble** [@R-tibble]. This makes spatial
+data manipulation and analysis more approachable for users already familiar with
+the **tidyverse**.
 
-**tidyterra** also extends the functionality of the **ggplot2** package
-[@R-ggplot2] by providing additional geoms and stats,[^1] such as
-`geom_spatraster()` and `geom_spatvector()`, as well as carefully chosen scales
-and color palettes specifically designed for map production.
+**tidyterra** also extends **ggplot2** [@R-ggplot2] by providing additional
+geoms and stats,[^1] such as `geom_spatraster()` and `geom_spatvector()`, as
+well as carefully chosen scales and color palettes for map production.
 
 **tidyterra** can manipulate the following classes of **terra** objects:
 
@@ -59,8 +58,7 @@ and color palettes specifically designed for map production.
     polygon geometries.
 
 2.  `SpatRaster` objects, which represent raster data in the form of a grid
-    consisting of equally sized rectangles. Each rectangle can contain one or
-    more values.
+    consisting of equally sized cells. Each cell can contain one or more values.
 
 The first stable version of **tidyterra** was released on **CRAN** on April 24,
 2022. Since then, it has been actively used by other packages, such as
@@ -89,15 +87,13 @@ While other popular packages designed for spatial data handling, such as **sf**
 **tidyverse** as part of their infrastructure, **terra** objects lack this
 integration natively. Although **terra** offers a wide range of functions for
 transforming and plotting `SpatRaster` and `SpatVector` objects, some users who
-are not familiar with this package may need to make an additional effort to
-learn that syntax. This may imply an additional challenge during their initial
-steps in the field of spatial analysis.
+are not familiar with this package may need extra time to learn that syntax.
+This can make their first steps in spatial analysis more difficult.
 
 The **tidyterra** package was developed to address this integration gap. By
-providing the corresponding S3 methods, users can apply the same syntax and
-functions they are already familiar with for rectangular data to the objects
-provided by **terra**. This enables users who are not familiar with spatial data
-analysis to approach this area more easily.
+providing the corresponding S3 methods, users can apply familiar syntax and
+functions for rectangular data to objects provided by **terra**. This makes
+spatial data analysis more approachable for users who are new to the field.
 
 In addition, **tidyterra** offers functions for plotting **terra** objects using
 the **ggplot2** syntax. Although packages like **rasterVis** [@R-rastervis] and
@@ -115,15 +111,14 @@ cross-blended hypsometric tints described by @Patterson_Jenny_2011.
 ## A note on performance
 
 The development philosophy of **tidyterra** is to adapt **terra** objects to
-data frame-like structures by performing data transformations, which can affect
-performance.
+data frame-like structures while performing data transformations, which can
+affect performance.
 
-When manipulating large `SpatRaster` objects (i.e. more than 10,000,000 data
-slots), it is recommended to use native **terra** syntax, which is specifically
-designed for handling this type of data. For plotting, the geoms resample
-`SpatRaster` objects with more than 500,000 cells by default to speed up
-rendering, as `terra::plot()` does. You can override this upper limit with the
-geom's `maxcell` argument.
+When manipulating large `SpatRaster` objects, such as objects with more than
+10,000,000 data slots, use native **terra** syntax, which is designed for this
+type of data. For plotting, the geoms resample `SpatRaster` objects with more
+than 500,000 cells by default to speed up rendering, as `terra::plot()` does.
+You can override this upper limit with the geom's `maxcell` argument.
 
 When possible, each **tidyterra** help page references its equivalent **terra**
 function.
@@ -148,9 +143,9 @@ The latest development version is hosted on
 remotes::install_github("dieghernan/tidyterra")
 ```
 
-The following example demonstrates how to manipulate a `SpatRaster` object using
-the **dplyr** syntax. It also shows how to plot a `SpatRaster` object with
-**ggplot2** using the `geom_spatraster()` function:
+The following example demonstrates how to manipulate a `SpatRaster` object with
+**dplyr** syntax. It also shows how to plot a `SpatRaster` object with
+**ggplot2** using `geom_spatraster()`:
 
 
 ``` r
@@ -230,9 +225,9 @@ The package includes extensive documentation available online at
 
 - Details on each function, including the equivalent **terra** function when
   available, for users who prefer to include those functions in their workflows.
-- Working examples using the functions and creating plots.
-- Additional articles and vignettes, including a complete demo of the different
-  color palettes included in the package (see
+- Working examples that use the functions and create plots.
+- Additional articles and vignettes, including a complete demo of the color
+  palettes included in the package (see
   [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements {.appendix}
