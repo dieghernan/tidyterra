@@ -38,7 +38,7 @@
 #'   2000 (`EPSG:2193`)
 #'
 #' @examples
-#'
+#' \donttest{
 #' data("volcano2")
 #' filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 #' title(main = "volcano2 data: filled contour map")
@@ -61,6 +61,7 @@
 #'     subtitle = "Georeferenced",
 #'     fill = "Elevation (m)"
 #'   )
+#' }
 NULL
 
 #' Hypsometric palettes database

@@ -34,7 +34,7 @@ Information needed for regenerating the original \code{SpatRaster} file:
 }
 }
 \examples{
-
+\donttest{
 data("volcano2")
 filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 title(main = "volcano2 data: filled contour map")
@@ -57,6 +57,7 @@ ggplot() +
     subtitle = "Georeferenced",
     fill = "Elevation (m)"
   )
+}
 }
 \seealso{
 \link{volcano}

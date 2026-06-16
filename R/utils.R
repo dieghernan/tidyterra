@@ -141,7 +141,7 @@ warn_overlapping_layers <- function(data, fn) {
 
   nly <- length(unique(data$lyr))
   if (nly <= 1) {
-    return(invisible(NULL))
+    return(invisible(NULL)) # nolint
   }
 
   cli::cli_alert_warning(paste(
