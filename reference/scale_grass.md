@@ -1,7 +1,7 @@
 # GRASS scales
 
 Implementation of [GRASS color
-tables](https://grass.osgeo.org/grass83/manuals/r.colors.html). The
+tables](https://grass.osgeo.org/grass-stable/manuals/r.colors.html). The
 following fill scales and palettes are provided:
 
 - `scale_*_grass_d()`: For discrete values.
@@ -25,16 +25,17 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a subset of these additional arguments, so see the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
-above to see the full range of arguments accepted by these scales.
+above for the full range.
 
-These palettes are an implementation of
+These palettes implement
 [`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html),
-that is the default color palettes provided by
+the default color palettes used by
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
-([terra](https://CRAN.R-project.org/package=terra) `> 1.7.78`).
+in [terra](https://CRAN.R-project.org/package=terra) versions above
+1.7.78.
 
 ## Usage
 
@@ -112,7 +113,7 @@ grass.colors(n, palette = "viridis", alpha = 1, rev = FALSE)
 
 Derived from <https://github.com/OSGeo/grass/tree/main/lib/gis/colors>.
 See also [r.color - GRASS GIS
-Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
+Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 
 ## Arguments
 
@@ -121,7 +122,7 @@ Manual](https://grass.osgeo.org/grass83/manuals/r.colors.html).
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [grass_db](https://dieghernan.github.io/tidyterra/reference/grass_db.md)
-  for more info.
+  for more information.
 
 - ...:
 
@@ -294,14 +295,13 @@ layer with the values applied to the `fill/colour`
 
 Some palettes are mapped by default to a specific range of values (see
 [grass_db](https://dieghernan.github.io/tidyterra/reference/grass_db.md)).
-However, it is possible to modify this behavior with the
-`use_grass_range` argument. When `FALSE`, the color scales are mapped to
-the range of values of the `color/fill` aesthetics. See **Examples**.
+Set `use_grass_range = FALSE` to map the color scales to the range of
+values of the `fill/colour` aesthetics. See **Examples**.
 
 When passing the `limits` argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You
-can combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid
-blank pixels in the plot.
+can combine this with `oob`, for example `oob = scales::oob_squish`, to
+avoid blank pixels in the plot.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -323,7 +323,7 @@ Foundation, USA. <https://grass.osgeo.org>.
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments:
 
-Other gradient scales and palettes for hypsometry:
+Other color scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md),
@@ -408,7 +408,7 @@ pals_all <- unique(grass_db$pal)
 
 # In batches
 pals <- pals_all[c(1:25)]
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))

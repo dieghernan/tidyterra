@@ -65,9 +65,9 @@ masking method based on the values of the layers (see
 [`terra::mask()`](https://rspatial.github.io/terra/reference/mask.html)).
 
 `SpatRaster` layers are considered as columns and `SpatRaster` cells as
-rows, so rows (cells) with any `NA` value on any layer get an `NA`
-value. It is also possible to mask the cells (rows) based on the values
-of specific layers (columns).
+rows, so rows (cells) with any `NA` value on any layer become `NA`. You
+can also mask the cells (rows) based on the values of specific layers
+(columns).
 
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
 effectively removes outer cells that are `NA` (see
@@ -90,14 +90,21 @@ implementation of this method for `SpatRaster` may change in the future.
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md),
+[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.md)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md),
+[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.md),
+[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest.SpatVector.md),
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.md),
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.md)
+[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.md),
+[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/uncount.SpatVector.md),
+[`unite.Spat`](https://dieghernan.github.io/tidyterra/reference/unite.Spat.md)
 
 ## Examples
 
@@ -109,14 +116,14 @@ f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
 v <- terra::vect(f)
 
-# Add NAs
+# Add missing values.
 v <- v |> mutate(iso2 = ifelse(cpro <= "09", NA, cpro))
 
-# Init
+# Initial plot.
 plot(v, col = "red")
 
 
-# Mask with lyr.1
+# Drop geometries with missing values in iso2.
 v |>
   drop_na(iso2) |>
   plot(col = "red")
@@ -132,32 +139,32 @@ r <- rast(
 )
 terra::values(r) <- seq_len(ncell(r) * nlyr(r))
 
-# Add NAs
+# Add missing values.
 r[r > 13 & r < 22 | r > 31 & r < 45] <- NA
 
-# Init
+# Initial plot.
 plot(r, nc = 3)
 
 
-# Mask with lyr.1
+# Mask with lyr.1.
 r |>
   drop_na(lyr.1) |>
   plot(nc = 3)
 
 
-# Mask with lyr.2
+# Mask with lyr.2.
 r |>
   drop_na(lyr.2) |>
   plot(nc = 3)
 
 
-# Mask with lyr.3
+# Mask with lyr.3.
 r |>
   drop_na(lyr.3) |>
   plot(nc = 3)
 
 
-# Auto-mask all layers
+# Mask all layers.
 r |>
   drop_na() |>
   plot(nc = 3)

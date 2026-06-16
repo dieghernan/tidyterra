@@ -2,15 +2,17 @@
 
 ### Articles
 
+Introductory guides and palette examples.
+
 - [Welcome to
   tidyterra](https://dieghernan.github.io/tidyterra/articles/welcome.md):
 
-  First steps with the tidyterra package
+  First steps with tidyterra
 
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/articles/palettes.md):
 
-  A gallery of maps using the gradients provided by tidyterra.
+  A gallery of maps using gradient scales provided by tidyterra.
 
 ### In the wild
 
@@ -23,7 +25,7 @@
 
 ### FAQs
 
-**tidyterra** FAQs. See also [tidyterra
+Frequently asked questions about **tidyterra**. See also [tidyterra
 discussions](https://github.com/dieghernan/tidyterra/discussions).
 
 - [tidyterra

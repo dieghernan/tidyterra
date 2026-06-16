@@ -1,4 +1,4 @@
-# Gradient scales for representing hypsometry and bathymetry
+# Gradient scales for hypsometric and bathymetric tints
 
 Implementation of a selection of gradient palettes available in
 [cpt-city](https://phillips.shef.ac.uk/pub/cpt-city/).
@@ -42,8 +42,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -182,16 +182,16 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/hypsometric_tints_db.md)
-  for more info. The available values are listed below. `"arctic"`,
-  `"arctic_bathy"`, `"arctic_hypso"`, `"c3t1"`, `"colombia"`,
-  `"colombia_bathy"`, `"colombia_hypso"`, `"dem_poster"`, `"dem_print"`,
-  `"dem_screen"`, `"etopo1"`, `"etopo1_bathy"`, `"etopo1_hypso"`,
-  `"gmt_globe"`, `"gmt_globe_bathy"`, `"gmt_globe_hypso"`, `"meyers"`,
-  `"meyers_bathy"`, `"meyers_hypso"`, `"moon"`, `"moon_bathy"`,
-  `"moon_hypso"`, `"nordisk-familjebok"`, `"nordisk-familjebok_bathy"`,
-  `"nordisk-familjebok_hypso"`, `"pakistan"`, `"spain"`, `"usgs-gswa2"`,
-  `"utah_1"`, `"wiki-2.0"`, `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`,
-  `"wiki-schwarzwald-cont"`.
+  for more information. The available values are listed below.
+  `"arctic"`, `"arctic_bathy"`, `"arctic_hypso"`, `"c3t1"`,
+  `"colombia"`, `"colombia_bathy"`, `"colombia_hypso"`, `"dem_poster"`,
+  `"dem_print"`, `"dem_screen"`, `"etopo1"`, `"etopo1_bathy"`,
+  `"etopo1_hypso"`, `"gmt_globe"`, `"gmt_globe_bathy"`,
+  `"gmt_globe_hypso"`, `"meyers"`, `"meyers_bathy"`, `"meyers_hypso"`,
+  `"moon"`, `"moon_bathy"`, `"moon_hypso"`, `"nordisk-familjebok"`,
+  `"nordisk-familjebok_bathy"`, `"nordisk-familjebok_hypso"`,
+  `"pakistan"`, `"spain"`, `"usgs-gswa2"`, `"utah_1"`, `"wiki-2.0"`,
+  `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`, `"wiki-schwarzwald-cont"`.
 
 - ...:
 
@@ -374,17 +374,17 @@ The following orientation varies depending on the palette definition
 [hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/hypsometric_tints_db.md)
 for an example of how this can be achieved).
 
-Note that the setup of the palette may not always be suitable for your
-specific data. For example, a `SpatRaster` of small parts of the globe
-(and with a limited range of elevations) may not be well represented. As
-an example, a `SpatRaster` with a range of values on `[100, 200]`
-appears almost as a uniform color. This can be adjusted using the
-`limits`/`values` arguments.
+The palette setup may not always be suitable for your specific data. For
+example, a `SpatRaster` of small parts of the globe (and with a limited
+range of elevations) may not be well represented. As an example, a
+`SpatRaster` with a range of values on `[100, 200]` appears almost as a
+uniform color. This can be adjusted using the `limits`/`values`
+arguments.
 
 When passing the `limits` argument to `scale_*_hypso_tint_*`, the colors
 are restricted to those specified by this argument, keeping the
-distribution of the tint. You can combine this with `oob` (i.e.
-`oob = scales::oob_squish`) to avoid blank pixels in the plot.
+distribution of the tint. You can combine this with `oob`, for example
+`oob = scales::oob_squish`, to avoid blank pixels in the plot.
 
 `hypso.colors2()` provides a gradient color palette where the distance
 between colors is different depending of the type of color. In contrast,
@@ -401,7 +401,7 @@ between colors is different depending of the type of color. In contrast,
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other color scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
@@ -490,11 +490,11 @@ ggplot() +
   scale_fill_hypso_tint_d(na.value = "gray10", palette = "dem_poster")
 
 # }
-# Display all the cpl_city palettes
+# Display all the cpt-city palettes
 
 pals <- unique(hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -511,11 +511,11 @@ for (i in pals) {
 }
 par(opar)
 
-# Display all the cpl_city palettes on version 2
+# Display all the cpt-city palettes on version 2
 
 pals <- unique(hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))

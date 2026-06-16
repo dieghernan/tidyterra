@@ -41,8 +41,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -174,7 +174,7 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 
 - Patterson, T., & Jenny, B. (2011). The Development and Rationale of
   Cross-blended Hypsometric Tints. *Cartographic Perspectives,* (69),
-  31 - 46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
+  31-46. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20) .
 
 - Patterson, T. (2004). *Using Cross-blended Hypsometric Tints for
   Generalized Environmental Mapping.* Online, Accessed June 10, 2022.
@@ -186,7 +186,7 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
   A valid palette name. The name is matched to the list of available
   palettes, ignoring upper vs. lower case. See
   [cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md)
-  for more info. The available values are listed below. `"arid"`,
+  for more information. The available values are listed below. `"arid"`,
   `"cold_humid"`, `"polar"`, `"warm_humid"`.
 
 - ...:
@@ -370,17 +370,17 @@ The following orientation varies depending on the palette definition
 [cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md)
 for an example of how this can be achieved).
 
-Note that the setup of the palette may not always be suitable for your
-specific data. For example, a `SpatRaster` of small parts of the globe
-(and with a limited range of elevations) may not be well represented. As
-an example, a `SpatRaster` with a range of values on `[100, 200]`
-appears almost as a uniform color. This can be adjusted using the
-`limits`/`values` arguments.
+The palette setup may not always be suitable for your specific data. For
+example, a `SpatRaster` of small parts of the globe (and with a limited
+range of elevations) may not be well represented. As an example, a
+`SpatRaster` with a range of values on `[100, 200]` appears almost as a
+uniform color. This can be adjusted using the `limits`/`values`
+arguments.
 
 When passing the `limits` argument to `scale_*_cross_blended_tint_*`,
 the colors are restricted to those specified by this argument, keeping
-the distribution of the tint. You can combine this with `oob` (i.e.
-`oob = scales::oob_squish`) to avoid blank pixels in the plot.
+the distribution of the tint. You can combine this with `oob`, for
+example `oob = scales::oob_squish`, to avoid blank pixels in the plot.
 
 `cross_blended.colors2()` provides a gradient color palette where the
 distance between colors is different depending of the type of color. In
@@ -397,7 +397,7 @@ colors. See **Examples**.
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other color scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md),
@@ -494,7 +494,7 @@ ggplot() +
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))
@@ -515,7 +515,7 @@ par(opar)
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 
-# Helper fun for plotting
+# Helper function for plotting
 
 ncols <- 128
 rowcol <- grDevices::n2mfrow(length(pals))

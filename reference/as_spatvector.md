@@ -40,8 +40,8 @@ as_spatvector(x, ...)
 - geom:
 
   Character vector naming the fields that contain the geometry data. Use
-  two names for point coordinates (`x` and `y`), or one name for a
-  column with WKT geometries.
+  two names for point coordinates (`x` and `y`) or one name for a column
+  with WKT geometries.
 
 - crs:
 
@@ -68,7 +68,7 @@ in the following ways:
   [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)),
   the grouping variables are transferred and a grouped `SpatVector` is
   created (see
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)).
+  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md)).
 
 - If no `crs` is provided and the tibble has been created with the
   method
@@ -87,7 +87,7 @@ in the following ways:
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-for retrieving CRS and the corresponding utils
+for retrieving CRS and the corresponding utilities
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

@@ -1,11 +1,11 @@
 # Updated topographic information on Auckland's Maungawhau volcano
 
-Probably you already know the
+You may already know the
 [volcano](https://rdrr.io/r/datasets/volcano.html) dataset. This dataset
-provides updated information of Maungawhau (Mt. Eden) from [Toitu Te
+provides updated information for Maungawhau (Mt. Eden) from [Toitu Te
 Whenua Land Information New Zealand](https://data.linz.govt.nz/), the
-Government's agency that provides free online access to New Zealand’s
-most up-to-date land and seabed data.
+government agency that provides free online access to New Zealand's most
+up-to-date land and seabed data.
 
 ## Format
 
@@ -21,7 +21,7 @@ DEM for LiDAR data from the Auckland region captured in 2013. The
 original data has been downsampled to a resolution of 5 m due to disk
 space constraints.
 
-Data License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## Note
 

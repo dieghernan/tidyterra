@@ -1,22 +1,22 @@
 # Group `SpatVector` objects by rows
 
-[`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) allows
-you to compute on a `SpatVector` a row-at-a-time. This is most useful
+[`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) lets
+you compute on a `SpatVector` one row at a time. This is most useful
 when a vectorised function does not exist.
 
-Most [dplyr](https://CRAN.R-project.org/package=dplyr) verbs
-implementation in
+Most [dplyr](https://CRAN.R-project.org/package=dplyr) verb
+implementations in
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) preserve
 row-wise grouping. The exception is
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md),
-which return a [grouped
-SpatVector](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md).
+which returns a [grouped
+SpatVector](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md).
 You can explicitly ungroup with
-[`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
+[`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md)
 or
-[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html),
+[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
 or convert to a grouped `SpatVector` with
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md).
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md).
 
 ## Usage
 
@@ -37,18 +37,18 @@ rowwise(data, ...)
   Variables to be preserved when calling
   [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md).
   This is typically a set of variables whose combination uniquely
-  identify each row. See
+  identifies each row. See
   [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
-  **NB**: unlike
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
-  you can not create new variables here but instead you can select
-  multiple variables with (e.g.)
+  Unlike
+  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
+  you cannot create new variables here. Instead, you can select multiple
+  variables, for example with
   [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
 
-The same `SpatVector` object with an additional attribute.
+The same `SpatVector` object with updated grouping metadata.
 
 ## Details
 
@@ -63,14 +63,14 @@ function for `SpatVector` objects.
 
 **When mixing** [terra](https://CRAN.R-project.org/package=terra)
 **and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a row-wise `SpatVector` (i.e. subsetting a `SpatVector` like
-`v[1:3,1:2]`), the `groups` attribute can be corrupted.
+a row-wise `SpatVector`, for example subsetting a `SpatVector` like
+`v[1:3,1:2]`, the `groups` attribute can be corrupted.
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
 regenerate the `SpatVector`. This is triggered the next time you use a
 [dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
 `SpatVector`.
 
-Note also that some operations, such as
+Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
 create a new `SpatVector`. In these cases, the result does not preserve
 the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
@@ -80,9 +80,10 @@ the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
 [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -90,16 +91,20 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
@@ -119,7 +124,7 @@ nb <- v |>
 #> #  A SpatVector 100 x 2
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat NAD27 (EPSG:4267)
-#> #  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
+#> #  Extent (x / y): ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
 #> 
 #> $ NWBIR74 <dbl> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…
 #> $ NWBIR79 <dbl> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369, 1…
@@ -143,7 +148,7 @@ nb |>
 
 # Additional examples
 # \donttest{
-# use c_across() to more easily select many variables
+# Use c_across() to select many variables more easily.
 nb |>
   rowwise() |>
   mutate(m = mean(c_across(NWBIR74:NWBIR79)))
@@ -178,7 +183,7 @@ nb |>
 #>                   208     260   208
 #>               ...
 
-# Summarising
+# Summarize.
 v |>
   rowwise() |>
   summarise(mean_bir = mean(BIR74, BIR79)) |>
@@ -187,7 +192,7 @@ v |>
 #> #  A SpatVector 100 x 1
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat NAD27 (EPSG:4267)
-#> #  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
+#> #  Extent (x / y): ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
 #> 
 #> $ mean_bir <dbl> 1091, 487, 3188, 508, 1421, 1452, 286, 420, 968, 1612, 1035, …
 
@@ -202,7 +207,7 @@ v |>
 #> #  A SpatVector 100 x 2
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat NAD27 (EPSG:4267)
-#> #  Extent (x / y) : ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
+#> #  Extent (x / y): ([84° 19' 25.87" W / 75° 27' 25.12" W] , [33° 52' 55.17" N / 36° 35' 22.74" N])
 #> 
 #> Groups: id2 [2]
 #> $ id2      <int> 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 1…

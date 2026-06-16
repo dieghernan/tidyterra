@@ -23,7 +23,7 @@ various metadata from a grouped SpatVector."><meta property="og:image" content="
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,7 @@ various metadata from a grouped SpatVector."><meta property="og:image" content="
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -71,7 +69,7 @@ various metadata from a grouped SpatVector."><meta property="og:image" content="
     <div class="ref-description section level2">
     <p>The easiest way to create a grouped <code>SpatVector</code> is to call the
 <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> method on a <code>SpatVector</code>: this will take care of capturing
-the unevaluated expressions for you. See <code><a href="group-by.SpatVector.html">group_by.SpatVector()</a></code> for details.</p>
+the unevaluated expressions for you. See <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code> for details.</p>
 <p>This function is the adapted version of <code><a href="https://dplyr.tidyverse.org/reference/grouped_df.html" class="external-link">dplyr::is_grouped_df()</a></code>.</p>
 <p>See also <code><a href="group_data.SpatVector.html">group_data.SpatVector()</a></code> for the accessory functions that retrieve
 various metadata from a grouped <code>SpatVector</code>.</p>
@@ -91,6 +89,10 @@ various metadata from a grouped <code>SpatVector</code>.</p>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    <p><code>TRUE</code> if <code>x</code> is a grouped <code>SpatVector</code>, otherwise <code>FALSE</code>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other helpers:
 <code><a href="compare_spatrasters.html">compare_spatrasters()</a></code>,
@@ -98,6 +100,20 @@ various metadata from a grouped <code>SpatVector</code>.</p>
 <code><a href="pull_crs.html">pull_crs()</a></code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">is_grouped_spatvector</span><span class="op">(</span><span class="va">v</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">grouped</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">v</span>, <span class="va">iso2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">is_grouped_spatvector</span><span class="op">(</span><span class="va">grouped</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside></div>
 

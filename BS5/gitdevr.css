@@ -20,7 +20,6 @@
 	--bs-secondary: #6c757d;
 	--bs-secondary-rgb: 108, 117, 125;
 	--bs-secondary-color: #6c757d;
-	--bs-secondary-rgb: 108, 117, 125;
 
 	--bs-success: #2da44e;
 	--bs-success-rgb: 45, 164, 78;
@@ -96,6 +95,7 @@ caption {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 1rem;
+	margin-bottom: 1rem;
 	font-size: 0.875rem;
 	width: 100%;
 }
@@ -385,316 +385,160 @@ pre {
 	border: none;
 }
 
-pre {
+pre,
+[data-bs-theme="dark"] pre {
 	background-color: rgba(var(--bs-body-color-rgb), 0.03);
 	color: var(--bs-body-color);
 }
 
-pre code
-
-/* Normal - pygments.n */ {
+/* Normal - pygments.n */
+pre code,
+[data-bs-theme="dark"] pre code {
 	color: var(--bs-body-color);
 }
 
-pre code span.al
-
-/* Alert - pygments.gr */ {
+/* Alert - pygments.gr */
+pre code span.al,
+[data-bs-theme="dark"] pre code span.al {
 	color: var(--bs-danger);
 }
 
-pre code span.an
-
-/* Annotation - pygments.c1 */ {
+/* Annotation - pygments.c1 */
+pre code span.an,
+[data-bs-theme="dark"] pre code span.an {
 	color: var(--bs-gray-500);
 	font-style: italic;
 }
 
-pre code span.at
-
-/* Attribute - e.g value (non numeric) in YAML */ {
+/* Attribute - e.g value (non numeric) in YAML */
+pre code span.at,
+[data-bs-theme="dark"] pre code span.at {
 	color: var(--bs-info);
 }
 
-pre code span.cf
-
-/* ControlFlow - like Operator -> pygments.o */ {
+/* ControlFlow - like Operator -> pygments.o */
+pre code span.cf,
+[data-bs-theme="dark"] pre code span.cf {
 	color: var(--bs-info);
 }
 
-pre code span.ch
-
-/* Char - pygments.s2 */ {
+/* Char - pygments.s2 */
+pre code span.ch,
+[data-bs-theme="dark"] pre code span.ch {
 	color: var(--bs-warning);
 }
 
-pre code span.cn
-
-/* Constant - pygments.nb */ {
+/* Constant - pygments.nb */
+pre code span.cn,
+[data-bs-theme="dark"] pre code span.cn {
 	color: var(--bs-warning);
 }
 
-pre code span.co
-
-/* Comment - pygments.c1 */ {
+/* Comment - pygments.c1 */
+pre code span.co,
+[data-bs-theme="dark"] pre code span.co {
 	color: var(--bs-gray-500);
 	font-style: italic;
 }
 
-pre code span.cv
-
-/* CommentVar - pygments.c1 */ {
+/* CommentVar - pygments.c1 */
+pre code span.cv,
+[data-bs-theme="dark"] pre code span.cv {
 	color: var(--bs-gray-500);
 	font-style: italic;
 }
 
-pre code span.do
-
-/* Documentation - pygments.c1 */ {
+/* Documentation - pygments.c1 */
+pre code span.do,
+[data-bs-theme="dark"] pre code span.do {
 	color: var(--bs-gray-500);
 	font-style: italic;
 }
 
-pre code span.dv
-
-/* DecVal - pygments.m */ {
+/* DecVal - pygments.m */
+pre code span.dv,
+[data-bs-theme="dark"] pre code span.dv {
 	color: var(--bs-info);
 }
 
-pre code span.er
-
-/* Error - pygments.gr */ {
+/* Error - pygments.gr */
+pre code span.er,
+[data-bs-theme="dark"] pre code span.er {
 	color: var(--bs-danger);
 }
 
-pre code span.fl
-
-/* Float - pygments.m */ {
+/* Float - pygments.m */
+pre code span.fl,
+[data-bs-theme="dark"] pre code span.fl {
 	color: var(--bs-info);
 }
 
-pre code span.fu
-
-/* Function - pygments.n */ {
+/* Function - pygments.n */
+pre code span.fu,
+[data-bs-theme="dark"] pre code span.fu {
 	color: var(--bs-blue);
 }
 
-pre code span.in
-
-/* Information - pygments.gp */ {
+/* Information - pygments.gp */
+pre code span.in,
+[data-bs-theme="dark"] pre code span.in {
 	color: var(--bs-gray-500);
 	font-style: italic;
 }
 
-pre code span.kw
-
-/* Keyword - pygments.k */ {
+/* Keyword - pygments.k */
+pre code span.kw,
+[data-bs-theme="dark"] pre code span.kw {
 	color: var(--bs-info);
 	font-weight: bold;
 }
 
-pre code span.op
-  /* Operator - pygments.o */ {
+/* Operator - pygments.o */
+pre code span.op,
+[data-bs-theme="dark"] pre code span.op {
 	color: var(--bs-info);
 }
 
-pre code span.ot
-
-/* Other - pygments.sx */ {
+/* Other - pygments.sx */
+pre code span.ot,
+[data-bs-theme="dark"] pre code span.ot {
 	color: var(--bs-success);
 }
 
-pre code span.sc
-
-/* SpecialChar - pygments.s2 */ {
+/* SpecialChar - pygments.s2 */
+pre code span.sc,
+[data-bs-theme="dark"] pre code span.sc {
 	color: var(--bs-success);
 }
 
-pre code span.ss
-
-/* SpecialString - pygments.s2 */ {
+/* SpecialString - pygments.s2 */
+pre code span.ss,
+[data-bs-theme="dark"] pre code span.ss {
 	color: var(--bs-success);
 }
 
-pre code span.st
-
-/* String - pygments.s2 */ {
+/* String - pygments.s2 */
+pre code span.st,
+[data-bs-theme="dark"] pre code span.st {
 	color: var(--bs-success);
 }
 
-pre code span.va
-
-/* Variable - pygments.n */ {
+/* Variable - pygments.n */
+pre code span.va,
+[data-bs-theme="dark"] pre code span.va {
 	color: var(--bs-body-color);
 }
 
-pre code span.vs
-
-/* VerbatimString - pygments.s2 */ {
+/* VerbatimString - pygments.s2 */
+pre code span.vs,
+[data-bs-theme="dark"] pre code span.vs {
 	color: var(--bs-danger);
 }
 
-pre code span.wa
-
-/* Warning - pygments.gr */ {
+/* Warning - pygments.gr */
+pre code span.wa,
+[data-bs-theme="dark"] pre code span.wa {
 	color: var(--bs-danger);
-}
-
-/* Highlighter based in gitdevr --- */
-
-[data-bs-theme="dark"] {
-	pre {
-		background-color: rgba(var(--bs-body-color-rgb), 0.03);
-		color: var(--bs-body-color);
-	}
-
-	pre code
-
-/* Normal - pygments.n */ {
-		color: var(--bs-body-color);
-	}
-
-	pre code span.al
-
-/* Alert - pygments.gr */ {
-		color: var(--bs-danger);
-	}
-
-	pre code span.an
-
-/* Annotation - pygments.c1 */ {
-		color: var(--bs-gray-500);
-		font-style: italic;
-	}
-
-	pre code span.at
-
-/* Attribute - e.g value (non numeric) in YAML */ {
-		color: var(--bs-info);
-	}
-
-	pre code span.cf
-
-/* ControlFlow - like Operator -> pygments.o */ {
-		color: var(--bs-info);
-	}
-
-	pre code span.ch
-
-/* Char - pygments.s2 */ {
-		color: var(--bs-warning);
-	}
-
-	pre code span.cn
-
-/* Constant - pygments.nb */ {
-		color: var(--bs-warning);
-	}
-
-	pre code span.co
-
-/* Comment - pygments.c1 */ {
-		color: var(--bs-gray-500);
-		font-style: italic;
-	}
-
-	pre code span.cv
-
-/* CommentVar - pygments.c1 */ {
-		color: var(--bs-gray-500);
-		font-style: italic;
-	}
-
-	pre code span.do
-
-/* Documentation - pygments.c1 */ {
-		color: var(--bs-gray-500);
-		font-style: italic;
-	}
-
-	pre code span.dv
-
-/* DecVal - pygments.m */ {
-		color: var(--bs-info);
-	}
-
-	pre code span.er
-
-/* Error - pygments.gr */ {
-		color: var(--bs-danger);
-	}
-
-	pre code span.fl
-
-/* Float - pygments.m */ {
-		color: var(--bs-info);
-	}
-
-	pre code span.fu
-
-/* Function - pygments.n */ {
-		color: var(--bs-blue);
-	}
-
-	pre code span.in
-
-/* Information - pygments.gp */ {
-		color: var(--bs-gray-500);
-		font-style: italic;
-	}
-
-	pre code span.kw
-
-/* Keyword - pygments.k */ {
-		color: var(--bs-info);
-		font-weight: bold;
-	}
-
-	pre code span.op
-  /* Operator - pygments.o */ {
-		color: var(--bs-info);
-	}
-
-	pre code span.ot
-
-/* Other - pygments.sx */ {
-		color: var(--bs-success);
-	}
-
-	pre code span.sc
-
-/* SpecialChar - pygments.s2 */ {
-		color: var(--bs-success);
-	}
-
-	pre code span.ss
-
-/* SpecialString - pygments.s2 */ {
-		color: var(--bs-success);
-	}
-
-	pre code span.st
-
-/* String - pygments.s2 */ {
-		color: var(--bs-success);
-	}
-
-	pre code span.va
-
-/* Variable - pygments.n */ {
-		color: var(--bs-body-color);
-	}
-
-	pre code span.vs
-
-/* VerbatimString - pygments.s2 */ {
-		color: var(--bs-danger);
-	}
-
-	pre code span.wa
-
-/* Warning - pygments.gr */ {
-		color: var(--bs-danger);
-	}
 }
 
 /* Dark reactable */
@@ -1012,10 +856,7 @@ div.callout-note.callout-style-default > .callout-header {
 	background-color: RGBA(var(--bs-link-color-rgb), 0.1);
 }
 
-div.callout-note:not(.callout-titled) .callout-icon::before {
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(35.1, 115.2, 204.3)" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>');
-}
-
+div.callout-note:not(.callout-titled) .callout-icon::before,
 div.callout-note.callout-titled .callout-icon::before {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(35.1, 115.2, 204.3)" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>');
 }
@@ -1032,10 +873,7 @@ div.callout-tip.callout-style-default > .callout-header {
 	background-color: RGBA(var(--bs-success-rgb), 0.1);
 }
 
-div.callout-tip:not(.callout-titled) .callout-icon::before {
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(56.7, 163.8, 21.6)" class="bi bi-lightbulb" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>');
-}
-
+div.callout-tip:not(.callout-titled) .callout-icon::before,
 div.callout-tip.callout-titled .callout-icon::before {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(56.7, 163.8, 21.6)" class="bi bi-lightbulb" viewBox="0 0 16 16"><path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/></svg>');
 }
@@ -1052,10 +890,7 @@ div.callout-warning.callout-style-default > .callout-header {
 	background-color: RGBA(var(--bs-warning-rgb), 0.1);
 }
 
-div.callout-warning:not(.callout-titled) .callout-icon::before {
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(229.5, 105.3, 21.6)" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/><path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/></svg>');
-}
-
+div.callout-warning:not(.callout-titled) .callout-icon::before,
 div.callout-warning.callout-titled .callout-icon::before {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(229.5, 105.3, 21.6)" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/><path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/></svg>');
 }
@@ -1072,10 +907,7 @@ div.callout-caution.callout-style-default > .callout-header {
 	background-color: RGBA(var(--bs-warning-rgb), 0.1);
 }
 
-div.callout-caution:not(.callout-titled) .callout-icon::before {
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(216, 155.7, 70.2)" class="bi bi-cone-striped" viewBox="0 0 16 16"><path d="M9.97 4.88l.953 3.811C10.158 8.878 9.14 9 8 9c-1.14 0-2.159-.122-2.923-.309L6.03 4.88C6.635 4.957 7.3 5 8 5s1.365-.043 1.97-.12zm-.245-.978L8.97.88C8.718-.13 7.282-.13 7.03.88L6.274 3.9C6.8 3.965 7.382 4 8 4c.618 0 1.2-.036 1.725-.098zm4.396 8.613a.5.5 0 0 1 .037.96l-6 2a.5.5 0 0 1-.316 0l-6-2a.5.5 0 0 1 .037-.96l2.391-.598.565-2.257c.862.212 1.964.339 3.165.339s2.303-.127 3.165-.339l.565 2.257 2.391.598z"/></svg>');
-}
-
+div.callout-caution:not(.callout-titled) .callout-icon::before,
 div.callout-caution.callout-titled .callout-icon::before {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(216, 155.7, 70.2)" class="bi bi-cone-striped" viewBox="0 0 16 16"><path d="M9.97 4.88l.953 3.811C10.158 8.878 9.14 9 8 9c-1.14 0-2.159-.122-2.923-.309L6.03 4.88C6.635 4.957 7.3 5 8 5s1.365-.043 1.97-.12zm-.245-.978L8.97.88C8.718-.13 7.282-.13 7.03.88L6.274 3.9C6.8 3.965 7.382 4 8 4c.618 0 1.2-.036 1.725-.098zm4.396 8.613a.5.5 0 0 1 .037.96l-6 2a.5.5 0 0 1-.316 0l-6-2a.5.5 0 0 1 .037-.96l2.391-.598.565-2.257c.862.212 1.964.339 3.165.339s2.303-.127 3.165-.339l.565 2.257 2.391.598z"/></svg>');
 }
@@ -1092,10 +924,7 @@ div.callout-important.callout-style-default > .callout-header {
 	background-color: RGBA(var(--bs-danger-rgb), 0.1);
 }
 
-div.callout-important:not(.callout-titled) .callout-icon::before {
-	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(229.5, 0, 51.3)" class="bi bi-exclamation-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>');
-}
-
+div.callout-important:not(.callout-titled) .callout-icon::before,
 div.callout-important.callout-titled .callout-icon::before {
 	background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="fill: rgb(229.5, 0, 51.3)" class="bi bi-exclamation-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>');
 }

@@ -1,8 +1,8 @@
-# Visualise `SpatVector` objects
+# Plot `SpatVector` objects
 
-Wrappers of
+Wrappers of the
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-family used to visualise `SpatVector` objects (see
+family used to plot `SpatVector` objects (see
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)).
 
 ## Usage
@@ -148,7 +148,7 @@ stat_spatvector(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Details
 
@@ -176,7 +176,7 @@ for details on aesthetics, etc.
 
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md),

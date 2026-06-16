@@ -4,8 +4,8 @@ Two `SpatRaster` objects are compatible (in terms of combining layers)
 if the CRS, extent and resolution are similar. In those cases you can
 combine the objects simply as `c(x, y)`.
 
-This function compares those attributes informing of the results. See
-**Solving issues** section for minimal guidance.
+This function compares those attributes and reports the results. See
+**Solving issues** for minimal guidance.
 
 ## Usage
 
@@ -26,9 +26,9 @@ compare_spatrasters(x, y, digits = 6)
 
 ## Value
 
-A invisible logical `TRUE/FALSE` indicating if the `SpatRaster` objects
-are compatible, plus an informative message flagging the issues found
-(if any).
+An invisible logical `TRUE/FALSE` indicating whether the `SpatRaster`
+objects are compatible, plus an informative message flagging any issues
+found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -39,7 +39,7 @@ are compatible, plus an informative message flagging the issues found
 - On **non-equal CRS**, try
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html).
 
-- On **non-equal extent** try
+- On **non-equal extent**, try
   [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html).
 
 - On **non-equal resolution** you can try
@@ -74,7 +74,7 @@ crs(y_nocrs) <- NA
 compare_spatrasters(x, y_nocrs)
 #> ! Results of `tidyterra::compare_spatrasters()`: 
 #> The following attributes are not equal:
-#> • crs
+#> • CRS
 
 # Different extent
 compare_spatrasters(x, x[1:10, , drop = FALSE])
@@ -96,7 +96,7 @@ compare_spatrasters(x, y_newres)
 compare_spatrasters(x, project(x, "epsg:3035"))
 #> ! Results of `tidyterra::compare_spatrasters()`: 
 #> The following attributes are not equal:
-#> • crs
+#> • CRS
 #> • extent
 #> • resolution
 ```

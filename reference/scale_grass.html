@@ -14,12 +14,10 @@ Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
-Note that tidyterra documents only a selection of these
-additional arguments, check the ggplot2 functions listed above to
-see the full range of arguments accepted by these scales.
-These palettes are an implementation of terra::map.pal(), that is the
-default color palettes provided by terra::plot() (terra
-&amp;gt; 1.7.78)."><meta property="og:description" content="Implementation of GRASS color tables. The
+tidyterra documents only a subset of these additional arguments,
+so see the ggplot2 functions listed above for the full range.
+These palettes implement terra::map.pal(), the default color palettes used
+by terra::plot() in terra versions above 1.7.78."><meta property="og:description" content="Implementation of GRASS color tables. The
 following fill scales and palettes are provided:
 scale_*_grass_d(): For discrete values.
 scale_*_grass_c(): For continuous values.
@@ -34,12 +32,10 @@ Continuous values: ggplot2::continuous_scale().
 Binned continuous values: ggplot2::binned_scale().
 
 
-Note that tidyterra documents only a selection of these
-additional arguments, check the ggplot2 functions listed above to
-see the full range of arguments accepted by these scales.
-These palettes are an implementation of terra::map.pal(), that is the
-default color palettes provided by terra::plot() (terra
-&amp;gt; 1.7.78)."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
+tidyterra documents only a subset of these additional arguments,
+so see the ggplot2 functions listed above for the full range.
+These palettes implement terra::map.pal(), the default color palettes used
+by terra::plot() in terra versions above 1.7.78."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -53,7 +49,7 @@ default color palettes provided by terra::plot() (terra
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,9 +61,7 @@ default color palettes provided by terra::plot() (terra
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/welcome.html">Welcome to tidyterra</a></li>
-    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
-    <li><hr class="dropdown-divider"></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
     <li><hr class="dropdown-divider"></li>
@@ -99,7 +93,7 @@ default color palettes provided by terra::plot() (terra
     </div>
 
     <div class="ref-description section level2">
-    <p>Implementation of <a href="https://grass.osgeo.org/grass83/manuals/r.colors.html" class="external-link">GRASS color tables</a>. The
+    <p>Implementation of <a href="https://grass.osgeo.org/grass-stable/manuals/r.colors.html" class="external-link">GRASS color tables</a>. The
 following fill scales and palettes are provided:</p><ul><li><p><code>scale_*_grass_d()</code>: For discrete values.</p></li>
 <li><p><code>scale_*_grass_c()</code>: For continuous values.</p></li>
 <li><p><code>scale_*_grass_b()</code>: For binning continuous values.</p></li>
@@ -108,12 +102,10 @@ following fill scales and palettes are provided:</p><ul><li><p><code>scale_*_gra
 </ul><p>Additional arguments <code>...</code> are passed to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
 <li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code>.</p></li>
 <li><p>Binned continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale()</a></code>.</p></li>
-</ul><p><strong>Note that</strong> <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> documents only a selection of these
-additional arguments, check the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above to
-see the full range of arguments accepted by these scales.</p>
-<p>These palettes are an implementation of <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, that is the
-default color palettes provided by <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> (<a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a>
-<code>&gt; 1.7.78</code>).</p>
+</ul><p><a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> documents only a subset of these additional arguments,
+so see the <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> functions listed above for the full range.</p>
+<p>These palettes implement <code><a href="https://rspatial.github.io/terra/reference/mappal.html" class="external-link">terra::map.pal()</a></code>, the default color palettes used
+by <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> in <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> versions above 1.7.78.</p>
     </div>
 
     <div class="section level2">
@@ -190,7 +182,7 @@ default color palettes provided by <code><a href="https://rspatial.github.io/ter
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
     <p>Derived from <a href="https://github.com/OSGeo/grass/tree/main/lib/gis/colors" class="external-link">https://github.com/OSGeo/grass/tree/main/lib/gis/colors</a>. See
-also <a href="https://grass.osgeo.org/grass83/manuals/r.colors.html" class="external-link">r.color - GRASS GIS Manual</a>.</p>
+also <a href="https://grass.osgeo.org/grass-stable/manuals/r.colors.html" class="external-link">r.color - GRASS GIS Manual</a>.</p>
     </div>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
@@ -199,7 +191,7 @@ also <a href="https://grass.osgeo.org/grass83/manuals/r.colors.html" class="exte
 <dl><dt id="arg-palette">palette<a class="anchor" aria-label="anchor" href="#arg-palette"></a></dt>
 <dd><p>A valid palette name. The name is matched to the list of
 available palettes, ignoring upper vs. lower case. See
-<a href="grass_db.html">grass_db</a> for more info.</p></dd>
+<a href="grass_db.html">grass_db</a> for more information.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -337,13 +329,12 @@ not filled. See also
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Some palettes are mapped by default to a specific range of values (see
-<a href="grass_db.html">grass_db</a>). However, it is possible to modify this behavior with the
-<code>use_grass_range</code> argument. When <code>FALSE</code>, the color scales are mapped to the
-range of values of the <code>color/fill</code> aesthetics. See <strong>Examples</strong>.</p>
+<a href="grass_db.html">grass_db</a>). Set <code>use_grass_range = FALSE</code> to map the color scales to the
+range of values of the <code>fill/colour</code> aesthetics. See <strong>Examples</strong>.</p>
 <p>When passing the <code>limits</code> argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You can
-combine this with <code>oob</code> (i.e. <code>oob = scales::oob_squish</code>) to avoid blank
-pixels in the plot.</p>
+combine this with <code>oob</code>, for example <code>oob = scales::oob_squish</code>, to avoid
+blank pixels in the plot.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -363,7 +354,7 @@ pixels in the plot.</p>
     <div class="dont-index"><p><a href="grass_db.html">grass_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>,
 <code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code>.</p>
 <p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> arguments:</p>
-<p>Other gradient scales and palettes for hypsometry:
+<p>Other color scales, palettes and hypsometric tints:
 <code><a href="scale_wiki.html">scale_color_coltab()</a></code>,
 <code><a href="scale_cross_blended.html">scale_cross_blended</a></code>,
 <code><a href="scale_hypso.html">scale_hypso</a></code>,
@@ -448,7 +439,7 @@ pixels in the plot.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># In batches</span></span></span>
 <span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="va">pals_all</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">25</span><span class="op">)</span><span class="op">]</span></span></span>
-<span class="r-in"><span><span class="co"># Helper fun for plotting</span></span></span>
+<span class="r-in"><span><span class="co"># Helper function for plotting</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ncols</span> <span class="op">&lt;-</span> <span class="fl">128</span></span></span>
 <span class="r-in"><span><span class="va">rowcol</span> <span class="op">&lt;-</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grDevices/n2mfrow.html" class="external-link">n2mfrow</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">pals</span><span class="op">)</span><span class="op">)</span></span></span>

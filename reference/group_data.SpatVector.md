@@ -73,7 +73,7 @@ n_groups(x)
 ## Value
 
 See the description of the method. The results are usually tibbles,
-lists or vectors. These functions does not return `SpatVector` objects.
+lists or vectors. These functions do not return `SpatVector` objects.
 
 ## Examples
 

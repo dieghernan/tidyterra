@@ -27,7 +27,7 @@ a `SpatRaster` (if `as.raster = TRUE`) with the same number of rows (or
 cells) as the number of cells in `x`.
 
 When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
-extension and resolution as `x`.
+extent and resolution as `x`.
 
 ## See also
 

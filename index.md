@@ -1,15 +1,15 @@
 # tidyterra
 
-The goal of **tidyterra** is to provide common methods of the
-[**tidyverse** packages](https://tidyverse.org/packages/) for objects
-created with the [**terra**](https://CRAN.R-project.org/package=terra)
-package: `SpatRaster` and `SpatVector`. It also provides geoms for
-plotting these objects with
-[**ggplot2**](https://ggplot2.tidyverse.org/).
+The goal of **tidyterra** is to provide methods from
+[**tidyverse**](https://tidyverse.org/packages/) packages for
+`SpatRaster` and `SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
+[**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for
+plotting those objects.
 
 Please cite **tidyterra** as:
 
-Hernangómez, D., (2023). Using the tidyverse with terra objects: the
+Hernangómez, D. (2023). Using the tidyverse with terra objects: the
 tidyterra package. *Journal of Open Source Software*, *8*(91), 5751,
 <https://doi.org/10.21105/joss.05751>.
 
@@ -32,28 +32,26 @@ A BibTeX entry for LaTeX users is:
 
 ## Overview
 
-The full manual of the most recent release of **tidyterra** on **CRAN**
-is online: <https://dieghernan.github.io/tidyterra/>
+The full manual for the latest release of **tidyterra** on **CRAN** is
+online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented in **tidyterra** work differently
-depending on the type of `Spat*` object:
+Methods implemented in **tidyterra** work differently depending on the
+type of `Spat*` object:
 
-- `SpatVector`: the methods are implemented using
+- `SpatVector`: Methods are implemented using
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
   coercion. Rows correspond to geometries and columns correspond to
   attributes of each geometry.
 
-- `SpatRaster`: The implementation for `SpatRaster` objects differs
-  because methods can be applied to layers or cells. **tidyterra**’s
-  overall approach is to treat the layers as columns of a tibble and the
-  cells as rows (i.e. `select(SpatRaster, 1)` selects the first layer of
-  a `SpatRaster`).
+- `SpatRaster`: Methods can be applied to layers or cells.
+  **tidyterra**’s overall approach is to treat the layers as columns of
+  a tibble and the cells as rows. For example, `select(SpatRaster, 1)`
+  selects the first layer of a `SpatRaster`.
 
-The implemented methods return the same type of object as the input,
-unless the expected behavior of the method is to return another type of
-object (for example,
+Implemented methods return the same type of object as the input, unless
+the method is expected to return another type of object. For example,
 [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-returns a tibble).
+returns a tibble.
 
 Current methods and functions provided by **tidyterra** are:
 
@@ -61,7 +59,7 @@ Current methods and functions provided by **tidyterra** are:
 |----|----|----|
 | [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | ✔️ | ✔️ |
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
-| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create/modify layers |
+| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create or modify layers |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html) | ✔️ | ✔️ |
 | [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ |  |
@@ -73,19 +71,28 @@ Current methods and functions provided by **tidyterra** are:
 | [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) | ✔️ |  |
 | [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) | ✔️ | ✔️ |
 | [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) family | ✔️ |  |
+| [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html) | ✔️ |  |
+| [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html) | ✔️ |  |
 | [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) | ✔️ |  |
+| [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html) | ✔️ |  |
 | [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) family | ✔️ |  |
 | [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) | ✔️ |  |
 | [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
+| `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
+| [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
 | [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
+| [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html) | ✔️ |  |
 | [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) | ✔️ |  |
 | [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) | ✔️ |  |
+| [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
+| [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** via [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
@@ -93,16 +100,16 @@ Current methods and functions provided by **tidyterra** are:
 
 A note on performance
 
-**tidyterra** is a user-friendly wrapper around **terra** that uses
-**tidyverse** methods and verbs. This approach has a **performance
+**tidyterra** is a user-friendly wrapper around **terra** that provides
+tidyverse-style methods and verbs. This approach has a **performance
 cost**.
 
-If you frequently use **terra** or work with large raster files,
+If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra**
 function refers to its equivalent on **terra**.
 
-As a rule of thumb, if your raster has fewer than 10,000,000 data slots
-(i.e. `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`),
+As a rule of thumb, if your raster has fewer than 10,000,000 data slots,
+for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 **tidyterra** is a good fit.
 
 When plotting rasters, resampling is performed automatically (as
@@ -174,7 +181,7 @@ Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)
 
 ``` r
 
-# Create the maximum difference between two months.
+# Create the difference between two months.
 variation <- rastertemp |>
   mutate(diff = June - May) |>
   select(variation = diff)
@@ -200,11 +207,11 @@ ggplot(prov) +
   )
 ```
 
-![Variation of temperature in Castile and Leon,
+![Temperature variation in Castile and Leon,
 Spain](https://dieghernan.github.io/tidyterra/README-example-temp2-1.png)
 
-**tidyterra** also provides a geom for plotting RGB `SpatRaster` tiles
-with **ggplot2**:
+**tidyterra** also provides a geom for plotting RGB `SpatRaster`
+objects, such as map tiles, with **ggplot2**:
 
 ``` r
 
@@ -218,11 +225,11 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-![Example: Plotting a tile in
+![RGB SpatRaster tile plotted with
 tidyterra](https://dieghernan.github.io/tidyterra/README-example-tile-1.png)
 
-**tidyterra** provides specific scales for plotting hypsometric maps
-with **ggplot2**:
+**tidyterra** provides **ggplot2** scales for plotting maps with
+hypsometric tints:
 
 ``` r
 
@@ -273,7 +280,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> #  A SpatVector 12 x 7
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
 #> $ NAME_1   <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "…
@@ -294,9 +301,9 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
-Check our
+Check the
 [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
-open a new [issue](https://github.com/dieghernan/tidyterra/issues)!
+open a new [issue](https://github.com/dieghernan/tidyterra/issues).
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag

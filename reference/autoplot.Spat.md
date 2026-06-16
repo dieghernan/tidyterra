@@ -58,7 +58,7 @@ autoplot(object, ...)
 
 - use_coltab:
 
-  Logical. If `TRUE`, plot with the corresponding
+  Logical. If `TRUE`, plot with the corresponding color table from
   [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html).
   If `NULL` (the default), `autoplot.SpatRaster()` tries to guess. See
   also
@@ -75,7 +75,7 @@ autoplot(object, ...)
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Details
 
@@ -109,7 +109,7 @@ or
 
 [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
@@ -142,7 +142,7 @@ tile <- system.file("extdata/cyl_tile.tif", package = "tidyterra") |>
 autoplot(tile)
 
 
-# With coltabs
+# With color tables
 
 ctab <- system.file("extdata/cyl_era.tif", package = "tidyterra") |>
   rast()

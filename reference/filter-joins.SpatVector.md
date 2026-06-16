@@ -32,10 +32,11 @@ anti_join(x, y, by = NULL, copy = FALSE, ...)
 
 - y:
 
-  A data frame or other object coercible to a data frame. **If a
-  `SpatVector` or `sf` object** is provided it returns an error (see
+  A data frame or other object coercible to a data frame. If a
+  `SpatVector` or `sf` object is provided, this method returns an error.
+  See
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
-  for performing spatial joins).
+  for spatial joins.
 
 - by:
 
@@ -114,25 +115,32 @@ conditions.
 [`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs `Spat*`/data.frame:
+operate on pairs of `SpatVector` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md)
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
+[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),

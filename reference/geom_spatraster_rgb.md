@@ -1,6 +1,6 @@
-# Visualise `SpatRaster` objects as images
+# Plot `SpatRaster` objects as images
 
-This geom is used to visualise `SpatRaster` objects (see
+This geom plots `SpatRaster` objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
 as RGB images. The layers are combined so they represent the red, green
 and blue channels.
@@ -35,7 +35,7 @@ geom_spatraster_rgb(
 
 Based on the `layer_spatial()` implementation in the
 [ggspatial](https://CRAN.R-project.org/package=ggspatial) package.
-Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
+Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to
 [ggspatial
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
@@ -137,7 +137,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -152,13 +152,13 @@ ignored.
 
 ## Coords
 
-When the `SpatRaster` does not have a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption about
+When the `SpatRaster` does not have a CRS, that is,
+`terra::crs(rast) == ""`, the geom does not make any assumption about
 the scales.
 
-On `SpatRaster` that have a CRS, the geom uses
+On `SpatRaster` objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-to adjust the scales. That means that also the **`SpatRaster` may be
+to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
 
 ## See also
@@ -171,7 +171,7 @@ You can also get RGB tiles from the
 [maptiles](https://CRAN.R-project.org/package=maptiles) package. See
 [`maptiles::get_tiles()`](https://rdrr.io/pkg/maptiles/man/get_tiles.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utils:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md),

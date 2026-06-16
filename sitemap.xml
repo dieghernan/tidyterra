@@ -23,10 +23,13 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/count.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/filter.Spat.html</loc></url>
@@ -38,14 +41,20 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/glance.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/grass_db.html</loc></url>
-<url><loc>https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/group_data.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/group_map.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/group_nest.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/group_split.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/group_trim.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/hypsometric_tints_db.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/index.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/is_grouped_spatvector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/is_regular_grid.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/nest.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/pipe.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.html</loc></url>
@@ -53,10 +62,12 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/pull.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/pull_crs.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/reexports.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/relocate.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/rename.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/required_pkgs.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/scale_coltab.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.html</loc></url>
@@ -73,6 +84,8 @@
 <url><loc>https://dieghernan.github.io/tidyterra/reference/tidy.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/tidyterra-package.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/transmute.Spat.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/uncount.SpatVector.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidyterra/reference/unite.Spat.html</loc></url>
 <url><loc>https://dieghernan.github.io/tidyterra/reference/volcano2.html</loc></url>
 </urlset>
 

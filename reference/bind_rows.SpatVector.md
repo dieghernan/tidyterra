@@ -1,4 +1,4 @@
-# Bind multiple `SpatVector`, `sf/sfc` and data frames objects by row
+# Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
 
 Bind any number of `SpatVector`, data frames and `sf/sfc` objects by
 row, making a longer result. This is similar to
@@ -17,7 +17,7 @@ bind_spat_rows(..., .id = NULL)
 
   Objects to combine. The first argument must be a `SpatVector`. Each
   subsequent argument can be a `SpatVector`, `sf/sfc` object or data
-  frame. Columns are matched by name, and any missing columns are filled
+  frame. Columns are matched by name and any missing columns are filled
   with `NA`.
 
 - .id:
@@ -41,7 +41,7 @@ Implementation of the
 function for `SpatVector` objects.
 
 The first argument should be a `SpatVector`. Each subsequent argument
-can be a `SpatVector`, `sf/sfc` object, or data frame:
+can be a `SpatVector`, `sf/sfc` object or data frame:
 
 - If subsequent `SpatVector/sf/sfc` objects have a different CRS than
   the first element, those elements are reprojected to the CRS of the
@@ -55,25 +55,32 @@ can be a `SpatVector`, `sf/sfc` object, or data frame:
 [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs `Spat*`/data.frame:
+operate on pairs of `SpatVector` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md)
+[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),
@@ -103,8 +110,8 @@ bind_spat_rows(v1, v2)
 #>                  NA Palencia  ES-P
 #>               ...
 
-# When you supply a column name with the `.id` argument, a new
-# column is created to link each row to its original data frame
+# When you supply a column name with the `.id` argument, a new column is
+# created to link each row to its original data frame.
 bind_spat_rows(v1, v2, .id = "id")
 #> class       : SpatVector
 #> geometry    : polygons
@@ -146,7 +153,7 @@ bind_spat_rows(v1, sfobj)
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
-#> ! Reprojecting object 2 in `...` since it does not have the same CRS as object 1
+#> ! Reprojecting object 2 in `...` because it does not have the same CRS as object 1.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 2, 3  (geometries, attributes)
@@ -161,7 +168,7 @@ bind_spat_rows(v1, sfobj_3857)
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result includes empty geometries
+#> The result includes empty geometries.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 34, 15  (geometries, attributes)
@@ -193,7 +200,7 @@ bind_spat_rows(list(
   mtcars = mtcars[1, ]
 ), .id = "source")
 #> ! Object 3 in `...` is <data.frame> 
-#> The result includes empty geometries
+#> The result includes empty geometries.
 #> class       : SpatVector
 #> geometry    : polygons
 #> dimensions  : 3, 15  (geometries, attributes)

@@ -1,10 +1,10 @@
-# Discrete scales based in the color table of a `SpatRaster`
+# Discrete scales based on `SpatRaster` color tables
 
 Some categorical `SpatRaster` objects may have an associated color
-table. This function extract those values. These functions generates
-scales and vector of colors based on the color table
+table. These functions generate scales and color vectors based on the
+color table from
 [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html)
-associated to a `SpatRaster`.
+associated with a `SpatRaster`.
 
 You can also get a vector of colors named with the corresponding factor
 with `get_coltab_pal()`.
@@ -12,8 +12,8 @@ with `get_coltab_pal()`.
 Additional arguments `...` are passed to
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
 to see the full range of arguments accepted.
 
@@ -179,7 +179,7 @@ r <- rast(system.file("extdata/cyl_era.tif", package = "tidyterra"))
 plot(r)
 
 
-# Get coltab
+# Get the color table palette.
 coltab_pal <- get_coltab_pal(r)
 
 coltab_pal
@@ -201,7 +201,7 @@ gg <- ggplot() +
 gg
 
 
-# With coltabs
+# With color tables
 gg +
   scale_fill_coltab(data = r)
 #> Scale for fill is already present.

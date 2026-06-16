@@ -1,10 +1,10 @@
 # tidyterra FAQs
 
-This document is a compendium of [frequently asked
+This article collects [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
-using the **tidyterra** package and its answers, primarily focused on
-the integration of **terra** and **ggplot2**. You can ask for help or
-search previous questions using the following links.
+using **tidyterra**, with a focus on the integration of **terra** and
+**ggplot2**. You can ask for help or search previous questions using the
+following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -21,7 +21,7 @@ the tag
 
 This article uses a sample of **LiDAR for Scotland Phase 5 - DSM**
 provided by [The Scottish Remote Sensing
-Portal](https://remotesensingdata.gov.scot/). This data is made
+Portal](https://remotesensingdata.gov.scot/). These data are made
 available under the [Open Government Licence
 v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
@@ -31,22 +31,22 @@ The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park,
 Edinburgh (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park),
 including [Arthur’s
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct
-volcano, pretty much as the famous [Maungawhau / Mount
+volcano, much like the well-known [Maungawhau / Mount
 Eden](https://en.wikipedia.org/wiki/Maungawhau_/_Mount_Eden) volcano
 represented in
 [`datasets::volcano`](https://rdrr.io/r/datasets/volcano.html).
 
-The original file has been cropped and downsampled for demo purposes.
-`holyroodpark.tif` is available online in the `data-raw` folder at
-<https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
+The original file has been cropped and downsampled for demonstration
+purposes. `holyroodpark.tif` is available online in the `data-raw`
+folder at <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
 ## `NA` values are shown in gray
 
-This is the default behavior of **ggplot2**. **tidyterra** color scales
-(i.e.,
+This is the default behavior of **ggplot2**. **tidyterra** color scales,
+such as
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
-etc.) have `na.value = "transparent"` by default, which prevents `NA`
-values from being filled[^2].
+have `na.value = "transparent"` by default, which prevents `NA` values
+from being filled[^2].
 
 ``` r
 
@@ -61,7 +61,7 @@ r <- holyrood |>
   rast() |>
   filter(elevation > 80 & elevation < 180)
 
-# Default
+# Default behavior.
 def <- ggplot() +
   geom_spatraster(data = r)
 
@@ -71,7 +71,7 @@ def +
     subtitle = "NA values in gray"
   )
 
-# Modify with scales
+# Modify with scales.
 def +
   scale_fill_continuous(na.value = "transparent") +
   labs(
@@ -79,12 +79,12 @@ def +
     subtitle = "But NA values are not plotted"
   )
 
-# Use a different scale provided by ggplot2
+# Use a different scale provided by ggplot2.
 def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
     title = "Use any ggplot2 fill scale",
-    subtitle = "Note that na.value = 'orange'"
+    subtitle = "na.value = 'orange'"
   )
 ```
 
@@ -100,7 +100,7 @@ def +
 
 \(c\) NA values mapped with another color.
 
-Figure 1: NA values in ggplot2
+Figure 1: NA values in ggplot2.
 
 ## Labeling contours
 
@@ -122,7 +122,7 @@ ggplot() +
   geom_spatraster_contour_text(data = r) +
   labs(title = "Labeling contours")
 
-# With options and aes.
+# With options and aesthetics.
 
 # Use a labeler function so only selected breaks are labeled.
 labeller <- function(labs) {
@@ -133,7 +133,7 @@ labeller <- function(labs) {
   }
 }
 
-# Common labels across ggplot.
+# Common labels across the plot.
 
 labs <- c(100, 140, 180, 220)
 
@@ -165,7 +165,7 @@ ggplot(r) +
   theme(text = element_text(family = "mono")) +
   labs(
     title = "Labeling contours",
-    subtitle = "With options: b/w plot"
+    subtitle = "With options: black-and-white plot"
   )
 ```
 
@@ -177,15 +177,15 @@ ggplot(r) +
 
 \(b\) Alternative: labeled contours.
 
-Figure 2: Contour labels with tidyterra
+Figure 2: Contour labels with tidyterra.
 
 ### Other alternatives
 
 With
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
-you can use your `SpatRaster` directly with the **metR** package (see
-[Hexagonal grids and other geoms](#fort)). Use `bins`, `binwidth` or
-`breaks` to align both labels and lines:
+you can use your `SpatRaster` directly with **metR** (see [Hexagonal
+grids and other geoms](#fort)). Use `bins`, `binwidth` or `breaks` to
+align both labels and lines:
 
 ``` r
 
@@ -212,7 +212,7 @@ ggplot(r, aes(x, y)) +
       size = after_stat(level)
     ),
     breaks = br,
-    # Text options
+    # Text options.
     check_overlap = TRUE,
     label.placer = label_placer_minmax(),
     stroke = 0.3,
@@ -235,7 +235,7 @@ ggplot(r, aes(x, y)) +
   theme(text = element_text(family = "mono")) +
   labs(
     title = "Labeling contours",
-    subtitle = "tidyterra and metR: b/w plot",
+    subtitle = "tidyterra and metR: black-and-white plot",
     x = "",
     y = ""
   )
@@ -243,12 +243,12 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metr-1.png)
 
-Figure 3: Alternative (metR): Contour labeling combining tidyterra and
-metR packages with customized styling.
+Figure 3: Alternative (metR): contour labeling combining tidyterra and
+the **metR** package with customized styling.
 
 ## Using a different color scale
 
-Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
+Since **tidyterra** builds on **ggplot2**, refer to **ggplot2**
 documentation on scales:
 
 ``` r
@@ -278,8 +278,8 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-greys-1.png)
 
-Figure 4: Hillshade visualization using grayscale colors to enhance
-terrain relief.
+Figure 4: Hillshade plot using grayscale colors to enhance terrain
+relief.
 
 ## Can I change the default palette of my maps?
 
@@ -313,13 +313,13 @@ p
 
 ![](faqs_files/figure-html/fig-default-1.png)
 
-\(a\) Use of new default palette via options.
+\(a\) Use the new default palette through options.
 
 ![](faqs_files/figure-html/fig-default-2.png)
 
 \(b\) Restoring the default palette.
 
-Figure 5: Changing default ggplot2 color palettes
+Figure 5: Changing default ggplot2 color palettes.
 
 ## My map tiles are blurry
 
@@ -327,9 +327,9 @@ Blurriness is typically related to the tile source rather than the
 package. Most base tiles are provided in **EPSG:3857**, so verify that
 your tile uses this CRS rather than a different one. If your tile is not
 in **EPSG:3857**, it has likely been reprojected, which involves
-resampling and causes blurriness. Also, modify the `maxcell` argument to
-avoid resampling and ensure the **ggplot2** map uses **EPSG:3857** with
-`ggplot2::coord_sf(crs = 3857)`:
+resampling and causes blurriness. To avoid extra resampling, increase
+the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
+with `ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
 
@@ -394,12 +394,13 @@ ggplot() +
 
 \(b\) Plot with native CRS, not resampled (EPSG:3857).
 
-Figure 6: Example of the impact of resampling on tile blurriness.
+Figure 6: Impact of resampling on tile blurriness.
 
 ## Avoid degree labels on axes
 
-This is a **ggplot2** default behavior, but you can modify it using the
-`ggplot2::coord_sf(datum)` argument:
+This is the default behavior in **ggplot2**, but you can modify it with
+the `datum` argument in
+[`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
 ``` r
 
@@ -438,11 +439,11 @@ ggplot() +
 
 \(b\) Native coordinate system units.
 
-Figure 7: Degree labels with ggplot2
+Figure 7: Degree labels with ggplot2.
 
 ## Modify the number of axis breaks
 
-Of course. Use the **scales** package:
+Yes. Use the **scales** package:
 
 ``` r
 
@@ -473,9 +474,9 @@ ggplot() +
 
 ![](faqs_files/figure-html/fig-breaks-2.png)
 
-\(b\) Breaks modified using the scales package.
+\(b\) Breaks modified using the **scales** package.
 
-Figure 8: Spatial axis breaks with ggplot2
+Figure 8: Spatial axis breaks with ggplot2.
 
 ## Plotting a `SpatRaster` with color tables
 
@@ -487,8 +488,8 @@ Figure 8: Spatial axis breaks with ggplot2
 **tidyterra** provides several methods for handling `SpatRaster` objects
 with color tables. This example uses `clc_edinburgh.tif`, available
 online in the [data-raw
-folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
-which contains data from the Corine Land Cover Dataset (2018) for
+folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw). It
+contains data from the CORINE Land Cover dataset (2018) for
 Edinburgh[^3].
 
 ``` r
@@ -516,26 +517,26 @@ r_coltab
 #> min value   : Continuous urban fabric
 #> max value   :           Sea and ocean
 
-# Native handling by the terra package.
+# Native handling by terra.
 plot(r_coltab, legend = FALSE)
 ```
 
 ![](faqs_files/figure-html/fig-coltab-1.png)
 
-Figure 9: Color tables: native plot with the terra package.
+Figure 9: Color tables: native plot with the **terra** package.
 
 ``` r
 
-# Autoplot method.
+# `autoplot()` method.
 autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "autoplot method")
+  labs(title = "autoplot() method")
 
-# geom_spatraster method.
+# `geom_spatraster()` method.
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "geom_spatraster method")
+  labs(title = "geom_spatraster() method")
 
-# scale_fill_coltab method.
+# `scale_fill_coltab()` method.
 ggplot() +
   geom_spatraster(
     data = r_coltab,
@@ -544,9 +545,9 @@ ggplot() +
     show.legend = FALSE
   ) +
   scale_fill_coltab(data = r_coltab) +
-  labs(title = "scale_fill_coltab method")
+  labs(title = "scale_fill_coltab() method")
 
-# Extract named colors and use scale_fill_manual().
+# Extract named colors and use `scale_fill_manual()`.
 cols <- get_coltab_pal(r_coltab)
 
 cols |> head()
@@ -576,31 +577,39 @@ ggplot() +
     na.value = "transparent",
     na.translate = FALSE
   ) +
-  labs(title = "scale_fill_manual method")
+  labs(title = "scale_fill_manual() method")
 ```
 
 ![](faqs_files/figure-html/fig-tidyterra-1.png)
 
-\(a\) autoplot method.
+\(a\)
+[`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
+method.
 
 ![](faqs_files/figure-html/fig-tidyterra-2.png)
 
-\(b\) geom_spatraster method.
+\(b\)
+[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
+method.
 
 ![](faqs_files/figure-html/fig-tidyterra-3.png)
 
-\(c\) scale_fill_coltab method.
+\(c\)
+[`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md)
+method.
 
 ![](faqs_files/figure-html/fig-tidyterra-4.png)
 
-\(d\) named colors and scale_fill_manual method.
+\(d\) Named colors and
+[`scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
+method.
 
-Figure 10: Color tables: tidyterra package.
+Figure 10: Color tables: **tidyterra** methods.
 
-## Use with gganimate
+## Use with **gganimate**
 
-Yes. Here is an example (thanks to
-[@frzambra](https://github.com/frzambra)):
+Yes. Here is an example, thanks to
+[@frzambra](https://github.com/frzambra):
 
 ``` r
 
@@ -641,10 +650,10 @@ gganimate::animate(anim, duration = 12, device = "ragg_png")
 
 Figure 11: Animation of average monthly temperatures.
 
-## North arrows and scale bar
+## North arrows and scale bars
 
 **tidyterra** does not provide north arrows or scale bars directly for
-**ggplot2** plots. However, you can use **ggspatial** functions
+**ggplot2** plots, but you can use **ggspatial** functions
 ([`ggspatial::annotation_north_arrow()`](https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html)
 and
 [`ggspatial::annotation_scale()`](https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html)):
@@ -679,13 +688,14 @@ autoplot(r) +
 ![](faqs_files/figure-html/fig-northarrow-1.png)
 
 Figure 12: Map with north arrow (top right) and scale bar (bottom left)
-annotations added using ggspatial.
+annotations added using **ggspatial**.
 
 ## How to overlay a `SpatRaster` on an RGB tile
 
-This is straightforward: use
+Use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
-for the background tile, and then add your data layers on top:
+for the RGB `SpatRaster` background tile, then add your data layers on
+top:
 
 ``` r
 
@@ -801,9 +811,9 @@ ggplot(aoi) +
 
 \(b\) Contour representation.
 
-Figure 14: Alternative overlay approaches
+Figure 14: Alternative overlay approaches.
 
-## Hexagonal grids (and other `geoms`)
+## Hexagonal grids and other geoms
 
 While `SpatRaster` cells are inherently rectangular, you can create
 plots with hexagonal cells using
@@ -835,7 +845,7 @@ ggplot(r, aes(x, y, z = elevation)) +
   coord_sf(crs = pull_crs(r)) +
   labs(
     title = "Hexagonal SpatRaster",
-    subtitle = "Using fortify (implicit) and stat_summary_hex",
+    subtitle = "Using implicit fortify() and stat_summary_hex()",
     x = NULL,
     y = NULL
   )
@@ -846,7 +856,7 @@ ggplot(r, aes(x, y, z = elevation)) +
 Figure 15: Elevation data aggregated and visualized as hexagonal grid
 cells.
 
-Note that you do not need to call
+You do not need to call
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
 directly because **ggplot2** invokes it implicitly when you use
 `ggplot(data = a_spatraster)`.
@@ -869,7 +879,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   scale_alpha(range = c(0.01, 1)) +
   labs(
     title = "SpatRaster as points",
-    subtitle = "Using fortify (implicit)",
+    subtitle = "Using implicit fortify()",
     x = NULL,
     y = NULL
   )
@@ -880,12 +890,12 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
 
-### tidyterra and metR
+### **tidyterra** and **metR**
 
-**metR** is a package that provides **ggplot2** extensions, primarily
-for meteorological data visualization. As shown previously (see
-[Labeling contours](#label-contour)), you can combine both packages to
-create rich, complex plots.
+**metR** provides **ggplot2** extensions, primarily for meteorological
+data visualization. As shown previously (see [Labeling
+contours](#label-contour)), you can combine both packages to create
+rich, complex plots.
 
 ``` r
 
@@ -914,18 +924,18 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metrdemo-1.png)
 
-Figure 17: Relief rendering combining tidyterra for raster visualization
-and metR for terrain relief representation.
+Figure 17: Relief rendering combining tidyterra for raster plotting and
+**metR** for terrain relief representation.
 
 [^1]: Digital Elevation Model, representing the elevation of the
     corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most
-    cases. However, when the proportion of non-`NA`s is small it can
-    produce undesired results, see
+    cases. However, when the proportion of non-`NA` cells is small it
+    can produce unwanted results. See
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors and the
-    corresponding color table added as described in
+    converted to their corresponding labels and factors, and the
+    corresponding color table has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

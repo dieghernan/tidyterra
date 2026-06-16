@@ -1,8 +1,8 @@
-# Get a nice glimpse of your `Spat*` objects
+# Preview `Spat*` objects
 
 [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) is like a
 transposed version of [`print()`](https://rdrr.io/r/base/print.html):
-layers/columns run down the page, and data runs across. This makes it
+layers/columns run down the page and data runs across. This makes it
 possible to see every layer/column in a `Spat*` object.
 
 ## Usage
@@ -47,7 +47,7 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 ## Value
 
-original `x` is (invisibly) returned, allowing
+Original `x` is invisibly returned, allowing
 [`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) to be
 used within a data pipeline.
 
@@ -59,7 +59,7 @@ used within a data pipeline.
 
 Implementation of the **generic**
 [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html)
-function for `Spat*`. objects.
+function for `Spat*` objects.
 
 ## See also
 
@@ -78,15 +78,19 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),
@@ -106,7 +110,7 @@ v |> glimpse(n = 2)
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…
 #> $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
@@ -117,13 +121,13 @@ v |> glimpse(n = 2)
 v |>
   glimpse() |>
   mutate(a = 30) |>
-  # with options
+  # With options.
   glimpse(geom = "WKT")
 #> #  A SpatVector 9 x 3
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…
 #> $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
@@ -132,7 +136,7 @@ v |>
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ iso2     <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO",…
 #> $ cpro     <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"
@@ -147,7 +151,7 @@ r |> glimpse()
 #> #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
 #> #  Resolution (x / y): (1' 30" , 1' 30")
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
+#> #  Extent (x / y): ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
 #> 
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 
@@ -160,13 +164,13 @@ r |>
 #> #  A SpatRaster 126 x 212 x 1 layer (26,712 cells)
 #> #  Resolution (x / y): (1' 30" , 1' 30")
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
+#> #  Extent (x / y): ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
 #> 
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 #> #  A SpatRaster 126 x 212 x 2 layers (26,712 cells)
 #> #  Resolution (x / y): (1' 30" , 1' 30")
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
+#> #  Extent (x / y): ([7° 4' 30" W / 1° 46' 30" W] , [40° 4' 60" N / 43° 13' 60" N])
 #> 
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 #> $ b           <dbl> 7.002969, 7.803889, 7.061250, 5.689722, 5.849028, 5.067361…

@@ -1,4 +1,4 @@
-# Terrain colour scales from grDevices
+# Terrain color scales from grDevices
 
 Implementation of the classic color palette
 [`terrain.colors()`](https://rdrr.io/r/grDevices/palettes.html):
@@ -20,8 +20,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -227,7 +227,7 @@ layer with the values applied to the `fill/colour` aesthetics.
 and [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales and palettes for hypsometry:
+Other color scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),

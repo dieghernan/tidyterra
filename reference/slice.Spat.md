@@ -1,15 +1,14 @@
 # Subset cells/rows/columns/geometries using their positions
 
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) methods
-lets you index cells/rows/columns/geometries by their (integer)
-locations. It allows you to select, remove, and duplicate those
+let you index cells/rows/columns/geometries by their (integer)
+locations. They allow you to select, remove or duplicate those
 dimensions of a `Spat*` object.
 
-**If you want to slice your `SpatRaster` by geographic coordinates** use
-[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
-method.
+If you want to slice by geographic coordinates, use
+[`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
 
-It is accompanied by a number of helpers for common use cases:
+It includes helpers for common use cases:
 
 - [`slice_head()`](https://dplyr.tidyverse.org/reference/slice.html) and
   [`slice_tail()`](https://dplyr.tidyverse.org/reference/slice.html)
@@ -18,8 +17,8 @@ It is accompanied by a number of helpers for common use cases:
 - [`slice_sample()`](https://dplyr.tidyverse.org/reference/slice.html)
   randomly selects cells/geometries.
 
-- `slice_rows()` and `slice_cols()` allow to subset entire rows or
-  columns, of a `SpatRaster`.
+- `slice_rows()` and `slice_cols()` subset entire rows or columns of a
+  `SpatRaster`.
 
 - `slice_colrows()` subsets regions of the `SpatRaster` by row and
   column position of a `SpatRaster`.
@@ -141,8 +140,8 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
-  Integer row values. Provide either positive values to keep, or
-  negative values to drop.
+  Integer row values. Provide either positive values to keep or negative
+  values to drop.
 
   The values provided must be either all positive or all negative.
   Indices beyond the number of rows in the input are silently ignored.
@@ -263,19 +262,16 @@ group.
 ## See also
 
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html),
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html).
-
-You can get a skeleton of your `SpatRaster` with the cell, column and
-row index with
-[`as_coordinates()`](https://dieghernan.github.io/tidyterra/reference/as_coordinates.md).
-
-If you want to slice by geographic coordinates use
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
+[`as_coordinates()`](https://dieghernan.github.io/tidyterra/reference/as_coordinates.md),
 [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md).
 
-Other single table verbs:
+Other [dplyr](https://CRAN.R-project.org/package=dplyr) single-table
+verbs:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
@@ -284,23 +280,28 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
+[`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
@@ -355,7 +356,7 @@ glimpse(v) |> autoplot(aes(fill = NAME_1))
 #> #  A SpatVector 12 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 31' 41.71" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> $ ID_1   <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3
 #> $ NAME_1 <chr> "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Diekirch", "Gr…
@@ -374,7 +375,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 49' 34.44" E / 6° 31' 41.71" E] , [49° 32' 55.33" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 49' 34.44" E / 6° 31' 41.71" E] , [49° 32' 55.33" N / 50° 10' 53.84" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -391,7 +392,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 44' 38.9" E / 6° 30' 59.35" E] , [49° 35' 13.15" N / 50° 2' 10.76" N])
+#> #  Extent (x / y): ([5° 44' 38.9" E / 6° 30' 59.35" E] , [49° 35' 13.15" N / 50° 2' 10.76" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -408,7 +409,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 51' 7.49" E / 6° 22' 54.12" E] , [49° 27' 53.95" N / 49° 59' 2.98" N])
+#> #  Extent (x / y): ([5° 51' 7.49" E / 6° 22' 54.12" E] , [49° 27' 53.95" N / 49° 59' 2.98" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3
@@ -425,7 +426,7 @@ gv |>
 #> #  A SpatVector 3 x 6
 #> #  Geometry type: Polygons
 #> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)
-#> #  Extent (x / y) : ([5° 48' 37.74" E / 6° 30' 59.35" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
+#> #  Extent (x / y): ([5° 48' 37.74" E / 6° 30' 59.35" E] , [49° 26' 52.11" N / 50° 10' 53.84" N])
 #> 
 #> Groups: NAME_1 [3]
 #> $ ID_1   <dbl> 1, 2, 3

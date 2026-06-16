@@ -1,11 +1,11 @@
 # Welcome to tidyterra
 
-## The tidyterra package
+## tidyterra
 
-**tidyterra** adds common **tidyverse** methods for `SpatRaster` and
-`SpatVector` objects from the
-[**terra**](https://CRAN.R-project.org/package=terra) package, and
-provides `geom_spat*()` geoms for plotting them with
+**tidyterra** provides methods from **tidyverse** packages for
+`SpatRaster` and `SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
+`geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
 ### Why tidyterra?
@@ -14,13 +14,13 @@ provides `geom_spat*()` geoms for plotting them with
 with their own syntax and computational methods (implemented in
 **terra**). By providing **tidyverse** verbs, especially **dplyr** and
 **tidyr** methods, **tidyterra** lets users manipulate `Spat*` objects
-in a style similar to working with tabular data.
+in a style familiar from tabular data workflows.
 
-Note that **terra** is generally faster. Learning some **terra** syntax
-is recommended because **tidyterra** functions call the corresponding
+**terra** is generally faster. Learning some **terra** syntax is
+recommended because **tidyterra** functions call the corresponding
 **terra** equivalents when possible.
 
-## A note for advanced terra users
+## A note for advanced **terra** users
 
 **tidyterra** is not optimized for performance. Operations such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
@@ -28,8 +28,8 @@ is recommended because **tidyterra** functions call the corresponding
 slower than their **terra** counterparts.
 
 As a rule of thumb, **tidyterra** is most suitable for objects with
-fewer than 10,000,000 data slots (i.e.,
-`terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`).
+fewer than 10,000,000 data slots, for example
+`terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.
 
 ## Get started with tidyterra
 
@@ -42,15 +42,15 @@ library(dplyr)
 library(tidyr)
 ```
 
-Currently, the following methods are available:
+The following methods are available:
 
 | tidyverse method | `SpatVector` | `SpatRaster` |
 |----|----|----|
 | [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | ✔️ | ✔️ |
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
-| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create/modify layers |
+| [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) | ✔️ | ✔️ Create or modify layers |
 | [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html) | ✔️ | ✔️ |
-| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and (optionally) remove outer cells. |
+| [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ | ✔️ Modify cell values and optionally remove outer cells. |
 | [`dplyr::filter_out()`](https://dplyr.tidyverse.org/reference/filter.html) | ✔️ |  |
 | [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html) | ✔️ | ✔️ Additional methods for slicing by row and column. |
 | [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html) | ✔️ | ✔️ |
@@ -60,29 +60,38 @@ Currently, the following methods are available:
 | [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) | ✔️ |  |
 | [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) | ✔️ | ✔️ |
 | [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html) family | ✔️ |  |
+| [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html) | ✔️ |  |
+| [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html) | ✔️ |  |
 | [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) | ✔️ |  |
+| [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html) | ✔️ |  |
 | [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) family | ✔️ |  |
 | [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) | ✔️ |  |
 | [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html), [`tally()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
+| `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer. Additionally, outer cells with `NA` are removed. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
+| [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
 | [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
+| [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html) | ✔️ |  |
 | [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) | ✔️ |  |
 | [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) | ✔️ |  |
+| [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
+| [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** via [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
 | [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html) | ✔️ | ✔️ |
 
-Let’s see some of these methods in action.
+The following sections show some of these methods in action.
 
 ### `SpatRaster` objects
 
-Example using a `SpatRaster`:
+This example uses a `SpatRaster`:
 
 ``` r
 
@@ -130,20 +139,19 @@ In this example we:
 - Replaced `NA` values in `newcol` with `3`.
 - Renamed `newcol` to `difference`.
 
-Throughout these steps, core properties of the `SpatRaster` (number of
-cells, rows and columns, extent, resolution and CRS) remain unchanged.
-Other verbs such as
+Throughout these steps, core properties of the `SpatRaster`, including
+number of cells, rows, columns, extent, resolution and CRS, remain
+unchanged. Other verbs such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) may
-alter these properties in a manner analogous to how row operations
-affect data frames.
+alter these properties in a manner analogous to row operations on data
+frames.
 
 ### `SpatVector` objects
 
-Since **tidyterra** version 0.4.0, most **dplyr** and **tidyr** verbs
-work with `SpatVector` objects, so you can arrange, group and summarise
-their attributes.
+Most **dplyr** and **tidyr** verbs work with `SpatVector` objects, so
+you can arrange, group and summarize their attributes.
 
 ``` r
 
@@ -185,13 +193,13 @@ preserved during these operations.
 When a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != ""`), the
 geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-and can be reprojected to match other spatial layers.
+and can reproject the raster to match other spatial layers.
 
 ``` r
 
 library(ggplot2)
 
-# A faceted SpatRaster.
+# Facet a SpatRaster object.
 
 ggplot() +
   geom_spatraster(data = temp) +
@@ -202,9 +210,9 @@ ggplot() +
   )
 ```
 
-![A faceted map using a SpatRaster.](./fig-faceted-1.png)
+![Faceted map using a SpatRaster object.](./fig-faceted-1.png)
 
-A faceted map using a SpatRaster.
+Faceted map using a SpatRaster object.
 
 ``` r
 
@@ -221,9 +229,9 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Contour line plot for a SpatRaster.](./fig-contourlines-1.png)
+![Contour line plot for a SpatRaster object.](./fig-contourlines-1.png)
 
-Contour line plot for a SpatRaster.
+Contour line plot for a SpatRaster object.
 
 ``` r
 
@@ -235,9 +243,10 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Filled contour plot for a SpatRaster.](./fig-contourfilled-1.png)
+![Filled contour plot for a SpatRaster
+object.](./fig-contourfilled-1.png)
 
-Filled contour plot for a SpatRaster.
+Filled contour plot for a SpatRaster object.
 
 **tidyterra** also supports RGB `SpatRaster` objects for imagery:
 
@@ -260,12 +269,13 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![A map combining an RGB SpatRaster and a SpatVector.](./fig-rgb-1.png)
+![Map combining an RGB SpatRaster object and a SpatVector
+object.](./fig-rgb-1.png)
 
-A map combining an RGB SpatRaster and a SpatVector.
+Map combining an RGB SpatRaster object and a SpatVector object.
 
-**tidyterra** includes color scales suitable for hypsometric and
-bathymetric maps:
+**tidyterra** includes color scales and hypsometric tints suitable for
+topographic and bathymetric maps:
 
 ``` r
 
@@ -330,9 +340,9 @@ ggplot(v_lux) +
 
 Choropleth map with a SpatVector object.
 
-Implementation-wise, **tidyterra** converts
+Internally, **tidyterra** converts
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-output to **sf** via
+output to **sf** with
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -342,7 +352,7 @@ You can also aggregate `SpatVector` objects easily:
 
 ``` r
 
-# Dissolving
+# Dissolve by group.
 v_lux |>
   # Create categories.
   mutate(gr = cut(POP / 1000, 5)) |>

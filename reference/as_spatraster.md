@@ -1,8 +1,8 @@
 # Coerce a data frame to `SpatRaster`
 
-`as_spatraster()` turns an existing data frame or
+`as_spatraster()` converts a data frame or
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) into
-a `SpatRaster`. This is a wrapper of
+a `SpatRaster`. It wraps the
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
 S4 method for signature `data.frame`.
 
@@ -62,7 +62,7 @@ the `crs` is inferred from
 ## See also
 
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-for retrieving CRS and the corresponding utils
+for retrieving CRS and the corresponding utilities
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

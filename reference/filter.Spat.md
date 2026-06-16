@@ -1,9 +1,9 @@
 # Subset cells/geometries of `Spat*` objects
 
-These functions are used to subset a data frame, applying the
-expressions in `...` to determine which rows should be kept (for
+These functions subset a data frame by applying the expressions in `...`
+to determine which rows should be kept (for
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html)) or
-dropped ( for
+dropped (for
 [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)).
 
 Multiple conditions can be supplied separated by a comma. These will be
@@ -17,10 +17,9 @@ treat `NA` like `FALSE`. This subtle behavior can affect how you write
 your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
-**It is possible to filter a `SpatRaster` by its geographic
-coordinates**. You need to use `filter(.data, x > 42)`. Note that `x`
-and `y` are reserved names on
-[terra](https://CRAN.R-project.org/package=terra), since they refer to
+**You can filter a `SpatRaster` by its geographic coordinates**. Use
+`filter(.data, x > 42)`. The names `x` and `y` are reserved in
+[terra](https://CRAN.R-project.org/package=terra) because they refer to
 the geographic coordinates of the layer.
 
 See **Examples** and section **About layer names** on
@@ -51,7 +50,7 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
-  Expressions that return a logical value, and are defined in terms of
+  Expressions that return a logical value and are defined in terms of
   the layers/attributes in `.data`. If multiple expressions are
   included, they are combined with the `&` operator. Only
   cells/geometries for which all conditions evaluate to `TRUE` are kept.
@@ -98,15 +97,14 @@ Cells that do not meet the conditions on `...` are returned with value
 the layers.
 
 If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS,
-extent, resolution and hence the same number of cells as `.data`. If
+extent, resolution and number of cells as `.data`. If
 `.keep_extent = FALSE` the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
 so the extent and number of cells may differ. The output will still have
 the same CRS and resolution as `.data`.
 
-`x` and `y` variables (i.e. the longitude and latitude of the
-`SpatRaster`) are also available internally for filtering. See
-**Examples**.
+`x` and `y` variables, the longitude and latitude of the `SpatRaster`,
+are also available internally for filtering. See **Examples**.
 
 ### `SpatVector`
 
@@ -117,9 +115,11 @@ value of `TRUE` for all conditions.
 
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
 
-Other single table verbs:
+Other [dplyr](https://CRAN.R-project.org/package=dplyr) single-table
+verbs:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),
@@ -129,6 +129,7 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -136,15 +137,19 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md),
@@ -196,7 +201,7 @@ glimpse(v)
 #> #  Geometry type: Polygons
 #> #  Projected CRS: ETRS89-extended / LAEA Europe (EPSG:3035)
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
+#> #  Extent (x / y): ([2,892,687 / 3,341,372] , [2,017,622 / 2,361,600])
 #> 
 #> $ iso2 <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", "ES…
 #> $ cpro <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"

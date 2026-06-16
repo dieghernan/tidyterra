@@ -5,23 +5,22 @@
 ## Summary
 
 **tidyterra** is an **R** ([R Core Team 2023](#ref-r-project)) package
-that allows manipulation of spatial data objects as provided by the
-**terra** package ([Hijmans 2023](#ref-R-terra)), using the verbs of the
-packages included in the **tidyverse** ([Wickham et al.
-2019](#ref-R-tidyverse)), such as **dplyr** ([Wickham, François, et al.
-2023](#ref-R-dplyr)), **tidyr** ([Wickham, Vaughan, et al.
-2023](#ref-R-tidyr)) or **tibble** ([Müller and Wickham
-2023](#ref-R-tibble)). This makes spatial data manipulation and analysis
-easier and faster for users already familiar with the **tidyverse**.
+that lets users manipulate `SpatRaster` and `SpatVector` objects
+provided by **terra** ([Hijmans 2023](#ref-R-terra)), using verbs from
+packages in the **tidyverse** ([Wickham et al. 2019](#ref-R-tidyverse)),
+such as **dplyr** ([Wickham, François, et al. 2023](#ref-R-dplyr)),
+**tidyr** ([Wickham, Vaughan, et al. 2023](#ref-R-tidyr)) or **tibble**
+([Müller and Wickham 2023](#ref-R-tibble)). This makes spatial data
+manipulation and analysis more approachable for users already familiar
+with the **tidyverse**.
 
-Furthermore, **tidyterra** extends the functionality of the **ggplot2**
-package ([Wickham 2016](#ref-R-ggplot2)) by providing additional geoms
-and stats[^1] like
+**tidyterra** also extends **ggplot2** ([Wickham 2016](#ref-R-ggplot2))
+by providing additional geoms and stats,[^1] such as
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
 and
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md),
-as well as carefully chosen scales and color palettes specifically
-designed for map production.
+as well as carefully chosen scales and color palettes for map
+production.
 
 **tidyterra** can manipulate the following classes of **terra** objects:
 
@@ -29,26 +28,26 @@ designed for map production.
     lines or polygon geometries.
 
 2.  `SpatRaster` objects, which represent raster data in the form of a
-    grid consisting of equally sized rectangles. Each rectangle can
-    contain one or more values.
+    grid consisting of equally sized cells. Each cell can contain one or
+    more values.
 
-The first stable version of **tidyterra** was released on CRAN on April
-24, 2022, and has been actively used by other packages, such as
-**ebvcube** ([Quoss et al. 2021](#ref-R-ebvcube)), **biomod2**
+The first stable version of **tidyterra** was released on **CRAN** on
+April 24, 2022. Since then, it has been actively used by other packages,
+such as **ebvcube** ([Quoss et al. 2021](#ref-R-ebvcube)), **biomod2**
 ([Thuiller et al. 2023](#ref-R-biomod2)), **inlabru** ([Bachl et al.
 2019](#ref-R-inlabru)), **RCzechia** ([Lacko 2023](#ref-R-rczechia)) and
-**sparrpowR** ([Buller et al. 2021](#ref-R-sparrpowr)), and cited in
-academic research and publications (Bahlburg et al.
+**sparrpowR** ([Buller et al. 2021](#ref-R-sparrpowr)). It has also been
+cited in academic research and publications (Bahlburg et al.
 ([2023](#ref-bahlburg2023)), Moraga ([2024](#ref-moraga2023)), Leonardi
 et al. ([2023](#ref-Leonardi2023)), Meister et al.
-([2023](#ref-meister2023))) ever since.
+([2023](#ref-meister2023))).
 
 ## Statement of need
 
-The [**tidyverse**](https://tidyverse.org/) is a compilation of **R**
+The [**tidyverse**](https://tidyverse.org/) is a collection of **R**
 packages that share an underlying design philosophy, grammar and data
 structures. The packages within the tidyverse are widely used by **R**
-users for tidying, transforming and visualizing data.
+users for tidying, transforming and plotting data.
 
 The **tidyverse** is designed to work with tidy data (*“every column is
 a variable, every row is an observation, every cell is a single
@@ -65,31 +64,29 @@ While other popular packages designed for spatial data handling, such as
 **sf** ([Pebesma 2018](#ref-R-sf)) or **stars** ([Pebesma and Bivand
 2023](#ref-R-stars)), already provide integration with the **tidyverse**
 as part of their infrastructure, **terra** objects lack this integration
-natively. Although **terra** offers a wide set of functions for
-transforming and visualizing `SpatRaster` and `SpatVector` objects, some
-users who are not familiar with this package may need to make an
-additional effort to learn that syntax. This may imply an additional
-challenge during their initial steps in the field of spatial analysis.
+natively. Although **terra** offers a wide range of functions for
+transforming and plotting `SpatRaster` and `SpatVector` objects, some
+users who are not familiar with this package may need extra time to
+learn that syntax. This can make their first steps in spatial analysis
+more difficult.
 
 The **tidyterra** package was developed to address this integration gap.
-By providing the corresponding S3 methods, data analysts can apply the
-same syntax and functions they are already familiar with for rectangular
-data to the objects provided by **terra**. This enables users who are
-not familiar with spatial data analysis to approach this area more
-easily.
+By providing the corresponding S3 methods, users can apply familiar
+syntax and functions for rectangular data to objects provided by
+**terra**. This makes spatial data analysis more approachable for users
+who are new to the field.
 
-In addition, **tidyterra** also offers functions for plotting **terra**
+In addition, **tidyterra** offers functions for plotting **terra**
 objects using the **ggplot2** syntax. Although packages like
 **rasterVis** ([Perpiñán and Hijmans 2023](#ref-R-rastervis)) and
-**ggspatial** ([Dunnington 2023](#ref-R-ggspatial)) already allow the
-representation of `SpatRaster` objects via **ggplot2**, **tidyterra**
-functions provide additional support for advanced mapping. This support
-includes the integration of faceted maps, contours and the automatic
-conversion of spatial layers to the same CRS[^2] via
+**ggspatial** ([Dunnington 2023](#ref-R-ggspatial)) already support
+plotting `SpatRaster` objects with **ggplot2**, **tidyterra** functions
+provide additional support for advanced mapping. This support includes
+faceted maps, contours and automatic conversion of spatial layers to the
+same CRS[^2] through
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
-Furthermore, **tidyterra** also provides support for `SpatVector`
-objects, similar to the native support of **sf** objects in the
-**ggplot2** package.
+**tidyterra** also provides support for `SpatVector` objects, similar to
+the native support of **sf** objects in **ggplot2**.
 
 Finally, **tidyterra** provides a collection of color palettes
 specifically designed for representing spatial phenomena ([Lindsay
@@ -100,26 +97,26 @@ tints described by Patterson and Jenny
 ## A note on performance
 
 The development philosophy of **tidyterra** is to adapt **terra**
-objects to data frame-like structures by performing data
+objects to data frame-like structures while performing data
 transformations, which can affect performance.
 
-When manipulating large raster files (i.e. more than 10,000,000 cells),
-it is recommended to use native **terra** syntax, which is specifically
-designed for handling this type of data. For plotting, the geoms
-resample `SpatRaster` objects with more than 500,000 cells by default to
-speed up rendering (as
+When manipulating large `SpatRaster` objects, such as objects with more
+than 10,000,000 data slots, use native **terra** syntax, which is
+designed for this type of data. For plotting, the geoms resample
+`SpatRaster` objects with more than 500,000 cells by default to speed up
+rendering, as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
-does), and you can override this upper limit with the geom’s `maxcell`
+does. You can override this upper limit with the geom’s `maxcell`
 argument.
 
-Also note that, when possible, each **tidyterra** help page references
-its equivalent **terra** function.
+When possible, each **tidyterra** help page references its equivalent
+**terra** function.
 
 ## Example of use
 
 **tidyterra** is available on
-[**CRAN**](https://CRAN.R-project.org/package=tidyterra), so it can be
-easily installed from **R** with:
+[**CRAN**](https://CRAN.R-project.org/package=tidyterra) and can be
+installed easily from **R** with:
 
 ``` r
 
@@ -136,16 +133,15 @@ remotes::install_github("dieghernan/tidyterra")
 ```
 
 The following example demonstrates how to manipulate a `SpatRaster`
-object using the **dplyr** syntax. It also shows how to plot a
-`SpatRaster` object with **ggplot2** using the
-[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
-function:
+object with **dplyr** syntax. It also shows how to plot a `SpatRaster`
+object with **ggplot2** using
+[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md):
 
 ``` r
 
 library(tidyterra)
 library(tidyverse) # Load all tidyverse packages at once.
-library(scales) # Additional library for labels.
+library(scales) # Additional package for labels.
 
 # Temperatures in Castile and Leon (selected months).
 rastertemp <- terra::rast(system.file(
@@ -174,9 +170,9 @@ ggplot() +
   )
 ```
 
-![Faceted map with multi-layer raster file.](./fig-ex1-1.png)
+![Faceted map with a multi-layer SpatRaster object.](./fig-ex1-1.png)
 
-Faceted map with multi-layer raster file.
+Faceted map with a multi-layer SpatRaster object.
 
 In the following example, we combine a common **dplyr** workflow
 ([`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) +
@@ -184,7 +180,7 @@ In the following example, we combine a common **dplyr** workflow
 plot the result. In this case, the plot is a contour plot of the
 original `SpatRaster` using
 [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-and it also includes an overlay of a `SpatVector` for reference:
+and includes an overlay of a `SpatVector` for reference:
 
 ``` r
 
@@ -204,15 +200,15 @@ ggplot() +
   theme_grey() +
   labs(
     fill = "º Celsius",
-    title = "Variation of temperature in Castile and Leon (Spain)",
+    title = "Temperature variation in Castile and Leon (Spain)",
     subtitle = "Difference between April and June"
   )
 ```
 
 ![Contour map of temperature variation with a SpatVector
-overlay](./fig-ex2-1.png)
+overlay.](./fig-ex2-1.png)
 
-Contour map of temperature variation with a SpatVector overlay
+Contour map of temperature variation with a SpatVector overlay.
 
 ## Additional materials
 
@@ -220,22 +216,22 @@ The package includes extensive documentation available online at
 <https://dieghernan.github.io/tidyterra/> including:
 
 - Details on each function, including the equivalent **terra** function
-  when available, in case users prefer to include those in their
-  workflows.
-- Working examples using the functions and creating plots.
-- Additional articles and vignettes, as well as a complete demo of the
-  different color palettes included in the package (see
+  when available, for users who prefer to include those functions in
+  their workflows.
+- Working examples that use the functions and create plots.
+- Additional articles and vignettes, including a complete demo of the
+  color palettes included in the package (see
   [Palettes](https://dieghernan.github.io/tidyterra/articles/palettes.html)).
 
 ## Acknowledgements
 
 I would like to thank [Robert J. Hijmans](https://github.com/rhijmans)
-for his advice and support in adapting some of the methods, as well as
-for the suggestions that helped us improve the functionalities of the
-package. I am also thankful to [Dewey
-Dunnington](https://dewey.dunnington.ca/), Brent Thorne and the rest of
-the contributors to the **ggspatial** package, which served as a key
-reference during the initial stages of the development of **tidyterra**.
+for his advice and support in adapting some of the methods and for the
+suggestions that helped us improve the package features. I am also
+thankful to [Dewey Dunnington](https://dewey.dunnington.ca/), Brent
+Thorne and the rest of the contributors to the **ggspatial** package,
+which served as a key reference during the initial stages of the
+development of **tidyterra**.
 
 **tidyterra** also incorporates some pieces of code adapted from
 **ggplot2** for computing contours, which relies on the package
@@ -340,8 +336,8 @@ Wickham, Hadley, Claus O. Wilke, and Thomas Lin Pedersen. 2022.
 *isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
 Grids*. <https://CRAN.R-project.org/package=isoband>.
 
-[^1]: The term geoms refers to geometric objects, and stats refers to
-    statistical transformations, following the naming conventions of
-    **ggplot2**.
+[^1]: The term geoms refers to geometric objects and stats refers to
+    statistical transformations, following **ggplot2** naming
+    conventions.
 
-[^2]: CRS, coordinate reference system.
+[^2]: CRS stands for coordinate reference system.

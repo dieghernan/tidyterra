@@ -3,12 +3,12 @@
 [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 creates a new `SpatVector`. It returns one geometry for each combination
 of grouping variables. If there are no grouping variables, the output
-will have a single geometry summarising all observations in the input
+will have a single geometry summarizing all observations in the input
 and combining all the geometries of the `SpatVector`. It will contain
 one column for each grouping variable and one column for each of the
 summary statistics that you have specified.
 
-`summarise.SpatVector()` and `summarize.SpatVector()` are synonyms
+`summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.
 
 ## Usage
 
@@ -102,18 +102,21 @@ of geometries (with `.dissolve = FALSE`). See **Examples**.
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html),
 [`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
 
-Other single table verbs:
+Other [dplyr](https://CRAN.R-project.org/package=dplyr) single-table
+verbs:
 [`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on group of rows:
+operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md)
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
@@ -121,16 +124,20 @@ Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md),
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/count.SpatVector.md),
+[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md),
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/filter-joins.SpatVector.md),
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
 [`glimpse.Spat`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md),
-[`group-by.SpatVector`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md),
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md),
 [`mutate.Spat`](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.md),
+[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md),
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/reference/pull.Spat.md),
+[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/reference/rename.Spat.md),
+[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/reference/select.Spat.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
@@ -148,7 +155,7 @@ gr_v <- v |>
   mutate(start_with_s = startsWith(name, "S")) |>
   group_by(start_with_s)
 
-# Dissolving
+# Dissolve geometries.
 diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)))
 
@@ -167,11 +174,11 @@ autoplot(diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Dissolved")
 
 
-# Not dissolving
+# Keep geometries separate.
 no_diss <- gr_v |>
   summarise(n = dplyr::n(), mean = mean(as.double(cpro)), .dissolve = FALSE)
 
-# Same statistic
+# Same statistic.
 no_diss
 #> class       : SpatVector
 #> geometry    : polygons

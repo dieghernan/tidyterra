@@ -1,12 +1,11 @@
 # Coerce a `SpatVector` to a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
 
-`as_sf()` turns a `SpatVector` to
-[`sf`](https://r-spatial.github.io/sf/reference/sf.html) object. This is
-a wrapper of
+`as_sf()` coerces a `SpatVector` into an
+[`sf`](https://r-spatial.github.io/sf/reference/sf.html) object. It
+wraps
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
-with the particularity that the groups created with
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group-by.SpatVector.md)
-are preserved.
+and preserves groups created with
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md).
 
 ## Usage
 

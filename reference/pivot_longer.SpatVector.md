@@ -179,10 +179,15 @@ pivoting:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md)
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md),
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/reference/drop_na.Spat.md),
+[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.md),
+[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest.SpatVector.md),
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.md)
+[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/reference/replace_na.Spat.md),
+[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/uncount.SpatVector.md),
+[`unite.Spat`](https://dieghernan.github.io/tidyterra/reference/unite.Spat.md)
 
 ## Examples
 
@@ -212,7 +217,7 @@ cyl_temp <- cbind(cyl, temps) |>
 #> #  Geometry type: Polygons
 #> #  Projected CRS: World_Robinson
 #> #  CRS projection units: meter <m>
-#> #  Extent (x / y) : ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
+#> #  Extent (x / y): ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
 #> 
 #> $ iso2    <chr> "ES-AV", "ES-BU", "ES-LE", "ES-P", "ES-SA", "ES-SG", "ES-SO", …
 #> $ cpro    <chr> "05", "09", "24", "34", "37", "40", "42", "47", "49"

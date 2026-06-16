@@ -122,8 +122,8 @@ following cases:
 - When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` are
   renamed.
 
-- When working with tidyverse methods (i.e.
-  [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)),
+- When working with methods from tidyverse packages, for example
+  [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md),
   the same renaming happens.
 
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) displays a
