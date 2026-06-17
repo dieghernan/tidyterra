@@ -2,6 +2,8 @@
 
 ## tidyterra 1.2.0
 
+CRAN release: 2026-06-17
+
 This release adds tidyverse-style methods for `SpatVector` objects and
 includes documentation reviewed with explicit AI-assisted editing.
 
