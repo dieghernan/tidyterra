@@ -167,20 +167,34 @@ authors:
     href: https://dewey.dunnington.ca/
 
 articles:
-- title: Articles
+- title: Start here
+  navbar: First steps
   desc: >
-    Introductory guides and palette examples.
+    Introductory material for working with **tidyterra**.
   contents:
   - welcome
+- title: Examples
+  navbar: ~
+  desc: >
+    Map examples and galleries using **tidyterra** scales.
+  contents:
   - articles/palettes
-
-- title: In the wild
+- title: Citation and publications
   navbar: In the wild
   desc: >
-    **tidyterra** in publications.
+    Citation information and uses of **tidyterra** in publications.
   contents:
+  - tidyterra
   - articles/wild
-
+- title: From the blog
+  navbar: Blog posts
+  desc: >
+    Blog posts tagged with **tidyterra** on One World.
+  contents:
+  - blog-introducing-tidyterra
+  - blog-hillshade-colors-marginal-plots-1
+  - blog-hillshade-colors-marginal-plots-2
+  - blog-beautiful-maps-point-densities
 - title: FAQs
   desc: >
     Frequently asked questions about **tidyterra**. See also <a
@@ -188,3 +202,21 @@ articles:
     discussions</a>.
   contents:
   - articles/faqs
+
+external-articles:
+- name: blog-introducing-tidyterra
+  title: "Introducing tidyterra"
+  description: "Easily work and ggplot SpatRasters"
+  href: https://dieghernan.github.io/202205_tidyterra/
+- name: blog-hillshade-colors-marginal-plots-1
+  title: "Hillshade, colors and marginal plots with tidyterra (I)"
+  description: "How to overlay SpatRasters"
+  href: https://dieghernan.github.io/202210_tidyterra-hillshade/
+- name: blog-hillshade-colors-marginal-plots-2
+  title: "Hillshade, colors and marginal plots with tidyterra (II)"
+  description: "The rain in Spain does not stay mainly in the plain"
+  href: https://dieghernan.github.io/202212_tidyterra-hillshade-2/
+- name: blog-beautiful-maps-point-densities
+  title: "Beautiful Maps with R (V): Point densities"
+  description: "Bertin's dot density maps with R and GHSL"
+  href: https://dieghernan.github.io/202312_bertin_dots/
