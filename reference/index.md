@@ -2,7 +2,7 @@
 
 ## **tibble** methods
 
-Methods from [tibble](https://CRAN.R-project.org/package=tibble)
+Methods from [**tibble**](https://CRAN.R-project.org/package=tibble)
 implemented for `Spat*` objects.
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
@@ -13,7 +13,7 @@ implemented for `Spat*` objects.
 
 ## **dplyr** methods
 
-Methods from [dplyr](https://CRAN.R-project.org/package=dplyr)
+Methods from [**dplyr**](https://CRAN.R-project.org/package=dplyr)
 implemented for `Spat*` objects.
 
 ### Rows
@@ -43,7 +43,7 @@ Verbs that mainly operate on rows.
   [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
   [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Row operations for `SpatVector` objects
 
@@ -119,7 +119,7 @@ Verbs that mainly operate on groups of rows.
   Group a `SpatVector` by one or more variables
 
 - [`reframe(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/reframe.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Reframe each group of a `SpatVector`
 
@@ -150,7 +150,7 @@ frames.
   Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
 
 - [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Cross joins for `SpatVector` objects
 
@@ -169,7 +169,7 @@ frames.
   Mutating joins for `SpatVector` objects
 
 - [`nest_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/nest_join.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Nest join `SpatVector` objects
 
@@ -179,13 +179,13 @@ frames.
   [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
   [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Row operations for `SpatVector` objects
 
 ## **tidyr** methods
 
-Methods from [tidyr](https://CRAN.R-project.org/package=tidyr)
+Methods from [**tidyr**](https://CRAN.R-project.org/package=tidyr)
 implemented for `Spat*` objects.
 
 ### Pivoting
@@ -259,13 +259,13 @@ Tools for working with character layers and attributes.
 Tools for storing `SpatVector` objects in list-columns.
 
 - [`nest(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/nest.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Nest `SpatVector` rows
 
 ## **ggplot2** methods
 
-Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+Methods from [**ggplot2**](https://CRAN.R-project.org/package=ggplot2)
 implemented for `Spat*` objects.
 
 - [`autoplot(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md)
@@ -429,7 +429,7 @@ Color scales, palettes and hypsometric tints for spatial plots.
 
 ## **generics** methods
 
-Methods from [generics](https://CRAN.R-project.org/package=generics)
+Methods from [**generics**](https://CRAN.R-project.org/package=generics)
 implemented for `Spat*` objects.
 
 - [`glance(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/reference/glance.Spat.md)
@@ -456,8 +456,7 @@ implemented for `Spat*` objects.
 
 ## Helpers
 
-Additional helper functions provided by
-[tidyterra](https://CRAN.R-project.org/package=tidyterra).
+Additional helper functions provided by **tidyterra**.
 
 ### Coercing objects
 

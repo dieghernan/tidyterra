@@ -1,5 +1,7 @@
 # Nest `SpatVector` rows
 
+**\[experimental\]**
+
 [`nest()`](https://tidyr.tidyverse.org/reference/nest.html) creates
 list-columns of `SpatVector` objects.
 

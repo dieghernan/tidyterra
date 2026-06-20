@@ -1,5 +1,7 @@
 # Row operations for `SpatVector` objects
 
+**\[experimental\]**
+
 Methods for the
 [`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html)
 family on `SpatVector` objects.

@@ -1,5 +1,7 @@
 # Nest join `SpatVector` objects
 
+**\[experimental\]**
+
 [`nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
 returns a tibble with the attributes and geometry of `x`, plus a
 list-column containing matching rows from `y`.

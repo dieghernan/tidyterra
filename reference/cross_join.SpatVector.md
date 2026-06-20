@@ -1,5 +1,7 @@
 # Cross joins for `SpatVector` objects
 
+**\[experimental\]**
+
 Cross joins match each row in `x` to every row in `y`.
 
 See
