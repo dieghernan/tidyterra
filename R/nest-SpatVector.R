@@ -1,6 +1,7 @@
 #' Nest `SpatVector` rows
 #'
 #' @description
+#' `r lifecycle::badge("experimental")`
 #'
 #' `nest()` creates list-columns of `SpatVector` objects.
 #'

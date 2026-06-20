@@ -28,6 +28,8 @@ Should be a character vector of length 2.}
 A \code{SpatVector} object.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Cross joins match each row in \code{x} to every row in \code{y}.
 
 See \code{\link[dplyr:cross_join]{dplyr::cross_join()}} for details.

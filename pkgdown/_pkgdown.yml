@@ -56,14 +56,14 @@ home:
 reference:
 - title: "**tibble** methods"
   desc: >
-    Methods from [tibble](https://CRAN.R-project.org/package=tibble)
+    Methods from [**tibble**](https://CRAN.R-project.org/package=tibble)
     implemented for `Spat*` objects.
 - contents:
   - has_concept("tibble.methods")
 
 - title: "**dplyr** methods"
   desc: >
-    Methods from [dplyr](https://CRAN.R-project.org/package=dplyr) implemented
+    Methods from [**dplyr**](https://CRAN.R-project.org/package=dplyr) implemented
     for `Spat*` objects.
 - subtitle: Rows
   desc: |
@@ -88,7 +88,7 @@ reference:
 
 - title: "**tidyr** methods"
   desc: >
-    Methods from [tidyr](https://CRAN.R-project.org/package=tidyr) implemented
+    Methods from [**tidyr**](https://CRAN.R-project.org/package=tidyr) implemented
     for `Spat*` objects.
 - subtitle: Pivoting
   desc: >
@@ -120,7 +120,7 @@ reference:
 
 - title: "**ggplot2** methods"
   desc: >
-    Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+    Methods from [**ggplot2**](https://CRAN.R-project.org/package=ggplot2)
     implemented for `Spat*` objects.
 - contents:
   - has_concept("ggplot2.methods")
@@ -140,7 +140,7 @@ reference:
 
 - title: "**generics** methods"
   desc: >
-    Methods from [generics](https://CRAN.R-project.org/package=generics)
+    Methods from [**generics**](https://CRAN.R-project.org/package=generics)
     implemented for `Spat*` objects.
 - contents:
   - has_concept("generics.methods")
@@ -148,7 +148,7 @@ reference:
 - title: Helpers
   desc: >
     Additional helper functions provided by
-    [tidyterra](https://CRAN.R-project.org/package=tidyterra).
+    **tidyterra**.
 - subtitle: Coercing objects
   desc: >
     Convert `Spat*` objects to other object types or create `SpatRaster` objects

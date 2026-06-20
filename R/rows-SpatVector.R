@@ -1,6 +1,8 @@
 #' Row operations for `SpatVector` objects
 #'
 #' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' Methods for the [dplyr::rows_insert()] family on `SpatVector` objects.
 #'
 #' @rdname rows.SpatVector

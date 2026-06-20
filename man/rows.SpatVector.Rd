@@ -108,6 +108,8 @@ keys in \code{x}.
 A \code{SpatVector}.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Methods for the \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} family on \code{SpatVector} objects.
 }
 \section{Methods}{

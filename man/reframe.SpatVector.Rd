@@ -30,6 +30,8 @@ geometries.}
 A \code{SpatVector}.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 \code{reframe()} can return any number of rows per group. The geometry of each
 group is aggregated and repeated for each row created for that group.
 }

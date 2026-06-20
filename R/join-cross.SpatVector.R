@@ -1,6 +1,8 @@
 #' Cross joins for `SpatVector` objects
 #'
 #' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' Cross joins match each row in `x` to every row in `y`.
 #'
 #' See [dplyr::cross_join()] for details.

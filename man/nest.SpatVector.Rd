@@ -47,6 +47,8 @@ outer names with \code{names_sep} automatically stripped. This makes
 A tibble with one or more list-columns of \code{SpatVector} objects.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 \code{nest()} creates list-columns of \code{SpatVector} objects.
 }
 \section{\CRANpkg{terra} equivalent}{

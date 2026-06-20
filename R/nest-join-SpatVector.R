@@ -1,6 +1,8 @@
 #' Nest join `SpatVector` objects
 #'
 #' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' `nest_join()` returns a tibble with the attributes and geometry of `x`, plus
 #' a list-column containing matching rows from `y`.
 #'

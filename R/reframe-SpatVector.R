@@ -1,6 +1,8 @@
 #' Reframe each group of a `SpatVector`
 #'
 #' @description
+#' `r lifecycle::badge("experimental")`
+#'
 #' `reframe()` can return any number of rows per group. The geometry of each
 #' group is aggregated and repeated for each row created for that group.
 #'

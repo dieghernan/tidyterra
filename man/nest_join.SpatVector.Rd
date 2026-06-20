@@ -77,6 +77,8 @@ for database sources and to \code{base::merge(incomparables = NA)}.
 A \link[tibble:tbl_df]{tibble}.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 \code{nest_join()} returns a tibble with the attributes and geometry of \code{x}, plus
 a list-column containing matching rows from \code{y}.
 }
