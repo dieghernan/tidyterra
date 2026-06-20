@@ -31,7 +31,7 @@ coordinates form a regular grid. Otherwise, an error.
 
 ## See also
 
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md)
+[`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md).
 
 ## Examples
 

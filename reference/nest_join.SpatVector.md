@@ -123,7 +123,7 @@ a list-column with matching rows from `y`.
 
 ## See also
 
-[`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
+[`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

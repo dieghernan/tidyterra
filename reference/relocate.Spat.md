@@ -60,7 +60,7 @@ The result is a `SpatVector` with the attributes on a different order.
 
 ## See also
 
-[`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
+[`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on columns:

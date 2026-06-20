@@ -100,7 +100,7 @@ of geometries (with `.dissolve = FALSE`). See **Examples**.
 ## See also
 
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html),
-[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
+[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:

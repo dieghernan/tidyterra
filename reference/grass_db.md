@@ -110,7 +110,7 @@ Foundation, USA. <https://grass.osgeo.org>.
 
 ## See also
 
-[`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
+[`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md),

@@ -150,7 +150,7 @@ empty geometries for the new rows.
 
 ## See also
 
-[`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html)
+[`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:

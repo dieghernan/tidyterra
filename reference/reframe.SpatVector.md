@@ -15,17 +15,23 @@ reframe(.data, ..., .by = NULL, .dissolve = TRUE)
 
 - .data:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
+  Name-value pairs of summary functions. The name will be the name of
+  the variable in the result.
 
-  Name-value pairs of functions. The name will be the name of the
-  variable in the result. The value can be a vector of any length.
+  The value can be:
 
-  Unnamed data frame values add multiple columns from a single
-  expression.
+  - A vector of length 1, e.g. `min(x)`,
+    [`n()`](https://dplyr.tidyverse.org/reference/context.html), or
+    `sum(is.na(y))`.
+
+  - A data frame with 1 row, to add multiple columns from a single
+    expression.
 
 - .by:
 

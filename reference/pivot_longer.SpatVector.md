@@ -172,7 +172,7 @@ always has the geometry of `data`.
 
 ## See also
 
-[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 pivoting:

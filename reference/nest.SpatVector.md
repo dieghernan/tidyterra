@@ -80,7 +80,7 @@ objects and cannot be passed directly to
 ## See also
 
 [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html),
-[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 ## Examples
 

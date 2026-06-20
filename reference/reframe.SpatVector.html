@@ -84,14 +84,15 @@ group is aggregated and repeated for each row created for that group.</p>
 
 
 <dl><dt id="arg--data">.data<a class="anchor" aria-label="anchor" href="#arg--data"></a></dt>
-<dd><p>A <code>SpatVector</code>.</p></dd>
+<dd><p>A <code>SpatVector</code> created with <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">terra::vect()</a></code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt;</p>
-<p>Name-value pairs of functions. The name will be the name of the variable in
-the result. The value can be a vector of any length.</p>
-<p>Unnamed data frame values add multiple columns from a single expression.</p></dd>
+<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Name-value pairs of
+summary functions. The name will be the name of the variable in the result.</p>
+<p>The value can be:</p><ul><li><p>A vector of length 1, e.g. <code>min(x)</code>, <code><a href="https://dplyr.tidyverse.org/reference/context.html" class="external-link">n()</a></code>, or <code>sum(is.na(y))</code>.</p></li>
+<li><p>A data frame with 1 row, to add multiple columns from a single expression.</p></li>
+</ul></dd>
 
 
 <dt id="arg--by">.by<a class="anchor" aria-label="anchor" href="#arg--by"></a></dt>

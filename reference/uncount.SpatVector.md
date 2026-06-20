@@ -51,7 +51,7 @@ Each duplicated row keeps the input geometry.
 
 ## See also
 
-[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
+[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html).
 
 ## Examples
 

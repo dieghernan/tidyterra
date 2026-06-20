@@ -112,7 +112,7 @@ conditions.
 
 [`dplyr::semi_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html),
 [`dplyr::anti_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html),
-[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
+[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

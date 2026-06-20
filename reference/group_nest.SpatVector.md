@@ -59,7 +59,7 @@ geometries for each group.
 [`dplyr::group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html),
 [`dplyr::nest_by()`](https://dplyr.tidyverse.org/reference/nest_by.html),
 [`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/nest.SpatVector.md),
-[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:

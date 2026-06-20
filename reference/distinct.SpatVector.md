@@ -52,7 +52,7 @@ You can remove duplicate geometries by passing the reserved name
 ## See also
 
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html),
-[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html)
+[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:

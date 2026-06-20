@@ -105,7 +105,7 @@ options.
 
 ## See also
 
-[`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)
+[`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on columns:

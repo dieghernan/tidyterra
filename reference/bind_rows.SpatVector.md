@@ -52,7 +52,7 @@ can be a `SpatVector`, `sf/sfc` object or data frame:
 
 ## See also
 
-[`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
+[`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

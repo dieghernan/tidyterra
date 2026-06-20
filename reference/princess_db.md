@@ -34,7 +34,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
 
 ## See also
 
-[`scale_fill_princess_c()`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md)
+[`scale_fill_princess_c()`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md),

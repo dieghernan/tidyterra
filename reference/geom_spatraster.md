@@ -236,7 +236,7 @@ as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
-[`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
+[`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html).
 
 Recommended `geoms`:
 

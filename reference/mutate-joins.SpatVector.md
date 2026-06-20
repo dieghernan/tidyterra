@@ -178,7 +178,7 @@ geometries differs between
 [`dplyr::left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
 [`dplyr::right_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
 [`dplyr::full_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
-[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
+[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

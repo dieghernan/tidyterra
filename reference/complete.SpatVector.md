@@ -76,7 +76,7 @@ combinations receive empty geometries.
 
 ## See also
 
-[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

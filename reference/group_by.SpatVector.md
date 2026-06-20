@@ -85,7 +85,7 @@ re-group.
 ## See also
 
 [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html),
-[`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html)
+[`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:

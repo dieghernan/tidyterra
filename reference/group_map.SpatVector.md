@@ -72,8 +72,7 @@ requires `.f` to return `SpatVector` objects and binds the results.
 
 ## See also
 
-[`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-and
+[`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html),
 [`dplyr::group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping

@@ -61,8 +61,10 @@ the `crs` is inferred from
 
 ## See also
 
+[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/reference/is_regular_grid.md)
+for checking whether coordinates form a regular grid.
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-for retrieving CRS and the corresponding utilities
+retrieves CRS information, as do
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

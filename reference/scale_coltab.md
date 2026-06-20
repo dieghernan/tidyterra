@@ -168,13 +168,13 @@ layer with the values applied to the `fill/colour` aesthetics.
 [`ggplot2::scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html).
 
 Other color scales, palettes and hypsometric tints:
-[`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md),
 [`scale_princess`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md),
 [`scale_terrain`](https://dieghernan.github.io/tidyterra/reference/scale_terrain.md),
-[`scale_whitebox`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md)
+[`scale_whitebox`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
+[`scale_wiki`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md)
 
 ## Examples
 

@@ -63,7 +63,7 @@ attribute and receives the suffix from `suffix`.
 
 ## See also
 
-[`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html)
+[`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

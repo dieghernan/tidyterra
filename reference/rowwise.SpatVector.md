@@ -77,7 +77,7 @@ the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
 
 ## See also
 
-[`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
+[`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:

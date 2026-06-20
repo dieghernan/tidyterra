@@ -59,7 +59,7 @@ boundaries.
 
 ## See also
 
-[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
+[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

@@ -86,7 +86,7 @@ implementation of this method for `SpatRaster` may change in the future.
 
 ## See also
 
-[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
+[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

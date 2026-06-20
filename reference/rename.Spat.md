@@ -74,7 +74,7 @@ call.
 
 ## See also
 
-[`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
+[`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on columns:

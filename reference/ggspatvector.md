@@ -174,7 +174,7 @@ for details on aesthetics, etc.
 
 ## See also
 
-[`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
+[`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
 Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md),

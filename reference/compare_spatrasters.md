@@ -50,7 +50,7 @@ found.
 
 ## See also
 
-[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html)
+[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html).
 
 ## Examples
 

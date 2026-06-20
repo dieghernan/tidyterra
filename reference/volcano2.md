@@ -36,7 +36,7 @@ Information needed for regenerating the original `SpatRaster` file:
 
 ## See also
 
-[volcano](https://rdrr.io/r/datasets/volcano.html)
+[volcano](https://rdrr.io/r/datasets/volcano.html).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/reference/cross_blended_hypsometric_tints_db.md),

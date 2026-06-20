@@ -105,7 +105,7 @@ this. See also
 ## See also
 
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html),
-[`dplyr::tally()`](https://dplyr.tidyverse.org/reference/count.html)
+[`dplyr::tally()`](https://dplyr.tidyverse.org/reference/count.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:

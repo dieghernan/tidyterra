@@ -74,7 +74,7 @@ preserved because new combinations do not have a well-defined geometry.
 ## See also
 
 [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html),
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md)
+[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

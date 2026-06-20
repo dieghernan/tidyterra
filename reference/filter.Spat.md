@@ -113,7 +113,7 @@ value of `TRUE` for all conditions.
 
 ## See also
 
-[`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
+[`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:

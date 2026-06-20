@@ -76,7 +76,7 @@ for `SpatVector` objects.
 ## See also
 
 [`dplyr::group_split()`](https://dplyr.tidyverse.org/reference/group_split.html),
-[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:

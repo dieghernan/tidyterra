@@ -58,7 +58,7 @@ attributes on the function call.
 ## See also
 
 [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html),
-[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html)
+[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on columns:

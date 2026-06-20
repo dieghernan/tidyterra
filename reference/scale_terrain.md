@@ -228,13 +228,13 @@ and [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
-[`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md),
 [`scale_princess`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md),
-[`scale_whitebox`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md)
+[`scale_whitebox`](https://dieghernan.github.io/tidyterra/reference/scale_whitebox.md),
+[`scale_wiki`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md)
 
 ## Examples
 

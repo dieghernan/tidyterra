@@ -42,7 +42,7 @@ Use `r[is.na(r)] <- <replacement>`
 
 ## See also
 
-[`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html)
+[`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
