@@ -128,7 +128,7 @@ reference:
 - title: "**ggplot2** helpers"
 - subtitle: Geoms and helpers
   desc: >
-    Helpers for creating [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+    Helpers for creating **ggplot2**
     layers from `Spat*` objects.
 - contents:
   - has_concept("ggplot2.utils")
