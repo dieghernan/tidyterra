@@ -7,15 +7,12 @@
 #'
 #' Learn more in [tidyr::pivot_longer()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname pivot_longer.SpatVector
 #' @name pivot_longer.SpatVector
 #'
 #' @seealso [tidyr::pivot_longer()]
 #'
 #' @family tidyr.pivot
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr pivot_longer
 #'
@@ -34,6 +31,8 @@
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `data`.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'

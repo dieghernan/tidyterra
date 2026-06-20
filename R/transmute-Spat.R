@@ -7,9 +7,6 @@
 #' computations. It's superseded because you can perform the same job
 #' with `mutate(.keep = "none")`.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname transmute.Spat
 #' @name transmute.Spat
 #' @keywords internal
@@ -25,6 +22,8 @@
 #' @section Methods:
 #' Implementation of the **generic** [dplyr::transmute()] method.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #'
@@ -94,9 +93,8 @@ transmute.SpatRaster <- function(.data, ...) {
 
   final_rast
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname transmute.Spat
+#' @export
 transmute.SpatVector <- function(.data, ...) {
   # Use own method
   tbl <- as_tibble(.data)

@@ -6,9 +6,6 @@
 #' to [`fortify.Spat`] and is provided in case the [ggplot2::fortify()] method
 #' is deprecated in the future.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname tidy.Spat
 #' @name tidy.Spat
 #'
@@ -71,6 +68,8 @@
 #' Returns an [`sf`][sf::st_sf] object that can be used with
 #' [ggplot2::geom_sf()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
@@ -144,16 +143,14 @@ tidy.SpatRaster <- function(
   x
 }
 
+#' @rdname tidy.Spat
 #' @export
-#' @encoding UTF-8
-#' @name tidy.Spat
 tidy.SpatVector <- function(x, ...) {
   as_sf(x)
 }
 
+#' @rdname tidy.Spat
 #' @export
-#' @encoding UTF-8
-#' @name tidy.Spat
 tidy.SpatGraticule <- function(x, ...) {
   # nocov start
   tvers <- packageVersion("terra")
@@ -169,14 +166,13 @@ tidy.SpatGraticule <- function(x, ...) {
   as_sf(terra::vect(x))
 }
 
-#' @export
-#' @encoding UTF-8
-#' @name tidy.Spat
+#' @rdname tidy.Spat
 #' @param crs Input that includes or represents a CRS. It can be an `sf/sfc`
 #'   object, a `SpatRaster/SpatVector` object, a `crs` object from
 #'   [sf::st_crs()], a character string (for example a [proj4
 #'   string](https://proj.org/en/9.3/operations/projections/index.html)), or
 #'   an integer representing an [EPSG](https://epsg.io/) code.
+#' @export
 tidy.SpatExtent <- function(x, ..., crs = "") {
   as_sf(terra::vect(x, crs = pull_crs(crs)))
 }

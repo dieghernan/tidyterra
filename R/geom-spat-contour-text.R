@@ -1,5 +1,3 @@
-#' @export
-#' @encoding UTF-8
 #' @rdname geom_spat_contour
 #' @inheritParams isoband::isolines_grob
 #'
@@ -12,6 +10,7 @@
 #'     as the default setup ([scales::label_number()]).
 #' @order 2
 #'
+#' @export
 geom_spatraster_contour_text <- function(
   mapping = NULL,
   data,

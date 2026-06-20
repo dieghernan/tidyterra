@@ -6,8 +6,6 @@
 #' `group_nest()` and `nest_by()` create tibbles with list-columns containing
 #' `SpatVector` objects.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname group_nest.SpatVector
 #' @name group_nest.SpatVector
 #'
@@ -39,6 +37,8 @@
 #' The nested list-column contains `SpatVector` objects, preserving the
 #' geometries for each group.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' v$grp <- rep(c("A", "B"), length.out = nrow(v))
@@ -65,10 +65,9 @@ group_nest.SpatVector <- function(.tbl, ..., .key = "data", keep = FALSE) {
 #' @export
 dplyr::group_nest
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_nest.SpatVector
 #' @importFrom dplyr nest_by
+#' @export
 nest_by.SpatVector <- function(.data, ..., .key = "data", .keep = FALSE) {
   nested <- group_nest(.data, ..., .key = .key, keep = .keep)
   dplyr::rowwise(nested, dplyr::all_of(setdiff(names(nested), .key)))

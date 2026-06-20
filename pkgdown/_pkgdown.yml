@@ -56,109 +56,120 @@ home:
 reference:
 - title: "**tibble** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=tibble"
-    class="external-link"><span class="pkg">tibble</span></a> implemented for
-    `Spat*` objects.
-  contents: has_concept("tibble.methods")
+    Methods from [tibble](https://CRAN.R-project.org/package=tibble)
+    implemented for `Spat*` objects.
+- contents:
+  - has_concept("tibble.methods")
 
 - title: "**dplyr** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=dplyr"
-    class="external-link"><span class="pkg">dplyr</span></a> implemented for
-    `Spat*` objects.
+    Methods from [dplyr](https://CRAN.R-project.org/package=dplyr) implemented
+    for `Spat*` objects.
 - subtitle: Rows
   desc: |
     Verbs that mainly operate on rows.
-  contents: has_concept("dplyr.rows")
+- contents:
+  - has_concept("dplyr.rows")
 - subtitle: Columns
   desc: |
     Verbs that mainly operate on columns.
-  contents: has_concept("dplyr.cols")
+- contents:
+  - has_concept("dplyr.cols")
 - subtitle: Groups
   desc: |
     Verbs that mainly operate on groups of rows.
-  contents: has_concept("dplyr.groups")
+- contents:
+  - has_concept("dplyr.groups")
 - subtitle: "`SpatVector` and data frames"
   desc: >
     Verbs that mainly operate on pairs of `SpatVector` objects and data frames.
-  contents: has_concept("dplyr.pairs")
+- contents:
+  - has_concept("dplyr.pairs")
 
 - title: "**tidyr** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=tidyr"
-    class="external-link"><span class="pkg">tidyr</span></a> implemented for
-    `Spat*` objects.
+    Methods from [tidyr](https://CRAN.R-project.org/package=tidyr) implemented
+    for `Spat*` objects.
 - subtitle: Pivoting
   desc: >
     Pivoting methods for changing the representation of `SpatVector` objects
     without changing their geometries.
-  contents: has_concept("tidyr.pivot")
+- contents:
+  - has_concept("tidyr.pivot")
 - subtitle: Rows
   desc: >
     Tools for duplicating `SpatVector` geometries.
-  contents: has_concept("tidyr.rows")
+- contents:
+  - has_concept("tidyr.rows")
 - subtitle: Missing values
   desc: >
     Tools for converting between implicit (absent rows) and explicit (`NA`)
     missing values and for handling explicit `NA` values.
-  contents: has_concept("tidyr.missing")
+- contents:
+  - has_concept("tidyr.missing")
 - subtitle: Character vectors
   desc: >
     Tools for working with character layers and attributes.
-  contents: has_concept("tidyr.character")
+- contents:
+  - has_concept("tidyr.character")
 - subtitle: Nesting
   desc: >
     Tools for storing `SpatVector` objects in list-columns.
-  contents: has_concept("tidyr.nest")
+- contents:
+  - has_concept("tidyr.nest")
 
 - title: "**ggplot2** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=ggplot2"
-    class="external-link"><span class="pkg">ggplot2</span></a> implemented for
-    `Spat*` objects.
-  contents: has_concept("ggplot2.methods")
+    Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+    implemented for `Spat*` objects.
+- contents:
+  - has_concept("ggplot2.methods")
 
 - title: "**ggplot2** helpers"
 - subtitle: Geoms and helpers
   desc: >
-    Helpers for creating <a href="https://CRAN.R-project.org/package=ggplot2"
-    class="external-link"><span class="pkg">ggplot2</span></a> layers from
-    `Spat*` objects.
-  contents: has_concept("ggplot2.utils")
+    Helpers for creating [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+    layers from `Spat*` objects.
+- contents:
+  - has_concept("ggplot2.utils")
 - subtitle: Scales
   desc: >
     Color scales, palettes and hypsometric tints for spatial plots.
-  contents:
-  - starts_with("scale_")
+- contents:
   - has_concept("gradients")
 
 - title: "**generics** methods"
   desc: >
-    Methods from <a href="https://CRAN.R-project.org/package=generics"
-    class="external-link"><span class="pkg">generics</span></a> implemented for
-    `Spat*` objects.
-  contents: has_concept("generics.methods")
+    Methods from [generics](https://CRAN.R-project.org/package=generics)
+    implemented for `Spat*` objects.
+- contents:
+  - has_concept("generics.methods")
 
 - title: Helpers
   desc: >
-    Additional helper functions provided by <a
-    href="https://CRAN.R-project.org/package=tidyterra"
-    class="external-link"><span class="pkg">tidyterra</span></a>.
+    Additional helper functions provided by
+    [tidyterra](https://CRAN.R-project.org/package=tidyterra).
 - subtitle: Coercing objects
   desc: >
     Convert `Spat*` objects to other object types or create `SpatRaster` objects
     from tibbles.
-  contents: has_concept("coerce")
+- contents:
+  - has_concept("coerce")
 - subtitle: Other helpers
   desc: >
     Utilities for CRS handling, package checks and `SpatRaster` comparisons.
-  contents: has_concept("helpers")
+- contents:
+  - has_concept("helpers")
+
 - title: Built-in data
   desc: >
     Example data and palette databases included with **tidyterra**.
-  contents: has_concept("datasets")
+- contents:
+  - has_concept("datasets")
+
 - title: About the package
-  contents: tidyterra-package
+- contents:
+  - tidyterra-package
 
 authors:
   Diego Hernangómez:

@@ -20,16 +20,12 @@
 #'
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname filter.Spat
 #' @name filter.Spat
 #'
 #' @seealso [dplyr::filter()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.rows
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr filter
 #' @inherit select.Spat return
@@ -70,6 +66,8 @@
 #' The result is a `SpatVector` with all the geometries that produce a value of
 #' `TRUE` for all conditions.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -135,9 +133,8 @@ filter.SpatRaster <- function(
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname filter.Spat
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' glimpse(v)
@@ -164,10 +161,9 @@ filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 #' @export
 dplyr::filter
 
-#' @export
-#' @encoding UTF-8
 #' @rdname filter.Spat
 #' @importFrom dplyr filter_out
+#' @export
 filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)

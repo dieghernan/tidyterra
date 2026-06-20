@@ -4,16 +4,12 @@
 #' `reframe()` can return any number of rows per group. The geometry of each
 #' group is aggregated and repeated for each row created for that group.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname reframe.SpatVector
 #' @name reframe.SpatVector
 #'
 #' @seealso [dplyr::reframe()], [summarise.SpatVector()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.groups
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr reframe
 #'
@@ -33,6 +29,8 @@
 #' group. If a group produces more than one row, the aggregated group geometry
 #' is repeated for each output row.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' v$grp <- rep(c("A", "B"), length.out = nrow(v))

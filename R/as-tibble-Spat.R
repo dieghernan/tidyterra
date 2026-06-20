@@ -4,8 +4,6 @@
 #'
 #' [as_tibble()] methods for `SpatRaster` and `SpatVector` objects.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname as_tibble.Spat
 #' @name as_tibble.Spat
 #'
@@ -64,6 +62,8 @@
 #' [terra::as.data.frame()]. If `geom` is not `NULL`, the same renaming logic
 #' described for `SpatRaster` also applies to `SpatVector` columns.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -114,8 +114,8 @@ as_tibble.SpatRaster <- function(
   df
 }
 
-#' @export
 #' @rdname as_tibble.Spat
+#' @export
 as_tibble.SpatVector <- function(
   x,
   ...,

@@ -19,9 +19,6 @@
 #' - It handles the conversion of `EMPTY` geometries between
 #'   \CRANpkg{sf} and \CRANpkg{terra}.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname as_spatvector
 #'
 #' @name as_spatvector
@@ -50,6 +47,8 @@
 #'
 #' [terra::vect()]
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #'
@@ -72,9 +71,8 @@ as_spatvector <- function(x, ...) {
   UseMethod("as_spatvector")
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname as_spatvector
+#' @export
 as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   if (!length(geom) %in% c(1, 2)) {
     cli::cli_abort(paste(
@@ -152,9 +150,8 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   v
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname as_spatvector
+#' @export
 as_spatvector.sf <- function(x, ...) {
   # Convert directly when there are no empty geometries.
 
@@ -210,18 +207,16 @@ as_spatvector.sf <- function(x, ...) {
   as_spatvector(final_tibble, geom = sf_col, crs = pull_crs(attr_template$crs))
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname as_spatvector
+#' @export
 as_spatvector.sfc <- function(x, ...) {
   x_df <- sf::st_as_sf(x)
 
   as_spatvector(x_df)
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname as_spatvector
+#' @export
 as_spatvector.SpatVector <- function(x, ...) {
   x
 }

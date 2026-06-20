@@ -33,11 +33,5 @@ grouped <- group_by(v, iso2)
 is_grouped_spatvector(grouped)
 
 }
-\seealso{
-Other helpers:
-\code{\link[=compare_spatrasters]{compare_spatrasters()}},
-\code{\link[=is_regular_grid]{is_regular_grid()}},
-\code{\link[=pull_crs]{pull_crs()}}
-}
 \concept{helpers}
 \keyword{internal}

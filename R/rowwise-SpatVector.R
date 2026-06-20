@@ -15,15 +15,12 @@
 #'
 #' See **Details** on [dplyr::rowwise()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname rowwise.SpatVector
 #' @name rowwise.SpatVector
 #'
 #' @seealso [dplyr::rowwise()]
 #'
 #' @family dplyr.groups
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr rowwise
 #' @param data A `SpatVector` object. See **Methods**.
@@ -54,6 +51,8 @@
 #' In these cases, the result does not preserve the `groups` attribute. Use
 #' [rowwise.SpatVector()] to re-group.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' library(dplyr)

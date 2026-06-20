@@ -5,9 +5,6 @@
 #' making a longer result. This is similar to `do.call(rbind, data_frames)`,
 #' but the output will contain all columns that appear in any of the inputs.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname bind_rows.SpatVector
 #' @name bind_rows.SpatVector
 #'
@@ -15,7 +12,6 @@
 #' @seealso [dplyr::bind_rows()]
 #'
 #' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @inheritParams dplyr::bind_rows
 #'
@@ -42,6 +38,8 @@
 #' - If any element of `...` is a tibble/data frame, the rows are column-bound
 #'   with empty geometries with a message.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)

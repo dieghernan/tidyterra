@@ -17,9 +17,6 @@
 #' arguments, so check the \CRANpkg{ggplot2} functions listed above to see the
 #' full range of arguments accepted by these scales.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @name scale_terrain
 #'
 #' @seealso
@@ -37,6 +34,8 @@
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -85,9 +84,8 @@ scale_fill_terrain_d <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
+#' @export
 scale_colour_terrain_d <- function(
   ...,
   alpha = 1,
@@ -106,9 +104,8 @@ scale_colour_terrain_d <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
+#' @export
 scale_fill_terrain_c <- function(
   ...,
   alpha = 1,
@@ -129,9 +126,8 @@ scale_fill_terrain_c <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
+#' @export
 scale_colour_terrain_c <- function(
   ...,
   alpha = 1,
@@ -152,9 +148,8 @@ scale_colour_terrain_c <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
+#' @export
 scale_fill_terrain_b <- function(
   ...,
   alpha = 1,
@@ -175,9 +170,8 @@ scale_fill_terrain_b <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
+#' @export
 scale_colour_terrain_b <- function(
   ...,
   alpha = 1,
@@ -206,20 +200,17 @@ terrain_pal <- function(alpha = 1, direction = 1) {
   }
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
+#' @export
 scale_color_terrain_d <- scale_colour_terrain_d
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
+#' @export
 scale_color_terrain_c <- scale_colour_terrain_c
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_terrain
 #' @usage NULL
+#' @export
 scale_color_terrain_b <- scale_colour_terrain_b

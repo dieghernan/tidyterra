@@ -6,9 +6,6 @@
 #' [sf::st_as_sf()] and preserves groups created with
 #' [group_by.SpatVector()].
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @family coerce
 #'
 #' @param x A `SpatVector` created with [terra::vect()].
@@ -19,6 +16,8 @@
 #' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
 #' pretty printing.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)

@@ -5,15 +5,12 @@
 #' `complete()` turns implicit missing combinations in a `SpatVector`
 #' into explicit rows while preserving geometry and spatial metadata.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname complete.SpatVector
 #' @name complete.SpatVector
 #'
 #' @seealso [tidyr::complete()]
 #'
 #' @family tidyr.missing
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr complete
 #'
@@ -31,6 +28,8 @@
 #' `complete()` preserves the geometry column while expanding missing
 #' combinations. New combinations receive empty geometries.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' v <- dplyr::mutate(v, grp = ifelse(iso2 %in% c("ES-AV", "ES-BU"), "a", "b"))

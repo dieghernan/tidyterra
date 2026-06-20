@@ -10,15 +10,15 @@
 #' See also [group_data.SpatVector()] for the accessory functions that retrieve
 #' various metadata from a grouped `SpatVector`.
 #'
-#' @export
-#' @encoding UTF-8
 #' @keywords internal
-#' @family helpers
+#' @concept helpers
 #'
 #' @inheritParams as_sf
 #'
 #' @returns `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'

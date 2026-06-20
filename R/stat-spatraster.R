@@ -3,8 +3,6 @@
 #' `stat_spatraster()` complements [geom_spatraster()] when you need to change
 #' the `geom`.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname geom_spatraster
 #'
 #' @seealso
@@ -35,6 +33,7 @@
 #' The `x` and `y` aesthetics are mapped by default, so you do not need to add
 #' them in `aes()`. In every case, aesthetics should be mapped with computed
 #' variables. See **Computed variables** and **Examples**.
+#' @export
 #' @examples
 #' \donttest{
 #' # Using stat_spatraster

@@ -7,8 +7,6 @@
 #'
 #' See [dplyr::inner_join()] for details.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname mutate-joins.SpatVector
 #' @name mutate-joins.SpatVector
 #'
@@ -17,7 +15,6 @@
 #' [dplyr::full_join()], [terra::merge()]
 #'
 #' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr inner_join
 #'
@@ -49,6 +46,8 @@
 #' workflows, the function may crash because handling of `EMPTY`
 #' geometries differs between \CRANpkg{terra} and \CRANpkg{sf}.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' library(ggplot2)
@@ -131,10 +130,9 @@ inner_join.SpatVector <- function(
 #' @export
 dplyr::inner_join
 
-#' @export
-#' @encoding UTF-8
-#' @name mutate-joins.SpatVector
+#' @rdname mutate-joins.SpatVector
 #' @importFrom dplyr left_join
+#' @export
 left_join.SpatVector <- function(
   x,
   y,
@@ -169,10 +167,9 @@ left_join.SpatVector <- function(
 #' @export
 dplyr::left_join
 
-#' @export
-#' @encoding UTF-8
-#' @name mutate-joins.SpatVector
+#' @rdname mutate-joins.SpatVector
 #' @importFrom dplyr right_join
+#' @export
 right_join.SpatVector <- function(
   x,
   y,
@@ -207,10 +204,9 @@ right_join.SpatVector <- function(
 #' @export
 dplyr::right_join
 
-#' @export
-#' @encoding UTF-8
-#' @name mutate-joins.SpatVector
+#' @rdname mutate-joins.SpatVector
 #' @importFrom dplyr full_join
+#' @export
 full_join.SpatVector <- function(
   x,
   y,
@@ -255,15 +251,12 @@ dplyr::full_join
 #'
 #' See [dplyr::semi_join()] for details.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname filter-joins.SpatVector
 #' @name filter-joins.SpatVector
 #'
 #' @seealso [dplyr::semi_join()], [dplyr::anti_join()], [terra::merge()]
 #'
 #' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr semi_join
 #'
@@ -284,6 +277,8 @@ dplyr::full_join
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' library(ggplot2)
@@ -334,10 +329,9 @@ semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
 #' @export
 dplyr::semi_join
 
-#' @export
-#' @encoding UTF-8
-#' @name filter-joins.SpatVector
+#' @rdname filter-joins.SpatVector
 #' @importFrom dplyr anti_join
+#' @export
 anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   error_spat_join(y)
   # Use own method

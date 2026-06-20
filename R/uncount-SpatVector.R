@@ -4,14 +4,11 @@
 #'
 #' `uncount()` duplicates rows according to a weighting variable.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname uncount.SpatVector
 #'
 #' @seealso [tidyr::uncount()]
 #'
 #' @family tidyr.rows
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr uncount
 #'
@@ -28,6 +25,8 @@
 #'
 #' Each duplicated row keeps the input geometry.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(tidyr)
 #'

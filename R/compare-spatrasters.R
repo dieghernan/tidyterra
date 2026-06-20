@@ -9,11 +9,8 @@
 #' This function compares those attributes and reports the results. See
 #' **Solving issues** for minimal guidance.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @seealso [terra::identical()]
-#' @family helpers
+#' @concept helpers
 #' @param x,y `SpatRaster` objects.
 #' @param digits Integer to set the precision for comparing the extent and
 #'   the resolution.
@@ -34,6 +31,8 @@
 #' - On **non-equal resolution** you can try [terra::resample()],
 #'   [terra::aggregate()] or [terra::disagg()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #'

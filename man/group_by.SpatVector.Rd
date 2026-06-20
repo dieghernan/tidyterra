@@ -127,30 +127,8 @@ Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
 \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
 
-Other \CRANpkg{dplyr} methods:
-\code{\link[=arrange.SpatVector]{arrange.SpatVector()}},
-\code{\link{bind_cols.SpatVector}},
-\code{\link{bind_rows.SpatVector}},
-\code{\link[=count.SpatVector]{count.SpatVector()}},
-\code{\link[=cross_join.SpatVector]{cross_join.SpatVector()}},
-\code{\link[=distinct.SpatVector]{distinct.SpatVector()}},
-\code{\link{filter-joins.SpatVector}},
-\code{\link{filter.Spat}},
-\code{\link{glimpse.Spat}},
-\code{\link{mutate-joins.SpatVector}},
-\code{\link{mutate.Spat}},
-\code{\link[=nest_join.SpatVector]{nest_join.SpatVector()}},
-\code{\link{pull.Spat}},
-\code{\link[=reframe.SpatVector]{reframe.SpatVector()}},
-\code{\link{relocate.Spat}},
-\code{\link{rename.Spat}},
-\code{\link{rows.SpatVector}},
-\code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}},
-\code{\link{select.Spat}},
-\code{\link{slice.Spat}},
-\code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
-
 Other \CRANpkg{dplyr} grouping methods:
+\code{\link[=group_data.SpatVector]{group_data.SpatVector()}},
 \code{\link[=group_map.SpatVector]{group_map.SpatVector()}},
 \code{\link[=group_nest.SpatVector]{group_nest.SpatVector()}},
 \code{\link[=group_split.SpatVector]{group_split.SpatVector()}},
@@ -158,4 +136,3 @@ Other \CRANpkg{dplyr} grouping methods:
 }
 \concept{dplyr.group_functions}
 \concept{dplyr.groups}
-\concept{dplyr.methods}

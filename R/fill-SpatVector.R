@@ -6,15 +6,12 @@
 #' This is useful in the common output format where values are not repeated,
 #' and are only recorded when they change.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname fill.SpatVector
 #' @name fill.SpatVector
 #'
 #' @seealso [tidyr::fill()]
 #'
 #' @family tidyr.missing
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr fill
 #'
@@ -33,6 +30,8 @@
 #' be applied _within_ each group, meaning that it won't fill across group
 #' boundaries.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(dplyr)
 #'

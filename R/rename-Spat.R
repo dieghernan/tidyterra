@@ -5,16 +5,12 @@
 #' `new_name = old_name` syntax. `rename_with()` renames layers/attributes
 #' using a function.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname rename.Spat
 #' @name rename.Spat
 #'
 #' @seealso [dplyr::rename()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr rename
 #'
@@ -44,6 +40,8 @@
 #' The result is a `SpatVector` with the renamed attributes on the function
 #' call.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -72,11 +70,10 @@ rename.SpatRaster <- function(.data, ...) {
   final_rast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname rename.Spat
 #' @importFrom dplyr rename_with
 #' @importFrom dplyr everything
+#' @export
 rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
   # Use template
   df <- .data[1]
@@ -91,9 +88,8 @@ rename_with.SpatRaster <- function(.data, .fn, .cols = everything(), ...) {
   final_rast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname rename.Spat
+#' @export
 rename.SpatVector <- function(.data, ...) {
   # Use template
   df <- as_tibble(.data[1, ])
@@ -107,9 +103,8 @@ rename.SpatVector <- function(.data, ...) {
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname rename.Spat
+#' @export
 rename_with.SpatVector <- function(.data, .fn, .cols = everything(), ...) {
   # Use template
   df <- as_tibble(.data[1, ])

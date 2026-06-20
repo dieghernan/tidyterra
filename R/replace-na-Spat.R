@@ -4,14 +4,11 @@
 #'
 #' Replace `NA`s values on layers/attributes with specified values
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname replace_na.Spat
 #' @name replace_na.Spat
 #' @seealso [tidyr::replace_na()]
 #'
 #' @family tidyr.missing
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr replace_na
 #'
@@ -29,6 +26,8 @@
 #'
 #' Use `r[is.na(r)] <- <replacement>`
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -112,9 +111,8 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname replace_na.Spat
+#' @export
 replace_na.SpatVector <- function(data, replace, ...) {
   # Use own method
   tbl <- as_tibble(data)

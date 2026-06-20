@@ -6,15 +6,11 @@
 #' - `SpatRaster`: `drop_na()` method drops cells where any layer specified by
 #' `...` contains a missing value.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname drop_na.Spat
 #' @name drop_na.Spat
 #'
 #' @seealso [tidyr::drop_na()]
 #' @family tidyr.missing
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr drop_na
 #'
@@ -64,6 +60,8 @@
 #' Visit <https://github.com/dieghernan/tidyterra/issues>. The implementation
 #' of this method for `SpatRaster` may change in the future.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -106,10 +104,9 @@ drop_na.SpatVector <- function(data, ...) {
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname drop_na.Spat
 #'
+#' @export
 #' @examples
 #' # SpatRaster method
 #'

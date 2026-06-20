@@ -5,8 +5,6 @@
 #'
 #' Implementation of [ggplot2::autoplot()] method.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
@@ -47,6 +45,8 @@
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
 #' or [geom_spatvector_label()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
@@ -130,25 +130,22 @@ autoplot.SpatRaster <- function(
   gg
 }
 
+#' @rdname autoplot.Spat
 #' @export
-#' @encoding UTF-8
-#' @name autoplot.Spat
 autoplot.SpatVector <- function(object, ...) {
   ggplot2::ggplot(data = object) +
     geom_spatvector(...)
 }
 
+#' @rdname autoplot.Spat
 #' @export
-#' @encoding UTF-8
-#' @name autoplot.Spat
 autoplot.SpatGraticule <- function(object, ...) {
   ggplot2::ggplot(data = object) +
     geom_spatvector(...)
 }
 
+#' @rdname autoplot.Spat
 #' @export
-#' @encoding UTF-8
-#' @name autoplot.Spat
 autoplot.SpatExtent <- function(object, ...) {
   ggplot2::ggplot(data = object) +
     geom_spatvector(...)

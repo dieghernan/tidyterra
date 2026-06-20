@@ -10,16 +10,12 @@
 #'
 #' `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname summarise.SpatVector
 #' @name summarise.SpatVector
 #'
 #' @seealso [dplyr::summarise()], [terra::aggregate()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.groups
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr summarise
 #'
@@ -45,6 +41,8 @@
 #' dissolve geometries (with `.dissolve = TRUE`) or create `MULTI` versions of
 #' geometries (with `.dissolve = FALSE`). See **Examples**.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' library(ggplot2)
@@ -122,10 +120,9 @@ summarise.SpatVector <- function(
 #' @export
 dplyr::summarise
 
-#' @export
-#' @encoding UTF-8
 #' @rdname summarise.SpatVector
 #' @importFrom dplyr summarize
+#' @export
 summarize.SpatVector <- summarise.SpatVector
 
 #' @export

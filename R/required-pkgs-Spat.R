@@ -2,8 +2,6 @@
 #'
 #' Determine packages required by `Spat*` objects.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname required_pkgs.Spat
 #' @name required_pkgs.Spat
 #'
@@ -20,6 +18,8 @@
 #'
 #' Implementation of [generics::required_pkgs()] method.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 #'
@@ -40,23 +40,20 @@ required_pkgs.SpatRaster <- function(x, ...) {
   c("terra")
 }
 
+#' @rdname required_pkgs.Spat
 #' @export
-#' @encoding UTF-8
-#' @name required_pkgs.Spat
 required_pkgs.SpatVector <- function(x, ...) {
   c("terra")
 }
 
+#' @rdname required_pkgs.Spat
 #' @export
-#' @encoding UTF-8
-#' @name required_pkgs.Spat
 required_pkgs.SpatGraticule <- function(x, ...) {
   c("terra")
 }
 
+#' @rdname required_pkgs.Spat
 #' @export
-#' @encoding UTF-8
-#' @name required_pkgs.Spat
 required_pkgs.SpatExtent <- function(x, ...) {
   c("terra")
 }

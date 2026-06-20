@@ -12,9 +12,6 @@
 #' [as_tibble.SpatRaster()], the `crs` is inferred from
 #' [`attr(x, "crs")`][attr()].
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @seealso
 #'
 #' [pull_crs()] for retrieving CRS and the corresponding utilities
@@ -43,6 +40,8 @@
 #'
 #' [terra::rast()] (see S4 method for signature `data.frame`).
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #'

@@ -4,14 +4,11 @@
 #'
 #' `nest()` creates list-columns of `SpatVector` objects.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname nest.SpatVector
 #'
 #' @seealso [tidyr::nest()], [terra::svc()]
 #'
 #' @family tidyr.nest
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr nest
 #'
@@ -34,6 +31,8 @@
 #' nested `SpatVector`. These nested list-columns contain `SpatVector` objects
 #' and cannot be passed directly to [tidyr::unnest()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'

@@ -14,9 +14,6 @@
 #'
 #' See [ggplot2::geom_sf()] for details on aesthetics, etc.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @name ggspatvector
 #'
 #' @seealso [ggplot2::geom_sf()]
@@ -36,6 +33,8 @@
 #'
 #' [terra::plot()]
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #' # Create a SpatVector
@@ -91,10 +90,9 @@ geom_spatvector <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
-#' @name ggspatvector
+#' @rdname ggspatvector
 #' @param linewidth Size of label border, in mm.
+#' @export
 geom_spatvector_label <- function(
   mapping = aes(),
   data = NULL,
@@ -115,9 +113,8 @@ geom_spatvector_label <- function(
   )
 }
 
+#' @rdname ggspatvector
 #' @export
-#' @encoding UTF-8
-#' @name ggspatvector
 geom_spatvector_text <- function(
   mapping = aes(),
   data = NULL,
@@ -138,9 +135,8 @@ geom_spatvector_text <- function(
   )
 }
 
+#' @rdname ggspatvector
 #' @export
-#' @encoding UTF-8
-#' @name ggspatvector
 stat_spatvector <- function(
   mapping = NULL,
   data = NULL,

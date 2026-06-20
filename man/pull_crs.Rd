@@ -81,10 +81,5 @@ cat(fromsf1)
 \seealso{
 \code{\link[terra:crs]{terra::crs()}} and \code{\link[sf:st_crs]{sf::st_crs()}} to learn how these packages handle
 CRS definitions.
-
-Other helpers:
-\code{\link[=compare_spatrasters]{compare_spatrasters()}},
-\code{\link[=is_grouped_spatvector]{is_grouped_spatvector()}},
-\code{\link[=is_regular_grid]{is_regular_grid()}}
 }
 \concept{helpers}

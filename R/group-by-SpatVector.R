@@ -10,15 +10,12 @@
 #'
 #' See **Details** on [dplyr::group_by()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname group_by.SpatVector
 #' @name group_by.SpatVector
 #'
 #' @seealso [dplyr::group_by()], [dplyr::ungroup()]
 #'
 #' @family dplyr.groups
-#' @family dplyr.methods
 #' @family dplyr.group_functions
 #'
 #' @importFrom dplyr group_by
@@ -42,6 +39,8 @@
 #' In these cases, the result does not preserve the `groups` attribute. Use
 #' [group_by()] to re-group.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
@@ -128,10 +127,9 @@ group_by.SpatVector <- function(
 #' @export
 dplyr::group_by
 
-#' @export
-#' @encoding UTF-8
-#' @name group_by.SpatVector
+#' @rdname group_by.SpatVector
 #' @importFrom dplyr ungroup
+#' @export
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
   getattr <- attr(x, "tblclass")
@@ -153,9 +151,8 @@ ungroup.SpatVector <- function(x, ...) {
 #' @export
 dplyr::ungroup
 
-#' @export
-#' @encoding UTF-8
 #' @importFrom dplyr group_by_drop_default
+#' @export
 dplyr::group_by_drop_default
 
 # Internal

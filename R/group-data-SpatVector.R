@@ -20,12 +20,11 @@
 #'
 #' See [dplyr::group_data()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @name group_data.SpatVector
 #'
 #' @keywords internal
+#' @family dplyr.group_functions
 #'
 #' @importFrom dplyr group_data
 #'
@@ -37,6 +36,8 @@
 #' See the description of the method. The results are usually tibbles,
 #' lists or vectors. These functions do not return `SpatVector` objects.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #'
@@ -107,10 +108,9 @@ group_data.SpatVector <- function(.data) {
 #' @export
 dplyr::group_data
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_keys
+#' @export
 group_keys.SpatVector <- function(.tbl, ...) {
   # Dispatch to dplyr
   dplyr::group_keys(tbl_for_groups(.tbl, ...))
@@ -119,15 +119,13 @@ group_keys.SpatVector <- function(.tbl, ...) {
 #' @export
 dplyr::group_keys
 
-#' @export
-#' @encoding UTF-8
 #' @importFrom dplyr group_rows
+#' @export
 dplyr::group_rows
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_indices
+#' @export
 group_indices.SpatVector <- function(.data, ...) {
   # Dispatch to dplyr
   dplyr::group_indices(tbl_for_groups(.data), ...)
@@ -136,10 +134,9 @@ group_indices.SpatVector <- function(.data, ...) {
 #' @export
 dplyr::group_indices
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_vars
+#' @export
 group_vars.SpatVector <- function(x) {
   # Dispatch to dplyr
   dplyr::group_vars(tbl_for_groups(x))
@@ -148,10 +145,9 @@ group_vars.SpatVector <- function(x) {
 #' @export
 dplyr::group_vars
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr groups
+#' @export
 groups.SpatVector <- function(x) {
   # Dispatch to dplyr
   dplyr::groups(tbl_for_groups(x))
@@ -160,10 +156,9 @@ groups.SpatVector <- function(x) {
 #' @export
 dplyr::groups
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr group_size
+#' @export
 group_size.SpatVector <- function(x) {
   # Dispatch to dplyr
   dplyr::group_size(tbl_for_groups(x))
@@ -175,10 +170,9 @@ dplyr::group_size
 #' @export
 dplyr::groups
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_data.SpatVector
 #' @importFrom dplyr n_groups
+#' @export
 n_groups.SpatVector <- function(x) {
   # Dispatch to dplyr
   dplyr::n_groups(tbl_for_groups(x))

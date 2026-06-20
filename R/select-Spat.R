@@ -5,16 +5,12 @@
 #' Select (and optionally rename) attributes/layers in `Spat*` objects, using a
 #' concise mini-language. See **Methods**.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname select.Spat
 #' @name select.Spat
 #'
 #' @seealso [dplyr::select()], [terra::subset()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr select
 #'
@@ -46,6 +42,8 @@
 #' The result is a `SpatVector` with the selected (and possibly renamed)
 #' attributes on the function call.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -103,9 +101,8 @@ select.SpatRaster <- function(.data, ...) {
   final_rast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname select.Spat
+#' @export
 select.SpatVector <- function(.data, ...) {
   # Use tibble method
   tbl <- as_tibble(.data)

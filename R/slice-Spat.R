@@ -23,8 +23,6 @@
 #'
 #' See **Methods** for details.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @name slice.Spat
 #'
@@ -32,9 +30,7 @@
 #' [dplyr::slice()], [terra::spatSample()], [as_coordinates()],
 #' [filter.SpatRaster()].
 #'
-#' @family dplyr.single_table
 #' @family dplyr.rows
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr slice
 #'
@@ -82,6 +78,8 @@
 #' performed on each group, so that (e.g.) `slice_head(df, n = 5)` will select
 #' the first five rows in each group.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -176,9 +174,8 @@ slice.SpatRaster <- function(
 
   newrast
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
   # Use own method
   tbl <- as_tibble(.data)
@@ -193,10 +190,9 @@ slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 
   vend
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_head
+#' @export
 slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
@@ -223,9 +219,8 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   # Use own method
   tbl <- as_tibble(.data)
@@ -242,10 +237,9 @@ slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_tail
+#' @export
 slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
@@ -272,9 +266,8 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_tail.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   # Use own method
   tbl <- as_tibble(.data)
@@ -291,10 +284,9 @@ slice_tail.SpatVector <- function(.data, ..., n, prop, by = NULL) {
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_min
+#' @export
 slice_min.SpatRaster <- function(
   .data,
   order_by,
@@ -352,9 +344,8 @@ slice_min.SpatRaster <- function(
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_min.SpatVector <- function(
   .data,
   order_by,
@@ -389,10 +380,9 @@ slice_min.SpatVector <- function(
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_max
+#' @export
 slice_max.SpatRaster <- function(
   .data,
   order_by,
@@ -450,9 +440,8 @@ slice_max.SpatRaster <- function(
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_max.SpatVector <- function(
   .data,
   order_by,
@@ -488,10 +477,9 @@ slice_max.SpatVector <- function(
   vend
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
 #' @importFrom dplyr slice_sample
+#' @export
 slice_sample.SpatRaster <- function(
   .data,
   ...,
@@ -543,9 +531,8 @@ slice_sample.SpatRaster <- function(
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_sample.SpatVector <- function(
   .data,
   ...,
@@ -577,16 +564,14 @@ slice_sample.SpatVector <- function(
 
   vend
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_rows <- function(.data, ...) {
   UseMethod("slice_rows")
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
@@ -623,16 +608,14 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_cols <- function(.data, ...) {
   UseMethod("slice_cols")
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   # Create skeleton
   skeleton <- as_coordinates(.data)
@@ -669,16 +652,14 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
   newrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_colrows <- function(.data, ...) {
   UseMethod("slice_colrows")
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname slice.Spat
+#' @export
 slice_colrows.SpatRaster <- function(
   .data,
   ...,

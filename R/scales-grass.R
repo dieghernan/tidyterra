@@ -39,9 +39,6 @@
 #' also [r.color - GRASS GIS
 #' Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @name scale_grass
 #'
 #' @seealso [grass_db], [terra::plot()],
@@ -85,6 +82,8 @@
 #' (GRASS) Software, Version 8.3.2*. Open Source Geospatial Foundation, USA.
 #' <https://grass.osgeo.org>.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -168,9 +167,8 @@ scale_fill_grass_d <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
+#' @export
 scale_colour_grass_d <- function(
   palette = "viridis",
   ...,
@@ -194,15 +192,13 @@ scale_colour_grass_d <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
 #' @usage NULL
+#' @export
 scale_color_grass_d <- scale_colour_grass_d
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
+#' @export
 scale_fill_grass_c <- function(
   palette = "viridis",
   ...,
@@ -235,9 +231,8 @@ scale_fill_grass_c <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
+#' @export
 scale_colour_grass_c <- function(
   palette = "viridis",
   ...,
@@ -270,15 +265,13 @@ scale_colour_grass_c <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
 #' @usage NULL
+#' @export
 scale_color_grass_c <- scale_colour_grass_c
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
+#' @export
 scale_fill_grass_b <- function(
   palette = "viridis",
   ...,
@@ -311,9 +304,8 @@ scale_fill_grass_b <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
+#' @export
 scale_colour_grass_b <- function(
   palette = "viridis",
   ...,
@@ -346,17 +338,15 @@ scale_colour_grass_b <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
 #' @usage NULL
+#' @export
 scale_color_grass_b <- scale_colour_grass_b
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_grass
 #'
 #' @inheritParams wiki.colors
+#' @export
 #' @examples
 #'
 #' # Display all the GRASS palettes

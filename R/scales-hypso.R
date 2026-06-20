@@ -38,9 +38,6 @@
 #'
 #' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @name scale_hypso
 #'
 #' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
@@ -74,6 +71,8 @@
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
@@ -168,9 +167,8 @@ scale_fill_hypso_d <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_d <- function(
   palette = "etopo1_hypso",
   ...,
@@ -194,9 +192,8 @@ scale_colour_hypso_d <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_fill_hypso_c <- function(
   palette = "etopo1_hypso",
   ...,
@@ -226,9 +223,8 @@ scale_fill_hypso_c <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_c <- function(
   palette = "etopo1_hypso",
   ...,
@@ -258,9 +254,8 @@ scale_colour_hypso_c <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_fill_hypso_b <- function(
   palette = "etopo1_hypso",
   ...,
@@ -290,9 +285,8 @@ scale_fill_hypso_b <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_b <- function(
   palette = "etopo1_hypso",
   ...,
@@ -323,11 +317,10 @@ scale_colour_hypso_b <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #'
 #' @inheritParams wiki.colors
+#' @export
 #' @examples
 #' # Display all the cpt-city palettes
 #'
@@ -391,9 +384,8 @@ hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
 #' `hypso.colors()` provides a uniform gradient across colors. See
 #' **Examples**.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_fill_hypso_tint_d <- function(
   palette = "etopo1_hypso",
   ...,
@@ -416,9 +408,8 @@ scale_fill_hypso_tint_d <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_tint_d <- function(
   palette = "etopo1_hypso",
   ...,
@@ -441,9 +432,8 @@ scale_colour_hypso_tint_d <- function(
     ...
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_fill_hypso_tint_c <- function(
   palette = "etopo1_hypso",
   ...,
@@ -475,9 +465,8 @@ scale_fill_hypso_tint_c <- function(
     guide = guide
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_tint_c <- function(
   palette = "etopo1_hypso",
   ...,
@@ -510,9 +499,8 @@ scale_colour_hypso_tint_c <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_fill_hypso_tint_b <- function(
   palette = "etopo1_hypso",
   ...,
@@ -544,9 +532,8 @@ scale_fill_hypso_tint_b <- function(
     guide = guide
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 scale_colour_hypso_tint_b <- function(
   palette = "etopo1_hypso",
   ...,
@@ -578,9 +565,8 @@ scale_colour_hypso_tint_b <- function(
     guide = guide
   )
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
+#' @export
 #' @examples
 #' # Display all the cpt-city palettes on version 2
 #'
@@ -657,38 +643,32 @@ hypso_pal2 <- function(alpha = 1, direction = 1, palette) {
   }
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_d <- scale_colour_hypso_d
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_tint_d <- scale_colour_hypso_tint_d
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_c <- scale_colour_hypso_c
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_tint_c <- scale_colour_hypso_tint_c
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_b <- scale_colour_hypso_b
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_hypso
 #' @usage NULL
+#' @export
 scale_color_hypso_tint_b <- scale_colour_hypso_tint_b

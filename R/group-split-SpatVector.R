@@ -17,8 +17,6 @@
 #' @details
 #' See **Details** on [dplyr::group_split()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname group_split.SpatVector
 #'
 #' @name group_split.SpatVector
@@ -54,6 +52,8 @@
 #' Implementation of the **generic** [dplyr::group_split()] for `SpatVector`
 #' objects.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'

@@ -3,15 +3,12 @@
 #' @description
 #' Keep only unique/distinct rows and geometries from a `SpatVector`.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname distinct.SpatVector
 #' @name distinct.SpatVector
 #'
 #' @seealso [dplyr::distinct()], [terra::unique()]
 #'
 #' @family dplyr.rows
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr distinct
 #'
@@ -38,6 +35,8 @@
 #' You can remove duplicate geometries by passing the reserved name
 #' `geometry` to `...`. See **Examples**.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)

@@ -119,4 +119,13 @@ group_data(gv2)
 
 group_indices(gv2)
 }
+\seealso{
+Other \CRANpkg{dplyr} grouping methods:
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+\code{\link[=group_map.SpatVector]{group_map.SpatVector()}},
+\code{\link[=group_nest.SpatVector]{group_nest.SpatVector()}},
+\code{\link[=group_split.SpatVector]{group_split.SpatVector()}},
+\code{\link[=group_trim.SpatVector]{group_trim.SpatVector()}}
+}
+\concept{dplyr.group_functions}
 \keyword{internal}

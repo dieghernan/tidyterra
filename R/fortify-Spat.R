@@ -6,9 +6,6 @@
 #'
 #' These methods are now implemented as wrappers around [`tidy.Spat`] methods.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname fortify.Spat
 #' @name fortify.Spat
 #'
@@ -65,6 +62,8 @@
 #' Returns an [`sf`][sf::st_sf] object that can be used with
 #' [ggplot2::geom_sf()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
@@ -136,23 +135,20 @@ fortify.SpatRaster <- function(
   )
 }
 
+#' @rdname fortify.Spat
 #' @export
-#' @encoding UTF-8
-#' @name fortify.Spat
 fortify.SpatVector <- function(model, data, ...) {
   tidy(x = model, ...)
 }
 
+#' @rdname fortify.Spat
 #' @export
-#' @encoding UTF-8
-#' @name fortify.Spat
 fortify.SpatGraticule <- function(model, data, ...) {
   tidy(x = model, ...)
 }
 
+#' @rdname fortify.Spat
 #' @export
-#' @encoding UTF-8
-#' @name fortify.Spat
 fortify.SpatExtent <- function(model, data, ..., crs = "") {
   tidy(x = model, ..., crs = crs)
 }

@@ -9,15 +9,12 @@
 #' binds the rows in order in which they appear so it is easy to create
 #' meaningless results without realizing it.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname bind_cols.SpatVector
 #' @name bind_cols.SpatVector
 #'
 #' @seealso [dplyr::bind_cols()]
 #'
 #' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @inheritParams dplyr::bind_cols
 #'
@@ -39,6 +36,8 @@
 #' objects. For the second and subsequent arguments in `...`, the geometry is
 #' not `cbind`ed and only the data frame-like columns are kept.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' sv <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))

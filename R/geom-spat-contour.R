@@ -12,9 +12,6 @@
 #' `geom_spatraster_contour_text()` creates labeled contours and it is
 #' implemented on top of [isoband::isolines_grob()].
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname geom_spat_contour
 #' @name geom_spat_contour
 #' @seealso
@@ -82,6 +79,8 @@
 #'
 #' @order 1
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'

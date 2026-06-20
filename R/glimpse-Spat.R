@@ -5,23 +5,20 @@
 #' down the page and data runs across. This makes it possible to see every
 #' layer/column in a `Spat*` object.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname glimpse.Spat
 #' @name glimpse.Spat
 #'
 #' @seealso [tibble::print.tbl_df()]
 #'
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr glimpse
 #'
 #' @inheritParams as_tibble.Spat
 #' @inheritParams pillar::glimpse
 #'
-#' @param ... Arguments passed on to [`as_tibble()`][as_tibble.Spat] methods
-#'   for `SpatRaster` and `SpatVector`.
+#' @param ... Arguments passed on to [as_tibble.SpatRaster()] or
+#'   [as_tibble.SpatVector()] methods.
 #' @param max_extra_cols Number of extra columns or layers to print abbreviated
 #'   information for, if `n` is too small for the `Spat*` object.
 #' @param n Maximum number of rows to show.
@@ -38,6 +35,8 @@
 #' Implementation of the **generic** [dplyr::glimpse()] function for
 #' `Spat*` objects.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -115,9 +114,8 @@ glimpse.SpatRaster <- function(
   invisible(x)
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname glimpse.Spat
+#' @export
 glimpse.SpatVector <- function(
   x,
   width = NULL,

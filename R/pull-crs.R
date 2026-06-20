@@ -32,15 +32,12 @@
 #' Knowing the WKT helps smooth workflows when working with different
 #' packages and object types.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @seealso
 #'
 #' [terra::crs()] and [sf::st_crs()] to learn how these packages handle
 #' CRS definitions.
 #'
-#' @family helpers
+#' @concept helpers
 #' @param .data Input potentially including or representing a CRS. It could be
 #'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
 #'   [sf::st_crs()], a character (for example a [proj4
@@ -55,6 +52,8 @@
 #'
 #' A thin wrapper around [sf::st_crs()] and [terra::crs()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' # sf objects.

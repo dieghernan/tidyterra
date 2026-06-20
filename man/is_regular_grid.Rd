@@ -40,10 +40,5 @@ is_regular_grid(p_jitter, digits = 4)
 }
 \seealso{
 \code{\link[=as_spatraster]{as_spatraster()}}
-
-Other helpers:
-\code{\link[=compare_spatrasters]{compare_spatrasters()}},
-\code{\link[=is_grouped_spatvector]{is_grouped_spatvector()}},
-\code{\link[=pull_crs]{pull_crs()}}
 }
 \concept{helpers}

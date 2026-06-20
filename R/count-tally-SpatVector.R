@@ -11,15 +11,12 @@
 #' `add_count()` is equivalent to `count()` but use [mutate()] instead of
 #' [summarise()] so that it adds a new column with group-wise counts.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname count.SpatVector
 #' @name count.SpatVector
 #'
 #' @seealso [dplyr::count()], [dplyr::tally()]
 #'
 #' @family dplyr.groups
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr count
 #'
@@ -45,6 +42,8 @@
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
@@ -140,9 +139,9 @@ count.SpatVector <- function(
 #' @export
 dplyr::count
 
-#' @export
-#' @name count.SpatVector
+#' @rdname count.SpatVector
 #' @importFrom dplyr tally
+#' @export
 tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
   # Use terra method on ungrouped
   if (!is_grouped_spatvector(x)) {
@@ -193,10 +192,9 @@ tally.SpatVector <- function(x, wt = NULL, sort = FALSE, name = NULL) {
 #' @export
 dplyr::tally
 
-#' @export
-#' @encoding UTF-8
-#' @name count.SpatVector
+#' @rdname count.SpatVector
 #' @importFrom dplyr add_count
+#' @export
 add_count.SpatVector <- function(
   x,
   ...,

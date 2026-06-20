@@ -15,8 +15,6 @@
 #' `.f` is applied to the entire object and `.y` is a one-row tibble with no
 #' columns.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname group_map.SpatVector
 #' @name group_map.SpatVector
 #'
@@ -49,6 +47,8 @@
 #' `group_modify()` requires `.f` to return `SpatVector` objects and binds the
 #' results.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #' v$grp <- rep(c("A", "B"), length.out = nrow(v))
@@ -68,10 +68,9 @@ group_map.SpatVector <- function(.data, .f, ..., .keep = FALSE) {
 #' @export
 dplyr::group_map
 
-#' @export
-#' @encoding UTF-8
 #' @rdname group_map.SpatVector
 #' @importFrom dplyr group_modify
+#' @export
 group_modify.SpatVector <- function(.data, .f, ..., .keep = FALSE) {
   mapped <- group_map(.data, .f, ..., .keep = .keep)
 

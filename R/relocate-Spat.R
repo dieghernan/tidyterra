@@ -6,15 +6,12 @@
 #' as [`select.Spat`][select.Spat] to make it easy to move blocks of
 #' layers/attributes at once.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname relocate.Spat
 #' @name relocate.Spat
 #'
 #' @seealso [dplyr::relocate()]
 #'
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr relocate
 #'
@@ -44,6 +41,8 @@
 #'
 #' The result is a `SpatVector` with the attributes on a different order.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -74,9 +73,8 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
   finalrast
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname relocate.Spat
+#' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
   # Use own method
   # With template

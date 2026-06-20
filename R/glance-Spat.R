@@ -3,9 +3,6 @@
 #' Glance accepts a model object and returns a [tibble::tibble()] with exactly
 #' one row of `Spat`. The summaries are typically geographic information.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname glance.Spat
 #' @name glance.Spat
 #'
@@ -27,6 +24,8 @@
 #' Implementation of the **generic** [generics::glance()] method for
 #' `Spat*` objects.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -79,9 +78,8 @@ glance.SpatRaster <- function(x, ...) {
   initial
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname glance.Spat
+#' @export
 glance.SpatVector <- function(x, ...) {
   initial <- tibble::tibble(
     geometry = terra::geomtype(x),

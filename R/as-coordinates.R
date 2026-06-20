@@ -5,9 +5,6 @@
 #' `as_coordinates()` can be used to obtain the position of each cell on the
 #' `SpatRaster` matrix.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @seealso [slice.SpatRaster()]
 #'
 #' @family coerce
@@ -22,6 +19,8 @@
 #' When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
 #' extent and resolution as `x`.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)

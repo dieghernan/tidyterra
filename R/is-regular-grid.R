@@ -7,12 +7,9 @@
 #'
 #' This function is internally called by [as_spatraster()].
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @seealso [as_spatraster()]
 #'
-#' @family helpers
+#' @concept helpers
 #'
 #' @inheritParams as_spatraster
 #'
@@ -21,6 +18,8 @@
 #' @returns
 #' `invisible()` if the coordinates form a regular grid. Otherwise, an error.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' p <- matrix(1:90, nrow = 45, ncol = 2)

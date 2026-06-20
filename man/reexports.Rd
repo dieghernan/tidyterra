@@ -15,7 +15,6 @@
 %   R/tidyterra-package.R, R/transmute-Spat.R, R/uncount-SpatVector.R,
 %   R/unite-Spat.R
 \docType{import}
-\encoding{UTF-8}
 \name{reexports}
 \alias{reexports}
 \alias{arrange}

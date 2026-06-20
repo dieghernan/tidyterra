@@ -5,15 +5,12 @@
 #' `unite()` combines multiple layers or attributes by pasting their values
 #' together.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname unite.Spat
 #' @name unite.Spat
 #'
 #' @seealso [tidyr::unite()]
 #'
 #' @family tidyr.character
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr unite
 #'
@@ -35,6 +32,8 @@
 #'
 #' The geometry column has sticky behavior and is never united with attributes.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(tidyr)
 #'
@@ -78,9 +77,8 @@ unite.SpatRaster <- function(
   as_spat_internal(final_tbl)
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname unite.Spat
+#' @export
 unite.SpatVector <- function(
   data,
   col,

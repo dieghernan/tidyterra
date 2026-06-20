@@ -4,16 +4,12 @@
 #' `arrange.SpatVector()` orders the geometries of a `SpatVector` by the
 #' values of selected columns.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname arrange.SpatVector
 #' @name arrange.SpatVector
 #'
 #' @seealso [dplyr::arrange()]
 #'
-#' @family dplyr.single_table
 #' @family dplyr.rows
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr arrange
 #'
@@ -33,6 +29,8 @@
 #' Implementation of the **generic** [dplyr::arrange()] function for
 #' `SpatVector` class.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)

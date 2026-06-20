@@ -80,6 +80,7 @@ v |>
 
 Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+\code{\link[=group_data.SpatVector]{group_data.SpatVector()}},
 \code{\link[=group_map.SpatVector]{group_map.SpatVector()}},
 \code{\link[=group_nest.SpatVector]{group_nest.SpatVector()}},
 \code{\link[=group_trim.SpatVector]{group_trim.SpatVector()}}

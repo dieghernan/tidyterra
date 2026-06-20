@@ -16,14 +16,13 @@
 #' arguments, so check [ggplot2::discrete_scale()] to see the full range of
 #' arguments accepted.
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname scale_coltab
 #'
 #' @name scale_coltab
 #' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
-#'   [ggplot2::scale_fill_manual()],
+#'   [ggplot2::scale_fill_manual()].
+#'
+#' @family gradients
 #'
 #' @inheritParams scale_cross_blended
 #'
@@ -39,6 +38,8 @@
 #' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 #' `fill/colour` aesthetics.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' library(terra)
 #' # Geological Eras
@@ -98,9 +99,8 @@ scale_fill_coltab <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_coltab
+#' @export
 scale_colour_coltab <- function(
   data,
   ...,
@@ -133,15 +133,13 @@ scale_colour_coltab <- function(
   )
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_wiki
 #' @usage NULL
+#' @export
 scale_color_coltab <- scale_colour_coltab
 
-#' @export
-#' @encoding UTF-8
 #' @rdname scale_coltab
+#' @export
 get_coltab_pal <- function(x) {
   if (!inherits(x, "SpatRaster")) {
     cli::cli_alert_info(paste(

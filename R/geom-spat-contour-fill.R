@@ -1,8 +1,7 @@
-#' @export
-#' @encoding UTF-8
 #' @rdname geom_spat_contour
 #' @order 3
 #'
+#' @export
 geom_spatraster_contour_filled <- function(
   mapping = NULL,
   data,

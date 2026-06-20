@@ -5,15 +5,12 @@
 #'
 #' See [dplyr::cross_join()] for details.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname cross_join.SpatVector
 #' @name cross_join.SpatVector
 #'
 #' @seealso [dplyr::cross_join()]
 #'
 #' @family dplyr.pairs
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr cross_join
 #'
@@ -36,6 +33,8 @@
 #' If `y` has a column named `geometry`, it is treated as a regular attribute
 #' and receives the suffix from `suffix`.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 #'

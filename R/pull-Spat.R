@@ -10,15 +10,12 @@
 #'
 #' See **Examples** and section **About layer names** on [as_tibble.Spat()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname pull.Spat
 #' @name pull.Spat
 #'
 #' @seealso [dplyr::pull()]
 #'
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr pull
 #'
@@ -37,7 +34,8 @@
 #'   [quasiquotation][rlang::topic-inject] (you can unquote column names and
 #'   column locations).
 #'
-#' @param ... Arguments passed on to [`as_tibble.Spat()`][as_tibble.Spat].
+#' @param ... Arguments passed on to [as_tibble.SpatRaster()] or
+#'   [as_tibble.SpatVector()] methods.
 #'
 #' @returns A vector the same number of cells/geometries as `.data`.
 #'
@@ -72,6 +70,8 @@
 #' `SpatRaster` method, when using `geom = "XY"` the `x,y` coordinates can be
 #' pulled with `var = x/var = y`. See [terra::as.data.frame()] options.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -102,9 +102,8 @@ pull.SpatRaster <- function(.data, var = -1, name = NULL, ...) {
   dplyr::pull(as_tibble(.data, ...), !!var, !!name)
 }
 
-#' @export
-#' @encoding UTF-8
 #' @rdname pull.Spat
+#' @export
 pull.SpatVector <- function(.data, var = -1, name = NULL, ...) {
   var <- rlang::enquo(var)
   name <- rlang::enquo(name)

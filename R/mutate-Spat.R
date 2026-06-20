@@ -5,8 +5,6 @@
 #' `mutate()` adds new layers/attributes and preserves existing ones on a
 #' `Spat*` object.
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname mutate.Spat
 #' @name mutate.Spat
 #'
@@ -21,9 +19,7 @@
 #' - [terra::clamp()].
 #' - [terra::app()], [terra::lapp()], [terra::tapp()].
 #'
-#' @family dplyr.single_table
 #' @family dplyr.cols
-#' @family dplyr.methods
 #'
 #' @importFrom dplyr mutate
 #'
@@ -55,6 +51,8 @@
 #' The result is a `SpatVector` with the modified (and possibly renamed)
 #' attributes on the function call.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #'
 #' library(terra)
@@ -143,9 +141,8 @@ mutate.SpatRaster <- function(
 
   final_rast
 }
-#' @export
-#' @encoding UTF-8
 #' @rdname mutate.Spat
+#' @export
 mutate.SpatVector <- function(
   .data,
   ...,

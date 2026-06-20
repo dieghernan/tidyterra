@@ -5,15 +5,12 @@
 #' decreasing the number of rows. The inverse transformation is
 #' [pivot_longer.SpatVector()].
 #'
-#' @export
-#' @encoding UTF-8
 #' @rdname pivot_wider.SpatVector
 #' @name pivot_wider.SpatVector
 #'
 #' @seealso [tidyr::pivot_wider()]
 #'
 #' @family tidyr.pivot
-#' @family tidyr.methods
 #'
 #' @importFrom tidyr pivot_wider
 #'
@@ -45,6 +42,8 @@
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `data`.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #' library(dplyr)

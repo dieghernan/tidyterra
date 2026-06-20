@@ -15,8 +15,6 @@
 #' [ggspatial
 #' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
-#' @export
-#' @encoding UTF-8
 #' @seealso
 #' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [grDevices::rgb()].
 #'
@@ -44,6 +42,8 @@
 #'
 #' No `aes()` is required. In fact, `aes()` will be ignored.
 #'
+#' @encoding UTF-8
+#' @export
 #' @examples
 #' \donttest{
 #'
