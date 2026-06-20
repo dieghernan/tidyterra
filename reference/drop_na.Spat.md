@@ -60,7 +60,7 @@ fewer geometries than the input.
 
 **\[questioning\]**
 
-The implementation of `drop_na().SpatRaster` can be understood as a
+The implementation of `drop_na.SpatRaster()` can be understood as a
 masking method based on the values of the layers (see
 [`terra::mask()`](https://rspatial.github.io/terra/reference/mask.html)).
 

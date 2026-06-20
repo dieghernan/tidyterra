@@ -31,7 +31,7 @@ extent and resolution as `x`.
 
 ## See also
 
-[`slice.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md)
+[`slice.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/slice.Spat.md).
 
 Coercing objects:
 [`as_sf()`](https://dieghernan.github.io/tidyterra/reference/as_sf.md),

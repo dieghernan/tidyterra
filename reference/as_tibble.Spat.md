@@ -139,7 +139,7 @@ If `geom` is not `NULL`, the same renaming logic described for
 ## See also
 
 [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html),
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
+[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 Coercing objects:
 [`as_coordinates()`](https://dieghernan.github.io/tidyterra/reference/as_coordinates.md),

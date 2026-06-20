@@ -70,7 +70,7 @@ function for `SpatVector` class.
 
 ## See also
 
-[`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)
+[`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:

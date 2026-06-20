@@ -73,7 +73,7 @@ attributes.
 
 ## See also
 
-[`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
+[`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html).
 
 ## Examples
 

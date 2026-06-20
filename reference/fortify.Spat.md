@@ -156,10 +156,7 @@ object that can be used with
 ## See also
 
 [`tidy.Spat`](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.md),
-[`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html),
-[`as_tibble.Spat`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md),
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md),
-[`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html).
+[`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html).
 
 Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.md),

@@ -152,9 +152,6 @@ object that can be used with
 ## See also
 
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html),
-[`as_tibble.Spat`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md),
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md),
-[`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),
 [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html).
 
 Other [generics](https://CRAN.R-project.org/package=generics) methods:

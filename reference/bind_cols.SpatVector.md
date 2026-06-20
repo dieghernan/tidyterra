@@ -53,7 +53,7 @@ frame-like columns are kept.
 
 ## See also
 
-[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
+[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on pairs of `SpatVector` and data frame objects:

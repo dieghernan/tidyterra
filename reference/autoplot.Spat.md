@@ -107,7 +107,7 @@ or
 
 ## See also
 
-[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
+[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html).
 
 Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md),

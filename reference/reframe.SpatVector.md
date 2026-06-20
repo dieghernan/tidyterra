@@ -58,8 +58,7 @@ geometry is repeated for each output row.
 
 ## See also
 
-[`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/summarise.SpatVector.md)
+[`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:
