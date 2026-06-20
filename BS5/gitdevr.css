@@ -6,6 +6,7 @@
 	--bs-body-bg-rgb: 36, 41, 47;
 	--bs-body-color: #fff;
 	--bs-body-color-rgb: 255, 255, 255;
+	--bs-gray-500: #9aa4af;
 
 	--bs-blue: #2b8ffd;
 	--bs-blue-rgb: 43, 143, 253;
@@ -21,25 +22,25 @@
 	--bs-secondary-rgb: 108, 117, 125;
 	--bs-secondary-color: #6c757d;
 
-	--bs-success: #2da44e;
-	--bs-success-rgb: 45, 164, 78;
-	--bs-success-color: #2da44e;
-	--bs-success-color-rgb: 45, 164, 78;
+	--bs-success: #5ccf7a;
+	--bs-success-rgb: 92, 207, 122;
+	--bs-success-color: #5ccf7a;
+	--bs-success-color-rgb: 92, 207, 122;
 
-	--bs-info: #9686be;
-	--bs-info-rgb: 150, 134, 190;
-	--bs-info-color: #9686be;
-	--bs-info-color-rgb: 150, 134, 190;
+	--bs-info: #b8a7e6;
+	--bs-info-rgb: 184, 167, 230;
+	--bs-info-color: #b8a7e6;
+	--bs-info-color-rgb: 184, 167, 230;
 
-	--bs-warning: #d4a72c;
-	--bs-warning-rgb: 212, 167, 44;
-	--bs-warning-color: #d4a72c;
-	--bs-warning-color-rgb: 212, 167, 44;
+	--bs-warning: #e3ba52;
+	--bs-warning-rgb: 227, 186, 82;
+	--bs-warning-color: #e3ba52;
+	--bs-warning-color-rgb: 227, 186, 82;
 
-	--bs-danger: #d86f75;
-	--bs-danger-rgb: 216, 111, 117;
-	--bs-danger-color: #d86f75;
-	--bs-danger-color-rgb: 216, 111, 117;
+	--bs-danger: #ee8f95;
+	--bs-danger-rgb: 238, 143, 149;
+	--bs-danger-color: #ee8f95;
+	--bs-danger-color-rgb: 238, 143, 149;
 
 	--bs-light: #f8f9fa;
 	--bs-light-rgb: 248, 249, 250;

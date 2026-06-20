@@ -403,6 +403,7 @@ additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_wiki.md),
+[`scale_coltab`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
 [`scale_princess`](https://dieghernan.github.io/tidyterra/reference/scale_princess.md),

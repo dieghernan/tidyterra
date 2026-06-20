@@ -33,11 +33,6 @@ coordinates form a regular grid. Otherwise, an error.
 
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md)
 
-Other helpers:
-[`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.md),
-[`is_grouped_spatvector()`](https://dieghernan.github.io/tidyterra/reference/is_grouped_spatvector.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-
 ## Examples
 
 ``` r

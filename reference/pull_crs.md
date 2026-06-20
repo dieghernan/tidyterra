@@ -64,11 +64,6 @@ and
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 to learn how these packages handle CRS definitions.
 
-Other helpers:
-[`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.md),
-[`is_grouped_spatvector()`](https://dieghernan.github.io/tidyterra/reference/is_grouped_spatvector.md),
-[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/reference/is_regular_grid.md)
-
 ## Examples
 
 ``` r

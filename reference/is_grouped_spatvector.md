@@ -32,13 +32,6 @@ is_grouped_spatvector(x)
 
 `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
 
-## See also
-
-Other helpers:
-[`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/reference/compare_spatrasters.md),
-[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/reference/is_regular_grid.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-
 ## Examples
 
 ``` r

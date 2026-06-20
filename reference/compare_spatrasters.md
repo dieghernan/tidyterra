@@ -52,11 +52,6 @@ found.
 
 [`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html)
 
-Other helpers:
-[`is_grouped_spatvector()`](https://dieghernan.github.io/tidyterra/reference/is_grouped_spatvector.md),
-[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/reference/is_regular_grid.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
-
 ## Examples
 
 ``` r

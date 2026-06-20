@@ -247,6 +247,7 @@ See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
+[`scale_coltab`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md),
