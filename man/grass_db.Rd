@@ -127,7 +127,7 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 \url{https://grass.osgeo.org}.
 }
 \seealso{
-\code{\link[=scale_fill_grass_c]{scale_fill_grass_c()}}
+\code{\link[=scale_fill_grass_c]{scale_fill_grass_c()}}.
 
 Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},

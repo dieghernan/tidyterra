@@ -171,7 +171,7 @@ ggplot(cyl) +
 }
 }
 \seealso{
-\code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}
+\code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
 
 Other \CRANpkg{ggplot2} helpers:
 \code{\link{autoplot.Spat}},

@@ -170,7 +170,7 @@ xtra |>
 }
 }
 \seealso{
-\code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}
+\code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}}.
 
 Other \CRANpkg{tidyr} verbs for pivoting:
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}}

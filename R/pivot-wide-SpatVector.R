@@ -8,7 +8,7 @@
 #' @rdname pivot_wider.SpatVector
 #' @name pivot_wider.SpatVector
 #'
-#' @seealso [tidyr::pivot_wider()]
+#' @seealso [tidyr::pivot_wider()].
 #'
 #' @family tidyr.pivot
 #'

@@ -10,7 +10,7 @@
 #' @rdname pivot_longer.SpatVector
 #' @name pivot_longer.SpatVector
 #'
-#' @seealso [tidyr::pivot_longer()]
+#' @seealso [tidyr::pivot_longer()].
 #'
 #' @family tidyr.pivot
 #'

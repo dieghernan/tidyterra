@@ -67,7 +67,7 @@ complete(v, grp, tidyr::nesting(iso2, name)) |>
 
 }
 \seealso{
-\code{\link[tidyr:complete]{tidyr::complete()}}
+\code{\link[tidyr:complete]{tidyr::complete()}}.
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link{drop_na.Spat}},

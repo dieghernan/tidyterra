@@ -17,7 +17,6 @@
 #' @importFrom generics tidy
 #' @inheritParams geom_spatraster
 #' @inheritParams as_tibble.Spat
-#' @inheritParams generics::tidy
 #'
 #' @param x A `SpatRaster` created with [terra::rast()], a `SpatVector`
 #'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])

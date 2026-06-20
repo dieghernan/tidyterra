@@ -5,6 +5,7 @@
 \alias{scale_coltab}
 \alias{scale_fill_coltab}
 \alias{scale_colour_coltab}
+\alias{scale_color_coltab}
 \alias{get_coltab_pal}
 \title{Discrete scales based on \code{SpatRaster} color tables}
 \usage{
@@ -152,12 +153,12 @@ gg +
 \code{\link[ggplot2:scale_fill_manual]{ggplot2::scale_fill_manual()}}.
 
 Other color scales, palettes and hypsometric tints:
-\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},
 \code{\link{scale_hypso}},
 \code{\link{scale_princess}},
 \code{\link{scale_terrain}},
-\code{\link{scale_whitebox}}
+\code{\link{scale_whitebox}},
+\code{\link{scale_wiki}}
 }
 \concept{gradients}

@@ -9,7 +9,7 @@
 #' @rdname expand.SpatVector
 #' @name expand.SpatVector
 #'
-#' @seealso [tidyr::expand()], [complete.SpatVector()]
+#' @seealso [tidyr::expand()], [complete.SpatVector()].
 #'
 #' @family tidyr.missing
 #'

@@ -192,7 +192,7 @@ ggplot(full, aes(x, y)) +
 }
 \seealso{
 \code{\link[dplyr:inner_join]{dplyr::inner_join()}}, \code{\link[dplyr:left_join]{dplyr::left_join()}}, \code{\link[dplyr:right_join]{dplyr::right_join()}},
-\code{\link[dplyr:full_join]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}
+\code{\link[dplyr:full_join]{dplyr::full_join()}}, \code{\link[terra:merge]{terra::merge()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},

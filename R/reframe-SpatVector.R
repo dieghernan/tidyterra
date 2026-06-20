@@ -13,10 +13,9 @@
 #'
 #' @importFrom dplyr reframe
 #'
-#' @inheritParams dplyr::reframe
 #' @inheritParams summarise.SpatVector
+#' @inheritParams dplyr::reframe
 #'
-#' @param .data A `SpatVector`.
 #' @returns A `SpatVector`.
 #'
 #' @section Methods:

@@ -6,7 +6,7 @@
 #'
 #' @rdname uncount.SpatVector
 #'
-#' @seealso [tidyr::uncount()]
+#' @seealso [tidyr::uncount()].
 #'
 #' @family tidyr.rows
 #'

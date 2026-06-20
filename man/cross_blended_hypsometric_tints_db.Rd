@@ -77,7 +77,7 @@ p +
 }
 }
 \seealso{
-\code{\link[=scale_fill_cross_blended_c]{scale_fill_cross_blended_c()}}
+\code{\link[=scale_fill_cross_blended_c]{scale_fill_cross_blended_c()}}.
 
 Other datasets:
 \code{\link{grass_db}},

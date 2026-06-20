@@ -54,7 +54,7 @@ labels <- data.frame(period = c("past", "present"))
 cross_join(v, labels)
 }
 \seealso{
-\code{\link[dplyr:cross_join]{dplyr::cross_join()}}
+\code{\link[dplyr:cross_join]{dplyr::cross_join()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},

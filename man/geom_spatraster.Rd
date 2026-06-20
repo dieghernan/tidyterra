@@ -280,8 +280,7 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}},
-\code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}
+\code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}, \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}}, \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}.
 
 Recommended \code{geoms}:
 \itemize{

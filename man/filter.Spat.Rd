@@ -126,7 +126,7 @@ v |> filter(cpro < 10)
 v |> filter_out(cpro >= 10)
 }
 \seealso{
-\code{\link[dplyr:filter]{dplyr::filter()}}
+\code{\link[dplyr:filter]{dplyr::filter()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},

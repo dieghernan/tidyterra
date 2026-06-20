@@ -6,7 +6,7 @@
 #' @rdname rows.SpatVector
 #' @name rows.SpatVector
 #'
-#' @seealso [dplyr::rows_insert()]
+#' @seealso [dplyr::rows_insert()].
 #'
 #' @family dplyr.rows
 #' @family dplyr.pairs

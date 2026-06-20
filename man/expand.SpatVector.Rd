@@ -63,7 +63,7 @@ v$grp <- rep(c("A", "B"), length.out = nrow(v))
 expand(v, grp, cpro)
 }
 \seealso{
-\code{\link[tidyr:expand]{tidyr::expand()}}, \code{\link[=complete.SpatVector]{complete.SpatVector()}}
+\code{\link[tidyr:expand]{tidyr::expand()}}, \code{\link[=complete.SpatVector]{complete.SpatVector()}}.
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},

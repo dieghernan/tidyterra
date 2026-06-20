@@ -13,7 +13,7 @@
 #' @rdname pull.Spat
 #' @name pull.Spat
 #'
-#' @seealso [dplyr::pull()]
+#' @seealso [dplyr::pull()].
 #'
 #' @family dplyr.cols
 #'

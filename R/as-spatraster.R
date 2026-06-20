@@ -13,8 +13,9 @@
 #' [`attr(x, "crs")`][attr()].
 #'
 #' @seealso
-#' [pull_crs()] for retrieving CRS and the corresponding utilities
-#' [sf::st_crs()] and [terra::crs()].
+#' [is_regular_grid()] for checking whether coordinates form a regular grid.
+#' [pull_crs()] retrieves CRS information, as do [sf::st_crs()] and
+#' [terra::crs()].
 #'
 #' @family coerce
 #'

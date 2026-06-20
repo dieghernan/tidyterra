@@ -9,7 +9,7 @@
 #' This function compares those attributes and reports the results. See
 #' **Solving issues** for minimal guidance.
 #'
-#' @seealso [terra::identical()]
+#' @seealso [terra::identical()].
 #' @concept helpers
 #' @param x,y `SpatRaster` objects.
 #' @param digits Integer to set the precision for comparing the extent and

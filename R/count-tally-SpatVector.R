@@ -14,7 +14,7 @@
 #' @rdname count.SpatVector
 #' @name count.SpatVector
 #'
-#' @seealso [dplyr::count()], [dplyr::tally()]
+#' @seealso [dplyr::count()], [dplyr::tally()].
 #'
 #' @family dplyr.groups
 #'

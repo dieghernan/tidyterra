@@ -16,8 +16,8 @@
 #' Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
 #' contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 #'
-#' @seealso [ggplot2::geom_raster()], [ggplot2::coord_sf()],
-#' [ggplot2::facet_wrap()]
+#' @seealso
+#' [ggplot2::geom_raster()], [ggplot2::coord_sf()], [ggplot2::facet_wrap()].
 #'
 #' @family ggplot2.utils
 #' @inheritParams ggplot2::geom_raster

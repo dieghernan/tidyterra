@@ -13,7 +13,7 @@
 #' @rdname group_by.SpatVector
 #' @name group_by.SpatVector
 #'
-#' @seealso [dplyr::group_by()], [dplyr::ungroup()]
+#' @seealso [dplyr::group_by()], [dplyr::ungroup()].
 #'
 #' @family dplyr.groups
 #' @family dplyr.group_functions

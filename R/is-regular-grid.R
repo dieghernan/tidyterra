@@ -7,7 +7,7 @@
 #'
 #' This function is internally called by [as_spatraster()].
 #'
-#' @seealso [as_spatraster()]
+#' @seealso [as_spatraster()].
 #'
 #' @concept helpers
 #'

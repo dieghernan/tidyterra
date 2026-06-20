@@ -12,7 +12,7 @@
 #'
 #' @seealso
 #' [dplyr::inner_join()], [dplyr::left_join()], [dplyr::right_join()],
-#' [dplyr::full_join()], [terra::merge()]
+#' [dplyr::full_join()], [terra::merge()].
 #'
 #' @family dplyr.pairs
 #'
@@ -254,7 +254,7 @@ dplyr::full_join
 #' @rdname filter-joins.SpatVector
 #' @name filter-joins.SpatVector
 #'
-#' @seealso [dplyr::semi_join()], [dplyr::anti_join()], [terra::merge()]
+#' @seealso [dplyr::semi_join()], [dplyr::anti_join()], [terra::merge()].
 #'
 #' @family dplyr.pairs
 #'

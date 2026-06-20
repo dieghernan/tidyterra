@@ -60,8 +60,9 @@ newrast
 
 }
 \seealso{
-\code{\link[=pull_crs]{pull_crs()}} for retrieving CRS and the corresponding utilities
-\code{\link[sf:st_crs]{sf::st_crs()}} and \code{\link[terra:crs]{terra::crs()}}.
+\code{\link[=is_regular_grid]{is_regular_grid()}} for checking whether coordinates form a regular grid.
+\code{\link[=pull_crs]{pull_crs()}} retrieves CRS information, as do \code{\link[sf:st_crs]{sf::st_crs()}} and
+\code{\link[terra:crs]{terra::crs()}}.
 
 Coercing objects:
 \code{\link[=as_coordinates]{as_coordinates()}},

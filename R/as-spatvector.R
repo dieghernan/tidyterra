@@ -29,7 +29,7 @@
 #'
 #' @family coerce
 #'
-#' @inheritParams as_spatraster
+#' @inheritParams as_spatraster crs
 #'
 #' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
 #'   class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].

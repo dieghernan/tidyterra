@@ -110,7 +110,7 @@ r |>
 
 }
 \seealso{
-\code{\link[dplyr:pull]{dplyr::pull()}}
+\code{\link[dplyr:pull]{dplyr::pull()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},

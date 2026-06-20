@@ -64,7 +64,7 @@ group_map(group_by(v, grp), ~ nrow(.x))
 group_modify(group_by(v, grp), ~ mutate(.x, key = .y$grp))
 }
 \seealso{
-\code{\link[dplyr:group_map]{dplyr::group_map()}} and \code{\link[dplyr:group_modify]{dplyr::group_modify()}}.
+\code{\link[dplyr:group_map]{dplyr::group_map()}}, \code{\link[dplyr:group_modify]{dplyr::group_modify()}}.
 
 Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},

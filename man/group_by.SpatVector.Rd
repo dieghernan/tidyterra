@@ -119,7 +119,7 @@ p |>
 }
 }
 \seealso{
-\code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:ungroup]{dplyr::ungroup()}}
+\code{\link[dplyr:group_by]{dplyr::group_by()}}, \code{\link[dplyr:ungroup]{dplyr::ungroup()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},

@@ -74,7 +74,7 @@ lux_blnk |>
 
 }
 \seealso{
-\code{\link[tidyr:fill]{tidyr::fill()}}
+\code{\link[tidyr:fill]{tidyr::fill()}}.
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},

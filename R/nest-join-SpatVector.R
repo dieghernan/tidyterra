@@ -7,7 +7,7 @@
 #' @rdname nest_join.SpatVector
 #' @name nest_join.SpatVector
 #'
-#' @seealso [dplyr::nest_join()]
+#' @seealso [dplyr::nest_join()].
 #'
 #' @family dplyr.pairs
 #'

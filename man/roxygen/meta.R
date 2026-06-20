@@ -6,7 +6,6 @@ list(
   # Keep these names aligned with `@family` tags and pkgdown `has_concept()`.
   rd_family_title = list(
     coerce = "Coercing objects:",
-    helpers = "Other helpers:",
     datasets = "Other datasets:",
     tibble.methods = "Other \\CRANpkg{tibble} methods:",
     generics.methods = "Other \\CRANpkg{generics} methods:",

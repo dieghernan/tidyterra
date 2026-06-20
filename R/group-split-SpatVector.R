@@ -21,7 +21,7 @@
 #'
 #' @name group_split.SpatVector
 #' @keywords internal
-#' @seealso [dplyr::group_split()], [terra::svc()]
+#' @seealso [dplyr::group_split()], [terra::svc()].
 #'
 #' @family dplyr.group_functions
 #'

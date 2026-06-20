@@ -84,6 +84,6 @@ terra::svc(sv)
 
 }
 \seealso{
-\code{\link[tidyr:nest]{tidyr::nest()}}, \code{\link[terra:svc]{terra::svc()}}
+\code{\link[tidyr:nest]{tidyr::nest()}}, \code{\link[terra:svc]{terra::svc()}}.
 }
 \concept{tidyr.nest}

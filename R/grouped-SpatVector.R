@@ -13,7 +13,7 @@
 #' @keywords internal
 #' @concept helpers
 #'
-#' @inheritParams as_sf
+#' @inheritParams as_sf x
 #'
 #' @returns `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
 #'

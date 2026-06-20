@@ -8,7 +8,7 @@
 #' @rdname select.Spat
 #' @name select.Spat
 #'
-#' @seealso [dplyr::select()], [terra::subset()]
+#' @seealso [dplyr::select()], [terra::subset()].
 #'
 #' @family dplyr.cols
 #'

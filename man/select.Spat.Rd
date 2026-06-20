@@ -87,7 +87,7 @@ v |> select(1, 3)
 v |> select(iso2, name2 = cpro)
 }
 \seealso{
-\code{\link[dplyr:select]{dplyr::select()}}, \code{\link[terra:subset]{terra::subset()}}
+\code{\link[dplyr:select]{dplyr::select()}}, \code{\link[terra:subset]{terra::subset()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},

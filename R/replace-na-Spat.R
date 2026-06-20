@@ -6,7 +6,7 @@
 #'
 #' @rdname replace_na.Spat
 #' @name replace_na.Spat
-#' @seealso [tidyr::replace_na()]
+#' @seealso [tidyr::replace_na()].
 #'
 #' @family tidyr.missing
 #'

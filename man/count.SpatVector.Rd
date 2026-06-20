@@ -113,7 +113,7 @@ p |>
 }
 }
 \seealso{
-\code{\link[dplyr:count]{dplyr::count()}}, \code{\link[dplyr:tally]{dplyr::tally()}}
+\code{\link[dplyr:count]{dplyr::count()}}, \code{\link[dplyr:tally]{dplyr::tally()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},

@@ -9,7 +9,7 @@
 #' @rdname fill.SpatVector
 #' @name fill.SpatVector
 #'
-#' @seealso [tidyr::fill()]
+#' @seealso [tidyr::fill()].
 #'
 #' @family tidyr.missing
 #'

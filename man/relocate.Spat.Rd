@@ -66,7 +66,7 @@ spatrast |>
 
 }
 \seealso{
-\code{\link[dplyr:relocate]{dplyr::relocate()}}
+\code{\link[dplyr:relocate]{dplyr::relocate()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},

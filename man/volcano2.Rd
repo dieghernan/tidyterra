@@ -60,7 +60,7 @@ ggplot() +
 }
 }
 \seealso{
-\link{volcano}
+\link{volcano}.
 
 Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},

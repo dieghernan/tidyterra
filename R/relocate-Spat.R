@@ -9,7 +9,7 @@
 #' @rdname relocate.Spat
 #' @name relocate.Spat
 #'
-#' @seealso [dplyr::relocate()]
+#' @seealso [dplyr::relocate()].
 #'
 #' @family dplyr.cols
 #'

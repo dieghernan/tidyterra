@@ -19,8 +19,7 @@
 #' @name group_map.SpatVector
 #'
 #' @keywords internal
-#' @seealso
-#' [dplyr::group_map()] and [dplyr::group_modify()].
+#' @seealso [dplyr::group_map()], [dplyr::group_modify()].
 #'
 #' @family dplyr.group_functions
 #'

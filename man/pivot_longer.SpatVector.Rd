@@ -168,7 +168,7 @@ cyl_temp |>
 }
 }
 \seealso{
-\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}
+\code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}.
 
 Other \CRANpkg{tidyr} verbs for pivoting:
 \code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}

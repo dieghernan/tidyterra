@@ -9,7 +9,6 @@
 #' @name mutate.Spat
 #'
 #' @seealso
-#'
 #' [dplyr::mutate()] methods.
 #'
 #' \CRANpkg{terra} provides several ways to modify `Spat*` objects:

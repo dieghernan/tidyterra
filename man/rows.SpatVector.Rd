@@ -139,7 +139,7 @@ rows_insert(
 )
 }
 \seealso{
-\code{\link[dplyr:rows_insert]{dplyr::rows_insert()}}
+\code{\link[dplyr:rows_insert]{dplyr::rows_insert()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link[=arrange.SpatVector]{arrange.SpatVector()}},

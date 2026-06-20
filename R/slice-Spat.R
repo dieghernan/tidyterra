@@ -43,7 +43,6 @@
 #'   `SpatRaster`. See also [terra::trim()], [terra::extend()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
 #'   Provide either positive values to keep or negative values to drop.
-#'
 #'   The values provided must be either all positive or all negative. Indices
 #'   beyond the number of rows in the input are silently ignored. See
 #'   **Methods**.

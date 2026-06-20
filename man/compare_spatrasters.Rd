@@ -71,6 +71,6 @@ compare_spatrasters(x, project(x, "epsg:3035"))
 
 }
 \seealso{
-\code{\link[terra:identical]{terra::identical()}}
+\code{\link[terra:identical]{terra::identical()}}.
 }
 \concept{helpers}

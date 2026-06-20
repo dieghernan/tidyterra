@@ -8,7 +8,7 @@
 #' @rdname rename.Spat
 #' @name rename.Spat
 #'
-#' @seealso [dplyr::rename()]
+#' @seealso [dplyr::rename()].
 #'
 #' @family dplyr.cols
 #'

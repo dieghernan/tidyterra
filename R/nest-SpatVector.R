@@ -6,7 +6,7 @@
 #'
 #' @rdname nest.SpatVector
 #'
-#' @seealso [tidyr::nest()], [terra::svc()]
+#' @seealso [tidyr::nest()], [terra::svc()].
 #'
 #' @family tidyr.nest
 #'

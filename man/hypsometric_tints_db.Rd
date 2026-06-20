@@ -58,7 +58,7 @@ p +
 }
 }
 \seealso{
-\code{\link[=scale_fill_hypso_c]{scale_fill_hypso_c()}}
+\code{\link[=scale_fill_hypso_c]{scale_fill_hypso_c()}}.
 
 Other datasets:
 \code{\link{cross_blended_hypsometric_tints_db}},

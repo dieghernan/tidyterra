@@ -444,12 +444,12 @@ par(opar)
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 
 Other color scales, palettes and hypsometric tints:
-\code{\link[=scale_color_coltab]{scale_color_coltab()}},
 \code{\link{scale_coltab}},
 \code{\link{scale_cross_blended}},
 \code{\link{scale_grass}},
 \code{\link{scale_princess}},
 \code{\link{scale_terrain}},
-\code{\link{scale_whitebox}}
+\code{\link{scale_whitebox}},
+\code{\link{scale_wiki}}
 }
 \concept{gradients}

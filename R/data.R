@@ -26,7 +26,7 @@
 #' Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 #'
 #' @name volcano2
-#' @seealso [volcano]
+#' @seealso [volcano].
 #'
 #' @family datasets
 #'
@@ -91,7 +91,7 @@ NULL
 #' cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 #'
 #' @name hypsometric_tints_db
-#' @seealso [scale_fill_hypso_c()]
+#' @seealso [scale_fill_hypso_c()].
 #'
 #' @family datasets
 #'
@@ -171,7 +171,7 @@ NULL
 #'   \doi{10.14714/CP69.20}.
 #'
 #' @name cross_blended_hypsometric_tints_db
-#' @seealso [scale_fill_cross_blended_c()]
+#' @seealso [scale_fill_cross_blended_c()].
 #'
 #' @family datasets
 #'
@@ -239,7 +239,7 @@ NULL
 #' }
 #'
 #' @name grass_db
-#' @seealso [scale_fill_grass_c()]
+#' @seealso [scale_fill_grass_c()].
 #'
 #' @family datasets
 #'
@@ -306,7 +306,7 @@ NULL
 #' <https://leahsmyth.github.io/Princess-Colour-Schemes/index.html>.
 #'
 #' @name princess_db
-#' @seealso [scale_fill_princess_c()]
+#' @seealso [scale_fill_princess_c()].
 #'
 #' @family datasets
 #'

@@ -47,6 +47,6 @@ uncount(v, copies)
 
 }
 \seealso{
-\code{\link[tidyr:uncount]{tidyr::uncount()}}
+\code{\link[tidyr:uncount]{tidyr::uncount()}}.
 }
 \concept{tidyr.rows}

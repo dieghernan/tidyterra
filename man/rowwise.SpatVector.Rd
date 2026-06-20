@@ -99,7 +99,7 @@ v |>
 }
 }
 \seealso{
-\code{\link[dplyr:rowwise]{dplyr::rowwise()}}
+\code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},

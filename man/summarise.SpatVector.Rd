@@ -107,7 +107,7 @@ autoplot(no_diss, aes(fill = start_with_s)) +
   ggplot2::labs(title = "Not Dissolved")
 }
 \seealso{
-\code{\link[dplyr:summarise]{dplyr::summarise()}}, \code{\link[terra:aggregate]{terra::aggregate()}}
+\code{\link[dplyr:summarise]{dplyr::summarise()}}, \code{\link[terra:aggregate]{terra::aggregate()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},

@@ -16,7 +16,7 @@
 #'
 #' @name ggspatvector
 #'
-#' @seealso [ggplot2::geom_sf()]
+#' @seealso [ggplot2::geom_sf()].
 #'
 #' @family ggplot2.utils
 #'

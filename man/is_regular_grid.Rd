@@ -39,6 +39,6 @@ is_regular_grid(p_jitter, digits = 4)
 
 }
 \seealso{
-\code{\link[=as_spatraster]{as_spatraster()}}
+\code{\link[=as_spatraster]{as_spatraster()}}.
 }
 \concept{helpers}

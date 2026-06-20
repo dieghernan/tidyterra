@@ -9,7 +9,7 @@
 #' @rdname drop_na.Spat
 #' @name drop_na.Spat
 #'
-#' @seealso [tidyr::drop_na()]
+#' @seealso [tidyr::drop_na()].
 #' @family tidyr.missing
 #'
 #' @importFrom tidyr drop_na

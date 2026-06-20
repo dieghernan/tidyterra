@@ -23,7 +23,7 @@
 #' @rdname filter.Spat
 #' @name filter.Spat
 #'
-#' @seealso [dplyr::filter()]
+#' @seealso [dplyr::filter()].
 #'
 #' @family dplyr.rows
 #'

@@ -130,7 +130,7 @@ r |>
 }
 }
 \seealso{
-\code{\link[tidyr:drop_na]{tidyr::drop_na()}}
+\code{\link[tidyr:drop_na]{tidyr::drop_na()}}.
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},

@@ -11,7 +11,7 @@
 #' @family generics.methods
 #'
 #' @importFrom generics glance
-#' @inheritParams glimpse.Spat
+#' @inheritParams as_tibble.Spat
 #'
 #' @param ... Ignored by this method.
 #'

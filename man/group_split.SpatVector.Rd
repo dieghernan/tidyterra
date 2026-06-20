@@ -76,7 +76,7 @@ v |>
   terra::svc()
 }
 \seealso{
-\code{\link[dplyr:group_split]{dplyr::group_split()}}, \code{\link[terra:svc]{terra::svc()}}
+\code{\link[dplyr:group_split]{dplyr::group_split()}}, \code{\link[terra:svc]{terra::svc()}}.
 
 Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},

@@ -8,7 +8,7 @@
 #' @rdname complete.SpatVector
 #' @name complete.SpatVector
 #'
-#' @seealso [tidyr::complete()]
+#' @seealso [tidyr::complete()].
 #'
 #' @family tidyr.missing
 #'

@@ -49,21 +49,11 @@
 #'
 #' @family gradients
 #'
-#' @inheritParams ggplot2::scale_fill_viridis_b
-#' @inheritParams ggplot2::continuous_scale
+#' @inheritParams scale_cross_blended
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @param na.translate Logical. If `TRUE`, remove `NA` values from the legend.
-#'   The default is `TRUE`.
-#' @param na.value Missing values will be replaced with this value. By default,
-#'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
-#'   not filled. See also
-#'   [#120](https://github.com/dieghernan/tidyterra/issues/120).
-#'
-#' @param drop Logical. If `TRUE`, omit unused factor levels from the scale.
-#'   The default (`TRUE`) removes unused factors.
 #' @param palette A valid palette name. The name is matched to the list of
 #'   available palettes, ignoring upper vs. lower case. See
 #'   [grass_db] for more information.

@@ -109,7 +109,6 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Integer row values.
 Provide either positive values to keep or negative values to drop.
-
 The values provided must be either all positive or all negative. Indices
 beyond the number of rows in the input are silently ignored. See
 \strong{Methods}.}

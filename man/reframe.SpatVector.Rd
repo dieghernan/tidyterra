@@ -8,14 +8,16 @@
 \method{reframe}{SpatVector}(.data, ..., .by = NULL, .dissolve = TRUE)
 }
 \arguments{
-\item{.data}{A \code{SpatVector}.}
+\item{.data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}>
+\item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Name-value pairs of
+summary functions. The name will be the name of the variable in the result.
 
-Name-value pairs of functions. The name will be the name of the variable in
-the result. The value can be a vector of any length.
-
-Unnamed data frame values add multiple columns from a single expression.}
+The value can be:
+\itemize{
+\item A vector of length 1, e.g. \code{min(x)}, \code{n()}, or \code{sum(is.na(y))}.
+\item A data frame with 1 row, to add multiple columns from a single expression.
+}}
 
 \item{.by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For

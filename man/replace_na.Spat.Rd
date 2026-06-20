@@ -49,7 +49,7 @@ r |>
 
 }
 \seealso{
-\code{\link[tidyr:replace_na]{tidyr::replace_na()}}
+\code{\link[tidyr:replace_na]{tidyr::replace_na()}}.
 
 Other \CRANpkg{tidyr} verbs for handling missing values:
 \code{\link[=complete.SpatVector]{complete.SpatVector()}},

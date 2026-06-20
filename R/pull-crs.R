@@ -33,7 +33,6 @@
 #' packages and object types.
 #'
 #' @seealso
-#'
 #' [terra::crs()] and [sf::st_crs()] to learn how these packages handle
 #' CRS definitions.
 #'

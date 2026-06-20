@@ -81,7 +81,7 @@ spatrast |> rename_with(
 )
 }
 \seealso{
-\code{\link[dplyr:rename]{dplyr::rename()}}
+\code{\link[dplyr:rename]{dplyr::rename()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on columns:
 \code{\link{glimpse.Spat}},

@@ -64,7 +64,7 @@ terra::svc(sv)
 }
 \seealso{
 \code{\link[dplyr:group_nest]{dplyr::group_nest()}}, \code{\link[dplyr:nest_by]{dplyr::nest_by()}}, \code{\link[=nest.SpatVector]{nest.SpatVector()}},
-\code{\link[terra:svc]{terra::svc()}}
+\code{\link[terra:svc]{terra::svc()}}.
 
 Other \CRANpkg{dplyr} grouping methods:
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},

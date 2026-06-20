@@ -25,7 +25,7 @@
 #'
 #' @name scale_princess
 #'
-#' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()]
+#' @seealso [terra::plot()], [ggplot2::scale_fill_viridis_c()].
 #'
 #' See also \CRANpkg{ggplot2} docs on additional `...` arguments.
 #'

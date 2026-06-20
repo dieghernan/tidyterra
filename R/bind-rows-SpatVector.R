@@ -9,7 +9,7 @@
 #' @name bind_rows.SpatVector
 #'
 #' @aliases bind.Spat
-#' @seealso [dplyr::bind_rows()]
+#' @seealso [dplyr::bind_rows()].
 #'
 #' @family dplyr.pairs
 #'

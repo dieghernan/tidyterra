@@ -6,7 +6,7 @@
 #' @rdname distinct.SpatVector
 #' @name distinct.SpatVector
 #'
-#' @seealso [dplyr::distinct()], [terra::unique()]
+#' @seealso [dplyr::distinct()], [terra::unique()].
 #'
 #' @family dplyr.rows
 #'

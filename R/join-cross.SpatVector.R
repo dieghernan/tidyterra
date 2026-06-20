@@ -8,7 +8,7 @@
 #' @rdname cross_join.SpatVector
 #' @name cross_join.SpatVector
 #'
-#' @seealso [dplyr::cross_join()]
+#' @seealso [dplyr::cross_join()].
 #'
 #' @family dplyr.pairs
 #'

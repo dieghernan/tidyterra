@@ -12,7 +12,7 @@
 #' @keywords internal
 #' @seealso
 #' [dplyr::group_nest()], [dplyr::nest_by()], [nest.SpatVector()],
-#' [terra::svc()]
+#' [terra::svc()].
 #'
 #' @family dplyr.group_functions
 #'

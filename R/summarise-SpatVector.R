@@ -13,7 +13,7 @@
 #' @rdname summarise.SpatVector
 #' @name summarise.SpatVector
 #'
-#' @seealso [dplyr::summarise()], [terra::aggregate()]
+#' @seealso [dplyr::summarise()], [terra::aggregate()].
 #'
 #' @family dplyr.groups
 #'

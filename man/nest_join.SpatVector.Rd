@@ -98,7 +98,7 @@ extra <- tibble::tibble(cpro = c("05", "09"), value = c(1, 2))
 nest_join(v, extra, by = "cpro")
 }
 \seealso{
-\code{\link[dplyr:nest_join]{dplyr::nest_join()}}
+\code{\link[dplyr:nest_join]{dplyr::nest_join()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_cols.SpatVector}},

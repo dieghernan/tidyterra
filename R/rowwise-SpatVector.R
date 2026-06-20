@@ -18,7 +18,7 @@
 #' @rdname rowwise.SpatVector
 #' @name rowwise.SpatVector
 #'
-#' @seealso [dplyr::rowwise()]
+#' @seealso [dplyr::rowwise()].
 #'
 #' @family dplyr.groups
 #'
