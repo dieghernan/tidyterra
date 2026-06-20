@@ -447,8 +447,8 @@ for (i in pals) {
 par(opar)
 }
 \seealso{
-\link{cross_blended_hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}},
-\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
+\link{cross_blended_hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}}, \code{\link[terra:minmax]{terra::minmax()}},
+\code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
 

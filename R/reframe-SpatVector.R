@@ -7,7 +7,7 @@
 #' @rdname reframe.SpatVector
 #' @name reframe.SpatVector
 #'
-#' @seealso [dplyr::reframe()], [summarise.SpatVector()]
+#' @seealso [dplyr::reframe()].
 #'
 #' @family dplyr.groups
 #'

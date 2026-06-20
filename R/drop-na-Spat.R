@@ -40,9 +40,8 @@
 #'
 #' `r lifecycle::badge('questioning')`
 #'
-#' The implementation of `drop_na().SpatRaster` can be understood as a
-#' masking method based on the values of the layers (see
-#' [terra::mask()]).
+#' The implementation of [drop_na.SpatRaster()] can be understood as a
+#' masking method based on the values of the layers (see [terra::mask()]).
 #'
 #' `SpatRaster` layers are considered as columns and `SpatRaster` cells as rows,
 #' so rows (cells) with any `NA` value on any layer become `NA`. You can also

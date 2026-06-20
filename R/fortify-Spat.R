@@ -9,8 +9,7 @@
 #' @rdname fortify.Spat
 #' @name fortify.Spat
 #'
-#' @seealso [`tidy.Spat`], [sf::st_as_sf()], [`as_tibble.Spat`],
-#'   [as_spatraster()], [ggplot2::fortify()].
+#' @seealso [`tidy.Spat`], [sf::st_as_sf()].
 #'
 #' @family ggplot2.utils
 #' @family ggplot2.methods

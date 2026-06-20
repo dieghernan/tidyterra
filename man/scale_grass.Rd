@@ -347,8 +347,8 @@ GRASS Development Team (2024). \emph{Geographic Resources Analysis Support Syste
 \url{https://grass.osgeo.org}.
 }
 \seealso{
-\link{grass_db}, \code{\link[terra:plot]{terra::plot()}},
-\code{\link[terra:minmax]{terra::minmax()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
+\link{grass_db}, \code{\link[terra:plot]{terra::plot()}}, \code{\link[terra:minmax]{terra::minmax()}},
+\code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
 
 See also \CRANpkg{ggplot2} docs on additional \code{...} arguments:
 

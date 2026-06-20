@@ -12,7 +12,7 @@
 #' @rdname bind_cols.SpatVector
 #' @name bind_cols.SpatVector
 #'
-#' @seealso [dplyr::bind_cols()]
+#' @seealso [dplyr::bind_cols()].
 #'
 #' @family dplyr.pairs
 #'

@@ -151,8 +151,7 @@ tidy(grat)
 }
 }
 \seealso{
-\code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \code{\link{as_tibble.Spat}}, \code{\link[=as_spatraster]{as_spatraster()}}, \code{\link{fortify.Spat}},
-\code{\link[generics:tidy]{generics::tidy()}}.
+\code{\link[sf:st_as_sf]{sf::st_as_sf()}}, \code{\link[generics:tidy]{generics::tidy()}}.
 
 Other \CRANpkg{generics} methods:
 \code{\link{glance.Spat}},

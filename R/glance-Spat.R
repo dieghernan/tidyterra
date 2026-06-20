@@ -6,8 +6,7 @@
 #' @rdname glance.Spat
 #' @name glance.Spat
 #'
-#' @seealso
-#' [`glimpse.Spat`], [generics::glance()].
+#' @seealso [`glimpse.Spat`], [generics::glance()].
 #'
 #' @family generics.methods
 #'

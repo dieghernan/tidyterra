@@ -124,7 +124,7 @@ as_tibble(v)
 
 }
 \seealso{
-\code{\link[tibble:as_tibble]{tibble::as_tibble()}}, \code{\link[terra:as.data.frame]{terra::as.data.frame()}}
+\code{\link[tibble:as_tibble]{tibble::as_tibble()}}, \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 
 Coercing objects:
 \code{\link[=as_coordinates]{as_coordinates()}},

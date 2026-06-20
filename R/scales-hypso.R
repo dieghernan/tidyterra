@@ -40,7 +40,8 @@
 #'
 #' @name scale_hypso
 #'
-#' @seealso [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
+#' @seealso
+#' [hypsometric_tints_db], [terra::plot()], [terra::minmax()],
 #' [ggplot2::scale_fill_viridis_c()]
 #'
 #' See also \CRANpkg{ggplot2} docs on additional `...` arguments.

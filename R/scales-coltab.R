@@ -19,8 +19,9 @@
 #' @rdname scale_coltab
 #'
 #' @name scale_coltab
-#' @seealso [terra::coltab()], [ggplot2::discrete_scale()],
-#'   [ggplot2::scale_fill_manual()].
+#' @seealso
+#' [terra::coltab()], [ggplot2::discrete_scale()],
+#' [ggplot2::scale_fill_manual()].
 #'
 #' @family gradients
 #'

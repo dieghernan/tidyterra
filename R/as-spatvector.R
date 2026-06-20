@@ -22,8 +22,8 @@
 #' @rdname as_spatvector
 #'
 #' @name as_spatvector
-#' @seealso
 #'
+#' @seealso
 #' [pull_crs()] for retrieving CRS and the corresponding utilities
 #' [sf::st_crs()] and [terra::crs()].
 #'

@@ -55,7 +55,7 @@ v |>
   reframe(value = 1:2)
 }
 \seealso{
-\code{\link[dplyr:reframe]{dplyr::reframe()}}, \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}
+\code{\link[dplyr:reframe]{dplyr::reframe()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on groups of rows:
 \code{\link[=count.SpatVector]{count.SpatVector()}},

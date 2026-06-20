@@ -8,7 +8,7 @@
 #' @rdname unite.Spat
 #' @name unite.Spat
 #'
-#' @seealso [tidyr::unite()]
+#' @seealso [tidyr::unite()].
 #'
 #' @family tidyr.character
 #'

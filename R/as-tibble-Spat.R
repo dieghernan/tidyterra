@@ -7,7 +7,7 @@
 #' @rdname as_tibble.Spat
 #' @name as_tibble.Spat
 #'
-#' @seealso [tibble::as_tibble()], [terra::as.data.frame()]
+#' @seealso [tibble::as_tibble()], [terra::as.data.frame()].
 #'
 #' @family coerce
 #' @family tibble.methods

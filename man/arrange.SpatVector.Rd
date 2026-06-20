@@ -78,7 +78,7 @@ v |>
   arrange(area_geom)
 }
 \seealso{
-\code{\link[dplyr:arrange]{dplyr::arrange()}}
+\code{\link[dplyr:arrange]{dplyr::arrange()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on rows:
 \code{\link[=distinct.SpatVector]{distinct.SpatVector()}},

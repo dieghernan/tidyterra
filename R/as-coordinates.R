@@ -5,7 +5,7 @@
 #' `as_coordinates()` can be used to obtain the position of each cell on the
 #' `SpatRaster` matrix.
 #'
-#' @seealso [slice.SpatRaster()]
+#' @seealso [slice.SpatRaster()].
 #'
 #' @family coerce
 #' @param x A `SpatRaster` object.

@@ -68,6 +68,6 @@ unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 
 }
 \seealso{
-\code{\link[tidyr:unite]{tidyr::unite()}}
+\code{\link[tidyr:unite]{tidyr::unite()}}.
 }
 \concept{tidyr.character}

@@ -8,7 +8,7 @@
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
-#' @seealso [ggplot2::autoplot()]
+#' @seealso [ggplot2::autoplot()].
 #'
 #' @family ggplot2.utils
 #' @family ggplot2.methods

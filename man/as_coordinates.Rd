@@ -39,7 +39,7 @@ as_coordinates(r, as.raster = TRUE) |> plot()
 
 }
 \seealso{
-\code{\link[=slice.SpatRaster]{slice.SpatRaster()}}
+\code{\link[=slice.SpatRaster]{slice.SpatRaster()}}.
 
 Coercing objects:
 \code{\link[=as_sf]{as_sf()}},

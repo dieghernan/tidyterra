@@ -75,7 +75,7 @@ glimpse(end)
 try(bind_spat_cols(sv, sfobj))
 }
 \seealso{
-\code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}
+\code{\link[dplyr:bind_cols]{dplyr::bind_cols()}}.
 
 Other \CRANpkg{dplyr} verbs that operate on pairs of \code{SpatVector} and data frame objects:
 \code{\link{bind_rows.SpatVector}},

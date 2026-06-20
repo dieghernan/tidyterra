@@ -41,8 +41,9 @@
 #'
 #' @name scale_grass
 #'
-#' @seealso [grass_db], [terra::plot()],
-#' [terra::minmax()], [ggplot2::scale_fill_viridis_c()].
+#' @seealso
+#' [grass_db], [terra::plot()], [terra::minmax()],
+#' [ggplot2::scale_fill_viridis_c()].
 #'
 #' See also \CRANpkg{ggplot2} docs on additional `...` arguments:
 #'

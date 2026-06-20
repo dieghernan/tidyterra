@@ -14,8 +14,7 @@
 #'
 #' @rdname geom_spat_contour
 #' @name geom_spat_contour
-#' @seealso
-#' [ggplot2::geom_contour()].
+#' @seealso [ggplot2::geom_contour()].
 #'
 #' The \CRANpkg{metR} package also provides a set of alternative functions:
 #' - `metR::geom_contour2()`.

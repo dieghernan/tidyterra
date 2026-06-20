@@ -9,9 +9,7 @@
 #' @rdname tidy.Spat
 #' @name tidy.Spat
 #'
-#' @seealso
-#' [sf::st_as_sf()], [`as_tibble.Spat`], [as_spatraster()], [`fortify.Spat`],
-#' [generics::tidy()].
+#' @seealso [sf::st_as_sf()], [generics::tidy()].
 #'
 #' @family generics.methods
 #' @family coerce

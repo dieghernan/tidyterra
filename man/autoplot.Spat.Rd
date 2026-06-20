@@ -106,7 +106,7 @@ v |> autoplot(aes(fill = cpro)) +
 }
 }
 \seealso{
-\code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}
+\code{\link[ggplot2:autoplot]{ggplot2::autoplot()}}.
 
 Other \CRANpkg{ggplot2} helpers:
 \code{\link{fortify.Spat}},

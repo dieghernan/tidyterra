@@ -7,7 +7,7 @@
 #' @rdname arrange.SpatVector
 #' @name arrange.SpatVector
 #'
-#' @seealso [dplyr::arrange()]
+#' @seealso [dplyr::arrange()].
 #'
 #' @family dplyr.rows
 #'
