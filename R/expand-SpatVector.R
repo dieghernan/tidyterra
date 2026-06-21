@@ -22,9 +22,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::expand()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [tidyr::expand()] method for `SpatVector`
+#' objects.
 #'
 #' The output is a tibble with attribute combinations. Geometry is not
 #' preserved because new combinations do not have a well-defined geometry.

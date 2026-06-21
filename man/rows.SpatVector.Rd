@@ -115,14 +115,12 @@ Methods for the \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} family on 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} family for
+Implementation of the \strong{generic} \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} method family for
 \code{SpatVector} objects.
-\subsection{\code{SpatVector}}{
 
 Row operations update attributes while preserving the geometry column. When
 inserting data frame rows without geometry, the output contains empty
 geometries for the new rows.
-}
 }
 
 \examples{

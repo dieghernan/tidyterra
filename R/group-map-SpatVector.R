@@ -37,10 +37,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::group_map()] family for
+#' Implementation of the **generic** [dplyr::group_map()] method family for
 #' `SpatVector` objects.
-#'
-#' ## `SpatVector`
 #'
 #' `group_map()` applies `.f` to each group and returns a list.
 #' `group_modify()` requires `.f` to return `SpatVector` objects and binds the

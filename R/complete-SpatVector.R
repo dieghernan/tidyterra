@@ -21,9 +21,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::complete()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [tidyr::complete()] method for
+#' `SpatVector` objects.
 #'
 #' `complete()` preserves the geometry column while expanding missing
 #' combinations. New combinations receive empty geometries.

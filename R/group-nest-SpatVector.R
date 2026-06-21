@@ -29,10 +29,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::group_nest()] family for
+#' Implementation of the **generic** [dplyr::group_nest()] method family for
 #' `SpatVector` objects.
-#'
-#' ## `SpatVector`
 #'
 #' The nested list-column contains `SpatVector` objects, preserving the
 #' geometries for each group.

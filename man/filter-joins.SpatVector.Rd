@@ -70,18 +70,17 @@ See \code{\link[dplyr:semi_join]{dplyr::semi_join()}} for details.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:merge]{terra::merge()}}
+\code{\link[terra:merge]{terra::merge()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:semi_join]{dplyr::semi_join()}} family
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:semi_join]{dplyr::semi_join()}} method family for
+\code{SpatVector} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.
-}
 }
 
 \examples{

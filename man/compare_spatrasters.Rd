@@ -29,15 +29,15 @@ This function compares those attributes and reports the results. See
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:identical]{terra::identical()}}
+\code{\link[terra:identical]{terra::identical()}}.
 }
 
-\section{Solving issues}{
+\section{Resolving differences}{
 
 \itemize{
-\item On \strong{non-equal CRS}, try \code{\link[terra:project]{terra::project()}}.
-\item On \strong{non-equal extent}, try \code{\link[terra:resample]{terra::resample()}}.
-\item On \strong{non-equal resolution} you can try \code{\link[terra:resample]{terra::resample()}},
+\item For a \strong{different CRS}, try \code{\link[terra:project]{terra::project()}}.
+\item For a \strong{different extent}, try \code{\link[terra:resample]{terra::resample()}}.
+\item For a \strong{different resolution}, try \code{\link[terra:resample]{terra::resample()}},
 \code{\link[terra:aggregate]{terra::aggregate()}} or \code{\link[terra:disagg]{terra::disagg()}}.
 }
 }

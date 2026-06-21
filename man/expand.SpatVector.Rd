@@ -48,12 +48,11 @@ geometries should be added explicitly.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:expand]{tidyr::expand()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[tidyr:expand]{tidyr::expand()}} method for \code{SpatVector}
+objects.
 
 The output is a tibble with attribute combinations. Geometry is not
 preserved because new combinations do not have a well-defined geometry.
-}
 }
 
 \examples{

@@ -30,11 +30,10 @@ A \code{SpatVector} object.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:uncount]{tidyr::uncount()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[tidyr:uncount]{tidyr::uncount()}} method for \code{SpatVector}
+objects.
 
 Each duplicated row keeps the input geometry.
-}
 }
 
 \examples{

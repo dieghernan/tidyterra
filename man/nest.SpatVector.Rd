@@ -60,13 +60,12 @@ A tibble with one or more list-columns of \code{SpatVector} objects.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:nest]{tidyr::nest()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[tidyr:nest]{tidyr::nest()}} method for \code{SpatVector}
+objects.
 
 The geometry column must be nested with the other attributes that form each
 nested \code{SpatVector}. These nested list-columns contain \code{SpatVector} objects
 and cannot be passed directly to \code{\link[tidyr:unnest]{tidyr::unnest()}}.
-}
 }
 
 \examples{

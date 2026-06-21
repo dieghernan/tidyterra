@@ -44,13 +44,13 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::filter()] method.
+#' Implementation of the **generic** [dplyr::filter()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
-#' Cells that do not meet the conditions on `...` are returned with value
-#' `NA`. On a multi-layer `SpatRaster` the `NA` is propagated across all the
-#' layers.
+#' Cells that do not meet the conditions in `...` are returned as `NA`. On a
+#' multi-layer `SpatRaster`, `NA` is propagated across all layers.
 #'
 #' If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS, extent,
 #' resolution and number of cells as `.data`. If
@@ -58,13 +58,13 @@
 #' so the extent and number of cells may differ. The output will still have
 #' the same CRS and resolution as `.data`.
 #'
-#' `x` and `y` variables, the longitude and latitude of the `SpatRaster`,
-#' are also available internally for filtering. See **Examples**.
+#' The `x` and `y` coordinates of the `SpatRaster` are also available
+#' internally for filtering. See **Examples**.
 #'
 #' ## `SpatVector`
 #'
-#' The result is a `SpatVector` with all the geometries that produce a value of
-#' `TRUE` for all conditions.
+#' The result is a `SpatVector` containing the geometries whose attributes
+#' satisfy all conditions.
 #'
 #' @encoding UTF-8
 #' @export

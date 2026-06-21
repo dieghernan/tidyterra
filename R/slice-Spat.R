@@ -55,16 +55,17 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::subset()], [terra::spatSample()]
+#' [terra::subset()] and [terra::spatSample()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::slice()] method.
+#' Implementation of the **generic** [dplyr::slice()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
 #' The result is a `SpatRaster` with the CRS and resolution of the input and
-#' where cell values of the selected cells/columns/rows are preserved.
+#' the values of the selected cells, columns or rows.
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
 #' The non-selected cells have a value of `NA`.

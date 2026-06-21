@@ -33,21 +33,22 @@ layers/attributes at once.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{terra::subset(data, c("name_layer", "name_other_layer"))}
+\code{terra::subset(data, c("name_layer", "name_other_layer"))}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:relocate]{dplyr::relocate()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:relocate]{dplyr::relocate()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
-Relocate layers of a \code{SpatRaster}.
+Relocates layers of a \code{SpatRaster}.
 }
 
 \subsection{\code{SpatVector}}{
 
-The result is a \code{SpatVector} with the attributes on a different order.
+The result is a \code{SpatVector} with the attributes in a different order.
 }
 }
 

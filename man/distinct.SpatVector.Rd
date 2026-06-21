@@ -29,18 +29,17 @@ Keep only unique/distinct rows and geometries from a \code{SpatVector}.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:unique]{terra::unique()}}
+\code{\link[terra:unique]{terra::unique()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} method for
+\code{SpatVector} objects.
 
 You can remove duplicate geometries by passing the reserved name
 \code{geometry} to \code{...}. See \strong{Examples}.
-}
 }
 
 \examples{

@@ -61,19 +61,18 @@ the summary statistics that you have specified.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:aggregate]{terra::aggregate()}}
+\code{\link[terra:aggregate]{terra::aggregate()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} method for
+\code{SpatVector} objects.
 
-Similarly to the implementation on \CRANpkg{sf} this function can be used to
-dissolve geometries (with \code{.dissolve = TRUE}) or create \code{MULTI} versions of
-geometries (with \code{.dissolve = FALSE}). See \strong{Examples}.
-}
+As in the \CRANpkg{sf} implementation, this function can dissolve geometries
+with \code{.dissolve = TRUE} or create \code{MULTI} geometries with
+\code{.dissolve = FALSE}. See \strong{Examples}.
 }
 
 \examples{

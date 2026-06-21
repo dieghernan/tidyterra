@@ -37,13 +37,11 @@ A tibble with a list-column of \code{SpatVector} objects.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:group_nest]{dplyr::group_nest()}} family for
+Implementation of the \strong{generic} \code{\link[dplyr:group_nest]{dplyr::group_nest()}} method family for
 \code{SpatVector} objects.
-\subsection{\code{SpatVector}}{
 
 The nested list-column contains \code{SpatVector} objects, preserving the
 geometries for each group.
-}
 }
 
 \examples{

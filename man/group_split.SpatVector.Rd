@@ -40,6 +40,7 @@ See \strong{Details} on \code{\link[dplyr:group_split]{dplyr::group_split()}}.
 }
 \section{Lifecycle}{
 
+
 \code{group_split()} is not stable because you can achieve very similar results by
 manipulating the nested column returned from
 \code{\link[=nest.SpatVector]{nest(.by =)}}. That also retains the group keys all
@@ -56,8 +57,8 @@ future.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:group_split]{dplyr::group_split()}} for \code{SpatVector}
-objects.
+Implementation of the \strong{generic} \code{\link[dplyr:group_split]{dplyr::group_split()}} method for
+\code{SpatVector} objects.
 }
 
 \examples{

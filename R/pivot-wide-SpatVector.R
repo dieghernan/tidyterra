@@ -35,9 +35,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::pivot_wider()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [tidyr::pivot_wider()] method for
+#' `SpatVector` objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `data`.

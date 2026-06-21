@@ -23,17 +23,18 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::trim()]
+#' [terra::trim()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::drop_na()] method.
+#' Implementation of the **generic** [tidyr::drop_na()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatVector`
 #'
-#' The implementation of this method is performed on a `by-attribute` basis,
-#' meaning that `NA` values are assessed on the attributes (columns) of each
-#' vector (rows). The result is a `SpatVector` with potentially fewer
+#' This method operates on attributes, meaning that `NA` values are assessed in
+#' the attributes (columns) of each geometry (row). The result is a
+#' `SpatVector` with potentially fewer
 #' geometries than the input.
 #'
 #' ## `SpatRaster`

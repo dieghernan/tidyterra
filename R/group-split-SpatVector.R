@@ -37,6 +37,7 @@
 #'   the output includes the grouping variables.
 #'
 #' @section Lifecycle:
+#'
 #' `group_split()` is not stable because you can achieve very similar results by
 #' manipulating the nested column returned from
 #' [`nest(.by =)`][nest.SpatVector()]. That also retains the group keys all
@@ -49,8 +50,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::group_split()] for `SpatVector`
-#' objects.
+#' Implementation of the **generic** [dplyr::group_split()] method for
+#' `SpatVector` objects.
 #'
 #' @encoding UTF-8
 #' @export

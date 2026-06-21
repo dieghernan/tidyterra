@@ -45,7 +45,7 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::vect()]
+#' [terra::vect()].
 #'
 #' @encoding UTF-8
 #' @export

@@ -28,7 +28,7 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' `cbind()` method
+#' `cbind()` method.
 #'
 #' @section Methods:
 #'

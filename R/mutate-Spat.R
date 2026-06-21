@@ -33,22 +33,23 @@
 #'
 #' Some \CRANpkg{terra} methods for modifying cell values:
 #' [terra::ifel()], [terra::classify()], [terra::clamp()], [terra::app()],
-#' [terra::lapp()], [terra::tapp()]
+#' [terra::lapp()] and [terra::tapp()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::mutate()] method.
+#' Implementation of the **generic** [dplyr::mutate()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
-#' Add new layers and preserves existing ones. The result is a
+#' Adds new layers and preserves existing ones. The result is a
 #' `SpatRaster` with the same extent, resolution and CRS as `.data`. Only the
-#' values (and possibly the number) of layers is modified.
+#' values and possibly the number of layers are modified.
 #'
 #' ## `SpatVector`
 #'
-#' The result is a `SpatVector` with the modified (and possibly renamed)
-#' attributes on the function call.
+#' The result is a `SpatVector` with the attributes modified and possibly
+#' renamed as specified in the function call.
 #'
 #' @encoding UTF-8
 #' @export

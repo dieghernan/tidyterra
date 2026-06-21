@@ -37,7 +37,7 @@ meaningless results without realizing it.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{cbind()} method
+\code{cbind()} method.
 }
 
 \section{Methods}{

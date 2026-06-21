@@ -22,12 +22,12 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::sort()]
+#' [terra::sort()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::arrange()] function for
-#' `SpatVector` class.
+#' Implementation of the **generic** [dplyr::arrange()] method for
+#' `SpatVector` objects.
 #'
 #' @encoding UTF-8
 #' @export

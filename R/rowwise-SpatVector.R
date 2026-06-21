@@ -23,6 +23,7 @@
 #' @family dplyr.groups
 #'
 #' @importFrom dplyr rowwise
+#' @inheritSection group_by.SpatVector Grouping metadata
 #' @param data A `SpatVector` object. See **Methods**.
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> Variables to be
 #'   preserved when calling [summarise.SpatVector()]. This is typically a set of
@@ -37,19 +38,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::rowwise()] function for
+#' Implementation of the **generic** [dplyr::rowwise()] method for
 #' `SpatVector` objects.
-#'
-#' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax** on a
-#' row-wise `SpatVector`, for example subsetting a `SpatVector` like
-#' `v[1:3,1:2]`, the `groups` attribute can be corrupted.
-#' \CRANpkg{tidyterra} tries to
-#' regenerate the `SpatVector`. This is triggered the next time you use a
-#' \CRANpkg{dplyr} verb on your `SpatVector`.
-#'
-#' Some operations, such as `terra::spatSample()`, create a new `SpatVector`.
-#' In these cases, the result does not preserve the `groups` attribute. Use
-#' [rowwise.SpatVector()] to re-group.
 #'
 #' @encoding UTF-8
 #' @export

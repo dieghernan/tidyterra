@@ -85,12 +85,11 @@ a list-column containing matching rows from \code{y}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:nest_join]{dplyr::nest_join()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:nest_join]{dplyr::nest_join()}} method for
+\code{SpatVector} objects.
 
 The output is a tibble with the attributes and WKT geometry of \code{x}, plus a
 list-column with matching rows from \code{y}.
-}
 }
 
 \examples{

@@ -34,7 +34,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [generics::tidy()] method.
+#' Implementation of the **generic** [generics::tidy()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
@@ -53,6 +54,7 @@
 #'
 #' When `pivot = TRUE`, the `SpatRaster` is returned in long format (see
 #' [tidyr::pivot_longer()]). The tidy object has the following columns:
+#'
 #' - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
 #' - `lyr`: Name of the `SpatRaster` layer associated with `value`.
 #' - `value`: Cell value for the corresponding `lyr`.

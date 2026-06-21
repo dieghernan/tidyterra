@@ -24,7 +24,7 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' Use `r[is.na(r)] <- <replacement>`
+#' Use `r[is.na(r)] <- <replacement>`.
 #'
 #' @encoding UTF-8
 #' @export

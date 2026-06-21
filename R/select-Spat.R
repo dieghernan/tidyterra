@@ -25,22 +25,23 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::subset()]
+#' [terra::subset()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::select()] method.
+#' Implementation of the **generic** [dplyr::select()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
-#' Select (and rename) layers of a `SpatRaster`. The result is a `SpatRaster`
-#' with the same extent, resolution and CRS as `.data`. Only the number (and
-#' possibly the name) of layers is modified.
+#' Selects and renames layers of a `SpatRaster`. The result is a `SpatRaster`
+#' with the same extent, resolution and CRS as `.data`. Only the number and
+#' possibly the names of layers are modified.
 #'
 #' ## `SpatVector`
 #'
-#' The result is a `SpatVector` with the selected (and possibly renamed)
-#' attributes on the function call.
+#' The result is a `SpatVector` with the attributes selected and possibly
+#' renamed as specified in the function call.
 #'
 #' @encoding UTF-8
 #' @export

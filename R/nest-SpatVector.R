@@ -24,9 +24,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::nest()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [tidyr::nest()] method for `SpatVector`
+#' objects.
 #'
 #' The geometry column must be nested with the other attributes that form each
 #' nested `SpatVector`. These nested list-columns contain `SpatVector` objects

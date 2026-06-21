@@ -42,7 +42,8 @@ together.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:unite]{tidyr::unite()}} method.
+Implementation of the \strong{generic} \code{\link[tidyr:unite]{tidyr::unite()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
 The selected layers are united cell by cell. The new layer is categorical

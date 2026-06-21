@@ -19,9 +19,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::uncount()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [tidyr::uncount()] method for `SpatVector`
+#' objects.
 #'
 #' Each duplicated row keeps the input geometry.
 #'

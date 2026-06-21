@@ -192,17 +192,18 @@ See \strong{Methods} for details.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:subset]{terra::subset()}}, \code{\link[terra:spatSample]{terra::spatSample()}}
+\code{\link[terra:subset]{terra::subset()}} and \code{\link[terra:spatSample]{terra::spatSample()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
 The result is a \code{SpatRaster} with the CRS and resolution of the input and
-where cell values of the selected cells/columns/rows are preserved.
+the values of the selected cells, columns or rows.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
 The non-selected cells have a value of \code{NA}.

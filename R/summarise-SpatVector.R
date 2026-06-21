@@ -29,17 +29,16 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::aggregate()]
+#' [terra::aggregate()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::summarise()] method.
+#' Implementation of the **generic** [dplyr::summarise()] method for
+#' `SpatVector` objects.
 #'
-#' ## `SpatVector`
-#'
-#' Similarly to the implementation on \CRANpkg{sf} this function can be used to
-#' dissolve geometries (with `.dissolve = TRUE`) or create `MULTI` versions of
-#' geometries (with `.dissolve = FALSE`). See **Examples**.
+#' As in the \CRANpkg{sf} implementation, this function can dissolve geometries
+#' with `.dissolve = TRUE` or create `MULTI` geometries with
+#' `.dissolve = FALSE`. See **Examples**.
 #'
 #' @encoding UTF-8
 #' @export

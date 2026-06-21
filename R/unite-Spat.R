@@ -21,7 +21,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::unite()] method.
+#' Implementation of the **generic** [tidyr::unite()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'

@@ -30,8 +30,8 @@ See \strong{Details} on \code{\link[dplyr:group_trim]{dplyr::group_trim()}}.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:group_trim]{dplyr::group_trim()}} for \code{SpatVector}
-objects.
+Implementation of the \strong{generic} \code{\link[dplyr:group_trim]{dplyr::group_trim()}} method for
+\code{SpatVector} objects.
 }
 
 \examples{

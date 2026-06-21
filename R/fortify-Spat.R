@@ -30,7 +30,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [ggplot2::fortify()] method.
+#' Implementation of the **generic** [ggplot2::fortify()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
@@ -49,6 +50,7 @@
 #'
 #' When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
 #' [tidyr::pivot_longer()]). The fortified object has the following columns:
+#'
 #' - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
 #' - `lyr`: Name of the `SpatRaster` layer associated with `value`.
 #' - `value`: Cell value for the corresponding `lyr`.

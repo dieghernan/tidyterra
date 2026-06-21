@@ -27,7 +27,7 @@ one row of \code{Spat}. The summaries are typically geographic information.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[generics:glance]{generics::glance()}} method for
+Implementation of the \strong{generic} \code{\link[generics:glance]{generics::glance()}} methods for
 \verb{Spat*} objects.
 }
 

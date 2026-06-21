@@ -121,14 +121,14 @@ See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:merge]{terra::merge()}}
+\code{\link[terra:merge]{terra::merge()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inner_join()}} family
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inner_join()}} method family for
+\code{SpatVector} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.
@@ -138,7 +138,6 @@ For \code{\link[=right_join]{right_join()}} and \code{\link[=full_join]{full_joi
 geometries). Although these join operations are not common in spatial
 workflows, the function may crash because handling of \code{EMPTY}
 geometries differs between \CRANpkg{terra} and \CRANpkg{sf}.
-}
 }
 
 \examples{

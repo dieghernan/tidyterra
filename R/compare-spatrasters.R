@@ -22,13 +22,13 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::identical()]
+#' [terra::identical()].
 #'
-#' @section Solving issues:
+#' @section Resolving differences:
 #'
-#' - On **non-equal CRS**, try [terra::project()].
-#' - On **non-equal extent**, try [terra::resample()].
-#' - On **non-equal resolution** you can try [terra::resample()],
+#' - For a **different CRS**, try [terra::project()].
+#' - For a **different extent**, try [terra::resample()].
+#' - For a **different resolution**, try [terra::resample()],
 #'   [terra::aggregate()] or [terra::disagg()].
 #'
 #' @encoding UTF-8

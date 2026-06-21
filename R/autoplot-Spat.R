@@ -34,7 +34,8 @@
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section Methods:
 #'
-#' Implementation of the **generic** [ggplot2::autoplot()] method.
+#' Implementation of the **generic** [ggplot2::autoplot()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'

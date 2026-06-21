@@ -26,18 +26,19 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::group_by()] family functions for
+#' Implementation of the **generic** [dplyr::group_by()] method family for
 #' `SpatVector` objects.
 #'
-#' **When mixing** \CRANpkg{terra} **and** \CRANpkg{dplyr} **syntax**
-#' on a grouped `SpatVector`, for example subsetting a `SpatVector` like
-#' `v[1:3,1:2]`, the `groups` attribute can be corrupted.
-#' \CRANpkg{tidyterra} tries to re-group the `SpatVector`. This is triggered
-#' the next time you use a \CRANpkg{dplyr} verb on your `SpatVector`.
+#' @section Grouping metadata:
 #'
-#' Some operations, such as `terra::spatSample()`, create a new `SpatVector`.
-#' In these cases, the result does not preserve the `groups` attribute. Use
-#' [group_by()] to re-group.
+#' Mixing \CRANpkg{terra} and \CRANpkg{dplyr} syntax on a grouped or row-wise
+#' `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can corrupt its
+#' grouping metadata. \CRANpkg{tidyterra} attempts to restore this metadata the
+#' next time you use a \CRANpkg{dplyr} verb on the object.
+#'
+#' Some operations, such as [terra::spatSample()], create a new `SpatVector`
+#' without preserving grouping metadata. Call [group_by.SpatVector()] or
+#' [rowwise.SpatVector()] again, as appropriate.
 #'
 #' @encoding UTF-8
 #' @export

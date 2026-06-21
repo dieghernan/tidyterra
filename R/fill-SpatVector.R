@@ -22,12 +22,13 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::fill()] function for `SpatVector`.
+#' Implementation of the **generic** [tidyr::fill()] method for `SpatVector`
+#' objects.
 #'
 #' @section Grouped `SpatVector`:
 #'
-#' With grouped `SpatVector` created by [group_by.SpatVector()], `fill()` will
-#' be applied _within_ each group, meaning that it won't fill across group
+#' With grouped `SpatVector` objects created by [group_by.SpatVector()],
+#' `fill()` is applied _within_ each group and does not fill across group
 #' boundaries.
 #'
 #' @encoding UTF-8

@@ -120,10 +120,10 @@ the \code{geom}.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:plot]{terra::plot()}}
+\code{\link[terra:plot]{terra::plot()}}.
 }
 
-\section{Coords}{
+\section{Coordinates}{
 
 
 When the \code{SpatRaster} does not have a CRS, that is,
@@ -151,7 +151,7 @@ layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
 on the \code{SpatRaster} (for example,
-\verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>)}). Layer names can
+\verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>))}). Layer names can
 be retrieved using \code{names(rast)}.
 
 Using \code{geom_spatraster(..., mapping = aes(fill = NULL))} or
@@ -186,14 +186,14 @@ variables. See \strong{Computed variables} and \strong{Examples}.
 \section{Facets}{
 
 
-You can use \code{facet_wrap(~lyr)} to create a faceted plot by each layer of the
+You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of the
 \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \section{Computed variables}{
 
 
-This geom computes internally some variables that are available for use as
+This geom computes variables internally that are available for use as
 aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{

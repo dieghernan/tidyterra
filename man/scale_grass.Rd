@@ -234,7 +234,7 @@ blank pixels in the plot.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:map.pal]{terra::map.pal()}}
+\code{\link[terra:map.pal]{terra::map.pal()}}.
 }
 
 \examples{

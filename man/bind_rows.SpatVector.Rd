@@ -30,7 +30,7 @@ but the output will contain all columns that appear in any of the inputs.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{rbind()} method
+\code{rbind()} method.
 }
 
 \section{Methods}{
@@ -40,11 +40,10 @@ Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function
 \code{SpatVector} objects.
 
 The first argument should be a \code{SpatVector}. Each subsequent argument can be
-a \code{SpatVector}, \code{sf/sfc} object or data frame:
+a \code{SpatVector}, an \code{sf} or \code{sfc} object or a data frame:
 \itemize{
-\item If subsequent \code{SpatVector/sf/sfc} objects have a different CRS than the
-first element, those elements are reprojected to the CRS of the
-first element with a message.
+\item If subsequent spatial objects have a different CRS from the first element,
+they are reprojected to the CRS of the first element with a message.
 \item If any element of \code{...} is a tibble/data frame, the rows are column-bound
 with empty geometries with a message.
 }

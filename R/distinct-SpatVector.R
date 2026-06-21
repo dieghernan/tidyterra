@@ -24,13 +24,12 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::unique()]
+#' [terra::unique()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::distinct()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [dplyr::distinct()] method for
+#' `SpatVector` objects.
 #'
 #' You can remove duplicate geometries by passing the reserved name
 #' `geometry` to `...`. See **Examples**.

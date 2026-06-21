@@ -32,12 +32,12 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::aggregate()]
+#' [terra::aggregate()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::count()] methods for `SpatVector`
-#' objects.
+#' Implementation of the **generic** [dplyr::count()] method family for
+#' `SpatVector` objects.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].

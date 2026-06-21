@@ -58,7 +58,7 @@ variables are transferred and a grouped \code{SpatVector} is created (see
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:vect]{terra::vect()}}
+\code{\link[terra:vect]{terra::vect()}}.
 }
 
 \examples{

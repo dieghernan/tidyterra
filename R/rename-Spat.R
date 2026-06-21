@@ -25,20 +25,21 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' `names(Spat*) <- c("a", "b", "c")`
+#' `names(Spat*) <- c("a", "b", "c")`.
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::rename()] method.
+#' Implementation of the **generic** [dplyr::rename()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster`
 #'
-#' Rename layers of a `SpatRaster`.
+#' Renames layers of a `SpatRaster`.
 #'
 #' ## `SpatVector`
 #'
-#' The result is a `SpatVector` with the renamed attributes on the function
-#' call.
+#' The result is a `SpatVector` with the attributes renamed as specified in the
+#' function call.
 #'
 #' @encoding UTF-8
 #' @export

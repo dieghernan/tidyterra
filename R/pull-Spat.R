@@ -45,30 +45,30 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::values()]
+#' [terra::values()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::pull()] method. This is done
-#' by coercing the `Spat*` object to a tibble first (see [as_tibble.Spat]) and
-#' then using [dplyr::pull()] method over the tibble.
+#' Implementation of the **generic** [dplyr::pull()] methods. Each method first
+#' coerces the `Spat*` object to a tibble (see [as_tibble.Spat]) and then
+#' applies [dplyr::pull()] to the tibble.
 #'
 #' ## `SpatRaster`
 #'
-#' When passing option `na.rm = TRUE` to `...`, only cells with a value
-#' distinct to `NA` are extracted. See [terra::as.data.frame()].
+#' When passing `na.rm = TRUE` to `...`, only cells with a value other than
+#' `NA` are extracted. See [terra::as.data.frame()].
 #'
-#' If `xy = TRUE` option is passed to `...`, two columns names `x` and `y`
+#' If `xy = TRUE` is passed to `...`, two columns named `x` and `y`
 #' (corresponding to the geographic coordinates of each cell) are available
-#' in position `1` and `2`. Hence, `pull(.data, 1)` and
-#' `pull(.data, 1, xy = TRUE)` return different result.
+#' in positions `1` and `2`. Therefore, `pull(.data, 1)` and
+#' `pull(.data, 1, xy = TRUE)` return different results.
 #'
 #' ## `SpatVector`
 #'
-#' When passing `geom = "WKT"/geom = "HEX"` to `...`, the geometry of the
-#' `SpatVector` can be pulled passing `var = geometry`. Similarly to
-#' `SpatRaster` method, when using `geom = "XY"` the `x,y` coordinates can be
-#' pulled with `var = x/var = y`. See [terra::as.data.frame()] options.
+#' When passing `geom = "WKT"` or `geom = "HEX"` to `...`, the geometry of the
+#' `SpatVector` can be extracted with `var = geometry`. Similarly, when using
+#' `geom = "XY"`, the coordinates can be extracted with `var = x` or
+#' `var = y`. See the options in [terra::as.data.frame()].
 #'
 #' @encoding UTF-8
 #' @export

@@ -39,13 +39,13 @@ layer/column in a \verb{Spat*} object.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{print()}
+\code{print()}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:glimpse]{dplyr::glimpse()}} function for
+Implementation of the \strong{generic} \code{\link[dplyr:glimpse]{dplyr::glimpse()}} methods for
 \verb{Spat*} objects.
 }
 

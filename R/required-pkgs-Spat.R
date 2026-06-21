@@ -16,7 +16,8 @@
 #' @returns A character string of packages that are required.
 #' @section Methods:
 #'
-#' Implementation of [generics::required_pkgs()] method.
+#' Implementation of the **generic** [generics::required_pkgs()] method for
+#' `Spat*` objects.
 #'
 #' @encoding UTF-8
 #' @export

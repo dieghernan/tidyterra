@@ -25,9 +25,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::cross_join()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [dplyr::cross_join()] method for
+#' `SpatVector` objects.
 #'
 #' The geometry column has sticky behavior. The result repeats each geometry in
 #' `x` once for every row in `y`.

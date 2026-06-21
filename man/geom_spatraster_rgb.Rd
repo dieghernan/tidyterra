@@ -98,7 +98,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplo
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:plotRGB]{terra::plotRGB()}}
+\code{\link[terra:plotRGB]{terra::plotRGB()}}.
 }
 
 \section{Aesthetics}{
@@ -107,7 +107,7 @@ The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplo
 No \code{aes()} is required. In fact, \code{aes()} will be ignored.
 }
 
-\section{Coords}{
+\section{Coordinates}{
 
 
 When the \code{SpatRaster} does not have a CRS, that is,

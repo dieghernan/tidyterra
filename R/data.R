@@ -247,7 +247,7 @@ NULL
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::map.pal()]
+#' [terra::map.pal()].
 #'
 #' @examples
 #' \donttest{

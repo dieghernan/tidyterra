@@ -31,7 +31,7 @@
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::plot()]
+#' [terra::plot()].
 #'
 #' @encoding UTF-8
 #' @export

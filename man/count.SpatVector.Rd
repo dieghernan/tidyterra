@@ -66,14 +66,14 @@ switching the summary from \code{n = n()} to \code{n = sum(wt)}.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:aggregate]{terra::aggregate()}}
+\code{\link[terra:aggregate]{terra::aggregate()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} methods for \code{SpatVector}
-objects.
+Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} method family for
+\code{SpatVector} objects.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.

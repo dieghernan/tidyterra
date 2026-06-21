@@ -23,7 +23,7 @@
 #'
 #' @family ggplot2.utils
 #'
-#' @inheritSection geom_spatraster Coords
+#' @inheritSection geom_spatraster Coordinates
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
 #' @inheritParams terra::plotRGB
@@ -36,7 +36,7 @@
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::plotRGB()]
+#' [terra::plotRGB()].
 #'
 #' @section Aesthetics:
 #'

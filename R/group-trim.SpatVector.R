@@ -29,8 +29,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::group_trim()] for `SpatVector`
-#' objects.
+#' Implementation of the **generic** [dplyr::group_trim()] method for
+#' `SpatVector` objects.
 #'
 #' @encoding UTF-8
 #' @export

@@ -76,7 +76,8 @@ is deprecated in the future.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[generics:tidy]{generics::tidy()}} method.
+Implementation of the \strong{generic} \code{\link[generics:tidy]{generics::tidy()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
 Returns a tibble that can be used with \verb{ggplot2::geom_*}, such as

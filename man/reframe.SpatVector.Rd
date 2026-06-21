@@ -38,13 +38,12 @@ group is aggregated and repeated for each row created for that group.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:reframe]{dplyr::reframe()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:reframe]{dplyr::reframe()}} method for \code{SpatVector}
+objects.
 
 For grouped inputs, and for calls using \code{.by}, geometries are aggregated per
 group. If a group produces more than one row, the aggregated group geometry
 is repeated for each output row.
-}
 }
 
 \examples{

@@ -20,7 +20,7 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [generics::glance()] method for
+#' Implementation of the **generic** [generics::glance()] methods for
 #' `Spat*` objects.
 #'
 #' @encoding UTF-8

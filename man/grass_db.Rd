@@ -86,7 +86,7 @@ Summary of palettes provided, description and recommended use:\tabular{llll}{
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:map.pal]{terra::map.pal()}}
+\code{\link[terra:map.pal]{terra::map.pal()}}.
 }
 
 \examples{

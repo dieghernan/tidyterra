@@ -159,13 +159,13 @@ implemented on top of \code{\link[isoband:isolines_grob]{isoband::isolines_grob(
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:contour]{terra::contour()}}
+\code{\link[terra:contour]{terra::contour()}}.
 }
 
 \section{Aesthetics}{
 
 
-\code{geom_spatraster_contour()} / \code{geom_spatraster_contour_text()} understands
+\code{geom_spatraster_contour()} and \code{geom_spatraster_contour_text()} understand
 the following aesthetics:
 \itemize{
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
@@ -173,15 +173,18 @@ the following aesthetics:
 \item \code{\link[ggplot2:aes_group_order]{group}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}}
-\code{geom_spatraster_contour_text()} understands also:
+}
+
+\code{geom_spatraster_contour_text()} also understands:
+\itemize{
 \item \code{\link[ggplot2:aes_linetype_size_shape]{size}}
 \item \code{label}
 \item \code{family}
 \item \code{fontface}
 }
 
-Additionally, \code{geom_spatraster_contour_filled()} understands also the
-following aesthetics, as well as the ones listed above:
+In addition to the aesthetics listed above,
+\code{geom_spatraster_contour_filled()} understands:
 \itemize{
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{fill}}
 \item \code{subgroup}
@@ -195,7 +198,7 @@ aesthetics.
 \section{Computed variables}{
 
 
-These geoms compute some variables internally that are available for use as
+These geoms compute variables internally that are available for use as
 aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
@@ -204,9 +207,9 @@ aesthetics, using (for example) \verb{aes(color = after_stat(<computed>))} (see
 a numeric vector that represents bin boundaries. For contour bands,
 this is an ordered factor that represents bin ranges.
 \item \code{after_stat(nlevel)}: Height of contour, scaled to maximum of 1.
-\item \code{after_stat(level_low)}, \code{after_stat(level_high)},
-\item \code{after_stat(level_mid)}: (contour bands only) Lower and upper bin
-boundaries for each band, as well as the midpoint between the boundaries.
+\item \code{after_stat(level_low)}, \code{after_stat(level_high)} and
+\code{after_stat(level_mid)}: For contour bands only, the lower and upper bin
+boundaries and the midpoint between them.
 }
 }
 
@@ -218,7 +221,7 @@ longer available.
 }
 }
 
-\section{Coords}{
+\section{Coordinates}{
 
 
 When the \code{SpatRaster} does not have a CRS, that is,
@@ -233,7 +236,7 @@ On \code{SpatRaster} objects that have a CRS, the geom uses
 \section{Facets}{
 
 
-You can use \code{facet_wrap(~lyr)} to create a faceted plot by each layer of the
+You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of the
 \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 

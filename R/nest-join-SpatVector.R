@@ -24,9 +24,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::nest_join()] method.
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [dplyr::nest_join()] method for
+#' `SpatVector` objects.
 #'
 #' The output is a tibble with the attributes and WKT geometry of `x`, plus a
 #' list-column with matching rows from `y`.

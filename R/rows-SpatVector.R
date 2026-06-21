@@ -23,10 +23,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::rows_insert()] family for
+#' Implementation of the **generic** [dplyr::rows_insert()] method family for
 #' `SpatVector` objects.
-#'
-#' ## `SpatVector`
 #'
 #' Row operations update attributes while preserving the geometry column. When
 #' inserting data frame rows without geometry, the output contains empty

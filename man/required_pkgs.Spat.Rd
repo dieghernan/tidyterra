@@ -33,7 +33,8 @@ Determine packages required by \verb{Spat*} objects.
 \section{Methods}{
 
 
-Implementation of \code{\link[generics:required_pkgs]{generics::required_pkgs()}} method.
+Implementation of the \strong{generic} \code{\link[generics:required_pkgs]{generics::required_pkgs()}} method for
+\verb{Spat*} objects.
 }
 
 \examples{

@@ -37,15 +37,14 @@ See \code{\link[dplyr:cross_join]{dplyr::cross_join()}} for details.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:cross_join]{dplyr::cross_join()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[dplyr:cross_join]{dplyr::cross_join()}} method for
+\code{SpatVector} objects.
 
 The geometry column has sticky behavior. The result repeats each geometry in
 \code{x} once for every row in \code{y}.
 
 If \code{y} has a column named \code{geometry}, it is treated as a regular attribute
 and receives the suffix from \code{suffix}.
-}
 }
 
 \examples{

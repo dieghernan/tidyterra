@@ -45,14 +45,12 @@ columns.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:group_map]{dplyr::group_map()}} family for
+Implementation of the \strong{generic} \code{\link[dplyr:group_map]{dplyr::group_map()}} method family for
 \code{SpatVector} objects.
-\subsection{\code{SpatVector}}{
 
 \code{group_map()} applies \code{.f} to each group and returns a list.
 \code{group_modify()} requires \code{.f} to return \code{SpatVector} objects and binds the
 results.
-}
 }
 
 \examples{

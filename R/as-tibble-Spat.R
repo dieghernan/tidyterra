@@ -28,18 +28,19 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::as.data.frame()]
+#' [terra::as.data.frame()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tibble::as_tibble()] method.
+#' Implementation of the **generic** [tibble::as_tibble()] methods for `Spat*`
+#' objects.
 #'
 #' ## `SpatRaster` and `SpatVector`
 #'
 #' The returned tibble includes the CRS of the original object as an attribute
 #' in WKT format (see [pull_crs()]).
 #'
-#' @section About layer/column names:
+#' @section Layer and column names:
 #'
 #' When coercing `SpatRaster` objects to data frames, `x` and `y` are reserved
 #' names for the geographic coordinates of each cell. \CRANpkg{terra} also

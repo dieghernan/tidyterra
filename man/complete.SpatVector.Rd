@@ -50,12 +50,11 @@ into explicit rows while preserving geometry and spatial metadata.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:complete]{tidyr::complete()}} method.
-\subsection{\code{SpatVector}}{
+Implementation of the \strong{generic} \code{\link[tidyr:complete]{tidyr::complete()}} method for
+\code{SpatVector} objects.
 
 \code{complete()} preserves the geometry column while expanding missing
 combinations. New combinations receive empty geometries.
-}
 }
 
 \examples{

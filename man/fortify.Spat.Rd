@@ -78,7 +78,8 @@ These methods are now implemented as wrappers around \code{\link{tidy.Spat}} met
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} method.
+Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
 Returns a tibble that can be used with \verb{ggplot2::geom_*}, such as

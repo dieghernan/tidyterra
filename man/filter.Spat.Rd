@@ -61,12 +61,12 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
-Cells that do not meet the conditions on \code{...} are returned with value
-\code{NA}. On a multi-layer \code{SpatRaster} the \code{NA} is propagated across all the
-layers.
+Cells that do not meet the conditions in \code{...} are returned as \code{NA}. On a
+multi-layer \code{SpatRaster}, \code{NA} is propagated across all layers.
 
 If \code{.keep_extent = TRUE} the returned \code{SpatRaster} has the same CRS, extent,
 resolution and number of cells as \code{.data}. If
@@ -74,14 +74,14 @@ resolution and number of cells as \code{.data}. If
 so the extent and number of cells may differ. The output will still have
 the same CRS and resolution as \code{.data}.
 
-\code{x} and \code{y} variables, the longitude and latitude of the \code{SpatRaster},
-are also available internally for filtering. See \strong{Examples}.
+The \code{x} and \code{y} coordinates of the \code{SpatRaster} are also available
+internally for filtering. See \strong{Examples}.
 }
 
 \subsection{\code{SpatVector}}{
 
-The result is a \code{SpatVector} with all the geometries that produce a value of
-\code{TRUE} for all conditions.
+The result is a \code{SpatVector} containing the geometries whose attributes
+satisfy all conditions.
 }
 }
 

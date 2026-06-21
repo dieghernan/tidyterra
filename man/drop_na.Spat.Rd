@@ -32,18 +32,19 @@ specified by \code{...} contains a missing value.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:trim]{terra::trim()}}
+\code{\link[terra:trim]{terra::trim()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:drop_na]{tidyr::drop_na()}} method.
+Implementation of the \strong{generic} \code{\link[tidyr:drop_na]{tidyr::drop_na()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatVector}}{
 
-The implementation of this method is performed on a \code{by-attribute} basis,
-meaning that \code{NA} values are assessed on the attributes (columns) of each
-vector (rows). The result is a \code{SpatVector} with potentially fewer
+This method operates on attributes, meaning that \code{NA} values are assessed in
+the attributes (columns) of each geometry (row). The result is a
+\code{SpatVector} with potentially fewer
 geometries than the input.
 }
 

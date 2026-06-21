@@ -127,7 +127,7 @@ See \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} for details on aesthetics,
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:plot]{terra::plot()}}
+\code{\link[terra:plot]{terra::plot()}}.
 }
 
 \examples{

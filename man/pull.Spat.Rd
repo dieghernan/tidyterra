@@ -55,32 +55,32 @@ See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:values]{terra::values()}}
+\code{\link[terra:values]{terra::values()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} method. This is done
-by coercing the \verb{Spat*} object to a tibble first (see \link{as_tibble.Spat}) and
-then using \code{\link[dplyr:pull]{dplyr::pull()}} method over the tibble.
+Implementation of the \strong{generic} \code{\link[dplyr:pull]{dplyr::pull()}} methods. Each method first
+coerces the \verb{Spat*} object to a tibble (see \link{as_tibble.Spat}) and then
+applies \code{\link[dplyr:pull]{dplyr::pull()}} to the tibble.
 \subsection{\code{SpatRaster}}{
 
-When passing option \code{na.rm = TRUE} to \code{...}, only cells with a value
-distinct to \code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
+When passing \code{na.rm = TRUE} to \code{...}, only cells with a value other than
+\code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 
-If \code{xy = TRUE} option is passed to \code{...}, two columns names \code{x} and \code{y}
+If \code{xy = TRUE} is passed to \code{...}, two columns named \code{x} and \code{y}
 (corresponding to the geographic coordinates of each cell) are available
-in position \code{1} and \code{2}. Hence, \code{pull(.data, 1)} and
-\code{pull(.data, 1, xy = TRUE)} return different result.
+in positions \code{1} and \code{2}. Therefore, \code{pull(.data, 1)} and
+\code{pull(.data, 1, xy = TRUE)} return different results.
 }
 
 \subsection{\code{SpatVector}}{
 
-When passing \code{geom = "WKT"/geom = "HEX"} to \code{...}, the geometry of the
-\code{SpatVector} can be pulled passing \code{var = geometry}. Similarly to
-\code{SpatRaster} method, when using \code{geom = "XY"} the \verb{x,y} coordinates can be
-pulled with \code{var = x/var = y}. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}} options.
+When passing \code{geom = "WKT"} or \code{geom = "HEX"} to \code{...}, the geometry of the
+\code{SpatVector} can be extracted with \code{var = geometry}. Similarly, when using
+\code{geom = "XY"}, the coordinates can be extracted with \code{var = x} or
+\code{var = y}. See the options in \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 }
 }
 

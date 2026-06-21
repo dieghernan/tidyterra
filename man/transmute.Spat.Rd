@@ -39,7 +39,9 @@ with \code{mutate(.keep = "none")}.
 }
 \section{Methods}{
 
-Implementation of the \strong{generic} \code{\link[dplyr:transmute]{dplyr::transmute()}} method.
+
+Implementation of the \strong{generic} \code{\link[dplyr:transmute]{dplyr::transmute()}} method for \verb{Spat*}
+objects.
 }
 
 \examples{

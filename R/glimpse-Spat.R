@@ -28,11 +28,11 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' `print()`
+#' `print()`.
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::glimpse()] function for
+#' Implementation of the **generic** [dplyr::glimpse()] methods for
 #' `Spat*` objects.
 #'
 #' @encoding UTF-8

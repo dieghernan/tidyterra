@@ -43,22 +43,23 @@ using a function.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\verb{names(Spat*) <- c("a", "b", "c")}
+\verb{names(Spat*) <- c("a", "b", "c")}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
-Rename layers of a \code{SpatRaster}.
+Renames layers of a \code{SpatRaster}.
 }
 
 \subsection{\code{SpatVector}}{
 
-The result is a \code{SpatVector} with the renamed attributes on the function
-call.
+The result is a \code{SpatVector} with the attributes renamed as specified in the
+function call.
 }
 }
 

@@ -33,14 +33,15 @@ and are only recorded when they change.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} function for \code{SpatVector}.
+Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} method for \code{SpatVector}
+objects.
 }
 
 \section{Grouped \code{SpatVector}}{
 
 
-With grouped \code{SpatVector} created by \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}, \code{fill()} will
-be applied \emph{within} each group, meaning that it won't fill across group
+With grouped \code{SpatVector} objects created by \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+\code{fill()} is applied \emph{within} each group and does not fill across group
 boundaries.
 }
 

@@ -29,13 +29,12 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::merge()]
+#' [terra::merge()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::inner_join()] family
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [dplyr::inner_join()] method family for
+#' `SpatVector` objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.
@@ -266,13 +265,12 @@ dplyr::full_join
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::merge()]
+#' [terra::merge()].
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::semi_join()] family
-#'
-#' ## `SpatVector`
+#' Implementation of the **generic** [dplyr::semi_join()] method family for
+#' `SpatVector` objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.

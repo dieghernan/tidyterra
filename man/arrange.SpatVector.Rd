@@ -45,14 +45,14 @@ values of selected columns.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:sort]{terra::sort()}}
+\code{\link[terra:sort]{terra::sort()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:arrange]{dplyr::arrange()}} function for
-\code{SpatVector} class.
+Implementation of the \strong{generic} \code{\link[dplyr:arrange]{dplyr::arrange()}} method for
+\code{SpatVector} objects.
 }
 
 \examples{

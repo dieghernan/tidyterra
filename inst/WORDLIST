@@ -2,7 +2,6 @@ Acknowledgements
 CMD
 CodeFactor
 Colorimetric
-Coords
 DSM
 EPSG
 ETOPO
@@ -81,6 +80,7 @@ purrr
 quasiquotation
 rasterVis
 readr
+reproject
 reprojected
 reprojecting
 resamp

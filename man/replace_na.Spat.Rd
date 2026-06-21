@@ -31,7 +31,7 @@ Replace \code{NA}s values on layers/attributes with specified values
 \section{\CRANpkg{terra} equivalent}{
 
 
-Use \verb{r[is.na(r)] <- <replacement>}
+Use \verb{r[is.na(r)] <- <replacement>}.
 }
 
 \examples{

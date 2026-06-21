@@ -66,7 +66,7 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::map.pal()]
+#' [terra::map.pal()].
 #'
 #' @references
 #' GRASS Development Team (2024). *Geographic Resources Analysis Support System

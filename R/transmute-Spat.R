@@ -20,7 +20,9 @@
 #' @inheritParams mutate.Spat
 #'
 #' @section Methods:
-#' Implementation of the **generic** [dplyr::transmute()] method.
+#'
+#' Implementation of the **generic** [dplyr::transmute()] method for `Spat*`
+#' objects.
 #'
 #' @encoding UTF-8
 #' @export

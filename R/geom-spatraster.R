@@ -48,9 +48,9 @@
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::plot()]
+#' [terra::plot()].
 #'
-#' @section Coords:
+#' @section Coordinates:
 #'
 #' When the `SpatRaster` does not have a CRS, that is,
 #' `terra::crs(rast) == ""`, the geom does not make any assumption about the
@@ -63,6 +63,7 @@
 #' @section Aesthetics:
 #'
 #' `geom_spatraster()` understands the following aesthetics:
+#'
 #' - [`fill`][ggplot2::aes_colour_fill_alpha]
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
@@ -73,7 +74,7 @@
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
 #' on the `SpatRaster` (for example,
-#' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Layer names can
+#' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can
 #' be retrieved using `names(rast)`.
 #'
 #' Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
@@ -86,12 +87,12 @@
 #'
 #' @section Facets:
 #'
-#' You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of the
+#' You can use `facet_wrap(~lyr)` to create a faceted plot for each layer of the
 #' `SpatRaster` object. See [ggplot2::facet_wrap()] for details.
 #'
 #' @section Computed variables:
 #'
-#' This geom computes internally some variables that are available for use as
+#' This geom computes variables internally that are available for use as
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'

@@ -30,24 +30,25 @@ concise mini-language. See \strong{Methods}.
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:subset]{terra::subset()}}
+\code{\link[terra:subset]{terra::subset()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
-Select (and rename) layers of a \code{SpatRaster}. The result is a \code{SpatRaster}
-with the same extent, resolution and CRS as \code{.data}. Only the number (and
-possibly the name) of layers is modified.
+Selects and renames layers of a \code{SpatRaster}. The result is a \code{SpatRaster}
+with the same extent, resolution and CRS as \code{.data}. Only the number and
+possibly the names of layers are modified.
 }
 
 \subsection{\code{SpatVector}}{
 
-The result is a \code{SpatVector} with the selected (and possibly renamed)
-attributes on the function call.
+The result is a \code{SpatVector} with the attributes selected and possibly
+renamed as specified in the function call.
 }
 }
 

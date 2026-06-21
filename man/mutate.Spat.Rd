@@ -74,24 +74,25 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 
 Some \CRANpkg{terra} methods for modifying cell values:
 \code{\link[terra:ifel]{terra::ifel()}}, \code{\link[terra:classify]{terra::classify()}}, \code{\link[terra:clamp]{terra::clamp()}}, \code{\link[terra:app]{terra::app()}},
-\code{\link[terra:lapp]{terra::lapp()}}, \code{\link[terra:tapp]{terra::tapp()}}
+\code{\link[terra:lapp]{terra::lapp()}} and \code{\link[terra:tapp]{terra::tapp()}}.
 }
 
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}} method.
+Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}} methods for \verb{Spat*}
+objects.
 \subsection{\code{SpatRaster}}{
 
-Add new layers and preserves existing ones. The result is a
+Adds new layers and preserves existing ones. The result is a
 \code{SpatRaster} with the same extent, resolution and CRS as \code{.data}. Only the
-values (and possibly the number) of layers is modified.
+values and possibly the number of layers are modified.
 }
 
 \subsection{\code{SpatVector}}{
 
-The result is a \code{SpatVector} with the modified (and possibly renamed)
-attributes on the function call.
+The result is a \code{SpatVector} with the attributes modified and possibly
+renamed as specified in the function call.
 }
 }
 
