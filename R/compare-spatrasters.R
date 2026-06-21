@@ -22,7 +22,7 @@
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
-#' [terra::identical()].
+#' [terra::compareGeom()].
 #'
 #' @section Resolving differences:
 #'

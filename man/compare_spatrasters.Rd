@@ -29,7 +29,7 @@ This function compares those attributes and reports the results. See
 \section{\CRANpkg{terra} equivalent}{
 
 
-\code{\link[terra:identical]{terra::identical()}}.
+\code{\link[terra:compareGeom]{terra::compareGeom()}}.
 }
 
 \section{Resolving differences}{
