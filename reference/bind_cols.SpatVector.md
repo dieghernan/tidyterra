@@ -3,10 +3,10 @@
 Bind any number of `SpatVector`, data frames and `sf` objects by column,
 making a wider result. This is similar to `do.call(cbind, data_frames)`.
 
-Where possible prefer using a
+Where possible, prefer using a
 [join](https://dieghernan.github.io/tidyterra/reference/mutate-joins.SpatVector.md)
 to combine `SpatVector` and data frame objects. `bind_spat_cols()` binds
-the rows in order in which they appear so it is easy to create
+rows in the order in which they appear, so it is easy to create
 meaningless results without realizing it.
 
 ## Usage
@@ -37,7 +37,7 @@ bind_spat_cols(
 ## Value
 
 A `SpatVector` with the corresponding columns. The geometry and CRS
-correspond to the first `SpatVector` of `...`.
+correspond to the first `SpatVector` in `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

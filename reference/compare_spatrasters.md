@@ -26,9 +26,8 @@ compare_spatrasters(x, y, digits = 6)
 
 ## Value
 
-An invisible logical `TRUE/FALSE` indicating whether the `SpatRaster`
-objects are compatible, plus an informative message flagging any issues
-found.
+An invisible logical value indicating whether the `SpatRaster` objects
+are compatible, plus an informative message flagging any issues found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -62,7 +61,7 @@ x <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 # Nothing
 compare_spatrasters(x, x)
 
-# Different crs
+# Different CRS
 y_nocrs <- x
 crs(y_nocrs) <- NA
 

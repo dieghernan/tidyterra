@@ -1,7 +1,7 @@
 # Get cell number, row and column from a `SpatRaster`
 
-`as_coordinates()` can be used to obtain the position of each cell on
-the `SpatRaster` matrix.
+`as_coordinates()` returns the position of each cell in the `SpatRaster`
+matrix.
 
 ## Usage
 
@@ -23,10 +23,10 @@ as_coordinates(x, as.raster = FALSE)
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) or
-a `SpatRaster` (if `as.raster = TRUE`) with the same number of rows (or
-cells) as the number of cells in `x`.
+a `SpatRaster` (if `as.raster = TRUE`) with one row (or cell) for each
+cell in `x`.
 
-When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
+When `as.raster = TRUE`, the resulting `SpatRaster` has the same CRS,
 extent and resolution as `x`.
 
 ## See also

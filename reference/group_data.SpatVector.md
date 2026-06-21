@@ -6,7 +6,7 @@ objects in various ways:
 - [`group_data()`](https://dplyr.tidyverse.org/reference/group_data.html)
   returns a tibble that defines the grouping structure. The columns give
   the values of the grouping variables. The last column, always called
-  `.rows`, is a list of integer vectors that gives the location of the
+  `.rows`, is a list of integer vectors that gives the locations of the
   rows in each group.
 
 - [`group_keys()`](https://dplyr.tidyverse.org/reference/group_data.html)
@@ -21,7 +21,7 @@ objects in various ways:
   group that each row belongs to.
 
 - [`group_vars()`](https://dplyr.tidyverse.org/reference/group_data.html)
-  gives names of grouping variables as character vector.
+  gives the names of grouping variables as a character vector.
 
 - [`groups()`](https://dplyr.tidyverse.org/reference/group_data.html)
   gives the names of the grouping variables as a list of symbols.
@@ -126,7 +126,7 @@ group_data(v)
 group_indices(v)
 #> [1] 1 1 1 1 1 1 1 1 1
 
-# Grouped by one var
+# Grouped by one variable
 gv <- group_by(v, gr_1)
 
 n_groups(gv)
@@ -169,7 +169,7 @@ group_data(gv)
 group_indices(gv)
 #> [1] 1 1 2 1 1 2 1 1 2
 
-# Grouped by several vars
+# Grouped by several variables
 
 gv2 <- group_by(v, gr_1, gr_2)
 

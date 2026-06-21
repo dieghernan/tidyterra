@@ -29,7 +29,7 @@ cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
 
 - ...:
 
-  Additional arguments passed on to
+  Additional arguments passed to
   [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html).
 
 - copy:

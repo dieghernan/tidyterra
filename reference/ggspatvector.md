@@ -79,7 +79,7 @@ stat_spatvector(
 
 - ...:
 
-  Other arguments passed on to
+  Other arguments passed to
   [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
   functions. These are often aesthetics, used to set an aesthetic to a
   fixed value, like `colour = "red"` or `linewidth = 3`.
@@ -222,7 +222,7 @@ ggplot(cyl) +
   coord_sf(crs = 3857)
 
 
-# You can use now geom_sf with SpatVectors!
+# You can now use geom_sf() with SpatVector objects.
 
 ggplot(cyl) +
   geom_sf() +

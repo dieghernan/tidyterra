@@ -37,7 +37,7 @@ as_tibble(
 
 - ...:
 
-  Arguments passed on to
+  Arguments passed to
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 - xy:

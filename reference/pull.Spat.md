@@ -54,7 +54,7 @@ pull(.data, var = -1, name = NULL, ...)
 
 - ...:
 
-  Arguments passed on to
+  Arguments passed to
   [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   or
   [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
@@ -62,7 +62,7 @@ pull(.data, var = -1, name = NULL, ...)
 
 ## Value
 
-A vector the same number of cells/geometries as `.data`.
+A vector with the same number of cells/geometries as `.data`.
 
 On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
 empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
@@ -121,13 +121,13 @@ library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 r <- rast(f)
 
-# Extract second layer
+# Extract the second layer.
 r |>
   pull(2) |>
   head()
 #> [1] 229 235 229 229 239 153
 
-# With xy the first two cols are `x` (longitude) and `y` (latitude)
+# With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
 
 r |>
   pull(2, xy = TRUE) |>

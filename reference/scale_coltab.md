@@ -45,7 +45,7 @@ get_coltab_pal(x)
 
 - data, x:
 
-  A `SpatRaster` with one or several color tables. See
+  A `SpatRaster` with one or more color tables. See
   [`terra::has.colors()`](https://rspatial.github.io/terra/reference/colors.html).
 
 - ...:

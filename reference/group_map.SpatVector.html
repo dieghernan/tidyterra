@@ -116,8 +116,9 @@ for one group, and <code>.y</code>, a tibble with the group keys.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Each conceptual group is exposed to <code>.f</code> with two pieces of information:
-<code>.x</code>, the subset of rows for the group as a <code>SpatVector</code>, and <code>.y</code>, a one-row
-tibble with one column per grouping variable that identifies the group.</p>
+<code>.x</code>, the subset of rows for the group as a <code>SpatVector</code>, and <code>.y</code>, a
+one-row tibble with one column per grouping variable that identifies the
+group.</p>
 <p>These methods also work on ungrouped <code>SpatVector</code> objects. In that case,
 <code>.f</code> is applied to the entire object and <code>.y</code> is a one-row tibble with no
 columns.</p>

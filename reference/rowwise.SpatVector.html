@@ -104,8 +104,8 @@ with <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>.<
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>&lt;<code><a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Variables to be
-preserved when calling <code><a href="summarise.SpatVector.html">summarise.SpatVector()</a></code>. This is typically a set of
-variables whose combination uniquely identifies each row. See
+preserved when calling <code><a href="summarise.SpatVector.html">summarise.SpatVector()</a></code>. This is typically a set
+of variables whose combination uniquely identifies each row. See
 <code><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">dplyr::rowwise()</a></code>.</p>
 <p>Unlike <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>, you cannot create new variables here.
 Instead, you can select multiple variables, for example with
@@ -170,7 +170,7 @@ without preserving grouping metadata. Call <code><a href="group_by.SpatVector.ht
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR74 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 10<span style="color: #949494;">, </span>10<span style="color: #949494;">, </span>208<span style="color: #949494;">, </span>123<span style="color: #949494;">, </span>1066<span style="color: #949494;">, </span>954<span style="color: #949494;">, </span>115<span style="color: #949494;">, </span>254<span style="color: #949494;">, </span>748<span style="color: #949494;">, </span>160<span style="color: #949494;">, </span>550<span style="color: #949494;">, </span>1243<span style="color: #949494;">, </span>93…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ NWBIR79 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 19<span style="color: #949494;">, </span>12<span style="color: #949494;">, </span>260<span style="color: #949494;">, </span>145<span style="color: #949494;">, </span>1197<span style="color: #949494;">, </span>1237<span style="color: #949494;">, </span>139<span style="color: #949494;">, </span>371<span style="color: #949494;">, </span>844<span style="color: #949494;">, </span>176<span style="color: #949494;">, </span>597<span style="color: #949494;">, </span>1369<span style="color: #949494;">, </span>1…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Compute the mean of NWBIR on each geometry</span></span></span>
+<span class="r-in"><span><span class="co"># Compute the mean of NWBIR for each geometry.</span></span></span>
 <span class="r-in"><span><span class="va">nb</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rowwise.html" class="external-link">rowwise</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nb_mean <span class="op">=</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">NWBIR74</span>, <span class="va">NWBIR79</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>

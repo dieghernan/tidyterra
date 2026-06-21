@@ -98,7 +98,7 @@ stat_spat_coordinates(
 
 - ...:
 
-  Other arguments passed on to
+  Other arguments passed to
   [`ggplot2::stat_sf_coordinates()`](https://ggplot2.tidyverse.org/reference/stat_sf_coordinates.html).
 
 ## Value

@@ -387,7 +387,7 @@ distribution of the tint. You can combine this with `oob`, for example
 `oob = scales::oob_squish`, to avoid blank pixels in the plot.
 
 `hypso.colors2()` provides a gradient color palette where the distance
-between colors is different depending of the type of color. In contrast,
+between colors differs depending on the type of color. In contrast,
 `hypso.colors()` provides a uniform gradient across colors. See
 **Examples**.
 
@@ -512,7 +512,7 @@ for (i in pals) {
 }
 par(opar)
 
-# Display all the cpt-city palettes on version 2
+# Display all version 2 cpt-city palettes.
 
 pals <- unique(hypsometric_tints_db$pal)
 

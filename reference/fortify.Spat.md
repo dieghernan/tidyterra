@@ -94,10 +94,10 @@ fortify(model, data, ..., crs = "")
 
 - crs:
 
-  Input that includes or represents a CRS. It can be an `sf/sfc` object,
-  a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf` or `sfc`
+  object, a `SpatRaster` or `SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character string (for example a [proj4
+  a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)),
   or an integer representing an [EPSG](https://epsg.io/) code.
 

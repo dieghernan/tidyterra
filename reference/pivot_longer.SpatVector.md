@@ -195,7 +195,7 @@ temp <- rast((system.file("extdata/cyl_temp.tif", package = "tidyterra")))
 cyl <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra")) |>
   project(temp)
 
-# Add average temp
+# Add average temperature.
 
 temps <- terra::extract(temp, cyl, fun = "mean", na.rm = TRUE, xy = TRUE)
 cyl_temp <- cbind(cyl, temps) |>
@@ -214,7 +214,7 @@ cyl_temp <- cbind(cyl, temps) |>
 #> $ tavg_05 <dbl> 11.84584, 12.07354, 11.09056, 12.11431, 13.00844, 12.35747, 11…
 #> $ tavg_06 <dbl> 16.64684, 16.14488, 15.51468, 16.45461, 17.55421, 17.05671, 16…
 
-# And pivot long for plot
+# Pivot to long format for plotting.
 cyl_temp |>
   pivot_longer(
     cols = tavg_04:tavg_06,

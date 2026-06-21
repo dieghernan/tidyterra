@@ -258,7 +258,7 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 
 ``` r
 # \donttest{
-# Avg temperature on spring in Castile and Leon (Spain)
+# Average spring temperature in Castile and Leon (Spain)
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)

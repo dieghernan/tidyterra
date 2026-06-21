@@ -465,7 +465,7 @@ frames.
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
+  Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
 
 - [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md)
   **\[experimental\]** :
@@ -675,7 +675,7 @@ Color scales, palettes and hypsometric tints for spatial plots.
   [`scale_fill_cross_blended_tint_b()`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md)
   [`scale_colour_cross_blended_tint_b()`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md)
   [`cross_blended.colors2()`](https://dieghernan.github.io/tidyterra/reference/scale_cross_blended.md)
-  : Cross blended hypsometric tints scales
+  : Cross-blended hypsometric tint scales
 
 - [`scale_fill_grass_d()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
   [`scale_colour_grass_d()`](https://dieghernan.github.io/tidyterra/reference/scale_grass.md)
@@ -832,7 +832,9 @@ Utilities for CRS handling, package checks and `SpatRaster` comparisons.
   Compare attributes of two `SpatRaster` objects
 
 - [`is_regular_grid()`](https://dieghernan.github.io/tidyterra/reference/is_regular_grid.md)
-  : Check whether x and y positions form a regular grid
+  :
+
+  Check whether `x` and `y` positions form a regular grid
 
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)
   : Extract CRS in WKT format

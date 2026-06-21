@@ -1,9 +1,9 @@
 # Plot `SpatRaster` contours
 
 These geoms create contours of `SpatRaster` objects. To specify a valid
-surface, you should specify the layer on `aes(z = layer_name)`,
-otherwise all the layers are considered for creating contours. See also
-**Facets** section.
+surface, specify the layer in `aes(z = layer_name)`; otherwise, all
+layers are considered when creating contours. See also the **Facets**
+section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
@@ -181,7 +181,7 @@ geom_spatraster_contour_filled(
     breaks produced by `bins`, `binwidth` or `breaks`).
 
   - A function that takes the breaks as input and returns labels as
-    output, as the default setup
+    output, as in the default setup
     ([`scales::label_number()`](https://scales.r-lib.org/reference/label_number.html)).
 
 - label_placer:

@@ -108,7 +108,7 @@ nb <- v |>
 #> $ NWBIR74 <dbl> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…
 #> $ NWBIR79 <dbl> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369, 1…
 
-# Compute the mean of NWBIR on each geometry
+# Compute the mean of NWBIR for each geometry.
 nb |>
   rowwise() |>
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))

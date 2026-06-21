@@ -25,8 +25,8 @@ replace_na(data, replace, ...)
 
   A named list of values, with one value for each layer/attribute that
   has missing values to be replaced. Each value in `replace` will be
-  cast to the type of the column in `data` that it is being used as a
-  replacement in.
+  cast to the type of the column in `data` where it is used as a
+  replacement.
 
 - ...:
 

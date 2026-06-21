@@ -224,8 +224,8 @@ layer with the values applied to the `fill/colour` aesthetics.
 
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html),
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html)
-and [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` arguments.
+and [ggplot2](https://CRAN.R-project.org/package=ggplot2) documentation
+on additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md),

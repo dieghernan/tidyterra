@@ -32,7 +32,7 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 - ...:
 
-  Arguments passed on to
+  Arguments passed to
   [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
   or
   [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/as_tibble.Spat.md)
@@ -96,7 +96,7 @@ v |> glimpse(n = 2)
 #> # ℹ 1 more variable : name <chr>
 #> # ℹ Use `tidyterra::glimpse(n = ...)` to see more columns
 
-# Use on a pipeline
+# Use in a pipeline.
 v |>
   glimpse() |>
   mutate(a = 30) |>
@@ -134,7 +134,7 @@ r |> glimpse()
 #> 
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 
-# Use on a pipeline
+# Use in a pipeline.
 r |>
   glimpse() |>
   mutate(b = elevation_m / 100) |>

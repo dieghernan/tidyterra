@@ -22,7 +22,7 @@ as_sf(x, ...)
 
 - ...:
 
-  Additional arguments passed on to
+  Additional arguments passed to
   [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html).
 
 ## Value
@@ -49,7 +49,7 @@ library(terra)
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- terra::vect(f)
 
-# This is ungrouped
+# The input is ungrouped.
 v
 #> class       : SpatVector
 #> geometry    : polygons
@@ -66,7 +66,7 @@ v
 is_grouped_spatvector(v)
 #> [1] FALSE
 
-# Get an ungrouped data
+# Get ungrouped data.
 a_sf <- as_sf(v)
 
 dplyr::is_grouped_df(a_sf)
@@ -106,7 +106,7 @@ group_data(gr_v)
 #> 4 C     F             [1]
 #> 5 C     G             [1]
 
-# A sf
+# An sf object.
 
 a_gr_sf <- as_sf(gr_v)
 

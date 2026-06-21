@@ -101,7 +101,7 @@ or the width of the console.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="as_tibble.Spat.html">as_tibble.SpatRaster()</a></code> or
+<dd><p>Arguments passed to <code><a href="as_tibble.Spat.html">as_tibble.SpatRaster()</a></code> or
 <code><a href="as_tibble.Spat.html">as_tibble.SpatVector()</a></code> methods.</p></dd>
 
 
@@ -165,7 +165,7 @@ be used within a data pipeline.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ 1 more variable : name &lt;chr&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"># ℹ Use `tidyterra::glimpse(n = ...)` to see more columns</span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Use on a pipeline</span></span></span>
+<span class="r-in"><span><span class="co"># Use in a pipeline.</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">30</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
@@ -203,7 +203,7 @@ be used within a data pipeline.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ elevation_m <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 700.2969<span style="color: #949494;">, </span>780.3889<span style="color: #949494;">, </span>706.1250<span style="color: #949494;">, </span>568.9722<span style="color: #949494;">, </span>584.9028<span style="color: #949494;">, </span>506.7361…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Use on a pipeline</span></span></span>
+<span class="r-in"><span><span class="co"># Use in a pipeline.</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>b <span class="op">=</span> <span class="va">elevation_m</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>

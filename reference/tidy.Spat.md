@@ -90,10 +90,10 @@ tidy(x, ..., crs = "")
 
 - crs:
 
-  Input that includes or represents a CRS. It can be an `sf/sfc` object,
-  a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf` or `sfc`
+  object, a `SpatRaster` or `SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character string (for example a [proj4
+  a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)),
   or an integer representing an [EPSG](https://epsg.io/) code.
 
@@ -259,7 +259,7 @@ tidy(ex)
 #> *                                                                      <POLYGON>
 #> 1 ((2892687 2017622, 2892687 2361600, 3341372 2361600, 3341372 2017622, 2892687…
 
-# With crs
+# With a CRS
 tidy(ex, crs = pull_crs(cyl))
 #> Simple feature collection with 1 feature and 0 fields
 #> Geometry type: POLYGON

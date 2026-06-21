@@ -12,7 +12,7 @@ Supply `wt` to perform weighted counts, switching the summary from
 
 [`add_count()`](https://dplyr.tidyverse.org/reference/count.html) is
 equivalent to
-[`count()`](https://dplyr.tidyverse.org/reference/count.html) but use
+[`count()`](https://dplyr.tidyverse.org/reference/count.html) but uses
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) instead
 of [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 so that it adds a new column with group-wise counts.

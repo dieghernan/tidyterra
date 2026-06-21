@@ -7,7 +7,7 @@ unevaluated expressions for you. See
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md)
 for details.
 
-This function is the adapted version of
+This function is an adapted version of
 [`dplyr::is_grouped_df()`](https://dplyr.tidyverse.org/reference/grouped_df.html).
 
 See also

@@ -75,13 +75,7 @@ autoplot(object, ...)
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
-
-## Details
-
-Implementation of
-[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) plot.
 
 ## Methods
 

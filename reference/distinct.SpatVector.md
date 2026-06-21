@@ -67,7 +67,7 @@ library(terra)
 
 v <- vect(system.file("ex/lux.shp", package = "terra"))
 
-# Create a vector with dups
+# Create a vector with duplicates.
 v <- v[sample(seq_len(nrow(v)), 100, replace = TRUE), ]
 v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 
@@ -105,7 +105,7 @@ ex2
 nrow(ex2)
 #> [1] 3
 
-# Same but keeping all cols
+# Keep all columns.
 ex2b <- distinct(v, gr, .keep_all = TRUE)
 ex2b
 #> class       : SpatVector
@@ -140,7 +140,7 @@ terra::unique(ex3)
 #> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
 #> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 
-# Unique keeping info
+# Keep information for unique values.
 distinct(v, geometry, .keep_all = TRUE)
 #> class       : SpatVector
 #> geometry    : polygons

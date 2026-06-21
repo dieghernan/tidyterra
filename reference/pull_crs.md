@@ -1,7 +1,7 @@
 # Extract CRS in WKT format
 
-Extract the WKT version of the CRS associated with a string, number or
-`sf/Spat*` object. [Well-known text
+Extract the WKT version of the CRS associated with a string, number,
+`sf` object or `Spat*` object. [Well-known text
 (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
 is a character string representation of coordinate reference systems
 (CRS). It identifies the parameters of each CRS precisely and is the
@@ -18,10 +18,11 @@ pull_crs(.data, ...)
 
 - .data:
 
-  Input potentially including or representing a CRS. It could be a
-  `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
+  Input potentially including or representing a CRS. It could be an `sf`
+  or `sfc` object, a `SpatRaster` or `SpatVector` object, a `crs` object
+  from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character (for example a [proj4
+  a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)) or
   a integer (representing an [EPSG](https://epsg.io/) code).
 
