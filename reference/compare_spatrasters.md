@@ -32,7 +32,7 @@ found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html).
+[`terra::compareGeom()`](https://rspatial.github.io/terra/reference/compareGeom.html).
 
 ## Resolving differences
 
