@@ -30,7 +30,7 @@ scale_colour_coltab(
 get_coltab_pal(x)
 }
 \arguments{
-\item{data, x}{A \code{SpatRaster} with one or several color tables.
+\item{data, x}{A \code{SpatRaster} with one or more color tables.
 See \code{\link[terra:has.colors]{terra::has.colors()}}.}
 
 \item{...}{

@@ -34,10 +34,10 @@
 #'   [quasiquotation][rlang::topic-inject] (you can unquote column names and
 #'   column locations).
 #'
-#' @param ... Arguments passed on to [as_tibble.SpatRaster()] or
+#' @param ... Arguments passed to [as_tibble.SpatRaster()] or
 #'   [as_tibble.SpatVector()] methods.
 #'
-#' @returns A vector the same number of cells/geometries as `.data`.
+#' @returns A vector with the same number of cells/geometries as `.data`.
 #'
 #' On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
 #' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
@@ -78,12 +78,12 @@
 #' f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 #' r <- rast(f)
 #'
-#' # Extract second layer
+#' # Extract the second layer.
 #' r |>
 #'   pull(2) |>
 #'   head()
 #'
-#' # With xy the first two cols are `x` (longitude) and `y` (latitude)
+#' # With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
 #'
 #' r |>
 #'   pull(2, xy = TRUE) |>

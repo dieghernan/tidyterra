@@ -22,10 +22,10 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [dplyr::reframe()] method for `SpatVector`
-#' objects.
+#' Implementation of the **generic** [dplyr::reframe()] method for
+#' `SpatVector` objects.
 #'
-#' For grouped inputs, and for calls using `.by`, geometries are aggregated per
+#' For grouped inputs and calls using `.by`, geometries are aggregated per
 #' group. If a group produces more than one row, the aggregated group geometry
 #' is repeated for each output row.
 #'

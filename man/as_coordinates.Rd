@@ -15,14 +15,14 @@ layers indicating the position of each cell (cell number, row and column).}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
-the same number of rows (or cells) as the number of cells in \code{x}.
+one row (or cell) for each cell in \code{x}.
 
-When \code{as.raster = TRUE} the resulting \code{SpatRaster} has the same CRS,
+When \code{as.raster = TRUE}, the resulting \code{SpatRaster} has the same CRS,
 extent and resolution as \code{x}.
 }
 \description{
-\code{as_coordinates()} can be used to obtain the position of each cell on the
-\code{SpatRaster} matrix.
+\code{as_coordinates()} returns the position of each cell in the \code{SpatRaster}
+matrix.
 }
 \examples{
 

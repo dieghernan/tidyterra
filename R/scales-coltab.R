@@ -29,7 +29,7 @@
 #'
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #'
-#' @param data,x A `SpatRaster` with one or several color tables.
+#' @param data,x A `SpatRaster` with one or more color tables.
 #'   See [terra::has.colors()].
 #'
 #' @param alpha The alpha transparency: could be `NA` or a number in \[0,1\].

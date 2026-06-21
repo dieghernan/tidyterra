@@ -21,9 +21,10 @@
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> layers/attributes to
 #'   move.
 #'
-#' @param .before,.after <[`tidy-select`][dplyr::dplyr_tidy_select]> Destination
-#'   of layers/attributes selected by `...`. Supplying neither will move
-#'   layers/attributes to the left-hand side. Specifying both is an error.
+#' @param .before,.after <[`tidy-select`][dplyr::dplyr_tidy_select]>
+#'   Destination of layers/attributes selected by `...`. Supplying neither
+#'   will move layers/attributes to the left-hand side. Specifying both is an
+#'   error.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

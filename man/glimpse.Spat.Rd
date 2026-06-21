@@ -19,7 +19,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \code{width} \link[pillar:pillar_options]{option} (if finite)
 or the width of the console.}
 
-\item{...}{Arguments passed on to \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}} or
+\item{...}{Arguments passed to \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}} or
 \code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}} methods.}
 
 \item{n}{Maximum number of rows to show.}
@@ -58,7 +58,7 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
 v |> glimpse(n = 2)
 
-# Use on a pipeline
+# Use in a pipeline.
 v |>
   glimpse() |>
   mutate(a = 30) |>
@@ -70,7 +70,7 @@ r <- rast(system.file("extdata/cyl_elev.tif", package = "tidyterra"))
 
 r |> glimpse()
 
-# Use on a pipeline
+# Use in a pipeline.
 r |>
   glimpse() |>
   mutate(b = elevation_m / 100) |>

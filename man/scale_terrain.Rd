@@ -201,8 +201,8 @@ ggplot() +
 }
 }
 \seealso{
-\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2} docs
-on additional \code{...} arguments.
+\code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}} and \CRANpkg{ggplot2}
+documentation on additional \code{...} arguments.
 
 Other color scales, palettes and hypsometric tints:
 \code{\link{scale_coltab}},

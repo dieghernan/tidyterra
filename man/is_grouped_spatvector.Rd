@@ -16,9 +16,10 @@ is_grouped_spatvector(x)
 \description{
 The easiest way to create a grouped \code{SpatVector} is to call the
 \code{group_by()} method on a \code{SpatVector}: this will take care of capturing
-the unevaluated expressions for you. See \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} for details.
+the unevaluated expressions for you. See \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} for
+details.
 
-This function is the adapted version of \code{\link[dplyr:is_grouped_df]{dplyr::is_grouped_df()}}.
+This function is an adapted version of \code{\link[dplyr:is_grouped_df]{dplyr::is_grouped_df()}}.
 
 See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the accessory functions that retrieve
 various metadata from a grouped \code{SpatVector}.

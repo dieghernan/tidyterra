@@ -1,8 +1,8 @@
 #' Pivot `SpatVector` from long to wide
 #'
 #' @description
-#' [pivot_wider()] "widens" a `SpatVector`, increasing the number of columns and
-#' decreasing the number of rows. The inverse transformation is
+#' [pivot_wider()] "widens" a `SpatVector`, increasing the number of columns
+#' and decreasing the number of rows. The inverse transformation is
 #' [pivot_longer.SpatVector()].
 #'
 #' @rdname pivot_wider.SpatVector

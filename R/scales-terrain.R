@@ -20,8 +20,8 @@
 #' @name scale_terrain
 #'
 #' @seealso
-#' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2} docs
-#' on additional `...` arguments.
+#' [terra::plot()], [ggplot2::scale_fill_viridis_c()] and \CRANpkg{ggplot2}
+#' documentation on additional `...` arguments.
 #'
 #' @family gradients
 #'

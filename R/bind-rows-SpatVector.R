@@ -1,7 +1,7 @@
-#' Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
+#' Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
 #'
 #' @description
-#' Bind any number of `SpatVector`, data frames and `sf/sfc` objects by row,
+#' Bind any number of `SpatVector`, data frames, `sf` and `sfc` objects by row,
 #' making a longer result. This is similar to `do.call(rbind, data_frames)`,
 #' but the output will contain all columns that appear in any of the inputs.
 #'
@@ -16,9 +16,9 @@
 #' @inheritParams dplyr::bind_rows
 #'
 #' @param ... Objects to combine. The first argument must be a `SpatVector`.
-#'   Each subsequent argument can be a `SpatVector`, `sf/sfc` object or data
-#'   frame. Columns are matched by name and any missing columns are filled with
-#'   `NA`.
+#'   Each subsequent argument can be a `SpatVector`, `sf` or `sfc` object or a
+#'   data frame. Columns are matched by name and any missing columns are filled
+#'   with `NA`.
 #' @returns A `SpatVector` of the same type as the first element of `...`.
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -47,7 +47,7 @@
 #' v1 <- v[1, "cpro"]
 #' v2 <- v[3:5, c("name", "iso2")]
 #'
-#' # You can supply individual SpatVector as arguments:
+#' # You can supply individual SpatVector objects as arguments.
 #' bind_spat_rows(v1, v2)
 #'
 #' # When you supply a column name with the `.id` argument, a new column is
@@ -55,26 +55,26 @@
 #' bind_spat_rows(v1, v2, .id = "id")
 #'
 #' \donttest{
-#' # Use with sf
+#' # Use with sf objects.
 #' sfobj <- sf::st_as_sf(v2[1, ])
 #'
 #' sfobj
 #'
 #' bind_spat_rows(v1, sfobj)
 #'
-#' # Would reproject with a message on different CRS
+#' # Reproject with a message when the CRS differs.
 #' sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 #'
 #' bind_spat_rows(v1, sfobj_3857)
 #'
-#' # And with data frames with a message
+#' # Bind data frames with a message.
 #' data("mtcars")
 #' bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 #'
 #' # Use lists
 #' bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
 #'
-#' # Or named list combined with .id
+#' # Use a named list with `.id`.
 #' bind_spat_rows(list(
 #'   SpatVector = v1[1, ], sf = sfobj[1, ],
 #'   mtcars = mtcars[1, ]

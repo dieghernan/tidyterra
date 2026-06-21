@@ -66,7 +66,7 @@ a warning. If \code{TRUE}, missing values are silently removed.}
 You can also set this to one of "polygon", "line", and "point" to
 override the default legend.}
 
-\item{...}{Other arguments passed on to \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions.
+\item{...}{Other arguments passed to \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like \code{colour = "red"} or \code{linewidth = 3}.}
 
@@ -160,7 +160,7 @@ ggplot(cyl) +
   scale_fill_viridis_d(alpha = 0.4) +
   coord_sf(crs = 3857)
 
-# You can use now geom_sf with SpatVectors!
+# You can now use geom_sf() with SpatVector objects.
 
 ggplot(cyl) +
   geom_sf() +

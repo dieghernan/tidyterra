@@ -41,8 +41,8 @@ See \strong{Details} on \code{\link[dplyr:group_split]{dplyr::group_split()}}.
 \section{Lifecycle}{
 
 
-\code{group_split()} is not stable because you can achieve very similar results by
-manipulating the nested column returned from
+\code{group_split()} is not stable because you can achieve very similar results
+by manipulating the nested column returned from
 \code{\link[=nest.SpatVector]{nest(.by =)}}. That also retains the group keys all
 within a single data structure. \code{group_split()} may be deprecated in the
 future.

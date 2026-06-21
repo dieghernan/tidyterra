@@ -3,25 +3,26 @@
 \encoding{UTF-8}
 \name{is_regular_grid}
 \alias{is_regular_grid}
-\title{Check whether x and y positions form a regular grid}
+\title{Check whether \code{x} and \code{y} positions form a regular grid}
 \usage{
 is_regular_grid(xy, digits = 6)
 }
 \arguments{
-\item{xy}{A matrix, data frame or tibble of at least two columns representing
-x and y coordinates.}
+\item{xy}{A matrix, data frame or tibble with at least two columns
+representing \code{x} and \code{y} coordinates.}
 
 \item{digits}{Integer to set the precision for detecting whether points are
 on a regular grid (a low number of digits is a low precision).}
 }
 \value{
-\code{invisible()} if the coordinates form a regular grid. Otherwise, an error.
+Nothing, invisibly, if the coordinates form a regular grid. Otherwise, an
+error.
 }
 \description{
 Assess whether the \code{x} and \code{y} coordinates of an object form a regular grid.
 This function is called for its side effects.
 
-This function is internally called by \code{\link[=as_spatraster]{as_spatraster()}}.
+This function is called internally by \code{\link[=as_spatraster]{as_spatraster()}}.
 }
 \examples{
 

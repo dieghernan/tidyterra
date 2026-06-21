@@ -24,7 +24,7 @@
 #'
 #' @param data A `SpatVector` object, see [terra::vect()].
 #'
-#' @param ... Other arguments passed on to [ggplot2::geom_sf()] functions.
+#' @param ... Other arguments passed to [ggplot2::geom_sf()] functions.
 #'   These are often aesthetics, used to set an aesthetic to a fixed value,
 #'   like `colour = "red"` or `linewidth = 3`.
 #'
@@ -65,7 +65,7 @@
 #'   scale_fill_viridis_d(alpha = 0.4) +
 #'   coord_sf(crs = 3857)
 #'
-#' # You can use now geom_sf with SpatVectors!
+#' # You can now use geom_sf() with SpatVector objects.
 #'
 #' ggplot(cyl) +
 #'   geom_sf() +

@@ -65,7 +65,7 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:annotation_borders]{annotation_borders()}}.}
 
-\item{...}{Other arguments passed on to \code{\link[ggplot2:stat_sf_coordinates]{ggplot2::stat_sf_coordinates()}}.}
+\item{...}{Other arguments passed to \code{\link[ggplot2:stat_sf_coordinates]{ggplot2::stat_sf_coordinates()}}.}
 }
 \value{
 A \CRANpkg{ggplot2} layer.

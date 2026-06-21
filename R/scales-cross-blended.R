@@ -1,8 +1,8 @@
-#' Cross blended hypsometric tints scales
+#' Cross-blended hypsometric tint scales
 #'
 #' @description
 #'
-#' Implementation of the cross blended hypsometric gradients presented on
+#' Implementation of the cross-blended hypsometric gradients presented in
 #' \doi{10.14714/CP69.20}. The following fill scales and palettes are provided:
 #'
 #' - `scale_*_cross_blended_d()`: For discrete values.
@@ -408,7 +408,7 @@ cross_blended.colors <- function(
 #' `oob = scales::oob_squish`, to avoid blank pixels in the plot.
 #'
 #' `cross_blended.colors2()` provides a gradient color palette where the
-#' distance between colors is different depending of the type of color.
+#' distance between colors differs depending on the type of color.
 #' In contrast, `cross_blended.colors()` provides a uniform gradient across
 #' colors. See **Examples**.
 #'
@@ -600,7 +600,7 @@ scale_colour_cross_blended_tint_b <- function(
 #' @rdname scale_cross_blended
 #' @export
 #' @examples
-#' # Display all the cross-blended palettes on version 2
+#' # Display all version 2 cross-blended palettes.
 #'
 #' pals <- unique(cross_blended_hypsometric_tints_db$pal)
 #'

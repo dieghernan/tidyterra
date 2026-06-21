@@ -26,8 +26,8 @@
 #' @inheritSection group_by.SpatVector Grouping metadata
 #' @param data A `SpatVector` object. See **Methods**.
 #' @param ... <[`tidy-select`][dplyr::dplyr_tidy_select]> Variables to be
-#'   preserved when calling [summarise.SpatVector()]. This is typically a set of
-#'   variables whose combination uniquely identifies each row. See
+#'   preserved when calling [summarise.SpatVector()]. This is typically a set
+#'   of variables whose combination uniquely identifies each row. See
 #'   [dplyr::rowwise()].
 #'
 #'   Unlike [group_by.SpatVector()], you cannot create new variables here.
@@ -54,7 +54,7 @@
 #'   select(starts_with("NWBIR")) |>
 #'   glimpse()
 #'
-#' # Compute the mean of NWBIR on each geometry
+#' # Compute the mean of NWBIR for each geometry.
 #' nb |>
 #'   rowwise() |>
 #'   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))

@@ -13,7 +13,7 @@
 \item{y}{A data frame or other object coercible to a data frame. If a
 \code{SpatVector} or \code{sf} object is provided, this method returns an error.}
 
-\item{...}{Additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
+\item{...}{Additional arguments passed to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 
 \item{copy}{If \code{x} and \code{y} are not from the same data source,
 and \code{copy} is \code{TRUE}, then \code{y} will be copied into the

@@ -133,10 +133,10 @@ or picas (\code{"pc"}).}
 \itemize{
 \item \code{NULL} for no labels. This produces the same result as
 \code{geom_spatraster_contour()}.
-\item A character vector giving labels (must have the same length as the breaks
-produced by \code{bins}, \code{binwidth} or \code{breaks}).
+\item A character vector giving labels (must have the same length as the
+breaks produced by \code{bins}, \code{binwidth} or \code{breaks}).
 \item A function that takes the breaks as input and returns labels as output,
-as the default setup (\code{\link[scales:label_number]{scales::label_number()}}).
+as in the default setup (\code{\link[scales:label_number]{scales::label_number()}}).
 }}
 
 \item{label_placer}{Function that controls how labels are placed along
@@ -147,8 +147,8 @@ A \CRANpkg{ggplot2} layer.
 }
 \description{
 These geoms create contours of \code{SpatRaster} objects. To specify a valid
-surface, you should specify the layer on \code{aes(z = layer_name)}, otherwise all
-the layers are considered for creating contours. See also \strong{Facets}
+surface, specify the layer in \code{aes(z = layer_name)}; otherwise, all layers
+are considered when creating contours. See also the \strong{Facets}
 section.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
@@ -236,8 +236,8 @@ On \code{SpatRaster} objects that have a CRS, the geom uses
 \section{Facets}{
 
 
-You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of the
-\code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of
+the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \examples{

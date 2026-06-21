@@ -8,7 +8,7 @@
 #'
 #' @details
 #'
-#' If no `crs` is provided and the tibble has been created with the method
+#' If no `crs` is provided and the tibble was created with
 #' [as_tibble.SpatRaster()], the `crs` is inferred from
 #' [`attr(x, "crs")`][attr()].
 #'
@@ -31,7 +31,7 @@
 #'   includes the target coordinate reference system. See [pull_crs()] and
 #'   **Details**.
 #'
-#' @param ... Additional arguments passed on to [terra::rast()].
+#' @param ... Additional arguments passed to [terra::rast()].
 #'
 #' @returns
 #' A `SpatRaster`.

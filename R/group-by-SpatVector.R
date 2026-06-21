@@ -92,7 +92,7 @@
 #'   group_by(ID_1, ID_2) |>
 #'   group_vars()
 #'
-#' # Use add = TRUE to append instead.
+#' # Use `.add = TRUE` to append instead.
 #' by_name2_name1 |>
 #'   group_by(ID_1, ID_2, .add = TRUE) |>
 #'   group_vars()

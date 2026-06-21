@@ -87,8 +87,8 @@
 #'
 #' @section Facets:
 #'
-#' You can use `facet_wrap(~lyr)` to create a faceted plot for each layer of the
-#' `SpatRaster` object. See [ggplot2::facet_wrap()] for details.
+#' You can use `facet_wrap(~lyr)` to create a faceted plot for each layer of
+#' the `SpatRaster` object. See [ggplot2::facet_wrap()] for details.
 #'
 #' @section Computed variables:
 #'
@@ -103,7 +103,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#' # Avg temperature on spring in Castile and Leon (Spain)
+#' # Average spring temperature in Castile and Leon (Spain)
 #' file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 #'
 #' library(terra)

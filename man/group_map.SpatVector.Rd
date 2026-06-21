@@ -35,8 +35,9 @@ that can be used to iterate on grouped \code{SpatVector} objects.
 }
 \details{
 Each conceptual group is exposed to \code{.f} with two pieces of information:
-\code{.x}, the subset of rows for the group as a \code{SpatVector}, and \code{.y}, a one-row
-tibble with one column per grouping variable that identifies the group.
+\code{.x}, the subset of rows for the group as a \code{SpatVector}, and \code{.y}, a
+one-row tibble with one column per grouping variable that identifies the
+group.
 
 These methods also work on ungrouped \code{SpatVector} objects. In that case,
 \code{.f} is applied to the entire object and \code{.y} is a one-row tibble with no

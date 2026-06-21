@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing object into a `SpatVector`. It wraps the
-#' [terra::vect()] S4 method for the `data.frame` signature.
+#' `as_spatvector()` turns an existing object into a `SpatVector`. It wraps
+#' the [terra::vect()] S4 method for the `data.frame` signature.
 #'
 #' @details
 #'
@@ -13,7 +13,7 @@
 #' - If `x` is a grouped data frame (see [dplyr::group_by()]), the grouping
 #'   variables are transferred and a grouped `SpatVector` is created (see
 #'   [group_by.SpatVector()]).
-#' - If no `crs` is provided and the tibble has been created with the method
+#' - If no `crs` is provided and the tibble was created with
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
 #' - It handles the conversion of `EMPTY` geometries between
@@ -34,7 +34,7 @@
 #' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
 #'   class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
 #'
-#' @param ... Additional arguments passed on to [terra::vect()].
+#' @param ... Additional arguments passed to [terra::vect()].
 #'
 #' @param geom Character vector naming the fields that contain the geometry
 #'   data. Use two names for point coordinates (`x` and `y`) or one name for a

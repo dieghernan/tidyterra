@@ -55,10 +55,9 @@ geometries than the input.
 The implementation of \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}} can be understood as a
 masking method based on the values of the layers (see \code{\link[terra:mask]{terra::mask()}}).
 
-\code{SpatRaster} layers are considered as columns and \code{SpatRaster} cells as rows,
-so rows (cells) with any \code{NA} value on any layer become \code{NA}. You can also
-mask the cells (rows) based on the values of specific
-layers (columns).
+\code{SpatRaster} layers are treated as columns and \code{SpatRaster} cells as
+rows, so rows (cells) with any \code{NA} value on any layer become \code{NA}. You can
+also mask the cells (rows) based on the values of specific layers (columns).
 
 \code{drop_na()} effectively removes outer cells that are \code{NA} (see
 \code{\link[terra:trim]{terra::trim()}}), so the extent of the resulting object may differ from the

@@ -17,8 +17,8 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{replace}{A named list of values, with one value for each
 layer/attribute that has missing values to be replaced. Each value in
-\code{replace} will be cast to the type of the column in \code{data} that it is being
-used as a replacement in.}
+\code{replace} will be cast to the type of the column in \code{data} where it is
+used as a replacement.}
 
 \item{...}{Additional arguments for methods. Currently unused.}
 }

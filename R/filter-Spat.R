@@ -52,11 +52,11 @@
 #' Cells that do not meet the conditions in `...` are returned as `NA`. On a
 #' multi-layer `SpatRaster`, `NA` is propagated across all layers.
 #'
-#' If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS, extent,
-#' resolution and number of cells as `.data`. If
-#' `.keep_extent = FALSE` the outer `NA` cells are trimmed with [terra::trim()],
-#' so the extent and number of cells may differ. The output will still have
-#' the same CRS and resolution as `.data`.
+#' If `.keep_extent = TRUE`, the returned `SpatRaster` has the same CRS,
+#' extent, resolution and number of cells as `.data`. If
+#' `.keep_extent = FALSE`, the outer `NA` cells are trimmed with
+#' [terra::trim()], so the extent and number of cells may differ. The output
+#' still has the same CRS and resolution as `.data`.
 #'
 #' The `x` and `y` coordinates of the `SpatRaster` are also available
 #' internally for filtering. See **Examples**.

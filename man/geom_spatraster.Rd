@@ -186,8 +186,8 @@ variables. See \strong{Computed variables} and \strong{Examples}.
 \section{Facets}{
 
 
-You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of the
-\code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of
+the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
 }
 
 \section{Computed variables}{
@@ -204,7 +204,7 @@ aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 
 \examples{
 \donttest{
-# Avg temperature on spring in Castile and Leon (Spain)
+# Average spring temperature in Castile and Leon (Spain)
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)

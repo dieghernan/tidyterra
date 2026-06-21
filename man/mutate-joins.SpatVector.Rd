@@ -174,7 +174,7 @@ nrow(right)
 
 autoplot(right, aes(fill = letter)) + labs(title = "Right Join")
 
-# There are empty geometries, check with data from df
+# Check empty geometries against data from the data frame.
 ggplot(right, aes(x, y)) +
   geom_point(aes(color = letter))
 
@@ -184,7 +184,7 @@ nrow(full)
 
 autoplot(full, aes(fill = letter)) + labs(title = "Full Join")
 
-# Check with data from df
+# Check against data from the data frame.
 ggplot(full, aes(x, y)) +
   geom_point(aes(color = letter))
 }

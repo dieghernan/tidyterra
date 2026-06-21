@@ -17,7 +17,7 @@
 #' @inheritParams as_tibble.Spat
 #' @inheritParams pillar::glimpse
 #'
-#' @param ... Arguments passed on to [as_tibble.SpatRaster()] or
+#' @param ... Arguments passed to [as_tibble.SpatRaster()] or
 #'   [as_tibble.SpatVector()] methods.
 #' @param max_extra_cols Number of extra columns or layers to print abbreviated
 #'   information for, if `n` is too small for the `Spat*` object.
@@ -46,7 +46,7 @@
 #'
 #' v |> glimpse(n = 2)
 #'
-#' # Use on a pipeline
+#' # Use in a pipeline.
 #' v |>
 #'   glimpse() |>
 #'   mutate(a = 30) |>
@@ -58,7 +58,7 @@
 #'
 #' r |> glimpse()
 #'
-#' # Use on a pipeline
+#' # Use in a pipeline.
 #' r |>
 #'   glimpse() |>
 #'   mutate(b = elevation_m / 100) |>

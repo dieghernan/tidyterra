@@ -32,11 +32,11 @@ column locations).}
 \item{name}{An optional parameter that specifies the column to be used
 as names for a named vector. Specified in a similar manner as \code{var}.}
 
-\item{...}{Arguments passed on to \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}} or
+\item{...}{Arguments passed to \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}} or
 \code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}} methods.}
 }
 \value{
-A vector the same number of cells/geometries as \code{.data}.
+A vector with the same number of cells/geometries as \code{.data}.
 
 On \code{SpatRaster} objects, note that the default (\code{na.rm = FALSE}) removes
 empty cells, so you may need to pass (\code{na.rm = FALSE}) to \code{...}. See
@@ -90,12 +90,12 @@ library(terra)
 f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
 r <- rast(f)
 
-# Extract second layer
+# Extract the second layer.
 r |>
   pull(2) |>
   head()
 
-# With xy the first two cols are `x` (longitude) and `y` (latitude)
+# With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
 
 r |>
   pull(2, xy = TRUE) |>

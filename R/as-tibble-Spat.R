@@ -21,7 +21,7 @@
 #'
 #' @param x A `SpatRaster` created with [terra::rast()] or a `SpatVector`
 #'   created with [terra::vect()].
-#' @param ... Arguments passed on to [terra::as.data.frame()].
+#' @param ... Arguments passed to [terra::as.data.frame()].
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df].

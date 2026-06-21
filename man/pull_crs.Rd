@@ -9,8 +9,8 @@ pull_crs(.data, ...)
 }
 \arguments{
 \item{.data}{Input potentially including or representing a CRS. It could be
-a \code{sf/sfc} object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}) or a
+an \code{sf} or \code{sfc} object, a \code{SpatRaster} or \code{SpatVector} object, a \code{crs}
+object from \code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}) or a
 integer (representing an \href{https://epsg.io/}{EPSG} code).}
 
 \item{...}{Ignored.}
@@ -19,8 +19,8 @@ integer (representing an \href{https://epsg.io/}{EPSG} code).}
 A WKT representation of the corresponding CRS.
 }
 \description{
-Extract the WKT version of the CRS associated with a string, number or
-\verb{sf/Spat*} object.
+Extract the WKT version of the CRS associated with a string, number, \code{sf}
+object or \verb{Spat*} object.
 \href{https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems}{Well-known text (WKT)}
 is a character string representation of coordinate reference systems (CRS).
 It identifies the parameters of each CRS precisely and is the standard used

@@ -5,15 +5,15 @@
 \alias{bind_rows.SpatVector}
 \alias{bind_spat_rows}
 \alias{bind.Spat}
-\title{Bind multiple \code{SpatVector}, \code{sf/sfc} and data frame objects by row}
+\title{Bind multiple \code{SpatVector}, \code{sf}, \code{sfc} and data frame objects by row}
 \usage{
 bind_spat_rows(..., .id = NULL)
 }
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
-Each subsequent argument can be a \code{SpatVector}, \code{sf/sfc} object or data
-frame. Columns are matched by name and any missing columns are filled with
-\code{NA}.}
+Each subsequent argument can be a \code{SpatVector}, \code{sf} or \code{sfc} object or a
+data frame. Columns are matched by name and any missing columns are filled
+with \code{NA}.}
 
 \item{.id}{The name of an optional identifier column. Provide a string to
 create an output column that identifies each input. The column will use
@@ -23,7 +23,7 @@ names if available, otherwise it will use positions.}
 A \code{SpatVector} of the same type as the first element of \code{...}.
 }
 \description{
-Bind any number of \code{SpatVector}, data frames and \code{sf/sfc} objects by row,
+Bind any number of \code{SpatVector}, data frames, \code{sf} and \code{sfc} objects by row,
 making a longer result. This is similar to \code{do.call(rbind, data_frames)},
 but the output will contain all columns that appear in any of the inputs.
 }
@@ -57,7 +57,7 @@ v <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 v1 <- v[1, "cpro"]
 v2 <- v[3:5, c("name", "iso2")]
 
-# You can supply individual SpatVector as arguments:
+# You can supply individual SpatVector objects as arguments.
 bind_spat_rows(v1, v2)
 
 # When you supply a column name with the `.id` argument, a new column is
@@ -65,26 +65,26 @@ bind_spat_rows(v1, v2)
 bind_spat_rows(v1, v2, .id = "id")
 
 \donttest{
-# Use with sf
+# Use with sf objects.
 sfobj <- sf::st_as_sf(v2[1, ])
 
 sfobj
 
 bind_spat_rows(v1, sfobj)
 
-# Would reproject with a message on different CRS
+# Reproject with a message when the CRS differs.
 sfobj_3857 <- as_spatvector(sfobj) |> project("EPSG:3857")
 
 bind_spat_rows(v1, sfobj_3857)
 
-# And with data frames with a message
+# Bind data frames with a message.
 data("mtcars")
 bind_spat_rows(v1, sfobj, mtcars, .id = "id2")
 
 # Use lists
 bind_spat_rows(list(v1[1, ], sfobj[1:2, ]))
 
-# Or named list combined with .id
+# Use a named list with `.id`.
 bind_spat_rows(list(
   SpatVector = v1[1, ], sf = sfobj[1, ],
   mtcars = mtcars[1, ]

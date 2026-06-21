@@ -252,7 +252,7 @@ ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_grass_c(palette = "terrain")
 
-# Use with no default limits
+# Use without default limits.
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_grass_c(palette = "terrain", use_grass_range = FALSE)

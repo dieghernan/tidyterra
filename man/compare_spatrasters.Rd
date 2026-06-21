@@ -14,14 +14,14 @@ compare_spatrasters(x, y, digits = 6)
 the resolution.}
 }
 \value{
-An invisible logical \code{TRUE/FALSE} indicating whether the \code{SpatRaster}
+An invisible logical value indicating whether the \code{SpatRaster}
 objects are compatible, plus an informative message flagging any issues
 found.
 }
 \description{
-Two \code{SpatRaster} objects are compatible (in terms of combining layers) if the
-CRS, extent and resolution are similar. In those cases you can combine the
-objects simply as \code{c(x, y)}.
+Two \code{SpatRaster} objects are compatible (in terms of combining layers) if
+the CRS, extent and resolution are similar. In those cases you can combine
+the objects simply as \code{c(x, y)}.
 
 This function compares those attributes and reports the results. See
 \strong{Resolving differences} for minimal guidance.
@@ -50,7 +50,7 @@ x <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 # Nothing
 compare_spatrasters(x, x)
 
-# Different crs
+# Different CRS
 y_nocrs <- x
 crs(y_nocrs) <- NA
 

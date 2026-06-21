@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' Extract the WKT version of the CRS associated with a string, number or
-#' `sf/Spat*` object.
+#' Extract the WKT version of the CRS associated with a string, number, `sf`
+#' object or `Spat*` object.
 #'
 #' ```{r, echo=FALSE, results='asis'}
 #' full_url <- paste0(
@@ -38,8 +38,8 @@
 #'
 #' @concept helpers
 #' @param .data Input potentially including or representing a CRS. It could be
-#'   a `sf/sfc` object, a `SpatRaster/SpatVector` object, a `crs` object from
-#'   [sf::st_crs()], a character (for example a [proj4
+#'   an `sf` or `sfc` object, a `SpatRaster` or `SpatVector` object, a `crs`
+#'   object from [sf::st_crs()], a character string (for example a [PROJ
 #'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
 #'   integer (representing an [EPSG](https://epsg.io/) code).
 #'

@@ -98,7 +98,7 @@
 #'
 #' tidy(ex)
 #'
-#' # With crs
+#' # With a CRS
 #' tidy(ex, crs = pull_crs(cyl))
 #'
 #' # SpatGraticule
@@ -166,9 +166,9 @@ tidy.SpatGraticule <- function(x, ...) {
 }
 
 #' @rdname tidy.Spat
-#' @param crs Input that includes or represents a CRS. It can be an `sf/sfc`
-#'   object, a `SpatRaster/SpatVector` object, a `crs` object from
-#'   [sf::st_crs()], a character string (for example a [proj4
+#' @param crs Input that includes or represents a CRS. It can be an `sf` or
+#'   `sfc` object, a `SpatRaster` or `SpatVector` object, a `crs` object from
+#'   [sf::st_crs()], a character string (for example a [PROJ
 #'   string](https://proj.org/en/9.3/operations/projections/index.html)), or
 #'   an integer representing an [EPSG](https://epsg.io/) code.
 #' @export

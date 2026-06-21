@@ -14,8 +14,8 @@ bind_spat_cols(
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
 Each subsequent argument can be a \code{SpatVector}, \code{sf} object or data frame.
-Inputs are \link[vctrs:theory-faq-recycling]{recycled} to the same length, then
-matched by position.}
+Inputs are \link[vctrs:theory-faq-recycling]{recycled} to the same length,
+then matched by position.}
 
 \item{.name_repair}{One of \code{"unique"}, \code{"universal"}, or
 \code{"check_unique"}. See \code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}} for the meaning of these
@@ -23,15 +23,15 @@ options.}
 }
 \value{
 A \code{SpatVector} with the corresponding columns. The geometry and CRS
-correspond to the first \code{SpatVector} of \code{...}.
+correspond to the first \code{SpatVector} in \code{...}.
 }
 \description{
 Bind any number of \code{SpatVector}, data frames and \code{sf} objects by column,
 making a wider result. This is similar to \code{do.call(cbind, data_frames)}.
 
-Where possible prefer using a \link[=mutate-joins.SpatVector]{join} to
+Where possible, prefer using a \link[=mutate-joins.SpatVector]{join} to
 combine \code{SpatVector} and data frame objects. \code{bind_spat_cols()}
-binds the rows in order in which they appear so it is easy to create
+binds rows in the order in which they appear, so it is easy to create
 meaningless results without realizing it.
 }
 \section{\CRANpkg{terra} equivalent}{

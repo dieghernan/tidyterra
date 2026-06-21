@@ -14,8 +14,8 @@
 #'
 #' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::distinct
-#' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables to
-#'   use when determining uniqueness. If there are multiple rows for a given
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables
+#'   to use when determining uniqueness. If there are multiple rows for a given
 #'   combination of inputs, only the first row will be preserved. If omitted,
 #'   all variables in the data frame are used. There is a reserved variable
 #'   name, `geometry`, that removes duplicate geometries. See **Methods**.
@@ -42,7 +42,7 @@
 #'
 #' v <- vect(system.file("ex/lux.shp", package = "terra"))
 #'
-#' # Create a vector with dups
+#' # Create a vector with duplicates.
 #' v <- v[sample(seq_len(nrow(v)), 100, replace = TRUE), ]
 #' v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 #'
@@ -57,7 +57,7 @@
 #' ex2
 #' nrow(ex2)
 #'
-#' # Same but keeping all cols
+#' # Keep all columns.
 #' ex2b <- distinct(v, gr, .keep_all = TRUE)
 #' ex2b
 #' nrow(ex2b)
@@ -70,7 +70,7 @@
 #' # Same as terra::unique()
 #' terra::unique(ex3)
 #'
-#' # Unique keeping info
+#' # Keep information for unique values.
 #' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
   # Check whether `...` selects the geometry column.

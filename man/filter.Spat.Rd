@@ -68,11 +68,11 @@ objects.
 Cells that do not meet the conditions in \code{...} are returned as \code{NA}. On a
 multi-layer \code{SpatRaster}, \code{NA} is propagated across all layers.
 
-If \code{.keep_extent = TRUE} the returned \code{SpatRaster} has the same CRS, extent,
-resolution and number of cells as \code{.data}. If
-\code{.keep_extent = FALSE} the outer \code{NA} cells are trimmed with \code{\link[terra:trim]{terra::trim()}},
-so the extent and number of cells may differ. The output will still have
-the same CRS and resolution as \code{.data}.
+If \code{.keep_extent = TRUE}, the returned \code{SpatRaster} has the same CRS,
+extent, resolution and number of cells as \code{.data}. If
+\code{.keep_extent = FALSE}, the outer \code{NA} cells are trimmed with
+\code{\link[terra:trim]{terra::trim()}}, so the extent and number of cells may differ. The output
+still has the same CRS and resolution as \code{.data}.
 
 The \code{x} and \code{y} coordinates of the \code{SpatRaster} are also available
 internally for filtering. See \strong{Examples}.

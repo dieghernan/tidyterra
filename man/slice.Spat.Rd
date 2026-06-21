@@ -141,8 +141,8 @@ them in a data frame or tibble.}
 may return more rows than you request. Use \code{FALSE} to ignore ties,
 and return the first \code{n} rows.}
 
-\item{na.rm}{Logical. If \code{TRUE}, remove cells with \code{NA} values when computing
-\code{slice_min()/slice_max()}. The default is \code{TRUE}.}
+\item{na.rm}{Logical. If \code{TRUE}, remove cells with \code{NA} values when
+computing \code{slice_min()/slice_max()}. The default is \code{TRUE}.}
 
 \item{na_rm}{Should missing values in \code{order_by} be removed from the result?
 If \code{FALSE}, \code{NA} values are sorted to the end (like in \code{\link[dplyr:arrange]{arrange()}}), so
@@ -254,14 +254,15 @@ r |>
   ) |>
   plot()
 
-# Group wise operation with SpatVectors--------------------------------------
+# Group-wise operation with SpatVector objects
 v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 
 \donttest{
 glimpse(v) |> autoplot(aes(fill = NAME_1))
 
 gv <- v |> group_by(NAME_1)
-# All slice helpers operate per group, silently truncating to the group size
+# All slice helpers operate per group, silently truncating to the group
+# size.
 gv |>
   slice_head(n = 1) |>
   glimpse() |>

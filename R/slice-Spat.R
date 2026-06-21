@@ -50,8 +50,8 @@
 #' @param cols,rows Integer column and row values of the `SpatRaster`.
 #' @param inverse If `TRUE`, `.data` is inverse-masked to the given selection.
 #'   See [terra::mask()].
-#' @param na.rm Logical. If `TRUE`, remove cells with `NA` values when computing
-#'   `slice_min()/slice_max()`. The default is `TRUE`.
+#' @param na.rm Logical. If `TRUE`, remove cells with `NA` values when
+#'   computing `slice_min()/slice_max()`. The default is `TRUE`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -115,14 +115,15 @@
 #'   ) |>
 #'   plot()
 #'
-#' # Group wise operation with SpatVectors--------------------------------------
+#' # Group-wise operation with SpatVector objects
 #' v <- terra::vect(system.file("ex/lux.shp", package = "terra"))
 #'
 #' \donttest{
 #' glimpse(v) |> autoplot(aes(fill = NAME_1))
 #'
 #' gv <- v |> group_by(NAME_1)
-#' # All slice helpers operate per group, silently truncating to the group size
+#' # All slice helpers operate per group, silently truncating to the group
+#' # size.
 #' gv |>
 #'   slice_head(n = 1) |>
 #'   glimpse() |>

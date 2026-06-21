@@ -1,7 +1,7 @@
 #' Glance at an `Spat*` object
 #'
-#' Glance accepts a model object and returns a [tibble::tibble()] with exactly
-#' one row of `Spat`. The summaries are typically geographic information.
+#' `glance()` accepts a `Spat*` object and returns a [tibble::tibble()] with
+#' exactly one row. The summaries typically contain geographic information.
 #'
 #' @rdname glance.Spat
 #' @name glance.Spat

@@ -10,7 +10,7 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 \arguments{
 \item{x}{A \link[tibble:tbl_df]{tibble} or data frame.}
 
-\item{...}{Additional arguments passed on to \code{\link[terra:rast]{terra::rast()}}.}
+\item{...}{Additional arguments passed to \code{\link[terra:rast]{terra::rast()}}.}
 
 \item{xycols}{A vector of integers of length 2 determining the position of
 the columns that hold the \code{x} and \code{y} coordinates.}
@@ -32,7 +32,7 @@ A \code{SpatRaster}.
 \code{data.frame}.
 }
 \details{
-If no \code{crs} is provided and the tibble has been created with the method
+If no \code{crs} is provided and the tibble was created with
 \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}, the \code{crs} is inferred from
 \code{\link[=attr]{attr(x, "crs")}}.
 }

@@ -3,8 +3,8 @@
 #' @description
 #'
 #' These geoms create contours of `SpatRaster` objects. To specify a valid
-#' surface, you should specify the layer on `aes(z = layer_name)`, otherwise all
-#' the layers are considered for creating contours. See also **Facets**
+#' surface, specify the layer in `aes(z = layer_name)`; otherwise, all layers
+#' are considered when creating contours. See also the **Facets**
 #' section.
 #'
 #' The underlying implementation is based on [ggplot2::geom_contour()].

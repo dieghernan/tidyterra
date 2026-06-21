@@ -4,9 +4,9 @@
 #' Bind any number of `SpatVector`, data frames and `sf` objects by column,
 #' making a wider result. This is similar to `do.call(cbind, data_frames)`.
 #'
-#' Where possible prefer using a [join][mutate-joins.SpatVector] to
+#' Where possible, prefer using a [join][mutate-joins.SpatVector] to
 #' combine `SpatVector` and data frame objects. `bind_spat_cols()`
-#' binds the rows in order in which they appear so it is easy to create
+#' binds rows in the order in which they appear, so it is easy to create
 #' meaningless results without realizing it.
 #'
 #' @rdname bind_cols.SpatVector
@@ -20,11 +20,11 @@
 #'
 #' @param ... Objects to combine. The first argument must be a `SpatVector`.
 #'   Each subsequent argument can be a `SpatVector`, `sf` object or data frame.
-#'   Inputs are [recycled][vctrs::theory-faq-recycling] to the same length, then
-#'   matched by position.
+#'   Inputs are [recycled][vctrs::theory-faq-recycling] to the same length,
+#'   then matched by position.
 #'
 #' @returns A `SpatVector` with the corresponding columns. The geometry and CRS
-#' correspond to the first `SpatVector` of `...`.
+#' correspond to the first `SpatVector` in `...`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

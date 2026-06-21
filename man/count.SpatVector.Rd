@@ -60,7 +60,7 @@ A \code{SpatVector} object with updated grouping metadata.
 \code{df |> summarise(n = n())}. Supply \code{wt} to perform weighted counts,
 switching the summary from \code{n = n()} to \code{n = sum(wt)}.
 
-\code{add_count()} is equivalent to \code{count()} but use \code{\link[=mutate]{mutate()}} instead of
+\code{add_count()} is equivalent to \code{count()} but uses \code{\link[=mutate]{mutate()}} instead of
 \code{\link[=summarise]{summarise()}} so that it adds a new column with group-wise counts.
 }
 \section{\CRANpkg{terra} equivalent}{

@@ -2,8 +2,8 @@
 #'
 #' @description
 #'
-#' `as_coordinates()` can be used to obtain the position of each cell on the
-#' `SpatRaster` matrix.
+#' `as_coordinates()` returns the position of each cell in the `SpatRaster`
+#' matrix.
 #'
 #' @seealso [slice.SpatRaster()].
 #'
@@ -14,9 +14,9 @@
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] or a `SpatRaster` (if `as.raster = TRUE`) with
-#' the same number of rows (or cells) as the number of cells in `x`.
+#' one row (or cell) for each cell in `x`.
 #'
-#' When `as.raster = TRUE` the resulting `SpatRaster` has the same CRS,
+#' When `as.raster = TRUE`, the resulting `SpatRaster` has the same CRS,
 #' extent and resolution as `x`.
 #'
 #' @encoding UTF-8

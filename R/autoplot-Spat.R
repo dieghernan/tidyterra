@@ -3,8 +3,6 @@
 #' `autoplot()` uses \CRANpkg{ggplot2} to draw plots like those
 #' produced by [terra::plot()]/[terra::plotRGB()] in a single command.
 #'
-#' Implementation of [ggplot2::autoplot()] method.
-#'
 #' @rdname autoplot.Spat
 #' @name autoplot.Spat
 #'
@@ -19,8 +17,8 @@
 #'   created with [terra::vect()], a `SpatGraticule` (see [terra::graticule()])
 #'   or a `SpatExtent` (see [terra::ext()]).
 #'
-#' @param rgb Logical. If `TRUE`, plot as an RGB image. If `NULL` (the default),
-#'   [autoplot.SpatRaster()] tries to guess.
+#' @param rgb Logical. If `TRUE`, plot as an RGB image. If `NULL` (the
+#'   default), [autoplot.SpatRaster()] tries to guess.
 #' @param use_coltab Logical. If `TRUE`, plot with the corresponding
 #'   color table from [terra::coltab()]. If `NULL` (the default),
 #'   [autoplot.SpatRaster()] tries to guess. See also [scale_fill_coltab()].
@@ -31,7 +29,7 @@
 #' @param ... Other arguments passed to [geom_spatraster()],
 #'   [geom_spatraster_rgb()] or [geom_spatvector()].
 #'
-#' @returns A \CRANpkg{ggplot2} layer.
+#' @returns A \CRANpkg{ggplot2} plot.
 #' @section Methods:
 #'
 #' Implementation of the **generic** [ggplot2::autoplot()] methods for `Spat*`

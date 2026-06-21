@@ -18,9 +18,10 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> layers/attributes to
 move.}
 
-\item{.before, .after}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Destination
-of layers/attributes selected by \code{...}. Supplying neither will move
-layers/attributes to the left-hand side. Specifying both is an error.}
+\item{.before, .after}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}>
+Destination of layers/attributes selected by \code{...}. Supplying neither
+will move layers/attributes to the left-hand side. Specifying both is an
+error.}
 }
 \value{
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.

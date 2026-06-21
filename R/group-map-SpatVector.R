@@ -8,8 +8,9 @@
 #'
 #' @details
 #' Each conceptual group is exposed to `.f` with two pieces of information:
-#' `.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a one-row
-#' tibble with one column per grouping variable that identifies the group.
+#' `.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a
+#' one-row tibble with one column per grouping variable that identifies the
+#' group.
 #'
 #' These methods also work on ungrouped `SpatVector` objects. In that case,
 #' `.f` is applied to the entire object and `.y` is a one-row tibble with no

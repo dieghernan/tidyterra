@@ -10,7 +10,7 @@
 #'
 #' @param x A `SpatVector` created with [terra::vect()].
 #'
-#' @param ... Additional arguments passed on to [sf::st_as_sf()].
+#' @param ... Additional arguments passed to [sf::st_as_sf()].
 #'
 #' @returns
 #' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
@@ -25,11 +25,11 @@
 #' f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 #' v <- terra::vect(f)
 #'
-#' # This is ungrouped
+#' # The input is ungrouped.
 #' v
 #' is_grouped_spatvector(v)
 #'
-#' # Get an ungrouped data
+#' # Get ungrouped data.
 #' a_sf <- as_sf(v)
 #'
 #' dplyr::is_grouped_df(a_sf)
@@ -46,7 +46,7 @@
 #'
 #' group_data(gr_v)
 #'
-#' # A sf
+#' # An sf object.
 #'
 #' a_gr_sf <- as_sf(gr_v)
 #'

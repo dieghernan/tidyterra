@@ -16,7 +16,7 @@
 #' @family ggplot2.utils
 #' @inheritParams ggspatvector
 #' @inheritParams ggplot2::stat_sf_coordinates
-#' @param ... Other arguments passed on to [ggplot2::stat_sf_coordinates()].
+#' @param ... Other arguments passed to [ggplot2::stat_sf_coordinates()].
 #'
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @encoding UTF-8

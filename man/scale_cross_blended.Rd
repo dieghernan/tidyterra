@@ -23,7 +23,7 @@
 \alias{scale_color_cross_blended_tint_c}
 \alias{scale_color_cross_blended_b}
 \alias{scale_color_cross_blended_tint_b}
-\title{Cross blended hypsometric tints scales}
+\title{Cross-blended hypsometric tint scales}
 \source{
 \itemize{
 \item Patterson, T., & Jenny, B. (2011). The Development and Rationale of
@@ -264,7 +264,7 @@ The corresponding \CRANpkg{ggplot2} layer with the values applied to the
 \code{fill/colour} aesthetics.
 }
 \description{
-Implementation of the cross blended hypsometric gradients presented on
+Implementation of the cross-blended hypsometric gradients presented in
 \doi{10.14714/CP69.20}. The following fill scales and palettes are provided:
 \itemize{
 \item \verb{scale_*_cross_blended_d()}: For discrete values.
@@ -326,7 +326,7 @@ distribution of the tint. You can combine this with \code{oob}, for example
 \code{oob = scales::oob_squish}, to avoid blank pixels in the plot.
 
 \code{cross_blended.colors2()} provides a gradient color palette where the
-distance between colors is different depending of the type of color.
+distance between colors differs depending on the type of color.
 In contrast, \code{cross_blended.colors()} provides a uniform gradient across
 colors. See \strong{Examples}.
 }
@@ -425,7 +425,7 @@ for (i in pals) {
   )
 }
 par(opar)
-# Display all the cross-blended palettes on version 2
+# Display all version 2 cross-blended palettes.
 
 pals <- unique(cross_blended_hypsometric_tints_db$pal)
 

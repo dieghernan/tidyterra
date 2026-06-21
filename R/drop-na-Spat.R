@@ -44,10 +44,9 @@
 #' The implementation of [drop_na.SpatRaster()] can be understood as a
 #' masking method based on the values of the layers (see [terra::mask()]).
 #'
-#' `SpatRaster` layers are considered as columns and `SpatRaster` cells as rows,
-#' so rows (cells) with any `NA` value on any layer become `NA`. You can also
-#' mask the cells (rows) based on the values of specific
-#' layers (columns).
+#' `SpatRaster` layers are treated as columns and `SpatRaster` cells as
+#' rows, so rows (cells) with any `NA` value on any layer become `NA`. You can
+#' also mask the cells (rows) based on the values of specific layers (columns).
 #'
 #' `drop_na()` effectively removes outer cells that are `NA` (see
 #' [terra::trim()]), so the extent of the resulting object may differ from the

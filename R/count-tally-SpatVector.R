@@ -8,7 +8,7 @@
 #' `df |> summarise(n = n())`. Supply `wt` to perform weighted counts,
 #' switching the summary from `n = n()` to `n = sum(wt)`.
 #'
-#' `add_count()` is equivalent to `count()` but use [mutate()] instead of
+#' `add_count()` is equivalent to `count()` but uses [mutate()] instead of
 #' [summarise()] so that it adds a new column with group-wise counts.
 #'
 #' @rdname count.SpatVector

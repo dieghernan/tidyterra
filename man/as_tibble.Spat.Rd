@@ -28,7 +28,7 @@
 \item{x}{A \code{SpatRaster} created with \code{\link[terra:rast]{terra::rast()}} or a \code{SpatVector}
 created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{Arguments passed on to \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.}
+\item{...}{Arguments passed to \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.}
 
 \item{xy}{logical. If \code{TRUE}, the coordinates of each raster cell are included}
 

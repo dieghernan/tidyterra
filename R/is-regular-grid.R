@@ -1,11 +1,11 @@
-#' Check whether x and y positions form a regular grid
+#' Check whether `x` and `y` positions form a regular grid
 #'
 #' @description
 #'
 #' Assess whether the `x` and `y` coordinates of an object form a regular grid.
 #' This function is called for its side effects.
 #'
-#' This function is internally called by [as_spatraster()].
+#' This function is called internally by [as_spatraster()].
 #'
 #' @seealso [as_spatraster()].
 #'
@@ -13,10 +13,11 @@
 #'
 #' @inheritParams as_spatraster
 #'
-#' @param xy A matrix, data frame or tibble of at least two columns representing
-#'   x and y coordinates.
+#' @param xy A matrix, data frame or tibble with at least two columns
+#'   representing `x` and `y` coordinates.
 #' @returns
-#' `invisible()` if the coordinates form a regular grid. Otherwise, an error.
+#' Nothing, invisibly, if the coordinates form a regular grid. Otherwise, an
+#' error.
 #'
 #' @encoding UTF-8
 #' @export

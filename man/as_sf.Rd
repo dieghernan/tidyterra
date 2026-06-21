@@ -10,7 +10,7 @@ as_sf(x, ...)
 \arguments{
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
-\item{...}{Additional arguments passed on to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
+\item{...}{Additional arguments passed to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
 A \code{\link[sf:st_sf]{sf}} object with an additional \code{tbl_df} class for
@@ -28,11 +28,11 @@ library(terra)
 f <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 v <- terra::vect(f)
 
-# This is ungrouped
+# The input is ungrouped.
 v
 is_grouped_spatvector(v)
 
-# Get an ungrouped data
+# Get ungrouped data.
 a_sf <- as_sf(v)
 
 dplyr::is_grouped_df(a_sf)
@@ -49,7 +49,7 @@ is_grouped_spatvector(gr_v)
 
 group_data(gr_v)
 
-# A sf
+# An sf object.
 
 a_gr_sf <- as_sf(gr_v)
 

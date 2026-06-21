@@ -128,8 +128,8 @@ unused columns using \code{unused_fn}.}
 A \code{SpatVector} object.
 }
 \description{
-\code{\link[=pivot_wider]{pivot_wider()}} "widens" a \code{SpatVector}, increasing the number of columns and
-decreasing the number of rows. The inverse transformation is
+\code{\link[=pivot_wider]{pivot_wider()}} "widens" a \code{SpatVector}, increasing the number of columns
+and decreasing the number of rows. The inverse transformation is
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}}.
 }
 \section{Methods}{

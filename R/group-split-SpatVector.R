@@ -38,8 +38,8 @@
 #'
 #' @section Lifecycle:
 #'
-#' `group_split()` is not stable because you can achieve very similar results by
-#' manipulating the nested column returned from
+#' `group_split()` is not stable because you can achieve very similar results
+#' by manipulating the nested column returned from
 #' [`nest(.by =)`][nest.SpatVector()]. That also retains the group keys all
 #' within a single data structure. `group_split()` may be deprecated in the
 #' future.

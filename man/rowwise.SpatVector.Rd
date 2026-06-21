@@ -11,8 +11,8 @@
 \item{data}{A \code{SpatVector} object. See \strong{Methods}.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Variables to be
-preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set of
-variables whose combination uniquely identifies each row. See
+preserved when calling \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}. This is typically a set
+of variables whose combination uniquely identifies each row. See
 \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
 Unlike \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}, you cannot create new variables here.
@@ -66,7 +66,7 @@ nb <- v |>
   select(starts_with("NWBIR")) |>
   glimpse()
 
-# Compute the mean of NWBIR on each geometry
+# Compute the mean of NWBIR for each geometry.
 nb |>
   rowwise() |>
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))

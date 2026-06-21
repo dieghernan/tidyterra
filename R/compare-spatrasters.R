@@ -2,9 +2,9 @@
 #'
 #' @description
 #'
-#' Two `SpatRaster` objects are compatible (in terms of combining layers) if the
-#' CRS, extent and resolution are similar. In those cases you can combine the
-#' objects simply as `c(x, y)`.
+#' Two `SpatRaster` objects are compatible (in terms of combining layers) if
+#' the CRS, extent and resolution are similar. In those cases you can combine
+#' the objects simply as `c(x, y)`.
 #'
 #' This function compares those attributes and reports the results. See
 #' **Resolving differences** for minimal guidance.
@@ -16,7 +16,7 @@
 #'   the resolution.
 #'
 #' @returns
-#' An invisible logical `TRUE/FALSE` indicating whether the `SpatRaster`
+#' An invisible logical value indicating whether the `SpatRaster`
 #' objects are compatible, plus an informative message flagging any issues
 #' found.
 #'
@@ -41,7 +41,7 @@
 #' # Nothing
 #' compare_spatrasters(x, x)
 #'
-#' # Different crs
+#' # Different CRS
 #' y_nocrs <- x
 #' crs(y_nocrs) <- NA
 #'

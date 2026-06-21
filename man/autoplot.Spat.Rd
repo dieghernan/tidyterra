@@ -33,8 +33,8 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 \item{...}{Other arguments passed to \code{\link[=geom_spatraster]{geom_spatraster()}},
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}} or \code{\link[=geom_spatvector]{geom_spatvector()}}.}
 
-\item{rgb}{Logical. If \code{TRUE}, plot as an RGB image. If \code{NULL} (the default),
-\code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
+\item{rgb}{Logical. If \code{TRUE}, plot as an RGB image. If \code{NULL} (the
+default), \code{\link[=autoplot.SpatRaster]{autoplot.SpatRaster()}} tries to guess.}
 
 \item{use_coltab}{Logical. If \code{TRUE}, plot with the corresponding
 color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (the default),
@@ -46,14 +46,11 @@ color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{NULL} (th
 \item{nrow, ncol}{Number of rows and columns in the facet.}
 }
 \value{
-A \CRANpkg{ggplot2} layer.
+A \CRANpkg{ggplot2} plot.
 }
 \description{
 \code{autoplot()} uses \CRANpkg{ggplot2} to draw plots like those
 produced by \code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{terra::plotRGB()}} in a single command.
-}
-\details{
-Implementation of \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} method.
 }
 \section{Methods}{
 

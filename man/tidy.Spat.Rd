@@ -55,9 +55,9 @@ the plot.}
 \item{pivot}{Logical. When \code{TRUE}, a \code{SpatRaster} is returned in \link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default), it is returned
 as a data frame with one column per layer. See \strong{Details}.}
 
-\item{crs}{Input that includes or represents a CRS. It can be an \code{sf/sfc}
-object, a \code{SpatRaster/SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{proj4 string}), or
+\item{crs}{Input that includes or represents a CRS. It can be an \code{sf} or
+\code{sfc} object, a \code{SpatRaster} or \code{SpatVector} object, a \code{crs} object from
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}), or
 an integer representing an \href{https://epsg.io/}{EPSG} code.}
 }
 \value{
@@ -141,7 +141,7 @@ ex
 
 tidy(ex)
 
-# With crs
+# With a CRS
 tidy(ex, crs = pull_crs(cyl))
 
 # SpatGraticule

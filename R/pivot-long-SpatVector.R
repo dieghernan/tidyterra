@@ -44,13 +44,13 @@
 #' cyl <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra")) |>
 #'   project(temp)
 #'
-#' # Add average temp
+#' # Add average temperature.
 #'
 #' temps <- terra::extract(temp, cyl, fun = "mean", na.rm = TRUE, xy = TRUE)
 #' cyl_temp <- cbind(cyl, temps) |>
 #'   glimpse()
 #'
-#' # And pivot long for plot
+#' # Pivot to long format for plotting.
 #' cyl_temp |>
 #'   pivot_longer(
 #'     cols = tavg_04:tavg_06,
