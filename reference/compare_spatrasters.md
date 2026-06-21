@@ -5,7 +5,7 @@ if the CRS, extent and resolution are similar. In those cases you can
 combine the objects simply as `c(x, y)`.
 
 This function compares those attributes and reports the results. See
-**Solving issues** for minimal guidance.
+**Resolving differences** for minimal guidance.
 
 ## Usage
 
