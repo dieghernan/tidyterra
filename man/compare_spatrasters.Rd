@@ -24,7 +24,7 @@ CRS, extent and resolution are similar. In those cases you can combine the
 objects simply as \code{c(x, y)}.
 
 This function compares those attributes and reports the results. See
-\strong{Solving issues} for minimal guidance.
+\strong{Resolving differences} for minimal guidance.
 }
 \section{\CRANpkg{terra} equivalent}{
 

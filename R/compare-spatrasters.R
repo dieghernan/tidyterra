@@ -7,7 +7,7 @@
 #' objects simply as `c(x, y)`.
 #'
 #' This function compares those attributes and reports the results. See
-#' **Solving issues** for minimal guidance.
+#' **Resolving differences** for minimal guidance.
 #'
 #' @seealso [terra::identical()].
 #' @concept helpers
