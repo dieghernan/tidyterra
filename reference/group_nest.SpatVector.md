@@ -47,9 +47,7 @@ A tibble with a list-column of `SpatVector` objects.
 
 Implementation of the **generic**
 [`dplyr::group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html)
-family for `SpatVector` objects.
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 The nested list-column contains `SpatVector` objects, preserving the
 geometries for each group.

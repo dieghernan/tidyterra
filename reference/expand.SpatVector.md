@@ -64,9 +64,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 Implementation of the **generic**
 [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The output is a tibble with attribute combinations. Geometry is not
 preserved because new combinations do not have a well-defined geometry.

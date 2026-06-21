@@ -55,13 +55,13 @@ used within a data pipeline.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`print()`](https://rdrr.io/r/base/print.html)
+[`print()`](https://rdrr.io/r/base/print.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html)
-function for `Spat*` objects.
+methods for `Spat*` objects.
 
 ## See also
 

@@ -36,15 +36,13 @@ A `SpatVector` object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html)
+[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 You can remove duplicate geometries by passing the reserved name
 `geometry` to `...`. See **Examples**.

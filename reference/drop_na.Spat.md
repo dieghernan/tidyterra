@@ -41,20 +41,19 @@ A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)
+[`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatVector`
 
-The implementation of this method is performed on a `by-attribute`
-basis, meaning that `NA` values are assessed on the attributes (columns)
-of each vector (rows). The result is a `SpatVector` with potentially
-fewer geometries than the input.
+This method operates on attributes, meaning that `NA` values are
+assessed in the attributes (columns) of each geometry (row). The result
+is a `SpatVector` with potentially fewer geometries than the input.
 
 ### `SpatRaster`
 

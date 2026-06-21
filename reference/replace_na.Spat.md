@@ -38,7 +38,7 @@ A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-Use `r[is.na(r)] <- <replacement>`
+Use `r[is.na(r)] <- <replacement>`.
 
 ## See also
 

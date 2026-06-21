@@ -173,9 +173,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `data`.

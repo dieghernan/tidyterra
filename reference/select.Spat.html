@@ -107,28 +107,29 @@ used as if they were positions in the <code>Spat*</code> object, so expressions 
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/subset.html" class="external-link">terra::subset()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/subset.html" class="external-link">terra::subset()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Select (and rename) layers of a <code>SpatRaster</code>. The result is a <code>SpatRaster</code>
-with the same extent, resolution and CRS as <code>.data</code>. Only the number (and
-possibly the name) of layers is modified.</p>
+<p>Selects and renames layers of a <code>SpatRaster</code>. The result is a <code>SpatRaster</code>
+with the same extent, resolution and CRS as <code>.data</code>. Only the number and
+possibly the names of layers are modified.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code>SpatVector</code> with the selected (and possibly renamed)
-attributes on the function call.</p>
+<p>The result is a <code>SpatVector</code> with the attributes selected and possibly
+renamed as specified in the function call.</p>
 </div>
 
     </div>

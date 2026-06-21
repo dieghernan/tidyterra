@@ -71,7 +71,7 @@ may be deprecated in the future.
 
 Implementation of the **generic**
 [`dplyr::group_split()`](https://dplyr.tidyverse.org/reference/group_split.html)
-for `SpatVector` objects.
+method for `SpatVector` objects.
 
 ## See also
 

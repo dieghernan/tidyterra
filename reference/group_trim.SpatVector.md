@@ -41,7 +41,7 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::group_trim()`](https://dplyr.tidyverse.org/reference/group_trim.html)
-for `SpatVector` objects.
+method for `SpatVector` objects.
 
 ## See also
 

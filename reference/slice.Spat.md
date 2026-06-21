@@ -231,19 +231,20 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html),
-[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html)
+[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html)
+and
+[`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
 The result is a `SpatRaster` with the CRS and resolution of the input
-and where cell values of the selected cells/columns/rows are preserved.
+and the values of the selected cells, columns or rows.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
 output. The non-selected cells have a value of `NA`.

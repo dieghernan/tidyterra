@@ -116,9 +116,7 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 Implementation of the **generic**
 [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The output is a tibble with the attributes and WKT geometry of `x`, plus
 a list-column with matching rows from `y`.

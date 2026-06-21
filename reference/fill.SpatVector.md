@@ -47,15 +47,14 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
-function for `SpatVector`.
+method for `SpatVector` objects.
 
 ## Grouped `SpatVector`
 
-With grouped `SpatVector` created by
+With grouped `SpatVector` objects created by
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
-[`fill()`](https://tidyr.tidyverse.org/reference/fill.html) will be
-applied *within* each group, meaning that it won't fill across group
-boundaries.
+[`fill()`](https://tidyr.tidyverse.org/reference/fill.html) is applied
+*within* each group and does not fill across group boundaries.
 
 ## See also
 

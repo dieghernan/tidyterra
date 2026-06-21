@@ -222,10 +222,10 @@ lists which parameters it can accept.</p></li>
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>.</p>
     </div>
     <div class="section level2">
-    <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
+    <h2 id="coordinates">Coordinates<a class="anchor" aria-label="anchor" href="#coordinates"></a></h2>
 
 
 
@@ -249,7 +249,7 @@ object. Use <code>facet_wrap(~lyr)</code> to display the <code>SpatRaster</code>
 layers.</p>
 <p>If <code>fill</code> is used, it should contain the name of one layer that is present
 on the <code>SpatRaster</code> (for example,
-<code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;)</code>). Layer names can
+<code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;))</code>). Layer names can
 be retrieved using <code>names(rast)</code>.</p>
 <p>Using <code>geom_spatraster(..., mapping = aes(fill = NULL))</code> or
 <code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> creates a layer with no
@@ -279,7 +279,7 @@ variables. See <strong>Computed variables</strong> and <strong>Examples</strong>
 
 
 
-<p>You can use <code>facet_wrap(~lyr)</code> to create a faceted plot by each layer of the
+<p>You can use <code>facet_wrap(~lyr)</code> to create a faceted plot for each layer of the
 <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> for details.</p>
     </div>
     <div class="section level2">
@@ -287,7 +287,7 @@ variables. See <strong>Computed variables</strong> and <strong>Examples</strong>
 
 
 
-<p>This geom computes internally some variables that are available for use as
+<p>This geom computes variables internally that are available for use as
 aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(value)</code>: Cell values of the <code>SpatRaster</code>.</p></li>
 <li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>

@@ -88,13 +88,13 @@ A `SpatVector` object with updated grouping metadata.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
+[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html)
-methods for `SpatVector` objects.
+method family for `SpatVector` objects.
 
 [`tally()`](https://dplyr.tidyverse.org/reference/count.html) will
 always return a disaggregated geometry while

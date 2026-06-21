@@ -32,17 +32,17 @@ found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html)
+[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html).
 
-## Solving issues
+## Resolving differences
 
-- On **non-equal CRS**, try
+- For a **different CRS**, try
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html).
 
-- On **non-equal extent**, try
+- For a **different extent**, try
   [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html).
 
-- On **non-equal resolution** you can try
+- For a **different resolution**, try
   [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html),
   [`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
   or

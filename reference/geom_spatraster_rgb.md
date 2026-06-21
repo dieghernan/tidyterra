@@ -141,7 +141,7 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::plotRGB()`](https://rspatial.github.io/terra/reference/plotRGB.html)
+[`terra::plotRGB()`](https://rspatial.github.io/terra/reference/plotRGB.html).
 
 ## Aesthetics
 
@@ -150,7 +150,7 @@ required. In fact,
 [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) will be
 ignored.
 
-## Coords
+## Coordinates
 
 When the `SpatRaster` does not have a CRS, that is,
 `terra::crs(rast) == ""`, the geom does not make any assumption about

@@ -164,28 +164,28 @@ details and examples, see <a href="https://dplyr.tidyverse.org/reference/dplyr_b
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Cells that do not meet the conditions on <code>...</code> are returned with value
-<code>NA</code>. On a multi-layer <code>SpatRaster</code> the <code>NA</code> is propagated across all the
-layers.</p>
+<p>Cells that do not meet the conditions in <code>...</code> are returned as <code>NA</code>. On a
+multi-layer <code>SpatRaster</code>, <code>NA</code> is propagated across all layers.</p>
 <p>If <code>.keep_extent = TRUE</code> the returned <code>SpatRaster</code> has the same CRS, extent,
 resolution and number of cells as <code>.data</code>. If
 <code>.keep_extent = FALSE</code> the outer <code>NA</code> cells are trimmed with <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>,
 so the extent and number of cells may differ. The output will still have
 the same CRS and resolution as <code>.data</code>.</p>
-<p><code>x</code> and <code>y</code> variables, the longitude and latitude of the <code>SpatRaster</code>,
-are also available internally for filtering. See <strong>Examples</strong>.</p>
+<p>The <code>x</code> and <code>y</code> coordinates of the <code>SpatRaster</code> are also available
+internally for filtering. See <strong>Examples</strong>.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code>SpatVector</code> with all the geometries that produce a value of
-<code>TRUE</code> for all conditions.</p>
+<p>The result is a <code>SpatVector</code> containing the geometries whose attributes
+satisfy all conditions.</p>
 </div>
 
     </div>

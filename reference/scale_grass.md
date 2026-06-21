@@ -305,7 +305,7 @@ avoid blank pixels in the plot.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html)
+[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html).
 
 ## References
 

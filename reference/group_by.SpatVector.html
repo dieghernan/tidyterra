@@ -127,16 +127,21 @@ grouped with <code>.drop = FALSE</code>. See <code><a href="https://dplyr.tidyve
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> family functions for
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">dplyr::group_by()</a></code> method family for
 <code>SpatVector</code> objects.</p>
-<p><strong>When mixing</strong> <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> <strong>and</strong> <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> <strong>syntax</strong>
-on a grouped <code>SpatVector</code>, for example subsetting a <code>SpatVector</code> like
-<code>v[1:3,1:2]</code>, the <code>groups</code> attribute can be corrupted.
-<a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> tries to re-group the <code>SpatVector</code>. This is triggered
-the next time you use a <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verb on your <code>SpatVector</code>.</p>
-<p>Some operations, such as <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code>, create a new <code>SpatVector</code>.
-In these cases, the result does not preserve the <code>groups</code> attribute. Use
-<code><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by()</a></code> to re-group.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="grouping-metadata">Grouping metadata<a class="anchor" aria-label="anchor" href="#grouping-metadata"></a></h2>
+
+
+
+<p>Mixing <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> and <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> syntax on a grouped or row-wise
+<code>SpatVector</code>, for example by subsetting with <code>v[1:3, 1:2]</code>, can corrupt its
+grouping metadata. <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> attempts to restore this metadata the
+next time you use a <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> verb on the object.</p>
+<p>Some operations, such as <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code>, create a new <code>SpatVector</code>
+without preserving grouping metadata. Call <code>group_by.SpatVector()</code> or
+<code><a href="rowwise.SpatVector.html">rowwise.SpatVector()</a></code> again, as appropriate.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

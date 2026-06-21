@@ -170,7 +170,7 @@ for details on aesthetics, etc.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
+[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html).
 
 ## See also
 

@@ -55,22 +55,22 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-`names(Spat*) <- c("a", "b", "c")`
+`names(Spat*) <- c("a", "b", "c")`.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Rename layers of a `SpatRaster`.
+Renames layers of a `SpatRaster`.
 
 ### `SpatVector`
 
-The result is a `SpatVector` with the renamed attributes on the function
-call.
+The result is a `SpatVector` with the attributes renamed as specified in
+the function call.
 
 ## See also
 

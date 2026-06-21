@@ -136,35 +136,35 @@ empty cells, so you may need to pass (<code>na.rm = FALSE</code>) to <code>...</
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/values.html" class="external-link">terra::values()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/values.html" class="external-link">terra::values()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method. This is done
-by coercing the <code>Spat*</code> object to a tibble first (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and
-then using <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> method over the tibble.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> methods. Each method first
+coerces the <code>Spat*</code> object to a tibble (see <a href="as_tibble.Spat.html">as_tibble.Spat</a>) and then
+applies <code><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">dplyr::pull()</a></code> to the tibble.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>When passing option <code>na.rm = TRUE</code> to <code>...</code>, only cells with a value
-distinct to <code>NA</code> are extracted. See <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>.</p>
-<p>If <code>xy = TRUE</code> option is passed to <code>...</code>, two columns names <code>x</code> and <code>y</code>
+<p>When passing <code>na.rm = TRUE</code> to <code>...</code>, only cells with a value other than
+<code>NA</code> are extracted. See <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>.</p>
+<p>If <code>xy = TRUE</code> is passed to <code>...</code>, two columns named <code>x</code> and <code>y</code>
 (corresponding to the geographic coordinates of each cell) are available
-in position <code>1</code> and <code>2</code>. Hence, <code>pull(.data, 1)</code> and
-<code>pull(.data, 1, xy = TRUE)</code> return different result.</p>
+in positions <code>1</code> and <code>2</code>. Therefore, <code>pull(.data, 1)</code> and
+<code>pull(.data, 1, xy = TRUE)</code> return different results.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>When passing <code>geom = "WKT"/geom = "HEX"</code> to <code>...</code>, the geometry of the
-<code>SpatVector</code> can be pulled passing <code>var = geometry</code>. Similarly to
-<code>SpatRaster</code> method, when using <code>geom = "XY"</code> the <code>x,y</code> coordinates can be
-pulled with <code>var = x/var = y</code>. See <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> options.</p>
+<p>When passing <code>geom = "WKT"</code> or <code>geom = "HEX"</code> to <code>...</code>, the geometry of the
+<code>SpatVector</code> can be extracted with <code>var = geometry</code>. Similarly, when using
+<code>geom = "XY"</code>, the coordinates can be extracted with <code>var = x</code> or
+<code>var = y</code>. See the options in <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code>.</p>
 </div>
 
     </div>

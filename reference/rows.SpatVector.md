@@ -142,9 +142,7 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html)
-family for `SpatVector` objects.
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 Row operations update attributes while preserving the geometry column.
 When inserting data frame rows without geometry, the output contains

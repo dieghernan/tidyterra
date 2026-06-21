@@ -203,17 +203,15 @@ inequality conditions.</p></li>
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/merge.html" class="external-link">terra::merge()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/merge.html" class="external-link">terra::merge()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> family</p><div class="section">
-<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
-
-
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> method family for
+<code>SpatVector</code> objects.</p>
 <p>The geometry column has sticky behavior. This means that the result always
 has the geometry of <code>x</code> for the records that match the join conditions.</p>
 <p>For <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join()</a></code>, empty geometries may be returned
@@ -221,8 +219,6 @@ has the geometry of <code>x</code> for the records that match the join condition
 geometries). Although these join operations are not common in spatial
 workflows, the function may crash because handling of <code>EMPTY</code>
 geometries differs between <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> and <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a>.</p>
-</div>
-
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

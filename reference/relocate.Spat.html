@@ -114,25 +114,26 @@ layers/attributes to the left-hand side. Specifying both is an error.</p></dd>
 
 
 
-<p><code>terra::subset(data, c("name_layer", "name_other_layer"))</code></p>
+<p><code>terra::subset(data, c("name_layer", "name_other_layer"))</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">dplyr::relocate()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">dplyr::relocate()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Relocate layers of a <code>SpatRaster</code>.</p>
+<p>Relocates layers of a <code>SpatRaster</code>.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code>SpatVector</code> with the attributes on a different order.</p>
+<p>The result is a <code>SpatVector</code> with the attributes in a different order.</p>
 </div>
 
     </div>

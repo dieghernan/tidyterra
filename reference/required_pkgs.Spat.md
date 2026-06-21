@@ -41,9 +41,9 @@ A character string of packages that are required.
 
 ## Methods
 
-Implementation of
+Implementation of the **generic**
 [`generics::required_pkgs()`](https://generics.r-lib.org/reference/required_pkgs.html)
-method.
+method for `Spat*` objects.
 
 ## See also
 

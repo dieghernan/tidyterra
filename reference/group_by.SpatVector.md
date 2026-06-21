@@ -64,23 +64,24 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
-family functions for `SpatVector` objects.
+method family for `SpatVector` objects.
 
-**When mixing** [terra](https://CRAN.R-project.org/package=terra)
-**and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a grouped `SpatVector`, for example subsetting a `SpatVector` like
-`v[1:3,1:2]`, the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
-re-group the `SpatVector`. This is triggered the next time you use a
-[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
-`SpatVector`.
+## Grouping metadata
+
+Mixing [terra](https://CRAN.R-project.org/package=terra) and
+[dplyr](https://CRAN.R-project.org/package=dplyr) syntax on a grouped or
+row-wise `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can
+corrupt its grouping metadata.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) attempts to
+restore this metadata the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on the object.
 
 Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
-create a new `SpatVector`. In these cases, the result does not preserve
-the `groups` attribute. Use
-[`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) to
-re-group.
+create a new `SpatVector` without preserving grouping metadata. Call
+`group_by.SpatVector()` or
+[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/rowwise.SpatVector.md)
+again, as appropriate.
 
 ## See also
 

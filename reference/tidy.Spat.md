@@ -111,7 +111,7 @@ object.
 
 Implementation of the **generic**
 [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
@@ -246,7 +246,7 @@ tidy(cyl)
 ex <- cyl |> terra::ext()
 
 ex
-#> SpatExtent : 2892686.537, 3341372.1325, 2017621.67, 2361599.9431 (xmin, xmax, ymin, ymax)
+#> SpatExtent : 2892686.537, 3341372.1324999998, 2017621.6699999999, 2361599.9430999998 (xmin, xmax, ymin, ymax)
 
 tidy(ex)
 #> Simple feature collection with 1 feature and 0 fields

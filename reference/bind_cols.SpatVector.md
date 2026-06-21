@@ -41,7 +41,7 @@ correspond to the first `SpatVector` of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`cbind()`](https://rdrr.io/r/base/cbind.html) method
+[`cbind()`](https://rdrr.io/r/base/cbind.html) method.
 
 ## Methods
 

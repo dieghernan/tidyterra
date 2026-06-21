@@ -312,19 +312,20 @@ See <code><a href="https://rspatial.github.io/terra/reference/mask.html" class="
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/subset.html" class="external-link">terra::subset()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/subset.html" class="external-link">terra::subset()</a></code> and <code><a href="https://rspatial.github.io/terra/reference/sample.html" class="external-link">terra::spatSample()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
 <p>The result is a <code>SpatRaster</code> with the CRS and resolution of the input and
-where cell values of the selected cells/columns/rows are preserved.</p>
+the values of the selected cells, columns or rows.</p>
 <p>Use <code>.keep_extent = TRUE</code> to preserve the extent of <code>.data</code> on the output.
 The non-selected cells have a value of <code>NA</code>.</p>
 </div>

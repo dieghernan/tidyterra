@@ -120,20 +120,21 @@ for missing values. If empty, all attributes are used.</p></dd>
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The implementation of this method is performed on a <code>by-attribute</code> basis,
-meaning that <code>NA</code> values are assessed on the attributes (columns) of each
-vector (rows). The result is a <code>SpatVector</code> with potentially fewer
+<p>This method operates on attributes, meaning that <code>NA</code> values are assessed in
+the attributes (columns) of each geometry (row). The result is a
+<code>SpatVector</code> with potentially fewer
 geometries than the input.</p>
 </div>
 

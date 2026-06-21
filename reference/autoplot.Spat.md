@@ -87,7 +87,7 @@ method.
 
 Implementation of the **generic**
 [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 

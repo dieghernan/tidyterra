@@ -37,7 +37,7 @@ always return a one-row data frame. See **Methods**.
 
 Implementation of the **generic**
 [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)
-method for `Spat*` objects.
+methods for `Spat*` objects.
 
 ## See also
 

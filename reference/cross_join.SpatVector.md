@@ -53,9 +53,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column has sticky behavior. The result repeats each
 geometry in `x` once for every row in `y`.

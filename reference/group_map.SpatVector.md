@@ -61,9 +61,7 @@ no columns.
 
 Implementation of the **generic**
 [`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-family for `SpatVector` objects.
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 [`group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
 applies `.f` to each group and returns a list.

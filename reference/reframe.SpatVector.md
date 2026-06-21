@@ -56,9 +56,7 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 For grouped inputs, and for calls using `.by`, geometries are aggregated
 per group. If a group produces more than one row, the aggregated group

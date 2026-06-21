@@ -116,15 +116,16 @@ or "updown" (first up and then down).</p></dd>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">tidyr::fill()</a></code> function for <code>SpatVector</code>.</p>
+<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">tidyr::fill()</a></code> method for <code>SpatVector</code>
+objects.</p>
     </div>
     <div class="section level2">
     <h2 id="grouped-spatvector">Grouped <code>SpatVector</code><a class="anchor" aria-label="anchor" href="#grouped-spatvector"></a></h2>
 
 
 
-<p>With grouped <code>SpatVector</code> created by <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>, <code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill()</a></code> will
-be applied <em>within</em> each group, meaning that it won't fill across group
+<p>With grouped <code>SpatVector</code> objects created by <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>,
+<code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">fill()</a></code> is applied <em>within</em> each group and does not fill across group
 boundaries.</p>
     </div>
     <div class="section level2">

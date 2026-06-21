@@ -70,9 +70,7 @@ A tibble with one or more list-columns of `SpatVector` objects.
 
 Implementation of the **generic**
 [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column must be nested with the other attributes that form
 each nested `SpatVector`. These nested list-columns contain `SpatVector`

@@ -57,7 +57,7 @@ A `SpatRaster` or `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 

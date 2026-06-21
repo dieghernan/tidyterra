@@ -152,28 +152,29 @@ details and examples, see <a href="https://dplyr.tidyverse.org/reference/dplyr_b
 
 <p>Some <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> methods for modifying cell values:
 <code><a href="https://rspatial.github.io/terra/reference/ifelse.html" class="external-link">terra::ifel()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/classify.html" class="external-link">terra::classify()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/clamp.html" class="external-link">terra::clamp()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/app.html" class="external-link">terra::app()</a></code>,
-<code><a href="https://rspatial.github.io/terra/reference/lapp.html" class="external-link">terra::lapp()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/tapp.html" class="external-link">terra::tapp()</a></code></p>
+<code><a href="https://rspatial.github.io/terra/reference/lapp.html" class="external-link">terra::lapp()</a></code> and <code><a href="https://rspatial.github.io/terra/reference/tapp.html" class="external-link">terra::tapp()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">dplyr::mutate()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>Add new layers and preserves existing ones. The result is a
+<p>Adds new layers and preserves existing ones. The result is a
 <code>SpatRaster</code> with the same extent, resolution and CRS as <code>.data</code>. Only the
-values (and possibly the number) of layers is modified.</p>
+values and possibly the number of layers are modified.</p>
 </div>
 
 <div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code>SpatVector</code> with the modified (and possibly renamed)
-attributes on the function call.</p>
+<p>The result is a <code>SpatVector</code> with the attributes modified and possibly
+renamed as specified in the function call.</p>
 </div>
 
     </div>

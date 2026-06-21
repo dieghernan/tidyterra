@@ -32,7 +32,7 @@ A `SpatVector` of the same type as the first element of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`rbind()`](https://rdrr.io/r/base/cbind.html) method
+[`rbind()`](https://rdrr.io/r/base/cbind.html) method.
 
 ## Methods
 
@@ -41,11 +41,11 @@ Implementation of the
 function for `SpatVector` objects.
 
 The first argument should be a `SpatVector`. Each subsequent argument
-can be a `SpatVector`, `sf/sfc` object or data frame:
+can be a `SpatVector`, an `sf` or `sfc` object or a data frame:
 
-- If subsequent `SpatVector/sf/sfc` objects have a different CRS than
-  the first element, those elements are reprojected to the CRS of the
-  first element with a message.
+- If subsequent spatial objects have a different CRS from the first
+  element, they are reprojected to the CRS of the first element with a
+  message.
 
 - If any element of `...` is a tibble/data frame, the rows are
   column-bound with empty geometries with a message.

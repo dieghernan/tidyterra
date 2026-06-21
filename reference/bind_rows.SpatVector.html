@@ -107,7 +107,7 @@ names if available, otherwise it will use positions.</p></dd>
 
 
 
-<p><code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code> method</p>
+<p><code><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind()</a></code> method.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -117,9 +117,8 @@ names if available, otherwise it will use positions.</p></dd>
 <p>Implementation of the <code><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">dplyr::bind_rows()</a></code> function for
 <code>SpatVector</code> objects.</p>
 <p>The first argument should be a <code>SpatVector</code>. Each subsequent argument can be
-a <code>SpatVector</code>, <code>sf/sfc</code> object or data frame:</p><ul><li><p>If subsequent <code>SpatVector/sf/sfc</code> objects have a different CRS than the
-first element, those elements are reprojected to the CRS of the
-first element with a message.</p></li>
+a <code>SpatVector</code>, an <code>sf</code> or <code>sfc</code> object or a data frame:</p><ul><li><p>If subsequent spatial objects have a different CRS from the first element,
+they are reprojected to the CRS of the first element with a message.</p></li>
 <li><p>If any element of <code>...</code> is a tibble/data frame, the rows are column-bound
 with empty geometries with a message.</p></li>
 </ul></div>

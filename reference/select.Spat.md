@@ -36,24 +36,24 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html)
+[`terra::subset()`](https://rspatial.github.io/terra/reference/subset.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Select (and rename) layers of a `SpatRaster`. The result is a
+Selects and renames layers of a `SpatRaster`. The result is a
 `SpatRaster` with the same extent, resolution and CRS as `.data`. Only
-the number (and possibly the name) of layers is modified.
+the number and possibly the names of layers are modified.
 
 ### `SpatVector`
 
-The result is a `SpatVector` with the selected (and possibly renamed)
-attributes on the function call.
+The result is a `SpatVector` with the attributes selected and possibly
+renamed as specified in the function call.
 
 ## See also
 

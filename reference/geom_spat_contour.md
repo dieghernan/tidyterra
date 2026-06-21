@@ -196,12 +196,12 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::contour()`](https://rspatial.github.io/terra/reference/contour.html)
+[`terra::contour()`](https://rspatial.github.io/terra/reference/contour.html).
 
 ## Aesthetics
 
-`geom_spatraster_contour()` / `geom_spatraster_contour_text()`
-understands the following aesthetics:
+`geom_spatraster_contour()` and `geom_spatraster_contour_text()`
+understand the following aesthetics:
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
@@ -212,7 +212,8 @@ understands the following aesthetics:
 - [`linetype`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
 - [`linewidth`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
-  `geom_spatraster_contour_text()` understands also:
+
+`geom_spatraster_contour_text()` also understands:
 
 - [`size`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
@@ -222,8 +223,8 @@ understands the following aesthetics:
 
 - `fontface`
 
-Additionally, `geom_spatraster_contour_filled()` understands also the
-following aesthetics, as well as the ones listed above:
+In addition to the aesthetics listed above,
+`geom_spatraster_contour_filled()` understands:
 
 - [`fill`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
@@ -237,8 +238,8 @@ for an overview of the aesthetics.
 
 ## Computed variables
 
-These geoms compute some variables internally that are available for use
-as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
+These geoms compute variables internally that are available for use as
+aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
@@ -250,18 +251,16 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 - `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
 
-- `after_stat(level_low)`, `after_stat(level_high)`,
-
-- `after_stat(level_mid)`: (contour bands only) Lower and upper bin
-  boundaries for each band, as well as the midpoint between the
-  boundaries.
+- `after_stat(level_low)`, `after_stat(level_high)` and
+  `after_stat(level_mid)`: For contour bands only, the lower and upper
+  bin boundaries and the midpoint between them.
 
 ## Dropped variables
 
 - `z`: After contouring, the `z` values of individual data points are no
   longer available.
 
-## Coords
+## Coordinates
 
 When the `SpatRaster` does not have a CRS, that is,
 `terra::crs(rast) == ""`, the geom does not make any assumption about
@@ -274,8 +273,8 @@ reprojected**.
 
 ## Facets
 
-You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of
-the `SpatRaster` object. See
+You can use `facet_wrap(~lyr)` to create a faceted plot for each layer
+of the `SpatRaster` object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 

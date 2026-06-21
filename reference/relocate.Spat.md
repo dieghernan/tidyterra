@@ -42,21 +42,21 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-`terra::subset(data, c("name_layer", "name_other_layer"))`
+`terra::subset(data, c("name_layer", "name_other_layer"))`.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Relocate layers of a `SpatRaster`.
+Relocates layers of a `SpatRaster`.
 
 ### `SpatVector`
 
-The result is a `SpatVector` with the attributes on a different order.
+The result is a `SpatVector` with the attributes in a different order.
 
 ## See also
 

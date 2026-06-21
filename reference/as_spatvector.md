@@ -82,7 +82,7 @@ in the following ways:
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
+[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 ## See also
 

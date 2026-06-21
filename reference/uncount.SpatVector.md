@@ -43,9 +43,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 Each duplicated row keeps the input geometry.
 

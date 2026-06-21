@@ -82,20 +82,17 @@ A `SpatVector`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
+[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
-method.
+method for `SpatVector` objects.
 
-### `SpatVector`
-
-Similarly to the implementation on
-[sf](https://CRAN.R-project.org/package=sf) this function can be used to
-dissolve geometries (with `.dissolve = TRUE`) or create `MULTI` versions
-of geometries (with `.dissolve = FALSE`). See **Examples**.
+As in the [sf](https://CRAN.R-project.org/package=sf) implementation,
+this function can dissolve geometries with `.dissolve = TRUE` or create
+`MULTI` geometries with `.dissolve = FALSE`. See **Examples**.
 
 ## See also
 

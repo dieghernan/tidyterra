@@ -115,7 +115,7 @@ fortify(model, data, ..., crs = "")
 
 Implementation of the **generic**
 [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 

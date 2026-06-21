@@ -60,13 +60,13 @@ A `SpatVector` object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::sort()`](https://rspatial.github.io/terra/reference/sort.html)
+[`terra::sort()`](https://rspatial.github.io/terra/reference/sort.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)
-function for `SpatVector` class.
+method for `SpatVector` objects.
 
 ## See also
 
@@ -84,7 +84,7 @@ operate on rows:
 ``` r
 
 library(terra)
-#> terra 1.9.27
+#> terra 1.9.34
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’

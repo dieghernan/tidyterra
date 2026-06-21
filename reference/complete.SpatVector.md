@@ -66,9 +66,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
 preserves the geometry column while expanding missing combinations. New

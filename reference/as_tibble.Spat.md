@@ -91,13 +91,13 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
+[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster` and `SpatVector`
 
@@ -105,7 +105,7 @@ The returned tibble includes the CRS of the original object as an
 attribute in WKT format (see
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/reference/pull_crs.md)).
 
-## About layer/column names
+## Layer and column names
 
 When coercing `SpatRaster` objects to data frames, `x` and `y` are
 reserved names for the geographic coordinates of each cell.

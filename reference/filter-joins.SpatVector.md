@@ -94,15 +94,13 @@ A `SpatVector` object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
+[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::semi_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html)
-family
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `x` for the records that match the join
