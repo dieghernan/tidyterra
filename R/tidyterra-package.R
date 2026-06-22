@@ -1,3 +1,7 @@
+#' @references
+#' Hernangomez D (2023). "Using the tidyverse with terra objects: the
+#' tidyterra package." *Journal of Open Source Software*,
+#' **8**(91), 5751. ISSN 2475-9066. \doi{10.21105/joss.05751}.
 #' @keywords internal
 #' @encoding UTF-8
 "_PACKAGE"

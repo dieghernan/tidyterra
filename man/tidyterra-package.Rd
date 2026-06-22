@@ -11,6 +11,11 @@
 
 Provides methods from 'tidyverse' packages for 'SpatRaster' and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and scales for plotting those objects.
 }
+\references{
+Hernangomez D (2023). "Using the tidyverse with terra objects: the
+tidyterra package." \emph{Journal of Open Source Software},
+\strong{8}(91), 5751. ISSN 2475-9066. \doi{10.21105/joss.05751}.
+}
 \seealso{
 Useful links:
 \itemize{
