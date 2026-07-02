@@ -237,12 +237,7 @@ geographic and taxonomic patterns influence the scientific and societal
 interest in urban soil microbial diversity. *Environmental Microbiome*,
 *20*(1), 17. <https://doi.org/10.1186/s40793-025-00677-7>
 
-Merlin, M., Gardiner, B., & Solberg, S. (2026b). Predicting the risk of
-individual tree fall along powerlines in Norway with a mechanistic wind
-risk model and machine learning. *EGUsphere*, *2026*, 1–34.
-<https://doi.org/10.5194/egusphere-2025-6363>
-
-Merlin, M., Gardiner, B., & Solberg, S. (2026a). Predicting the risk of
+Merlin, M., Gardiner, B., & Solberg, S. (2026). Predicting the risk of
 individual tree fall along powerlines in Norway with a mechanistic wind
 risk model and machine learning. *Natural Hazards and Earth System
 Sciences*, *26*(5), 2461–2485.
