@@ -107,13 +107,6 @@ geom_spatraster_rgb <- function(
     ))
   }
 
-  if (terra::nlyr(data) > 3) {
-    cli::cli_alert_warning(paste(
-      "{.arg data} has {terra::nlyr(data)} layer{?s}.",
-      "Selecting layers {.val {c(r, g, b)}}."
-    ))
-  }
-
   # 1. Work with aes ----
   mapping <- override_aesthetics(
     mapping,

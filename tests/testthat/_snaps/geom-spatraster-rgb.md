@@ -22,10 +22,3 @@
       Error in `geom_spatraster_rgb()`:
       ! Incorrect layer selection in `r`, `g`, and `b`. `data` has 2 layers.
 
----
-
-    Code
-      ss <- ggplot2::ggplot() + geom_spatraster_rgb(data = r2)
-    Message
-      ! `data` has 4 layers. Selecting layers 1, 2, and 3.
-
