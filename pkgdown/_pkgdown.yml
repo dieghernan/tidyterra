@@ -191,7 +191,7 @@ articles:
   contents:
   - articles/palettes
 - title: Citation and publications
-  navbar: In the wild
+  navbar: Publications
   desc: >
     Citation information and uses of **tidyterra** in publications.
   contents:
