@@ -79,7 +79,7 @@ stat_spatvector(
 
 - ...:
 
-  Other arguments passed on to
+  Other arguments passed to
   [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
   functions. These are often aesthetics, used to set an aesthetic to a
   fixed value, like `colour = "red"` or `linewidth = 3`.
@@ -148,7 +148,7 @@ stat_spatvector(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Details
 
@@ -170,13 +170,13 @@ for details on aesthetics, etc.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
+[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html).
 
 ## See also
 
-[`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
+[`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
@@ -222,7 +222,7 @@ ggplot(cyl) +
   coord_sf(crs = 3857)
 
 
-# You can use now geom_sf with SpatVectors!
+# You can now use geom_sf() with SpatVector objects.
 
 ggplot(cyl) +
   geom_sf() +

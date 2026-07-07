@@ -55,35 +55,26 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-`names(Spat*) <- c("a", "b", "c")`
+`names(Spat*) <- c("a", "b", "c")`.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Rename layers of a `SpatRaster`.
+Renames layers of a `SpatRaster`.
 
 ### `SpatVector`
 
-The result is a `SpatVector` with the renamed attributes on the function
-call.
+The result is a `SpatVector` with the attributes renamed as specified in
+the function call.
 
 ## See also
 
-[`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
-
-Other single table verbs:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
+[`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on columns:
@@ -92,29 +83,6 @@ operate on columns:
 [`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 

@@ -36,7 +36,7 @@ Information needed for regenerating the original `SpatRaster` file:
 
 ## See also
 
-[volcano](https://rdrr.io/r/datasets/volcano.html)
+[volcano](https://rdrr.io/r/datasets/volcano.html).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md),
@@ -47,7 +47,7 @@ Other datasets:
 ## Examples
 
 ``` r
-
+# \donttest{
 data("volcano2")
 filled.contour(volcano2, color.palette = hypso.colors, asp = 1)
 title(main = "volcano2 data: filled contour map")
@@ -71,4 +71,6 @@ ggplot() +
     subtitle = "Georeferenced",
     fill = "Elevation (m)"
   )
+
+# }
 ```

@@ -21,7 +21,7 @@ is deprecated in the future."><meta property="og:image" content="https://diegher
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +34,18 @@ is deprecated in the future."><meta property="og:image" content="https://diegher
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -135,9 +145,9 @@ as a data frame with one column per layer. See <strong>Details</strong>.</p></dd
 
 
 <dt id="arg-crs">crs<a class="anchor" aria-label="anchor" href="#arg-crs"></a></dt>
-<dd><p>Input that includes or represents a CRS. It can be an <code>sf/sfc</code>
-object, a <code>SpatRaster/SpatVector</code> object, a <code>crs</code> object from
-<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character string (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">proj4 string</a>), or
+<dd><p>Input that includes or represents a CRS. It can be an <code>sf</code> or
+<code>sfc</code> object, a <code>SpatRaster</code> or <code>SpatVector</code> object, a <code>crs</code> object from
+<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>, a character string (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">PROJ string</a>), or
 an integer representing an <a href="https://epsg.io/" class="external-link">EPSG</a> code.</p></dd>
 
 </dl></div>
@@ -152,7 +162,8 @@ return a <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class=
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">generics::tidy()</a></code> method.</p><div class="section">
+<p>Implementation of the <strong>generic</strong> <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">generics::tidy()</a></code> methods for <code>Spat*</code>
+objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
@@ -184,8 +195,7 @@ faceting.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>, <code><a href="as_tibble.Spat.html">as_tibble.Spat</a></code>, <code><a href="as_spatraster.html">as_spatraster()</a></code>, <code><a href="fortify.Spat.html">fortify.Spat</a></code>,
-<code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">generics::tidy()</a></code>.</p>
+    <div class="dont-index"><p><code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>, <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">generics::tidy()</a></code>.</p>
 <p>Other <a href="https://CRAN.R-project.org/package=generics" class="external-link"><span class="pkg">generics</span></a> methods:
 <code><a href="glance.Spat.html">glance.Spat</a></code>,
 <code><a href="required_pkgs.Spat.html">required_pkgs.Spat</a></code></p>
@@ -277,7 +287,7 @@ faceting.</p>
 <span class="r-in"><span><span class="va">ex</span> <span class="op">&lt;-</span> <span class="va">cyl</span> <span class="op">|&gt;</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/ext.html" class="external-link">ext</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">ex</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SpatExtent : 2892686.537, 3341372.1325, 2017621.67, 2361599.9431 (xmin, xmax, ymin, ymax)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SpatExtent : 2892686.537, 3341372.1324999998, 2017621.6699999999, 2361599.9430999998 (xmin, xmax, ymin, ymax)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">ex</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 1 feature and 0 fields</span>
@@ -290,7 +300,7 @@ faceting.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">*</span>                                                                      <span style="color: #949494; font-style: italic;">&lt;POLYGON&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> ((2892687 2017622, 2892687 2361600, 3341372 2361600, 3341372 2017622, 2892687…</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># With crs</span></span></span>
+<span class="r-in"><span><span class="co"># With a CRS</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">ex</span>, crs <span class="op">=</span> <span class="fu"><a href="pull_crs.html">pull_crs</a></span><span class="op">(</span><span class="va">cyl</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 1 feature and 0 fields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POLYGON</span>

@@ -75,19 +75,13 @@ autoplot(object, ...)
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
-
-## Details
-
-Implementation of
-[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) plot.
 
 ## Methods
 
 Implementation of the **generic**
 [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
@@ -107,9 +101,9 @@ or
 
 ## See also
 
-[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
+[`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),

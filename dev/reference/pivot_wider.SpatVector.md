@@ -43,8 +43,8 @@ pivot_wider(
 
   \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
   A set of columns that uniquely identify each observation. Typically
-  used when you have redundant variables, i.e. variables whose values
-  are perfectly correlated with existing variables.
+  used when you have redundant variables, that is, variables whose
+  values are perfectly correlated with existing variables.
 
   Defaults to all columns in `data` except for the columns specified
   through `names_from` and `values_from`. If a
@@ -52,7 +52,7 @@ pivot_wider(
   expression is supplied, it will be evaluated on `data` after removing
   the columns specified through `names_from` and `values_from`.
 
-  Note that "`geometry`" columns are sticky, hence they are removed from
+  Because "`geometry`" columns are sticky, they are removed from
   `names_from` and `values_from`.
 
 - id_expand:
@@ -173,31 +173,18 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `data`.
 
 ## See also
 
-[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
+[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 pivoting:
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
@@ -209,7 +196,7 @@ library(ggplot2)
 
 cyl <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-# Add extra row with info
+# Add an extra row with information.
 xtra <- cyl |>
   slice(c(2, 3)) |>
   mutate(
@@ -230,7 +217,7 @@ xtra <- cyl |>
 #> $ label <chr> "extra", "extra", NA, NA, NA, NA, NA, NA, NA, NA, NA
 #> $ value <lgl> TRUE, TRUE, NA, NA, NA, NA, NA, NA, NA, NA, NA
 
-# Pivot by geom
+# Pivot by geometry.
 xtra |>
   pivot_wider(
     id_cols = iso2:name, values_from = value,

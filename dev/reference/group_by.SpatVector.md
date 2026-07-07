@@ -64,28 +64,29 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
-family functions for `SpatVector` objects.
+method family for `SpatVector` objects.
 
-**When mixing** [terra](https://CRAN.R-project.org/package=terra)
-**and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a grouped `SpatVector` (i.e. subsetting a `SpatVector` like
-`v[1:3,1:2]`), the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
-re-group the `SpatVector`. This is triggered the next time you use a
-[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
-`SpatVector`.
+## Grouping metadata
 
-Note also that some operations, such as
+Mixing [terra](https://CRAN.R-project.org/package=terra) and
+[dplyr](https://CRAN.R-project.org/package=dplyr) syntax on a grouped or
+row-wise `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can
+corrupt its grouping metadata.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) attempts to
+restore this metadata the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on the object.
+
+Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
-create a new `SpatVector`. In these cases, the result does not preserve
-the `groups` attribute. Use
-[`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) to
-re-group.
+create a new `SpatVector` without preserving grouping metadata. Call
+`group_by.SpatVector()` or
+[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
+again, as appropriate.
 
 ## See also
 
 [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html),
-[`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html)
+[`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:
@@ -94,31 +95,9 @@ operate on groups of rows:
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:
+[`group_data.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.md),
 [`group_map.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md),
 [`group_nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md),
 [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md),
@@ -152,7 +131,7 @@ by_name1
 
 # But it adds metadata for grouping. See the coercion to tibble.
 
-# Not grouped
+# Not grouped.
 p_tbl <- as_tibble(p)
 class(p_tbl)
 #> [1] "tbl_df"     "tbl"        "data.frame"
@@ -164,7 +143,7 @@ head(p_tbl, 3)
 #> 2     1 Diekirch     2 Diekirch   218 32543
 #> 3     1 Diekirch     3 Redange    259 18664
 
-# Grouped
+# Grouped.
 by_name1_tbl <- as_tibble(by_name1)
 class(by_name1_tbl)
 #> [1] "grouped_df" "tbl_df"     "tbl"        "data.frame"
@@ -193,7 +172,7 @@ by_name1 |> summarise(
 #>               Grevenmacher 23697.7   527
 #>                 Luxembourg  109932   906
 
-# Each call to summarise() removes a layer of grouping
+# Each call to summarise() removes a layer of grouping.
 by_name2_name1 <- p |> group_by(NAME_2, NAME_1)
 
 by_name2_name1
@@ -256,7 +235,7 @@ group_data(by_name2)
 #> 11 Vianden                  [1]
 #> 12 Wiltz                    [1]
 
-# To removing grouping, use ungroup
+# To remove grouping, use ungroup().
 by_name2 |>
   ungroup() |>
   summarise(n = sum(n))
@@ -269,20 +248,20 @@ by_name2 |>
 #> type        : <int>
 #> values      :    12
 
-# By default, group_by() overrides existing grouping
+# By default, group_by() overrides existing grouping.
 by_name2_name1 |>
   group_by(ID_1, ID_2) |>
   group_vars()
 #> [1] "ID_1" "ID_2"
 
-# Use add = TRUE to instead append
+# Use `.add = TRUE` to append instead.
 by_name2_name1 |>
   group_by(ID_1, ID_2, .add = TRUE) |>
   group_vars()
 #> [1] "NAME_2" "NAME_1" "ID_1"   "ID_2"  
 
-# You can group by expressions: this is a short-hand
-# For a mutate() followed by a group_by().
+# You can group by expressions. This is shorthand for a mutate() followed
+# by a group_by().
 p |>
   group_by(ID_COMB = ID_1 * 100 / ID_2) |>
   relocate(ID_COMB, .before = 1)

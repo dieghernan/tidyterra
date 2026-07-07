@@ -145,6 +145,13 @@ Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
 US (2000-2022). *PLOS ONE*, *20*(10), 1–25.
 <https://doi.org/10.1371/journal.pone.0333746>
 
+Jones, M. D., Almeida, R. J., Boratto, R., Talley, B. L., Buchanan, S.
+W., Sevin, J., Karraker, N. E., & Hunter, E. A. (2026). Long lives,
+short futures: Freshwater turtle and tortoise imports to the United
+States highlight global trade and conservation challenges. *Biological
+Conservation*, *321*, 111966.
+<https://doi.org/10.1016/j.biocon.2026.111966>
+
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
 Stomph, T., & Struik, P. C. (2025). Can drone images predict
 within-field variability in soil fertility? A case study in the Northern
@@ -232,8 +239,9 @@ interest in urban soil microbial diversity. *Environmental Microbiome*,
 
 Merlin, M., Gardiner, B., & Solberg, S. (2026). Predicting the risk of
 individual tree fall along powerlines in Norway with a mechanistic wind
-risk model and machine learning. *EGUsphere*, *2026*, 1–34.
-<https://doi.org/10.5194/egusphere-2025-6363>
+risk model and machine learning. *Natural Hazards and Earth System
+Sciences*, *26*(5), 2461–2485.
+<https://doi.org/10.5194/nhess-26-2461-2026>
 
 Merlin, M., Locatelli, T., Gardiner, B., & Astrup, R. (2025).
 Large-scale modelling wind damage vulnerability through combination of
@@ -244,6 +252,12 @@ Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
 NASA earth observation data products*. National Aeronautics; Space
 Administration, Goddard Space Flight Center.
 <https://github.com/nasa/NASAaccess>
+
+Moreira, H., Janssen, S. D., Kuipers, K. J. J., Posthuma, L., Hauck, M.,
+Huijbregts, M. A. J., & Schipper, A. M. (2026). Combined threats of land
+use, climate change and nitrogen deposition to global vascular plant
+diversity. *Global Ecology and Conservation*, *69*, e04307.
+<https://doi.org/10.1016/j.gecco.2026.e04307>
 
 Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
 A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,

@@ -27,8 +27,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -195,10 +195,21 @@ wiki.colors(n, alpha = 1, rev = FALSE)
   The alpha transparency, a number in \[0,1\], see argument alpha in
   [`hsv`](https://rdrr.io/r/grDevices/hsv.html).
 
+- direction:
+
+  Sets the order of colors in the scale. If 1, the default, colors are
+  ordered from darkest to lightest. If -1, the order of colors is
+  reversed.
+
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
   `TRUE`.
+
+- drop:
+
+  Logical. If `TRUE`, omit unused factor levels from the scale. The
+  default (`TRUE`) removes unused factors.
 
 - na.value:
 
@@ -206,17 +217,6 @@ wiki.colors(n, alpha = 1, rev = FALSE)
   [tidyterra](https://CRAN.R-project.org/package=tidyterra) uses
   `na.value = "transparent"` so cells with `NA` are not filled. See also
   [\#120](https://github.com/dieghernan/tidyterra/issues/120).
-
-- drop:
-
-  Logical. If `TRUE`, omit unused factor levels from the scale. The
-  default (`TRUE`) removes unused factors.
-
-- direction:
-
-  Sets the order of colors in the scale. If 1, the default, colors are
-  ordered from darkest to lightest. If -1, the order of colors is
-  reversed.
 
 - guide:
 
@@ -241,12 +241,13 @@ layer with the values applied to the `fill/colour` aesthetics.
 ## See also
 
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html),
-[`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html)
+[`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales, palettes and hypsometric tints:
+Other color scales, palettes and hypsometric tints:
+[`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),

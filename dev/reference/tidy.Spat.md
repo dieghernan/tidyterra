@@ -90,10 +90,10 @@ tidy(x, ..., crs = "")
 
 - crs:
 
-  Input that includes or represents a CRS. It can be an `sf/sfc` object,
-  a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf` or `sfc`
+  object, a `SpatRaster` or `SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character string (for example a [proj4
+  a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)),
   or an integer representing an [EPSG](https://epsg.io/) code.
 
@@ -111,7 +111,7 @@ object.
 
 Implementation of the **generic**
 [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
@@ -152,9 +152,6 @@ object that can be used with
 ## See also
 
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html),
-[`as_tibble.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md),
-[`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html).
 
 Other [generics](https://CRAN.R-project.org/package=generics) methods:
@@ -249,7 +246,7 @@ tidy(cyl)
 ex <- cyl |> terra::ext()
 
 ex
-#> SpatExtent : 2892686.537, 3341372.1325, 2017621.67, 2361599.9431 (xmin, xmax, ymin, ymax)
+#> SpatExtent : 2892686.537, 3341372.1324999998, 2017621.6699999999, 2361599.9430999998 (xmin, xmax, ymin, ymax)
 
 tidy(ex)
 #> Simple feature collection with 1 feature and 0 fields
@@ -262,7 +259,7 @@ tidy(ex)
 #> *                                                                      <POLYGON>
 #> 1 ((2892687 2017622, 2892687 2361600, 3341372 2361600, 3341372 2017622, 2892687…
 
-# With crs
+# With a CRS
 tidy(ex, crs = pull_crs(cyl))
 #> Simple feature collection with 1 feature and 0 fields
 #> Geometry type: POLYGON

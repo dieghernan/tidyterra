@@ -98,12 +98,12 @@ stat_spat_coordinates(
 
 - ...:
 
-  Other arguments passed on to
+  Other arguments passed to
   [`ggplot2::stat_sf_coordinates()`](https://ggplot2.tidyverse.org/reference/stat_sf_coordinates.html).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Details
 
@@ -116,7 +116,7 @@ for details.
 
 ## See also
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),

@@ -25,8 +25,8 @@ replace_na(data, replace, ...)
 
   A named list of values, with one value for each layer/attribute that
   has missing values to be replaced. Each value in `replace` will be
-  cast to the type of the column in `data` that it is being used as a
-  replacement in.
+  cast to the type of the column in `data` where it is used as a
+  replacement.
 
 - ...:
 
@@ -38,11 +38,11 @@ A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-Use `r[is.na(r)] <- <replacement>`
+Use `r[is.na(r)] <- <replacement>`.
 
 ## See also
 
-[`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html)
+[`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
@@ -50,17 +50,6 @@ handling missing values:
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
 [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 

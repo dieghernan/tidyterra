@@ -6,8 +6,8 @@ It is designed to plot the object by layers, as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
 does.
 
-For plotting `SpatRaster` objects as map tiles (i.e. RGB `SpatRaster`),
-use
+For plotting `SpatRaster` objects as map tiles, such as RGB `SpatRaster`
+objects, use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
 
 The underlying implementation is based on
@@ -46,10 +46,9 @@ stat_spatraster(
 
 ## Source
 
-Based on the `layer_spatial()` implementation on
-[ggspatial](https://CRAN.R-project.org/package=ggspatial) package.
-Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and
-[ggspatial
+Based on the `layer_spatial()` implementation in
+[ggspatial](https://CRAN.R-project.org/package=ggspatial). Thanks to
+[Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial
 contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Arguments
@@ -153,21 +152,21 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
+[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html).
 
-## Coords
+## Coordinates
 
-When the `SpatRaster` does not have a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption about
+When the `SpatRaster` does not have a CRS, that is,
+`terra::crs(rast) == ""`, the geom does not make any assumption about
 the scales.
 
-On `SpatRaster` that have a CRS, the geom uses
+On `SpatRaster` objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-to adjust the scales. That means that also the **`SpatRaster` may be
+to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
 
 ## Aesthetics
@@ -184,9 +183,9 @@ layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to display the
 `SpatRaster` layers.
 
 If `fill` is used, it should contain the name of one layer that is
-present on the `SpatRaster` (i.e.
-`geom_spatraster(data = rast, aes(fill = <name_of_lyr>)`). Names of the
-layers can be retrieved using `names(rast)`.
+present on the `SpatRaster` (for example,
+`geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names
+can be retrieved using `names(rast)`.
 
 Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
 `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no
@@ -194,7 +193,8 @@ mapped `fill` aesthetic.
 
 `fill` can use computed variables.
 
-For `alpha` use computed variable. See section **Computed variables**.
+For `alpha`, use a computed variable. See section **Computed
+variables**.
 
 ### `stat_spatraster()`
 
@@ -217,15 +217,15 @@ In every case, aesthetics should be mapped with computed variables. See
 
 ## Facets
 
-You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of
-the `SpatRaster` object. See
+You can use `facet_wrap(~lyr)` to create a faceted plot for each layer
+of the `SpatRaster` object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 
 ## Computed variables
 
-This geom computes internally some variables that are available for use
-as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
+This geom computes variables internally that are available for use as
+aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
 - `after_stat(value)`: Cell values of the `SpatRaster`.
@@ -236,7 +236,7 @@ as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html),
-[`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
+[`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html).
 
 Recommended `geoms`:
 
@@ -246,7 +246,7 @@ Recommended `geoms`:
 
 - [`ggplot2::geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
@@ -258,7 +258,7 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
 
 ``` r
 # \donttest{
-# Avg temperature on spring in Castile and Leon (Spain)
+# Average spring temperature in Castile and Leon (Spain)
 file_path <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
 
 library(terra)
@@ -266,25 +266,25 @@ temp_rast <- rast(file_path)
 
 library(ggplot2)
 
-# Display a single layer
+# Display a single layer.
 names(temp_rast)
 #> [1] "tavg_04" "tavg_05" "tavg_06"
 
 ggplot() +
   geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +
-  # You can use coord_sf
+  # You can use coord_sf().
   coord_sf(crs = 3857) +
   scale_fill_grass_c(palette = "celsius")
 
 
-# Display facets
+# Display facets.
 ggplot() +
   geom_spatraster(data = temp_rast) +
   facet_wrap(~lyr, ncol = 2) +
   scale_fill_grass_b(palette = "celsius", breaks = seq(0, 20, 2.5))
 
 
-# Non spatial rasters
+# Non-spatial rasters.
 
 no_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)
 values(no_crs) <- seq_len(ncell(no_crs))
@@ -293,7 +293,7 @@ ggplot() +
   geom_spatraster(data = no_crs)
 
 
-# Downsample
+# Downsample.
 
 ggplot() +
   geom_spatraster(data = no_crs, maxcell = 25)

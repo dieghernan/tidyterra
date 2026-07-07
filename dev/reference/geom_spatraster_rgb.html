@@ -19,7 +19,7 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +32,18 @@ The underlying implementation is based on ggplot2::geom_raster()."><meta propert
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -177,14 +187,14 @@ to <code><a href="https://rspatial.github.io/terra/reference/project.html" class
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer</p>
+    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
 
 
 
-<p><code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code></p>
+<p><code><a href="https://rspatial.github.io/terra/reference/plotRGB.html" class="external-link">terra::plotRGB()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="aesthetics">Aesthetics<a class="anchor" aria-label="anchor" href="#aesthetics"></a></h2>
@@ -194,15 +204,15 @@ to <code><a href="https://rspatial.github.io/terra/reference/project.html" class
 <p>No <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> is required. In fact, <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> will be ignored.</p>
     </div>
     <div class="section level2">
-    <h2 id="coords">Coords<a class="anchor" aria-label="anchor" href="#coords"></a></h2>
+    <h2 id="coordinates">Coordinates<a class="anchor" aria-label="anchor" href="#coordinates"></a></h2>
 
 
 
-<p>When the <code>SpatRaster</code> does not have a CRS (i.e.,
-<code>terra::crs(rast) == ""</code>) the geom does not make any assumption about the
+<p>When the <code>SpatRaster</code> does not have a CRS, that is,
+<code>terra::crs(rast) == ""</code>, the geom does not make any assumption about the
 scales.</p>
-<p>On <code>SpatRaster</code> that have a CRS, the geom uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to
-adjust the scales. That means that also the
+<p>On <code>SpatRaster</code> objects that have a CRS, the geom uses
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code> to adjust the scales. This means that the
 <strong><code>SpatRaster</code> may be reprojected</strong>.</p>
     </div>
     <div class="section level2">
@@ -210,7 +220,7 @@ adjust the scales. That means that also the
     <div class="dont-index"><p><code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">grDevices::rgb()</a></code>.</p>
 <p>You can also get RGB tiles from the <a href="https://CRAN.R-project.org/package=maptiles" class="external-link"><span class="pkg">maptiles</span></a> package. See
 <code><a href="https://rdrr.io/pkg/maptiles/man/get_tiles.html" class="external-link">maptiles::get_tiles()</a></code>.</p>
-<p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> utilities:
+<p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> helpers:
 <code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,
 <code><a href="fortify.Spat.html">fortify.Spat</a></code>,
 <code><a href="geom_spat_contour.html">geom_spat_contour</a></code>,

@@ -21,7 +21,7 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 - ...:
 
-  Additional arguments passed on to
+  Additional arguments passed to
   [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html).
 
 - xycols:
@@ -49,7 +49,7 @@ A `SpatRaster`.
 
 ## Details
 
-If no `crs` is provided and the tibble has been created with the method
+If no `crs` is provided and the tibble was created with
 [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
 the `crs` is inferred from
 [`attr(x, "crs")`](https://rdrr.io/r/base/attr.html).
@@ -61,8 +61,10 @@ the `crs` is inferred from
 
 ## See also
 
+[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md)
+for checking whether coordinates form a regular grid.
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
-for retrieving CRS and the corresponding utilities
+retrieves CRS information, as do
 [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html)
 and
 [`terra::crs()`](https://rspatial.github.io/terra/reference/crs.html).

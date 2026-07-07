@@ -47,9 +47,7 @@ A tibble with a list-column of `SpatVector` objects.
 
 Implementation of the **generic**
 [`dplyr::group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html)
-family for `SpatVector` objects.
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 The nested list-column contains `SpatVector` objects, preserving the
 geometries for each group.
@@ -59,11 +57,12 @@ geometries for each group.
 [`dplyr::group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html),
 [`dplyr::nest_by()`](https://dplyr.tidyverse.org/reference/nest_by.html),
 [`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+[`group_data.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.md),
 [`group_map.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_map.SpatVector.md),
 [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md),
 [`group_trim.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_trim.SpatVector.md)

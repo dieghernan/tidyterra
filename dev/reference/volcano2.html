@@ -21,7 +21,7 @@ most up-to-date land and seabed data."><meta property="og:image" content="https:
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +34,18 @@ most up-to-date land and seabed data."><meta property="og:image" content="https:
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -95,7 +105,7 @@ constraints.</p>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">volcano</a></p>
+    <div class="dont-index"><p><a href="https://rdrr.io/r/datasets/volcano.html" class="external-link">volcano</a>.</p>
 <p>Other datasets:
 <code><a href="cross_blended_hypsometric_tints_db.html">cross_blended_hypsometric_tints_db</a></code>,
 <code><a href="grass_db.html">grass_db</a></code>,
@@ -105,7 +115,7 @@ constraints.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"volcano2"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/filled.contour.html" class="external-link">filled.contour</a></span><span class="op">(</span><span class="va">volcano2</span>, color.palette <span class="op">=</span> <span class="va">hypso.colors</span>, asp <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"volcano2 data: filled contour map"</span><span class="op">)</span></span></span>
@@ -130,6 +140,7 @@ constraints.</p>
 <span class="r-in"><span>    fill <span class="op">=</span> <span class="st">"Elevation (m)"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="volcano2-2.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

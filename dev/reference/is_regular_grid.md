@@ -1,9 +1,9 @@
-# Check whether x and y positions form a regular grid
+# Check whether `x` and `y` positions form a regular grid
 
 Assess whether the `x` and `y` coordinates of an object form a regular
 grid. This function is called for its side effects.
 
-This function is internally called by
+This function is called internally by
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md).
 
 ## Usage
@@ -16,8 +16,8 @@ is_regular_grid(xy, digits = 6)
 
 - xy:
 
-  A matrix, data frame or tibble of at least two columns representing x
-  and y coordinates.
+  A matrix, data frame or tibble with at least two columns representing
+  `x` and `y` coordinates.
 
 - digits:
 
@@ -26,17 +26,12 @@ is_regular_grid(xy, digits = 6)
 
 ## Value
 
-[`invisible()`](https://rdrr.io/r/base/invisible.html) if the
-coordinates form a regular grid. Otherwise, an error.
+Nothing, invisibly, if the coordinates form a regular grid. Otherwise,
+an error.
 
 ## See also
 
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md)
-
-Other helpers:
-[`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md),
-[`is_grouped_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/is_grouped_spatvector.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
+[`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md).
 
 ## Examples
 

@@ -3,10 +3,10 @@
 Bind any number of `SpatVector`, data frames and `sf` objects by column,
 making a wider result. This is similar to `do.call(cbind, data_frames)`.
 
-Where possible prefer using a
+Where possible, prefer using a
 [join](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
 to combine `SpatVector` and data frame objects. `bind_spat_cols()` binds
-the rows in order in which they appear so it is easy to create
+rows in the order in which they appear, so it is easy to create
 meaningless results without realizing it.
 
 ## Usage
@@ -37,55 +37,32 @@ bind_spat_cols(
 ## Value
 
 A `SpatVector` with the corresponding columns. The geometry and CRS
-correspond to the first `SpatVector` of `...`.
+correspond to the first `SpatVector` in `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`cbind()`](https://rdrr.io/r/base/cbind.html) method
+[`cbind()`](https://rdrr.io/r/base/cbind.html) method.
 
 ## Methods
 
 Implementation of the
 [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
-function for `SpatVector` objects. Note that for the second and
-subsequent arguments on `...`, the geometry is not `cbind`ed and only
-the data frame-like columns are kept.
+function for `SpatVector` objects. For the second and subsequent
+arguments in `...`, the geometry is not `cbind`ed and only the data
+frame-like columns are kept.
 
 ## See also
 
-[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
+[`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs of `Spat*` and data frame objects:
+operate on pairs of `SpatVector` and data frame objects:
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
 [`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
 [`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 
@@ -175,7 +152,7 @@ glimpse(end)
 #> $ PERIMETER <dbl> 1.442, 1.231, 1.630, 2.968, 2.206, 1.670, 1.547, 1.284, 1.421
 #> $ letters   <chr> "a", "b", "c", "d", "e", "f", "g", "h", "i"
 
-# Row sizes must be compatible when column-binding
+# Row sizes must be compatible when column-binding.
 try(bind_spat_cols(sv, sfobj))
 #> Error in dplyr::bind_cols(alltibbs, .name_repair = .name_repair) : 
 #>   Can't recycle `..1` (size 9) to match `..2` (size 100).

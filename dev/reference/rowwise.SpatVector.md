@@ -1,7 +1,7 @@
 # Group `SpatVector` objects by rows
 
-[`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) allows
-you to compute on a `SpatVector` one row at a time. This is most useful
+[`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) lets
+you compute on a `SpatVector` one row at a time. This is most useful
 when a vectorised function does not exist.
 
 Most [dplyr](https://CRAN.R-project.org/package=dplyr) verb
@@ -40,10 +40,10 @@ rowwise(data, ...)
   identifies each row. See
   [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
-  **NB**: unlike
-  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
-  you cannot create new variables here but instead you can select
-  multiple variables with (e.g.)
+  Unlike
+  [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+  you cannot create new variables here. Instead, you can select multiple
+  variables, for example with
   [`everything()`](https://tidyselect.r-lib.org/reference/everything.html).
 
 ## Value
@@ -59,54 +59,33 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
-function for `SpatVector` objects.
+method for `SpatVector` objects.
 
-**When mixing** [terra](https://CRAN.R-project.org/package=terra)
-**and** [dplyr](https://CRAN.R-project.org/package=dplyr) **syntax** on
-a row-wise `SpatVector` (i.e. subsetting a `SpatVector` like
-`v[1:3,1:2]`), the `groups` attribute can be corrupted.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) tries to
-regenerate the `SpatVector`. This is triggered the next time you use a
-[dplyr](https://CRAN.R-project.org/package=dplyr) verb on your
-`SpatVector`.
+## Grouping metadata
 
-Note also that some operations, such as
+Mixing [terra](https://CRAN.R-project.org/package=terra) and
+[dplyr](https://CRAN.R-project.org/package=dplyr) syntax on a grouped or
+row-wise `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can
+corrupt its grouping metadata.
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) attempts to
+restore this metadata the next time you use a
+[dplyr](https://CRAN.R-project.org/package=dplyr) verb on the object.
+
+Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
-create a new `SpatVector`. In these cases, the result does not preserve
-the `groups` attribute. Use `rowwise.SpatVector()` to re-group.
+create a new `SpatVector` without preserving grouping metadata. Call
+[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
+or `rowwise.SpatVector()` again, as appropriate.
 
 ## See also
 
-[`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
+[`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
@@ -129,7 +108,7 @@ nb <- v |>
 #> $ NWBIR74 <dbl> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…
 #> $ NWBIR79 <dbl> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369, 1…
 
-# Compute the mean of NWBIR on each geometry
+# Compute the mean of NWBIR for each geometry.
 nb |>
   rowwise() |>
   mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))

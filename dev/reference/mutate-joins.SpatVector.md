@@ -147,15 +147,13 @@ A `SpatVector` object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
+[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
-family
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `x` for the records that match the join
@@ -178,39 +176,16 @@ geometries differs between
 [`dplyr::left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
 [`dplyr::right_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
 [`dplyr::full_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html),
-[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html)
+[`terra::merge()`](https://rspatial.github.io/terra/reference/merge.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
-operate on pairs of `Spat*` and data frame objects:
+operate on pairs of `SpatVector` and data frame objects:
 [`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
 [`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
 [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
 [`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
 [`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
 [`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 
@@ -257,7 +232,7 @@ nrow(right)
 autoplot(right, aes(fill = letter)) + labs(title = "Right Join")
 
 
-# There are empty geometries, check with data from df
+# Check empty geometries against data from the data frame.
 ggplot(right, aes(x, y)) +
   geom_point(aes(color = letter))
 
@@ -271,7 +246,7 @@ nrow(full)
 autoplot(full, aes(fill = letter)) + labs(title = "Full Join")
 
 
-# Check with data from df
+# Check against data from the data frame.
 ggplot(full, aes(x, y)) +
   geom_point(aes(color = letter))
 #> Warning: Removed 7 rows containing missing values or values outside the scale range

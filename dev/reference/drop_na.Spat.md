@@ -41,30 +41,29 @@ A `Spat*` object of the same class as `data`. See **Methods**.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)
+[`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatVector`
 
-The implementation of this method is performed on a `by-attribute`
-basis, meaning that `NA` values are assessed on the attributes (columns)
-of each vector (rows). The result is a `SpatVector` with potentially
-fewer geometries than the input.
+This method operates on attributes, meaning that `NA` values are
+assessed in the attributes (columns) of each geometry (row). The result
+is a `SpatVector` with potentially fewer geometries than the input.
 
 ### `SpatRaster`
 
 **\[questioning\]**
 
-The implementation of `drop_na().SpatRaster` can be understood as a
+The implementation of `drop_na.SpatRaster()` can be understood as a
 masking method based on the values of the layers (see
 [`terra::mask()`](https://rspatial.github.io/terra/reference/mask.html)).
 
-`SpatRaster` layers are considered as columns and `SpatRaster` cells as
+`SpatRaster` layers are treated as columns and `SpatRaster` cells as
 rows, so rows (cells) with any `NA` value on any layer become `NA`. You
 can also mask the cells (rows) based on the values of specific layers
 (columns).
@@ -86,7 +85,7 @@ implementation of this method for `SpatRaster` may change in the future.
 
 ## See also
 
-[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
+[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
@@ -94,17 +93,6 @@ handling missing values:
 [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 

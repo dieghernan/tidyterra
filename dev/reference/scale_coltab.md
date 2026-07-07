@@ -12,8 +12,8 @@ with `get_coltab_pal()`.
 Additional arguments `...` are passed to
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html)
 to see the full range of arguments accepted.
 
@@ -45,7 +45,7 @@ get_coltab_pal(x)
 
 - data, x:
 
-  A `SpatRaster` with one or several color tables. See
+  A `SpatRaster` with one or more color tables. See
   [`terra::has.colors()`](https://rspatial.github.io/terra/reference/colors.html).
 
 - ...:
@@ -165,7 +165,16 @@ layer with the values applied to the `fill/colour` aesthetics.
 
 [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html),
 [`ggplot2::discrete_scale()`](https://ggplot2.tidyverse.org/reference/discrete_scale.html),
-[`ggplot2::scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html),
+[`ggplot2::scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html).
+
+Other color scales, palettes and hypsometric tints:
+[`scale_cross_blended`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md),
+[`scale_grass`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md),
+[`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),
+[`scale_princess`](https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.md),
+[`scale_terrain`](https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.md),
+[`scale_whitebox`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md),
+[`scale_wiki`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md)
 
 ## Examples
 

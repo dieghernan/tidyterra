@@ -163,31 +163,18 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `data`.
 
 ## See also
 
-[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 pivoting:
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 
@@ -208,7 +195,7 @@ temp <- rast((system.file("extdata/cyl_temp.tif", package = "tidyterra")))
 cyl <- vect(system.file("extdata/cyl.gpkg", package = "tidyterra")) |>
   project(temp)
 
-# Add average temp
+# Add average temperature.
 
 temps <- terra::extract(temp, cyl, fun = "mean", na.rm = TRUE, xy = TRUE)
 cyl_temp <- cbind(cyl, temps) |>
@@ -227,7 +214,7 @@ cyl_temp <- cbind(cyl, temps) |>
 #> $ tavg_05 <dbl> 11.84584, 12.07354, 11.09056, 12.11431, 13.00844, 12.35747, 11…
 #> $ tavg_06 <dbl> 16.64684, 16.14488, 15.51468, 16.45461, 17.55421, 17.05671, 16…
 
-# And pivot long for plot
+# Pivot to long format for plotting.
 cyl_temp |>
   pivot_longer(
     cols = tavg_04:tavg_06,

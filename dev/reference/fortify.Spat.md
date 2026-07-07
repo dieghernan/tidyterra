@@ -1,10 +1,10 @@
-# Fortify `Spat*` Objects
+# Fortify `Spat*` objects
 
 Fortify `SpatRaster` and `SpatVector` objects to data frames. This
 provides native compatibility with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 
-**Note that** these methods are now implemented as a wrapper around
+These methods are now implemented as wrappers around
 [`tidy.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
 methods.
 
@@ -94,10 +94,10 @@ fortify(model, data, ..., crs = "")
 
 - crs:
 
-  Input that includes or represents a CRS. It can be an `sf/sfc` object,
-  a `SpatRaster/SpatVector` object, a `crs` object from
+  Input that includes or represents a CRS. It can be an `sf` or `sfc`
+  object, a `SpatRaster` or `SpatVector` object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
-  a character string (for example a [proj4
+  a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)),
   or an integer representing an [EPSG](https://epsg.io/) code.
 
@@ -115,18 +115,18 @@ fortify(model, data, ..., crs = "")
 
 Implementation of the **generic**
 [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Return a tibble that can be used with `ggplot2::geom_*` like
-[`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html),
-[`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html),
-etc.
+Returns a tibble that can be used with `ggplot2::geom_*`, such as
+[`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html)
+and
+[`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
 
-The resulting tibble includes the coordinates on the columns `x, y`. The
-values of each layer are included as additional columns named as per the
-name of the layer on the `SpatRaster`.
+The resulting tibble includes coordinates in the `x` and `y` columns.
+The values of each layer are added as extra columns using the layer
+names from the `SpatRaster`.
 
 The CRS of the `SpatRaster` can be retrieved with
 `attr(fortifiedSpatRaster, "crs")`.
@@ -134,35 +134,31 @@ The CRS of the `SpatRaster` can be retrieved with
 You can convert the fortified object back to a `SpatRaster` with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md).
 
-When `pivot = TRUE` the `SpatRaster` is fortified in a "long" format
-(see
+When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
 The fortified object has the following columns:
 
-- `x,y`: Coordinates (center) of the cell on the corresponding CRS.
+- `x`, `y`: Coordinates of the cell center in the corresponding CRS.
 
-- `lyr`: Indicating the name of the `SpatRaster` layer of `value`.
+- `lyr`: Name of the `SpatRaster` layer associated with `value`.
 
-- `value`: The value of the `SpatRaster` in the corresponding `lyr`.
+- `value`: Cell value for the corresponding `lyr`.
 
-This option may be useful when using several `geom_*` and for faceting,
-see **Examples**.
+This option can be useful when combining several `geom_*` layers or when
+faceting.
 
 ### `SpatVector`, `SpatGraticule` and `SpatExtent`
 
-Return a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
-that can be used with
+Returns an [`sf`](https://r-spatial.github.io/sf/reference/sf.html)
+object that can be used with
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
 
 ## See also
 
 [`tidy.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md),
-[`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html),
-[`as_tibble.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
-[`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md),
-[`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html).
+[`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),
@@ -186,15 +182,15 @@ Coercing objects:
 ``` r
 # \donttest{
 
-# Demonstrate the use with ggplot2
+# Demonstrate use with ggplot2.
 library(ggplot2)
 
-# Get a SpatRaster
+# Get a SpatRaster.
 r <- system.file("extdata/volcano2.tif", package = "tidyterra") |>
   terra::rast() |>
   terra::project("EPSG:4326")
 
-# You can now use a SpatRaster with any geom
+# You can now use a SpatRaster with any geom.
 ggplot(r, maxcell = 50) +
   geom_histogram(aes(x = elevation),
     bins = 20, fill = "lightblue",
@@ -203,9 +199,9 @@ ggplot(r, maxcell = 50) +
 #> <SpatRaster> resampled to 56 cells.
 
 
-# For SpatVector, SpatGraticule and SpatExtent you can use now geom_sf()
+# For SpatVector, SpatGraticule and SpatExtent, use geom_sf().
 
-# Create a SpatVector
+# Create a SpatVector.
 extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 cyl <- terra::vect(extfile)
 

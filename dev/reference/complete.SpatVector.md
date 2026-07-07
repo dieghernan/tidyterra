@@ -66,9 +66,7 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
 preserves the geometry column while expanding missing combinations. New
@@ -76,7 +74,7 @@ combinations receive empty geometries.
 
 ## See also
 
-[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
@@ -84,17 +82,6 @@ handling missing values:
 [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
 [`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 

@@ -1,11 +1,11 @@
 # tidyterra
 
-The goal of **tidyterra** is to provide common
-[**tidyverse**](https://tidyverse.org/packages/) methods for
-`SpatRaster` and `SpatVector` objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales
-for plotting those objects.
+The goal of **tidyterra** is to provide methods from
+[**tidyverse**](https://tidyverse.org/packages/) packages for
+`SpatRaster` and `SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
+[**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for
+plotting those objects.
 
 Please cite **tidyterra** as:
 
@@ -35,18 +35,18 @@ A BibTeX entry for LaTeX users is:
 The full manual for the latest release of **tidyterra** on **CRAN** is
 online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented in **tidyterra** work differently
-depending on the type of `Spat*` object:
+Methods implemented in **tidyterra** work differently depending on the
+type of `Spat*` object:
 
-- `SpatVector`: the methods are implemented using
+- `SpatVector`: Methods are implemented using
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
   coercion. Rows correspond to geometries and columns correspond to
   attributes of each geometry.
 
-- `SpatRaster`: methods can be applied to layers or cells.
+- `SpatRaster`: Methods can be applied to layers or cells.
   **tidyterra**’s overall approach is to treat the layers as columns of
-  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
-  the first layer of a `SpatRaster`).
+  a tibble and the cells as rows. For example, `select(SpatRaster, 1)`
+  selects the first layer of a `SpatRaster`.
 
 Implemented methods return the same type of object as the input, unless
 the method is expected to return another type of object. For example,
@@ -101,15 +101,15 @@ Current methods and functions provided by **tidyterra** are:
 A note on performance
 
 **tidyterra** is a user-friendly wrapper around **terra** that provides
-**tidyverse** methods and verbs. This approach has a **performance
+tidyverse-style methods and verbs. This approach has a **performance
 cost**.
 
 If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra**
 function refers to its equivalent on **terra**.
 
-As a rule of thumb, if your raster has fewer than 10,000,000 data slots
-(i.e. `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`),
+As a rule of thumb, if your raster has fewer than 10,000,000 data slots,
+for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 **tidyterra** is a good fit.
 
 When plotting rasters, resampling is performed automatically (as
@@ -246,8 +246,8 @@ ggplot(prov) +
 ![RGB SpatRaster tile plotted with
 tidyterra](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
 
-**tidyterra** provides scales for plotting maps with hypsometric tints
-and **ggplot2**:
+**tidyterra** provides **ggplot2** scales for plotting maps with
+hypsometric tints:
 
 ``` r
 

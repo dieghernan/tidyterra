@@ -41,7 +41,7 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 
 ## See also
 
-[`scale_fill_hypso_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
+[`scale_fill_hypso_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md),

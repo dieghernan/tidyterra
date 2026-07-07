@@ -7,7 +7,7 @@ unevaluated expressions for you. See
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 for details.
 
-This function is the adapted version of
+This function is an adapted version of
 [`dplyr::is_grouped_df()`](https://dplyr.tidyverse.org/reference/grouped_df.html).
 
 See also
@@ -31,13 +31,6 @@ is_grouped_spatvector(x)
 ## Value
 
 `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
-
-## See also
-
-Other helpers:
-[`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md),
-[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
 
 ## Examples
 

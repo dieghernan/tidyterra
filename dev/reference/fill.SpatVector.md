@@ -47,19 +47,18 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
-function for `SpatVector`.
+method for `SpatVector` objects.
 
 ## Grouped `SpatVector`
 
-With grouped `SpatVector` created by
+With grouped `SpatVector` objects created by
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`fill()`](https://tidyr.tidyverse.org/reference/fill.html) will be
-applied *within* each group, meaning that it won't fill across group
-boundaries.
+[`fill()`](https://tidyr.tidyverse.org/reference/fill.html) is applied
+*within* each group and does not fill across group boundaries.
 
 ## See also
 
-[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
+[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:
@@ -67,17 +66,6 @@ handling missing values:
 [`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
 [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
 [`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
 
 ## Examples
 

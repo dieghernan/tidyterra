@@ -43,26 +43,13 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
-method.
+method for `SpatVector` objects.
 
-### `SpatVector`
-
-Each duplicated row keeps the geometry of the input feature.
+Each duplicated row keeps the input geometry.
 
 ## See also
 
-[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html).
 
 ## Examples
 

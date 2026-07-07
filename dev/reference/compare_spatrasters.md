@@ -5,7 +5,7 @@ if the CRS, extent and resolution are similar. In those cases you can
 combine the objects simply as `c(x, y)`.
 
 This function compares those attributes and reports the results. See
-**Solving issues** for minimal guidance.
+**Resolving differences** for minimal guidance.
 
 ## Usage
 
@@ -26,23 +26,22 @@ compare_spatrasters(x, y, digits = 6)
 
 ## Value
 
-An invisible logical `TRUE/FALSE` indicating whether the `SpatRaster`
-objects are compatible, plus an informative message flagging any issues
-found.
+An invisible logical value indicating whether the `SpatRaster` objects
+are compatible, plus an informative message flagging any issues found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html)
+[`terra::compareGeom()`](https://rspatial.github.io/terra/reference/compareGeom.html).
 
-## Solving issues
+## Resolving differences
 
-- On **non-equal CRS**, try
+- For a **different CRS**, try
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html).
 
-- On **non-equal extent**, try
+- For a **different extent**, try
   [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html).
 
-- On **non-equal resolution** you can try
+- For a **different resolution**, try
   [`terra::resample()`](https://rspatial.github.io/terra/reference/resample.html),
   [`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
   or
@@ -50,12 +49,7 @@ found.
 
 ## See also
 
-[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html)
-
-Other helpers:
-[`is_grouped_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/is_grouped_spatvector.md),
-[`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md),
-[`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
+[`terra::identical()`](https://rspatial.github.io/terra/reference/identical.html).
 
 ## Examples
 
@@ -67,14 +61,14 @@ x <- rast(matrix(1:90, ncol = 3), crs = "EPSG:3857")
 # Nothing
 compare_spatrasters(x, x)
 
-# Different crs
+# Different CRS
 y_nocrs <- x
 crs(y_nocrs) <- NA
 
 compare_spatrasters(x, y_nocrs)
 #> ! Results of `tidyterra::compare_spatrasters()`: 
 #> The following attributes are not equal:
-#> • crs
+#> • CRS
 
 # Different extent
 compare_spatrasters(x, x[1:10, , drop = FALSE])
@@ -96,7 +90,7 @@ compare_spatrasters(x, y_newres)
 compare_spatrasters(x, project(x, "epsg:3035"))
 #> ! Results of `tidyterra::compare_spatrasters()`: 
 #> The following attributes are not equal:
-#> • crs
+#> • CRS
 #> • extent
 #> • resolution
 ```

@@ -15,7 +15,7 @@ and summarizes them to one pair of coordinates (x and y) per geometry."><meta pr
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,18 @@ and summarizes them to one pair of coordinates (x and y) per geometry."><meta pr
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -139,12 +149,12 @@ the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.or
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/stat_sf_coordinates.html" class="external-link">ggplot2::stat_sf_coordinates()</a></code>.</p></dd>
+<dd><p>Other arguments passed to <code><a href="https://ggplot2.tidyverse.org/reference/stat_sf_coordinates.html" class="external-link">ggplot2::stat_sf_coordinates()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer</p>
+    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -153,7 +163,7 @@ the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.or
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> utilities:
+    <div class="dont-index"><p>Other <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> helpers:
 <code><a href="autoplot.Spat.html">autoplot.Spat</a></code>,
 <code><a href="fortify.Spat.html">fortify.Spat</a></code>,
 <code><a href="geom_spat_contour.html">geom_spat_contour</a></code>,

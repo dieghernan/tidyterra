@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +26,18 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -57,10 +67,16 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
-<p>This release adds tidyverse methods for <code>SpatVector</code> objects and includes documentation reviewed with explicit AI-assisted editing.</p>
-<ul><li>Package documentation was reviewed and updated with AI assistance, including roxygen2 comments, generated Rd files, documentation chunks, prose documentation, user-facing CLI messages and the snapshots affected by those message changes.</li>
+<ul><li>The pkgdown site now links to the JOSS paper as an external article and uses <code><a href="../articles/tidyterra.html">vignette("tidyterra")</a></code> as the introductory article.</li>
+<li>
+<code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> no longer emits a warning for rasters with more than three layers, such as RGB rasters with an alpha channel.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.2.0" id="tidyterra-120">tidyterra 1.2.0<a class="anchor" aria-label="anchor" href="#tidyterra-120"></a></h2><p class="text-muted">CRAN release: 2026-06-17</p>
+<p>This release adds tidyverse-style methods for <code>SpatVector</code> objects and includes documentation reviewed with explicit AI-assisted editing.</p>
+<ul><li>Package documentation was reviewed and updated with AI assistance, including <strong>roxygen2</strong> comments, generated Rd files, documentation chunks, prose documentation and user-facing <strong>cli</strong> messages.</li>
 </ul><div class="section level3">
-<h3 id="new-methods-development-version">New methods<a class="anchor" aria-label="anchor" href="#new-methods-development-version"></a></h3>
+<h3 id="new-methods-1-2-0">New methods<a class="anchor" aria-label="anchor" href="#new-methods-1-2-0"></a></h3>
 <p>The following methods were generated with AI assistance.</p>
 <ul><li>
 <code><a href="../reference/complete.SpatVector.html">complete.SpatVector()</a></code> supports <code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code>.</li>
@@ -160,7 +176,7 @@
 <li>
 <code>scale_*_cross_blended_tint_c()</code>, <code>scale_*_cross_blended_tint_b()</code>, <code>scale_*_hypso_tint_c()</code>, <code>scale_*_hypso_tint_b()</code>, <code>scale_*_grass_c()</code> and <code>scale_*_grass_b()</code> now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>).</li>
 <li>
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (i.e. <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (that is, <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>

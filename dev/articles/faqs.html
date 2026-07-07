@@ -44,7 +44,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +59,18 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
@@ -105,7 +115,7 @@
 
 
 
-    <p>This article collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> and answers about using the <strong>tidyterra</strong> package, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
+    <p>This article collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using <strong>tidyterra</strong>, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
 <p>You can also ask in <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -123,7 +133,7 @@
 </section></section><section class="level2"><h2 id="nas-remove">
 <code>NA</code> values are shown in gray<a class="anchor" aria-label="anchor" href="#nas-remove"></a>
 </h2>
-<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales, for example <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt; cells is small it can produce unwanted results. See &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
+<p>This is the default behavior of <strong>ggplot2</strong>. <strong>tidyterra</strong> color scales, such as <code><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c()</a></code>, have <code>na.value = "transparent"</code> by default, which prevents <code>NA</code> values from being filled<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;code&gt;na.value = NA&lt;/code&gt; can also be used for the same purpose in most cases. However, when the proportion of non-&lt;code&gt;NA&lt;/code&gt; cells is small it can produce unwanted results. See &lt;a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link"&gt;#120&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a>.</p>
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -159,7 +169,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Use any ggplot2 fill scale"</span>,</span>
-<span>    subtitle <span class="op">=</span> <span class="st">"Note that na.value = 'orange'"</span></span>
+<span>    subtitle <span class="op">=</span> <span class="st">"na.value = 'orange'"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div id="fig-remove_nas" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-remove_nas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -298,7 +308,7 @@ Figure 2: Contour labels with tidyterra.
 </div>
 <section class="level3"><h3 id="other-alternatives">Other alternatives<a class="anchor" aria-label="anchor" href="#other-alternatives"></a>
 </h3>
-<p>With <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, you can use your <code>SpatRaster</code> directly with the <strong>metR</strong> package (see <a href="#fort">Hexagonal grids and other geoms</a>). Use <code>bins</code>, <code>binwidth</code> or <code>breaks</code> to align both labels and lines:</p>
+<p>With <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code>, you can use your <code>SpatRaster</code> directly with <strong>metR</strong> (see <a href="#fort">Hexagonal grids and other geoms</a>). Use <code>bins</code>, <code>binwidth</code> or <code>breaks</code> to align both labels and lines:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eliocamp.github.io/metR/" class="external-link">metR</a></span><span class="op">)</span></span>
@@ -364,7 +374,7 @@ Figure 3: Alternative (metR): contour labeling combining tidyterra and the <str
 </div>
 </section></section><section class="level2"><h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
 </h2>
-<p>Since <strong>tidyterra</strong> builds on <strong>ggplot2</strong>, please refer to <strong>ggplot2</strong> documentation on scales:</p>
+<p>Since <strong>tidyterra</strong> builds on <strong>ggplot2</strong>, refer to <strong>ggplot2</strong> documentation on scales:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -457,7 +467,7 @@ Figure 5: Changing default ggplot2 color palettes.
 </div>
 </section><section class="level2"><h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. Also, modify the <code>maxcell</code> argument to avoid resampling and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
+<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the <code>maxcell</code> argument and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -541,7 +551,7 @@ Figure 6: Impact of resampling on tile blurriness.
 </div>
 </section><section class="level2"><h2 id="axis-degrees">Avoid degree labels on axes<a class="anchor" aria-label="anchor" href="#axis-degrees"></a>
 </h2>
-<p>This is the default behavior in <strong>ggplot2</strong>, but you can modify it using the <code>datum</code> argument in <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>:</p>
+<p>This is the default behavior in <strong>ggplot2</strong>, but you can modify it with the <code>datum</code> argument in <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::coord_sf()</a></code>:</p>
 <div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -661,7 +671,7 @@ Figure 8: Spatial axis breaks with ggplot2.
 <p>We omitted the legends in this section’s figures to improve readability.</p>
 </blockquote>
 </div>
-<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>, which contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and the corresponding color table has been added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
+<p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>. It contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors, and the corresponding color table has been added as described in &lt;a href="https://collections.sentinel-hub.com/corine-land-cover/readme.html" class="external-link uri"&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -855,7 +865,7 @@ Figure 11: Animation of average monthly temperatures.
 </div>
 </section><section class="level2"><h2 id="north-arrows-and-scale-bars">North arrows and scale bars<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bars"></a>
 </h2>
-<p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots. However, you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
+<p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots, but you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1107,7 +1117,7 @@ Figure 16: Elevation data represented as points with size and transparency scal
 <strong>tidyterra</strong> and <strong>metR</strong>
 <a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
 </h3>
-<p>The <strong>metR</strong> package provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
+<p><strong>metR</strong> provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load libraries and files.</span></span>

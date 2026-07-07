@@ -1,9 +1,9 @@
 # Plot `SpatRaster` contours
 
 These geoms create contours of `SpatRaster` objects. To specify a valid
-surface, you should specify the layer on `aes(z = layer_name)`,
-otherwise all the layers are considered for creating contours. See also
-**Facets** section.
+surface, specify the layer in `aes(z = layer_name)`; otherwise, all
+layers are considered when creating contours. See also the **Facets**
+section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
@@ -181,7 +181,7 @@ geom_spatraster_contour_filled(
     breaks produced by `bins`, `binwidth` or `breaks`).
 
   - A function that takes the breaks as input and returns labels as
-    output, as the default setup
+    output, as in the default setup
     ([`scales::label_number()`](https://scales.r-lib.org/reference/label_number.html)).
 
 - label_placer:
@@ -192,16 +192,16 @@ geom_spatraster_contour_filled(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::contour()`](https://rspatial.github.io/terra/reference/contour.html)
+[`terra::contour()`](https://rspatial.github.io/terra/reference/contour.html).
 
 ## Aesthetics
 
-`geom_spatraster_contour()` / `geom_spatraster_contour_text()`
-understands the following aesthetics:
+`geom_spatraster_contour()` and `geom_spatraster_contour_text()`
+understand the following aesthetics:
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
@@ -212,7 +212,8 @@ understands the following aesthetics:
 - [`linetype`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
 - [`linewidth`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
-  `geom_spatraster_contour_text()` understands also:
+
+`geom_spatraster_contour_text()` also understands:
 
 - [`size`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
@@ -222,8 +223,8 @@ understands the following aesthetics:
 
 - `fontface`
 
-Additionally, `geom_spatraster_contour_filled()` understands also the
-following aesthetics, as well as the ones listed above:
+In addition to the aesthetics listed above,
+`geom_spatraster_contour_filled()` understands:
 
 - [`fill`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
@@ -237,8 +238,8 @@ for an overview of the aesthetics.
 
 ## Computed variables
 
-These geoms compute some variables internally that are available for use
-as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
+These geoms compute variables internally that are available for use as
+aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
@@ -250,32 +251,30 @@ as aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 - `after_stat(nlevel)`: Height of contour, scaled to maximum of 1.
 
-- `after_stat(level_low)`, `after_stat(level_high)`,
-
-- `after_stat(level_mid)`: (contour bands only) Lower and upper bin
-  boundaries for each band, as well as the midpoint between the
-  boundaries.
+- `after_stat(level_low)`, `after_stat(level_high)` and
+  `after_stat(level_mid)`: For contour bands only, the lower and upper
+  bin boundaries and the midpoint between them.
 
 ## Dropped variables
 
 - `z`: After contouring, the `z` values of individual data points are no
   longer available.
 
-## Coords
+## Coordinates
 
-When the `SpatRaster` does not have a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption about
+When the `SpatRaster` does not have a CRS, that is,
+`terra::crs(rast) == ""`, the geom does not make any assumption about
 the scales.
 
-On `SpatRaster` that have a CRS, the geom uses
+On `SpatRaster` objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-to adjust the scales. That means that also the **`SpatRaster` may be
+to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
 
 ## Facets
 
-You can use `facet_wrap(~lyr)` to create a faceted plot by each layer of
-the `SpatRaster` object. See
+You can use `facet_wrap(~lyr)` to create a faceted plot for each layer
+of the `SpatRaster` object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 
@@ -294,7 +293,7 @@ provides a set of alternative functions:
 
 - [`metR::geom_contour_tanaka()`](https://eliocamp.github.io/metR/reference/geom_contour_tanaka.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),

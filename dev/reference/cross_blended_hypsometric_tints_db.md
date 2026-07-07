@@ -56,7 +56,7 @@ another.*
 
 ## See also
 
-[`scale_fill_cross_blended_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
+[`scale_fill_cross_blended_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md).
 
 Other datasets:
 [`grass_db`](https://dieghernan.github.io/tidyterra/dev/reference/grass_db.md),

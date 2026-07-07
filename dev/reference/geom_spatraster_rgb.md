@@ -137,11 +137,11 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::plotRGB()`](https://rspatial.github.io/terra/reference/plotRGB.html)
+[`terra::plotRGB()`](https://rspatial.github.io/terra/reference/plotRGB.html).
 
 ## Aesthetics
 
@@ -150,15 +150,15 @@ required. In fact,
 [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) will be
 ignored.
 
-## Coords
+## Coordinates
 
-When the `SpatRaster` does not have a CRS (i.e.,
-`terra::crs(rast) == ""`) the geom does not make any assumption about
+When the `SpatRaster` does not have a CRS, that is,
+`terra::crs(rast) == ""`, the geom does not make any assumption about
 the scales.
 
-On `SpatRaster` that have a CRS, the geom uses
+On `SpatRaster` objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-to adjust the scales. That means that also the **`SpatRaster` may be
+to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
 
 ## See also
@@ -171,7 +171,7 @@ You can also get RGB tiles from the
 [maptiles](https://CRAN.R-project.org/package=maptiles) package. See
 [`maptiles::get_tiles()`](https://rdrr.io/pkg/maptiles/man/get_tiles.html).
 
-Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) utilities:
+Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 [`autoplot.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md),
 [`fortify.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
 [`geom_spat_contour`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),

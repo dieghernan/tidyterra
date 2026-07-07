@@ -36,15 +36,13 @@ A `SpatVector` object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html)
+[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 You can remove duplicate geometries by passing the reserved name
 `geometry` to `...`. See **Examples**.
@@ -52,7 +50,7 @@ You can remove duplicate geometries by passing the reserved name
 ## See also
 
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html),
-[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html)
+[`terra::unique()`](https://rspatial.github.io/terra/reference/unique.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:
@@ -60,29 +58,6 @@ operate on rows:
 [`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
 [`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 
@@ -92,7 +67,7 @@ library(terra)
 
 v <- vect(system.file("ex/lux.shp", package = "terra"))
 
-# Create a vector with dups
+# Create a vector with duplicates.
 v <- v[sample(seq_len(nrow(v)), 100, replace = TRUE), ]
 v$gr <- sample(LETTERS[1:3], 100, replace = TRUE)
 
@@ -130,7 +105,7 @@ ex2
 nrow(ex2)
 #> [1] 3
 
-# Same but keeping all cols
+# Keep all columns.
 ex2b <- distinct(v, gr, .keep_all = TRUE)
 ex2b
 #> class       : SpatVector
@@ -165,7 +140,7 @@ terra::unique(ex3)
 #> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)
 #> coord. ref. : lon/lat WGS 84 (EPSG:4326)
 
-# Unique keeping info
+# Keep information for unique values.
 distinct(v, geometry, .keep_all = TRUE)
 #> class       : SpatVector
 #> geometry    : polygons

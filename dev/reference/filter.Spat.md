@@ -18,8 +18,8 @@ your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
 **You can filter a `SpatRaster` by its geographic coordinates**. Use
-`filter(.data, x > 42)`. Note that `x` and `y` are reserved names on
-[terra](https://CRAN.R-project.org/package=terra), since they refer to
+`filter(.data, x > 42)`. The names `x` and `y` are reserved in
+[terra](https://CRAN.R-project.org/package=terra) because they refer to
 the geographic coordinates of the layer.
 
 See **Examples** and section **About layer names** on
@@ -88,42 +88,31 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
-Cells that do not meet the conditions on `...` are returned with value
-`NA`. On a multi-layer `SpatRaster` the `NA` is propagated across all
-the layers.
+Cells that do not meet the conditions in `...` are returned as `NA`. On
+a multi-layer `SpatRaster`, `NA` is propagated across all layers.
 
-If `.keep_extent = TRUE` the returned `SpatRaster` has the same CRS,
-extent, resolution and hence the same number of cells as `.data`. If
-`.keep_extent = FALSE` the outer `NA` cells are trimmed with
+If `.keep_extent = TRUE`, the returned `SpatRaster` has the same CRS,
+extent, resolution and number of cells as `.data`. If
+`.keep_extent = FALSE`, the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
-so the extent and number of cells may differ. The output will still have
-the same CRS and resolution as `.data`.
+so the extent and number of cells may differ. The output still has the
+same CRS and resolution as `.data`.
 
-`x` and `y` variables (i.e. the longitude and latitude of the
-`SpatRaster`) are also available internally for filtering. See
-**Examples**.
+The `x` and `y` coordinates of the `SpatRaster` are also available
+internally for filtering. See **Examples**.
 
 ### `SpatVector`
 
-The result is a `SpatVector` with all the geometries that produce a
-value of `TRUE` for all conditions.
+The result is a `SpatVector` containing the geometries whose attributes
+satisfy all conditions.
 
 ## See also
 
-[`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
-
-Other single table verbs:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
+[`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on rows:
@@ -131,29 +120,6 @@ operate on rows:
 [`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
 [`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
 [`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 

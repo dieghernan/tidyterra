@@ -1,8 +1,9 @@
 # Glance at an `Spat*` object
 
-Glance accepts a model object and returns a
+[`glance()`](https://generics.r-lib.org/reference/glance.html) accepts a
+`Spat*` object and returns a
 [`tibble::tibble()`](https://tibble.tidyverse.org/reference/tibble.html)
-with exactly one row of `Spat`. The summaries are typically geographic
+with exactly one row. The summaries typically contain geographic
 information.
 
 ## Usage
@@ -37,7 +38,7 @@ always return a one-row data frame. See **Methods**.
 
 Implementation of the **generic**
 [`generics::glance()`](https://generics.r-lib.org/reference/glance.html)
-method for `Spat*` objects.
+methods for `Spat*` objects.
 
 ## See also
 

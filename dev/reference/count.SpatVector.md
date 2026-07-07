@@ -12,7 +12,7 @@ Supply `wt` to perform weighted counts, switching the summary from
 
 [`add_count()`](https://dplyr.tidyverse.org/reference/count.html) is
 equivalent to
-[`count()`](https://dplyr.tidyverse.org/reference/count.html) but use
+[`count()`](https://dplyr.tidyverse.org/reference/count.html) but uses
 [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) instead
 of [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
 so that it adds a new column with group-wise counts.
@@ -88,13 +88,13 @@ A `SpatVector` object with updated grouping metadata.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html)
+[`terra::aggregate()`](https://rspatial.github.io/terra/reference/aggregate.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html)
-methods for `SpatVector` objects.
+method family for `SpatVector` objects.
 
 [`tally()`](https://dplyr.tidyverse.org/reference/count.html) will
 always return a disaggregated geometry while
@@ -105,36 +105,13 @@ this. See also
 ## See also
 
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html),
-[`dplyr::tally()`](https://dplyr.tidyverse.org/reference/count.html)
+[`dplyr::tally()`](https://dplyr.tidyverse.org/reference/count.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples

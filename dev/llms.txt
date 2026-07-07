@@ -1,11 +1,11 @@
 # tidyterra
 
-The goal of **tidyterra** is to provide common
-[**tidyverse**](https://tidyverse.org/packages/) methods for
-`SpatRaster` and `SpatVector` objects created with the
-[**terra**](https://CRAN.R-project.org/package=terra) package. It also
-provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales
-for plotting those objects.
+The goal of **tidyterra** is to provide methods from
+[**tidyverse**](https://tidyverse.org/packages/) packages for
+`SpatRaster` and `SpatVector` objects created with
+[**terra**](https://CRAN.R-project.org/package=terra). It also provides
+[**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for
+plotting those objects.
 
 Please cite **tidyterra** as:
 
@@ -35,18 +35,18 @@ A BibTeX entry for LaTeX users is:
 The full manual for the latest release of **tidyterra** on **CRAN** is
 online: <https://dieghernan.github.io/tidyterra/>
 
-**tidyverse** methods implemented in **tidyterra** work differently
-depending on the type of `Spat*` object:
+Methods implemented in **tidyterra** work differently depending on the
+type of `Spat*` object:
 
-- `SpatVector`: the methods are implemented using
+- `SpatVector`: Methods are implemented using
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
   coercion. Rows correspond to geometries and columns correspond to
   attributes of each geometry.
 
-- `SpatRaster`: methods can be applied to layers or cells.
+- `SpatRaster`: Methods can be applied to layers or cells.
   **tidyterra**’s overall approach is to treat the layers as columns of
-  a tibble and the cells as rows (i.e. `select(SpatRaster, 1)` selects
-  the first layer of a `SpatRaster`).
+  a tibble and the cells as rows. For example, `select(SpatRaster, 1)`
+  selects the first layer of a `SpatRaster`.
 
 Implemented methods return the same type of object as the input, unless
 the method is expected to return another type of object. For example,
@@ -101,15 +101,15 @@ Current methods and functions provided by **tidyterra** are:
 A note on performance
 
 **tidyterra** is a user-friendly wrapper around **terra** that provides
-**tidyverse** methods and verbs. This approach has a **performance
+tidyverse-style methods and verbs. This approach has a **performance
 cost**.
 
 If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra**
 function refers to its equivalent on **terra**.
 
-As a rule of thumb, if your raster has fewer than 10,000,000 data slots
-(i.e. `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`),
+As a rule of thumb, if your raster has fewer than 10,000,000 data slots,
+for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 **tidyterra** is a good fit.
 
 When plotting rasters, resampling is performed automatically (as
@@ -246,8 +246,8 @@ ggplot(prov) +
 ![RGB SpatRaster tile plotted with
 tidyterra](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
 
-**tidyterra** provides scales for plotting maps with hypsometric tints
-and **ggplot2**:
+**tidyterra** provides **ggplot2** scales for plotting maps with
+hypsometric tints:
 
 ``` r
 
@@ -338,7 +338,7 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## **tibble** methods
 
-Methods from [tibble](https://CRAN.R-project.org/package=tibble)
+Methods from [**tibble**](https://CRAN.R-project.org/package=tibble)
 implemented for `Spat*` objects.
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
@@ -349,7 +349,7 @@ implemented for `Spat*` objects.
 
 ## **dplyr** methods
 
-Methods from [dplyr](https://CRAN.R-project.org/package=dplyr)
+Methods from [**dplyr**](https://CRAN.R-project.org/package=dplyr)
 implemented for `Spat*` objects.
 
 ### Rows
@@ -379,7 +379,7 @@ Verbs that mainly operate on rows.
   [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Row operations for `SpatVector` objects
 
@@ -455,7 +455,7 @@ Verbs that mainly operate on groups of rows.
   Group a `SpatVector` by one or more variables
 
 - [`reframe(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Reframe each group of a `SpatVector`
 
@@ -483,10 +483,10 @@ frames.
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf/sfc` and data frame objects by row
+  Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
 
 - [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Cross joins for `SpatVector` objects
 
@@ -505,7 +505,7 @@ frames.
   Mutating joins for `SpatVector` objects
 
 - [`nest_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Nest join `SpatVector` objects
 
@@ -515,19 +515,19 @@ frames.
   [`rows_patch(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   [`rows_upsert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Row operations for `SpatVector` objects
 
 ## **tidyr** methods
 
-Methods from [tidyr](https://CRAN.R-project.org/package=tidyr)
+Methods from [**tidyr**](https://CRAN.R-project.org/package=tidyr)
 implemented for `Spat*` objects.
 
 ### Pivoting
 
-Pivoting changes the representation of a `SpatVector` object without
-changing its data.
+Pivoting methods for changing the representation of `SpatVector` objects
+without changing their geometries.
 
 - [`pivot_longer(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md)
   :
@@ -541,7 +541,7 @@ changing its data.
 
 ### Rows
 
-Tools for duplicating `SpatVector` features.
+Tools for duplicating `SpatVector` geometries.
 
 - [`uncount(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md)
   :
@@ -592,16 +592,16 @@ Tools for working with character layers and attributes.
 
 ### Nesting
 
-Tools for storing `SpatVector` objects in nested list-columns.
+Tools for storing `SpatVector` objects in list-columns.
 
 - [`nest(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md)
-  :
+  **\[experimental\]** :
 
   Nest `SpatVector` rows
 
 ## **ggplot2** methods
 
-Methods from [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+Methods from [**ggplot2**](https://CRAN.R-project.org/package=ggplot2)
 implemented for `Spat*` objects.
 
 - [`autoplot(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
@@ -618,14 +618,29 @@ implemented for `Spat*` objects.
   [`fortify(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   :
 
-  Fortify `Spat*` Objects
+  Fortify `Spat*` objects
 
 ## **ggplot2** helpers
 
-### Geoms
+### Geoms and helpers
 
-Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
-`Spat*` objects.
+Helpers for creating **ggplot2** layers from `Spat*` objects.
+
+- [`autoplot(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  [`autoplot(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  [`autoplot(`*`<SpatGraticule>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  [`autoplot(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.md)
+  :
+
+  Create a complete ggplot for `Spat*` objects
+
+- [`fortify(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
+  [`fortify(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
+  [`fortify(`*`<SpatGraticule>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
+  [`fortify(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
+  :
+
+  Fortify `Spat*` objects
 
 - [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
   [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
@@ -655,7 +670,7 @@ Create [ggplot2](https://CRAN.R-project.org/package=ggplot2) layers for
 
 ### Scales
 
-Color scales, palettes and hypsometric tints for maps.
+Color scales, palettes and hypsometric tints for spatial plots.
 
 - [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   [`scale_colour_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
@@ -678,7 +693,7 @@ Color scales, palettes and hypsometric tints for maps.
   [`scale_fill_cross_blended_tint_b()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
   [`scale_colour_cross_blended_tint_b()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
   [`cross_blended.colors2()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
-  : Cross blended hypsometric tints scales
+  : Cross-blended hypsometric tint scales
 
 - [`scale_fill_grass_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md)
   [`scale_colour_grass_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md)
@@ -748,7 +763,7 @@ Color scales, palettes and hypsometric tints for maps.
 
 ## **generics** methods
 
-Methods from [generics](https://CRAN.R-project.org/package=generics)
+Methods from [**generics**](https://CRAN.R-project.org/package=generics)
 implemented for `Spat*` objects.
 
 - [`glance(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.md)
@@ -775,8 +790,7 @@ implemented for `Spat*` objects.
 
 ## Helpers
 
-Additional helper functions provided by
-[tidyterra](https://CRAN.R-project.org/package=tidyterra).
+Additional helper functions provided by **tidyterra**.
 
 ### Coercing objects
 
@@ -816,7 +830,7 @@ objects from tibbles.
   [`fortify(`*`<SpatExtent>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   :
 
-  Fortify `Spat*` Objects
+  Fortify `Spat*` objects
 
 - [`tidy(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
   [`tidy(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.md)
@@ -828,7 +842,7 @@ objects from tibbles.
 
 ### Other helpers
 
-Utilities for CRS handling, package checks and `SpatRaster` comparison.
+Utilities for CRS handling, package checks and `SpatRaster` comparisons.
 
 - [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md)
   :
@@ -836,7 +850,9 @@ Utilities for CRS handling, package checks and `SpatRaster` comparison.
   Compare attributes of two `SpatRaster` objects
 
 - [`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md)
-  : Check whether x and y positions form a regular grid
+  :
+
+  Check whether `x` and `y` positions form a regular grid
 
 - [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   : Extract CRS in WKT format
@@ -865,28 +881,61 @@ Example data and palette databases included with **tidyterra**.
 
 # Articles
 
-### Articles
+### Start here
 
-Introductory guides and palette examples.
+Introductory material for working with **tidyterra**.
 
 - [Welcome to
-  tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/welcome.md):
+  tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.md):
 
-  First steps with the tidyterra package
+  First steps with tidyterra
+
+### Examples
+
+Map examples and galleries using **tidyterra** scales.
 
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/palettes.md):
 
-  A gallery of maps using the gradient scales provided by tidyterra.
+  A gallery of maps using gradient scales provided by tidyterra.
 
-### In the wild
+### Citation and publications
 
-**tidyterra** in publications.
+Citation information and uses of **tidyterra** in publications.
+
+- [Using the tidyverse with terra objects: the tidyterra
+  package](https://doi.org/10.21105/joss.05751):
+
+  Paper published in the Journal of Open Source Software.
 
 - [tidyterra in the
   wild](https://dieghernan.github.io/tidyterra/dev/articles/wild.md):
 
   Uses of tidyterra in publications.
+
+### From the blog
+
+Blog posts tagged with **tidyterra** on One World.
+
+- [Introducing
+  tidyterra](https://dieghernan.github.io/202205_tidyterra/):
+
+  Easily work and ggplot SpatRasters
+
+- [Hillshade, colors and marginal plots with tidyterra
+  (I)](https://dieghernan.github.io/202210_tidyterra-hillshade/):
+
+  How to overlay SpatRasters
+
+- [Hillshade, colors and marginal plots with tidyterra
+  (II)](https://dieghernan.github.io/202212_tidyterra-hillshade-2/):
+
+  The rain in Spain does not stay mainly in the plain
+
+- [Beautiful Maps with R (V): Point
+  densities](https://dieghernan.github.io/202312_bertin_dots/):
+
+  Bertin’s dot density maps with R and GHSL
 
 ### FAQs
 

@@ -25,8 +25,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a selection of these additional arguments, check the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a selection of these additional arguments, so check the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above to see the full range of arguments accepted by these scales.
 
@@ -258,18 +258,19 @@ layer with the values applied to the `fill/colour` aesthetics.
 ## See also
 
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html),
-[`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html)
+[`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments.
 
-Other gradient scales, palettes and hypsometric tints:
-[`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md),
+Other color scales, palettes and hypsometric tints:
+[`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md),
 [`scale_grass`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),
 [`scale_princess`](https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.md),
-[`scale_terrain`](https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.md)
+[`scale_terrain`](https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.md),
+[`scale_wiki`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md)
 
 ## Examples
 

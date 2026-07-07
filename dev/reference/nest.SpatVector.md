@@ -1,5 +1,7 @@
 # Nest `SpatVector` rows
 
+**\[experimental\]**
+
 [`nest()`](https://tidyr.tidyverse.org/reference/nest.html) creates
 list-columns of `SpatVector` objects.
 
@@ -68,9 +70,7 @@ A tibble with one or more list-columns of `SpatVector` objects.
 
 Implementation of the **generic**
 [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html)
-method.
-
-### `SpatVector`
+method for `SpatVector` objects.
 
 The geometry column must be nested with the other attributes that form
 each nested `SpatVector`. These nested list-columns contain `SpatVector`
@@ -80,18 +80,7 @@ objects and cannot be passed directly to
 ## See also
 
 [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html),
-[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html)
-
-Other [tidyr](https://CRAN.R-project.org/package=tidyr) methods:
-[`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md),
-[`drop_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md),
-[`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md),
-[`fill.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md),
-[`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md),
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md),
-[`replace_na.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md),
-[`uncount.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md),
-[`unite.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/unite.Spat.md)
+[`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 ## Examples
 

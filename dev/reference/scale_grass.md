@@ -25,8 +25,8 @@ Additional arguments `...` are passed to:
 - Binned continuous values:
   [`ggplot2::binned_scale()`](https://ggplot2.tidyverse.org/reference/binned_scale.html).
 
-**Note that** [tidyterra](https://CRAN.R-project.org/package=tidyterra)
-documents only a subset of these additional arguments, so see the
+[tidyterra](https://CRAN.R-project.org/package=tidyterra) documents only
+a subset of these additional arguments, so see the
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) functions listed
 above for the full range.
 
@@ -300,12 +300,12 @@ values of the `fill/colour` aesthetics. See **Examples**.
 
 When passing the `limits` argument, the colors are restricted to those
 specified by this argument, keeping the distribution of the palette. You
-can combine this with `oob` (i.e. `oob = scales::oob_squish`) to avoid
-blank pixels in the plot.
+can combine this with `oob`, for example `oob = scales::oob_squish`, to
+avoid blank pixels in the plot.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html)
+[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html).
 
 ## References
 
@@ -323,13 +323,14 @@ Foundation, USA. <https://grass.osgeo.org>.
 See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
 additional `...` arguments:
 
-Other gradient scales, palettes and hypsometric tints:
-[`scale_color_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md),
+Other color scales, palettes and hypsometric tints:
+[`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),
 [`scale_cross_blended`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md),
 [`scale_hypso`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md),
 [`scale_princess`](https://dieghernan.github.io/tidyterra/dev/reference/scale_princess.md),
 [`scale_terrain`](https://dieghernan.github.io/tidyterra/dev/reference/scale_terrain.md),
-[`scale_whitebox`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md)
+[`scale_whitebox`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md),
+[`scale_wiki`](https://dieghernan.github.io/tidyterra/dev/reference/scale_wiki.md)
 
 ## Examples
 
@@ -350,7 +351,7 @@ ggplot() +
   scale_fill_grass_c(palette = "terrain")
 
 
-# Use with no default limits
+# Use without default limits.
 ggplot() +
   geom_spatraster(data = volcano2_rast) +
   scale_fill_grass_c(palette = "terrain", use_grass_range = FALSE)

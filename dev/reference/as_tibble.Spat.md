@@ -37,7 +37,7 @@ as_tibble(
 
 - ...:
 
-  Arguments passed on to
+  Arguments passed to
   [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 - xy:
@@ -91,13 +91,13 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
+[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-method.
+methods for `Spat*` objects.
 
 ### `SpatRaster` and `SpatVector`
 
@@ -105,7 +105,7 @@ The returned tibble includes the CRS of the original object as an
 attribute in WKT format (see
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)).
 
-## About layer/column names
+## Layer and column names
 
 When coercing `SpatRaster` objects to data frames, `x` and `y` are
 reserved names for the geographic coordinates of each cell.
@@ -122,8 +122,8 @@ following cases:
 - When coercing to a tibble, if `xy = TRUE`, layers named `x` or `y` are
   renamed.
 
-- When working with tidyverse methods (i.e.
-  [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)),
+- When working with methods from tidyverse packages, for example
+  [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
   the same renaming happens.
 
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) displays a
@@ -139,7 +139,7 @@ If `geom` is not `NULL`, the same renaming logic described for
 ## See also
 
 [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html),
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html)
+[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 Coercing objects:
 [`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md),

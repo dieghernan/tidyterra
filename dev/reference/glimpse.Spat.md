@@ -32,9 +32,11 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 - ...:
 
-  Arguments passed on to
-  [`as_tibble()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
-  methods for `SpatRaster` and `SpatVector`.
+  Arguments passed to
+  [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
+  or
+  [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
+  methods.
 
 - n:
 
@@ -53,13 +55,13 @@ used within a data pipeline.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`print()`](https://rdrr.io/r/base/print.html)
+[`print()`](https://rdrr.io/r/base/print.html).
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html)
-function for `Spat*` objects.
+methods for `Spat*` objects.
 
 ## See also
 
@@ -72,29 +74,6 @@ operate on columns:
 [`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
 [`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
 [`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`reframe.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples
 
@@ -117,7 +96,7 @@ v |> glimpse(n = 2)
 #> # ℹ 1 more variable : name <chr>
 #> # ℹ Use `tidyterra::glimpse(n = ...)` to see more columns
 
-# Use on a pipeline
+# Use in a pipeline.
 v |>
   glimpse() |>
   mutate(a = 30) |>
@@ -155,7 +134,7 @@ r |> glimpse()
 #> 
 #> $ elevation_m <dbl> 700.2969, 780.3889, 706.1250, 568.9722, 584.9028, 506.7361…
 
-# Use on a pipeline
+# Use in a pipeline.
 r |>
   glimpse() |>
   mutate(b = elevation_m / 100) |>

@@ -61,9 +61,7 @@ no columns.
 
 Implementation of the **generic**
 [`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-family for `SpatVector` objects.
-
-### `SpatVector`
+method family for `SpatVector` objects.
 
 [`group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
 applies `.f` to each group and returns a list.
@@ -72,13 +70,13 @@ requires `.f` to return `SpatVector` objects and binds the results.
 
 ## See also
 
-[`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-and
+[`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html),
 [`dplyr::group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) grouping
 methods:
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
+[`group_data.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.md),
 [`group_nest.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_nest.SpatVector.md),
 [`group_split.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_split.SpatVector.md),
 [`group_trim.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_trim.SpatVector.md)

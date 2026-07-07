@@ -34,7 +34,7 @@ as_spatvector(x, ...)
 
 - ...:
 
-  Additional arguments passed on to
+  Additional arguments passed to
   [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - geom:
@@ -70,8 +70,7 @@ in the following ways:
   created (see
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)).
 
-- If no `crs` is provided and the tibble has been created with the
-  method
+- If no `crs` is provided and the tibble was created with
   [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
   the `crs` is inferred from
   [`attr(x, "crs")`](https://rdrr.io/r/base/attr.html).
@@ -82,7 +81,7 @@ in the following ways:
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
+[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 ## See also
 

@@ -100,7 +100,7 @@ Summary of palettes provided, description and recommended use:
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
-[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html)
+[`terra::map.pal()`](https://rspatial.github.io/terra/reference/mappal.html).
 
 ## References
 
@@ -110,7 +110,7 @@ Foundation, USA. <https://grass.osgeo.org>.
 
 ## See also
 
-[`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md)
+[`scale_fill_grass_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_grass.md).
 
 Other datasets:
 [`cross_blended_hypsometric_tints_db`](https://dieghernan.github.io/tidyterra/dev/reference/cross_blended_hypsometric_tints_db.md),

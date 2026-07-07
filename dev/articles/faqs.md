@@ -1,10 +1,10 @@
 # tidyterra FAQs
 
 This article collects [frequently asked
-questions](https://github.com/dieghernan/tidyterra/discussions) and
-answers about using the **tidyterra** package, with a focus on the
-integration of **terra** and **ggplot2**. You can ask for help or search
-previous questions using the following links.
+questions](https://github.com/dieghernan/tidyterra/discussions) about
+using **tidyterra**, with a focus on the integration of **terra** and
+**ggplot2**. You can ask for help or search previous questions using the
+following links.
 
 You can also ask in [Stack Overflow](https://stackoverflow.com/) using
 the tag
@@ -43,7 +43,7 @@ folder at <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 ## `NA` values are shown in gray
 
 This is the default behavior of **ggplot2**. **tidyterra** color scales,
-for example
+such as
 [`scale_fill_whitebox_c()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_whitebox.md),
 have `na.value = "transparent"` by default, which prevents `NA` values
 from being filled[^2].
@@ -84,7 +84,7 @@ def +
   scale_fill_viridis_c(na.value = "orange") +
   labs(
     title = "Use any ggplot2 fill scale",
-    subtitle = "Note that na.value = 'orange'"
+    subtitle = "na.value = 'orange'"
   )
 ```
 
@@ -183,9 +183,9 @@ Figure 2: Contour labels with tidyterra.
 
 With
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
-you can use your `SpatRaster` directly with the **metR** package (see
-[Hexagonal grids and other geoms](#fort)). Use `bins`, `binwidth` or
-`breaks` to align both labels and lines:
+you can use your `SpatRaster` directly with **metR** (see [Hexagonal
+grids and other geoms](#fort)). Use `bins`, `binwidth` or `breaks` to
+align both labels and lines:
 
 ``` r
 
@@ -248,7 +248,7 @@ the **metR** package with customized styling.
 
 ## Using a different color scale
 
-Since **tidyterra** builds on **ggplot2**, please refer to **ggplot2**
+Since **tidyterra** builds on **ggplot2**, refer to **ggplot2**
 documentation on scales:
 
 ``` r
@@ -327,9 +327,9 @@ Blurriness is typically related to the tile source rather than the
 package. Most base tiles are provided in **EPSG:3857**, so verify that
 your tile uses this CRS rather than a different one. If your tile is not
 in **EPSG:3857**, it has likely been reprojected, which involves
-resampling and causes blurriness. Also, modify the `maxcell` argument to
-avoid resampling and ensure the **ggplot2** map uses **EPSG:3857** with
-`ggplot2::coord_sf(crs = 3857)`:
+resampling and causes blurriness. To avoid extra resampling, increase
+the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
+with `ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
 
@@ -398,7 +398,7 @@ Figure 6: Impact of resampling on tile blurriness.
 
 ## Avoid degree labels on axes
 
-This is the default behavior in **ggplot2**, but you can modify it using
+This is the default behavior in **ggplot2**, but you can modify it with
 the `datum` argument in
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
 
@@ -488,8 +488,8 @@ Figure 8: Spatial axis breaks with ggplot2.
 **tidyterra** provides several methods for handling `SpatRaster` objects
 with color tables. This example uses `clc_edinburgh.tif`, available
 online in the [data-raw
-folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw),
-which contains data from the CORINE Land Cover dataset (2018) for
+folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw). It
+contains data from the CORINE Land Cover dataset (2018) for
 Edinburgh[^3].
 
 ``` r
@@ -653,7 +653,7 @@ Figure 11: Animation of average monthly temperatures.
 ## North arrows and scale bars
 
 **tidyterra** does not provide north arrows or scale bars directly for
-**ggplot2** plots. However, you can use **ggspatial** functions
+**ggplot2** plots, but you can use **ggspatial** functions
 ([`ggspatial::annotation_north_arrow()`](https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html)
 and
 [`ggspatial::annotation_scale()`](https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html)):
@@ -892,8 +892,8 @@ transparency scaled by elevation values.
 
 ### **tidyterra** and **metR**
 
-The **metR** package provides **ggplot2** extensions, primarily for
-meteorological data visualization. As shown previously (see [Labeling
+**metR** provides **ggplot2** extensions, primarily for meteorological
+data visualization. As shown previously (see [Labeling
 contours](#label-contour)), you can combine both packages to create
 rich, complex plots.
 

@@ -2,13 +2,24 @@
 
 ## tidyterra (development version)
 
-This release adds tidyverse methods for `SpatVector` objects and
+- The pkgdown site now links to the JOSS paper as an external article
+  and uses
+  [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.md)
+  as the introductory article.
+- [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
+  no longer emits a warning for rasters with more than three layers,
+  such as RGB rasters with an alpha channel.
+
+## tidyterra 1.2.0
+
+CRAN release: 2026-06-17
+
+This release adds tidyverse-style methods for `SpatVector` objects and
 includes documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance,
-  including roxygen2 comments, generated Rd files, documentation chunks,
-  prose documentation, user-facing CLI messages and the snapshots
-  affected by those message changes.
+  including **roxygen2** comments, generated Rd files, documentation
+  chunks, prose documentation and user-facing **cli** messages.
 
 ### New methods
 
@@ -181,8 +192,8 @@ CRAN release: 2025-02-03
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   and the overall pivoting of `SpatRaster` are now less strict with
   different layer classes: if several layers can be defined as numeric
-  (i.e. `double`, `integer` and `numeric`), the pivoting (and therefore
-  the plot) can be performed. This is consistent with
+  (that is, `double`, `integer` and `numeric`), the pivoting (and
+  therefore the plot) can be performed. This is consistent with
   [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
   behavior (<https://stackoverflow.com/questions/79292989>).
 

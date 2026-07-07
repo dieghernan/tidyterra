@@ -17,7 +17,7 @@ SpatVector objects."><meta property="og:image" content="https://dieghernan.githu
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,8 +30,18 @@ SpatVector objects."><meta property="og:image" content="https://dieghernan.githu
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><a class="dropdown-item" href="../articles/palettes.html">Gradient palettes in tidyterra</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>In the wild</h6></li>
+    <li><a class="external-link dropdown-item" href="https://doi.org/10.21105/joss.05751">Using the tidyverse with terra objects: the tidyterra package</a></li>
     <li><a class="dropdown-item" href="../articles/wild.html">tidyterra in the wild</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -111,22 +121,18 @@ SpatVector objects."><meta property="og:image" content="https://dieghernan.githu
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/group_nest.html" class="external-link">dplyr::group_nest()</a></code> family for
-<code>SpatVector</code> objects.</p><div class="section">
-<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
-
-
+<p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/group_nest.html" class="external-link">dplyr::group_nest()</a></code> method family for
+<code>SpatVector</code> objects.</p>
 <p>The nested list-column contains <code>SpatVector</code> objects, preserving the
 geometries for each group.</p>
-</div>
-
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="https://dplyr.tidyverse.org/reference/group_nest.html" class="external-link">dplyr::group_nest()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/nest_by.html" class="external-link">dplyr::nest_by()</a></code>, <code><a href="nest.SpatVector.html">nest.SpatVector()</a></code>,
-<code><a href="https://rspatial.github.io/terra/reference/svc.html" class="external-link">terra::svc()</a></code></p>
+<code><a href="https://rspatial.github.io/terra/reference/svc.html" class="external-link">terra::svc()</a></code>.</p>
 <p>Other <a href="https://CRAN.R-project.org/package=dplyr" class="external-link"><span class="pkg">dplyr</span></a> grouping methods:
 <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a></code>,
+<code><a href="group_data.SpatVector.html">group_data.SpatVector()</a></code>,
 <code><a href="group_map.SpatVector.html">group_map.SpatVector()</a></code>,
 <code><a href="group_split.SpatVector.html">group_split.SpatVector()</a></code>,
 <code><a href="group_trim.SpatVector.html">group_trim.SpatVector()</a></code></p></div>

@@ -1,5 +1,7 @@
 # Reframe each group of a `SpatVector`
 
+**\[experimental\]**
+
 [`reframe()`](https://dplyr.tidyverse.org/reference/reframe.html) can
 return any number of rows per group. The geometry of each group is
 aggregated and repeated for each row created for that group.
@@ -15,17 +17,23 @@ reframe(.data, ..., .by = NULL, .dissolve = TRUE)
 
 - .data:
 
-  A `SpatVector`.
+  A `SpatVector` created with
+  [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html).
 
 - ...:
 
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
+  Name-value pairs of summary functions. The name will be the name of
+  the variable in the result.
 
-  Name-value pairs of functions. The name will be the name of the
-  variable in the result. The value can be a vector of any length.
+  The value can be:
 
-  Unnamed data frame values add multiple columns from a single
-  expression.
+  - A vector of length 1, e.g. `min(x)`,
+    [`n()`](https://dplyr.tidyverse.org/reference/context.html), or
+    `sum(is.na(y))`.
+
+  - A data frame with 1 row, to add multiple columns from a single
+    expression.
 
 - .by:
 
@@ -48,56 +56,21 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html)
-method.
+method for `SpatVector` objects.
 
-### `SpatVector`
-
-For grouped inputs, and for calls using `.by`, geometries are aggregated
-per group. If a group produces more than one row, the aggregated group
+For grouped inputs and calls using `.by`, geometries are aggregated per
+group. If a group produces more than one row, the aggregated group
 geometry is repeated for each output row.
 
 ## See also
 
-[`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-
-Other single table verbs:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
+[`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html).
 
 Other [dplyr](https://CRAN.R-project.org/package=dplyr) verbs that
 operate on groups of rows:
 [`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
-
-Other [dplyr](https://CRAN.R-project.org/package=dplyr) methods:
-[`arrange.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md),
-[`bind_cols.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md),
-[`bind_rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md),
-[`count.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md),
-[`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md),
-[`distinct.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md),
-[`filter-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md),
-[`filter.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md),
-[`glimpse.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md),
-[`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
-[`mutate-joins.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md),
-[`mutate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.md),
-[`nest_join.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md),
-[`pull.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.md),
-[`relocate.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.md),
-[`rename.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.md),
-[`rows.SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md),
-[`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md),
-[`select.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.md),
-[`slice.Spat`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md),
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
 
 ## Examples

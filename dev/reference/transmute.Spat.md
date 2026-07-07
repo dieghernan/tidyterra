@@ -50,7 +50,7 @@ A `Spat*` object of the same class as `.data`. See **Methods**.
 
 Implementation of the **generic**
 [`dplyr::transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-method.
+method for `Spat*` objects.
 
 ## See also
 
