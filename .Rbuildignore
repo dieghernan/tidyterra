@@ -26,7 +26,6 @@
 ^CODE_OF_CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^\.lintr$
-^vignettes/welcome\.Rmd\.orig$
 ^Rplots\.pdf$
 ^codecov\.yml$
 ^_pkgdown\.yaml$
@@ -42,7 +41,6 @@
 ^vignettes/articles/*_files$
 ^vignettes/tidyterra\.qmd\.orig$
 ^vignettes/*_files$
-^vignettes/welcome\.qmd\.orig$
 ^README\.qmd$
 ^inst/README\.qmd$
 ^README_files$

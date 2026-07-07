@@ -1,3 +1,10 @@
+# tidyterra (development version)
+
+- The pkgdown site now links to the JOSS paper as an external article and uses
+  `vignette("tidyterra")` as the introductory article.
+- `geom_spatraster_rgb()` no longer emits a warning for rasters with more than
+  three layers, such as RGB rasters with an alpha channel.
+
 # tidyterra 1.2.0
 
 This release adds tidyverse-style methods for `SpatVector` objects and includes

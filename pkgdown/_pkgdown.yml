@@ -183,7 +183,7 @@ articles:
   desc: >
     Introductory material for working with **tidyterra**.
   contents:
-  - welcome
+  - tidyterra
 - title: Examples
   navbar: ~
   desc: >
@@ -195,7 +195,7 @@ articles:
   desc: >
     Citation information and uses of **tidyterra** in publications.
   contents:
-  - tidyterra
+  - joss-paper
   - articles/wild
 - title: From the blog
   navbar: Blog posts
@@ -215,6 +215,10 @@ articles:
   - articles/faqs
 
 external-articles:
+- name: joss-paper
+  title: "Using the tidyverse with terra objects: the tidyterra package"
+  description: "Paper published in the Journal of Open Source Software."
+  href: https://doi.org/10.21105/joss.05751
 - name: blog-introducing-tidyterra
   title: "Introducing tidyterra"
   description: "Easily work and ggplot SpatRasters"
