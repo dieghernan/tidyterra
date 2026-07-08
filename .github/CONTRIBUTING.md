@@ -11,7 +11,7 @@ You can find the `.R` file that generates the `.Rd` by reading the comment in th
 
 ## Bigger changes
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it's needed. 
+If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
 If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
 [reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
 See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
@@ -45,8 +45,3 @@ See our guide on [how to create a great issue](https://code-review.tidyverse.org
 Please note that the tidyterra project is released with a
 [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
 project you agree to abide by its terms.
-
-## Thanks for contributing!
-
-This contributing guide is adapted from the tidyverse contributing guide
-available at <https://tidyverse.tidyverse.org/CONTRIBUTING.html>.
