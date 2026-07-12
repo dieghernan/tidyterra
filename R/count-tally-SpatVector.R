@@ -85,6 +85,8 @@ count.SpatVector <- function(
   .drop = deprecated(),
   .dissolve = TRUE
 ) {
+  check_bool(.dissolve)
+
   if (lifecycle::is_present(.drop)) {
     lifecycle::deprecate_warn(
       when = "1.1.0",

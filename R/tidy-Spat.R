@@ -121,6 +121,13 @@ tidy.SpatRaster <- function(
   maxcell = terra::ncell(x) * 1.1,
   pivot = FALSE
 ) {
+  if (missing(maxcell)) {
+    maxcell <- ceiling(maxcell)
+  }
+
+  check_maxcell(maxcell)
+  check_bool(pivot)
+
   x <- resample_spat(x, maxcell)
 
   crs <- pull_crs(x)

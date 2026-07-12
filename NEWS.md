@@ -4,6 +4,7 @@
   functions, producing clearer errors for invalid inputs.
 - The pkgdown site now links to the JOSS paper as an external article and uses
   `vignette("tidyterra")` as the introductory article.
+- `geom_spatraster()`, `geom_spatraster_rgb()`, `geom_spatraster_contour()`, `geom_spatraster_contour_text()`, `stat_spatraster()`, `tidy()` and `fortify()` now consistently accept `maxcell = Inf` and validate related arguments earlier.
 - `geom_spatraster_rgb()` no longer emits a warning for rasters with more than
   three layers, such as RGB rasters with an alpha channel.
 - Default aesthetics in `geom_*` functions adjusted to current **ggplot2**
@@ -291,4 +292,3 @@ Other changes in this version:
   tested.
 - `geom_spatraster_contour()` and its family have been added.
 - `pull()`, `rename()` and `transmute()` methods have been added.
-

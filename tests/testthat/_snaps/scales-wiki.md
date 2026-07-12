@@ -51,8 +51,24 @@
     Code
       wiki.colors(20, "xx")
     Condition
-      Error in `alpha * 255`:
-      ! non-numeric argument to binary operator
+      Error in `wiki.colors()`:
+      ! `alpha` must be a number, not the string "xx".
+
+---
+
+    Code
+      wiki.colors(1.5)
+    Condition
+      Error in `wiki.colors()`:
+      ! `n` must be a whole number, not the number 1.5.
+
+---
+
+    Code
+      wiki.colors(1, rev = "FALSE")
+    Condition
+      Error in `wiki.colors()`:
+      ! `rev` must be `TRUE` or `FALSE`, not the string "FALSE".
 
 # Discrete scale col
 

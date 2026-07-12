@@ -28,7 +28,7 @@ geom_spatraster_contour_text <- function(
   mask_projection = FALSE
 ) {
   check_spatraster(data, "geom_spatraster_contour_text")
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
   check_bool(na.rm)
   check_bool(inherit.aes)
   check_bool(mask_projection)
@@ -159,7 +159,7 @@ GeomSpatRasterContourText <- ggplot2::ggproto(
     # Get labels and format.
     lab <- get_aes_iso(data, "label")
 
-    if (rlang::is_function(label_format)) {
+    if (is_function(label_format)) {
       lab <- label_format(as.double(lab))
     } else if (is_null(label_format)) {
       # Do not plot labels when explicitly requested.

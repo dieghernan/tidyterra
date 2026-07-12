@@ -147,6 +147,8 @@ slice.SpatRaster <- function(
   .preserve = FALSE,
   .keep_extent = FALSE
 ) {
+  check_bool(.keep_extent)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -195,6 +197,8 @@ slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
 #' @importFrom dplyr slice_head
 #' @export
 slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
+  check_bool(.keep_extent)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -242,6 +246,8 @@ slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
 #' @importFrom dplyr slice_tail
 #' @export
 slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
+  check_bool(.keep_extent)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -298,6 +304,10 @@ slice_min.SpatRaster <- function(
   .keep_extent = FALSE,
   na.rm = TRUE
 ) {
+  check_bool(.keep_extent)
+  check_bool(with_ties)
+  check_bool(na.rm)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -394,6 +404,10 @@ slice_max.SpatRaster <- function(
   .keep_extent = FALSE,
   na.rm = TRUE
 ) {
+  check_bool(.keep_extent)
+  check_bool(with_ties)
+  check_bool(na.rm)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -490,6 +504,9 @@ slice_sample.SpatRaster <- function(
   replace = FALSE,
   .keep_extent = FALSE
 ) {
+  check_bool(.keep_extent)
+  check_bool(replace)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
   values <- as_tibble(.data, na.rm = FALSE, xy = FALSE)
@@ -574,6 +591,8 @@ slice_rows <- function(.data, ...) {
 #' @rdname slice.Spat
 #' @export
 slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
+  check_bool(.keep_extent)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -618,6 +637,8 @@ slice_cols <- function(.data, ...) {
 #' @rdname slice.Spat
 #' @export
 slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
+  check_bool(.keep_extent)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -669,6 +690,9 @@ slice_colrows.SpatRaster <- function(
   .keep_extent = FALSE,
   inverse = FALSE
 ) {
+  check_bool(.keep_extent)
+  check_bool(inverse)
+
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
@@ -695,7 +719,12 @@ slice_colrows.SpatRaster <- function(
 
   sliced <- dplyr::inner_join(sliced, slice_rows, by = "rowindex")
 
-  keepcells <- sliced$cellindex
+  selected_cells <- sliced$cellindex
+  keepcells <- if (inverse) {
+    setdiff(skeleton$cellindex, selected_cells)
+  } else {
+    selected_cells
+  }
 
   # Make NA cells
 
@@ -710,12 +739,14 @@ slice_colrows.SpatRaster <- function(
     return(newrast)
   }
 
+  kept <- skeleton[skeleton$cellindex %in% keepcells, ]
+
   # Crop to selected range
   # Columns.
-  range_col <- range(sliced$colindex)
+  range_col <- range(kept$colindex)
   keepindex_col <- seq(range_col[1], range_col[2], by = 1)
 
-  range_row <- range(sliced$rowindex)
+  range_row <- range(kept$rowindex)
   keepindex_row <- seq(range_row[1], range_row[2], by = 1)
 
   newrast <- newrast[keepindex_row, keepindex_col, drop = FALSE]

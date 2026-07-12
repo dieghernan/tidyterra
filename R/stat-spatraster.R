@@ -85,7 +85,7 @@ stat_spatraster <- function(
   check_spatraster(data, "stat_spatraster")
   check_bool(na.rm)
   check_bool(inherit.aes)
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
 
   # 1. Work with aes ----
 

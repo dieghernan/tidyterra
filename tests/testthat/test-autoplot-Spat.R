@@ -29,6 +29,17 @@ test_that("Test SpatRaster", {
   expect_identical(unique(p_data$PANEL), factor(1))
 })
 
+test_that("autoplot validates tri-state logical arguments", {
+  skip_on_cran()
+
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+  r <- terra::rast(f)
+
+  expect_snapshot(autoplot(r, rgb = "auto"), error = TRUE)
+  expect_snapshot(autoplot(r, use_coltab = "auto"), error = TRUE)
+  expect_snapshot(autoplot(r, facets = "auto"), error = TRUE)
+})
+
 test_that("Test SpatRaster RGB", {
   skip_on_cran()
 

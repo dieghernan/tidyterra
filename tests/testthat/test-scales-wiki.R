@@ -103,6 +103,8 @@ test_that("Breaking scale", {
 
 test_that("Palette", {
   expect_snapshot(wiki.colors(20, "xx"), error = TRUE)
+  expect_snapshot(wiki.colors(1.5), error = TRUE)
+  expect_snapshot(wiki.colors(1, rev = "FALSE"), error = TRUE)
   expect_identical(wiki.colors(-1), character())
 })
 

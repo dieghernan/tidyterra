@@ -18,7 +18,8 @@ pkg_ignore:
     tidyverse,
     vdiffr,
     grid,
-    stats
+    stats,
+    bibtex
   ]
 document: no
 normalize: yes

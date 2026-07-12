@@ -1,3 +1,11 @@
+# fortify SpatRasters validates pivot
+
+    Code
+      ggplot2::fortify(r, pivot = "yes")
+    Condition
+      Error in `ggplot2::fortify()`:
+      ! `pivot` must be `TRUE` or `FALSE`, not the string "yes".
+
 # Fortify SpatRasters pivot
 
     Code

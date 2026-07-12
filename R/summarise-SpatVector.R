@@ -78,6 +78,8 @@ summarise.SpatVector <- function(
   .groups = NULL,
   .dissolve = TRUE
 ) {
+  check_bool(.dissolve)
+
   # Resolve `.by` groups.
   by_groups <- group_by(.data, {{ .by }})
 

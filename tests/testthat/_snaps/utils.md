@@ -54,6 +54,46 @@
       Error:
       ! `1.5` must be a numeric vector of whole numbers, not <numeric>.
 
+# check_maxcell accepts Inf
+
+    Code
+      check_maxcell(0)
+    Condition
+      Error:
+      ! `maxcell` must be a whole number larger than or equal to 1.
+
+---
+
+    Code
+      check_maxcell(-Inf)
+    Condition
+      Error:
+      ! `maxcell` must be a whole number larger than or equal to 1.
+
+# check_color_args validates color helper inputs
+
+    Code
+      check_color_args(1.5, 1, FALSE, n_arg = "n")
+    Condition
+      Error:
+      ! `n` must be a whole number, not the number 1.5.
+
+---
+
+    Code
+      check_color_args(1, 1.1, FALSE)
+    Condition
+      Error:
+      ! `alpha` must be between 0 and 1.
+
+---
+
+    Code
+      check_color_args(1, 1, "FALSE", rev_arg = "rev")
+    Condition
+      Error:
+      ! `rev` must be `TRUE` or `FALSE`, not the string "FALSE".
+
 # check_spatraster validates SpatRaster inputs
 
     Code
@@ -79,6 +119,24 @@
     Condition
       Error:
       ! `direction` must be either 1 or -1.
+
+---
+
+    Code
+      pal_discrete_scale("fill", function(n) grDevices::gray.colors(n), alpha = 1,
+      direction = 1, na.translate = "yes", drop = TRUE)
+    Condition
+      Error:
+      ! `na.translate` must be `TRUE` or `FALSE`, not the string "yes".
+
+---
+
+    Code
+      pal_discrete_scale("fill", function(n) grDevices::gray.colors(n), alpha = 1,
+      direction = 1, na.translate = TRUE, drop = "yes")
+    Condition
+      Error:
+      ! `drop` must be `TRUE` or `FALSE`, not the string "yes".
 
 # pal_gradient_scale validates and creates gradient scales
 

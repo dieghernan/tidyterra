@@ -16,7 +16,7 @@ geom_spatraster_contour_filled <- function(
   mask_projection = FALSE
 ) {
   check_spatraster(data, "geom_spatraster_contour_filled")
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
   check_bool(na.rm)
   check_bool(inherit.aes)
   check_bool(mask_projection)

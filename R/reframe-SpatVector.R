@@ -42,6 +42,8 @@
 #'   rowwise() |>
 #'   reframe(value = 1:2)
 reframe.SpatVector <- function(.data, ..., .by = NULL, .dissolve = TRUE) {
+  check_bool(.dissolve)
+
   tbl <- as_tibble(.data)
   by_groups <- group_by(.data, {{ .by }})
 
@@ -74,12 +76,12 @@ reframe.SpatVector <- function(.data, ..., .by = NULL, .dissolve = TRUE) {
 
   if (is_grouped_spatvector(.data)) {
     group_tbl <- dplyr::group_keys(tbl)
-    spatv <- .data[, ]
+    spatv <- .data[seq_len(nrow(.data)), ]
     spatv$tterra_index <- dplyr::group_indices(tbl)
     geom <- terra::aggregate(spatv, by = "tterra_index", dissolve = .dissolve)
   } else if (is_grouped_spatvector(by_groups)) {
     group_tbl <- dplyr::group_keys(as_tibble(by_groups))
-    spatv <- .data[, ]
+    spatv <- .data[seq_len(nrow(.data)), ]
     spatv$tterra_index <- dplyr::group_indices(as_tibble(by_groups))
     geom <- terra::aggregate(spatv, by = "tterra_index", dissolve = .dissolve)
   } else {

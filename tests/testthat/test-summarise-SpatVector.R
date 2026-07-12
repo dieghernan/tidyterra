@@ -87,6 +87,17 @@ test_that("Summarise handles dissolve", {
   expect_gt(nrow(nodissolved_pols), nrow(dissolved_pols))
 })
 
+test_that("summarise validates .dissolve", {
+  skip_on_cran()
+
+  v <- terra::vect(system.file("shape/nc.shp", package = "sf"))
+
+  expect_snapshot(
+    summarise(v, sum_all = sum(AREA), .dissolve = "yes"),
+    error = TRUE
+  )
+})
+
 
 test_that("Summarise handles dissolve on groups", {
   skip_on_cran()

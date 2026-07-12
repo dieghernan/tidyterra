@@ -344,6 +344,8 @@ scale_colour_hypso_b <- function(
 #' }
 #' par(opar)
 hypso.colors <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::hypsometric_tints_db, palette = palette)
     colors <- as.character(paltab$hex)
@@ -590,6 +592,8 @@ scale_colour_hypso_tint_b <- function(
 #' }
 #' par(opar)
 hypso.colors2 <- function(n, palette = "etopo1_hypso", alpha = 1, rev = FALSE) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::hypsometric_tints_db, palette = palette)
     colors <- as.character(paltab$hex)

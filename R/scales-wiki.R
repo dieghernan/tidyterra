@@ -234,6 +234,8 @@ scale_color_wiki_b <- scale_colour_wiki_b
 #' @inheritParams grDevices::terrain.colors
 #' @export
 wiki.colors <- function(n, alpha = 1, rev = FALSE) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     colors <- wiki_cols
     endcols <- tidyterra_ramp(colors, n, alpha, rev)

@@ -27,6 +27,13 @@ test_that("grass_scale_params prepares colors and scale values", {
   expect_equal(params_no_range$limits, c(0, 40))
 })
 
+test_that("GRASS scales validate use_grass_range", {
+  expect_snapshot(
+    scale_colour_grass_c(use_grass_range = "no"),
+    error = TRUE
+  )
+})
+
 test_that("Discrete scale", {
   d <- data.frame(x = 1:5, y = 1:5, z = 21:25, l = letters[1:5])
 

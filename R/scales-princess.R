@@ -272,6 +272,8 @@ scale_colour_princess_b <- function(
 #' }
 #' par(opar)
 princess.colors <- function(n, palette = "snow", alpha = 1, rev = FALSE) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::princess_db, palette = palette)
     colors <- as.character(paltab$hex)

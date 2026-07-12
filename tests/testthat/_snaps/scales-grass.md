@@ -1,3 +1,11 @@
+# GRASS scales validate use_grass_range
+
+    Code
+      scale_colour_grass_c(use_grass_range = "no")
+    Condition
+      Error in `scale_colour_grass_c()`:
+      ! `use_grass_range` must be `TRUE` or `FALSE`, not the string "no".
+
 # Discrete scale
 
     Code

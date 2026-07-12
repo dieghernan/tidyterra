@@ -57,8 +57,8 @@ combining with them.}
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
 
-\item{maxcell}{Positive integer. Maximum number of cells to use for
-the plot.}
+\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
+use. Use \code{Inf} to use all cells.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
 an associated color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{TRUE}, use that

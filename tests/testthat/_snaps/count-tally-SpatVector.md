@@ -14,6 +14,14 @@
       Error in `dplyr::tally()`:
       ! `name` must be a single string, not a character vector.
 
+# count validates .dissolve
+
+    Code
+      count(df, .dissolve = "yes")
+    Condition
+      Error in `count()`:
+      ! `.dissolve` must be `TRUE` or `FALSE`, not the string "yes".
+
 # .drop argument deprecated
 
     Code

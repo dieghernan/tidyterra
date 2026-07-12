@@ -45,7 +45,6 @@ Suggests:
     knitr,
     maptiles,
     quarto,
-    rmarkdown,
     s2,
     stringi,
     testthat (>= 3.0.0)

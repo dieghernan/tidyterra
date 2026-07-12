@@ -202,6 +202,7 @@ scale_fill_grass_c <- function(
   guide = "colourbar"
 ) {
   check_alpha_direction(alpha, direction)
+  check_bool(use_grass_range)
 
   scale_params <- grass_scale_params(
     palette = palette,
@@ -236,6 +237,7 @@ scale_colour_grass_c <- function(
   guide = "colourbar"
 ) {
   check_alpha_direction(alpha, direction)
+  check_bool(use_grass_range)
 
   scale_params <- grass_scale_params(
     palette = palette,
@@ -275,6 +277,7 @@ scale_fill_grass_b <- function(
   guide = "coloursteps"
 ) {
   check_alpha_direction(alpha, direction)
+  check_bool(use_grass_range)
 
   scale_params <- grass_scale_params(
     palette = palette,
@@ -309,6 +312,7 @@ scale_colour_grass_b <- function(
   guide = "coloursteps"
 ) {
   check_alpha_direction(alpha, direction)
+  check_bool(use_grass_range)
 
   scale_params <- grass_scale_params(
     palette = palette,
@@ -382,6 +386,8 @@ scale_color_grass_b <- scale_colour_grass_b
 #' }
 #' par(opar)
 grass.colors <- function(n, palette = "viridis", alpha = 1, rev = FALSE) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(tidyterra::grass_db, palette = palette)
     colors <- as.character(paltab$hex)
@@ -411,7 +417,7 @@ grass_scale_params <- function(
   values,
   limits,
   use_grass_range,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   coltab <- tidyterra::grass_db
 

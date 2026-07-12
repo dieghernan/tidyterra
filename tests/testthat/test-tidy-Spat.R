@@ -53,6 +53,25 @@ test_that("Tidy SpatRasters", {
   expect_lt(nrow(fort_res), nrow(fort))
 })
 
+test_that("tidy SpatRasters accepts maxcell Inf", {
+  skip_on_cran()
+
+  r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+  fort <- tidy(r)
+  fort_all <- tidy(r, maxcell = Inf)
+
+  expect_identical(fort_all, fort)
+})
+
+test_that("tidy SpatRasters validates pivot", {
+  skip_on_cran()
+
+  r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+  expect_snapshot(tidy(r, pivot = "yes"), error = TRUE)
+})
+
 test_that("Tidy SpatRasters pivot", {
   skip_on_cran()
 

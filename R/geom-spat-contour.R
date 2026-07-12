@@ -152,7 +152,7 @@ geom_spatraster_contour <- function(
   mask_projection = FALSE
 ) {
   check_spatraster(data, "geom_spatraster_contour")
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
   check_bool(na.rm)
   check_bool(inherit.aes)
   check_bool(mask_projection)
@@ -205,7 +205,7 @@ prepare_spatraster_contour_data <- function(
   mapping,
   data,
   maxcell,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   mapping <- override_aesthetics(
     mapping,
@@ -347,7 +347,7 @@ StatTerraSpatRasterContour <- ggplot2::ggproto(
 
 # From ggplot2.
 allow_lambda <- function(x) {
-  if (rlang::is_formula(x)) rlang::as_function(x) else x
+  if (is_formula(x)) rlang::as_function(x) else x
 }
 
 # From ggplot2.

@@ -367,6 +367,8 @@ cross_blended.colors <- function(
   alpha = 1,
   rev = FALSE
 ) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(
       tidyterra::cross_blended_hypsometric_tints_db,
@@ -626,6 +628,8 @@ cross_blended.colors2 <- function(
   alpha = 1,
   rev = FALSE
 ) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(
       tidyterra::cross_blended_hypsometric_tints_db,

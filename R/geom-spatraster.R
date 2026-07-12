@@ -33,8 +33,8 @@
 #' @param inherit.aes If `FALSE`, override the default aesthetics rather than
 #'   combining with them.
 #'
-#' @param maxcell Positive integer. Maximum number of cells to use for
-#'   the plot.
+#' @param maxcell Positive integer or `Inf`. Maximum number of raster cells to
+#'   use. Use `Inf` to use all cells.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
 #'   an associated color table from [terra::coltab()]. If `TRUE`, use that
@@ -156,7 +156,7 @@ geom_spatraster <- function(
   check_bool(na.rm)
   check_bool(inherit.aes)
   check_bool(interpolate)
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
   check_bool(use_coltab)
   check_bool(mask_projection)
 
@@ -392,7 +392,7 @@ select_spatraster_layer <- function(
   mapping,
   data,
   aes = "z",
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   if (!aes %in% names(mapping)) {
     return(list(mapping = mapping, data = data))

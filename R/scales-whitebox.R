@@ -282,6 +282,8 @@ whitebox.colors <- function(
   alpha = 1,
   rev = FALSE
 ) {
+  check_color_args(n, alpha, rev)
+
   if ((n <- as.integer(n[1L])) > 0) {
     paltab <- extract_pal(whitebox_coltab, palette = palette)
     colors <- as.character(paltab$hex)

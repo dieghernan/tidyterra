@@ -91,7 +91,7 @@ geom_spatraster_rgb <- function(
   check_number_whole(r, min = 1)
   check_number_whole(g, min = 1)
   check_number_whole(b, min = 1)
-  check_number_whole(maxcell, min = 1)
+  check_maxcell(maxcell)
   check_number_decimal(max_col_value, min = 1)
   check_bool(mask_projection)
 

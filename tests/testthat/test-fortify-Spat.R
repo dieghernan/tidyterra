@@ -82,6 +82,25 @@ test_that("Fortify SpatRasters", {
   expect_identical(build_terra, build_point)
 })
 
+test_that("fortify SpatRasters accepts maxcell Inf", {
+  skip_on_cran()
+
+  r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+  fort <- ggplot2::fortify(r)
+  fort_all <- ggplot2::fortify(r, maxcell = Inf)
+
+  expect_identical(fort_all, fort)
+})
+
+test_that("fortify SpatRasters validates pivot", {
+  skip_on_cran()
+
+  r <- terra::rast(system.file("extdata/volcano2.tif", package = "tidyterra"))
+
+  expect_snapshot(ggplot2::fortify(r, pivot = "yes"), error = TRUE)
+})
+
 test_that("Fortify SpatRasters pivot", {
   skip_on_cran()
 

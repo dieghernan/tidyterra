@@ -49,6 +49,27 @@ test_that("check_number_whole_vector validates vectors", {
   expect_snapshot(check_number_whole_vector(1.5), error = TRUE)
 })
 
+test_that("check_maxcell accepts Inf", {
+  expect_no_error(check_maxcell(1))
+  expect_no_error(check_maxcell(Inf))
+
+  expect_snapshot(check_maxcell(0), error = TRUE)
+  expect_snapshot(check_maxcell(-Inf), error = TRUE)
+})
+
+test_that("check_color_args validates color helper inputs", {
+  expect_no_error(check_color_args(-1, 1, FALSE))
+  expect_no_error(check_color_args(0, 1, FALSE))
+  expect_no_error(check_color_args(1, 0.5, TRUE))
+
+  expect_snapshot(check_color_args(1.5, 1, FALSE, n_arg = "n"), error = TRUE)
+  expect_snapshot(check_color_args(1, 1.1, FALSE), error = TRUE)
+  expect_snapshot(
+    check_color_args(1, 1, "FALSE", rev_arg = "rev"),
+    error = TRUE
+  )
+})
+
 test_that("check_spatraster validates SpatRaster inputs", {
   r <- terra::rast(nrows = 1, ncols = 1)
 
@@ -110,6 +131,28 @@ test_that("pal_discrete_scale validates and creates a discrete scale", {
       direction = 0,
       na.translate = FALSE,
       drop = TRUE
+    ),
+    error = TRUE
+  )
+  expect_snapshot(
+    pal_discrete_scale(
+      "fill",
+      function(n) grDevices::gray.colors(n),
+      alpha = 1,
+      direction = 1,
+      na.translate = "yes",
+      drop = TRUE
+    ),
+    error = TRUE
+  )
+  expect_snapshot(
+    pal_discrete_scale(
+      "fill",
+      function(n) grDevices::gray.colors(n),
+      alpha = 1,
+      direction = 1,
+      na.translate = TRUE,
+      drop = "yes"
     ),
     error = TRUE
   )

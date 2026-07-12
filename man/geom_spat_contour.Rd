@@ -88,8 +88,8 @@ lists which parameters it can accept.
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
 
-\item{maxcell}{Positive integer. Maximum number of cells to use for
-the plot.}
+\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
+use. Use \code{Inf} to use all cells.}
 
 \item{bins}{Number of contour bins. Overridden by \code{breaks}.}
 

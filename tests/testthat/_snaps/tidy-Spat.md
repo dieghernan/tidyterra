@@ -1,3 +1,11 @@
+# tidy SpatRasters validates pivot
+
+    Code
+      tidy(r, pivot = "yes")
+    Condition
+      Error in `tidy()`:
+      ! `pivot` must be `TRUE` or `FALSE`, not the string "yes".
+
 # Tidy SpatRasters pivot
 
     Code

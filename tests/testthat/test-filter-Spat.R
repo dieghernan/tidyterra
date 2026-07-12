@@ -49,6 +49,16 @@ test_that("Filter with SpatRaster non keeping extent", {
   expect_false(compare_spatrasters(r, r_keep))
 })
 
+test_that("filter validates .keep_extent", {
+  skip_on_cran()
+
+  r <- terra::rast(nrows = 5, ncols = 5)
+  terra::values(r) <- seq_len(terra::ncell(r))
+  names(r) <- "lyr"
+
+  expect_snapshot(filter(r, lyr > 1, .keep_extent = "yes"), error = TRUE)
+})
+
 test_that("Filter with SpatVector", {
   skip_on_cran()
 

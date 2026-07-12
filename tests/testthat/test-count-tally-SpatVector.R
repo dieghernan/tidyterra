@@ -73,6 +73,14 @@ test_that("name must be string", {
   expect_snapshot(error = TRUE, count(df1, x, name = letters))
 })
 
+test_that("count validates .dissolve", {
+  skip_on_cran()
+
+  df <- terra::vect(tibble(lat = 1, lon = 1), crs = "EPSG:4326")
+
+  expect_snapshot(count(df, .dissolve = "yes"), error = TRUE)
+})
+
 test_that(".drop argument deprecated", {
   skip_on_cran()
 

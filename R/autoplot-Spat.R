@@ -88,6 +88,10 @@ autoplot.SpatRaster <- function(
   nrow = NULL,
   ncol = 2
 ) {
+  check_bool_or_null(rgb)
+  check_bool_or_null(use_coltab)
+  check_bool_or_null(facets)
+
   gg <- ggplot2::ggplot()
 
   if (is_null(rgb)) {

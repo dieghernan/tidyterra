@@ -90,6 +90,38 @@ check_alpha_direction <- function(
   invisible(NULL)
 }
 
+check_maxcell <- function(maxcell, call = caller_env()) {
+  check_number_whole(maxcell, allow_infinite = TRUE, call = call)
+
+  if (maxcell < 1) {
+    cli::cli_abort(
+      "{.arg maxcell} must be a whole number larger than or equal to 1.",
+      call = call
+    )
+  }
+}
+
+check_color_args <- function(
+  n,
+  alpha,
+  rev,
+  n_arg = caller_arg(n),
+  rev_arg = caller_arg(rev),
+  call = caller_env()
+) {
+  check_number_whole(n, arg = n_arg, call = call)
+  check_alpha(alpha, call = call)
+  check_bool(rev, arg = rev_arg, call = call)
+}
+
+check_bool_or_null <- function(
+  x,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  check_bool(x, allow_null = TRUE, arg = arg, call = call)
+}
+
 check_spat_class <- function(
   x,
   class,
@@ -115,7 +147,7 @@ check_number_whole_vector <- function(
   arg = caller_arg(x),
   call = caller_env()
 ) {
-  if (!missing(x)) {
+  if (!is_missing(x)) {
     is_number <- is.numeric(x) && is_null(dim(x))
     is_whole <- is_number && all(!is.na(x) & is.finite(x) & x == floor(x))
     is_length <- is_null(length) || length(x) == length
@@ -147,7 +179,7 @@ check_character_vector <- function(
   arg = caller_arg(x),
   call = caller_env()
 ) {
-  if (!missing(x)) {
+  if (!is_missing(x)) {
     is_character_vector <- is_character(x) && is_null(dim(x))
     has_valid_na <- allow_na || !anyNA(x)
 
@@ -163,7 +195,7 @@ check_character_vector <- function(
   )
 }
 
-check_spatraster <- function(data, fn, call = rlang::caller_env()) {
+check_spatraster <- function(data, fn, call = caller_env()) {
   if (!inherits(data, "SpatRaster")) {
     cli::cli_abort(
       paste(
@@ -204,7 +236,7 @@ check_palette <- function(
   )
 }
 
-abort_lost_geometry_after_pivot <- function(call = rlang::caller_env()) {
+abort_lost_geometry_after_pivot <- function(call = caller_env()) {
   cli::cli_abort(
     paste0(
       "Cannot rebuild the {.cls SpatVector}. ",
@@ -269,9 +301,11 @@ pal_discrete_scale <- function(
   ...,
   na.translate,
   drop,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   check_alpha_direction(alpha, direction, call = call)
+  check_bool(na.translate, call = call)
+  check_bool(drop, call = call)
 
   discrete_pal_scale(
     aesthetics,
@@ -292,7 +326,7 @@ pal_gradient_scale <- function(
   ...,
   na.value,
   guide,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   check_alpha_direction(alpha, direction, call = call)
 
@@ -317,7 +351,7 @@ tint_scale_params <- function(
   values,
   limits,
   help,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   check_palette(palette, coltab$pal, help = help, call = call)
 

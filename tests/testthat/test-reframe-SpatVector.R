@@ -52,6 +52,14 @@ test_that("reframe() works with .by on ungrouped SpatVectors", {
   expect_named(out, c("grp", "value"))
 })
 
+test_that("reframe() validates .dissolve", {
+  skip_on_cran()
+
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+
+  expect_snapshot(reframe(v, value = 1, .dissolve = "yes"), error = TRUE)
+})
+
 test_that("reframe() works on ungrouped SpatVectors without .by", {
   skip_on_cran()
 

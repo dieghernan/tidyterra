@@ -47,7 +47,8 @@ template:
 
 home:
   title: >
-    tidyterra | methods from tidyverse packages and ggplot2 helpers for Spat* objects
+    tidyterra | methods from tidyverse packages and ggplot2 helpers for Spat*
+    objects
 
 # Reference index convention:
 # - Use `has_concept("<family>")` when a section maps to a roxygen `@family`.
@@ -63,8 +64,8 @@ reference:
 
 - title: "**dplyr** methods"
   desc: >
-    Methods from [**dplyr**](https://CRAN.R-project.org/package=dplyr) implemented
-    for `Spat*` objects.
+    Methods from [**dplyr**](https://CRAN.R-project.org/package=dplyr)
+    implemented for `Spat*` objects.
 - subtitle: Rows
   desc: |
     Verbs that mainly operate on rows.
@@ -88,8 +89,8 @@ reference:
 
 - title: "**tidyr** methods"
   desc: >
-    Methods from [**tidyr**](https://CRAN.R-project.org/package=tidyr) implemented
-    for `Spat*` objects.
+    Methods from [**tidyr**](https://CRAN.R-project.org/package=tidyr)
+    implemented for `Spat*` objects.
 - subtitle: Pivoting
   desc: >
     Pivoting methods for changing the representation of `SpatVector` objects
@@ -128,8 +129,7 @@ reference:
 - title: "**ggplot2** helpers"
 - subtitle: Geoms and helpers
   desc: >
-    Helpers for creating **ggplot2**
-    layers from `Spat*` objects.
+    Helpers for creating **ggplot2** layers from `Spat*` objects.
 - contents:
   - has_concept("ggplot2.utils")
 - subtitle: Scales
@@ -147,8 +147,7 @@ reference:
 
 - title: Helpers
   desc: >
-    Additional helper functions provided by
-    **tidyterra**.
+    Additional helper functions provided by **tidyterra**.
 - subtitle: Coercing objects
   desc: >
     Convert `Spat*` objects to other object types or create `SpatRaster` objects

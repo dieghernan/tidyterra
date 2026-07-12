@@ -107,6 +107,8 @@ filter.SpatRaster <- function(
   .preserve = FALSE,
   .keep_extent = TRUE
 ) {
+  check_bool(.keep_extent)
+
   df <- as_tbl_internal(.data)
   xy <- dplyr::select(df, 1:2)
   values <- df
