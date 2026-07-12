@@ -115,6 +115,14 @@ test_that("NA crs", {
   expect_snapshot(glance(r1))
 })
 
+test_that("get_crs_units() handles missing sf unit metadata", {
+  local_mocked_bindings(tt_sf_st_crs = function(...) {
+    list(units = NULL)
+  })
+
+  expect_null(get_crs_units("EPSG:3857"))
+})
+
 test_that("Glance SpatVectors", {
   skip_on_cran()
 

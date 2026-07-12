@@ -121,7 +121,7 @@ get_crs_units <- function(x) {
     return("degrees")
   }
 
-  unts <- try(sf::st_crs(pulled_crs)$units, silent = TRUE)
+  unts <- try(tt_sf_st_crs(pulled_crs)$units, silent = TRUE)
 
   if (inherits(unts, "character")) {
     unitsdb <- unitsdb
@@ -131,4 +131,8 @@ get_crs_units <- function(x) {
   } else {
     NULL
   }
+}
+
+tt_sf_st_crs <- function(x) {
+  sf::st_crs(x)
 }
