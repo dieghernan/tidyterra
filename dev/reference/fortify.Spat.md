@@ -83,7 +83,8 @@ fortify(model, data, ..., crs = "")
 
 - maxcell:
 
-  Positive integer. Maximum number of cells to use for the plot.
+  Positive integer or `Inf`. Maximum number of raster cells to use. Use
+  `Inf` to use all cells.
 
 - pivot:
 

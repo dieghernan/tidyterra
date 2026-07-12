@@ -191,7 +191,8 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
   `"moon"`, `"moon_bathy"`, `"moon_hypso"`, `"nordisk-familjebok"`,
   `"nordisk-familjebok_bathy"`, `"nordisk-familjebok_hypso"`,
   `"pakistan"`, `"spain"`, `"usgs-gswa2"`, `"utah_1"`, `"wiki-2.0"`,
-  `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`, `"wiki-schwarzwald-cont"`.
+  `"wiki-2.0_bathy"`, `"wiki-2.0_hypso"`, `"wiki-schwarzwald-cont"`,
+  `"xkcd-painbow"`.
 
 - ...:
 

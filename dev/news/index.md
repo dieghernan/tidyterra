@@ -2,13 +2,29 @@
 
 ## tidyterra (development version)
 
+- Argument validation has been improved across user-facing helpers and
+  plotting functions, producing clearer errors for invalid inputs.
 - The pkgdown site now links to the JOSS paper as an external article
   and uses
   [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.md)
   as the introductory article.
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),
+  [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md),
+  [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
+  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
+  [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),
+  [`tidy()`](https://generics.r-lib.org/reference/tidy.html) and
+  [`fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
+  now consistently accept `maxcell = Inf` and validate related arguments
+  earlier.
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   no longer emits a warning for rasters with more than three layers,
   such as RGB rasters with an alpha channel.
+- Default aesthetics in `geom_*` functions adjusted to current
+  **ggplot2** defaults.
+- One additional palette is included in
+  [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md):
+  `"xkcd-painbow"`. See <https://xkcd.com/2537/>.
 
 ## tidyterra 1.2.0
 

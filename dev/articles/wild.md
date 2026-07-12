@@ -142,7 +142,7 @@ squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000-2022). *PLOS ONE*, *20*(10), 1–25.
+US (2000-2022). *PLOS ONE*, *20*(10), e0333746.
 <https://doi.org/10.1371/journal.pone.0333746>
 
 Jones, M. D., Almeida, R. J., Boratto, R., Talley, B. L., Buchanan, S.
@@ -155,7 +155,7 @@ Conservation*, *321*, 111966.
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
 Stomph, T., & Struik, P. C. (2025). Can drone images predict
 within-field variability in soil fertility? A case study in the Northern
-Region of Ghana. *Frontiers in Soil Science*, *Volume 5 - 2025*.
+Region of Ghana. *Frontiers in Soil Science*, *5*.
 <https://doi.org/10.3389/fsoil.2025.1548645>
 
 Kiel, N. G., Watts, D. A., Young, A. B., & Vellend, M. (2025). Snowmelt
@@ -282,7 +282,7 @@ hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
 
 Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
-Britain. *PLOS ONE*, *21*(1), 1–16.
+Britain. *PLOS ONE*, *21*(1), e0332485.
 <https://doi.org/10.1371/journal.pone.0332485>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
@@ -320,7 +320,7 @@ M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
 T., Meremikwu, M., Moses, L., Redding, D. W., & Friant, S. (2026). Local
 heterogeneity in Lassa fever serology in rural Nigeria: Implications for
 vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
-*20*(5), 1–18. <https://doi.org/10.1371/journal.pntd.0014379>
+*20*(5), e0014379. <https://doi.org/10.1371/journal.pntd.0014379>
 
 Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
 Jardine, S. L. (2026). Projected temperature and precipitation expand

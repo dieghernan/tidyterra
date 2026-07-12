@@ -178,6 +178,9 @@ tidyterra.](palettes_files/figure-html/hypso-32.png)](https://dieghernan.github.
 [![Hypsometric tint palettes in
 tidyterra.](palettes_files/figure-html/hypso-33.png)](https://dieghernan.github.io/tidyterra/dev/articles/palettes_files/figure-html/hypso-33.png)
 
+[![Hypsometric tint palettes in
+tidyterra.](palettes_files/figure-html/hypso-34.png)](https://dieghernan.github.io/tidyterra/dev/articles/palettes_files/figure-html/hypso-34.png)
+
 ## `scale_fill_cross_blended_*`
 
 See
@@ -431,6 +434,8 @@ Whitebox palettes in tidyterra.
 Whitebox palettes in tidyterra.
 
 Whitebox palettes in tidyterra.
+
+Hypsometric tint palettes in tidyterra.
 
 Hypsometric tint palettes in tidyterra.
 

@@ -1,7 +1,7 @@
 # Hypsometric palettes database
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-including the color map of 33 gradient palettes. Each palette also
+including the color map of 34 gradient palettes. Each palette also
 includes a definition of color limits in terms of elevation (meters)
 that can be used with
 [`ggplot2::scale_fill_gradientn()`](https://ggplot2.tidyverse.org/reference/scale_gradient.html).
@@ -9,7 +9,7 @@ that can be used with
 ## Format
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
-1102 rows and 6 columns with the following fields:
+1223 rows and 6 columns with the following fields:
 
 - pal:
 
@@ -56,7 +56,7 @@ Other datasets:
 data("hypsometric_tints_db")
 
 hypsometric_tints_db
-#> # A tibble: 1,102 × 6
+#> # A tibble: 1,223 × 6
 #>    pal    limit     r     g     b hex    
 #>    <chr>  <dbl> <dbl> <dbl> <dbl> <chr>  
 #>  1 arctic -5000    44    53    99 #2C3563
@@ -69,7 +69,7 @@ hypsometric_tints_db
 #>  8 arctic -4300    57    65   113 #394171
 #>  9 arctic -4200    60    68   116 #3C4474
 #> 10 arctic -4100    62    70   118 #3E4676
-#> # ℹ 1,092 more rows
+#> # ℹ 1,213 more rows
 
 # Select a palette
 wikicols <- hypsometric_tints_db |>

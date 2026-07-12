@@ -22,7 +22,6 @@ geom_spatvector_label(
   na.rm = FALSE,
   show.legend = NA,
   ...,
-  linewidth = 0.25,
   inherit.aes = TRUE
 )
 
@@ -83,10 +82,6 @@ stat_spatvector(
   [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
   functions. These are often aesthetics, used to set an aesthetic to a
   fixed value, like `colour = "red"` or `linewidth = 3`.
-
-- linewidth:
-
-  Size of label border, in mm.
 
 - inherit.aes:
 
