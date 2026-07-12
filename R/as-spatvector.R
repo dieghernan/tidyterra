@@ -74,17 +74,12 @@ as_spatvector <- function(x, ...) {
 #' @rdname as_spatvector
 #' @export
 as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
+  check_character_vector(geom, allow_na = FALSE)
+
   if (!length(geom) %in% c(1, 2)) {
     cli::cli_abort(paste(
       "{.arg geom} must have length {.val {as.integer(1)}} or",
       "{.val {as.integer(2)}}, not {.val {length(geom)}}."
-    ))
-  }
-
-  if (!is.character(geom)) {
-    cli::cli_abort(paste(
-      "{.arg geom} must be a {.cls character} vector, not",
-      "{.cls {class(geom)}}."
     ))
   }
 
@@ -127,7 +122,7 @@ as_spatvector.data.frame <- function(x, ..., geom = c("lon", "lat"), crs = "") {
   crs <- pull_crs(crs)
 
   # Fall back to the CRS stored in the input attributes.
-  if (is.na(crs)) {
+  if (is_na(crs)) {
     crs <- crs_attr
   }
 

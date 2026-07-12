@@ -77,11 +77,14 @@ scale_fill_coltab <- function(
   na.value = "transparent",
   drop = TRUE
 ) {
+  check_bool(na.translate)
+  check_bool(drop)
+
   getcols <- get_coltab_pal(data)
-  if (is.null(getcols)) {
+  if (is_null(getcols)) {
     return(ggplot2::geom_blank())
   }
-  if (!is.na(alpha)) {
+  if (!is_na(alpha)) {
     check_alpha(alpha)
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
@@ -110,12 +113,15 @@ scale_colour_coltab <- function(
   na.value = "transparent",
   drop = TRUE
 ) {
+  check_bool(na.translate)
+  check_bool(drop)
+
   getcols <- get_coltab_pal(data)
-  if (is.null(getcols)) {
+  if (is_null(getcols)) {
     return(ggplot2::geom_blank())
   }
 
-  if (!is.na(alpha)) {
+  if (!is_na(alpha)) {
     check_alpha(alpha)
     getcols <- ggplot2::alpha(getcols, alpha = alpha)
   }
@@ -187,7 +193,7 @@ get_coltab_pal <- function(x) {
   # Prepare category data frames.
   lcats <- lapply(seq_len(terra::nlyr(x)), function(i) {
     i_df <- lcats[[i]]
-    if (is.null(i_df)) {
+    if (is_null(i_df)) {
       return(NULL)
     }
     actcat <- unlist(actcats[i])
@@ -204,9 +210,9 @@ get_coltab_pal <- function(x) {
   cats_end <- dplyr::bind_rows(lcats, .id = "layer")
 
   # Get cols
-  cols_alpha_l <- terra::coltab(x)
+  cols_alpha_l <- tt_terra_coltab(x)
   cols_alpha_l <- lapply(cols_alpha_l, function(j) {
-    if (is.null(j)) {
+    if (is_null(j)) {
       return(NULL)
     }
 
@@ -254,4 +260,8 @@ get_coltab_pal <- function(x) {
   names(namedpal) <- nms
 
   namedpal
+}
+
+tt_terra_coltab <- function(x) {
+  terra::coltab(x)
 }

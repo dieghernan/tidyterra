@@ -125,7 +125,7 @@ tidy.SpatRaster <- function(
 
   crs <- pull_crs(x)
 
-  if (is.na(crs)) {
+  if (is_na(crs)) {
     crs <- ""
   }
 

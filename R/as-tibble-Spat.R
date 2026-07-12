@@ -130,7 +130,7 @@ as_tibble.SpatVector <- function(
     "universal_quiet"
   )
 ) {
-  if (!is.null(geom)) {
+  if (!is_null(geom)) {
     x <- make_safe_names(x, geom = geom)
   }
 
@@ -159,7 +159,7 @@ as_tibble.SpatVector <- function(
   df <- check_regroups(df)
 
   # Store the CRS when it is available.
-  if (!is.na(pull_crs(x))) {
+  if (!is_na(pull_crs(x))) {
     attr(df, "crs") <- pull_crs(x)
   }
 

@@ -90,7 +90,7 @@ autoplot.SpatRaster <- function(
 ) {
   gg <- ggplot2::ggplot()
 
-  if (is.null(rgb)) {
+  if (is_null(rgb)) {
     rgb <- terra::has.RGB(object)
   }
 
@@ -101,7 +101,7 @@ autoplot.SpatRaster <- function(
   }
 
   # Guess scale
-  if (is.null(use_coltab)) {
+  if (is_null(use_coltab)) {
     use_coltab <- any(terra::has.colors(object))
   }
   gg <- gg + geom_spatraster(data = object, use_coltab = use_coltab, ...)
@@ -118,7 +118,7 @@ autoplot.SpatRaster <- function(
   }
 
   # Guess facets
-  if (is.null(facets)) {
+  if (is_null(facets)) {
     facets <- terra::nlyr(object) > 1
   }
 

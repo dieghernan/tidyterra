@@ -12,6 +12,15 @@
     Message
       i `x` does not have a color table. Returning "NULL".
 
+# Can handle color tables without categories
+
+    Code
+      pal <- get_coltab_pal(r)
+    Condition
+      Warning:
+      Using `by = character()` to perform a cross join was deprecated in dplyr 1.1.0.
+      i Please use `cross_join()` instead.
+
 # Give informative messages
 
     Code

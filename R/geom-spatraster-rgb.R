@@ -87,6 +87,13 @@ geom_spatraster_rgb <- function(
   mask_projection = FALSE
 ) {
   check_spatraster(data, "geom_spatraster_rgb")
+  check_bool(interpolate)
+  check_number_whole(r, min = 1)
+  check_number_whole(g, min = 1)
+  check_number_whole(b, min = 1)
+  check_number_whole(maxcell, min = 1)
+  check_number_decimal(max_col_value, min = 1)
+  check_bool(mask_projection)
 
   layers_order <- as.integer(c(r, g, b))
 
@@ -159,7 +166,7 @@ geom_spatraster_rgb <- function(
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
   # scales. Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
-  if (!is.na(crs_terra)) {
+  if (!is_na(crs_terra)) {
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
@@ -298,16 +305,16 @@ make_hexcol <- function(data, max_col_value = 255) {
 
 # Stretch and clamp raster values.
 zlim_strecth <- function(x, zlim = NULL, stretch = NULL, max_col_value = 255) {
-  if (all(is.null(zlim), is.null(stretch))) {
+  if (all(is_null(zlim), is_null(stretch))) {
     return(x)
   }
 
-  if (all(!is.null(zlim), length(zlim) >= 2)) {
+  if (all(!is_null(zlim), length(zlim) >= 2)) {
     zlim <- sort(zlim)[1:2]
     x <- terra::clamp(x, zlim[1], zlim[2], values = TRUE)
   }
 
-  if (!is.null(stretch)) {
+  if (!is_null(stretch)) {
     if (all(stretch == "lin", length(zlim) == 2)) {
       x <- terra::stretch(x, smin = zlim[1], smax = zlim[2])
     } else if (stretch == "lin") {

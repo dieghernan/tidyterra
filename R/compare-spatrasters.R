@@ -61,12 +61,9 @@
 #' compare_spatrasters(x, project(x, "epsg:3035"))
 #'
 compare_spatrasters <- function(x, y, digits = 6) {
-  if (!all(inherits(x, "SpatRaster"), inherits(y, "SpatRaster"))) {
-    cli::cli_abort(paste(
-      "{.arg x} and {.arg y} must be {.cls SpatRaster} objects.",
-      "{.arg x} is {.cls {class(x)}}, {.arg y} is {.cls {class(y)}}."
-    ))
-  }
+  check_spat_class(x, "SpatRaster")
+  check_spat_class(y, "SpatRaster")
+  check_number_whole(digits)
 
   # Check CRS.
   equal_crs <- terra::crs(x) == terra::crs(y)

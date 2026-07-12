@@ -11,6 +11,21 @@ test_that("Error check", {
   expect_silent(as_spatraster(as_tbl, xycols = c(1, 3)))
 })
 
+test_that("Can convert dtplyr input", {
+  skip_on_cran()
+  skip_if_not_installed("dtplyr")
+
+  tbl <- tibble::tibble(
+    x = c(1, 2, 1, 2),
+    y = c(1, 1, 2, 2),
+    z = 1:4
+  )
+
+  out <- as_spatraster(dtplyr::lazy_dt(tbl))
+  expect_s4_class(out, "SpatRaster")
+  expect_equal(dim(out), c(2, 2, 1))
+})
+
 test_that("build_raster_layers assigns values by layer", {
   template <- terra::rast(nrows = 2, ncols = 2)
   values <- data.frame(

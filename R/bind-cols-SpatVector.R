@@ -75,7 +75,7 @@ bind_spat_cols <- function(
   }
 
   # Support a single list of inputs.
-  if (length(dots) == 1 && is.list(dots[[1]])) {
+  if (length(dots) == 1 && is_list(dots[[1]])) {
     # Unlist the first level.
     dots <- dots[[1]]
   }

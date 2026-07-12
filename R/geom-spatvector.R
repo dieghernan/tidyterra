@@ -91,7 +91,6 @@ geom_spatvector <- function(
 }
 
 #' @rdname ggspatvector
-#' @param linewidth Size of label border, in mm.
 #' @export
 geom_spatvector_label <- function(
   mapping = aes(),
@@ -99,14 +98,12 @@ geom_spatvector_label <- function(
   na.rm = FALSE,
   show.legend = NA,
   ...,
-  linewidth = 0.25,
   inherit.aes = TRUE
 ) {
   ggplot2::geom_sf_label(
     mapping = mapping,
     data = data,
     ...,
-    linewidth = linewidth,
     na.rm = na.rm,
     show.legend = show.legend,
     inherit.aes = inherit.aes

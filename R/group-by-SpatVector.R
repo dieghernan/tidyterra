@@ -134,7 +134,7 @@ dplyr::group_by
 ungroup.SpatVector <- function(x, ...) {
   # Use own method
   getattr <- attr(x, "tblclass")
-  if (is.null(getattr) || !getattr %in% c("grouped_df", "rowwise_df")) {
+  if (is_null(getattr) || !getattr %in% c("grouped_df", "rowwise_df")) {
     return(x)
   }
 

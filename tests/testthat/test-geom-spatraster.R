@@ -45,6 +45,7 @@ test_that("Regular tests", {
     geom_spatraster(data = r, aes(fill = tavg_04))
 
   expect_silent(ss <- ggplot2::ggplot_build(s))
+  expect_identical(unique(ss$data[[1]]$lyr), "tavg_04")
 
   # Resampled
   s1 <- terra::subset(r, 1)
@@ -139,4 +140,11 @@ test_that("Coltabs", {
 test_that("Helpers", {
   expect_identical(override_aesthetics(), ggplot2::aes())
   expect_identical(override_aesthetics("default"), "default")
+
+  prepared <- prepare_aes_spatraster(
+    ggplot2::aes(fill = not_a_layer),
+    "lyr.1",
+    list()
+  )
+  expect_false(prepared$namelayer)
 })

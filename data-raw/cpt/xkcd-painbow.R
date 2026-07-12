@@ -1,0 +1,125 @@
+## code to extract color map
+
+# Urls
+url <- "https://phillips.shef.ac.uk/pub/cpt-city/resource/schemes/1132870"
+local <- file.path("./data-raw", "cpt", "xkcd-painbow.cpt")
+
+# download.file(url,
+#   local,
+#   mode = "wb"
+# )
+
+# Extract colors for cpt file
+library(tidyverse)
+
+lines <- readLines(local)
+
+# Cleanup lines
+lines <- trimws(lines)
+lines <- str_replace_all(lines, "\\s+", " ")
+lines <- str_replace_all(lines, "/", " ")
+
+lines <- lines[!grepl("^#", lines)]
+# Remove B F N
+lines <- lines[!grepl("^[A-Za-z]", lines)]
+lines <- lines[nchar(lines) > 0]
+
+# Replace blank spaces
+lines <- gsub(" ", "\t", lines, fixed = TRUE)
+full <- data.frame(all = lines)
+
+
+# Split to colors
+lines_split <- full |>
+  separate(
+    all,
+    c("limit", "r", "g", "b", "limit_high", "r2", "g2", "b2"),
+    sep = "\t",
+    extra = "drop",
+    fill = "right",
+    convert = TRUE
+  ) |>
+  as_tibble()
+
+
+# Make rgb values
+make_hex <- lines_split |>
+  mutate(across(.fns = ~ as.integer(.))) |>
+  drop_na() |>
+  mutate(
+    hex = rgb(r, g, b, maxColorValue = 255),
+    hex_high = rgb(r2, g2, b2, maxColorValue = 255)
+  ) |>
+  drop_na() |>
+  relocate(hex, .after = b)
+
+# Make highest limit as last line as well
+make_endline <- make_hex[nrow(make_hex), ]
+make_endline <- make_endline |>
+  mutate(
+    limit = limit_high,
+    r = r2,
+    g = g2,
+    b = b2,
+    hex = hex_high,
+    limit_high = 9999999999
+  ) |>
+  drop_na()
+
+make_hex <- bind_rows(make_hex, make_endline)
+
+# Add palette name
+pal <- tools::file_path_sans_ext(local) |>
+  basename() |>
+  tolower()
+
+make_hex <- make_hex |>
+  mutate(pal = pal) |>
+  relocate(pal, .before = 1)
+
+scales::show_col(make_hex$hex, labels = FALSE)
+
+coltab_end <- as_tibble(make_hex)
+
+# Reescale
+options(scipen = 12)
+df_reesc <- tibble(
+  init = unique(sort(coltab_end$limit))
+)
+df_reesc$dest <- scales::rescale(df_reesc$init, to = c(0, 8000))
+
+coltab_end <- coltab_end |>
+  left_join(df_reesc, by = c("limit" = "init")) |>
+  mutate(limit = coalesce(dest, limit)) |>
+  select(-dest) |>
+  left_join(df_reesc, by = c("limit_high" = "init")) |>
+  mutate(limit_high = coalesce(dest, limit_high)) |>
+  select(-dest)
+
+f_rds <- file.path("./data-raw/cpt", paste0(pal, ".Rds"))
+
+saveRDS(coltab_end, f_rds)
+
+
+# Post-mortem
+test <- readRDS(f_rds)
+
+ramp_cols <- test |> pull(hex)
+
+
+ramp_pal <- colorRampPalette(ramp_cols)
+ncols <- 128
+image(
+  x = seq(1, ncols),
+  y = 1,
+  z = as.matrix(seq(1, ncols)),
+  col = ramp_pal(ncols),
+  xlab = "",
+  ylab = "",
+  xaxt = "n",
+  yaxt = "n",
+  bty = "n",
+  main = unique(test$pal)
+)
+
+rm(list = ls())

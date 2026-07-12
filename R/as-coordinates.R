@@ -35,12 +35,8 @@
 #' as_coordinates(r, as.raster = TRUE) |> plot()
 #'
 as_coordinates <- function(x, as.raster = FALSE) {
-  if (!inherits(x, "SpatRaster")) {
-    cli::cli_abort(paste(
-      "{.fun tidyterra::as_coordinates} requires a {.cls SpatRaster} object,",
-      "not {.cls {class(x)}}."
-    ))
-  }
+  check_spat_class(x, "SpatRaster")
+  check_bool(as.raster)
 
   # Create cell, row and column indexes.
   df <- data.frame(cellindex = seq_len(terra::ncell(x)))

@@ -152,6 +152,10 @@ geom_spatraster_contour <- function(
   mask_projection = FALSE
 ) {
   check_spatraster(data, "geom_spatraster_contour")
+  check_number_whole(maxcell, min = 1)
+  check_bool(na.rm)
+  check_bool(inherit.aes)
+  check_bool(mask_projection)
 
   contour_data <- prepare_spatraster_contour_data(mapping, data, maxcell)
   mapping <- contour_data$mapping
@@ -183,7 +187,7 @@ geom_spatraster_contour <- function(
   # If the SpatRaster has a CRS, add an empty geom_sf() to train scales. This
   # Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
-  if (!is.na(crs_terra)) {
+  if (!is_na(crs_terra)) {
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
@@ -245,9 +249,9 @@ GeomSpatRasterContour <- ggplot2::ggproto(
   ggplot2::GeomPath,
   default_aes = aes(
     weight = 1,
-    colour = "grey35",
-    linewidth = 0.2,
-    linetype = 1,
+    colour = "#595959",
+    linewidth = from_theme(linewidth),
+    linetype = from_theme(linetype),
     alpha = NA
   ),
   # Allow using `size` in ggplot2 < 3.4.0.
@@ -360,18 +364,18 @@ contour_breaks <- function(
   }
 
   breaks_fun <- scales::fullseq
-  if (is.function(breaks)) {
+  if (is_function(breaks)) {
     breaks_fun <- breaks
   }
 
   # Use pretty bins when no arguments are set.
-  if (is.null(bins) && is.null(binwidth)) {
+  if (is_null(bins) && is_null(binwidth)) {
     breaks <- pretty(z_range, 10)
     return(breaks)
   }
 
   # Use `bins` to calculate `binwidth` when provided.
-  if (!is.null(bins)) {
+  if (!is_null(bins)) {
     # Round limits outward so bins span the data range.
     accuracy <- signif(diff(z_range), 1) / 10
     z_range[1] <- floor(z_range[1] / accuracy) * accuracy

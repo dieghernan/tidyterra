@@ -49,7 +49,7 @@ nest_join.SpatVector <- function(
 ) {
   error_spat_join(y)
 
-  if (is.null(name)) {
+  if (is_null(name)) {
     name <- "data"
   }
 

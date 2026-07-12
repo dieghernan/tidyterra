@@ -58,7 +58,9 @@ make_safe_index <- function(x, y) {
 }
 
 # Validation and message helpers ----
-check_alpha <- function(alpha, call = rlang::caller_env()) {
+check_alpha <- function(alpha, call = caller_env()) {
+  check_number_decimal(alpha, call = call)
+
   if (alpha < 0 || alpha > 1) {
     cli::cli_abort(
       "{.arg alpha} must be between {.val {0}} and {.val {1}}.",
@@ -72,11 +74,13 @@ check_alpha <- function(alpha, call = rlang::caller_env()) {
 check_alpha_direction <- function(
   alpha,
   direction,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
   check_alpha(alpha, call = call)
 
-  if (!direction %in% c(-1, 1)) {
+  check_number_decimal(direction, call = call)
+
+  if (!direction %in% c(-1L, 1L)) {
     cli::cli_abort(
       "{.arg direction} must be either {.val {1}} or {.val {-1}}.",
       call = call
@@ -84,6 +88,79 @@ check_alpha_direction <- function(
   }
 
   invisible(NULL)
+}
+
+check_spat_class <- function(
+  x,
+  class,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  if (inherits(x, class)) {
+    return(invisible(NULL))
+  }
+
+  cli::cli_abort(
+    "{.arg {arg}} must be a {.cls {class}} object, not {.cls {class(x)}}.",
+    ...,
+    call = call
+  )
+}
+
+check_number_whole_vector <- function(
+  x,
+  ...,
+  length = NULL,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  if (!missing(x)) {
+    is_number <- is.numeric(x) && is_null(dim(x))
+    is_whole <- is_number && all(!is.na(x) & is.finite(x) & x == floor(x))
+    is_length <- is_null(length) || length(x) == length
+
+    if (is_number && is_whole && is_length) {
+      return(invisible(NULL))
+    }
+  }
+
+  # nolint start
+  what <- if (is_null(length)) {
+    "a numeric vector of whole numbers"
+  } else {
+    paste0("a numeric vector of ", length, " whole numbers")
+  }
+  # nolint end
+
+  cli::cli_abort(
+    "{.arg {arg}} must be {what}, not {.cls {class(x)}}.",
+    ...,
+    call = call
+  )
+}
+
+check_character_vector <- function(
+  x,
+  ...,
+  allow_na = TRUE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  if (!missing(x)) {
+    is_character_vector <- is_character(x) && is_null(dim(x))
+    has_valid_na <- allow_na || !anyNA(x)
+
+    if (is_character_vector && has_valid_na) {
+      return(invisible(NULL))
+    }
+  }
+
+  cli::cli_abort(
+    "{.arg {arg}} must be a character vector, not {.cls {class(x)}}.",
+    ...,
+    call = call
+  )
 }
 
 check_spatraster <- function(data, fn, call = rlang::caller_env()) {
@@ -105,13 +182,16 @@ check_palette <- function(
   palette,
   choices,
   help = NULL,
-  call = rlang::caller_env()
+  call = caller_env()
 ) {
+  check_string(palette, call = call)
+  check_character_vector(choices, call = call)
+
   if (palette %in% choices) {
     return(invisible(NULL))
   }
 
-  if (is.null(help)) {
+  if (is_null(help)) {
     cli::cli_abort("{.arg palette} is not a known palette.", call = call)
   }
 
@@ -216,7 +296,7 @@ pal_gradient_scale <- function(
 ) {
   check_alpha_direction(alpha, direction, call = call)
 
-  if (is.function(n)) {
+  if (is_function(n)) {
     n <- n()
   }
 
@@ -250,10 +330,10 @@ tint_scale_params <- function(
     colors <- ggplot2::alpha(colors, alpha = alpha)
   }
 
-  if (is.null(values)) {
+  if (is_null(values)) {
     values <- pal_cols$limit
   }
-  if (is.null(limits)) {
+  if (is_null(limits)) {
     limits <- range(values)
   }
 

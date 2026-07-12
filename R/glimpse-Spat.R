@@ -155,7 +155,7 @@ dplyr::glimpse
 get_named_crs <- function(x) {
   # Based on `terra:::.name_or_proj4()`.
   pulled <- pull_crs(x)
-  if (is.na(pulled)) {
+  if (is_na(pulled)) {
     return(NA)
   }
 
@@ -177,7 +177,7 @@ get_named_crs <- function(x) {
     } else {
       r <- d$name
     }
-    if (!is.na(d$code)) {
+    if (!is_na(d$code)) {
       r <- paste0(r, " (", d$authority, ":", d$code, ")")
     }
   }
@@ -189,7 +189,7 @@ get_named_crs <- function(x) {
     r <- try
   }
 
-  if (is.na(r) || !nzchar(r) || is.null(r)) {
+  if (is_null(r) || is_na(r) || !nzchar(r)) {
     r <- NA # nocov
   }
 
@@ -245,7 +245,7 @@ tterra_header <- function(...) {
 # Print CRS information.
 tterra_header_string_crs <- function(x) {
   crsnamed <- get_named_crs(x)
-  if (is.na(crsnamed)) {
+  if (is_na(crsnamed)) {
     tterra_header("CRS: not defined or empty")
     return(invisible(NULL))
   }
@@ -312,7 +312,7 @@ tterra_header_string_res <- function(x) {
 tterra_header_string_rgb <- function(x) {
   # Check RGB color
   rgb_info <- terra::RGB(x)
-  if (!all(!is.null(rgb_info), length(rgb_info) > 0)) {
+  if (!all(!is_null(rgb_info), length(rgb_info) > 0)) {
     return(invisible(NULL))
   }
 
@@ -378,7 +378,7 @@ tterra_body <- function(
   cli::cat_line(capt[-c(1:2)])
 
   # Render the footer.
-  if (!is.null(extra_cols)) {
+  if (!is_null(extra_cols)) {
     extra_text <- vapply(
       extra_cols,
       function(x) {

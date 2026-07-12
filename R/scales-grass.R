@@ -428,14 +428,14 @@ grass_scale_params <- function(
 
   if (any(!use_grass_range, anyNA(pal_cols$limit))) {
     rescaled_values <- values
-    if (!is.null(values)) {
+    if (!is_null(values)) {
       rescaled_values <- scales::rescale(values)
     }
   } else {
-    if (is.null(values)) {
+    if (is_null(values)) {
       values <- pal_cols$limit
     }
-    if (is.null(limits)) {
+    if (is_null(limits)) {
       limits <- range(values)
     }
     rescaled_values <- scales::rescale(values, from = limits)

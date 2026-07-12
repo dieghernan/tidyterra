@@ -170,6 +170,18 @@ test_that("bind_spat_rows() can bind SpatVectors", {
   expect_s4_class(vend, "SpatVector")
 })
 
+test_that("bind_spat_rows() errors on geometry-only SpatVectors", {
+  skip_on_cran()
+
+  v <- terra::vect(
+    data.frame(x = 1:2, y = 1:2),
+    geom = c("x", "y"),
+    crs = "EPSG:4326"
+  )
+
+  expect_snapshot(bind_spat_rows(v, v), error = TRUE)
+})
+
 test_that("bind_spat_rows() can bind SpatVectors and sf", {
   skip_on_cran()
 

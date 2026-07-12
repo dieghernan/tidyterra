@@ -56,3 +56,4 @@
 ^\.positai$
 ^\.claude$
 ^\.gitattributes$
+^AGENTS\.md$

@@ -65,26 +65,12 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
 
   # Materialize lazy dtplyr input.
   if (inherits(x, "dtplyr_step")) {
-    x <- tibble::as_tibble(x) # nocov
+    x <- tibble::as_tibble(x)
   }
 
-  if (!inherits(x, "data.frame")) {
-    cli::cli_abort(paste0(
-      "{.arg x} must be a {.cls data.frame} or {.cls tbl}, ",
-      "not {.cls {class(x)}}."
-    ))
-  }
-
-  if (length(xycols) != 2) {
-    cli::cli_abort(paste(
-      "{.arg xycols} must have length {.val {as.integer(2)}},",
-      "not {.val {length(xycols)}}."
-    ))
-  }
-
-  if (!is.numeric(xycols)) {
-    cli::cli_abort("{.arg xycols} must be numeric, not {.cls {class(xycols)}}.")
-  }
+  check_data_frame(x)
+  check_number_whole_vector(xycols, length = 2)
+  check_number_whole(digits)
 
   xycols <- as.integer(xycols)
 
@@ -214,11 +200,11 @@ prepare_spatraster_cols <- function(x, xycols) {
 resolve_spatraster_crs <- function(crs, crs_attr) {
   crs <- pull_crs(crs)
 
-  if (is.na(crs)) {
+  if (is_na(crs)) {
     crs <- crs_attr
   }
 
-  if (is.na(pull_crs(crs))) {
+  if (is_na(pull_crs(crs))) {
     crs <- NA
   }
 
@@ -226,7 +212,7 @@ resolve_spatraster_crs <- function(crs, crs_attr) {
 }
 
 build_raster_layers <- function(template, values, layer_names) {
-  if (!is.function(template)) {
+  if (!is_function(template)) {
     template <- local({
       raster_template <- template
       function() raster_template

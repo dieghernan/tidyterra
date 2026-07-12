@@ -69,6 +69,18 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "dtplyr",
+      "name": "dtplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dtplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "hexbin",
       "name": "hexbin",
       "provider": {
@@ -280,6 +292,7 @@
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
+      "version": ">= 1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -377,7 +390,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2452.149KB",
+  "fileSize": "2490.184KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",

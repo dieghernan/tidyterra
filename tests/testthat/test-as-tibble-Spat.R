@@ -79,6 +79,16 @@ test_that("For SpatVector internal", {
   expect_identical(group_data(v_rwwise), dplyr::group_data(df_rw))
 })
 
+test_that("check_regroups() restores rowwise data when rows change", {
+  df <- dplyr::rowwise(tibble::tibble(x = 1))
+
+  local_mocked_bindings(group_size = function(...) 0L)
+
+  out <- check_regroups(df)
+  expect_s3_class(out, "rowwise_df")
+  expect_identical(dplyr::group_vars(out), character(0))
+})
+
 test_that("For SpatRaster", {
   skip_on_cran()
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

@@ -56,7 +56,7 @@ glance.SpatRaster <- function(x, ...) {
 
   # Add CRS information.
   crsnamed <- get_named_crs(x)
-  if (is.na(crsnamed)) {
+  if (is_na(crsnamed)) {
     crsnamed <- "CRS: not defined or empty"
   }
 
@@ -98,7 +98,7 @@ glance.SpatVector <- function(x, ...) {
   initial$source <- paste0(basename(f), collapse = ", ")
   # Add CRS information.
   crsnamed <- get_named_crs(x)
-  if (is.na(crsnamed)) {
+  if (is_na(crsnamed)) {
     crsnamed <- "CRS: not defined or empty"
   }
 
@@ -113,7 +113,7 @@ generics::glance
 # Helpers ----
 get_crs_units <- function(x) {
   pulled_crs <- pull_crs(x)
-  if (is.na(pulled_crs)) {
+  if (is_na(pulled_crs)) {
     return(NA)
   }
 

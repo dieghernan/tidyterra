@@ -291,6 +291,7 @@ references:
     email: hadley@posit.co
   year: '2026'
   doi: 10.32614/CRAN.package.rlang
+  version: '>= 1.1.0'
 - type: software
   title: scales
   abstract: 'scales: Scale Functions for Visualization'
@@ -422,6 +423,24 @@ references:
     email: davis@posit.co
   year: '2026'
   doi: 10.32614/CRAN.package.vctrs
+- type: software
+  title: dtplyr
+  abstract: 'dtplyr: Data Table Back-End for ''dplyr'''
+  notes: Suggests
+  url: https://dtplyr.tidyverse.org
+  repository: https://CRAN.R-project.org/package=dtplyr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Girlich
+    given-names: Maximilian
+  - family-names: Fairbanks
+    given-names: Mark
+  - family-names: Dickerson
+    given-names: Ryan
+  year: '2026'
+  doi: 10.32614/CRAN.package.dtplyr
 - type: software
   title: hexbin
   abstract: 'hexbin: Hexagonal Binning Routines'

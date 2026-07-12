@@ -101,7 +101,7 @@ pull_crs <- function(.data, ...) {
     return(NA)
   }
 
-  if (is.null(.data)) {
+  if (is_null(.data)) {
     return(NA)
   }
 

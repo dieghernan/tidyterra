@@ -83,6 +83,9 @@ stat_spatraster <- function(
   ...
 ) {
   check_spatraster(data, "stat_spatraster")
+  check_bool(na.rm)
+  check_bool(inherit.aes)
+  check_number_whole(maxcell, min = 1)
 
   # 1. Work with aes ----
 
@@ -114,7 +117,7 @@ stat_spatraster <- function(
     mapping <- prepared$map
 
     # Check whether the `SpatRaster` needs to be subset.
-    if (is.character(prepared$namelayer)) {
+    if (is_character(prepared$namelayer)) {
       # Subset the layer from the data.
       data <- terra::subset(data, prepared$namelayer)
     }
@@ -168,7 +171,7 @@ stat_spatraster <- function(
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train the
   # scales. Mimic using the first layer CRS as the base CRS for `coord_sf()`.
 
-  if (!is.na(crs_terra)) {
+  if (!is_na(crs_terra)) {
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(

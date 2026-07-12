@@ -55,11 +55,8 @@
 #' group_data(a_gr_sf)
 #'
 as_sf <- function(x, ...) {
-  if (!inherits(x, "SpatVector")) {
-    cli::cli_abort(
-      "{.arg x} must be a {.cls SpatVector}, not {.cls {class(x)}}."
-    )
-  }
+  check_spat_class(x, "SpatVector")
+
   sfobj <- sf::st_as_sf(x, ...)
 
   # Make an sf/tibble object.

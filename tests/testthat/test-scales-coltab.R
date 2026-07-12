@@ -94,6 +94,62 @@ test_that("Can extract several color tables on layers", {
   expect_identical(c(ctab1, ctab2), ctab)
 })
 
+test_that("Can handle color tables without categories", {
+  r <- terra::rast(ncols = 2, nrows = 2, vals = 1:4)
+  terra::coltab(r) <- data.frame(
+    value = 1:4,
+    red = 1:4,
+    green = 1:4,
+    blue = 1:4,
+    alpha = 255
+  )
+
+  expect_snapshot(pal <- get_coltab_pal(r))
+  expect_length(pal, 0)
+})
+
+test_that("Can handle layers without color table entries", {
+  r <- terra::rast(
+    ncols = 4,
+    nrows = 4,
+    vals = as.factor(rep_len(c("A", "B"), 16))
+  )
+  r2 <- r
+  terra::values(r2) <- as.factor(rep_len(c("D", "E"), 16))
+
+  coltb <- data.frame(id = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
+  terra::coltab(r, layer = 1) <- coltb
+
+  local_mocked_bindings(tt_terra_coltab = function(x) {
+    cols <- terra::coltab(x)
+    cols[1] <- list(NULL)
+    cols
+  })
+
+  pal <- get_coltab_pal(c(r, r2))
+  expect_named(pal, c("A", "B", "D", "E"))
+})
+
+test_that("Can complete missing color tables and colors", {
+  skip_on_cran()
+
+  r <- terra::rast(
+    ncols = 4,
+    nrows = 4,
+    vals = as.factor(rep_len(c("A", "B", "C"), 16))
+  )
+  r2 <- r
+  terra::values(r2) <- as.factor(rep_len(c("D", "E"), 16))
+
+  coltb <- data.frame(id = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
+  terra::coltab(r, layer = 1) <- coltb
+
+  pal <- get_coltab_pal(c(r, r2))
+
+  expect_named(pal, c("A", "B", "C", "D", "E"))
+  expect_length(pal, 5)
+})
+
 test_that("Can alpha color tables", {
   skip_on_cran()
   # Prepare colors

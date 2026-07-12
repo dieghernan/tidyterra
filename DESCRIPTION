@@ -30,7 +30,7 @@ Imports:
     isoband,
     lifecycle,
     magrittr,
-    rlang,
+    rlang (>= 1.1.0),
     scales,
     sf (>= 1.0.0),
     terra (>= 1.8-10),
@@ -40,6 +40,7 @@ Imports:
     utils,
     vctrs
 Suggests:
+    dtplyr,
     hexbin,
     knitr,
     maptiles,

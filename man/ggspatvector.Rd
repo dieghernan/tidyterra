@@ -23,7 +23,6 @@ geom_spatvector_label(
   na.rm = FALSE,
   show.legend = NA,
   ...,
-  linewidth = 0.25,
   inherit.aes = TRUE
 )
 
@@ -69,8 +68,6 @@ override the default legend.}
 \item{...}{Other arguments passed to \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions.
 These are often aesthetics, used to set an aesthetic to a fixed value,
 like \code{colour = "red"} or \code{linewidth = 3}.}
-
-\item{linewidth}{Size of label border, in mm.}
 
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions

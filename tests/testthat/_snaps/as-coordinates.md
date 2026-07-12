@@ -4,5 +4,5 @@
       as_coordinates(v)
     Condition
       Error in `as_coordinates()`:
-      ! `tidyterra::as_coordinates()` requires a <SpatRaster> object, not <matrix/array>.
+      ! `x` must be a <SpatRaster> object, not <matrix/array>.
 

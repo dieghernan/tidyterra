@@ -36,6 +36,8 @@
 #' is_regular_grid(p_jitter, digits = 4)
 #'
 is_regular_grid <- function(xy, digits = 6) {
+  check_number_whole(digits)
+
   # From https://github.com/rspatial/terra/blob/master/R/rast.R
 
   # Work with tibbles.

@@ -1,9 +1,15 @@
 # tidyterra (development version)
 
+- Argument validation has been improved across user-facing helpers and plotting
+  functions, producing clearer errors for invalid inputs.
 - The pkgdown site now links to the JOSS paper as an external article and uses
   `vignette("tidyterra")` as the introductory article.
 - `geom_spatraster_rgb()` no longer emits a warning for rasters with more than
   three layers, such as RGB rasters with an alpha channel.
+- Default aesthetics in `geom_*` functions adjusted to current **ggplot2**
+  defaults.
+- One additional palette is included in `hypso.colors()`: `"xkcd-painbow"`. See
+  <https://xkcd.com/2537/>.
 
 # tidyterra 1.2.0
 
@@ -285,3 +291,4 @@ Other changes in this version:
   tested.
 - `geom_spatraster_contour()` and its family have been added.
 - `pull()`, `rename()` and `transmute()` methods have been added.
+

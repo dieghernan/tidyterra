@@ -88,7 +88,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   }
 
   # Support list input.
-  if (length(dots) == 1 && is.list(dots[[1]])) {
+  if (length(dots) == 1 && is_list(dots[[1]])) {
     # Unlist the first level.
     dots <- dots[[1]]
   }
@@ -96,7 +96,7 @@ bind_spat_rows <- function(..., .id = NULL) {
   named_list <- as.character(seq_along(dots))
 
   # Preserve names from named lists.
-  if (!is.null(names(dots))) {
+  if (!is_null(names(dots))) {
     maybe_names <- names(dots)
     maybe_names <- maybe_names[nzchar(maybe_names)]
     maybe_names <- maybe_names[!is.na(maybe_names)]
@@ -207,7 +207,7 @@ crs_compare <- function(a, b, index) {
     a <- as_spatvector(a)
   }
 
-  if (is.na(pull_crs(b))) {
+  if (is_na(pull_crs(b))) {
     terra::crs(a) <- pull_crs(b)
   } else {
     a <- terra::project(a, pull_crs(b))

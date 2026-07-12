@@ -153,6 +153,12 @@ geom_spatraster <- function(
   ...
 ) {
   check_spatraster(data, "geom_spatraster")
+  check_bool(na.rm)
+  check_bool(inherit.aes)
+  check_bool(interpolate)
+  check_number_whole(maxcell, min = 1)
+  check_bool(use_coltab)
+  check_bool(mask_projection)
 
   # Warn when an RGB raster should use the RGB geom.
   if (terra::has.RGB(data)) {
@@ -174,7 +180,7 @@ geom_spatraster <- function(
   mapping <- prepared$map
 
   # Check whether the `SpatRaster` needs to be subset.
-  if (is.character(prepared$namelayer)) {
+  if (is_character(prepared$namelayer)) {
     # Subset the layer from the data.
     data <- terra::subset(data, prepared$namelayer)
   }
@@ -229,7 +235,7 @@ geom_spatraster <- function(
   # If the `SpatRaster` has a CRS, add an empty `geom_sf()` to train scales.
   # This mimics using the first layer CRS as the base CRS for `coord_sf()`.
 
-  if (!is.na(crs_terra)) {
+  if (!is_na(crs_terra)) {
     layer_spatrast <- c(
       layer_spatrast,
       ggplot2::geom_sf(
@@ -310,13 +316,13 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   crs_terra <- pull_crs(raster)
 
   # Do not reproject rasters without a CRS.
-  if (is.na(crs_terra)) {
+  if (is_na(crs_terra)) {
     return(raster)
   }
 
   coord_crs <- pull_crs(coords_crs)
 
-  if (is.na(coord_crs)) {
+  if (is_na(coord_crs)) {
     cli::cli_abort(
       paste(
         "{.code geom_spatraster_*()} on {.cls SpatRaster} objects with CRS",
@@ -360,11 +366,11 @@ pivot_longer_spat <- function(x) {
 # Combine aesthetics with overriding values.
 # From ggspatial.
 override_aesthetics <- function(user_mapping = NULL, default_mapping = NULL) {
-  if (is.null(user_mapping) && is.null(default_mapping)) {
+  if (is_null(user_mapping) && is_null(default_mapping)) {
     ggplot2::aes()
-  } else if (is.null(default_mapping)) {
+  } else if (is_null(default_mapping)) {
     user_mapping
-  } else if (is.null(user_mapping)) {
+  } else if (is_null(user_mapping)) {
     default_mapping
   } else {
     all_aes_names <- unique(c(names(user_mapping), names(default_mapping)))
@@ -501,7 +507,7 @@ prepare_aes_spatraster <- function(
   fill_from_aes <- unname(vapply(mapinit, rlang::as_label, character(1))[
     "fill"
   ])
-  fill_not_provided <- is.na(fill_from_aes)
+  fill_not_provided <- is_na(fill_from_aes)
   is_layer <- fill_from_aes %in% raster_names
 
   # If not provided add after_stat

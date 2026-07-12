@@ -14,6 +14,14 @@
       ! Object 2 in `...` is <data.frame> 
       The result includes empty geometries.
 
+# bind_spat_rows() errors on geometry-only SpatVectors
+
+    Code
+      bind_spat_rows(v, v)
+    Condition
+      Error:
+      ! [cbind] nrow does not match
+
 # bind_spat_rows() give informative errors
 
     Code
