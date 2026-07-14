@@ -44,6 +44,7 @@
 #' - [`group`][ggplot2::aes_group_order]
 #' - [`linetype`][ggplot2::aes_linetype_size_shape]
 #' - [`linewidth`][ggplot2::aes_linetype_size_shape]
+#' - `weight`
 #'
 #' `geom_spatraster_contour_text()` also understands:
 #'

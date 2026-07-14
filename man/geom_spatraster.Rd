@@ -160,7 +160,8 @@ mapped \code{fill} aesthetic.
 
 \code{fill} can use computed variables.
 
-For \code{alpha}, use a computed variable. See section \strong{Computed variables}.
+For \code{alpha}, use a computed variable or the name of one layer that is present
+on the \code{SpatRaster}. See section \strong{Computed variables}.
 
 
 \subsection{\code{stat_spatraster()}}{
@@ -198,6 +199,8 @@ aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
 \item \code{after_stat(value)}: Cell values of the \code{SpatRaster}.
+\item \code{after_stat(alpha)}: Cell values of the layer mapped to \code{alpha}, when
+\code{alpha} is the name of a layer.
 \item \code{after_stat(lyr)}: Name of the layer.
 }
 }

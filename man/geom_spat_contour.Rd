@@ -173,6 +173,7 @@ the following aesthetics:
 \item \code{\link[ggplot2:aes_group_order]{group}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}}
+\item \code{weight}
 }
 
 \code{geom_spatraster_contour_text()} also understands:
