@@ -93,7 +93,7 @@ test_that("Regular tests", {
     c(0.6, 0.2, 0.8, 0.4)
   )
 
-  set.seed(154)
+  withr::local_seed(154)
   x <- terra::rast(array(data = rnorm(120, 0, 1), dim = c(5, 5, 2)))
   names(x) <- c("prediction", "se")
   xdf <- as.data.frame(x, xy = TRUE)

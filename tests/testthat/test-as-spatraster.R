@@ -109,7 +109,7 @@ test_that("Irregular grids", {
   p <- as.data.frame(p)
 
   # Jitter location
-  set.seed(1234)
+  withr::local_seed(1234)
   jitter <- runif(nrow(p)) / 10e4
 
   p_jitter_x <- p

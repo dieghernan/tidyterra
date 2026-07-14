@@ -202,7 +202,7 @@ test_that("geom_spatraster several layer with CRS", {
 
   # Check factors
 
-  set.seed(1234)
+  withr::local_seed(1234)
   # https://stackoverflow.com/questions/79340152/
   r1 <- terra::rast(
     nrows = 10,
@@ -260,7 +260,7 @@ test_that("geom_spatraster several layer with CRS", {
     geom_spatraster(data = s_r_f) +
     facet_wrap(~lyr)
   vdiffr::expect_doppelganger("crs_16: Combine levels", fcts)
-  set.seed(NULL)
+  withr::local_seed(NULL)
 
   # Check wrap
 
