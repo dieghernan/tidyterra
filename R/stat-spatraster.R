@@ -25,10 +25,11 @@
 #' - [`fill`][ggplot2::aes_colour_fill_alpha]
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' When `geom = "raster"`, the `fill` argument behaves as in
-#' `geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
-#' understands the aesthetics required by that `geom`, so
-#' `aes(fill = <name_of_lyr>)` is not applicable.
+#' When `geom = "raster"`, the `fill` and `alpha` arguments behave as in
+#' `geom_spatraster()`, so they can be mapped to `SpatRaster` layer names. If
+#' another `geom` is used, `stat_spatraster()` understands the aesthetics
+#' required by that `geom`, so `aes(fill = <name_of_lyr>)` and
+#' `aes(alpha = <name_of_lyr>)` are not applicable.
 #'
 #' The `x` and `y` aesthetics are mapped by default, so you do not need to add
 #' them in `aes()`. In every case, aesthetics should be mapped with computed
@@ -116,11 +117,18 @@ stat_spatraster <- function(
     # Use prepared data.
     mapping <- prepared$map
 
+    alpha_data <- NULL
+    if (is_character(prepared$alphalayer)) {
+      alpha_data <- terra::subset(data, prepared$alphalayer)
+    }
+
     # Check whether the `SpatRaster` needs to be subset.
     if (is_character(prepared$namelayer)) {
       # Subset the layer from the data.
       data <- terra::subset(data, prepared$namelayer)
     }
+  } else {
+    alpha_data <- NULL
   }
   # 2. Check if resample is needed----
 
@@ -128,13 +136,16 @@ stat_spatraster <- function(
   data <- check_mixed_cols(data)
 
   data <- resample_spat(data, maxcell)
+  if (!is_null(alpha_data)) {
+    alpha_data <- resample_spat(alpha_data, maxcell, inform = FALSE)
+  }
 
   # 3. Create a nested list with each layer----
   raster_list <- as.list(data)
 
   # Create the data frame.
   data_tbl <- tibble::tibble(
-    spatraster = list(NULL),
+    spatraster = vector("list", terra::nlyr(data)),
     # Keep layer order when faceting.
     lyr = factor(names(data), levels = names(data))
   )
@@ -163,6 +174,7 @@ stat_spatraster <- function(
       na.rm = na.rm,
       # Extra params
       maxcell = maxcell,
+      alpha_spatraster = alpha_data,
       ...
     )
   )

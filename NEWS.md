@@ -5,6 +5,7 @@
 - The pkgdown site now links to the JOSS paper as an external article and uses
   `vignette("tidyterra")` as the introductory article.
 - `geom_spatraster()`, `geom_spatraster_rgb()`, `geom_spatraster_contour()`, `geom_spatraster_contour_text()`, `stat_spatraster()`, `tidy()` and `fortify()` now consistently accept `maxcell = Inf` and validate related arguments earlier.
+- `geom_spatraster()` and `stat_spatraster(geom = "raster")` now support mapping `alpha` to a different `SpatRaster` layer than `fill` (#154, #211).
 - `geom_spatraster_rgb()` no longer emits a warning for rasters with more than
   three layers, such as RGB rasters with an alpha channel.
 - Default aesthetics in `geom_*` functions adjusted to current **ggplot2**

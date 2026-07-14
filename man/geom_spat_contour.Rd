@@ -56,7 +56,7 @@ geom_spatraster_contour_filled(
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
-\strong{Aesthetics}, especially in the use of the \code{fill} aesthetic.}
+\strong{Aesthetics} for supported contour aesthetics.}
 
 \item{data}{A \code{SpatRaster} object.}
 
@@ -173,6 +173,7 @@ the following aesthetics:
 \item \code{\link[ggplot2:aes_group_order]{group}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linetype}}
 \item \code{\link[ggplot2:aes_linetype_size_shape]{linewidth}}
+\item \code{weight}
 }
 
 \code{geom_spatraster_contour_text()} also understands:

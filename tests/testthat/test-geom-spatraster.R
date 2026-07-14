@@ -47,6 +47,83 @@ test_that("Regular tests", {
   expect_silent(ss <- ggplot2::ggplot_build(s))
   expect_identical(unique(ss$data[[1]]$lyr), "tavg_04")
 
+  # Named alpha layer
+  alpha_r <- terra::rast(ncols = 2, nrows = 2, nlyr = 2)
+  names(alpha_r) <- c("fill_layer", "alpha_layer")
+  terra::values(alpha_r) <- data.frame(
+    fill_layer = 1:4,
+    alpha_layer = c(0.2, 0.4, 0.6, 0.8)
+  )
+
+  alpha_plot <- ggplot2::ggplot() +
+    geom_spatraster(
+      data = alpha_r,
+      aes(fill = fill_layer, alpha = alpha_layer)
+    ) +
+    ggplot2::scale_alpha_identity()
+
+  alpha_data <- ggplot2::layer_data(alpha_plot)
+  expect_identical(unique(alpha_data$lyr), "fill_layer")
+  alpha_values <- alpha_data[
+    order(alpha_data$x, alpha_data$y),
+    c(
+      "value",
+      "alpha"
+    )
+  ]
+  row.names(alpha_values) <- NULL
+  expect_equal(
+    alpha_values,
+    data.frame(
+      value = c(3, 1, 4, 2),
+      alpha = c(0.6, 0.2, 0.8, 0.4)
+    )
+  )
+
+  stat_alpha_plot <- ggplot2::ggplot() +
+    stat_spatraster(
+      data = alpha_r,
+      aes(fill = fill_layer, alpha = alpha_layer)
+    ) +
+    ggplot2::scale_alpha_identity()
+
+  stat_alpha_data <- ggplot2::layer_data(stat_alpha_plot)
+  expect_equal(
+    stat_alpha_data[order(stat_alpha_data$x, stat_alpha_data$y), "alpha"],
+    c(0.6, 0.2, 0.8, 0.4)
+  )
+
+  set.seed(154)
+  x <- terra::rast(array(data = rnorm(120, 0, 1), dim = c(5, 5, 2)))
+  names(x) <- c("prediction", "se")
+  xdf <- as.data.frame(x, xy = TRUE)
+
+  tile_plot <- ggplot2::ggplot() +
+    ggplot2::geom_tile(
+      data = xdf,
+      aes(x = x, y = y, fill = se, alpha = prediction)
+    ) +
+    ggplot2::scale_alpha_continuous(range = c(0, 1))
+
+  spat_plot <- ggplot2::ggplot() +
+    geom_spatraster(data = x, aes(fill = se, alpha = prediction)) +
+    ggplot2::scale_alpha_continuous(range = c(0, 1))
+
+  tile_data <- ggplot2::layer_data(tile_plot)
+  spat_data <- ggplot2::layer_data(spat_plot)
+  tile_alpha <- tile_data[
+    order(tile_data$x, tile_data$y),
+    c("x", "y", "alpha")
+  ]
+  spat_alpha <- spat_data[
+    order(spat_data$x, spat_data$y),
+    c("x", "y", "alpha")
+  ]
+  row.names(tile_alpha) <- NULL
+  row.names(spat_alpha) <- NULL
+
+  expect_equal(spat_alpha, tile_alpha)
+
   # Resampled
   s1 <- terra::subset(r, 1)
 
@@ -147,4 +224,26 @@ test_that("Helpers", {
     list()
   )
   expect_false(prepared$namelayer)
+
+  prepared_alpha <- prepare_aes_spatraster(
+    ggplot2::aes(fill = lyr.1, alpha = lyr.2),
+    c("lyr.1", "lyr.2"),
+    list()
+  )
+  expect_identical(prepared_alpha$namelayer, "lyr.1")
+  expect_identical(prepared_alpha$alphalayer, "lyr.2")
+
+  alpha_rast <- terra::rast(ncols = 4, nrows = 4)
+  terra::values(alpha_rast) <- seq_len(terra::ncell(alpha_rast))
+  terra::crs(alpha_rast) <- ""
+  template_rast <- terra::rast(ncols = 2, nrows = 2)
+  terra::values(template_rast) <- seq_len(terra::ncell(template_rast))
+  terra::crs(template_rast) <- ""
+
+  aligned_alpha <- prepare_alpha_spatraster(alpha_rast, template_rast)
+  expect_true(terra::compareGeom(
+    aligned_alpha,
+    template_rast,
+    stopOnError = FALSE
+  ))
 })

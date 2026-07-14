@@ -28,6 +28,8 @@
 #' @inheritParams geom_spatraster
 #' @inheritParams ggplot2::geom_contour
 #' @inheritParams ggplot2::geom_text
+#' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
+#'   **Aesthetics** for supported contour aesthetics.
 #'
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
@@ -44,6 +46,7 @@
 #' - [`group`][ggplot2::aes_group_order]
 #' - [`linetype`][ggplot2::aes_linetype_size_shape]
 #' - [`linewidth`][ggplot2::aes_linetype_size_shape]
+#' - `weight`
 #'
 #' `geom_spatraster_contour_text()` also understands:
 #'

@@ -44,6 +44,27 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
 
   expect_s3_class(p_aes, "ggplot")
 
+  alpha_r <- rast(ncols = 2, nrows = 2, nlyr = 2)
+  names(alpha_r) <- c("fill_layer", "alpha_layer")
+  values(alpha_r) <- data.frame(
+    fill_layer = 1:4,
+    alpha_layer = c(0.2, 0.4, 0.6, 0.8)
+  )
+
+  p_alpha <- ggplot() +
+    stat_spatraster(
+      data = alpha_r,
+      aes(fill = fill_layer, alpha = alpha_layer)
+    ) +
+    scale_alpha_identity()
+
+  alpha_data <- layer_data(p_alpha)
+  expect_identical(unique(alpha_data$lyr), "fill_layer")
+  expect_equal(
+    alpha_data[order(alpha_data$x, alpha_data$y), "alpha"],
+    c(0.6, 0.2, 0.8, 0.4)
+  )
+
   # change geom
   p <- ggplot() +
     stat_spatraster(data = r, geom = "point", aes(fill = elevation_m))
