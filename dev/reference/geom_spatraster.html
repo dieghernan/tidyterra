@@ -129,7 +129,8 @@ Thanks to <a href="https://github.com/paleolimbot" class="external-link">Dewey D
 
 <dl><dt id="arg-mapping">mapping<a class="anchor" aria-label="anchor" href="#arg-mapping"></a></dt>
 <dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. See
-<strong>Aesthetics</strong>, especially in the use of the <code>fill</code> aesthetic.</p></dd>
+<strong>Aesthetics</strong>, especially the use of the <code>fill</code> and <code>alpha</code> aesthetics
+with <code>SpatRaster</code> layers.</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -255,7 +256,10 @@ be retrieved using <code>names(rast)</code>.</p>
 <code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> creates a layer with no
 mapped <code>fill</code> aesthetic.</p>
 <p><code>fill</code> can use computed variables.</p>
-<p>For <code>alpha</code>, use a computed variable. See section <strong>Computed variables</strong>.</p>
+<p>For <code>alpha</code>, use a computed variable or the name of one layer that is
+present on the <code>SpatRaster</code>. When <code>alpha</code> is a layer name, it can refer to
+the same layer as <code>fill</code> or to another layer in the <code>SpatRaster</code>. See section
+<strong>Computed variables</strong>.</p>
 
 <div class="section">
 <h3 id="stat-spatraster-"><code>stat_spatraster()</code><a class="anchor" aria-label="anchor" href="#stat-spatraster-"></a></h3>
@@ -264,10 +268,11 @@ mapped <code>fill</code> aesthetic.</p>
 <p><code>stat_spatraster()</code> understands the same aesthetics as <code>geom_spatraster()</code>
 when <code>geom = "raster"</code> (the default):</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
 <li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
-</ul><p>When <code>geom = "raster"</code>, the <code>fill</code> argument behaves as in
-<code>geom_spatraster()</code>. If another <code>geom</code> is used, <code>stat_spatraster()</code>
-understands the aesthetics required by that <code>geom</code>, so
-<code>aes(fill = &lt;name_of_lyr&gt;)</code> is not applicable.</p>
+</ul><p>When <code>geom = "raster"</code>, the <code>fill</code> and <code>alpha</code> arguments behave as in
+<code>geom_spatraster()</code>, so they can be mapped to <code>SpatRaster</code> layer names. If
+another <code>geom</code> is used, <code>stat_spatraster()</code> understands the aesthetics
+required by that <code>geom</code>, so <code>aes(fill = &lt;name_of_lyr&gt;)</code> and
+<code>aes(alpha = &lt;name_of_lyr&gt;)</code> are not applicable.</p>
 <p>The <code>x</code> and <code>y</code> aesthetics are mapped by default, so you do not need to add
 them in <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code>. In every case, aesthetics should be mapped with computed
 variables. See <strong>Computed variables</strong> and <strong>Examples</strong>.</p>
@@ -290,6 +295,8 @@ the <code>SpatRaster</code> object. See <code><a href="https://ggplot2.tidyverse
 <p>This geom computes variables internally that are available for use as
 aesthetics, using (for example) <code>aes(alpha = after_stat(value))</code> (see
 <code><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">ggplot2::after_stat()</a></code>).</p><ul><li><p><code>after_stat(value)</code>: Cell values of the <code>SpatRaster</code>.</p></li>
+<li><p><code>after_stat(alpha)</code>: Cell values of the layer mapped to <code>alpha</code>, when
+<code>alpha</code> is the name of a layer.</p></li>
 <li><p><code>after_stat(lyr)</code>: Name of the layer.</p></li>
 </ul></div>
     <div class="section level2">

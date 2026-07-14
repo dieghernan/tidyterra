@@ -57,7 +57,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics**, especially in the use of the `fill` aesthetic.
+  See **Aesthetics**, especially the use of the `fill` and `alpha`
+  aesthetics with `SpatRaster` layers.
 
 - data:
 
@@ -194,8 +195,10 @@ mapped `fill` aesthetic.
 
 `fill` can use computed variables.
 
-For `alpha`, use a computed variable. See section **Computed
-variables**.
+For `alpha`, use a computed variable or the name of one layer that is
+present on the `SpatRaster`. When `alpha` is a layer name, it can refer
+to the same layer as `fill` or to another layer in the `SpatRaster`. See
+section **Computed variables**.
 
 ### `stat_spatraster()`
 
@@ -206,10 +209,11 @@ variables**.
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
-When `geom = "raster"`, the `fill` argument behaves as in
-`geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
-understands the aesthetics required by that `geom`, so
-`aes(fill = <name_of_lyr>)` is not applicable.
+When `geom = "raster"`, the `fill` and `alpha` arguments behave as in
+`geom_spatraster()`, so they can be mapped to `SpatRaster` layer names.
+If another `geom` is used, `stat_spatraster()` understands the
+aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)` and
+`aes(alpha = <name_of_lyr>)` are not applicable.
 
 The `x` and `y` aesthetics are mapped by default, so you do not need to
 add them in [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
@@ -230,6 +234,9 @@ aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
 - `after_stat(value)`: Cell values of the `SpatRaster`.
+
+- `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when
+  `alpha` is the name of a layer.
 
 - `after_stat(lyr)`: Name of the layer.
 

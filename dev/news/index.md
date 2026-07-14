@@ -17,6 +17,11 @@
   [`fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
   now consistently accept `maxcell = Inf` and validate related arguments
   earlier.
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
+  and `stat_spatraster(geom = "raster")` now support mapping `alpha` to
+  a different `SpatRaster` layer than `fill`
+  ([\#154](https://github.com/dieghernan/tidyterra/issues/154),
+  [\#211](https://github.com/dieghernan/tidyterra/issues/211)).
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   no longer emits a warning for rasters with more than three layers,
   such as RGB rasters with an alpha channel.

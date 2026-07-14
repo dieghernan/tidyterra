@@ -67,7 +67,7 @@ geom_spatraster_contour_filled(
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics**, especially in the use of the `fill` aesthetic.
+  See **Aesthetics** for supported contour aesthetics.
 
 - data:
 
@@ -213,6 +213,8 @@ understand the following aesthetics:
 - [`linetype`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
 - [`linewidth`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
+
+- `weight`
 
 `geom_spatraster_contour_text()` also understands:
 
