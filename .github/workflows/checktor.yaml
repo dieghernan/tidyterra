@@ -1,0 +1,70 @@
+name: checktor
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checktor-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checktor:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install checktor
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            checktor
+          needs: check
+
+      - name: Run checktor
+        shell: Rscript {0}
+        run: |
+          results <- checktor::checktor(verbose = TRUE)
+          healthy <- checktor::is_healthy(results)
+
+          report <- checktor::health_report(
+            results,
+            format = "markdown"
+          )
+
+          summary <- Sys.getenv("GITHUB_STEP_SUMMARY")
+
+          heading <- if (healthy) {
+            "## ✅ checktor passed"
+          } else {
+            "## ❌ checktor found issues"
+          }
+
+          writeLines(
+            c(
+              heading,
+              "",
+              report,
+              ""
+            ),
+            summary
+          )
+
+          if (!healthy) {
+            checktor::prescribe(results)
+            stop("checktor found issues.", call. = FALSE)
+          }
+ 
