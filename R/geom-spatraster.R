@@ -25,7 +25,8 @@
 #' @param data A `SpatRaster` object.
 #'
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
-#'   **Aesthetics**, especially in the use of the `fill` aesthetic.
+#'   **Aesthetics**, especially the use of the `fill` and `alpha` aesthetics
+#'   with `SpatRaster` layers.
 #'
 #' @param na.rm If `TRUE`, the default, missing values are silently removed. If
 #'   `FALSE`, missing values are removed with a warning.
@@ -83,8 +84,10 @@
 #'
 #' `fill` can use computed variables.
 #'
-#' For `alpha`, use a computed variable or the name of one layer that is present
-#' on the `SpatRaster`. See section **Computed variables**.
+#' For `alpha`, use a computed variable or the name of one layer that is
+#' present on the `SpatRaster`. When `alpha` is a layer name, it can refer to
+#' the same layer as `fill` or to another layer in the `SpatRaster`. See section
+#' **Computed variables**.
 #'
 #' @section Facets:
 #'

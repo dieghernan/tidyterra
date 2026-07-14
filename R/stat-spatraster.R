@@ -25,10 +25,11 @@
 #' - [`fill`][ggplot2::aes_colour_fill_alpha]
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' When `geom = "raster"`, the `fill` argument behaves as in
-#' `geom_spatraster()`. If another `geom` is used, `stat_spatraster()`
-#' understands the aesthetics required by that `geom`, so
-#' `aes(fill = <name_of_lyr>)` is not applicable.
+#' When `geom = "raster"`, the `fill` and `alpha` arguments behave as in
+#' `geom_spatraster()`, so they can be mapped to `SpatRaster` layer names. If
+#' another `geom` is used, `stat_spatraster()` understands the aesthetics
+#' required by that `geom`, so `aes(fill = <name_of_lyr>)` and
+#' `aes(alpha = <name_of_lyr>)` are not applicable.
 #'
 #' The `x` and `y` aesthetics are mapped by default, so you do not need to add
 #' them in `aes()`. In every case, aesthetics should be mapped with computed
