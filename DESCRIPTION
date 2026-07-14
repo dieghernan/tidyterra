@@ -47,7 +47,8 @@ Suggests:
     quarto,
     s2,
     stringi,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 VignetteBuilder:
     quarto
 Config/Needs/coverage: covr
