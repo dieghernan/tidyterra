@@ -9,7 +9,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Provides methods from 'tidyverse' packages for 'SpatRaster' and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and scales for plotting those objects.
+Provides methods from 'tidyverse' packages for 'SpatRaster' and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and scales for plotting those objects. It is designed to let users manipulate spatial data with familiar 'dplyr' and 'tidyr' verbs before visualizing results with 'ggplot2'.
 }
 \references{
 Hernangomez D (2023). "Using the tidyverse with terra objects: the
