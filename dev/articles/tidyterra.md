@@ -39,13 +39,13 @@ Load **tidyterra** together with core tidyverse packages:
 
 library(tidyterra)
 #> 
-#> Adjuntando el paquete: 'tidyterra'
+#> Attaching package: 'tidyterra'
 #> The following object is masked from 'package:stats':
 #> 
 #>     filter
 library(dplyr)
 #> 
-#> Adjuntando el paquete: 'dplyr'
+#> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
