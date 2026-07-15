@@ -393,12 +393,25 @@ test_that("Slice sample", {
   )
 
   # W replacement
+  withr::local_seed(1234)
   r_3 <- r[c(1, 3), drop = FALSE]
   sliced <- slice_sample(r_3, n = 20, replace = TRUE)
 
   expect_s4_class(sliced, "SpatRaster")
+  expect_lte(terra::ncell(sliced), terra::ncell(r_3))
 
-  expect_true(terra::ncell(sliced) == terra::ncell(r_3))
+  df <- terra::as.data.frame(sliced, na.rm = TRUE)
+
+  expect_setequal(df$cell_index, intersect(df$cell_index, c(1, 3)))
+  expect_equal(unique(df$cell_index), df$cell_index)
+
+  # W replacement, keep extent
+  withr::local_seed(1234)
+  sliced <- slice_sample(r_3, n = 20, replace = TRUE, .keep_extent = TRUE)
+
+  expect_s4_class(sliced, "SpatRaster")
+  expect_equal(terra::ncell(sliced), terra::ncell(r_3))
+  expect_silent(compare_spatrasters(r_3, sliced))
 
   # W/0 replacement, no keep extent
   sliced <- slice_sample(r, n = 1, replace = FALSE)
