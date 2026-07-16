@@ -345,6 +345,12 @@ Tanaka, E. (2025). Examining the Interface Design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*.
 <https://doi.org/10.1111/anzs.70031>
 
+Tribbia, D. Z., Lebre, P. H., Vázquez-Campos, X., Ray, A. E., Laird, T.,
+Lima, N. M. de, Maggs-Kölling, G., Cowan, D. A., & Ferrari, B. C.
+(2026). *Trace gas oxidation supports sub-surface microbial communities
+across Namib Desert fog and aridity gradients*. e00265–26.
+<https://doi.org/10.1128/aem.00265-26>
+
 Varma, V., Mosedale, J. R., Alvarez, J. A. G., & Bebber, D. P. (2025).
 Socio-economic factors constrain climate change adaptation in a tropical
 export crop. *Nature Food*. <https://doi.org/10.1038/s43016-025-01130-1>
