@@ -107,6 +107,11 @@ caption {
 	color: var(--bs-gray) !important;
 }
 
+/* Dev version badge in navbar: fixed vivid red outside brand tokens. */
+.navbar .text-danger {
+	color: #ff4d4f !important;
+}
+
 /* Hovers */
 #navbar .nav-link:hover,
 #navbar .nav-link:focus {
@@ -166,6 +171,7 @@ mark,
 
 /* ---Footer--- */
 footer {
+	--gitdevr-footer-bg: var(--brand-footer_bg);
 	width: 100vw;
 	position: relative;
 	left: 50%;
@@ -175,10 +181,12 @@ footer {
 	margin-bottom: 0;
 	font-family: "Inter Tight", Roboto;
 	font-weight: 700;
+	background-color: var(--gitdevr-footer-bg) !important;
 }
 
 /* Dark mode footer */
 [data-bs-theme="dark"] footer {
+	--gitdevr-footer-bg: var(--bs-body-bg);
 	background-color: var(--bs-body-bg) !important;
 }
 
@@ -192,7 +200,7 @@ footer a:focus {
 	color: color-mix(
 		in srgb,
 		var(--brand-footer_link) 80%,
-		var(--brand-footer_bg)
+		var(--gitdevr-footer-bg)
 	);
 }
 
