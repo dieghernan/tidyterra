@@ -64,14 +64,6 @@
 	--bs-code-color: var(--brand-dk_code);
 }
 
-.dropdown-menu {
-	--bs-dropdown-link-active-bg: var(--bs-dropdown-bg);
-	--bs-dropdown-link-color: var(--bs-navbar-color);
-	--bs-dropdown-link-hover-color: var(--brand-dk_gray);
-	--bs-dropdown-link-hover-bg: var(--bs-dropdown-bg);
-	--bs-dropdown-header-color: var(--bs-dropdown-link-hover-color);
-}
-
 /* ---Images and captions figure spacing--- */
 main img {
 	margin-left: auto;
@@ -345,9 +337,7 @@ a > code {
 }
 
 code {
-	font-size: 87.5%;
 	word-wrap: break-word;
-	background-color: var(--body-bg) !important;
 }
 
 @media (max-width: 575.98px) {
@@ -388,18 +378,6 @@ code {
 /* --- Highlighter based in gitdevr --- */
 pre {
 	border: none;
-}
-
-pre,
-[data-bs-theme="dark"] pre {
-	background-color: rgba(var(--bs-body-color-rgb), 0.03);
-	color: var(--bs-body-color);
-}
-
-/* Normal - pygments.n */
-pre code,
-[data-bs-theme="dark"] pre code {
-	color: var(--bs-body-color);
 }
 
 /* Alert - pygments.gr */
