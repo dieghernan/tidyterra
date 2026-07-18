@@ -359,7 +359,7 @@ and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to render the layer.
 
-You can also aggregate `SpatVector` objects easily:
+You can also aggregate `SpatVector` objects:
 
 ``` r
 

@@ -25,11 +25,10 @@
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   no longer emits a warning for rasters with more than three layers,
   such as RGB rasters with an alpha channel.
-- Default aesthetics in `geom_*` functions were adjusted to current
-  **ggplot2** defaults.
-- One additional palette is included in
-  [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md):
-  `"xkcd-painbow"`. See <https://xkcd.com/2537/>.
+- `geom_*()` defaults were adjusted to current **ggplot2** defaults.
+- [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
+  now includes one additional palette: `"xkcd-painbow"`. See
+  <https://xkcd.com/2537/>.
 
 ## tidyterra 1.2.0
 

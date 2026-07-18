@@ -16,7 +16,7 @@ Map examples and galleries using **tidyterra** scales.
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/dev/articles/palettes.md):
 
-  A gallery of maps using gradient scales provided by tidyterra.
+  A gallery of maps using gradient scales provided by **tidyterra**.
 
 ### Citation and publications
 

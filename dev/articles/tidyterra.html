@@ -584,7 +584,7 @@ Choropleth map with a SpatVector object.
 </p>
 </div>
 <p>Internally, <strong>tidyterra</strong> converts <code>SpatVector</code> objects to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
-<p>You can also aggregate <code>SpatVector</code> objects easily:</p>
+<p>You can also aggregate <code>SpatVector</code> objects:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Dissolve by group.</span></span>
 <span><span class="va">v_lux</span> <span class="op">|&gt;</span></span>

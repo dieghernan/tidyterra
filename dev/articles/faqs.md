@@ -6,7 +6,7 @@ using **tidyterra**, with a focus on the integration of **terra** and
 **ggplot2**. You can ask for help or search previous questions using the
 following links.
 
-You can also ask in [Stack Overflow](https://stackoverflow.com/) using
+You can also ask on [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
@@ -106,7 +106,8 @@ Figure 1: NA values in ggplot2.
 
 Use
 [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
-[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental):
+for contour labels. This function is experimental:
+[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 ``` r
 
