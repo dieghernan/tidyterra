@@ -353,9 +353,7 @@ ggplot(v_lux) +
 
 Choropleth map with a SpatVector object.
 
-Internally, **tidyterra** converts
-[`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-output to **sf** with
+Internally, **tidyterra** converts `SpatVector` objects to **sf** with
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)

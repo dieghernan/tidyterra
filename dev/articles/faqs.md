@@ -27,7 +27,7 @@ v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 #### About the file
 
-The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park,
+The file `holyroodpark.tif` represents the DSM[^1] of [Holyrood Park,
 Edinburgh (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park),
 including [Arthur’s
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct
@@ -927,8 +927,8 @@ ggplot(r, aes(x, y)) +
 Figure 17: Relief rendering combining tidyterra for raster plotting and
 **metR** for terrain relief representation.
 
-[^1]: Digital Elevation Model, representing the elevation of the
-    corresponding area.
+[^1]: Digital Surface Model, representing the elevation of the visible
+    surface in the corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most
     cases. However, when the proportion of non-`NA` cells is small it

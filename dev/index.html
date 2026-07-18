@@ -134,7 +134,7 @@
 <p>Methods implemented in <strong>tidyterra</strong> work differently depending on the type of <code>Spat*</code> object:</p>
 <ul>
 <li><p><code>SpatVector</code>: Methods are implemented using <code><a href="https://rspatial.github.io/terra/reference/as.data.frame.html" class="external-link">terra::as.data.frame()</a></code> coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.</p></li>
-<li><p><code>SpatRaster</code>: Methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, <code>select(SpatRaster, 1)</code> selects the first layer of a <code>SpatRaster</code>.</p></li>
+<li><p><code>SpatRaster</code>: Methods can be applied to layers or cells. <strong>tidyterra</strong>’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, <code>select(a_spatraster, 1)</code> selects the first layer of a <code>SpatRaster</code> object.</p></li>
 </ul>
 <p>Implemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, <code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> returns a tibble.</p>
 <p>Current methods and functions provided by <strong>tidyterra</strong> are:</p>
