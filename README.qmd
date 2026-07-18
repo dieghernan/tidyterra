@@ -114,8 +114,8 @@ Methods implemented in **tidyterra** work differently depending on the type of
 
 - `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**'s
   overall approach is to treat the layers as columns of a tibble and the cells
-  as rows. For example, `select(SpatRaster, 1)` selects the first layer of a
-  `SpatRaster`.
+  as rows. For example, `select(a_spatraster, 1)` selects the first layer of a
+  `SpatRaster` object.
 
 Implemented methods return the same type of object as the input, unless the
 method is expected to return another type of object. For example, `as_tibble()`

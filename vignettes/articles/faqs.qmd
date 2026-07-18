@@ -36,7 +36,7 @@ v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 #### About the file
 
-The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park, Edinburgh
+The file `holyroodpark.tif` represents the DSM[^1] of [Holyrood Park, Edinburgh
 (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park), including [Arthur's
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct volcano, much
 like the well-known [Maungawhau / Mount
@@ -817,8 +817,8 @@ ggplot(r, aes(x, y)) +
   labs(x = "", y = "", title = "tidyterra and metR: reliefs")
 ```
 
-[^1]: Digital Elevation Model, representing the elevation of the corresponding
-    area.
+[^1]: Digital Surface Model, representing the elevation of the visible surface
+    in the corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most cases.
     However, when the proportion of non-`NA` cells is small it can produce
