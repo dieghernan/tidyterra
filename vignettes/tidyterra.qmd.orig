@@ -306,7 +306,7 @@ ggplot(v_lux) +
 Internally, **tidyterra** converts `SpatVector` objects to **sf** with
 `sf::st_as_sf()` and then uses `ggplot2::geom_sf()` to render the layer.
 
-You can also aggregate `SpatVector` objects easily:
+You can also aggregate `SpatVector` objects:
 
 ```{r}
 #| label: fig-aggregate

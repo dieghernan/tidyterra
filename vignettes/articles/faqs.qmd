@@ -18,7 +18,7 @@ questions](https://github.com/dieghernan/tidyterra/discussions) about using
 **tidyterra**, with a focus on the integration of **terra** and **ggplot2**. You
 can ask for help or search previous questions using the following links.
 
-You can also ask in [Stack Overflow](https://stackoverflow.com/) using the tag
+You can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
 - Report a bug \[[link](https://github.com/dieghernan/tidyterra/issues)\].
@@ -102,8 +102,9 @@ def +
 
 ## Labeling contours {#label-contour}
 
-Use `geom_spatraster_contour_text()`
-[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental):
+Use `geom_spatraster_contour_text()` for contour labels. This function is
+experimental:
+[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 ```{r}
 #| label: fig-textcontour

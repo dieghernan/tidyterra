@@ -1,6 +1,6 @@
 ---
 title: "Gradient palettes in tidyterra"
-description: A gallery of maps using gradient scales provided by tidyterra.
+description: A gallery of maps using gradient scales provided by **tidyterra**.
 lightbox:
   match: auto
   desc-position: bottom
