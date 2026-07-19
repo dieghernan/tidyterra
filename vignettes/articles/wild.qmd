@@ -1,9 +1,9 @@
 ---
 title: "tidyterra in the wild"
-description: Uses of tidyterra in publications.
+description: "Uses of tidyterra in publications."
 bibliography: INPUBS.bib
-csl: apa.csl
-nocite: '@*'
+csl: chicago-notes-bibliography.csl
+nocite: "@*"
 ---
 
 Please cite **tidyterra** as:
