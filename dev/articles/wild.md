@@ -77,7 +77,7 @@ Science and Management* 1 (1): 18.
 
 Di Fabio, Alessandro, Samuel Aspalter, Debojyoti Chakraborty, et al.
 2026. “Growth Performance Is Driven by Site Conditions and Moderated by
-Functional Trait Plasticity in *Quercus Robur* and *Prunus Avium*.”
+Functional Trait Plasticity in *Quercus robur* and *Prunus avium*.”
 *Ecology and Evolution* 16 (2): e72978.
 <https://doi.org/10.1002/ece3.72978>.
 
@@ -90,7 +90,7 @@ Change* 7 (July): 1422165. <https://doi.org/10.3389/ffgc.2024.1422165>.
 Drozdova, Polina, Zhanna Shatilina, Ekaterina Telnes, et al. 2025.
 “Prezygotic and Postzygotic Reproductive Incompatibilities Complement
 Each Other in the Formation of a Cryptic Amphipod Species: The Example
-of a Lake Baikal Species Complex *Eulimnogammarus Verrucosus*.”
+of a Lake Baikal Species Complex *Eulimnogammarus verrucosus*.”
 *Diversity* 17 (11): 781. <https://doi.org/10.3390/d17110781>.
 
 Elio Medina, Javier, Frida Vermina Plathner, Elsa Pastor, and Nieves
@@ -110,14 +110,14 @@ Hydrological Impacts for Cost-Effective Dryland Ecological Restoration.”
 <https://doi.org/10.1038/s43247-025-02649-8>.
 
 Gao, Yan, Nestor Añez, and Luis Fernando Chaves. 2026. “High Spatial
-Resolution Ensemble Species Distribution Modeling of Rhodnius prolixus,
-Vector of Chagas Disease, in Western Venezuela.” *GeoHealth* 10 (5):
-e2025GH001628. <https://doi.org/10.1029/2025GH001628>.
+Resolution Ensemble Species Distribution Modeling of *Rhodnius
+prolixus*, Vector of Chagas Disease, in Western Venezuela.” *GeoHealth*
+10 (5): e2025GH001628. <https://doi.org/10.1029/2025GH001628>.
 
 García-Alvarado, Juan José, Miguel Pestano-González, Cristina
 González-Montelongo, Agustín Naranjo-Cigala, and José Ramón Arévalo.
 2025. “Assessing the Potential Risk of Invasion of the Neophyte *Pluchea
-Ovalis* (Pers.) DC. (Asteraceae) in the Canarian Archipelago Using an
+ovalis* (Pers.) DC. (Asteraceae) in the Canarian Archipelago Using an
 Ensemble of Species Distribution Modelling.” *Diversity* 17 (3): 195.
 <https://doi.org/10.3390/d17030195>.
 
@@ -127,7 +127,7 @@ Giant Petrels.” *Functional Ecology* 40 (7): 1979–93.
 <https://doi.org/10.1111/1365-2435.70352>.
 
 Hattendorf, Carolin, and Renke Lühken. 2025. “Vectors, Host Range, and
-Spatial Distribution of *Dirofilaria Immitis* and *D. repens* in Europe:
+Spatial Distribution of *Dirofilaria immitis* and *D. repens* in Europe:
 A Systematic Review.” *Infectious Diseases of Poverty* 14 (1): 58.
 <https://doi.org/10.1186/s40249-025-01328-2>.
 
@@ -194,7 +194,7 @@ Gaussian Models with Non-Linear Predictors*.
 
 Lühken, Renke, Leif Rauhöft, Björn Pluskota, et al. 2024. “High Vector
 Competence for Chikungunya Virus but Heavily Reduced Locomotor Activity
-of *Aedes Albopictus* from Germany at Low Temperatures.” *Parasites &
+of *Aedes albopictus* from Germany at Low Temperatures.” *Parasites &
 Vectors* 17 (1): 502. <https://doi.org/10.1186/s13071-024-06594-x>.
 
 Macey, John N., Jane M. Kunberger, Kellene Collins, et al. 2026.
@@ -252,7 +252,7 @@ Sciences* 122 (46): e2517585122.
 <https://doi.org/10.1073/pnas.2517585122>.
 
 Nityagovsky, Nikolay N., Alexey A. Ananev, Andrey R. Suprun, et al.
-2024. “Distribution of *Plasmopara Viticola* Causing Downy Mildew in
+2024. “Distribution of *Plasmopara viticola* Causing Downy Mildew in
 Russian Far East Grapevines.” *Horticulturae* 10 (4): 326.
 <https://doi.org/10.3390/horticulturae10040326>.
 
@@ -303,15 +303,15 @@ Vaccine Trial Site Selection.” *PLOS Neglected Tropical Diseases* 20
 
 Smoot, Emily E., Rebecca L. Flitcroft, Samuel S. Chan, Braeden Van
 Deynze, Sean Ewen, and Sunny L. Jardine. 2026. “Projected Temperature
-and Precipitation Expand Modeled Distributions of *Reynoutria* spp.
-While Modeled Distribution Changes for *Ludwigia* spp. Are
+and Precipitation Expand Modeled Distributions of *Reynoutria spp.*
+While Modeled Distribution Changes for *Ludwigia spp.* Are
 Scenario-Dependent at Watershed Scales in the Pacific Northwest, USA.”
 *River Research and Applications* 42 (6): 1411–24.
 <https://doi.org/10.1002/rra.70141>.
 
 Su, Xingyuan, Nicolas Popescu, Chadabhorn Insuk, Cori Lausen, and
 Jianping Xu. 2025. “High Diversity and Low Genetic Differentiation Among
-Geographic Populations of *Myotis Yumanensis* in Western Canada.”
+Geographic Populations of *Myotis yumanensis* in Western Canada.”
 *Animals* 15 (4): 578. <https://doi.org/10.3390/ani15040578>.
 
 Sun, Yanchen, Bryan D. James, Katelyn R. Houston, et al. 2025.
