@@ -29,7 +29,7 @@ A BibTeX entry for LaTeX users is:
 
 Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
 Ríos, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
-Characterization of Lichen Flora in Antarctic Nunataks. *Journal of
+Characterization of lichen flora in Antarctic Nunataks. *Journal of
 Fungi*, *12*(5), 314. <https://doi.org/10.3390/jof12050314>
 
 Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., & Meyer, B.
@@ -139,7 +139,7 @@ global protected areas. *Ecology and Evolution*, *15*(5), e71137.
 Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F.
 C., Esselstyn, J. A., Inayah, N., & Hawkins, M. T. R. (2025). Pliocene
 forest fragmentation shaped speciation in tropical Asia’s giant
-squirrels (*ratufa*). *Molecular Ecology*, *34*(24), e70179.
+squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
@@ -324,8 +324,8 @@ vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
 
 Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
 Jardine, S. L. (2026). Projected temperature and precipitation expand
-modeled distributions of *Reynoutria spp.* While modeled distribution
-changes for *Ludwigia spp.* Are scenario-dependent at watershed scales
+modeled distributions of *Reynoutria* spp. While modeled distribution
+changes for *Ludwigia* spp. Are scenario-dependent at watershed scales
 in the Pacific Northwest, USA. *River Research and Applications*,
 *42*(6), 1411–1424. <https://doi.org/10.1002/rra.70141>
 
