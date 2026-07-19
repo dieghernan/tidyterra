@@ -49,7 +49,7 @@ and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
 <https://doi.org/10.3389/past.2025.14997>
 
-Buma, B. (2024). Including non-growing season emissions of N₂O in US
+Buma, B. (2024). Including non-growing season emissions of N\_2O in US
 maize could raise net CO\_2e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
@@ -270,7 +270,7 @@ National Academy of Sciences*, *122*(46), e2517585122.
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
 Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
 Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
-viticola* Causing Downy Mildew in Russian Far East grapevines.
+viticola* causing downy mildew in Russian Far East grapevines.
 *Horticulturae*, *10*(4), 326.
 <https://doi.org/10.3390/horticulturae10040326>
 
