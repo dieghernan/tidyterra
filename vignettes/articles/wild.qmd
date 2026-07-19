@@ -2,7 +2,7 @@
 title: "tidyterra in the wild"
 description: Uses of tidyterra in publications.
 bibliography: INPUBS.bib
-csl: chicago-author-date.csl
+csl: apa.csl
 nocite: '@*'
 ---
 
