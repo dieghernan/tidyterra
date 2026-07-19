@@ -50,7 +50,7 @@ populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
 <https://doi.org/10.3389/past.2025.14997>
 
 Buma, B. (2024). Including non-growing season emissions of N₂O in US
-maize could raise net CO₂e emissions by 31% annually. *Agricultural &
+maize could raise net CO\_2e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
 
@@ -61,7 +61,7 @@ abundance. *American Journal of Botany*, *112*(5), e70034.
 
 Copot, O., & Lõhmus, A. (2026). Assessment of multiple outcomes of
 habitat models can significantly affect conservation decisions for
-threatened species. *Scientific Reports*.
+threatened species. *Scientific Reports*, *16*(1), 5860.
 <https://doi.org/10.1038/s41598-026-35987-4>
 
 Corak, K., Courtney, C., Ellerbrock, B., Kamath, P., Manching, H. K.,
@@ -131,8 +131,8 @@ systematic review. *Infectious Diseases of Poverty*, *14*(1), 58.
 <https://doi.org/10.1186/s40249-025-01328-2>
 
 Herrera-Lopera, J. M., Solé, M., & Cultid-Medina, C. A. (2025). Mapping
-the Missing: Assessing Amphibian Sampling Completeness and Overlap With
-Global Protected Areas. *Ecology and Evolution*, *15*(5), e71137.
+the missing: Assessing amphibian sampling completeness and overlap with
+global protected areas. *Ecology and Evolution*, *15*(5), e71137.
 <https://doi.org/10.1002/ece3.71137>
 
 Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F.
@@ -155,7 +155,7 @@ Conservation*, *321*, 111966.
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
 Stomph, T., & Struik, P. C. (2025). Can drone images predict
 within-field variability in soil fertility? A case study in the Northern
-Region of Ghana. *Frontiers in Soil Science*, *5*.
+Region of Ghana. *Frontiers in Soil Science*, *5*, 1548645.
 <https://doi.org/10.3389/fsoil.2025.1548645>
 
 Kiel, N. G., Watts, D. A., Young, A. B., & Vellend, M. (2025). Snowmelt
@@ -196,7 +196,7 @@ invasive species. *Web Ecology*, *25*(2), 221–239.
 
 Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
 E. (2024). *inlabru: Software for fitting latent Gaussian models with
-non-linear predictors*. <https://arxiv.org/abs/2407.00791>
+non-linear predictors*. <https://doi.org/10.48550/arXiv.2407.00791>
 
 Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
 Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., & Heitmann, A.
@@ -209,7 +209,7 @@ Macey, J. N., Kunberger, J. M., Collins, K., Rowin, S., Mueller, J. M.,
 Carrasco, S. M., Colón, M. R., Grigsby, N., Raginski, N. M., Gamble, M.
 D., Finn, D. S., Lopez, R., & Long, A. M. (2026). Miniaturized
 light-level geolocators provide novel insight into the migration ecology
-of an endangered songbird. *Movement Ecology*.
+of an endangered songbird. *Movement Ecology*, *14*(1), 13.
 <https://doi.org/10.1186/s40462-026-00626-0>
 
 Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., & Merow,
@@ -227,8 +227,8 @@ Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
 M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
 Miranda De Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
 R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
-A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
-unknown lineage in Argentina. *Nature*.
+A. D., … Nores, R. (2026). Eight millennia of continuity of a previously
+unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
 <https://doi.org/10.1038/s41586-025-09731-3>
 
 Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &
@@ -246,7 +246,7 @@ Sciences*, *26*(5), 2461–2485.
 Merlin, M., Locatelli, T., Gardiner, B., & Astrup, R. (2025).
 Large-scale modelling wind damage vulnerability through combination of
 high-resolution forest resources maps and ForestGALES. *Forest
-Ecosystems*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
+Ecosystems*, *12*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
 NASA earth observation data products*. National Aeronautics; Space
@@ -270,7 +270,7 @@ National Academy of Sciences*, *122*(46), e2517585122.
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
 Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
 Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
-viticola* Causing Downy Mildew in Russian Far East Grapevines.
+viticola* Causing Downy Mildew in Russian Far East grapevines.
 *Horticulturae*, *10*(4), 326.
 <https://doi.org/10.3390/horticulturae10040326>
 
@@ -297,11 +297,10 @@ quality and phytoplankton communities in a cyanobacteria-dominated
 reservoir provide management insights. *Environmental Monitoring and
 Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 
-Salvador Baiges, G., & Gassiot Ballbè, E. (dir. ). (2024). *Clima,
-orografia i dinàmiques de poblament al Pirineu Central. Arqueologia, SIG
-i modelització espacial del patró d’ocupació del territori durant el
-Neolı́tic (5700- 2100 cal ANE)* \[PhD Thesis, Universitat Autònoma de
-Barcelona. Programa de Doctorat en Arqueologia Prehistòrica\].
+Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
+al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
+d’ocupació del territori durant el Neolı́tic (5700–2100 cal ANE)* \[PhD
+thesis, Universitat Autònoma de Barcelona\].
 <https://ddd.uab.cat/record/301073>
 
 Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
@@ -342,7 +341,7 @@ Technology*, *59*(36), 19468–19478.
 <https://doi.org/10.1021/acs.est.5c05334>
 
 Tanaka, E. (2025). Examining the Interface Design of Tidyverse.
-*Australian & New Zealand Journal of Statistics*.
+*Australian & New Zealand Journal of Statistics*, *68*(1).
 <https://doi.org/10.1111/anzs.70031>
 
 Tribbia, D. Z., Lebre, P. H., Vázquez-Campos, X., Ray, A. E., Laird, T.,
@@ -354,7 +353,8 @@ Environmental Microbiology*, e00265–26.
 
 Varma, V., Mosedale, J. R., Alvarez, J. A. G., & Bebber, D. P. (2025).
 Socio-economic factors constrain climate change adaptation in a tropical
-export crop. *Nature Food*. <https://doi.org/10.1038/s43016-025-01130-1>
+export crop. *Nature Food*, *6*(4), 343–352.
+<https://doi.org/10.1038/s43016-025-01130-1>
 
 Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The Relationship
 Between Soil Organic Matter Composition and Soil Enzymes Activities in
@@ -370,7 +370,7 @@ biodiversity beyond Madagascar’s forests. *Diversity and Distributions*,
 
 Wiethase, J. H. (2023). *Advancing ecosystem understanding: Identifying
 the drivers of habitat degradation, species distributions and species
-vulnerabilities in East African grasslands.* \[PhD thesis, University of
+vulnerabilities in East African grasslands* \[PhD thesis, University of
 York\]. <https://etheses.whiterose.ac.uk/id/eprint/34736/>
 
 Williams, J., & Pettorelli, N. (2025). Ecosystem condition emerges from
@@ -391,5 +391,5 @@ Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
 Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
 H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
 distribution pattern in Tajikistan: A global hotspot of diversity.
-*Regional Sustainability*, 100294.
+*Regional Sustainability*, *7*(1), 100294.
 <https://doi.org/10.1016/j.regsus.2026.100294>
