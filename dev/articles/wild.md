@@ -27,369 +27,347 @@ A BibTeX entry for LaTeX users is:
 
 ## Publications
 
-Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
-Rı́os, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
-Characterization of Lichen Flora in Antarctic Nunataks. *Journal of
-Fungi*, *12*(5). <https://doi.org/10.3390/jof12050314>
+Aramburu, Ana, Núria Beltran-Sanz, José Raggio, et al. 2026. “Islands of
+Biodiversity: Characterization of Lichen Flora in Antarctic Nunataks.”
+*Journal of Fungi* 12 (5): 314. <https://doi.org/10.3390/jof12050314>.
 
-Bahlburg, D., Menze, S., Krafft, B. A., Lowther, A. D., & Meyer, B.
-(2025). Mapping encounters between Antarctic krill fishing vessels and
-air-breathing krill predators using acoustic data from the fishery.
-*Proceedings of the National Academy of Sciences*, *122*(25),
-e2417203122. <https://doi.org/10.1073/pnas.2417203122>
+Bahlburg, Dominik, Sebastian Menze, Bjørn A. Krafft, Andy D. Lowther,
+and Bettina Meyer. 2025. “Mapping Encounters Between Antarctic Krill
+Fishing Vessels and Air-Breathing Krill Predators Using Acoustic Data
+from the Fishery.” *Proceedings of the National Academy of Sciences* 122
+(25): e2417203122. <https://doi.org/10.1073/pnas.2417203122>.
 
-Bausilio, G., Di Martire, D., Allocca, V., Coda, S., De Vita, P.,
-Guerriero, L., & Calcaterra, D. (2026). Integrated analysis for a
-resilient urban planning using ensemble modeling and machine learning
-algorithms. *International Journal of Disaster Risk Reduction*, *138*,
-106124. <https://doi.org/10.1016/j.ijdrr.2026.106124>
+Bausilio, Giuseppe, Diego Di Martire, Vincenzo Allocca, et al. 2026.
+“Integrated Analysis for a Resilient Urban Planning Using Ensemble
+Modeling and Machine Learning Algorithms.” *International Journal of
+Disaster Risk Reduction* 138 (May): 106124.
+<https://doi.org/10.1016/j.ijdrr.2026.106124>.
 
-Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
-and landscapes: Conservation insights for Italian small ruminant
-populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
-<https://doi.org/10.3389/past.2025.14997>
+Bionda, Arianna, Alessio Negro, Silverio Grande, and Paola Crepaldi.
+2025. “Mapping Risks and Landscapes: Conservation Insights for Italian
+Small Ruminant Populations.” *Pastoralism: Research, Policy and
+Practice* 15 (September): 14997.
+<https://doi.org/10.3389/past.2025.14997>.
 
-Buma, B. (2024). Including non-growing season emissions of N\_2O in US
-maize could raise net CO\_2e emissions by 31% annually. *Agricultural &
-Environmental Letters*, *9*(2), e20146.
-<https://doi.org/10.1002/ael2.20146>
+Buma, Brian. 2024. “Including Non-Growing Season Emissions of N\_2O in
+US Maize Could Raise Net CO\_2e Emissions by 31% Annually.”
+*Agricultural & Environmental Letters* 9 (2): e20146.
+<https://doi.org/10.1002/ael2.20146>.
 
-Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
-hummingbird-pollinated plant is not strongly influenced by hummingbird
-abundance. *American Journal of Botany*, *112*(5), e70034.
-<https://doi.org/10.1002/ajb2.70034>
+Coffey, Matthew L., and Andrew M. Simons. 2025. “The Spatial
+Distribution of a Hummingbird-Pollinated Plant Is Not Strongly
+Influenced by Hummingbird Abundance.” *American Journal of Botany* 112
+(5): e70034. <https://doi.org/10.1002/ajb2.70034>.
 
-Copot, O., & Lõhmus, A. (2026). Assessment of multiple outcomes of
-habitat models can significantly affect conservation decisions for
-threatened species. *Scientific Reports*, *16*(1), 5860.
-<https://doi.org/10.1038/s41598-026-35987-4>
+Copot, Ovidiu, and Asko Lõhmus. 2026. “Assessment of Multiple Outcomes
+of Habitat Models Can Significantly Affect Conservation Decisions for
+Threatened Species.” *Scientific Reports* 16 (1): 5860.
+<https://doi.org/10.1038/s41598-026-35987-4>.
 
-Corak, K., Courtney, C., Ellerbrock, B., Kamath, P., Manching, H. K.,
-Poland, J., Neilsen, M., Hulse-Kemp, A. M., & Rife, T. W. (2026).
-GeoNav: Enhancing field phenotyping with high-precision global
-navigation systems integration in the Field Book mobile application.
-*Crop Science*, *66*(2), e70254. <https://doi.org/10.1002/csc2.70254>
+Corak, Keo, Chaney Courtney, Bryan Ellerbrock, et al. 2026. “GeoNav:
+Enhancing Field Phenotyping with High-Precision Global Navigation
+Systems Integration in the Field Book Mobile Application.” *Crop
+Science* 66 (2): e70254. <https://doi.org/10.1002/csc2.70254>.
 
-Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
-Enhancing tsunami evacuation strategies in Puerto Rico using open-source
-least-cost path analysis. *Journal of Disaster Science and Management*,
-*1*(1), 18. <https://doi.org/10.1007/s44367-025-00018-y>
+Cordero, Elvin, Roy Ruiz Vélez, Víctor Huérfano Moreno, and Clark
+Sherman. 2025. “Enhancing Tsunami Evacuation Strategies in Puerto Rico
+Using Open-Source Least-Cost Path Analysis.” *Journal of Disaster
+Science and Management* 1 (1): 18.
+<https://doi.org/10.1007/s44367-025-00018-y>.
 
-Di Fabio, A., Aspalter, S., Chakraborty, D., Loo, M. van, Rolke, L. M.,
-Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
-performance is driven by site conditions and moderated by functional
-trait plasticity in *Quercus robur* and *Prunus avium*. *Ecology and
-Evolution*, *16*(2), e72978. <https://doi.org/10.1002/ece3.72978>
+Di Fabio, Alessandro, Samuel Aspalter, Debojyoti Chakraborty, et al.
+2026. “Growth Performance Is Driven by Site Conditions and Moderated by
+Functional Trait Plasticity in *Quercus Robur* and *Prunus Avium*.”
+*Ecology and Evolution* 16 (2): e72978.
+<https://doi.org/10.1002/ece3.72978>.
 
-Di Fabio, A., Buttò, V., Chakraborty, D., O’Neill, G. A., Schueler, S.,
-& Kreyling, J. (2024). Climatic conditions at provenance origin
-influence growth stability to changes in climate in two major tree
-species. *Frontiers in Forests and Global Change*, *7*, 1422165.
-<https://doi.org/10.3389/ffgc.2024.1422165>
+Di Fabio, Alessandro, Valentina Buttò, Debojyoti Chakraborty, Gregory A.
+O’Neill, Silvio Schueler, and Juergen Kreyling. 2024. “Climatic
+Conditions at Provenance Origin Influence Growth Stability to Changes in
+Climate in Two Major Tree Species.” *Frontiers in Forests and Global
+Change* 7 (July): 1422165. <https://doi.org/10.3389/ffgc.2024.1422165>.
 
-Drozdova, P., Shatilina, Z., Telnes, E., Gurkov, A., Saranchina, A.,
-Mutin, A., Zolotovskaya, E., & Timofeyev, M. (2025). Prezygotic and
-postzygotic reproductive incompatibilities complement each other in the
-formation of a cryptic amphipod species: The example of a Lake Baikal
-species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11).
-<https://doi.org/10.3390/d17110781>
+Drozdova, Polina, Zhanna Shatilina, Ekaterina Telnes, et al. 2025.
+“Prezygotic and Postzygotic Reproductive Incompatibilities Complement
+Each Other in the Formation of a Cryptic Amphipod Species: The Example
+of a Lake Baikal Species Complex *Eulimnogammarus Verrucosus*.”
+*Diversity* 17 (11): 781. <https://doi.org/10.3390/d17110781>.
 
-Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
-(2025). How to Approach the Definition of WUI in Northern Europe. *Fire
-and Materials*, *49*(5), 787–804. <https://doi.org/10.1002/fam.3264>
+Elio Medina, Javier, Frida Vermina Plathner, Elsa Pastor, and Nieves
+Fernandez-Anez. 2025. “How to Approach the Definition of WUI in Northern
+Europe.” *Fire and Materials* 49 (5): 787–804.
+<https://doi.org/10.1002/fam.3264>.
 
-Fard, P., Hügel, J., Keivabu, R. C., Dominici, F., Zagheni, E., Estiri,
-H., & Patel, C. J. (2025). Developing a Spatiotemporal Repository of
-Extreme Heat and Cold Exposure in the United States for Precision Public
-Health Research. *Environmental Science & Technology*, *59*(37),
-19872–19884. <https://doi.org/10.1021/acs.est.5c03658>
+Fard, Pedram, Jonas Hügel, Risto Conte Keivabu, et al. 2025. “Developing
+a Spatiotemporal Repository of Extreme Heat and Cold Exposure in the
+United States for Precision Public Health Research.” *Environmental
+Science & Technology* 59 (37): 19872–84.
+<https://doi.org/10.1021/acs.est.5c03658>.
 
-Fu, F., Wang, S., Wu, X., Chen, S., Tan, Z., Ye, C., & Grünzweig, J. M.
-(2025). Integrating hydrological impacts for cost-effective dryland
-ecological restoration. *Communications Earth & Environment*, *6*(1),
-667. <https://doi.org/10.1038/s43247-025-02649-8>
+Fu, Fengyu, Shuai Wang, Xutong Wu, et al. 2025. “Integrating
+Hydrological Impacts for Cost-Effective Dryland Ecological Restoration.”
+*Communications Earth & Environment* 6 (1): 667.
+<https://doi.org/10.1038/s43247-025-02649-8>.
 
-Gao, Y., Añez, N., & Chaves, L. F. (2026). High spatial resolution
-ensemble species distribution modeling of Rhodnius prolixus, vector of
-Chagas disease, in western Venezuela. *GeoHealth*, *10*(5),
-e2025GH001628. <https://doi.org/10.1029/2025GH001628>
+Gao, Yan, Nestor Añez, and Luis Fernando Chaves. 2026. “High Spatial
+Resolution Ensemble Species Distribution Modeling of Rhodnius prolixus,
+Vector of Chagas Disease, in Western Venezuela.” *GeoHealth* 10 (5):
+e2025GH001628. <https://doi.org/10.1029/2025GH001628>.
 
-Garcı́a-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
-Naranjo-Cigala, A., & Arévalo, J. R. (2025). Assessing the Potential
-Risk of Invasion of the Neophyte *Pluchea ovalis* (Pers.) DC.
-(Asteraceae) in the Canarian Archipelago Using an Ensemble of Species
-Distribution Modelling. *Diversity*, *17*(3), 195.
-<https://doi.org/10.3390/d17030195>
+García-Alvarado, Juan José, Miguel Pestano-González, Cristina
+González-Montelongo, Agustín Naranjo-Cigala, and José Ramón Arévalo.
+2025. “Assessing the Potential Risk of Invasion of the Neophyte *Pluchea
+Ovalis* (Pers.) DC. (Asteraceae) in the Canarian Archipelago Using an
+Ensemble of Species Distribution Modelling.” *Diversity* 17 (3): 195.
+<https://doi.org/10.3390/d17030195>.
 
-Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
-Wind, waves, wing loading and the flight energetics of giant petrels.
-*Functional Ecology*. <https://doi.org/10.1111/1365-2435.70352>
+Hallet, Madeline E., Richard A. Phillips, Ian J. Maywar, and Lesley H.
+Thorne. 2026. “Wind, Waves, Wing Loading and the Flight Energetics of
+Giant Petrels.” *Functional Ecology* 40 (7): 1979–93.
+<https://doi.org/10.1111/1365-2435.70352>.
 
-Hattendorf, C., & Lühken, R. (2025). Vectors, host range, and spatial
-distribution of *Dirofilaria immitis* and *D. repens* in Europe: A
-systematic review. *Infectious Diseases of Poverty*, *14*(1), 58.
-<https://doi.org/10.1186/s40249-025-01328-2>
+Hattendorf, Carolin, and Renke Lühken. 2025. “Vectors, Host Range, and
+Spatial Distribution of *Dirofilaria Immitis* and *D. repens* in Europe:
+A Systematic Review.” *Infectious Diseases of Poverty* 14 (1): 58.
+<https://doi.org/10.1186/s40249-025-01328-2>.
 
-Herrera-Lopera, J. M., Solé, M., & Cultid-Medina, C. A. (2025). Mapping
-the missing: Assessing amphibian sampling completeness and overlap with
-global protected areas. *Ecology and Evolution*, *15*(5), e71137.
-<https://doi.org/10.1002/ece3.71137>
+Herrera-Lopera, Jorge Mario, Mirco Solé, and Carlos A. Cultid-Medina.
+2025. “Mapping the Missing: Assessing Amphibian Sampling Completeness
+and Overlap with Global Protected Areas.” *Ecology and Evolution* 15
+(5): e71137. <https://doi.org/10.1002/ece3.71137>.
 
-Hinckley, A., Pinilla-Buitrago, G. E., Maldonado, J. E., Flores, M. F.
-C., Esselstyn, J. A., Inayah, N., & Hawkins, M. T. R. (2025). Pliocene
-forest fragmentation shaped speciation in tropical Asia’s giant
-squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
-<https://doi.org/10.1111/mec.70179>
+Hinckley, Arlo, Gonzalo E. Pinilla-Buitrago, Jesús E. Maldonado, et al.
+2025. “Pliocene Forest Fragmentation Shaped Speciation in Tropical
+Asia’s Giant Squirrels (*Ratufa*).” *Molecular Ecology* 34 (24): e70179.
+<https://doi.org/10.1111/mec.70179>.
 
-Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000-2022). *PLOS ONE*, *20*(10), e0333746.
-<https://doi.org/10.1371/journal.pone.0333746>
+Jones, Max D., Ryan J. Almeida, Rachel Boratto, et al. 2026. “Long
+Lives, Short Futures: Freshwater Turtle and Tortoise Imports to the
+United States Highlight Global Trade and Conservation Challenges.”
+*Biological Conservation* 321 (September): 111966.
+<https://doi.org/10.1016/j.biocon.2026.111966>.
 
-Jones, M. D., Almeida, R. J., Boratto, R., Talley, B. L., Buchanan, S.
-W., Sevin, J., Karraker, N. E., & Hunter, E. A. (2026). Long lives,
-short futures: Freshwater turtle and tortoise imports to the United
-States highlight global trade and conservation challenges. *Biological
-Conservation*, *321*, 111966.
-<https://doi.org/10.1016/j.biocon.2026.111966>
+Jones, Max Dolton. 2025. “Saur and Decline: Patterns in Lizard Imports
+to the US (2000-2022).” *PLOS ONE* 20 (10): e0333746.
+<https://doi.org/10.1371/journal.pone.0333746>.
 
-Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
-Stomph, T., & Struik, P. C. (2025). Can drone images predict
-within-field variability in soil fertility? A case study in the Northern
-Region of Ghana. *Frontiers in Soil Science*, *5*, 1548645.
-<https://doi.org/10.3389/fsoil.2025.1548645>
+Kassim, Yussif Baba, Francisco Pinto, Dilys S. MacCarthy, et al. 2025.
+“Can Drone Images Predict Within-Field Variability in Soil Fertility? A
+Case Study in the Northern Region of Ghana.” *Frontiers in Soil Science*
+5 (June): 1548645. <https://doi.org/10.3389/fsoil.2025.1548645>.
 
-Kiel, N. G., Watts, D. A., Young, A. B., & Vellend, M. (2025). Snowmelt
-timing alters the phenology but not the performance of an understory
-spring ephemeral plant. *Journal of Ecology*, *113*(9), 2289–2300.
-<https://doi.org/10.1111/1365-2745.70099>
+Kiel, Nathan G., David A. Watts, Amanda B. Young, and Mark Vellend.
+2025. “Snowmelt Timing Alters the Phenology but Not the Performance of
+an Understory Spring Ephemeral Plant.” *Journal of Ecology* 113 (9):
+2289–300. <https://doi.org/10.1111/1365-2745.70099>.
 
-Kiziridis, D. A., Karmiris, I., & Fotakis, D. (2026). Agroforestry
-optimisation for climate policy: Mapping silvopastoral carbon
-sequestration trade-offs in the Mediterranean. *Sustainability*,
-*18*(1). <https://doi.org/10.3390/su18010439>
+Kiziridis, Diogenis A., Ilias Karmiris, and Dimitrios Fotakis. 2026.
+“Agroforestry Optimisation for Climate Policy: Mapping Silvopastoral
+Carbon Sequestration Trade-Offs in the Mediterranean.” *Sustainability*
+18 (1): 439. <https://doi.org/10.3390/su18010439>.
 
-Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
-dynamics of wild tomato species on the Galápagos Islands, across two
-centuries of collection records. *New Phytologist*.
-<https://doi.org/10.1111/nph.70321>
+Kutza, Alex D., Zoe L. Hert, and Leonie C. Moyle. 2026. “Endemic and
+Invasion Dynamics of Wild Tomato Species on the Galápagos Islands,
+Across Two Centuries of Collection Records.” *New Phytologist* 251 (2):
+737–51. <https://doi.org/10.1111/nph.70321>.
 
-Larocca Conte, G., Zuvela, L., Cruz-Pérez, R., Barreto-Vélez, T.,
-Becerra-Santillan, N., Campbell, S. F., Chu, H. P., Dam, T.,
-Grullón-Penkova, I. F., Kleit, M., Ortiz-Iglesias, D. A., Rubio-Lebrón,
-L. C., Cavaleri, M. A., Reed, S. C., Sihi, D., Wood, T. E., & O’Connell,
-C. S. (2026). Lowland tropical forests remain a methane sink under
-warming and long-term hurricane disturbance recovery. *Agricultural and
-Forest Meteorology*, *386*, 111225.
-<https://doi.org/10.1016/j.agrformet.2026.111225>
+Larocca Conte, Gabriele, Lucia Zuvela, Rachel Cruz-Pérez, et al. 2026.
+“Lowland Tropical Forests Remain a Methane Sink Under Warming and
+Long-Term Hurricane Disturbance Recovery.” *Agricultural and Forest
+Meteorology* 386 (July): 111225.
+<https://doi.org/10.1016/j.agrformet.2026.111225>.
 
-Lebron, I., Feeney, C. J., Reinsch, S., Shokri, N., Afshar, M. H.,
-Lofts, S., Griffiths, R., Fidler, D., Jones, B., Panagos, P., Sawicka,
-K., Keith, A. M., Seaton, F., & Robinson, D. A. (2025). Patterns and
-thresholds for soil pH across Europe in relation to soil health and
-degradation. *CATENA*, *260*, 109454.
-<https://doi.org/10.1016/j.catena.2025.109454>
+Lebron, Inma, Christopher J. Feeney, Sabine Reinsch, et al. 2025.
+“Patterns and Thresholds for Soil pH Across Europe in Relation to Soil
+Health and Degradation.” *CATENA* 260 (December): 109454.
+<https://doi.org/10.1016/j.catena.2025.109454>.
 
-Lee, F., Kusabs, I. A. K., Perry, G. L. W., & MacNeil, C. (2025).
-Identifying refugia from the synergistic threats of climate change and
-invasive species. *Web Ecology*, *25*(2), 221–239.
-<https://doi.org/10.5194/we-25-221-2025>
+Lee, Finnbar, Ian A. K. Kusabs, George L. W. Perry, and Calum MacNeil.
+2025. “Identifying Refugia from the Synergistic Threats of Climate
+Change and Invasive Species.” *Web Ecology* 25 (2): 221–39.
+<https://doi.org/10.5194/we-25-221-2025>.
 
-Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
-E. (2024). *inlabru: Software for fitting latent Gaussian models with
-non-linear predictors*. <https://doi.org/10.48550/arXiv.2407.00791>
+Lindgren, Finn, Fabian Bachl, Janine Illian, Man Ho Suen, Håvard Rue,
+and Andrew E. Seaton. 2024. *inlabru: Software for Fitting Latent
+Gaussian Models with Non-Linear Predictors*.
+<https://doi.org/10.48550/arXiv.2407.00791>.
 
-Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
-Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., & Heitmann, A.
-(2024). High vector competence for chikungunya virus but heavily reduced
-locomotor activity of *Aedes albopictus* from Germany at low
-temperatures. *Parasites & Vectors*, *17*(1), 502.
-<https://doi.org/10.1186/s13071-024-06594-x>
+Lühken, Renke, Leif Rauhöft, Björn Pluskota, et al. 2024. “High Vector
+Competence for Chikungunya Virus but Heavily Reduced Locomotor Activity
+of *Aedes Albopictus* from Germany at Low Temperatures.” *Parasites &
+Vectors* 17 (1): 502. <https://doi.org/10.1186/s13071-024-06594-x>.
 
-Macey, J. N., Kunberger, J. M., Collins, K., Rowin, S., Mueller, J. M.,
-Carrasco, S. M., Colón, M. R., Grigsby, N., Raginski, N. M., Gamble, M.
-D., Finn, D. S., Lopez, R., & Long, A. M. (2026). Miniaturized
-light-level geolocators provide novel insight into the migration ecology
-of an endangered songbird. *Movement Ecology*, *14*(1), 13.
-<https://doi.org/10.1186/s40462-026-00626-0>
+Macey, John N., Jane M. Kunberger, Kellene Collins, et al. 2026.
+“Miniaturized Light-Level Geolocators Provide Novel Insight into the
+Migration Ecology of an Endangered Songbird.” *Movement Ecology* 14 (1):
+13. <https://doi.org/10.1186/s40462-026-00626-0>.
 
-Maitner, B. S., Richards, R. L., Carlson, B. S., Drake, J. M., & Merow,
-C. (2026). Flexible methods for species distribution modeling with small
-samples. *Ecography*, *2026*(2), e08112.
-<https://doi.org/10.1002/ecog.08112>
+Maitner, Brian S., Robert L. Richards, Ben S. Carlson, John M. Drake,
+and Cory Merow. 2026. “Flexible Methods for Species Distribution
+Modeling with Small Samples.” *Ecography* 2026 (2): e08112.
+<https://doi.org/10.1002/ecog.08112>.
 
-Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
-Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
-eastern coyotes from Nova Scotia, Canada: Effects of geography and
-trophic position. *Science of The Total Environment*, *974*, 179186.
-<https://doi.org/10.1016/j.scitotenv.2025.179186>
+Mallory, Mark L., Seth MacLean, Julia E. Baak, et al. 2025. “Mercury in
+Eastern Coyotes from Nova Scotia, Canada: Effects of Geography and
+Trophic Position.” *Science of The Total Environment* 974 (April):
+179186. <https://doi.org/10.1016/j.scitotenv.2025.179186>.
 
-Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
-M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
-Miranda De Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
-R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
-A. D., … Nores, R. (2026). Eight millennia of continuity of a previously
-unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
-<https://doi.org/10.1038/s41586-025-09731-3>
+Maravall-López, Javier, Josefina M. B. Motti, Nicolás Pastor, et al.
+2026. “Eight Millennia of Continuity of a Previously Unknown Lineage in
+Argentina.” *Nature* 649 (8097): 647–56.
+<https://doi.org/10.1038/s41586-025-09731-3>.
 
-Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &
-Lanfranco, L. (2025). A systematic scoping review reveals that
-geographic and taxonomic patterns influence the scientific and societal
-interest in urban soil microbial diversity. *Environmental Microbiome*,
-*20*(1), 17. <https://doi.org/10.1186/s40793-025-00677-7>
+Masson, Simon, Matteo Chialva, Davide Bongiovanni, Martino Adamo, Irene
+Stefanini, and Luisa Lanfranco. 2025. “A Systematic Scoping Review
+Reveals That Geographic and Taxonomic Patterns Influence the Scientific
+and Societal Interest in Urban Soil Microbial Diversity.” *Environmental
+Microbiome* 20 (1): 17. <https://doi.org/10.1186/s40793-025-00677-7>.
 
-Merlin, M., Gardiner, B., & Solberg, S. (2026). Predicting the risk of
-individual tree fall along powerlines in Norway with a mechanistic wind
-risk model and machine learning. *Natural Hazards and Earth System
-Sciences*, *26*(5), 2461–2485.
-<https://doi.org/10.5194/nhess-26-2461-2026>
+Merlin, Morgane, Barry Gardiner, and Svein Solberg. 2026. “Predicting
+the Risk of Individual Tree Fall Along Powerlines in Norway with a
+Mechanistic Wind Risk Model and Machine Learning.” *Natural Hazards and
+Earth System Sciences* 26 (5): 2461–85.
+<https://doi.org/10.5194/nhess-26-2461-2026>.
 
-Merlin, M., Locatelli, T., Gardiner, B., & Astrup, R. (2025).
-Large-scale modelling wind damage vulnerability through combination of
-high-resolution forest resources maps and ForestGALES. *Forest
-Ecosystems*, *12*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
+Merlin, Morgane, Tommaso Locatelli, Barry Gardiner, and Rasmus Astrup.
+2025. “Large-Scale Modelling Wind Damage Vulnerability Through
+Combination of High-Resolution Forest Resources Maps and ForestGALES.”
+*Forest Ecosystems* 14 (December): 100361.
+<https://doi.org/10.1016/j.fecs.2025.100361>.
 
-Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
-NASA earth observation data products*. National Aeronautics; Space
+Mohammed, Ibrahim. 2024. *NASAaccess: Downloading and Reformatting Tool
+for NASA Earth Observation Data Products*. National Aeronautics; Space
 Administration, Goddard Space Flight Center.
-<https://github.com/nasa/NASAaccess>
+<https://github.com/nasa/NASAaccess>.
 
-Moreira, H., Janssen, S. D., Kuipers, K. J. J., Posthuma, L., Hauck, M.,
-Huijbregts, M. A. J., & Schipper, A. M. (2026). Combined threats of land
-use, climate change and nitrogen deposition to global vascular plant
-diversity. *Global Ecology and Conservation*, *69*, e04307.
-<https://doi.org/10.1016/j.gecco.2026.e04307>
+Moreira, Hadassa, Sharon D. Janssen, Koen J. J. Kuipers, et al. 2026.
+“Combined Threats of Land Use, Climate Change and Nitrogen Deposition to
+Global Vascular Plant Diversity.” *Global Ecology and Conservation* 69
+(September): e04307. <https://doi.org/10.1016/j.gecco.2026.e04307>.
 
-Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
-A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
-Villalobos, F., Marquet, P. A., Svenning, J.-C., & Enquist, B. J.
-(2025). General laws of biodiversity: Climatic niches predict plant
-range size and ecological dominance globally. *Proceedings of the
-National Academy of Sciences*, *122*(46), e2517585122.
-<https://doi.org/10.1073/pnas.2517585122>
+Moulatlet, Gabriel M., Cory Merow, Brian Maitner, et al. 2025. “General
+Laws of Biodiversity: Climatic Niches Predict Plant Range Size and
+Ecological Dominance Globally.” *Proceedings of the National Academy of
+Sciences* 122 (46): e2517585122.
+<https://doi.org/10.1073/pnas.2517585122>.
 
-Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
-Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
-Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
-viticola* causing downy mildew in Russian Far East grapevines.
-*Horticulturae*, *10*(4), 326.
-<https://doi.org/10.3390/horticulturae10040326>
+Nityagovsky, Nikolay N., Alexey A. Ananev, Andrey R. Suprun, et al.
+2024. “Distribution of *Plasmopara Viticola* Causing Downy Mildew in
+Russian Far East Grapevines.” *Horticulturae* 10 (4): 326.
+<https://doi.org/10.3390/horticulturae10040326>.
 
-Pérez-Girón, J. C., López-Bao, J. V., Dı́az-Varela, E., &
-Álvarez-Álvarez, P. (2025). Predicting climate-related compositional
-shifts in nut-producing species that are important for bears during
-hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
-<https://doi.org/10.3389/ffgc.2025.1624612>
+Pérez-Girón, José Carlos, José Vicente López-Bao, Emilio Díaz-Varela,
+and Pedro Álvarez-Álvarez. 2025. “Predicting Climate-Related
+Compositional Shifts in Nut-Producing Species That Are Important for
+Bears During Hyperphagia.” *Frontiers in Forests and Global Change* 8
+(August): 1624612. <https://doi.org/10.3389/ffgc.2025.1624612>.
 
-Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
-protected areas as climate refugia for threatened plant species in
-Britain. *PLOS ONE*, *21*(1), e0332485.
-<https://doi.org/10.1371/journal.pone.0332485>
+Read, Freya R., Rachel J. Warmington, and Colin M. Beale. 2026.
+“Assessing Protected Areas as Climate Refugia for Threatened Plant
+Species in Britain.” *PLOS ONE* 21 (1): e0332485.
+<https://doi.org/10.1371/journal.pone.0332485>.
 
-Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
-& Hajibabaei, M. (2025). Biomonitoring 2.0 Refined: Observing local
-change through metaphylogeography using a community-based eDNA
-metabarcoding monitoring network. *BMC Biology*, *23*(1), 187.
-<https://doi.org/10.1186/s12915-025-02284-x>
+Riley, Andrew C., Michael Wright, Teresita M. Porter, V. Carley
+Maitland, Donald J. Baird, and Mehrdad Hajibabaei. 2025. “Biomonitoring
+2.0 Refined: Observing Local Change Through Metaphylogeography Using a
+Community-Based eDNA Metabarcoding Monitoring Network.” *BMC Biology* 23
+(1): 187. <https://doi.org/10.1186/s12915-025-02284-x>.
 
-Rock, L. A., Fetzer, W. W., Patterson, L. S., Sillen, S. J., Steg, R.,
-Walters, A. W., & Collins, S. M. (2025). Spatiotemporal drivers of water
-quality and phytoplankton communities in a cyanobacteria-dominated
-reservoir provide management insights. *Environmental Monitoring and
-Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
+Rock, Linnea A., William W. Fetzer, Lindsay S. Patterson, et al. 2025.
+“Spatiotemporal Drivers of Water Quality and Phytoplankton Communities
+in a Cyanobacteria-Dominated Reservoir Provide Management Insights.”
+*Environmental Monitoring and Assessment* 197 (7): 795.
+<https://doi.org/10.1007/s10661-025-14258-1>.
 
-Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
-al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
-d’ocupació del territori durant el Neolı́tic (5700–2100 cal ANE)* \[PhD
-thesis, Universitat Autònoma de Barcelona\].
-<https://ddd.uab.cat/record/301073>
+Salvador Baiges, Guillem. 2024. “Clima, Orografia i Dinàmiques de
+Poblament Al Pirineu Central. Arqueologia, SIG i Modelització Espacial
+Del Patró d’ocupació Del Territori Durant El Neolı́tic (5700–2100 Cal
+ANE).” PhD thesis, Universitat Autònoma de Barcelona.
+<https://ddd.uab.cat/record/301073>.
 
-Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
-Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche
-conservatism and evolutionary dynamics in Octopodidae: A phylogenetic
-comparative approach. *Journal of Biogeography*, *53*(4), e70222.
-<https://doi.org/10.1111/jbi.70222>
+Santiago-Sarmiento, Aura Pamela, Citlalli Edith Esparza-Estrada, Carlos
+Alberto Yáñez-Arenas, Luis Enrique Ángeles-González, and Lucas Jardim.
+2026. “Ecological Niche Conservatism and Evolutionary Dynamics in
+Octopodidae: A Phylogenetic Comparative Approach.” *Journal of
+Biogeography* 53 (4): e70222. <https://doi.org/10.1111/jbi.70222>.
 
-Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
-probabilistic liquefaction model building at the regional scale.
-*Earthquake Spectra*, *42*(1), e70013.
-<https://doi.org/10.1002/esp4.70013>
+Schmidt, Jonathan, Shideh Dashti, and Cristina Torres-Machi. 2026.
+“Next-Generation Probabilistic Liquefaction Model Building at the
+Regional Scale.” *Earthquake Spectra* 42 (1): e70013.
+<https://doi.org/10.1002/esp4.70013>.
 
-Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
-M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
-T., Meremikwu, M., Moses, L., Redding, D. W., & Friant, S. (2026). Local
-heterogeneity in Lassa fever serology in rural Nigeria: Implications for
-vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
-*20*(5), e0014379. <https://doi.org/10.1371/journal.pntd.0014379>
+Simons, David, Christina Harden, Natalie Imirzian, et al. 2026. “Local
+Heterogeneity in Lassa Fever Serology in Rural Nigeria: Implications for
+Vaccine Trial Site Selection.” *PLOS Neglected Tropical Diseases* 20
+(5): e0014379. <https://doi.org/10.1371/journal.pntd.0014379>.
 
-Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
-Jardine, S. L. (2026). Projected temperature and precipitation expand
-modeled distributions of *Reynoutria* spp. While modeled distribution
-changes for *Ludwigia* spp. Are scenario-dependent at watershed scales
-in the Pacific Northwest, USA. *River Research and Applications*.
-<https://doi.org/10.1002/rra.70141>
+Smoot, Emily E., Rebecca L. Flitcroft, Samuel S. Chan, Braeden Van
+Deynze, Sean Ewen, and Sunny L. Jardine. 2026. “Projected Temperature
+and Precipitation Expand Modeled Distributions of *Reynoutria* spp.
+While Modeled Distribution Changes for *Ludwigia* spp. Are
+Scenario-Dependent at Watershed Scales in the Pacific Northwest, USA.”
+*River Research and Applications* 42 (6): 1411–24.
+<https://doi.org/10.1002/rra.70141>.
 
-Su, X., Popescu, N., Insuk, C., Lausen, C., & Xu, J. (2025). High
-Diversity and Low Genetic Differentiation Among Geographic Populations
-of *Myotis yumanensis* in Western Canada. *Animals*, *15*(4), 578.
-<https://doi.org/10.3390/ani15040578>
+Su, Xingyuan, Nicolas Popescu, Chadabhorn Insuk, Cori Lausen, and
+Jianping Xu. 2025. “High Diversity and Low Genetic Differentiation Among
+Geographic Populations of *Myotis Yumanensis* in Western Canada.”
+*Animals* 15 (4): 578. <https://doi.org/10.3390/ani15040578>.
 
-Sun, Y., James, B. D., Houston, K. R., Edwards, B., Izallalen, M.,
-Mazumder, S., Shankar, R., Reddy, C. M., & Ward, C. P. (2025).
-Temperature Controls the Lifetimes and Microbial Communities Degrading
-Cellulose Diacetate in the Coastal Ocean. *Environmental Science &
-Technology*, *59*(36), 19468–19478.
-<https://doi.org/10.1021/acs.est.5c05334>
+Sun, Yanchen, Bryan D. James, Katelyn R. Houston, et al. 2025.
+“Temperature Controls the Lifetimes and Microbial Communities Degrading
+Cellulose Diacetate in the Coastal Ocean.” *Environmental Science &
+Technology* 59 (36): 19468–78.
+<https://doi.org/10.1021/acs.est.5c05334>.
 
-Tanaka, E. (2025). Examining the Interface Design of Tidyverse.
-*Australian & New Zealand Journal of Statistics*, *68*(1).
-<https://doi.org/10.1111/anzs.70031>
+Tanaka, Emi. 2026. “Examining the Interface Design of Tidyverse.”
+*Australian & New Zealand Journal of Statistics* 68 (1): e70031.
+<https://doi.org/10.1111/anzs.70031>.
 
-Tribbia, D. Z., Lebre, P. H., Vázquez-Campos, X., Ray, A. E., Laird, T.,
-Lima, N. M. de, Maggs-Kölling, G., Cowan, D. A., & Ferrari, B. C.
-(2026). Trace gas oxidation supports sub-surface microbial communities
-across Namib Desert fog and aridity gradients. *Applied and
-Environmental Microbiology*, e00265–26.
-<https://doi.org/10.1128/aem.00265-26>
+Tribbia, Dana Z., Pedro H. Lebre, Xabier Vázquez-Campos, et al. 2026.
+“Trace Gas Oxidation Supports Sub-Surface Microbial Communities Across
+Namib Desert Fog and Aridity Gradients.” *Applied and Environmental
+Microbiology*, July 10, e00265–26.
+<https://doi.org/10.1128/aem.00265-26>.
 
-Varma, V., Mosedale, J. R., Alvarez, J. A. G., & Bebber, D. P. (2025).
-Socio-economic factors constrain climate change adaptation in a tropical
-export crop. *Nature Food*, *6*(4), 343–352.
-<https://doi.org/10.1038/s43016-025-01130-1>
+Varma, Varun, Jonathan R. Mosedale, José Antonio Guzmán Alvarez, and
+Daniel P. Bebber. 2025. “Socio-Economic Factors Constrain Climate Change
+Adaptation in a Tropical Export Crop.” *Nature Food* 6 (4): 343–52.
+<https://doi.org/10.1038/s43016-025-01130-1>.
 
-Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The Relationship
-Between Soil Organic Matter Composition and Soil Enzymes Activities in
-Various Land Use Types in the Upper Watershed of Danjiangkou Reservoir
-in China. *Land Degradation & Development*, *36*(8), 2557–2570.
-<https://doi.org/10.1002/ldr.5516>
+Wang, Guangyu, Xiaofeng Tang, Qingwei Zhang, Bingcong Li, and Ming Li.
+2025. “The Relationship Between Soil Organic Matter Composition and Soil
+Enzyme Activities in Various Land Use Types in the Upper Watershed of
+Danjiangkou Reservoir in China.” *Land Degradation & Development* 36
+(8): 2557–70. <https://doi.org/10.1002/ldr.5516>.
 
-Wieczorkowski, J. D., Rajaovelona, L. R., Hermans, J., Stévart, T.,
-Razanajatovo, H., Droissart, V., Pennington, R. T., Zizka, A., &
-Lehmann, C. E. R. (2026). Orchids in the open: Understanding
-biodiversity beyond Madagascar’s forests. *Diversity and Distributions*,
-*32*(3), e70172. <https://doi.org/10.1111/ddi.70172>
+Wieczorkowski, Jakub D., Landy R. Rajaovelona, Johan Hermans, et al.
+2026. “Orchids in the Open: Understanding Biodiversity Beyond
+Madagascar’s Forests.” *Diversity and Distributions* 32 (3): e70172.
+<https://doi.org/10.1111/ddi.70172>.
 
-Wiethase, J. H. (2023). *Advancing ecosystem understanding: Identifying
-the drivers of habitat degradation, species distributions and species
-vulnerabilities in East African grasslands* \[PhD thesis, University of
-York\]. <https://etheses.whiterose.ac.uk/id/eprint/34736/>
+Wiethase, Joris Hendrik. 2023. “Advancing Ecosystem Understanding:
+Identifying the Drivers of Habitat Degradation, Species Distributions
+and Species Vulnerabilities in East African Grasslands.” PhD thesis,
+University of York. <https://etheses.whiterose.ac.uk/id/eprint/34736/>.
 
-Williams, J., & Pettorelli, N. (2025). Ecosystem condition emerges from
-an ecological equation of state applied to North American tree
-communities. *Current Biology*, *35*(7), 1672–1679.e3.
-<https://doi.org/10.1016/j.cub.2025.02.062>
+Williams, Jake, and Nathalie Pettorelli. 2025. “Ecosystem Condition
+Emerges from an Ecological Equation of State Applied to North American
+Tree Communities.” *Current Biology* 35 (7): 1672–1679.e3.
+<https://doi.org/10.1016/j.cub.2025.02.062>.
 
-Williams, J., Sandom, C. J., & Pettorelli, N. (2024). Active management
-is required to regenerate the Caledonian forest: Alladale as a case
-study. *Ecological Solutions and Evidence*, *5*(1), e12315.
-<https://doi.org/10.1002/2688-8319.12315>
+Williams, Jake, Christopher J. Sandom, and Nathalie Pettorelli. 2024.
+“Active Management Is Required to Regenerate the Caledonian Forest:
+Alladale as a Case Study.” *Ecological Solutions and Evidence* 5 (1):
+e12315. <https://doi.org/10.1002/2688-8319.12315>.
 
-Wong, C. Y. S., Wright, M. C., Mantgem, P. J. van, Latimer, A. M., &
-Young, D. J. N. (2025). Sentinel imagery detects the presence of live
-trees following large wildfires in California. *Environmental Research:
-Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
+Wong, Christopher Y. S., Micah C. Wright, Phillip J. van Mantgem, Andrew
+M. Latimer, and Derek J. N. Young. 2025. “Sentinel Imagery Detects the
+Presence of Live Trees Following Large Wildfires in California.”
+*Environmental Research: Ecology* 4 (2): 025006.
+<https://doi.org/10.1088/2752-664X/add5fd>.
 
-Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
-H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
-distribution pattern in Tajikistan: A global hotspot of diversity.
-*Regional Sustainability*, *7*(1), 100294.
-<https://doi.org/10.1016/j.regsus.2026.100294>
+Zhou, Yixin, Suliya MA, Wenjun LI, et al. 2026. “Vascular Plant
+Diversity and Distribution Pattern in Tajikistan: A Global Hotspot of
+Diversity.” *Regional Sustainability* 7 (1): 100294.
+<https://doi.org/10.1016/j.regsus.2026.100294>.
