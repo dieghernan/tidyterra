@@ -31,6 +31,12 @@ Aramburu, Ana, Núria Beltran-Sanz, José Raggio, et al. 2026. “Islands of
 Biodiversity: Characterization of Lichen Flora in Antarctic Nunataks.”
 *Journal of Fungi* 12 (5): 314. <https://doi.org/10.3390/jof12050314>.
 
+Bagchi, Basabi, Lore Van Vlaenderen, Tim Wheeler, et al. 2026.
+“Temperature-Sensitive Cytoplasmic Incompatibility Across Divergent
+*Wolbachia* Partly Reflects *cifB* Transcription, Not Endosymbiont
+Density.” *Molecular Biology and Evolution*, July, msag186.
+<https://doi.org/10.1093/molbev/msag186>.
+
 Bahlburg, Dominik, Sebastian Menze, Bjørn A. Krafft, Andy D. Lowther,
 and Bettina Meyer. 2025. “Mapping Encounters Between Antarctic Krill
 Fishing Vessels and Air-Breathing Krill Predators Using Acoustic Data
@@ -69,6 +75,12 @@ Enhancing Field Phenotyping with High-Precision Global Navigation
 Systems Integration in the Field Book Mobile Application.” *Crop
 Science* 66 (2): e70254. <https://doi.org/10.1002/csc2.70254>.
 
+Cordeiro, Norbert J., Jacob C. Cooper, Victor J. Mkongewa, Martin Joho,
+Jasson R. M. John, and P. Kariuki Ndang’ang’a. 2026. “Ecological Niche
+Models Result in an Extreme Overestimation of Area of Occurrence in an
+Endangered East African Songbird.” *Bird Conservation International* 36
+(July): e26. <https://doi.org/10.1017/S0959270926100574>.
+
 Cordero, Elvin, Roy Ruiz Vélez, Víctor Huérfano Moreno, and Clark
 Sherman. 2025. “Enhancing Tsunami Evacuation Strategies in Puerto Rico
 Using Open-Source Least-Cost Path Analysis.” *Journal of Disaster
@@ -103,6 +115,11 @@ a Spatiotemporal Repository of Extreme Heat and Cold Exposure in the
 United States for Precision Public Health Research.” *Environmental
 Science & Technology* 59 (37): 19872–84.
 <https://doi.org/10.1021/acs.est.5c03658>.
+
+Friesová, Klára, Štěpánka Pustková, Petr Hubatka, et al. 2026. “Forest
+Herb-Layer Species Richness in the Western Balkan Diversity Hotspot.”
+*Journal of Vegetation Science* 37 (4): e70167.
+<https://doi.org/10.1111/jvs.70167>.
 
 Fu, Fengyu, Shuai Wang, Xutong Wu, et al. 2025. “Integrating
 Hydrological Impacts for Cost-Effective Dryland Ecological Restoration.”
