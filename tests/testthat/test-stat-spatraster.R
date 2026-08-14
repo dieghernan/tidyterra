@@ -10,10 +10,10 @@ test_that("stat_spatraster rejects invalid inputs", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_error(
+  expect_snapshot(
     ggplot(r) +
       stat_spatraster(),
-    class = "missingArgError"
+    error = TRUE
   )
   expect_snapshot(
     ggplot() +
