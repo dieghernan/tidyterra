@@ -1,4 +1,4 @@
-# geom_spatraster one layer with CRS
+# geom_spatraster() draws one-layer CRS visual variants
 
     Code
       ggplot() + geom_spatraster(data = v)
@@ -28,7 +28,7 @@
     Message
       <SpatRaster> resampled to 24 cells.
 
-# geom_spatraster one layer without CRS
+# geom_spatraster() draws one-layer no-CRS visual variants
 
     Code
       p_res <- ggplot() + geom_spatraster(data = r, maxcell = 20)

@@ -54,6 +54,6 @@
 <polyline points='372.71,459.75 372.71,457.01 ' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
 <text x='366.16' y='468.09' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='9.78px' lengthAdjust='spacingAndGlyphs'>  0</text>
 <text x='375.95' y='468.09' style='font-size: 8.80px; fill: #4D4D4D; font-family: sans;' textLength='3.31px' lengthAdjust='spacingAndGlyphs'>°</text>
-<text x='29.87' y='115.08' style='font-size: 13.20px; font-family: sans;' textLength='78.50px' lengthAdjust='spacingAndGlyphs'>crs_11: Wrap</text>
+<text x='29.87' y='115.08' style='font-size: 13.20px; font-family: sans;' textLength='75.58px' lengthAdjust='spacingAndGlyphs'>crs_11: wrap</text>
 </g>
 </svg>

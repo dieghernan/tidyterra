@@ -1,4 +1,4 @@
-# geom_spatraster_rgb with CRS
+# geom_spatraster_rgb() draws CRS visual variants
 
     Code
       ggplot() + geom_spatraster_rgb(data = v)
@@ -25,7 +25,7 @@
 ---
 
     Code
-      ggplot() + geom_spatraster_rgb(data = select(r_subset, 1))
+      ggplot() + geom_spatraster_rgb(data = dplyr::select(r_subset, 1))
     Condition
       Error in `geom_spatraster_rgb()`:
       ! Incorrect layer selection in `r`, `g`, and `b`. `data` has 1 layer.

@@ -1,4 +1,4 @@
-# geom_spatraster several layer with CRS
+# geom_spatraster() rejects invalid three-layer inputs
 
     Code
       ggplot() + geom_spatraster(data = v)
@@ -17,7 +17,7 @@
 ---
 
     Code
-      end <- ggplot_build(s)
+      invisible(ggplot_build(p))
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
       * Use `facet_wrap(~lyr)` to facet layers.
@@ -28,10 +28,10 @@
       Caused by error in `reproject_raster_on_stat()`:
       ! `geom_spatraster_*()` on <SpatRaster> objects with CRS must be used with `ggplot2::coord_sf()`.
 
----
+# geom_spatraster() draws three-layer CRS visual variants
 
     Code
-      end <- ggplot2::ggplot_build(p)
+      invisible(ggplot2::ggplot_build(p))
     Message
       ! `tidyterra::geom_spatraster()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
       * Use `facet_wrap(~lyr)` to facet layers.
@@ -74,7 +74,7 @@
     Message
       <SpatRaster> resampled to 24 cells.
 
-# geom_spatraster several layer with no CRS
+# geom_spatraster() draws three-layer no-CRS visual variants
 
     Code
       expect_message(ggplot2::ggplot_build(p))
@@ -111,10 +111,12 @@
     Message
       <SpatRaster> resampled to 24 cells.
 
-# Warn in RGB tile
+# geom_spatraster() snapshots RGB tile warning
 
     Code
       p <- ggplot() + geom_spatraster(data = tile)
     Message
       ! RGB specification detected. Use `tidyterra::geom_spatraster_rgb()` instead.
+    Code
+      invisible(p)
 

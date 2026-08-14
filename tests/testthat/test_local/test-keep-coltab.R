@@ -1,93 +1,75 @@
-# Test coltab is kept on SpatRaster methods
-test_that("drop_na", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("drop_na() preserves SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
+
   r2 <- r
   r2[r == "Paleozoic"] <- NA
-
   d <- drop_na(r2)
+
   expect_true(terra::has.colors(d))
   expect_identical(terra::coltab(r), terra::coltab(d))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("coltab_orig", autoplot(r))
-  vdiffr::expect_doppelganger("drop_na", autoplot(d))
+  vdiffr::expect_doppelganger("dropna_01: original", autoplot(r))
+  vdiffr::expect_doppelganger("dropna_02: dropped na", autoplot(d))
 })
 
-test_that("replace_na", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("replace_na() preserves SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
+
   r2 <- r
   r2[r == "Paleozoic"] <- NA
-
   d <- replace_na(r2, list(era = "Cenozoic"))
+
   expect_true(terra::has.colors(d))
   expect_identical(terra::coltab(r), terra::coltab(d))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("replace_na", autoplot(d))
+  vdiffr::expect_doppelganger("replacena_01: replaced na", autoplot(d))
 })
 
-# Dplyr methods
-
-test_that("select", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("select() preserves selected SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
-  r2 <- r
-  terra::values(r2) <- "20"
-  names(r2) <- "aa"
-  # In first place
-  rend <- c(r, r2)
-  d1 <- select(rend, era)
 
+  r_plain <- local_constant_raster_layer(r, name = "aa", value = "20")
+
+  d1 <- dplyr::select(c(r, r_plain), era)
   expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-  # In second place
-  rend <- c(r2, r)
-  d2 <- select(rend, era)
-
+  d2 <- dplyr::select(c(r_plain, r), era)
   expect_true(terra::has.colors(d2))
   expect_identical(terra::coltab(r), terra::coltab(d2))
 
-  # Selecting severals
-  d3 <- select(rend, aa, era)
-
+  d3 <- dplyr::select(c(r_plain, r), aa, era)
   expect_equal(terra::has.colors(d3), c(FALSE, TRUE))
   expect_identical(terra::coltab(d3), c(list(NULL), terra::coltab(r)))
 
-  # Selecting severals with rename
-  d4 <- select(rend, f = aa, era2 = era)
-
+  d4 <- dplyr::select(c(r_plain, r), f = aa, era2 = era)
   expect_equal(terra::has.colors(d4), c(FALSE, TRUE))
   expect_identical(terra::coltab(d4), c(list(NULL), terra::coltab(r)))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("select1", autoplot(d1))
-  vdiffr::expect_doppelganger("select2", autoplot(d2))
-  vdiffr::expect_doppelganger("select several", autoplot(d3))
-  vdiffr::expect_doppelganger("select with rename", autoplot(d4))
+  vdiffr::expect_doppelganger("select_01: first layer", autoplot(d1))
+  vdiffr::expect_doppelganger("select_02: second layer", autoplot(d2))
+  vdiffr::expect_doppelganger("select_03: several layers", autoplot(d3))
+  vdiffr::expect_doppelganger(
+    "select_04: several layers with rename",
+    autoplot(d4)
+  )
 })
 
-test_that("mutate", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("mutate() preserves existing SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
 
-  # No adding new cols
-  d1 <- mutate(r, era = dplyr::if_else(era == "Paleozoic", "Cenozoic", era))
-
+  d1 <- dplyr::mutate(
+    r,
+    era = dplyr::if_else(era == "Paleozoic", "Cenozoic", era)
+  )
   expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-  # Adding a new col
-  d2 <- mutate(
+  d2 <- dplyr::mutate(
     r,
     era_new = dplyr::case_when(
       era == "Cenozoic" ~ "Paleozoic",
@@ -95,51 +77,35 @@ test_that("mutate", {
       TRUE ~ era
     )
   )
-
   expect_identical(terra::has.colors(d2), c(TRUE, FALSE))
   expect_identical(c(terra::coltab(r), list(NULL)), terra::coltab(d2))
 
-  # Adding a new layer with different coltab
-  newctb <- terra::rast(r)
-  names(newctb) <- "newctb"
-  terra::values(newctb) <- as.factor(rep_len(
-    c("S", "W", "S"),
-    terra::ncell(newctb)
-  ))
-  levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(
-    value = 1:2,
-    t(col2rgb(c("red", "yellow"), alpha = TRUE))
-  )
-  terra::coltab(newctb) <- coltb2
+  newctb <- local_letter_coltab_layer(r)
   several <- c(r, newctb)
-  d3 <- several |> mutate(another = "SAD")
+  d3 <- several |> dplyr::mutate(another = "SAD")
 
   expect_identical(terra::has.colors(d3), c(TRUE, TRUE, FALSE))
-
   fullctab <- c(terra::coltab(r), terra::coltab(newctb), list(NULL))
   expect_identical(terra::coltab(d3), fullctab)
 
-  # Additional test select
-  d4 <- d3 |> select(letter, another, era)
+  d4 <- d3 |> dplyr::select(letter, another, era)
   expect_identical(terra::has.colors(d4), c(TRUE, FALSE, TRUE))
   expect_identical(terra::coltab(d4), fullctab[c(2, 3, 1)])
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("mutate1", autoplot(d1))
-  vdiffr::expect_doppelganger("mutate2", autoplot(d2))
-  vdiffr::expect_doppelganger("mutate3", autoplot(d3))
-  vdiffr::expect_doppelganger("mutate4", autoplot(d4))
+  vdiffr::expect_doppelganger("mutate_01: replace existing", autoplot(d1))
+  vdiffr::expect_doppelganger("mutate_02: add plain layer", autoplot(d2))
+  vdiffr::expect_doppelganger(
+    "mutate_03: add plain layer to coltab stack",
+    autoplot(d3)
+  )
+  vdiffr::expect_doppelganger("mutate_04: reorder coltab stack", autoplot(d4))
 })
 
-test_that("transmute", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("transmute() preserves retained SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
 
-  # transmute
-  d1 <- transmute(
+  d1 <- dplyr::transmute(
     r,
     era = dplyr::case_when(
       era == "Cenozoic" ~ "Paleozoic",
@@ -147,12 +113,10 @@ test_that("transmute", {
       TRUE ~ era
     )
   )
-
   expect_true(terra::has.colors(d1))
   expect_identical(terra::coltab(r), terra::coltab(d1))
 
-  # transmute a new var with no coltab
-  d2 <- transmute(
+  d2 <- dplyr::transmute(
     r,
     era_new = dplyr::case_when(
       era == "Cenozoic" ~ "Paleozoic",
@@ -160,138 +124,86 @@ test_that("transmute", {
       TRUE ~ era
     )
   )
-
   expect_false(terra::has.colors(d2))
 
-  # Adding a new layer with different coltab
-  newctb <- terra::rast(r)
-  names(newctb) <- "newctb"
-  terra::values(newctb) <- as.factor(rep_len(
-    c("S", "W", "S"),
-    terra::ncell(newctb)
-  ))
-  levels(newctb) <- data.frame(id = 1:2, letter = c("S", "W"))
-  coltb2 <- data.frame(
-    value = 1:2,
-    t(col2rgb(c("red", "yellow"), alpha = TRUE))
-  )
-  terra::coltab(newctb) <- coltb2
+  newctb <- local_letter_coltab_layer(r)
   several <- c(r, newctb)
-  d3 <- several |> transmute(letter = letter, era = era)
-
+  d3 <- several |> dplyr::transmute(letter = letter, era = era)
   expect_identical(terra::has.colors(d3), c(TRUE, TRUE))
   expect_identical(terra::coltab(d3), terra::coltab(several)[2:1])
 
-  # Mix and match
-
-  d4 <- transmute(several, era2 = era, letter = letter, ss = "fcr")
-
+  d4 <- dplyr::transmute(several, era2 = era, letter = letter, ss = "fcr")
   expect_identical(terra::has.colors(d4), c(FALSE, TRUE, FALSE))
   expect_identical(
     terra::coltab(d4),
     c(list(NULL), terra::coltab(newctb), list(NULL))
   )
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("transmute1", autoplot(d1))
-  vdiffr::expect_doppelganger("transmute2", autoplot(d2))
-  vdiffr::expect_doppelganger("transmute3", autoplot(d3))
-  vdiffr::expect_doppelganger("transmute4", autoplot(d4))
+  vdiffr::expect_doppelganger("transmute_01: replace existing", autoplot(d1))
+  vdiffr::expect_doppelganger("transmute_02: create plain layer", autoplot(d2))
+  vdiffr::expect_doppelganger(
+    "transmute_03: reorder coltab stack",
+    autoplot(d3)
+  )
+  vdiffr::expect_doppelganger(
+    "transmute_04: mix retained and plain layers",
+    autoplot(d4)
+  )
 })
 
-test_that("filter", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("filter() preserves SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
-  d <- filter(r, era %in% c("Paleozoic", "Mesozoic"))
+
+  d <- dplyr::filter(r, era %in% c("Paleozoic", "Mesozoic"))
   expect_true(terra::has.colors(d))
   expect_identical(terra::coltab(r), terra::coltab(d))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("filter", autoplot(d))
+  vdiffr::expect_doppelganger("filter_01: filtered values", autoplot(d))
 })
 
-test_that("slice", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("slice helpers preserve SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
 
-  # Slice
-  sl <- slice(r, 1:20)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
+  slice_cases <- list(
+    dplyr::slice(r, 1:20),
+    dplyr::slice_head(r, n = 50),
+    dplyr::slice_tail(r, n = 50),
+    dplyr::slice_min(r, era, n = 50),
+    dplyr::slice_max(r, era, n = 50),
+    dplyr::slice_sample(r, n = 50),
+    slice_rows(r, 1:3),
+    slice_cols(r, 1:3),
+    slice_colrows(r, rows = 1:3, cols = 1:4)
+  )
 
-  # Slice head
-  sl <- slice_head(r, n = 50)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice tail
-  sl <- slice_tail(r, n = 50)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice min
-  sl <- slice_min(r, era, n = 50)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice max
-  sl <- slice_max(r, era, n = 50)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice sample
-  sl <- slice_sample(r, n = 50)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice rows
-  sl <- slice_rows(r, 1:3)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice cols
-  sl <- slice_cols(r, 1:3)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
-
-  # Slice rowcols
-  sl <- slice_colrows(r, rows = 1:3, cols = 1:4)
-  expect_true(terra::has.colors(sl))
-  expect_identical(terra::coltab(sl), terra::coltab(r))
+  for (sl in slice_cases) {
+    expect_true(terra::has.colors(sl))
+    expect_identical(terra::coltab(sl), terra::coltab(r))
+  }
 })
 
-
-test_that("rename", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("rename() preserves SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
-  d <- rename(r, era_xxx = era)
+
+  d <- dplyr::rename(r, era_xxx = era)
   expect_true(terra::has.colors(d))
   expect_identical(terra::coltab(r), terra::coltab(d))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("rename", autoplot(d))
+  vdiffr::expect_doppelganger("rename_01: renamed layer", autoplot(d))
 })
 
-test_that("relocate", {
-  f <- system.file("extdata/cyl_era.tif", package = "tidyterra")
-  r <- terra::rast(f)
+test_that("relocate() preserves SpatRaster color tables", {
+  r <- local_cyl_era_raster()
   expect_true(terra::has.colors(r))
-  # New raster
-  r2 <- terra::rast(r)
-  terra::values(r2) <- rep_len("A", terra::ncell(r))
-  names(r2) <- "test"
-  rend <- c(r2, r)
-  d <- relocate(rend, era, .before = "test")
+
+  r_plain <- local_constant_raster_layer(r, name = "test", value = "A")
+  d <- dplyr::relocate(c(r_plain, r), era, .before = "test")
+
   expect_identical(terra::has.colors(d), c(TRUE, FALSE))
   expect_identical(terra::coltab(d), c(terra::coltab(r), list(NULL)))
 
-  # test with vdiffr
-
-  vdiffr::expect_doppelganger("relocate", autoplot(d))
+  vdiffr::expect_doppelganger("relocate_01: relocated layer", autoplot(d))
 })

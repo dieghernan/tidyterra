@@ -1,4 +1,12 @@
-# Minimal checks for stat_spatraster 1lyr CRS
+# stat_spatraster() rejects invalid one-layer inputs
+
+    Code
+      ggplot(r) + stat_spatraster()
+    Condition
+      Error in `stat_spatraster()`:
+      ! argument "data" is missing, with no default
+
+---
 
     Code
       ggplot() + stat_spatraster(data = v)

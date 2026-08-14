@@ -1,4 +1,4 @@
-# Errors and messages
+# geom_spatraster_contour_filled() reports invalid inputs
 
     Code
       ggplot() + geom_spatraster_contour_filled(data = v)
@@ -41,10 +41,10 @@
       ! Scale limits cannot be mapped onto spatial coordinates in `coord_sf()`.
       i Consider setting `lims_method = "geometry_bbox"` or `default_crs = NULL`.
 
-# Test plot
+# geom_spatraster_contour_filled() draws core visual variants
 
     Code
-      end <- ggplot_build(aa)
+      invisible(ggplot_build(aa))
     Message
       ! `tidyterra::geom_spatraster_contour_filled()`: Plotting 3 overlapping layers: tavg_04, tavg_05, and tavg_06. Either:
       * Use `facet_wrap(~lyr)` to facet layers.

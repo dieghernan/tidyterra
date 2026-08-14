@@ -1,4 +1,4 @@
-# Discrete scale
+# grass discrete colour scale maps palettes
 
     Code
       p + scale_colour_grass_d(alpha = -1)
@@ -14,7 +14,7 @@
       Error in `scale_colour_grass_d()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale
+# grass continuous colour scale maps palettes
 
     Code
       p + scale_colour_grass_c(alpha = -1)
@@ -30,7 +30,7 @@
       Error in `scale_colour_grass_c()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale no range
+# grass continuous colour scale maps palettes without GRASS range
 
     Code
       p + scale_colour_grass_c(palette = "x", use_grass_range = FALSE)
@@ -54,7 +54,7 @@
       Error in `scale_colour_grass_c()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale
+# grass binned colour scale maps palettes
 
     Code
       p_init + scale_color_grass_b(alpha = -1)
@@ -70,7 +70,7 @@
       Error in `scale_colour_grass_b()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale no range
+# grass binned colour scale maps palettes without GRASS range
 
     Code
       p + scale_colour_grass_b(palette = "x")
@@ -94,7 +94,7 @@
       Error in `scale_colour_grass_b()`:
       ! `direction` must be either 1 or -1.
 
-# Discrete scale fill
+# grass discrete fill scale maps palettes
 
     Code
       p + scale_fill_grass_d(alpha = -1)
@@ -110,7 +110,7 @@
       Error in `scale_fill_grass_d()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale fill
+# grass continuous fill scale maps palettes
 
     Code
       p + scale_fill_grass_c(alpha = -1)
@@ -126,7 +126,7 @@
       Error in `scale_fill_grass_c()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale fill no range
+# grass continuous fill scale maps palettes without GRASS range
 
     Code
       p + scale_fill_grass_c(palette = "x")
@@ -150,7 +150,7 @@
       Error in `scale_fill_grass_c()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale fill
+# grass binned fill scale maps palettes
 
     Code
       p_init + scale_fill_grass_b(alpha = -1)
@@ -166,7 +166,7 @@
       Error in `scale_fill_grass_b()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale fill no range
+# grass binned fill scale maps palettes without GRASS range
 
     Code
       p + scale_fill_grass_b(palette = "x")
@@ -190,7 +190,7 @@
       Error in `scale_fill_grass_b()`:
       ! `direction` must be either 1 or -1.
 
-# Palettes
+# grass.colors() validates palette names and sizes
 
     Code
       grass.colors(20, "xx")
