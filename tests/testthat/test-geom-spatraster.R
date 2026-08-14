@@ -25,11 +25,14 @@ test_that("Errors and messages", {
     geom_spatraster(data = r) +
     ggplot2::coord_radial()
 
-  expect_error(ggplot2::ggplot_build(s))
+  expect_warning(
+    ggplot2::ggplot_build(s),
+    regexp = "must be used with `ggplot2::coord_sf\\(\\)`"
+  )
 })
 
 
-test_that("Regular tests", {
+test_that("geom_spatraster builds regular raster plots", {
   skip_on_cran()
 
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
@@ -39,15 +42,24 @@ test_that("Regular tests", {
     geom_spatraster(data = r)
 
   expect_snapshot(ss <- ggplot2::ggplot_build(s))
+})
 
-  # Named single
+test_that("geom_spatraster uses a named fill layer", {
+  skip_on_cran()
+
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+  r <- terra::rast(f)
+
   s <- ggplot2::ggplot() +
     geom_spatraster(data = r, aes(fill = tavg_04))
 
   expect_silent(ss <- ggplot2::ggplot_build(s))
   expect_identical(unique(ss$data[[1]]$lyr), "tavg_04")
+})
 
-  # Named alpha layer
+test_that("geom_spatraster applies alpha layers", {
+  skip_on_cran()
+
   alpha_r <- terra::rast(ncols = 2, nrows = 2, nlyr = 2)
   names(alpha_r) <- c("fill_layer", "alpha_layer")
   terra::values(alpha_r) <- data.frame(
@@ -92,6 +104,13 @@ test_that("Regular tests", {
     stat_alpha_data[order(stat_alpha_data$x, stat_alpha_data$y), "alpha"],
     c(0.6, 0.2, 0.8, 0.4)
   )
+})
+
+test_that("geom_spatraster resamples and projects raster data", {
+  skip_on_cran()
+
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+  r <- terra::rast(f)
 
   withr::local_seed(154)
   x <- terra::rast(array(data = rnorm(120, 0, 1), dim = c(5, 5, 2)))
@@ -152,8 +171,15 @@ test_that("Regular tests", {
 
   data_nocrs <- ggplot2::get_layer_data(ssss)
   expect_equal(data_1, data_nocrs)
+})
 
-  # Mixed layers
+test_that("geom_spatraster reports mixed layer classes", {
+  skip_on_cran()
+
+  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
+  r <- terra::rast(f)
+  s1 <- terra::subset(r, 1)
+
   smix <- s1
   smix$other <- "A"
 
@@ -190,10 +216,11 @@ test_that("Coltabs", {
   no_col <- ggplot2::ggplot() +
     geom_spatraster(data = r, use_coltab = FALSE)
 
-  expect_false(any(
+  expect_equal(
     ggplot2::get_layer_data(the_plot)$fill ==
-      ggplot2::get_layer_data(no_col)$fill
-  ))
+      ggplot2::get_layer_data(no_col)$fill,
+    rep(FALSE, nrow(ggplot2::get_layer_data(the_plot)))
+  )
 
   fill_dots <- ggplot2::ggplot() +
     geom_spatraster(data = r, use_coltab = FALSE, fill = "blue", alpha = 0.3)

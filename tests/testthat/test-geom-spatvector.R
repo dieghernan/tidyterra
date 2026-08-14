@@ -18,7 +18,7 @@ test_that("geom_spatvector works as geom_sf", {
 
   expect_identical(layer_terra, layer_sf)
 
-  expect_true(all(layer_terra$geometry == layer_sf$geometry))
+  expect_equal(layer_terra$geometry, layer_sf$geometry)
 
   # With projs
   build_terra_proj <- build_terra + ggplot2::coord_sf(crs = 3857)
@@ -29,7 +29,7 @@ test_that("geom_spatvector works as geom_sf", {
 
   expect_identical(layer_terra2, layer_sf2)
 
-  expect_true(all(layer_terra2$geometry == layer_sf2$geometry))
+  expect_equal(layer_terra2$geometry, layer_sf2$geometry)
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
 
@@ -67,7 +67,7 @@ test_that("geom_spatvector_text works as geom_sf", {
 
   expect_identical(layer_terra, layer_sf)
 
-  expect_true(all(layer_terra$geometry == layer_sf$geometry))
+  expect_equal(layer_terra$geometry, layer_sf$geometry)
 
   # With projs
   build_terra_proj <- build_terra + ggplot2::coord_sf(crs = 3857)
@@ -78,7 +78,7 @@ test_that("geom_spatvector_text works as geom_sf", {
 
   expect_identical(layer_terra2, layer_sf2)
 
-  expect_true(all(layer_terra2$geometry == layer_sf2$geometry))
+  expect_equal(layer_terra2$geometry, layer_sf2$geometry)
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
 })
@@ -103,7 +103,7 @@ test_that("geom_spatvector_label works as geom_sf", {
 
   expect_identical(layer_terra, layer_sf)
 
-  expect_true(all(layer_terra$geometry == layer_sf$geometry))
+  expect_equal(layer_terra$geometry, layer_sf$geometry)
 
   # With projs
   build_terra_proj <- build_terra + ggplot2::coord_sf(crs = 3857)
@@ -114,7 +114,7 @@ test_that("geom_spatvector_label works as geom_sf", {
 
   expect_identical(layer_terra2, layer_sf2)
 
-  expect_true(all(layer_terra2$geometry == layer_sf2$geometry))
+  expect_equal(layer_terra2$geometry, layer_sf2$geometry)
 
   expect_false(any(layer_terra2$geometry == layer_terra$geometry))
 })
@@ -141,5 +141,5 @@ test_that("stat_spatvector works as geom_sf", {
 
   expect_identical(layer_terra, layer_sf)
 
-  expect_true(all(layer_terra$geometry == layer_sf$geometry))
+  expect_equal(layer_terra$geometry, layer_sf$geometry)
 })

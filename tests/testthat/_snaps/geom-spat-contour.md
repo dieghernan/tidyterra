@@ -1,3 +1,11 @@
+# select_spatraster_layer subsets z aesthetic
+
+    Code
+      select_spatraster_layer(ggplot2::aes(z = missing), r)
+    Condition
+      Error:
+      ! Layer "missing" not found in `data`.
+
 # Errors and messages
 
     Code

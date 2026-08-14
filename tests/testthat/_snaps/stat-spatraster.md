@@ -1,4 +1,4 @@
-# Minimal checks for stat_spatraster 1lyr CRS
+# stat_spatraster rejects invalid inputs
 
     Code
       ggplot() + stat_spatraster(data = v)

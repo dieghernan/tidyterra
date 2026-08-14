@@ -197,47 +197,61 @@ test_that("bind_spat_rows() can bind SpatVectors and sf", {
 test_that("bind_spat_rows() give informative errors", {
   skip_on_cran()
 
-  expect_snapshot({
-    "invalid .id"
-    df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
-    df2 <- data.frame(x = 4:6, lat = 1:3, lon = 1:3)
-    df1 <- terra::vect(df1, crs = "EPSG:4326")
-    df2 <- terra::vect(df2, crs = "EPSG:4326")
-    (expect_error(bind_spat_rows(df1, df2, .id = 5)))
+  df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
+  df2 <- data.frame(x = 4:6, lat = 1:3, lon = 1:3)
+  df1 <- terra::vect(df1, crs = "EPSG:4326")
+  df2 <- terra::vect(df2, crs = "EPSG:4326")
+  ll <- list(data.frame(a = 1:5))
 
-    "invalid type"
-    ll <- list(data.frame(a = 1:5))
-    (expect_error(bind_spat_rows(ll)))
+  expect_snapshot(
+    bind_spat_rows(df1, df2, .id = 5),
+    error = TRUE
+  )
 
-    (expect_error(bind_spat_rows(df1, ll)))
-  })
+  expect_snapshot(
+    bind_spat_rows(ll),
+    error = TRUE
+  )
+
+  expect_snapshot(
+    bind_spat_rows(df1, ll),
+    error = TRUE
+  )
 })
 
 test_that("bind_spat_rows() give informative message", {
   skip_on_cran()
 
-  expect_snapshot({
-    "different crs SpatVector"
-    v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
-    v1 <- v[1, ]
-    v2 <- terra::project(v[2, ], "EPSG:3857")
-    (expect_message(vend <- bind_spat_rows(v1, v2)))
-    expect_s4_class(vend, "SpatVector")
-    expect_identical(pull_crs(vend), pull_crs(v1))
+  v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
+  v1 <- v[1, ]
+  v2 <- terra::project(v[2, ], "EPSG:3857")
 
-    "different crs sf"
-    v2_sf <- as_sf(v2)
-    expect_s3_class(v2_sf, "sf")
+  expect_message(
+    vend <- bind_spat_rows(v1, v2),
+    "does not have the same CRS"
+  )
+  expect_s4_class(vend, "SpatVector")
+  expect_identical(pull_crs(vend), pull_crs(v1))
 
-    (expect_message(vend2 <- bind_spat_rows(v1, v2_sf)))
-    expect_s4_class(vend2, "SpatVector")
-    expect_identical(pull_crs(vend2), pull_crs(v1))
+  v2_sf <- as_sf(v2)
+  expect_s3_class(v2_sf, "sf")
 
-    "different crs sf and df"
-    df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
+  expect_message(
+    vend2 <- bind_spat_rows(v1, v2_sf),
+    "does not have the same CRS"
+  )
+  expect_s4_class(vend2, "SpatVector")
+  expect_identical(pull_crs(vend2), pull_crs(v1))
 
-    (expect_message(vend3 <- bind_spat_rows(v1, v2_sf, df1)))
-    expect_s4_class(vend3, "SpatVector")
-    expect_identical(pull_crs(vend3), pull_crs(v1))
-  })
+  df1 <- data.frame(x = 1:3, lat = 1:3, lon = 1:3)
+
+  expect_message(
+    expect_message(
+      vend3 <- bind_spat_rows(v1, v2_sf, df1),
+      "does not have the same CRS"
+    ),
+    "empty geometries"
+  )
+  expect_s4_class(vend3, "SpatVector")
+  expect_identical(pull_crs(vend3), pull_crs(v1))
 })

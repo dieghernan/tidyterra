@@ -30,13 +30,22 @@
       * `a` -> `a...1`
       * `a` -> `a...2`
 
+---
+
+    Code
+      bind_spat_cols(.name_repair = "check_unique", aa, data.frame(a = 2))
+    Condition
+      Error in `dplyr::bind_cols()`:
+      ! Names must be unique.
+      x These names are duplicated:
+        * "a" at locations 1 and 2.
+
 # bind_spat_cols() gives informative errors
 
     Code
       # # incompatible size
-      (expect_error(bind_spat_cols(mtcars)))
-    Output
-      <error/rlang_error>
+      bind_spat_cols(mtcars)
+    Condition
       Error in `bind_spat_cols()`:
       ! Object 1 in `...` is not a <SpatVector>.
 

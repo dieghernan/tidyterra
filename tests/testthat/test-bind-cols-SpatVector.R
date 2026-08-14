@@ -37,11 +37,14 @@ test_that("bind_spat_cols() honours .name_repair=", {
   expect_snapshot(res <- bind_spat_cols(aa, data.frame(a = 2)))
   expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))
 
-  expect_error(bind_spat_cols(
-    .name_repair = "check_unique",
-    aa,
-    data.frame(a = 2)
-  ))
+  expect_snapshot(
+    bind_spat_cols(
+      .name_repair = "check_unique",
+      aa,
+      data.frame(a = 2)
+    ),
+    error = TRUE
+  )
 })
 
 test_that("bind_spat_cols() accepts NULL", {
@@ -136,8 +139,11 @@ test_that("bind_spat_cols() gives informative errors", {
 
   a <- terra::vect("POINT (0 0)")
   a <- bind_spat_cols(a, data.frame(a = 1))
-  expect_snapshot({
-    "# incompatible size"
-    (expect_error(bind_spat_cols(mtcars)))
-  })
+  expect_snapshot(
+    {
+      "# incompatible size"
+      bind_spat_cols(mtcars)
+    },
+    error = TRUE
+  )
 })

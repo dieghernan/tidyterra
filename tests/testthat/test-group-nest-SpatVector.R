@@ -8,7 +8,10 @@ test_that("group_nest() returns SpatVector list-columns", {
 
   expect_s3_class(out, "tbl_df")
   expect_named(out, c("grp", "data"))
-  expect_true(all(vapply(out$data, inherits, logical(1), "SpatVector")))
+  expect_equal(
+    vapply(out$data, inherits, logical(1), "SpatVector"),
+    rep(TRUE, nrow(out))
+  )
 
   sv <- pull(out, data)
   names(sv) <- pull(out, grp)
@@ -28,7 +31,10 @@ test_that("nest_by() returns a rowwise tibble with SpatVector list-columns", {
   out <- nest_by(v, grp)
 
   expect_s3_class(out, "rowwise_df")
-  expect_true(all(vapply(out$data, inherits, logical(1), "SpatVector")))
+  expect_equal(
+    vapply(out$data, inherits, logical(1), "SpatVector"),
+    rep(TRUE, nrow(out))
+  )
 
   sv <- pull(out, data)
   names(sv) <- pull(out, grp)

@@ -152,20 +152,20 @@ test_that("distinct keep groups", {
   # With all
   v_all <- distinct(v)
 
-  expect_true(nrow(v_all) == 3)
+  expect_equal(nrow(v_all), 3)
   expect_true(is_grouped_spatvector(v_all))
   expect_identical(group_vars(v_all), "y")
 
   # Calling specificly
   v_all <- distinct(v, y)
-  expect_true(nrow(v_all) == 2)
+  expect_equal(nrow(v_all), 2)
   expect_true(is_grouped_spatvector(v_all))
   expect_identical(group_vars(v_all), "y")
 
   # When calling another variable with FALSE
   v_all <- distinct(v, x, .keep_all = FALSE)
-  expect_true("y" %in% names(v_all))
-  expect_true(nrow(v_all) == 2)
+  expect_equal(intersect("y", names(v_all)), "y")
+  expect_equal(nrow(v_all), 2)
   expect_true(is_grouped_spatvector(v_all))
   expect_identical(group_vars(v_all), "y")
 })

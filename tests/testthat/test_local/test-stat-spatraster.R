@@ -13,7 +13,8 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   # Errors
   expect_error(
     ggplot(r) +
-      stat_spatraster()
+      stat_spatraster(),
+    class = "missingArgError"
   )
   expect_snapshot(
     ggplot() +
@@ -40,7 +41,8 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   # Using aes
   expect_warning(
     ggplot() +
-      stat_spatraster(data = r, aes(fill = elevation_m, color = "red"))
+      stat_spatraster(data = r, aes(fill = elevation_m, color = "red")),
+    regexp = "Ignoring unknown aesthetics"
   )
 
   p_aes <- ggplot() +
@@ -51,7 +53,7 @@ test_that("Minimal checks for stat_spatraster 1lyr CRS", {
   # change geom
   p <- ggplot() +
     stat_spatraster(data = r, geom = "point", aes(fill = elevation_m))
-  expect_error(ggplot_build(p))
+  expect_error(ggplot_build(p), regexp = "Problem while computing aesthetics")
 
   p <- ggplot() +
     stat_spatraster(
@@ -104,7 +106,8 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   # Using aes
   expect_warning(
     ggplot() +
-      stat_spatraster(data = r, aes(fill = elevation_m, color = "red"))
+      stat_spatraster(data = r, aes(fill = elevation_m, color = "red")),
+    regexp = "Ignoring unknown aesthetics"
   )
 
   p_aes <- ggplot() +
@@ -115,7 +118,7 @@ test_that("Minimal checks for stat_spatraster 1lyr noCRS", {
   # change geom
   p <- ggplot() +
     stat_spatraster(data = r, geom = "point", aes(fill = elevation_m))
-  expect_error(ggplot_build(p))
+  expect_error(ggplot_build(p), regexp = "Problem while computing aesthetics")
 
   p <- ggplot() +
     stat_spatraster(

@@ -39,3 +39,27 @@
       The following attributes are not equal:
       * CRS
 
+# Irregular grids
+
+    Code
+      as_spatraster(p_jitter_x)
+    Condition
+      Error in `is_regular_grid()`:
+      ! `x` cell sizes are not regular. Try with a lower `digits` value.
+
+---
+
+    Code
+      as_spatraster(p_jitter_y)
+    Condition
+      Error in `is_regular_grid()`:
+      ! `y` cell sizes are not regular. Try with a lower `digits` value.
+
+# Check internal
+
+    Code
+      as_spat_internal(tbl2)
+    Condition
+      Error in `as_spat_internal()`:
+      ! Cannot convert `x` back to a <Spat*> object. Required reconstruction attributes are missing.
+

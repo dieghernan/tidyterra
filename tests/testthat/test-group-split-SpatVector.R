@@ -12,14 +12,14 @@ test_that("group_split() returns SpatVector partitions", {
   expect_type(split_v, "list")
   expect_identical(class(split_v), "list")
   expect_length(split_v, length(split_tbl))
-  expect_true(all(vapply(split_v, inherits, logical(1), "SpatVector")))
-  expect_true(all(vapply(
-    split_v,
-    function(x) {
-      !is_grouped_spatvector(x)
-    },
-    logical(1)
-  )))
+  expect_equal(
+    vapply(split_v, inherits, logical(1), "SpatVector"),
+    rep(TRUE, length(split_v))
+  )
+  expect_equal(
+    vapply(split_v, function(x) !is_grouped_spatvector(x), logical(1)),
+    rep(TRUE, length(split_v))
+  )
   split_v_tbl <- lapply(split_v, as_tibble)
   split_v_tbl <- lapply(split_v_tbl, function(x) {
     attr(x, "crs") <- NULL
@@ -51,13 +51,10 @@ test_that("group_split() supports temporary groups and .keep", {
     x
   })
   expect_identical(split_v_tbl, as.list(split_tbl))
-  expect_false(any(vapply(
-    split_v,
-    function(x) {
-      "cpro" %in% names(x)
-    },
-    logical(1)
-  )))
+  expect_equal(
+    vapply(split_v, function(x) "cpro" %in% names(x), logical(1)),
+    rep(FALSE, length(split_v))
+  )
 
   svc <- terra::svc(split_v)
 
