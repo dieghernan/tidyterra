@@ -396,11 +396,9 @@ test_that("geom_spatraster() snapshots RGB tile warning", {
   tile <- local_cyl_tile_raster()
 
   expect_true(has.RGB(tile))
-  expect_snapshot(
-    {
-      p <- ggplot() +
-        geom_spatraster(data = tile)
-      invisible(p)
-    }
-  )
+  expect_snapshot({
+    p <- ggplot() +
+      geom_spatraster(data = tile)
+    invisible(p)
+  })
 })

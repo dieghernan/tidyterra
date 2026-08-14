@@ -302,113 +302,127 @@ export(unite)
 export(whitebox.colors)
 export(wiki.colors)
 importFrom(cli,qty)
-importFrom(dplyr,add_count)
-importFrom(dplyr,anti_join)
-importFrom(dplyr,arrange)
-importFrom(dplyr,count)
-importFrom(dplyr,cross_join)
-importFrom(dplyr,distinct)
-importFrom(dplyr,everything)
-importFrom(dplyr,filter)
-importFrom(dplyr,filter_out)
-importFrom(dplyr,full_join)
-importFrom(dplyr,glimpse)
-importFrom(dplyr,group_by)
-importFrom(dplyr,group_by_drop_default)
-importFrom(dplyr,group_data)
-importFrom(dplyr,group_indices)
-importFrom(dplyr,group_keys)
-importFrom(dplyr,group_map)
-importFrom(dplyr,group_modify)
-importFrom(dplyr,group_nest)
-importFrom(dplyr,group_rows)
-importFrom(dplyr,group_size)
-importFrom(dplyr,group_split)
-importFrom(dplyr,group_trim)
-importFrom(dplyr,group_vars)
-importFrom(dplyr,groups)
-importFrom(dplyr,inner_join)
-importFrom(dplyr,left_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,n_groups)
-importFrom(dplyr,nest_by)
-importFrom(dplyr,nest_join)
-importFrom(dplyr,pull)
-importFrom(dplyr,reframe)
-importFrom(dplyr,relocate)
-importFrom(dplyr,rename)
-importFrom(dplyr,rename_with)
-importFrom(dplyr,right_join)
-importFrom(dplyr,rows_append)
-importFrom(dplyr,rows_delete)
-importFrom(dplyr,rows_insert)
-importFrom(dplyr,rows_patch)
-importFrom(dplyr,rows_update)
-importFrom(dplyr,rows_upsert)
-importFrom(dplyr,rowwise)
-importFrom(dplyr,select)
-importFrom(dplyr,semi_join)
-importFrom(dplyr,slice)
-importFrom(dplyr,slice_head)
-importFrom(dplyr,slice_max)
-importFrom(dplyr,slice_min)
-importFrom(dplyr,slice_sample)
-importFrom(dplyr,slice_tail)
-importFrom(dplyr,summarise)
-importFrom(dplyr,summarize)
-importFrom(dplyr,tally)
-importFrom(dplyr,transmute)
-importFrom(dplyr,ungroup)
-importFrom(generics,glance)
-importFrom(generics,required_pkgs)
-importFrom(generics,tidy)
-importFrom(ggplot2,aes)
-importFrom(ggplot2,after_stat)
-importFrom(ggplot2,alpha)
-importFrom(ggplot2,autoplot)
-importFrom(ggplot2,fortify)
-importFrom(ggplot2,from_theme)
-importFrom(grDevices,col2rgb)
-importFrom(grDevices,grey)
-importFrom(grDevices,rgb)
-importFrom(grDevices,terrain.colors)
+importFrom(dplyr,
+  add_count,
+  anti_join,
+  arrange,
+  count,
+  cross_join,
+  distinct,
+  everything,
+  filter,
+  filter_out,
+  full_join,
+  glimpse,
+  group_by,
+  group_by_drop_default,
+  group_data,
+  group_indices,
+  group_keys,
+  group_map,
+  group_modify,
+  group_nest,
+  group_rows,
+  group_size,
+  group_split,
+  group_trim,
+  group_vars,
+  groups,
+  inner_join,
+  left_join,
+  mutate,
+  n_groups,
+  nest_by,
+  nest_join,
+  pull,
+  reframe,
+  relocate,
+  rename,
+  rename_with,
+  right_join,
+  rows_append,
+  rows_delete,
+  rows_insert,
+  rows_patch,
+  rows_update,
+  rows_upsert,
+  rowwise,
+  select,
+  semi_join,
+  slice,
+  slice_head,
+  slice_max,
+  slice_min,
+  slice_sample,
+  slice_tail,
+  summarise,
+  summarize,
+  tally,
+  transmute,
+  ungroup
+)
+importFrom(generics,
+  glance,
+  required_pkgs,
+  tidy
+)
+importFrom(ggplot2,
+  aes,
+  after_stat,
+  alpha,
+  autoplot,
+  fortify,
+  from_theme
+)
+importFrom(grDevices,
+  col2rgb,
+  grey,
+  rgb,
+  terrain.colors
+)
 importFrom(lifecycle,deprecated)
 importFrom(magrittr,"%>%")
-importFrom(rlang,"%||%")
-importFrom(rlang,.data)
-importFrom(rlang,abort)
-importFrom(rlang,caller_arg)
-importFrom(rlang,caller_env)
-importFrom(rlang,check_bool)
-importFrom(rlang,check_data_frame)
-importFrom(rlang,check_number_decimal)
-importFrom(rlang,check_number_whole)
-importFrom(rlang,check_string)
-importFrom(rlang,is_call)
-importFrom(rlang,is_character)
-importFrom(rlang,is_closure)
-importFrom(rlang,is_environment)
-importFrom(rlang,is_formula)
-importFrom(rlang,is_function)
-importFrom(rlang,is_list)
-importFrom(rlang,is_logical)
-importFrom(rlang,is_missing)
-importFrom(rlang,is_na)
-importFrom(rlang,is_null)
-importFrom(rlang,is_symbol)
-importFrom(rlang,is_vector)
-importFrom(rlang,stop_input_type)
+importFrom(rlang,
+  "%||%",
+  .data,
+  abort,
+  caller_arg,
+  caller_env,
+  check_bool,
+  check_data_frame,
+  check_number_decimal,
+  check_number_whole,
+  check_string,
+  is_call,
+  is_character,
+  is_closure,
+  is_environment,
+  is_formula,
+  is_function,
+  is_list,
+  is_logical,
+  is_missing,
+  is_na,
+  is_null,
+  is_symbol,
+  is_vector,
+  stop_input_type
+)
 importFrom(terra,as.data.frame)
-importFrom(tibble,as_tibble)
-importFrom(tibble,tibble)
-importFrom(tidyr,complete)
-importFrom(tidyr,drop_na)
-importFrom(tidyr,expand)
-importFrom(tidyr,fill)
-importFrom(tidyr,nest)
-importFrom(tidyr,pivot_longer)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,replace_na)
-importFrom(tidyr,uncount)
-importFrom(tidyr,unite)
+importFrom(tibble,
+  as_tibble,
+  tibble
+)
+importFrom(tidyr,
+  complete,
+  drop_na,
+  expand,
+  fill,
+  nest,
+  pivot_longer,
+  pivot_wider,
+  replace_na,
+  uncount,
+  unite
+)
 importFrom(utils,packageVersion)
