@@ -34,7 +34,7 @@ Biodiversity: Characterization of Lichen Flora in Antarctic Nunataks.”
 Bagchi, Basabi, Lore Van Vlaenderen, Tim Wheeler, et al. 2026.
 “Temperature-Sensitive Cytoplasmic Incompatibility Across Divergent
 *Wolbachia* Partly Reflects *cifB* Transcription, Not Endosymbiont
-Density.” *Molecular Biology and Evolution*, July, msag186.
+Density.” *Molecular Biology and Evolution* 43 (8): msag186.
 <https://doi.org/10.1093/molbev/msag186>.
 
 Bahlburg, Dominik, Sebastian Menze, Bjørn A. Krafft, Andy D. Lowther,
@@ -78,8 +78,8 @@ Science* 66 (2): e70254. <https://doi.org/10.1002/csc2.70254>.
 Cordeiro, Norbert J., Jacob C. Cooper, Victor J. Mkongewa, Martin Joho,
 Jasson R. M. John, and P. Kariuki Ndang’ang’a. 2026. “Ecological Niche
 Models Result in an Extreme Overestimation of Area of Occurrence in an
-Endangered East African Songbird.” *Bird Conservation International* 36
-(July): e26. <https://doi.org/10.1017/S0959270926100574>.
+Endangered East African Songbird.” *Bird Conservation International* 36:
+e26. <https://doi.org/10.1017/s0959270926100574>.
 
 Cordero, Elvin, Roy Ruiz Vélez, Víctor Huérfano Moreno, and Clark
 Sherman. 2025. “Enhancing Tsunami Evacuation Strategies in Puerto Rico
@@ -296,6 +296,10 @@ in a Cyanobacteria-Dominated Reservoir Provide Management Insights.”
 *Environmental Monitoring and Assessment* 197 (7): 795.
 <https://doi.org/10.1007/s10661-025-14258-1>.
 
+Rustand, Denis, Janet van Niekerk, Elias Krainski, and Håvard Rue. 2026.
+*Bayesian Survival, Longitudinal, and Joint Models with INLA*. Chapman;
+Hall/CRC. <https://doi.org/10.1201/9781003646822>.
+
 Salvador Baiges, Guillem. 2024. “Clima, Orografia i Dinàmiques de
 Poblament Al Pirineu Central. Arqueologia, SIG i Modelització Espacial
 Del Patró d’ocupació Del Territori Durant El Neolı́tic (5700–2100 Cal
@@ -336,6 +340,10 @@ Sun, Yanchen, Bryan D. James, Katelyn R. Houston, et al. 2025.
 Cellulose Diacetate in the Coastal Ocean.” *Environmental Science &
 Technology* 59 (36): 19468–78.
 <https://doi.org/10.1021/acs.est.5c05334>.
+
+Sutton, J T, J L McDermid, and S M Ratelle. 2026. “A Framework to Map
+Fishing Activity from Incomplete Data.” *ICES Journal of Marine Science*
+83 (5): fsag070. <https://doi.org/10.1093/icesjms/fsag070>.
 
 Tanaka, Emi. 2026. “Examining the Interface Design of Tidyverse.”
 *Australian & New Zealand Journal of Statistics* 68 (1): e70031.
