@@ -10,11 +10,13 @@ test_that("stat_spatraster rejects invalid inputs", {
   v_sf <- sf::st_as_sf(v)
 
   # Errors
-  expect_snapshot(
+  err <- rlang::catch_cnd(
     ggplot(r) +
       stat_spatraster(),
-    error = TRUE
+    classes = "error"
   )
+  expect_s3_class(err, "error")
+  expect_snapshot(writeLines(conditionMessage(err)))
   expect_snapshot(
     ggplot() +
       stat_spatraster(data = v),

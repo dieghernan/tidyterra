@@ -1,10 +1,9 @@
 # stat_spatraster rejects invalid inputs
 
     Code
-      ggplot(r) + stat_spatraster()
-    Condition
-      Error in `stat_spatraster()`:
-      ! argument "data" is missing, with no default
+      writeLines(conditionMessage(err))
+    Output
+      argument "data" is missing, with no default
 
 ---
 
