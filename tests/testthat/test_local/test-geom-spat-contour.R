@@ -22,18 +22,12 @@ test_that("contour breaks can be set manually", {
 })
 
 
-test_that("Errors and messages", {
+test_that("geom_spatraster_contour() reports invalid inputs", {
   suppressWarnings(library(ggplot2))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
-  r <- terra::rast(f)
+  r <- local_cyl_elev_raster()
+  v <- local_cyl_vector()
 
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
-  # Errors
   expect_error(
     ggplot(r) +
       geom_spatraster_contour()
@@ -55,50 +49,40 @@ test_that("Errors and messages", {
     error = TRUE
   )
 
-  # Also with no crs
   terra::crs(r) <- NA
 
   ff <- ggplot() +
     geom_spatraster_contour(data = r, breaks = c(0, 1))
-  expect_snapshot(end <- ggplot_build(ff))
+  expect_snapshot({
+    invisible(ggplot_build(ff))
+  })
 })
 
 
-test_that("Test plot", {
+test_that("geom_spatraster_contour() draws core visual variants", {
   suppressWarnings(library(ggplot2))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
-  r <- terra::rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
-  # test with vdiffr
-
-  # Regular plot
+  r <- local_cyl_elev_raster()
+  v_sf <- local_cyl_vector_sf()
 
   p <- ggplot() +
     geom_spatraster_contour(data = r)
 
-  vdiffr::expect_doppelganger("01-regular", p)
-  vdiffr::expect_doppelganger("02-projected", p + coord_sf(crs = 3035))
+  vdiffr::expect_doppelganger("core_01: regular", p)
+  vdiffr::expect_doppelganger("core_02: projected", p + coord_sf(crs = 3035))
 
-  # Faceted
-  r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
+  r2 <- r |> dplyr::mutate(elevation_m2 = elevation_m * 2)
 
   p_facet <- ggplot() +
     geom_spatraster_contour(data = r2, aes(color = after_stat(level))) +
     facet_wrap(~lyr)
 
-  vdiffr::expect_doppelganger("03-faceted with aes", p_facet)
+  vdiffr::expect_doppelganger("core_03: faceted aes", p_facet)
   vdiffr::expect_doppelganger(
-    "04-faceted with aes and crs",
+    "core_04: faceted aes crs",
     p_facet + coord_sf(crs = 3035)
   )
 
-  # Aes for a single layer
   p_more_aes <- ggplot() +
     geom_spatraster_contour(
       data = r2,
@@ -107,31 +91,24 @@ test_that("Test plot", {
       linetype = "dotted"
     )
 
-  vdiffr::expect_doppelganger("05-aes for layer", p_more_aes)
+  vdiffr::expect_doppelganger("core_05: layer aes", p_more_aes)
   vdiffr::expect_doppelganger(
-    "06-aes for layer aes and crs",
+    "core_06: layer aes crs",
     p_more_aes + coord_sf(crs = 3035)
   )
 
-  # Check wrap
+  asia <- local_asia_4326_raster()
 
-  asia <- terra::rast(system.file("extdata/asia.tif", package = "tidyterra"))
-  asia <- terra::project(asia, "EPSG:4326")
-  terra::ext(asia) <- c(-180, 180, -90, 90)
-
-  # With false
   p <- ggplot() +
     geom_spatraster_contour(data = asia, mask_projection = FALSE) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger("07-Wrap", p)
+  vdiffr::expect_doppelganger("core_07: wrap", p)
 
-  # With true
   p <- ggplot() +
     geom_spatraster_contour(data = asia, mask_projection = TRUE) +
     coord_sf(crs = "+proj=eqearth")
-  vdiffr::expect_doppelganger("08-No Wrap", p)
+  vdiffr::expect_doppelganger("core_08: no wrap", p)
 
-  # Facet
   a2 <- asia / 2
   names(a2) <- "other"
   end <- c(asia, a2)
@@ -141,26 +118,15 @@ test_that("Test plot", {
     facet_wrap(~lyr) +
     coord_sf(crs = "+proj=eqearth")
 
-  vdiffr::expect_doppelganger("09-No Wrap facet", p)
+  vdiffr::expect_doppelganger("core_09: no wrap facet", p)
 })
 
 
-test_that("geom_spatraster one facets", {
+test_that("geom_spatraster_contour() draws CRS facet overlays", {
   suppressWarnings(library(ggplot2))
-  suppressWarnings(library(terra))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
-  r <- rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- vect(f_v)
-  v <- terra::project(v, "epsg:3035")
-  v_sf <- sf::st_as_sf(v)[1:3, ]
-
-  # test with vdiffr
-
-  # Facet plot
+  r <- local_cyl_elev_raster()
+  v_sf <- local_cyl_vector_3035_sf()[1:3, ]
 
   p <- ggplot() +
     geom_spatraster_contour(data = r, bins = 3) +
@@ -169,16 +135,12 @@ test_that("geom_spatraster one facets", {
 
   vdiffr::expect_doppelganger("crsfacet_01: regular", p)
 
-  # With color
-
   p <- ggplot() +
     geom_spatraster_contour(data = r, bins = 3) +
     geom_sf(data = v_sf, aes(color = cpro), fill = NA) +
     facet_wrap(~iso2)
 
   vdiffr::expect_doppelganger("crsfacet_02: color", p)
-
-  # Change crs
 
   p <- p + coord_sf(crs = 3035)
 

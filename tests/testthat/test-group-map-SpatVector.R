@@ -15,7 +15,7 @@ test_that("group_map() passes SpatVector groups and tibble keys", {
     )
 
   expect_length(out, 2)
-  expect_true(all(vapply(out, inherits, logical(1), "SpatVector")))
+  expect_equal(vapply(out, inherits, logical(1), "SpatVector"), rep(TRUE, 2))
 })
 
 test_that("group_modify() binds SpatVector group results", {

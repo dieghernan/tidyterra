@@ -1,4 +1,4 @@
-# Discrete scale
+# cross-blended discrete colour scale maps palettes
 
     Code
       p + scale_colour_cross_blended_d(alpha = -1)
@@ -14,7 +14,7 @@
       Error in `scale_colour_cross_blended_d()`:
       ! `direction` must be either 1 or -1.
 
-# Discrete scale tint
+# cross-blended discrete colour tint scale maps palettes
 
     Code
       aa <- ggplot2::ggplot_build(s)
@@ -38,7 +38,7 @@
       Error in `scale_colour_cross_blended_tint_d()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale
+# cross-blended continuous colour scale maps palettes
 
     Code
       p + scale_colour_cross_blended_c(alpha = -1)
@@ -54,7 +54,7 @@
       Error in `scale_colour_cross_blended_c()`:
       ! `direction` must be either 1 or -1.
 
-# Continous scale tint
+# cross-blended continuous colour tint scale maps palettes
 
     Code
       p + scale_colour_cross_blended_tint_c(palette = "x")
@@ -78,7 +78,7 @@
       Error in `scale_colour_cross_blended_tint_c()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale
+# cross-blended binned colour scale maps palettes
 
     Code
       p_init + scale_color_cross_blended_b(alpha = -1)
@@ -94,15 +94,7 @@
       Error in `scale_colour_cross_blended_b()`:
       ! `direction` must be either 1 or -1.
 
-# Breaking scale tint
-
-    Code
-      p + scale_colour_cross_blended_tint_b(palette = "x")
-    Condition
-      Error in `scale_colour_cross_blended_tint_b()`:
-      ! `palette` "x" is not a known palette. See `?tidyterra::cross_blended_hypsometric_tints_db()`.
-
----
+# cross-blended binned colour tint scale maps palettes
 
     Code
       p + scale_colour_cross_blended_tint_b(palette = "x")

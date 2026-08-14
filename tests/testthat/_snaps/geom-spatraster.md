@@ -13,7 +13,7 @@
     Message
       ! RGB specification detected. Use `tidyterra::geom_spatraster_rgb()` instead.
 
-# Regular tests
+# geom_spatraster builds regular raster plots
 
     Code
       ss <- ggplot2::ggplot_build(s)
@@ -22,7 +22,7 @@
       * Use `facet_wrap(~lyr)` to facet layers.
       * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
----
+# geom_spatraster reports mixed layer classes
 
     Code
       expectssss <- ggplot2::ggplot() + geom_spatraster(data = smix)

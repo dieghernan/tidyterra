@@ -115,12 +115,12 @@ test_that("Irregular grids", {
   p_jitter_x <- p
   p_jitter_x[, 1] <- p_jitter_x[, 1] + jitter
 
-  expect_error(as_spatraster(p_jitter_x))
+  expect_snapshot(as_spatraster(p_jitter_x), error = TRUE)
 
   p_jitter_y <- p
   p_jitter_y[, 2] <- p_jitter_y[, 2] + jitter
 
-  expect_error(as_spatraster(p_jitter_y))
+  expect_snapshot(as_spatraster(p_jitter_y), error = TRUE)
 
   # Lower digits
   expect_s4_class(as_spatraster(p_jitter_x, digits = 3), "SpatRaster")
@@ -169,12 +169,12 @@ test_that("Check with mixed type of cols", {
   # Keep and sort
   df_res <- dplyr::arrange(df_res[!is.na(df_res$val), ], val)
 
-  expect_true(all(df_res$val == df$val))
+  expect_equal(df_res$val, df$val)
   expect_identical(df$letter, df_res$letter)
   expect_identical(df$fact, df_res$fact)
 
   expect_true(is.factor(df_res$fact))
-  expect_true(all(levels(df$fact) == levels(df_res$fact)))
+  expect_identical(levels(df_res$fact), levels(df$fact))
 })
 
 
@@ -205,5 +205,5 @@ test_that("Check internal", {
   names(tbl2) <- att$names
   tbl2 <- as.data.frame(tbl2)
 
-  expect_error(as_spat_internal(tbl2))
+  expect_snapshot(as_spat_internal(tbl2), error = TRUE)
 })

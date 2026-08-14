@@ -7,7 +7,7 @@ test_that("Error check", {
   expect_snapshot(as_spatvector(as_tbl, geom = c("a", "b", "c")), error = TRUE)
   expect_snapshot(as_spatvector(as_tbl, geom = 1), error = TRUE)
   # Not cli error, this is thrown due to no method for this
-  expect_error(as_spatvector(as.matrix(as_tbl)))
+  expect_snapshot(as_spatvector(as.matrix(as_tbl)), error = TRUE)
 
   expect_silent(as_spatvector(as_tbl, geom = c("x", "y"), crs = "EPSG:4326"))
 })
@@ -23,21 +23,21 @@ test_that("Handle NAs", {
   with_nas <- as_tbl
   with_nas[8, ] <- NA
 
-  expect_message(as_spatvector(with_nas, geom = c("x", "y")))
-  expect_message(as_spatvector(with_nas, geom = "geom"))
+  expect_message(as_spatvector(with_nas, geom = c("x", "y")), "Removed 1 row")
+  expect_message(as_spatvector(with_nas, geom = "geom"), "Removed 1 row")
 
   chars <- with_nas
   chars$x <- as.character(chars$x)
   chars$y <- as.character(chars$y)
 
-  expect_message(as_spatvector(chars, geom = c("x", "y")))
+  expect_message(as_spatvector(chars, geom = c("x", "y")), "Removed 1 row")
 
   # With blanks instead
   blanks <- chars
   blanks[8, ] <- ""
 
-  expect_message(as_spatvector(blanks, geom = c("x", "y")))
-  expect_message(as_spatvector(blanks, geom = "geom"))
+  expect_message(as_spatvector(blanks, geom = c("x", "y")), "Removed 1 row")
+  expect_message(as_spatvector(blanks, geom = "geom"), "Removed 1 row")
 })
 
 
@@ -343,7 +343,7 @@ test_that("Check internal", {
   names(tbl2) <- att$names
   tbl2 <- as.data.frame(tbl2)
 
-  expect_error(as_spat_internal(tbl2))
+  expect_snapshot(as_spat_internal(tbl2), error = TRUE)
 })
 
 
@@ -414,7 +414,10 @@ test_that("Check internal NULL: POLYGONS", {
   mpol <- v[1:3, ]
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_equal(
+    grepl("MULTI", pol_wkt, fixed = TRUE),
+    rep(FALSE, length(pol_wkt))
+  )
   expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # POLYGON
@@ -465,7 +468,10 @@ test_that("Check internal NULL: LINES", {
   mpol <- terra::as.lines(v[1:3, ])
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_equal(
+    grepl("MULTI", pol_wkt, fixed = TRUE),
+    rep(FALSE, length(pol_wkt))
+  )
   expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # LINESTRING
@@ -520,7 +526,10 @@ test_that("Check internal NULL: POINTS", {
   mpol_wkt <- terra::geom(mpol, wkt = TRUE)
 
   # Check that we got that right
-  expect_false(any(grepl("MULTI", pol_wkt, fixed = TRUE)))
+  expect_equal(
+    grepl("MULTI", pol_wkt, fixed = TRUE),
+    rep(FALSE, length(pol_wkt))
+  )
   expect_true(any(grepl("MULTI", mpol_wkt, fixed = TRUE)))
 
   # POINT

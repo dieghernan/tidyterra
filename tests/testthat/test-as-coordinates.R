@@ -13,10 +13,10 @@ test_that("as_coordinates return a skeleton", {
   df <- as_coordinates(r)
 
   expect_s3_class(df, "tbl")
-  expect_true(all(names(df) == c("cellindex", "rowindex", "colindex")))
+  expect_named(df, c("cellindex", "rowindex", "colindex"))
 
-  expect_true(nrow(df) == terra::ncell(r))
-  expect_true(ncol(df) == 3)
+  expect_equal(nrow(df), terra::ncell(r))
+  expect_equal(ncol(df), 3)
 
   expect_equal(unique(sort(df$rowindex)), seq_len(terra::nrow(r)))
 

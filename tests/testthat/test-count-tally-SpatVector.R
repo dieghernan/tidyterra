@@ -162,7 +162,7 @@ test_that("tally can sort output", {
   expect_s4_class(gf, "SpatVector")
   expect_identical(group_vars(gf), "x")
   out <- tally(gf, sort = TRUE)
-  expect_true(all(as_tibble(out) == data.frame(x = c(2, 1), n = c(3, 2))))
+  expect_equal(as_tibble(out), tibble(x = c(2, 1), n = c(3, 2)))
 })
 
 test_that("weighted tally drops NAs", {

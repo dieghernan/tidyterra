@@ -1,4 +1,11 @@
-# Minimal checks for stat_spatraster 1lyr CRS
+# stat_spatraster rejects invalid inputs
+
+    Code
+      writeLines(conditionMessage(err))
+    Output
+      argument "data" is missing, with no default
+
+---
 
     Code
       ggplot() + stat_spatraster(data = v)

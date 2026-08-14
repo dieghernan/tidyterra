@@ -32,7 +32,10 @@ test_that("select_spatraster_layer subsets z aesthetic", {
   expect_named(selected$data, "elevation")
   expect_false("z" %in% names(selected$mapping))
   expect_true("colour" %in% names(selected$mapping))
-  expect_error(select_spatraster_layer(ggplot2::aes(z = missing), r), "Layer")
+  expect_snapshot(
+    select_spatraster_layer(ggplot2::aes(z = missing), r),
+    error = TRUE
+  )
 })
 
 test_that("prepare_spatraster_contour_data builds one row per layer", {
@@ -49,7 +52,7 @@ test_that("prepare_spatraster_contour_data builds one row per layer", {
   expect_identical(nrow(prepared$data), 1L)
   expect_identical(as.character(prepared$data$lyr), "temperature")
   expect_false("z" %in% names(prepared$mapping))
-  expect_true(all(c("spatraster", "lyr") %in% names(prepared$mapping)))
+  expect_named(prepared$mapping, c("spatraster", "lyr"), ignore.order = TRUE)
 })
 
 test_that("Errors and messages", {

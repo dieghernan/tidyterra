@@ -1,4 +1,4 @@
-# Errors and messages
+# geom_spatraster_contour() reports invalid inputs
 
     Code
       ggplot() + geom_spatraster_contour(data = v)
@@ -25,7 +25,7 @@
 ---
 
     Code
-      end <- ggplot_build(ff)
+      invisible(ggplot_build(ff))
     Condition
       Warning:
       In `tidyterra::geom_spatraster_contour()`: zero contours were generated.

@@ -1,4 +1,4 @@
-# Errors and messages
+# geom_spatraster_contour_text() reports invalid inputs
 
     Code
       ggplot() + geom_spatraster_contour_text(data = v)
@@ -25,5 +25,5 @@
 ---
 
     Code
-      end <- ggplot_build(ff)
+      invisible(ggplot_build(ff))
 

@@ -1,117 +1,74 @@
-test_that("Test contour filled", {
+test_that("geom_spatraster_contour_filled() follows ggplot2 ink theme", {
   suppressWarnings(library(ggplot2))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
-  r <- terra::rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
-  ink_theme <- theme_bw(
-    ink = "#BBBBBB",
-    paper = "#333333",
-    accent = "red"
-  )
-  # test with vdiffr
-
-  # Regular plot
+  r <- local_cyl_temp_raster()
+  ink_theme <- local_ink_theme()
 
   p <- ggplot() +
     geom_spatraster_contour_filled(data = r, aes(z = tavg_05))
 
-  vdiffr::expect_doppelganger("01-regular", p)
-  vdiffr::expect_doppelganger("02-regular-themed", p + ink_theme)
+  vdiffr::expect_doppelganger("filled_01: regular", p)
+  vdiffr::expect_doppelganger("filled_02: themed", p + ink_theme)
 
-  # Faceted
-  # If not throw message
-  aa <- ggplot() +
+  p_message <- ggplot() +
     geom_spatraster_contour_filled(data = r)
-  expect_snapshot(end <- ggplot_build(aa))
+  expect_snapshot({
+    invisible(ggplot_build(p_message))
+  })
+
   p_facet <- ggplot() +
     geom_spatraster_contour_filled(data = r) +
     facet_wrap(~lyr)
 
-  vdiffr::expect_doppelganger("03-faceted with aes", p_facet)
+  vdiffr::expect_doppelganger("filled_03: faceted aes", p_facet)
   vdiffr::expect_doppelganger(
-    "04-faceted with aes and theme",
+    "filled_04: faceted aes themed",
     p_facet + ink_theme
   )
 })
 
-test_that("Test contour", {
+test_that("geom_spatraster_contour() follows ggplot2 ink theme", {
   suppressWarnings(library(ggplot2))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
-  r <- terra::rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
-  ink_theme <- theme_bw(
-    ink = "#BBBBBB",
-    paper = "#333333",
-    accent = "red"
-  )
-  # test with vdiffr
-
-  # Regular plot
+  r <- local_cyl_temp_raster()
+  ink_theme <- local_ink_theme()
 
   p <- ggplot() +
     geom_spatraster_contour(data = r, aes(z = tavg_05))
 
-  vdiffr::expect_doppelganger("01-regular-cont", p)
-  vdiffr::expect_doppelganger("02-regular-themed-cont", p + ink_theme)
+  vdiffr::expect_doppelganger("line_01: regular", p)
+  vdiffr::expect_doppelganger("line_02: themed", p + ink_theme)
 
-  # Faceted
-  # If not throw message
-  aa <- ggplot() +
+  p_message <- ggplot() +
     geom_spatraster_contour(data = r)
-  expect_snapshot(end <- ggplot_build(aa))
+  expect_snapshot({
+    invisible(ggplot_build(p_message))
+  })
+
   p_facet <- ggplot() +
     geom_spatraster_contour(data = r) +
     facet_wrap(~lyr)
 
-  vdiffr::expect_doppelganger("03-faceted with aes-cont", p_facet)
+  vdiffr::expect_doppelganger("line_03: faceted aes", p_facet)
   vdiffr::expect_doppelganger(
-    "04-faceted with aes and theme-cont",
+    "line_04: faceted aes themed",
     p_facet + ink_theme
   )
 })
 
-
-test_that("Test plot text", {
+test_that("geom_spatraster_contour_text() follows ggplot2 ink theme", {
   suppressWarnings(library(ggplot2))
 
-  #  Import also vector
-  f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
-  r <- terra::rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
-  ink_theme <- theme_bw(
-    ink = "#BBBBBB",
-    paper = "#333333",
-    accent = "red"
-  )
-  # test with vdiffr
-
-  # Regular plot
+  r <- local_cyl_elev_raster()
+  ink_theme <- local_ink_theme()
 
   p <- ggplot() +
     geom_spatraster_contour_text(data = r, breaks = c(1000, 2000))
 
-  vdiffr::expect_doppelganger("01-regular-text", p)
-  vdiffr::expect_doppelganger("02-regular-text-themed", p + ink_theme)
+  vdiffr::expect_doppelganger("text_01: regular", p)
+  vdiffr::expect_doppelganger("text_02: themed", p + ink_theme)
 
-  # Faceted
-  r2 <- r |> mutate(elevation_m2 = elevation_m * 2)
-
+  r2 <- r |> dplyr::mutate(elevation_m2 = elevation_m * 2)
   p_facet <- ggplot() +
     geom_spatraster_contour_text(
       data = r2,
@@ -120,9 +77,9 @@ test_that("Test plot text", {
     ) +
     facet_wrap(~lyr)
 
-  vdiffr::expect_doppelganger("03-faceted with aes-text", p_facet)
+  vdiffr::expect_doppelganger("text_03: faceted aes", p_facet)
   vdiffr::expect_doppelganger(
-    "04-faceted with aes themed-text",
+    "text_04: faceted aes themed",
     p_facet + ink_theme
   )
 })

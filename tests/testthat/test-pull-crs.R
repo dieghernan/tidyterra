@@ -11,7 +11,7 @@ test_that("Check crs", {
   expect_true(is.na(pull_crs("")))
   expect_silent(is.na(pull_crs("")))
 
-  expect_error(pull_crs("Some string"))
+  expect_snapshot(pull_crs("Some string"), error = TRUE)
   skip_on_cran()
 
   # Base for comparison
