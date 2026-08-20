@@ -146,10 +146,10 @@ the isolines. Uses \code{\link[isoband:label_placer_minmax]{label_placer_minmax(
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-These geoms create contours of \code{SpatRaster} objects. To specify a valid
-surface, specify the layer in \code{aes(z = layer_name)}; otherwise, all layers
-are considered when creating contours. See also the \strong{Facets}
-section.
+These geoms create contours from \code{SpatRaster} objects. To create contours
+from a specific layer, map that layer to the \code{z} aesthetic with
+\code{aes(z = layer_name)}. Otherwise, all layers are used to create contours.
+See also the \strong{Facets} section.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_contour]{ggplot2::geom_contour()}}.
 
