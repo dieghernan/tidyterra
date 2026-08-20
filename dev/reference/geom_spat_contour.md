@@ -1,9 +1,9 @@
 # Plot `SpatRaster` contours
 
-These geoms create contours of `SpatRaster` objects. To specify a valid
-surface, specify the layer in `aes(z = layer_name)`; otherwise, all
-layers are considered when creating contours. See also the **Facets**
-section.
+These geoms create contours from `SpatRaster` objects. To create
+contours from a specific layer, map that layer to the `z` aesthetic with
+`aes(z = layer_name)`. Otherwise, all layers are used to create
+contours. See also the **Facets** section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
