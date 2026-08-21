@@ -1,4 +1,4 @@
 # License
 
-    YEAR: 2022
+    YEAR: 2026
     COPYRIGHT HOLDER: tidyterra authors

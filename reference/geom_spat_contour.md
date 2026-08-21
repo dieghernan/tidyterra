@@ -1,9 +1,9 @@
 # Plot `SpatRaster` contours
 
-These geoms create contours of `SpatRaster` objects. To specify a valid
-surface, specify the layer in `aes(z = layer_name)`; otherwise, all
-layers are considered when creating contours. See also the **Facets**
-section.
+These geoms create contours from `SpatRaster` objects. To create
+contours from a specific layer, map that layer to the `z` aesthetic with
+`aes(z = layer_name)`. Otherwise, all layers are used to create
+contours. See also the **Facets** section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
@@ -67,7 +67,7 @@ geom_spatraster_contour_filled(
 
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
-  See **Aesthetics**, especially in the use of the `fill` aesthetic.
+  See **Aesthetics** for supported contour aesthetics.
 
 - data:
 
@@ -113,7 +113,8 @@ geom_spatraster_contour_filled(
 
 - maxcell:
 
-  Positive integer. Maximum number of cells to use for the plot.
+  Positive integer or `Inf`. Maximum number of raster cells to use. Use
+  `Inf` to use all cells.
 
 - bins:
 
@@ -212,6 +213,8 @@ understand the following aesthetics:
 - [`linetype`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
 
 - [`linewidth`](https://ggplot2.tidyverse.org/reference/aes_linetype_size_shape.html)
+
+- `weight`
 
 `geom_spatraster_contour_text()` also understands:
 

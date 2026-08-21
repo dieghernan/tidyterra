@@ -1,11 +1,42 @@
 # Changelog
 
+## tidyterra 1.3.0
+
+- Argument validation has been improved across user-facing helpers and
+  plotting functions, producing clearer errors for invalid inputs.
+- The pkgdown site now links to the JOSS paper as an external article
+  and uses
+  [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/articles/tidyterra.md)
+  as its introductory article.
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
+  [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md),
+  [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md),
+  [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md),
+  [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
+  [`tidy()`](https://generics.r-lib.org/reference/tidy.html) and
+  [`fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
+  now consistently accept `maxcell = Inf` and validate related arguments
+  earlier.
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
+  and `stat_spatraster(geom = "raster")` now support mapping `alpha` to
+  a different `SpatRaster` layer than `fill`
+  ([\#154](https://github.com/dieghernan/tidyterra/issues/154),
+  [\#211](https://github.com/dieghernan/tidyterra/issues/211)).
+- [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
+  no longer emits a warning for rasters with more than three layers,
+  such as RGB rasters with an alpha channel.
+- `geom_*()` defaults were adjusted to match current **ggplot2**
+  defaults.
+- [`hypso.colors()`](https://dieghernan.github.io/tidyterra/reference/scale_hypso.md)
+  now includes one additional palette: `"xkcd-painbow"`. See
+  <https://xkcd.com/2537/>.
+
 ## tidyterra 1.2.0
 
 CRAN release: 2026-06-17
 
-This release adds tidyverse-style methods for `SpatVector` objects and
-includes documentation reviewed with explicit AI-assisted editing.
+This release adds **tidyverse**-style methods for `SpatVector` objects
+and includes documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance,
   including **roxygen2** comments, generated Rd files, documentation
@@ -99,9 +130,9 @@ CRAN release: 2026-03-11
 
 CRAN release: 2026-01-23
 
-- The minimum supported **R** version is now 4.1.0.
+- **R** 4.1.0 is now the minimum supported version.
 - The minimum supported **ggplot2** version is now 4.0.0.
-- **ggplot2** 4.0.0 deprecations have been adapted: in
+- **ggplot2** 4.0.0 deprecations have been addressed: in
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
   and
   [`geom_spatvector_text()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md),
@@ -238,7 +269,7 @@ CRAN release: 2024-04-22
 - [`glimpse.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
   and
   [`glimpse.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
-  now display information using
+  now display information using the
   [`?tibble::print.tbl_df`](https://tibble.tidyverse.org/reference/formatting.html)
   approach for the header and the footer. The body is still displayed
   transposed as of
@@ -398,7 +429,7 @@ CRAN release: 2022-11-09
 
 CRAN release: 2022-10-12
 
-- Package back on **CRAN**.
+- Package is back on **CRAN**.
 - Libraries **dplyr**, **tidyr** and **tibble** are not attached by
   default. Needed functions are reexported instead.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
@@ -419,7 +450,7 @@ CRAN release: 2022-10-12
 CRAN release: 2022-09-29
 
 - Changes to how **dplyr**, **tibble** and **tidyr** are attached. These
-  packages are listed on ‘Depends’ and are attached before **tidyterra**
+  packages are listed in `Depends` and are attached before **tidyterra**
   when `library` or `require` is called. Messages on load can be
   suppressed with `suppressPackageStartupMessages(library(tidyterra))`.
 
@@ -466,7 +497,7 @@ CRAN release: 2022-05-24
 ## tidyterra 0.0.1
 
 - Performance has been improved by avoiding conversion to **tibble** as
-  much as possible, using `data.table` objects internally instead of
+  much as possible, using **data.table** objects internally instead of
   `tibble` objects and adding compatibility with **dtplyr**.
 - [`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md)
   now handles tibbles with characters and factors.

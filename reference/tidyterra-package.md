@@ -2,7 +2,9 @@
 
 Provides methods from 'tidyverse' packages for 'SpatRaster' and
 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms' and
-scales for plotting those objects.
+scales for plotting those objects. It is designed to let users
+manipulate spatial data with familiar 'dplyr' and 'tidyr' verbs before
+visualizing results with 'ggplot2'.
 
 ## References
 

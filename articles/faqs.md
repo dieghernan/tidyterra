@@ -3,10 +3,10 @@
 This article collects [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
 using **tidyterra**, with a focus on the integration of **terra** and
-**ggplot2**. You can ask for help or search previous questions using the
+**ggplot2**. You can ask for help or search existing questions using the
 following links.
 
-You can also ask in [Stack Overflow](https://stackoverflow.com/) using
+You can also ask on [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
 
@@ -27,7 +27,7 @@ v3](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 #### About the file
 
-The file `holyroodpark.tif` represents the DEM[^1] of [Holyrood Park,
+The file `holyroodpark.tif` represents the DSM[^1] of [Holyrood Park,
 Edinburgh (Scotland)](https://en.wikipedia.org/wiki/Holyrood_Park),
 including [Arthur’s
 Seat](https://en.wikipedia.org/wiki/Arthur%27s_Seat), an extinct
@@ -106,7 +106,8 @@ Figure 1: NA values in ggplot2.
 
 Use
 [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental):
+for contour labels. This function is experimental:
+[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 
 ``` r
 
@@ -324,12 +325,12 @@ Figure 5: Changing default ggplot2 color palettes.
 ## My map tiles are blurry
 
 Blurriness is typically related to the tile source rather than the
-package. Most base tiles are provided in **EPSG:3857**, so verify that
-your tile uses this CRS rather than a different one. If your tile is not
-in **EPSG:3857**, it has likely been reprojected, which involves
-resampling and causes blurriness. To avoid extra resampling, increase
-the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
-with `ggplot2::coord_sf(crs = 3857)`:
+package. Most base tiles are usually provided in **EPSG:3857**, so
+verify that your tile uses this CRS rather than a different one. If your
+tile is not in **EPSG:3857**, it has likely been reprojected, which
+involves resampling and causes blurriness. To avoid extra resampling,
+increase the `maxcell` argument and ensure the **ggplot2** map uses
+**EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
 
@@ -927,8 +928,8 @@ ggplot(r, aes(x, y)) +
 Figure 17: Relief rendering combining tidyterra for raster plotting and
 **metR** for terrain relief representation.
 
-[^1]: Digital Elevation Model, representing the elevation of the
-    corresponding area.
+[^1]: Digital Surface Model, representing the elevation of the visible
+    surface in the corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most
     cases. However, when the proportion of non-`NA` cells is small it

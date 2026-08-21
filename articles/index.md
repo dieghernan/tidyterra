@@ -5,7 +5,7 @@
 Introductory material for working with **tidyterra**.
 
 - [Welcome to
-  tidyterra](https://dieghernan.github.io/tidyterra/articles/welcome.md):
+  tidyterra](https://dieghernan.github.io/tidyterra/articles/tidyterra.md):
 
   First steps with tidyterra
 
@@ -16,14 +16,14 @@ Map examples and galleries using **tidyterra** scales.
 - [Gradient palettes in
   tidyterra](https://dieghernan.github.io/tidyterra/articles/palettes.md):
 
-  A gallery of maps using gradient scales provided by tidyterra.
+  A gallery of maps using gradient scales provided by **tidyterra**.
 
 ### Citation and publications
 
 Citation information and uses of **tidyterra** in publications.
 
 - [Using the tidyverse with terra objects: the tidyterra
-  package](https://dieghernan.github.io/tidyterra/articles/tidyterra.md):
+  package](https://doi.org/10.21105/joss.05751):
 
   Paper published in the Journal of Open Source Software.
 
