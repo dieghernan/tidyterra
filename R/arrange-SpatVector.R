@@ -62,7 +62,7 @@ arrange.SpatVector <- function(.data, ..., .by_group = FALSE, .locale = NULL) {
 
   arranged <- dplyr::arrange(tbl, ..., .by_group = .by_group, .locale = .locale)
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data
   vend <- vend[arranged[[indexvar]], ]
 

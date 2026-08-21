@@ -78,7 +78,7 @@ relocate.SpatRaster <- function(.data, ..., .before = NULL, .after = NULL) {
 #' @rdname relocate.Spat
 #' @export
 relocate.SpatVector <- function(.data, ..., .before = NULL, .after = NULL) {
-  # Use own method
+  # Use the package method.
   # With template
   df <- as_tibble(.data[1, ])
 

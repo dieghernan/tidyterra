@@ -67,7 +67,7 @@ fill.SpatVector <- function(
   .by = NULL,
   .direction = c("down", "up", "downup", "updown")
 ) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(data)
   filled <- tidyr::fill(tbl, ..., .by = {{ .by }}, .direction = .direction)
 

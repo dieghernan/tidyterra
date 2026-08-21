@@ -123,7 +123,7 @@ returns a tibble.
 
 Current methods and functions provided by **tidyterra** are:
 
-| tidyverse method | `SpatVector` | `SpatRaster` |
+| **tidyverse** method | `SpatVector` | `SpatRaster` |
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
@@ -170,11 +170,11 @@ Current methods and functions provided by **tidyterra** are:
 ## A note on performance
 
 **tidyterra** is a user-friendly wrapper around **terra** that provides
-tidyverse-style methods and verbs. This approach has a **performance cost**.
+**tidyverse**-style methods and verbs. This approach has a **performance cost**.
 
 If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra** function
-refers to its equivalent on **terra**.
+refers to its equivalent in **terra**.
 
 As a rule of thumb, if your raster has fewer than 10,000,000 data slots, for
 example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra**
@@ -438,7 +438,7 @@ open a new [issue](https://github.com/dieghernan/tidyterra/issues).
 You can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
-## Acknowledgements
+## Acknowledgments
 
 **tidyterra**'s **ggplot2** geoms are based on the
 [**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation by

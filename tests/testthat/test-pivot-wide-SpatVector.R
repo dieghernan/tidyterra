@@ -274,11 +274,11 @@ test_that("can fill only implicit missings from `names_expand`", {
 test_that("can override default keys, geometry sticky", {
   skip_on_cran()
 
-  df <- tibble::tribble(
-    ~row, ~name, ~var, ~value,
-    1, "Sam", "age", 10,
-    2, "Sam", "height", 1.5,
-    3, "Bob", "age", 20
+  df <- tibble::tibble(
+    row = c(1, 2, 3),
+    name = c("Sam", "Sam", "Bob"),
+    var = c("age", "height", "age"),
+    value = c(10, 1.5, 20)
   )
 
   df$lat <- 1

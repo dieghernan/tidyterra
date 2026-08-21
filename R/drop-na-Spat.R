@@ -83,7 +83,7 @@ drop_na.SpatVector <- function(data, ...) {
   tbl <- as_tbl_internal(data)
   dropped <- tidyr::drop_na(tbl, ...)
 
-  # Use own method, there is no way to avoid coercion.
+  # Use the package method, there is no way to avoid coercion.
   if (nrow(dropped) == 0) {
     cli::cli_alert_warning(paste0(
       cli::col_red("All geometries dropped."),

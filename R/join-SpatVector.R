@@ -105,7 +105,7 @@ inner_join.SpatVector <- function(
   keep = NULL
 ) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
@@ -142,7 +142,7 @@ left_join.SpatVector <- function(
   keep = NULL
 ) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
@@ -179,7 +179,7 @@ right_join.SpatVector <- function(
   keep = NULL
 ) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
@@ -216,7 +216,7 @@ full_join.SpatVector <- function(
   keep = NULL
 ) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
@@ -311,7 +311,7 @@ dplyr::full_join
 #'
 semi_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 
@@ -332,7 +332,7 @@ dplyr::semi_join
 #' @export
 anti_join.SpatVector <- function(x, y, by = NULL, copy = FALSE, ...) {
   error_spat_join(y)
-  # Use own method
+  # Use the package method.
   x_tbl <- as_tbl_internal(x)
   y <- as.data.frame(y)
 

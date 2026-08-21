@@ -112,7 +112,7 @@ summarise.SpatVector <- function(
 
   v_summ <- cbind(newgeom[, 0], df_summ)
 
-  # Ensure groups
+  # Restore groups.
   v_summ <- group_prepare_spat(v_summ, df_summ)
 
   v_summ

@@ -126,7 +126,7 @@ count.SpatVector <- function(
     vend <- cbind(vend[, 0], keepdf)
   }
 
-  # Ensure groups
+  # Restore groups.
   vend <- ungroup(vend)
 
   # Re-group based on the template
@@ -231,7 +231,7 @@ add_count.SpatVector <- function(
 
   # Prepare a template for groups
   template <- dplyr::add_count(as_tibble(x), ..., sort = sort, name = name)
-  # Ensure groups
+  # Restore groups.
   vend <- ungroup(vend)
 
   # Re-group based on the template

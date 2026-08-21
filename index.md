@@ -85,7 +85,7 @@ the method is expected to return another type of object. For example,
 
 Current methods and functions provided by **tidyterra** are:
 
-| tidyverse method | `SpatVector` | `SpatRaster` |
+| **tidyverse** method | `SpatVector` | `SpatRaster` |
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
@@ -135,12 +135,12 @@ Current methods and functions provided by **tidyterra** are:
 <div class="callout-body-container callout-body">
 
 **tidyterra** is a user-friendly wrapper around **terra** that provides
-tidyverse-style methods and verbs. This approach has a **performance
+**tidyverse**-style methods and verbs. This approach has a **performance
 cost**.
 
 If you frequently use **terra** or work with large `SpatRaster` objects,
 **terra** is usually much faster. Whenever possible, each **tidyterra**
-function refers to its equivalent on **terra**.
+function refers to its equivalent in **terra**.
 
 As a rule of thumb, if your raster has fewer than 10,000,000 data slots,
 for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
@@ -242,7 +242,7 @@ ggplot() +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%" />
 
 ``` r
 # Create the difference between two months.
@@ -271,7 +271,7 @@ ggplot(prov) +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%" />
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster`
 objects, such as map tiles, with **ggplot2**:
@@ -287,7 +287,7 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%" />
 
 **tidyterra** provides **ggplot2** scales for plotting maps with
 hypsometric tints:
@@ -317,7 +317,7 @@ ggplot() +
   )
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%" />
 
 ### `SpatVector` objects
 
@@ -349,7 +349,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
-<img src="https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
+<img src="https://dieghernan.github.io/tidyterra/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%" />
 
 ## Feedback
 
@@ -366,7 +366,7 @@ You can also ask on [Stack Overflow](https://stackoverflow.com/) using
 the tag
 [\[tidyterra\]](https://stackoverflow.com/questions/tagged/tidyterra).
 
-## Acknowledgements
+## Acknowledgments
 
 **tidyterra**’s **ggplot2** geoms are based on the
 [**ggspatial**](https://github.com/paleolimbot/ggspatial) implementation

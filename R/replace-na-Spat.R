@@ -114,7 +114,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
 #' @rdname replace_na.Spat
 #' @export
 replace_na.SpatVector <- function(data, replace, ...) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(data)
   replaced <- tidyr::replace_na(tbl, replace = replace, ...)
 

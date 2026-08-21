@@ -34,7 +34,7 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#superseded}{\figure{lifecycle-superseded.svg}{options: alt='[Superseded]'}}}{\strong{[Superseded]}}
 
 \code{transmute()} creates a new object containing only the specified
-computations. It's superseded because you can perform the same job
+computations. It is superseded because you can perform the same job
 with \code{mutate(.keep = "none")}.
 }
 \section{Methods}{

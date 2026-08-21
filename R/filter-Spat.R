@@ -145,7 +145,7 @@ filter.SpatRaster <- function(
 #' # Same as
 #' v |> filter_out(cpro >= 10)
 filter.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
 
   var_index <- make_safe_index("tterra_index", tbl)
@@ -167,7 +167,7 @@ dplyr::filter
 #' @importFrom dplyr filter_out
 #' @export
 filter_out.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
 
   var_index <- make_safe_index("tterra_index", tbl)

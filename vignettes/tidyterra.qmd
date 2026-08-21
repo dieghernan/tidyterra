@@ -11,7 +11,7 @@ vignette: >
 
 
 
-## tidyterra
+## **tidyterra**
 
 **tidyterra** provides methods from **tidyverse** packages for `SpatRaster` and
 `SpatVector` objects created with
@@ -19,7 +19,7 @@ vignette: >
 `geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
-### Why tidyterra?
+### Why **tidyterra**?
 
 `Spat*` objects differ from regular data frames: they are S4 objects with their
 own syntax and computational methods (implemented in **terra**). By providing
@@ -40,21 +40,21 @@ As a rule of thumb, **tidyterra** is most suitable for objects with fewer than
 10,000,000 data slots, for example
 `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.
 
-## Get started with tidyterra
+## Get started with **tidyterra**
 
-Load **tidyterra** together with core tidyverse packages:
+Load **tidyterra** together with core **tidyverse** packages:
 
 
 ``` r
 library(tidyterra)
 #> 
-#> Attaching package: 'tidyterra'
+#> Adjuntando el paquete: 'tidyterra'
 #> The following object is masked from 'package:stats':
 #> 
 #>     filter
 library(dplyr)
 #> 
-#> Attaching package: 'dplyr'
+#> Adjuntando el paquete: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
@@ -66,7 +66,7 @@ library(tidyr)
 
 The following methods are available:
 
-| tidyverse method | `SpatVector` | `SpatRaster` |
+| **tidyverse** method | `SpatVector` | `SpatRaster` |
 |----|----|----|
 | `tibble::as_tibble()` | ✔️ | ✔️ |
 | `dplyr::select()` | ✔️ | ✔️ Select layers |
@@ -161,10 +161,10 @@ In this example we:
 - Replaced `NA` values in `newcol` with `3`.
 - Renamed `newcol` to `difference`.
 
-Throughout these steps, core properties of the `SpatRaster`, including number of
-cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs
-such as `filter()`, `slice()` or `drop_na()` may alter these properties in a
-manner analogous to row operations on data frames.
+Throughout these steps, core properties of the `SpatRaster`, including the
+number of cells, rows, columns, extent, resolution and CRS, remain unchanged.
+Other verbs such as `filter()`, `slice()` or `drop_na()` may alter these
+properties in a manner analogous to row operations on data frames.
 
 ### `SpatVector` objects
 
@@ -204,7 +204,7 @@ v_lux |>
 As with `SpatRaster`, essential properties such as geometry and CRS are
 preserved during these operations.
 
-## Plotting with ggplot2
+## Plotting with **ggplot2**
 
 ### `SpatRaster` objects
 

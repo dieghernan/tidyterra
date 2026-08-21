@@ -16,7 +16,7 @@ knitr:
 This article collects [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about using
 **tidyterra**, with a focus on the integration of **terra** and **ggplot2**. You
-can ask for help or search previous questions using the following links.
+can ask for help or search existing questions using the following links.
 
 You can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag
 [`tidyterra`](https://stackoverflow.com/questions/tagged/tidyterra).
@@ -306,11 +306,11 @@ p
 ## My map tiles are blurry {#blurry-tiles}
 
 Blurriness is typically related to the tile source rather than the package. Most
-base tiles are provided in **EPSG:3857**, so verify that your tile uses this CRS
-rather than a different one. If your tile is not in **EPSG:3857**, it has likely
-been reprojected, which involves resampling and causes blurriness. To avoid
-extra resampling, increase the `maxcell` argument and ensure the **ggplot2** map
-uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+base tiles are usually provided in **EPSG:3857**, so verify that your tile uses
+this CRS rather than a different one. If your tile is not in **EPSG:3857**, it
+has likely been reprojected, which involves resampling and causes blurriness. To
+avoid extra resampling, increase the `maxcell` argument and ensure the
+**ggplot2** map uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
 
 ```{r}
 #| label: fig-blurrytile

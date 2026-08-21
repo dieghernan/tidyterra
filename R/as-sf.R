@@ -61,7 +61,7 @@ as_sf <- function(x, ...) {
 
   # Make an sf/tibble object.
   # https://github.com/r-spatial/sf/issues/951
-  # This boosts performance
+  # This boosts performance.
   template <- sf::st_as_sf(tibble::tibble(x = 1, y = 1), coords = c("x", "y"))
   class(sfobj) <- class(template)
 

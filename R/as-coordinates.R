@@ -38,7 +38,7 @@ as_coordinates <- function(x, as.raster = FALSE) {
   check_spat_class(x, "SpatRaster")
   check_bool(as.raster)
 
-  # Create cell, row and column indexes.
+  # Create cell, row and column indices.
   df <- data.frame(cellindex = seq_len(terra::ncell(x)))
   rowcol <- as.data.frame(terra::rowColFromCell(x, df$cellindex))
   names(rowcol) <- c("rowindex", "colindex")

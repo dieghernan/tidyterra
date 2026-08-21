@@ -83,7 +83,7 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     a_tbl <- as_tbl_internal(.data)
     dist <- dplyr::distinct(a_tbl, ..., .keep_all = .keep_all)
 
-    # Regenerate
+    # Regenerate the `SpatVector`.
     distin <- restore_attr(dist, a_tbl)
     vend <- as_spat_internal(distin)
     vend <- group_prepare_spat(vend, dist)
@@ -91,11 +91,11 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     return(vend)
   }
 
-  # If not use indexes on regular tibble
+  # Otherwise, use indices on a regular tibble.
   a_tbl <- as_tibble(.data)
   keepcopy <- a_tbl
 
-  # Add a index for identifying rows to extract
+  # Add an index for identifying rows to extract.
   index_var <- make_safe_index("tterra_index", a_tbl)
 
   a_tbl[[index_var]] <- seq_len(nrow(a_tbl))
@@ -104,12 +104,12 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
 
   dist <- distinct(a_tbl[, topass], ..., .keep_all = TRUE)
 
-  # And return using indexes for subsetting
+  # Return using indices for subsetting.
   row_id <- as.integer(dist[[index_var]])
 
   dist <- dist[, names(dist) != index_var]
 
-  # Add rest of columns if requested
+  # Add the remaining columns if requested.
   if (isTRUE(.keep_all)) {
     misscol <- keepcopy[row_id, !names(keepcopy) %in% dots_labs]
     dist <- dplyr::bind_cols(dist, misscol)
@@ -117,7 +117,7 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
 
   vend <- cbind(.data[row_id, 0], dist)
 
-  # Ensure groups
+  # Restore groups.
   vend <- group_prepare_spat(vend, dist)
 
   vend

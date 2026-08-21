@@ -102,7 +102,7 @@ mutate.SpatRaster <- function(
 
   final_df <- dplyr::bind_cols(xy, values_mutate)
 
-  # Convert to data.table and rearrange attributes.
+  # Convert to data.table and restore spatial attributes.
   final_df <- data.table::as.data.table(final_df)
 
   # Spatial attributes.
@@ -113,7 +113,7 @@ mutate.SpatRaster <- function(
 
   attributes(final_df) <- c(final_att, spat_attrs)
 
-  # Rearrange number of layers
+  # Update the number of layers.
   dims <- attributes(df)$dims
   dims[3] <- ncol(values_mutate)
   attr(final_df, "dims") <- dims
@@ -151,7 +151,7 @@ mutate.SpatVector <- function(
   .before = NULL,
   .after = NULL
 ) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   mutated <- dplyr::mutate(
     tbl,
@@ -166,11 +166,11 @@ mutate.SpatVector <- function(
   if (ncol(mutated) == 0) {
     vend <- .data[, 0]
   } else {
-    # Bind
+    # Bind attributes.
     vend <- cbind(.data[, 0], mutated)
   }
 
-  # Prepare groups
+  # Restore groups.
   vend <- group_prepare_spat(vend, mutated)
 
   vend

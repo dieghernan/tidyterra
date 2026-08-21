@@ -88,7 +88,7 @@
 #'   autoplot(aes(fill = as.factor(id2)))
 #' }
 rowwise.SpatVector <- function(data, ...) {
-  # Use own method
+  # Use the package method.
   x <- data
 
   data <- as_tibble(data)

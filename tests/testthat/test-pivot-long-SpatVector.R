@@ -73,10 +73,11 @@ test_that("can drop missing values", {
 test_that("can handle missing combinations", {
   skip_on_cran()
 
-  df <- tibble::tribble(
-    ~id, ~x_1, ~x_2, ~y_2,
-    "A",    1,    2, "a",
-    "B",    3,    4, "b"
+  df <- tibble::tibble(
+    id = c("A", "B"),
+    x_1 = c(1, 3),
+    x_2 = c(2, 4),
+    y_2 = c("a", "b")
   )
   df$lat <- 1
   df$lon <- 1
@@ -111,10 +112,14 @@ test_that("mixed columns are automatically coerced", {
 test_that("original col order is preserved", {
   skip_on_cran()
 
-  df <- tibble::tribble(
-    ~id, ~z_1, ~y_1, ~x_1, ~z_2, ~y_2, ~x_2,
-    "A",    1,    2,    3,    4,    5,    6,
-    "B",    7,    8,    9,   10,   11,   12
+  df <- tibble::tibble(
+    id = c("A", "B"),
+    z_1 = c(1, 7),
+    y_1 = c(2, 8),
+    x_1 = c(3, 9),
+    z_2 = c(4, 10),
+    y_2 = c(5, 11),
+    x_2 = c(6, 12)
   )
   df$lat <- 1
   df$lon <- 1

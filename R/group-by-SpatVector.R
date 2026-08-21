@@ -109,17 +109,17 @@ group_by.SpatVector <- function(
   .add = FALSE,
   .drop = group_by_drop_default(.data)
 ) {
-  # Use own method
+  # Use the package method.
   x <- .data
 
   .data <- as_tibble(.data)
 
-  # Add groups
+  # Add groups.
   newgroups <- dplyr::group_by(.data, ..., .add = .add, .drop = .drop)
 
   regen <- cbind(x[, 0], newgroups)
 
-  # Add groups metadata
+  # Add grouping metadata.
   regen <- group_prepare_spat(regen, newgroups)
 
   regen
@@ -132,18 +132,18 @@ dplyr::group_by
 #' @importFrom dplyr ungroup
 #' @export
 ungroup.SpatVector <- function(x, ...) {
-  # Use own method
+  # Use the package method.
   getattr <- attr(x, "tblclass")
   if (is_null(getattr) || !getattr %in% c("grouped_df", "rowwise_df")) {
     return(x)
   }
 
-  # Template
+  # Create a template.
   g_tbl <- as_tibble(x)
-  # Ungroup default method
+  # Use the default ungroup method.
   newgroups <- dplyr::ungroup(g_tbl, ...)
 
-  # Add groups metadata
+  # Add grouping metadata.
   x <- group_prepare_spat(x, newgroups)
 
   x
@@ -165,7 +165,6 @@ group_prepare_spat <- function(x, template) {
   }
 
   # Check that the template is a data frame.
-  # Gives an error
   if (!inherits(template, "data.frame")) {
     cli::cli_abort("The grouping template must be a data frame.")
   }
@@ -177,7 +176,7 @@ group_prepare_spat <- function(x, template) {
     attr(x, "tblclass") <- "rowwise_df"
     attr(x, "groups") <- attr(template, "groups")
   } else {
-    # Ungroup
+    # Remove grouping metadata.
     attr(x, "tblclass") <- NULL
     attr(x, "groups") <- NULL
   }

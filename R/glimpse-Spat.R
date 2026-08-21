@@ -326,7 +326,7 @@ tterra_header_string_rgb <- function(x) {
 }
 
 tterra_header_string_ctab <- function(x) {
-  # Check coltab
+  # Check color tables.
   coltab_info <- terra::has.colors(x)
   if (!any(coltab_info)) {
     return(invisible(NULL))

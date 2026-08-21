@@ -180,13 +180,13 @@ slice.SpatRaster <- function(
 #' @rdname slice.Spat
 #' @export
 slice.SpatVector <- function(.data, ..., .by = NULL, .preserve = FALSE) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
   sliced <- dplyr::slice(tbl, ..., .by = {{ .by }}, .preserve = .preserve)
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)
@@ -227,14 +227,14 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @rdname slice.Spat
 #' @export
 slice_head.SpatVector <- function(.data, ..., n, prop, by = NULL) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
 
   sliced <- dplyr::slice_head(tbl, ..., n = n, prop = prop, by = {{ by }})
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)
@@ -276,14 +276,14 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 #' @rdname slice.Spat
 #' @export
 slice_tail.SpatVector <- function(.data, ..., n, prop, by = NULL) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
 
   sliced <- dplyr::slice_tail(tbl, ..., n = n, prop = prop, by = {{ by }})
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)
@@ -367,7 +367,7 @@ slice_min.SpatVector <- function(
   with_ties = TRUE,
   na_rm = FALSE
 ) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
@@ -383,7 +383,7 @@ slice_min.SpatVector <- function(
     na_rm = na_rm
   )
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)
@@ -467,7 +467,7 @@ slice_max.SpatVector <- function(
   with_ties = TRUE,
   na_rm = FALSE
 ) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
@@ -484,7 +484,7 @@ slice_max.SpatVector <- function(
     na_rm = na_rm
   )
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)
@@ -560,7 +560,7 @@ slice_sample.SpatVector <- function(
   weight_by = NULL,
   replace = FALSE
 ) {
-  # Use own method
+  # Use the package method.
   tbl <- as_tibble(.data)
   ind <- make_safe_index("tterra_index", tbl)
   tbl[[ind]] <- seq_len(nrow(tbl))
@@ -575,7 +575,7 @@ slice_sample.SpatVector <- function(
     replace = replace
   )
 
-  # Regenerate
+  # Regenerate the `SpatVector`.
   vend <- .data[as.integer(sliced[[ind]]), ]
 
   vend <- group_prepare_spat(vend, sliced)

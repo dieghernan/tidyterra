@@ -1,9 +1,9 @@
-# tidyterra (development version)
+# tidyterra 1.3.0
 
 - Argument validation has been improved across user-facing helpers and plotting
   functions, producing clearer errors for invalid inputs.
 - The pkgdown site now links to the JOSS paper as an external article and uses
-  `vignette("tidyterra")` as the introductory article.
+  `vignette("tidyterra")` as its introductory article.
 - `geom_spatraster()`, `geom_spatraster_rgb()`, `geom_spatraster_contour()`,
   `geom_spatraster_contour_text()`, `stat_spatraster()`, `tidy()` and
   `fortify()` now consistently accept `maxcell = Inf` and validate related
@@ -12,13 +12,13 @@
   mapping `alpha` to a different `SpatRaster` layer than `fill` (#154, #211).
 - `geom_spatraster_rgb()` no longer emits a warning for rasters with more than
   three layers, such as RGB rasters with an alpha channel.
-- `geom_*()` defaults were adjusted to current **ggplot2** defaults.
+- `geom_*()` defaults were adjusted to match current **ggplot2** defaults.
 - `hypso.colors()` now includes one additional palette: `"xkcd-painbow"`. See
   <https://xkcd.com/2537/>.
 
 # tidyterra 1.2.0
 
-This release adds tidyverse-style methods for `SpatVector` objects and includes
+This release adds **tidyverse**-style methods for `SpatVector` objects and includes
 documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance, including
@@ -80,13 +80,13 @@ The following methods were generated with AI assistance.
 
 # tidyterra 1.0.0
 
-- The minimum supported **R** version is now 4.1.0.
+- **R** 4.1.0 is now the minimum supported version.
 - The minimum supported **ggplot2** version is now 4.0.0.
-- **ggplot2** 4.0.0 deprecations have been adapted: in `geom_spatvector_label()`
-  and `geom_spatvector_text()`, the `label.size` aesthetic has been replaced by
-  `linewidth`. Also, `nudge_x` and `nudge_y` are not explicitly documented and
-  are passed to `ggplot2::geom_sf_label()` and `ggplot2::geom_sf_text()` through
-  dots (`...`).
+- **ggplot2** 4.0.0 deprecations have been addressed: in
+  `geom_spatvector_label()` and `geom_spatvector_text()`, the `label.size`
+  aesthetic has been replaced by `linewidth`. Also, `nudge_x` and `nudge_y` are
+  not explicitly documented and are passed to `ggplot2::geom_sf_label()` and
+  `ggplot2::geom_sf_text()` through dots (`...`).
 - `get_coltab_pal()` can extract colors with alpha values (#180).
 - New `autoplot.SpatExtent()` and `autoplot.SpatGraticule()` methods.
 - **generics** has been added to Imports, with new `?tidy.Spat`, `?glance.Spat`
@@ -156,8 +156,8 @@ The following methods were generated with AI assistance.
   `isoband::isolines_grob()`
   [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 - `glimpse.SpatRaster()` and `glimpse.SpatVector()` now display information
-  using `?tibble::print.tbl_df` approach for the header and the footer. The body
-  is still displayed transposed as of `dplyr::glimpse()`. See
+  using the `?tibble::print.tbl_df` approach for the header and the footer. The
+  body is still displayed transposed as of `dplyr::glimpse()`. See
   `pillar::tbl_format_header()` and `pillar::tbl_format_footer()` for examples.
 - `as_sf()` converts a `SpatVector` to a `sf` object with an additional `tbl_df`
   class for pretty printing.
@@ -244,7 +244,7 @@ Other changes in this version:
 
 # tidyterra 0.3.0
 
-- Package back on **CRAN**.
+- Package is back on **CRAN**.
 - Libraries **dplyr**, **tidyr** and **tibble** are not attached by default.
   Needed functions are reexported instead.
 - `geom_spatraster()` can now avoid the default `fill` of the layer using
@@ -257,7 +257,7 @@ Other changes in this version:
 # tidyterra 0.2.2
 
 - Changes to how **dplyr**, **tibble** and **tidyr** are attached. These
-  packages are listed on 'Depends' and are attached before **tidyterra** when
+  packages are listed in `Depends` and are attached before **tidyterra** when
   `library` or `require` is called. Messages on load can be suppressed with
   `suppressPackageStartupMessages(library(tidyterra))`.
 
@@ -289,7 +289,7 @@ Other changes in this version:
 # tidyterra 0.0.1
 
 - Performance has been improved by avoiding conversion to **tibble** as much as
-  possible, using `data.table` objects internally instead of `tibble` objects
+  possible, using **data.table** objects internally instead of `tibble` objects
   and adding compatibility with **dtplyr**.
 - `as_spatraster()` now handles tibbles with characters and factors.
 - `geom_spatraster()` and `geom_spatraster_rgb()` have been simplified and
