@@ -303,8 +303,8 @@ Hall/CRC. <https://doi.org/10.1201/9781003646822>.
 Salvador Baiges, Guillem. 2024. “Clima, Orografia i Dinàmiques de
 Poblament Al Pirineu Central. Arqueologia, SIG i Modelització Espacial
 Del Patró d’ocupació Del Territori Durant El Neolı́tic (5700–2100 Cal
-ANE).” PhD thesis, Universitat Autònoma de Barcelona; Universitat
-Autònoma de Barcelona. <https://hdl.handle.net/10803/692148>.
+ANE).” PhD thesis, Universitat Autònoma de Barcelona.
+<https://hdl.handle.net/10803/692148>.
 
 Santiago-Sarmiento, Aura Pamela, Citlalli Edith Esparza-Estrada, Carlos
 Alberto Yáñez-Arenas, Luis Enrique Ángeles-González, and Lucas Jardim.
