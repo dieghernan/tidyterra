@@ -181,8 +181,8 @@ or `breaks` to align both labels and lines:
 
 ```{r}
 #| label: fig-metr
-#| fig-cap: "Alternative (metR): contour labeling combining tidyterra and the
-#|   **metR** package with customized styling."
+#| fig-cap: "Alternative (**metR**): contour labeling combining **tidyterra** and
+#|   the **metR** package with customized styling."
 library(metR)
 br <- seq(100, 250, 10)
 labs <- c(100, 140, 180, 220)
@@ -525,7 +525,7 @@ ggplot() +
   labs(title = "scale_fill_manual() method")
 ```
 
-## Use with **gganimate** {#gganimate}
+## Use with gganimate {#gganimate}
 
 Yes. Here is an example, thanks to [\@frzambra](https://github.com/frzambra):
 
@@ -785,7 +785,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   )
 ```
 
-### **tidyterra** and **metR**
+### tidyterra and metR
 
 **metR** provides **ggplot2** extensions, primarily for meteorological data
 visualization. As shown previously (see [Labeling contours](#label-contour)),
@@ -793,7 +793,7 @@ you can combine both packages to create rich, complex plots.
 
 ```{r}
 #| label: fig-metrdemo
-#| fig-cap: "Relief rendering combining tidyterra for raster plotting and
+#| fig-cap: "Relief rendering combining **tidyterra** for raster plotting and
 #|   **metR** for terrain relief representation."
 # Load libraries and files.
 library(terra)

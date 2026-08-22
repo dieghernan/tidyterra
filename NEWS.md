@@ -2,8 +2,8 @@
 
 - Argument validation has been improved across user-facing helpers and plotting
   functions, producing clearer errors for invalid inputs.
-- The pkgdown site now links to the JOSS paper as an external article and uses
-  `vignette("tidyterra")` as its introductory article.
+- The **pkgdown** site now links to the JOSS paper as an external article and
+  uses `vignette("tidyterra")` as its introductory article.
 - `geom_spatraster()`, `geom_spatraster_rgb()`, `geom_spatraster_contour()`,
   `geom_spatraster_contour_text()`, `stat_spatraster()`, `tidy()` and
   `fortify()` now consistently accept `maxcell = Inf` and validate related
@@ -18,8 +18,8 @@
 
 # tidyterra 1.2.0
 
-This release adds **tidyverse**-style methods for `SpatVector` objects and includes
-documentation reviewed with explicit AI-assisted editing.
+This release adds **tidyverse**-style methods for `SpatVector` objects and
+includes documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance, including
   **roxygen2** comments, generated Rd files, documentation chunks, prose
@@ -52,7 +52,7 @@ The following methods were generated with AI assistance.
 # tidyterra 1.1.0
 
 - The minimum supported **dplyr** version is now 1.2.0.
-- Vignettes and articles now use Quarto.
+- Vignettes and articles now use **Quarto**.
 
 ## New methods
 
@@ -117,7 +117,7 @@ The following methods were generated with AI assistance.
 - The minimum supported **terra** version is now 1.8-10.
 - **metR** has been removed from Suggests.
 - Factor handling has been improved when several layers have different levels.
-  This uses `terra::combineLevels()` from **terra** \>= `1.8-10`. See
+  This uses `terra::combineLevels()` from **terra** >= 1.8-10. See
   <https://stackoverflow.com/questions/79340152>.
 - `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`,
   `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`, `scale_*_grass_c()` and

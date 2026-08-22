@@ -169,7 +169,7 @@ pak::pak("dieghernan/tidyterra")
 ```
 
 Alternatively, you can install **tidyterra** using
-[r-universe](https://dieghernan.r-universe.dev/tidyterra):
+[**r-universe**](https://dieghernan.r-universe.dev/tidyterra):
 
 ``` r
 # Enable this universe
