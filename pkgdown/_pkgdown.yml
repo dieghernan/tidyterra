@@ -231,6 +231,6 @@ external-articles:
   description: "The rain in Spain does not stay mainly in the plain"
   href: https://dieghernan.github.io/202212_tidyterra-hillshade-2/
 - name: blog-beautiful-maps-point-densities
-  title: "Beautiful Maps with R (V): Point densities"
+  title: "Beautiful maps with R (V): Point densities"
   description: "Bertin's dot density maps with R and GHSL"
   href: https://dieghernan.github.io/202312_bertin_dots/
