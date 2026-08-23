@@ -87,6 +87,11 @@ Using Open-Source Least-Cost Path Analysis.” *Journal of Disaster
 Science and Management* 1 (1): 18.
 <https://doi.org/10.1007/s44367-025-00018-y>.
 
+Dahl, Kristina, Juan Declet-Barreto, Rachel Cleetus, et al. 2024.
+*Looming Deadlines for Coastal Resilience: Rising Seas, Disruptive
+Tides, and Risks to Coastal Infrastructure*. Union of Concerned
+Scientists. <https://doi.org/10.47923/2024.15502>.
+
 Di Fabio, Alessandro, Samuel Aspalter, Debojyoti Chakraborty, et al.
 2026. “Growth Performance Is Driven by Site Conditions and Moderated by
 Functional Trait Plasticity in *Quercus robur* and *Prunus avium*.”
