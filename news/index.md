@@ -4,8 +4,8 @@
 
 - Argument validation has been improved across user-facing helpers and
   plotting functions, producing clearer errors for invalid inputs.
-- The **pkgdown** site now links to the JOSS paper as an external
-  article and uses
+- The pkgdown site now links to the JOSS paper as an external article
+  and uses
   [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/articles/tidyterra.md)
   as its introductory article.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
@@ -85,7 +85,7 @@ The following methods were generated with AI assistance.
 CRAN release: 2026-03-11
 
 - The minimum supported **dplyr** version is now 1.2.0.
-- Vignettes and articles now use **Quarto**.
+- Vignettes and articles now use Quarto.
 
 ### New methods
 
@@ -202,7 +202,7 @@ CRAN release: 2025-02-03
 - Factor handling has been improved when several layers have different
   levels. This uses
   [`terra::combineLevels()`](https://rspatial.github.io/terra/reference/factors.html)
-  from **terra** \>= 1.8-10. See
+  from **terra** \>= `1.8-10`. See
   <https://stackoverflow.com/questions/79340152>.
 - `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`,
   `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`,

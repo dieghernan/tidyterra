@@ -69,7 +69,7 @@
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
@@ -105,7 +105,7 @@
 
 
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.0/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -114,18 +114,20 @@
 
 
 
-    <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><section class="level2"><h2 id="tidyterra">tidyterra<a class="anchor" aria-label="anchor" href="#tidyterra"></a>
+    <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><section class="level2"><h2 id="tidyterra">
+<strong>tidyterra</strong><a class="anchor" aria-label="anchor" href="#tidyterra"></a>
 </h2>
 <p><strong>tidyterra</strong> provides methods from <strong>tidyverse</strong> packages for <code>SpatRaster</code> and <code>SpatVector</code> objects created with <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a>. It also provides <code>geom_spat*()</code> geoms and scales for plotting those objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
-<section class="level3"><h3 id="why-tidyterra">Why tidyterra?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
+<section class="level3"><h3 id="why-tidyterra">Why <strong>tidyterra</strong>?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
 <p><code>Spat*</code> objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in <strong>terra</strong>). By providing <strong>tidyverse</strong> verbs, especially <strong>dplyr</strong> and <strong>tidyr</strong> methods, <strong>tidyterra</strong> lets users manipulate <code>Spat*</code> objects in a style familiar from tabular data workflows.</p>
 <p><strong>terra</strong> is generally faster. Learning some <strong>terra</strong> syntax is recommended because <strong>tidyterra</strong> functions call the corresponding <strong>terra</strong> equivalents when possible.</p>
-</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced terra users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
+</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced <strong>terra</strong> users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
 <p><strong>tidyterra</strong> is not optimized for performance. Operations such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> can be slower than their <strong>terra</strong> counterparts.</p>
 <p>As a rule of thumb, <strong>tidyterra</strong> is most suitable for objects with fewer than 10,000,000 data slots, for example <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 1e7</code>.</p>
-</section><section class="level2"><h2 id="get-started-with-tidyterra">Get started with tidyterra<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
+</section><section class="level2"><h2 id="get-started-with-tidyterra">Get started with <strong>tidyterra</strong>
+<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
 </h2>
 <p>Load <strong>tidyterra</strong> together with core <strong>tidyverse</strong> packages:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -450,7 +452,8 @@
 <span><span class="co">#&gt;               (40.7,76.1]     1   48187       185</span></span>
 <span><span class="co">#&gt;               (4.99,40.7]     9  194391   209.778</span></span></code></pre></div>
 <p>As with <code>SpatRaster</code>, essential properties such as geometry and CRS are preserved during these operations.</p>
-</section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with ggplot2<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
+</section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with <strong>ggplot2</strong>
+<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
 <section class="level3"><h3 id="spatraster-objects-1">
 <code>SpatRaster</code> objects<a class="anchor" aria-label="anchor" href="#spatraster-objects-1"></a>

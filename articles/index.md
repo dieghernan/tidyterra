@@ -51,7 +51,7 @@ Blog posts tagged with **tidyterra** on One World.
 
   The rain in Spain does not stay mainly in the plain
 
-- [Beautiful maps with R (V): Point
+- [Beautiful Maps with R (V): Point
   densities](https://dieghernan.github.io/202312_bertin_dots/):
 
   Bertin’s dot density maps with R and GHSL

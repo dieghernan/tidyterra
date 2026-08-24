@@ -244,8 +244,8 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metr-1.png)
 
-Figure 3: Alternative (**metR**): contour labeling combining
-**tidyterra** and the **metR** package with customized styling.
+Figure 3: Alternative (metR): contour labeling combining tidyterra and
+the **metR** package with customized styling.
 
 ## Using a different color scale
 
@@ -607,7 +607,7 @@ method.
 
 Figure 10: Color tables: **tidyterra** methods.
 
-## Use with gganimate
+## Use with **gganimate**
 
 Yes. Here is an example, thanks to
 [@frzambra](https://github.com/frzambra):
@@ -891,7 +891,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
 
-### tidyterra and metR
+### **tidyterra** and **metR**
 
 **metR** provides **ggplot2** extensions, primarily for meteorological
 data visualization. As shown previously (see [Labeling
@@ -925,8 +925,8 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metrdemo-1.png)
 
-Figure 17: Relief rendering combining **tidyterra** for raster plotting
-and **metR** for terrain relief representation.
+Figure 17: Relief rendering combining tidyterra for raster plotting and
+**metR** for terrain relief representation.
 
 [^1]: Digital Surface Model, representing the elevation of the visible
     surface in the corresponding area.

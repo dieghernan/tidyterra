@@ -1,6 +1,6 @@
 # Welcome to tidyterra
 
-## tidyterra
+## **tidyterra**
 
 **tidyterra** provides methods from **tidyverse** packages for
 `SpatRaster` and `SpatVector` objects created with
@@ -8,7 +8,7 @@
 `geom_spat*()` geoms and scales for plotting those objects with
 [**ggplot2**](https://ggplot2.tidyverse.org/).
 
-### Why tidyterra?
+### Why **tidyterra**?
 
 `Spat*` objects differ from regular data frames: they are S4 objects
 with their own syntax and computational methods (implemented in
@@ -20,7 +20,7 @@ in a style familiar from tabular data workflows.
 recommended because **tidyterra** functions call the corresponding
 **terra** equivalents when possible.
 
-## A note for advanced terra users
+## A note for advanced **terra** users
 
 **tidyterra** is not optimized for performance. Operations such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
@@ -31,7 +31,7 @@ As a rule of thumb, **tidyterra** is most suitable for objects with
 fewer than 10,000,000 data slots, for example
 `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.
 
-## Get started with tidyterra
+## Get started with **tidyterra**
 
 Load **tidyterra** together with core **tidyverse** packages:
 
@@ -199,7 +199,7 @@ v_lux |>
 As with `SpatRaster`, essential properties such as geometry and CRS are
 preserved during these operations.
 
-## Plotting with ggplot2
+## Plotting with **ggplot2**
 
 ### `SpatRaster` objects
 
