@@ -4,8 +4,8 @@
 
 - Argument validation has been improved across user-facing helpers and
   plotting functions, producing clearer errors for invalid inputs.
-- The pkgdown site now links to the JOSS paper as an external article
-  and uses
+- The **pkgdown** site now links to the JOSS paper as an external
+  article and uses
   [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/articles/tidyterra.md)
   as its introductory article.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md),
@@ -48,7 +48,7 @@ The following methods were generated with AI assistance.
 
 - [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md)
   supports
-  [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
+  [`tidyr::complete()`](https://rdrr.io/pkg/tidyr/man/complete.html).
 - [`cross_join.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/cross_join.SpatVector.md)
   matches each `SpatVector` feature in `x` with every row in `y`.
 - [`expand.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.md)
@@ -85,7 +85,7 @@ The following methods were generated with AI assistance.
 CRAN release: 2026-03-11
 
 - The minimum supported **dplyr** version is now 1.2.0.
-- Vignettes and articles now use Quarto.
+- Vignettes and articles now use **Quarto**.
 
 ### New methods
 
@@ -202,7 +202,7 @@ CRAN release: 2025-02-03
 - Factor handling has been improved when several layers have different
   levels. This uses
   [`terra::combineLevels()`](https://rspatial.github.io/terra/reference/factors.html)
-  from **terra** \>= `1.8-10`. See
+  from **terra** \>= 1.8-10. See
   <https://stackoverflow.com/questions/79340152>.
 - `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`,
   `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`,
@@ -215,7 +215,7 @@ CRAN release: 2025-02-03
   different layer classes: if several layers can be defined as numeric
   (that is, `double`, `integer` and `numeric`), the pivoting (and
   therefore the plot) can be performed. This is consistent with
-  [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+  [`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html)
   behavior (<https://stackoverflow.com/questions/79292989>).
 
 ## tidyterra 0.6.2
@@ -264,7 +264,7 @@ CRAN release: 2024-04-22
   has been added.
 - [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
   has been implemented on top of
-  [`isoband::isolines_grob()`](http://isoband.r-lib.org/reference/isolines_grob.md)
+  [`isoband::isolines_grob()`](https://rdrr.io/pkg/isoband/man/isolines_grob.html)
   [![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental).
 - [`glimpse.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.md)
   and
@@ -285,7 +285,7 @@ CRAN release: 2024-04-22
 - [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.md)
   gains a new argument `pivot` that allows better integration with other
   **ggplot2** geoms when pivoting. This wraps
-  [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
+  [`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html).
 - [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.md)
   and
   [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md)

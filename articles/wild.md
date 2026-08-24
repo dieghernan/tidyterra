@@ -87,6 +87,11 @@ Using Open-Source Least-Cost Path Analysis.” *Journal of Disaster
 Science and Management* 1 (1): 18.
 <https://doi.org/10.1007/s44367-025-00018-y>.
 
+Dahl, Kristina, Juan Declet-Barreto, Rachel Cleetus, et al. 2024.
+*Looming Deadlines for Coastal Resilience: Rising Seas, Disruptive
+Tides, and Risks to Coastal Infrastructure*. Union of Concerned
+Scientists. <https://doi.org/10.47923/2024.15502>.
+
 Di Fabio, Alessandro, Samuel Aspalter, Debojyoti Chakraborty, et al.
 2026. “Growth Performance Is Driven by Site Conditions and Moderated by
 Functional Trait Plasticity in *Quercus robur* and *Prunus avium*.”
@@ -304,7 +309,7 @@ Salvador Baiges, Guillem. 2024. “Clima, Orografia i Dinàmiques de
 Poblament Al Pirineu Central. Arqueologia, SIG i Modelització Espacial
 Del Patró d’ocupació Del Territori Durant El Neolı́tic (5700–2100 Cal
 ANE).” PhD thesis, Universitat Autònoma de Barcelona.
-<https://ddd.uab.cat/record/301073>.
+<https://hdl.handle.net/10803/692148>.
 
 Santiago-Sarmiento, Aura Pamela, Citlalli Edith Esparza-Estrada, Carlos
 Alberto Yáñez-Arenas, Luis Enrique Ángeles-González, and Lucas Jardim.

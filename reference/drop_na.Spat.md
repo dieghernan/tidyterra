@@ -1,14 +1,13 @@
 # Drop attributes of `Spat*` objects containing missing values
 
 - `SpatVector`:
-  [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-  method drops geometries where any attribute specified by `...`
-  contains a missing value.
+  [`drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html) method drops
+  geometries where any attribute specified by `...` contains a missing
+  value.
 
 - `SpatRaster`:
-  [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-  method drops cells where any layer specified by `...` contains a
-  missing value.
+  [`drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html) method drops
+  cells where any layer specified by `...` contains a missing value.
 
 ## Usage
 
@@ -31,7 +30,7 @@ drop_na(data, ...)
 
 - ...:
 
-  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
   Attributes to inspect for missing values. If empty, all attributes are
   used.
 
@@ -46,8 +45,8 @@ A `Spat*` object of the same class as `data`. See **Methods**.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-methods for `Spat*` objects.
+[`tidyr::drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html) methods
+for `Spat*` objects.
 
 ### `SpatVector`
 
@@ -68,8 +67,8 @@ rows, so rows (cells) with any `NA` value on any layer become `NA`. You
 can also mask the cells (rows) based on the values of specific layers
 (columns).
 
-[`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-effectively removes outer cells that are `NA` (see
+[`drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html) effectively
+removes outer cells that are `NA` (see
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)),
 so the extent of the resulting object may differ from the extent of the
 input (see
@@ -85,7 +84,7 @@ implementation of this method for `SpatRaster` may change in the future.
 
 ## See also
 
-[`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html).
+[`tidyr::drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

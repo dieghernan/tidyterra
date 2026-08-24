@@ -41,7 +41,7 @@ pivot_longer.SpatVector().'><meta property="og:image" content="https://diegherna
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -66,12 +66,12 @@ pivot_longer.SpatVector().'><meta property="og:image" content="https://diegherna
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Pivot <code>SpatVector</code> from long to wide</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.0/R/pivot-wide-SpatVector.R" class="external-link"><code>R/pivot-wide-SpatVector.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/pivot-wide-SpatVector.R" class="external-link"><code>R/pivot-wide-SpatVector.R</code></a></small>
       <div class="d-none name"><code>pivot_wider.SpatVector.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
-    <p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider()</a></code> "widens" a <code>SpatVector</code>, increasing the number of columns
+    <p><code><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">pivot_wider()</a></code> "widens" a <code>SpatVector</code>, increasing the number of columns
 and decreasing the number of rows. The inverse transformation is
 <code><a href="pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code>.</p>
     </div>
@@ -79,7 +79,7 @@ and decreasing the number of rows. The inverse transformation is
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span>
 <span>  <span class="va">data</span>,</span>
 <span>  <span class="va">...</span>,</span>
 <span>  id_cols <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -112,13 +112,13 @@ and decreasing the number of rows. The inverse transformation is
 
 
 <dt id="arg-id-cols">id_cols<a class="anchor" aria-label="anchor" href="#arg-id-cols"></a></dt>
-<dd><p>&lt;<code><a href="https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; A set of columns
+<dd><p>&lt;<code><a href="https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; A set of columns
 that uniquely identify each observation. Typically used when you have
 redundant variables, that is, variables whose values are perfectly
 correlated with existing variables.</p>
 <p>Defaults to all columns in <code>data</code> except for the columns specified through
 <code>names_from</code> and <code>values_from</code>. If a
-<code><a href="https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html" class="external-link">tidyselect</a></code> expression is supplied, it
+<code><a href="https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html" class="external-link">tidyselect</a></code> expression is supplied, it
 will be evaluated on <code>data</code> after removing the columns specified through
 <code>names_from</code> and <code>values_from</code>.</p>
 <p>Because "<code>geometry</code>" columns are sticky, they are removed from
@@ -127,7 +127,7 @@ will be evaluated on <code>data</code> after removing the columns specified thro
 
 <dt id="arg-id-expand">id_expand<a class="anchor" aria-label="anchor" href="#arg-id-expand"></a></dt>
 <dd><p>Should the values in the <code>id_cols</code> columns be expanded by
-<code><a href="https://tidyr.tidyverse.org/reference/expand.html" class="external-link">expand()</a></code> before pivoting? This results in more rows, the output will
+<code><a href="https://rdrr.io/pkg/tidyr/man/expand.html" class="external-link">expand()</a></code> before pivoting? This results in more rows, the output will
 contain a complete expansion of all possible values in <code>id_cols</code>. Implicit
 factor levels that aren't represented in the data will become explicit.
 Additionally, the row values corresponding to the expanded <code>id_cols</code> will
@@ -135,7 +135,7 @@ be sorted.</p></dd>
 
 
 <dt id="arg-names-from-values-from">names_from, values_from<a class="anchor" aria-label="anchor" href="#arg-names-from-values-from"></a></dt>
-<dd><p>&lt;<code><a href="https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; A pair of
+<dd><p>&lt;<code><a href="https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; A pair of
 arguments describing which column (or columns) to get the name of the
 output column (<code>names_from</code>), and which column (or columns) to get the
 cell values from (<code>values_from</code>).</p>
@@ -177,7 +177,7 @@ naming scheme of the form: <code>value1_name1, value2_name1, value1_name2, value
 
 <dt id="arg-names-expand">names_expand<a class="anchor" aria-label="anchor" href="#arg-names-expand"></a></dt>
 <dd><p>Should the values in the <code>names_from</code> columns be expanded
-by <code><a href="https://tidyr.tidyverse.org/reference/expand.html" class="external-link">expand()</a></code> before pivoting? This results in more columns, the output
+by <code><a href="https://rdrr.io/pkg/tidyr/man/expand.html" class="external-link">expand()</a></code> before pivoting? This results in more columns, the output
 will contain column names corresponding to a complete expansion of all
 possible values in <code>names_from</code>. Implicit factor levels that aren't
 represented in the data will become explicit. Additionally, the column
@@ -230,14 +230,14 @@ unused columns using <code>unused_fn</code>.</p></dd>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code> method for
+<p>Implementation of the <strong>generic</strong> <code><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code> method for
 <code>SpatVector</code> objects.</p>
 <p>The geometry column has sticky behavior. This means that the result always
 has the geometry of <code>data</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code>.</p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code>.</p>
 <p>Other <a href="https://CRAN.R-project.org/package=tidyr" class="external-link"><span class="pkg">tidyr</span></a> verbs for pivoting:
 <code><a href="pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code></p></div>
     </div>
@@ -274,7 +274,7 @@ has the geometry of <code>data</code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pivot by geometry.</span></span></span>
 <span class="r-in"><span><span class="va">xtra</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">pivot_wider</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    id_cols <span class="op">=</span> <span class="va">iso2</span><span class="op">:</span><span class="va">name</span>, values_from <span class="op">=</span> <span class="va">value</span>,</span></span>
 <span class="r-in"><span>    names_from <span class="op">=</span> <span class="va">label</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>

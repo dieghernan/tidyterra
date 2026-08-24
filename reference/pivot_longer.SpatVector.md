@@ -1,12 +1,12 @@
 # Pivot `SpatVector` from wide to long
 
-[`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+[`pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html)
 "lengthens" data, increasing the number of rows and decreasing the
 number of columns. The inverse transformation is
 [`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md)
 
 Learn more in
-[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
+[`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html).
 
 ## Usage
 
@@ -39,7 +39,7 @@ pivot_longer(
 
 - cols:
 
-  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
   Columns to pivot into longer format.
 
 - ...:
@@ -93,16 +93,16 @@ pivot_longer(
   the column name is broken up.
 
   `names_sep` takes the same specification as
-  [`separate()`](https://tidyr.tidyverse.org/reference/separate.html),
-  and can either be a numeric vector (specifying positions to break on),
-  or a single string (specifying a regular expression to split on).
+  [`separate()`](https://rdrr.io/pkg/tidyr/man/separate.html), and can
+  either be a numeric vector (specifying positions to break on), or a
+  single string (specifying a regular expression to split on).
 
   `names_pattern` takes the same specification as
-  [`extract()`](https://tidyr.tidyverse.org/reference/extract.html), a
-  regular expression containing matching groups (`()`).
+  [`extract()`](https://rdrr.io/pkg/tidyr/man/extract.html), a regular
+  expression containing matching groups (`()`).
 
   If these arguments do not give you enough control, use
-  [`pivot_longer_spec()`](https://tidyr.tidyverse.org/reference/pivot_longer_spec.html)
+  [`pivot_longer_spec()`](https://rdrr.io/pkg/tidyr/man/pivot_longer_spec.html)
   to create a spec object and process manually as needed.
 
 - names_ptypes, values_ptypes:
@@ -162,7 +162,7 @@ A `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
+[`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html)
 method for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
@@ -170,7 +170,7 @@ always has the geometry of `data`.
 
 ## See also
 
-[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
+[`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 pivoting:

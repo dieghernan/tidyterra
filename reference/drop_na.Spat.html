@@ -51,7 +51,7 @@ SpatRaster: drop_na() method drops cells where any layer specified by
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -76,25 +76,25 @@ SpatRaster: drop_na() method drops cells where any layer specified by
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Drop attributes of <code>Spat*</code> objects containing missing values</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.0/R/drop-na-Spat.R" class="external-link"><code>R/drop-na-Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/drop-na-Spat.R" class="external-link"><code>R/drop-na-Spat.R</code></a></small>
       <div class="d-none name"><code>drop_na.Spat.Rd</code></div>
     </div>
 
     <div class="ref-description section level2">
 
-<ul><li><p><code>SpatVector</code>: <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> method drops geometries where any attribute
+<ul><li><p><code>SpatVector</code>: <code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na()</a></code> method drops geometries where any attribute
 specified by <code>...</code> contains a missing value.</p></li>
-<li><p><code>SpatRaster</code>: <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> method drops cells where any layer specified by
+<li><p><code>SpatRaster</code>: <code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na()</a></code> method drops cells where any layer specified by
 <code>...</code> contains a missing value.</p></li>
 </ul></div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'SpatRaster'</span></span>
-<span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -107,7 +107,7 @@ specified by <code>...</code> contains a missing value.</p></li>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>&lt;<code><a href="https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Attributes to inspect
+<dd><p>&lt;<code><a href="https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Attributes to inspect
 for missing values. If empty, all attributes are used.</p></dd>
 
 </dl></div>
@@ -127,7 +127,7 @@ for missing values. If empty, all attributes are used.</p></dd>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code> methods for <code>Spat*</code>
+<p>Implementation of the <strong>generic</strong> <code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">tidyr::drop_na()</a></code> methods for <code>Spat*</code>
 objects.</p><div class="section">
 <h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
@@ -148,7 +148,7 @@ masking method based on the values of the layers (see <code><a href="https://rsp
 <p><code>SpatRaster</code> layers are treated as columns and <code>SpatRaster</code> cells as
 rows, so rows (cells) with any <code>NA</code> value on any layer become <code>NA</code>. You can
 also mask the cells (rows) based on the values of specific layers (columns).</p>
-<p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> effectively removes outer cells that are <code>NA</code> (see
+<p><code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na()</a></code> effectively removes outer cells that are <code>NA</code> (see
 <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>), so the extent of the resulting object may differ from the
 extent of the input (see <code><a href="https://rspatial.github.io/terra/reference/resample.html" class="external-link">terra::resample()</a></code> for more information).</p>
 <p>Check the <strong>Examples</strong> to have a better understanding of this method.</p><div class="section">
@@ -165,7 +165,7 @@ of this method for <code>SpatRaster</code> may change in the future.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code>.</p>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">tidyr::drop_na()</a></code>.</p>
 <p>Other <a href="https://CRAN.R-project.org/package=tidyr" class="external-link"><span class="pkg">tidyr</span></a> verbs for handling missing values:
 <code><a href="complete.SpatVector.html">complete.SpatVector()</a></code>,
 <code><a href="expand.SpatVector.html">expand.SpatVector()</a></code>,
@@ -191,7 +191,7 @@ of this method for <code>SpatRaster</code> may change in the future.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Drop geometries with missing values in iso2.</span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">iso2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># SpatRaster method</span></span></span>
@@ -214,25 +214,25 @@ of this method for <code>SpatRaster</code> may change in the future.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.1.</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.1</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.2.</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.2</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-5.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask with lyr.3.</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.3</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">lyr.3</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Mask all layers.</span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span>nc <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="drop_na.Spat-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>

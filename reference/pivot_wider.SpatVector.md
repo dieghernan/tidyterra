@@ -1,6 +1,6 @@
 # Pivot `SpatVector` from long to wide
 
-[`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
+[`pivot_wider()`](https://rdrr.io/pkg/tidyr/man/pivot_wider.html)
 "widens" a `SpatVector`, increasing the number of columns and decreasing
 the number of rows. The inverse transformation is
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_longer.SpatVector.md).
@@ -41,14 +41,14 @@ pivot_wider(
 
 - id_cols:
 
-  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
   A set of columns that uniquely identify each observation. Typically
   used when you have redundant variables, that is, variables whose
   values are perfectly correlated with existing variables.
 
   Defaults to all columns in `data` except for the columns specified
   through `names_from` and `values_from`. If a
-  [`tidyselect`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)
+  [`tidyselect`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)
   expression is supplied, it will be evaluated on `data` after removing
   the columns specified through `names_from` and `values_from`.
 
@@ -58,7 +58,7 @@ pivot_wider(
 - id_expand:
 
   Should the values in the `id_cols` columns be expanded by
-  [`expand()`](https://tidyr.tidyverse.org/reference/expand.html) before
+  [`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) before
   pivoting? This results in more rows, the output will contain a
   complete expansion of all possible values in `id_cols`. Implicit
   factor levels that aren't represented in the data will become
@@ -67,7 +67,7 @@ pivot_wider(
 
 - names_from, values_from:
 
-  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
   A pair of arguments describing which column (or columns) to get the
   name of the output column (`names_from`), and which column (or
   columns) to get the cell values from (`values_from`).
@@ -115,7 +115,7 @@ pivot_wider(
 - names_expand:
 
   Should the values in the `names_from` columns be expanded by
-  [`expand()`](https://tidyr.tidyverse.org/reference/expand.html) before
+  [`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) before
   pivoting? This results in more columns, the output will contain column
   names corresponding to a complete expansion of all possible values in
   `names_from`. Implicit factor levels that aren't represented in the
@@ -172,7 +172,7 @@ A `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
+[`tidyr::pivot_wider()`](https://rdrr.io/pkg/tidyr/man/pivot_wider.html)
 method for `SpatVector` objects.
 
 The geometry column has sticky behavior. This means that the result
@@ -180,7 +180,7 @@ always has the geometry of `data`.
 
 ## See also
 
-[`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html).
+[`tidyr::pivot_wider()`](https://rdrr.io/pkg/tidyr/man/pivot_wider.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 pivoting:

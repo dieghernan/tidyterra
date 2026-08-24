@@ -82,13 +82,13 @@ to see their documentation.
 
 - tidyr:
 
-  [`complete()`](https://tidyr.tidyverse.org/reference/complete.html),
-  [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html),
-  [`expand()`](https://tidyr.tidyverse.org/reference/expand.html),
-  [`fill()`](https://tidyr.tidyverse.org/reference/fill.html),
-  [`nest()`](https://tidyr.tidyverse.org/reference/nest.html),
-  [`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html),
-  [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html),
-  [`replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html),
-  [`uncount()`](https://tidyr.tidyverse.org/reference/uncount.html),
-  [`unite()`](https://tidyr.tidyverse.org/reference/unite.html)
+  [`complete()`](https://rdrr.io/pkg/tidyr/man/complete.html),
+  [`drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html),
+  [`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html),
+  [`fill()`](https://rdrr.io/pkg/tidyr/man/fill.html),
+  [`nest()`](https://rdrr.io/pkg/tidyr/man/nest.html),
+  [`pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html),
+  [`pivot_wider()`](https://rdrr.io/pkg/tidyr/man/pivot_wider.html),
+  [`replace_na()`](https://rdrr.io/pkg/tidyr/man/replace_na.html),
+  [`uncount()`](https://rdrr.io/pkg/tidyr/man/uncount.html),
+  [`unite()`](https://rdrr.io/pkg/tidyr/man/unite.html)

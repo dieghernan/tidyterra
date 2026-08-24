@@ -45,7 +45,7 @@ is deprecated in the future."><meta property="og:image" content="https://diegher
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
@@ -70,7 +70,7 @@ is deprecated in the future."><meta property="og:image" content="https://diegher
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Tidy <code>Spat*</code> objects for plotting</h1>
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.0/R/tidy-Spat.R" class="external-link"><code>R/tidy-Spat.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/tidy-Spat.R" class="external-link"><code>R/tidy-Spat.R</code></a></small>
       <div class="d-none name"><code>tidy.Spat.Rd</code></div>
     </div>
 
@@ -140,7 +140,7 @@ use. Use <code>Inf</code> to use all cells.</p></dd>
 
 
 <dt id="arg-pivot">pivot<a class="anchor" aria-label="anchor" href="#arg-pivot"></a></dt>
-<dd><p>Logical. When <code>TRUE</code>, a <code>SpatRaster</code> is returned in <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default), it is returned
+<dd><p>Logical. When <code>TRUE</code>, a <code>SpatRaster</code> is returned in <a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default), it is returned
 as a data frame with one column per layer. See <strong>Details</strong>.</p></dd>
 
 
@@ -177,7 +177,7 @@ the <code>SpatRaster</code>.</p>
 <p>You can convert the tidy object back to a <code>SpatRaster</code> with
 <code><a href="as_spatraster.html">as_spatraster()</a></code>.</p>
 <p>When <code>pivot = TRUE</code>, the <code>SpatRaster</code> is returned in long format (see
-<code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The tidy object has the following columns:</p><ul><li><p><code>x</code>, <code>y</code>: Coordinates of the cell center in the corresponding CRS.</p></li>
+<code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The tidy object has the following columns:</p><ul><li><p><code>x</code>, <code>y</code>: Coordinates of the cell center in the corresponding CRS.</p></li>
 <li><p><code>lyr</code>: Name of the <code>SpatRaster</code> layer associated with <code>value</code>.</p></li>
 <li><p><code>value</code>: Cell value for the corresponding <code>lyr</code>.</p></li>
 </ul><p>This option can be useful when combining several <code>geom_*</code> layers or when

@@ -19,7 +19,7 @@ fill(data, ..., .by = NULL, .direction = c("down", "up", "downup", "updown"))
 
 - ...:
 
-  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
   Columns to fill.
 
 - .by:
@@ -46,19 +46,19 @@ A `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
-method for `SpatVector` objects.
+[`tidyr::fill()`](https://rdrr.io/pkg/tidyr/man/fill.html) method for
+`SpatVector` objects.
 
 ## Grouped `SpatVector`
 
 With grouped `SpatVector` objects created by
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/group_by.SpatVector.md),
-[`fill()`](https://tidyr.tidyverse.org/reference/fill.html) is applied
-*within* each group and does not fill across group boundaries.
+[`fill()`](https://rdrr.io/pkg/tidyr/man/fill.html) is applied *within*
+each group and does not fill across group boundaries.
 
 ## See also
 
-[`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html).
+[`tidyr::fill()`](https://rdrr.io/pkg/tidyr/man/fill.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

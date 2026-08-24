@@ -3,7 +3,7 @@
 Before filing an issue, prepare a minimal reproducible example and check
 the available support channels.
 
-## Make a **reprex**
+## Make a reprex
 
 Start by creating a minimal **repr**oducible **ex**ample with the
 [**reprex**](https://reprex.tidyverse.org/) package. For more guidance,

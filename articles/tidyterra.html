@@ -69,7 +69,7 @@
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
@@ -105,7 +105,7 @@
 
 
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.0/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.qmd" class="external-link"><code>vignettes/tidyterra.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -114,20 +114,18 @@
 
 
 
-    <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><section class="level2"><h2 id="tidyterra">
-<strong>tidyterra</strong><a class="anchor" aria-label="anchor" href="#tidyterra"></a>
+    <!-- tidyterra.qmd is generated from tidyterra.qmd.orig. Please edit that file --><section class="level2"><h2 id="tidyterra">tidyterra<a class="anchor" aria-label="anchor" href="#tidyterra"></a>
 </h2>
 <p><strong>tidyterra</strong> provides methods from <strong>tidyverse</strong> packages for <code>SpatRaster</code> and <code>SpatVector</code> objects created with <a href="https://CRAN.R-project.org/package=terra" class="external-link"><strong>terra</strong></a>. It also provides <code>geom_spat*()</code> geoms and scales for plotting those objects with <a href="https://ggplot2.tidyverse.org/" class="external-link"><strong>ggplot2</strong></a>.</p>
-<section class="level3"><h3 id="why-tidyterra">Why <strong>tidyterra</strong>?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
+<section class="level3"><h3 id="why-tidyterra">Why tidyterra?<a class="anchor" aria-label="anchor" href="#why-tidyterra"></a>
 </h3>
 <p><code>Spat*</code> objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in <strong>terra</strong>). By providing <strong>tidyverse</strong> verbs, especially <strong>dplyr</strong> and <strong>tidyr</strong> methods, <strong>tidyterra</strong> lets users manipulate <code>Spat*</code> objects in a style familiar from tabular data workflows.</p>
 <p><strong>terra</strong> is generally faster. Learning some <strong>terra</strong> syntax is recommended because <strong>tidyterra</strong> functions call the corresponding <strong>terra</strong> equivalents when possible.</p>
-</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced <strong>terra</strong> users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
+</section></section><section class="level2"><h2 id="a-note-for-advanced-terra-users">A note for advanced terra users<a class="anchor" aria-label="anchor" href="#a-note-for-advanced-terra-users"></a>
 </h2>
 <p><strong>tidyterra</strong> is not optimized for performance. Operations such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code> can be slower than their <strong>terra</strong> counterparts.</p>
 <p>As a rule of thumb, <strong>tidyterra</strong> is most suitable for objects with fewer than 10,000,000 data slots, for example <code>terra::ncell(a_rast) * terra::nlyr(a_rast) &lt; 1e7</code>.</p>
-</section><section class="level2"><h2 id="get-started-with-tidyterra">Get started with <strong>tidyterra</strong>
-<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
+</section><section class="level2"><h2 id="get-started-with-tidyterra">Get started with tidyterra<a class="anchor" aria-label="anchor" href="#get-started-with-tidyterra"></a>
 </h2>
 <p>Load <strong>tidyterra</strong> together with core <strong>tidyverse</strong> packages:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -289,52 +287,52 @@
 <td></td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
 <td>✔️ Remove cell values with <code>NA</code> on any layer and outer cells with <code>NA</code>.</td>
 </tr>
 <tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/complete.html" class="external-link">tidyr::complete()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://tidyr.tidyverse.org/reference/expand.html" class="external-link">tidyr::expand()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/expand.html" class="external-link">tidyr::expand()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/replace_na.html" class="external-link">tidyr::replace_na()</a></code></td>
 <td>✔️</td>
 <td>✔️</td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://tidyr.tidyverse.org/reference/fill.html" class="external-link">tidyr::fill()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/fill.html" class="external-link">tidyr::fill()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/nest.html" class="external-link">tidyr::nest()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/nest.html" class="external-link">tidyr::nest()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html" class="external-link">tidyr::pivot_wider()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code><a href="https://tidyr.tidyverse.org/reference/uncount.html" class="external-link">tidyr::uncount()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/uncount.html" class="external-link">tidyr::uncount()</a></code></td>
 <td>✔️</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">tidyr::unite()</a></code></td>
+<td><code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">tidyr::unite()</a></code></td>
 <td>✔️</td>
 <td>✔️ Create a categorical layer.</td>
 </tr>
@@ -398,7 +396,7 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>newcol <span class="op">=</span> <span class="va">tavg_06</span> <span class="op">-</span> <span class="va">tavg_05</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html" class="external-link">relocate</a></span><span class="op">(</span><span class="va">newcol</span>, .before <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/replace_na.html" class="external-link">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>newcol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/replace_na.html" class="external-link">replace_na</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>newcol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>difference <span class="op">=</span> <span class="va">newcol</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mod</span></span>
@@ -419,7 +417,7 @@
 <li>Replaced <code>NA</code> values in <code>newcol</code> with <code>3</code>.</li>
 <li>Renamed <code>newcol</code> to <code>difference</code>.</li>
 </ul>
-<p>Throughout these steps, core properties of the <code>SpatRaster</code>, including the number of cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> may alter these properties in a manner analogous to row operations on data frames.</p>
+<p>Throughout these steps, core properties of the <code>SpatRaster</code>, including the number of cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs such as <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code>, <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice()</a></code> or <code><a href="https://rdrr.io/pkg/tidyr/man/drop_na.html" class="external-link">drop_na()</a></code> may alter these properties in a manner analogous to row operations on data frames.</p>
 </section><section class="level3"><h3 id="spatvector-objects">
 <code>SpatVector</code> objects<a class="anchor" aria-label="anchor" href="#spatvector-objects"></a>
 </h3>
@@ -452,8 +450,7 @@
 <span><span class="co">#&gt;               (40.7,76.1]     1   48187       185</span></span>
 <span><span class="co">#&gt;               (4.99,40.7]     9  194391   209.778</span></span></code></pre></div>
 <p>As with <code>SpatRaster</code>, essential properties such as geometry and CRS are preserved during these operations.</p>
-</section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with <strong>ggplot2</strong>
-<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
+</section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with ggplot2<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
 <section class="level3"><h3 id="spatraster-objects-1">
 <code>SpatRaster</code> objects<a class="anchor" aria-label="anchor" href="#spatraster-objects-1"></a>
