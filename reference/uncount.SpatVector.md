@@ -1,7 +1,7 @@
 # Duplicate `SpatVector` rows
 
-[`uncount()`](https://rdrr.io/pkg/tidyr/man/uncount.html) duplicates
-rows according to a weighting variable.
+[`uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
+duplicates rows according to a weighting variable.
 
 ## Usage
 
@@ -42,14 +42,14 @@ A `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::uncount()`](https://rdrr.io/pkg/tidyr/man/uncount.html) method
-for `SpatVector` objects.
+[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
+method for `SpatVector` objects.
 
 Each duplicated row keeps the input geometry.
 
 ## See also
 
-[`tidyr::uncount()`](https://rdrr.io/pkg/tidyr/man/uncount.html).
+[`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html).
 
 ## Examples
 

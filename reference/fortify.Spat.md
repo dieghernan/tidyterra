@@ -89,9 +89,9 @@ fortify(model, data, ..., crs = "")
 - pivot:
 
   Logical. When `TRUE`, a `SpatRaster` is returned in [long
-  format](https://rdrr.io/pkg/tidyr/man/pivot_longer.html). When `FALSE`
-  (the default), it is returned as a data frame with one column per
-  layer. See **Details**.
+  format](https://tidyr.tidyverse.org/reference/pivot_longer.html). When
+  `FALSE` (the default), it is returned as a data frame with one column
+  per layer. See **Details**.
 
 - crs:
 
@@ -136,7 +136,7 @@ You can convert the fortified object back to a `SpatRaster` with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/reference/as_spatraster.md).
 
 When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
-[`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html)).
+[`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
 The fortified object has the following columns:
 
 - `x`, `y`: Coordinates of the cell center in the corresponding CRS.

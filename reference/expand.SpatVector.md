@@ -1,8 +1,8 @@
 # Expand `SpatVector` attribute combinations
 
-[`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) returns a tibble
-with all combinations of selected attributes. It does not return a
-`SpatVector` because newly created combinations do not have a
+[`expand()`](https://tidyr.tidyverse.org/reference/expand.html) returns
+a tibble with all combinations of selected attributes. It does not
+return a `SpatVector` because newly created combinations do not have a
 well-defined geometry. Use
 [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md)
 when empty geometries should be added explicitly.
@@ -22,7 +22,7 @@ expand(data, ..., .name_repair = "check_unique")
 
 - ...:
 
-  \<[`data-masking`](https://rdrr.io/pkg/tidyr/man/tidyr_data_masking.html)\>
+  \<[`data-masking`](https://tidyr.tidyverse.org/reference/tidyr_data_masking.html)\>
   Specification of columns to expand or complete. Columns can be atomic
   vectors or lists.
 
@@ -39,10 +39,10 @@ expand(data, ..., .name_repair = "check_unique")
     dates.
 
   When used with factors,
-  [`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) and
-  [`complete()`](https://rdrr.io/pkg/tidyr/man/complete.html) use the
-  full set of levels, not just those that appear in the data. If you
-  want to use only the values seen in the data, use
+  [`expand()`](https://tidyr.tidyverse.org/reference/expand.html) and
+  [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+  use the full set of levels, not just those that appear in the data. If
+  you want to use only the values seen in the data, use
   [`forcats::fct_drop()`](https://forcats.tidyverse.org/reference/fct_drop.html).
 
   When used with continuous variables, you may need to fill in values
@@ -63,15 +63,15 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) method
-for `SpatVector` objects.
+[`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html)
+method for `SpatVector` objects.
 
 The output is a tibble with attribute combinations. Geometry is not
 preserved because new combinations do not have a well-defined geometry.
 
 ## See also
 
-[`tidyr::expand()`](https://rdrr.io/pkg/tidyr/man/expand.html),
+[`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html),
 [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.md).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for

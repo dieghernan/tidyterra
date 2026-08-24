@@ -1,7 +1,7 @@
 # Unite `Spat*` layers or attributes
 
-[`unite()`](https://rdrr.io/pkg/tidyr/man/unite.html) combines multiple
-layers or attributes by pasting their values together.
+[`unite()`](https://tidyr.tidyverse.org/reference/unite.html) combines
+multiple layers or attributes by pasting their values together.
 
 ## Usage
 
@@ -34,7 +34,7 @@ unite(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 
 - ...:
 
-  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
   Columns to unite
 
 - sep:
@@ -56,15 +56,15 @@ A `SpatRaster` or `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::unite()`](https://rdrr.io/pkg/tidyr/man/unite.html) methods for
-`Spat*` objects.
+[`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
+methods for `Spat*` objects.
 
 ### `SpatRaster`
 
 The selected layers are united cell by cell. The new layer is
 categorical because
-[`tidyr::unite()`](https://rdrr.io/pkg/tidyr/man/unite.html) returns a
-character vector.
+[`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
+returns a character vector.
 
 ### `SpatVector`
 
@@ -73,7 +73,7 @@ attributes.
 
 ## See also
 
-[`tidyr::unite()`](https://rdrr.io/pkg/tidyr/man/unite.html).
+[`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html).
 
 ## Examples
 

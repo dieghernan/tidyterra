@@ -139,7 +139,7 @@ use. Use <code>Inf</code> to use all cells.</p></dd>
 
 
 <dt id="arg-pivot">pivot<a class="anchor" aria-label="anchor" href="#arg-pivot"></a></dt>
-<dd><p>Logical. When <code>TRUE</code>, a <code>SpatRaster</code> is returned in <a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default), it is returned
+<dd><p>Logical. When <code>TRUE</code>, a <code>SpatRaster</code> is returned in <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">long format</a>. When <code>FALSE</code> (the default), it is returned
 as a data frame with one column per layer. See <strong>Details</strong>.</p></dd>
 
 
@@ -176,7 +176,7 @@ the <code>SpatRaster</code>.</p>
 <p>You can convert the fortified object back to a <code>SpatRaster</code> with
 <code><a href="as_spatraster.html">as_spatraster()</a></code>.</p>
 <p>When <code>pivot = TRUE</code>, the <code>SpatRaster</code> is fortified in long format (see
-<code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The fortified object has the following columns:</p><ul><li><p><code>x</code>, <code>y</code>: Coordinates of the cell center in the corresponding CRS.</p></li>
+<code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>). The fortified object has the following columns:</p><ul><li><p><code>x</code>, <code>y</code>: Coordinates of the cell center in the corresponding CRS.</p></li>
 <li><p><code>lyr</code>: Name of the <code>SpatRaster</code> layer associated with <code>value</code>.</p></li>
 <li><p><code>value</code>: Cell value for the corresponding <code>lyr</code>.</p></li>
 </ul><p>This option can be useful when combining several <code>geom_*</code> layers or when

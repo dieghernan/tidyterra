@@ -81,16 +81,16 @@ Current methods and functions provided by **tidyterra** are:
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://rdrr.io/pkg/tidyr/man/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
-| [`tidyr::complete()`](https://rdrr.io/pkg/tidyr/man/complete.html) | ✔️ |  |
-| [`tidyr::expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) | ✔️ |  |
-| [`tidyr::replace_na()`](https://rdrr.io/pkg/tidyr/man/replace_na.html) | ✔️ | ✔️ |
-| [`tidyr::fill()`](https://rdrr.io/pkg/tidyr/man/fill.html) | ✔️ |  |
-| [`tidyr::nest()`](https://rdrr.io/pkg/tidyr/man/nest.html) | ✔️ |  |
-| [`tidyr::pivot_longer()`](https://rdrr.io/pkg/tidyr/man/pivot_longer.html) | ✔️ |  |
-| [`tidyr::pivot_wider()`](https://rdrr.io/pkg/tidyr/man/pivot_wider.html) | ✔️ |  |
-| [`tidyr::uncount()`](https://rdrr.io/pkg/tidyr/man/uncount.html) | ✔️ |  |
-| [`tidyr::unite()`](https://rdrr.io/pkg/tidyr/man/unite.html) | ✔️ | ✔️ Create a categorical layer. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
+| [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
+| [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
+| [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html) | ✔️ |  |
+| [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html) | ✔️ |  |
+| [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) | ✔️ |  |
+| [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) | ✔️ |  |
+| [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
+| [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
 | [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md). |

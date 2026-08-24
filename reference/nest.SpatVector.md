@@ -2,8 +2,8 @@
 
 **\[experimental\]**
 
-[`nest()`](https://rdrr.io/pkg/tidyr/man/nest.html) creates list-columns
-of `SpatVector` objects.
+[`nest()`](https://tidyr.tidyverse.org/reference/nest.html) creates
+list-columns of `SpatVector` objects.
 
 ## Usage
 
@@ -20,7 +20,7 @@ nest(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)
 
 - ...:
 
-  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
   Columns to nest; these will appear in the inner data frames.
 
   Specified using name-variable pairs of the form
@@ -35,7 +35,7 @@ nest(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)
 
 - .by:
 
-  \<[`tidy-select`](https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html)\>
+  \<[`tidy-select`](https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html)\>
   Columns to nest *by*; these will remain in the outer data frame.
 
   `.by` can be used in place of or in conjunction with columns supplied
@@ -69,17 +69,17 @@ A tibble with one or more list-columns of `SpatVector` objects.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::nest()`](https://rdrr.io/pkg/tidyr/man/nest.html) method for
-`SpatVector` objects.
+[`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html)
+method for `SpatVector` objects.
 
 The geometry column must be nested with the other attributes that form
 each nested `SpatVector`. These nested list-columns contain `SpatVector`
 objects and cannot be passed directly to
-[`tidyr::unnest()`](https://rdrr.io/pkg/tidyr/man/unnest.html).
+[`tidyr::unnest()`](https://tidyr.tidyverse.org/reference/unnest.html).
 
 ## See also
 
-[`tidyr::nest()`](https://rdrr.io/pkg/tidyr/man/nest.html),
+[`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html),
 [`terra::svc()`](https://rspatial.github.io/terra/reference/svc.html).
 
 ## Examples

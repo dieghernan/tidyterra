@@ -66,7 +66,7 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="1.3.0" id="tidyterra-130">tidyterra 1.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-130"></a></h2>
+<h2 class="pkg-version" data-toc-text="1.3.0" id="tidyterra-130">tidyterra 1.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-130"></a></h2><p class="text-muted">CRAN release: 2026-08-24</p>
 <ul><li>Argument validation has been improved across user-facing helpers and plotting functions, producing clearer errors for invalid inputs.</li>
 <li>The <strong>pkgdown</strong> site now links to the JOSS paper as an external article and uses <code><a href="../articles/tidyterra.html">vignette("tidyterra")</a></code> as its introductory article.</li>
 <li>
@@ -88,7 +88,7 @@
 <h3 id="new-methods-1-2-0">New methods<a class="anchor" aria-label="anchor" href="#new-methods-1-2-0"></a></h3>
 <p>The following methods were generated with AI assistance.</p>
 <ul><li>
-<code><a href="../reference/complete.SpatVector.html">complete.SpatVector()</a></code> supports <code><a href="https://rdrr.io/pkg/tidyr/man/complete.html" class="external-link">tidyr::complete()</a></code>.</li>
+<code><a href="../reference/complete.SpatVector.html">complete.SpatVector()</a></code> supports <code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code>.</li>
 <li>
 <code><a href="../reference/cross_join.SpatVector.html">cross_join.SpatVector()</a></code> matches each <code>SpatVector</code> feature in <code>x</code> with every row in <code>y</code>.</li>
 <li>
@@ -186,7 +186,7 @@
 <li>
 <code>scale_*_cross_blended_tint_c()</code>, <code>scale_*_cross_blended_tint_b()</code>, <code>scale_*_hypso_tint_c()</code>, <code>scale_*_hypso_tint_b()</code>, <code>scale_*_grass_c()</code> and <code>scale_*_grass_b()</code> now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>).</li>
 <li>
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (that is, <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (that is, <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.2" id="tidyterra-062">tidyterra 0.6.2<a class="anchor" aria-label="anchor" href="#tidyterra-062"></a></h2><p class="text-muted">CRAN release: 2025-01-08</p>
@@ -210,13 +210,13 @@
 <li>
 <code><a href="../reference/fill.SpatVector.html">fill.SpatVector()</a></code> has been added.</li>
 <li>
-<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> has been implemented on top of <code><a href="https://rdrr.io/pkg/isoband/man/isolines_grob.html" class="external-link">isoband::isolines_grob()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg" alt="Experimental"></a>.</li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> has been implemented on top of <code><a href="http://isoband.r-lib.org/reference/isolines_grob.html" class="external-link">isoband::isolines_grob()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg" alt="Experimental"></a>.</li>
 <li>
 <code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now display information using the <code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as of <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
 <li>
 <code><a href="../reference/as_sf.html">as_sf()</a></code> converts a <code>SpatVector</code> to a <code>sf</code> object with an additional <code>tbl_df</code> class for pretty printing.</li>
 <li>
-<code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> gains a new argument <code>pivot</code> that allows better integration with other <strong>ggplot2</strong> geoms when pivoting. This wraps <code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>.</li>
+<code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> gains a new argument <code>pivot</code> that allows better integration with other <strong>ggplot2</strong> geoms when pivoting. This wraps <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>.</li>
 <li>
 <code><a href="../reference/pivot_longer.SpatVector.html">pivot_longer.SpatVector()</a></code> and <code><a href="../reference/pivot_wider.SpatVector.html">pivot_wider.SpatVector()</a></code> have been added.</li>
 <li>Documentation has been tidied.</li>

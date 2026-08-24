@@ -1,8 +1,8 @@
 # Complete missing combinations in a `SpatVector`
 
-[`complete()`](https://rdrr.io/pkg/tidyr/man/complete.html) turns
-implicit missing combinations in a `SpatVector` into explicit rows while
-preserving geometry and spatial metadata.
+[`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+turns implicit missing combinations in a `SpatVector` into explicit rows
+while preserving geometry and spatial metadata.
 
 ## Usage
 
@@ -19,7 +19,7 @@ complete(data, ..., fill = list(), explicit = TRUE)
 
 - ...:
 
-  \<[`data-masking`](https://rdrr.io/pkg/tidyr/man/tidyr_data_masking.html)\>
+  \<[`data-masking`](https://tidyr.tidyverse.org/reference/tidyr_data_masking.html)\>
   Specification of columns to expand or complete. Columns can be atomic
   vectors or lists.
 
@@ -36,10 +36,10 @@ complete(data, ..., fill = list(), explicit = TRUE)
     dates.
 
   When used with factors,
-  [`expand()`](https://rdrr.io/pkg/tidyr/man/expand.html) and
-  [`complete()`](https://rdrr.io/pkg/tidyr/man/complete.html) use the
-  full set of levels, not just those that appear in the data. If you
-  want to use only the values seen in the data, use
+  [`expand()`](https://tidyr.tidyverse.org/reference/expand.html) and
+  [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+  use the full set of levels, not just those that appear in the data. If
+  you want to use only the values seen in the data, use
   [`forcats::fct_drop()`](https://forcats.tidyverse.org/reference/fct_drop.html).
 
   When used with continuous variables, you may need to fill in values
@@ -65,16 +65,16 @@ A `SpatVector` object.
 ## Methods
 
 Implementation of the **generic**
-[`tidyr::complete()`](https://rdrr.io/pkg/tidyr/man/complete.html)
+[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
 method for `SpatVector` objects.
 
-[`complete()`](https://rdrr.io/pkg/tidyr/man/complete.html) preserves
-the geometry column while expanding missing combinations. New
+[`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
+preserves the geometry column while expanding missing combinations. New
 combinations receive empty geometries.
 
 ## See also
 
-[`tidyr::complete()`](https://rdrr.io/pkg/tidyr/man/complete.html).
+[`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html).
 
 Other [tidyr](https://CRAN.R-project.org/package=tidyr) verbs for
 handling missing values:

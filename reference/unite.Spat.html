@@ -69,17 +69,17 @@ together."><meta property="og:image" content="https://dieghernan.github.io/tidyt
     </div>
 
     <div class="ref-description section level2">
-    <p><code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">unite()</a></code> combines multiple layers or attributes by pasting their values
+    <p><code><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">unite()</a></code> combines multiple layers or attributes by pasting their values
 together.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for class 'SpatRaster'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'SpatVector'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, <span class="va">...</span>, sep <span class="op">=</span> <span class="st">"_"</span>, remove <span class="op">=</span> <span class="cn">TRUE</span>, na.rm <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -101,7 +101,7 @@ tidyverse; we support it here for backward compatibility).</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>&lt;<code><a href="https://rdrr.io/pkg/tidyr/man/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Columns to unite</p></dd>
+<dd><p>&lt;<code><a href="https://tidyr.tidyverse.org/reference/tidyr_tidy_select.html" class="external-link">tidy-select</a></code>&gt; Columns to unite</p></dd>
 
 
 <dt id="arg-sep">sep<a class="anchor" aria-label="anchor" href="#arg-sep"></a></dt>
@@ -126,13 +126,13 @@ each value.</p></dd>
 
 
 
-<p>Implementation of the <strong>generic</strong> <code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">tidyr::unite()</a></code> methods for <code>Spat*</code>
+<p>Implementation of the <strong>generic</strong> <code><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">tidyr::unite()</a></code> methods for <code>Spat*</code>
 objects.</p><div class="section">
 <h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
 <p>The selected layers are united cell by cell. The new layer is categorical
-because <code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">tidyr::unite()</a></code> returns a character vector.</p>
+because <code><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">tidyr::unite()</a></code> returns a character vector.</p>
 </div>
 
 <div class="section">
@@ -145,7 +145,7 @@ because <code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">tidyr::unite()</a></code>.</p></div>
+    <div class="dont-index"><p><code><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">tidyr::unite()</a></code>.</p></div>
     </div>
 
     <div class="section level2">
@@ -154,7 +154,7 @@ because <code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">v</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">vect</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl.gpkg"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">v</span>, <span class="st">"label"</span>, <span class="va">iso2</span>, <span class="va">cpro</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">v</span>, <span class="st">"label"</span>, <span class="va">iso2</span>, <span class="va">cpro</span>, sep <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatVector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> geometry    : polygons</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> dimensions  : 9, 2  (geometries, attributes)</span>
@@ -169,7 +169,7 @@ because <code><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_temp.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"label"</span>, <span class="va">tavg_04</span>, <span class="va">tavg_05</span>, sep <span class="op">=</span> <span class="st">"-"</span>, remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/unite.html" class="external-link">unite</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"label"</span>, <span class="va">tavg_04</span>, <span class="va">tavg_05</span>, sep <span class="op">=</span> <span class="st">"-"</span>, remove <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> class       : SpatRaster</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> size        : 87, 118, 4  (nrow, ncol, nlyr)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> resolution  : 3881.255, 3881.255  (x, y)</span>
