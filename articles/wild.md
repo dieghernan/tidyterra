@@ -148,6 +148,11 @@ risk of invasion of the neophyte *Pluchea ovalis* (Pers.) DC.
 distribution modelling. *Diversity*, *17*(3), 195.
 <https://doi.org/10.3390/d17030195>
 
+Grasso, G. (2024). *Soils associated to herbarium plants: A resource to
+address the temporal evolution of plant-associated microbiomes* \[PhD
+thesis, Università degli Studi di Torino\].
+<https://hdl.handle.net/2318/2022351>
+
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
 Wind, waves, wing loading and the flight energetics of giant petrels.
 *Functional Ecology*, *40*(7), 1979–1993.
@@ -277,7 +282,7 @@ high-resolution forest resources maps and ForestGALES. *Forest
 Ecosystems*, *14*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
-NASA earth observation data products*. National Aeronautics; Space
+NASA earth observation data products*. National Aeronautics and Space
 Administration, Goddard Space Flight Center.
 <https://github.com/nasa/NASAaccess>
 
@@ -312,6 +317,10 @@ Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
 Britain. *PLOS ONE*, *21*(1), e0332485.
 <https://doi.org/10.1371/journal.pone.0332485>
+
+Rees, M. (2025). *Unexplored transitions between savanna and forest in
+Africa* \[PhD thesis, The University of Edinburgh\].
+<https://doi.org/10.7488/era/7231>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
 & Hajibabaei, M. (2025). Biomonitoring 2.0 Refined: Observing local
@@ -379,6 +388,10 @@ Science*, *83*(5), fsag070. <https://doi.org/10.1093/icesjms/fsag070>
 Tanaka, E. (2026). Examining the interface design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*, *68*(1), e70031.
 <https://doi.org/10.1111/anzs.70031>
+
+Triantafillou, S. P. (2024). *A catchment is more than the sum of its
+reaches: Post-fire resilience at multiple spatial scales* \[Master's
+thesis, Colorado State University\]. <https://doi.org/10.25675/3.04761>
 
 Tribbia, D. Z., Lebre, P. H., Vázquez-Campos, X., Ray, A. E., Laird, T.,
 Machado de Lima, N., Maggs-Kölling, G., Cowan, D. A., & Ferrari, B. C.
