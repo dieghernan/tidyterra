@@ -3,6 +3,7 @@ title: "tidyterra in the wild"
 description: "Uses of tidyterra in publications."
 bibliography: INPUBS.bib
 nocite: "@*"
+csl: apa.csl
 ---
 
 Please cite **tidyterra** as:
