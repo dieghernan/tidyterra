@@ -401,3 +401,8 @@ Zhou, Yixin, Suliya MA, Wenjun LI, et al. 2026. “Vascular Plant
 Diversity and Distribution Pattern in Tajikistan: A Global Hotspot of
 Diversity.” *Regional Sustainability* 7 (1): 100294.
 <https://doi.org/10.1016/j.regsus.2026.100294>.
+
+Zhu, Yingtong, Jacqueline Choo, Cong Xia, and Luis Roman Carrasco. 2026.
+“The Pantropical Biodiversity Footprint of Oil Palm.” *Conservation
+Science and Practice*, August 21, e70394.
+<https://doi.org/10.1111/csp2.70394>.
