@@ -1,7 +1,7 @@
 [lint]
+select = ["ALL"]
 ignore = ["implicit_assignment", "duplicated_arguments"]
 exclude = ["data-raw/"]
-extend-select = ["TESTTHAT", "DPLYR", "unnecessary_nesting", "nzchar", "quotes", "fixed_regex"]
 check-roxygen = true
 fix-roxygen = true
 
