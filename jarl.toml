@@ -1,7 +1,7 @@
 [lint]
 select = ["ALL"]
 ignore = ["implicit_assignment", "duplicated_arguments"]
-exclude = ["data-raw/"]
+exclude = ["data-raw/", "tests/testthat/test_local/"]
 check-roxygen = true
 fix-roxygen = true
 
