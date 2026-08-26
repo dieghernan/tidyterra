@@ -6,12 +6,20 @@ test_that("geom_spatraster() draws one-layer CRS visual variants", {
   v <- local_cyl_vector()
   v_sf <- local_cyl_vector_sf()
 
-  expect_error(ggplot(r) +
-    geom_spatraster())
-  expect_snapshot(ggplot() +
-    geom_spatraster(data = v), error = TRUE)
-  expect_snapshot(ggplot() +
-    geom_spatraster(data = 1:3), error = TRUE)
+  expect_error(
+    ggplot(r) +
+      geom_spatraster()
+  )
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster(data = v),
+    error = TRUE
+  )
+  expect_snapshot(
+    ggplot() +
+      geom_spatraster(data = 1:3),
+    error = TRUE
+  )
   s <- ggplot() +
     geom_spatraster(data = r) +
     coord_cartesian()
@@ -51,8 +59,10 @@ test_that("geom_spatraster() draws one-layer CRS visual variants", {
 
   vdiffr::expect_doppelganger("crs_06: categorical scale", p_cats)
 
-  expect_snapshot(p_res <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20))
+  expect_snapshot(
+    p_res <- ggplot() +
+      geom_spatraster(data = r, maxcell = 20)
+  )
 
   vdiffr::expect_doppelganger("crs_07: resampled", p_res)
 
@@ -131,8 +141,10 @@ test_that("geom_spatraster() draws one-layer no-CRS visual variants", {
 
   terra::crs(r) <- NA
 
-  expect_error(ggplot(r) +
-    geom_spatraster())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster()
+  )
 
   s <- ggplot() +
     geom_spatraster(data = r) +
@@ -179,8 +191,10 @@ test_that("geom_spatraster() draws one-layer no-CRS visual variants", {
 
   vdiffr::expect_doppelganger("nocrs_06: categorical scale", p_cats)
 
-  expect_snapshot(p_res <- ggplot() +
-    geom_spatraster(data = r, maxcell = 20))
+  expect_snapshot(
+    p_res <- ggplot() +
+      geom_spatraster(data = r, maxcell = 20)
+  )
 
   vdiffr::expect_doppelganger("nocrs_07: resampled", p_res)
 

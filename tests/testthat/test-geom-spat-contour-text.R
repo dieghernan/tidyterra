@@ -66,8 +66,10 @@ test_that("Errors and messages", {
   v <- terra::vect(f_v)
 
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour_text())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour_text()
+  )
 
   expect_snapshot(
     ggplot() +

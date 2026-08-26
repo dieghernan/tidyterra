@@ -65,17 +65,25 @@ test_that("Errors and messages", {
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f_v)
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour()
+  )
 
-  expect_snapshot(ggplot() +
-    geom_spatraster_contour(data = v), error = TRUE)
-  expect_snapshot(ggplot() +
-    geom_spatraster_contour(data = 1:3), error = TRUE)
   expect_snapshot(
+    error = TRUE,
     ggplot() +
-      geom_spatraster_contour(data = r, aes(z = noexist)),
-    error = TRUE
+      geom_spatraster_contour(data = v)
+  )
+  expect_snapshot(
+    error = TRUE,
+    ggplot() +
+      geom_spatraster_contour(data = 1:3)
+  )
+  expect_snapshot(
+    error = TRUE,
+    ggplot() +
+      geom_spatraster_contour(data = r, aes(z = noexist))
   )
 
   # Also with no crs

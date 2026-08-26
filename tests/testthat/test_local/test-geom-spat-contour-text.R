@@ -53,8 +53,10 @@ test_that("geom_spatraster_contour_text() reports invalid inputs", {
   r <- local_cyl_elev_raster()
   v <- local_cyl_vector()
 
-  expect_error(ggplot(r) +
-    geom_spatraster_contour_text())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour_text()
+  )
 
   expect_snapshot(
     ggplot() +

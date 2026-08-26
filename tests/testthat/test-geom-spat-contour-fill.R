@@ -8,8 +8,10 @@ test_that("Errors and messages", {
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f_v)
   # Errors
-  expect_error(ggplot(r) +
-    geom_spatraster_contour_filled())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour_filled()
+  )
   expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = v),

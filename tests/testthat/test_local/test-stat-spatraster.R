@@ -5,12 +5,21 @@ test_that("stat_spatraster() rejects invalid one-layer inputs", {
   r <- local_cyl_elev_raster()
   v <- local_cyl_vector()
 
-  expect_snapshot(ggplot(r) +
-    stat_spatraster(), error = TRUE)
-  expect_snapshot(ggplot() +
-    stat_spatraster(data = v), error = TRUE)
-  expect_snapshot(ggplot() +
-    stat_spatraster(data = 1:3), error = TRUE)
+  expect_snapshot(
+    ggplot(r) +
+      stat_spatraster(),
+    error = TRUE
+  )
+  expect_snapshot(
+    ggplot() +
+      stat_spatraster(data = v),
+    error = TRUE
+  )
+  expect_snapshot(
+    ggplot() +
+      stat_spatraster(data = 1:3),
+    error = TRUE
+  )
 })
 
 test_that("stat_spatraster() draws one-layer CRS visual variants", {

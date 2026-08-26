@@ -4,8 +4,10 @@ test_that("geom_spatraster_contour_filled() reports invalid inputs", {
   r <- local_cyl_elev_raster()
   v <- local_cyl_vector()
 
-  expect_error(ggplot(r) +
-    geom_spatraster_contour_filled())
+  expect_error(
+    ggplot(r) +
+      geom_spatraster_contour_filled()
+  )
   expect_snapshot(
     ggplot() +
       geom_spatraster_contour_filled(data = v),

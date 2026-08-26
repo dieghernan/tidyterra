@@ -4,14 +4,19 @@ test_that("Errors and messages", {
   extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   cyl <- terra::vect(extfile)
-  expect_snapshot(error = TRUE, ggplot2::ggplot() +
-    geom_spatraster(data = cyl))
+  expect_snapshot(
+    error = TRUE,
+    ggplot2::ggplot() +
+      geom_spatraster(data = cyl)
+  )
 
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   rgb_tile <- terra::rast(f)
   expect_true(terra::has.RGB(rgb_tile))
-  expect_snapshot(s2 <- ggplot2::ggplot() +
-    geom_spatraster(data = rgb_tile))
+  expect_snapshot(
+    s2 <- ggplot2::ggplot() +
+      geom_spatraster(data = rgb_tile)
+  )
 
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
