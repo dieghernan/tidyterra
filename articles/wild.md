@@ -28,11 +28,11 @@ A BibTeX entry for LaTeX users is:
 ## Publications
 
 Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
-Ríos, A. de los, & Sancho, L. G. (2026). Islands of biodiversity:
+de los Ríos, A., & Sancho, L. G. (2026). Islands of biodiversity:
 Characterization of lichen flora in Antarctic Nunataks. *Journal of
 Fungi*, *12*(5), 314. <https://doi.org/10.3390/jof12050314>
 
-Bagchi, B., Van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
+Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
 R., McGuire, K., Cooper, B. S., & Shropshire, J. D. (2026).
 Temperature-sensitive cytoplasmic incompatibility across divergent
 *Wolbachia* partly reflects *cifB* transcription, not endosymbiont
@@ -56,8 +56,8 @@ and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
 <https://doi.org/10.3389/past.2025.14997>
 
-Buma, B. (2024). Including non-growing season emissions of N\_2O in US
-maize could raise net CO\_2e emissions by 31% annually. *Agricultural &
+Buma, B. (2024). Including non-growing season emissions of N₂O in US
+maize could raise net CO₂e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
 
@@ -94,7 +94,7 @@ deadlines for coastal resilience: Rising seas, disruptive tides, and
 risks to coastal infrastructure*. Union of Concerned Scientists.
 <https://doi.org/10.47923/2024.15502>
 
-Di Fabio, A., Aspalter, S., Chakraborty, D., Loo, M. van, Rolke, L. M.,
+Di Fabio, A., Aspalter, S., Chakraborty, D., van Loo, M., Rolke, L. M.,
 Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
 performance is driven by site conditions and moderated by functional
 trait plasticity in *Quercus robur* and *Prunus avium*. *Ecology and
@@ -253,7 +253,7 @@ samples. *Ecography*, *2026*(2), e08112.
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
 eastern coyotes from Nova Scotia, Canada: Effects of geography and
-trophic position. *Science of The Total Environment*, *974*, 179186.
+trophic position. *Science of the Total Environment*, *974*, 179186.
 <https://doi.org/10.1016/j.scitotenv.2025.179186>
 
 Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
@@ -282,7 +282,7 @@ high-resolution forest resources maps and ForestGALES. *Forest
 Ecosystems*, *14*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
-NASA earth observation data products*. National Aeronautics and Space
+NASA Earth observation data products*. National Aeronautics and Space
 Administration, Goddard Space Flight Center.
 <https://github.com/nasa/NASAaccess>
 
@@ -334,8 +334,8 @@ quality and phytoplankton communities in a cyanobacteria-dominated
 reservoir provide management insights. *Environmental Monitoring and
 Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 
-Rustand, D., Niekerk, J. van, Krainski, E., & Rue, H. (2026). *Bayesian
-survival, longitudinal, and joint models with INLA*. Chapman; Hall/CRC.
+Rustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). *Bayesian
+survival, longitudinal, and joint models with INLA*. Chapman & Hall/CRC.
 <https://doi.org/10.1201/9781003646822>
 
 Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
@@ -362,10 +362,10 @@ heterogeneity in Lassa fever serology in rural Nigeria: Implications for
 vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
 *20*(5), e0014379. <https://doi.org/10.1371/journal.pntd.0014379>
 
-Smoot, E. E., Flitcroft, R. L., Chan, S. S., Van Deynze, B., Ewen, S., &
+Smoot, E. E., Flitcroft, R. L., Chan, S. S., van Deynze, B., Ewen, S., &
 Jardine, S. L. (2026). Projected temperature and precipitation expand
-modeled distributions of *Reynoutria* spp. While modeled distribution
-changes for *Ludwigia* spp. Are scenario-dependent at watershed scales
+modeled distributions of *Reynoutria* spp. while modeled distribution
+changes for *Ludwigia* spp. are scenario-dependent at watershed scales
 in the Pacific Northwest, USA. *River Research and Applications*,
 *42*(6), 1411–1424. <https://doi.org/10.1002/rra.70141>
 
@@ -432,13 +432,13 @@ is required to regenerate the Caledonian forest: Alladale as a case
 study. *Ecological Solutions and Evidence*, *5*(1), e12315.
 <https://doi.org/10.1002/2688-8319.12315>
 
-Wong, C. Y. S., Wright, M. C., Mantgem, P. J. van, Latimer, A. M., &
+Wong, C. Y. S., Wright, M. C., van Mantgem, P. J., Latimer, A. M., &
 Young, D. J. N. (2025). Sentinel imagery detects the presence of live
 trees following large wildfires in California. *Environmental Research:
 Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
 
-Zhou, Y., MA, S., LI, W., Kurbonova, P., Boboev, M., LI, Y., Hisoriev,
-H., MA, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
+Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
+H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
 distribution pattern in Tajikistan: A global hotspot of diversity.
 *Regional Sustainability*, *7*(1), 100294.
 <https://doi.org/10.1016/j.regsus.2026.100294>
