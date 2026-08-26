@@ -362,7 +362,7 @@ test_that("transient grouping orders by first appearance", {
   df <- tibble(g = c(2, 1, 2, 0), x = c(4, 2, 8, 5))
   df_v <- cbind(v[seq_len(nrow(df)), 0], df)
 
-  out <- summarise(df, x = mean(x), .by = g)
+  out <- summarise(df_v, x = mean(x), .by = g)
 
   expect_identical(out$g, c(2, 1, 0))
   expect_identical(out$x, c(6, 2, 5))

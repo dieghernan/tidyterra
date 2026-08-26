@@ -20,8 +20,8 @@ test_that("With SpatRaster", {
 
   df2 <- as_tibble(r2)
 
-  expect_true(is.factor(pull(r2, "is_fact")))
-  expect_true(is.factor(pull(r2, is_fact)))
+  expect_s3_class(pull(r2, "is_fact"), "factor")
+  expect_s3_class(pull(r2, is_fact), "factor")
   expect_identical(dplyr::pull(df2, is_fact), pull(r2, is_fact))
 
   # This should change

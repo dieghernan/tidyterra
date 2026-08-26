@@ -33,10 +33,7 @@ test_that("reframe() errors on .by with rowwise SpatVectors", {
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  expect_error(
-    reframe(rowwise(v), value = 1, .by = cpro),
-    ".by"
-  )
+  expect_error(reframe(rowwise(v), value = 1, .by = cpro), ".by")
 })
 
 test_that("reframe() works with .by on ungrouped SpatVectors", {

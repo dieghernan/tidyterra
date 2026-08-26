@@ -63,7 +63,6 @@ test_that("geom_spatraster_contour() draws core visual variants", {
   suppressWarnings(library(ggplot2))
 
   r <- local_cyl_elev_raster()
-  v_sf <- local_cyl_vector_sf()
 
   p <- ggplot() +
     geom_spatraster_contour(data = r)

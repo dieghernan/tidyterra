@@ -40,12 +40,7 @@ test_that("isolines can be rebuilt from path data", {
   expect_identical(isolines, isoreb)
 })
 test_that("get_aes_iso() extracts contour text aesthetics", {
-  df <- data.frame(
-    level = 1,
-    fontface = "a",
-    color = "red",
-    size = 200
-  )
+  df <- data.frame(level = 1, fontface = "a", color = "red", size = 200)
 
   expect_identical(get_aes_iso(df, "fontface"), "a")
   expect_identical(get_aes_iso(df, "color"), "red")
@@ -96,7 +91,6 @@ test_that("geom_spatraster_contour_text() draws core visual variants", {
   suppressWarnings(library(ggplot2))
 
   r <- local_cyl_elev_raster()
-  v_sf <- local_cyl_vector_sf()
 
   p <- ggplot() +
     geom_spatraster_contour_text(data = r, breaks = c(1000, 2000))

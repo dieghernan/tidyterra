@@ -64,7 +64,6 @@ test_that("Errors and messages", {
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
 
   # Errors
   expect_error(
@@ -106,10 +105,6 @@ test_that("Test plot", {
   #  Import also vector
   f <- system.file("extdata/cyl_elev.tif", package = "tidyterra")
   r <- terra::rast(f)
-
-  f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
-  v <- terra::vect(f_v)
-  v_sf <- sf::st_as_sf(v)
 
   # Minimal tests
 

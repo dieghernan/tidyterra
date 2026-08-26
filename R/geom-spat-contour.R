@@ -212,10 +212,7 @@ prepare_spatraster_contour_data <- function(
 ) {
   mapping <- override_aesthetics(
     mapping,
-    ggplot2::aes(
-      spatraster = .data$spatraster,
-      lyr = .data$lyr
-    )
+    ggplot2::aes(spatraster = .data$spatraster, lyr = .data$lyr)
   )
 
   selected <- select_spatraster_layer(mapping, data, call = call)
@@ -237,11 +234,7 @@ prepare_spatraster_contour_data <- function(
     data_tbl$spatraster[[i]] <- raster_list[[i]]
   }
 
-  list(
-    mapping = mapping,
-    data = data_tbl,
-    crs = pull_crs(data)
-  )
+  list(mapping = mapping, data = data_tbl, crs = pull_crs(data))
 }
 
 # Geom ----

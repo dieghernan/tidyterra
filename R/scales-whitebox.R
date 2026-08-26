@@ -102,11 +102,7 @@ scale_fill_whitebox_d <- function(
 ) {
   pal_discrete_scale(
     "fill",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -126,11 +122,7 @@ scale_colour_whitebox_d <- function(
 ) {
   pal_discrete_scale(
     "colour",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -152,11 +144,7 @@ scale_fill_whitebox_c <- function(
   pal_gradient_scale(
     ggplot2::continuous_scale,
     "fill",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() nrow(extract_pal(whitebox_coltab, palette = palette)),
     alpha = alpha,
     direction = direction,
@@ -179,11 +167,7 @@ scale_colour_whitebox_c <- function(
   pal_gradient_scale(
     ggplot2::continuous_scale,
     "colour",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() nrow(extract_pal(whitebox_coltab, palette = palette)),
     alpha = alpha,
     direction = direction,
@@ -206,11 +190,7 @@ scale_fill_whitebox_b <- function(
   pal_gradient_scale(
     ggplot2::binned_scale,
     "fill",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() nrow(extract_pal(whitebox_coltab, palette = palette)),
     alpha = alpha,
     direction = direction,
@@ -233,11 +213,7 @@ scale_colour_whitebox_b <- function(
   pal_gradient_scale(
     ggplot2::binned_scale,
     "colour",
-    whitebox_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    whitebox_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() nrow(extract_pal(whitebox_coltab, palette = palette)),
     alpha = alpha,
     direction = direction,
@@ -284,7 +260,8 @@ whitebox.colors <- function(
 ) {
   check_color_args(n, alpha, rev)
 
-  if ((n <- as.integer(n[1L])) > 0) {
+  n <- as.integer(n[1L])
+  if (n > 0) {
     paltab <- extract_pal(whitebox_coltab, palette = palette)
     colors <- as.character(paltab$hex)
     endcols <- tidyterra_ramp(colors, n, alpha, rev)

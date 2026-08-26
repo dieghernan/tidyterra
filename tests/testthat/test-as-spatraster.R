@@ -15,11 +15,7 @@ test_that("Can convert dtplyr input", {
   skip_on_cran()
   skip_if_not_installed("dtplyr")
 
-  tbl <- tibble::tibble(
-    x = c(1, 2, 1, 2),
-    y = c(1, 1, 2, 2),
-    z = 1:4
-  )
+  tbl <- tibble::tibble(x = c(1, 2, 1, 2), y = c(1, 1, 2, 2), z = 1:4)
 
   out <- as_spatraster(dtplyr::lazy_dt(tbl))
   expect_s4_class(out, "SpatRaster")
@@ -28,10 +24,7 @@ test_that("Can convert dtplyr input", {
 
 test_that("build_raster_layers assigns values by layer", {
   template <- terra::rast(nrows = 2, ncols = 2)
-  values <- data.frame(
-    first = 1:4,
-    second = 5:8
-  )
+  values <- data.frame(first = 1:4, second = 5:8)
 
   r <- build_raster_layers(template, values, names(values))
 
@@ -173,7 +166,7 @@ test_that("Check with mixed type of cols", {
   expect_identical(df$letter, df_res$letter)
   expect_identical(df$fact, df_res$fact)
 
-  expect_true(is.factor(df_res$fact))
+  expect_s3_class(df_res$fact, "factor")
   expect_identical(levels(df_res$fact), levels(df$fact))
 })
 

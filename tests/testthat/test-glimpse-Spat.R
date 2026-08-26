@@ -225,10 +225,6 @@ test_that("Long geoms", {
   skip_on_cran()
 
   a_rast <- terra::rast(ncol = 20, nrow = 20, crs = "EPSG:3035")
-  cc <- c(
-    paste0(c("A_longname1_"), letters[seq_len(15)]),
-    paste0(c("A_longname2__"), letters[seq_len(15)])
-  )
 
   # Add layer over layer here
   terra::values(a_rast) <- 1000

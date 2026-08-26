@@ -58,11 +58,7 @@ local_asia_raster <- function() {
 }
 
 local_ink_theme <- function() {
-  ggplot2::theme_bw(
-    ink = "#BBBBBB",
-    paper = "#333333",
-    accent = "red"
-  )
+  ggplot2::theme_bw(ink = "#BBBBBB", paper = "#333333", accent = "red")
 }
 
 local_cyl_elev_categorical_raster <- function(r) {
@@ -80,8 +76,7 @@ local_cyl_temp_categorical_raster <- function(r) {
   range <- range(vals, na.rm = TRUE)
   breaks <- unique(round(seq(range[1], range[2], 2.5), 0))
 
-  r |>
-    dplyr::mutate(dplyr::across(dplyr::everything(), ~ cut(.x, breaks)))
+  r |> dplyr::mutate(dplyr::across(dplyr::everything(), ~ cut(.x, breaks)))
 }
 
 local_cyl_temp_factor_raster <- function() {

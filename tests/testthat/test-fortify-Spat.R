@@ -158,6 +158,7 @@ test_that("Fortify SpatRasters pivot", {
     ggplot2::facet_wrap(~lyr)
 
   build_terra <- ggplot2::ggplot_build(v_t)
+  expect_silent(build_terra)
 })
 
 test_that("Fortify SpatRasters pivot factor", {

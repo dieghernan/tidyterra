@@ -17,8 +17,5 @@ test_that("nest_join() rejects spatial y inputs", {
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  expect_error(
-    nest_join(v, v, by = "cpro"),
-    "For spatial joins, use"
-  )
+  expect_error(nest_join(v, v, by = "cpro"), "For spatial joins, use")
 })

@@ -173,11 +173,7 @@ scale_fill_cross_blended_d <- function(
 ) {
   pal_discrete_scale(
     "fill",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -197,11 +193,7 @@ scale_colour_cross_blended_d <- function(
 ) {
   pal_discrete_scale(
     "colour",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -223,11 +215,7 @@ scale_fill_cross_blended_c <- function(
   pal_gradient_scale(
     ggplot2::continuous_scale,
     "fill",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() {
       nrow(extract_pal(
         tidyterra::cross_blended_hypsometric_tints_db,
@@ -255,11 +243,7 @@ scale_colour_cross_blended_c <- function(
   pal_gradient_scale(
     ggplot2::continuous_scale,
     "colour",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() {
       nrow(extract_pal(
         tidyterra::cross_blended_hypsometric_tints_db,
@@ -286,11 +270,7 @@ scale_fill_cross_blended_b <- function(
   pal_gradient_scale(
     ggplot2::binned_scale,
     "fill",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() {
       nrow(extract_pal(
         tidyterra::cross_blended_hypsometric_tints_db,
@@ -317,11 +297,7 @@ scale_colour_cross_blended_b <- function(
   pal_gradient_scale(
     ggplot2::binned_scale,
     "colour",
-    cross_blended_pal(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal(alpha = alpha, direction = direction, palette = palette),
     n = function() {
       nrow(extract_pal(
         tidyterra::cross_blended_hypsometric_tints_db,
@@ -369,7 +345,8 @@ cross_blended.colors <- function(
 ) {
   check_color_args(n, alpha, rev)
 
-  if ((n <- as.integer(n[1L])) > 0) {
+  n <- as.integer(n[1L])
+  if (n > 0) {
     paltab <- extract_pal(
       tidyterra::cross_blended_hypsometric_tints_db,
       palette = palette
@@ -426,11 +403,7 @@ scale_fill_cross_blended_tint_d <- function(
 ) {
   pal_discrete_scale(
     "fill",
-    cross_blended_pal2(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal2(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -451,11 +424,7 @@ scale_colour_cross_blended_tint_d <- function(
 ) {
   pal_discrete_scale(
     "colour",
-    cross_blended_pal2(
-      alpha = alpha,
-      direction = direction,
-      palette = palette
-    ),
+    cross_blended_pal2(alpha = alpha, direction = direction, palette = palette),
     alpha = alpha,
     direction = direction,
     na.translate = na.translate,
@@ -630,7 +599,8 @@ cross_blended.colors2 <- function(
 ) {
   check_color_args(n, alpha, rev)
 
-  if ((n <- as.integer(n[1L])) > 0) {
+  n <- as.integer(n[1L])
+  if (n > 0) {
     paltab <- extract_pal(
       tidyterra::cross_blended_hypsometric_tints_db,
       palette = palette

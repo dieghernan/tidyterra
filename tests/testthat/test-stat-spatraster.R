@@ -7,8 +7,6 @@ test_that("stat_spatraster rejects invalid inputs", {
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
   # Errors
   err <- rlang::catch_cnd(
     ggplot(r) +

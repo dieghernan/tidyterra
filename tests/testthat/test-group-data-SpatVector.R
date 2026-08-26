@@ -115,7 +115,7 @@ test_that("rowwise data has one group for each group", {
   skip_on_cran()
 
   mtcars_v <- as_spatvector(mtcars, geom = c("vs", "am"))
-  rw <- rowwise(mtcars)
+  rw <- rowwise(mtcars_v)
 
   expect_true(is_rowwise_spatvector(rw))
   expect_equal(n_groups(rw), 32)

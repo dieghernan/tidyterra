@@ -23,9 +23,6 @@ test_that("geom_spatraster_contour_filled() reports invalid inputs", {
       geom_spatraster_contour_filled(data = r, aes(z = noexist)),
     error = TRUE
   )
-  s <- ggplot() +
-    geom_spatraster_contour_filled(data = r) +
-    coord_cartesian()
 
   ff <- ggplot() +
     geom_spatraster_contour_filled(data = r, breaks = c(0, 1))

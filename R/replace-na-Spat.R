@@ -80,12 +80,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
     is_factor <- is.factor(dplyr::pull(layer[1]))
 
     # Check different if it is factor or not
-    if (!is_factor) {
-      layer[is.na(layer)] <- df_na[1, i]
-
-      # Assign new values
-      terra::values(newrast[[i]]) <- pull(layer, na.rm = FALSE)
-    } else {
+    if (is_factor) {
       # For factors
       values <- pull(layer, na.rm = FALSE)
       keep_levs <- levels(values)
@@ -101,6 +96,11 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
       )
 
       terra::values(newrast[[i]]) <- new_vals
+    } else {
+      layer[is.na(layer)] <- df_na[1, i]
+
+      # Assign new values
+      terra::values(newrast[[i]]) <- pull(layer, na.rm = FALSE)
     }
   }
 

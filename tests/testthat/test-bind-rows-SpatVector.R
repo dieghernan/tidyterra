@@ -203,20 +203,11 @@ test_that("bind_spat_rows() give informative errors", {
   df2 <- terra::vect(df2, crs = "EPSG:4326")
   ll <- list(data.frame(a = 1:5))
 
-  expect_snapshot(
-    bind_spat_rows(df1, df2, .id = 5),
-    error = TRUE
-  )
+  expect_snapshot(bind_spat_rows(df1, df2, .id = 5), error = TRUE)
 
-  expect_snapshot(
-    bind_spat_rows(ll),
-    error = TRUE
-  )
+  expect_snapshot(bind_spat_rows(ll), error = TRUE)
 
-  expect_snapshot(
-    bind_spat_rows(df1, ll),
-    error = TRUE
-  )
+  expect_snapshot(bind_spat_rows(df1, ll), error = TRUE)
 })
 
 test_that("bind_spat_rows() give informative message", {
@@ -226,10 +217,7 @@ test_that("bind_spat_rows() give informative message", {
   v1 <- v[1, ]
   v2 <- terra::project(v[2, ], "EPSG:3857")
 
-  expect_message(
-    vend <- bind_spat_rows(v1, v2),
-    "does not have the same CRS"
-  )
+  expect_message(vend <- bind_spat_rows(v1, v2), "does not have the same CRS")
   expect_s4_class(vend, "SpatVector")
   expect_identical(pull_crs(vend), pull_crs(v1))
 

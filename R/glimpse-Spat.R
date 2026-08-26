@@ -105,10 +105,10 @@ glimpse.SpatRaster <- function(
   # Print body.
   cli::cat_line() # Blank line.
 
-  if (!terra::hasValues(x)) {
-    cli::cat_line("SpatRaster with no values")
-  } else {
+  if (terra::hasValues(x)) {
     tterra_body(x, ..., width = width, n = n, max_extra_cols = max_extra_cols)
+  } else {
+    cli::cat_line("SpatRaster with no values")
   }
 
   invisible(x)

@@ -192,6 +192,7 @@ test_that("Works with sf", {
   expect_s3_class(sfobj, "sf")
 
   fromsf <- as_spatvector(sfobj)
+  expect_s4_class(fromsf, "SpatVector")
 
   # Keep grouping
   sfobj_grouped <- dplyr::group_by(sfobj, iso2, first = substr(name, 1, 1))
@@ -217,7 +218,6 @@ test_that("Works with sf", {
 
   # Keep rowwise empty
 
-  empty_sf <- terra::vect("POLYGON EMPTY", crs = pull_crs(sfobj)) |> as_sf()
   empty_sf <- data.frame(iso2 = "XXX", geom = "POLYGON EMPTY") |>
     sf::st_as_sf(wkt = "geom", crs = pull_crs(sfobj))
   sfobj_rowwise <- sfobj |>
@@ -235,8 +235,6 @@ test_that("Works with sf", {
   # Keep geoms even with other names
   sf2 <- sf::st_sf(x = 1, geom2 = sf::st_geometry(sfobj))
   expect_true(attr(sf2, "sf_column") == "geom2")
-
-  fromsf2 <- as_spatvector(sf2)
 })
 
 test_that("Check sfc", {

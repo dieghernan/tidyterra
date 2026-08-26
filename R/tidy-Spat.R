@@ -136,12 +136,12 @@ tidy.SpatRaster <- function(
     crs <- ""
   }
 
-  if (!pivot) {
-    x <- as_tibble(x, xy = TRUE, .name_repair = .name_repair)
-  } else {
+  if (pivot) {
     x <- check_mixed_cols(x, fn = "tidyterra::tidy.SpatRaster")
     x <- pivot_longer_spat(x)
     attr(x, "pvt_fort") <- TRUE
+  } else {
+    x <- as_tibble(x, xy = TRUE, .name_repair = .name_repair)
   }
 
   attr(x, "crs") <- crs

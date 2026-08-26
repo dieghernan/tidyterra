@@ -28,10 +28,7 @@ test_that("grass_scale_params prepares colors and scale values", {
 })
 
 test_that("GRASS scales validate use_grass_range", {
-  expect_snapshot(
-    scale_colour_grass_c(use_grass_range = "no"),
-    error = TRUE
-  )
+  expect_snapshot(scale_colour_grass_c(use_grass_range = "no"), error = TRUE)
 })
 
 test_that("Discrete scale", {
