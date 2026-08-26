@@ -363,7 +363,6 @@ check_regroups <- function(x) {
       dif_rows <- all(sum(group_size(x)) == nrow(x))
 
       if (isFALSE(dif_rows)) {
-        ung <- dplyr::ungroup(x)
         return(dplyr::rowwise(x))
       }
 

@@ -202,7 +202,7 @@ test_that("Discrete scale color", {
   skip_on_cran()
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
-  ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
+
   coltb <- data.frame(
     value = 1:3,
     t(col2rgb(c("red", "green", "black"), alpha = TRUE))
@@ -284,7 +284,7 @@ test_that("Discrete scale fill", {
   skip_on_cran()
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B", "A", "C"), 16))
-  ll <- data.frame(id = 1:3, lev = c("A", "B", "C"))
+
   coltb <- data.frame(
     value = 1:3,
     t(col2rgb(c("red", "green", "black"), alpha = TRUE))
@@ -365,7 +365,6 @@ test_that("Several layers not all coltab", {
 
   r$nocol <- as.factor(rep_len(c("D", "E", NA), 16))
 
-  ll <- data.frame(id = 1:2, lev = c("A", "B"))
   coltb <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
   terra::coltab(r, layer = 1) <- coltb
 

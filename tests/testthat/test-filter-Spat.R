@@ -89,7 +89,6 @@ test_that("filter(.,TRUE,TRUE) works (#1210)", {
 test_that("filter and filter_out propagate attributes", {
   skip_on_cran()
 
-  date.start <- ISOdate(2010, 01, 01, 0)
   test <- data.frame(Date = ISOdate(2010, 01, 01, 1:10))
   test$lat <- 1
   test$lon <- 1

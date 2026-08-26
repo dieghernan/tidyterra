@@ -4,19 +4,14 @@ test_that("Errors and messages", {
   extfile <- system.file("extdata/cyl.gpkg", package = "tidyterra")
 
   cyl <- terra::vect(extfile)
-  expect_snapshot(
-    error = TRUE,
-    ggplot2::ggplot() +
-      geom_spatraster(data = cyl)
-  )
+  expect_snapshot(error = TRUE, ggplot2::ggplot() +
+    geom_spatraster(data = cyl))
 
   f <- system.file("extdata/cyl_tile.tif", package = "tidyterra")
   rgb_tile <- terra::rast(f)
   expect_true(terra::has.RGB(rgb_tile))
-  expect_snapshot(
-    s2 <- ggplot2::ggplot() +
-      geom_spatraster(data = rgb_tile)
-  )
+  expect_snapshot(s2 <- ggplot2::ggplot() +
+    geom_spatraster(data = rgb_tile))
 
   f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")
   r <- terra::rast(f)
@@ -78,18 +73,12 @@ test_that("geom_spatraster applies alpha layers", {
   expect_identical(unique(alpha_data$lyr), "fill_layer")
   alpha_values <- alpha_data[
     order(alpha_data$x, alpha_data$y),
-    c(
-      "value",
-      "alpha"
-    )
+    c("value", "alpha")
   ]
   row.names(alpha_values) <- NULL
   expect_equal(
     alpha_values,
-    data.frame(
-      value = c(3, 1, 4, 2),
-      alpha = c(0.6, 0.2, 0.8, 0.4)
-    )
+    data.frame(value = c(3, 1, 4, 2), alpha = c(0.6, 0.2, 0.8, 0.4))
   )
 
   stat_alpha_plot <- ggplot2::ggplot() +
@@ -130,14 +119,8 @@ test_that("geom_spatraster resamples and projects raster data", {
 
   tile_data <- ggplot2::layer_data(tile_plot)
   spat_data <- ggplot2::layer_data(spat_plot)
-  tile_alpha <- tile_data[
-    order(tile_data$x, tile_data$y),
-    c("x", "y", "alpha")
-  ]
-  spat_alpha <- spat_data[
-    order(spat_data$x, spat_data$y),
-    c("x", "y", "alpha")
-  ]
+  tile_alpha <- tile_data[order(tile_data$x, tile_data$y), c("x", "y", "alpha")]
+  spat_alpha <- spat_data[order(spat_data$x, spat_data$y), c("x", "y", "alpha")]
   row.names(tile_alpha) <- NULL
   row.names(spat_alpha) <- NULL
 
@@ -206,7 +189,6 @@ test_that("Coltabs", {
   r <- terra::rast(ncols = 4, nrows = 4)
   terra::values(r) <- as.factor(rep_len(c("A", "B"), 16))
 
-  ll <- data.frame(id = 1:2, lev = c("A", "B"))
   coltb <- data.frame(value = 1:2, t(col2rgb(c("red", "yellow"), alpha = TRUE)))
   terra::coltab(r, layer = 1) <- coltb
 

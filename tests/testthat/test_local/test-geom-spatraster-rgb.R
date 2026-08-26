@@ -5,28 +5,17 @@ test_that("geom_spatraster_rgb() draws CRS visual variants", {
   v <- local_cyl_vector_3035()
   v_sf <- sf::st_as_sf(v)
 
-  expect_error(
-    ggplot(r) +
-      geom_spatraster_rgb()
-  )
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster_rgb(data = v),
-    error = TRUE
-  )
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster_rgb(data = 1:3),
-    error = TRUE
-  )
+  expect_error(ggplot(r) +
+    geom_spatraster_rgb())
+  expect_snapshot(ggplot() +
+    geom_spatraster_rgb(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    geom_spatraster_rgb(data = 1:3), error = TRUE)
 
   r_subset <- terra::subset(r, 1:2)
 
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster_rgb(data = r_subset),
-    error = TRUE
-  )
+  expect_snapshot(ggplot() +
+    geom_spatraster_rgb(data = r_subset), error = TRUE)
 
   expect_snapshot(
     ggplot() +
@@ -194,10 +183,8 @@ test_that("geom_spatraster_rgb() draws no-CRS visual variants", {
 
   r_subset <- terra::subset(r, 1:2)
 
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = r_subset)
-  )
+  expect_error(ggplot() +
+    geom_spatraster_rgb(data = r_subset))
 
   s <- ggplot() +
     geom_spatraster_rgb(data = r) +
@@ -286,10 +273,8 @@ test_that("geom_spatraster_rgb() draws masked no-CRS visual variants", {
 
   r_subset <- terra::subset(r, 1:2)
 
-  expect_error(
-    ggplot() +
-      geom_spatraster_rgb(data = r_subset)
-  )
+  expect_error(ggplot() +
+    geom_spatraster_rgb(data = r_subset))
 
   s <- ggplot() +
     geom_spatraster_rgb(data = r) +

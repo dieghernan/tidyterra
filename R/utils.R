@@ -71,11 +71,7 @@ check_alpha <- function(alpha, call = caller_env()) {
   invisible(NULL)
 }
 
-check_alpha_direction <- function(
-  alpha,
-  direction,
-  call = caller_env()
-) {
+check_alpha_direction <- function(alpha, direction, call = caller_env()) {
   check_alpha(alpha, call = call)
 
   check_number_decimal(direction, call = call)
@@ -114,11 +110,7 @@ check_color_args <- function(
   check_bool(rev, arg = rev_arg, call = call)
 }
 
-check_bool_or_null <- function(
-  x,
-  arg = caller_arg(x),
-  call = caller_env()
-) {
+check_bool_or_null <- function(x, arg = caller_arg(x), call = caller_env()) {
   check_bool(x, allow_null = TRUE, arg = arg, call = call)
 }
 
@@ -210,12 +202,7 @@ check_spatraster <- function(data, fn, call = caller_env()) {
   invisible(NULL)
 }
 
-check_palette <- function(
-  palette,
-  choices,
-  help = NULL,
-  call = caller_env()
-) {
+check_palette <- function(palette, choices, help = NULL, call = caller_env()) {
   check_string(palette, call = call)
   check_character_vector(choices, call = call)
 

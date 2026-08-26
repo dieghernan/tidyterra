@@ -19,11 +19,7 @@ test_that("rows_insert() inserts data frame rows with empty geometries", {
 
   v <- terra::vect(system.file("extdata/cyl.gpkg", package = "tidyterra"))
 
-  out <- rows_insert(
-    v,
-    tibble::tibble(cpro = "99", name = "new"),
-    by = "cpro"
-  )
+  out <- rows_insert(v, tibble::tibble(cpro = "99", name = "new"), by = "cpro")
 
   expect_s4_class(out, "SpatVector")
   expect_equal(nrow(out), nrow(v) + 1)

@@ -30,7 +30,9 @@ test_that("unite() combines SpatRaster layers", {
   expect_s4_class(united, "SpatRaster")
   expect_named(united, c("label", "tavg_06"))
   expect_named(united_keep, c("label", names(r)))
+  # jarl-ignore-start expect_s3_class: terra::is.factor is not S3 class
   expect_true(terra::is.factor(united[["label"]]))
+  # jarl-ignore-end expect_s3_class
   expect_true(compare_spatrasters(r, united))
   expect_identical(pull_crs(united), pull_crs(r))
 })

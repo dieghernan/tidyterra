@@ -7,26 +7,15 @@ test_that("stat_spatraster rejects invalid inputs", {
 
   f_v <- system.file("extdata/cyl.gpkg", package = "tidyterra")
   v <- vect(f_v)
-  v_sf <- sf::st_as_sf(v)
-
   # Errors
-  err <- rlang::catch_cnd(
-    ggplot(r) +
-      stat_spatraster(),
-    classes = "error"
-  )
+  err <- rlang::catch_cnd(ggplot(r) +
+    stat_spatraster(), classes = "error")
   expect_s3_class(err, "error")
   expect_snapshot(writeLines(conditionMessage(err)))
-  expect_snapshot(
-    ggplot() +
-      stat_spatraster(data = v),
-    error = TRUE
-  )
-  expect_snapshot(
-    ggplot() +
-      stat_spatraster(data = 1:3),
-    error = TRUE
-  )
+  expect_snapshot(ggplot() +
+    stat_spatraster(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    stat_spatraster(data = 1:3), error = TRUE)
 })
 
 test_that("stat_spatraster builds regular raster plots", {

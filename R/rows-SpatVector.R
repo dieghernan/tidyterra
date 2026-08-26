@@ -196,13 +196,7 @@ rows_delete.SpatVector <- function(
 #' @export
 dplyr::rows_delete
 
-rows_apply_spat <- function(
-  x,
-  y,
-  fun,
-  ...,
-  empty_geometry = FALSE
-) {
+rows_apply_spat <- function(x, y, fun, ..., empty_geometry = FALSE) {
   x_tbl <- as_tbl_internal(x)
   y_tbl <- rows_y_tbl(y, x, empty_geometry = empty_geometry)
 

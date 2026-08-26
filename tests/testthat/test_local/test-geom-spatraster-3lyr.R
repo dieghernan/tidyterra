@@ -5,20 +5,12 @@ test_that("geom_spatraster() rejects invalid three-layer inputs", {
   r <- local_cyl_temp_raster()
   v <- local_cyl_vector()
 
-  expect_error(
-    ggplot(r) +
-      geom_spatraster()
-  )
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster(data = v),
-    error = TRUE
-  )
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster(data = 1:3),
-    error = TRUE
-  )
+  expect_error(ggplot(r) +
+    geom_spatraster())
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    geom_spatraster(data = 1:3), error = TRUE)
 
   p <- ggplot() +
     geom_spatraster(data = r) +
@@ -241,10 +233,8 @@ test_that("geom_spatraster() draws three-layer no-CRS visual variants", {
   raster_crs <- pull_crs(r)
   terra::crs(r) <- NA
 
-  expect_error(
-    ggplot(r) +
-      geom_spatraster()
-  )
+  expect_error(ggplot(r) +
+    geom_spatraster())
 
   p_cartesian <- ggplot() +
     geom_spatraster(data = r) +
@@ -312,10 +302,8 @@ test_that("geom_spatraster() draws three-layer no-CRS visual variants", {
   )
   vdiffr::expect_doppelganger("nocrs_06c: mixed with chars", p_mix2)
 
-  expect_message(
-    ggplot() +
-      geom_spatraster(data = r, maxcell = 20)
-  )
+  expect_message(ggplot() +
+    geom_spatraster(data = r, maxcell = 20))
   expect_snapshot(
     p_res <- ggplot() +
       geom_spatraster(data = r, maxcell = 20) +

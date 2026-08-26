@@ -48,12 +48,6 @@ test_that("group_modify() binds SpatVector group results", {
 
 test_that("Split keys", {
   skip_on_cran()
-  expect_identical(
-    split_keys(tibble::tibble()),
-    list(tibble::tibble())
-  )
-  expect_length(
-    split_keys(tibble::tibble(a = letters[1:3])),
-    3
-  )
+  expect_identical(split_keys(tibble::tibble()), list(tibble::tibble()))
+  expect_length(split_keys(tibble::tibble(a = letters[1:3])), 3)
 })

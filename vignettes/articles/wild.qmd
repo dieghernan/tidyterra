@@ -53,7 +53,7 @@ bibtex::read.bib("INPUBS.bib") |>
   geom_bar(fill = "#516a54") +
   labs(
     title = "tidyterra",
-    subtitle = "Citations by year",
+    subtitle = "Publications using tidyterra by year",
     caption = "Source: https://www.dimensions.ai/",
     y = "",
     x = ""

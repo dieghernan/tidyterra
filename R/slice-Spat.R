@@ -696,10 +696,6 @@ slice_colrows.SpatRaster <- function(
   # Create skeleton
   skeleton <- as_coordinates(.data)
 
-  index <- skeleton["colindex"]
-  index$colindex <- sort(index$colindex)
-  index <- dplyr::distinct(index)
-
   # Cols
   col_index <- skeleton["colindex"]
   col_index$colindex <- sort(col_index$colindex)

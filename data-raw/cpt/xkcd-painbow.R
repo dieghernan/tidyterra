@@ -83,9 +83,7 @@ coltab_end <- as_tibble(make_hex)
 
 # Reescale
 options(scipen = 12)
-df_reesc <- tibble(
-  init = unique(sort(coltab_end$limit))
-)
+df_reesc <- tibble(init = unique(sort(coltab_end$limit)))
 df_reesc$dest <- scales::rescale(df_reesc$init, to = c(0, 8000))
 
 coltab_end <- coltab_end |>

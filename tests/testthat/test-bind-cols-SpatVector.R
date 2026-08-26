@@ -17,13 +17,14 @@ test_that("bind_spat_cols() repairs names", {
 
   expect_s4_class(bound, "SpatVector")
 
+  # jarl-ignore-start duplicated_arguments: Testing duplicated arguments
   expect_snapshot(
     repaired <- tibble::as_tibble(
       data.frame(a = 1, b = 2, a = 1, b = 2, check.names = FALSE),
       .name_repair = "unique"
     )
   )
-
+  # jarl-ignore-end duplicated_arguments
   expect_identical(names(bound), names(repaired))
   expect_equal(as.data.frame(bound), as.data.frame(repaired))
 })
@@ -38,11 +39,7 @@ test_that("bind_spat_cols() honours .name_repair=", {
   expect_equal(as.data.frame(res), data.frame(a...1 = 1, a...2 = 2))
 
   expect_snapshot(
-    bind_spat_cols(
-      .name_repair = "check_unique",
-      aa,
-      data.frame(a = 2)
-    ),
+    bind_spat_cols(.name_repair = "check_unique", aa, data.frame(a = 2)),
     error = TRUE
   )
 })
@@ -138,7 +135,9 @@ test_that("bind_spat_cols() gives informative errors", {
   skip_on_cran()
 
   a <- terra::vect("POINT (0 0)")
-  a <- bind_spat_cols(a, data.frame(a = 1))
+  expect_silent(res <- bind_spat_cols(a, data.frame(a = 1)))
+  expect_s4_class(res, "SpatVector")
+
   expect_snapshot(
     {
       "# incompatible size"

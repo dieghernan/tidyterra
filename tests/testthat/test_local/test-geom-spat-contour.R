@@ -28,21 +28,13 @@ test_that("geom_spatraster_contour() reports invalid inputs", {
   r <- local_cyl_elev_raster()
   v <- local_cyl_vector()
 
-  expect_error(
-    ggplot(r) +
-      geom_spatraster_contour()
-  )
+  expect_error(ggplot(r) +
+    geom_spatraster_contour())
 
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster_contour(data = v),
-    error = TRUE
-  )
-  expect_snapshot(
-    ggplot() +
-      geom_spatraster_contour(data = 1:3),
-    error = TRUE
-  )
+  expect_snapshot(ggplot() +
+    geom_spatraster_contour(data = v), error = TRUE)
+  expect_snapshot(ggplot() +
+    geom_spatraster_contour(data = 1:3), error = TRUE)
   expect_snapshot(
     ggplot() +
       geom_spatraster_contour(data = r, aes(z = noexist)),
@@ -63,7 +55,6 @@ test_that("geom_spatraster_contour() draws core visual variants", {
   suppressWarnings(library(ggplot2))
 
   r <- local_cyl_elev_raster()
-  v_sf <- local_cyl_vector_sf()
 
   p <- ggplot() +
     geom_spatraster_contour(data = r)
