@@ -91,8 +91,8 @@ least-cost path analysis. *Journal of Disaster Science and Management*,
 Dahl, K., Declet-Barreto, J., Cleetus, R., Spanger, E., Vitale, B.,
 Udvardy, S., Thompson, P., Worth, P., & Caldas, A. (2024). *Looming
 deadlines for coastal resilience: Rising seas, disruptive tides, and
-risks to coastal infrastructure*. Union of Concerned Scientists.
-<https://doi.org/10.47923/2024.15502>
+risks to coastal infrastructure* \[Technical report\]. Union of
+Concerned Scientists. <https://doi.org/10.47923/2024.15502>
 
 Di Fabio, A., Aspalter, S., Chakraborty, D., van Loo, M., Rolke, L. M.,
 Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
@@ -150,8 +150,8 @@ distribution modelling. *Diversity*, *17*(3), 195.
 
 Grasso, G. (2024). *Soils associated to herbarium plants: A resource to
 address the temporal evolution of plant-associated microbiomes* \[PhD
-thesis, Università degli Studi di Torino\].
-<https://hdl.handle.net/2318/2022351>
+thesis, Muséum national d’histoire naturelle and Università di Torino\].
+<https://doi.org/10.70675/19347969z4326z4f23zb1e2za8d2588a835b>
 
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
 Wind, waves, wing loading and the flight energetics of giant petrels.
@@ -253,7 +253,7 @@ samples. *Ecography*, *2026*(2), e08112.
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
 eastern coyotes from Nova Scotia, Canada: Effects of geography and
-trophic position. *Science of the Total Environment*, *974*, 179186.
+trophic position. *Science of The Total Environment*, *974*, 179186.
 <https://doi.org/10.1016/j.scitotenv.2025.179186>
 
 Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
@@ -284,7 +284,7 @@ Ecosystems*, *14*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
 NASA Earth observation data products*. National Aeronautics and Space
 Administration, Goddard Space Flight Center.
-<https://github.com/nasa/NASAaccess>
+<https://github.com/nasa/NASAaccess/releases/tag/v4.0.0>
 
 Moreira, H., Janssen, S. D., Kuipers, K. J. J., Posthuma, L., Hauck, M.,
 Huijbregts, M. A. J., & Schipper, A. M. (2026). Combined threats of land
@@ -318,7 +318,7 @@ protected areas as climate refugia for threatened plant species in
 Britain. *PLOS ONE*, *21*(1), e0332485.
 <https://doi.org/10.1371/journal.pone.0332485>
 
-Rees, M. (2025). *Unexplored transitions between savanna and forest in
+Rees, M. (2026). *Unexplored transitions between savanna and forest in
 Africa* \[PhD thesis, The University of Edinburgh\].
 <https://doi.org/10.7488/era/7231>
 
@@ -352,7 +352,7 @@ comparative approach. *Journal of Biogeography*, *53*(4), e70222.
 
 Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
-*Earthquake Spectra*, *42*(1), 305–313.
+*Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
 
 Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
@@ -397,7 +397,7 @@ Tribbia, D. Z., Lebre, P. H., Vázquez-Campos, X., Ray, A. E., Laird, T.,
 Machado de Lima, N., Maggs-Kölling, G., Cowan, D. A., & Ferrari, B. C.
 (2026). Trace gas oxidation supports sub-surface microbial communities
 across Namib Desert fog and aridity gradients. *Applied and
-Environmental Microbiology*, e00265–26.
+Environmental Microbiology*, *92*(8), e00265–26.
 <https://doi.org/10.1128/aem.00265-26>
 
 Varma, V., Mosedale, J. R., Alvarez, J. A. G., & Bebber, D. P. (2025).
