@@ -313,6 +313,10 @@ shifts in nut-producing species that are important for bears during
 hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
 <https://doi.org/10.3389/ffgc.2025.1624612>
 
+Raymond, C. V. (2025). *Patterns, pressures and processes: Exploring
+biodiversity in eelgrass meadows and coral reefs* \[PhD thesis,
+University of British Columbia\]. <https://doi.org/10.14288/1.0449640>
+
 Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
 Britain. *PLOS ONE*, *21*(1), e0332485.
@@ -349,6 +353,11 @@ Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
 conservatism and evolutionary dynamics in Octopodidae: A phylogenetic
 comparative approach. *Journal of Biogeography*, *53*(4), e70222.
 <https://doi.org/10.1111/jbi.70222>
+
+Schmid, C. M. (2025). *Spatio-temporal interpolation in archaeogenetics
+and archaeology: Computational methods for reconstructing human mobility
+and cultural history* \[PhD thesis, Friedrich-Schiller-Universität
+Jena\]. <https://doi.org/10.22032/dbt.69313>
 
 Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
