@@ -149,12 +149,10 @@ distribution modelling. *Diversity*, *17*(3), 195.
 <https://doi.org/10.3390/d17030195>
 
 González-Rivero, M., Dallison, T., Wicquart, J., Brigdale, A., Logan,
-M., Fobert, E. K., Staub, F., & Planes, S. (2026). *Status of Coral
-Reefs of the World: 2025* (M. González-Rivero, T. Dallison, J. Wicquart,
-A. Brigdale, M. Logan, E. K. Fobert, F. Staub, & S. Planes, Eds.)
-\[Technical report\]. Global Coral Reef Monitoring Network (GCRMN);
-International Coral Reef Initiative (ICRI); International Coral Reef
-Initiative. <https://doi.org/10.59387/lfpr6347>
+M., Fobert, E. K., Staub, F., & Planes, S. (Eds.). (2026). *Status of
+Coral Reefs of the World: 2025* \[Technical report\]. Global Coral Reef
+Monitoring Network (GCRMN), International Coral Reef Initiative (ICRI).
+<https://doi.org/10.59387/lfpr6347>
 
 Grasso, G. (2024). *Soils associated to herbarium plants: A resource to
 address the temporal evolution of plant-associated microbiomes* \[PhD
