@@ -51,6 +51,12 @@ resilient urban planning using ensemble modeling and machine learning
 algorithms. *International Journal of Disaster Risk Reduction*, *138*,
 106124. <https://doi.org/10.1016/j.ijdrr.2026.106124>
 
+Bionda, A. (2025). *Biodiversity and environmental adaptation in small
+ruminants: Mapping temporal and spatial genomic changes in Italian sheep
+and goats* \[Doctoral thesis, Università degli Studi di Milano,
+Dipartimento di Scienze Agrarie e Ambientali - Produzione, Territorio,
+Agroenergia\]. <https://air.unimi.it/handle/2434/1199177>
+
 Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
 and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
@@ -197,6 +203,11 @@ within-field variability in soil fertility? A case study in the Northern
 Region of Ghana. *Frontiers in Soil Science*, *5*, 1548645.
 <https://doi.org/10.3389/fsoil.2025.1548645>
 
+Keshaw Vallabh, A. T. (2025). *Palm Reading: Predicting the current and
+future distributions of non-native palm species in New Zealand*
+\[Master's thesis, The University of Auckland\].
+<https://hdl.handle.net/2292/74143>
+
 Kiel, N. G., Watts, D. A., Young, A. B., & Vellend, M. (2025). Snowmelt
 timing alters the phenology but not the performance of an understory
 spring ephemeral plant. *Journal of Ecology*, *113*(9), 2289–2300.
@@ -331,6 +342,11 @@ Britain. *PLOS ONE*, *21*(1), e0332485.
 Rees, M. (2026). *Unexplored transitions between savanna and forest in
 Africa* \[PhD thesis, The University of Edinburgh\].
 <https://doi.org/10.7488/era/7231>
+
+Reis, B. S. dos. (2025). *Avaliação do sequestro de carbono nos
+manguezais da Baixada Santista em diferentes contextos de conservação*.
+Universidade Estadual Paulista (Unesp).
+<https://hdl.handle.net/11449/318093>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
 & Hajibabaei, M. (2025). Biomonitoring 2.0 Refined: Observing local
