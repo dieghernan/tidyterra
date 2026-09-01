@@ -404,6 +404,11 @@ Tanaka, E. (2026). Examining the interface design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*, *68*(1), e70031.
 <https://doi.org/10.1111/anzs.70031>
 
+Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
+du voisinage environnemental pour prédire la répartition des espèces de
+bryophytes en Suisse* \[Unpublished master's thesis\]. Université de
+Liège, Liège, Belgique. <https://matheo.uliege.be/handle/2268.2/25400>
+
 Triantafillou, S. P. (2024). *A catchment is more than the sum of its
 reaches: Post-fire resilience at multiple spatial scales* \[Master's
 thesis, Colorado State University\]. <https://doi.org/10.25675/3.04761>
