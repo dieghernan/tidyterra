@@ -88,6 +88,10 @@ stat_spatraster <- function(
   check_bool(inherit.aes)
   check_maxcell(maxcell)
 
+  if (anyDuplicated(names(data))) {
+    data <- make_safe_names(data)
+  }
+
   # 1. Work with aes ----
 
   # Prepare aesthetics for `StatTerraSpatRaster`.

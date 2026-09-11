@@ -42,3 +42,26 @@
     Message
       ! Plotting only layers "tavg_04" and "another" of class <factor>.
 
+# geom_spatraster facets categorical layers with duplicated names
+
+    Code
+      layer <- geom_spatraster(data = r)
+    Message
+      i Layer(s) with duplicated or reserved names detected. See About layer/column
+      names section on `tidyterra::as_tibble.SpatRaster()`
+      ! Renaming columns and layers:
+    Output
+      * `passes` -> `passes.1`
+      * `passes` -> `passes.2`
+
+# geom_spatraster maps repaired names without name collisions
+
+    Code
+      layer <- geom_spatraster(data = r, aes(fill = layer.2, alpha = layer.1))
+    Message
+      i Layer(s) with duplicated or reserved names detected. See About layer/column
+      names section on `tidyterra::as_tibble.SpatRaster()`
+      ! Renaming columns and layers:
+    Output
+      * `layer` -> `layer.2`
+

@@ -117,3 +117,48 @@ test_that("stat_spatraster supports point and text geoms", {
 
   expect_s3_class(p, "ggplot")
 })
+test_that("stat_spatraster facets categorical layers with duplicated names", {
+  r <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3)
+  terra::values(r) <- matrix(rep(0:2, each = 4), ncol = 3)
+  levels(r) <- replicate(
+    3,
+    data.frame(value = 0:2, passes = c("0", "1", "2")),
+    simplify = FALSE
+  )
+  r <- terra::combineLevels(r)
+
+  expect_snapshot(layer <- stat_spatraster(data = r))
+  p <- ggplot2::ggplot() +
+    layer +
+    ggplot2::facet_wrap(~lyr)
+  built <- ggplot2::ggplot_build(p)
+
+  expect_identical(
+    as.character(built$layout$layout$lyr),
+    c("passes", "passes.1", "passes.2")
+  )
+  expect_identical(
+    split(as.character(built$data[[1]]$value), built$data[[1]]$PANEL),
+    list(`1` = rep("0", 4), `2` = rep("1", 4), `3` = rep("2", 4))
+  )
+  expect_named(r, rep("passes", 3))
+})
+
+test_that("stat_spatraster maps repaired names without name collisions", {
+  r <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3)
+  terra::values(r) <- matrix(1:12, ncol = 3)
+  names(r) <- c("layer", "layer", "layer.1")
+
+  expect_snapshot(
+    layer <- stat_spatraster(data = r, aes(fill = layer.2, alpha = layer.1))
+  )
+  p <- ggplot2::ggplot() +
+    layer +
+    ggplot2::scale_alpha_identity()
+  data <- ggplot2::layer_data(p)
+
+  expect_identical(unique(data$lyr), "layer.2")
+  expect_equal(data$value, 5:8)
+  expect_equal(data$alpha, 9:12)
+  expect_named(r, c("layer", "layer", "layer.1"))
+})
