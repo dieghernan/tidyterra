@@ -51,6 +51,14 @@ air-breathing krill predators using acoustic data from the fishery.
 *Proceedings of the National Academy of Sciences*, *122*(25),
 e2417203122. <https://doi.org/10.1073/pnas.2417203122>
 
+Baudron, F., Sibanda, T., & Falconnier, G. (2025). *Supporting the
+codesign of agronomic innovations with data* (p. 130). CIRAD and CIMMYT.
+<https://hal.science/hal-05397083v1>
+
+Bausilio, G. (2024). *Urban geology and geohazards: An integrated
+analysis for a resilient urban planning* \[PhD thesis, Università degli
+Studi di Napoli Federico II\]. <https://www.fedoa.unina.it/15371/>
+
 Bausilio, G., Di Martire, D., Allocca, V., Coda, S., De Vita, P.,
 Guerriero, L., & Calcaterra, D. (2026). Integrated analysis for a
 resilient urban planning using ensemble modeling and machine learning
@@ -366,6 +374,12 @@ quality and phytoplankton communities in a cyanobacteria-dominated
 reservoir provide management insights. *Environmental Monitoring and
 Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 
+Royce, C. (2024). *Tectonic history or climate - which has had the
+biggest influence on the formation of the highly diverse and endemic
+flora of the Western Ghats* \[Master's thesis, University of Edinburgh
+and Royal Botanic Garden Edinburgh\].
+<https://research-scotland.ac.uk/handle/20.500.12594/28823>
+
 Rustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). *Bayesian
 survival, longitudinal, and joint models with INLA*. Chapman & Hall/CRC.
 <https://doi.org/10.1201/9781003646822>
@@ -391,6 +405,12 @@ Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
+
+Scrivner, C. A. (2025). *Mapping Kirtland’s Warbler (*Setophaga
+kirtlandii*) stationary non-breeding habitat: Characterizing land cover
+within the south-central Bahamas and evaluating the impacts of sea level
+rise* \[Master's thesis, Antioch University New England\].
+<https://aura.antioch.edu/etds/1222/>
 
 Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
 M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
@@ -448,7 +468,7 @@ export crop. *Nature Food*, *6*(4), 343–352.
 <https://doi.org/10.1038/s43016-025-01130-1>
 
 Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The relationship
-between soil organic matter composition and soil enzyme activities in
+between soil organic matter composition and soil enzymes activities in
 various land use types in the upper watershed of Danjiangkou reservoir
 in China. *Land Degradation & Development*, *36*(8), 2557–2570.
 <https://doi.org/10.1002/ldr.5516>
