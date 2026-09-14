@@ -386,7 +386,7 @@ survival, longitudinal, and joint models with INLA*. Chapman & Hall/CRC.
 
 Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
 al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
-d’ocupació del territori durant el Neolı́tic (5700–2100 cal ANE)* \[PhD
+d’ocupació del territori durant el Neolític (5700–2100 cal ANE)* \[PhD
 thesis, Universitat Autònoma de Barcelona\].
 <https://hdl.handle.net/10803/692148>
 
