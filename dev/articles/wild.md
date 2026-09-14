@@ -232,7 +232,7 @@ optimisation for climate policy: Mapping silvopastoral carbon
 sequestration trade-offs in the Mediterranean. *Sustainability*,
 *18*(1), 439. <https://doi.org/10.3390/su18010439>
 
-Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2026). Endemic and invasion
+Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
 centuries of collection records. *New Phytologist*, *251*(2), 737–751.
 <https://doi.org/10.1111/nph.70321>
@@ -291,7 +291,7 @@ Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
 M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
 Miranda de Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
 R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
-A. D., … Nores, R. (2026). Eight millennia of continuity of a previously
+A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
 unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
 <https://doi.org/10.1038/s41586-025-09731-3>
 
@@ -442,7 +442,7 @@ Sutton, J. T., McDermid, J. L., & Ratelle, S. M. (2026). A framework to
 map fishing activity from incomplete data. *ICES Journal of Marine
 Science*, *83*(5), fsag070. <https://doi.org/10.1093/icesjms/fsag070>
 
-Tanaka, E. (2026). Examining the interface design of Tidyverse.
+Tanaka, E. (2025). Examining the interface design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*, *68*(1), e70031.
 <https://doi.org/10.1111/anzs.70031>
 
@@ -507,4 +507,4 @@ distribution pattern in Tajikistan: A global hotspot of diversity.
 
 Zhu, Y., Choo, J., Xia, C., & Carrasco, L. R. (2026). The pantropical
 biodiversity footprint of oil palm. *Conservation Science and Practice*,
-e70394. <https://doi.org/10.1111/csp2.70394>
+*8*(9), e70394. <https://doi.org/10.1111/csp2.70394>
