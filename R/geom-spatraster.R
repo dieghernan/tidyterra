@@ -166,6 +166,10 @@ geom_spatraster <- function(
   check_bool(use_coltab)
   check_bool(mask_projection)
 
+  if (anyDuplicated(names(data))) {
+    data <- make_safe_names(data)
+  }
+
   # Warn when an RGB raster should use the RGB geom.
   if (terra::has.RGB(data)) {
     cli::cli_alert_warning(paste(

@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+- `geom_spatraster()` and `stat_spatraster()` now repair duplicated layer names, keeping each layer in a separate facet (#220).
+
 # tidyterra 1.3.0
 
 - Argument validation has been improved across user-facing helpers and plotting
