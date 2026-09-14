@@ -2,12 +2,22 @@
 
 ## tidyterra (development version)
 
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
+  and
+  [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
+  now repair duplicated layer names, keeping each layer in a separate
+  facet ([\#220](https://github.com/dieghernan/tidyterra/issues/220)).
+
+## tidyterra 1.3.0
+
+CRAN release: 2026-08-24
+
 - Argument validation has been improved across user-facing helpers and
   plotting functions, producing clearer errors for invalid inputs.
-- The pkgdown site now links to the JOSS paper as an external article
-  and uses
+- The **pkgdown** site now links to the JOSS paper as an external
+  article and uses
   [`vignette("tidyterra")`](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.md)
-  as the introductory article.
+  as its introductory article.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md),
   [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md),
   [`geom_spatraster_contour()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md),
@@ -25,7 +35,8 @@
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   no longer emits a warning for rasters with more than three layers,
   such as RGB rasters with an alpha channel.
-- `geom_*()` defaults were adjusted to current **ggplot2** defaults.
+- `geom_*()` defaults were adjusted to match current **ggplot2**
+  defaults.
 - [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)
   now includes one additional palette: `"xkcd-painbow"`. See
   <https://xkcd.com/2537/>.
@@ -34,8 +45,8 @@
 
 CRAN release: 2026-06-17
 
-This release adds tidyverse-style methods for `SpatVector` objects and
-includes documentation reviewed with explicit AI-assisted editing.
+This release adds **tidyverse**-style methods for `SpatVector` objects
+and includes documentation reviewed with explicit AI-assisted editing.
 
 - Package documentation was reviewed and updated with AI assistance,
   including **roxygen2** comments, generated Rd files, documentation
@@ -84,7 +95,7 @@ The following methods were generated with AI assistance.
 CRAN release: 2026-03-11
 
 - The minimum supported **dplyr** version is now 1.2.0.
-- Vignettes and articles now use Quarto.
+- Vignettes and articles now use **Quarto**.
 
 ### New methods
 
@@ -129,9 +140,9 @@ CRAN release: 2026-03-11
 
 CRAN release: 2026-01-23
 
-- The minimum supported **R** version is now 4.1.0.
+- **R** 4.1.0 is now the minimum supported version.
 - The minimum supported **ggplot2** version is now 4.0.0.
-- **ggplot2** 4.0.0 deprecations have been adapted: in
+- **ggplot2** 4.0.0 deprecations have been addressed: in
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   and
   [`geom_spatvector_text()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md),
@@ -201,7 +212,7 @@ CRAN release: 2025-02-03
 - Factor handling has been improved when several layers have different
   levels. This uses
   [`terra::combineLevels()`](https://rspatial.github.io/terra/reference/factors.html)
-  from **terra** \>= `1.8-10`. See
+  from **terra** \>= 1.8-10. See
   <https://stackoverflow.com/questions/79340152>.
 - `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`,
   `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`,
@@ -268,7 +279,7 @@ CRAN release: 2024-04-22
 - [`glimpse.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
   and
   [`glimpse.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
-  now display information using
+  now display information using the
   [`?tibble::print.tbl_df`](https://tibble.tidyverse.org/reference/formatting.html)
   approach for the header and the footer. The body is still displayed
   transposed as of
@@ -428,7 +439,7 @@ CRAN release: 2022-11-09
 
 CRAN release: 2022-10-12
 
-- Package back on **CRAN**.
+- Package is back on **CRAN**.
 - Libraries **dplyr**, **tidyr** and **tibble** are not attached by
   default. Needed functions are reexported instead.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
@@ -449,7 +460,7 @@ CRAN release: 2022-10-12
 CRAN release: 2022-09-29
 
 - Changes to how **dplyr**, **tibble** and **tidyr** are attached. These
-  packages are listed on ‘Depends’ and are attached before **tidyterra**
+  packages are listed in `Depends` and are attached before **tidyterra**
   when `library` or `require` is called. Messages on load can be
   suppressed with `suppressPackageStartupMessages(library(tidyterra))`.
 
@@ -496,7 +507,7 @@ CRAN release: 2022-05-24
 ## tidyterra 0.0.1
 
 - Performance has been improved by avoiding conversion to **tibble** as
-  much as possible, using `data.table` objects internally instead of
+  much as possible, using **data.table** objects internally instead of
   `tibble` objects and adding compatibility with **dtplyr**.
 - [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md)
   now handles tibbles with characters and factors.

@@ -20,7 +20,7 @@ in a style familiar from tabular data workflows.
 recommended because **tidyterra** functions call the corresponding
 **terra** equivalents when possible.
 
-## A note for advanced **terra** users
+## A note for advanced terra users
 
 **tidyterra** is not optimized for performance. Operations such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) and
@@ -33,19 +33,19 @@ fewer than 10,000,000 data slots, for example
 
 ## Get started with tidyterra
 
-Load **tidyterra** together with core tidyverse packages:
+Load **tidyterra** together with core **tidyverse** packages:
 
 ``` r
 
 library(tidyterra)
 #> 
-#> Attaching package: 'tidyterra'
+#> Adjuntando el paquete: 'tidyterra'
 #> The following object is masked from 'package:stats':
 #> 
 #>     filter
 library(dplyr)
 #> 
-#> Attaching package: 'dplyr'
+#> Adjuntando el paquete: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
@@ -57,7 +57,7 @@ library(tidyr)
 
 The following methods are available:
 
-| tidyverse method | `SpatVector` | `SpatRaster` |
+| **tidyverse** method | `SpatVector` | `SpatRaster` |
 |----|----|----|
 | [`tibble::as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html) | ✔️ | ✔️ |
 | [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) | ✔️ | ✔️ Select layers |
@@ -153,7 +153,7 @@ In this example we:
 - Renamed `newcol` to `difference`.
 
 Throughout these steps, core properties of the `SpatRaster`, including
-number of cells, rows, columns, extent, resolution and CRS, remain
+the number of cells, rows, columns, extent, resolution and CRS, remain
 unchanged. Other verbs such as
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html),
 [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) or

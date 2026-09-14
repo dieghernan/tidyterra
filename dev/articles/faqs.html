@@ -44,7 +44,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul>
@@ -115,7 +115,7 @@
 
 
 
-    <p>This article collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using <strong>tidyterra</strong>, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search previous questions using the following links.</p>
+    <p>This article collects <a href="https://github.com/dieghernan/tidyterra/discussions" class="external-link">frequently asked questions</a> about using <strong>tidyterra</strong>, with a focus on the integration of <strong>terra</strong> and <strong>ggplot2</strong>. You can ask for help or search existing questions using the following links.</p>
 <p>You can also ask on <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link"><code>tidyterra</code></a>.</p>
 <ul>
 <li>Report a bug [<a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">link</a>].</li>
@@ -367,7 +367,7 @@ Figure 2: Contour labels with tidyterra.
 <img src="faqs_files/figure-html/fig-metr-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 3: Alternative (metR): contour labeling combining tidyterra and the <strong>metR</strong> package with customized styling.
+Figure 3: Alternative (<strong>metR</strong>): contour labeling combining <strong>tidyterra</strong> and the <strong>metR</strong> package with customized styling.
 </figcaption></figure>
 </div>
 </div>
@@ -467,7 +467,7 @@ Figure 5: Changing default ggplot2 color palettes.
 </div>
 </section><section class="level2"><h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the <code>maxcell</code> argument and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
+<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are usually provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the <code>maxcell</code> argument and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -813,8 +813,7 @@ Figure 9: Color tables: native plot with the <strong>terra</strong> package.
 Figure 10: Color tables: <strong>tidyterra</strong> methods.
 </figcaption></figure>
 </div>
-</section><section class="level2"><h2 id="gganimate">Use with <strong>gganimate</strong>
-<a class="anchor" aria-label="anchor" href="#gganimate"></a>
+</section><section class="level2"><h2 id="gganimate">Use with gganimate<a class="anchor" aria-label="anchor" href="#gganimate"></a>
 </h2>
 <p>Yes. Here is an example, thanks to <a href="https://github.com/frzambra" class="external-link">@frzambra</a>:</p>
 <div class="cell">
@@ -1113,9 +1112,7 @@ Figure 16: Elevation data represented as points with size and transparency scal
 </div>
 </div>
 </div>
-<section class="level3"><h3 id="tidyterra-and-metr">
-<strong>tidyterra</strong> and <strong>metR</strong>
-<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
+<section class="level3"><h3 id="tidyterra-and-metr">tidyterra and metR<a class="anchor" aria-label="anchor" href="#tidyterra-and-metr"></a>
 </h3>
 <p><strong>metR</strong> provides <strong>ggplot2</strong> extensions, primarily for meteorological data visualization. As shown previously (see <a href="#label-contour">Labeling contours</a>), you can combine both packages to create rich, complex plots.</p>
 <div class="cell">
@@ -1147,7 +1144,7 @@ Figure 16: Elevation data represented as points with size and transparency scal
 <img src="faqs_files/figure-html/fig-metrdemo-1.png" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 17: Relief rendering combining tidyterra for raster plotting and <strong>metR</strong> for terrain relief representation.
+Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plotting and <strong>metR</strong> for terrain relief representation.
 </figcaption></figure>
 </div>
 </div>

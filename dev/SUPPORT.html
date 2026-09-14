@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202205_tidyterra/">Introducing tidyterra</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202210_tidyterra-hillshade/">Hillshade, colors and marginal plots with tidyterra (I)</a></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/">Hillshade, colors and marginal plots with tidyterra (II)</a></li>
-    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful Maps with R (V): Point densities</a></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202312_bertin_dots/">Beautiful maps with R (V): Point densities</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item" href="articles/index.html">More articles...</a></li>
   </ul></li>
@@ -67,22 +67,22 @@
 
 <div id="getting-help-with-tidyterra" class="section level1">
 
-<p>Thanks for using tidyterra! Before filing an issue, there are a few places to explore and pieces to put together to make the process as smooth as possible.</p>
+<p>Before filing an issue, prepare a minimal reproducible example and check the available support channels.</p>
 <div class="section level2">
 <h2 id="make-a-reprex">Make a reprex<a class="anchor" aria-label="anchor" href="#make-a-reprex"></a></h2>
-<p>Start by making a minimal <strong>repr</strong>oducible <strong>ex</strong>ample using the <a href="https://reprex.tidyverse.org/" class="external-link">reprex</a> package. If you haven’t heard of or used reprex before, you’re in for a treat! Seriously, reprex will make all of your R-question-asking endeavors easier (which is a pretty incredible ROI for the five to ten minutes it’ll take you to learn what it’s all about). For additional reprex pointers, check out the <a href="https://www.tidyverse.org/help/" class="external-link">Get help!</a> section of the tidyverse site.</p>
+<p>Start by creating a minimal <strong>repr</strong>oducible <strong>ex</strong>ample with the <a href="https://reprex.tidyverse.org/" class="external-link"><strong>reprex</strong></a> package. For more guidance, see <a href="https://www.tidyverse.org/help/" class="external-link">Get help!</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="where-to-ask">Where to ask?<a class="anchor" aria-label="anchor" href="#where-to-ask"></a></h2>
-<p>Armed with your reprex, the next step is to figure out <a href="https://www.tidyverse.org/help/#where-to-ask" class="external-link">where to ask</a>.</p>
-<ul><li><p>If it’s a question: start with <a href="https://community.rstudio.com/" class="external-link">community.rstudio.com</a>, and/or StackOverflow. There are more people there to answer questions.</p></li>
-<li><p>If it’s a bug: you’re in the right place, <a href="https://github.com/dieghernan/tidyterra/issues/new" class="external-link">file an issue</a>.</p></li>
-<li><p>If you’re not sure: let the community help you figure it out! If your problem <em>is</em> a bug or a feature request, you can easily return here and report it.</p></li>
-</ul><p>Before opening a new issue, be sure to <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">search issues and pull requests</a> to make sure the bug hasn’t been reported and/or already fixed in the development version. By default, the search will be pre-populated with <code>is:issue is:open</code>. You can <a href="https://help.github.com/articles/searching-issues-and-pull-requests/" class="external-link">edit the qualifiers</a> (e.g. <code>is:pr</code>, <code>is:closed</code>) as needed. For example, you’d simply remove <code>is:open</code> to search <em>all</em> issues in the repo, open or closed.</p>
+<p>With your <strong>reprex</strong> ready, decide <a href="https://www.tidyverse.org/help/#where-to-ask" class="external-link">where to ask</a>.</p>
+<ul><li>For questions, start with <a href="https://community.rstudio.com/" class="external-link">Posit Community</a> or <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a>, where more people can help.</li>
+<li>For bugs, <a href="https://github.com/dieghernan/tidyterra/issues/new" class="external-link">file an issue</a>.</li>
+<li>If you are unsure, ask the community. If your problem is a bug or feature request, you can return here and report it.</li>
+</ul><p>Before opening a new issue, <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">search issues and pull requests</a> to make sure the bug has not already been reported or fixed in the development version. By default, the search is pre-populated with <code>is:issue is:open</code>. You can <a href="https://help.github.com/articles/searching-issues-and-pull-requests/" class="external-link">edit the qualifiers</a> as needed, for example, <code>is:pr</code> or <code>is:closed</code>. Remove <code>is:open</code> to search all issues in the repository, whether open or closed.</p>
 </div>
 <div class="section level2">
 <h2 id="what-happens-next">What happens next?<a class="anchor" aria-label="anchor" href="#what-happens-next"></a></h2>
-<p>To be as efficient as possible, development of tidyverse packages tends to be very bursty, so you shouldn’t worry if you don’t get an immediate response. Typically we don’t look at a repo until a sufficient quantity of issues accumulates, then there’s a burst of intense activity as we focus our efforts. That makes development more efficient because it avoids expensive context switching between problems, at the cost of taking longer to get back to you. This process makes a good reprex particularly important because it might be multiple months between your initial report and when we start working on it. If we can’t reproduce the bug, we can’t fix it!</p>
+<p><strong>tidyterra</strong> is maintained by volunteers, so a response may not be immediate. Maintainers may address issues in batches, which can delay responses. A good <strong>reprex</strong> is particularly important because it lets us investigate a problem when we have capacity. If we cannot reproduce a bug, we cannot fix it.</p>
 </div>
 </div>
 

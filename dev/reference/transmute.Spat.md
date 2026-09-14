@@ -3,7 +3,7 @@
 **\[superseded\]**
 
 [`transmute()`](https://dplyr.tidyverse.org/reference/transmute.html)
-creates a new object containing only the specified computations. It's
+creates a new object containing only the specified computations. It is
 superseded because you can perform the same job with
 `mutate(.keep = "none")`.
 

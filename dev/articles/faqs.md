@@ -3,7 +3,7 @@
 This article collects [frequently asked
 questions](https://github.com/dieghernan/tidyterra/discussions) about
 using **tidyterra**, with a focus on the integration of **terra** and
-**ggplot2**. You can ask for help or search previous questions using the
+**ggplot2**. You can ask for help or search existing questions using the
 following links.
 
 You can also ask on [Stack Overflow](https://stackoverflow.com/) using
@@ -244,8 +244,8 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metr-1.png)
 
-Figure 3: Alternative (metR): contour labeling combining tidyterra and
-the **metR** package with customized styling.
+Figure 3: Alternative (**metR**): contour labeling combining
+**tidyterra** and the **metR** package with customized styling.
 
 ## Using a different color scale
 
@@ -325,12 +325,12 @@ Figure 5: Changing default ggplot2 color palettes.
 ## My map tiles are blurry
 
 Blurriness is typically related to the tile source rather than the
-package. Most base tiles are provided in **EPSG:3857**, so verify that
-your tile uses this CRS rather than a different one. If your tile is not
-in **EPSG:3857**, it has likely been reprojected, which involves
-resampling and causes blurriness. To avoid extra resampling, increase
-the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
-with `ggplot2::coord_sf(crs = 3857)`:
+package. Most base tiles are usually provided in **EPSG:3857**, so
+verify that your tile uses this CRS rather than a different one. If your
+tile is not in **EPSG:3857**, it has likely been reprojected, which
+involves resampling and causes blurriness. To avoid extra resampling,
+increase the `maxcell` argument and ensure the **ggplot2** map uses
+**EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
 
 ``` r
 
@@ -607,7 +607,7 @@ method.
 
 Figure 10: Color tables: **tidyterra** methods.
 
-## Use with **gganimate**
+## Use with gganimate
 
 Yes. Here is an example, thanks to
 [@frzambra](https://github.com/frzambra):
@@ -891,7 +891,7 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
 Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
 
-### **tidyterra** and **metR**
+### tidyterra and metR
 
 **metR** provides **ggplot2** extensions, primarily for meteorological
 data visualization. As shown previously (see [Labeling
@@ -925,8 +925,8 @@ ggplot(r, aes(x, y)) +
 
 ![](faqs_files/figure-html/fig-metrdemo-1.png)
 
-Figure 17: Relief rendering combining tidyterra for raster plotting and
-**metR** for terrain relief representation.
+Figure 17: Relief rendering combining **tidyterra** for raster plotting
+and **metR** for terrain relief representation.
 
 [^1]: Digital Surface Model, representing the elevation of the visible
     surface in the corresponding area.

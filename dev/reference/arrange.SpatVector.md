@@ -84,7 +84,7 @@ operate on rows:
 ``` r
 
 library(terra)
-#> terra 1.9.34
+#> terra 1.9.50
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’
