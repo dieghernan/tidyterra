@@ -38,6 +38,14 @@ de los Ríos, A., & Sancho, L. G. (2026). Islands of biodiversity:
 Characterization of lichen flora in Antarctic Nunataks. *Journal of
 Fungi*, *12*(5), 314. <https://doi.org/10.3390/jof12050314>
 
+Arkell, P., de Neri Machado, F., Vicco, A., Cox, V. M., Tanesi, M. Y.,
+Ximenes, D., Hinsley, W., Bosco, F., Gomes, N., Oakley, T., Solano, V.,
+Sheridan, S. L., David, M., Amaral, S., Freitas, L., Draper, A. D. K.,
+Sarmento, N., Soares da Silva, E., Alves, L., … Martins, N. (2026).
+Sero-catalytic and spatial modeling of dengue virus force of infection
+in Timor-Leste. *Nature Communications*.
+<https://doi.org/10.1038/s41467-026-76716-9>
+
 Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
 R., McGuire, K., Cooper, B. S., & Shropshire, J. D. (2026).
 Temperature-sensitive cytoplasmic incompatibility across divergent
