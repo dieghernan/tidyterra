@@ -379,22 +379,18 @@ reproject_raster_on_stat <- function(raster, coords_crs = NA, mask = FALSE) {
   if (coord_crs == crs_terra) {
     return(raster)
   }
+
   init_rast <- raster
-
-  # Create the projection template.
-  template <- terra::project(x = init_rast, y = coord_crs, mask = mask)
-
-  # Try to keep the same number of cells on the template.
-  template <- terra::spatSample(
-    template,
-    terra::ncell(init_rast),
-    as.raster = TRUE,
-    method = "regular"
+  tmpl <- terra::project(terra::rast(init_rast), coord_crs)
+  k <- sqrt(terra::ncell(init_rast) / terra::ncell(tmpl))
+  tmpl <- terra::rast(
+    terra::ext(tmpl),
+    crs = terra::crs(tmpl),
+    nrows = max(1, round(terra::nrow(tmpl) * k)),
+    ncols = max(1, round(terra::ncol(tmpl) * k))
   )
 
-  # Reproject.
-  proj_rast <- terra::project(init_rast, template, mask = mask)
-
+  proj_rast <- terra::project(init_rast, tmpl, mask = mask)
   proj_rast
 }
 
