@@ -491,9 +491,15 @@ resample_spat <- function(r, maxcell = 50000, inform = TRUE) {
   r
 }
 
+spat_layer_class <- function(r) {
+  cls <- rep("numeric", terra::nlyr(r))
+  cls[terra::is.bool(r)] <- "logical"
+  cls[terra::is.factor(r)] <- "factor"
+  cls
+}
+
 check_mixed_cols <- function(r, fn = "tidyterra::geom_spat*") {
-  todf <- terra::as.data.frame(r[1], xy = FALSE)
-  col_classes <- unlist(lapply(todf, class))
+  col_classes <- spat_layer_class(r)
 
   # Treat double and integer values as numeric.
   col_classes <- gsub("integer|numeric|double", "numeric", col_classes)
