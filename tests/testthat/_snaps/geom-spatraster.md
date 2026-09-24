@@ -22,6 +22,16 @@
       * Use `facet_wrap(~lyr)` to facet layers.
       * Use `aes(fill = <name_of_layer>)` to display a single layer.
 
+# mixed layer checks retain all layers matching the first class
+
+    Code
+      result <- check_mixed_cols(layers)
+    Condition
+      Warning:
+      Mixed layer classes found in `tidyterra::geom_spat*()`.
+    Message
+      ! Plotting only layers "above_one" and "equals_one" of class <logical>.
+
 # geom_spatraster reports mixed layer classes
 
     Code

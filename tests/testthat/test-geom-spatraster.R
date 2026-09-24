@@ -161,6 +161,86 @@ test_that("geom_spatraster resamples and projects raster data", {
   expect_equal(data_1, data_nocrs)
 })
 
+test_that("reprojection preserves extent, approximate size and layer values", {
+  r <- terra::rast(
+    nrows = 20,
+    ncols = 30,
+    nlyrs = 2,
+    xmin = -10,
+    xmax = 10,
+    ymin = 35,
+    ymax = 55,
+    crs = "EPSG:4326"
+  )
+  terra::values(r) <- cbind(rep(7, 600), rep(14, 600))
+  names(r) <- c("first", "second")
+  target <- "EPSG:3035"
+  projected_extent <- terra::ext(terra::project(terra::rast(r), target))
+
+  result <- reproject_raster_on_stat(r, target)
+
+  expect_equal(pull_crs(result), pull_crs(target))
+  expect_equal(as.vector(terra::ext(result)), as.vector(projected_extent))
+  expect_equal(terra::nlyr(result), 2)
+  expect_named(result, c("first", "second"))
+  expect_lt(abs(terra::ncell(result) / terra::ncell(r) - 1), 0.05)
+  values <- stats::na.omit(terra::values(result))
+  expect_gt(nrow(values), 0)
+  expect_equal(range(values[, 1]), c(7, 7))
+  expect_equal(range(values[, 2]), c(14, 14))
+})
+
+test_that("reprojection applies the requested mask to raster values", {
+  r <- terra::rast(
+    nrows = 20,
+    ncols = 30,
+    xmin = -10,
+    xmax = 10,
+    ymin = 35,
+    ymax = 55,
+    crs = "EPSG:4326",
+    vals = 7
+  )
+  unmasked <- reproject_raster_on_stat(r, "EPSG:3035")
+  expected <- terra::project(r, terra::rast(unmasked), mask = TRUE)
+
+  result <- reproject_raster_on_stat(r, "EPSG:3035", mask = TRUE)
+
+  expect_equal(terra::values(result), terra::values(expected))
+  expect_gt(sum(is.na(terra::values(result))), 0)
+})
+
+test_that("layer classes distinguish numeric, logical and categorical data", {
+  r <- terra::rast(nrows = 2, ncols = 2, vals = c(1, 2, NA, 1))
+  layers <- c(r, r > 1, terra::as.factor(r), r / 2)
+
+  result <- spat_layer_class(layers)
+
+  expect_identical(result, c("numeric", "logical", "factor", "numeric"))
+})
+
+test_that("layer classes can be checked without raster values", {
+  r <- terra::rast(nrows = 2, ncols = 2, nlyrs = 2)
+  names(r) <- c("first", "second")
+
+  result <- check_mixed_cols(r)
+
+  expect_identical(result, r)
+  expect_identical(spat_layer_class(result), c("numeric", "numeric"))
+})
+
+test_that("mixed layer checks retain all layers matching the first class", {
+  r <- terra::rast(nrows = 2, ncols = 2, vals = c(1, 2, NA, 1))
+  layers <- c(r > 1, r, terra::as.factor(r), r == 1)
+  names(layers) <- c("above_one", "numeric", "category", "equals_one")
+
+  expect_snapshot(result <- check_mixed_cols(layers))
+
+  expect_named(result, c("above_one", "equals_one"))
+  expect_identical(spat_layer_class(result), c("logical", "logical"))
+  expect_equal(terra::values(result), terra::values(layers[[c(1, 4)]]))
+})
+
 test_that("geom_spatraster reports mixed layer classes", {
   skip_on_cran()
 

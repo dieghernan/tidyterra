@@ -1,6 +1,7 @@
 # tidyterra (development version)
 
 - `geom_spatraster()` and `stat_spatraster()` now repair duplicated layer names, keeping each layer in a separate facet (#220).
+- `geom_spatraster()` and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (#222, #223).
 
 # tidyterra 1.3.0
 
