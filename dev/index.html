@@ -448,7 +448,7 @@ A note on performance
 <span>    title <span class="op">=</span> <span class="st">"Average temperature in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Months of April, May and June"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png" alt="Average temperature in Castile and Leon, Spain" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the difference between two months.</span></span>
 <span><span class="va">variation</span> <span class="op">&lt;-</span> <span class="va">rastertemp</span> <span class="op">|&gt;</span></span>
@@ -474,7 +474,7 @@ A note on performance
 <span>    title <span class="op">=</span> <span class="st">"Temperature variation in Castile and Leon (Spain)"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Average temperatures: June vs. May"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png" alt="Temperature variation in Castile and Leon, Spain" width="100%"></p>
 <p><strong>tidyterra</strong> also provides a geom for plotting RGB <code>SpatRaster</code> objects, such as map tiles, with <strong>ggplot2</strong>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rgb_tile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/cyl_tile.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
@@ -485,7 +485,7 @@ A note on performance
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_light</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="co"># Change the CRS and datum (useful for relabeling graticules).</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span>, datum <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png" alt="RGB SpatRaster tile plotted with tidyterra" width="100%"></p>
 <p><strong>tidyterra</strong> provides <strong>ggplot2</strong> scales for plotting maps with hypsometric tints:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">asia</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/asia.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span><span class="op">)</span></span>
@@ -510,7 +510,7 @@ A note on performance
 <span>    legend.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span>, linewidth <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>,</span>
 <span>    legend.direction <span class="op">=</span> <span class="st">"horizontal"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png" alt="Hypsometric map of Asia" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="spatvector-objects">
@@ -540,7 +540,7 @@ A note on performance
 <span><span class="co">#&gt; $ AREA     &lt;dbl&gt; 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233</span></span>
 <span><span class="co">#&gt; $ POP      &lt;dbl&gt; 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…</span></span>
 <span><span class="co">#&gt; $ pop_dens &lt;dbl&gt; 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…</span></span></code></pre></div>
-<p><img src="https://dieghernan.github.io/tidyterra/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%"></p>
+<p><img src="https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png" alt="A SpatVector plotted with tidyterra" width="100%"></p>
 </div>
 </div>
 <div class="section level2">
