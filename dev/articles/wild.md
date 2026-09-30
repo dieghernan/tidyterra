@@ -122,6 +122,10 @@ deadlines for coastal resilience: Rising seas, disruptive tides, and
 risks to coastal infrastructure* \[Technical report\]. Union of
 Concerned Scientists. <https://doi.org/10.47923/2024.15502>
 
+de Carvalho Alves, M. (2026). *Laboratory Manual for Environmental
+Geocomputation with R* (1st ed.). CRC Press.
+<https://doi.org/10.1201/9781003724438>
+
 Di Fabio, A., Aspalter, S., Chakraborty, D., van Loo, M., Rolke, L. M.,
 Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
 performance is driven by site conditions and moderated by functional
