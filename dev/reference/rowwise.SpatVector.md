@@ -11,13 +11,15 @@ implementations in
 [tidyterra](https://CRAN.R-project.org/package=tidyterra) preserve
 row-wise grouping. The exception is
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md),
-which returns a [grouped
-`SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
+which returns a grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
 You can explicitly ungroup with
 [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 or
-[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
-or convert to a grouped `SpatVector` with
+[`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html),
+or convert to a grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
 
 ## Usage

@@ -25,12 +25,13 @@ Useful links:
 
 ## Author
 
-**Maintainer**: Diego Hernangómez <diego.hernangomezherrero@gmail.com>
+**Maintainer**: Diego Hernang\<U+00F3\>mez
+<diego.hernangomezherrero@gmail.com>
 ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
 
 Authors:
 
-- Diego Hernangómez <diego.hernangomezherrero@gmail.com>
+- Diego Hernang\<U+00F3\>mez <diego.hernangomezherrero@gmail.com>
   ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
 
 Other contributors:
