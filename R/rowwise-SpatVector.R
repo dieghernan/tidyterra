@@ -8,10 +8,9 @@
 #'
 #' Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
 #' row-wise grouping. The exception is [summarise.SpatVector()], which returns
-#' a [grouped `SpatVector`][group_by.SpatVector]. You can explicitly ungroup
-#'   with
-#' [ungroup.SpatVector()] or [as_tibble()] or convert to a grouped `SpatVector`
-#' with [group_by.SpatVector()].
+#' a grouped [`SpatVector`][terra::vect]. You can explicitly ungroup with
+#' [ungroup.SpatVector()] or [as_tibble()], or convert to a grouped
+#' [`SpatVector`][terra::vect] with [group_by.SpatVector()].
 #'
 #' @details
 #'

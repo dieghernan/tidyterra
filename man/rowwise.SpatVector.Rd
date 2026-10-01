@@ -29,10 +29,9 @@ This is most useful when a vectorized function does not exist.
 
 Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
 row-wise grouping. The exception is \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}, which returns
-a \link[=group_by.SpatVector]{grouped \code{SpatVector}}. You can explicitly ungroup
-with
-\code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}} or convert to a grouped \code{SpatVector}
-with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
+a grouped \code{\link[terra:vect]{SpatVector}}. You can explicitly ungroup with
+\code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}}, or convert to a grouped
+\code{\link[terra:vect]{SpatVector}} with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }
 \details{
 See \strong{Details} on \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
