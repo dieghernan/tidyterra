@@ -13,7 +13,7 @@
 }
 \arguments{
 \item{data}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}} or a \code{SpatRaster}
-\code{\link[terra:rast]{terra::rast()}}.}
+created with \code{\link[terra:rast]{terra::rast()}}.}
 
 \item{...}{<\code{\link[tidyr:tidyr_tidy_select]{tidy-select}}> Attributes to inspect
 for missing values. If empty, all attributes are used.}
@@ -23,10 +23,10 @@ A \verb{Spat*} object of the same class as \code{data}. See \strong{Methods}.
 }
 \description{
 \itemize{
-\item \code{SpatVector}: \code{drop_na()} method drops geometries where any attribute
+\item \code{\link[terra:vect]{SpatVector}}: \code{drop_na()} drops geometries when any
+attribute specified by \code{...} contains a missing value.
+\item \code{\link[terra:rast]{SpatRaster}}: \code{drop_na()} drops cells when any layer
 specified by \code{...} contains a missing value.
-\item \code{SpatRaster}: \code{drop_na()} method drops cells where any layer specified by
-\code{...} contains a missing value.
 }
 }
 \section{\CRANpkg{terra} equivalent}{
@@ -40,22 +40,23 @@ specified by \code{...} contains a missing value.
 
 Implementation of the \strong{generic} \code{\link[tidyr:drop_na]{tidyr::drop_na()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
 This method operates on attributes, meaning that \code{NA} values are assessed in
 the attributes (columns) of each geometry (row). The result is a
-\code{SpatVector} with potentially fewer
+\code{\link[terra:vect]{SpatVector}} with potentially fewer
 geometries than the input.
 }
 
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#questioning}{\figure{lifecycle-questioning.svg}{options: alt='[Questioning]'}}}{\strong{[Questioning]}}
 
 The implementation of \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}} can be understood as a
 masking method based on the values of the layers (see \code{\link[terra:mask]{terra::mask()}}).
 
-\code{SpatRaster} layers are treated as columns and \code{SpatRaster} cells as
+\code{\link[terra:rast]{SpatRaster}} layers are treated as columns and \code{SpatRaster}
+cells as
 rows, so rows (cells) with any \code{NA} value on any layer become \code{NA}. You can
 also mask the cells (rows) based on the values of specific layers (columns).
 
@@ -67,7 +68,7 @@ Check the \strong{Examples} to have a better understanding of this method.
 \subsection{Feedback needed!}{
 
 Visit \url{https://github.com/dieghernan/tidyterra/issues}. The implementation
-of this method for \code{SpatRaster} may change in the future.
+of this method for \code{\link[terra:rast]{SpatRaster}} may change in the future.
 }
 
 }

@@ -7,7 +7,7 @@
 \alias{geom_spatraster_contour}
 \alias{geom_spatraster_contour_text}
 \alias{geom_spatraster_contour_filled}
-\title{Plot \code{SpatRaster} contours}
+\title{Plot \code{\link[terra:rast]{SpatRaster}} contours}
 \usage{
 geom_spatraster_contour(
   mapping = NULL,
@@ -123,7 +123,7 @@ combining with them.}
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the dateline in equal-area projections. This argument is passed
-to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
+to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{\link[terra:rast]{SpatRaster}}.}
 
 \item{size.unit}{How the \code{size} aesthetic is interpreted: as millimetres
 (\code{"mm"}, default), points (\code{"pt"}), centimetres (\code{"cm"}), inches (\code{"in"}),
@@ -146,7 +146,8 @@ the isolines. Uses \code{\link[isoband:label_placer_minmax]{label_placer_minmax(
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-These geoms create contours from \code{SpatRaster} objects. To create contours
+These geoms create contours from \code{\link[terra:rast]{SpatRaster}} objects. To
+create contours
 from a specific layer, map that layer to the \code{z} aesthetic with
 \code{aes(z = layer_name)}. Otherwise, all layers are used to create contours.
 See also the \strong{Facets} section.
@@ -225,11 +226,11 @@ longer available.
 \section{Coordinates}{
 
 
-When the \code{SpatRaster} does not have a CRS, that is,
+When the \code{\link[terra:rast]{SpatRaster}} does not have a CRS, that is,
 \code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} objects that have a CRS, the geom uses
+On \code{\link[terra:rast]{SpatRaster}} objects that have a CRS, the geom uses
 \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -238,7 +239,8 @@ On \code{SpatRaster} objects that have a CRS, the geom uses
 
 
 You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of
-the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+the \code{\link[terra:rast]{SpatRaster}} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for
+details.
 }
 
 \examples{

@@ -1,7 +1,10 @@
-#' Bind multiple `SpatVector`, `sf` and data frame objects by column
+#' Bind multiple [`SpatVector`][terra::vect], [`sf`][sf::st_sf] and data frame
+#' objects by column
 #'
 #' @description
-#' Bind any number of `SpatVector`, data frames and `sf` objects by column,
+#' Bind any number of [`SpatVector`][terra::vect] objects, data frames and
+#' [`sf`][sf::st_sf] objects by
+#' column,
 #' making a wider result. This is similar to `do.call(cbind, data_frames)`.
 #'
 #' Where possible, prefer using a [join][mutate-joins.SpatVector] to
@@ -19,12 +22,14 @@
 #' @inheritParams dplyr::bind_cols
 #'
 #' @param ... Objects to combine. The first argument must be a `SpatVector`.
-#'   Each subsequent argument can be a `SpatVector`, `sf` object or data frame.
+#' Each subsequent argument can be a `SpatVector`, [`sf`][sf::st_sf] object or
+#'   data frame.
 #'   Inputs are [recycled][vctrs::theory-faq-recycling] to the same length,
 #'   then matched by position.
 #'
-#' @returns A `SpatVector` with the corresponding columns. The geometry and CRS
-#' correspond to the first `SpatVector` in `...`.
+#' @returns A [`SpatVector`][terra::vect] object with the combined columns. Its
+#'   geometry and
+#' CRS come from the first [`SpatVector`][terra::vect] in `...`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -32,7 +37,8 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the [dplyr::bind_cols()] function for `SpatVector`
+#' Implementation of the [dplyr::bind_cols()] function for
+#'   [`SpatVector`][terra::vect]
 #' objects. For the second and subsequent arguments in `...`, the geometry is
 #' not `cbind`ed and only the data frame-like columns are kept.
 #'

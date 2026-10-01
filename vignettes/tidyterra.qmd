@@ -103,7 +103,7 @@ The following methods are available:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** through `sf::st_as_sf()` | To a **tibble** with coordinates. |
+| `ggplot2::fortify()` | ✔️ To an `sf` object through `sf::st_as_sf()` | To a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -152,7 +152,7 @@ mod
 #> max values  :   5.307511, 16.740898, 21.113781
 ```
 
-In this example we:
+In this example, we:
 
 - Removed the first layer (`tavg_04`).
 - Created a new layer `newcol` as the difference between `tavg_06` and
@@ -201,8 +201,8 @@ v_lux |>
 #>               (4.99,40.7]     9  194391   209.778
 ```
 
-As with `SpatRaster`, essential properties such as geometry and CRS are
-preserved during these operations.
+The CRS is preserved during these operations. By default, `summarise()`
+merges geometries within each group.
 
 ## Plotting with ggplot2
 
@@ -228,7 +228,7 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./fig-faceted-1.png" alt="Faceted map using a SpatRaster object." width="100%" />
+<img src="./fig-faceted-1.png" alt="Three raster maps of average temperature in Castile and Leon, one each for April, May and June. Fill color encodes degrees Celsius. Temperatures increase across the three months." width="100%" />
 <p class="caption">Faceted map using a SpatRaster object.</p>
 </div>
 
@@ -248,7 +248,7 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./fig-contourlines-1.png" alt="Contour line plot for a SpatRaster object." width="100%" />
+<img src="./fig-contourlines-1.png" alt="Elevation raster map of a volcanic landscape with contour lines every five units from 80 to 200. The lines trace areas of equal elevation over the colored terrain." width="100%" />
 <p class="caption">Contour line plot for a SpatRaster object.</p>
 </div>
 
@@ -263,7 +263,7 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./fig-contourfilled-1.png" alt="Filled contour plot for a SpatRaster object." width="100%" />
+<img src="./fig-contourfilled-1.png" alt="Filled contour map of volcanic terrain. Discrete color bands represent successive elevation ranges, outlining the higher central terrain." width="100%" />
 <p class="caption">Filled contour plot for a SpatRaster object.</p>
 </div>
 
@@ -289,7 +289,7 @@ rgb_plot
 ```
 
 <div class="figure">
-<img src="./fig-rgb-1.png" alt="Map combining an RGB SpatRaster object and a SpatVector object." width="100%" />
+<img src="./fig-rgb-1.png" alt="RGB map tile of Castile and Leon with province boundaries drawn over the imagery. The boundary outlines remain visible against the raster background." width="100%" />
 <p class="caption">Map combining an RGB SpatRaster object and a SpatVector object.</p>
 </div>
 
@@ -334,7 +334,7 @@ ggplot() +
 ```
 
 <div class="figure">
-<img src="./fig-hypso-1.png" alt="Map of Asia including hypsometric tints." width="100%" />
+<img src="./fig-hypso-1.png" alt="Hypsometric map of Asia. Fill color encodes elevation in meters, from seafloor depths near minus 10,000 meters through sea level to mountains above 5,000 meters." width="100%" />
 <p class="caption">Map of Asia including hypsometric tints.</p>
 </div>
 
@@ -356,11 +356,11 @@ ggplot(v_lux) +
 ```
 
 <div class="figure">
-<img src="./fig-lux_ggplot-1.png" alt="Choropleth map with a SpatVector object." width="100%" />
+<img src="./fig-lux_ggplot-1.png" alt="Choropleth map of Luxembourg cantons. Fill color groups population counts into ranges, and labels identify the cantons." width="100%" />
 <p class="caption">Choropleth map with a SpatVector object.</p>
 </div>
 
-Internally, **tidyterra** converts `SpatVector` objects to **sf** with
+Internally, **tidyterra** converts `SpatVector` objects to `sf` objects with
 `sf::st_as_sf()` and then uses `ggplot2::geom_sf()` to render the layer.
 
 You can also aggregate `SpatVector` objects:
@@ -385,7 +385,7 @@ v_lux |>
 ```
 
 <div class="figure">
-<img src="./fig-aggregate-1.png" alt="Dissolving SpatVector objects by group." width="100%" />
+<img src="./fig-aggregate-1.png" alt="Choropleth map of Luxembourg with cantons dissolved into three population groups. Fill color encodes total population for each merged area, and labels identify the groups." width="100%" />
 <p class="caption">Dissolving SpatVector objects by group.</p>
 </div>
 
@@ -410,6 +410,6 @@ v_lux |>
 ```
 
 <div class="figure">
-<img src="./fig-aggregate-2.png" alt="Dissolving SpatVector objects by group, keeping internal boundaries." width="100%" />
-<p class="caption">Dissolving SpatVector objects by group, keeping internal boundaries.</p>
+<img src="./fig-aggregate-2.png" alt="Choropleth map of Luxembourg with cantons assigned to three population groups. Fill color encodes total population and internal canton boundaries remain visible within each group." width="100%" />
+<p class="caption">Aggregating SpatVector objects by group, keeping internal boundaries.</p>
 </div>

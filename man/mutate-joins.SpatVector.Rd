@@ -7,7 +7,7 @@
 \alias{left_join.SpatVector}
 \alias{right_join.SpatVector}
 \alias{full_join.SpatVector}
-\title{Mutating joins for \code{SpatVector} objects}
+\title{Mutating joins for \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{inner_join}{SpatVector}(
   x,
@@ -53,7 +53,8 @@
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. If a
-\code{SpatVector} or \code{sf} object is provided, this method returns an error. See
+\code{\link[terra:vect]{SpatVector}} or \code{\link[sf:st_sf]{sf}} object is provided, this
+method returns an error. See
 \code{\link[terra:intersect]{terra::intersect()}} for spatial joins.}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -109,7 +110,7 @@ inequality conditions.
 }}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 Mutating joins add columns from \code{y} to \code{x}, matching observations based on
@@ -128,7 +129,7 @@ See \code{\link[dplyr:inner_join]{dplyr::inner_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:inner_join]{dplyr::inner_join()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.

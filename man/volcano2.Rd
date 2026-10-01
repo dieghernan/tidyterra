@@ -25,7 +25,8 @@ the government agency that provides free online access to New Zealand's
 most up-to-date land and seabed data.
 }
 \note{
-Information needed for regenerating the original \code{SpatRaster} file:
+Information needed for regenerating the original \code{\link[terra:rast]{SpatRaster}}
+file:
 \itemize{
 \item resolution: \code{c(5, 5)}
 \item extent: \verb{1756969, 1757579, 5917003, 5917873} (xmin, xmax, ymin, ymax)

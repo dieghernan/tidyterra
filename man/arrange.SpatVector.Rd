@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{arrange.SpatVector}
 \alias{arrange.SpatVector}
-\title{Order a \code{SpatVector} using column values}
+\title{Order a \code{\link[terra:vect]{SpatVector}} using column values}
 \usage{
 \method{arrange}{SpatVector}(.data, ..., .by_group = FALSE, .locale = NULL)
 }
@@ -15,7 +15,7 @@ functions of variables. Use \code{\link[dplyr:desc]{desc()}} to sort a variable 
 order.}
 
 \item{.by_group}{If \code{TRUE}, sort first by grouping variable. This applies to
-grouped \code{SpatVector} objects only.}
+grouped \code{\link[terra:vect]{SpatVector}} objects only.}
 
 \item{.locale}{The locale to sort character vectors in.
 \itemize{
@@ -36,7 +36,7 @@ letters. This is explained in more detail on the \link[dplyr:dplyr-locale]{local
 help page under the \verb{Default locale} section.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \code{arrange.SpatVector()} orders the geometries of a \code{SpatVector} by the
@@ -52,7 +52,7 @@ values of selected columns.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:arrange]{dplyr::arrange()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 
 \examples{

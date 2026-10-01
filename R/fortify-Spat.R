@@ -1,7 +1,8 @@
 #' Fortify `Spat*` objects
 #'
 #' @description
-#' Fortify `SpatRaster` and `SpatVector` objects to data frames. This provides
+#' Fortify [`SpatRaster`][terra::rast] and [`SpatVector`][terra::vect] objects
+#' to data frames. This provides
 #' native compatibility with [ggplot2::ggplot()].
 #'
 #' These methods are now implemented as wrappers around [`tidy.Spat`] methods.
@@ -24,7 +25,7 @@
 #' @returns
 #'
 #' [fortify.SpatVector()], [fortify.SpatGraticule()] and [fortify.SpatExtent()]
-#' return a [`sf`][sf::st_sf] object.
+#' return an [`sf`][sf::st_sf] object.
 #'
 #' [fortify.SpatRaster()] returns a [tibble][tibble::tbl_df]. See **Methods**.
 #'
@@ -33,32 +34,37 @@
 #' Implementation of the **generic** [ggplot2::fortify()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
-#' Returns a tibble that can be used with `ggplot2::geom_*`, such as
+#' Returns a [tibble][tibble::tbl_df] that can be used with `ggplot2::geom_*`,
+#' such as
 #' [ggplot2::geom_point()] and [ggplot2::geom_raster()].
 #'
-#' The resulting tibble includes coordinates in the `x` and `y` columns. The
+#' The resulting [tibble][tibble::tbl_df] includes coordinates in the `x` and
+#' `y` columns. The
 #' values of each layer are added as extra columns using the layer names from
-#' the `SpatRaster`.
+#' the [`SpatRaster`][terra::rast].
 #'
-#' The CRS of the `SpatRaster` can be retrieved with
+#' The CRS of the [`SpatRaster`][terra::rast] can be retrieved with
 #' `attr(fortifiedSpatRaster, "crs")`.
 #'
-#' You can convert the fortified object back to a `SpatRaster` with
+#' You can convert the fortified object back to a [`SpatRaster`][terra::rast]
+#'   with
 #' [as_spatraster()].
 #'
-#' When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
+#' When `pivot = TRUE`, the [`SpatRaster`][terra::rast] is fortified in long
+#' format (see
 #' [tidyr::pivot_longer()]). The fortified object has the following columns:
 #'
 #' - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
-#' - `lyr`: Name of the `SpatRaster` layer associated with `value`.
+#' - `lyr`: Name of the [`SpatRaster`][terra::rast] layer associated with
+#'   `value`.
 #' - `value`: Cell value for the corresponding `lyr`.
 #'
 #' This option can be useful when combining several `geom_*` layers or when
 #' faceting.
 #'
-#' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
+#' ## [`SpatVector`][terra::vect], `SpatGraticule` and `SpatExtent`
 #'
 #' Returns an [`sf`][sf::st_sf] object that can be used with
 #' [ggplot2::geom_sf()].

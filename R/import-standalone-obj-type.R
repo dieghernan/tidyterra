@@ -68,7 +68,7 @@
 #' @param value Whether to describe the value of `x`. Special values
 #'   like `NA` or `""` are always described.
 #' @param length Whether to mention the length of vectors and lists.
-#' @return A string describing the type. Starts with an indefinite
+#' @returns A string describing the type. Starts with an indefinite
 #'   article, e.g. "an integer vector".
 #' @noRd
 obj_type_friendly <- function(x, value = TRUE) {
@@ -276,7 +276,7 @@ vec_type_friendly <- function(x, length = FALSE) {
 
 #' Return OO type
 #' @param x Any R object.
-#' @return One of `"bare"` (for non-OO objects), `"S3"`, `"S4"`,
+#' @returns One of `"bare"` (for non-OO objects), `"S3"`, `"S4"`,
 #'   `"R6"`, or `"S7"`.
 #' @noRd
 obj_type_oo <- function(x) {

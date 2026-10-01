@@ -1,9 +1,9 @@
-#' Nest `SpatVector` rows
+#' Nest [`SpatVector`][terra::vect] rows
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' `nest()` creates list-columns of `SpatVector` objects.
+#' `nest()` creates list-columns of [`SpatVector`][terra::vect] objects.
 #'
 #' @rdname nest.SpatVector
 #'
@@ -16,7 +16,8 @@
 #' @inheritParams tidyr::nest
 #'
 #' @param .data A `SpatVector`.
-#' @returns A tibble with one or more list-columns of `SpatVector` objects.
+#' @returns A [tibble][tibble::tbl_df] with one or more list-columns of
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -24,11 +25,13 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::nest()] method for `SpatVector`
+#' Implementation of the **generic** [tidyr::nest()] method for
+#'   [`SpatVector`][terra::vect]
 #' objects.
 #'
 #' The geometry column must be nested with the other attributes that form each
-#' nested `SpatVector`. These nested list-columns contain `SpatVector` objects
+#' nested [`SpatVector`][terra::vect]. These nested list-columns contain
+#'   `SpatVector` objects
 #' and cannot be passed directly to [tidyr::unnest()].
 #'
 #' @encoding UTF-8

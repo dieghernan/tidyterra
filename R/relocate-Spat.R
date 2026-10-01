@@ -35,13 +35,14 @@
 #' Implementation of the **generic** [dplyr::relocate()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
-#' Relocates layers of a `SpatRaster`.
+#' Relocates layers of a [`SpatRaster`][terra::rast].
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
-#' The result is a `SpatVector` with the attributes in a different order.
+#' The result is a [`SpatVector`][terra::vect] with the attributes in a
+#'   different order.
 #'
 #' @encoding UTF-8
 #' @export

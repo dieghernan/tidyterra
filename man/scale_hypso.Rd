@@ -216,7 +216,7 @@ colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
 \item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{TRUE}.}
+The default is \code{FALSE}.}
 
 \item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
 The default (\code{TRUE}) removes unused factors.}
@@ -254,8 +254,8 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 }}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-\code{fill/colour} aesthetics.
+A \CRANpkg{ggplot2} scale for the \code{fill} or \code{colour} aesthetic.
+\code{hypso.colors()} and \code{hypso.colors2()} return a character vector of colors.
 }
 \description{
 Implementation of a selection of gradient palettes available in
@@ -297,21 +297,21 @@ full range of arguments accepted by these scales.
 On \verb{scale_*_hypso_tint_*} palettes, the position of the gradients and
 the limits of the palette are redefined. Instead of treating the color
 palette as a continuous gradient, they are rescaled to act as a hypsometric
-tint. A rough description of these tints are:
+tint. These tints roughly correspond to the following values:
 \itemize{
 \item Blue colors: Negative values.
-\item Green colors: 0 to 1.000 values.
-\item Browns: 1000 to 4.000 values.
-\item Whites: Values higher than 4.000.
+\item Green colors: Values from 0 to 1,000.
+\item Browns: Values from 1,000 to 4,000.
+\item Whites: Values above 4,000.
 }
 
-The following orientation varies depending on the palette definition (see
+These ranges vary depending on the palette definition (see
 \link{hypsometric_tints_db} for an example of how this can be achieved).
 
 The palette setup may not always be suitable for your specific data. For
-example, a \code{SpatRaster} of small parts of the globe (and
+example, a \code{\link[terra:rast]{SpatRaster}} of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
-example, a \code{SpatRaster} with a range of values on \verb{[100, 200]} appears
+example, a \code{SpatRaster} with values in the range \verb{[100, 200]} appears
 almost as a uniform color. This can be adjusted using the \code{limits}/\code{values}
 arguments.
 
@@ -441,7 +441,7 @@ par(opar)
 \link{hypsometric_tints_db}, \code{\link[terra:plot]{terra::plot()}}, \code{\link[terra:minmax]{terra::minmax()}},
 \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}
 
-See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
+See also \CRANpkg{ggplot2} documentation on additional \code{...} arguments.
 
 Other color scales, palettes and hypsometric tints:
 \code{\link{scale_coltab}},

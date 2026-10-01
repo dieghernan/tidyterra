@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{pivot_wider.SpatVector}
 \alias{pivot_wider.SpatVector}
-\title{Pivot \code{SpatVector} from long to wide}
+\title{Pivot \code{\link[terra:vect]{SpatVector}} from long to wide}
 \usage{
 \method{pivot_wider}{SpatVector}(
   data,
@@ -125,10 +125,11 @@ This is similar to grouping by the \code{id_cols} then summarizing the
 unused columns using \code{unused_fn}.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-\code{\link[=pivot_wider]{pivot_wider()}} "widens" a \code{SpatVector}, increasing the number of columns
+\code{\link[=pivot_wider]{pivot_wider()}} "widens" a \code{\link[terra:vect]{SpatVector}}, increasing the number
+of columns
 and decreasing the number of rows. The inverse transformation is
 \code{\link[=pivot_longer.SpatVector]{pivot_longer.SpatVector()}}.
 }
@@ -136,7 +137,7 @@ and decreasing the number of rows. The inverse transformation is
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_wider]{tidyr::pivot_wider()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{data}.

@@ -116,7 +116,7 @@ beyond the number of rows in the input are silently ignored. See
 \item{.preserve}{Ignored for \verb{Spat*} objects.}
 
 \item{.keep_extent}{Logical. If \code{TRUE}, keep the extent of the resulting
-\code{SpatRaster}. See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
+\code{\link[terra:rast]{SpatRaster}}. See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
 
 \item{.by, by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
@@ -179,12 +179,13 @@ It includes helpers for common use cases:
 cells/geometries.
 \item \code{slice_sample()} randomly selects cells/geometries.
 \item \code{slice_rows()} and \code{slice_cols()} subset entire rows or columns of a
-\code{SpatRaster}.
+\code{\link[terra:rast]{SpatRaster}}.
 \item \code{slice_colrows()} subsets regions of the \code{SpatRaster} by row and column
 position of a \code{SpatRaster}.
 }
 
-You can get a skeleton of your \code{SpatRaster} with the cell, column and row
+You can get a skeleton of your \code{\link[terra:rast]{SpatRaster}} with the cell,
+column and row
 index with \code{\link[=as_coordinates]{as_coordinates()}}.
 
 See \strong{Methods} for details.
@@ -200,18 +201,20 @@ See \strong{Methods} for details.
 
 Implementation of the \strong{generic} \code{\link[dplyr:slice]{dplyr::slice()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
-The result is a \code{SpatRaster} with the CRS and resolution of the input and
+The result is a \code{\link[terra:rast]{SpatRaster}} with the CRS and resolution of
+the input and
 the values of the selected cells, columns or rows.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
 The non-selected cells have a value of \code{NA}.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{SpatVector} where the attributes of the selected
+The result is a \code{\link[terra:vect]{SpatVector}} where the attributes of the
+selected
 geometries are preserved. If \code{.data} is a
 \link[=is_grouped_spatvector]{grouped} \code{SpatVector}, the operation will be
 performed on each group, so that (e.g.) \code{slice_head(df, n = 5)} will select

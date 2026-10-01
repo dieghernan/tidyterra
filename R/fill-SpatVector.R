@@ -1,9 +1,10 @@
-#' Fill in missing values with previous or next value on a `SpatVector`
+#' Fill in missing values with previous or next value on a
+#'   [`SpatVector`][terra::vect]
 #'
 #' @description
 #'
 #' Fills missing values in selected columns using the next or previous entry.
-#' This is useful in the common output format where values are not repeated,
+#' This is useful in the common output format where values are not repeated
 #' and are only recorded when they change.
 #'
 #' @rdname fill.SpatVector
@@ -18,16 +19,18 @@
 #' @inheritParams tidyr::fill
 #'
 #' @param data A `SpatVector`.
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::fill()] method for `SpatVector`
+#' Implementation of the **generic** [tidyr::fill()] method for
+#'   [`SpatVector`][terra::vect]
 #' objects.
 #'
 #' @section Grouped `SpatVector`:
 #'
-#' With grouped `SpatVector` objects created by [group_by.SpatVector()],
+#' With grouped [`SpatVector`][terra::vect] objects created by
+#'   [group_by.SpatVector()],
 #' `fill()` is applied _within_ each group and does not fill across group
 #' boundaries.
 #'

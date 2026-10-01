@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{cross_join.SpatVector}
 \alias{cross_join.SpatVector}
-\title{Cross joins for \code{SpatVector} objects}
+\title{Cross joins for \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{cross_join}{SpatVector}(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
 }
@@ -11,7 +11,8 @@
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. If a
-\code{SpatVector} or \code{sf} object is provided, this method returns an error.}
+\code{\link[terra:vect]{SpatVector}} or \code{\link[sf:st_sf]{sf}} object is provided, this
+method returns an error.}
 
 \item{...}{Additional arguments passed to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 
@@ -25,7 +26,7 @@ it is a potentially expensive operation so you must opt into it.}
 Should be a character vector of length 2.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -38,7 +39,7 @@ See \code{\link[dplyr:cross_join]{dplyr::cross_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:cross_join]{dplyr::cross_join()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 The geometry column has sticky behavior. The result repeats each geometry in
 \code{x} once for every row in \code{y}.

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{nest.SpatVector}
 \alias{nest.SpatVector}
-\title{Nest \code{SpatVector} rows}
+\title{Nest \code{\link[terra:vect]{SpatVector}} rows}
 \usage{
 \method{nest}{SpatVector}(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)
 }
@@ -44,12 +44,13 @@ outer names with \code{names_sep} automatically stripped. This makes
 \code{names_sep} roughly symmetric between nesting and unnesting.}
 }
 \value{
-A tibble with one or more list-columns of \code{SpatVector} objects.
+A \link[tibble:tbl_df]{tibble} with one or more list-columns of
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-\code{nest()} creates list-columns of \code{SpatVector} objects.
+\code{nest()} creates list-columns of \code{\link[terra:vect]{SpatVector}} objects.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -60,11 +61,13 @@ A tibble with one or more list-columns of \code{SpatVector} objects.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:nest]{tidyr::nest()}} method for \code{SpatVector}
+Implementation of the \strong{generic} \code{\link[tidyr:nest]{tidyr::nest()}} method for
+\code{\link[terra:vect]{SpatVector}}
 objects.
 
 The geometry column must be nested with the other attributes that form each
-nested \code{SpatVector}. These nested list-columns contain \code{SpatVector} objects
+nested \code{\link[terra:vect]{SpatVector}}. These nested list-columns contain
+\code{SpatVector} objects
 and cannot be passed directly to \code{\link[tidyr:unnest]{tidyr::unnest()}}.
 }
 

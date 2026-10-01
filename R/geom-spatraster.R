@@ -1,11 +1,13 @@
-#' Plot `SpatRaster` objects
+#' Plot [`SpatRaster`][terra::rast] objects
 #'
 #' @description
 #'
-#' This geom plots `SpatRaster` objects (see [terra::rast()]). It is designed
+#' This geom plots [`SpatRaster`][terra::rast] objects (see [terra::rast()]). It
+#'   is designed
 #' to plot the object by layers, as [terra::plot()] does.
 #'
-#' For plotting `SpatRaster` objects as map tiles, such as RGB `SpatRaster`
+#' For plotting [`SpatRaster`][terra::rast] objects as map tiles, such as RGB
+#' [`SpatRaster`][terra::rast] objects,
 #' objects, use
 #' [geom_spatraster_rgb()].
 #'
@@ -26,7 +28,7 @@
 #'
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
 #'   **Aesthetics**, especially the use of the `fill` and `alpha` aesthetics
-#'   with `SpatRaster` layers.
+#'   with [`SpatRaster`][terra::rast] layers.
 #'
 #' @param na.rm If `TRUE`, the default, missing values are silently removed. If
 #'   `FALSE`, missing values are removed with a warning.
@@ -44,7 +46,7 @@
 #' @param mask_projection Logical, defaults to `FALSE`. If `TRUE`, mask out
 #'   areas outside the input extent. For example, to avoid data wrapping
 #'   around the dateline in equal-area projections. This argument is passed
-#'   to [terra::project()] when reprojecting the `SpatRaster`.
+#'   to [terra::project()] when reprojecting the [`SpatRaster`][terra::rast].
 #'
 #' @returns A \CRANpkg{ggplot2} layer.
 #' @section \CRANpkg{terra} equivalent:
@@ -53,11 +55,11 @@
 #'
 #' @section Coordinates:
 #'
-#' When the `SpatRaster` does not have a CRS, that is,
+#' When the [`SpatRaster`][terra::rast] does not have a CRS, that is,
 #' `terra::crs(rast) == ""`, the geom does not make any assumption about the
 #' scales.
 #'
-#' On `SpatRaster` objects that have a CRS, the geom uses
+#' On [`SpatRaster`][terra::rast] objects that have a CRS, the geom uses
 #' [ggplot2::coord_sf()] to adjust the scales. This means that the
 #' **`SpatRaster` may be reprojected**.
 #'
@@ -69,12 +71,13 @@
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' If `fill` is not provided, `geom_spatraster()` creates a
-#' \CRANpkg{ggplot2} layer with all the layers of the `SpatRaster`
-#' object. Use `facet_wrap(~lyr)` to display the `SpatRaster`
+#' \CRANpkg{ggplot2} layer with all the layers of the
+#'   [`SpatRaster`][terra::rast]
+#' object. Use `facet_wrap(~lyr)` to display its layers.
 #' layers.
 #'
 #' If `fill` is used, it should contain the name of one layer that is present
-#' on the `SpatRaster` (for example,
+#' on the [`SpatRaster`][terra::rast] (for example,
 #' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can
 #' be retrieved using `names(rast)`.
 #'
@@ -85,14 +88,16 @@
 #' `fill` can use computed variables.
 #'
 #' For `alpha`, use a computed variable or the name of one layer that is
-#' present on the `SpatRaster`. When `alpha` is a layer name, it can refer to
+#' present on the [`SpatRaster`][terra::rast]. When `alpha` is a layer name, it
+#'   can refer to
 #' the same layer as `fill` or to another layer in the `SpatRaster`. See section
 #' **Computed variables**.
 #'
 #' @section Facets:
 #'
 #' You can use `facet_wrap(~lyr)` to create a faceted plot for each layer of
-#' the `SpatRaster` object. See [ggplot2::facet_wrap()] for details.
+#' the [`SpatRaster`][terra::rast] object. See [ggplot2::facet_wrap()] for
+#'   details.
 #'
 #' @section Computed variables:
 #'
@@ -100,7 +105,7 @@
 #' aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 #' [ggplot2::after_stat()]).
 #'
-#' - `after_stat(value)`: Cell values of the `SpatRaster`.
+#' - `after_stat(value)`: Cell values of the [`SpatRaster`][terra::rast].
 #' - `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when
 #'   `alpha` is the name of a layer.
 #' - `after_stat(lyr)`: Name of the layer.

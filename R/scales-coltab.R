@@ -1,8 +1,9 @@
-#' Discrete scales based on `SpatRaster` color tables
+#' Discrete scales based on [`SpatRaster`][terra::rast] color tables
 #'
 #' @description
 #'
-#' Some categorical `SpatRaster` objects may have an associated color table.
+#' Some categorical [`SpatRaster`][terra::rast] objects may have an associated
+#'   color table.
 #' These functions generate scales and color vectors based on the color table
 #' from [terra::coltab()] associated with a `SpatRaster`.
 #'
@@ -36,8 +37,10 @@
 #'   See argument `alpha` in [scale_fill_terrain_d()].
 #'
 #' @returns
-#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-#' `fill/colour` aesthetics.
+#' A \CRANpkg{ggplot2} scale for the `fill` or `colour` aesthetic.
+#' If no color table is available, the scale functions return a blank layer.
+#' `get_coltab_pal()` returns a named character vector of colors, or `NULL` if
+#' `x` is not a [`SpatRaster`][terra::rast] object with a color table.
 #'
 #' @encoding UTF-8
 #' @export

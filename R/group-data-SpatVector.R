@@ -1,10 +1,12 @@
-#' Grouping metadata for `SpatVector` objects
+#' Grouping metadata for [`SpatVector`][terra::vect] objects
 #'
 #' @description
-#' This collection of functions accesses data about grouped `SpatVector`
+#' This collection of functions accesses data about grouped
+#'   [`SpatVector`][terra::vect]
 #' objects in various ways:
 #'
-#' - [group_data()] returns a tibble that defines the grouping structure.
+#' - [group_data()] returns a [tibble][tibble::tbl_df] that defines the grouping
+#'   structure.
 #'   The columns give the values of the grouping variables. The last column,
 #'   always called `.rows`, is a list of integer vectors that gives the
 #'   locations of the rows in each group.
@@ -34,8 +36,10 @@
 #' @param .data,.tbl,x A `SpatVector`.
 #' @returns
 #'
-#' See the description of the method. The results are usually tibbles,
-#' lists or vectors. These functions do not return `SpatVector` objects.
+#' See the description of the method. The results are usually
+#'   [tibble][tibble::tbl_df]s,
+#' lists or vectors. These functions do not return [`SpatVector`][terra::vect]
+#'   objects.
 #'
 #' @encoding UTF-8
 #' @export

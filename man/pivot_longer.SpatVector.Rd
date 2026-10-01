@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{pivot_longer.SpatVector}
 \alias{pivot_longer.SpatVector}
-\title{Pivot \code{SpatVector} from wide to long}
+\title{Pivot \code{\link[terra:vect]{SpatVector}} from wide to long}
 \usage{
 \method{pivot_longer}{SpatVector}(
   data,
@@ -116,12 +116,13 @@ to implicit missing values, and should generally be used only when missing
 values in \code{data} were created by its structure.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-\code{pivot_longer()} "lengthens" data, increasing the number of rows and
+\code{pivot_longer()} "lengthens" a \code{\link[terra:vect]{SpatVector}}, increasing the
+number of rows and
 decreasing the number of columns. The inverse transformation is
-\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}
+\code{\link[=pivot_wider.SpatVector]{pivot_wider.SpatVector()}}.
 
 Learn more in \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}.
 }
@@ -129,7 +130,7 @@ Learn more in \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}.
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{data}.

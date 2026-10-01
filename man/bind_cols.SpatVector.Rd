@@ -4,7 +4,8 @@
 \name{bind_cols.SpatVector}
 \alias{bind_cols.SpatVector}
 \alias{bind_spat_cols}
-\title{Bind multiple \code{SpatVector}, \code{sf} and data frame objects by column}
+\title{Bind multiple \code{\link[terra:vect]{SpatVector}}, \code{\link[sf:st_sf]{sf}} and data frame
+objects by column}
 \usage{
 bind_spat_cols(
   ...,
@@ -13,7 +14,8 @@ bind_spat_cols(
 }
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
-Each subsequent argument can be a \code{SpatVector}, \code{sf} object or data frame.
+Each subsequent argument can be a \code{SpatVector}, \code{\link[sf:st_sf]{sf}} object or
+data frame.
 Inputs are \link[vctrs:theory-faq-recycling]{recycled} to the same length,
 then matched by position.}
 
@@ -22,11 +24,14 @@ then matched by position.}
 options.}
 }
 \value{
-A \code{SpatVector} with the corresponding columns. The geometry and CRS
-correspond to the first \code{SpatVector} in \code{...}.
+A \code{\link[terra:vect]{SpatVector}} object with the combined columns. Its
+geometry and
+CRS come from the first \code{\link[terra:vect]{SpatVector}} in \code{...}.
 }
 \description{
-Bind any number of \code{SpatVector}, data frames and \code{sf} objects by column,
+Bind any number of \code{\link[terra:vect]{SpatVector}} objects, data frames and
+\code{\link[sf:st_sf]{sf}} objects by
+column,
 making a wider result. This is similar to \code{do.call(cbind, data_frames)}.
 
 Where possible, prefer using a \link[=mutate-joins.SpatVector]{join} to
@@ -43,7 +48,8 @@ meaningless results without realizing it.
 \section{Methods}{
 
 
-Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for \code{SpatVector}
+Implementation of the \code{\link[dplyr:bind_cols]{dplyr::bind_cols()}} function for
+\code{\link[terra:vect]{SpatVector}}
 objects. For the second and subsequent arguments in \code{...}, the geometry is
 not \code{cbind}ed and only the data frame-like columns are kept.
 }

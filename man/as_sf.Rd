@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{as_sf}
 \alias{as_sf}
-\title{Coerce a \code{SpatVector} to a \code{\link[sf:st_sf]{sf}} object}
+\title{Coerce a \code{\link[terra:vect]{SpatVector}} to an \code{\link[sf:st_sf]{sf}} object}
 \usage{
 as_sf(x, ...)
 }
@@ -13,11 +13,11 @@ as_sf(x, ...)
 \item{...}{Additional arguments passed to \code{\link[sf:st_as_sf]{sf::st_as_sf()}}.}
 }
 \value{
-A \code{\link[sf:st_sf]{sf}} object with an additional \code{tbl_df} class for
+An \code{\link[sf:st_sf]{sf}} object with an additional \code{tbl_df} class for
 pretty printing.
 }
 \description{
-\code{\link[=as_sf]{as_sf()}} coerces a \code{SpatVector} into an \code{\link[sf:st_sf]{sf}} object. It wraps
+\code{\link[=as_sf]{as_sf()}} coerces a \code{\link[terra:vect]{SpatVector}} into an \code{sf} object. It wraps
 \code{\link[sf:st_as_sf]{sf::st_as_sf()}} and preserves groups created with
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{complete.SpatVector}
 \alias{complete.SpatVector}
-\title{Complete missing combinations in a \code{SpatVector}}
+\title{Complete missing combinations in a \code{\link[terra:vect]{SpatVector}}}
 \usage{
 \method{complete}{SpatVector}(data, ..., fill = list(), explicit = TRUE)
 }
@@ -41,17 +41,18 @@ use instead of \code{NA} for missing combinations.}
 missing values.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-\code{complete()} turns implicit missing combinations in a \code{SpatVector}
+\code{complete()} turns implicit missing combinations in a
+\code{\link[terra:vect]{SpatVector}}
 into explicit rows while preserving geometry and spatial metadata.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[tidyr:complete]{tidyr::complete()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 \code{complete()} preserves the geometry column while expanding missing
 combinations. New combinations receive empty geometries.

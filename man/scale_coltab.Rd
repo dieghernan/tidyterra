@@ -7,7 +7,7 @@
 \alias{scale_colour_coltab}
 \alias{scale_color_coltab}
 \alias{get_coltab_pal}
-\title{Discrete scales based on \code{SpatRaster} color tables}
+\title{Discrete scales based on \code{\link[terra:rast]{SpatRaster}} color tables}
 \usage{
 scale_fill_coltab(
   data,
@@ -90,7 +90,7 @@ expand the scale by 5\% on each side for continuous variables, and by
 See argument \code{alpha} in \code{\link[=scale_fill_terrain_d]{scale_fill_terrain_d()}}.}
 
 \item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{TRUE}.}
+The default is \code{FALSE}.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are
@@ -101,11 +101,14 @@ not filled. See also
 The default (\code{TRUE}) removes unused factors.}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-\code{fill/colour} aesthetics.
+A \CRANpkg{ggplot2} scale for the \code{fill} or \code{colour} aesthetic.
+If no color table is available, the scale functions return a blank layer.
+\code{get_coltab_pal()} returns a named character vector of colors, or \code{NULL} if
+\code{x} is not a \code{\link[terra:rast]{SpatRaster}} object with a color table.
 }
 \description{
-Some categorical \code{SpatRaster} objects may have an associated color table.
+Some categorical \code{\link[terra:rast]{SpatRaster}} objects may have an associated
+color table.
 These functions generate scales and color vectors based on the color table
 from \code{\link[terra:coltab]{terra::coltab()}} associated with a \code{SpatRaster}.
 

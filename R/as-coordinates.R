@@ -1,8 +1,9 @@
-#' Get cell number, row and column from a `SpatRaster`
+#' Get cell number, row and column from a [`SpatRaster`][terra::rast]
 #'
 #' @description
 #'
-#' `as_coordinates()` returns the position of each cell in the `SpatRaster`
+#' `as_coordinates()` returns the position of each cell in the
+#'   [`SpatRaster`][terra::rast]
 #' matrix.
 #'
 #' @seealso [slice.SpatRaster()].
@@ -13,10 +14,12 @@
 #'   layers indicating the position of each cell (cell number, row and column).
 #'
 #' @returns
-#' A [tibble][tibble::tbl_df] or a `SpatRaster` (if `as.raster = TRUE`) with
+#' A [tibble][tibble::tbl_df] or a [`SpatRaster`][terra::rast] (if `as.raster =
+#'   TRUE`) with
 #' one row (or cell) for each cell in `x`.
 #'
-#' When `as.raster = TRUE`, the resulting `SpatRaster` has the same CRS,
+#' When `as.raster = TRUE`, the resulting [`SpatRaster`][terra::rast] has the
+#'   same CRS,
 #' extent and resolution as `x`.
 #'
 #' @encoding UTF-8

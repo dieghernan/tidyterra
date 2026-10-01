@@ -4,7 +4,7 @@
 \name{group_nest.SpatVector}
 \alias{group_nest.SpatVector}
 \alias{nest_by.SpatVector}
-\title{Nest grouped \code{SpatVector} rows}
+\title{Nest grouped \code{\link[terra:vect]{SpatVector}} rows}
 \usage{
 \method{group_nest}{SpatVector}(.tbl, ..., .key = "data", keep = FALSE)
 
@@ -20,13 +20,16 @@
 \item{keep, .keep}{Should the grouping columns be kept in the list column.}
 }
 \value{
-A tibble with a list-column of \code{SpatVector} objects.
+A \link[tibble:tbl_df]{tibble} with a list-column of
+\code{\link[terra:vect]{SpatVector}}
+objects.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-\code{group_nest()} and \code{nest_by()} create tibbles with list-columns containing
-\code{SpatVector} objects.
+\code{group_nest()} and \code{nest_by()} create \link[tibble:tbl_df]{tibble}s with
+list-columns containing
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -38,9 +41,10 @@ A tibble with a list-column of \code{SpatVector} objects.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_nest]{dplyr::group_nest()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
-The nested list-column contains \code{SpatVector} objects, preserving the
+The nested list-column contains \code{\link[terra:vect]{SpatVector}} objects,
+preserving the
 geometries for each group.
 }
 

@@ -136,7 +136,7 @@ colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
 \item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{TRUE}.}
+The default is \code{FALSE}.}
 
 \item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
 The default (\code{TRUE}) removes unused factors.}
@@ -156,8 +156,8 @@ not filled. See also
     be reversed.}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-\code{fill/colour} aesthetics.
+A \CRANpkg{ggplot2} scale for the \code{fill} or \code{colour} aesthetic.
+\code{wiki.colors()} returns a character vector of colors.
 }
 \description{
 Implementation based on the
@@ -221,7 +221,7 @@ ggplot() +
 \seealso{
 \code{\link[terra:plot]{terra::plot()}}, \code{\link[ggplot2:scale_fill_viridis_c]{ggplot2::scale_fill_viridis_c()}}.
 
-See also \CRANpkg{ggplot2} docs on additional \code{...} arguments.
+See also \CRANpkg{ggplot2} documentation on additional \code{...} arguments.
 
 Other color scales, palettes and hypsometric tints:
 \code{\link{scale_coltab}},

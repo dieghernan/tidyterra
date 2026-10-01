@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{as_coordinates}
 \alias{as_coordinates}
-\title{Get cell number, row and column from a \code{SpatRaster}}
+\title{Get cell number, row and column from a \code{\link[terra:rast]{SpatRaster}}}
 \usage{
 as_coordinates(x, as.raster = FALSE)
 }
@@ -14,14 +14,16 @@ as_coordinates(x, as.raster = FALSE)
 layers indicating the position of each cell (cell number, row and column).}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} or a \code{SpatRaster} (if \code{as.raster = TRUE}) with
+A \link[tibble:tbl_df]{tibble} or a \code{\link[terra:rast]{SpatRaster}} (if \code{as.raster = TRUE}) with
 one row (or cell) for each cell in \code{x}.
 
-When \code{as.raster = TRUE}, the resulting \code{SpatRaster} has the same CRS,
+When \code{as.raster = TRUE}, the resulting \code{\link[terra:rast]{SpatRaster}} has the
+same CRS,
 extent and resolution as \code{x}.
 }
 \description{
-\code{as_coordinates()} returns the position of each cell in the \code{SpatRaster}
+\code{as_coordinates()} returns the position of each cell in the
+\code{\link[terra:rast]{SpatRaster}}
 matrix.
 }
 \examples{

@@ -1,4 +1,4 @@
-#' Reframe each group of a `SpatVector`
+#' Reframe each group of a [`SpatVector`][terra::vect]
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
@@ -18,12 +18,12 @@
 #' @inheritParams summarise.SpatVector
 #' @inheritParams dplyr::reframe
 #'
-#' @returns A `SpatVector`.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::reframe()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' For grouped inputs and calls using `.by`, geometries are aggregated per
 #' group. If a group produces more than one row, the aggregated group geometry

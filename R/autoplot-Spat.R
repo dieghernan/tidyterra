@@ -35,11 +35,11 @@
 #' Implementation of the **generic** [ggplot2::autoplot()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
 #' Uses [geom_spatraster()] or [geom_spatraster_rgb()].
 #'
-#' ## `SpatVector`, `SpatGraticule` and `SpatExtent`
+#' ## [`SpatVector`][terra::vect], `SpatGraticule` and `SpatExtent`
 #'
 #' Uses [geom_spatvector()]. Labels can be placed with [geom_spatvector_text()]
 #' or [geom_spatvector_label()].

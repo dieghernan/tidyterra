@@ -7,7 +7,7 @@
 \alias{as_spatvector.sf}
 \alias{as_spatvector.sfc}
 \alias{as_spatvector.SpatVector}
-\title{Coerce objects to \code{SpatVector}}
+\title{Coerce objects to \code{\link[terra:vect]{SpatVector}}}
 \usage{
 as_spatvector(x, ...)
 
@@ -21,7 +21,7 @@ as_spatvector(x, ...)
 }
 \arguments{
 \item{x}{A \link[tibble:tbl_df]{tibble}, data frame or \CRANpkg{sf} object of
-class \code{\link[sf:st_sf]{sf}} or \code{\link[sf:st_sfc]{sfc}}.}
+class \code{sf} or \code{\link[sf:st_sfc]{sfc}}.}
 
 \item{...}{Additional arguments passed to \code{\link[terra:vect]{terra::vect()}}.}
 
@@ -30,15 +30,16 @@ data. Use two names for point coordinates (\code{x} and \code{y}) or one name fo
 column with WKT geometries.}
 
 \item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a
-spatial object from \link[sf:st_crs]{sf} or \link[terra:crs]{terra} that
+spatial object from \CRANpkg{sf} or \CRANpkg{terra} that
 includes the target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and
 \strong{Details}.}
 }
 \value{
-A \code{SpatVector}.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-\code{as_spatvector()} turns an existing object into a \code{SpatVector}. It wraps
+\code{as_spatvector()} turns an existing object into a
+\code{\link[terra:vect]{SpatVector}}. It wraps
 the \code{\link[terra:vect]{terra::vect()}} S4 method for the \code{data.frame} signature.
 }
 \details{
@@ -46,9 +47,10 @@ This function differs from \code{\link[terra:vect]{terra::vect()}} in the follow
 \itemize{
 \item Rows with geometry values \code{NA} or \code{""} are removed before conversion.
 \item If \code{x} is a grouped data frame (see \code{\link[dplyr:group_by]{dplyr::group_by()}}), the grouping
-variables are transferred and a grouped \code{SpatVector} is created (see
+variables are transferred and a grouped \code{\link[terra:vect]{SpatVector}} is
+created (see
 \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}).
-\item If no \code{crs} is provided and the tibble was created with
+\item If no \code{crs} is provided and the \link[tibble:tbl_df]{tibble} was created with
 \code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}}, the \code{crs} is inferred from
 \code{\link[=attr]{attr(x, "crs")}}.
 \item It handles the conversion of \code{EMPTY} geometries between

@@ -40,15 +40,17 @@
 #' Implementation of the **generic** [dplyr::mutate()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
 #' Adds new layers and preserves existing ones. The result is a
-#' `SpatRaster` with the same extent, resolution and CRS as `.data`. Only the
+#' [`SpatRaster`][terra::rast] with the same extent, resolution and CRS as
+#'   `.data`. Only the
 #' values and possibly the number of layers are modified.
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
-#' The result is a `SpatVector` with the attributes modified and possibly
+#' The result is a [`SpatVector`][terra::vect] with the attributes modified and
+#'   possibly
 #' renamed as specified in the function call.
 #'
 #' @encoding UTF-8

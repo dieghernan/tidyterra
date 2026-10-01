@@ -1,4 +1,4 @@
-#' Duplicate `SpatVector` rows
+#' Duplicate [`SpatVector`][terra::vect] rows
 #'
 #' @description
 #'
@@ -15,11 +15,12 @@
 #' @inheritParams tidyr::uncount
 #'
 #' @param data A `SpatVector`.
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::uncount()] method for `SpatVector`
+#' Implementation of the **generic** [tidyr::uncount()] method for
+#'   [`SpatVector`][terra::vect]
 #' objects.
 #'
 #' Each duplicated row keeps the input geometry.

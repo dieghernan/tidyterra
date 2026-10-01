@@ -1,9 +1,10 @@
-#' Pivot `SpatVector` from wide to long
+#' Pivot [`SpatVector`][terra::vect] from wide to long
 #'
 #' @description
-#' `pivot_longer()` "lengthens" data, increasing the number of rows and
+#' `pivot_longer()` "lengthens" a [`SpatVector`][terra::vect], increasing the
+#'   number of rows and
 #' decreasing the number of columns. The inverse transformation is
-#' [pivot_wider.SpatVector()]
+#' [pivot_wider.SpatVector()].
 #'
 #' Learn more in [tidyr::pivot_longer()].
 #'
@@ -20,12 +21,12 @@
 #'
 #' @param data A `SpatVector` to pivot.
 #'
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::pivot_longer()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `data`.

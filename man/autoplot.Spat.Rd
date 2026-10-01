@@ -57,12 +57,12 @@ produced by \code{\link[terra:plot]{terra::plot()}}/\code{\link[terra:plotRGB]{t
 
 Implementation of the \strong{generic} \code{\link[ggplot2:autoplot]{ggplot2::autoplot()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
 Uses \code{\link[=geom_spatraster]{geom_spatraster()}} or \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 }
 
-\subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}, \code{SpatGraticule} and \code{SpatExtent}}{
 
 Uses \code{\link[=geom_spatvector]{geom_spatvector()}}. Labels can be placed with \code{\link[=geom_spatvector_text]{geom_spatvector_text()}}
 or \code{\link[=geom_spatvector_label]{geom_spatvector_label()}}.

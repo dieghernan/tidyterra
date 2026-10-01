@@ -16,8 +16,8 @@
 #' @param xy A matrix, data frame or tibble with at least two columns
 #'   representing `x` and `y` coordinates.
 #' @returns
-#' Nothing, invisibly, if the coordinates form a regular grid. Otherwise, an
-#' error.
+#' `NULL`, returned invisibly if the coordinates form a regular grid.
+#' Otherwise, the function raises an error.
 #'
 #' @encoding UTF-8
 #' @export
@@ -40,7 +40,7 @@ is_regular_grid <- function(xy, digits = 6) {
 
   # From https://github.com/rspatial/terra/blob/master/R/rast.R
 
-  # Work with tibbles.
+  # Work with a data frame.
   xy_df <- as.data.frame(xy)
 
   newdf <- data.frame(x = as.double(xy_df[, 1]), y = as.double(xy_df[, 2]))

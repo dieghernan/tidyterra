@@ -38,16 +38,18 @@ concise mini-language. See \strong{Methods}.
 
 Implementation of the \strong{generic} \code{\link[dplyr:select]{dplyr::select()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
-Selects and renames layers of a \code{SpatRaster}. The result is a \code{SpatRaster}
+Selects and renames layers of a \code{\link[terra:rast]{SpatRaster}}. The result is a
+\code{SpatRaster}
 with the same extent, resolution and CRS as \code{.data}. Only the number and
 possibly the names of layers are modified.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{SpatVector} with the attributes selected and possibly
+The result is a \code{\link[terra:vect]{SpatVector}} with the attributes selected and
+possibly
 renamed as specified in the function call.
 }
 }

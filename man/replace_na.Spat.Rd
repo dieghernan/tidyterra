@@ -5,7 +5,7 @@
 \alias{replace_na.Spat}
 \alias{replace_na.SpatRaster}
 \alias{replace_na.SpatVector}
-\title{Replace \code{NA}s with specified values}
+\title{Replace missing values with specified values}
 \usage{
 \method{replace_na}{SpatRaster}(data, replace = list(), ...)
 
@@ -26,7 +26,7 @@ used as a replacement.}
 A \verb{Spat*} object of the same class as \code{data}. See \strong{Methods}.
 }
 \description{
-Replace \code{NA}s values on layers/attributes with specified values
+Replace \code{NA} values in layers/attributes with specified values.
 }
 \section{\CRANpkg{terra} equivalent}{
 

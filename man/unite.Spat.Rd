@@ -12,7 +12,7 @@
 \method{unite}{SpatVector}(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 }
 \arguments{
-\item{data}{A \code{SpatRaster} or \code{SpatVector}.}
+\item{data}{A \code{\link[terra:rast]{SpatRaster}} or \code{\link[terra:vect]{SpatVector}}.}
 
 \item{col}{The name of the new column, as a string or symbol.
 
@@ -33,7 +33,7 @@ tidyverse; we support it here for backward compatibility).}
 each value.}
 }
 \value{
-A \code{SpatRaster} or \code{SpatVector} object.
+A \code{\link[terra:rast]{SpatRaster}} or \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \code{unite()} combines multiple layers or attributes by pasting their values
@@ -44,13 +44,13 @@ together.
 
 Implementation of the \strong{generic} \code{\link[tidyr:unite]{tidyr::unite()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
 The selected layers are united cell by cell. The new layer is categorical
 because \code{\link[tidyr:unite]{tidyr::unite()}} returns a character vector.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
 The geometry column has sticky behavior and is never united with attributes.
 }

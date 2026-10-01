@@ -1,6 +1,7 @@
-#' Glance at an `Spat*` object
+#' Glance at a `Spat*` object
 #'
-#' `glance()` accepts a `Spat*` object and returns a [tibble::tibble()] with
+#' `glance()` accepts a `Spat*` object and returns a [tibble][tibble::tbl_df]
+#'   with
 #' exactly one row. The summaries typically contain geographic information.
 #'
 #' @rdname glance.Spat
@@ -16,7 +17,7 @@
 #' @param ... Ignored by this method.
 #'
 #' @returns
-#' `glance()` methods always return a one-row data frame. See **Methods**.
+#' A [tibble][tibble::tbl_df] with one row. See **Methods**.
 #'
 #' @section Methods:
 #'

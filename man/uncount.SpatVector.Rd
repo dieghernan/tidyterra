@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{uncount.SpatVector}
 \alias{uncount.SpatVector}
-\title{Duplicate \code{SpatVector} rows}
+\title{Duplicate \code{\link[terra:vect]{SpatVector}} rows}
 \usage{
 \method{uncount}{SpatVector}(data, weights, ..., .remove = TRUE, .id = NULL)
 }
@@ -22,7 +22,7 @@ then this column is removed.}
 identifier for each created row.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \code{uncount()} duplicates rows according to a weighting variable.
@@ -30,7 +30,8 @@ A \code{SpatVector} object.
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:uncount]{tidyr::uncount()}} method for \code{SpatVector}
+Implementation of the \strong{generic} \code{\link[tidyr:uncount]{tidyr::uncount()}} method for
+\code{\link[terra:vect]{SpatVector}}
 objects.
 
 Each duplicated row keeps the input geometry.

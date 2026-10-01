@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{stat_spat_coordinates}
 \alias{stat_spat_coordinates}
-\title{Extract coordinates from \code{SpatVector} objects}
+\title{Extract coordinates from \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 stat_spat_coordinates(
   mapping = aes(),
@@ -71,7 +71,8 @@ the default plot specification, e.g. \code{\link[ggplot2:annotation_borders]{ann
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-\code{stat_spat_coordinates()} extracts the coordinates from \code{SpatVector} objects
+\code{stat_spat_coordinates()} extracts the coordinates from
+\code{\link[terra:vect]{SpatVector}} objects
 and summarizes them to one pair of coordinates (x and y) per geometry.
 }
 \details{

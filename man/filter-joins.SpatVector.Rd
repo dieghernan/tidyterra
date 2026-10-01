@@ -5,7 +5,7 @@
 \alias{filter-joins.SpatVector}
 \alias{semi_join.SpatVector}
 \alias{anti_join.SpatVector}
-\title{Filtering joins for \code{SpatVector} objects}
+\title{Filtering joins for \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{semi_join}{SpatVector}(x, y, by = NULL, copy = FALSE, ...)
 
@@ -15,7 +15,8 @@
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 
 \item{y}{A data frame or other object coercible to a data frame. If a
-\code{SpatVector} or \code{sf} object is provided, this method returns an error. See
+\code{\link[terra:vect]{SpatVector}} or \code{\link[sf:st_sf]{sf}} object is provided, this
+method returns an error. See
 \code{\link[terra:intersect]{terra::intersect()}} for spatial joins.}
 
 \item{by}{A join specification created with \code{\link[dplyr:join_by]{join_by()}}, or a character
@@ -55,14 +56,14 @@ it is a potentially expensive operation so you must opt into it.}
 \item{...}{Other parameters passed onto methods.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 Filtering joins filter rows from \code{x} based on the presence or absence of
 matches in \code{y}:
 \itemize{
-\item \code{\link[=semi_join]{semi_join()}} return all rows from \code{x} with a match in \code{y}.
-\item \code{\link[=anti_join]{anti_join()}} return all rows from \code{x} without a match in \code{y}.
+\item \code{\link[=semi_join]{semi_join()}} returns all rows from \code{x} with a match in \code{y}.
+\item \code{\link[=anti_join]{anti_join()}} returns all rows from \code{x} without a match in \code{y}.
 }
 
 See \code{\link[dplyr:semi_join]{dplyr::semi_join()}} for details.
@@ -77,7 +78,7 @@ See \code{\link[dplyr:semi_join]{dplyr::semi_join()}} for details.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:semi_join]{dplyr::semi_join()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 The geometry column has sticky behavior. This means that the result always
 has the geometry of \code{x} for the records that match the join conditions.

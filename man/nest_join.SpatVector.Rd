@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{nest_join.SpatVector}
 \alias{nest_join.SpatVector}
-\title{Nest join \code{SpatVector} objects}
+\title{Nest join \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{nest_join}{SpatVector}(
   x,
@@ -79,16 +79,18 @@ A \link[tibble:tbl_df]{tibble}.
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-\code{nest_join()} returns a tibble with the attributes and geometry of \code{x}, plus
+\code{nest_join()} returns a \link[tibble:tbl_df]{tibble} with the attributes and
+geometry of \code{x}, plus
 a list-column containing matching rows from \code{y}.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:nest_join]{dplyr::nest_join()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
-The output is a tibble with the attributes and WKT geometry of \code{x}, plus a
+The output is a \link[tibble:tbl_df]{tibble} with the attributes and WKT geometry
+of \code{x}, plus a
 list-column with matching rows from \code{y}.
 }
 

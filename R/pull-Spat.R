@@ -4,11 +4,13 @@
 #' `pull()` is similar to `$` on a data frame. It is mostly useful because it
 #' looks nicer in pipes and can optionally name the output.
 #'
-#' **You can extract the geographic coordinates of a `SpatRaster`**.
+#' **You can extract the geographic coordinates of a
+#'   [`SpatRaster`][terra::rast]**.
 #' Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
-#' names on terra, since they refer to the geographic coordinates of the layer.
+#' names in \CRANpkg{terra}, since they refer to cell coordinates.
 #'
-#' See **Examples** and section **About layer names** on [as_tibble.Spat()].
+#' See **Examples** and section **Layer and column names** on
+#' [as_tibble.Spat()].
 #'
 #' @rdname pull.Spat
 #' @name pull.Spat
@@ -35,13 +37,13 @@
 #'   column locations).
 #'
 #' @param ... Arguments passed to [as_tibble.SpatRaster()] or
-#'   [as_tibble.SpatVector()] methods.
+#'   [as_tibble.Spat()] methods.
 #'
-#' @returns A vector with the same number of cells/geometries as `.data`.
-#'
-#' On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
-#' empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
-#' [terra::as.data.frame()].
+#' @returns A vector with one element per cell or geometry in `.data`. For
+#' [`SpatRaster`][terra::rast] objects, the default (`na.rm = FALSE`) keeps
+#'   missing values.
+#' Passing `na.rm = TRUE` to `...` removes cells with missing values and can
+#' shorten the result. See [terra::as.data.frame()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -50,10 +52,11 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::pull()] methods. Each method first
-#' coerces the `Spat*` object to a tibble (see [as_tibble.Spat]) and then
+#' coerces the `Spat*` object to a [tibble][tibble::tbl_df] (see
+#'   [as_tibble.Spat]) and then
 #' applies [dplyr::pull()] to the tibble.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
 #' When passing `na.rm = TRUE` to `...`, only cells with a value other than
 #' `NA` are extracted. See [terra::as.data.frame()].
@@ -63,10 +66,11 @@
 #' in positions `1` and `2`. Therefore, `pull(.data, 1)` and
 #' `pull(.data, 1, xy = TRUE)` return different results.
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
 #' When passing `geom = "WKT"` or `geom = "HEX"` to `...`, the geometry of the
-#' `SpatVector` can be extracted with `var = geometry`. Similarly, when using
+#' [`SpatVector`][terra::vect] can be extracted with `var = geometry`.
+#'   Similarly, when using
 #' `geom = "XY"`, the coordinates can be extracted with `var = x` or
 #' `var = y`. See the options in [terra::as.data.frame()].
 #'

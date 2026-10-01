@@ -1,10 +1,10 @@
 #' Drop attributes of `Spat*` objects containing missing values
 #'
 #' @description
-#' - `SpatVector`: `drop_na()` method drops geometries where any attribute
-#' specified by `...` contains a missing value.
-#' - `SpatRaster`: `drop_na()` method drops cells where any layer specified by
-#' `...` contains a missing value.
+#' - [`SpatVector`][terra::vect]: `drop_na()` drops geometries when any
+#'   attribute specified by `...` contains a missing value.
+#' - [`SpatRaster`][terra::rast]: `drop_na()` drops cells when any layer
+#'   specified by `...` contains a missing value.
 #'
 #' @rdname drop_na.Spat
 #' @name drop_na.Spat
@@ -15,7 +15,7 @@
 #' @importFrom tidyr drop_na
 #'
 #' @param data A `SpatVector` created with [terra::vect()] or a `SpatRaster`
-#'   [terra::rast()].
+#'   created with [terra::rast()].
 #' @param ... <[`tidy-select`][tidyr::tidyr_tidy_select]> Attributes to inspect
 #'   for missing values. If empty, all attributes are used.
 #'
@@ -30,21 +30,22 @@
 #' Implementation of the **generic** [tidyr::drop_na()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
 #' This method operates on attributes, meaning that `NA` values are assessed in
 #' the attributes (columns) of each geometry (row). The result is a
-#' `SpatVector` with potentially fewer
+#' [`SpatVector`][terra::vect] with potentially fewer
 #' geometries than the input.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
 #' `r lifecycle::badge('questioning')`
 #'
 #' The implementation of [drop_na.SpatRaster()] can be understood as a
 #' masking method based on the values of the layers (see [terra::mask()]).
 #'
-#' `SpatRaster` layers are treated as columns and `SpatRaster` cells as
+#' [`SpatRaster`][terra::rast] layers are treated as columns and `SpatRaster`
+#'   cells as
 #' rows, so rows (cells) with any `NA` value on any layer become `NA`. You can
 #' also mask the cells (rows) based on the values of specific layers (columns).
 #'
@@ -57,7 +58,7 @@
 #' ### Feedback needed!
 #'
 #' Visit <https://github.com/dieghernan/tidyterra/issues>. The implementation
-#' of this method for `SpatRaster` may change in the future.
+#' of this method for [`SpatRaster`][terra::rast] may change in the future.
 #'
 #' @encoding UTF-8
 #' @export

@@ -1,9 +1,10 @@
-#' Nest join `SpatVector` objects
+#' Nest join [`SpatVector`][terra::vect] objects
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' `nest_join()` returns a tibble with the attributes and geometry of `x`, plus
+#' `nest_join()` returns a [tibble][tibble::tbl_df] with the attributes and
+#'   geometry of `x`, plus
 #' a list-column containing matching rows from `y`.
 #'
 #' @rdname nest_join.SpatVector
@@ -25,9 +26,10 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::nest_join()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
-#' The output is a tibble with the attributes and WKT geometry of `x`, plus a
+#' The output is a [tibble][tibble::tbl_df] with the attributes and WKT geometry
+#'   of `x`, plus a
 #' list-column with matching rows from `y`.
 #'
 #' @encoding UTF-8

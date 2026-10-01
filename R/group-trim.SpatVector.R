@@ -25,12 +25,12 @@
 #' @param .tbl A `SpatVector` object. See **Methods**.
 #' @param .drop See [group_by.SpatVector()].
 #'
-#' @returns A `SpatVector` object with updated grouping metadata.
+#' @returns A [`SpatVector`][terra::vect] object with updated grouping metadata.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_trim()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @encoding UTF-8
 #' @export

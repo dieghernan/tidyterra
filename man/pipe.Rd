@@ -8,9 +8,9 @@
 lhs \%>\% rhs
 }
 \arguments{
-\item{lhs}{A value or the magrittr placeholder.}
+\item{lhs}{A value or the \CRANpkg{magrittr} placeholder.}
 
-\item{rhs}{A function call using the magrittr semantics.}
+\item{rhs}{A function call using \CRANpkg{magrittr} semantics.}
 }
 \value{
 The result of calling \code{rhs(lhs)}.

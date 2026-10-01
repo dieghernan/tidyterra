@@ -13,7 +13,8 @@
 #' - [ggplot2::geom_text()].
 #'
 #' @param geom Geom used to display the data. Recommended values for
-#'   `SpatRaster` are `"raster"` (the default), `"point"`, `"text"` and
+#' [`SpatRaster`][terra::rast] are `"raster"` (the default), `"point"`, `"text"`
+#'   and
 #'   `"label"`.
 #' @section Aesthetics:
 #'
@@ -26,7 +27,8 @@
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
 #' When `geom = "raster"`, the `fill` and `alpha` arguments behave as in
-#' `geom_spatraster()`, so they can be mapped to `SpatRaster` layer names. If
+#' `geom_spatraster()`, so they can be mapped to [`SpatRaster`][terra::rast]
+#'   layer names. If
 #' another `geom` is used, `stat_spatraster()` understands the aesthetics
 #' required by that `geom`, so `aes(fill = <name_of_lyr>)` and
 #' `aes(alpha = <name_of_lyr>)` are not applicable.

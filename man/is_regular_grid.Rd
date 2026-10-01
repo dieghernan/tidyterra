@@ -15,8 +15,8 @@ representing \code{x} and \code{y} coordinates.}
 on a regular grid (a low number of digits is a low precision).}
 }
 \value{
-Nothing, invisibly, if the coordinates form a regular grid. Otherwise, an
-error.
+\code{NULL}, returned invisibly if the coordinates form a regular grid.
+Otherwise, the function raises an error.
 }
 \description{
 Assess whether the \code{x} and \code{y} coordinates of an object form a regular grid.

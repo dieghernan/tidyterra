@@ -1,4 +1,4 @@
-#' Split `SpatVector` by groups
+#' Split [`SpatVector`][terra::vect] by groups
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
@@ -32,7 +32,8 @@
 #' @param ... If `.tbl` is an ungrouped `SpatVector`, a grouping specification,
 #'   forwarded to [group_by.SpatVector()].
 #'
-#' @returns A list of `SpatVector` objects. Each `SpatVector` contains the rows
+#' @returns A list of [`SpatVector`][terra::vect] objects. Each object contains
+#' the rows
 #'   of `.tbl` for the associated group and all columns. When `.keep = TRUE`,
 #'   the output includes the grouping variables.
 #'
@@ -51,7 +52,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_split()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @encoding UTF-8
 #' @export

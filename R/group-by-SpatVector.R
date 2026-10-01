@@ -1,9 +1,10 @@
-#' Group a `SpatVector` by one or more variables
+#' Group a [`SpatVector`][terra::vect] by one or more variables
 #'
 #' @description
 #'
 #' Most data operations are done on groups defined by variables.
-#' [group_by.SpatVector()] adds new attributes to an existing `SpatVector`
+#' [group_by.SpatVector()] adds new attributes to an existing
+#' [`SpatVector`][terra::vect]
 #' indicating the corresponding groups. See **Methods**.
 #'
 #' @details
@@ -22,21 +23,23 @@
 #' @inheritParams dplyr::group_by
 #'
 #' @param .data,x A `SpatVector` object. See **Methods**.
-#' @returns A `SpatVector` object with updated grouping metadata.
+#' @returns A [`SpatVector`][terra::vect] object with updated grouping metadata.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_by()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @section Grouping metadata:
 #'
 #' Mixing \CRANpkg{terra} and \CRANpkg{dplyr} syntax on a grouped or row-wise
-#' `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can corrupt its
+#' [`SpatVector`][terra::vect], for example by subsetting with `v[1:3, 1:2]`,
+#' can corrupt its
 #' grouping metadata. \CRANpkg{tidyterra} attempts to restore this metadata the
 #' next time you use a \CRANpkg{dplyr} verb on the object.
 #'
-#' Some operations, such as [terra::spatSample()], create a new `SpatVector`
+#' Some operations, such as [terra::spatSample()], create a new
+#'   [`SpatVector`][terra::vect]
 #' without preserving grouping metadata. Call [group_by.SpatVector()] or
 #' [rowwise.SpatVector()] again, as appropriate.
 #'

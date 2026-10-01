@@ -9,7 +9,7 @@
 \alias{groups.SpatVector}
 \alias{group_size.SpatVector}
 \alias{n_groups.SpatVector}
-\title{Grouping metadata for \code{SpatVector} objects}
+\title{Grouping metadata for \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{group_data}{SpatVector}(.data)
 
@@ -31,14 +31,18 @@
 \item{...}{Unused.}
 }
 \value{
-See the description of the method. The results are usually tibbles,
-lists or vectors. These functions do not return \code{SpatVector} objects.
+See the description of the method. The results are usually
+\link[tibble:tbl_df]{tibble}s,
+lists or vectors. These functions do not return \code{\link[terra:vect]{SpatVector}}
+objects.
 }
 \description{
-This collection of functions accesses data about grouped \code{SpatVector}
+This collection of functions accesses data about grouped
+\code{\link[terra:vect]{SpatVector}}
 objects in various ways:
 \itemize{
-\item \code{\link[=group_data]{group_data()}} returns a tibble that defines the grouping structure.
+\item \code{\link[=group_data]{group_data()}} returns a \link[tibble:tbl_df]{tibble} that defines the grouping
+structure.
 The columns give the values of the grouping variables. The last column,
 always called \code{.rows}, is a list of integer vectors that gives the
 locations of the rows in each group.

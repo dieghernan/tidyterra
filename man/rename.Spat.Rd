@@ -51,14 +51,15 @@ using a function.
 
 Implementation of the \strong{generic} \code{\link[dplyr:rename]{dplyr::rename()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
-Renames layers of a \code{SpatRaster}.
+Renames layers of a \code{\link[terra:rast]{SpatRaster}}.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{SpatVector} with the attributes renamed as specified in the
+The result is a \code{\link[terra:vect]{SpatVector}} with the attributes renamed as
+specified in the
 function call.
 }
 }

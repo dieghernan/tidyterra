@@ -5,13 +5,15 @@
 \alias{bind_rows.SpatVector}
 \alias{bind_spat_rows}
 \alias{bind.Spat}
-\title{Bind multiple \code{SpatVector}, \code{sf}, \code{sfc} and data frame objects by row}
+\title{Bind multiple \code{\link[terra:vect]{SpatVector}}, \code{\link[sf:st_sf]{sf}}, \code{sfc} and data
+frame objects by row}
 \usage{
 bind_spat_rows(..., .id = NULL)
 }
 \arguments{
 \item{...}{Objects to combine. The first argument must be a \code{SpatVector}.
-Each subsequent argument can be a \code{SpatVector}, \code{sf} or \code{sfc} object or a
+Each subsequent argument can be a \code{SpatVector}, \code{\link[sf:st_sf]{sf}} or \code{sfc}
+object or a
 data frame. Columns are matched by name and any missing columns are filled
 with \code{NA}.}
 
@@ -20,10 +22,14 @@ create an output column that identifies each input. The column will use
 names if available, otherwise it will use positions.}
 }
 \value{
-A \code{SpatVector} of the same type as the first element of \code{...}.
+A \code{\link[terra:vect]{SpatVector}} object of the same type as the first
+element of
+\code{...}.
 }
 \description{
-Bind any number of \code{SpatVector}, data frames, \code{sf} and \code{sfc} objects by row,
+Bind any number of \code{\link[terra:vect]{SpatVector}} objects, data frames,
+\code{\link[sf:st_sf]{sf}} and \code{sfc} objects
+by row,
 making a longer result. This is similar to \code{do.call(rbind, data_frames)},
 but the output will contain all columns that appear in any of the inputs.
 }
@@ -37,14 +43,16 @@ but the output will contain all columns that appear in any of the inputs.
 
 
 Implementation of the \code{\link[dplyr:bind_rows]{dplyr::bind_rows()}} function for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
-The first argument should be a \code{SpatVector}. Each subsequent argument can be
-a \code{SpatVector}, an \code{sf} or \code{sfc} object or a data frame:
+The first argument should be a \code{\link[terra:vect]{SpatVector}}. Each subsequent
+argument can be
+a \code{SpatVector}, an \code{\link[sf:st_sf]{sf}} or \code{sfc} object or a data frame:
 \itemize{
 \item If subsequent spatial objects have a different CRS from the first element,
 they are reprojected to the CRS of the first element with a message.
-\item If any element of \code{...} is a tibble/data frame, the rows are column-bound
+\item If any element of \code{...} is a \link[tibble:tbl_df]{tibble}/data frame, the rows
+are column-bound
 with empty geometries with a message.
 }
 }

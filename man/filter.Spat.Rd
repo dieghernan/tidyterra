@@ -28,8 +28,9 @@ to \code{TRUE} are kept. See \strong{Methods}.}
 resulting data, otherwise the grouping is kept as is.}
 
 \item{.keep_extent}{Logical. If \code{TRUE}, keep the extent of the resulting
-\code{SpatRaster}. On \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the extent may
-differ from the extent of the output. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
+\code{\link[terra:rast]{SpatRaster}}. If \code{FALSE}, \code{\link[terra:trim]{terra::trim()}} is called so the
+extent may
+differ from the extent of the input. See also \code{\link[=drop_na.SpatRaster]{drop_na.SpatRaster()}}.}
 
 \item{.by}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> Optionally, a selection of columns to
 group by for just this operation, functioning as an alternative to \code{\link[dplyr:group_by]{group_by()}}. For
@@ -39,49 +40,55 @@ details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 }
 \description{
-These functions subset a data frame by applying the expressions in \code{...}
+These functions subset a \verb{Spat*} object by applying the expressions in \code{...}
 to determine which rows should be kept (for \code{filter()}) or dropped (for
 \code{filter_out()}).
 
 Multiple conditions can be supplied separated by a comma. These will be
-combined with the \code{&} operator. To combine comma separated conditions using
+combined with the \code{&} operator. To combine comma-separated conditions using
 \code{|} instead, wrap them in \code{\link[dplyr:when_any]{dplyr::when_any()}}.
 
 Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. This subtle
 behavior can affect how you write your conditions when missing values are
 involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
-\strong{You can filter a \code{SpatRaster} by its geographic coordinates}.
+\strong{You can filter a \code{\link[terra:rast]{SpatRaster}} by its geographic
+coordinates}.
 Use \code{filter(.data, x > 42)}. The names \code{x} and \code{y} are reserved in
 \CRANpkg{terra} because they refer to the geographic coordinates of the
 layer.
 
-See \strong{Examples} and section \strong{About layer names} on \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
+See \strong{Examples} and section \strong{Layer and column names} on
+\code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:filter]{dplyr::filter()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
 Cells that do not meet the conditions in \code{...} are returned as \code{NA}. On a
-multi-layer \code{SpatRaster}, \code{NA} is propagated across all layers.
+multi-layer \code{\link[terra:rast]{SpatRaster}}, \code{NA} is propagated across all
+layers.
 
-If \code{.keep_extent = TRUE}, the returned \code{SpatRaster} has the same CRS,
+If \code{.keep_extent = TRUE}, the returned \code{\link[terra:rast]{SpatRaster}} has the
+same CRS,
 extent, resolution and number of cells as \code{.data}. If
 \code{.keep_extent = FALSE}, the outer \code{NA} cells are trimmed with
 \code{\link[terra:trim]{terra::trim()}}, so the extent and number of cells may differ. The output
 still has the same CRS and resolution as \code{.data}.
 
-The \code{x} and \code{y} coordinates of the \code{SpatRaster} are also available
+The \code{x} and \code{y} coordinates of the \code{\link[terra:rast]{SpatRaster}} are also
+available
 internally for filtering. See \strong{Examples}.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{SpatVector} containing the geometries whose attributes
-satisfy all conditions.
+The result is a \code{\link[terra:vect]{SpatVector}} containing the geometries whose
+attributes
+satiy all conditions.
 }
 }
 

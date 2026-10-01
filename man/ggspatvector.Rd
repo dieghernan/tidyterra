@@ -7,7 +7,7 @@
 \alias{geom_spatvector_label}
 \alias{geom_spatvector_text}
 \alias{stat_spatvector}
-\title{Plot \code{SpatVector} objects}
+\title{Plot \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 geom_spatvector(
   mapping = aes(),
@@ -110,14 +110,16 @@ to use \code{position_jitter()}, give the position as \code{"jitter"}.
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-Wrappers of the \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to plot \code{SpatVector}
+Wrappers of the \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to plot
+\code{\link[terra:vect]{SpatVector}}
 objects (see \code{\link[terra:vect]{terra::vect()}}).
 }
 \details{
 These functions are wrappers of \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} functions. Since a
-\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \CRANpkg{ggplot2} treat a
-\code{SpatVector} in the same way that a \code{\link[sf:st_sf]{sf}} object. A side effect
-is that you can use \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} directly with \code{SpatVector} objects.
+\code{\link[=fortify.SpatVector]{fortify.SpatVector()}} method is provided, \CRANpkg{ggplot2} treats a
+\code{\link[terra:vect]{SpatVector}} in the same way as an \code{\link[sf:st_sf]{sf}} object.
+A side effect is that you can use \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} directly with
+\code{\link[terra:vect]{SpatVector}} objects.
 
 See \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} for details on aesthetics, etc.
 }

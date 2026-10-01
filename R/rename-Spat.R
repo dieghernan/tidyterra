@@ -32,13 +32,14 @@
 #' Implementation of the **generic** [dplyr::rename()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
-#' Renames layers of a `SpatRaster`.
+#' Renames layers of a [`SpatRaster`][terra::rast].
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
-#' The result is a `SpatVector` with the attributes renamed as specified in the
+#' The result is a [`SpatVector`][terra::vect] with the attributes renamed as
+#'   specified in the
 #' function call.
 #'
 #' @encoding UTF-8

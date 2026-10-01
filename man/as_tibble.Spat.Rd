@@ -5,7 +5,8 @@
 \alias{as_tibble.Spat}
 \alias{as_tibble.SpatRaster}
 \alias{as_tibble.SpatVector}
-\title{Coerce \code{SpatRaster} and \code{SpatVector} objects to tibbles}
+\title{Coerce \code{\link[terra:rast]{SpatRaster}} and \code{\link[terra:vect]{SpatVector}} objects to
+\link[tibble:tbl_df]{tibble}s}
 \usage{
 \method{as_tibble}{SpatRaster}(
   x,
@@ -58,7 +59,8 @@ to enforce them.}
 A \link[tibble:tbl_df]{tibble}.
 }
 \description{
-\code{\link[=as_tibble]{as_tibble()}} methods for \code{SpatRaster} and \code{SpatVector} objects.
+\code{\link[=as_tibble]{as_tibble()}} methods for \code{\link[terra:rast]{SpatRaster}} and
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -71,9 +73,10 @@ A \link[tibble:tbl_df]{tibble}.
 
 Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_tibble()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster} and \code{SpatVector}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}} and \code{\link[terra:vect]{SpatVector}}}{
 
-The returned tibble includes the CRS of the original object as an attribute
+The returned \link[tibble:tbl_df]{tibble} includes the CRS of the original object
+as an attribute
 in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 }
 }
@@ -81,11 +84,13 @@ in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 \section{Layer and column names}{
 
 
-When coercing \code{SpatRaster} objects to data frames, \code{x} and \code{y} are reserved
+When coercing \code{\link[terra:rast]{SpatRaster}} objects to data frames, \code{x} and \code{y}
+are reserved
 names for the geographic coordinates of each cell. \CRANpkg{terra} also
 allows layers with duplicated names.
 
-When coercing a \code{SpatRaster} to a tibble, \CRANpkg{tidyterra} may rename its
+When coercing a \code{\link[terra:rast]{SpatRaster}} to a \link[tibble:tbl_df]{tibble},
+\CRANpkg{tidyterra} may rename its
 layers to avoid these issues. Specifically, layers may be renamed in the
 following cases:
 \itemize{
@@ -98,11 +103,13 @@ following cases:
 
 \CRANpkg{tidyterra} displays a message describing the renamed layers.
 
-The same issue affects \code{SpatVector} objects with reserved names such as
+The same issue affects \code{\link[terra:vect]{SpatVector}} objects with reserved
+names such as
 \code{geometry} (when \code{geom = c("WKT", "HEX")}) and \code{x}, \code{y} (when
 \code{geom = "XY"}). These names represent geometry columns in
 \code{\link[terra:as.data.frame]{terra::as.data.frame()}}. If \code{geom} is not \code{NULL}, the same renaming logic
-described for \code{SpatRaster} also applies to \code{SpatVector} columns.
+described for \code{\link[terra:rast]{SpatRaster}} also applies to \code{SpatVector}
+columns.
 }
 
 \examples{

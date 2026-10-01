@@ -1,13 +1,15 @@
-#' Group `SpatVector` objects by rows
+#' Group [`SpatVector`][terra::vect] objects by rows
 #'
 #' @description
 #'
-#' `rowwise()` lets you compute on a `SpatVector` one row at a time.
-#' This is most useful when a vectorised function does not exist.
+#' `rowwise()` lets you compute on a [`SpatVector`][terra::vect] one row at a
+#'   time.
+#' This is most useful when a vectorized function does not exist.
 #'
 #' Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
 #' row-wise grouping. The exception is [summarise.SpatVector()], which returns
-#' a [grouped SpatVector][group_by.SpatVector]. You can explicitly ungroup with
+#' a [grouped `SpatVector`][group_by.SpatVector]. You can explicitly ungroup
+#'   with
 #' [ungroup.SpatVector()] or [as_tibble()] or convert to a grouped `SpatVector`
 #' with [group_by.SpatVector()].
 #'
@@ -34,12 +36,12 @@
 #'   Instead, you can select multiple variables, for example with
 #'   [everything()].
 #'
-#' @returns The same `SpatVector` object with updated grouping metadata.
+#' @returns A [`SpatVector`][terra::vect] object with updated grouping metadata.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::rowwise()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @encoding UTF-8
 #' @export

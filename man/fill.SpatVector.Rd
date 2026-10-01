@@ -3,7 +3,8 @@
 \encoding{UTF-8}
 \name{fill.SpatVector}
 \alias{fill.SpatVector}
-\title{Fill in missing values with previous or next value on a \code{SpatVector}}
+\title{Fill in missing values with previous or next value on a
+\code{\link[terra:vect]{SpatVector}}}
 \usage{
 \method{fill}{SpatVector}(data, ..., .by = NULL, .direction = c("down", "up", "downup", "updown"))
 }
@@ -23,24 +24,26 @@ either "down" (the default), "up", "downup" (i.e. first down and then up)
 or "updown" (first up and then down).}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 Fills missing values in selected columns using the next or previous entry.
-This is useful in the common output format where values are not repeated,
+This is useful in the common output format where values are not repeated
 and are only recorded when they change.
 }
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} method for \code{SpatVector}
+Implementation of the \strong{generic} \code{\link[tidyr:fill]{tidyr::fill()}} method for
+\code{\link[terra:vect]{SpatVector}}
 objects.
 }
 
 \section{Grouped \code{SpatVector}}{
 
 
-With grouped \code{SpatVector} objects created by \code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
+With grouped \code{\link[terra:vect]{SpatVector}} objects created by
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}},
 \code{fill()} is applied \emph{within} each group and does not fill across group
 boundaries.
 }

@@ -1,4 +1,4 @@
-#' Order a `SpatVector` using column values
+#' Order a [`SpatVector`][terra::vect] using column values
 #'
 #' @description
 #' `arrange.SpatVector()` orders the geometries of a `SpatVector` by the
@@ -16,9 +16,9 @@
 #' @inheritParams dplyr::arrange
 #' @param .data A `SpatVector` created with [terra::vect()].
 #' @param .by_group If `TRUE`, sort first by grouping variable. This applies to
-#'   grouped `SpatVector` objects only.
+#'   grouped [`SpatVector`][terra::vect] objects only.
 #'
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -27,7 +27,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::arrange()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @encoding UTF-8
 #' @export

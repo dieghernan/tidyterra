@@ -82,16 +82,18 @@ Some \CRANpkg{terra} methods for modifying cell values:
 
 Implementation of the \strong{generic} \code{\link[dplyr:mutate]{dplyr::mutate()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
 Adds new layers and preserves existing ones. The result is a
-\code{SpatRaster} with the same extent, resolution and CRS as \code{.data}. Only the
+\code{\link[terra:rast]{SpatRaster}} with the same extent, resolution and CRS as
+\code{.data}. Only the
 values and possibly the number of layers are modified.
 }
 
-\subsection{\code{SpatVector}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{SpatVector} with the attributes modified and possibly
+The result is a \code{\link[terra:vect]{SpatVector}} with the attributes modified and
+possibly
 renamed as specified in the function call.
 }
 }

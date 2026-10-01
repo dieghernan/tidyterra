@@ -5,7 +5,7 @@
 \alias{glance.Spat}
 \alias{glance.SpatRaster}
 \alias{glance.SpatVector}
-\title{Glance at an \verb{Spat*} object}
+\title{Glance at a \verb{Spat*} object}
 \usage{
 \method{glance}{SpatRaster}(x, ...)
 
@@ -18,10 +18,11 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{...}{Ignored by this method.}
 }
 \value{
-\code{glance()} methods always return a one-row data frame. See \strong{Methods}.
+A \link[tibble:tbl_df]{tibble} with one row. See \strong{Methods}.
 }
 \description{
-\code{glance()} accepts a \verb{Spat*} object and returns a \code{\link[tibble:tibble]{tibble::tibble()}} with
+\code{glance()} accepts a \verb{Spat*} object and returns a \link[tibble:tbl_df]{tibble}
+with
 exactly one row. The summaries typically contain geographic information.
 }
 \section{Methods}{

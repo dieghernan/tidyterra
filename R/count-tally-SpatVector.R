@@ -1,4 +1,4 @@
-#' Count the observations in each `SpatVector` group
+#' Count the observations in each [`SpatVector`][terra::vect] group
 #'
 #' @description
 #' `count()` lets you quickly count the unique values of one or more variables:
@@ -28,7 +28,7 @@
 #'   supported, empty groups are always removed (see [dplyr::count()],
 #'   `.drop = TRUE` argument).
 #'
-#' @returns A `SpatVector` object with updated grouping metadata.
+#' @returns A [`SpatVector`][terra::vect] object with updated grouping metadata.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -37,7 +37,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::count()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' [tally()] will always return a disaggregated geometry while [count()] can
 #' handle this. See also [summarise.SpatVector()].

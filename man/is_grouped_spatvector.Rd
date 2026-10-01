@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{is_grouped_spatvector}
 \alias{is_grouped_spatvector}
-\title{A grouped \code{SpatVector}}
+\title{A grouped \code{\link[terra:vect]{SpatVector}}}
 \usage{
 is_grouped_spatvector(x)
 }
@@ -11,17 +11,19 @@ is_grouped_spatvector(x)
 \item{x}{A \code{SpatVector} created with \code{\link[terra:vect]{terra::vect()}}.}
 }
 \value{
-\code{TRUE} if \code{x} is a grouped \code{SpatVector}, otherwise \code{FALSE}.
+\code{TRUE} if \code{x} is a grouped \code{\link[terra:vect]{SpatVector}}, otherwise
+\code{FALSE}.
 }
 \description{
-The easiest way to create a grouped \code{SpatVector} is to call the
+The easiest way to create a grouped \code{\link[terra:vect]{SpatVector}} is to call
+the
 \code{group_by()} method on a \code{SpatVector}: this will take care of capturing
 the unevaluated expressions for you. See \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} for
 details.
 
 This function is an adapted version of \code{\link[dplyr:is_grouped_df]{dplyr::is_grouped_df()}}.
 
-See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the accessory functions that retrieve
+See also \code{\link[=group_data.SpatVector]{group_data.SpatVector()}} for the helper functions that retrieve
 various metadata from a grouped \code{SpatVector}.
 }
 \examples{

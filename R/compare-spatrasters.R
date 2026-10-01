@@ -1,8 +1,9 @@
-#' Compare attributes of two `SpatRaster` objects
+#' Compare attributes of two [`SpatRaster`][terra::rast] objects
 #'
 #' @description
 #'
-#' Two `SpatRaster` objects are compatible (in terms of combining layers) if
+#' Two [`SpatRaster`][terra::rast] objects are compatible (in terms of combining
+#'   layers) if
 #' the CRS, extent and resolution are similar. In those cases you can combine
 #' the objects simply as `c(x, y)`.
 #'
@@ -16,7 +17,7 @@
 #'   the resolution.
 #'
 #' @returns
-#' An invisible logical value indicating whether the `SpatRaster`
+#' An invisible logical value indicating whether the [`SpatRaster`][terra::rast]
 #' objects are compatible, plus an informative message flagging any issues
 #' found.
 #'

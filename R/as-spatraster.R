@@ -1,14 +1,15 @@
-#' Coerce a data frame to `SpatRaster`
+#' Coerce a data frame to [`SpatRaster`][terra::rast]
 #'
 #' @description
 #'
 #' `as_spatraster()` converts a data frame or [tibble][tibble::tbl_df] into a
-#' `SpatRaster`. It wraps the [terra::rast()] S4 method for signature
+#' [`SpatRaster`][terra::rast]. It wraps the [terra::rast()] S4 method for
+#'   signature
 #' `data.frame`.
 #'
 #' @details
 #'
-#' If no `crs` is provided and the tibble was created with
+#' If no `crs` is provided and the [tibble][tibble::tbl_df] was created with
 #' [as_tibble.SpatRaster()], the `crs` is inferred from
 #' [`attr(x, "crs")`][attr()].
 #'
@@ -27,14 +28,14 @@
 #'   on a regular grid (a low number of digits is a low precision).
 #'
 #' @param crs A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a
-#'   spatial object from [sf][sf::st_crs()] or [terra][terra::crs()] that
+#'   spatial object from \CRANpkg{sf} or \CRANpkg{terra} that
 #'   includes the target coordinate reference system. See [pull_crs()] and
 #'   **Details**.
 #'
 #' @param ... Additional arguments passed to [terra::rast()].
 #'
 #' @returns
-#' A `SpatRaster`.
+#' A [`SpatRaster`][terra::rast] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -143,9 +144,11 @@ as_spatraster <- function(x, ..., xycols = 1:2, crs = "", digits = 6) {
   build_raster_layers(r_temp, values, layer_names)
 }
 
-#' Rebuild objects created with `as_tbl_spat_attr()` to `SpatRaster`.
+#' Rebuild objects created with `as_tbl_spat_attr()` to
+#'   [`SpatRaster`][terra::rast].
 #'
-#' This strict helper uses stored attributes to create a `SpatRaster` template
+#' This strict helper uses stored attributes to create a
+#'   [`SpatRaster`][terra::rast] template
 #' and then transfers the values.
 #'
 #' @noRd

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{geom_spatraster_rgb}
 \alias{geom_spatraster_rgb}
-\title{Plot \code{SpatRaster} objects as images}
+\title{Plot \code{\link[terra:rast]{SpatRaster}} objects as images}
 \source{
 Based on the \code{layer_spatial()} implementation in the \CRANpkg{ggspatial}
 package. Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and to
@@ -82,16 +82,18 @@ lists which parameters it can accept.
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the dateline in equal-area projections. This argument is passed
-to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
+to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{\link[terra:rast]{SpatRaster}}.}
 }
 \value{
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}) as RGB images.
+This geom plots \code{\link[terra:rast]{SpatRaster}} objects (see \code{\link[terra:rast]{terra::rast()}}) as
+RGB images.
 The layers are combined so they represent the red, green and blue channels.
 
-For plotting \code{SpatRaster} objects by layer values use \code{\link[=geom_spatraster]{geom_spatraster()}}.
+For plotting \code{\link[terra:rast]{SpatRaster}} objects by layer values use
+\code{\link[=geom_spatraster]{geom_spatraster()}}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 }
@@ -110,11 +112,11 @@ No \code{aes()} is required. In fact, \code{aes()} will be ignored.
 \section{Coordinates}{
 
 
-When the \code{SpatRaster} does not have a CRS, that is,
+When the \code{\link[terra:rast]{SpatRaster}} does not have a CRS, that is,
 \code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} objects that have a CRS, the geom uses
+On \code{\link[terra:rast]{SpatRaster}} objects that have a CRS, the geom uses
 \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }

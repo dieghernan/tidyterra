@@ -104,7 +104,7 @@ The following methods are available:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** through `sf::st_as_sf()` | To a **tibble** with coordinates. |
+| `ggplot2::fortify()` | ✔️ To an `sf` object through `sf::st_as_sf()` | To a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -135,7 +135,7 @@ mod <- temp |>
 mod
 ```
 
-In this example we:
+In this example, we:
 
 - Removed the first layer (`tavg_04`).
 - Created a new layer `newcol` as the difference between `tavg_06` and
@@ -174,8 +174,8 @@ v_lux |>
   arrange(desc(gr))
 ```
 
-As with `SpatRaster`, essential properties such as geometry and CRS are
-preserved during these operations.
+The CRS is preserved during these operations. By default, `summarise()`
+merges geometries within each group.
 
 ## Plotting with ggplot2
 
@@ -187,6 +187,7 @@ layers.
 
 ```{r}
 #| label: fig-faceted
+#| fig-alt: "Three raster maps of average temperature in Castile and Leon, one each for April, May and June. Fill color encodes degrees Celsius. Temperatures increase across the three months."
 #| fig-cap: Faceted map using a SpatRaster object.
 #| fig-asp: 0.3
 library(ggplot2)
@@ -204,6 +205,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-contourlines
+#| fig-alt: "Elevation raster map of a volcanic landscape with contour lines every five units from 80 to 200. The lines trace areas of equal elevation over the colored terrain."
 #| fig-cap: Contour line plot for a SpatRaster object.
 # Contour lines for a specific layer.
 
@@ -220,6 +222,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-contourfilled
+#| fig-alt: "Filled contour map of volcanic terrain. Discrete color bands represent successive elevation ranges, outlining the higher central terrain."
 #| fig-cap: Filled contour plot for a SpatRaster object.
 
 # Filled contours.
@@ -234,6 +237,7 @@ ggplot() +
 
 ```{r}
 #| label: fig-rgb
+#| fig-alt: "RGB map tile of Castile and Leon with province boundaries drawn over the imagery. The boundary outlines remain visible against the raster background."
 #| fig-cap: Map combining an RGB SpatRaster object and a SpatVector object.
 # Read a vector.
 
@@ -257,6 +261,7 @@ topographic and bathymetric maps:
 
 ```{r}
 #| label: fig-hypso
+#| fig-alt: "Hypsometric map of Asia. Fill color encodes elevation in meters, from seafloor depths near minus 10,000 meters through sea level to mountains above 5,000 meters."
 #| fig-cap: Map of Asia including hypsometric tints.
 #| fig-asp: 0.65
 asia <- rast(system.file("extdata/asia.tif", package = "tidyterra"))
@@ -291,6 +296,7 @@ Plot `SpatVector` objects with `geom_spatvector()`:
 
 ```{r}
 #| label: fig-lux_ggplot
+#| fig-alt: "Choropleth map of Luxembourg cantons. Fill color groups population counts into ranges, and labels identify the cantons."
 #| fig-cap: Choropleth map with a SpatVector object.
 lux <- system.file("ex/lux.shp", package = "terra")
 
@@ -303,16 +309,19 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-Internally, **tidyterra** converts `SpatVector` objects to **sf** with
+Internally, **tidyterra** converts `SpatVector` objects to `sf` objects with
 `sf::st_as_sf()` and then uses `ggplot2::geom_sf()` to render the layer.
 
 You can also aggregate `SpatVector` objects:
 
 ```{r}
 #| label: fig-aggregate
+#| fig-alt:
+#|   - "Choropleth map of Luxembourg with cantons dissolved into three population groups. Fill color encodes total population for each merged area, and labels identify the groups."
+#|   - "Choropleth map of Luxembourg with cantons assigned to three population groups. Fill color encodes total population and internal canton boundaries remain visible within each group."
 #| fig-cap:
 #|    - Dissolving SpatVector objects by group.
-#|    - Dissolving SpatVector objects by group, keeping internal boundaries.
+#|    - Aggregating SpatVector objects by group, keeping internal boundaries.
 # Dissolve by group.
 v_lux |>
   # Create categories.

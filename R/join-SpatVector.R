@@ -1,4 +1,4 @@
-#' Mutating joins for `SpatVector` objects
+#' Mutating joins for [`SpatVector`][terra::vect] objects
 #'
 #' @description
 #' Mutating joins add columns from `y` to `x`, matching observations based on
@@ -22,10 +22,11 @@
 #' @inheritParams as_sf
 #'
 #' @param y A data frame or other object coercible to a data frame. If a
-#'   `SpatVector` or `sf` object is provided, this method returns an error. See
+#' [`SpatVector`][terra::vect] or [`sf`][sf::st_sf] object is provided, this
+#'   method returns an error. See
 #'   [terra::intersect()] for spatial joins.
 #'
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -34,7 +35,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::inner_join()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.
@@ -240,13 +241,13 @@ full_join.SpatVector <- function(
 #' @export
 dplyr::full_join
 
-#' Filtering joins for `SpatVector` objects
+#' Filtering joins for [`SpatVector`][terra::vect] objects
 #'
 #' @description
 #' Filtering joins filter rows from `x` based on the presence or absence of
 #' matches in `y`:
-#' - [semi_join()] return all rows from `x` with a match in `y`.
-#' - [anti_join()] return all rows from `x` without a match in `y`.
+#' - [semi_join()] returns all rows from `x` with a match in `y`.
+#' - [anti_join()] returns all rows from `x` without a match in `y`.
 #'
 #' See [dplyr::semi_join()] for details.
 #'
@@ -261,7 +262,7 @@ dplyr::full_join
 #'
 #' @inheritParams mutate-joins.SpatVector
 #'
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -270,7 +271,7 @@ dplyr::full_join
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::semi_join()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' The geometry column has sticky behavior. This means that the result always
 #' has the geometry of `x` for the records that match the join conditions.

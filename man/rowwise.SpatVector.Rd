@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{rowwise.SpatVector}
 \alias{rowwise.SpatVector}
-\title{Group \code{SpatVector} objects by rows}
+\title{Group \code{\link[terra:vect]{SpatVector}} objects by rows}
 \usage{
 \method{rowwise}{SpatVector}(data, ...)
 }
@@ -20,15 +20,17 @@ Instead, you can select multiple variables, for example with
 \code{\link[tidyselect:everything]{everything()}}.}
 }
 \value{
-The same \code{SpatVector} object with updated grouping metadata.
+A \code{\link[terra:vect]{SpatVector}} object with updated grouping metadata.
 }
 \description{
-\code{rowwise()} lets you compute on a \code{SpatVector} one row at a time.
-This is most useful when a vectorised function does not exist.
+\code{rowwise()} lets you compute on a \code{\link[terra:vect]{SpatVector}} one row at a
+time.
+This is most useful when a vectorized function does not exist.
 
 Most \CRANpkg{dplyr} verb implementations in \CRANpkg{tidyterra} preserve
 row-wise grouping. The exception is \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}, which returns
-a \link[=group_by.SpatVector]{grouped SpatVector}. You can explicitly ungroup with
+a \link[=group_by.SpatVector]{grouped \code{SpatVector}}. You can explicitly ungroup
+with
 \code{\link[=ungroup.SpatVector]{ungroup.SpatVector()}} or \code{\link[=as_tibble]{as_tibble()}} or convert to a grouped \code{SpatVector}
 with \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.
 }
@@ -39,18 +41,20 @@ See \strong{Details} on \code{\link[dplyr:rowwise]{dplyr::rowwise()}}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:rowwise]{dplyr::rowwise()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 
 \section{Grouping metadata}{
 
 
 Mixing \CRANpkg{terra} and \CRANpkg{dplyr} syntax on a grouped or row-wise
-\code{SpatVector}, for example by subsetting with \code{v[1:3, 1:2]}, can corrupt its
+\code{\link[terra:vect]{SpatVector}}, for example by subsetting with \code{v[1:3, 1:2]},
+can corrupt its
 grouping metadata. \CRANpkg{tidyterra} attempts to restore this metadata the
 next time you use a \CRANpkg{dplyr} verb on the object.
 
-Some operations, such as \code{\link[terra:spatSample]{terra::spatSample()}}, create a new \code{SpatVector}
+Some operations, such as \code{\link[terra:spatSample]{terra::spatSample()}}, create a new
+\code{\link[terra:vect]{SpatVector}}
 without preserving grouping metadata. Call \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} or
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} again, as appropriate.
 }

@@ -1,9 +1,10 @@
-#' Row operations for `SpatVector` objects
+#' Row operations for [`SpatVector`][terra::vect] objects
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' Methods for the [dplyr::rows_insert()] family on `SpatVector` objects.
+#' Methods for the [dplyr::rows_insert()] family on [`SpatVector`][terra::vect]
+#'   objects.
 #'
 #' @rdname rows.SpatVector
 #' @name rows.SpatVector
@@ -19,12 +20,12 @@
 #'
 #' @param x A `SpatVector`.
 #' @param y A data frame, `sf` object or `SpatVector`.
-#' @returns A `SpatVector`.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::rows_insert()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' Row operations update attributes while preserving the geometry column. When
 #' inserting data frame rows without geometry, the output contains empty

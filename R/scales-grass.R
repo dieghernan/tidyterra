@@ -45,7 +45,7 @@
 #' [grass_db], [terra::plot()], [terra::minmax()],
 #' [ggplot2::scale_fill_viridis_c()].
 #'
-#' See also \CRANpkg{ggplot2} docs on additional `...` arguments:
+#' See also \CRANpkg{ggplot2} documentation on additional `...` arguments.
 #'
 #' @family gradients
 #'
@@ -61,8 +61,8 @@
 #' @param use_grass_range Logical. If `TRUE`, use the suggested range when
 #'   plotting. See **Details**.
 #' @returns
-#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-#' `fill/colour` `aes()`.
+#' A \CRANpkg{ggplot2} scale for the `fill` or `colour` aesthetic.
+#' `grass.colors()` returns a character vector of colors.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'

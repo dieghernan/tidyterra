@@ -133,7 +133,7 @@ colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
 \item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{TRUE}.}
+The default is \code{FALSE}.}
 
 \item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
 The default (\code{TRUE}) removes unused factors.}
@@ -147,8 +147,7 @@ not filled. See also
 \code{\link[ggplot2:guides]{guides()}} for more information.}
 }
 \value{
-The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-\code{fill/colour} aesthetics.
+A \CRANpkg{ggplot2} scale for the \code{fill} or \code{colour} aesthetic.
 }
 \description{
 Implementation of the classic color palette \code{\link[=terrain.colors]{terrain.colors()}}:

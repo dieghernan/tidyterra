@@ -1,8 +1,9 @@
-#' Coerce objects to `SpatVector`
+#' Coerce objects to [`SpatVector`][terra::vect]
 #'
 #' @description
 #'
-#' `as_spatvector()` turns an existing object into a `SpatVector`. It wraps
+#' `as_spatvector()` turns an existing object into a
+#'   [`SpatVector`][terra::vect]. It wraps
 #' the [terra::vect()] S4 method for the `data.frame` signature.
 #'
 #' @details
@@ -11,9 +12,10 @@
 #'
 #' - Rows with geometry values `NA` or `""` are removed before conversion.
 #' - If `x` is a grouped data frame (see [dplyr::group_by()]), the grouping
-#'   variables are transferred and a grouped `SpatVector` is created (see
+#' variables are transferred and a grouped [`SpatVector`][terra::vect] is
+#'   created (see
 #'   [group_by.SpatVector()]).
-#' - If no `crs` is provided and the tibble was created with
+#' - If no `crs` is provided and the [tibble][tibble::tbl_df] was created with
 #'   [as_tibble.SpatVector()], the `crs` is inferred from
 #'   [`attr(x, "crs")`][attr()].
 #' - It handles the conversion of `EMPTY` geometries between
@@ -32,7 +34,7 @@
 #' @inheritParams as_spatraster crs
 #'
 #' @param x A [tibble][tibble::tbl_df], data frame or \CRANpkg{sf} object of
-#'   class [`sf`][sf::st_sf] or [`sfc`][sf::st_sfc].
+#'   class `sf` or [`sfc`][sf::st_sfc].
 #'
 #' @param ... Additional arguments passed to [terra::vect()].
 #'
@@ -41,7 +43,7 @@
 #'   column with WKT geometries.
 #'
 #' @returns
-#' A `SpatVector`.
+#' A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -216,9 +218,11 @@ as_spatvector.SpatVector <- function(x, ...) {
   x
 }
 
-#' Rebuild objects created with `as_tbl_internal()` to `SpatVector`.
+#' Rebuild objects created with `as_tbl_internal()` to
+#'   [`SpatVector`][terra::vect].
 #'
-#' This strict helper uses stored attributes to recreate a `SpatVector`.
+#' This strict helper uses stored attributes to recreate a
+#'   [`SpatVector`][terra::vect].
 #' @noRd
 as_spatvect_attr <- function(x) {
   if (inherits(x, "SpatVector")) {

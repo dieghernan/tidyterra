@@ -1,8 +1,8 @@
-#' Coerce a `SpatVector` to a [`sf`][sf::st_sf] object
+#' Coerce a [`SpatVector`][terra::vect] to an [`sf`][sf::st_sf] object
 #'
 #' @description
 #'
-#' [as_sf()] coerces a `SpatVector` into an [`sf`][sf::st_sf] object. It wraps
+#' [as_sf()] coerces a [`SpatVector`][terra::vect] into an `sf` object. It wraps
 #' [sf::st_as_sf()] and preserves groups created with
 #' [group_by.SpatVector()].
 #'
@@ -13,7 +13,7 @@
 #' @param ... Additional arguments passed to [sf::st_as_sf()].
 #'
 #' @returns
-#' A [`sf`][sf::st_sf] object with an additional `tbl_df` class for
+#' An [`sf`][sf::st_sf] object with an additional `tbl_df` class for
 #' pretty printing.
 #'
 #' @encoding UTF-8

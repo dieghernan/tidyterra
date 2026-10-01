@@ -1,11 +1,13 @@
-#' Plot `SpatRaster` objects as images
+#' Plot [`SpatRaster`][terra::rast] objects as images
 #'
 #' @description
 #'
-#' This geom plots `SpatRaster` objects (see [terra::rast()]) as RGB images.
+#' This geom plots [`SpatRaster`][terra::rast] objects (see [terra::rast()]) as
+#'   RGB images.
 #' The layers are combined so they represent the red, green and blue channels.
 #'
-#' For plotting `SpatRaster` objects by layer values use [geom_spatraster()].
+#' For plotting [`SpatRaster`][terra::rast] objects by layer values use
+#'   [geom_spatraster()].
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'

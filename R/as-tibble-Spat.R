@@ -1,8 +1,10 @@
-#' Coerce `SpatRaster` and `SpatVector` objects to tibbles
+#' Coerce [`SpatRaster`][terra::rast] and [`SpatVector`][terra::vect] objects to
+#'   [tibble][tibble::tbl_df]s
 #'
 #' @description
 #'
-#' [as_tibble()] methods for `SpatRaster` and `SpatVector` objects.
+#' [as_tibble()] methods for [`SpatRaster`][terra::rast] and
+#'   [`SpatVector`][terra::vect] objects.
 #'
 #' @rdname as_tibble.Spat
 #' @name as_tibble.Spat
@@ -35,18 +37,21 @@
 #' Implementation of the **generic** [tibble::as_tibble()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster` and `SpatVector`
+#' ## [`SpatRaster`][terra::rast] and [`SpatVector`][terra::vect]
 #'
-#' The returned tibble includes the CRS of the original object as an attribute
+#' The returned [tibble][tibble::tbl_df] includes the CRS of the original object
+#'   as an attribute
 #' in WKT format (see [pull_crs()]).
 #'
 #' @section Layer and column names:
 #'
-#' When coercing `SpatRaster` objects to data frames, `x` and `y` are reserved
+#' When coercing [`SpatRaster`][terra::rast] objects to data frames, `x` and `y`
+#'   are reserved
 #' names for the geographic coordinates of each cell. \CRANpkg{terra} also
 #' allows layers with duplicated names.
 #'
-#' When coercing a `SpatRaster` to a tibble, \CRANpkg{tidyterra} may rename its
+#' When coercing a [`SpatRaster`][terra::rast] to a [tibble][tibble::tbl_df],
+#'   \CRANpkg{tidyterra} may rename its
 #' layers to avoid these issues. Specifically, layers may be renamed in the
 #' following cases:
 #' - Layers with duplicated names.
@@ -57,11 +62,13 @@
 #'
 #' \CRANpkg{tidyterra} displays a message describing the renamed layers.
 #'
-#' The same issue affects `SpatVector` objects with reserved names such as
+#' The same issue affects [`SpatVector`][terra::vect] objects with reserved
+#'   names such as
 #' `geometry` (when `geom = c("WKT", "HEX")`) and `x`, `y` (when
 #' `geom = "XY"`). These names represent geometry columns in
 #' [terra::as.data.frame()]. If `geom` is not `NULL`, the same renaming logic
-#' described for `SpatRaster` also applies to `SpatVector` columns.
+#' described for [`SpatRaster`][terra::rast] also applies to `SpatVector`
+#'   columns.
 #'
 #' @encoding UTF-8
 #' @export
@@ -180,9 +187,11 @@ as_tbl_internal <- function(x) {
   }
 }
 
-#' Strict internal version that stores `SpatRaster` reconstruction metadata.
+#' Strict internal version that stores [`SpatRaster`][terra::rast]
+#'   reconstruction metadata.
 #'
-#' This is the tibble representation handled by tidyterra methods.
+#' This is the [tibble][tibble::tbl_df] representation handled by tidyterra
+#'   methods.
 #' @noRd
 as_tbl_spat_attr <- function(x) {
   x <- make_safe_names(x)
@@ -207,9 +216,11 @@ as_tbl_spat_attr <- function(x) {
   todf
 }
 
-#' Strict internal version that stores `SpatVector` reconstruction metadata.
+#' Strict internal version that stores [`SpatVector`][terra::vect]
+#'   reconstruction metadata.
 #'
-#' This is the tibble representation handled by tidyterra methods.
+#' This is the [tibble][tibble::tbl_df] representation handled by tidyterra
+#'   methods.
 #' @noRd
 as_tbl_vector_internal <- function(x) {
   x <- make_safe_names(x, geom = "WKT")

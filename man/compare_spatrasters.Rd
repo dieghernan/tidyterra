@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{compare_spatrasters}
 \alias{compare_spatrasters}
-\title{Compare attributes of two \code{SpatRaster} objects}
+\title{Compare attributes of two \code{\link[terra:rast]{SpatRaster}} objects}
 \usage{
 compare_spatrasters(x, y, digits = 6)
 }
@@ -14,12 +14,13 @@ compare_spatrasters(x, y, digits = 6)
 the resolution.}
 }
 \value{
-An invisible logical value indicating whether the \code{SpatRaster}
+An invisible logical value indicating whether the \code{\link[terra:rast]{SpatRaster}}
 objects are compatible, plus an informative message flagging any issues
 found.
 }
 \description{
-Two \code{SpatRaster} objects are compatible (in terms of combining layers) if
+Two \code{\link[terra:rast]{SpatRaster}} objects are compatible (in terms of combining
+layers) if
 the CRS, extent and resolution are similar. In those cases you can combine
 the objects simply as \code{c(x, y)}.
 

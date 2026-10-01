@@ -1,4 +1,4 @@
-#' Cross joins for `SpatVector` objects
+#' Cross joins for [`SpatVector`][terra::vect] objects
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
@@ -20,13 +20,14 @@
 #' @inheritParams dplyr::cross_join
 #'
 #' @param y A data frame or other object coercible to a data frame. If a
-#'   `SpatVector` or `sf` object is provided, this method returns an error.
-#' @returns A `SpatVector` object.
+#' [`SpatVector`][terra::vect] or [`sf`][sf::st_sf] object is provided, this
+#'   method returns an error.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::cross_join()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' The geometry column has sticky behavior. The result repeats each geometry in
 #' `x` once for every row in `y`.

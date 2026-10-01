@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{reframe.SpatVector}
 \alias{reframe.SpatVector}
-\title{Reframe each group of a \code{SpatVector}}
+\title{Reframe each group of a \code{\link[terra:vect]{SpatVector}}}
 \usage{
 \method{reframe}{SpatVector}(.data, ..., .by = NULL, .dissolve = TRUE)
 }
@@ -27,7 +27,7 @@ details and examples, see \link[dplyr:dplyr_by]{?dplyr_by}.}
 geometries.}
 }
 \value{
-A \code{SpatVector}.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -39,7 +39,7 @@ group is aggregated and repeated for each row created for that group.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:reframe]{dplyr::reframe()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 For grouped inputs and calls using \code{.by}, geometries are aggregated per
 group. If a group produces more than one row, the aggregated group geometry

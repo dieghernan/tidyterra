@@ -9,7 +9,7 @@
 \alias{rows_patch.SpatVector}
 \alias{rows_upsert.SpatVector}
 \alias{rows_delete.SpatVector}
-\title{Row operations for \code{SpatVector} objects}
+\title{Row operations for \code{\link[terra:vect]{SpatVector}} objects}
 \usage{
 \method{rows_insert}{SpatVector}(
   x,
@@ -105,18 +105,19 @@ keys in \code{x}.
 }}
 }
 \value{
-A \code{SpatVector}.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-Methods for the \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} family on \code{SpatVector} objects.
+Methods for the \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} family on \code{\link[terra:vect]{SpatVector}}
+objects.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:rows_insert]{dplyr::rows_insert()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 Row operations update attributes while preserving the geometry column. When
 inserting data frame rows without geometry, the output contains empty

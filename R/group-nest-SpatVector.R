@@ -1,10 +1,11 @@
-#' Nest grouped `SpatVector` rows
+#' Nest grouped [`SpatVector`][terra::vect] rows
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' `group_nest()` and `nest_by()` create tibbles with list-columns containing
-#' `SpatVector` objects.
+#' `group_nest()` and `nest_by()` create [tibble][tibble::tbl_df]s with
+#'   list-columns containing
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @rdname group_nest.SpatVector
 #' @name group_nest.SpatVector
@@ -21,7 +22,9 @@
 #' @inheritParams dplyr::group_nest
 #'
 #' @param .tbl,.data A `SpatVector`.
-#' @returns A tibble with a list-column of `SpatVector` objects.
+#' @returns A [tibble][tibble::tbl_df] with a list-column of
+#'   [`SpatVector`][terra::vect]
+#'   objects.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -30,9 +33,10 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_nest()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
-#' The nested list-column contains `SpatVector` objects, preserving the
+#' The nested list-column contains [`SpatVector`][terra::vect] objects,
+#'   preserving the
 #' geometries for each group.
 #'
 #' @encoding UTF-8

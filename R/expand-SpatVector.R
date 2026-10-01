@@ -1,8 +1,10 @@
-#' Expand `SpatVector` attribute combinations
+#' Expand [`SpatVector`][terra::vect] attribute combinations
 #'
 #' @description
-#' `expand()` returns a tibble with all combinations of selected attributes.
-#' It does not return a `SpatVector` because newly created combinations do not
+#' `expand()` returns a [tibble][tibble::tbl_df] with all combinations of
+#'   selected attributes.
+#' It does not return a [`SpatVector`][terra::vect] because newly created
+#'   combinations do not
 #' have a well-defined geometry. Use [complete.SpatVector()] when empty
 #' geometries should be added explicitly.
 #'
@@ -22,10 +24,12 @@
 #'
 #' @section Methods:
 #'
-#' Implementation of the **generic** [tidyr::expand()] method for `SpatVector`
+#' Implementation of the **generic** [tidyr::expand()] method for
+#'   [`SpatVector`][terra::vect]
 #' objects.
 #'
-#' The output is a tibble with attribute combinations. Geometry is not
+#' The output is a [tibble][tibble::tbl_df] with attribute combinations.
+#'   Geometry is not
 #' preserved because new combinations do not have a well-defined geometry.
 #'
 #' @encoding UTF-8

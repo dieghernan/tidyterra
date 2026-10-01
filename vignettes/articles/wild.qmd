@@ -39,6 +39,7 @@ src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 ```{r}
 #| echo: false
+#| fig-alt: "Bar chart of publications using tidyterra by year. Publication year is on the horizontal axis and the number of publications is on the vertical axis."
 #| message: false
 #| warning: false
 library(dplyr)

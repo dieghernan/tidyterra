@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{expand.SpatVector}
 \alias{expand.SpatVector}
-\title{Expand \code{SpatVector} attribute combinations}
+\title{Expand \code{\link[terra:vect]{SpatVector}} attribute combinations}
 \usage{
 \method{expand}{SpatVector}(data, ..., .name_repair = "check_unique")
 }
@@ -40,18 +40,22 @@ for the meaning of these options.}
 A \link[tibble:tbl_df]{tibble}.
 }
 \description{
-\code{expand()} returns a tibble with all combinations of selected attributes.
-It does not return a \code{SpatVector} because newly created combinations do not
+\code{expand()} returns a \link[tibble:tbl_df]{tibble} with all combinations of
+selected attributes.
+It does not return a \code{\link[terra:vect]{SpatVector}} because newly created
+combinations do not
 have a well-defined geometry. Use \code{\link[=complete.SpatVector]{complete.SpatVector()}} when empty
 geometries should be added explicitly.
 }
 \section{Methods}{
 
 
-Implementation of the \strong{generic} \code{\link[tidyr:expand]{tidyr::expand()}} method for \code{SpatVector}
+Implementation of the \strong{generic} \code{\link[tidyr:expand]{tidyr::expand()}} method for
+\code{\link[terra:vect]{SpatVector}}
 objects.
 
-The output is a tibble with attribute combinations. Geometry is not
+The output is a \link[tibble:tbl_df]{tibble} with attribute combinations.
+Geometry is not
 preserved because new combinations do not have a well-defined geometry.
 }
 

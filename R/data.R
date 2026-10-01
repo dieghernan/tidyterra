@@ -31,7 +31,8 @@
 #' @family datasets
 #'
 #' @note
-#' Information needed for regenerating the original `SpatRaster` file:
+#' Information needed for regenerating the original [`SpatRaster`][terra::rast]
+#'   file:
 #' - resolution: `c(5, 5)`
 #' - extent: `1756969, 1757579, 5917003, 5917873` (xmin, xmax, ymin, ymax)
 #' - Coordinate reference system: NZGD2000 / New Zealand Transverse Mercator
@@ -149,7 +150,8 @@ NULL
 #' @docType data
 #'
 #' @format
-#' A tibble of `r nrow(cross_blended_hypsometric_tints_db)` rows and
+#' A [tibble][tibble::tbl_df] of `r nrow(cross_blended_hypsometric_tints_db)`
+#'   rows and
 #' `r ncol(cross_blended_hypsometric_tints_db)` columns with the following
 #' fields:
 #'
@@ -226,7 +228,8 @@ NULL
 #' @docType data
 #'
 #' @format
-#' A tibble of `r nrow(grass_db)` rows and `r ncol(grass_db)` columns with
+#' A [tibble][tibble::tbl_df] of `r nrow(grass_db)` rows and `r ncol(grass_db)`
+#'   columns with
 #' the following fields:
 #'
 #' \describe{

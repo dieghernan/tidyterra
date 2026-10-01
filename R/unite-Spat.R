@@ -16,20 +16,20 @@
 #'
 #' @inheritParams tidyr::unite
 #'
-#' @param data A `SpatRaster` or `SpatVector`.
-#' @returns A `SpatRaster` or `SpatVector` object.
+#' @param data A [`SpatRaster`][terra::rast] or [`SpatVector`][terra::vect].
+#' @returns A [`SpatRaster`][terra::rast] or [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::unite()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
 #' The selected layers are united cell by cell. The new layer is categorical
 #' because [tidyr::unite()] returns a character vector.
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
 #' The geometry column has sticky behavior and is never united with attributes.
 #'

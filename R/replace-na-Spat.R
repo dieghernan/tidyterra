@@ -1,8 +1,8 @@
-#' Replace `NA`s with specified values
+#' Replace missing values with specified values
 #'
 #' @description
 #'
-#' Replace `NA`s values on layers/attributes with specified values
+#' Replace `NA` values in layers/attributes with specified values.
 #'
 #' @rdname replace_na.Spat
 #' @name replace_na.Spat

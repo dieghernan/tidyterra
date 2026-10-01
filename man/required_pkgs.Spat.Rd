@@ -25,7 +25,7 @@ or a \code{SpatExtent} (see \code{\link[terra:ext]{terra::ext()}}).}
 \item{...}{Ignored by these methods.}
 }
 \value{
-A character string of packages that are required.
+A character vector of required package names.
 }
 \description{
 Determine packages required by \verb{Spat*} objects.

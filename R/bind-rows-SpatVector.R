@@ -1,7 +1,10 @@
-#' Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
+#' Bind multiple [`SpatVector`][terra::vect], [`sf`][sf::st_sf], `sfc` and data
+#' frame objects by row
 #'
 #' @description
-#' Bind any number of `SpatVector`, data frames, `sf` and `sfc` objects by row,
+#' Bind any number of [`SpatVector`][terra::vect] objects, data frames,
+#' [`sf`][sf::st_sf] and `sfc` objects
+#' by row,
 #' making a longer result. This is similar to `do.call(rbind, data_frames)`,
 #' but the output will contain all columns that appear in any of the inputs.
 #'
@@ -16,10 +19,13 @@
 #' @inheritParams dplyr::bind_rows
 #'
 #' @param ... Objects to combine. The first argument must be a `SpatVector`.
-#'   Each subsequent argument can be a `SpatVector`, `sf` or `sfc` object or a
+#' Each subsequent argument can be a `SpatVector`, [`sf`][sf::st_sf] or `sfc`
+#'   object or a
 #'   data frame. Columns are matched by name and any missing columns are filled
 #'   with `NA`.
-#' @returns A `SpatVector` of the same type as the first element of `...`.
+#' @returns A [`SpatVector`][terra::vect] object of the same type as the first
+#'   element of
+#'   `...`.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' `rbind()` method.
@@ -27,14 +33,16 @@
 #' @section Methods:
 #'
 #' Implementation of the [dplyr::bind_rows()] function for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
-#' The first argument should be a `SpatVector`. Each subsequent argument can be
-#' a `SpatVector`, an `sf` or `sfc` object or a data frame:
+#' The first argument should be a [`SpatVector`][terra::vect]. Each subsequent
+#'   argument can be
+#' a `SpatVector`, an [`sf`][sf::st_sf] or `sfc` object or a data frame:
 #'
 #' - If subsequent spatial objects have a different CRS from the first element,
 #'   they are reprojected to the CRS of the first element with a message.
-#' - If any element of `...` is a tibble/data frame, the rows are column-bound
+#' - If any element of `...` is a [tibble][tibble::tbl_df]/data frame, the rows
+#'   are column-bound
 #'   with empty geometries with a message.
 #'
 #' @encoding UTF-8

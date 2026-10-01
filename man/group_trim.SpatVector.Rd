@@ -13,7 +13,7 @@
 \item{.drop}{See \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.}
 }
 \value{
-A \code{SpatVector} object with updated grouping metadata.
+A \code{\link[terra:vect]{SpatVector}} object with updated grouping metadata.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
@@ -31,7 +31,7 @@ See \strong{Details} on \code{\link[dplyr:group_trim]{dplyr::group_trim()}}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_trim]{dplyr::group_trim()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 
 \examples{

@@ -14,11 +14,12 @@
 #'   cells/geometries.
 #' - `slice_sample()` randomly selects cells/geometries.
 #' - `slice_rows()` and `slice_cols()` subset entire rows or columns of a
-#'   `SpatRaster`.
+#'   [`SpatRaster`][terra::rast].
 #' - `slice_colrows()` subsets regions of the `SpatRaster` by row and column
 #'   position of a `SpatRaster`.
 #'
-#' You can get a skeleton of your `SpatRaster` with the cell, column and row
+#' You can get a skeleton of your [`SpatRaster`][terra::rast] with the cell,
+#'   column and row
 #' index with [as_coordinates()].
 #'
 #' See **Methods** for details.
@@ -40,7 +41,7 @@
 #'
 #' @param .preserve Ignored for `Spat*` objects.
 #' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
-#'   `SpatRaster`. See also [terra::trim()], [terra::extend()].
+#'   [`SpatRaster`][terra::rast]. See also [terra::trim()], [terra::extend()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
 #'   Provide either positive values to keep or negative values to drop.
 #'   The values provided must be either all positive or all negative. Indices
@@ -62,17 +63,19 @@
 #' Implementation of the **generic** [dplyr::slice()] methods for `Spat*`
 #' objects.
 #'
-#' ## `SpatRaster`
+#' ## [`SpatRaster`][terra::rast]
 #'
-#' The result is a `SpatRaster` with the CRS and resolution of the input and
+#' The result is a [`SpatRaster`][terra::rast] with the CRS and resolution of
+#'   the input and
 #' the values of the selected cells, columns or rows.
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
 #' The non-selected cells have a value of `NA`.
 #'
-#' ## `SpatVector`
+#' ## [`SpatVector`][terra::vect]
 #'
-#' The result is a `SpatVector` where the attributes of the selected
+#' The result is a [`SpatVector`][terra::vect] where the attributes of the
+#'   selected
 #' geometries are preserved. If `.data` is a
 #' [grouped][is_grouped_spatvector] `SpatVector`, the operation will be
 #' performed on each group, so that (e.g.) `slice_head(df, n = 5)` will select

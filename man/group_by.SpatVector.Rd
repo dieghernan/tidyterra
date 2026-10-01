@@ -4,7 +4,7 @@
 \name{group_by.SpatVector}
 \alias{group_by.SpatVector}
 \alias{ungroup.SpatVector}
-\title{Group a \code{SpatVector} by one or more variables}
+\title{Group a \code{\link[terra:vect]{SpatVector}} by one or more variables}
 \usage{
 \method{group_by}{SpatVector}(.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))
 
@@ -29,11 +29,12 @@ data? The default is \code{TRUE} except when \code{.data} has been previously
 grouped with \code{.drop = FALSE}. See \code{\link[dplyr:group_by_drop_default]{group_by_drop_default()}} for details.}
 }
 \value{
-A \code{SpatVector} object with updated grouping metadata.
+A \code{\link[terra:vect]{SpatVector}} object with updated grouping metadata.
 }
 \description{
 Most data operations are done on groups defined by variables.
-\code{\link[=group_by.SpatVector]{group_by.SpatVector()}} adds new attributes to an existing \code{SpatVector}
+\code{\link[=group_by.SpatVector]{group_by.SpatVector()}} adds new attributes to an existing
+\code{\link[terra:vect]{SpatVector}}
 indicating the corresponding groups. See \strong{Methods}.
 }
 \details{
@@ -43,18 +44,20 @@ See \strong{Details} on \code{\link[dplyr:group_by]{dplyr::group_by()}}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_by]{dplyr::group_by()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 
 \section{Grouping metadata}{
 
 
 Mixing \CRANpkg{terra} and \CRANpkg{dplyr} syntax on a grouped or row-wise
-\code{SpatVector}, for example by subsetting with \code{v[1:3, 1:2]}, can corrupt its
+\code{\link[terra:vect]{SpatVector}}, for example by subsetting with \code{v[1:3, 1:2]},
+can corrupt its
 grouping metadata. \CRANpkg{tidyterra} attempts to restore this metadata the
 next time you use a \CRANpkg{dplyr} verb on the object.
 
-Some operations, such as \code{\link[terra:spatSample]{terra::spatSample()}}, create a new \code{SpatVector}
+Some operations, such as \code{\link[terra:spatSample]{terra::spatSample()}}, create a new
+\code{\link[terra:vect]{SpatVector}}
 without preserving grouping metadata. Call \code{\link[=group_by.SpatVector]{group_by.SpatVector()}} or
 \code{\link[=rowwise.SpatVector]{rowwise.SpatVector()}} again, as appropriate.
 }

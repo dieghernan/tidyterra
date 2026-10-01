@@ -5,7 +5,8 @@
 \alias{cross_blended_hypsometric_tints_db}
 \title{Cross-blended hypsometric tints}
 \format{
-A tibble of 41 rows and
+A \link[tibble:tbl_df]{tibble} of 41
+rows and
 6 columns with the following
 fields:
 

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{group_split.SpatVector}
 \alias{group_split.SpatVector}
-\title{Split \code{SpatVector} by groups}
+\title{Split \code{\link[terra:vect]{SpatVector}} by groups}
 \usage{
 \method{group_split}{SpatVector}(.tbl, ..., .keep = TRUE)
 }
@@ -16,7 +16,8 @@ forwarded to \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.}
 \item{.keep}{Should the grouping columns be kept?}
 }
 \value{
-A list of \code{SpatVector} objects. Each \code{SpatVector} contains the rows
+A list of \code{\link[terra:vect]{SpatVector}} objects. Each object contains
+the rows
 of \code{.tbl} for the associated group and all columns. When \code{.keep = TRUE},
 the output includes the grouping variables.
 }
@@ -58,7 +59,7 @@ future.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_split]{dplyr::group_split()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 
 \examples{

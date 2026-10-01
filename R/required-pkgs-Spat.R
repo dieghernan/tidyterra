@@ -13,7 +13,7 @@
 #'
 #' @inheritParams tidy.Spat
 #'
-#' @returns A character string of packages that are required.
+#' @returns A character vector of required package names.
 #' @section Methods:
 #'
 #' Implementation of the **generic** [generics::required_pkgs()] method for

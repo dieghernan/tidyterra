@@ -3,7 +3,8 @@
 \encoding{UTF-8}
 \name{distinct.SpatVector}
 \alias{distinct.SpatVector}
-\title{Keep distinct/unique rows and geometries of \code{SpatVector} objects}
+\title{Keep distinct/unique rows and geometries of \code{\link[terra:vect]{SpatVector}}
+objects}
 \usage{
 \method{distinct}{SpatVector}(.data, ..., .keep_all = FALSE)
 }
@@ -21,10 +22,11 @@ If a combination of \code{...} is not distinct, this keeps the
 first row of values.}
 }
 \value{
-A \code{SpatVector} object.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-Keep only unique/distinct rows and geometries from a \code{SpatVector}.
+Keep only unique/distinct rows and geometries from a
+\code{\link[terra:vect]{SpatVector}}.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -36,7 +38,7 @@ Keep only unique/distinct rows and geometries from a \code{SpatVector}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:distinct]{dplyr::distinct()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 You can remove duplicate geometries by passing the reserved name
 \code{geometry} to \code{...}. See \strong{Examples}.
@@ -58,7 +60,7 @@ ex1
 
 nrow(ex1)
 
-# Duplicates by NAME_1
+# Duplicates by gr
 ex2 <- distinct(v, gr)
 ex2
 nrow(ex2)

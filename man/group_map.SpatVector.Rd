@@ -4,7 +4,7 @@
 \name{group_map.SpatVector}
 \alias{group_map.SpatVector}
 \alias{group_modify.SpatVector}
-\title{Apply a function to each \code{SpatVector} group}
+\title{Apply a function to each \code{\link[terra:vect]{SpatVector}} group}
 \usage{
 \method{group_map}{SpatVector}(.data, .f, ..., .keep = FALSE)
 
@@ -14,43 +14,43 @@
 \item{.data}{A grouped or ungrouped \code{SpatVector}.}
 
 \item{.f}{A function called with \code{.x}, a \code{SpatVector} containing the rows
-for one group, and \code{.y}, a tibble with the group keys.}
+for one group, and \code{.y}, a \link[tibble:tbl_df]{tibble} with the group keys.}
 
 \item{...}{Additional arguments passed on to \code{.f}}
 
 \item{.keep}{are the grouping variables kept in \code{.x}}
 }
 \value{
-\itemize{
-\item \code{group_map()} returns a list of results from calling \code{.f} on each group.
-\item \code{group_modify()} returns a \code{SpatVector}. In that case, \code{.f} must return
-\code{SpatVector} objects.
-}
+\code{group_map()} returns a list of results from calling \code{.f} on each group.
+\code{group_modify()} returns a \code{\link[terra:vect]{SpatVector}} object and requires
+\code{.f} to return \code{\link[terra:vect]{SpatVector}} objects.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-\code{\link[dplyr:group_map]{dplyr::group_map()}} and \code{\link[dplyr:group_modify]{dplyr::group_modify()}} are purrr-style functions
-that can be used to iterate on grouped \code{SpatVector} objects.
+\code{\link[dplyr:group_map]{dplyr::group_map()}} and \code{\link[dplyr:group_modify]{dplyr::group_modify()}} are functions in the style
+of \CRANpkg{purrr} that can be used to iterate on grouped
+\code{\link[terra:vect]{SpatVector}} objects.
 }
 \details{
 Each conceptual group is exposed to \code{.f} with two pieces of information:
-\code{.x}, the subset of rows for the group as a \code{SpatVector}, and \code{.y}, a
-one-row tibble with one column per grouping variable that identifies the
-group.
+\code{.x}, the subset of rows for the group as a \code{\link[terra:vect]{SpatVector}}, and
+\code{.y}, a one-row \link[tibble:tbl_df]{tibble} with one column per grouping
+variable that identifies the group.
 
-These methods also work on ungrouped \code{SpatVector} objects. In that case,
-\code{.f} is applied to the entire object and \code{.y} is a one-row tibble with no
-columns.
+These methods also work on ungrouped \code{\link[terra:vect]{SpatVector}} objects. In
+that case, \code{.f} is applied to the entire object and \code{.y} is a one-row
+\link[tibble:tbl_df]{tibble} with no columns.
 }
 \section{Methods}{
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:group_map]{dplyr::group_map()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 \code{group_map()} applies \code{.f} to each group and returns a list.
-\code{group_modify()} requires \code{.f} to return \code{SpatVector} objects and binds the
+\code{group_modify()} requires \code{.f} to return \code{\link[terra:vect]{SpatVector}} objects
+and binds the
 results.
 }
 

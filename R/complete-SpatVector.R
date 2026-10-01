@@ -1,8 +1,9 @@
-#' Complete missing combinations in a `SpatVector`
+#' Complete missing combinations in a [`SpatVector`][terra::vect]
 #'
 #' @description
 #'
-#' `complete()` turns implicit missing combinations in a `SpatVector`
+#' `complete()` turns implicit missing combinations in a
+#'   [`SpatVector`][terra::vect]
 #' into explicit rows while preserving geometry and spatial metadata.
 #'
 #' @rdname complete.SpatVector
@@ -17,12 +18,12 @@
 #' @inheritParams tidyr::complete
 #'
 #' @param data A `SpatVector`.
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [tidyr::complete()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' `complete()` preserves the geometry column while expanding missing
 #' combinations. New combinations receive empty geometries.

@@ -20,7 +20,7 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 or the width of the console.}
 
 \item{...}{Arguments passed to \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}} or
-\code{\link[=as_tibble.SpatVector]{as_tibble.SpatVector()}} methods.}
+\code{\link[=as_tibble.Spat]{as_tibble.Spat()}} methods.}
 
 \item{n}{Maximum number of rows to show.}
 
@@ -28,7 +28,7 @@ or the width of the console.}
 information for, if \code{n} is too small for the \verb{Spat*} object.}
 }
 \value{
-Original \code{x} is invisibly returned, allowing \code{glimpse()} to
+The input object \code{x}, returned invisibly so \code{glimpse()} can
 be used within a data pipeline.
 }
 \description{

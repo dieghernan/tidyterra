@@ -5,7 +5,8 @@
 \alias{grass_db}
 \title{GRASS color tables}
 \format{
-A tibble of 2920 rows and 6 columns with
+A \link[tibble:tbl_df]{tibble} of 2920 rows and 6
+columns with
 the following fields:
 
 \describe{

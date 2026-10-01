@@ -5,7 +5,7 @@
 \alias{count.SpatVector}
 \alias{tally.SpatVector}
 \alias{add_count.SpatVector}
-\title{Count the observations in each \code{SpatVector} group}
+\title{Count the observations in each \code{\link[terra:vect]{SpatVector}} group}
 \usage{
 \method{count}{SpatVector}(
   x,
@@ -50,7 +50,7 @@ supported, empty groups are always removed (see \code{\link[dplyr:count]{dplyr::
 geometries.}
 }
 \value{
-A \code{SpatVector} object with updated grouping metadata.
+A \code{\link[terra:vect]{SpatVector}} object with updated grouping metadata.
 }
 \description{
 \code{count()} lets you quickly count the unique values of one or more variables:
@@ -73,7 +73,7 @@ switching the summary from \code{n = n()} to \code{n = sum(wt)}.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:count]{dplyr::count()}} method family for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 \code{\link[=tally]{tally()}} will always return a disaggregated geometry while \code{\link[=count]{count()}} can
 handle this. See also \code{\link[=summarise.SpatVector]{summarise.SpatVector()}}.

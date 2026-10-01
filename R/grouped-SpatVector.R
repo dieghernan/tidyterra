@@ -1,14 +1,15 @@
-#' A grouped `SpatVector`
+#' A grouped [`SpatVector`][terra::vect]
 #'
 #' @description
-#' The easiest way to create a grouped `SpatVector` is to call the
+#' The easiest way to create a grouped [`SpatVector`][terra::vect] is to call
+#'   the
 #' `group_by()` method on a `SpatVector`: this will take care of capturing
 #' the unevaluated expressions for you. See [group_by.SpatVector()] for
 #' details.
 #'
 #' This function is an adapted version of [dplyr::is_grouped_df()].
 #'
-#' See also [group_data.SpatVector()] for the accessory functions that retrieve
+#' See also [group_data.SpatVector()] for the helper functions that retrieve
 #' various metadata from a grouped `SpatVector`.
 #'
 #' @keywords internal
@@ -16,7 +17,8 @@
 #'
 #' @inheritParams as_sf x
 #'
-#' @returns `TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
+#' @returns `TRUE` if `x` is a grouped [`SpatVector`][terra::vect], otherwise
+#'   `FALSE`.
 #'
 #' @encoding UTF-8
 #' @export

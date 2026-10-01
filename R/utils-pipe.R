@@ -6,8 +6,8 @@
 #' @name %>%
 #' @keywords internal
 #' @importFrom magrittr %>%
-#' @param lhs A value or the magrittr placeholder.
-#' @param rhs A function call using the magrittr semantics.
+#' @param lhs A value or the \CRANpkg{magrittr} placeholder.
+#' @param rhs A function call using \CRANpkg{magrittr} semantics.
 #' @returns The result of calling `rhs(lhs)`.
 #' @usage lhs \%>\% rhs
 #' @encoding UTF-8

@@ -1,20 +1,21 @@
-#' Apply a function to each `SpatVector` group
+#' Apply a function to each [`SpatVector`][terra::vect] group
 #'
 #' @description
 #' `r lifecycle::badge("experimental")`
 #'
-#' [dplyr::group_map()] and [dplyr::group_modify()] are purrr-style functions
-#' that can be used to iterate on grouped `SpatVector` objects.
+#' [dplyr::group_map()] and [dplyr::group_modify()] are functions in the style
+#' of \CRANpkg{purrr} that can be used to iterate on grouped
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' @details
 #' Each conceptual group is exposed to `.f` with two pieces of information:
-#' `.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a
-#' one-row tibble with one column per grouping variable that identifies the
-#' group.
+#' `.x`, the subset of rows for the group as a [`SpatVector`][terra::vect], and
+#' `.y`, a one-row [tibble][tibble::tbl_df] with one column per grouping
+#' variable that identifies the group.
 #'
-#' These methods also work on ungrouped `SpatVector` objects. In that case,
-#' `.f` is applied to the entire object and `.y` is a one-row tibble with no
-#' columns.
+#' These methods also work on ungrouped [`SpatVector`][terra::vect] objects. In
+#' that case, `.f` is applied to the entire object and `.y` is a one-row
+#' [tibble][tibble::tbl_df] with no columns.
 #'
 #' @rdname group_map.SpatVector
 #' @name group_map.SpatVector
@@ -30,19 +31,20 @@
 #'
 #' @param .data A grouped or ungrouped `SpatVector`.
 #' @param .f A function called with `.x`, a `SpatVector` containing the rows
-#'   for one group, and `.y`, a tibble with the group keys.
+#'   for one group, and `.y`, a [tibble][tibble::tbl_df] with the group keys.
 #' @returns
-#' - `group_map()` returns a list of results from calling `.f` on each group.
-#' - `group_modify()` returns a `SpatVector`. In that case, `.f` must return
-#'   `SpatVector` objects.
+#' `group_map()` returns a list of results from calling `.f` on each group.
+#' `group_modify()` returns a [`SpatVector`][terra::vect] object and requires
+#' `.f` to return [`SpatVector`][terra::vect] objects.
 #'
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::group_map()] method family for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' `group_map()` applies `.f` to each group and returns a list.
-#' `group_modify()` requires `.f` to return `SpatVector` objects and binds the
+#' `group_modify()` requires `.f` to return [`SpatVector`][terra::vect] objects
+#'   and binds the
 #' results.
 #'
 #' @encoding UTF-8

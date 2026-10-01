@@ -1,7 +1,8 @@
-#' Summarise each group of a `SpatVector` down to one geometry
+#' Summarize each group of a [`SpatVector`][terra::vect] down to one geometry
 #'
 #' @description
-#' `summarise()` creates a new `SpatVector`. It returns one geometry for each
+#' `summarise()` creates a new [`SpatVector`][terra::vect]. It returns one
+#'   geometry for each
 #' combination of grouping variables. If there are no grouping variables, the
 #' output will have a single geometry summarizing all observations in the input
 #' and combining all the geometries of the `SpatVector`. It will contain one
@@ -25,7 +26,7 @@
 #'   geometries.
 #'
 #' @returns
-#' A `SpatVector`.
+#' A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -34,7 +35,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::summarise()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' As in the \CRANpkg{sf} implementation, this function can dissolve geometries
 #' with `.dissolve = TRUE` or create `MULTI` geometries with

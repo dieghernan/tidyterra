@@ -160,7 +160,7 @@ Current methods and functions provided by **tidyterra** are:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ to **sf** through `sf::st_as_sf()` | To a **tibble** with coordinates. |
+| `ggplot2::fortify()` | ✔️ To an `sf` object through `sf::st_as_sf()` | To a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -281,8 +281,9 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="Average temperature in ',
-    'Castile and Leon, Spain" width="100%" />'
+    '" alt="Three raster maps of Castile and Leon, Spain, for April, May ',
+    "and June. Fill color encodes average temperature in degrees Celsius. ",
+    'The mapped temperatures rise across the three months." width="100%" />'
   )
 )
 ```
@@ -324,8 +325,9 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="Temperature variation in ',
-    'Castile and Leon, Spain" width="100%" />'
+    '" alt="Raster map of Castile and Leon, Spain, showing the difference ',
+    "between June and May average temperatures in degrees Celsius. ",
+    'Province boundaries are outlined over the colored raster." width="100%" />'
   )
 )
 ```
@@ -354,7 +356,8 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="RGB SpatRaster tile plotted with tidyterra"',
+    '" alt="RGB map tile of Castile and Leon, Spain, with province ',
+    'boundaries outlined over the imagery."',
     ' width="100%" />'
   )
 )
@@ -399,7 +402,8 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="Hypsometric map of Asia"',
+    '" alt="Hypsometric map of Asia. Fill color encodes elevation in ',
+    'meters, from deep seafloor areas through sea level to high mountains."',
     ' width="100%" />'
   )
 )
@@ -432,7 +436,8 @@ cat(
   paste0(
     '<img src="',
     img_url,
-    '" alt="A SpatVector plotted with tidyterra"',
+    '" alt="Choropleth map of Luxembourg by canton. Fill color encodes ',
+    'population density in people per square kilometer."',
     ' width="100%" />'
   )
 )

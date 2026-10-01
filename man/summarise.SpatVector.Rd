@@ -4,7 +4,7 @@
 \name{summarise.SpatVector}
 \alias{summarise.SpatVector}
 \alias{summarize.SpatVector}
-\title{Summarise each group of a \code{SpatVector} down to one geometry}
+\title{Summarize each group of a \code{\link[terra:vect]{SpatVector}} down to one geometry}
 \usage{
 \method{summarise}{SpatVector}(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
@@ -46,10 +46,11 @@ ungrouped, the option \code{"dplyr.summarise.inform"} is set to \code{FALSE}, or
 geometries.}
 }
 \value{
-A \code{SpatVector}.
+A \code{\link[terra:vect]{SpatVector}} object.
 }
 \description{
-\code{summarise()} creates a new \code{SpatVector}. It returns one geometry for each
+\code{summarise()} creates a new \code{\link[terra:vect]{SpatVector}}. It returns one
+geometry for each
 combination of grouping variables. If there are no grouping variables, the
 output will have a single geometry summarizing all observations in the input
 and combining all the geometries of the \code{SpatVector}. It will contain one
@@ -68,7 +69,7 @@ the summary statistics that you have specified.
 
 
 Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summarise()}} method for
-\code{SpatVector} objects.
+\code{\link[terra:vect]{SpatVector}} objects.
 
 As in the \CRANpkg{sf} implementation, this function can dissolve geometries
 with \code{.dissolve = TRUE} or create \code{MULTI} geometries with

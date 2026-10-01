@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{as_spatraster}
 \alias{as_spatraster}
-\title{Coerce a data frame to \code{SpatRaster}}
+\title{Coerce a data frame to \code{\link[terra:rast]{SpatRaster}}}
 \usage{
 as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 }
@@ -16,7 +16,7 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 the columns that hold the \code{x} and \code{y} coordinates.}
 
 \item{crs}{A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a
-spatial object from \link[sf:st_crs]{sf} or \link[terra:crs]{terra} that
+spatial object from \CRANpkg{sf} or \CRANpkg{terra} that
 includes the target coordinate reference system. See \code{\link[=pull_crs]{pull_crs()}} and
 \strong{Details}.}
 
@@ -24,15 +24,16 @@ includes the target coordinate reference system. See \code{\link[=pull_crs]{pull
 on a regular grid (a low number of digits is a low precision).}
 }
 \value{
-A \code{SpatRaster}.
+A \code{\link[terra:rast]{SpatRaster}} object.
 }
 \description{
 \code{as_spatraster()} converts a data frame or \link[tibble:tbl_df]{tibble} into a
-\code{SpatRaster}. It wraps the \code{\link[terra:rast]{terra::rast()}} S4 method for signature
+\code{\link[terra:rast]{SpatRaster}}. It wraps the \code{\link[terra:rast]{terra::rast()}} S4 method for
+signature
 \code{data.frame}.
 }
 \details{
-If no \code{crs} is provided and the tibble was created with
+If no \code{crs} is provided and the \link[tibble:tbl_df]{tibble} was created with
 \code{\link[=as_tibble.SpatRaster]{as_tibble.SpatRaster()}}, the \code{crs} is inferred from
 \code{\link[=attr]{attr(x, "crs")}}.
 }

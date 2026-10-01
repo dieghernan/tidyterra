@@ -4,7 +4,7 @@
 \name{geom_spatraster}
 \alias{geom_spatraster}
 \alias{stat_spatraster}
-\title{Plot \code{SpatRaster} objects}
+\title{Plot \code{\link[terra:rast]{SpatRaster}} objects}
 \source{
 Based on the \code{layer_spatial()} implementation in \CRANpkg{ggspatial}.
 Thanks to \href{https://github.com/paleolimbot}{Dewey Dunnington} and \href{https://github.com/paleolimbot/ggspatial/graphs/contributors}{ggspatial contributors}.
@@ -37,7 +37,7 @@ stat_spatraster(
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{ggplot2::aes()}}. See
 \strong{Aesthetics}, especially the use of the \code{fill} and \code{alpha} aesthetics
-with \code{SpatRaster} layers.}
+with \code{\link[terra:rast]{SpatRaster}} layers.}
 
 \item{data}{A \code{SpatRaster} object.}
 
@@ -68,7 +68,7 @@ color table on the plot. See also \code{\link[=scale_fill_coltab]{scale_fill_col
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
 around the dateline in equal-area projections. This argument is passed
-to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{SpatRaster}.}
+to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{\link[terra:rast]{SpatRaster}}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}'s \code{params} argument. These
 arguments broadly fall into one of 4 categories below. Notably, further
@@ -99,17 +99,20 @@ lists which parameters it can accept.
 }}
 
 \item{geom}{Geom used to display the data. Recommended values for
-\code{SpatRaster} are \code{"raster"} (the default), \code{"point"}, \code{"text"} and
+\code{\link[terra:rast]{SpatRaster}} are \code{"raster"} (the default), \code{"point"}, \code{"text"}
+and
 \code{"label"}.}
 }
 \value{
 A \CRANpkg{ggplot2} layer.
 }
 \description{
-This geom plots \code{SpatRaster} objects (see \code{\link[terra:rast]{terra::rast()}}). It is designed
+This geom plots \code{\link[terra:rast]{SpatRaster}} objects (see \code{\link[terra:rast]{terra::rast()}}). It
+is designed
 to plot the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
 
-For plotting \code{SpatRaster} objects as map tiles, such as RGB \code{SpatRaster}
+For plotting \code{\link[terra:rast]{SpatRaster}} objects as map tiles, such as RGB
+\code{\link[terra:rast]{SpatRaster}} objects,
 objects, use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 
@@ -127,11 +130,11 @@ the \code{geom}.
 \section{Coordinates}{
 
 
-When the \code{SpatRaster} does not have a CRS, that is,
+When the \code{\link[terra:rast]{SpatRaster}} does not have a CRS, that is,
 \code{terra::crs(rast) == ""}, the geom does not make any assumption about the
 scales.
 
-On \code{SpatRaster} objects that have a CRS, the geom uses
+On \code{\link[terra:rast]{SpatRaster}} objects that have a CRS, the geom uses
 \code{\link[ggplot2:coord_sf]{ggplot2::coord_sf()}} to adjust the scales. This means that the
 \strong{\code{SpatRaster} may be reprojected}.
 }
@@ -146,12 +149,13 @@ On \code{SpatRaster} objects that have a CRS, the geom uses
 }
 
 If \code{fill} is not provided, \code{geom_spatraster()} creates a
-\CRANpkg{ggplot2} layer with all the layers of the \code{SpatRaster}
-object. Use \code{facet_wrap(~lyr)} to display the \code{SpatRaster}
+\CRANpkg{ggplot2} layer with all the layers of the
+\code{\link[terra:rast]{SpatRaster}}
+object. Use \code{facet_wrap(~lyr)} to display its layers.
 layers.
 
 If \code{fill} is used, it should contain the name of one layer that is present
-on the \code{SpatRaster} (for example,
+on the \code{\link[terra:rast]{SpatRaster}} (for example,
 \verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>))}). Layer names can
 be retrieved using \code{names(rast)}.
 
@@ -162,7 +166,8 @@ mapped \code{fill} aesthetic.
 \code{fill} can use computed variables.
 
 For \code{alpha}, use a computed variable or the name of one layer that is
-present on the \code{SpatRaster}. When \code{alpha} is a layer name, it can refer to
+present on the \code{\link[terra:rast]{SpatRaster}}. When \code{alpha} is a layer name, it
+can refer to
 the same layer as \code{fill} or to another layer in the \code{SpatRaster}. See section
 \strong{Computed variables}.
 
@@ -177,7 +182,8 @@ when \code{geom = "raster"} (the default):
 }
 
 When \code{geom = "raster"}, the \code{fill} and \code{alpha} arguments behave as in
-\code{geom_spatraster()}, so they can be mapped to \code{SpatRaster} layer names. If
+\code{geom_spatraster()}, so they can be mapped to \code{\link[terra:rast]{SpatRaster}}
+layer names. If
 another \code{geom} is used, \code{stat_spatraster()} understands the aesthetics
 required by that \code{geom}, so \verb{aes(fill = <name_of_lyr>)} and
 \verb{aes(alpha = <name_of_lyr>)} are not applicable.
@@ -192,7 +198,8 @@ variables. See \strong{Computed variables} and \strong{Examples}.
 
 
 You can use \code{facet_wrap(~lyr)} to create a faceted plot for each layer of
-the \code{SpatRaster} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for details.
+the \code{\link[terra:rast]{SpatRaster}} object. See \code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}} for
+details.
 }
 
 \section{Computed variables}{
@@ -202,7 +209,7 @@ This geom computes variables internally that are available for use as
 aesthetics, using (for example) \code{aes(alpha = after_stat(value))} (see
 \code{\link[ggplot2:after_stat]{ggplot2::after_stat()}}).
 \itemize{
-\item \code{after_stat(value)}: Cell values of the \code{SpatRaster}.
+\item \code{after_stat(value)}: Cell values of the \code{\link[terra:rast]{SpatRaster}}.
 \item \code{after_stat(alpha)}: Cell values of the layer mapped to \code{alpha}, when
 \code{alpha} is the name of a layer.
 \item \code{after_stat(lyr)}: Name of the layer.

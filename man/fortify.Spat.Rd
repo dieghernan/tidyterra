@@ -59,18 +59,20 @@ use. Use \code{Inf} to use all cells.}
 as a data frame with one column per layer. See \strong{Details}.}
 
 \item{crs}{Input that includes or represents a CRS. It can be an \code{sf} or
-\code{sfc} object, a \code{SpatRaster} or \code{SpatVector} object, a \code{crs} object from
-\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}), or
+\code{sfc} object, a \code{\link[terra:rast]{SpatRaster}} or \code{\link[terra:vect]{SpatVector}}
+object, a \code{crs} object from
+\code{\link[sf:st_crs]{sf::st_crs()}}, a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}) or
 an integer representing an \href{https://epsg.io/}{EPSG} code.}
 }
 \value{
 \code{\link[=fortify.SpatVector]{fortify.SpatVector()}}, \code{\link[=fortify.SpatGraticule]{fortify.SpatGraticule()}} and \code{\link[=fortify.SpatExtent]{fortify.SpatExtent()}}
-return a \code{\link[sf:st_sf]{sf}} object.
+return an \code{\link[sf:st_sf]{sf}} object.
 
 \code{\link[=fortify.SpatRaster]{fortify.SpatRaster()}} returns a \link[tibble:tbl_df]{tibble}. See \strong{Methods}.
 }
 \description{
-Fortify \code{SpatRaster} and \code{SpatVector} objects to data frames. This provides
+Fortify \code{\link[terra:rast]{SpatRaster}} and \code{\link[terra:vect]{SpatVector}} objects
+to data frames. This provides
 native compatibility with \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 
 These methods are now implemented as wrappers around \code{\link{tidy.Spat}} methods.
@@ -80,26 +82,31 @@ These methods are now implemented as wrappers around \code{\link{tidy.Spat}} met
 
 Implementation of the \strong{generic} \code{\link[ggplot2:fortify]{ggplot2::fortify()}} methods for \verb{Spat*}
 objects.
-\subsection{\code{SpatRaster}}{
+\subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
-Returns a tibble that can be used with \verb{ggplot2::geom_*}, such as
+Returns a \link[tibble:tbl_df]{tibble} that can be used with \verb{ggplot2::geom_*},
+such as
 \code{\link[ggplot2:geom_point]{ggplot2::geom_point()}} and \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
-The resulting tibble includes coordinates in the \code{x} and \code{y} columns. The
+The resulting \link[tibble:tbl_df]{tibble} includes coordinates in the \code{x} and
+\code{y} columns. The
 values of each layer are added as extra columns using the layer names from
-the \code{SpatRaster}.
+the \code{\link[terra:rast]{SpatRaster}}.
 
-The CRS of the \code{SpatRaster} can be retrieved with
+The CRS of the \code{\link[terra:rast]{SpatRaster}} can be retrieved with
 \code{attr(fortifiedSpatRaster, "crs")}.
 
-You can convert the fortified object back to a \code{SpatRaster} with
+You can convert the fortified object back to a \code{\link[terra:rast]{SpatRaster}}
+with
 \code{\link[=as_spatraster]{as_spatraster()}}.
 
-When \code{pivot = TRUE}, the \code{SpatRaster} is fortified in long format (see
+When \code{pivot = TRUE}, the \code{\link[terra:rast]{SpatRaster}} is fortified in long
+format (see
 \code{\link[tidyr:pivot_longer]{tidyr::pivot_longer()}}). The fortified object has the following columns:
 \itemize{
 \item \code{x}, \code{y}: Coordinates of the cell center in the corresponding CRS.
-\item \code{lyr}: Name of the \code{SpatRaster} layer associated with \code{value}.
+\item \code{lyr}: Name of the \code{\link[terra:rast]{SpatRaster}} layer associated with
+\code{value}.
 \item \code{value}: Cell value for the corresponding \code{lyr}.
 }
 
@@ -107,7 +114,7 @@ This option can be useful when combining several \verb{geom_*} layers or when
 faceting.
 }
 
-\subsection{\code{SpatVector}, \code{SpatGraticule} and \code{SpatExtent}}{
+\subsection{\code{\link[terra:vect]{SpatVector}}, \code{SpatGraticule} and \code{SpatExtent}}{
 
 Returns an \code{\link[sf:st_sf]{sf}} object that can be used with
 \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.

@@ -31,8 +31,7 @@
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
 #' @returns
-#' The corresponding \CRANpkg{ggplot2} layer with the values applied to the
-#' `fill/colour` aesthetics.
+#' A \CRANpkg{ggplot2} scale for the `fill` or `colour` aesthetic.
 #'
 #' @encoding UTF-8
 #' @export

@@ -1,7 +1,9 @@
-#' Keep distinct/unique rows and geometries of `SpatVector` objects
+#' Keep distinct/unique rows and geometries of [`SpatVector`][terra::vect]
+#'   objects
 #'
 #' @description
-#' Keep only unique/distinct rows and geometries from a `SpatVector`.
+#' Keep only unique/distinct rows and geometries from a
+#'   [`SpatVector`][terra::vect].
 #'
 #' @rdname distinct.SpatVector
 #' @name distinct.SpatVector
@@ -20,7 +22,7 @@
 #'   all variables in the data frame are used. There is a reserved variable
 #'   name, `geometry`, that removes duplicate geometries. See **Methods**.
 #'
-#' @returns A `SpatVector` object.
+#' @returns A [`SpatVector`][terra::vect] object.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -29,7 +31,7 @@
 #' @section Methods:
 #'
 #' Implementation of the **generic** [dplyr::distinct()] method for
-#' `SpatVector` objects.
+#' [`SpatVector`][terra::vect] objects.
 #'
 #' You can remove duplicate geometries by passing the reserved name
 #' `geometry` to `...`. See **Examples**.
@@ -52,7 +54,7 @@
 #'
 #' nrow(ex1)
 #'
-#' # Duplicates by NAME_1
+#' # Duplicates by gr
 #' ex2 <- distinct(v, gr)
 #' ex2
 #' nrow(ex2)

@@ -1,8 +1,9 @@
-#' Plot `SpatRaster` contours
+#' Plot [`SpatRaster`][terra::rast] contours
 #'
 #' @description
 #'
-#' These geoms create contours from `SpatRaster` objects. To create contours
+#' These geoms create contours from [`SpatRaster`][terra::rast] objects. To
+#'   create contours
 #' from a specific layer, map that layer to the `z` aesthetic with
 #' `aes(z = layer_name)`. Otherwise, all layers are used to create contours.
 #' See also the **Facets** section.
