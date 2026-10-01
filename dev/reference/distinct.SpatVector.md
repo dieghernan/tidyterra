@@ -1,6 +1,7 @@
-# Keep distinct/unique rows and geometries of `SpatVector` objects
+# Keep distinct/unique rows and geometries of [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
-Keep only unique/distinct rows and geometries from a `SpatVector`.
+Keep only unique/distinct rows and geometries from a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
 
 ## Usage
 
@@ -32,7 +33,8 @@ distinct(.data, ..., .keep_all = FALSE)
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -42,7 +44,9 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 You can remove duplicate geometries by passing the reserved name
 `geometry` to `...`. See **Examples**.
@@ -89,7 +93,7 @@ ex1
 nrow(ex1)
 #> [1] 34
 
-# Duplicates by NAME_1
+# Duplicates by gr
 ex2 <- distinct(v, gr)
 ex2
 #> class       : SpatVector

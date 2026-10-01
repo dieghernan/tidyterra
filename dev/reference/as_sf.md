@@ -1,8 +1,8 @@
-# Coerce a `SpatVector` to a [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
+# Coerce a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) to an [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
 
-`as_sf()` coerces a `SpatVector` into an
-[`sf`](https://r-spatial.github.io/sf/reference/sf.html) object. It
-wraps
+`as_sf()` coerces a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+into an `sf` object. It wraps
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and preserves groups created with
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
@@ -27,7 +27,7 @@ as_sf(x, ...)
 
 ## Value
 
-A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object with
+An [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object with
 an additional `tbl_df` class for pretty printing.
 
 ## See also

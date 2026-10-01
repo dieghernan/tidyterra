@@ -226,7 +226,7 @@ Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - drop:
 
@@ -287,9 +287,9 @@ Manual](https://grass.osgeo.org/grass-stable/manuals/r.colors.html).
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour`
-[`aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic. `grass.colors()` returns a character
+vector of colors.
 
 ## Details
 
@@ -320,8 +320,8 @@ Foundation, USA. <https://grass.osgeo.org>.
 [`terra::minmax()`](https://rspatial.github.io/terra/reference/minmax.html),
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
-See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` arguments:
+See also [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+documentation on additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),

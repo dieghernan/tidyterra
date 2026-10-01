@@ -1,4 +1,4 @@
-# Reframe each group of a `SpatVector`
+# Reframe each group of a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 **\[experimental\]**
 
@@ -50,13 +50,16 @@ reframe(.data, ..., .by = NULL, .dissolve = TRUE)
 
 ## Value
 
-A `SpatVector`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::reframe()`](https://dplyr.tidyverse.org/reference/reframe.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 For grouped inputs and calls using `.by`, geometries are aggregated per
 group. If a group produces more than one row, the aggregated group

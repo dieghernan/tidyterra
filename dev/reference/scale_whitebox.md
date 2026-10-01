@@ -221,7 +221,7 @@ Copyright (c) 2017-2021 John Lindsay.
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - drop:
 
@@ -252,16 +252,17 @@ Copyright (c) 2017-2021 John Lindsay.
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour` aesthetics.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic. `whitebox.colors()` returns a character
+vector of colors.
 
 ## See also
 
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html),
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
-See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` arguments.
+See also [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+documentation on additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),

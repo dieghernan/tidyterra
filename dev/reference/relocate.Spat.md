@@ -50,13 +50,16 @@ Implementation of the **generic**
 [`dplyr::relocate()`](https://dplyr.tidyverse.org/reference/relocate.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-Relocates layers of a `SpatRaster`.
+Relocates layers of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes in a different order.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes in a different order.
 
 ## See also
 

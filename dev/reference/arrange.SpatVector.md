@@ -1,4 +1,4 @@
-# Order a `SpatVector` using column values
+# Order a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) using column values
 
 `arrange.SpatVector()` orders the geometries of a `SpatVector` by the
 values of selected columns.
@@ -27,7 +27,8 @@ arrange(.data, ..., .by_group = FALSE, .locale = NULL)
 - .by_group:
 
   If `TRUE`, sort first by grouping variable. This applies to grouped
-  `SpatVector` objects only.
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects only.
 
 - .locale:
 
@@ -56,7 +57,8 @@ arrange(.data, ..., .by_group = FALSE, .locale = NULL)
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -66,7 +68,9 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## See also
 

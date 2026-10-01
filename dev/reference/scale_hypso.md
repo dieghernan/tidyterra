@@ -296,7 +296,7 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - drop:
 
@@ -352,35 +352,37 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour` aesthetics.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic. `hypso.colors()` and `hypso.colors2()`
+return a character vector of colors.
 
 ## Details
 
 On `scale_*_hypso_tint_*` palettes, the position of the gradients and
 the limits of the palette are redefined. Instead of treating the color
 palette as a continuous gradient, they are rescaled to act as a
-hypsometric tint. A rough description of these tints are:
+hypsometric tint. These tints roughly correspond to the following
+values:
 
 - Blue colors: Negative values.
 
-- Green colors: 0 to 1.000 values.
+- Green colors: Values from 0 to 1,000.
 
-- Browns: 1000 to 4.000 values.
+- Browns: Values from 1,000 to 4,000.
 
-- Whites: Values higher than 4.000.
+- Whites: Values above 4,000.
 
-The following orientation varies depending on the palette definition
-(see
+These ranges vary depending on the palette definition (see
 [hypsometric_tints_db](https://dieghernan.github.io/tidyterra/dev/reference/hypsometric_tints_db.md)
 for an example of how this can be achieved).
 
 The palette setup may not always be suitable for your specific data. For
-example, a `SpatRaster` of small parts of the globe (and with a limited
-range of elevations) may not be well represented. As an example, a
-`SpatRaster` with a range of values on `[100, 200]` appears almost as a
-uniform color. This can be adjusted using the `limits`/`values`
-arguments.
+example, a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) of
+small parts of the globe (and with a limited range of elevations) may
+not be well represented. As an example, a `SpatRaster` with values in
+the range `[100, 200]` appears almost as a uniform color. This can be
+adjusted using the `limits`/`values` arguments.
 
 When passing the `limits` argument to `scale_*_hypso_tint_*`, the colors
 are restricted to those specified by this argument, keeping the
@@ -399,8 +401,8 @@ between colors differs depending on the type of color. In contrast,
 [`terra::minmax()`](https://rspatial.github.io/terra/reference/minmax.html),
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html)
 
-See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` arguments.
+See also [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+documentation on additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),

@@ -1,8 +1,10 @@
-# Plot `SpatVector` objects
+# Plot [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 Wrappers of the
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-family used to plot `SpatVector` objects (see
+family used to plot
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects (see
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)).
 
 ## Usage
@@ -152,12 +154,15 @@ These functions are wrappers of
 functions. Since a
 [`fortify.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
 method is provided,
-[ggplot2](https://CRAN.R-project.org/package=ggplot2) treat a
-`SpatVector` in the same way that a
+[ggplot2](https://CRAN.R-project.org/package=ggplot2) treats a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) in
+the same way as an
 [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object. A side
 effect is that you can use
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
-directly with `SpatVector` objects.
+directly with
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 See
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)

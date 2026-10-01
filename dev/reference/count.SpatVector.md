@@ -1,4 +1,4 @@
-# Count the observations in each `SpatVector` group
+# Count the observations in each [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) group
 
 [`count()`](https://dplyr.tidyverse.org/reference/count.html) lets you
 quickly count the unique values of one or more variables:
@@ -84,7 +84,8 @@ add_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())
 
 ## Value
 
-A `SpatVector` object with updated grouping metadata.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object with updated grouping metadata.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -94,7 +95,9 @@ A `SpatVector` object with updated grouping metadata.
 
 Implementation of the **generic**
 [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 [`tally()`](https://dplyr.tidyverse.org/reference/count.html) will
 always return a disaggregated geometry while

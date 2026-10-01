@@ -219,9 +219,9 @@
 <li>
 <code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_text()</a></code> has been implemented on top of <code><a href="http://isoband.r-lib.org/reference/isolines_grob.html" class="external-link">isoband::isolines_grob()</a></code> <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg" alt="Experimental"></a>.</li>
 <li>
-<code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now display information using the <code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as of <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
+<code><a href="../reference/glimpse.Spat.html">glimpse.SpatRaster()</a></code> and <code><a href="../reference/glimpse.Spat.html">glimpse.SpatVector()</a></code> now display information using the <code><a href="https://tibble.tidyverse.org/reference/formatting.html" class="external-link">?tibble::print.tbl_df</a></code> approach for the header and the footer. The body is still displayed transposed as in <code><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">dplyr::glimpse()</a></code>. See <code><a href="https://pillar.r-lib.org/reference/tbl_format_header.html" class="external-link">pillar::tbl_format_header()</a></code> and <code><a href="https://pillar.r-lib.org/reference/tbl_format_footer.html" class="external-link">pillar::tbl_format_footer()</a></code> for examples.</li>
 <li>
-<code><a href="../reference/as_sf.html">as_sf()</a></code> converts a <code>SpatVector</code> to a <code>sf</code> object with an additional <code>tbl_df</code> class for pretty printing.</li>
+<code><a href="../reference/as_sf.html">as_sf()</a></code> converts a <code>SpatVector</code> to an <code>sf</code> object with an additional <code>tbl_df</code> class for pretty printing.</li>
 <li>
 <code><a href="../reference/fortify.Spat.html">fortify.SpatRaster()</a></code> gains a new argument <code>pivot</code> that allows better integration with other <strong>ggplot2</strong> geoms when pivoting. This wraps <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code>.</li>
 <li>
@@ -258,7 +258,7 @@
 <li>By default, all non-discrete scales of <strong>tidyterra</strong> now have <code>na.value = "transparent"</code> (<a href="https://github.com/dieghernan/tidyterra/issues/120" class="external-link">#120</a>).</li>
 <li>
 <code><a href="../reference/glimpse.Spat.html">glimpse.Spat()</a></code> now shows metadata on geometry type, CRS and other fields.</li>
-<li>New messaging interface thanks to <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
+<li>New messaging interface thanks to the <a href="https://cli.r-lib.org/" class="external-link"><strong>cli</strong></a> package.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.1" id="tidyterra-041">tidyterra 0.4.1<a class="anchor" aria-label="anchor" href="#tidyterra-041"></a></h2>
@@ -300,7 +300,7 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="tidyterra-030">tidyterra 0.3.0<a class="anchor" aria-label="anchor" href="#tidyterra-030"></a></h2><p class="text-muted">CRAN release: 2022-10-12</p>
 <ul><li>Package is back on <strong>CRAN</strong>.</li>
-<li>Libraries <strong>dplyr</strong>, <strong>tidyr</strong> and <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</li>
+<li>Packages <strong>dplyr</strong>, <strong>tidyr</strong> and <strong>tibble</strong> are not attached by default. Needed functions are reexported instead.</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> can now avoid the default <code>fill</code> of the layer using <code>geom_spatraster(fill = NA)</code> or <code>geom_spatraster(aes(fill = NULL))</code>.</li>
 <li>
@@ -313,7 +313,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.2" id="tidyterra-022">tidyterra 0.2.2<a class="anchor" aria-label="anchor" href="#tidyterra-022"></a></h2><p class="text-muted">CRAN release: 2022-09-29</p>
-<ul><li>Changes to how <strong>dplyr</strong>, <strong>tibble</strong> and <strong>tidyr</strong> are attached. These packages are listed in <code>Depends</code> and are attached before <strong>tidyterra</strong> when <code>library</code> or <code>require</code> is called. Messages on load can be suppressed with <code>suppressPackageStartupMessages(library(tidyterra))</code>.</li>
+<ul><li>Changes to how <strong>dplyr</strong>, <strong>tibble</strong> and <strong>tidyr</strong> are attached. These packages are listed in <code>Depends</code> and are attached before <strong>tidyterra</strong> when <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> or <code><a href="https://rdrr.io/r/base/library.html" class="external-link">require()</a></code> is called. Messages on load can be suppressed with <code>suppressPackageStartupMessages(library(tidyterra))</code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.1" id="tidyterra-021">tidyterra 0.2.1<a class="anchor" aria-label="anchor" href="#tidyterra-021"></a></h2><p class="text-muted">CRAN release: 2022-09-23</p>
@@ -342,7 +342,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="tidyterra-001">tidyterra 0.0.1<a class="anchor" aria-label="anchor" href="#tidyterra-001"></a></h2>
-<ul><li>Performance has been improved by avoiding conversion to <strong>tibble</strong> as much as possible, using <strong>data.table</strong> objects internally instead of <code>tibble</code> objects and adding compatibility with <strong>dtplyr</strong>.</li>
+<ul><li>Performance has been improved by avoiding conversion to tibbles as much as possible, using <strong>data.table</strong> objects internally instead of <code>tibble</code> objects and adding compatibility with <strong>dtplyr</strong>.</li>
 <li>
 <code><a href="../reference/as_spatraster.html">as_spatraster()</a></code> now handles tibbles with characters and factors.</li>
 <li>

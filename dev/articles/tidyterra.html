@@ -344,9 +344,9 @@
 </tr>
 <tr class="even">
 <td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
-<td>✔️ to <strong>sf</strong> through <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
+<td>✔️ To an <code>sf</code> object through <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
 </td>
-<td>To a <strong>tibble</strong> with coordinates.</td>
+<td>To a tibble with coordinates.</td>
 </tr>
 <tr class="odd">
 <td><code>ggplot2::geom_*()</code></td>
@@ -410,7 +410,7 @@
 <span><span class="co">#&gt; names       : difference,   tavg_05,   tavg_06</span></span>
 <span><span class="co">#&gt; min values  :   2.817647,  5.817587, 10.463377</span></span>
 <span><span class="co">#&gt; max values  :   5.307511, 16.740898, 21.113781</span></span></code></pre></div>
-<p>In this example we:</p>
+<p>In this example, we:</p>
 <ul>
 <li>Removed the first layer (<code>tavg_04</code>).</li>
 <li>Created a new layer <code>newcol</code> as the difference between <code>tavg_06</code> and <code>tavg_05</code>.</li>
@@ -450,7 +450,7 @@
 <span><span class="co">#&gt; values      :   (147,183]     2  359427       244</span></span>
 <span><span class="co">#&gt;               (40.7,76.1]     1   48187       185</span></span>
 <span><span class="co">#&gt;               (4.99,40.7]     9  194391   209.778</span></span></code></pre></div>
-<p>As with <code>SpatRaster</code>, essential properties such as geometry and CRS are preserved during these operations.</p>
+<p>The CRS is preserved during these operations. By default, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise()</a></code> merges geometries within each group.</p>
 </section></section><section class="level2"><h2 id="plotting-with-ggplot2">Plotting with ggplot2<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a>
 </h2>
 <section class="level3"><h3 id="spatraster-objects-1">
@@ -470,7 +470,7 @@
 <span>    na.value <span class="op">=</span> <span class="st">"white"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-faceted-1.png" alt="Faceted map using a SpatRaster object." width="100%"><p class="caption">
+<img src="./fig-faceted-1.png" alt="Three raster maps of average temperature in Castile and Leon, one each for April, May and June. Fill color encodes degrees Celsius. Temperatures increase across the three months." width="100%"><p class="caption">
 Faceted map using a SpatRaster object.
 </p>
 </div>
@@ -487,7 +487,7 @@ Faceted map using a SpatRaster object.
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-contourlines-1.png" alt="Contour line plot for a SpatRaster object." width="100%"><p class="caption">
+<img src="./fig-contourlines-1.png" alt="Elevation raster map of a volcanic landscape with contour lines every five units from 80 to 200. The lines trace areas of equal elevation over the colored terrain." width="100%"><p class="caption">
 Contour line plot for a SpatRaster object.
 </p>
 </div>
@@ -499,7 +499,7 @@ Contour line plot for a SpatRaster object.
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"atlas"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"elevation"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-contourfilled-1.png" alt="Filled contour plot for a SpatRaster object." width="100%"><p class="caption">
+<img src="./fig-contourfilled-1.png" alt="Filled contour map of volcanic terrain. Discrete color bands represent successive elevation ranges, outlining the higher central terrain." width="100%"><p class="caption">
 Filled contour plot for a SpatRaster object.
 </p>
 </div>
@@ -521,7 +521,7 @@ Filled contour plot for a SpatRaster object.
 <span></span>
 <span><span class="va">rgb_plot</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-rgb-1.png" alt="Map combining an RGB SpatRaster object and a SpatVector object." width="100%"><p class="caption">
+<img src="./fig-rgb-1.png" alt="RGB map tile of Castile and Leon with province boundaries drawn over the imagery. The boundary outlines remain visible against the raster background." width="100%"><p class="caption">
 Map combining an RGB SpatRaster object and a SpatVector object.
 </p>
 </div>
@@ -561,7 +561,7 @@ Map combining an RGB SpatRaster object and a SpatVector object.
 <span>    legend.direction <span class="op">=</span> <span class="st">"horizontal"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-hypso-1.png" alt="Map of Asia including hypsometric tints." width="100%"><p class="caption">
+<img src="./fig-hypso-1.png" alt="Hypsometric map of Asia. Fill color encodes elevation in meters, from seafloor depths near minus 10,000 meters through sea level to mountains above 5,000 meters." width="100%"><p class="caption">
 Map of Asia including hypsometric tints.
 </p>
 </div>
@@ -580,11 +580,11 @@ Map of Asia including hypsometric tints.
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_continuous.html" class="external-link">scale_fill_binned</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/comma.html" class="external-link">number_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-lux_ggplot-1.png" alt="Choropleth map with a SpatVector object." width="100%"><p class="caption">
+<img src="./fig-lux_ggplot-1.png" alt="Choropleth map of Luxembourg cantons. Fill color groups population counts into ranges, and labels identify the cantons." width="100%"><p class="caption">
 Choropleth map with a SpatVector object.
 </p>
 </div>
-<p>Internally, <strong>tidyterra</strong> converts <code>SpatVector</code> objects to <strong>sf</strong> with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
+<p>Internally, <strong>tidyterra</strong> converts <code>SpatVector</code> objects to <code>sf</code> objects with <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code> and then uses <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code> to render the layer.</p>
 <p>You can also aggregate <code>SpatVector</code> objects:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Dissolve by group.</span></span>
@@ -603,7 +603,7 @@ Choropleth map with a SpatVector object.
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-aggregate-1.png" alt="Dissolving SpatVector objects by group." width="100%"><p class="caption">
+<img src="./fig-aggregate-1.png" alt="Choropleth map of Luxembourg with cantons dissolved into three population groups. Fill color encodes total population for each merged area, and labels identify the groups." width="100%"><p class="caption">
 Dissolving SpatVector objects by group.
 </p>
 </div>
@@ -626,8 +626,8 @@ Dissolving SpatVector objects by group.
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector_label</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">gr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>crs <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="./fig-aggregate-2.png" alt="Dissolving SpatVector objects by group, keeping internal boundaries." width="100%"><p class="caption">
-Dissolving SpatVector objects by group, keeping internal boundaries.
+<img src="./fig-aggregate-2.png" alt="Choropleth map of Luxembourg with cantons assigned to three population groups. Fill color encodes total population and internal canton boundaries remain visible within each group." width="100%"><p class="caption">
+Aggregating SpatVector objects by group, keeping internal boundaries.
 </p>
 </div>
 </section></section><script id="quarto-html-after-body" type="application/javascript">

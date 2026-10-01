@@ -1,9 +1,10 @@
-# Plot `SpatRaster` contours
+# Plot [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) contours
 
-These geoms create contours from `SpatRaster` objects. To create
-contours from a specific layer, map that layer to the `z` aesthetic with
-`aes(z = layer_name)`. Otherwise, all layers are used to create
-contours. See also the **Facets** section.
+These geoms create contours from
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects. To create contours from a specific layer, map that layer to the
+`z` aesthetic with `aes(z = layer_name)`. Otherwise, all layers are used
+to create contours. See also the **Facets** section.
 
 The underlying implementation is based on
 [`ggplot2::geom_contour()`](https://ggplot2.tidyverse.org/reference/geom_contour.html).
@@ -163,7 +164,8 @@ geom_spatraster_contour_filled(
   input extent. For example, to avoid data wrapping around the dateline
   in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
-  when reprojecting the `SpatRaster`.
+  when reprojecting the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 - size.unit:
 
@@ -265,11 +267,13 @@ aesthetics, using (for example) `aes(color = after_stat(<computed>))`
 
 ## Coordinates
 
-When the `SpatRaster` does not have a CRS, that is,
-`terra::crs(rast) == ""`, the geom does not make any assumption about
-the scales.
+When the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+does not have a CRS, that is, `terra::crs(rast) == ""`, the geom does
+not make any assumption about the scales.
 
-On `SpatRaster` objects that have a CRS, the geom uses
+On [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
@@ -277,7 +281,9 @@ reprojected**.
 ## Facets
 
 You can use `facet_wrap(~lyr)` to create a faceted plot for each layer
-of the `SpatRaster` object. See
+of the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 

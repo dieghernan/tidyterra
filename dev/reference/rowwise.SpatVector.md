@@ -1,8 +1,10 @@
-# Group `SpatVector` objects by rows
+# Group [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects by rows
 
 [`rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html) lets
-you compute on a `SpatVector` one row at a time. This is most useful
-when a vectorised function does not exist.
+you compute on a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) one
+row at a time. This is most useful when a vectorized function does not
+exist.
 
 Most [dplyr](https://CRAN.R-project.org/package=dplyr) verb
 implementations in
@@ -10,7 +12,7 @@ implementations in
 row-wise grouping. The exception is
 [`summarise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md),
 which returns a [grouped
-SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
+`SpatVector`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md).
 You can explicitly ungroup with
 [`ungroup.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 or
@@ -48,7 +50,8 @@ rowwise(data, ...)
 
 ## Value
 
-The same `SpatVector` object with updated grouping metadata.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object with updated grouping metadata.
 
 ## Details
 
@@ -59,21 +62,26 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::rowwise()`](https://dplyr.tidyverse.org/reference/rowwise.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Grouping metadata
 
 Mixing [terra](https://CRAN.R-project.org/package=terra) and
 [dplyr](https://CRAN.R-project.org/package=dplyr) syntax on a grouped or
-row-wise `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can
-corrupt its grouping metadata.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) attempts to
-restore this metadata the next time you use a
+row-wise
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+for example by subsetting with `v[1:3, 1:2]`, can corrupt its grouping
+metadata. [tidyterra](https://CRAN.R-project.org/package=tidyterra)
+attempts to restore this metadata the next time you use a
 [dplyr](https://CRAN.R-project.org/package=dplyr) verb on the object.
 
 Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
-create a new `SpatVector` without preserving grouping metadata. Call
+create a new
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+without preserving grouping metadata. Call
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
 or `rowwise.SpatVector()` again, as appropriate.
 

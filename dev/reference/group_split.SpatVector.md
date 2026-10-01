@@ -1,4 +1,4 @@
-# Split `SpatVector` by groups
+# Split [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) by groups
 
 **\[experimental\]**
 
@@ -44,9 +44,11 @@ group_split(.tbl, ..., .keep = TRUE)
 
 ## Value
 
-A list of `SpatVector` objects. Each `SpatVector` contains the rows of
-`.tbl` for the associated group and all columns. When `.keep = TRUE`,
-the output includes the grouping variables.
+A list of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects. Each object contains the rows of `.tbl` for the associated
+group and all columns. When `.keep = TRUE`, the output includes the
+grouping variables.
 
 ## Details
 
@@ -71,7 +73,9 @@ may be deprecated in the future.
 
 Implementation of the **generic**
 [`dplyr::group_split()`](https://dplyr.tidyverse.org/reference/group_split.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## See also
 

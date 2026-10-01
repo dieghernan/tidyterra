@@ -67,7 +67,7 @@ See dplyr::inner_join() for details."><meta property="og:image" content="https:/
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Mutating joins for <code>SpatVector</code> objects</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Mutating joins for <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/join-SpatVector.R" class="external-link"><code>R/join-SpatVector.R</code></a></small>
       <div class="d-none name"><code>mutate-joins.SpatVector.Rd</code></div>
     </div>
@@ -136,7 +136,8 @@ full join.</p>
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>A data frame or other object coercible to a data frame. If a
-<code>SpatVector</code> or <code>sf</code> object is provided, this method returns an error. See
+<code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> or <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object is provided, this
+method returns an error. See
 <code><a href="https://rspatial.github.io/terra/reference/intersect.html" class="external-link">terra::intersect()</a></code> for spatial joins.</p></dd>
 
 
@@ -196,7 +197,7 @@ inequality conditions.</p></li>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>SpatVector</code> object.</p>
+    <p>A <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> object.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -211,7 +212,7 @@ inequality conditions.</p></li>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">dplyr::inner_join()</a></code> method family for
-<code>SpatVector</code> objects.</p>
+<code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects.</p>
 <p>The geometry column has sticky behavior. This means that the result always
 has the geometry of <code>x</code> for the records that match the join conditions.</p>
 <p>For <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">right_join()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">full_join()</a></code>, empty geometries may be returned

@@ -1,7 +1,10 @@
-# Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
+# Bind multiple [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html), [`sf`](https://r-spatial.github.io/sf/reference/sf.html), `sfc` and data frame objects by row
 
-Bind any number of `SpatVector`, data frames, `sf` and `sfc` objects by
-row, making a longer result. This is similar to
+Bind any number of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects, data frames,
+[`sf`](https://r-spatial.github.io/sf/reference/sf.html) and `sfc`
+objects by row, making a longer result. This is similar to
 `do.call(rbind, data_frames)`, but the output will contain all columns
 that appear in any of the inputs.
 
@@ -16,9 +19,10 @@ bind_spat_rows(..., .id = NULL)
 - ...:
 
   Objects to combine. The first argument must be a `SpatVector`. Each
-  subsequent argument can be a `SpatVector`, `sf` or `sfc` object or a
-  data frame. Columns are matched by name and any missing columns are
-  filled with `NA`.
+  subsequent argument can be a `SpatVector`,
+  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) or `sfc`
+  object or a data frame. Columns are matched by name and any missing
+  columns are filled with `NA`.
 
 - .id:
 
@@ -28,7 +32,8 @@ bind_spat_rows(..., .id = NULL)
 
 ## Value
 
-A `SpatVector` of the same type as the first element of `...`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object of the same type as the first element of `...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -38,17 +43,23 @@ A `SpatVector` of the same type as the first element of `...`.
 
 Implementation of the
 [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html)
-function for `SpatVector` objects.
+function for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
-The first argument should be a `SpatVector`. Each subsequent argument
-can be a `SpatVector`, an `sf` or `sfc` object or a data frame:
+The first argument should be a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
+Each subsequent argument can be a `SpatVector`, an
+[`sf`](https://r-spatial.github.io/sf/reference/sf.html) or `sfc` object
+or a data frame:
 
 - If subsequent spatial objects have a different CRS from the first
   element, they are reprojected to the CRS of the first element with a
   message.
 
-- If any element of `...` is a tibble/data frame, the rows are
-  column-bound with empty geometries with a message.
+- If any element of `...` is a
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)/data
+  frame, the rows are column-bound with empty geometries with a message.
 
 ## See also
 

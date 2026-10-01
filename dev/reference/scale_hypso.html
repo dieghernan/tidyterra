@@ -356,7 +356,7 @@ reversed.</p></dd>
 
 <dt id="arg-na-translate">na.translate<a class="anchor" aria-label="anchor" href="#arg-na-translate"></a></dt>
 <dd><p>Logical. If <code>TRUE</code>, remove <code>NA</code> values from the legend.
-The default is <code>TRUE</code>.</p></dd>
+The default is <code>FALSE</code>.</p></dd>
 
 
 <dt id="arg-drop">drop<a class="anchor" aria-label="anchor" href="#arg-drop"></a></dt>
@@ -408,24 +408,24 @@ If the purpose is to zoom, use the limit argument in the coordinate system
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>The corresponding <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer with the values applied to the
-<code>fill/colour</code> aesthetics.</p>
+    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> scale for the <code>fill</code> or <code>colour</code> aesthetic.
+<code>hypso.colors()</code> and <code>hypso.colors2()</code> return a character vector of colors.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>On <code>scale_*_hypso_tint_*</code> palettes, the position of the gradients and
 the limits of the palette are redefined. Instead of treating the color
 palette as a continuous gradient, they are rescaled to act as a hypsometric
-tint. A rough description of these tints are:</p><ul><li><p>Blue colors: Negative values.</p></li>
-<li><p>Green colors: 0 to 1.000 values.</p></li>
-<li><p>Browns: 1000 to 4.000 values.</p></li>
-<li><p>Whites: Values higher than 4.000.</p></li>
-</ul><p>The following orientation varies depending on the palette definition (see
+tint. These tints roughly correspond to the following values:</p><ul><li><p>Blue colors: Negative values.</p></li>
+<li><p>Green colors: Values from 0 to 1,000.</p></li>
+<li><p>Browns: Values from 1,000 to 4,000.</p></li>
+<li><p>Whites: Values above 4,000.</p></li>
+</ul><p>These ranges vary depending on the palette definition (see
 <a href="hypsometric_tints_db.html">hypsometric_tints_db</a> for an example of how this can be achieved).</p>
 <p>The palette setup may not always be suitable for your specific data. For
-example, a <code>SpatRaster</code> of small parts of the globe (and
+example, a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> of small parts of the globe (and
 with a limited range of elevations) may not be well represented. As an
-example, a <code>SpatRaster</code> with a range of values on <code>[100, 200]</code> appears
+example, a <code>SpatRaster</code> with values in the range <code>[100, 200]</code> appears
 almost as a uniform color. This can be adjusted using the <code>limits</code>/<code>values</code>
 arguments.</p>
 <p>When passing the <code>limits</code> argument to <code>scale_*_hypso_tint_*</code>, the colors are
@@ -441,7 +441,7 @@ between colors differs depending on the type of color. In contrast,
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><a href="hypsometric_tints_db.html">hypsometric_tints_db</a>, <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/minmax.html" class="external-link">terra::minmax()</a></code>,
 <code><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">ggplot2::scale_fill_viridis_c()</a></code></p>
-<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> docs on additional <code>...</code> arguments.</p>
+<p>See also <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> documentation on additional <code>...</code> arguments.</p>
 <p>Other color scales, palettes and hypsometric tints:
 <code><a href="scale_coltab.html">scale_coltab</a></code>,
 <code><a href="scale_cross_blended.html">scale_cross_blended</a></code>,

@@ -1,4 +1,4 @@
-# Mutating joins for `SpatVector` objects
+# Mutating joins for [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 Mutating joins add columns from `y` to `x`, matching observations based
 on the keys. The four mutating joins are: inner join, left join, right
@@ -66,8 +66,9 @@ full_join(
 - y:
 
   A data frame or other object coercible to a data frame. If a
-  `SpatVector` or `sf` object is provided, this method returns an error.
-  See
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  or [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object is
+  provided, this method returns an error. See
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
   for spatial joins.
 
@@ -143,7 +144,8 @@ full_join(
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -153,7 +155,9 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::inner_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `x` for the records that match the join

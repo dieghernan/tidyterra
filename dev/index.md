@@ -92,7 +92,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
 | [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ To an `sf` object through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
@@ -194,8 +194,10 @@ ggplot() +
   )
 ```
 
-![Average temperature in Castile and Leon,
-Spain](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)
+![Three raster maps of Castile and Leon, Spain, for April, May and June.
+Fill color encodes average temperature in degrees Celsius. The mapped
+temperatures rise across the three
+months.](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)
 
 ``` r
 
@@ -225,8 +227,10 @@ ggplot(prov) +
   )
 ```
 
-![Temperature variation in Castile and Leon,
-Spain](https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png)
+![Raster map of Castile and Leon, Spain, showing the difference between
+June and May average temperatures in degrees Celsius. Province
+boundaries are outlined over the colored
+raster.](https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster`
 objects, such as map tiles, with **ggplot2**:
@@ -243,8 +247,9 @@ ggplot(prov) +
   coord_sf(crs = 3857, datum = 3857)
 ```
 
-![RGB SpatRaster tile plotted with
-tidyterra](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
+![RGB map tile of Castile and Leon, Spain, with province boundaries
+outlined over the
+imagery.](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
 
 **tidyterra** provides **ggplot2** scales for plotting maps with
 hypsometric tints:
@@ -275,8 +280,9 @@ ggplot() +
   )
 ```
 
-![Hypsometric map of
-Asia](https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png)
+![Hypsometric map of Asia. Fill color encodes elevation in meters, from
+deep seafloor areas through sea level to high
+mountains.](https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png)
 
 ### `SpatVector` objects
 
@@ -309,8 +315,9 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 #> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…
 ```
 
-![A SpatVector plotted with
-tidyterra](https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png)
+![Choropleth map of Luxembourg by canton. Fill color encodes population
+density in people per square
+kilometer.](https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png)
 
 ## Feedback
 

@@ -65,7 +65,7 @@ See dplyr::cross_join() for details."><meta property="og:image" content="https:/
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Cross joins for <code>SpatVector</code> objects</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Cross joins for <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects</h1>
       <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/R/join-cross.SpatVector.R" class="external-link"><code>R/join-cross.SpatVector.R</code></a></small>
       <div class="d-none name"><code>cross_join.SpatVector.Rd</code></div>
     </div>
@@ -92,7 +92,8 @@ See dplyr::cross_join() for details."><meta property="og:image" content="https:/
 
 <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>A data frame or other object coercible to a data frame. If a
-<code>SpatVector</code> or <code>sf</code> object is provided, this method returns an error.</p></dd>
+<code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> or <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object is provided, this
+method returns an error.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -114,7 +115,7 @@ Should be a character vector of length 2.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <code>SpatVector</code> object.</p>
+    <p>A <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> object.</p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
@@ -122,7 +123,7 @@ Should be a character vector of length 2.</p></dd>
 
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/cross_join.html" class="external-link">dplyr::cross_join()</a></code> method for
-<code>SpatVector</code> objects.</p>
+<code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects.</p>
 <p>The geometry column has sticky behavior. The result repeats each geometry in
 <code>x</code> once for every row in <code>y</code>.</p>
 <p>If <code>y</code> has a column named <code>geometry</code>, it is treated as a regular attribute

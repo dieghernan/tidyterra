@@ -1,13 +1,13 @@
 # Subset cells/geometries of `Spat*` objects
 
-These functions subset a data frame by applying the expressions in `...`
-to determine which rows should be kept (for
+These functions subset a `Spat*` object by applying the expressions in
+`...` to determine which rows should be kept (for
 [`filter()`](https://dplyr.tidyverse.org/reference/filter.html)) or
 dropped (for
 [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)).
 
 Multiple conditions can be supplied separated by a comma. These will be
-combined with the `&` operator. To combine comma separated conditions
+combined with the `&` operator. To combine comma-separated conditions
 using `|` instead, wrap them in
 [`dplyr::when_any()`](https://dplyr.tidyverse.org/reference/when-any-all.html).
 
@@ -17,12 +17,14 @@ treat `NA` like `FALSE`. This subtle behavior can affect how you write
 your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
-**You can filter a `SpatRaster` by its geographic coordinates**. Use
-`filter(.data, x > 42)`. The names `x` and `y` are reserved in
+**You can filter a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) by
+its geographic coordinates**. Use `filter(.data, x > 42)`. The names `x`
+and `y` are reserved in
 [terra](https://CRAN.R-project.org/package=terra) because they refer to
 the geographic coordinates of the layer.
 
-See **Examples** and section **About layer names** on
+See **Examples** and section **Layer and column names** on
 [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
 
 ## Usage
@@ -64,10 +66,11 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
 
 - .keep_extent:
 
-  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. On
-  `FALSE`,
+  Logical. If `TRUE`, keep the extent of the resulting
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+  If `FALSE`,
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html)
-  is called so the extent may differ from the extent of the output. See
+  is called so the extent may differ from the extent of the input. See
   also
   [`drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md).
 
@@ -90,25 +93,30 @@ Implementation of the **generic**
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 Cells that do not meet the conditions in `...` are returned as `NA`. On
-a multi-layer `SpatRaster`, `NA` is propagated across all layers.
+a multi-layer
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html),
+`NA` is propagated across all layers.
 
-If `.keep_extent = TRUE`, the returned `SpatRaster` has the same CRS,
-extent, resolution and number of cells as `.data`. If
+If `.keep_extent = TRUE`, the returned
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) has
+the same CRS, extent, resolution and number of cells as `.data`. If
 `.keep_extent = FALSE`, the outer `NA` cells are trimmed with
 [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
 so the extent and number of cells may differ. The output still has the
 same CRS and resolution as `.data`.
 
-The `x` and `y` coordinates of the `SpatRaster` are also available
-internally for filtering. See **Examples**.
+The `x` and `y` coordinates of the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) are
+also available internally for filtering. See **Examples**.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` containing the geometries whose attributes
-satisfy all conditions.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+containing the geometries whose attributes satiy all conditions.
 
 ## See also
 

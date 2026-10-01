@@ -1,7 +1,8 @@
-# Coerce objects to `SpatVector`
+# Coerce objects to [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-`as_spatvector()` turns an existing object into a `SpatVector`. It wraps
-the
+`as_spatvector()` turns an existing object into a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html). It
+wraps the
 [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
 S4 method for the `data.frame` signature.
 
@@ -29,7 +30,7 @@ as_spatvector(x, ...)
 
   A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html),
   data frame or [sf](https://CRAN.R-project.org/package=sf) object of
-  class [`sf`](https://r-spatial.github.io/sf/reference/sf.html) or
+  class `sf` or
   [`sfc`](https://r-spatial.github.io/sf/reference/sfc.html).
 
 - ...:
@@ -46,15 +47,16 @@ as_spatvector(x, ...)
 - crs:
 
   A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial
-  object from [sf](https://r-spatial.github.io/sf/reference/st_crs.html)
-  or [terra](https://rspatial.github.io/terra/reference/crs.html) that
-  includes the target coordinate reference system. See
+  object from [sf](https://CRAN.R-project.org/package=sf) or
+  [terra](https://CRAN.R-project.org/package=terra) that includes the
+  target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   and **Details**.
 
 ## Value
 
-A `SpatVector`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Details
 
@@ -66,11 +68,14 @@ in the following ways:
 
 - If `x` is a grouped data frame (see
   [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)),
-  the grouping variables are transferred and a grouped `SpatVector` is
-  created (see
+  the grouping variables are transferred and a grouped
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  is created (see
   [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)).
 
-- If no `crs` is provided and the tibble was created with
+- If no `crs` is provided and the
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) was
+  created with
   [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
   the `crs` is inferred from
   [`attr(x, "crs")`](https://rdrr.io/r/base/attr.html).

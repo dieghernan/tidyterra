@@ -9,7 +9,12 @@ implemented for `Spat*` objects.
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   :
 
-  Coerce `SpatRaster` and `SpatVector` objects to tibbles
+  Coerce
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  and
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects to
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)s
 
 ## **dplyr** methods
 
@@ -23,12 +28,16 @@ Verbs that mainly operate on rows.
 - [`arrange(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.md)
   :
 
-  Order a `SpatVector` using column values
+  Order a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  using column values
 
 - [`distinct(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.md)
   :
 
-  Keep distinct/unique rows and geometries of `SpatVector` objects
+  Keep distinct/unique rows and geometries of
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`filter(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
   [`filter(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
@@ -45,7 +54,9 @@ Verbs that mainly operate on rows.
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   **\[experimental\]** :
 
-  Row operations for `SpatVector` objects
+  Row operations for
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`slice(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
   [`slice(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.md)
@@ -110,29 +121,38 @@ Verbs that mainly operate on groups of rows.
   [`add_count(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.md)
   :
 
-  Count the observations in each `SpatVector` group
+  Count the observations in each
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  group
 
 - [`group_by(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
   [`ungroup(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md)
   :
 
-  Group a `SpatVector` by one or more variables
+  Group a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  by one or more variables
 
 - [`reframe(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.md)
   **\[experimental\]** :
 
-  Reframe each group of a `SpatVector`
+  Reframe each group of a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 - [`rowwise(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
   :
 
-  Group `SpatVector` objects by rows
+  Group
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects by rows
 
 - [`summarise(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
   [`summarize(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.md)
   :
 
-  Summarise each group of a `SpatVector` down to one geometry
+  Summarize each group of a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  down to one geometry
 
 ### `SpatVector` and data frames
 
@@ -142,23 +162,33 @@ frames.
 - [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf` and data frame objects by column
+  Bind multiple
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) and data
+  frame objects by column
 
 - [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md)
   :
 
-  Bind multiple `SpatVector`, `sf`, `sfc` and data frame objects by row
+  Bind multiple
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+  [`sf`](https://r-spatial.github.io/sf/reference/sf.html), `sfc` and
+  data frame objects by row
 
 - [`cross_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/cross_join.SpatVector.md)
   **\[experimental\]** :
 
-  Cross joins for `SpatVector` objects
+  Cross joins for
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`semi_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md)
   [`anti_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.md)
   :
 
-  Filtering joins for `SpatVector` objects
+  Filtering joins for
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`inner_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
   [`left_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
@@ -166,12 +196,16 @@ frames.
   [`full_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
   :
 
-  Mutating joins for `SpatVector` objects
+  Mutating joins for
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`nest_join(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest_join.SpatVector.md)
   **\[experimental\]** :
 
-  Nest join `SpatVector` objects
+  Nest join
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 - [`rows_insert(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   [`rows_append(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
@@ -181,7 +215,9 @@ frames.
   [`rows_delete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.md)
   **\[experimental\]** :
 
-  Row operations for `SpatVector` objects
+  Row operations for
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 ## **tidyr** methods
 
@@ -196,12 +232,16 @@ without changing their geometries.
 - [`pivot_longer(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md)
   :
 
-  Pivot `SpatVector` from wide to long
+  Pivot
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  from wide to long
 
 - [`pivot_wider(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_wider.SpatVector.md)
   :
 
-  Pivot `SpatVector` from long to wide
+  Pivot
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  from long to wide
 
 ### Rows
 
@@ -210,7 +250,9 @@ Tools for duplicating `SpatVector` geometries.
 - [`uncount(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/uncount.SpatVector.md)
   :
 
-  Duplicate `SpatVector` rows
+  Duplicate
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  rows
 
 ### Missing values
 
@@ -220,7 +262,8 @@ missing values and for handling explicit `NA` values.
 - [`complete(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
   :
 
-  Complete missing combinations in a `SpatVector`
+  Complete missing combinations in a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 - [`drop_na(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md)
   [`drop_na(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.md)
@@ -231,18 +274,19 @@ missing values and for handling explicit `NA` values.
 - [`expand(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.md)
   :
 
-  Expand `SpatVector` attribute combinations
+  Expand
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  attribute combinations
 
 - [`fill(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.md)
   :
 
-  Fill in missing values with previous or next value on a `SpatVector`
+  Fill in missing values with previous or next value on a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 - [`replace_na(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
   [`replace_na(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/replace_na.Spat.md)
-  :
-
-  Replace `NA`s with specified values
+  : Replace missing values with specified values
 
 ### Character vectors
 
@@ -261,7 +305,9 @@ Tools for storing `SpatVector` objects in list-columns.
 - [`nest(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/nest.SpatVector.md)
   **\[experimental\]** :
 
-  Nest `SpatVector` rows
+  Nest
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  rows
 
 ## **ggplot2** methods
 
@@ -311,18 +357,24 @@ Helpers for creating **ggplot2** layers from `Spat*` objects.
   [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
   :
 
-  Plot `SpatRaster` contours
+  Plot
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  contours
 
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   :
 
-  Plot `SpatRaster` objects
+  Plot
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  objects
 
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
   :
 
-  Plot `SpatRaster` objects as images
+  Plot
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  objects as images
 
 - [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   [`geom_spatvector_label()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
@@ -330,7 +382,9 @@ Helpers for creating **ggplot2** layers from `Spat*` objects.
   [`stat_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
   :
 
-  Plot `SpatVector` objects
+  Plot
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects
 
 ### Scales
 
@@ -341,7 +395,9 @@ Color scales, palettes and hypsometric tints for spatial plots.
   [`get_coltab_pal()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
   :
 
-  Discrete scales based on `SpatRaster` color tables
+  Discrete scales based on
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  color tables
 
 - [`scale_fill_cross_blended_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
   [`scale_colour_cross_blended_d()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_cross_blended.md)
@@ -434,7 +490,7 @@ implemented for `Spat*` objects.
   [`glance(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.md)
   :
 
-  Glance at an `Spat*` object
+  Glance at a `Spat*` object
 
 - [`required_pkgs(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/required_pkgs.Spat.md)
   [`required_pkgs(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/required_pkgs.Spat.md)
@@ -464,29 +520,38 @@ objects from tibbles.
 - [`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md)
   :
 
-  Get cell number, row and column from a `SpatRaster`
+  Get cell number, row and column from a
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 - [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md)
   :
 
-  Coerce a `SpatVector` to a
-  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
+  Coerce a
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  to an [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object
 
 - [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md)
   :
 
-  Coerce a data frame to `SpatRaster`
+  Coerce a data frame to
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 - [`as_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatvector.md)
   :
 
-  Coerce objects to `SpatVector`
+  Coerce objects to
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 - [`as_tibble(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   [`as_tibble(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   :
 
-  Coerce `SpatRaster` and `SpatVector` objects to tibbles
+  Coerce
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  and
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  objects to
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)s
 
 - [`fortify(`*`<SpatRaster>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   [`fortify(`*`<SpatVector>`*`)`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
@@ -511,7 +576,9 @@ Utilities for CRS handling, package checks and `SpatRaster` comparisons.
 - [`compare_spatrasters()`](https://dieghernan.github.io/tidyterra/dev/reference/compare_spatrasters.md)
   :
 
-  Compare attributes of two `SpatRaster` objects
+  Compare attributes of two
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  objects
 
 - [`is_regular_grid()`](https://dieghernan.github.io/tidyterra/dev/reference/is_regular_grid.md)
   :

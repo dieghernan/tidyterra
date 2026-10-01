@@ -1,4 +1,4 @@
-# Duplicate `SpatVector` rows
+# Duplicate [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) rows
 
 [`uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
 duplicates rows according to a weighting variable.
@@ -37,13 +37,16 @@ uncount(data, weights, ..., .remove = TRUE, .id = NULL)
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 Each duplicated row keeps the input geometry.
 

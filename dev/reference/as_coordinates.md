@@ -1,6 +1,7 @@
-# Get cell number, row and column from a `SpatRaster`
+# Get cell number, row and column from a [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-`as_coordinates()` returns the position of each cell in the `SpatRaster`
+`as_coordinates()` returns the position of each cell in the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 matrix.
 
 ## Usage
@@ -23,11 +24,12 @@ as_coordinates(x, as.raster = FALSE)
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) or
-a `SpatRaster` (if `as.raster = TRUE`) with one row (or cell) for each
-cell in `x`.
+a [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+(if `as.raster = TRUE`) with one row (or cell) for each cell in `x`.
 
-When `as.raster = TRUE`, the resulting `SpatRaster` has the same CRS,
-extent and resolution as `x`.
+When `as.raster = TRUE`, the resulting
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) has
+the same CRS, extent and resolution as `x`.
 
 ## See also
 

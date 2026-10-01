@@ -1,6 +1,8 @@
-# A grouped `SpatVector`
+# A grouped [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The easiest way to create a grouped `SpatVector` is to call the
+The easiest way to create a grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) is
+to call the
 [`group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
 method on a `SpatVector`: this will take care of capturing the
 unevaluated expressions for you. See
@@ -12,8 +14,8 @@ This function is an adapted version of
 
 See also
 [`group_data.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_data.SpatVector.md)
-for the accessory functions that retrieve various metadata from a
-grouped `SpatVector`.
+for the helper functions that retrieve various metadata from a grouped
+`SpatVector`.
 
 ## Usage
 
@@ -30,7 +32,9 @@ is_grouped_spatvector(x)
 
 ## Value
 
-`TRUE` if `x` is a grouped `SpatVector`, otherwise `FALSE`.
+`TRUE` if `x` is a grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+otherwise `FALSE`.
 
 ## Examples
 

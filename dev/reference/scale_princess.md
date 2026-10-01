@@ -220,7 +220,7 @@ princess.colors(n, palette = "snow", alpha = 1, rev = FALSE)
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - drop:
 
@@ -251,16 +251,17 @@ princess.colors(n, palette = "snow", alpha = 1, rev = FALSE)
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour` aesthetics.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic. `princess.colors()` returns a character
+vector of colors.
 
 ## See also
 
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html),
 [`ggplot2::scale_fill_viridis_c()`](https://ggplot2.tidyverse.org/reference/scale_viridis.html).
 
-See also [ggplot2](https://CRAN.R-project.org/package=ggplot2) docs on
-additional `...` arguments.
+See also [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+documentation on additional `...` arguments.
 
 Other color scales, palettes and hypsometric tints:
 [`scale_coltab`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md),

@@ -1,8 +1,9 @@
-# Compare attributes of two `SpatRaster` objects
+# Compare attributes of two [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) objects
 
-Two `SpatRaster` objects are compatible (in terms of combining layers)
-if the CRS, extent and resolution are similar. In those cases you can
-combine the objects simply as `c(x, y)`.
+Two [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects are compatible (in terms of combining layers) if the CRS, extent
+and resolution are similar. In those cases you can combine the objects
+simply as `c(x, y)`.
 
 This function compares those attributes and reports the results. See
 **Resolving differences** for minimal guidance.
@@ -26,8 +27,10 @@ compare_spatrasters(x, y, digits = 6)
 
 ## Value
 
-An invisible logical value indicating whether the `SpatRaster` objects
-are compatible, plus an informative message flagging any issues found.
+An invisible logical value indicating whether the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects are compatible, plus an informative message flagging any issues
+found.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

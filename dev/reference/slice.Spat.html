@@ -13,7 +13,8 @@ slice_colrows() subsets regions of the SpatRaster by row and column
 position of a SpatRaster.
 
 
-You can get a skeleton of your SpatRaster with the cell, column and row
+You can get a skeleton of your SpatRaster with the cell,
+column and row
 index with as_coordinates().
 See Methods for details."><meta property="og:description" content="slice() methods let you index cells/rows/columns/geometries by their
 (integer) locations. They allow you to select, remove or duplicate those
@@ -29,7 +30,8 @@ slice_colrows() subsets regions of the SpatRaster by row and column
 position of a SpatRaster.
 
 
-You can get a skeleton of your SpatRaster with the cell, column and row
+You can get a skeleton of your SpatRaster with the cell,
+column and row
 index with as_coordinates().
 See Methods for details."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -107,10 +109,11 @@ dimensions of a <code>Spat*</code> object.</p>
 cells/geometries.</p></li>
 <li><p><code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample()</a></code> randomly selects cells/geometries.</p></li>
 <li><p><code>slice_rows()</code> and <code>slice_cols()</code> subset entire rows or columns of a
-<code>SpatRaster</code>.</p></li>
+<code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code>.</p></li>
 <li><p><code>slice_colrows()</code> subsets regions of the <code>SpatRaster</code> by row and column
 position of a <code>SpatRaster</code>.</p></li>
-</ul><p>You can get a skeleton of your <code>SpatRaster</code> with the cell, column and row
+</ul><p>You can get a skeleton of your <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> with the cell,
+column and row
 index with <code><a href="as_coordinates.html">as_coordinates()</a></code>.</p>
 <p>See <strong>Methods</strong> for details.</p>
     </div>
@@ -236,7 +239,7 @@ beyond the number of rows in the input are silently ignored. See
 
 <dt id="arg--keep-extent">.keep_extent<a class="anchor" aria-label="anchor" href="#arg--keep-extent"></a></dt>
 <dd><p>Logical. If <code>TRUE</code>, keep the extent of the resulting
-<code>SpatRaster</code>. See also <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/extend.html" class="external-link">terra::extend()</a></code>.</p></dd>
+<code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code>. See also <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>, <code><a href="https://rspatial.github.io/terra/reference/extend.html" class="external-link">terra::extend()</a></code>.</p></dd>
 
 
 <dt id="arg--by-by">.by, by<a class="anchor" aria-label="anchor" href="#arg--by-by"></a></dt>
@@ -321,20 +324,22 @@ See <code><a href="https://rspatial.github.io/terra/reference/mask.html" class="
 
 <p>Implementation of the <strong>generic</strong> <code><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">dplyr::slice()</a></code> methods for <code>Spat*</code>
 objects.</p><div class="section">
-<h3 id="spatraster"><code>SpatRaster</code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
+<h3 id="spatraster"><code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code><a class="anchor" aria-label="anchor" href="#spatraster"></a></h3>
 
 
-<p>The result is a <code>SpatRaster</code> with the CRS and resolution of the input and
+<p>The result is a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> with the CRS and resolution of
+the input and
 the values of the selected cells, columns or rows.</p>
 <p>Use <code>.keep_extent = TRUE</code> to preserve the extent of <code>.data</code> on the output.
 The non-selected cells have a value of <code>NA</code>.</p>
 </div>
 
 <div class="section">
-<h3 id="spatvector"><code>SpatVector</code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
+<h3 id="spatvector"><code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code>SpatVector</code> where the attributes of the selected
+<p>The result is a <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> where the attributes of the
+selected
 geometries are preserved. If <code>.data</code> is a
 <a href="is_grouped_spatvector.html">grouped</a> <code>SpatVector</code>, the operation will be
 performed on each group, so that (e.g.) <code>slice_head(df, n = 5)</code> will select

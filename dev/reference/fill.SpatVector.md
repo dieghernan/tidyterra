@@ -1,8 +1,8 @@
-# Fill in missing values with previous or next value on a `SpatVector`
+# Fill in missing values with previous or next value on a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 Fills missing values in selected columns using the next or previous
 entry. This is useful in the common output format where values are not
-repeated, and are only recorded when they change.
+repeated and are only recorded when they change.
 
 ## Usage
 
@@ -41,17 +41,22 @@ fill(data, ..., .by = NULL, .direction = c("down", "up", "downup", "updown"))
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::fill()`](https://tidyr.tidyverse.org/reference/fill.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Grouped `SpatVector`
 
-With grouped `SpatVector` objects created by
+With grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects created by
 [`group_by.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/group_by.SpatVector.md),
 [`fill()`](https://tidyr.tidyverse.org/reference/fill.html) is applied
 *within* each group and does not fill across group boundaries.

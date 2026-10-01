@@ -37,7 +37,7 @@ required_pkgs(x, ...)
 
 ## Value
 
-A character string of packages that are required.
+A character vector of required package names.
 
 ## Methods
 

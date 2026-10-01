@@ -1,7 +1,11 @@
-# Bind multiple `SpatVector`, `sf` and data frame objects by column
+# Bind multiple [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html), [`sf`](https://r-spatial.github.io/sf/reference/sf.html) and data frame objects by column
 
-Bind any number of `SpatVector`, data frames and `sf` objects by column,
-making a wider result. This is similar to `do.call(cbind, data_frames)`.
+Bind any number of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects, data frames and
+[`sf`](https://r-spatial.github.io/sf/reference/sf.html) objects by
+column, making a wider result. This is similar to
+`do.call(cbind, data_frames)`.
 
 Where possible, prefer using a
 [join](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.md)
@@ -23,8 +27,9 @@ bind_spat_cols(
 - ...:
 
   Objects to combine. The first argument must be a `SpatVector`. Each
-  subsequent argument can be a `SpatVector`, `sf` object or data frame.
-  Inputs are
+  subsequent argument can be a `SpatVector`,
+  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object or
+  data frame. Inputs are
   [recycled](https://vctrs.r-lib.org/reference/theory-faq-recycling.html)
   to the same length, then matched by position.
 
@@ -36,8 +41,11 @@ bind_spat_cols(
 
 ## Value
 
-A `SpatVector` with the corresponding columns. The geometry and CRS
-correspond to the first `SpatVector` in `...`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object with the combined columns. Its geometry and CRS come from the
+first
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) in
+`...`.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -47,9 +55,10 @@ correspond to the first `SpatVector` in `...`.
 
 Implementation of the
 [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html)
-function for `SpatVector` objects. For the second and subsequent
-arguments in `...`, the geometry is not `cbind`ed and only the data
-frame-like columns are kept.
+function for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects. For the second and subsequent arguments in `...`, the geometry
+is not `cbind`ed and only the data frame-like columns are kept.
 
 ## See also
 

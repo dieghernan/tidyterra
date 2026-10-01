@@ -94,7 +94,7 @@ The following methods are available:
 | [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
 | [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ to **sf** through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a **tibble** with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ To an `sf` object through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
@@ -143,7 +143,7 @@ mod
 #> max values  :   5.307511, 16.740898, 21.113781
 ```
 
-In this example we:
+In this example, we:
 
 - Removed the first layer (`tavg_04`).
 - Created a new layer `newcol` as the difference between `tavg_06` and
@@ -196,8 +196,9 @@ v_lux |>
 #>               (4.99,40.7]     9  194391   209.778
 ```
 
-As with `SpatRaster`, essential properties such as geometry and CRS are
-preserved during these operations.
+The CRS is preserved during these operations. By default,
+[`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
+merges geometries within each group.
 
 ## Plotting with ggplot2
 
@@ -223,7 +224,9 @@ ggplot() +
   )
 ```
 
-![Faceted map using a SpatRaster object.](./fig-faceted-1.png)
+![Three raster maps of average temperature in Castile and Leon, one each
+for April, May and June. Fill color encodes degrees Celsius.
+Temperatures increase across the three months.](./fig-faceted-1.png)
 
 Faceted map using a SpatRaster object.
 
@@ -242,7 +245,9 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Contour line plot for a SpatRaster object.](./fig-contourlines-1.png)
+![Elevation raster map of a volcanic landscape with contour lines every
+five units from 80 to 200. The lines trace areas of equal elevation over
+the colored terrain.](./fig-contourlines-1.png)
 
 Contour line plot for a SpatRaster object.
 
@@ -256,8 +261,9 @@ ggplot() +
   labs(fill = "elevation")
 ```
 
-![Filled contour plot for a SpatRaster
-object.](./fig-contourfilled-1.png)
+![Filled contour map of volcanic terrain. Discrete color bands represent
+successive elevation ranges, outlining the higher central
+terrain.](./fig-contourfilled-1.png)
 
 Filled contour plot for a SpatRaster object.
 
@@ -282,8 +288,9 @@ rgb_plot <- ggplot(v) +
 rgb_plot
 ```
 
-![Map combining an RGB SpatRaster object and a SpatVector
-object.](./fig-rgb-1.png)
+![RGB map tile of Castile and Leon with province boundaries drawn over
+the imagery. The boundary outlines remain visible against the raster
+background.](./fig-rgb-1.png)
 
 Map combining an RGB SpatRaster object and a SpatVector object.
 
@@ -327,7 +334,9 @@ ggplot() +
   )
 ```
 
-![Map of Asia including hypsometric tints.](./fig-hypso-1.png)
+![Hypsometric map of Asia. Fill color encodes elevation in meters, from
+seafloor depths near minus 10,000 meters through sea level to mountains
+above 5,000 meters.](./fig-hypso-1.png)
 
 Map of Asia including hypsometric tints.
 
@@ -349,11 +358,14 @@ ggplot(v_lux) +
   coord_sf(crs = 3857)
 ```
 
-![Choropleth map with a SpatVector object.](./fig-lux_ggplot-1.png)
+![Choropleth map of Luxembourg cantons. Fill color groups population
+counts into ranges, and labels identify the
+cantons.](./fig-lux_ggplot-1.png)
 
 Choropleth map with a SpatVector object.
 
-Internally, **tidyterra** converts `SpatVector` objects to **sf** with
+Internally, **tidyterra** converts `SpatVector` objects to `sf` objects
+with
 [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html)
 and then uses
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
@@ -380,7 +392,9 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Dissolving SpatVector objects by group.](./fig-aggregate-1.png)
+![Choropleth map of Luxembourg with cantons dissolved into three
+population groups. Fill color encodes total population for each merged
+area, and labels identify the groups.](./fig-aggregate-1.png)
 
 Dissolving SpatVector objects by group.
 
@@ -405,7 +419,8 @@ v_lux |>
   coord_sf(crs = 3857)
 ```
 
-![Dissolving SpatVector objects by group, keeping internal
-boundaries.](./fig-aggregate-2.png)
+![Choropleth map of Luxembourg with cantons assigned to three population
+groups. Fill color encodes total population and internal canton
+boundaries remain visible within each group.](./fig-aggregate-2.png)
 
-Dissolving SpatVector objects by group, keeping internal boundaries.
+Aggregating SpatVector objects by group, keeping internal boundaries.

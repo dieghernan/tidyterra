@@ -83,14 +83,14 @@ Implementation of the **generic**
 [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 Uses
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
 or
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
 
-### `SpatVector`, `SpatGraticule` and `SpatExtent`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html), `SpatGraticule` and `SpatExtent`
 
 Uses
 [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md).

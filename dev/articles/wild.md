@@ -23,7 +23,9 @@ A BibTeX entry for LaTeX users is:
 }
 ```
 
-![](wild_files/figure-html/unnamed-chunk-1-1.png)
+![Bar chart of publications using tidyterra by year. Publication year is
+on the horizontal axis and the number of publications is on the vertical
+axis.](wild_files/figure-html/unnamed-chunk-1-1.png)
 
 ## Publications
 
@@ -121,6 +123,12 @@ Udvardy, S., Thompson, P., Worth, P., & Caldas, A. (2024). *Looming
 deadlines for coastal resilience: Rising seas, disruptive tides, and
 risks to coastal infrastructure* \[Technical report\]. Union of
 Concerned Scientists. <https://doi.org/10.47923/2024.15502>
+
+Dávalos-Martínez, A., Figueroa, D. S., Brancaccio-Pérez, E. S.,
+Santiago-Pérez, A. L., & Rosas-Espinoza, V. C. (2026). Silene qumsiyehii
+(Caryophyllaceae: Physolychnis): Una nueva especie del centro-occidente
+de México. *Acta Botanica Mexicana*, (133).
+<https://doi.org/10.21829/abm133.2026.2655>
 
 de Carvalho Alves, M. (2026). *Laboratory Manual for Environmental
 Geocomputation with R* (1st ed.). CRC Press.

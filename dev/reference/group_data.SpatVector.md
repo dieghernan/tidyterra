@@ -1,13 +1,16 @@
-# Grouping metadata for `SpatVector` objects
+# Grouping metadata for [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
-This collection of functions accesses data about grouped `SpatVector`
+This collection of functions accesses data about grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 objects in various ways:
 
 - [`group_data()`](https://dplyr.tidyverse.org/reference/group_data.html)
-  returns a tibble that defines the grouping structure. The columns give
-  the values of the grouping variables. The last column, always called
-  `.rows`, is a list of integer vectors that gives the locations of the
-  rows in each group.
+  returns a
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+  that defines the grouping structure. The columns give the values of
+  the grouping variables. The last column, always called `.rows`, is a
+  list of integer vectors that gives the locations of the rows in each
+  group.
 
 - [`group_keys()`](https://dplyr.tidyverse.org/reference/group_data.html)
   returns a tibble describing the groups.
@@ -72,8 +75,11 @@ n_groups(x)
 
 ## Value
 
-See the description of the method. The results are usually tibbles,
-lists or vectors. These functions do not return `SpatVector` objects.
+See the description of the method. The results are usually
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)s,
+lists or vectors. These functions do not return
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## See also
 

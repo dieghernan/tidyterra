@@ -1,6 +1,7 @@
-# Extract coordinates from `SpatVector` objects
+# Extract coordinates from [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
-`stat_spat_coordinates()` extracts the coordinates from `SpatVector`
+`stat_spat_coordinates()` extracts the coordinates from
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 objects and summarizes them to one pair of coordinates (x and y) per
 geometry.
 

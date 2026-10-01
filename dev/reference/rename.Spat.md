@@ -63,14 +63,16 @@ Implementation of the **generic**
 [`dplyr::rename()`](https://dplyr.tidyverse.org/reference/rename.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-Renames layers of a `SpatRaster`.
+Renames layers of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes renamed as specified in
-the function call.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes renamed as specified in the function call.
 
 ## See also
 

@@ -1,9 +1,11 @@
-# Expand `SpatVector` attribute combinations
+# Expand [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) attribute combinations
 
 [`expand()`](https://tidyr.tidyverse.org/reference/expand.html) returns
-a tibble with all combinations of selected attributes. It does not
-return a `SpatVector` because newly created combinations do not have a
-well-defined geometry. Use
+a [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with all combinations of selected attributes. It does not return a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+because newly created combinations do not have a well-defined geometry.
+Use
 [`complete.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.md)
 when empty geometries should be added explicitly.
 
@@ -64,10 +66,14 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 Implementation of the **generic**
 [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
-The output is a tibble with attribute combinations. Geometry is not
-preserved because new combinations do not have a well-defined geometry.
+The output is a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+attribute combinations. Geometry is not preserved because new
+combinations do not have a well-defined geometry.
 
 ## See also
 

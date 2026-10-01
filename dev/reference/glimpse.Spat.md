@@ -35,7 +35,7 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
   Arguments passed to
   [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   or
-  [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
+  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   methods.
 
 - n:
@@ -49,8 +49,8 @@ glimpse(x, width = NULL, ..., n = 10, max_extra_cols = 20)
 
 ## Value
 
-Original `x` is invisibly returned, allowing
-[`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) to be
+The input object `x`, returned invisibly so
+[`glimpse()`](https://pillar.r-lib.org/reference/glimpse.html) can be
 used within a data pipeline.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent

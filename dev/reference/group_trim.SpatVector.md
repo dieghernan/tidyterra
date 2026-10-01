@@ -30,7 +30,8 @@ group_trim(.tbl, .drop = group_by_drop_default(.tbl))
 
 ## Value
 
-A `SpatVector` object with updated grouping metadata.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object with updated grouping metadata.
 
 ## Details
 
@@ -41,7 +42,9 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::group_trim()`](https://dplyr.tidyverse.org/reference/group_trim.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## See also
 

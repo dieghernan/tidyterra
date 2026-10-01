@@ -1,8 +1,10 @@
-# Pivot `SpatVector` from long to wide
+# Pivot [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) from long to wide
 
 [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
-"widens" a `SpatVector`, increasing the number of columns and decreasing
-the number of rows. The inverse transformation is
+"widens" a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+increasing the number of columns and decreasing the number of rows. The
+inverse transformation is
 [`pivot_longer.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/pivot_longer.SpatVector.md).
 
 ## Usage
@@ -167,13 +169,16 @@ pivot_wider(
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `data`.

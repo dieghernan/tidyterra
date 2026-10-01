@@ -1,13 +1,13 @@
-# Filtering joins for `SpatVector` objects
+# Filtering joins for [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 Filtering joins filter rows from `x` based on the presence or absence of
 matches in `y`:
 
 - [`semi_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html)
-  return all rows from `x` with a match in `y`.
+  returns all rows from `x` with a match in `y`.
 
 - [`anti_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html)
-  return all rows from `x` without a match in `y`.
+  returns all rows from `x` without a match in `y`.
 
 See
 [`dplyr::semi_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html)
@@ -33,8 +33,9 @@ anti_join(x, y, by = NULL, copy = FALSE, ...)
 - y:
 
   A data frame or other object coercible to a data frame. If a
-  `SpatVector` or `sf` object is provided, this method returns an error.
-  See
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  or [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object is
+  provided, this method returns an error. See
   [`terra::intersect()`](https://rspatial.github.io/terra/reference/intersect.html)
   for spatial joins.
 
@@ -90,7 +91,8 @@ anti_join(x, y, by = NULL, copy = FALSE, ...)
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -100,7 +102,9 @@ A `SpatVector` object.
 
 Implementation of the **generic**
 [`dplyr::semi_join()`](https://dplyr.tidyverse.org/reference/filter-joins.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `x` for the records that match the join

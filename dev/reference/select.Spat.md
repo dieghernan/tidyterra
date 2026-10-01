@@ -44,16 +44,19 @@ Implementation of the **generic**
 [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-Selects and renames layers of a `SpatRaster`. The result is a
-`SpatRaster` with the same extent, resolution and CRS as `.data`. Only
-the number and possibly the names of layers are modified.
+Selects and renames layers of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+The result is a `SpatRaster` with the same extent, resolution and CRS as
+`.data`. Only the number and possibly the names of layers are modified.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes selected and possibly
-renamed as specified in the function call.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes selected and possibly renamed as specified in the
+function call.
 
 ## See also
 

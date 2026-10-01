@@ -1,14 +1,14 @@
 # Drop attributes of `Spat*` objects containing missing values
 
-- `SpatVector`:
+- [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html):
   [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-  method drops geometries where any attribute specified by `...`
-  contains a missing value.
-
-- `SpatRaster`:
-  [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
-  method drops cells where any layer specified by `...` contains a
+  drops geometries when any attribute specified by `...` contains a
   missing value.
+
+- [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html):
+  [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
+  drops cells when any layer specified by `...` contains a missing
+  value.
 
 ## Usage
 
@@ -26,7 +26,7 @@ drop_na(data, ...)
 
   A `SpatVector` created with
   [`terra::vect()`](https://rspatial.github.io/terra/reference/vect.html)
-  or a `SpatRaster`
+  or a `SpatRaster` created with
   [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html).
 
 - ...:
@@ -49,13 +49,15 @@ Implementation of the **generic**
 [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
 methods for `Spat*` objects.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 This method operates on attributes, meaning that `NA` values are
 assessed in the attributes (columns) of each geometry (row). The result
-is a `SpatVector` with potentially fewer geometries than the input.
+is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with potentially fewer geometries than the input.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 **\[questioning\]**
 
@@ -63,10 +65,10 @@ The implementation of `drop_na.SpatRaster()` can be understood as a
 masking method based on the values of the layers (see
 [`terra::mask()`](https://rspatial.github.io/terra/reference/mask.html)).
 
-`SpatRaster` layers are treated as columns and `SpatRaster` cells as
-rows, so rows (cells) with any `NA` value on any layer become `NA`. You
-can also mask the cells (rows) based on the values of specific layers
-(columns).
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+layers are treated as columns and `SpatRaster` cells as rows, so rows
+(cells) with any `NA` value on any layer become `NA`. You can also mask
+the cells (rows) based on the values of specific layers (columns).
 
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
 effectively removes outer cells that are `NA` (see
@@ -81,7 +83,9 @@ Check the **Examples** to have a better understanding of this method.
 #### Feedback needed!
 
 Visit <https://github.com/dieghernan/tidyterra/issues>. The
-implementation of this method for `SpatRaster` may change in the future.
+implementation of this method for
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) may
+change in the future.
 
 ## See also
 

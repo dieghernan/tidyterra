@@ -1,7 +1,8 @@
-# Group a `SpatVector` by one or more variables
+# Group a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) by one or more variables
 
 Most data operations are done on groups defined by variables.
-`group_by.SpatVector()` adds new attributes to an existing `SpatVector`
+`group_by.SpatVector()` adds new attributes to an existing
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 indicating the corresponding groups. See **Methods**.
 
 ## Usage
@@ -53,7 +54,8 @@ ungroup(x, ...)
 
 ## Value
 
-A `SpatVector` object with updated grouping metadata.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object with updated grouping metadata.
 
 ## Details
 
@@ -64,22 +66,26 @@ See **Details** on
 
 Implementation of the **generic**
 [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Grouping metadata
 
 Mixing [terra](https://CRAN.R-project.org/package=terra) and
 [dplyr](https://CRAN.R-project.org/package=dplyr) syntax on a grouped or
-row-wise `SpatVector`, for example by subsetting with `v[1:3, 1:2]`, can
-corrupt its grouping metadata.
-[tidyterra](https://CRAN.R-project.org/package=tidyterra) attempts to
-restore this metadata the next time you use a
+row-wise
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+for example by subsetting with `v[1:3, 1:2]`, can corrupt its grouping
+metadata. [tidyterra](https://CRAN.R-project.org/package=tidyterra)
+attempts to restore this metadata the next time you use a
 [dplyr](https://CRAN.R-project.org/package=dplyr) verb on the object.
 
 Some operations, such as
 [`terra::spatSample()`](https://rspatial.github.io/terra/reference/sample.html),
-create a new `SpatVector` without preserving grouping metadata. Call
-`group_by.SpatVector()` or
+create a new
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+without preserving grouping metadata. Call `group_by.SpatVector()` or
 [`rowwise.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.md)
 again, as appropriate.
 

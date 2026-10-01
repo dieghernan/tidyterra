@@ -17,7 +17,9 @@ unite(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 
 - data:
 
-  A `SpatRaster` or `SpatVector`.
+  A [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  or
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
 
 - col:
 
@@ -51,7 +53,9 @@ unite(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 
 ## Value
 
-A `SpatRaster` or `SpatVector` object.
+A [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+or [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
@@ -59,14 +63,14 @@ Implementation of the **generic**
 [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 The selected layers are united cell by cell. The new layer is
 categorical because
 [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
 returns a character vector.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 The geometry column has sticky behavior and is never united with
 attributes.

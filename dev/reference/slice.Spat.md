@@ -18,13 +18,14 @@ It includes helpers for common use cases:
   randomly selects cells/geometries.
 
 - `slice_rows()` and `slice_cols()` subset entire rows or columns of a
-  `SpatRaster`.
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 - `slice_colrows()` subsets regions of the `SpatRaster` by row and
   column position of a `SpatRaster`.
 
-You can get a skeleton of your `SpatRaster` with the cell, column and
-row index with
+You can get a skeleton of your
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+with the cell, column and row index with
 [`as_coordinates()`](https://dieghernan.github.io/tidyterra/dev/reference/as_coordinates.md).
 
 See **Methods** for details.
@@ -151,8 +152,9 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - .keep_extent:
 
-  Logical. If `TRUE`, keep the extent of the resulting `SpatRaster`. See
-  also
+  Logical. If `TRUE`, keep the extent of the resulting
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+  See also
   [`terra::trim()`](https://rspatial.github.io/terra/reference/trim.html),
   [`terra::extend()`](https://rspatial.github.io/terra/reference/extend.html).
 
@@ -241,18 +243,22 @@ Implementation of the **generic**
 [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-The result is a `SpatRaster` with the CRS and resolution of the input
-and the values of the selected cells, columns or rows.
+The result is a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+with the CRS and resolution of the input and the values of the selected
+cells, columns or rows.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
 output. The non-selected cells have a value of `NA`.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` where the attributes of the selected
-geometries are preserved. If `.data` is a
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+where the attributes of the selected geometries are preserved. If
+`.data` is a
 [grouped](https://dieghernan.github.io/tidyterra/dev/reference/is_grouped_spatvector.md)
 `SpatVector`, the operation will be performed on each group, so that
 (e.g.) `slice_head(df, n = 5)` will select the first five rows in each

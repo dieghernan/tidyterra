@@ -1,7 +1,9 @@
 # Fortify `Spat*` objects
 
-Fortify `SpatRaster` and `SpatVector` objects to data frames. This
-provides native compatibility with
+Fortify
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) and
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects to data frames. This provides native compatibility with
 [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
 
 These methods are now implemented as wrappers around
@@ -96,16 +98,20 @@ fortify(model, data, ..., crs = "")
 - crs:
 
   Input that includes or represents a CRS. It can be an `sf` or `sfc`
-  object, a `SpatRaster` or `SpatVector` object, a `crs` object from
+  object, a
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  or
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
   a character string (for example a [PROJ
-  string](https://proj.org/en/9.3/operations/projections/index.html)),
-  or an integer representing an [EPSG](https://epsg.io/) code.
+  string](https://proj.org/en/9.3/operations/projections/index.html)) or
+  an integer representing an [EPSG](https://epsg.io/) code.
 
 ## Value
 
 `fortify.SpatVector()`, `fortify.SpatGraticule()` and
-`fortify.SpatExtent()` return a
+`fortify.SpatExtent()` return an
 [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 `fortify.SpatRaster()` returns a
@@ -118,37 +124,48 @@ Implementation of the **generic**
 [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-Returns a tibble that can be used with `ggplot2::geom_*`, such as
+Returns a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) that
+can be used with `ggplot2::geom_*`, such as
 [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html)
 and
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
 
-The resulting tibble includes coordinates in the `x` and `y` columns.
-The values of each layer are added as extra columns using the layer
-names from the `SpatRaster`.
+The resulting
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+includes coordinates in the `x` and `y` columns. The values of each
+layer are added as extra columns using the layer names from the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
-The CRS of the `SpatRaster` can be retrieved with
-`attr(fortifiedSpatRaster, "crs")`.
+The CRS of the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) can
+be retrieved with `attr(fortifiedSpatRaster, "crs")`.
 
-You can convert the fortified object back to a `SpatRaster` with
+You can convert the fortified object back to a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+with
 [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md).
 
-When `pivot = TRUE`, the `SpatRaster` is fortified in long format (see
+When `pivot = TRUE`, the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) is
+fortified in long format (see
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)).
 The fortified object has the following columns:
 
 - `x`, `y`: Coordinates of the cell center in the corresponding CRS.
 
-- `lyr`: Name of the `SpatRaster` layer associated with `value`.
+- `lyr`: Name of the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  layer associated with `value`.
 
 - `value`: Cell value for the corresponding `lyr`.
 
 This option can be useful when combining several `geom_*` layers or when
 faceting.
 
-### `SpatVector`, `SpatGraticule` and `SpatExtent`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html), `SpatGraticule` and `SpatExtent`
 
 Returns an [`sf`](https://r-spatial.github.io/sf/reference/sf.html)
 object that can be used with

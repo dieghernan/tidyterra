@@ -288,7 +288,7 @@ CRAN release: 2024-04-22
   now display information using the
   [`?tibble::print.tbl_df`](https://tibble.tidyverse.org/reference/formatting.html)
   approach for the header and the footer. The body is still displayed
-  transposed as of
+  transposed as in
   [`dplyr::glimpse()`](https://pillar.r-lib.org/reference/glimpse.html).
   See
   [`pillar::tbl_format_header()`](https://pillar.r-lib.org/reference/tbl_format_header.html)
@@ -296,7 +296,7 @@ CRAN release: 2024-04-22
   [`pillar::tbl_format_footer()`](https://pillar.r-lib.org/reference/tbl_format_footer.html)
   for examples.
 - [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md)
-  converts a `SpatVector` to a `sf` object with an additional `tbl_df`
+  converts a `SpatVector` to an `sf` object with an additional `tbl_df`
   class for pretty printing.
 - [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
   gains a new argument `pivot` that allows better integration with other
@@ -356,8 +356,8 @@ Other changes in this version:
   ([\#120](https://github.com/dieghernan/tidyterra/issues/120)).
 - [`glimpse.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.md)
   now shows metadata on geometry type, CRS and other fields.
-- New messaging interface thanks to [**cli**](https://cli.r-lib.org/)
-  package.
+- New messaging interface thanks to the
+  [**cli**](https://cli.r-lib.org/) package.
 
 ## tidyterra 0.4.1
 
@@ -446,7 +446,7 @@ CRAN release: 2022-11-09
 CRAN release: 2022-10-12
 
 - Package is back on **CRAN**.
-- Libraries **dplyr**, **tidyr** and **tibble** are not attached by
+- Packages **dplyr**, **tidyr** and **tibble** are not attached by
   default. Needed functions are reexported instead.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   can now avoid the default `fill` of the layer using
@@ -467,8 +467,10 @@ CRAN release: 2022-09-29
 
 - Changes to how **dplyr**, **tibble** and **tidyr** are attached. These
   packages are listed in `Depends` and are attached before **tidyterra**
-  when `library` or `require` is called. Messages on load can be
-  suppressed with `suppressPackageStartupMessages(library(tidyterra))`.
+  when [`library()`](https://rdrr.io/r/base/library.html) or
+  [`require()`](https://rdrr.io/r/base/library.html) is called. Messages
+  on load can be suppressed with
+  `suppressPackageStartupMessages(library(tidyterra))`.
 
 ## tidyterra 0.2.1
 
@@ -512,7 +514,7 @@ CRAN release: 2022-05-24
 
 ## tidyterra 0.0.1
 
-- Performance has been improved by avoiding conversion to **tibble** as
+- Performance has been improved by avoiding conversion to tibbles as
   much as possible, using **data.table** objects internally instead of
   `tibble` objects and adding compatibility with **dtplyr**.
 - [`as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.md)

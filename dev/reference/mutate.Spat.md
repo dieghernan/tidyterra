@@ -108,16 +108,19 @@ Implementation of the **generic**
 [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 Adds new layers and preserves existing ones. The result is a
-`SpatRaster` with the same extent, resolution and CRS as `.data`. Only
-the values and possibly the number of layers are modified.
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+with the same extent, resolution and CRS as `.data`. Only the values and
+possibly the number of layers are modified.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes modified and possibly
-renamed as specified in the function call.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes modified and possibly renamed as specified in the
+function call.
 
 ## See also
 

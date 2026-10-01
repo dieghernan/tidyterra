@@ -1,11 +1,15 @@
-# Plot `SpatRaster` objects as images
+# Plot [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) objects as images
 
-This geom plots `SpatRaster` objects (see
+This geom plots
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
 as RGB images. The layers are combined so they represent the red, green
 and blue channels.
 
-For plotting `SpatRaster` objects by layer values use
+For plotting
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects by layer values use
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md).
 
 The underlying implementation is based on
@@ -134,7 +138,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
   input extent. For example, to avoid data wrapping around the dateline
   in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
-  when reprojecting the `SpatRaster`.
+  when reprojecting the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 ## Value
 
@@ -153,11 +158,13 @@ ignored.
 
 ## Coordinates
 
-When the `SpatRaster` does not have a CRS, that is,
-`terra::crs(rast) == ""`, the geom does not make any assumption about
-the scales.
+When the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+does not have a CRS, that is, `terra::crs(rast) == ""`, the geom does
+not make any assumption about the scales.
 
-On `SpatRaster` objects that have a CRS, the geom uses
+On [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.

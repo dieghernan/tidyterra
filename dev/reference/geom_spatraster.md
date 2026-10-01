@@ -1,13 +1,18 @@
-# Plot `SpatRaster` objects
+# Plot [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) objects
 
-This geom plots `SpatRaster` objects (see
+This geom plots
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)).
 It is designed to plot the object by layers, as
 [`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
 does.
 
-For plotting `SpatRaster` objects as map tiles, such as RGB `SpatRaster`
-objects, use
+For plotting
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects as map tiles, such as RGB
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects, objects, use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
 
 The underlying implementation is based on
@@ -58,7 +63,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
   Set of aesthetic mappings created by
   [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
   See **Aesthetics**, especially the use of the `fill` and `alpha`
-  aesthetics with `SpatRaster` layers.
+  aesthetics with
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  layers.
 
 - data:
 
@@ -107,7 +114,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
   input extent. For example, to avoid data wrapping around the dateline
   in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
-  when reprojecting the `SpatRaster`.
+  when reprojecting the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 - ...:
 
@@ -149,8 +157,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - geom:
 
-  Geom used to display the data. Recommended values for `SpatRaster` are
-  `"raster"` (the default), `"point"`, `"text"` and `"label"`.
+  Geom used to display the data. Recommended values for
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  are `"raster"` (the default), `"point"`, `"text"` and `"label"`.
 
 ## Value
 
@@ -162,11 +171,13 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Coordinates
 
-When the `SpatRaster` does not have a CRS, that is,
-`terra::crs(rast) == ""`, the geom does not make any assumption about
-the scales.
+When the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+does not have a CRS, that is, `terra::crs(rast) == ""`, the geom does
+not make any assumption about the scales.
 
-On `SpatRaster` objects that have a CRS, the geom uses
+On [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
@@ -181,11 +192,14 @@ reprojected**.
 
 If `fill` is not provided, `geom_spatraster()` creates a
 [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer with all the
-layers of the `SpatRaster` object. Use `facet_wrap(~lyr)` to display the
-`SpatRaster` layers.
+layers of the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+object. Use `facet_wrap(~lyr)` to display its layers. layers.
 
 If `fill` is used, it should contain the name of one layer that is
-present on the `SpatRaster` (for example,
+present on the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+(for example,
 `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names
 can be retrieved using `names(rast)`.
 
@@ -196,9 +210,11 @@ mapped `fill` aesthetic.
 `fill` can use computed variables.
 
 For `alpha`, use a computed variable or the name of one layer that is
-present on the `SpatRaster`. When `alpha` is a layer name, it can refer
-to the same layer as `fill` or to another layer in the `SpatRaster`. See
-section **Computed variables**.
+present on the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+When `alpha` is a layer name, it can refer to the same layer as `fill`
+or to another layer in the `SpatRaster`. See section **Computed
+variables**.
 
 ### `stat_spatraster()`
 
@@ -210,10 +226,11 @@ section **Computed variables**.
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
 When `geom = "raster"`, the `fill` and `alpha` arguments behave as in
-`geom_spatraster()`, so they can be mapped to `SpatRaster` layer names.
-If another `geom` is used, `stat_spatraster()` understands the
-aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)` and
-`aes(alpha = <name_of_lyr>)` are not applicable.
+`geom_spatraster()`, so they can be mapped to
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+layer names. If another `geom` is used, `stat_spatraster()` understands
+the aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)`
+and `aes(alpha = <name_of_lyr>)` are not applicable.
 
 The `x` and `y` aesthetics are mapped by default, so you do not need to
 add them in [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
@@ -223,7 +240,9 @@ In every case, aesthetics should be mapped with computed variables. See
 ## Facets
 
 You can use `facet_wrap(~lyr)` to create a faceted plot for each layer
-of the `SpatRaster` object. See
+of the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+object. See
 [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
 for details.
 
@@ -233,7 +252,8 @@ This geom computes variables internally that are available for use as
 aesthetics, using (for example) `aes(alpha = after_stat(value))` (see
 [`ggplot2::after_stat()`](https://ggplot2.tidyverse.org/reference/aes_eval.html)).
 
-- `after_stat(value)`: Cell values of the `SpatRaster`.
+- `after_stat(value)`: Cell values of the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 - `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when
   `alpha` is the name of a layer.

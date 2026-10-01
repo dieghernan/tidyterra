@@ -4,11 +4,13 @@
 to `$` on a data frame. It is mostly useful because it looks nicer in
 pipes and can optionally name the output.
 
-**You can extract the geographic coordinates of a `SpatRaster`**. Use
-`pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names on terra,
-since they refer to the geographic coordinates of the layer.
+**You can extract the geographic coordinates of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)**.
+Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names in
+[terra](https://CRAN.R-project.org/package=terra), since they refer to
+cell coordinates.
 
-See **Examples** and section **About layer names** on
+See **Examples** and section **Layer and column names** on
 [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
 
 ## Usage
@@ -57,15 +59,16 @@ pull(.data, var = -1, name = NULL, ...)
   Arguments passed to
   [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   or
-  [`as_tibble.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
+  [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md)
   methods.
 
 ## Value
 
-A vector with the same number of cells/geometries as `.data`.
-
-On `SpatRaster` objects, note that the default (`na.rm = FALSE`) removes
-empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
+A vector with one element per cell or geometry in `.data`. For
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects, the default (`na.rm = FALSE`) keeps missing values. Passing
+`na.rm = TRUE` to `...` removes cells with missing values and can
+shorten the result. See
 [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
@@ -76,13 +79,14 @@ empty cells, so you may need to pass (`na.rm = FALSE`) to `...`. See
 
 Implementation of the **generic**
 [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html)
-methods. Each method first coerces the `Spat*` object to a tibble (see
+methods. Each method first coerces the `Spat*` object to a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) (see
 [as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md))
 and then applies
 [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html) to
 the tibble.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 When passing `na.rm = TRUE` to `...`, only cells with a value other than
 `NA` are extracted. See
@@ -93,11 +97,12 @@ If `xy = TRUE` is passed to `...`, two columns named `x` and `y`
 in positions `1` and `2`. Therefore, `pull(.data, 1)` and
 `pull(.data, 1, xy = TRUE)` return different results.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 When passing `geom = "WKT"` or `geom = "HEX"` to `...`, the geometry of
-the `SpatVector` can be extracted with `var = geometry`. Similarly, when
-using `geom = "XY"`, the coordinates can be extracted with `var = x` or
+the [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+can be extracted with `var = geometry`. Similarly, when using
+`geom = "XY"`, the coordinates can be extracted with `var = x` or
 `var = y`. See the options in
 [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 

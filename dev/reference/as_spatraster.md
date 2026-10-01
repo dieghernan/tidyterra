@@ -1,8 +1,9 @@
-# Coerce a data frame to `SpatRaster`
+# Coerce a data frame to [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 `as_spatraster()` converts a data frame or
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) into
-a `SpatRaster`. It wraps the
+a [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+It wraps the
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html)
 S4 method for signature `data.frame`.
 
@@ -32,9 +33,9 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 - crs:
 
   A CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial
-  object from [sf](https://r-spatial.github.io/sf/reference/st_crs.html)
-  or [terra](https://rspatial.github.io/terra/reference/crs.html) that
-  includes the target coordinate reference system. See
+  object from [sf](https://CRAN.R-project.org/package=sf) or
+  [terra](https://CRAN.R-project.org/package=terra) that includes the
+  target coordinate reference system. See
   [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
   and **Details**.
 
@@ -45,11 +46,14 @@ as_spatraster(x, ..., xycols = 1:2, crs = "", digits = 6)
 
 ## Value
 
-A `SpatRaster`.
+A [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+object.
 
 ## Details
 
-If no `crs` is provided and the tibble was created with
+If no `crs` is provided and the
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) was
+created with
 [`as_tibble.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md),
 the `crs` is inferred from
 [`attr(x, "crs")`](https://rdrr.io/r/base/attr.html).

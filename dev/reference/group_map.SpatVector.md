@@ -1,12 +1,15 @@
-# Apply a function to each `SpatVector` group
+# Apply a function to each [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) group
 
 **\[experimental\]**
 
 [`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
 and
 [`dplyr::group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html)
-are purrr-style functions that can be used to iterate on grouped
-`SpatVector` objects.
+are functions in the style of
+[purrr](https://CRAN.R-project.org/package=purrr) that can be used to
+iterate on grouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Usage
 
@@ -27,7 +30,9 @@ group_modify(.data, .f, ..., .keep = FALSE)
 - .f:
 
   A function called with `.x`, a `SpatVector` containing the rows for
-  one group, and `.y`, a tibble with the group keys.
+  one group, and `.y`, a
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+  with the group keys.
 
 - ...:
 
@@ -39,34 +44,45 @@ group_modify(.data, .f, ..., .keep = FALSE)
 
 ## Value
 
-- [`group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-  returns a list of results from calling `.f` on each group.
-
-- [`group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html)
-  returns a `SpatVector`. In that case, `.f` must return `SpatVector`
-  objects.
+[`group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
+returns a list of results from calling `.f` on each group.
+[`group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html)
+returns a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object and requires `.f` to return
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Details
 
 Each conceptual group is exposed to `.f` with two pieces of information:
-`.x`, the subset of rows for the group as a `SpatVector`, and `.y`, a
-one-row tibble with one column per grouping variable that identifies the
-group.
+`.x`, the subset of rows for the group as a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+and `.y`, a one-row
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+one column per grouping variable that identifies the group.
 
-These methods also work on ungrouped `SpatVector` objects. In that case,
-`.f` is applied to the entire object and `.y` is a one-row tibble with
+These methods also work on ungrouped
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects. In that case, `.f` is applied to the entire object and `.y` is
+a one-row
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
 no columns.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 [`group_map()`](https://dplyr.tidyverse.org/reference/group_map.html)
 applies `.f` to each group and returns a list.
 [`group_modify()`](https://dplyr.tidyverse.org/reference/group_map.html)
-requires `.f` to return `SpatVector` objects and binds the results.
+requires `.f` to return
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects and binds the results.
 
 ## See also
 

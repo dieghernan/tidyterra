@@ -25,7 +25,9 @@ Data license: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## Note
 
-Information needed for regenerating the original `SpatRaster` file:
+Information needed for regenerating the original
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+file:
 
 - resolution: `c(5, 5)`
 
