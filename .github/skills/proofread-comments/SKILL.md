@@ -133,6 +133,20 @@ reference index.
 -   Mention type and key structure when relevant.
 -   Wrap at ≤ 80 characters.
 
+### Links for object types and packages
+
+-   In `@returns`, link each documented return type to its canonical help
+    topic. For example, use `[tibble][tibble::tbl_df]` or
+    [`sf`][sf::st_sf].
+-   In dataset `@format` tags, link the documented object type to its canonical
+    help topic in the same way.
+-   In prose, link the first mention of each object type within each section
+    or tag, then leave later mentions in that section or tag unlinked.
+-   Keep the link text concise and use the canonical name of the type.
+-   For package names, use `\\CRANpkg{package}` for CRAN packages and
+    `\\pkg{package}` for packages that are not on CRAN, including base R
+    packages. Do not wrap package names in backticks inside these macros.
+
 ### `@examples`
 
 -   Do not change code behavior.
