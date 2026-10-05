@@ -62,7 +62,7 @@ air-breathing krill predators using acoustic data from the fishery.
 e2417203122. <https://doi.org/10.1073/pnas.2417203122>
 
 Baudron, F., Sibanda, T., & Falconnier, G. (2025). *Supporting the
-codesign of agronomic innovations with data* (p. 130). CIRAD and CIMMYT.
+codesign of agronomic innovations with data*. CIRAD and CIMMYT.
 <https://hal.science/hal-05397083v1>
 
 Bausilio, G. (2024). *Urban geology and geohazards: An integrated
@@ -77,9 +77,9 @@ algorithms. *International Journal of Disaster Risk Reduction*, *138*,
 
 Bionda, A. (2025). *Biodiversity and environmental adaptation in small
 ruminants: Mapping temporal and spatial genomic changes in Italian sheep
-and goats* \[Doctoral thesis, Università degli Studi di Milano,
-Dipartimento di Scienze Agrarie e Ambientali - Produzione, Territorio,
-Agroenergia\]. <https://air.unimi.it/handle/2434/1199177>
+and goats* \[PhD thesis, Università degli Studi di Milano, Dipartimento
+di Scienze Agrarie e Ambientali - Produzione, Territorio, Agroenergia\].
+<https://air.unimi.it/handle/2434/1199177>
 
 Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
 and landscapes: Conservation insights for Italian small ruminant
@@ -90,6 +90,11 @@ Buma, B. (2024). Including non-growing season emissions of N₂O in US
 maize could raise net CO₂e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
+
+Chu, J., Yang, Y., Zhou, J., Jones, D. L., Ge, J., Olesen, J. E., Zeng,
+Z., & Zang, H. (2026). Contextual microplastic impacts on croplands from
+field trials and global synthesis. *Global Change Biology*, *32*(10),
+e71139. <https://doi.org/10.1111/gcb.71139>
 
 Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
 hummingbird-pollinated plant is not strongly influenced by hummingbird
@@ -125,13 +130,13 @@ risks to coastal infrastructure* \[Technical report\]. Union of
 Concerned Scientists. <https://doi.org/10.47923/2024.15502>
 
 Dávalos-Martínez, A., Figueroa, D. S., Brancaccio-Pérez, E. S.,
-Santiago-Pérez, A. L., & Rosas-Espinoza, V. C. (2026). Silene qumsiyehii
-(Caryophyllaceae: Physolychnis): Una nueva especie del centro-occidente
-de México. *Acta Botanica Mexicana*, (133).
+Santiago-Pérez, A. L., & Rosas-Espinoza, V. C. (2026). *Silene
+qumsiyehii* (Caryophyllaceae: Physolychnis): una nueva especie del
+centro-occidente de México. *Acta Botanica Mexicana*, (133).
 <https://doi.org/10.21829/abm133.2026.2655>
 
-de Carvalho Alves, M. (2026). *Laboratory Manual for Environmental
-Geocomputation with R* (1st ed.). CRC Press.
+de Carvalho Alves, M. (2026). *Laboratory manual for environmental
+geocomputation with R* (1st ed.). CRC Press.
 <https://doi.org/10.1201/9781003724438>
 
 Di Fabio, A., Aspalter, S., Chakraborty, D., van Loo, M., Rolke, L. M.,
@@ -179,7 +184,7 @@ ecological restoration. *Communications Earth & Environment*, *6*(1),
 Gao, Y., Añez, N., & Chaves, L. F. (2026). High spatial resolution
 ensemble species distribution modeling of *Rhodnius prolixus*, vector of
 Chagas disease, in western Venezuela. *GeoHealth*, *10*(5),
-e2025GH001628. <https://doi.org/10.1029/2025GH001628>
+e2025GH001628. <https://doi.org/10.1029/2025gh001628>
 
 García-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
 Naranjo-Cigala, A., & Arévalo, J. R. (2025). Assessing the potential
@@ -228,7 +233,7 @@ Conservation*, *321*, 111966.
 <https://doi.org/10.1016/j.biocon.2026.111966>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000-2022). *PLOS ONE*, *20*(10), e0333746.
+US (2000–2022). *PLOS ONE*, *20*(10), e0333746.
 <https://doi.org/10.1371/journal.pone.0333746>
 
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
@@ -280,7 +285,8 @@ invasive species. *Web Ecology*, *25*(2), 221–239.
 
 Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
 E. (2024). *inlabru: Software for fitting latent Gaussian models with
-non-linear predictors*. <https://doi.org/10.48550/arXiv.2407.00791>
+non-linear predictors*. arXiv.
+<https://doi.org/10.48550/arxiv.2407.00791>
 
 Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
 Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., & Heitmann, A.
@@ -304,7 +310,7 @@ samples. *Ecography*, *2026*(2), e08112.
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
 eastern coyotes from Nova Scotia, Canada: Effects of geography and
-trophic position. *Science of The Total Environment*, *974*, 179186.
+trophic position. *Science of the Total Environment*, *974*, 179186.
 <https://doi.org/10.1016/j.scitotenv.2025.179186>
 
 Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
@@ -378,8 +384,8 @@ Africa* \[PhD thesis, The University of Edinburgh\].
 <https://doi.org/10.7488/era/7231>
 
 Reis, B. S. dos. (2025). *Avaliação do sequestro de carbono nos
-manguezais da Baixada Santista em diferentes contextos de conservação*.
-Universidade Estadual Paulista (Unesp).
+manguezais da Baixada Santista em diferentes contextos de conservação*
+\[Thesis\]. Universidade Estadual Paulista (Unesp).
 <https://hdl.handle.net/11449/318093>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
@@ -468,8 +474,8 @@ Tanaka, E. (2025). Examining the interface design of Tidyverse.
 
 Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
 du voisinage environnemental pour prédire la répartition des espèces de
-bryophytes en Suisse* \[Unpublished master's thesis\]. Université de
-Liège, Liège, Belgique. <https://matheo.uliege.be/handle/2268.2/25400>
+bryophytes en Suisse* \[Unpublished master's thesis, Université de
+Liège\]. <https://matheo.uliege.be/handle/2268.2/25400>
 
 Triantafillou, S. P. (2024). *A catchment is more than the sum of its
 reaches: Post-fire resilience at multiple spatial scales* \[Master's
@@ -517,7 +523,7 @@ study. *Ecological Solutions and Evidence*, *5*(1), e12315.
 Wong, C. Y. S., Wright, M. C., van Mantgem, P. J., Latimer, A. M., &
 Young, D. J. N. (2025). Sentinel imagery detects the presence of live
 trees following large wildfires in California. *Environmental Research:
-Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
+Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664x/add5fd>
 
 Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
 H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
