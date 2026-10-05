@@ -200,8 +200,9 @@ Monitoring Network (GCRMN), International Coral Reef Initiative (ICRI).
 <https://doi.org/10.59387/lfpr6347>
 
 Grasso, G. (2024). *Soils associated to herbarium plants: A resource to
-address the temporal evolution of plant-associated microbiomes* \[PhD
-thesis, Muséum national d’histoire naturelle and Università di Torino\].
+address the temporal evolution of plant-associated microbiomes*
+(Publication 2024MNHN0029) \[PhD thesis, Muséum national d’histoire
+naturelle and Università di Torino\].
 <https://doi.org/10.70675/19347969z4326z4f23zb1e2za8d2588a835b>
 
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
@@ -385,7 +386,7 @@ Africa* \[PhD thesis, The University of Edinburgh\].
 
 Reis, B. S. dos. (2025). *Avaliação do sequestro de carbono nos
 manguezais da Baixada Santista em diferentes contextos de conservação*
-\[Thesis\]. Universidade Estadual Paulista (Unesp).
+\[Bachelor's thesis\]. Universidade Estadual Paulista (Unesp).
 <https://hdl.handle.net/11449/318093>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
@@ -402,8 +403,8 @@ Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 
 Royce, C. (2024). *Tectonic history or climate - which has had the
 biggest influence on the formation of the highly diverse and endemic
-flora of the Western Ghats* \[Master's thesis, University of Edinburgh
-and Royal Botanic Garden Edinburgh\].
+flora of the Western Ghats* \[Unpublished master's thesis, University of
+Edinburgh and Royal Botanic Garden Edinburgh\].
 <https://research-scotland.ac.uk/handle/20.500.12594/28823>
 
 Rustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). *Bayesian
