@@ -158,6 +158,11 @@ formation of a cryptic amphipod species: The example of a Lake Baikal
 species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11),
 781. <https://doi.org/10.3390/d17110781>
 
+Edwards, T. A., Esquerré, D., Johnston, N. P., Galvin, S., Maxwell, N.
+L., Encinas-Viso, F., & Dorey, J. B. (2026). Genomics reveal population
+crash and range contraction in elusive fijian *Hylaeus* bees. *Ecology
+and Evolution*, *16*(10), e74366. <https://doi.org/10.1002/ece3.74366>
+
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
 (2025). How to approach the definition of WUI in Northern Europe. *Fire
 and Materials*, *49*(5), 787–804. <https://doi.org/10.1002/fam.3264>
@@ -283,11 +288,6 @@ Lee, F., Kusabs, I. A. K., Perry, G. L. W., & MacNeil, C. (2025).
 Identifying refugia from the synergistic threats of climate change and
 invasive species. *Web Ecology*, *25*(2), 221–239.
 <https://doi.org/10.5194/we-25-221-2025>
-
-Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
-E. (2024). *inlabru: Software for fitting latent Gaussian models with
-non-linear predictors*. arXiv.
-<https://doi.org/10.48550/arxiv.2407.00791>
 
 Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
 Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., & Heitmann, A.
