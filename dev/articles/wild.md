@@ -160,7 +160,7 @@ species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11),
 
 Edwards, T. A., Esquerré, D., Johnston, N. P., Galvin, S., Maxwell, N.
 L., Encinas-Viso, F., & Dorey, J. B. (2026). Genomics reveal population
-crash and range contraction in elusive fijian *Hylaeus* bees. *Ecology
+crash and range contraction in elusive Fijian *Hylaeus* bees. *Ecology
 and Evolution*, *16*(10), e74366. <https://doi.org/10.1002/ece3.74366>
 
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
