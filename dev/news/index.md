@@ -2,6 +2,9 @@
 
 ## tidyterra (development version)
 
+- The minimum supported **rlang** version is now 1.2.0, ensuring that
+  the imported input validation functions are available
+  ([\#224](https://github.com/dieghernan/tidyterra/issues/224)).
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   and
   [`stat_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
