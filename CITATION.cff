@@ -292,7 +292,7 @@ references:
     email: hadley@posit.co
   year: '2026'
   doi: 10.32614/CRAN.package.rlang
-  version: '>= 1.1.0'
+  version: '>= 1.2.0'
 - type: software
   title: scales
   abstract: 'scales: Scale Functions for Visualization'
