@@ -25,11 +25,16 @@ test_that("SpatVector plots use XY coordinates when Z values are present", {
     expect_equal(ncol(terra::crds(v)), 3L)
 
     plots <- list(
-      ggplot2::ggplot(v) + geom_spatvector(),
-      ggplot2::ggplot() + geom_spatvector(data = v),
-      ggplot2::ggplot(v) + ggplot2::geom_sf(),
-      ggplot2::ggplot(v) + geom_spatvector_text(aes(label = label)),
-      ggplot2::ggplot(v) + geom_spatvector_label(aes(label = label))
+      ggplot2::ggplot(v) +
+        geom_spatvector(),
+      ggplot2::ggplot() +
+        geom_spatvector(data = v),
+      ggplot2::ggplot(v) +
+        ggplot2::geom_sf(),
+      ggplot2::ggplot(v) +
+        geom_spatvector_text(aes(label = label)),
+      ggplot2::ggplot(v) +
+        geom_spatvector_label(aes(label = label))
     )
     for (plot in plots) {
       expect_s3_class(ggplot2::ggplotGrob(plot), "gtable")
