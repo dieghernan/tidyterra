@@ -1,3 +1,46 @@
+test_that("SpatVector plots use XY coordinates when Z values are present", {
+  skip_if(packageVersion("terra") < "1.9.50")
+
+  for (z in c("1", "NaN")) {
+    v <- terra::vect(
+      paste0(
+        "POLYGON Z ((0 0 ",
+        z,
+        ", 1 0 ",
+        z,
+        ", 1 1 ",
+        z,
+        ", 0 0 ",
+        z,
+        "))"
+      ),
+      crs = "EPSG:3857"
+    )
+    v$label <- "polygon"
+    original <- as_sf(v)
+    expected <- sf::st_zm(original)
+
+    expect_equal(ggplot2::fortify(v), expected)
+    expect_equal(as_sf(v), original)
+    expect_equal(ncol(terra::crds(v)), 3L)
+
+    plots <- list(
+      ggplot2::ggplot(v) + geom_spatvector(),
+      ggplot2::ggplot() + geom_spatvector(data = v),
+      ggplot2::ggplot(v) + ggplot2::geom_sf(),
+      ggplot2::ggplot(v) + geom_spatvector_text(aes(label = label)),
+      ggplot2::ggplot(v) + geom_spatvector_label(aes(label = label))
+    )
+    for (plot in plots) {
+      expect_s3_class(ggplot2::ggplotGrob(plot), "gtable")
+      expect_s3_class(
+        ggplot2::ggplotGrob(plot + ggplot2::coord_sf(crs = 32631)),
+        "gtable"
+      )
+    }
+  }
+})
+
 test_that("geom_spatvector works as geom_sf", {
   skip_on_cran()
 

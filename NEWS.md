@@ -3,6 +3,7 @@
 - The minimum supported **rlang** version is now 1.2.0, ensuring that the imported input validation functions are available (#224).
 - `geom_spatraster()` and `stat_spatraster()` now repair duplicated layer names, keeping each layer in a separate facet (#220).
 - `geom_spatraster()` and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (#222, #223).
+- `geom_spatvector()` and related vector plotting helpers now ignore Z coordinates when plotting, including missing Z values (#225).
 
 # tidyterra 1.3.0
 

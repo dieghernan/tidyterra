@@ -118,6 +118,8 @@ faceting.
 
 Returns an \code{\link[sf:st_sf]{sf}} object that can be used with
 \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}}.
+For \code{SpatVector} objects, Z and M coordinates are dropped for plotting.
+Use \code{\link[=as_sf]{as_sf()}} to preserve these coordinates when converting to \code{sf}.
 }
 }
 
