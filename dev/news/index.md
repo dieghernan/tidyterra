@@ -16,6 +16,10 @@
   into a data frame, improving performance for large rasters and tile
   servers ([\#222](https://github.com/dieghernan/tidyterra/issues/222),
   [\#223](https://github.com/dieghernan/tidyterra/issues/223)).
+- [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md)
+  and related vector plotting helpers now ignore Z coordinates when
+  plotting, including missing Z values
+  ([\#225](https://github.com/dieghernan/tidyterra/issues/225)).
 
 ## tidyterra 1.3.0
 

@@ -197,7 +197,9 @@ faceting.</p>
 
 
 <p>Returns an <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> object that can be used with
-<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.</p>
+<code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">ggplot2::geom_sf()</a></code>.
+For <code>SpatVector</code> objects, Z and M coordinates are dropped for plotting.
+Use <code><a href="as_sf.html">as_sf()</a></code> to preserve these coordinates when converting to <code>sf</code>.</p>
 </div>
 
     </div>

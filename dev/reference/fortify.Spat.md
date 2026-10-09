@@ -170,6 +170,10 @@ faceting.
 Returns an [`sf`](https://r-spatial.github.io/sf/reference/sf.html)
 object that can be used with
 [`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html).
+For `SpatVector` objects, Z and M coordinates are dropped for plotting.
+Use
+[`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md)
+to preserve these coordinates when converting to `sf`.
 
 ## See also
 
