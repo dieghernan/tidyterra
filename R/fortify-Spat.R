@@ -68,6 +68,8 @@
 #'
 #' Returns an [`sf`][sf::st_sf] object that can be used with
 #' [ggplot2::geom_sf()].
+#' For `SpatVector` objects, Z and M coordinates are dropped for plotting.
+#' Use [as_sf()] to preserve these coordinates when converting to `sf`.
 #'
 #' @encoding UTF-8
 #' @export
@@ -152,7 +154,8 @@ fortify.SpatRaster <- function(
 #' @rdname fortify.Spat
 #' @export
 fortify.SpatVector <- function(model, data, ...) {
-  tidy(x = model, ...)
+  # Plot in two dimensions, including when Z coordinates are missing.
+  sf::st_zm(tidy(x = model, ...))
 }
 
 #' @rdname fortify.Spat
