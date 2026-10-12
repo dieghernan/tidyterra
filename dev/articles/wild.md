@@ -123,6 +123,11 @@ Enhancing tsunami evacuation strategies in Puerto Rico using open-source
 least-cost path analysis. *Journal of Disaster Science and Management*,
 *1*(1), 18. <https://doi.org/10.1007/s44367-025-00018-y>
 
+Cortese, M. R., Canty, S. W. J., Melo-Merino, S. M., & Nowakowski, A. J.
+(2026). Thermal vulnerability of reef fish and implications for
+subsistence fisheries throughout the Caribbean. *Global Change Biology*,
+*32*(10), e71118. <https://doi.org/10.1111/gcb.71118>
+
 Dahl, K., Declet-Barreto, J., Cleetus, R., Spanger, E., Vitale, B.,
 Udvardy, S., Thompson, P., Worth, P., & Caldas, A. (2024). *Looming
 deadlines for coastal resilience: Rising seas, disruptive tides, and
