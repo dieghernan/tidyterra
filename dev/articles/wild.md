@@ -413,8 +413,8 @@ Edinburgh and Royal Botanic Garden Edinburgh\].
 <https://research-scotland.ac.uk/handle/20.500.12594/28823>
 
 Rustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). *Bayesian
-survival, longitudinal, and joint models with INLA*. Chapman & Hall/CRC.
-<https://doi.org/10.1201/9781003646822>
+survival, longitudinal, and joint models with INLA* (1st ed.). Chapman &
+Hall/CRC. <https://doi.org/10.1201/9781003646822>
 
 Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
 al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
