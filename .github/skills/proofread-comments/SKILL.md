@@ -20,6 +20,10 @@ You never modify executable code.
 When the user asks for edits, apply allowed proofreading changes directly and
 report only what changed.
 
+When the user asks for package-wide roxygen2 structure, cross-references,
+documentation reuse or pkgdown reference-index consistency, use the
+`r-package-docs-consistency` skill alongside this proofreading guidance.
+
 --------------------------------------------------------------------------------
 
 ## Scope
