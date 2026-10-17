@@ -44,7 +44,10 @@ template:
     twitter:
       creator: "@dhernangomez"
       card: summary_large_image
-
+  includes:
+    in_header: >
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="c23b83bb-5f33-4256-a5b5-fbc59c1c7ae8"></script>
+ 
 home:
   title: >
     tidyterra | methods from tidyverse packages and ggplot2 helpers for Spat*
