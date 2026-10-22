@@ -1,14 +1,14 @@
 test_that("make_safe_index works", {
   df <- data.frame(a = 1, b = 1, c = 1)
-  expect_equal("tterra_index", make_safe_index("tterra_index", df))
-  expect_equal("aname", make_safe_index("aname", df))
-  expect_equal("a_001", make_safe_index("a", df))
+  expect_equal(make_safe_index("tterra_index", df), "tterra_index")
+  expect_equal(make_safe_index("aname", df), "aname")
+  expect_equal(make_safe_index("a", df), "a_001")
 
   names(df) <- c("a_002", "b", "a")
-  expect_equal("a_001", make_safe_index("a", df))
+  expect_equal(make_safe_index("a", df), "a_001")
 
   names(df) <- c("a_002", "a", "a_001")
-  expect_equal("a_003", make_safe_index("a", df))
+  expect_equal(make_safe_index("a", df), "a_003")
 })
 
 test_that("make_safe_index iterates until make safe name", {
@@ -22,7 +22,7 @@ test_that("make_safe_index iterates until make safe name", {
   # Add a
   df_new <- cbind(df, data.frame(a = 1))
 
-  expect_equal("a_021", make_safe_index("a", df_new))
+  expect_equal(make_safe_index("a", df_new), "a_021")
 })
 
 test_that("check_alpha validates alpha range", {
