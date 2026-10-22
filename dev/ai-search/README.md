@@ -12,7 +12,8 @@ URLs and absolute links are included for citations. The assistant does not run R
 ## Update the index
 
 After a successful `pkgdown-gh-pages` workflow, `ai-search.yaml` reads the
-published `gh-pages` branch and updates the index. It can also be run manually.
+published `gh-pages` branch and updates the index, including deployments triggered
+by version tags. It can also be run manually.
 Configure these repository secrets before enabling automated indexing:
 
 - `CLOUDFLARE_ACCOUNT_ID`: the account containing the tidyterra instance.
@@ -34,7 +35,10 @@ source links and version information consistent. A local `.env` may contain
 `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN`; it is ignored by Git.
 Dry runs write cleaned documents to the ignored `preview` directory.
 
-All documents are validated before uploading. Existing keys are replaced.
+All documents are validated and the complete existing item list is read before
+uploading. Existing built-in keys are deleted before uploading their replacement,
+because POST rejects duplicate keys. A failed replacement stops the sync and may
+leave that page absent until the next successful run.
 `--prune` removes stale documentation keys only after all uploads succeed and a
 complete item listing is available. Indexing is asynchronous; upload completion
 does not establish that every document is searchable yet.

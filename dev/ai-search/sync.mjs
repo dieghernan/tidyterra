@@ -1,6 +1,7 @@
 import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, relative, join, sep } from 'node:path';
 import { cleanPage, includePage } from './content.mjs';
+import { listItems, uploadDocument } from './items.mjs';
 
 // Adapted from chulapa/scripts/sync-ai-search.mjs for pkgdown output.
 const args = process.argv.slice(2);
@@ -56,26 +57,14 @@ if (dryRun) {
   console.log(`Validated ${documents.length} documents from ${root}; no remote changes.`);
 } else {
   if (!account || !token) throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.');
-  for (const { key, html } of documents) {
-    const form = new FormData();
-    form.append('file', new Blob([html], { type: 'text/html' }), key);
-    await cf('/items', { method: 'POST', body: form });
-    console.log(`Uploaded ${key}`);
+  const existing = await listItems(cf);
+  const builtin = new Map(existing.filter(item => item.source_id === 'builtin').map(item => [item.key, item]));
+  for (const document of documents) {
+    await uploadDocument(cf, document, builtin.get(document.key));
+    console.log(`Uploaded ${document.key}`);
   }
   if (prune) {
     const wanted = new Set(documents.map(doc => doc.key));
-    const existing = [];
-    for (let page = 1; ; page++) {
-      const body = await cf(`/items?source=builtin&page=${page}&per_page=50`);
-      const result = body.result ?? body;
-      const batch = Array.isArray(result) ? result : result.items;
-      if (!Array.isArray(batch)) throw new Error('Unrecognized item listing; refusing to prune.');
-      existing.push(...batch);
-      const info = body.result_info ?? result.result_info;
-      if (!info) throw new Error('Missing pagination information; refusing to prune.');
-      if (page >= info.total_pages || existing.length >= info.total_count) break;
-      if (!batch.length) throw new Error('Incomplete item listing; refusing to prune.');
-    }
     for (const item of existing) {
       if (item.source_id === 'builtin' && item.id && includePage(item.key) && !wanted.has(item.key)) {
         await cf(`/items/${encodeURIComponent(item.id)}`, { method: 'DELETE' });
