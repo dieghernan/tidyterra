@@ -2,6 +2,9 @@
 
 ## tidyterra (development version)
 
+- The documentation website now includes an experimental AI assistant
+  powered by Cloudflare AI Search, with answers based on the published
+  documentation.
 - The minimum supported **rlang** version is now 1.2.0, ensuring that
   the imported input validation functions are available
   ([\#224](https://github.com/dieghernan/tidyterra/issues/224)).
