@@ -365,51 +365,55 @@ check_regroups <- function(x) {
   }
 
   if (is_rowwise_df(x)) {
-    gvars <- dplyr::group_vars(x)
+    return(check_rowwise_regroups(x))
+  }
 
-    # Rowwise data does not need grouping variables here.
+  x
+}
 
-    if (identical(gvars, character(0))) {
-      # Check that rows have been kept.
-      dif_rows <- all(sum(group_size(x)) == nrow(x))
+check_rowwise_regroups <- function(x) {
+  gvars <- dplyr::group_vars(x)
 
-      if (isFALSE(dif_rows)) {
-        return(dplyr::rowwise(x))
-      }
+  # Rowwise data does not need grouping variables here.
 
-      return(x)
-    }
-
-    val_vars <- gvars %in% names(x)
-    all_vars <- all(val_vars)
-    any_var <- any(val_vars)
-
-    if (isFALSE(any_var)) {
-      cli::cli_alert_warning(paste(
-        "Grouping variables are missing from data.",
-        "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
-      ))
-      cli::cli_bullets(c(i = "Ungrouping data."))
-      return(dplyr::ungroup(x))
-    }
-
-    if (isFALSE(all_vars)) {
-      regroup_vars <- gvars[val_vars]
-
-      ung <- dplyr::ungroup(x)
-      return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
-    }
-
+  if (identical(gvars, character(0))) {
     # Check that rows have been kept.
     dif_rows <- all(sum(group_size(x)) == nrow(x))
 
     if (isFALSE(dif_rows)) {
-      regroup_vars <- gvars[val_vars]
-      ung <- dplyr::ungroup(x)
-      return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
+      return(dplyr::rowwise(x))
     }
+
     return(x)
   }
 
+  val_vars <- gvars %in% names(x)
+  all_vars <- all(val_vars)
+  any_var <- any(val_vars)
+
+  if (isFALSE(any_var)) {
+    cli::cli_alert_warning(paste(
+      "Grouping variables are missing from data.",
+      "Have you mixed {.pkg terra} and {.pkg tidyterra} syntax?"
+    ))
+    cli::cli_bullets(c(i = "Ungrouping data."))
+    return(dplyr::ungroup(x))
+  }
+
+  if (isFALSE(all_vars)) {
+    regroup_vars <- gvars[val_vars]
+
+    ung <- dplyr::ungroup(x)
+    return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
+  }
+
+  # Check that rows have been kept.
+  dif_rows <- all(sum(group_size(x)) == nrow(x))
+
+  if (isFALSE(dif_rows)) {
+    regroup_vars <- gvars[val_vars]
+    ung <- dplyr::ungroup(x)
+    return(dplyr::rowwise(ung, dplyr::all_of(regroup_vars)))
+  }
   x
 }
