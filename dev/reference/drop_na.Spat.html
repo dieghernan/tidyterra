@@ -34,6 +34,32 @@ specified by ... contains a missing value.
   const root = chat.shadowRoot;
   const bubble = root.querySelector(".bubble-button");
   const panel = root.querySelector(".chat-window");
+  // Inline custom properties override the component's own theme defaults.
+  const themeVariables = {
+    "font-family": "var(--bs-body-font-family)",
+    "font-family-mono": "var(--bs-font-monospace)",
+    "line-height": "var(--bs-body-line-height)",
+    "primary-color": "var(--bs-primary)",
+    "primary-hover": "color-mix(in srgb, var(--bs-primary) 88%, var(--bs-body-color))",
+    "background": "var(--bs-body-bg)",
+    "surface": "var(--bs-tertiary-bg)",
+    "text-color": "var(--bs-body-color)",
+    "text-secondary": "var(--bs-secondary-color)",
+    "text-description": "var(--bs-body-color)",
+    "border-color": "var(--bs-border-color)",
+    "border-radius": "var(--bs-border-radius-lg)",
+    "hover-background": "var(--bs-secondary-bg)",
+    "focus-ring": "var(--bs-focus-ring-color)",
+    "error-color": "var(--bs-danger-text-emphasis)",
+    "error-background": "var(--bs-danger-bg-subtle)",
+    "user-message-bg": "var(--bs-primary)",
+    "user-message-text": "var(--bs-white)",
+    "assistant-message-bg": "var(--bs-tertiary-bg)",
+    "assistant-message-text": "var(--bs-body-color)"
+  };
+  for (const [name, value] of Object.entries(themeVariables)) {
+    chat.style.setProperty(`--search-snippet-${name}`, value);
+  }
   chat.addEventListener("error", () => {
     let notice = root.querySelector(".tidyterra-chat-status");
     if (!notice) {
@@ -46,9 +72,12 @@ specified by ... contains a missing value.
   });
   const style = document.createElement("style");
   style.textContent = `
-    .chat-window { max-height: calc(100dvh - 40px); }
+    .chat-window { width: min(380px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); box-sizing: border-box; }
     .tidyterra-chat-status { padding: 8px 16px; margin: 0; font-size: 0.875rem; color: var(--search-snippet-text-color); }
-    button:focus-visible, textarea:focus-visible { outline: 3px solid #0073a8; outline-offset: 2px; }
+    .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
+    .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
+    .chat-message-bubble a:hover, .powered-by a:hover { color: var(--bs-link-hover-color); }
+    button:focus-visible, textarea:focus-visible { outline: 3px solid var(--bs-link-color); outline-offset: 2px; }
     @media (prefers-reduced-motion: reduce) {
       .bubble-button, .chat-window { transition: none; }
     }
@@ -57,6 +86,11 @@ specified by ... contains a missing value.
   const syncPanel = () => {
     const open = panel.classList.contains("expanded");
     panel.inert = !open;
+    for (const section of panel.children) {
+      if (!section.classList.contains("chat-header")) {
+        section.inert = !open || panel.classList.contains("minimized");
+      }
+    }
     bubble.inert = open;
     bubble.setAttribute("aria-expanded", String(open));
   };
@@ -73,7 +107,11 @@ specified by ... contains a missing value.
       event.stopPropagation();
     }
   });
-  const syncTheme = () => chat.setAttribute("theme", document.documentElement.dataset.bsTheme || "auto");
+  const syncTheme = () => {
+    chat.setAttribute("theme", document.documentElement.dataset.bsTheme || "auto");
+    const heading = document.querySelector("h1") || document.body;
+    chat.style.setProperty("--tidyterra-chat-heading-font", getComputedStyle(heading).fontFamily);
+  };
   new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] });
   syncTheme();
 </script><nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
