@@ -128,7 +128,10 @@ template:
         };
         new MutationObserver(syncPanel).observe(panel, { attributes: true, attributeFilter: ["class"] });
         syncPanel();
-        bubble.addEventListener("click", () => root.querySelector("textarea")?.focus());
+        bubble.addEventListener("click", () => {
+          syncPanel();
+          root.querySelector("textarea")?.focus();
+        });
         root.querySelector(".close-button").addEventListener("click", () => {
           syncPanel();
           bubble.focus();
