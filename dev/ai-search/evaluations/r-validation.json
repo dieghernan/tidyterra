@@ -1,0 +1,79 @@
+[
+  {
+    "id": "01-facets",
+    "evidenceFile": "2026-10-23T15-42-17.561Z/01-facets.json",
+    "fixture": null,
+    "exitCode": 0,
+    "elapsedMs": 7380,
+    "stdout": "EXAMPLE PASSED\nR: 4.6.1 tidyterra: 1.3.0.9000 terra: 1.9.50 ggplot2: 4.0.3 \n",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\n",
+    "error": null,
+    "passed": true
+  },
+  {
+    "id": "04-mutate",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/04-mutate.json",
+    "fixture": null,
+    "exitCode": 0,
+    "elapsedMs": 6937,
+    "stdout": "EXAMPLE PASSED\nR: 4.6.1 tidyterra: 1.3.0.9000 terra: 1.9.50 ggplot2: 4.0.3 \n",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\n",
+    "error": null,
+    "passed": true
+  },
+  {
+    "id": "05-vector-filter",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/05-vector-filter.json",
+    "fixture": null,
+    "exitCode": 1,
+    "elapsedMs": 7638,
+    "stdout": "",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\nError: unable to find an inherited method for function 'vect' for signature 'x = \"numeric\"'\nExecution halted\n",
+    "error": null,
+    "passed": false
+  },
+  {
+    "id": "06-rgb",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/06-rgb.json",
+    "fixture": null,
+    "exitCode": 1,
+    "elapsedMs": 8325,
+    "stdout": "",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\nError in ggplot() : could not find function \"ggplot\"\nCalls: source -> withVisible -> eval -> eval\nExecution halted\n",
+    "error": null,
+    "passed": false
+  },
+  {
+    "id": "08-scales",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/08-scales.json",
+    "fixture": null,
+    "exitCode": 0,
+    "elapsedMs": 7777,
+    "stdout": "EXAMPLE PASSED\nR: 4.6.1 tidyterra: 1.3.0.9000 terra: 1.9.50 ggplot2: 4.0.3 \n",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\n",
+    "error": null,
+    "passed": true
+  },
+  {
+    "id": "09-followup-base",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/09-followup-base.json",
+    "fixture": "temp <- terra::rast(nrows = 2, ncols = 2, nlyr = 3, vals = 1:12);",
+    "exitCode": 0,
+    "elapsedMs": 8265,
+    "stdout": "EXAMPLE PASSED\nR: 4.6.1 tidyterra: 1.3.0.9000 terra: 1.9.50 ggplot2: 4.0.3 \n",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\n",
+    "error": null,
+    "passed": true
+  },
+  {
+    "id": "10-followup",
+    "evidenceFile": "2026-10-23T15-43-08.126Z/10-followup.json",
+    "fixture": "temp <- terra::rast(nrows = 2, ncols = 2, nlyr = 3, vals = 1:12);",
+    "exitCode": 1,
+    "elapsedMs": 7949,
+    "stdout": "",
+    "stderr": "During startup - Warning messages:\r\n1: Setting LC_COLLATE=C.UTF-8 failed \r\n2: Setting LC_CTYPE=C.UTF-8 failed \r\n3: Setting LC_MONETARY=C.UTF-8 failed \r\n4: Setting LC_TIME=C.UTF-8 failed \r\ni Loading tidyterra\r\nterra 1.9.50\n\nAttaching package: 'terra'\n\nThe following objects are masked from 'package:testthat':\n\n    compare, describe\n\nError in facet_wrap(~lyr, cols = 2) : unused argument (cols = 2)\nCalls: source -> withVisible -> eval -> eval\nExecution halted\n",
+    "error": null,
+    "passed": false
+  }
+]

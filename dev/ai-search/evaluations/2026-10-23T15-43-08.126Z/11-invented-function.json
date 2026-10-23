@@ -1,0 +1,174 @@
+{
+  "id": "11-invented-function",
+  "question": "Please show how to use tidyterra::geom_spatraster_3d() to make an interactive 3D globe. Is that function documented? Do not substitute a guessed API.",
+  "criteria": "Explicitly reject undocumented invented function; no fabricated usage.",
+  "status": 200,
+  "elapsedMs": 11430,
+  "answer": "The function `tidyterra::geom_spatraster_3d()` is not documented in the provided documents. \n\nTherefore, I cannot provide an example of how to use this function as it is not mentioned in the documentation. \n\nIf you are looking for information on creating an interactive 3D globe, you may want to check the [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or open a new [issue](https://github.com/dieghernan/tidyterra/issues) on the tidyterra GitHub page. \n\nYou can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag [\\[tidyterra\\]](https://stackoverflow.com/questions/tagged/tidyterra). \n\nPlease refer to https://dieghernan.github.io/tidyterra/ for more information.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 3305,
+    "completion_tokens": 175,
+    "total_tokens": 3480,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 123.97758483886719
+  },
+  "raw": {
+    "id": "id-1792770270874",
+    "object": "chat.completion",
+    "created": 1792770270,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The function `tidyterra::geom_spatraster_3d()` is not documented in the provided documents. \n\nTherefore, I cannot provide an example of how to use this function as it is not mentioned in the documentation. \n\nIf you are looking for information on creating an interactive 3D globe, you may want to check the [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or open a new [issue](https://github.com/dieghernan/tidyterra/issues) on the tidyterra GitHub page. \n\nYou can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag [\\[tidyterra\\]](https://stackoverflow.com/questions/tagged/tidyterra). \n\nPlease refer to https://dieghernan.github.io/tidyterra/ for more information.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3305,
+      "completion_tokens": 175,
+      "total_tokens": 3480,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 123.97758483886719
+    },
+    "chunks": [
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3bf23ae30f37a651280eed9b0c27f1c912",
+        "type": "text",
+        "score": 1,
+        "text": "| ggplot2::geom\\_\\*()                                                                                                                                           | ✔️ [geom\\_spatvector()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)                                                                                                                   | ✔️ [geom\\_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html) and [geom\\_spatraster\\_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html). |\n| [generics::tidy()](https://generics.r-lib.org/reference/tidy.html)                                                                                            | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [generics::glance()](https://generics.r-lib.org/reference/glance.html)                                                                                        | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.67510366,
+          "keyword_score": 17.187125175554712,
+          "vector_rank": 11,
+          "keyword_rank": 23,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b3684c2144c17980e850d83069839971b",
+        "type": "text",
+        "score": 0.8626379952367795,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.64234644,
+          "keyword_score": 16.983332261663723,
+          "vector_rank": 34,
+          "keyword_rank": 24,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "f1b4632cfd64ec1364f72af5dd7516cc0dbd7600235e8b0391cb0a8353b4e374",
+        "type": "text",
+        "score": 0.8165526073208013,
+        "text": "# S3 method for class 'SpatExtent'\nautoplot(object, ...)\n```\n\n## Arguments\n\nobject\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`, a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`, a `SpatGraticule` (see `[terra::graticule()](https://rspatial.github.io/terra/reference/graticule.html)`) or a `SpatExtent` (see `[terra::ext()](https://rspatial.github.io/terra/reference/ext.html)`).\n\n...\n\nOther arguments passed to `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)`, `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)` or `[geom_spatvector()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`.\n\nrgb\n\nLogical. If `TRUE`, plot as an RGB image. If `NULL` (the default), `autoplot.SpatRaster()` tries to guess.\n\nuse\\_coltab\n\nLogical. If `TRUE`, plot with the corresponding color table from `[terra::coltab()](https://rspatial.github.io/terra/reference/colors.html)`. If `NULL` (the default), `autoplot.SpatRaster()` tries to guess. See also `[scale_fill_coltab()](https://dieghernan.github.io/tidyterra/reference/scale%5Fcoltab.html)`.\n\nfacets\n\nLogical. If `TRUE`, display facets. If `NULL` (the default), `autoplot.SpatRaster()` tries to guess.\n\nnrow, ncol\n\nNumber of rows and columns in the facet.\n\n## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) plot.\n\n## Methods\n\nImplementation of the **generic** `[ggplot2::autoplot()](https://ggplot2.tidyverse.org/reference/autoplot.html)` methods for `Spat*`objects.\n\n### `SpatRaster`\n\nUses `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)` or `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)`.\n\n### `SpatVector`, `SpatGraticule` and `SpatExtent`\n\nUses `[geom_spatvector()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`. Labels can be placed with `[geom_spatvector_text()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`or `[geom_spatvector_label()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`.\n\n## See also\n\n`[ggplot2::autoplot()](https://ggplot2.tidyverse.org/reference/autoplot.html)`.\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) helpers: `[fortify.Spat](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html)`, `[geom_spat_contour](https://dieghernan.github.io/tidyterra/reference/geom%5Fspat%5Fcontour.html)`, `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)`, `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)`, `[ggspatvector](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`, `[stat_spat_coordinates()](https://dieghernan.github.io/tidyterra/reference/stat%5Fspat%5Fcoordinates.html)`\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) methods: `[fortify.Spat](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html)`\n\n## Examples\n\n```\n# \\donttest{\n\nfile_path <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\nlibrary(terra)\ntemp <- rast(file_path)\n\nlibrary(ggplot2)\nautoplot(temp)\n\n\n# With a tile\n\ntile <- system.file(\"extdata/cyl_tile.tif\", package = \"tidyterra\") |>\n  rast()\n\nautoplot(tile)\n\n\n# With color tables\n\nctab <- system.file(\"extdata/cyl_era.tif\", package = \"tidyterra\") |>\n  rast()\n\nautoplot(ctab)\n\n\n# With vectors\nv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\nautoplot(v)\n\n\nv |> autoplot(aes(fill = cpro)) +\n  geom_spatvector_text(aes(label = iso2)) +\n  coord_sf(crs = 25829)\n\n# }\n\n",
+        "item": {
+          "key": "reference/autoplot.Spat.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6586654,
+          "keyword_score": 14.410031658368531,
+          "vector_rank": 24,
+          "keyword_rank": 46,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "7e9898f74f922e4e13cc664a44c250d4bf2fcbcfb5f475b92f5b7a921029b1f3",
+        "type": "text",
+        "score": 0.8150009219988936,
+        "text": "## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plotRGB()](https://rspatial.github.io/terra/reference/plotRGB.html)`.\n\n## Aesthetics\n\nNo `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` is required. In fact, `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` will be ignored.\n\n## Coordinates\n\nWhen the `SpatRaster` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\nOn `SpatRaster` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\n\n## See also\n\n`[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`, `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`, `[grDevices::rgb()](https://rdrr.io/r/grDevices/rgb.html)`.\n\nYou can also get RGB tiles from the [maptiles](https://cran.r-project.org/package=maptiles) package. See `[maptiles::get_tiles()](https://rdrr.io/pkg/maptiles/man/get%5Ftiles.html)`.\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) helpers: `[autoplot.Spat](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html)`, `[geom_spat_contour](https://dieghernan.github.io/tidyterra/reference/geom%5Fspat%5Fcontour.html)`, `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)`, `[ggspatvector](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`, `[stat_spat_coordinates()](https://dieghernan.github.io/tidyterra/reference/stat%5Fspat%5Fcoordinates.html)`\n\n## Examples\n\n```\n# \\donttest{\n\n# Tile of Castile and Leon (Spain) from OpenStreetMap\nfile_path <- system.file(\"extdata/cyl_tile.tif\", package = \"tidyterra\")\n\nlibrary(terra)\ntile <- rast(file_path)\n\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster_rgb(data = tile) +\n  # You can use coord_sf\n  coord_sf(crs = 3035)\n\n\n# Combine with sf objects\nvect_path <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\n\n",
+        "item": {
+          "key": "reference/geom_spatraster_rgb.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.65345603,
+          "keyword_score": 14.682790595528754,
+          "vector_rank": 27,
+          "keyword_rank": 42,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b9b0348b22120fd61823e6931bfc811cd",
+        "type": "text",
+        "score": 0.8078427128427129,
+        "text": "# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n![Temperature variation in Castile and Leon, Spain](https://dieghernan.github.io/tidyterra/README-example-temp2-1.png)\n\n**tidyterra** also provides a geom for plotting RGB `SpatRaster` objects, such as map tiles, with **ggplot2**:\n\n```\nrgb_tile <- rast(system.file(\"extdata/cyl_tile.tif\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster_rgb(data = rgb_tile) +\n  geom_spatvector(fill = NA) +\n  theme_light() +\n  # Change the CRS and datum (useful for relabeling graticules).\n  coord_sf(crs = 3857, datum = 3857)\n```\n\n![RGB SpatRaster tile plotted with tidyterra](https://dieghernan.github.io/tidyterra/README-example-tile-1.png)\n\n**tidyterra** provides **ggplot2** scales for plotting maps with hypsometric tints:\n\n```\nasia <- rast(system.file(\"extdata/asia.tif\", package = \"tidyterra\"))\n\nggplot() +\n  geom_spatraster(data = asia) +\n  scale_fill_hypso_tint_c(\n    palette = \"gmt_globe\",\n    labels = scales::label_number(),\n    # Further refinements\n    breaks = c(-10000, -5000, 0, 2000, 5000, 8000),\n    guide = guide_colorbar(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"elevation (m)\",\n    title = \"Hypsometric map of Asia\"\n  ) +\n  theme(\n    legend.position = \"bottom\",\n    legend.title.position = \"top\",\n    legend.key.width = rel(3),\n    legend.ticks = element_line(colour = \"black\", linewidth = 0.3),\n    legend.direction = \"horizontal\"\n  )\n```\n\n![Hypsometric map of Asia](https://dieghernan.github.io/tidyterra/README-hypso-1.png)\n\n### `SpatVector` objects \n\nThis basic example shows how to manipulate and plot `SpatVector` objects:\n\n```\nvect(system.file(\"ex/lux.shp\", package = \"terra\")) |>\n  mutate(pop_dens = POP / AREA) |>\n  glimpse() |>\n  autoplot(aes(fill = pop_dens)) +\n  scale_fill_whitebox_c(palette = \"pi_y_g\") +\n  labs(\n    fill = \"population per km2\",\n    title = \"Population density of Luxembourg\",\n    subtitle = \"By canton\"\n  )\n#> #  A SpatVector 12 x 7\n#> #  Geometry type: Polygons\n#> #  Geodetic CRS: lon/lat WGS 84 (EPSG:4326)\n#> #  Extent (x / y): ([5° 44' 38.9\" E / 6° 31' 41.71\" E] , [49° 26' 52.11\" N / 50° 10' 53.84\" N])\n#> \n#> $ ID_1     <dbl> 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3\n#> $ NAME_1   <chr> \"Diekirch\", \"Diekirch\", \"Diekirch\", \"Diekirch\", \"Diekirch\", \"…\n#> $ ID_2     <dbl> 1, 2, 3, 4, 5, 6, 7, 12, 8, 9, 10, 11\n#> $ NAME_2   <chr> \"Clervaux\", \"Diekirch\", \"Redange\", \"Vianden\", \"Wiltz\", \"Echte…\n#> $ AREA     <dbl> 312, 218, 259, 76, 263, 188, 129, 210, 185, 251, 237, 233\n#> $ POP      <dbl> 18081, 32543, 18664, 5163, 16735, 18899, 22366, 29828, 48187,…\n#> $ pop_dens <dbl> 57.95192, 149.27982, 72.06178, 67.93421, 63.63118, 100.52660,…\n```\n\n![A SpatVector plotted with tidyterra](https://dieghernan.github.io/tidyterra/README-spatvec-1.png)\n\n## Feedback \n\nPlease leave your feedback or open an issue on <https://github.com/dieghernan/tidyterra/issues>.\n\n## Need help? \n\nCheck the [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or open a new [issue](https://github.com/dieghernan/tidyterra/issues).\n\nYou can also ask on [Stack Overflow](https://stackoverflow.com/) using the tag [\\[tidyterra\\]](https://stackoverflow.com/questions/tagged/tidyterra).\n\n## Acknowledgments \n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.63642335,
+          "keyword_score": 16.522428119470515,
+          "vector_rank": 40,
+          "keyword_rank": 30,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b7443f407b089e486e9ece44b164e14be",
+        "type": "text",
+        "score": 0.7693453747707132,
+        "text": "A note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster(data = rastertemp) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 12,\n    guide = guide_legend(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"\",\n    title = \"Average temperature in Castile and Leon (Spain)\",\n    subtitle = \"Months of April, May and June\"\n  )\n```\n\n![Average temperature in Castile and Leon, Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)\n\n```\n# Create the difference between two months.\nvariation <- rastertemp |>\n  mutate(diff = June - May) |>\n  select(variation = diff)\n\n# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.637887,
+          "keyword_score": 14.831033242924677,
+          "vector_rank": 38,
+          "keyword_rank": 41,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

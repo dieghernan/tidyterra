@@ -1,0 +1,174 @@
+{
+  "id": "04-mutate",
+  "question": "Give a self-contained R example with a tiny two-layer SpatRaster: create a third layer containing the difference between the two layers using tidyterra, then keep only the new layer. Cite the documentation.",
+  "criteria": "Valid mutate/select methods; retains SpatRaster; computed difference is correct.",
+  "status": 200,
+  "elapsedMs": 15518,
+  "answer": "Here's an example using tidyterra to create a new layer with the difference between two layers in a SpatRaster and then keeping only the new layer.\n\n```r\n# Load necessary libraries\nlibrary(terra)\nlibrary(tidyterra)\n\n# Create a tiny two-layer SpatRaster\nr <- rast(nrow = 1, ncol = 1, nlyr = 2, vals = c(10, 20))\n\n# Create a new layer with the difference between the two layers\nr_new <- r |>\n  mutate(diff = lyr.2 - lyr.1) |>\n  select(diff)\n\n# Print the result\nr_new\n```\n\nThis example uses the `mutate` function from tidyterra to create a new layer `diff` which is the difference between `lyr.2` and `lyr.1`. Then it uses the `select` function to keep only the new layer. \n\nSee the [select.Spat documentation](https://dieghernan.github.io/tidyterra/reference/select.Spat.html) and the [mutate.Spat documentation](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html) for more information on these functions. \n\nNote that `lyr.1` and `lyr.2` are default names given to the layers of the SpatRaster when it is created without specifying layer names.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 5069,
+    "completion_tokens": 288,
+    "total_tokens": 5357,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 194.162353515625
+  },
+  "raw": {
+    "id": "id-1792770194956",
+    "object": "chat.completion",
+    "created": 1792770194,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's an example using tidyterra to create a new layer with the difference between two layers in a SpatRaster and then keeping only the new layer.\n\n```r\n# Load necessary libraries\nlibrary(terra)\nlibrary(tidyterra)\n\n# Create a tiny two-layer SpatRaster\nr <- rast(nrow = 1, ncol = 1, nlyr = 2, vals = c(10, 20))\n\n# Create a new layer with the difference between the two layers\nr_new <- r |>\n  mutate(diff = lyr.2 - lyr.1) |>\n  select(diff)\n\n# Print the result\nr_new\n```\n\nThis example uses the `mutate` function from tidyterra to create a new layer `diff` which is the difference between `lyr.2` and `lyr.1`. Then it uses the `select` function to keep only the new layer. \n\nSee the [select.Spat documentation](https://dieghernan.github.io/tidyterra/reference/select.Spat.html) and the [mutate.Spat documentation](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html) for more information on these functions. \n\nNote that `lyr.1` and `lyr.2` are default names given to the layers of the SpatRaster when it is created without specifying layer names.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5069,
+      "completion_tokens": 288,
+      "total_tokens": 5357,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 194.162353515625
+    },
+    "chunks": [
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02901f0d69bf43166813a296b74682a16de",
+        "type": "text",
+        "score": 1,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n\nThe following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.8068554,
+          "keyword_score": 34.59088284043365,
+          "vector_rank": 1,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc029e96e61a711ac2e84fd432fb46641251f",
+        "type": "text",
+        "score": 0.9456117216117217,
+        "text": "The following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\nThroughout these steps, core properties of the `SpatRaster`, including the number of cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs such as `[filter()](https://dplyr.tidyverse.org/reference/filter.html)`, `[slice()](https://dplyr.tidyverse.org/reference/slice.html)` or `[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` may alter these properties in a manner analogous to row operations on data frames.\n\n### `SpatVector` objects \n\nMost **dplyr** and **tidyr** verbs work with `SpatVector` objects, so you can arrange, group and summarize their attributes.\n\n```\nlux <- system.file(\"ex/lux.shp\", package = \"terra\")\n\nv_lux <- vect(lux)\n\nv_lux |>\n  # Create categories.\n  mutate(gr = cut(POP / 1000, 5)) |>\n  group_by(gr) |>\n  # Summarize by group.\n  summarise(\n    n = n(),\n    tot_pop = sum(POP),\n    mean_area = mean(AREA)\n  ) |>\n  # Arrange groups.\n  arrange(desc(gr))\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 3, 4  (geometries, attributes)\n#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)\n#> coord. ref. : lon/lat WGS 84 (EPSG:4326)\n#> names       :          gr     n tot_pop mean_area\n#> type        :      <fact> <int>   <num>     <num>\n#> values      :   (147,183]     2  359427       244\n#>               (40.7,76.1]     1   48187       185\n#>               (4.99,40.7]     9  194391   209.778\n```\n\nAs with `SpatRaster`, essential properties such as geometry and CRS are preserved during these operations.\n\n## Plotting with ggplot2 \n\n### `SpatRaster` objects \n\nWhen a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != \"\"`), the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` and can reproject the raster to match other spatial layers.\n\n```\nlibrary(ggplot2)\n\n# Facet a SpatRaster object.\n\nggplot() +\n  geom_spatraster(data = temp) +\n  facet_wrap(~lyr) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    na.value = \"white\"\n  )\n```\n\n![Faceted map using a SpatRaster object.](https://dieghernan.github.io/tidyterra/articles/fig-faceted-1.png)\n\nFaceted map using a SpatRaster object. \n\n```\n# Contour lines for a specific layer.\n\nf_volcano <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\")\nvolcano2 <- rast(f_volcano)\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7749425,
+          "keyword_score": 32.212615196595294,
+          "vector_rank": 3,
+          "keyword_rank": 15,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b0699c26ca86278a7615fcd66a2a0e46f",
+        "type": "text",
+        "score": 0.9056924882629108,
+        "text": "Source: https://dieghernan.github.io/tidyterra/index.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# tidyterra \n\nThe goal of **tidyterra** is to provide methods from [**tidyverse**](https://tidyverse.org/packages/) packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for plotting those objects.\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n## Overview \n\nThe full manual for the latest release of **tidyterra** on **CRAN** is online: <https://dieghernan.github.io/tidyterra/>\n\nMethods implemented in **tidyterra** work differently depending on the type of `Spat*` object:\n\n* `SpatVector`: Methods are implemented using `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)` coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.\n* `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, `select(a_spatraster, 1)` selects the first layer of a `SpatRaster` object.\n\nImplemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, `[as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` returns a tibble.\n\nCurrent methods and functions provided by **tidyterra** are:\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7139322,
+          "keyword_score": 33.692350662013666,
+          "vector_rank": 12,
+          "keyword_rank": 11,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b7443f407b089e486e9ece44b164e14be",
+        "type": "text",
+        "score": 0.8823652728085868,
+        "text": "A note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster(data = rastertemp) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 12,\n    guide = guide_legend(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"\",\n    title = \"Average temperature in Castile and Leon (Spain)\",\n    subtitle = \"Months of April, May and June\"\n  )\n```\n\n![Average temperature in Castile and Leon, Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)\n\n```\n# Create the difference between two months.\nvariation <- rastertemp |>\n  mutate(diff = June - May) |>\n  select(variation = diff)\n\n# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.76056594,
+          "keyword_score": 27.42500499784744,
+          "vector_rank": 4,
+          "keyword_rank": 26,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5428297371c638105e7a0af49ec3b9521e0d0a56906f4f16e48029f7803c8775",
+        "type": "text",
+        "score": 0.828054298642534,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/compare\\_spatrasters.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Compare attributes of two `SpatRaster` objects\n\nSource: [R/compare-spatrasters.R](https://github.com/dieghernan/tidyterra/blob/release/R/compare-spatrasters.R) \n\n`compare_spatrasters.Rd`\n\nTwo `SpatRaster` objects are compatible (in terms of combining layers) if the CRS, extent and resolution are similar. In those cases you can combine the objects simply as `c(x, y)`.\n\nThis function compares those attributes and reports the results. See **Resolving differences** for minimal guidance.\n\n## Usage\n\n```\ncompare_spatrasters(x, y, digits = 6)\n```\n\n## Arguments\n\nx, y\n\n`SpatRaster` objects.\n\ndigits\n\nInteger to set the precision for comparing the extent and the resolution.\n\n## Value\n\nAn invisible logical value indicating whether the `SpatRaster`objects are compatible, plus an informative message flagging any issues found.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::compareGeom()](https://rspatial.github.io/terra/reference/compareGeom.html)`.\n\n## Resolving differences\n\n* For a **different CRS**, try `[terra::project()](https://rspatial.github.io/terra/reference/project.html)`.\n* For a **different extent**, try `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)`.\n* For a **different resolution**, try `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)`, `[terra::aggregate()](https://rspatial.github.io/terra/reference/aggregate.html)` or `[terra::disagg()](https://rspatial.github.io/terra/reference/disaggregate.html)`.\n\n## See also\n\n`[terra::identical()](https://rspatial.github.io/terra/reference/identical.html)`.\n\n## Examples\n\n```\nlibrary(terra)\n\nx <- rast(matrix(1:90, ncol = 3), crs = \"EPSG:3857\")\n\n# Nothing\ncompare_spatrasters(x, x)\n\n# Different CRS\ny_nocrs <- x\ncrs(y_nocrs) <- NA\n\ncompare_spatrasters(x, y_nocrs)\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • CRS\n\n# Different extent\ncompare_spatrasters(x, x[1:10, , drop = FALSE])\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • extent\n\n# Different resolution\ny_newres <- x\n\nres(y_newres) <- res(x) / 2\ncompare_spatrasters(x, y_newres)\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • resolution\n\n# Everything\n\ncompare_spatrasters(x, project(x, \"epsg:3035\"))\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • CRS\n#> • extent\n#> • resolution\n\n\n```",
+        "item": {
+          "key": "reference/compare_spatrasters.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.73097473,
+          "keyword_score": 26.297408739994395,
+          "vector_rank": 8,
+          "keyword_rank": 32,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "4c85717e809d64132969ca493502f15b808e1d66a345cfaba44cc06492d6d7d0",
+        "type": "text",
+        "score": 0.823932581503004,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/select.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Subset layers/attributes of `Spat*` objects\n\nSource: [R/select-Spat.R](https://github.com/dieghernan/tidyterra/blob/release/R/select-Spat.R) \n\n`select.Spat.Rd`\n\nSelect (and optionally rename) attributes/layers in `Spat*` objects, using a concise mini-language. See **Methods**.\n\n## Usage\n\n```\n# S3 method for class 'SpatRaster'\nselect(.data, ...)\n\n# S3 method for class 'SpatVector'\nselect(.data, ...)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> One or more unquoted expressions separated by commas. Layer/attribute names can be used as if they were positions in the `Spat*` object, so expressions like `x:y` can be used to select a range of layers/attributes.\n\n## Value\n\nA `Spat*` object of the same class as `.data`. See **Methods**.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::subset()](https://rspatial.github.io/terra/reference/subset.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::select()](https://dplyr.tidyverse.org/reference/select.html)` methods for `Spat*`objects.\n\n### `SpatRaster`\n\nSelects and renames layers of a `SpatRaster`. The result is a `SpatRaster`with the same extent, resolution and CRS as `.data`. Only the number and possibly the names of layers are modified.\n\n### `SpatVector`\n\nThe result is a `SpatVector` with the attributes selected and possibly renamed as specified in the function call.\n\n## See also\n\n`[dplyr::select()](https://dplyr.tidyverse.org/reference/select.html)`, `[terra::subset()](https://rspatial.github.io/terra/reference/subset.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on columns: `[glimpse.Spat](https://dieghernan.github.io/tidyterra/reference/glimpse.Spat.html)`, `[mutate.Spat](https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html)`, `[pull.Spat](https://dieghernan.github.io/tidyterra/reference/pull.Spat.html)`, `[relocate.Spat](https://dieghernan.github.io/tidyterra/reference/relocate.Spat.html)`, `[rename.Spat](https://dieghernan.github.io/tidyterra/reference/rename.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\n# SpatRaster method\n\nspatrast <- rast(\n  crs = \"EPSG:3857\",\n  nrows = 10,\n  ncols = 10,\n  extent = c(100, 200, 100, 200),\n  nlyr = 6,\n  vals = seq_len(10 * 10 * 6)\n)\n\nspatrast |> select(1)\n#> class       : SpatRaster\n#> size        : 10, 10, 1  (nrow, ncol, nlyr)\n#> resolution  : 10, 10  (x, y)\n#> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> name        : lyr.1\n#> min value   :     1\n#> max value   :   100\n\n# By name\nspatrast |> select(lyr.1:lyr.4)\n#> class       : SpatRaster\n#> size        : 10, 10, 4  (nrow, ncol, nlyr)\n#> resolution  : 10, 10  (x, y)\n#> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       : lyr.1, lyr.2, lyr.3, lyr.4\n#> min values  :     1,   101,   201,   301\n#> max values  :   100,   200,   300,   400\n\n# Rename\nspatrast |> select(a = lyr.1, c = lyr.6)\n#> class       : SpatRaster\n#> size        : 10, 10, 2  (nrow, ncol, nlyr)\n#> resolution  : 10, 10  (x, y)\n#> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       :   a,   c\n#> min values  :   1, 501\n#> max values  : 100, 600\n\n# SpatVector method\n\nf <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\n\nv <- vect(f)\n\n",
+        "item": {
+          "key": "reference/select.Spat.html",
+          "timestamp": 1792708680000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.71844035,
+          "keyword_score": 27.123997544240783,
+          "vector_rank": 11,
+          "keyword_rank": 28,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

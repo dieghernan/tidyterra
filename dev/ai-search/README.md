@@ -63,13 +63,25 @@ and dark modes. When minimized, the chat body is inert while the visible header
 controls remain available to keyboard users.
 
 The initial upload indexed all 80 pages from the published site (276 vectors,
-zero indexing errors). Retrieval returned
-relevant content, but generation testing returned HTTP 429 because the account's
-daily free allocation of 10,000 Workers AI neurons was exhausted. Answer quality
-still needs verification after the quota resets. `smoke.mjs`
-runs three public chat checks, stops on the first API error and saves responses
-under `preview/` for manual review. Successful HTTP responses alone do not
-establish factual correctness.
+zero indexing errors). The first quality evaluation after the quota reset found
+6 passing, 2 partial and 4 failing answers. See the
+[evaluation report](evaluations/2026-10-23-review.md) and recorded API responses.
+The baseline is not ready for release: three standalone/contextual R examples
+fail to execute and another uses the wrong scale family.
+
+`smoke.mjs` runs three public chat checks and saves responses under `preview/`.
+For the full evaluation, run `node evaluate.mjs` from this directory; optionally
+pass case IDs from `evaluation-cases.json` to select a subset. Follow-up case
+`10-followup` requires `09-followup-base` in the same run. Each run consumes live
+API quota and writes its evidence to a new timestamped directory under
+`evaluations/`.
+
+After manually reviewing recorded R blocks, `node validate-examples.mjs` executes
+the selected example cases in isolated R processes, with explicit fixtures for
+the conversation cases. Its process logs include actual R errors and a success
+marker; failures produce a nonzero exit status. `node summarize-evaluation.mjs`
+checks cited URLs and totals API-reported usage. Successful HTTP responses and
+executable examples alone do not establish factual correctness.
 
 Before publishing changes, test factual questions, a question outside the docs,
 source links, keyboard operation and narrow viewports. Updating source files

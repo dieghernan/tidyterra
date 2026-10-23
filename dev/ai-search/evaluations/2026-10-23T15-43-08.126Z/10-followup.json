@@ -1,0 +1,163 @@
+{
+  "id": "10-followup",
+  "followupTo": "09-followup-base",
+  "question": "¿Y cómo pongo esos paneles en dos columnas? Modifica el ejemplo anterior y conserva el mismo objeto.",
+  "criteria": "Resolve conversation reference; temp unchanged; facet_wrap(~lyr, ncol = 2); Spanish answer.",
+  "status": 200,
+  "elapsedMs": 8988,
+  "answer": "Puedes utilizar `facet_wrap()` con el argumento `cols` para especificar el número de columnas que deseas. En este caso, para poner los paneles en dos columnas, puedes utilizar `facet_wrap(~ lyr, cols = 2)`.\n\nAquí te muestro el ejemplo modificado:\n```r\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(terra)\n\n# asumiendo 'temp' es tu objeto SpatRaster\nggplot() + \n  geom_spatraster(data = temp) + \n  facet_wrap(~ lyr, cols = 2)\n```\nEsto creará un gráfico con dos columnas, donde cada panel representa una capa del objeto `SpatRaster` `temp`. \n\nPuedes ajustar el número de columnas según tus necesidades, simplemente cambiando el valor del argumento `cols`. Por ejemplo, si deseas tres columnas, puedes utilizar `facet_wrap(~ lyr, cols = 3)`. \n\nPara más información sobre `facet_wrap()`, puedes consultar la [documentación de ggplot2](https://ggplot2.tidyverse.org/reference/facet_wrap.html). \n\nTambién puedes consultar la [documentación de tidyterra](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html) para obtener más información sobre cómo trabajar con objetos `SpatRaster` en ggplot2.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 5252,
+    "completion_tokens": 299,
+    "total_tokens": 5551,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 201.29537963867188
+  },
+  "raw": {
+    "id": "id-1792770259462",
+    "object": "chat.completion",
+    "created": 1792770259,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Puedes utilizar `facet_wrap()` con el argumento `cols` para especificar el número de columnas que deseas. En este caso, para poner los paneles en dos columnas, puedes utilizar `facet_wrap(~ lyr, cols = 2)`.\n\nAquí te muestro el ejemplo modificado:\n```r\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(terra)\n\n# asumiendo 'temp' es tu objeto SpatRaster\nggplot() + \n  geom_spatraster(data = temp) + \n  facet_wrap(~ lyr, cols = 2)\n```\nEsto creará un gráfico con dos columnas, donde cada panel representa una capa del objeto `SpatRaster` `temp`. \n\nPuedes ajustar el número de columnas según tus necesidades, simplemente cambiando el valor del argumento `cols`. Por ejemplo, si deseas tres columnas, puedes utilizar `facet_wrap(~ lyr, cols = 3)`. \n\nPara más información sobre `facet_wrap()`, puedes consultar la [documentación de ggplot2](https://ggplot2.tidyverse.org/reference/facet_wrap.html). \n\nTambién puedes consultar la [documentación de tidyterra](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html) para obtener más información sobre cómo trabajar con objetos `SpatRaster` en ggplot2.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5252,
+      "completion_tokens": 299,
+      "total_tokens": 5551,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 201.29537963867188
+    },
+    "chunks": [
+      {
+        "id": "da52e30aaf9af0e3806c1e9e5cc7db00de5d57c4d6afb04e303399b9baa6b669",
+        "type": "text",
+        "score": 1,
+        "text": "# S3 method for class 'SpatVector'\npivot_longer(\n  data,\n  cols,\n  ...,\n  cols_vary = \"fastest\",\n  names_to = \"name\",\n  names_prefix = NULL,\n  names_sep = NULL,\n  names_pattern = NULL,\n  names_ptypes = NULL,\n  names_transform = NULL,\n  names_repair = \"check_unique\",\n  values_to = \"value\",\n  values_drop_na = FALSE,\n  values_ptypes = NULL,\n  values_transform = NULL\n)\n```\n\n## Arguments\n\ndata\n\nA `SpatVector` to pivot.\n\ncols\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Columns to pivot into longer format.\n\n...\n\nAdditional arguments passed on to methods.\n\ncols\\_vary\n\nWhen pivoting `cols` into longer format, how should the output rows be arranged relative to their original row number?\n\n",
+        "item": {
+          "key": "reference/pivot_longer.SpatVector.html",
+          "timestamp": 1792708680000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.42691416,
+          "vector_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc029171f59fdb84189b6331167c94a56bc6e",
+        "type": "text",
+        "score": 1,
+        "text": "Source: https://dieghernan.github.io/tidyterra/articles/tidyterra.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Welcome to tidyterra\n\nSource: [vignettes/tidyterra.qmd](https://github.com/dieghernan/tidyterra/blob/release/vignettes/tidyterra.qmd) \n\n``\n\n## tidyterra \n\n**tidyterra** provides methods from **tidyverse** packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides `geom_spat*()` geoms and scales for plotting those objects with [**ggplot2**](https://ggplot2.tidyverse.org/).\n\n### Why tidyterra? \n\n`Spat*` objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in **terra**). By providing **tidyverse** verbs, especially **dplyr** and **tidyr** methods, **tidyterra** lets users manipulate `Spat*` objects in a style familiar from tabular data workflows.\n\n**terra** is generally faster. Learning some **terra** syntax is recommended because **tidyterra** functions call the corresponding **terra** equivalents when possible.\n\n## A note for advanced terra users \n\n**tidyterra** is not optimized for performance. Operations such as `[filter()](https://dplyr.tidyverse.org/reference/filter.html)` and `[mutate()](https://dplyr.tidyverse.org/reference/mutate.html)` can be slower than their **terra** counterparts.\n\nAs a rule of thumb, **tidyterra** is most suitable for objects with fewer than 10,000,000 data slots, for example `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.\n\n## Get started with tidyterra \n\nLoad **tidyterra** together with core **tidyverse** packages:\n\n```\nlibrary(tidyterra)\n#> \n#> Adjuntando el paquete: 'tidyterra'\n#> The following object is masked from 'package:stats':\n#> \n#>     filter\nlibrary(dplyr)\n#> \n#> Adjuntando el paquete: 'dplyr'\n#> The following objects are masked from 'package:stats':\n#> \n#>     filter, lag\n#> The following objects are masked from 'package:base':\n#> \n#>     intersect, setdiff, setequal, union\nlibrary(tidyr)\n```\n\nThe following methods are available:\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "keyword_score": 15.528841133141313,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "da52e30aaf9af0e3806c1e9e5cc7db00fc712016fba6d08652e81a2ceb265f82",
+        "type": "text",
+        "score": 0.9838709677419354,
+        "text": "## Arguments\n\ndata\n\nA `SpatVector` to pivot.\n\ncols\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Columns to pivot into longer format.\n\n...\n\nAdditional arguments passed on to methods.\n\ncols\\_vary\n\nWhen pivoting `cols` into longer format, how should the output rows be arranged relative to their original row number?\n\n* `\"fastest\"`, the default, keeps individual rows from `cols` close together in the output. This often produces intuitively ordered output when you have at least one key column from `data` that is not involved in the pivoting process.\n* `\"slowest\"` keeps individual columns from `cols` close together in the output. This often produces intuitively ordered output when you utilize all of the columns from `data` in the pivoting process.\n\nnames\\_to\n\nA character vector specifying the new column or columns to create from the information stored in the column names of `data` specified by `cols`.\n\n* If length 0, or if `NULL` is supplied, no columns will be created.\n* If length 1, a single column will be created which will contain the column names specified by `cols`.\n* If length >1, multiple columns will be created. In this case, one of `names_sep` or `names_pattern` must be supplied to specify how the column names should be split. There are also two additional character values you can take advantage of:\n\n  * `NA` will discard the corresponding component of the column name.\n  * `\".value\"` indicates that the corresponding component of the column name defines the name of the output column containing the cell values, overriding `values_to` entirely.\n\nnames\\_prefix\n\nA regular expression used to remove matching text from the start of each variable name.\n\nnames\\_sep, names\\_pattern\n\nIf `names_to` contains multiple values, these arguments control how the column name is broken up.\n\n`names_sep` takes the same specification as `[separate()](https://tidyr.tidyverse.org/reference/separate.html)`, and can either be a numeric vector (specifying positions to break on), or a single string (specifying a regular expression to split on).\n\n`names_pattern` takes the same specification as `[extract()](https://tidyr.tidyverse.org/reference/extract.html)`, a regular expression containing matching groups (`()`).\n\nIf these arguments do not give you enough control, use `[pivot_longer_spec()](https://tidyr.tidyverse.org/reference/pivot%5Flonger%5Fspec.html)` to create a spec object and process manually as needed.\n\nnames\\_ptypes, values\\_ptypes\n\nOptionally, a list of column name-prototype pairs. Alternatively, a single empty prototype can be supplied, which will be applied to all columns. A prototype (or ptype for short) is a zero-length vector (like `[integer()](https://rdrr.io/r/base/integer.html)` or `[numeric()](https://rdrr.io/r/base/numeric.html)`) that defines the type, class, and attributes of a vector. Use these arguments if you want to confirm that the created columns are the types that you expect. Note that if you want to change (instead of confirm) the types of specific columns, you should use `names_transform` or `values_transform` instead.\n\nnames\\_transform, values\\_transform\n\nOptionally, a list of column name-function pairs. Alternatively, a single function can be supplied, which will be applied to all columns. Use these arguments if you need to change the types of specific columns. For example, `names_transform = list(week = as.integer)` would convert a character variable called `week`to an integer.\n\nIf not specified, the type of the columns generated from `names_to` will be character, and the type of the variables generated from `values_to`will be the common type of the input columns used to generate them.\n\nnames\\_repair\n\n",
+        "item": {
+          "key": "reference/pivot_longer.SpatVector.html",
+          "timestamp": 1792708680000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.42678323,
+          "vector_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "17edfd9668659fcac5e016f8d511df728a39423a07609af29c4464785652492f",
+        "type": "text",
+        "score": 0.9838709677419354,
+        "text": "Rees, M. (2026). _Unexplored transitions between savanna and forest in Africa_ \\[PhD thesis, The University of Edinburgh\\]. <https://doi.org/10.7488/era/7231> \n\nReis, B. S. dos. (2025). _Avaliação do sequestro de carbono nos manguezais da Baixada Santista em diferentes contextos de conservação_. Universidade Estadual Paulista (Unesp). <https://hdl.handle.net/11449/318093> \n\nRiley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J., & Hajibabaei, M. (2025). Biomonitoring 2.0 Refined: Observing local change through metaphylogeography using a community-based eDNA metabarcoding monitoring network. _BMC Biology_, _23_(1), 187\\. <https://doi.org/10.1186/s12915-025-02284-x> \n\nRock, L. A., Fetzer, W. W., Patterson, L. S., Sillen, S. J., Steg, R., Walters, A. W., & Collins, S. M. (2025). Spatiotemporal drivers of water quality and phytoplankton communities in a cyanobacteria-dominated reservoir provide management insights. _Environmental Monitoring and Assessment_, _197_(7), 795\\. <https://doi.org/10.1007/s10661-025-14258-1> \n\nRustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). _Bayesian survival, longitudinal, and joint models with INLA_. Chapman & Hall/CRC. <https://doi.org/10.1201/9781003646822> \n\nSalvador Baiges, G. (2024). _Clima, orografia i dinàmiques de poblament al Pirineu Central. Arqueologia, SIG i modelització espacial del patró d’ocupació del territori durant el Neolı́tic (5700–2100 cal ANE)_ \\[PhD thesis, Universitat Autònoma de Barcelona\\]. <https://hdl.handle.net/10803/692148> \n\nSantiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A., Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche conservatism and evolutionary dynamics in Octopodidae: A phylogenetic comparative approach. _Journal of Biogeography_, _53_(4), e70222\\. <https://doi.org/10.1111/jbi.70222> \n\nSchmid, C. M. (2025). _Spatio-temporal interpolation in archaeogenetics and archaeology: Computational methods for reconstructing human mobility and cultural history_ \\[PhD thesis, Friedrich-Schiller-Universität Jena\\]. <https://doi.org/10.22032/dbt.69313> \n\nSchmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation probabilistic liquefaction model building at the regional scale. _Earthquake Spectra_, _42_(1), e70013\\. <https://doi.org/10.1002/esp4.70013> \n\nSimons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N. M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J. T., Meremikwu, M., Moses, L., Redding, D. W., & Friant, S. (2026). Local heterogeneity in Lassa fever serology in rural Nigeria: Implications for vaccine trial site selection. _PLOS Neglected Tropical Diseases_, _20_(5), e0014379\\. <https://doi.org/10.1371/journal.pntd.0014379> \n\nSmoot, E. E., Flitcroft, R. L., Chan, S. S., van Deynze, B., Ewen, S., & Jardine, S. L. (2026). Projected temperature and precipitation expand modeled distributions of _Reynoutria_ spp. while modeled distribution changes for _Ludwigia_ spp. are scenario-dependent at watershed scales in the Pacific Northwest, USA. _River Research and Applications_, _42_(6), 1411–1424\\. <https://doi.org/10.1002/rra.70141> \n\nSu, X., Popescu, N., Insuk, C., Lausen, C., & Xu, J. (2025). High diversity and low genetic differentiation among geographic populations of _Myotis yumanensis_ in Western Canada. _Animals_, _15_(4), 578\\. <https://doi.org/10.3390/ani15040578> \n\nSun, Y., James, B. D., Houston, K. R., Edwards, B., Izallalen, M., Mazumder, S., Shankar, R., Reddy, C. M., & Ward, C. P. (2025). Temperature controls the lifetimes and microbial communities degrading cellulose diacetate in the coastal ocean. _Environmental Science & Technology_, _59_(36), 19468–19478\\. <https://doi.org/10.1021/acs.est.5c05334> \n\nSutton, J. T., McDermid, J. L., & Ratelle, S. M. (2026). A framework to map fishing activity from incomplete data. _ICES Journal of Marine Science_, _83_(5), fsag070\\. <https://doi.org/10.1093/icesjms/fsag070> \n\n",
+        "item": {
+          "key": "articles/wild.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "keyword_score": 14.561461245839656,
+          "keyword_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "42ae4e3278c2de3e6bd28b499ff35371b35e87365a2547a8a055daee648ce8ea",
+        "type": "text",
+        "score": 0.9682539682539681,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/expand.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Expand `SpatVector` attribute combinations\n\nSource: [R/expand-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/release/R/expand-SpatVector.R) \n\n`expand.SpatVector.Rd`\n\n`[expand()](https://tidyr.tidyverse.org/reference/expand.html)` returns a tibble with all combinations of selected attributes. It does not return a `SpatVector` because newly created combinations do not have a well-defined geometry. Use `[complete.SpatVector()](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.html)` when empty geometries should be added explicitly.\n\n## Usage\n\n```\n# S3 method for class 'SpatVector'\nexpand(data, ..., .name_repair = \"check_unique\")\n```\n\n## Arguments\n\ndata\n\nA `SpatVector`.\n\n...\n\n<`[data-masking](https://tidyr.tidyverse.org/reference/tidyr%5Fdata%5Fmasking.html)`\\> Specification of columns to expand or complete. Columns can be atomic vectors or lists.\n\n* To find all unique combinations of `x`, `y` and `z`, including those not present in the data, supply each variable as a separate argument: `expand(df, x, y, z)` or `complete(df, x, y, z)`.\n* To find only the combinations that occur in the data, use `nesting`: `expand(df, nesting(x, y, z))`.\n* You can combine the two forms. For example, `expand(df, nesting(school_id, student_id), date)` would produce a row for each present school-student combination for all possible dates.\n\nWhen used with factors, `[expand()](https://tidyr.tidyverse.org/reference/expand.html)` and `[complete()](https://tidyr.tidyverse.org/reference/complete.html)` use the full set of levels, not just those that appear in the data. If you want to use only the values seen in the data, use `[forcats::fct_drop()](https://forcats.tidyverse.org/reference/fct%5Fdrop.html)`.\n\nWhen used with continuous variables, you may need to fill in values that do not appear in the data: to do so use expressions like `year = 2010:2020` or `year = full_seq(year,1)`.\n\n.name\\_repair\n\nOne of `\"check_unique\"`, `\"unique\"`, `\"universal\"`, `\"minimal\"`, `\"unique_quiet\"`, or `\"universal_quiet\"`. See `[vec_as_names()](https://vctrs.r-lib.org/reference/vec%5Fas%5Fnames.html)`for the meaning of these options.\n\n## Value\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html).\n\n## Methods\n\nImplementation of the **generic** `[tidyr::expand()](https://tidyr.tidyverse.org/reference/expand.html)` method for `SpatVector`objects.\n\nThe output is a tibble with attribute combinations. Geometry is not preserved because new combinations do not have a well-defined geometry.\n\n## See also\n\n`[tidyr::expand()](https://tidyr.tidyverse.org/reference/expand.html)`, `[complete.SpatVector()](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.html)`.\n\nOther [tidyr](https://cran.r-project.org/package=tidyr) verbs for handling missing values: `[complete.SpatVector()](https://dieghernan.github.io/tidyterra/reference/complete.SpatVector.html)`, `[drop_na.Spat](https://dieghernan.github.io/tidyterra/reference/drop%5Fna.Spat.html)`, `[fill.SpatVector()](https://dieghernan.github.io/tidyterra/reference/fill.SpatVector.html)`, `[replace_na.Spat](https://dieghernan.github.io/tidyterra/reference/replace%5Fna.Spat.html)`\n\n## Examples\n\n```\nv <- terra::vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\nv$grp <- rep(c(\"A\", \"B\"), length.out = nrow(v))\n\nexpand(v, grp, cpro)\n#> # A tibble: 18 × 2\n#>    grp   cpro \n#>    <chr> <chr>\n#>  1 A     05   \n#>  2 A     09   \n#>  3 A     24   \n#>  4 A     34   \n#>  5 A     37   \n#>  6 A     40   \n#>  7 A     42   \n#>  8 A     47   \n#>  9 A     49   \n#> 10 B     05   \n#> 11 B     09   \n#> 12 B     24   \n#> 13 B     34   \n#> 14 B     37   \n#> 15 B     40   \n#> 16 B     42   \n#> 17 B     47   \n#> 18 B     49   \n\n```",
+        "item": {
+          "key": "reference/expand.SpatVector.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "keyword_score": 10.247846103753691,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d2d13144b8baadcbda990a53dc43ac8d9ad1054a4a3194374588c370dd1b08fe",
+        "type": "text",
+        "score": 0.953125,
+        "text": "# With a hexagonal grid.\nggplot(r, aes(x, y, z = elevation)) +\n  stat_summary_hex(\n    fun = mean,\n    color = NA,\n    linewidth = 0,\n    # Bin size determines the number of cells displayed.\n    bins = 30\n  ) +\n  coord_sf(crs = pull_crs(r)) +\n  labs(\n    title = \"Hexagonal SpatRaster\",\n    subtitle = \"Using implicit fortify() and stat_summary_hex()\",\n    x = NULL,\n    y = NULL\n  )\n```\n\n![](https://dieghernan.github.io/tidyterra/articles/faqs_files/figure-html/fig-hex_grid-1.png) \n\nFigure 15: Elevation data aggregated and visualized as hexagonal grid cells. \n\nYou do not need to call `[fortify.SpatRaster()](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html)` directly because **ggplot2** invokes it implicitly when you use `ggplot(data = a_spatraster)`.\n\nThanks to this extension mechanism, you can use additional geoms and stats from **ggplot2**:\n\n```\n# Point plot.\nggplot(r, aes(x, y, z = elevation), maxcell = 1000) +\n  geom_point(\n    aes(size = elevation, alpha = elevation),\n    fill = \"darkblue\",\n    color = \"grey50\",\n    shape = 21\n  ) +\n  coord_sf(crs = pull_crs(r)) +\n  scale_radius(range = c(1, 5)) +\n  scale_alpha(range = c(0.01, 1)) +\n  labs(\n    title = \"SpatRaster as points\",\n    subtitle = \"Using implicit fortify()\",\n    x = NULL,\n    y = NULL\n  )\n```\n\n![](https://dieghernan.github.io/tidyterra/articles/faqs_files/figure-html/fig-alt_points-1.png) \n\nFigure 16: Elevation data represented as points with size and transparency scaled by elevation values. \n\n### tidyterra and metR \n\n**metR** provides **ggplot2** extensions, primarily for meteorological data visualization. As shown previously (see [Labeling contours](https://dieghernan.github.io/tidyterra/articles/faqs.html#label-contour)), you can combine both packages to create rich, complex plots.\n\n```\n# Load libraries and files.\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(metR)\n\nholyrood <- \"holyroodpark.tif\"\n\nr <- rast(holyrood)\n\nggplot(r, aes(x, y)) +\n  geom_relief(aes(z = elevation)) +\n  geom_spatraster(\n    data = r,\n    inherit.aes = FALSE,\n    aes(alpha = after_stat(value))\n  ) +\n  scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +\n  scale_alpha(range = c(1, 0.25)) +\n  guides(alpha = \"none\", fill = guide_legend(reverse = TRUE)) +\n  labs(x = \"\", y = \"\", title = \"tidyterra and metR: reliefs\")\n```\n\n![](https://dieghernan.github.io/tidyterra/articles/faqs_files/figure-html/fig-metrdemo-1.png) \n\nFigure 17: Relief rendering combining **tidyterra** for raster plotting and **metR** for terrain relief representation.",
+        "item": {
+          "key": "articles/faqs.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "keyword_score": 9.442081781326234,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

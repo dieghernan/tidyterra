@@ -1,0 +1,77 @@
+{
+  "requests": 12,
+  "httpSuccesses": 12,
+  "totalTokens": 53101,
+  "reportedNeurons": 1919.1406555175781,
+  "totalElapsedMs": 126682,
+  "medianElapsedMs": 11290,
+  "minElapsedMs": 5147,
+  "maxElapsedMs": 17157,
+  "links": [
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/filter.Spat.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/filter.Spat.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/select.Spat.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/select.Spat.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/mutate.Spat.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/reference/scale_hypso.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/reference/scale_hypso.html"
+    },
+    {
+      "url": "https://ggplot2.tidyverse.org/reference/facet_wrap.html",
+      "status": 200,
+      "finalUrl": "https://ggplot2.tidyverse.org/reference/facet_wrap.html"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/articles/faqs.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/articles/faqs.html"
+    },
+    {
+      "url": "https://github.com/dieghernan/tidyterra/issues",
+      "status": 200,
+      "finalUrl": "https://github.com/dieghernan/tidyterra/issues"
+    },
+    {
+      "url": "https://stackoverflow.com/",
+      "status": 403,
+      "finalUrl": "https://stackoverflow.com/questions"
+    },
+    {
+      "url": "https://stackoverflow.com/questions/tagged/tidyterra",
+      "status": 403,
+      "finalUrl": "https://stackoverflow.com/questions/tagged/tidyterra"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/"
+    },
+    {
+      "url": "https://dieghernan.github.io/tidyterra/index.html",
+      "status": 200,
+      "finalUrl": "https://dieghernan.github.io/tidyterra/index.html"
+    }
+  ]
+}

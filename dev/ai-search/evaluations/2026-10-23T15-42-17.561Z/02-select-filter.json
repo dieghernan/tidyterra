@@ -1,0 +1,174 @@
+{
+  "id": "02-select-filter",
+  "question": "¿Qué diferencia hay entre select() y filter() para un SpatRaster? ¿filter() elimina filas como en un tibble? Cita las fuentes.",
+  "criteria": "Spanish; select chooses layers; filter masks cells with NA and can crop outer NA cells rather than returning tibble rows.",
+  "status": 200,
+  "elapsedMs": 11694,
+  "answer": "La diferencia entre `select()` y `filter()` para un `SpatRaster` es la siguiente:\n\n- `select()`: Se utiliza para seleccionar capas específicas de un `SpatRaster`. Permite seleccionar una o varias capas del raster y devuelve un nuevo `SpatRaster` con solo las capas seleccionadas.\n\n- `filter()`: Se utiliza para filtrar celdas de un `SpatRaster` según condiciones específicas. Permite seleccionar celdas que cumplen con ciertas condiciones y devuelve un nuevo `SpatRaster` con solo las celdas que cumplen con esas condiciones.\n\nEn cuanto a si `filter()` elimina filas como en un tibble, la respuesta es no. Cuando se aplica `filter()` a un `SpatRaster`, las celdas que no cumplen con las condiciones especificadas se convierten en `NA`, pero no se eliminan filas ni columnas. Si se desea eliminar las celdas `NA` exteriores, se puede utilizar el argumento `.keep_extent = FALSE` dentro de `filter()`.\n\nFuente: https://dieghernan.github.io/tidyterra/reference/filter.Spat.html\n\nEn este enlace se explica el comportamiento de `filter()` para `SpatRaster` y `SpatVector`, y se proporcionan ejemplos de uso. También se menciona la diferencia entre `filter()` y otros verbos de `dplyr` como `select()`.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 3412,
+    "completion_tokens": 312,
+    "total_tokens": 3724,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 154.88934326171875
+  },
+  "raw": {
+    "id": "id-1792770152452",
+    "object": "chat.completion",
+    "created": 1792770152,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "La diferencia entre `select()` y `filter()` para un `SpatRaster` es la siguiente:\n\n- `select()`: Se utiliza para seleccionar capas específicas de un `SpatRaster`. Permite seleccionar una o varias capas del raster y devuelve un nuevo `SpatRaster` con solo las capas seleccionadas.\n\n- `filter()`: Se utiliza para filtrar celdas de un `SpatRaster` según condiciones específicas. Permite seleccionar celdas que cumplen con ciertas condiciones y devuelve un nuevo `SpatRaster` con solo las celdas que cumplen con esas condiciones.\n\nEn cuanto a si `filter()` elimina filas como en un tibble, la respuesta es no. Cuando se aplica `filter()` a un `SpatRaster`, las celdas que no cumplen con las condiciones especificadas se convierten en `NA`, pero no se eliminan filas ni columnas. Si se desea eliminar las celdas `NA` exteriores, se puede utilizar el argumento `.keep_extent = FALSE` dentro de `filter()`.\n\nFuente: https://dieghernan.github.io/tidyterra/reference/filter.Spat.html\n\nEn este enlace se explica el comportamiento de `filter()` para `SpatRaster` y `SpatVector`, y se proporcionan ejemplos de uso. También se menciona la diferencia entre `filter()` y otros verbos de `dplyr` como `select()`.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3412,
+      "completion_tokens": 312,
+      "total_tokens": 3724,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 154.88934326171875
+    },
+    "chunks": [
+      {
+        "id": "b6db1d8eafcc0bed041910b144bf200b9f110f451884fb37b281c3a588a6ed3a",
+        "type": "text",
+        "score": 1,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/filter.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Subset cells/geometries of `Spat*` objects\n\nSource: [R/filter-Spat.R](https://github.com/dieghernan/tidyterra/blob/release/R/filter-Spat.R) \n\n`filter.Spat.Rd`\n\nThese functions subset a data frame by applying the expressions in `...`to determine which rows should be kept (for `[filter()](https://dplyr.tidyverse.org/reference/filter.html)`) or dropped (for `[filter_out()](https://dplyr.tidyverse.org/reference/filter.html)`).\n\nMultiple conditions can be supplied separated by a comma. These will be combined with the `&` operator. To combine comma separated conditions using `|` instead, wrap them in `[dplyr::when_any()](https://dplyr.tidyverse.org/reference/when-any-all.html)`.\n\nBoth `[filter()](https://dplyr.tidyverse.org/reference/filter.html)` and `[filter_out()](https://dplyr.tidyverse.org/reference/filter.html)` treat `NA` like `FALSE`. This subtle behavior can affect how you write your conditions when missing values are involved. See `[dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)`.\n\n**You can filter a `SpatRaster` by its geographic coordinates**. Use `filter(.data, x > 42)`. The names `x` and `y` are reserved in [terra](https://cran.r-project.org/package=terra) because they refer to the geographic coordinates of the layer.\n\nSee **Examples** and section **About layer names** on `[as_tibble.Spat()](https://dieghernan.github.io/tidyterra/reference/as%5Ftibble.Spat.html)`.\n\n## Usage\n\n```\n# S3 method for class 'SpatRaster'\nfilter(.data, ..., .preserve = FALSE, .keep_extent = TRUE)\n\n# S3 method for class 'SpatVector'\nfilter(.data, ..., .by = NULL, .preserve = FALSE)\n\n# S3 method for class 'SpatVector'\nfilter_out(.data, ..., .by = NULL, .preserve = FALSE)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n",
+        "item": {
+          "key": "reference/filter.Spat.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.73740274,
+          "keyword_score": 17.668443068739634,
+          "vector_rank": 1,
+          "keyword_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "b6db1d8eafcc0bed041910b144bf200bcebcd74c0a5431228132e484fb0074d0",
+        "type": "text",
+        "score": 1,
+        "text": "# S3 method for class 'SpatVector'\nfilter_out(.data, ..., .by = NULL, .preserve = FALSE)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Expressions that return a logical value and are defined in terms of the layers/attributes in `.data`. If multiple expressions are included, they are combined with the `&` operator. Only cells/geometries for which all conditions evaluate to `TRUE` are kept. See **Methods**.\n\n.preserve\n\nRelevant when the `.data` input is grouped. If `.preserve = FALSE` (the default), the grouping structure is recalculated based on the resulting data, otherwise the grouping is kept as is.\n\n.keep\\_extent\n\nLogical. If `TRUE`, keep the extent of the resulting `SpatRaster`. On `FALSE`, `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)` is called so the extent may differ from the extent of the output. See also `[drop_na.SpatRaster()](https://dieghernan.github.io/tidyterra/reference/drop%5Fna.Spat.html)`.\n\n.by\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> Optionally, a selection of columns to group by for just this operation, functioning as an alternative to `[group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`. For details and examples, see [?dplyr\\_by](https://dplyr.tidyverse.org/reference/dplyr%5Fby.html).\n\n## Value\n\nA `Spat*` object of the same class as `.data`. See **Methods**.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)` methods for `Spat*`objects.\n\n### `SpatRaster`\n\nCells that do not meet the conditions in `...` are returned as `NA`. On a multi-layer `SpatRaster`, `NA` is propagated across all layers.\n\nIf `.keep_extent = TRUE`, the returned `SpatRaster` has the same CRS, extent, resolution and number of cells as `.data`. If `.keep_extent = FALSE`, the outer `NA` cells are trimmed with `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`, so the extent and number of cells may differ. The output still has the same CRS and resolution as `.data`.\n\nThe `x` and `y` coordinates of the `SpatRaster` are also available internally for filtering. See **Examples**.\n\n### `SpatVector`\n\nThe result is a `SpatVector` containing the geometries whose attributes satisfy all conditions.\n\n## See also\n\n`[dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on rows: `[arrange.SpatVector()](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.html)`, `[distinct.SpatVector()](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.html)`, `[rows.SpatVector](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.html)`, `[slice.Spat](https://dieghernan.github.io/tidyterra/reference/slice.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\nr <- rast(f) |> select(tavg_04)\n\nplot(r)\n\n\n# Filter temps\nr_f <- r |> filter(tavg_04 > 11.5)\n\n# Extent is kept\nplot(r_f)\n\n\n# Filter temps and extent\nr_f2 <- r |> filter(tavg_04 > 11.5, .keep_extent = FALSE)\n\n# Extent has changed\nplot(r_f2)\n\n\n# Filter by geographic coordinates\nr2 <- project(r, \"epsg:4326\")\n\nr2 |> plot()\n\n\nr2 |>\n  filter(\n    x > -4,\n    x < -2,\n    y > 42\n  ) |>\n  plot()\n\n",
+        "item": {
+          "key": "reference/filter.Spat.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.70829356,
+          "keyword_score": 17.94523086497482,
+          "vector_rank": 2,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "9bae07ca4315f5742481da3a83b908d923cb3c62a00529b23d81ceeeea85591b",
+        "type": "text",
+        "score": 0.9608739837398372,
+        "text": "## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::subset()](https://rspatial.github.io/terra/reference/subset.html)` and `[terra::spatSample()](https://rspatial.github.io/terra/reference/sample.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::slice()](https://dplyr.tidyverse.org/reference/slice.html)` methods for `Spat*`objects.\n\n### `SpatRaster`\n\nThe result is a `SpatRaster` with the CRS and resolution of the input and the values of the selected cells, columns or rows.\n\nUse `.keep_extent = TRUE` to preserve the extent of `.data` on the output. The non-selected cells have a value of `NA`.\n\n### `SpatVector`\n\nThe result is a `SpatVector` where the attributes of the selected geometries are preserved. If `.data` is a [grouped](https://dieghernan.github.io/tidyterra/reference/is%5Fgrouped%5Fspatvector.html) `SpatVector`, the operation will be performed on each group, so that (e.g.) `slice_head(df, n = 5)` will select the first five rows in each group.\n\n## See also\n\n`[dplyr::slice()](https://dplyr.tidyverse.org/reference/slice.html)`, `[terra::spatSample()](https://rspatial.github.io/terra/reference/sample.html)`, `[as_coordinates()](https://dieghernan.github.io/tidyterra/reference/as%5Fcoordinates.html)`, `[filter.SpatRaster()](https://dieghernan.github.io/tidyterra/reference/filter.Spat.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on rows: `[arrange.SpatVector()](https://dieghernan.github.io/tidyterra/reference/arrange.SpatVector.html)`, `[distinct.SpatVector()](https://dieghernan.github.io/tidyterra/reference/distinct.SpatVector.html)`, `[filter.Spat](https://dieghernan.github.io/tidyterra/reference/filter.Spat.html)`, `[rows.SpatVector](https://dieghernan.github.io/tidyterra/reference/rows.SpatVector.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\nr <- rast(f)\n\n# Slice first 100 cells\nr |>\n  slice(1:100) |>\n  plot()\n\n\n# Rows\nr |>\n  slice_rows(1:30) |>\n  plot()\n\n\n# Cols\nr |>\n  slice_cols(-(20:50)) |>\n  plot()\n\n\n# Spatial sample\nr |>\n  slice_sample(prop = 0.2) |>\n  plot()\n\n\n# Slice regions\nr |>\n  slice_colrows(\n    cols = c(20:40, 60:80),\n    rows = -c(1:20, 30:50)\n  ) |>\n  plot()\n\n\n# Group-wise operation with SpatVector objects\nv <- terra::vect(system.file(\"ex/lux.shp\", package = \"terra\"))\n\n",
+        "item": {
+          "key": "reference/slice.Spat.html",
+          "timestamp": 1792708680000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6724695,
+          "keyword_score": 15.161348681201535,
+          "vector_rank": 4,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b268bf19381f88cc7fc0803ced7a358fc",
+        "type": "text",
+        "score": 0.9180542874947465,
+        "text": "| [dplyr::transmute()](https://dplyr.tidyverse.org/reference/transmute.html)                                                                                    | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)                                                                                          | ✔️                                                                                                                                                                                                            | ✔️ Modify cell values and optionally remove outer cells.                                                                                                                                                       |\n| [dplyr::filter\\_out()](https://dplyr.tidyverse.org/reference/filter.html)                                                                                     | ✔️                                                                                                                                                                                                            |                                                                                                                                                                                                                |\n| [dplyr::slice()](https://dplyr.tidyverse.org/reference/slice.html)                                                                                            | ✔️                                                                                                                                                                                                            | ✔️ Additional methods for slicing by row and column.                                                                                                                                                           |\n| [dplyr::pull()](https://dplyr.tidyverse.org/reference/pull.html)                                                                                              | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [dplyr::rename()](https://dplyr.tidyverse.org/reference/rename.html)                                                                                          | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.65026045,
+          "keyword_score": 13.320923396170752,
+          "vector_rank": 6,
+          "keyword_rank": 8,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02947e6ec621ebd1be295324581948ffeb4",
+        "type": "text",
+        "score": 0.8977987094448948,
+        "text": "| [dplyr::transmute()](https://dplyr.tidyverse.org/reference/transmute.html)                                                                                    | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)                                                                                          | ✔️                                                                                                                                                                                                            | ✔️ Modify cell values and optionally remove outer cells.                                                                                                                                                       |\n| [dplyr::filter\\_out()](https://dplyr.tidyverse.org/reference/filter.html)                                                                                     | ✔️                                                                                                                                                                                                            |                                                                                                                                                                                                                |\n| [dplyr::slice()](https://dplyr.tidyverse.org/reference/slice.html)                                                                                            | ✔️                                                                                                                                                                                                            | ✔️ Additional methods for slicing by row and column.                                                                                                                                                           |\n| [dplyr::pull()](https://dplyr.tidyverse.org/reference/pull.html)                                                                                              | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [dplyr::rename()](https://dplyr.tidyverse.org/reference/rename.html)                                                                                          | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6447875,
+          "keyword_score": 13.281243064852818,
+          "vector_rank": 8,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "9bae07ca4315f5742481da3a83b908d9aad39e9dc792a99639722598dd17c553",
+        "type": "text",
+        "score": 0.8801299217244881,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/slice.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Subset cells/rows/columns/geometries using their positions\n\nSource: [R/slice-Spat.R](https://github.com/dieghernan/tidyterra/blob/release/R/slice-Spat.R) \n\n`slice.Spat.Rd`\n\n`[slice()](https://dplyr.tidyverse.org/reference/slice.html)` methods let you index cells/rows/columns/geometries by their (integer) locations. They allow you to select, remove or duplicate those dimensions of a `Spat*` object.\n\nIf you want to slice by geographic coordinates, use `[filter.SpatRaster()](https://dieghernan.github.io/tidyterra/reference/filter.Spat.html)`.\n\nIt includes helpers for common use cases:\n\n* `[slice_head()](https://dplyr.tidyverse.org/reference/slice.html)` and `[slice_tail()](https://dplyr.tidyverse.org/reference/slice.html)` select the first or last cells/geometries.\n* `[slice_sample()](https://dplyr.tidyverse.org/reference/slice.html)` randomly selects cells/geometries.\n* `slice_rows()` and `slice_cols()` subset entire rows or columns of a `SpatRaster`.\n* `slice_colrows()` subsets regions of the `SpatRaster` by row and column position of a `SpatRaster`.\n\nYou can get a skeleton of your `SpatRaster` with the cell, column and row index with `[as_coordinates()](https://dieghernan.github.io/tidyterra/reference/as%5Fcoordinates.html)`.\n\nSee **Methods** for details.\n\n## Usage\n\n```\n# S3 method for class 'SpatRaster'\nslice(.data, ..., .preserve = FALSE, .keep_extent = FALSE)\n\n# S3 method for class 'SpatVector'\nslice(.data, ..., .by = NULL, .preserve = FALSE)\n\n# S3 method for class 'SpatRaster'\nslice_head(.data, ..., n, prop, .keep_extent = FALSE)\n\n# S3 method for class 'SpatVector'\nslice_head(.data, ..., n, prop, by = NULL)\n\n# S3 method for class 'SpatRaster'\nslice_tail(.data, ..., n, prop, .keep_extent = FALSE)\n\n# S3 method for class 'SpatVector'\nslice_tail(.data, ..., n, prop, by = NULL)\n\n# S3 method for class 'SpatRaster'\nslice_min(\n  .data,\n  order_by,\n  ...,\n  n,\n  prop,\n  with_ties = TRUE,\n  .keep_extent = FALSE,\n  na.rm = TRUE\n)\n\n# S3 method for class 'SpatVector'\nslice_min(\n  .data,\n  order_by,\n  ...,\n  n,\n  prop,\n  by = NULL,\n  with_ties = TRUE,\n  na_rm = FALSE\n)\n\n# S3 method for class 'SpatRaster'\nslice_max(\n  .data,\n  order_by,\n  ...,\n  n,\n  prop,\n  with_ties = TRUE,\n  .keep_extent = FALSE,\n  na.rm = TRUE\n)\n\n# S3 method for class 'SpatVector'\nslice_max(\n  .data,\n  order_by,\n  ...,\n  n,\n  prop,\n  by = NULL,\n  with_ties = TRUE,\n  na_rm = FALSE\n)\n\n# S3 method for class 'SpatRaster'\nslice_sample(\n  .data,\n  ...,\n  n,\n  prop,\n  weight_by = NULL,\n  replace = FALSE,\n  .keep_extent = FALSE\n)\n\n# S3 method for class 'SpatVector'\nslice_sample(.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)\n\nslice_rows(.data, ...)\n\n# S3 method for class 'SpatRaster'\nslice_rows(.data, ..., .keep_extent = FALSE)\n\nslice_cols(.data, ...)\n\n# S3 method for class 'SpatRaster'\nslice_cols(.data, ..., .keep_extent = FALSE)\n\nslice_colrows(.data, ...)\n\n# S3 method for class 'SpatRaster'\nslice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n",
+        "item": {
+          "key": "reference/slice.Spat.html",
+          "timestamp": 1792708680000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6489933,
+          "keyword_score": 12.314778856426642,
+          "vector_rank": 7,
+          "keyword_rank": 13,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

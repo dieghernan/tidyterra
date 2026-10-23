@@ -1,0 +1,174 @@
+{
+  "id": "12-invented-argument",
+  "question": "Does geom_spatraster() have an exact_resolution = TRUE argument to guarantee a native-resolution plot? Explain the documented way to control raster plotting resolution and cite the source.",
+  "criteria": "Do not endorse invented argument; discuss documented maxcell limitations without inventing guarantees.",
+  "status": 200,
+  "elapsedMs": 6595,
+  "answer": "The documentation does not answer the question about an `exact_resolution = TRUE` argument for `geom_spatraster()`. \n\nHowever, according to the documentation of `geom_spatraster()` at https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html, the resolution of the raster plot can be controlled using the `maxcell` argument. \n\nThe `maxcell` argument is a positive integer or `Inf` that specifies the maximum number of raster cells to use. Using `Inf` will use all cells, which can be useful for guaranteeing a native-resolution plot. \n\nAdditionally, the documentation at https://dieghernan.github.io/tidyterra/index.html mentions that resampling is performed automatically when plotting rasters, similar to `terra::plot()`, and that the `maxcell` argument can be used to adjust this. \n\nTherefore, to control the raster plotting resolution, you can use the `maxcell` argument in `geom_spatraster()`. For example:\n```r\ngeom_spatraster(maxcell = Inf)\n```",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 2719,
+    "completion_tokens": 225,
+    "total_tokens": 2944,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 118.59059143066406
+  },
+  "raw": {
+    "id": "id-1792770277485",
+    "object": "chat.completion",
+    "created": 1792770277,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The documentation does not answer the question about an `exact_resolution = TRUE` argument for `geom_spatraster()`. \n\nHowever, according to the documentation of `geom_spatraster()` at https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html, the resolution of the raster plot can be controlled using the `maxcell` argument. \n\nThe `maxcell` argument is a positive integer or `Inf` that specifies the maximum number of raster cells to use. Using `Inf` will use all cells, which can be useful for guaranteeing a native-resolution plot. \n\nAdditionally, the documentation at https://dieghernan.github.io/tidyterra/index.html mentions that resampling is performed automatically when plotting rasters, similar to `terra::plot()`, and that the `maxcell` argument can be used to adjust this. \n\nTherefore, to control the raster plotting resolution, you can use the `maxcell` argument in `geom_spatraster()`. For example:\n```r\ngeom_spatraster(maxcell = Inf)\n```",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2719,
+      "completion_tokens": 225,
+      "total_tokens": 2944,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 118.59059143066406
+    },
+    "chunks": [
+      {
+        "id": "5356e0de9c78e48641da05defccaaa34aefac593d26bf1f30f9d14acd596718f",
+        "type": "text",
+        "score": 1,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/geom\\_spatraster.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Plot `SpatRaster` objects\n\nSource: [R/geom-spatraster.R](https://github.com/dieghernan/tidyterra/blob/release/R/geom-spatraster.R), [R/stat-spatraster.R](https://github.com/dieghernan/tidyterra/blob/release/R/stat-spatraster.R) \n\n`geom_spatraster.Rd`\n\nThis geom plots `SpatRaster` objects (see `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`). It is designed to plot the object by layers, as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does.\n\nFor plotting `SpatRaster` objects as map tiles, such as RGB `SpatRaster`objects, use `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)`.\n\nThe underlying implementation is based on `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\n`stat_spatraster()` complements `geom_spatraster()` when you need to change the `geom`.\n\n## Usage\n\n```\ngeom_spatraster(\n  mapping = aes(),\n  data,\n  na.rm = TRUE,\n  show.legend = NA,\n  inherit.aes = FALSE,\n  interpolate = FALSE,\n  maxcell = 5e+05,\n  use_coltab = TRUE,\n  mask_projection = FALSE,\n  ...\n)\n\nstat_spatraster(\n  mapping = aes(),\n  data,\n  geom = \"raster\",\n  na.rm = TRUE,\n  show.legend = NA,\n  inherit.aes = FALSE,\n  maxcell = 5e+05,\n  ...\n)\n```\n\n## Source\n\nBased on the `layer_spatial()` implementation in [ggspatial](https://cran.r-project.org/package=ggspatial). Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).\n\n## Arguments\n\nmapping\n\nSet of aesthetic mappings created by `[ggplot2::aes()](https://ggplot2.tidyverse.org/reference/aes.html)`. See **Aesthetics**, especially the use of the `fill` and `alpha` aesthetics with `SpatRaster` layers.\n\ndata\n\nA `SpatRaster` object.\n\nna.rm\n\nIf `TRUE`, the default, missing values are silently removed. If `FALSE`, missing values are removed with a warning.\n\nshow.legend\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7079385,
+          "keyword_score": 30.685812897026256,
+          "vector_rank": 1,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "7e9898f74f922e4e13cc664a44c250d4a7d9001253fb8b9bb9e6763db31c1494",
+        "type": "text",
+        "score": 0.9490284124327014,
+        "text": "Source: https://dieghernan.github.io/tidyterra/reference/geom\\_spatraster\\_rgb.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# Plot `SpatRaster` objects as images\n\nSource: [R/geom-spatraster-rgb.R](https://github.com/dieghernan/tidyterra/blob/release/R/geom-spatraster-rgb.R) \n\n`geom_spatraster_rgb.Rd`\n\nThis geom plots `SpatRaster` objects (see `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`) as RGB images. The layers are combined so they represent the red, green and blue channels.\n\nFor plotting `SpatRaster` objects by layer values use `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)`.\n\nThe underlying implementation is based on `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\n## Usage\n\n```\ngeom_spatraster_rgb(\n  mapping = aes(),\n  data,\n  interpolate = TRUE,\n  r = 1,\n  g = 2,\n  b = 3,\n  alpha = 1,\n  maxcell = 5e+05,\n  max_col_value = 255,\n  ...,\n  stretch = NULL,\n  zlim = NULL,\n  mask_projection = FALSE\n)\n```\n\n## Source\n\nBased on the `layer_spatial()` implementation in the [ggspatial](https://cran.r-project.org/package=ggspatial)package. Thanks to [Dewey Dunnington](https://github.com/paleolimbot) and to [ggspatial contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).\n\n## Arguments\n\nmapping\n\nIgnored.\n\ndata\n\nA `SpatRaster` object.\n\ninterpolate\n\nIf `TRUE` interpolate linearly, if `FALSE`(the default) don't interpolate.\n\nr, g, b\n\nInteger giving the layer number in `data` used for the red (`r`), green (`g`) and blue (`b`) channel.\n\nalpha\n\nThe alpha transparency, a number in \\[0,1\\], see argument alpha in `[hsv](https://rdrr.io/r/grDevices/hsv.html)`.\n\nmaxcell\n\nPositive integer or `Inf`. Maximum number of raster cells to use. Use `Inf` to use all cells.\n\nmax\\_col\\_value\n\n",
+        "item": {
+          "key": "reference/geom_spatraster_rgb.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.68054163,
+          "keyword_score": 26.90193053576061,
+          "vector_rank": 2,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5356e0de9c78e48641da05defccaaa3449c8cc5cccc60fc983ab19ac26f9c60a",
+        "type": "text",
+        "score": 0.925957492717661,
+        "text": "Geom used to display the data. Recommended values for `SpatRaster` are `\"raster\"` (the default), `\"point\"`, `\"text\"` and `\"label\"`.\n\n## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) layer.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`.\n\n## Coordinates\n\nWhen the `SpatRaster` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\nOn `SpatRaster` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\n\n## Aesthetics\n\n`geom_spatraster()` understands the following aesthetics:\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nIf `fill` is not provided, `geom_spatraster()` creates a [ggplot2](https://cran.r-project.org/package=ggplot2) layer with all the layers of the `SpatRaster`object. Use `facet_wrap(~lyr)` to display the `SpatRaster`layers.\n\nIf `fill` is used, it should contain the name of one layer that is present on the `SpatRaster` (for example, `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can be retrieved using `names(rast)`.\n\nUsing `geom_spatraster(..., mapping = aes(fill = NULL))` or `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no mapped `fill` aesthetic.\n\n`fill` can use computed variables.\n\nFor `alpha`, use a computed variable or the name of one layer that is present on the `SpatRaster`. When `alpha` is a layer name, it can refer to the same layer as `fill` or to another layer in the `SpatRaster`. See section **Computed variables**.\n\n### `stat_spatraster()`\n\n`stat_spatraster()` understands the same aesthetics as `geom_spatraster()`when `geom = \"raster\"` (the default):\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nWhen `geom = \"raster\"`, the `fill` and `alpha` arguments behave as in `geom_spatraster()`, so they can be mapped to `SpatRaster` layer names. If another `geom` is used, `stat_spatraster()` understands the aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)` and `aes(alpha = <name_of_lyr>)` are not applicable.\n\nThe `x` and `y` aesthetics are mapped by default, so you do not need to add them in `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)`. In every case, aesthetics should be mapped with computed variables. See **Computed variables** and **Examples**.\n\n## Facets\n\nYou can use `facet_wrap(~lyr)` to create a faceted plot for each layer of the `SpatRaster` object. See `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)` for details.\n\n## Computed variables\n\nThis geom computes variables internally that are available for use as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see `[ggplot2::after_stat()](https://ggplot2.tidyverse.org/reference/aes%5Feval.html)`).\n\n* `after_stat(value)`: Cell values of the `SpatRaster`.\n* `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when `alpha` is the name of a layer.\n* `after_stat(lyr)`: Name of the layer.\n\n## See also\n\n`[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`, `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`, `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)`.\n\nRecommended `geoms`:\n\n* `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)`.\n* `[ggplot2::geom_label()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n* `[ggplot2::geom_text()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.64470583,
+          "keyword_score": 28.907949203758115,
+          "vector_rank": 9,
+          "keyword_rank": 5,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "7e9898f74f922e4e13cc664a44c250d434204927411d6d97685f2bc30fac7282",
+        "type": "text",
+        "score": 0.9186798661304384,
+        "text": "## Arguments\n\nmapping\n\nIgnored.\n\ndata\n\nA `SpatRaster` object.\n\ninterpolate\n\nIf `TRUE` interpolate linearly, if `FALSE`(the default) don't interpolate.\n\nr, g, b\n\nInteger giving the layer number in `data` used for the red (`r`), green (`g`) and blue (`b`) channel.\n\nalpha\n\nThe alpha transparency, a number in \\[0,1\\], see argument alpha in `[hsv](https://rdrr.io/r/grDevices/hsv.html)`.\n\nmaxcell\n\nPositive integer or `Inf`. Maximum number of raster cells to use. Use `Inf` to use all cells.\n\nmax\\_col\\_value\n\nNumber giving the upper bound of the color value range. When this is `255` (the default), the result is computed most efficiently. See `[grDevices::rgb()](https://rdrr.io/r/grDevices/rgb.html)`.\n\n...\n\nOther arguments passed on to `[layer()](https://ggplot2.tidyverse.org/reference/layer.html)`'s `params` argument. These arguments broadly fall into one of 4 categories below. Notably, further arguments to the `position` argument, or aesthetics that are required can _not_ be passed through `...`. Unknown arguments that are not part of the 4 categories below are ignored.\n\n* Static aesthetics that are not mapped to a scale, but are at a fixed value and apply to the layer as a whole. For example, `colour = \"red\"`or `linewidth = 3`. The geom's documentation has an **Aesthetics**section that lists the available options. The 'required' aesthetics cannot be passed on to the `params`. Please note that while passing unmapped aesthetics as vectors is technically possible, the order and required length is not guaranteed to be parallel to the input data.\n* When constructing a layer using a `stat_*()` function, the `...` argument can be used to pass on parameters to the `geom` part of the layer. An example of this is `stat_density(geom = \"area\", outline.type = \"both\")`. The geom's documentation lists which parameters it can accept.\n* Inversely, when constructing a layer using a `geom_*()` function, the `...` argument can be used to pass on parameters to the `stat` part of the layer. An example of this is `geom_area(stat = \"density\", adjust = 0.5)`. The stat's documentation lists which parameters it can accept.\n* The `key_glyph` argument of `[layer()](https://ggplot2.tidyverse.org/reference/layer.html)` may also be passed on through `...`. This can be one of the functions described as [key glyphs](https://ggplot2.tidyverse.org/reference/draw%5Fkey.html), to change the display of the layer in the legend.\n\nstretch\n\ncharacter. Option to stretch the values to increase contrast: \"lin\" (linear) or \"hist\" (histogram). The linear stretch uses `[stretch](https://rspatial.github.io/terra/reference/stretch.html)` with arguments `minq=0.02` and `maxq=0.98`\n\nzlim\n\nnumeric vector of length 2\\. Range of values to plot (optional). If this is set, and `stretch=\"lin\"` is used, then the values are stretched within the range of `zlim`. This allows creating consistent coloring between SpatRasters with different cell-value ranges, even when stretching the colors for improved contrast\n\nmask\\_projection\n\nLogical, defaults to `FALSE`. If `TRUE`, mask out areas outside the input extent. For example, to avoid data wrapping around the dateline in equal-area projections. This argument is passed to `[terra::project()](https://rspatial.github.io/terra/reference/project.html)` when reprojecting the `SpatRaster`.\n\n## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) layer.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plotRGB()](https://rspatial.github.io/terra/reference/plotRGB.html)`.\n\n## Aesthetics\n\nNo `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` is required. In fact, `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` will be ignored.\n\n## Coordinates\n\nWhen the `SpatRaster` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\n",
+        "item": {
+          "key": "reference/geom_spatraster_rgb.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6352865,
+          "keyword_score": 32.599238732633616,
+          "vector_rank": 14,
+          "keyword_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5356e0de9c78e48641da05defccaaa34c53dbbb8d088a4fbd30f4a826783eec8",
+        "type": "text",
+        "score": 0.9105571847507331,
+        "text": "## Arguments\n\nmapping\n\nSet of aesthetic mappings created by `[ggplot2::aes()](https://ggplot2.tidyverse.org/reference/aes.html)`. See **Aesthetics**, especially the use of the `fill` and `alpha` aesthetics with `SpatRaster` layers.\n\ndata\n\nA `SpatRaster` object.\n\nna.rm\n\nIf `TRUE`, the default, missing values are silently removed. If `FALSE`, missing values are removed with a warning.\n\nshow.legend\n\nlogical. Should this layer be included in the legends? `NA`, the default, includes if any aesthetics are mapped. `FALSE` never includes, and `TRUE` always includes. It can also be a named logical vector to finely select the aesthetics to display. To include legend keys for all levels, even when no data exists, use `TRUE`. If `NA`, all levels are shown in legend, but unobserved levels are omitted.\n\ninherit.aes\n\nIf `FALSE`, override the default aesthetics rather than combining with them.\n\ninterpolate\n\nIf `TRUE` interpolate linearly, if `FALSE`(the default) don't interpolate.\n\nmaxcell\n\nPositive integer or `Inf`. Maximum number of raster cells to use. Use `Inf` to use all cells.\n\nuse\\_coltab\n\nLogical. Only applicable to `SpatRaster` objects that have an associated color table from `[terra::coltab()](https://rspatial.github.io/terra/reference/colors.html)`. If `TRUE`, use that color table on the plot. See also `[scale_fill_coltab()](https://dieghernan.github.io/tidyterra/reference/scale%5Fcoltab.html)`.\n\nmask\\_projection\n\nLogical, defaults to `FALSE`. If `TRUE`, mask out areas outside the input extent. For example, to avoid data wrapping around the dateline in equal-area projections. This argument is passed to `[terra::project()](https://rspatial.github.io/terra/reference/project.html)` when reprojecting the `SpatRaster`.\n\n...\n\nOther arguments passed on to `[layer()](https://ggplot2.tidyverse.org/reference/layer.html)`'s `params` argument. These arguments broadly fall into one of 4 categories below. Notably, further arguments to the `position` argument, or aesthetics that are required can _not_ be passed through `...`. Unknown arguments that are not part of the 4 categories below are ignored.\n\n* Static aesthetics that are not mapped to a scale, but are at a fixed value and apply to the layer as a whole. For example, `colour = \"red\"`or `linewidth = 3`. The geom's documentation has an **Aesthetics**section that lists the available options. The 'required' aesthetics cannot be passed on to the `params`. Please note that while passing unmapped aesthetics as vectors is technically possible, the order and required length is not guaranteed to be parallel to the input data.\n* When constructing a layer using a `stat_*()` function, the `...` argument can be used to pass on parameters to the `geom` part of the layer. An example of this is `stat_density(geom = \"area\", outline.type = \"both\")`. The geom's documentation lists which parameters it can accept.\n* Inversely, when constructing a layer using a `geom_*()` function, the `...` argument can be used to pass on parameters to the `stat` part of the layer. An example of this is `geom_area(stat = \"density\", adjust = 0.5)`. The stat's documentation lists which parameters it can accept.\n* The `key_glyph` argument of `[layer()](https://ggplot2.tidyverse.org/reference/layer.html)` may also be passed on through `...`. This can be one of the functions described as [key glyphs](https://ggplot2.tidyverse.org/reference/draw%5Fkey.html), to change the display of the layer in the legend.\n\ngeom\n\nGeom used to display the data. Recommended values for `SpatRaster` are `\"raster\"` (the default), `\"point\"`, `\"text\"` and `\"label\"`.\n\n## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) layer.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`.\n\n## Coordinates\n\nWhen the `SpatRaster` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.62673247,
+          "keyword_score": 38.22268116365482,
+          "vector_rank": 17,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3bf23ae30f37a651280eed9b0c27f1c912",
+        "type": "text",
+        "score": 0.9072425558312655,
+        "text": "| ggplot2::geom\\_\\*()                                                                                                                                           | ✔️ [geom\\_spatvector()](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)                                                                                                                   | ✔️ [geom\\_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html) and [geom\\_spatraster\\_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html). |\n| [generics::tidy()](https://generics.r-lib.org/reference/tidy.html)                                                                                            | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [generics::glance()](https://generics.r-lib.org/reference/glance.html)                                                                                        | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.66258246,
+          "keyword_score": 24.747827783810628,
+          "vector_rank": 5,
+          "keyword_rank": 12,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}
