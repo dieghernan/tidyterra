@@ -1,0 +1,174 @@
+{
+  "id": "01-facets",
+  "question": "How do I facet all layers of a SpatRaster with ggplot2? Give a short, self-contained R example using a small raster and cite the tidyterra documentation.",
+  "criteria": "geom_spatraster(data = raster), facet_wrap(~lyr), valid small raster and source link.",
+  "status": 200,
+  "elapsedMs": 11839,
+  "answer": "You can facet all layers of a `SpatRaster` with `ggplot2` by using `facet_wrap(~lyr)` in your `ggplot` call. \n\nHere is an example:\n```r\nlibrary(terra)\nlibrary(ggplot2)\nlibrary(tidyterra)\n\n# Create a small SpatRaster\nr <- rast(nrows = 10, ncols = 10, nlyr = 3, vals = 1:300)\n\n# Plot the SpatRaster with faceting\nggplot() +\n  geom_spatraster(data = r) +\n  facet_wrap(~lyr)\n```\nThis example creates a small `SpatRaster` with 3 layers and then plots it with `ggplot2`, faceting by layer.\n\nSee the [geom_spatraster documentation](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html) for more information on plotting `SpatRaster` objects with `ggplot2`.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 3974,
+    "completion_tokens": 206,
+    "total_tokens": 4180,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 148.16722106933594
+  },
+  "raw": {
+    "id": "id-1792770140733",
+    "object": "chat.completion",
+    "created": 1792770140,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "You can facet all layers of a `SpatRaster` with `ggplot2` by using `facet_wrap(~lyr)` in your `ggplot` call. \n\nHere is an example:\n```r\nlibrary(terra)\nlibrary(ggplot2)\nlibrary(tidyterra)\n\n# Create a small SpatRaster\nr <- rast(nrows = 10, ncols = 10, nlyr = 3, vals = 1:300)\n\n# Plot the SpatRaster with faceting\nggplot() +\n  geom_spatraster(data = r) +\n  facet_wrap(~lyr)\n```\nThis example creates a small `SpatRaster` with 3 layers and then plots it with `ggplot2`, faceting by layer.\n\nSee the [geom_spatraster documentation](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html) for more information on plotting `SpatRaster` objects with `ggplot2`.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3974,
+      "completion_tokens": 206,
+      "total_tokens": 4180,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 148.16722106933594
+    },
+    "chunks": [
+      {
+        "id": "5356e0de9c78e48641da05defccaaa3449c8cc5cccc60fc983ab19ac26f9c60a",
+        "type": "text",
+        "score": 1,
+        "text": "Geom used to display the data. Recommended values for `SpatRaster` are `\"raster\"` (the default), `\"point\"`, `\"text\"` and `\"label\"`.\n\n## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) layer.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`.\n\n## Coordinates\n\nWhen the `SpatRaster` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\nOn `SpatRaster` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\n\n## Aesthetics\n\n`geom_spatraster()` understands the following aesthetics:\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nIf `fill` is not provided, `geom_spatraster()` creates a [ggplot2](https://cran.r-project.org/package=ggplot2) layer with all the layers of the `SpatRaster`object. Use `facet_wrap(~lyr)` to display the `SpatRaster`layers.\n\nIf `fill` is used, it should contain the name of one layer that is present on the `SpatRaster` (for example, `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can be retrieved using `names(rast)`.\n\nUsing `geom_spatraster(..., mapping = aes(fill = NULL))` or `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no mapped `fill` aesthetic.\n\n`fill` can use computed variables.\n\nFor `alpha`, use a computed variable or the name of one layer that is present on the `SpatRaster`. When `alpha` is a layer name, it can refer to the same layer as `fill` or to another layer in the `SpatRaster`. See section **Computed variables**.\n\n### `stat_spatraster()`\n\n`stat_spatraster()` understands the same aesthetics as `geom_spatraster()`when `geom = \"raster\"` (the default):\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nWhen `geom = \"raster\"`, the `fill` and `alpha` arguments behave as in `geom_spatraster()`, so they can be mapped to `SpatRaster` layer names. If another `geom` is used, `stat_spatraster()` understands the aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)` and `aes(alpha = <name_of_lyr>)` are not applicable.\n\nThe `x` and `y` aesthetics are mapped by default, so you do not need to add them in `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)`. In every case, aesthetics should be mapped with computed variables. See **Computed variables** and **Examples**.\n\n## Facets\n\nYou can use `facet_wrap(~lyr)` to create a faceted plot for each layer of the `SpatRaster` object. See `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)` for details.\n\n## Computed variables\n\nThis geom computes variables internally that are available for use as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see `[ggplot2::after_stat()](https://ggplot2.tidyverse.org/reference/aes%5Feval.html)`).\n\n* `after_stat(value)`: Cell values of the `SpatRaster`.\n* `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when `alpha` is the name of a layer.\n* `after_stat(lyr)`: Name of the layer.\n\n## See also\n\n`[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`, `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`, `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)`.\n\nRecommended `geoms`:\n\n* `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)`.\n* `[ggplot2::geom_label()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n* `[ggplot2::geom_text()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7973668,
+          "keyword_score": 35.84327801498965,
+          "vector_rank": 4,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b3684c2144c17980e850d83069839971b",
+        "type": "text",
+        "score": 0.9217777777777776,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                            | ✔️                                                                                                                                                                                                             |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7773808,
+          "keyword_score": 31.19240132606983,
+          "vector_rank": 12,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "8c910a6c5d354a6a1ded9e1b92abcaf109a0608724ef8da1d235b1061ad44dd1",
+        "type": "text",
+        "score": 0.8871297340854148,
+        "text": "## Methods\n\nImplementation of the **generic** `[ggplot2::fortify()](https://ggplot2.tidyverse.org/reference/fortify.html)` methods for `Spat*`objects.\n\n### `SpatRaster`\n\nReturns a tibble that can be used with `ggplot2::geom_*`, such as `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)` and `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\nThe resulting tibble includes coordinates in the `x` and `y` columns. The values of each layer are added as extra columns using the layer names from the `SpatRaster`.\n\nThe CRS of the `SpatRaster` can be retrieved with `attr(fortifiedSpatRaster, \"crs\")`.\n\nYou can convert the fortified object back to a `SpatRaster` with `[as_spatraster()](https://dieghernan.github.io/tidyterra/reference/as%5Fspatraster.html)`.\n\nWhen `pivot = TRUE`, the `SpatRaster` is fortified in long format (see `[tidyr::pivot_longer()](https://tidyr.tidyverse.org/reference/pivot%5Flonger.html)`). The fortified object has the following columns:\n\n* `x`, `y`: Coordinates of the cell center in the corresponding CRS.\n* `lyr`: Name of the `SpatRaster` layer associated with `value`.\n* `value`: Cell value for the corresponding `lyr`.\n\nThis option can be useful when combining several `geom_*` layers or when faceting.\n\n### `SpatVector`, `SpatGraticule` and `SpatExtent`\n\nReturns an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object that can be used with `[ggplot2::geom_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`.\n\n## See also\n\n`[tidy.Spat](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.html)`, `[sf::st_as_sf()](https://r-spatial.github.io/sf/reference/st%5Fas%5Fsf.html)`.\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) helpers: `[autoplot.Spat](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.html)`, `[geom_spat_contour](https://dieghernan.github.io/tidyterra/reference/geom%5Fspat%5Fcontour.html)`, `[geom_spatraster()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster.html)`, `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)`, `[ggspatvector](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`, `[stat_spat_coordinates()](https://dieghernan.github.io/tidyterra/reference/stat%5Fspat%5Fcoordinates.html)`\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) methods: `[autoplot.Spat](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.html)`\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/reference/as%5Fspatraster.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/reference/as%5Ftibble.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/reference/tidy.Spat.html)`\n\n## Examples\n\n```\n# \\donttest{\n\n# Demonstrate use with ggplot2.\nlibrary(ggplot2)\n\n# Get a SpatRaster.\nr <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\") |>\n  terra::rast() |>\n  terra::project(\"EPSG:4326\")\n\n# You can now use a SpatRaster with any geom.\nggplot(r, maxcell = 50) +\n  geom_histogram(aes(x = elevation),\n    bins = 20, fill = \"lightblue\",\n    color = \"black\"\n  )\n#> <SpatRaster> resampled to 56 cells.\n\n\n# For SpatVector, SpatGraticule and SpatExtent, use geom_sf().\n\n# Create a SpatVector.\nextfile <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\ncyl <- terra::vect(extfile)\n\n",
+        "item": {
+          "key": "reference/fortify.Spat.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7877194,
+          "keyword_score": 24.83567829493709,
+          "vector_rank": 8,
+          "keyword_rank": 13,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b7443f407b089e486e9ece44b164e14be",
+        "type": "text",
+        "score": 0.8841594896331737,
+        "text": "A note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nInstall **tidyterra** from [**CRAN**](https://cran.r-project.org/package=tidyterra):\n\n```\ninstall.packages(\"tidyterra\")\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster(data = rastertemp) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 12,\n    guide = guide_legend(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"\",\n    title = \"Average temperature in Castile and Leon (Spain)\",\n    subtitle = \"Months of April, May and June\"\n  )\n```\n\n![Average temperature in Castile and Leon, Spain](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)\n\n```\n# Create the difference between two months.\nvariation <- rastertemp |>\n  mutate(diff = June - May) |>\n  select(variation = diff)\n\n# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7653038,
+          "keyword_score": 29.843126698487556,
+          "vector_rank": 16,
+          "keyword_rank": 6,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5356e0de9c78e48641da05defccaaa34e8e32f9d397edeb5e6632df3f430f38b",
+        "type": "text",
+        "score": 0.879435294117647,
+        "text": "## See also\n\n`[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`, `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`, `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)`.\n\nRecommended `geoms`:\n\n* `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)`.\n* `[ggplot2::geom_label()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n* `[ggplot2::geom_text()](https://ggplot2.tidyverse.org/reference/geom%5Ftext.html)`.\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) helpers: `[autoplot.Spat](https://dieghernan.github.io/tidyterra/reference/autoplot.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/reference/fortify.Spat.html)`, `[geom_spat_contour](https://dieghernan.github.io/tidyterra/reference/geom%5Fspat%5Fcontour.html)`, `[geom_spatraster_rgb()](https://dieghernan.github.io/tidyterra/reference/geom%5Fspatraster%5Frgb.html)`, `[ggspatvector](https://dieghernan.github.io/tidyterra/reference/ggspatvector.html)`, `[stat_spat_coordinates()](https://dieghernan.github.io/tidyterra/reference/stat%5Fspat%5Fcoordinates.html)`\n\n## Examples\n\n```\n# \\donttest{\n# Average spring temperature in Castile and Leon (Spain)\nfile_path <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\nlibrary(terra)\ntemp_rast <- rast(file_path)\n\nlibrary(ggplot2)\n\n# Display a single layer.\nnames(temp_rast)\n#> [1] \"tavg_04\" \"tavg_05\" \"tavg_06\"\n\nggplot() +\n  geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +\n  # You can use coord_sf().\n  coord_sf(crs = 3857) +\n  scale_fill_grass_c(palette = \"celsius\")\n\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.8373524,
+          "keyword_score": 22.1470735608677,
+          "vector_rank": 1,
+          "keyword_rank": 25,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b0699c26ca86278a7615fcd66a2a0e46f",
+        "type": "text",
+        "score": 0.8558318318318318,
+        "text": "Source: https://dieghernan.github.io/tidyterra/index.html\n\n![](https://dieghernan.github.io/tidyterra/logo.png)\n\n# tidyterra \n\nThe goal of **tidyterra** is to provide methods from [**tidyverse**](https://tidyverse.org/packages/) packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for plotting those objects.\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n## Overview \n\nThe full manual for the latest release of **tidyterra** on **CRAN** is online: <https://dieghernan.github.io/tidyterra/>\n\nMethods implemented in **tidyterra** work differently depending on the type of `Spat*` object:\n\n* `SpatVector`: Methods are implemented using `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)` coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.\n* `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, `select(a_spatraster, 1)` selects the first layer of a `SpatRaster` object.\n\nImplemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, `[as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` returns a tibble.\n\nCurrent methods and functions provided by **tidyterra** are:\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1792708620000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.76902616,
+          "keyword_score": 24.980414570835826,
+          "vector_rank": 14,
+          "keyword_rank": 12,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

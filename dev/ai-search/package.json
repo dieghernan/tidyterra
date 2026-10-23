@@ -1,0 +1,12 @@
+{
+  "name": "tidyterra-ai-search",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test *.test.mjs",
+    "sync": "node sync.mjs"
+  },
+  "dependencies": {
+    "cheerio": "1.1.2"
+  }
+}

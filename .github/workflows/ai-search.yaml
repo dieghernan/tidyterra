@@ -1,0 +1,44 @@
+name: Index docs in Cloudflare AI Search
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [pkgdown-gh-pages]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ai-search-indexing
+  cancel-in-progress: false
+
+jobs:
+  index:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/checkout@v7
+      with:
+        ref: gh-pages
+        path: dev/ai-search/site
+    - uses: actions/setup-node@v6
+      with:
+        node-version: '24'
+        cache: npm
+        cache-dependency-path: dev/ai-search/package-lock.json
+    - name: Install indexing dependencies
+      run: npm ci
+      working-directory: dev/ai-search
+    - name: Test document extraction
+      run: npm test
+      working-directory: dev/ai-search
+    - name: Sync published documentation
+      run: node sync.mjs site --prune
+      working-directory: dev/ai-search
+      env:
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_SEARCH }}
+        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
