@@ -294,7 +294,6 @@ main .callout-body-container {
 }
 
 main pre {
-	max-width: 100%;
 	overflow-x: auto;
 }
 
