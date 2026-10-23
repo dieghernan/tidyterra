@@ -118,6 +118,11 @@ extreme overestimation of area of occurrence in an Endangered East
 African songbird. *Bird Conservation International*, *36*, e26.
 <https://doi.org/10.1017/s0959270926100574>
 
+Cordero, E., & Harris, A. (2026). Satellite-based surface water change
+detection and mesohabitat classification at Big Blue—Kansas Rivers
+confluence. *Ecological Informatics*, 104110.
+<https://doi.org/10.1016/j.ecoinf.2026.104110>
+
 Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
 Enhancing tsunami evacuation strategies in Puerto Rico using open-source
 least-cost path analysis. *Journal of Disaster Science and Management*,
