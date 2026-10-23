@@ -57,6 +57,11 @@ The widget explains that questions are processed by Cloudflare and responses can
 contain mistakes. Monitor AI Search and model usage in the Cloudflare dashboard;
 generation costs are separate from retrieval allowances.
 
+The widget inherits gitdevr's Bootstrap color variables, body and monospace fonts,
+heading font and border radius. These stay synchronized with the site's light
+and dark modes. When minimized, the chat body is inert while the visible header
+controls remain available to keyboard users.
+
 The initial upload indexed all 80 pages from the published site (276 vectors,
 zero indexing errors). Retrieval returned
 relevant content, but generation testing returned HTTP 429 because the account's
