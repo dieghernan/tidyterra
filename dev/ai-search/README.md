@@ -39,6 +39,11 @@ All documents are validated and the complete existing item list is read before
 uploading. Existing built-in keys are deleted before uploading their replacement,
 because POST rejects duplicate keys. A failed replacement stops the sync and may
 leave that page absent until the next successful run.
+Reads and deletes retry HTTP 429 responses up to five times, honoring
+`Retry-After` with a cumulative wait budget of five minutes per operation.
+A DELETE returning 404 after an overload retry is treated as completed, as
+Cloudflare documents that the earlier delete may already have succeeded.
+Other failures still stop the sync. Uploads are not automatically replayed.
 `--prune` removes stale documentation keys only after all uploads succeed and a
 complete item listing is available. Indexing is asynchronous; upload completion
 does not establish that every document is searchable yet.

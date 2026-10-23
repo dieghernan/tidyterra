@@ -2,6 +2,7 @@ import { readdir, readFile, mkdir, writeFile } from 'node:fs/promises';
 import { resolve, relative, join, sep } from 'node:path';
 import { cleanPage, includePage } from './content.mjs';
 import { listItems, uploadDocument } from './items.mjs';
+import { createCloudflareClient } from './client.mjs';
 
 // Adapted from chulapa/scripts/sync-ai-search.mjs for pkgdown output.
 const args = process.argv.slice(2);
@@ -11,6 +12,7 @@ const prune = args.includes('--prune');
 const account = process.env.CLOUDFLARE_ACCOUNT_ID;
 const token = process.env.CLOUDFLARE_API_TOKEN;
 const base = `https://api.cloudflare.com/client/v4/accounts/${account}/ai-search/namespaces/default/instances/tidyterra-ai-search`;
+const cf = createCloudflareClient(base, token);
 
 async function files(dir) {
   const result = [];
@@ -23,20 +25,6 @@ async function files(dir) {
     }
   }
   return result.sort();
-}
-
-async function cf(path, options = {}) {
-  const response = await fetch(base + path, {
-    ...options,
-    headers: { Authorization: `Bearer ${token}`, ...options.headers },
-    signal: AbortSignal.timeout(120000)
-  });
-  const body = await response.json();
-  if (!response.ok || body.success === false) {
-    // Avoid logging credentials or server payloads in Actions.
-    throw new Error(`Cloudflare request failed: ${options.method || 'GET'} ${path} (${response.status})`);
-  }
-  return body;
 }
 
 // Validate and clean the entire tree before making any remote changes.
