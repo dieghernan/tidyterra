@@ -58,9 +58,9 @@ template:
         const chat = document.querySelector("chat-bubble-snippet");
         chat.translations = {
           chatTitle: "tidyterra AI (experimental)",
-          openChatAriaLabel: "Ask tidyterra AI",
+          openChatAriaLabel: "Ask tidyterra AI (experimental)",
           chatEmptyTitle: "Ask about tidyterra",
-          chatEmptyDescription: "Answers use the published tidyterra documentation and may contain mistakes. Check the linked sources. Questions are sent to Cloudflare for processing; do not include private data."
+          chatEmptyDescription: "This assistant is experimental. Answers and R examples may be incorrect. Check the linked sources. Questions are sent to Cloudflare for processing; do not include private data."
         };
         // Accessibility and viewport fixes for the pinned component version.
         const root = chat.shadowRoot;

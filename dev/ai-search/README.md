@@ -1,6 +1,6 @@
 # Documentation assistant
 
-The pkgdown site uses Cloudflare AI Search instance `tidyterra-ai-search` in
+The pkgdown site's experimental assistant uses Cloudflare AI Search instance `tidyterra-ai-search` in
 namespace `default`. Its public chat component is pinned to version 0.0.43 in
 `pkgdown/_pkgdown.yml`. The search API token is never sent to the browser.
 
@@ -66,8 +66,10 @@ The initial upload indexed all 80 pages from the published site (276 vectors,
 zero indexing errors). The first quality evaluation after the quota reset found
 6 passing, 2 partial and 4 failing answers. See the
 [evaluation report](evaluations/2026-10-23-review.md) and recorded API responses.
-The baseline is not ready for release: three standalone/contextual R examples
-fail to execute and another uses the wrong scale family.
+The baseline does not meet the original answer-quality criteria: three
+standalone/contextual R examples fail to execute and another uses the wrong
+scale family. The maintainer approved publication as an experimental assistant;
+these findings remain open quality limitations.
 
 `smoke.mjs` runs three public chat checks and saves responses under `preview/`.
 For the full evaluation, run `node evaluate.mjs` from this directory; optionally
