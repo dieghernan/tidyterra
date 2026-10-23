@@ -38,103 +38,9 @@
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    <chat-bubble-snippet api-url="https://ca9c109c-ee53-446c-a7fc-08328b87799b.search.ai.cloudflare.com/" placeholder="Ask about tidyterra..." chat-query-rewrite='{"enabled": false}'></chat-bubble-snippet><script type="module">
-  import "https://ca9c109c-ee53-446c-a7fc-08328b87799b.search.ai.cloudflare.com/assets/v0.0.43/search-snippet.es.js";
-  const chat = document.querySelector("chat-bubble-snippet");
-  chat.translations = {
-    chatTitle: "tidyterra AI (experimental)",
-    openChatAriaLabel: "Ask tidyterra AI",
-    chatEmptyTitle: "Ask about tidyterra",
-    chatEmptyDescription: "Answers use the published tidyterra documentation and may contain mistakes. Check the linked sources. Questions are sent to Cloudflare for processing; do not include private data."
-  };
-  // Accessibility and viewport fixes for the pinned component version.
-  const root = chat.shadowRoot;
-  const bubble = root.querySelector(".bubble-button");
-  const panel = root.querySelector(".chat-window");
-  // Inline custom properties override the component's own theme defaults.
-  const themeVariables = {
-    "font-family": "var(--bs-body-font-family)",
-    "font-family-mono": "var(--bs-font-monospace)",
-    "line-height": "var(--bs-body-line-height)",
-    "primary-color": "var(--bs-primary)",
-    "primary-hover": "color-mix(in srgb, var(--bs-primary) 88%, var(--bs-body-color))",
-    "background": "var(--bs-body-bg)",
-    "surface": "var(--bs-tertiary-bg)",
-    "text-color": "var(--bs-body-color)",
-    "text-secondary": "var(--bs-secondary-color)",
-    "text-description": "var(--bs-body-color)",
-    "border-color": "var(--bs-border-color)",
-    "border-radius": "var(--bs-border-radius-lg)",
-    "hover-background": "var(--bs-secondary-bg)",
-    "focus-ring": "var(--bs-focus-ring-color)",
-    "error-color": "var(--bs-danger-text-emphasis)",
-    "error-background": "var(--bs-danger-bg-subtle)",
-    "user-message-bg": "var(--bs-primary)",
-    "user-message-text": "var(--bs-white)",
-    "assistant-message-bg": "var(--bs-tertiary-bg)",
-    "assistant-message-text": "var(--bs-body-color)"
-  };
-  for (const [name, value] of Object.entries(themeVariables)) {
-    chat.style.setProperty(`--search-snippet-${name}`, value);
-  }
-  chat.addEventListener("error", () => {
-    let notice = root.querySelector(".tidyterra-chat-status");
-    if (!notice) {
-      notice = document.createElement("p");
-      notice.className = "tidyterra-chat-status";
-      notice.setAttribute("role", "status");
-      panel.append(notice);
-    }
-    notice.textContent = "The assistant is temporarily unavailable. Please try again later or use the site search.";
-  });
-  const style = document.createElement("style");
-  style.textContent = `
-    .chat-window { width: min(380px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); box-sizing: border-box; }
-    .tidyterra-chat-status { padding: 8px 16px; margin: 0; font-size: 0.875rem; color: var(--search-snippet-text-color); }
-    .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
-    .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
-    .chat-message-bubble a:hover, .powered-by a:hover { color: var(--bs-link-hover-color); }
-    button:focus-visible, textarea:focus-visible { outline: 3px solid var(--bs-link-color); outline-offset: 2px; }
-    @media (prefers-reduced-motion: reduce) {
-      .bubble-button, .chat-window { transition: none; }
-    }
-  `;
-  root.append(style);
-  const syncPanel = () => {
-    const open = panel.classList.contains("expanded");
-    panel.inert = !open;
-    for (const section of panel.children) {
-      if (!section.classList.contains("chat-header")) {
-        section.inert = !open || panel.classList.contains("minimized");
-      }
-    }
-    bubble.inert = open;
-    bubble.setAttribute("aria-expanded", String(open));
-  };
-  new MutationObserver(syncPanel).observe(panel, { attributes: true, attributeFilter: ["class"] });
-  syncPanel();
-  bubble.addEventListener("click", () => {
-    syncPanel();
-    root.querySelector("textarea")?.focus();
-  });
-  root.querySelector(".close-button").addEventListener("click", () => {
-    syncPanel();
-    bubble.focus();
-  });
-  chat.addEventListener("keydown", event => {
-    if (event.key === "Escape" && panel.classList.contains("expanded")) {
-      root.querySelector(".close-button").click();
-      event.stopPropagation();
-    }
-  });
-  const syncTheme = () => {
-    chat.setAttribute("theme", document.documentElement.dataset.bsTheme || "auto");
-    const heading = document.querySelector("h1") || document.body;
-    chat.style.setProperty("--tidyterra-chat-heading-font", getComputedStyle(heading).fontFamily);
-  };
-  new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] });
-  syncTheme();
-</script><nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+
+
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
 
@@ -200,7 +106,7 @@
 
 
 
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/feat/cloudflare-ai-assistant/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/faqs.qmd" class="external-link"><code>vignettes/articles/faqs.qmd</code></a></small>
       <div class="d-none name"><code></code></div>
     </div>
 
@@ -995,9 +901,9 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 </div>
 </div>
 </div>
-</section><section class="level2"><h2 id="how-to-overlay-a-spatraster-on-an-rgb-tile">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#how-to-overlay-a-spatraster-on-an-rgb-tile"></a>
+</section><section class="level2"><h2 id="overlay">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#overlay"></a>
 </h2>
-<p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the RGB <code>SpatRaster</code> background tile, then add your data layers on top:</p>
+<p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the RGB <code>SpatRaster</code> background tile, then add your data layers on top. Use <strong>ggblend</strong> to blend the layers, as shown below. For more examples, see <a href="https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/" class="external-link">My ggplot2 blending adventure</a> by Barney Harris.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1007,6 +913,7 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 <span><span class="co"># Get example data.</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/riatelab/maptiles/" class="external-link">maptiles</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.github.io/geodata/" class="external-link">geodata</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjskay.github.io/ggblend/" class="external-link">ggblend</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Area of interest.</span></span>
 <span><span class="va">aoi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/geodata/reference/gadm.html" class="external-link">gadm</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"CHE"</span>, path <span class="op">=</span> <span class="st">"."</span>, level <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -1039,12 +946,14 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 <span><span class="va">tit_lab</span> <span class="op">&lt;-</span> <span class="st">"Average precipitation in Switzerland"</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_c</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"deep"</span>,</span>
-<span>    alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>suffix <span class="op">=</span> <span class="st">" mm."</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1055,12 +964,12 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 <span>    caption <span class="op">=</span> <span class="va">cap_lab</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
-<div id="fig-overlay_cont" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Switzerland with a shaded relief background and a semi-transparent raster overlay of average precipitation. Fill color encodes precipitation in millimeters, and the country boundary outlines the data.">
+<div id="fig-overlay_cont" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Switzerland with average precipitation blended with a shaded relief background. Fill color encodes precipitation in millimeters, and the country boundary outlines the data.">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-overlay_cont-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="faqs_files/figure-html/fig-overlay_cont-1.png" style="width:100.0%" alt="Map of Switzerland with a shaded relief background and a semi-transparent raster overlay of average precipitation. Fill color encodes precipitation in millimeters, and the country boundary outlines the data.">
+<img src="faqs_files/figure-html/fig-overlay_cont-1.png" style="width:100.0%" alt="Map of Switzerland with average precipitation blended with a shaded relief background. Fill color encodes precipitation in millimeters, and the country boundary outlines the data.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-overlay_cont-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure 13: Continuous precipitation data overlaid as a semi-transparent layer on an RGB shaded relief tile.
+Figure 13: Continuous precipitation data blended with an RGB shaded relief tile using <strong>ggblend</strong>.
 </figcaption></figure>
 </div>
 </div>
@@ -1069,12 +978,14 @@ Figure 13: Continuous precipitation data overlaid as a semi-transparent layer o
 <div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Binned legend.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_b</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"deep"</span>,</span>
-<span>    alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>    n.breaks <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>suffix <span class="op">=</span> <span class="st">" mm."</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
@@ -1088,13 +999,15 @@ Figure 13: Continuous precipitation data overlaid as a semi-transparent layer o
 <span></span>
 <span><span class="co"># Filled contour.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, bins <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, bins <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/scale_whitebox.html">scale_fill_whitebox_d</a></span><span class="op">(</span></span>
 <span>    palette <span class="op">=</span> <span class="st">"deep"</span>,</span>
-<span>    alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>    guide <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
@@ -1107,9 +1020,9 @@ Figure 13: Continuous precipitation data overlaid as a semi-transparent layer o
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-overlay_alt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output-display column-page quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-overlay_alt" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-overlay_alt-1" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Switzerland with shaded relief beneath a semi-transparent precipitation raster. Fill color groups average precipitation into discrete ranges.">
+<div id="fig-overlay_alt-1" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Switzerland with shaded relief blended with a precipitation raster. Fill color groups average precipitation into discrete ranges.">
 <figure class="quarto-float quarto-subfloat-fig"><div aria-describedby="fig-overlay_alt-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="faqs_files/figure-html/fig-overlay_alt-1.png" style="width:100.0%" data-ref-parent="fig-overlay_alt" alt="Map of Switzerland with shaded relief beneath a semi-transparent precipitation raster. Fill color groups average precipitation into discrete ranges.">
+<img src="faqs_files/figure-html/fig-overlay_alt-1.png" style="width:100.0%" data-ref-parent="fig-overlay_alt" alt="Map of Switzerland with shaded relief blended with a precipitation raster. Fill color groups average precipitation into discrete ranges.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-overlay_alt-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Binned precipitation legend.
@@ -1239,6 +1152,60 @@ Figure 16: Elevation data represented as points with size and transparency scal
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-metrdemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plotting and <strong>metR</strong> for terrain relief representation.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</section><section class="level3"><h3 id="tidyterra-and-ggblend">tidyterra and ggblend<a class="anchor" aria-label="anchor" href="#tidyterra-and-ggblend"></a>
+</h3>
+<p><strong>ggblend</strong> provides operations for blending, copying, adjusting and compositing layers in <strong>ggplot2</strong>. As shown in <a href="#overlay" style="font-size: 11pt;">How to overlay a <code>SpatRaster</code> on an RGB tile</a>, you can use <strong>ggblend</strong> with <strong>tidyterra</strong> to blend raster layers. The following example combines a grayscale hillshade with a colored elevation raster to highlight terrain relief.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Load libraries and files.</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjskay.github.io/ggblend/" class="external-link">ggblend</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">holyrood</span> <span class="op">&lt;-</span> <span class="st">"holyroodpark.tif"</span></span>
+<span></span>
+<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">holyrood</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Hillshade with gray colors.</span></span>
+<span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
+<span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
+<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fl">340</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">hill_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># Use a grayscale palette.</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span></span>
+<span>    colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">100</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>    na.value <span class="op">=</span> <span class="st">"transparent"</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Extract the hillshade colors.</span></span>
+<span><span class="va">hill_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot_build.html" class="external-link">layer_data</a></span><span class="op">(</span><span class="va">hill_plot</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">fill</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Use the extracted colors to blend the hillshade with the elevation raster.</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, fill <span class="op">=</span> <span class="va">hill_cols</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span>, title <span class="op">=</span> <span class="st">"tidyterra and ggblend: Hillshade"</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-blenddemo" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Holyrood Park with a grayscale hillshade blended with a colored elevation raster to highlight terrain relief.">
+<figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-blenddemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="faqs_files/figure-html/fig-blenddemo-1.png" style="width:100.0%" alt="Map of Holyrood Park with a grayscale hillshade blended with a colored elevation raster to highlight terrain relief.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blenddemo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure 18: Elevation and hillshade layers plotted with <strong>tidyterra</strong> and blended using <strong>ggblend</strong>.
 </figcaption></figure>
 </div>
 </div>

@@ -740,7 +740,10 @@ annotations added using **ggspatial**.
 Use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
 for the RGB `SpatRaster` background tile, then add your data layers on
-top:
+top. Use **ggblend** to blend the layers, as shown below. For more
+examples, see [My ggplot2 blending
+adventure](https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/)
+by Barney Harris.
 
 ``` r
 
@@ -751,6 +754,7 @@ library(sf)
 # Get example data.
 library(maptiles)
 library(geodata)
+library(ggblend)
 
 # Area of interest.
 aoi <- gadm(country = "CHE", path = ".", level = 0) |>
@@ -783,12 +787,14 @@ cap_lab <- paste0(
 tit_lab <- "Average precipitation in Switzerland"
 
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster(data = clim) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile),
+    geom_spatraster(data = clim)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
     palette = "deep",
-    alpha = 0.5,
     labels = scales::label_number(suffix = " mm.")
   ) +
   coord_sf(expand = FALSE) +
@@ -800,13 +806,13 @@ ggplot(aoi) +
   )
 ```
 
-![Map of Switzerland with a shaded relief background and a
-semi-transparent raster overlay of average precipitation. Fill color
-encodes precipitation in millimeters, and the country boundary outlines
-the data.](faqs_files/figure-html/fig-overlay_cont-1.png)
+![Map of Switzerland with average precipitation blended with a shaded
+relief background. Fill color encodes precipitation in millimeters, and
+the country boundary outlines the
+data.](faqs_files/figure-html/fig-overlay_cont-1.png)
 
-Figure 13: Continuous precipitation data overlaid as a semi-transparent
-layer on an RGB shaded relief tile.
+Figure 13: Continuous precipitation data blended with an RGB shaded
+relief tile using **ggblend**.
 
 You can create variations with binned legends and filled contours using
 [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md):
@@ -815,12 +821,14 @@ You can create variations with binned legends and filled contours using
 
 # Binned legend.
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster(data = clim) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile),
+    geom_spatraster(data = clim)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_b(
     palette = "deep",
-    alpha = 0.5,
     n.breaks = 4,
     labels = scales::label_number(suffix = " mm.")
   ) +
@@ -834,13 +842,15 @@ ggplot(aoi) +
 
 # Filled contour.
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster_contour_filled(data = clim, bins = 4) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile),
+    geom_spatraster_contour_filled(data = clim, bins = 4)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   coord_sf(expand = FALSE) +
   scale_fill_whitebox_d(
     palette = "deep",
-    alpha = 0.5,
     guide = guide_legend(reverse = TRUE)
   ) +
   labs(
@@ -851,9 +861,9 @@ ggplot(aoi) +
   )
 ```
 
-![Map of Switzerland with shaded relief beneath a semi-transparent
-precipitation raster. Fill color groups average precipitation into
-discrete ranges.](faqs_files/figure-html/fig-overlay_alt-1.png)
+![Map of Switzerland with shaded relief blended with a precipitation
+raster. Fill color groups average precipitation into discrete
+ranges.](faqs_files/figure-html/fig-overlay_alt-1.png)
 
 \(a\) Binned precipitation legend.
 
@@ -984,6 +994,64 @@ of the underlying relief.](faqs_files/figure-html/fig-metrdemo-1.png)
 
 Figure 17: Relief rendering combining **tidyterra** for raster plotting
 and **metR** for terrain relief representation.
+
+### tidyterra and ggblend
+
+**ggblend** provides operations for blending, copying, adjusting and
+compositing layers in **ggplot2**. As shown in [How to overlay a
+`SpatRaster` on an RGB tile](#overlay), you can use **ggblend** with
+**tidyterra** to blend raster layers. The following example combines a
+grayscale hillshade with a colored elevation raster to highlight terrain
+relief.
+
+``` r
+
+# Load libraries and files.
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(ggblend)
+
+holyrood <- "holyroodpark.tif"
+
+r <- rast(holyrood)
+
+# Hillshade with gray colors.
+slope <- terrain(r, "slope", unit = "radians")
+aspect <- terrain(r, "aspect", unit = "radians")
+hill <- shade(slope, aspect, 10, 340)
+
+hill_plot <- ggplot() +
+  geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
+  # Use a grayscale palette.
+  scale_fill_gradientn(
+    colours = grey(0:100 / 100),
+    na.value = "transparent"
+  )
+
+# Extract the hillshade colors.
+hill_cols <- layer_data(hill_plot) |>
+  pull(fill)
+
+# Use the extracted colors to blend the hillshade with the elevation raster.
+
+ggplot() +
+  list(
+    geom_spatraster(data = hill, fill = hill_cols),
+    geom_spatraster(data = r)
+  ) |>
+  blend("multiply") +
+  scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
+  guides(fill = guide_legend(reverse = TRUE)) +
+  labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
+```
+
+![Map of Holyrood Park with a grayscale hillshade blended with a colored
+elevation raster to highlight terrain
+relief.](faqs_files/figure-html/fig-blenddemo-1.png)
+
+Figure 18: Elevation and hillshade layers plotted with **tidyterra** and
+blended using **ggblend**.
 
 [^1]: Digital surface model, representing the elevation of the visible
     surface in the corresponding area.
