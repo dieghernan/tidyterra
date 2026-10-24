@@ -167,7 +167,7 @@ mod
 #> size        : 87, 118, 2  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       :   tavg_04, exp_lyr1
 #> min values  :  1.885463, 1.207493

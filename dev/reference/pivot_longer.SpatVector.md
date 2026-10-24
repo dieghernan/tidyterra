@@ -207,7 +207,7 @@ cyl_temp <- cbind(cyl, temps) |>
   glimpse()
 #> #  A SpatVector 9 x 7
 #> #  Geometry type: Polygons
-#> #  Projected CRS: World_Robinson
+#> #  Projected CRS: World_Robinson (ESRI:54030)
 #> #  CRS projection units: meter <m>
 #> #  Extent (x / y): ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
 #> 

@@ -106,7 +106,7 @@ unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 #> size        : 87, 118, 4  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       :                             label,   tavg_04,   tavg_05,   tavg_06
 #> min values  : 1.88546288013458-5.81758737564087,  1.885463,  5.817587, 10.463377

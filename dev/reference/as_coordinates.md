@@ -73,7 +73,7 @@ as_coordinates(r, as.raster = TRUE)
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       : cellindex, rowindex, colindex
 #> min values  :         1,        1,        1
