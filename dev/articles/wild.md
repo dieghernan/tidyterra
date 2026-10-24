@@ -241,6 +241,12 @@ forest fragmentation shaped speciation in tropical Asia’s giant
 squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
+Horton, T. W., Enever, R., Course, G., Day, T., Godley, B. J., Hooper,
+T., Kibel, P., Thatcher, H., & Doherty, P. D. (2026). Assessing
+variables that affect catch efficiency of king scallops (*Pecten
+maximus*) in illuminated pots. *ICES Journal of Marine Science*,
+*83*(10), fsag183. <https://doi.org/10.1093/icesjms/fsag183>
+
 Jones, M. D., Almeida, R. J., Boratto, R., Talley, B. L., Buchanan, S.
 W., Sevin, J., Karraker, N. E., & Hunter, E. A. (2026). Long lives,
 short futures: Freshwater turtle and tortoise imports to the United
