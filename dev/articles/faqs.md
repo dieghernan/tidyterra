@@ -1019,7 +1019,7 @@ r <- rast(holyrood)
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
-hill <- shade(slope, aspect, 10, 340)
+hill <- shade(slope, aspect, 0, 60)
 
 hill_plot <- ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
@@ -1037,8 +1037,8 @@ hill_cols <- layer_data(hill_plot) |>
 
 ggplot() +
   list(
-    geom_spatraster(data = hill, fill = hill_cols),
-    geom_spatraster(data = r)
+    geom_spatraster(data = r),
+    geom_spatraster(data = hill, fill = hill_cols, alpha = 0.85)
   ) |>
   blend("multiply") +
   scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
