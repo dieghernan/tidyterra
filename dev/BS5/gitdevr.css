@@ -1169,8 +1169,8 @@ footer a,
 
 /* --- 10. Leaflet --- */
 
-/* No underline in zoom buttons. */
-.leaflet-control-zoom a {
+/* No underline in leaflet. */
+.leaflet a {
 	text-decoration: none !important;
 }
 
