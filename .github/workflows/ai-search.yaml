@@ -25,7 +25,7 @@ jobs:
       with:
         ref: gh-pages
         path: dev/ai-search/site
-    - uses: actions/setup-node@v6
+    - uses: actions/setup-node@v7
       with:
         node-version: '24'
         cache: npm
