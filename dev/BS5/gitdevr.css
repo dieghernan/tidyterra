@@ -1,15 +1,16 @@
 /*! Minified with sass; RGB companions are generated from the brand palette. */
 
 /* Sections
- * 1. Theme variables
- * 2. Typography, images, and metadata
- * 3. Navigation, search, and tooltips
- * 4. Code blocks and syntax highlighting
- * 5. Quarto callouts
- * 6. Tables and Reactable
- * 7. Buttons
- * 8. Footer
- * 9. Accessibility and motion
+ * 1.  Theme variables
+ * 2.  Typography, images, and metadata
+ * 3.  Navigation, search, and tooltips
+ * 4.  Code blocks and syntax highlighting
+ * 5.  Quarto callouts
+ * 6.  Tables and Reactable
+ * 7.  Buttons
+ * 8.  Footer
+ * 9.  Accessibility and motion
+ * 10. Leaflet
  * Keep component overrides after their shared rules to preserve the cascade.
  */
 
@@ -117,10 +118,10 @@ img.logo {
 }
 
 /* Preserve the existing image brightness adjustment in dark mode. */
-[data-bs-theme="dark"] img.r-plt,
-[data-bs-theme="dark"] pre .r-plt.img img,
-[data-bs-theme="dark"] .cell-output-display img,
-[data-bs-theme="dark"] img:not(.logo, .d-inline-block) {
+[data-bs-theme="dark"] img.r-plt:not(.leaflet img),
+[data-bs-theme="dark"] pre .r-plt.img img:not(.leaflet img),
+[data-bs-theme="dark"] .cell-output-display img:not(.leaflet img),
+[data-bs-theme="dark"] img:not(.logo, .d-inline-block, .leaflet img) {
 	filter: brightness(80%) !important;
 }
 
@@ -1164,4 +1165,26 @@ footer a,
 /* Override the inline color emitted by diffviewer. */
 :is(.visual_diff, .diffviewer) .link {
 	color: #595959 !important;
+}
+
+/* --- 10. Leaflet --- */
+
+/* No underline in zoom buttons. */
+.leaflet-control-zoom a {
+	text-decoration: none !important;
+}
+
+/* Fit fixed-width widgets within narrow content columns. */
+.leaflet.html-widget {
+  max-width: 100%;
+}
+
+/* Dim the map once, including vector layers and controls. */
+[data-bs-theme="dark"] .leaflet.html-widget {
+  filter: brightness(80%) !important;
+}
+
+/* Keep pkgdown image inversion out of map tiles and marker icons. */
+[data-bs-theme="dark"] .leaflet.html-widget img {
+  filter: none !important;
 }
