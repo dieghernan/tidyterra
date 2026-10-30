@@ -220,6 +220,11 @@ address the temporal evolution of plant-associated microbiomes*
 naturelle and Università di Torino\].
 <https://doi.org/10.70675/19347969z4326z4f23zb1e2za8d2588a835b>
 
+Guindon, L., Correia, D. L. P., Reisi Gahrouei, O., Perbet, P., Smiley,
+B., Stralberg, D., Collins, L., Parisien, M.-A., Wang, X., Manka, F., &
+Boucher, J. (2026). Canadian fractional landcover maps from 1985 onward.
+*Scientific Data*. <https://doi.org/10.1038/s41597-026-08522-3>
+
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
 Wind, waves, wing loading and the flight energetics of giant petrels.
 *Functional Ecology*, *40*(7), 1979–1993.
