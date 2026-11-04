@@ -45,7 +45,7 @@ Ximenes, D., Hinsley, W., Bosco, F., Gomes, N., Oakley, T., Solano, V.,
 Sheridan, S. L., David, M., Amaral, S., Freitas, L., Draper, A. D. K.,
 Sarmento, N., Soares da Silva, E., Alves, L., … Martins, N. (2026).
 Sero-catalytic and spatial modeling of dengue virus force of infection
-in Timor-Leste. *Nature Communications*.
+in Timor-Leste. *Nature Communications*, *17*(1), 10815.
 <https://doi.org/10.1038/s41467-026-76716-9>
 
 Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
@@ -120,7 +120,7 @@ African songbird. *Bird Conservation International*, *36*, e26.
 
 Cordero, E., & Harris, A. (2026). Satellite-based surface water change
 detection and mesohabitat classification at Big Blue—Kansas Rivers
-confluence. *Ecological Informatics*, 104110.
+confluence. *Ecological Informatics*, *99*, 104110.
 <https://doi.org/10.1016/j.ecoinf.2026.104110>
 
 Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
@@ -283,6 +283,11 @@ Kiziridis, D. A., Karmiris, I., & Fotakis, D. (2026). Agroforestry
 optimisation for climate policy: Mapping silvopastoral carbon
 sequestration trade-offs in the Mediterranean. *Sustainability*,
 *18*(1), 439. <https://doi.org/10.3390/su18010439>
+
+Kiziridis, D. A., Koulelis, P. P., & Fotakis, D. (2026). Mapping wood
+mobilization suitability in Greece: A spatial multi-criteria assessment
+from forest potential to eligible area. *Sustainability*, *18*(21),
+11127. <https://doi.org/10.3390/su182111127>
 
 Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
@@ -493,6 +498,11 @@ Science*, *83*(5), fsag070. <https://doi.org/10.1093/icesjms/fsag070>
 Tanaka, E. (2025). Examining the interface design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*, *68*(1), e70031.
 <https://doi.org/10.1111/anzs.70031>
+
+Templeton, M. R. (2026). *Episodic and chronic pollutant loading in a
+mixed land-use watershed: A paired storm event and synoptic monitoring
+approach* \[Master's thesis, University of Missouri–Columbia\].
+<https://doi.org/10.32469/10355/113180>
 
 Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
 du voisinage environnemental pour prédire la répartition des espèces de
