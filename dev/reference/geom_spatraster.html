@@ -85,6 +85,10 @@ the geom."><meta property="og:image" content="https://dieghernan.github.io/tidyt
     .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
     .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
     .chat-message-bubble a:hover, .powered-by a:hover { color: var(--bs-link-hover-color); }
+    .tidyterra-chat-sources { margin-top: 0.75rem; padding-top: 0.5rem; border-top: 1px solid var(--bs-border-color); font-size: 0.875rem; }
+    .tidyterra-chat-sources summary { cursor: pointer; color: var(--bs-secondary-color); font-weight: 600; }
+    .tidyterra-chat-sources summary:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
+    .tidyterra-chat-sources ul { margin: 0.4rem 0 0; padding-inline-start: 1.25rem; overflow-wrap: anywhere; }
     button:focus-visible, textarea:focus-visible { outline: 3px solid var(--bs-link-color); outline-offset: 2px; }
     @media (prefers-reduced-motion: reduce) {
       .bubble-button, .chat-window { transition: none; }
@@ -125,6 +129,15 @@ the geom."><meta property="og:image" content="https://dieghernan.github.io/tidyt
   };
   new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] });
   syncTheme();
+  const pkgdownScript = document.querySelector('script[src$="pkgdown.js"]');
+  if (pkgdownScript) {
+    const { enhanceTidyterraChat } = await import(new URL("tidyterra-chat.mjs", pkgdownScript.src));
+    if (chat.chatView) {
+      enhanceTidyterraChat(chat);
+    } else {
+      bubble.addEventListener("click", () => enhanceTidyterraChat(chat), { once: true });
+    }
+  }
 </script><nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="tidyterra logo" height="34" width="34" class="d-inline-block me-1">tidyterra</a>
