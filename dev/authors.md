@@ -16,6 +16,9 @@
 - **Andrea Manica**. Contributor.
   [](https://orcid.org/0000-0003-1895-450X)
 
+- **Michael Sumner**. Contributor.
+  [](https://orcid.org/0000-0002-2471-7511)
+
 ## Citation
 
 Source:
