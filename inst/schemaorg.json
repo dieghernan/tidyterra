@@ -17,6 +17,12 @@
       "type": "Person",
       "familyName": "Manica",
       "givenName": "Andrea"
+    },
+    {
+      "id": "https://orcid.org/0000-0002-2471-7511",
+      "type": "Person",
+      "familyName": "Sumner",
+      "givenName": "Michael"
     }
   ],
   "copyrightHolder": [
@@ -46,6 +52,6 @@
     "name": "Comprehensive R Archive Network (CRAN)",
     "url": "https://cran.r-project.org"
   },
-  "runtimePlatform": "R version 4.6.1 (2026-06-24 ucrt)",
+  "runtimePlatform": "R version 4.6.2 (2026-10-29 ucrt)",
   "version": "1.3.0.9000"
 }

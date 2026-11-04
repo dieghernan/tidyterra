@@ -11,7 +11,7 @@ Authors@R: c(
     person("Andrea", "Manica", role = "ctb",
            comment = c(ORCID = "0000-0003-1895-450X")),
     person("Michael", "Sumner", role = "ctb",
-            comment = c(ORCID = "0000-0002-2471-7511"))
+           comment = c(ORCID = "0000-0002-2471-7511"))
   )
 Description: Provides methods from 'tidyverse' packages for 'SpatRaster'
     and 'SpatVector' objects created with 'terra', plus 'ggplot2' 'geoms'

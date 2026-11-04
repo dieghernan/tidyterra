@@ -38,6 +38,7 @@ Other contributors:
   \item Dewey Dunnington (\href{https://orcid.org/0000-0002-9415-4582}{ORCID}) (for ggspatial code) [contributor]
   \item ggplot2 authors (for contour code) [copyright holder]
   \item Andrea Manica (\href{https://orcid.org/0000-0003-1895-450X}{ORCID}) [contributor]
+  \item Michael Sumner (\href{https://orcid.org/0000-0002-2471-7511}{ORCID}) [contributor]
 }
 
 }

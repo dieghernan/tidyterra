@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.6.1 (2026-06-24 ucrt)",
+  "runtimePlatform": "R version 4.6.2 (2026-10-29 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -42,6 +42,12 @@
       "givenName": "Andrea",
       "familyName": "Manica",
       "@id": "https://orcid.org/0000-0003-1895-450X"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Michael",
+      "familyName": "Sumner",
+      "@id": "https://orcid.org/0000-0002-2471-7511"
     }
   ],
   "copyrightHolder": [
@@ -390,7 +396,7 @@
     "SystemRequirements": null
   },
   "keywords": ["r", "terra", "ggplot-extension", "r-spatial", "rspatial", "cran", "cran-r", "r-package", "rstats", "rstats-package"],
-  "fileSize": "2630.964KB",
+  "fileSize": "2631.356KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
