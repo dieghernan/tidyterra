@@ -6,6 +6,8 @@ For plotting SpatRaster objects as map tiles, such as RGB
 SpatRaster objects,
 objects, use
 geom_spatraster_rgb().
+To plot one panel per raster layer in two columns, add
+ggplot2::facet_wrap(~lyr, ncol = 2).
 The underlying implementation is based on ggplot2::geom_raster().
 stat_spatraster() complements geom_spatraster() when you need to change
 the geom."><meta property="og:description" content="This geom plots SpatRaster objects (see terra::rast()). It
@@ -15,6 +17,8 @@ For plotting SpatRaster objects as map tiles, such as RGB
 SpatRaster objects,
 objects, use
 geom_spatraster_rgb().
+To plot one panel per raster layer in two columns, add
+ggplot2::facet_wrap(~lyr, ncol = 2).
 The underlying implementation is based on ggplot2::geom_raster().
 stat_spatraster() complements geom_spatraster() when you need to change
 the geom."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
@@ -185,7 +189,9 @@ to plot the object by layers, as <code><a href="https://rspatial.github.io/terra
 <p>For plotting <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> objects as map tiles, such as RGB
 <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> objects,
 objects, use
-<code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.</p>
+<code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.
+To plot one panel per raster layer in two columns, add
+<code>ggplot2::facet_wrap(~lyr, ncol = 2)</code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
 <p><code>stat_spatraster()</code> complements <code>geom_spatraster()</code> when you need to change
 the <code>geom</code>.</p>

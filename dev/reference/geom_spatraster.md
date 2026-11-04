@@ -14,6 +14,8 @@ objects as map tiles, such as RGB
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 objects, objects, use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
+To plot one panel per raster layer in two columns, add
+`ggplot2::facet_wrap(~lyr, ncol = 2)`.
 
 The underlying implementation is based on
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).

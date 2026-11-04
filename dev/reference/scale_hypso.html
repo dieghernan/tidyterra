@@ -19,6 +19,8 @@ grDevices::terrain.colors() for details.
 
 
 See Details.
+Use scale_fill_hypso_tint_c(palette = &quot;gmt_globe&quot;) for continuous
+hypsometric tints. Use scale_fill_hypso_c() for a continuous gradient.
 Additional arguments ... are passed to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
@@ -47,6 +49,8 @@ grDevices::terrain.colors() for details.
 
 
 See Details.
+Use scale_fill_hypso_tint_c(palette = &quot;gmt_globe&quot;) for continuous
+hypsometric tints. Use scale_fill_hypso_c() for a continuous gradient.
 Additional arguments ... are passed to:
 Discrete values: ggplot2::discrete_scale().
 Continuous values: ggplot2::continuous_scale().
@@ -230,7 +234,9 @@ full range of arguments accepted by these scales."><meta property="og:image" con
 <li><p><code>scale_*_hypso_tint_b()</code>: For binning continuous values.</p></li>
 <li><p><code>hypso.colors2()</code>: A gradient color palette. See also
 <code><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">grDevices::terrain.colors()</a></code> for details.</p></li>
-</ul><p>See <strong>Details</strong>.</p>
+</ul><p>See <strong>Details</strong>.
+Use <code>scale_fill_hypso_tint_c(palette = "gmt_globe")</code> for continuous
+hypsometric tints. Use <code>scale_fill_hypso_c()</code> for a continuous gradient.</p>
 <p>Additional arguments <code>...</code> are passed to:</p><ul><li><p>Discrete values: <code><a href="https://ggplot2.tidyverse.org/reference/discrete_scale.html" class="external-link">ggplot2::discrete_scale()</a></code>.</p></li>
 <li><p>Continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/continuous_scale.html" class="external-link">ggplot2::continuous_scale()</a></code>.</p></li>
 <li><p>Binned continuous values: <code><a href="https://ggplot2.tidyverse.org/reference/binned_scale.html" class="external-link">ggplot2::binned_scale()</a></code>.</p></li>
@@ -548,7 +554,16 @@ between colors differs depending on the type of color. In contrast,
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">elevation</span> <span class="op">&lt;-</span> <span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span>nrows <span class="op">=</span> <span class="fl">2</span>, ncols <span class="op">=</span> <span class="fl">2</span>, vals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">100</span>, <span class="fl">0</span>, <span class="fl">500</span>, <span class="fl">1000</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">elevation</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">scale_fill_hypso_tint_c</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"gmt_globe"</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="scale_hypso-1.png" alt="" width="2188" height="1352"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/volcano2.tif"</span>, package <span class="op">=</span> <span class="st">"tidyterra"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span></span>
@@ -556,17 +571,17 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Palette</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">hypso.colors</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"wiki-2.0_hypso"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-1.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-2.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Palette with uneven colors</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">volcano2_rast</span>, col <span class="op">=</span> <span class="fu">hypso.colors2</span><span class="op">(</span><span class="fl">100</span>, palette <span class="op">=</span> <span class="st">"wiki-2.0_hypso"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-2.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-3.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_rast</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_fill_hypso_c</span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"colombia_hypso"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-3.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-4.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Full map with true tints</span></span></span>
 <span class="r-in"><span></span></span>
@@ -589,13 +604,13 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span>    legend.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_line</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"black"</span>, linewidth <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    legend.direction <span class="op">=</span> <span class="st">"horizontal"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-4.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-5.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Binned</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">volcano2_rast</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_fill_hypso_b</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">70</span>, <span class="fl">200</span>, <span class="fl">25</span><span class="op">)</span>, palette <span class="op">=</span> <span class="st">"wiki-2.0_hypso"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-5.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-6.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With breaks</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
@@ -604,7 +619,7 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">75</span>, <span class="fl">200</span>, <span class="fl">25</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>    palette <span class="op">=</span> <span class="st">"wiki-2.0_hypso"</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-6.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-7.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># With discrete values</span></span></span>
 <span class="r-in"><span><span class="va">factor</span> <span class="op">&lt;-</span> <span class="va">volcano2_rast</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>cats <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span><span class="va">elevation</span>,</span></span>
@@ -618,13 +633,13 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">factor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">cats</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_fill_hypso_d</span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"gray10"</span>, palette <span class="op">=</span> <span class="st">"dem_poster"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-7.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-8.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Tint version</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">factor</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">cats</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu">scale_fill_hypso_tint_d</span><span class="op">(</span>na.value <span class="op">=</span> <span class="st">"gray10"</span>, palette <span class="op">=</span> <span class="st">"dem_poster"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-8.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-9.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span><span class="co"># Display all the cpt-city palettes</span></span></span>
 <span class="r-in"><span></span></span>
@@ -646,7 +661,7 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-9.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-10.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># Display all version 2 cpt-city palettes.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">pals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">hypsometric_tints_db</span><span class="op">$</span><span class="va">pal</span><span class="op">)</span></span></span>
@@ -667,7 +682,7 @@ between colors differs depending on the type of color. In contrast,
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="va">opar</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="scale_hypso-10.png" alt="" width="2188" height="1352"></span>
+<span class="r-plt img"><img src="scale_hypso-11.png" alt="" width="2188" height="1352"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
