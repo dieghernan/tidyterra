@@ -130,10 +130,10 @@ jobs:
         timeout-minutes: 60
         run: |
           if [[ "$RECONCILE" == "true" ]]; then
-            node sync.mjs site --reconcile
+            node sync.mjs site/dev --development --reconcile
             exit $?
           fi
-          args=(site --all-batches)
+          args=(site/dev --development --all-batches)
           if [[ "$PRUNE" == "true" ]]; then
             args+=(--prune)
           fi

@@ -22,3 +22,14 @@ test('redirects are skipped and missing content fails before upload', () => {
   assert.equal(cleanPage('<meta http-equiv="refresh" content="0;url=x">', 'index.html'), null);
   assert.throws(() => cleanPage('<p>Wrong layout</p>', 'index.html'), /main#main/);
 });
+
+test('explicit development mode includes pkgdown noindex pages and uses dev URLs', () => {
+  const html = '<meta name="robots" content="noindex"><main id="main"><a href="other.html">Other</a></main>';
+  const key = 'reference/example.html';
+  const options = { development: true };
+  assert.equal(cleanPage(html, key), null);
+  const $ = load(cleanPage(html, key, options));
+  assert.equal($('link[rel="canonical"]').attr('href'), 'https://dieghernan.github.io/tidyterra/dev/reference/example.html');
+  assert.equal($('a').attr('href'), 'https://dieghernan.github.io/tidyterra/dev/reference/other.html');
+  assert.equal(cleanPage('<meta http-equiv="refresh" content="0;url=x">', key, options), null);
+});

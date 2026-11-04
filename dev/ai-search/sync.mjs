@@ -22,6 +22,7 @@ const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
 const allBatches = args.includes('--all-batches');
 const reconcile = args.includes('--reconcile');
+const development = args.includes('--development');
 
 const manifestPath = resolve(
   process.env.AI_SEARCH_MANIFEST ?? 'manifest.json'
@@ -61,7 +62,7 @@ const documents = [];
 
 for (const file of await files(root)) {
   const key = relative(root, file).split(sep).join('/');
-  const html = cleanPage(await readFile(file, 'utf8'), key);
+  const html = cleanPage(await readFile(file, 'utf8'), key, { development });
 
   if (html) documents.push({ key, html });
 }
