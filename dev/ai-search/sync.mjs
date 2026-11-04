@@ -6,8 +6,10 @@ import { listItems } from './items.mjs';
 import { createCloudflareClient } from './client.mjs';
 import {
   createManifest,
-  readManifest
+  readManifest,
+  writeManifest
 } from './manifest.mjs';
+import { reconcileManifest } from './reconcile.mjs';
 import { executeSync } from './execute.mjs';
 import { setTimeout as sleep } from 'node:timers/promises';
 
@@ -19,6 +21,7 @@ const root = resolve(
 const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
 const allBatches = args.includes('--all-batches');
+const reconcile = args.includes('--reconcile');
 
 const manifestPath = resolve(
   process.env.AI_SEARCH_MANIFEST ?? 'manifest.json'
@@ -94,6 +97,18 @@ if (dryRun) {
     `${changed.length} documents differ from the local manifest.`
   );
   console.log('No remote changes.');
+} else if (reconcile) {
+  if (!account || !token) {
+    throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.');
+  }
+  console.log(`Comparing ${documents.length} documents with Cloudflare.`);
+  const { manifest, missing, different, ambiguous } =
+    await reconcileManifest(cf, documents, current);
+  await writeManifest(manifestPath, manifest);
+  console.log(
+    `Verified ${Object.keys(manifest).length} exact matches, ` +
+    `${different} different, ${missing} missing, ${ambiguous} ambiguous.`
+  );
 } else {
   if (!account || !token) {
     throw new Error(

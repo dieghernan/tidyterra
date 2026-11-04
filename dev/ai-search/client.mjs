@@ -5,7 +5,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 export function createCloudflareClient(base, token, {
   fetchImpl = fetch, sleep = delay, now = Date.now, log = console.warn
 } = {}) {
-  return async function cf(path, options = {}) {
+  return async function cf(path, options = {}, { raw = false } = {}) {
     const method = options.method || 'GET';
     let waitedMs = 0;
     let retryingDelete = false;
@@ -38,6 +38,7 @@ export function createCloudflareClient(base, token, {
       // Avoid logging credentials or server payloads in Actions, including
       // overload responses that contain HTML instead of JSON.
       if (!response.ok) throw new Error(`Cloudflare request failed: ${method} ${path} (${response.status})`);
+      if (raw) return response;
       const body = await response.json();
       if (body?.success === false) throw new Error(`Cloudflare request failed: ${method} ${path} (${response.status})`);
       return body;

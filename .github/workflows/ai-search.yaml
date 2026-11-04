@@ -8,7 +8,7 @@ on:
         description: Operation to run
         type: choice
         default: cache-test
-        options: [cache-test, sync, sync-and-prune, sync-from-backup]
+        options: [cache-test, reconcile, sync, sync-and-prune, sync-from-backup]
   workflow_run:
     workflows: [pkgdown-gh-pages]
     types: [completed]
@@ -53,7 +53,7 @@ jobs:
     if: >-
       github.ref == 'refs/heads/main' &&
       ((github.event_name == 'workflow_dispatch' &&
-        (inputs.mode == 'sync' || inputs.mode == 'sync-and-prune' ||
+        (inputs.mode == 'reconcile' || inputs.mode == 'sync' || inputs.mode == 'sync-and-prune' ||
          inputs.mode == 'sync-from-backup')) ||
        (github.event_name == 'workflow_run' &&
         vars.AI_SEARCH_AUTO_SYNC == 'true' &&
@@ -90,7 +90,7 @@ jobs:
         run: npm test
 
       - name: Restore AI Search manifest
-        if: inputs.mode != 'sync-from-backup'
+        if: inputs.mode != 'sync-from-backup' && inputs.mode != 'reconcile'
         uses: actions/cache/restore@v6
         with:
           path: dev/ai-search/manifest.json
@@ -129,12 +129,17 @@ jobs:
         id: sync
         timeout-minutes: 60
         run: |
+          if [[ "$RECONCILE" == "true" ]]; then
+            node sync.mjs site --reconcile
+            exit $?
+          fi
           args=(site --all-batches)
           if [[ "$PRUNE" == "true" ]]; then
             args+=(--prune)
           fi
           node sync.mjs "${args[@]}"
         env:
+          RECONCILE: ${{ inputs.mode == 'reconcile' }}
           PRUNE: ${{ github.event_name == 'workflow_run' || inputs.mode == 'sync-and-prune' }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_SEARCH }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
