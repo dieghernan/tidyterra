@@ -23,6 +23,11 @@ const prune = args.includes('--prune');
 const allBatches = args.includes('--all-batches');
 const reconcile = args.includes('--reconcile');
 const development = args.includes('--development');
+const missingOnly = args.includes('--missing-only');
+
+if (missingOnly && (prune || allBatches || reconcile)) {
+  throw new Error('--missing-only cannot be combined with --prune, --all-batches, or --reconcile.');
+}
 
 const manifestPath = resolve(
   process.env.AI_SEARCH_MANIFEST ?? 'manifest.json'
@@ -152,6 +157,7 @@ if (dryRun) {
       confirmedThisRun,
       manifestPath,
       prune,
+      missingOnly,
       maxUploads
     });
 

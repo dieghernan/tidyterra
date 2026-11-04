@@ -71,10 +71,10 @@ The initial upload indexed all 80 pages from the published site (276 vectors,
 zero indexing errors). The first quality evaluation after the quota reset found
 6 passing, 2 partial and 4 failing answers. See the
 [evaluation report](evaluations/2026-10-23-review.md) and recorded API responses.
-The baseline does not meet the original answer-quality criteria: three
-standalone/contextual R examples fail to execute and another uses the wrong
-scale family. The maintainer approved publication as an experimental assistant;
-these findings remain open quality limitations.
+The [final evaluation](evaluations/2026-11-04-review.md) found 8 passing,
+2 partial and 2 failing answers. RGB plotting, hypsometric tints and two-column
+facets passed. Raster layer selection, the vector filtering example and
+resolution claims around `maxcell = Inf` remain quality limitations.
 
 `smoke.mjs` runs three public chat checks and saves responses under `preview/`.
 For the full evaluation, run `node evaluate.mjs` from this directory; optionally

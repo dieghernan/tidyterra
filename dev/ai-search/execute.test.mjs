@@ -65,6 +65,21 @@ test('unchanged document causes no upload', async () => {
   assert.equal(ctx.calls.length, 0);
 });
 
+test('missing-only uploads absent documents and leaves replacements pending', async () => {
+  const { options, calls, saved } = setup();
+  const absent = { key: 'reference/absent.html', html: '<p>New</p>' };
+  const result = await executeSync({
+    ...options,
+    documents: [document, absent],
+    current: { [key]: hash, [absent.key]: 'absent-hash' },
+    missingOnly: true
+  });
+
+  assert.deepEqual(calls, [{ key: absent.key, existing: undefined }]);
+  assert.deepEqual(result, { uploaded: 1, skipped: 0, deleted: 0, pending: 1 });
+  assert.deepEqual(saved.at(-1), { [absent.key]: 'absent-hash' });
+});
+
 test('changed document updates the manifest', async () => {
   const ctx = setup({
     previous: { [key]: 'old-hash' }

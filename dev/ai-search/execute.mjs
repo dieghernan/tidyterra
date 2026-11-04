@@ -13,6 +13,7 @@ export async function executeSync({
   confirmedThisRun = new Set(),
   manifestPath,
   prune = false,
+  missingOnly = false,
   upload = uploadDocument,
   save = writeManifest,
   log = console.log,
@@ -37,7 +38,11 @@ export async function executeSync({
     `${plan.skip.length} unchanged.`
   );
 
-  for (const document of plan.upload.slice(0, maxUploads)) {
+  const candidates = missingOnly
+    ? plan.upload.filter(document => !document.existing)
+    : plan.upload;
+
+  for (const document of candidates.slice(0, maxUploads)) {
     // Remove the trusted hash before any remote mutation.
     delete state[document.key];
     await save(manifestPath, state);
@@ -61,7 +66,7 @@ export async function executeSync({
     );
   }
 
-  if (prune && pending === 0) {
+  if (prune && !missingOnly && pending === 0) {
     const wanted = new Set(documents.map(doc => doc.key));
 
     for (const item of existing) {

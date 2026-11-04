@@ -1,0 +1,174 @@
+{
+  "id": "05-vector-filter",
+  "question": "Give a self-contained R example using a tiny SpatVector with two points and a numeric attribute: retain points whose attribute is greater than 10 using tidyterra. What type of object is returned? Cite the documentation.",
+  "criteria": "Valid vector construction and filter; result is SpatVector with one geometry.",
+  "status": 200,
+  "elapsedMs": 13327,
+  "answer": "Here's a self-contained R example that uses a tiny SpatVector with two points and a numeric attribute, and retains points whose attribute is greater than 10 using tidyterra.\n\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(dplyr)\n\n# Create a tiny SpatVector\nv <- vect(x = c(1, 2), y = c(3, 4), crs = \"EPSG:3857\")\nv$attr <- c(5, 15)\n\n# Filter the SpatVector\nfiltered_v <- v |> filter(attr > 10)\n\n# Print the filtered SpatVector\nprint(filtered_v)\n```\n\nThe object returned by `filter()` is a `SpatVector` object. This is stated in the [filter.Spat.html](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.html) documentation:\n\n\"The result is a `SpatVector` containing the geometries whose attributes satisfy all conditions.\"\n\nNote that the `filter()` function is a generic function from the dplyr package, and tidyterra provides a method for `SpatVector` objects. The `filter()` function in tidyterra works similarly to the `filter()` function in dplyr, but it is designed to work with spatial data.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 4690,
+    "completion_tokens": 270,
+    "total_tokens": 4960,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 180.36880493164062
+  },
+  "raw": {
+    "id": "id-1793826928365",
+    "object": "chat.completion",
+    "created": 1793826928,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's a self-contained R example that uses a tiny SpatVector with two points and a numeric attribute, and retains points whose attribute is greater than 10 using tidyterra.\n\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(dplyr)\n\n# Create a tiny SpatVector\nv <- vect(x = c(1, 2), y = c(3, 4), crs = \"EPSG:3857\")\nv$attr <- c(5, 15)\n\n# Filter the SpatVector\nfiltered_v <- v |> filter(attr > 10)\n\n# Print the filtered SpatVector\nprint(filtered_v)\n```\n\nThe object returned by `filter()` is a `SpatVector` object. This is stated in the [filter.Spat.html](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.html) documentation:\n\n\"The result is a `SpatVector` containing the geometries whose attributes satisfy all conditions.\"\n\nNote that the `filter()` function is a generic function from the dplyr package, and tidyterra provides a method for `SpatVector` objects. The `filter()` function in tidyterra works similarly to the `filter()` function in dplyr, but it is designed to work with spatial data.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4690,
+      "completion_tokens": 270,
+      "total_tokens": 4960,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 180.36880493164062
+    },
+    "chunks": [
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b033078ad3f317d359e652ce4d091365d",
+        "type": "text",
+        "score": 1,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/index.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# tidyterra \n\nThe goal of **tidyterra** is to provide methods from [**tidyverse**](https://tidyverse.org/packages/) packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for plotting those objects.\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n## Overview \n\nThe full manual for the latest release of **tidyterra** on **CRAN** is online: <https://dieghernan.github.io/tidyterra/>\n\nMethods implemented in **tidyterra** work differently depending on the type of `Spat*` object:\n\n* `SpatVector`: Methods are implemented using `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)` coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.\n* `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, `select(a_spatraster, 1)` selects the first layer of a `SpatRaster` object.\n\nImplemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, `[as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` returns a tibble.\n\nCurrent methods and functions provided by **tidyterra** are:\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.70241994,
+          "keyword_score": 127.34641842074946,
+          "vector_rank": 3,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "4c85717e809d64132969ca493502f15b52ebfaa262531f7a245ceacb4f446c9e",
+        "type": "text",
+        "score": 0.8703548260395814,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/select.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Subset layers/attributes of `Spat*` objects\n\nSource: [R/select-Spat.R](https://github.com/dieghernan/tidyterra/blob/main/R/select-Spat.R) \n\n`select.Spat.Rd`\n\nSelect (and optionally rename) attributes/layers in `Spat*` objects, using a concise mini-language. See **Methods**.\n\n## Usage\n\n```\n# S3 method for class 'SpatRaster'\nselect(.data, ...)\n\n# S3 method for class 'SpatVector'\nselect(.data, ...)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> One or more unquoted expressions separated by commas. Layer/attribute names can be used as if they were positions in the `Spat*` object, so expressions like `x:y` can be used to select a range of layers/attributes.\n\n## Value\n\nA `Spat*` object of the same class as `.data`. See **Methods**.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::subset()](https://rspatial.github.io/terra/reference/subset.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::select()](https://dplyr.tidyverse.org/reference/select.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nSelects and renames layers of a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`. The result is a `SpatRaster`with the same extent, resolution and CRS as `.data`. Only the number and possibly the names of layers are modified.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nThe result is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` with the attributes selected and possibly renamed as specified in the function call.\n\n## See also\n\n`[dplyr::select()](https://dplyr.tidyverse.org/reference/select.html)`, `[terra::subset()](https://rspatial.github.io/terra/reference/subset.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on columns: `[glimpse.Spat](https://dieghernan.github.io/tidyterra/dev/reference/glimpse.Spat.html)`, `[mutate.Spat](https://dieghernan.github.io/tidyterra/dev/reference/mutate.Spat.html)`, `[pull.Spat](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html)`, `[relocate.Spat](https://dieghernan.github.io/tidyterra/dev/reference/relocate.Spat.html)`, `[rename.Spat](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\n# SpatRaster method\n\nspatrast <- rast(\n  crs = \"EPSG:3857\",\n  nrows = 10,\n  ncols = 10,\n  extent = c(100, 200, 100, 200),\n  nlyr = 6,\n  vals = seq_len(10 * 10 * 6)\n)\n\nspatrast |> select(1)\n#> class       : SpatRaster\n#> size        : 10, 10, 1  (nrow, ncol, nlyr)\n#> resolution  : 10, 10  (x, y)\n#> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> name        : lyr.1\n#> min value   :     1\n#> max value   :   100\n\n# By name\nspatrast |> select(lyr.1:lyr.4)\n#> class       : SpatRaster\n#> size        : 10, 10, 4  (nrow, ncol, nlyr)\n#> resolution  : 10, 10  (x, y)\n#> extent      : 100, 200, 100, 200  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       : lyr.1, lyr.2, lyr.3, lyr.4\n#> min values  :     1,   101,   201,   301\n#> max values  :   100,   200,   300,   400\n\n",
+        "item": {
+          "key": "reference/select.Spat.html",
+          "timestamp": 1793826360000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6730888,
+          "keyword_score": 102.44853301472332,
+          "vector_rank": 16,
+          "keyword_rank": 7,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "b6db1d8eafcc0bed041910b144bf200b908b7dc3280af3540d3b87adfadc641b",
+        "type": "text",
+        "score": 0.8270397300445907,
+        "text": "# S3 method for class 'SpatVector'\nfilter_out(.data, ..., .by = NULL, .preserve = FALSE)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Expressions that return a logical value and are defined in terms of the layers/attributes in `.data`. If multiple expressions are included, they are combined with the `&` operator. Only cells/geometries for which all conditions evaluate to `TRUE` are kept. See **Methods**.\n\n.preserve\n\nRelevant when the `.data` input is grouped. If `.preserve = FALSE` (the default), the grouping structure is recalculated based on the resulting data, otherwise the grouping is kept as is.\n\n.keep\\_extent\n\nLogical. If `TRUE`, keep the extent of the resulting `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`. If `FALSE`, `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)` is called so the extent may differ from the extent of the input. See also `[drop_na.SpatRaster()](https://dieghernan.github.io/tidyterra/dev/reference/drop%5Fna.Spat.html)`.\n\n.by\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> Optionally, a selection of columns to group by for just this operation, functioning as an alternative to `[group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`. For details and examples, see [?dplyr\\_by](https://dplyr.tidyverse.org/reference/dplyr%5Fby.html).\n\n## Value\n\nA `Spat*` object of the same class as `.data`. See **Methods**.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nCells that do not meet the conditions in `...` are returned as `NA`. On a multi-layer `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`, `NA` is propagated across all layers.\n\nIf `.keep_extent = TRUE`, the returned `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` has the same CRS, extent, resolution and number of cells as `.data`. If `.keep_extent = FALSE`, the outer `NA` cells are trimmed with `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`, so the extent and number of cells may differ. The output still has the same CRS and resolution as `.data`.\n\nThe `x` and `y` coordinates of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` are also available internally for filtering. See **Examples**.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nThe result is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` containing the geometries whose attributes satiy all conditions.\n\n## See also\n\n`[dplyr::filter()](https://dplyr.tidyverse.org/reference/filter.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on rows: `[arrange.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/arrange.SpatVector.html)`, `[distinct.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/distinct.SpatVector.html)`, `[rows.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.html)`, `[slice.Spat](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.html)`\n\n## Examples\n\n```\n\n",
+        "item": {
+          "key": "reference/filter.Spat.html",
+          "timestamp": 1793825160000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6755745,
+          "keyword_score": 97.87114862329058,
+          "vector_rank": 13,
+          "keyword_rank": 17,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "0280db07d2fafca6cd0018ea486ad43de3c3c6b8add7b8749c1f62626c6d8f11",
+        "type": "text",
+        "score": 0.8136678713992879,
+        "text": "# S3 method for class 'SpatVector'\nas_spatvector(x, ...)\n```\n\n## Arguments\n\nx\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html), data frame or [sf](https://cran.r-project.org/package=sf) object of class `sf` or `[sfc](https://r-spatial.github.io/sf/reference/sfc.html)`.\n\n...\n\nAdditional arguments passed to `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\ngeom\n\nCharacter vector naming the fields that contain the geometry data. Use two names for point coordinates (`x` and `y`) or one name for a column with WKT geometries.\n\ncrs\n\nA CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial object from [sf](https://cran.r-project.org/package=sf) or [terra](https://cran.r-project.org/package=terra) that includes the target coordinate reference system. See `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` and **Details**.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object.\n\n## Details\n\nThis function differs from `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)` in the following ways:\n\n* Rows with geometry values `NA` or `\"\"` are removed before conversion.\n* If `x` is a grouped data frame (see `[dplyr::group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`), the grouping variables are transferred and a grouped `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` is created (see `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`).\n* If no `crs` is provided and the [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) was created with `[as_tibble.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, the `crs` is inferred from `[attr(x, \"crs\")](https://rdrr.io/r/base/attr.html)`.\n* It handles the conversion of `EMPTY` geometries between [sf](https://cran.r-project.org/package=sf) and [terra](https://cran.r-project.org/package=terra).\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n## See also\n\n`[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` for retrieving CRS and the corresponding utilities `[sf::st_crs()](https://r-spatial.github.io/sf/reference/st%5Fcrs.html)` and `[terra::crs()](https://rspatial.github.io/terra/reference/crs.html)`.\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`\n\n## Examples\n\n```\nlibrary(terra)\n\nv <- vect(matrix(1:80, ncol = 2), crs = \"EPSG:3857\")\n\nv$cat <- sample(LETTERS[1:4], size = nrow(v), replace = TRUE)\n\nv\n#> class       : SpatVector\n#> geometry    : points\n#> dimensions  : 40, 1  (geometries, attributes)\n#> extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> names       :   cat\n#> type        : <chr>\n#> values      :     A\n#>                   C\n#>                   D\n#>               ...\n\n# Create tibble\nas_tbl <- as_tibble(v, geom = \"WKT\")\n\n",
+        "item": {
+          "key": "reference/as_spatvector.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6538216,
+          "keyword_score": 105.18468831397064,
+          "vector_rank": 32,
+          "keyword_rank": 5,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3be5c732679b92c5f8af2091aeb9121d28",
+        "type": "text",
+        "score": 0.8037534814599266,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n```\n# Enable this universe\ninstall.packages(\n  \"tidyterra\",\n  repos = c(\n    \"https://dieghernan.r-universe.dev\",\n    \"https://cloud.r-project.org\"\n  )\n)\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6468549,
+          "keyword_score": 105.45051963832061,
+          "vector_rank": 37,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3bbf9d5465e7db10985fb378a814135719",
+        "type": "text",
+        "score": 0.7720079967470859,
+        "text": "| ggplot2::geom\\_\\*()                                                                                                                                           | ✔️ [geom\\_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html)                                                                                                                       | ✔️ [geom\\_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspatraster.html) and [geom\\_spatraster\\_rgb()](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspatraster%5Frgb.html). |\n| [generics::tidy()](https://generics.r-lib.org/reference/tidy.html)                                                                                            | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [generics::glance()](https://generics.r-lib.org/reference/glance.html)                                                                                        | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6457682,
+          "keyword_score": 101.8446980692902,
+          "vector_rank": 38,
+          "keyword_rank": 8,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

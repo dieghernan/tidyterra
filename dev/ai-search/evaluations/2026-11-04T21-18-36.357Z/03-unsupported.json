@@ -1,0 +1,172 @@
+{
+  "id": "03-unsupported",
+  "question": "Can tidyterra train a neural network directly? Only answer from its documentation; if this is not documented, say so.",
+  "criteria": "Admit lack of documented neural network training; do not invent functions.",
+  "status": 200,
+  "elapsedMs": 4723,
+  "answer": "The provided documentation for tidyterra does not mention training a neural network directly. It discusses its integration with terra and tidyverse packages, providing methods for manipulating SpatRaster and SpatVector objects, but does not cover neural network training. Therefore, based on the documentation, it cannot be verified if tidyterra can train a neural network directly. \n\nSee the [tidyterra documentation](https://dieghernan.github.io/tidyterra/dev/) for more information on its capabilities.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 3051,
+    "completion_tokens": 98,
+    "total_tokens": 3149,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 101.4339828491211
+  },
+  "raw": {
+    "id": "id-1793827138771",
+    "object": "chat.completion",
+    "created": 1793827138,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The provided documentation for tidyterra does not mention training a neural network directly. It discusses its integration with terra and tidyverse packages, providing methods for manipulating SpatRaster and SpatVector objects, but does not cover neural network training. Therefore, based on the documentation, it cannot be verified if tidyterra can train a neural network directly. \n\nSee the [tidyterra documentation](https://dieghernan.github.io/tidyterra/dev/) for more information on its capabilities.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3051,
+      "completion_tokens": 98,
+      "total_tokens": 3149,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 101.4339828491211
+    },
+    "chunks": [
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3be5c732679b92c5f8af2091aeb9121d28",
+        "type": "text",
+        "score": 1,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n```\n# Enable this universe\ninstall.packages(\n  \"tidyterra\",\n  repos = c(\n    \"https://dieghernan.r-universe.dev\",\n    \"https://cloud.r-project.org\"\n  )\n)\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.53404695,
+          "keyword_score": 54.68138713996171,
+          "vector_rank": 11,
+          "keyword_rank": 6,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3bbf9d5465e7db10985fb378a814135719",
+        "type": "text",
+        "score": 0.9715587264802931,
+        "text": "| ggplot2::geom\\_\\*()                                                                                                                                           | ✔️ [geom\\_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html)                                                                                                                       | ✔️ [geom\\_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspatraster.html) and [geom\\_spatraster\\_rgb()](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspatraster%5Frgb.html). |\n| [generics::tidy()](https://generics.r-lib.org/reference/tidy.html)                                                                                            | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [generics::glance()](https://generics.r-lib.org/reference/glance.html)                                                                                        | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nA note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.5098449,
+          "keyword_score": 52.389948005887184,
+          "vector_rank": 13,
+          "keyword_rank": 8,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b00014767ebfab1e3256cff621649f712",
+        "type": "text",
+        "score": 0.905410047230571,
+        "text": "A note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n```\n# Enable this universe\ninstall.packages(\n  \"tidyterra\",\n  repos = c(\n    \"https://dieghernan.r-universe.dev\",\n    \"https://cloud.r-project.org\"\n  )\n)\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster(data = rastertemp) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 12,\n    guide = guide_legend(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"\",\n    title = \"Average temperature in Castile and Leon (Spain)\",\n    subtitle = \"Months of April, May and June\"\n  )\n```\n\n![Three raster maps of Castile and Leon, Spain, for April, May and June. Fill color encodes average temperature in degrees Celsius. The mapped temperatures rise across the three months.](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)\n\n```\n# Create the difference between two months.\nvariation <- rastertemp |>\n  mutate(diff = June - May) |>\n  select(variation = diff)\n\n# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.5543364,
+          "keyword_score": 46.4006285896783,
+          "vector_rank": 8,
+          "keyword_rank": 25,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02936b340f78fc8c775e11476ef2f0d3686",
+        "type": "text",
+        "score": 0.8331959538487153,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Welcome to tidyterra\n\nSource: [vignettes/tidyterra.qmd](https://github.com/dieghernan/tidyterra/blob/main/vignettes/tidyterra.qmd) \n\n``\n\n## tidyterra \n\n**tidyterra** provides methods from **tidyverse** packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides `geom_spat*()` geoms and scales for plotting those objects with [**ggplot2**](https://ggplot2.tidyverse.org/).\n\n### Why tidyterra? \n\n`Spat*` objects differ from regular data frames: they are S4 objects with their own syntax and computational methods (implemented in **terra**). By providing **tidyverse** verbs, especially **dplyr** and **tidyr** methods, **tidyterra** lets users manipulate `Spat*` objects in a style familiar from tabular data workflows.\n\n**terra** is generally faster. Learning some **terra** syntax is recommended because **tidyterra** functions call the corresponding **terra** equivalents when possible.\n\n## A note for advanced terra users \n\n**tidyterra** is not optimized for performance. Operations such as `[filter()](https://dplyr.tidyverse.org/reference/filter.html)` and `[mutate()](https://dplyr.tidyverse.org/reference/mutate.html)` can be slower than their **terra** counterparts.\n\nAs a rule of thumb, **tidyterra** is most suitable for objects with fewer than 10,000,000 data slots, for example `terra::ncell(a_rast) * terra::nlyr(a_rast) < 1e7`.\n\n## Get started with tidyterra \n\nLoad **tidyterra** together with core **tidyverse** packages:\n\n```\nlibrary(tidyterra)\n#> \n#> Attaching package: 'tidyterra'\n#> The following object is masked from 'package:stats':\n#> \n#>     filter\nlibrary(dplyr)\n#> \n#> Attaching package: 'dplyr'\n#> The following objects are masked from 'package:stats':\n#> \n#>     filter, lag\n#> The following objects are masked from 'package:base':\n#> \n#>     intersect, setdiff, setequal, union\nlibrary(tidyr)\n```\n\nThe following methods are available:\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.55697364,
+          "keyword_score": 38.641201475894476,
+          "vector_rank": 7,
+          "keyword_rank": 46,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "7150146f29690836eb844a7181431f858a18b62860a877b4ec3cefa3f2bcf275",
+        "type": "text",
+        "score": 0.7533107403545359,
+        "text": "# S3 method for class 'SpatVector'\nnest(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)\n```\n\n## Arguments\n\n.data\n\nA `SpatVector`.\n\n...\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Columns to nest; these will appear in the inner data frames.\n\nSpecified using name-variable pairs of the form `new_col = c(col1, col2, col3)`. The right hand side can be any valid tidyselect expression.\n\nIf not supplied, then `...` is derived as all columns _not_ selected by `.by`, and will use the column name from `.key`.\n\n[![[Deprecated]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-deprecated.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated): previously you could write `df |> nest(x, y, z)`. Convert to `df |> nest(data = c(x, y, z))`.\n\n.by\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Columns to nest _by_; these will remain in the outer data frame.\n\n`.by` can be used in place of or in conjunction with columns supplied through `...`.\n\nIf not supplied, then `.by` is derived as all columns _not_ selected by `...`.\n\n.key\n\nThe name of the resulting nested column. Only applicable when `...` isn't specified, i.e. in the case of `df |> nest(.by = x)`.\n\nIf `NULL`, then `\"data\"` will be used by default.\n\n.names\\_sep\n\nIf `NULL`, the default, the inner names will come from the former outer names. If a string, the new inner names will use the outer names with `names_sep` automatically stripped. This makes `names_sep` roughly symmetric between nesting and unnesting.\n\n## Value\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) with one or more list-columns of `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::svc()](https://rspatial.github.io/terra/reference/svc.html)`.\n\n## Methods\n\nImplementation of the **generic** `[tidyr::nest()](https://tidyr.tidyverse.org/reference/nest.html)` method for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`objects.\n\nThe geometry column must be nested with the other attributes that form each nested `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`. These nested list-columns contain `SpatVector` objects and cannot be passed directly to `[tidyr::unnest()](https://tidyr.tidyverse.org/reference/unnest.html)`.\n\n## See also\n\n`[tidyr::nest()](https://tidyr.tidyverse.org/reference/nest.html)`, `[terra::svc()](https://rspatial.github.io/terra/reference/svc.html)`.\n\n## Examples\n\n```\nv <- terra::vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nv |>\n  group_by(cpro) |>\n  nest()\n#> # A tibble: 9 × 2\n#> # Groups:   cpro [9]\n#>   cpro  data          \n#>   <chr> <list>        \n#> 1 05    <SpatVctr[,2]>\n#> 2 09    <SpatVctr[,2]>\n#> 3 24    <SpatVctr[,2]>\n#> 4 34    <SpatVctr[,2]>\n#> 5 37    <SpatVctr[,2]>\n#> 6 40    <SpatVctr[,2]>\n#> 7 42    <SpatVctr[,2]>\n#> 8 47    <SpatVctr[,2]>\n#> 9 49    <SpatVctr[,2]>\n\n# Convert to a named SpatVectorCollection.\nnested <- nest(v, .by = cpro)\n\nsv <- pull(nested, data)\nnames(sv) <- pull(nested, cpro)\n\nterra::svc(sv)\n#>  class       : SpatVectorCollection\n#>  length      : 9\n#>  geometry    : polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>                polygons (1)\n#>  crs (first) : ETRS89-extended / LAEA Europe (EPSG:3035)\n#>  names       : 05, 09, 24, 34, 37, 40, 42, 47, 49\n\n\n",
+        "item": {
+          "key": "reference/nest.SpatVector.html",
+          "timestamp": 1793825340000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.44091544,
+          "keyword_score": 47.29586320311886,
+          "vector_rank": 45,
+          "keyword_rank": 20,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "17edfd9668659fcac5e016f8d511df72779db7dde318351d517eec53b2090f83",
+        "type": "text",
+        "score": 0.5607275338039966,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/articles/wild.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# tidyterra in the wild\n\nSource: [vignettes/articles/wild.qmd](https://github.com/dieghernan/tidyterra/blob/main/vignettes/articles/wild.qmd) \n\n``\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n![Bar chart of publications using tidyterra by year. Publication year is on the horizontal axis and the number of publications is on the vertical axis.](https://dieghernan.github.io/tidyterra/dev/articles/wild_files/figure-html/unnamed-chunk-1-1.png)\n\n## Publications \n\nAl-Hashimi, A., Darwish, M., Al-farraj, N. S., Al-otaibi, N., Al-otaibi, A., Al-majed, M., Al-amri, S. S., & Boug, A. (2026). Escarpment refugia under threat: Climate-driven redistribution modeling of four endemic succulent species in Saudi Arabia. _BMC Ecology and Evolution_. <https://doi.org/10.1186/s12862-026-02582-0> \n\n",
+        "item": {
+          "key": "articles/wild.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.59778583,
+          "vector_rank": 1,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}
