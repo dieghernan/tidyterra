@@ -8,13 +8,14 @@ on:
         description: Operation to run
         type: choice
         default: cache-test
-        options: [cache-test, sync, sync-and-prune]
+        options: [cache-test, sync, sync-and-prune, sync-from-backup]
   workflow_run:
     workflows: [pkgdown-gh-pages]
     types: [completed]
     branches: [main]
 
 permissions:
+  actions: read
   contents: read
 
 concurrency:
@@ -52,7 +53,8 @@ jobs:
     if: >-
       github.ref == 'refs/heads/main' &&
       ((github.event_name == 'workflow_dispatch' &&
-        (inputs.mode == 'sync' || inputs.mode == 'sync-and-prune')) ||
+        (inputs.mode == 'sync' || inputs.mode == 'sync-and-prune' ||
+         inputs.mode == 'sync-from-backup')) ||
        (github.event_name == 'workflow_run' &&
         vars.AI_SEARCH_AUTO_SYNC == 'true' &&
         github.event.workflow_run.conclusion == 'success'))
@@ -88,6 +90,7 @@ jobs:
         run: npm test
 
       - name: Restore AI Search manifest
+        if: inputs.mode != 'sync-from-backup'
         uses: actions/cache/restore@v6
         with:
           path: dev/ai-search/manifest.json
@@ -95,7 +98,35 @@ jobs:
           restore-keys: |
             ai-search-manifest-
 
+      - name: Restore manifest backup
+        if: hashFiles('dev/ai-search/manifest.json') == ''
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUIRE_BACKUP: ${{ inputs.mode == 'sync-from-backup' }}
+        run: |
+          artifact_id=$(gh api --paginate --slurp \
+            "repos/$GITHUB_REPOSITORY/actions/artifacts?name=tidyterra-ai-search-manifest&per_page=100" |
+            jq -r --argjson repo "$GITHUB_REPOSITORY_ID" '
+              [.[].artifacts[] | select(
+                .expired == false and
+                .workflow_run.head_branch == "main" and
+                .workflow_run.head_repository_id == $repo
+              )] | max_by(.created_at) | .id // empty
+            ')
+          if [[ -z "$artifact_id" ]]; then
+            echo "No manifest backup found."
+            [[ "$REQUIRE_BACKUP" != "true" ]]
+          else
+            archive=$(mktemp)
+            trap 'rm -f "$archive"' EXIT
+            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "$archive"
+            unzip -p "$archive" manifest.json > manifest.json
+            echo "Restored manifest backup from artifact $artifact_id."
+          fi
+
       - name: Sync Cloudflare AI Search
+        id: sync
         timeout-minutes: 60
         run: |
           args=(site --all-batches)
@@ -115,3 +146,12 @@ jobs:
         with:
           path: dev/ai-search/manifest.json
           key: ai-search-manifest-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Back up AI Search manifest
+        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && hashFiles('dev/ai-search/manifest.json') != '' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: tidyterra-ai-search-manifest
+          path: dev/ai-search/manifest.json
+          retention-days: 90
+          overwrite: true
