@@ -37,3 +37,5 @@ index_files/
 pkgdown/*_files
 *.rmarkdown
 .positai
+dev/ai-search/manifest.json
+dev/ai-search/manifest.json.*.tmp

@@ -1,10 +1,18 @@
+
 name: Index docs in Cloudflare AI Search
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Operation to run
+        type: choice
+        default: cache-test
+        options: [cache-test, sync, sync-and-prune]
   workflow_run:
     workflows: [pkgdown-gh-pages]
     types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
@@ -14,31 +22,96 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  index:
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+  cache-test:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'cache-test'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v7
-    - uses: actions/checkout@v7
-      with:
-        ref: gh-pages
-        path: dev/ai-search/site
-    - uses: actions/setup-node@v7
-      with:
-        node-version: '24'
-        cache: npm
-        cache-dependency-path: dev/ai-search/package-lock.json
-    - name: Install indexing dependencies
-      run: npm ci
-      working-directory: dev/ai-search
-    - name: Test document extraction
-      run: npm test
-      working-directory: dev/ai-search
-    - name: Sync published documentation
-      run: node sync.mjs site --prune
-      working-directory: dev/ai-search
-      env:
-        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_SEARCH }}
-        CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - uses: actions/cache/restore@v6
+        id: restore
+        with:
+          path: dev/ai-search/manifest.json
+          key: ai-search-cache-test-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ai-search-cache-test-${{ github.sha }}-
+      - name: Verify restored manifest
+        if: steps.restore.outputs.cache-matched-key != ''
+        run: |
+          test "$(cat dev/ai-search/manifest.json)" = '{"index.html":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"}'
+          echo "Verified the restored manifest."
+      - name: Seed test manifest
+        if: steps.restore.outputs.cache-matched-key == ''
+        run: |
+          mkdir -p dev/ai-search
+          printf '%s\n' '{"index.html":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"}' > dev/ai-search/manifest.json
+      - uses: actions/cache/save@v6
+        if: steps.restore.outputs.cache-matched-key == ''
+        with:
+          path: dev/ai-search/manifest.json
+          key: ${{ steps.restore.outputs.cache-primary-key }}
+
+  index:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      ((github.event_name == 'workflow_dispatch' &&
+        (inputs.mode == 'sync' || inputs.mode == 'sync-and-prune')) ||
+       (github.event_name == 'workflow_run' &&
+        vars.AI_SEARCH_AUTO_SYNC == 'true' &&
+        github.event.workflow_run.conclusion == 'success'))
+
+    cache-mode: write
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: dev/ai-search
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Checkout pkgdown website
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: dev/ai-search/site
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: dev/ai-search/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Restore AI Search manifest
+        uses: actions/cache/restore@v6
+        with:
+          path: dev/ai-search/manifest.json
+          key: ai-search-manifest-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ai-search-manifest-
+
+      - name: Sync Cloudflare AI Search
+        timeout-minutes: 60
+        run: |
+          args=(site --all-batches)
+          if [[ "$PRUNE" == "true" ]]; then
+            args+=(--prune)
+          fi
+          node sync.mjs "${args[@]}"
+        env:
+          PRUNE: ${{ github.event_name == 'workflow_run' || inputs.mode == 'sync-and-prune' }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_SEARCH }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          AI_SEARCH_MAX_UPLOADS: '5'
+
+      - name: Save AI Search manifest
+        if: ${{ !cancelled() && hashFiles('dev/ai-search/manifest.json') != '' }}
+        uses: actions/cache/save@v6
+        with:
+          path: dev/ai-search/manifest.json
+          key: ai-search-manifest-${{ github.run_id }}-${{ github.run_attempt }}
