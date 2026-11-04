@@ -115,6 +115,8 @@ For plotting \code{\link[terra:rast]{SpatRaster}} objects as map tiles, such as 
 \code{\link[terra:rast]{SpatRaster}} objects,
 objects, use
 \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
+To plot one panel per raster layer in two columns, add
+\code{ggplot2::facet_wrap(~lyr, ncol = 2)}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 

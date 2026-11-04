@@ -10,6 +10,8 @@
 #' [`SpatRaster`][terra::rast] objects,
 #' objects, use
 #' [geom_spatraster_rgb()].
+#' To plot one panel per raster layer in two columns, add
+#' `ggplot2::facet_wrap(~lyr, ncol = 2)`.
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'

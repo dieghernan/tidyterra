@@ -24,6 +24,8 @@
 #'   [grDevices::terrain.colors()] for details.
 #'
 #' See **Details**.
+#' Use `scale_fill_hypso_tint_c(palette = "gmt_globe")` for continuous
+#' hypsometric tints. Use `scale_fill_hypso_c()` for a continuous gradient.
 #'
 #' Additional arguments `...` are passed to:
 #' - Discrete values: [ggplot2::discrete_scale()].
@@ -75,6 +77,14 @@
 #' @encoding UTF-8
 #' @export
 #' @examples
+#' library(ggplot2)
+#' library(tidyterra)
+#'
+#' elevation <- terra::rast(nrows = 2, ncols = 2, vals = c(-100, 0, 500, 1000))
+#' ggplot() +
+#'   geom_spatraster(data = elevation) +
+#'   scale_fill_hypso_tint_c(palette = "gmt_globe")
+#'
 #' \donttest{
 #' filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 #'

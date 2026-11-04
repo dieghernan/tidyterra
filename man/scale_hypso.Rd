@@ -281,6 +281,8 @@ An additional set of scales is provided. These scales can act as
 }
 
 See \strong{Details}.
+Use \code{scale_fill_hypso_tint_c(palette = "gmt_globe")} for continuous
+hypsometric tints. Use \code{scale_fill_hypso_c()} for a continuous gradient.
 
 Additional arguments \code{...} are passed to:
 \itemize{
@@ -326,6 +328,14 @@ between colors differs depending on the type of color. In contrast,
 \strong{Examples}.
 }
 \examples{
+library(ggplot2)
+library(tidyterra)
+
+elevation <- terra::rast(nrows = 2, ncols = 2, vals = c(-100, 0, 500, 1000))
+ggplot() +
+  geom_spatraster(data = elevation) +
+  scale_fill_hypso_tint_c(palette = "gmt_globe")
+
 \donttest{
 filepath <- system.file("extdata/volcano2.tif", package = "tidyterra")
 

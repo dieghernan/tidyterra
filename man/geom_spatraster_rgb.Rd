@@ -91,6 +91,9 @@ A \CRANpkg{ggplot2} layer.
 This geom plots \code{\link[terra:rast]{SpatRaster}} objects (see \code{\link[terra:rast]{terra::rast()}}) as
 RGB images.
 The layers are combined so they represent the red, green and blue channels.
+Use \code{geom_spatraster_rgb(data = tile, r = 1, g = 2, b = 3)} to map layers
+1, 2 and 3 to those channels. The package includes \code{extdata/cyl_tile.tif}
+as an example RGB raster.
 
 For plotting \code{\link[terra:rast]{SpatRaster}} objects by layer values use
 \code{\link[=geom_spatraster]{geom_spatraster()}}.
@@ -122,6 +125,12 @@ On \code{\link[terra:rast]{SpatRaster}} objects that have a CRS, the geom uses
 }
 
 \examples{
+library(ggplot2)
+library(tidyterra)
+
+rgb <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3, vals = 1:12)
+ggplot() + geom_spatraster_rgb(data = rgb, r = 1, g = 2, b = 3)
+
 \donttest{
 
 # Tile of Castile and Leon (Spain) from OpenStreetMap
