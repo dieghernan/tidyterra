@@ -42,3 +42,6 @@ Other contributors:
 
 - Andrea Manica ([ORCID](https://orcid.org/0000-0003-1895-450X))
   \[contributor\]
+
+- Michael Sumner ([ORCID](https://orcid.org/0000-0002-2471-7511))
+  \[contributor\]
