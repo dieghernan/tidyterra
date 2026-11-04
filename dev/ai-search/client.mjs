@@ -37,7 +37,11 @@ export function createCloudflareClient(base, token, {
       }
       // Avoid logging credentials or server payloads in Actions, including
       // overload responses that contain HTML instead of JSON.
-      if (!response.ok) throw new Error(`Cloudflare request failed: ${method} ${path} (${response.status})`);
+      if (!response.ok) {
+        const error = new Error(`Cloudflare request failed: ${method} ${path} (${response.status})`);
+        error.status = response.status;
+        throw error;
+      }
       if (raw) return response;
       const body = await response.json();
       if (body?.success === false) throw new Error(`Cloudflare request failed: ${method} ${path} (${response.status})`);

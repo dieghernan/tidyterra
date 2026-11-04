@@ -102,12 +102,13 @@ if (dryRun) {
     throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.');
   }
   console.log(`Comparing ${documents.length} documents with Cloudflare.`);
-  const { manifest, missing, different, ambiguous } =
+  const { manifest, missing, different, ambiguous, unavailable } =
     await reconcileManifest(cf, documents, current);
   await writeManifest(manifestPath, manifest);
   console.log(
     `Verified ${Object.keys(manifest).length} exact matches, ` +
-    `${different} different, ${missing} missing, ${ambiguous} ambiguous.`
+    `${different} different, ${missing} missing, ${ambiguous} ambiguous, ` +
+    `${unavailable} unavailable for download.`
   );
 } else {
   if (!account || !token) {

@@ -14,6 +14,7 @@ export async function reconcileManifest(cf, documents, current) {
   let missing = 0;
   let different = 0;
   let ambiguous = 0;
+  let unavailable = 0;
   for (const { key, html } of documents) {
     if (duplicates.has(key)) {
       ambiguous++;
@@ -24,16 +25,23 @@ export async function reconcileManifest(cf, documents, current) {
       missing++;
       continue;
     }
-    const response = await cf(
-      `/items/${encodeURIComponent(id)}/download`,
-      { method: 'GET' },
-      { raw: true }
-    );
+    let response;
+    try {
+      response = await cf(
+        `/items/${encodeURIComponent(id)}/download`,
+        { method: 'GET' },
+        { raw: true }
+      );
+    } catch (error) {
+      if (error.status !== 404) throw error;
+      unavailable++;
+      continue;
+    }
     if (Buffer.from(await response.arrayBuffer()).equals(Buffer.from(html, 'utf8'))) {
       manifest[key] = current[key];
     } else {
       different++;
     }
   }
-  return { manifest, missing, different, ambiguous };
+  return { manifest, missing, different, ambiguous, unavailable };
 }
