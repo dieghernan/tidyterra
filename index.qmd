@@ -450,6 +450,12 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
+You can also try the experimental **tidyterra** AI assistant on the
+[development documentation website](https://dieghernan.github.io/tidyterra/dev/).
+Open the chat button to ask about **tidyterra** and explore the sources behind
+its answers. See the [assistant FAQ](https://dieghernan.github.io/tidyterra/dev/articles/faqs.html#ai-assistant)
+for details and limitations.
+
 Check the [FAQs](https://dieghernan.github.io/tidyterra/articles/faqs.html) or
 open a new [issue](https://github.com/dieghernan/tidyterra/issues).
 

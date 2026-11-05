@@ -108,6 +108,24 @@ export function enhanceTidyterraChat(chat) {
   const openSources = new WeakSet();
   const render = view.renderMessage.bind(view);
   const parse = client.parseChatStream.bind(client);
+  const addExamples = () => {
+    const empty = view.messagesContainer?.querySelector(".chat-empty");
+    if (!empty || empty.querySelector(".tidyterra-chat-example")) return;
+    for (const question of [
+      "How do I plot a SpatRaster?",
+      "How do I convert SpatVector to sf?",
+      "What is geom_spatraster?"
+    ]) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "tidyterra-chat-example";
+      button.textContent = question;
+      button.addEventListener("click", () => chat.sendMessage(question));
+      empty.append(button);
+    }
+  };
+  new MutationObserver(addExamples).observe(view.messagesContainer, { childList: true });
+  addExamples();
 
   client.parseChatStream = stream => {
     const message = chat.getMessages().find(item =>
