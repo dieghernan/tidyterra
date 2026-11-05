@@ -105,7 +105,7 @@ template:
         });
         const style = document.createElement("style");
         style.textContent = `
-          .chat-window { width: min(380px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); box-sizing: border-box; }
+          .chat-window { width: min(520px, calc(100vw - 40px)); height: min(720px, 85dvh); max-height: calc(100dvh - 40px); box-sizing: border-box; }
           .tidyterra-chat-status { padding: 8px 16px; margin: 0; font-size: 0.875rem; color: var(--search-snippet-text-color); }
           .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
           .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
