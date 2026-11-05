@@ -362,12 +362,16 @@ Figure 5: Changing default **ggplot2** color palettes.
 ## My map tiles are blurry
 
 Blurriness is typically related to the tile source rather than the
-package. Most base tiles are usually provided in **EPSG:3857**, so
-verify that your tile uses this CRS rather than a different one. If your
-tile is not in **EPSG:3857**, it has likely been reprojected, which
-involves resampling and causes blurriness. To avoid extra resampling,
-increase the `maxcell` argument and ensure the **ggplot2** map uses
-**EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+package.
+
+Important
+
+Most base tiles are usually provided in **EPSG:3857**, so verify that
+your tile uses this CRS rather than a different one. If your tile is not
+in **EPSG:3857**, it has likely been reprojected, which involves
+resampling and causes blurriness. To avoid extra resampling, increase
+the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
+with `ggplot2::coord_sf(crs = 3857)`.
 
 ``` r
 
@@ -529,10 +533,9 @@ Figure 8: Spatial axis breaks with **ggplot2**.
 
 ## Plotting a `SpatRaster` with color tables
 
-> **Note**
->
-> We omitted the legends in this section’s figures to improve
-> readability.
+Note
+
+We omitted the legends in this section’s figures to improve readability.
 
 **tidyterra** provides several methods for handling `SpatRaster` objects
 with color tables. This example uses `clc_edinburgh.tif`, available

@@ -630,7 +630,16 @@ Figure 5: Changing default <strong>ggplot2</strong> color palettes.
 </div>
 </section><section class="level2"><h2 id="blurry-tiles">My map tiles are blurry<a class="anchor" aria-label="anchor" href="#blurry-tiles"></a>
 </h2>
-<p>Blurriness is typically related to the tile source rather than the package. Most base tiles are usually provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the <code>maxcell</code> argument and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>:</p>
+<p>Blurriness is typically related to the tile source rather than the package.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most base tiles are usually provided in <strong>EPSG:3857</strong>, so verify that your tile uses this CRS rather than a different one. If your tile is not in <strong>EPSG:3857</strong>, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the <code>maxcell</code> argument and ensure the <strong>ggplot2</strong> map uses <strong>EPSG:3857</strong> with <code>ggplot2::coord_sf(crs = 3857)</code>.</p>
+</div>
+</div>
 <div class="sourceCode cell-code" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
@@ -828,11 +837,14 @@ Figure 8: Spatial axis breaks with <strong>ggplot2</strong>.
 </div>
 </section><section class="level2"><h2 id="plotting-a-spatraster-with-color-tables">Plotting a <code>SpatRaster</code> with color tables<a class="anchor" aria-label="anchor" href="#plotting-a-spatraster-with-color-tables"></a>
 </h2>
-<div>
-<blockquote>
-<p><strong>Note</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Note</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>We omitted the legends in this section’s figures to improve readability.</p>
-</blockquote>
+</div>
 </div>
 <p><strong>tidyterra</strong> provides several methods for handling <code>SpatRaster</code> objects with color tables. This example uses <code>clc_edinburgh.tif</code>, available online in the <a href="https://github.com/dieghernan/tidyterra/tree/main/data-raw" class="external-link">data-raw folder</a>. It contains data from the CORINE Land Cover dataset (2018) for Edinburgh<a class="footnote-ref" role="doc-noteref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;The original file has been cropped, the numeric values have been converted to their corresponding labels and factors and the corresponding color table has been added as described in &lt;a href=&quot;https://collections.sentinel-hub.com/corine-land-cover/readme.html&quot; class=&quot;external-link uri&quot;&gt;https://collections.sentinel-hub.com/corine-land-cover/readme.html&lt;/a&gt;.&lt;/p&gt;"><sup>3</sup></a>.</p>
 <div class="cell">
