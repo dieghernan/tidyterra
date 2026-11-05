@@ -71,11 +71,20 @@
 #'
 #' The result is a [`SpatVector`][terra::vect] containing the geometries whose
 #'   attributes
-#' satiy all conditions.
+#' satisfy all conditions.
 #'
 #' @encoding UTF-8
 #' @export
 #' @examples
+#' library(tidyterra)
+#'
+#' points <- terra::vect(
+#'   data.frame(x = c(1, 2), y = c(3, 4), value = c(5, 15)),
+#'   geom = c("x", "y"), crs = "EPSG:3857"
+#' )
+#' filtered_points <- filter(points, value > 10)
+#' filtered_points
+#' nrow(filtered_points)
 #'
 #' library(terra)
 #' f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

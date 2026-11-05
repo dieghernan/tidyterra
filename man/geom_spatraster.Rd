@@ -59,7 +59,9 @@ combining with them.}
 (the default) don't interpolate.}
 
 \item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to use all cells.}
+use. Use \code{Inf} to remove this sampling limit.
+Reprojection for the plot can still change the grid, so \code{Inf} does not
+guarantee native plot resolution. The input raster is not modified.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
 an associated color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{TRUE}, use that
@@ -113,10 +115,10 @@ to plot the object by layers, as \code{\link[terra:plot]{terra::plot()}} does.
 
 For plotting \code{\link[terra:rast]{SpatRaster}} objects as map tiles, such as RGB
 \code{\link[terra:rast]{SpatRaster}} objects,
-objects, use
-\code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
+use \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 To plot one panel per raster layer in two columns, add
 \code{ggplot2::facet_wrap(~lyr, ncol = 2)}.
+The default \code{maxcell = 500000} limits the cells sampled for plotting.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 

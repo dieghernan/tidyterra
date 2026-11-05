@@ -1,0 +1,174 @@
+{
+  "id": "15-drop-na",
+  "question": "¿Qué hace drop_na() de tidyterra con un SpatRaster de varias capas y qué hace con un SpatVector? Explica qué ocurre si una celda o geometría tiene un NA en uno de los atributos seleccionados, qué clase devuelve y si puede cambiar la extensión del raster. Cita la documentación.",
+  "criteria": "Spanish; raster masks cells across layers based on NA in selected layers and trims outer NA cells, so extent can change; vector removes geometries with NA in selected attributes; preserves the respective spatial class; no claim that raster masking returns a tibble or irregular grid; development source links.",
+  "status": 200,
+  "elapsedMs": 10558,
+  "answer": "La función `drop_na()` de tidyterra opera de manera diferente dependiendo de si se aplica a un `SpatRaster` o un `SpatVector`.\n\n**Con un SpatRaster:**\n\nCuando se aplica a un `SpatRaster`, `drop_na()` elimina las celdas que tienen un valor `NA` en cualquiera de las capas seleccionadas. Si no se especifican capas, se consideran todas las capas. Esto significa que si una celda tiene un `NA` en una de las capas, la celda entera se considerará `NA` y se eliminará. \n\nAdemás, `drop_na()` también elimina las celdas exteriores que son `NA`, lo que puede cambiar la extensión del raster resultante. Esto se menciona en la [documentación de `drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html), que indica que el método \"efectivamente elimina las celdas exteriores que son `NA` (ver `terra::trim()`)\".\n\nLa clase del objeto devuelto es la misma que la del objeto de entrada, es decir, un `SpatRaster`.\n\n**Con un SpatVector:**\n\nCuando se aplica a un `SpatVector`, `drop_na()` opera sobre los atributos de las geometrías. Si una geometría tiene un valor `NA` en uno de los atributos seleccionados, la geometría entera se eliminará. \n\nLa [documentación de `drop_na.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html) indica que el método \"opera sobre los atributos, lo que significa que los valores `NA` se evalúan en los atributos (columnas) de cada geometría (fila)\". \n\nLa clase del objeto devuelto es la misma que la del objeto de entrada, es decir, un `SpatVector`.\n\nEn resumen, `drop_na()` de tidyterra elimina las celdas o geometrías que tienen valores `NA` en los atributos seleccionados, y puede cambiar la extensión del raster si se aplica a un `SpatRaster`. La clase del objeto devuelto es la misma que la del objeto de entrada. \n\nEsto se puede ver en la [documentación de `drop_na.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html) y en los [ejemplos de uso](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.html).",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 3372,
+    "completion_tokens": 569,
+    "total_tokens": 3941,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 206.45761108398438
+  },
+  "raw": {
+    "id": "id-1793868738822",
+    "object": "chat.completion",
+    "created": 1793868738,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "La función `drop_na()` de tidyterra opera de manera diferente dependiendo de si se aplica a un `SpatRaster` o un `SpatVector`.\n\n**Con un SpatRaster:**\n\nCuando se aplica a un `SpatRaster`, `drop_na()` elimina las celdas que tienen un valor `NA` en cualquiera de las capas seleccionadas. Si no se especifican capas, se consideran todas las capas. Esto significa que si una celda tiene un `NA` en una de las capas, la celda entera se considerará `NA` y se eliminará. \n\nAdemás, `drop_na()` también elimina las celdas exteriores que son `NA`, lo que puede cambiar la extensión del raster resultante. Esto se menciona en la [documentación de `drop_na.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html), que indica que el método \"efectivamente elimina las celdas exteriores que son `NA` (ver `terra::trim()`)\".\n\nLa clase del objeto devuelto es la misma que la del objeto de entrada, es decir, un `SpatRaster`.\n\n**Con un SpatVector:**\n\nCuando se aplica a un `SpatVector`, `drop_na()` opera sobre los atributos de las geometrías. Si una geometría tiene un valor `NA` en uno de los atributos seleccionados, la geometría entera se eliminará. \n\nLa [documentación de `drop_na.SpatVector()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html) indica que el método \"opera sobre los atributos, lo que significa que los valores `NA` se evalúan en los atributos (columnas) de cada geometría (fila)\". \n\nLa clase del objeto devuelto es la misma que la del objeto de entrada, es decir, un `SpatVector`.\n\nEn resumen, `drop_na()` de tidyterra elimina las celdas o geometrías que tienen valores `NA` en los atributos seleccionados, y puede cambiar la extensión del raster si se aplica a un `SpatRaster`. La clase del objeto devuelto es la misma que la del objeto de entrada. \n\nEsto se puede ver en la [documentación de `drop_na.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/drop_na.Spat.html) y en los [ejemplos de uso](https://dieghernan.github.io/tidyterra/dev/articles/tidyterra.html).",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3372,
+      "completion_tokens": 569,
+      "total_tokens": 3941,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 206.45761108398438
+    },
+    "chunks": [
+      {
+        "id": "d92dd087af46f8a04618c83a754f997fdd3ed374738b4e2d4e77b890a5c3ac25",
+        "type": "text",
+        "score": 1,
+        "text": "# S3 method for class 'SpatRaster'\ndrop_na(data, ...)\n```\n\n## Arguments\n\ndata\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)` or a `SpatRaster`created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`.\n\n...\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Attributes to inspect for missing values. If empty, all attributes are used.\n\n## Value\n\nA `Spat*` object of the same class as `data`. See **Methods**.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`.\n\n## Methods\n\nImplementation of the **generic** `[tidyr::drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` methods for `Spat*`objects.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nThis method operates on attributes, meaning that `NA` values are assessed in the attributes (columns) of each geometry (row). The result is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` with potentially fewer geometries than the input.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\n[![[Questioning]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-questioning.svg)](https://lifecycle.r-lib.org/articles/stages.html#questioning)\n\nThe implementation of `drop_na.SpatRaster()` can be understood as a masking method based on the values of the layers (see `[terra::mask()](https://rspatial.github.io/terra/reference/mask.html)`).\n\n`[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` layers are treated as columns and `SpatRaster`cells as rows, so rows (cells) with any `NA` value on any layer become `NA`. You can also mask the cells (rows) based on the values of specific layers (columns).\n\n`[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` effectively removes outer cells that are `NA` (see `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`), so the extent of the resulting object may differ from the extent of the input (see `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)` for more information).\n\nCheck the **Examples** to have a better understanding of this method.\n\n#### Feedback needed!\n\nVisit <https://github.com/dieghernan/tidyterra/issues>. The implementation of this method for `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` may change in the future.\n\n## See also\n\n`[tidyr::drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)`.\n\nOther [tidyr](https://cran.r-project.org/package=tidyr) verbs for handling missing values: `[complete.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.html)`, `[expand.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.html)`, `[fill.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.html)`, `[replace_na.Spat](https://dieghernan.github.io/tidyterra/dev/reference/replace%5Fna.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\nf <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\n\nv <- terra::vect(f)\n\n# Add missing values.\nv <- v |> mutate(iso2 = ifelse(cpro <= \"09\", NA, cpro))\n\n# Initial plot.\nplot(v, col = \"red\")\n\n\n# Drop geometries with missing values in iso2.\nv |>\n  drop_na(iso2) |>\n  plot(col = \"red\")\n\n# SpatRaster method\n\n# \\donttest{\nr <- rast(\n  crs = \"EPSG:3857\",\n  extent = c(0, 10, 0, 10),\n  nlyr = 3,\n  resolution = c(2.5, 2.5)\n)\nterra::values(r) <- seq_len(ncell(r) * nlyr(r))\n\n# Add missing values.\nr[r > 13 & r < 22 | r > 31 & r < 45] <- NA\n\n# Initial plot.\nplot(r, nc = 3)\n\n\n# Mask with lyr.1.\nr |>\n  drop_na(lyr.1) |>\n  plot(nc = 3)\n\n\n# Mask with lyr.2.\nr |>\n  drop_na(lyr.2) |>\n  plot(nc = 3)\n\n\n# Mask with lyr.3.\nr |>\n  drop_na(lyr.3) |>\n  plot(nc = 3)\n\n\n# Mask all layers.\nr |>\n  drop_na() |>\n  plot(nc = 3)\n\n# }\n\n",
+        "item": {
+          "key": "reference/drop_na.Spat.html",
+          "timestamp": 1793825160000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.8215297,
+          "keyword_score": 35.76200584191327,
+          "vector_rank": 1,
+          "keyword_rank": 10,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d92dd087af46f8a04618c83a754f997fa7a7d2f1152046a7b99656292d3d465d",
+        "type": "text",
+        "score": 0.9981299672744273,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/drop\\_na.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Drop attributes of `Spat*` objects containing missing values\n\nSource: [R/drop-na-Spat.R](https://github.com/dieghernan/tidyterra/blob/main/R/drop-na-Spat.R) \n\n`drop_na.Spat.Rd`\n\n* `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`: `[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` drops geometries when any attribute specified by `...` contains a missing value.\n* `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`: `[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` drops cells when any layer specified by `...` contains a missing value.\n\n## Usage\n\n```\n# S3 method for class 'SpatVector'\ndrop_na(data, ...)\n\n# S3 method for class 'SpatRaster'\ndrop_na(data, ...)\n```\n\n## Arguments\n\ndata\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)` or a `SpatRaster`created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`.\n\n...\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Attributes to inspect for missing values. If empty, all attributes are used.\n\n## Value\n\nA `Spat*` object of the same class as `data`. See **Methods**.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n",
+        "item": {
+          "key": "reference/drop_na.Spat.html",
+          "timestamp": 1793825160000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.80202293,
+          "keyword_score": 35.99725428364446,
+          "vector_rank": 2,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02935266033986125a97a02310a50bd0fa9",
+        "type": "text",
+        "score": 0.9578662632097746,
+        "text": "| [tidyr::drop\\_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)                                                                                     | ✔️                                                                                                                                                                                                                    | ✔️ Remove cell values with NA on any layer and outer cells with NA.                                                                                                                                                    |\n| [tidyr::complete()](https://tidyr.tidyverse.org/reference/complete.html)                                                                                      | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::expand()](https://tidyr.tidyverse.org/reference/expand.html)                                                                                          | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::replace\\_na()](https://tidyr.tidyverse.org/reference/replace%5Fna.html)                                                                               | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [tidyr::fill()](https://tidyr.tidyverse.org/reference/fill.html)                                                                                              | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::nest()](https://tidyr.tidyverse.org/reference/nest.html)                                                                                              | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7814262,
+          "keyword_score": 33.38741263446915,
+          "vector_rank": 3,
+          "keyword_rank": 14,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc029e9677610820b86c9d007acced1deab3f",
+        "type": "text",
+        "score": 0.9529604180716964,
+        "text": "The following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example, we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\nThroughout these steps, core properties of the `SpatRaster`, including the number of cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs such as `[filter()](https://dplyr.tidyverse.org/reference/filter.html)`, `[slice()](https://dplyr.tidyverse.org/reference/slice.html)` or `[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` may alter these properties in a manner analogous to row operations on data frames.\n\n### `SpatVector` objects \n\nMost **dplyr** and **tidyr** verbs work with `SpatVector` objects, so you can arrange, group and summarize their attributes.\n\n```\nlux <- system.file(\"ex/lux.shp\", package = \"terra\")\n\nv_lux <- vect(lux)\n\nv_lux |>\n  # Create categories.\n  mutate(gr = cut(POP / 1000, 5)) |>\n  group_by(gr) |>\n  # Summarize by group.\n  summarise(\n    n = n(),\n    tot_pop = sum(POP),\n    mean_area = mean(AREA)\n  ) |>\n  # Arrange groups.\n  arrange(desc(gr))\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 3, 4  (geometries, attributes)\n#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)\n#> coord. ref. : lon/lat WGS 84 (EPSG:4326)\n#> names       :          gr     n tot_pop mean_area\n#> type        :      <fact> <int>   <num>     <num>\n#> values      :   (147,183]     2  359427       244\n#>               (40.7,76.1]     1   48187       185\n#>               (4.99,40.7]     9  194391   209.778\n```\n\nThe CRS is preserved during these operations. By default, `[summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` merges geometries within each group.\n\n## Plotting with ggplot2 \n\n### `SpatRaster` objects \n\nWhen a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != \"\"`), the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` and can reproject the raster to match other spatial layers.\n\n```\nlibrary(ggplot2)\n\n# Facet a SpatRaster object.\n\nggplot() +\n  geom_spatraster(data = temp) +\n  facet_wrap(~lyr) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    na.value = \"white\"\n  )\n```\n\n![Three raster maps of average temperature in Castile and Leon, one each for April, May and June. Fill color encodes degrees Celsius. Temperatures increase across the three months.](https://dieghernan.github.io/tidyterra/dev/articles/fig-faceted-1.png)\n\nFaceted map using a SpatRaster object. \n\n```\n# Contour lines for a specific layer.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6990404,
+          "keyword_score": 40.2902877988512,
+          "vector_rank": 11,
+          "keyword_rank": 6,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02950deb99dc03df153794774cbe92b5bce",
+        "type": "text",
+        "score": 0.9171871385611844,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nThe following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example, we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.73575044,
+          "keyword_score": 32.95077408807468,
+          "vector_rank": 6,
+          "keyword_rank": 17,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3bdf1c0c87c1501c5059df31cc75f19c64",
+        "type": "text",
+        "score": 0.9167461832061068,
+        "text": "| [tidyr::drop\\_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)                                                                                     | ✔️                                                                                                                                                                                                                    | ✔️ Remove cell values with NA on any layer and outer cells with NA.                                                                                                                                                    |\n| [tidyr::complete()](https://tidyr.tidyverse.org/reference/complete.html)                                                                                      | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::expand()](https://tidyr.tidyverse.org/reference/expand.html)                                                                                          | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::replace\\_na()](https://tidyr.tidyverse.org/reference/replace%5Fna.html)                                                                               | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n| [tidyr::fill()](https://tidyr.tidyverse.org/reference/fill.html)                                                                                              | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n| [tidyr::nest()](https://tidyr.tidyverse.org/reference/nest.html)                                                                                              | ✔️                                                                                                                                                                                                                    |                                                                                                                                                                                                                        |\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.77242327,
+          "keyword_score": 32.63386352868303,
+          "vector_rank": 4,
+          "keyword_rank": 20,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

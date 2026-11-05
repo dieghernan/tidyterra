@@ -40,10 +40,22 @@
 #' As in the \CRANpkg{sf} implementation, this function can dissolve geometries
 #' with `.dissolve = TRUE` or create `MULTI` geometries with
 #' `.dissolve = FALSE`. See **Examples**.
+#' Summary expressions operate on the attributes of the input geometries.
+#' Changing `.dissolve` changes how their geometries are combined, while
+#' attribute summaries such as counts, means and sums use the same input rows.
 #'
 #' @encoding UTF-8
 #' @export
 #' @examples
+#' library(tidyterra)
+#'
+#' provinces <- terra::vect(
+#'   system.file("extdata/cyl.gpkg", package = "tidyterra")
+#' )
+#' provinces |>
+#'   group_by(iso2) |>
+#'   summarise(n = dplyr::n())
+#'
 #' library(terra)
 #' library(ggplot2)
 #'

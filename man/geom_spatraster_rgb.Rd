@@ -41,7 +41,9 @@ geom_spatraster_rgb(
 \code{\link[grDevices]{hsv}}.}
 
 \item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to use all cells.}
+use. Use \code{Inf} to remove this sampling limit.
+Reprojection for the plot can still change the grid, so \code{Inf} does not
+guarantee native plot resolution. The input raster is not modified.}
 
 \item{max_col_value}{Number giving the upper bound of the color value range.
 When this is \code{255} (the default), the result is computed most efficiently.

@@ -55,6 +55,11 @@ they are reprojected to the CRS of the first element with a message.
 are column-bound
 with empty geometries with a message.
 }
+
+To create an input in another CRS, use \code{\link[terra:project]{terra::project()}} to transform its
+coordinates. Assigning \code{terra::crs(x) <- "EPSG:4326"} changes only the CRS
+metadata. It does not transform coordinates and must only be used when that
+CRS is known to describe the existing coordinates.
 }
 
 \examples{

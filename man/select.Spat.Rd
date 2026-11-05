@@ -26,6 +26,9 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 \description{
 Select (and optionally rename) attributes/layers in \verb{Spat*} objects, using a
 concise mini-language. See \strong{Methods}.
+For a \code{\link[terra:rast]{SpatRaster}}, \code{select(r, rain = rainfall)} keeps the
+\code{rainfall} layer and names it \code{rain}. To mask cells based on their values,
+use \code{\link[=filter.Spat]{filter.Spat()}} instead.
 }
 \section{\CRANpkg{terra} equivalent}{
 
@@ -55,6 +58,16 @@ renamed as specified in the function call.
 }
 
 \examples{
+library(tidyterra)
+
+weather <- terra::rast(
+  nrows = 2, ncols = 2, nlyrs = 2,
+  vals = c(20, 25, 30, 35, 10, 15, 20, 25)
+)
+names(weather) <- c("temperature", "rainfall")
+rain <- select(weather, rain = rainfall)
+terra::nlyr(rain)
+names(rain)
 
 library(terra)
 

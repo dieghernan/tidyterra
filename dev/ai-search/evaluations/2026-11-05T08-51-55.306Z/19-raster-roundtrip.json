@@ -1,0 +1,174 @@
+{
+  "id": "19-raster-roundtrip",
+  "question": "Give a self-contained R example converting a tiny SpatRaster to a tibble with cell coordinates and back with tidyterra. Explain how to preserve or supply the CRS and identify the class returned by as_spatraster(). Cite the documentation.",
+  "criteria": "Valid regular-grid raster fixture; as_tibble with xy = TRUE; as_spatraster with coordinate columns identified correctly; preserves the original CRS attribute or supplies crs explicitly; returns a SpatRaster with equivalent dimensions and values; required imports or qualified calls; development source links.",
+  "status": 200,
+  "elapsedMs": 17670,
+  "answer": "Here's an example of converting a tiny `SpatRaster` to a `tibble` and back using `tidyterra`:\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(tibble)\n\n# Create a tiny SpatRaster\nr <- rast(matrix(1:9, nrow = 3), crs = \"EPSG:4326\")\n\n# Convert SpatRaster to tibble\nr_tibble <- tidy(r)\n\n# Print the tibble\nprint(r_tibble)\n\n# Convert tibble back to SpatRaster\nr_converted <- as_spatraster(r_tibble)\n\n# Print the converted SpatRaster\nprint(r_converted)\n\n# Check the class of the converted object\nclass(r_converted)\n```\nIn this example, the `crs` argument is used when creating the `SpatRaster` to specify its coordinate reference system (CRS). When converting the `SpatRaster` to a `tibble` using `tidy()`, the CRS is preserved as an attribute of the `tibble`. This attribute can be retrieved using `attr(r_tibble, \"crs\")`.\n\nWhen converting the `tibble` back to a `SpatRaster` using `as_spatraster()`, the CRS is inferred from the `tibble` if it was created with `tidy()`. If the `tibble` does not have a CRS attribute, you can supply the CRS using the `crs` argument of `as_spatraster()`.\n\nAccording to the [documentation of `as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.html), the function returns a `SpatRaster` object.\n\nNote that the `as_spatraster()` function uses the `terra::rast()` function internally to create the `SpatRaster` object. The `digits` argument of `as_spatraster()` can be used to set the precision for detecting whether points are on a regular grid.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 5098,
+    "completion_tokens": 426,
+    "total_tokens": 5524,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 223.1988525390625
+  },
+  "raw": {
+    "id": "id-1793868781605",
+    "object": "chat.completion",
+    "created": 1793868781,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's an example of converting a tiny `SpatRaster` to a `tibble` and back using `tidyterra`:\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(tibble)\n\n# Create a tiny SpatRaster\nr <- rast(matrix(1:9, nrow = 3), crs = \"EPSG:4326\")\n\n# Convert SpatRaster to tibble\nr_tibble <- tidy(r)\n\n# Print the tibble\nprint(r_tibble)\n\n# Convert tibble back to SpatRaster\nr_converted <- as_spatraster(r_tibble)\n\n# Print the converted SpatRaster\nprint(r_converted)\n\n# Check the class of the converted object\nclass(r_converted)\n```\nIn this example, the `crs` argument is used when creating the `SpatRaster` to specify its coordinate reference system (CRS). When converting the `SpatRaster` to a `tibble` using `tidy()`, the CRS is preserved as an attribute of the `tibble`. This attribute can be retrieved using `attr(r_tibble, \"crs\")`.\n\nWhen converting the `tibble` back to a `SpatRaster` using `as_spatraster()`, the CRS is inferred from the `tibble` if it was created with `tidy()`. If the `tibble` does not have a CRS attribute, you can supply the CRS using the `crs` argument of `as_spatraster()`.\n\nAccording to the [documentation of `as_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/as_spatraster.html), the function returns a `SpatRaster` object.\n\nNote that the `as_spatraster()` function uses the `terra::rast()` function internally to create the `SpatRaster` object. The `digits` argument of `as_spatraster()` can be used to set the precision for detecting whether points are on a regular grid.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5098,
+      "completion_tokens": 426,
+      "total_tokens": 5524,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 223.1988525390625
+    },
+    "chunks": [
+      {
+        "id": "0d6a8ea1fb82068a1499128a3fcb16e77330d3c9e5f6888b367ac74090631d5c",
+        "type": "text",
+        "score": 1,
+        "text": "## Methods\n\nImplementation of the **generic** `[generics::tidy()](https://generics.r-lib.org/reference/tidy.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nReturns a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) that can be used with `ggplot2::geom_*`, such as `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)` and `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\nThe resulting [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) includes coordinates in the `x` and `y` columns. The values of each layer are added as extra columns using the layer names from the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`.\n\nThe CRS of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` can be retrieved with `attr(tidySpatRaster, \"crs\")`.\n\nYou can convert the tidy object back to a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` with `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`.\n\nWhen `pivot = TRUE`, the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` is returned in long format (see `[tidyr::pivot_longer()](https://tidyr.tidyverse.org/reference/pivot%5Flonger.html)`). The tidy object has the following columns:\n\n* `x`, `y`: Coordinates of the cell center in the corresponding CRS.\n* `lyr`: Name of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` layer associated with `value`.\n* `value`: Cell value for the corresponding `lyr`.\n\nThis option can be useful when combining several `geom_*` layers or when faceting.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, `SpatGraticule` and `SpatExtent`\n\nReturns an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object that can be used with `[ggplot2::geom_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`.\n\n## See also\n\n`[sf::st_as_sf()](https://r-spatial.github.io/sf/reference/st%5Fas%5Fsf.html)`, `[generics::tidy()](https://generics.r-lib.org/reference/tidy.html)`.\n\nOther [generics](https://cran.r-project.org/package=generics) methods: `[glance.Spat](https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.html)`, `[required_pkgs.Spat](https://dieghernan.github.io/tidyterra/dev/reference/required%5Fpkgs.Spat.html)`\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`\n\n## Examples\n\n```\n# \\donttest{\n\n# Get a SpatRaster\nr <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\") |>\n  terra::rast() |>\n  terra::project(\"EPSG:4326\")\n\nr_tidy <- tidy(r)\n\nr_tidy\n#> # A tibble: 23,166 × 3\n#>        x     y elevation\n#>    <dbl> <dbl>     <dbl>\n#>  1  175. -36.9        NA\n#>  2  175. -36.9        NA\n#>  3  175. -36.9        NA\n#>  4  175. -36.9        NA\n#>  5  175. -36.9        NA\n#>  6  175. -36.9        NA\n#>  7  175. -36.9        NA\n#>  8  175. -36.9        NA\n#>  9  175. -36.9        NA\n#> 10  175. -36.9        NA\n#> # ℹ 23,156 more rows\n\n",
+        "item": {
+          "key": "reference/tidy.Spat.html",
+          "timestamp": 1793826420000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.83215916,
+          "keyword_score": 134.11287550780145,
+          "vector_rank": 4,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "c1864e730139df76fb30d2e9d47e63fb3ad0502ffbeb32ff64a340d0e071b6ce",
+        "type": "text",
+        "score": 0.9943107490814933,
+        "text": "# Coerce a data frame to `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nSource: [R/as-spatraster.R](https://github.com/dieghernan/tidyterra/blob/main/R/as-spatraster.R) \n\n`as_spatraster.Rd`\n\n`as_spatraster()` converts a data frame or [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) into a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`. It wraps the `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` S4 method for signature `data.frame`.\n\n## Usage\n\n```\nas_spatraster(x, ..., xycols = 1:2, crs = \"\", digits = 6)\n```\n\n## Arguments\n\nx\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) or data frame.\n\n...\n\nAdditional arguments passed to `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`.\n\nxycols\n\nA vector of integers of length 2 determining the position of the columns that hold the `x` and `y` coordinates.\n\ncrs\n\nA CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial object from [sf](https://cran.r-project.org/package=sf) or [terra](https://cran.r-project.org/package=terra) that includes the target coordinate reference system. See `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` and **Details**.\n\ndigits\n\nInteger to set the precision for detecting whether points are on a regular grid (a low number of digits is a low precision).\n\n## Value\n\nA `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` object.\n\n## Details\n\nIf no `crs` is provided and the [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) was created with `[as_tibble.SpatRaster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, the `crs` is inferred from `[attr(x, \"crs\")](https://rdrr.io/r/base/attr.html)`.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` (see S4 method for signature `data.frame`).\n\n## See also\n\n`[is_regular_grid()](https://dieghernan.github.io/tidyterra/dev/reference/is%5Fregular%5Fgrid.html)` for checking whether coordinates form a regular grid. `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` retrieves CRS information, as do `[sf::st_crs()](https://r-spatial.github.io/sf/reference/st%5Fcrs.html)` and `[terra::crs()](https://rspatial.github.io/terra/reference/crs.html)`.\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`\n\n## Examples\n\n```\nlibrary(terra)\n\nr <- rast(matrix(1:90, ncol = 3), crs = \"EPSG:3857\")\n\nr\n#> class       : SpatRaster\n#> size        : 30, 3, 1  (nrow, ncol, nlyr)\n#> resolution  : 1, 1  (x, y)\n#> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> name        : lyr.1\n#> min value   :     1\n#> max value   :    90\n\n# Create tibble\nas_tbl <- as_tibble(r, xy = TRUE)\n\nas_tbl\n#> # A tibble: 90 × 3\n#>        x     y lyr.1\n#>    <dbl> <dbl> <int>\n#>  1   0.5  29.5     1\n#>  2   1.5  29.5    31\n#>  3   2.5  29.5    61\n#>  4   0.5  28.5     2\n#>  5   1.5  28.5    32\n#>  6   2.5  28.5    62\n#>  7   0.5  27.5     3\n#>  8   1.5  27.5    33\n#>  9   2.5  27.5    63\n#> 10   0.5  26.5     4\n#> # ℹ 80 more rows\n\n",
+        "item": {
+          "key": "reference/as_spatraster.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.86566526,
+          "keyword_score": 125.4948916793218,
+          "vector_rank": 1,
+          "keyword_rank": 7,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b033078ad3f317d359e652ce4d091365d",
+        "type": "text",
+        "score": 0.9219756621331424,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/index.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# tidyterra \n\nThe goal of **tidyterra** is to provide methods from [**tidyverse**](https://tidyverse.org/packages/) packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for plotting those objects.\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n## Overview \n\nThe full manual for the latest release of **tidyterra** on **CRAN** is online: <https://dieghernan.github.io/tidyterra/>\n\nMethods implemented in **tidyterra** work differently depending on the type of `Spat*` object:\n\n* `SpatVector`: Methods are implemented using `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)` coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.\n* `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, `select(a_spatraster, 1)` selects the first layer of a `SpatRaster` object.\n\nImplemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, `[as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` returns a tibble.\n\nCurrent methods and functions provided by **tidyterra** are:\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7973704,
+          "keyword_score": 126.30362982875774,
+          "vector_rank": 12,
+          "keyword_rank": 6,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "02fcd47bac212d99af912d076554e7abaa895352324d0bd83e85cdbe613f9006",
+        "type": "text",
+        "score": 0.8884478481285729,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/as\\_coordinates.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Get cell number, row and column from a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nSource: [R/as-coordinates.R](https://github.com/dieghernan/tidyterra/blob/main/R/as-coordinates.R) \n\n`as_coordinates.Rd`\n\n`as_coordinates()` returns the position of each cell in the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`matrix.\n\n## Usage\n\n```\nas_coordinates(x, as.raster = FALSE)\n```\n\n## Arguments\n\nx\n\nA `SpatRaster` object.\n\nas.raster\n\nIf `TRUE`, the result is a `SpatRaster` object with three layers indicating the position of each cell (cell number, row and column).\n\n## Value\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) or a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` (if `as.raster = TRUE`) with one row (or cell) for each cell in `x`.\n\nWhen `as.raster = TRUE`, the resulting `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` has the same CRS, extent and resolution as `x`.\n\n## See also\n\n`[slice.SpatRaster()](https://dieghernan.github.io/tidyterra/dev/reference/slice.Spat.html)`.\n\nCoercing objects: `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\nr <- rast(f)\n\nas_coordinates(r)\n#> # A tibble: 10,266 × 3\n#>    cellindex rowindex colindex\n#>        <int>    <dbl>    <dbl>\n#>  1         1        1        1\n#>  2         2        1        2\n#>  3         3        1        3\n#>  4         4        1        4\n#>  5         5        1        5\n#>  6         6        1        6\n#>  7         7        1        7\n#>  8         8        1        8\n#>  9         9        1        9\n#> 10        10        1       10\n#> # ℹ 10,256 more rows\nas_coordinates(r, as.raster = TRUE)\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : cellindex, rowindex, colindex\n#> min values  :         1,        1,        1\n#> max values  :     10266,       87,      118\n\nas_coordinates(r, as.raster = TRUE) |> plot()\n\n\n```",
+        "item": {
+          "key": "reference/as_coordinates.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.8051185,
+          "keyword_score": 119.53510219020063,
+          "vector_rank": 10,
+          "keyword_rank": 13,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "8c910a6c5d354a6a1ded9e1b92abcaf1232f848ce16d72e0dc16cf73320a670b",
+        "type": "text",
+        "score": 0.8732154382341552,
+        "text": "## Methods\n\nImplementation of the **generic** `[ggplot2::fortify()](https://ggplot2.tidyverse.org/reference/fortify.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nReturns a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) that can be used with `ggplot2::geom_*`, such as `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)` and `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\nThe resulting [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) includes coordinates in the `x` and `y` columns. The values of each layer are added as extra columns using the layer names from the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`.\n\nThe CRS of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` can be retrieved with `attr(fortifiedSpatRaster, \"crs\")`.\n\nYou can convert the fortified object back to a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`with `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`.\n\nWhen `pivot = TRUE`, the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` is fortified in long format (see `[tidyr::pivot_longer()](https://tidyr.tidyverse.org/reference/pivot%5Flonger.html)`). The fortified object has the following columns:\n\n* `x`, `y`: Coordinates of the cell center in the corresponding CRS.\n* `lyr`: Name of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` layer associated with `value`.\n* `value`: Cell value for the corresponding `lyr`.\n\nThis option can be useful when combining several `geom_*` layers or when faceting.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, `SpatGraticule` and `SpatExtent`\n\nReturns an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object that can be used with `[ggplot2::geom_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`. For `SpatVector` objects, Z and M coordinates are dropped for plotting. Use `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)` to preserve these coordinates when converting to `sf`.\n\n## See also\n\n`[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`, `[sf::st_as_sf()](https://r-spatial.github.io/sf/reference/st%5Fas%5Fsf.html)`.\n\n",
+        "item": {
+          "key": "reference/fortify.Spat.html",
+          "timestamp": 1793825160000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7428142,
+          "keyword_score": 147.26981379423455,
+          "vector_rank": 30,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "0d6a8ea1fb82068a1499128a3fcb16e75f2ce5606856b221a213879a43d26726",
+        "type": "text",
+        "score": 0.8503937007874016,
+        "text": "# S3 method for class 'SpatExtent'\ntidy(x, ..., crs = \"\")\n```\n\n## Arguments\n\nx\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`, a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`, a `SpatGraticule` (see `[terra::graticule()](https://rspatial.github.io/terra/reference/graticule.html)`) or a `SpatExtent` (see `[terra::ext()](https://rspatial.github.io/terra/reference/ext.html)`).\n\n...\n\nIgnored by these methods.\n\n.name\\_repair\n\nTreatment of problematic column names:\n\n* `\"minimal\"`: No name repair or checks, beyond basic existence,\n* `\"unique\"`: Make sure names are unique and not empty,\n* `\"check_unique\"`: (default value), no name repair, but check they are `unique`,\n* `\"universal\"`: Make the names `unique` and syntactic\n* `\"unique_quiet\"`: Same as `\"unique\"`, but \"quiet\"\n* `\"universal_quiet\"`: Same as `\"universal\"`, but \"quiet\"\n* a function: apply custom name repair (e.g., `.name_repair = make.names`for names in the style of base R).\n* A purrr-style anonymous function, see `[rlang::as_function()](https://rlang.r-lib.org/reference/as%5Ffunction.html)`\n\nThis argument is passed on as `repair` to `[vctrs::vec_as_names()](https://vctrs.r-lib.org/reference/vec%5Fas%5Fnames.html)`. See there for more details on these terms and the strategies used to enforce them.\n\nmaxcell\n\nPositive integer or `Inf`. Maximum number of raster cells to use. Use `Inf` to use all cells.\n\npivot\n\nLogical. When `TRUE`, a `SpatRaster` is returned in [long format](https://tidyr.tidyverse.org/reference/pivot%5Flonger.html). When `FALSE` (the default), it is returned as a data frame with one column per layer. See **Details**.\n\ncrs\n\nInput that includes or represents a CRS. It can be an `sf` or `sfc` object, a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` or `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`object, a `crs` object from `[sf::st_crs()](https://r-spatial.github.io/sf/reference/st%5Fcrs.html)`, a character string (for example a [PROJ string](https://proj.org/en/9.3/operations/projections/index.html)) or an integer representing an [EPSG](https://epsg.io/) code.\n\n## Value\n\n`tidy.SpatVector()`, `tidy.SpatGraticule()` and `tidy.SpatExtent()`return an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object.\n\n`tidy.SpatRaster()` returns a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html). See **Methods**.\n\n## Methods\n\nImplementation of the **generic** `[generics::tidy()](https://generics.r-lib.org/reference/tidy.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nReturns a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) that can be used with `ggplot2::geom_*`, such as `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)` and `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\n",
+        "item": {
+          "key": "reference/tidy.Spat.html",
+          "timestamp": 1793826420000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7601421,
+          "keyword_score": 122.10751308180032,
+          "vector_rank": 20,
+          "keyword_rank": 10,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

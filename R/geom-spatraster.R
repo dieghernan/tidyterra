@@ -8,10 +8,10 @@
 #'
 #' For plotting [`SpatRaster`][terra::rast] objects as map tiles, such as RGB
 #' [`SpatRaster`][terra::rast] objects,
-#' objects, use
-#' [geom_spatraster_rgb()].
+#' use [geom_spatraster_rgb()].
 #' To plot one panel per raster layer in two columns, add
 #' `ggplot2::facet_wrap(~lyr, ncol = 2)`.
+#' The default `maxcell = 500000` limits the cells sampled for plotting.
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
@@ -39,7 +39,9 @@
 #'   combining with them.
 #'
 #' @param maxcell Positive integer or `Inf`. Maximum number of raster cells to
-#'   use. Use `Inf` to use all cells.
+#'   use. Use `Inf` to remove this sampling limit.
+#'   Reprojection for the plot can still change the grid, so `Inf` does not
+#'   guarantee native plot resolution. The input raster is not modified.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
 #'   an associated color table from [terra::coltab()]. If `TRUE`, use that

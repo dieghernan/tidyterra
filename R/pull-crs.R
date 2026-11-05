@@ -32,6 +32,10 @@
 #'
 #' Knowing the WKT helps smooth workflows when working with different
 #' packages and object types.
+#' Assigning a CRS records how existing coordinates should be interpreted.
+#' Establish the source CRS from the data provider before assigning it.
+#' Reprojecting with [terra::project()] or [sf::st_transform()] transforms
+#' coordinates from a known source CRS to a target CRS.
 #'
 #' @seealso
 #' [terra::crs()] and [sf::st_crs()] to learn how these packages handle

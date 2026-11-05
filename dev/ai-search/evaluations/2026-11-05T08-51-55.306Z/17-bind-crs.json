@@ -1,0 +1,174 @@
+{
+  "id": "17-bind-crs",
+  "question": "I have two SpatVector objects with different coordinate reference systems and different attribute columns. What documented tidyterra function combines them by rows? Explain which CRS the result uses, how missing columns are handled and the returned class. Cite the documentation.",
+  "criteria": "Identifies bind_spat_rows; first input must be a SpatVector; other spatial inputs are reprojected to the first input CRS; columns matched by name and absent attributes filled with NA; result is a SpatVector; development source links.",
+  "status": 200,
+  "elapsedMs": 8330,
+  "answer": "The documented tidyterra function that combines two SpatVector objects by rows is `bind_spat_rows()`. \n\nAccording to the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.html), if the subsequent spatial objects have a different CRS from the first element, they are reprojected to the CRS of the first element with a message.\n\nMissing columns are handled by filling them with `NA`. The documentation states that \"Columns are matched by name and any missing columns are filled with `NA`.\"\n\nThe returned class is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object of the same type as the first element of `...`.\n\nHere is an example:\n```r\nlibrary(terra)\nv1 <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\nv2 <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\ncrs(v2) <- \"EPSG:4326\"  # change CRS\nv2$foo <- \"bar\"  # add new column\n\nresult <- bind_spat_rows(v1, v2)\n```\nIn this example, `v2` will be reprojected to the CRS of `v1`, and the resulting SpatVector will have all the columns from both `v1` and `v2`, with `NA` values where columns are missing. \n\nSee the [bind_rows.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.html) for more information.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 6257,
+    "completion_tokens": 336,
+    "total_tokens": 6593,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 235.6741943359375
+  },
+  "raw": {
+    "id": "id-1793868756354",
+    "object": "chat.completion",
+    "created": 1793868756,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The documented tidyterra function that combines two SpatVector objects by rows is `bind_spat_rows()`. \n\nAccording to the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.html), if the subsequent spatial objects have a different CRS from the first element, they are reprojected to the CRS of the first element with a message.\n\nMissing columns are handled by filling them with `NA`. The documentation states that \"Columns are matched by name and any missing columns are filled with `NA`.\"\n\nThe returned class is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object of the same type as the first element of `...`.\n\nHere is an example:\n```r\nlibrary(terra)\nv1 <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\nv2 <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\ncrs(v2) <- \"EPSG:4326\"  # change CRS\nv2$foo <- \"bar\"  # add new column\n\nresult <- bind_spat_rows(v1, v2)\n```\nIn this example, `v2` will be reprojected to the CRS of `v1`, and the resulting SpatVector will have all the columns from both `v1` and `v2`, with `NA` values where columns are missing. \n\nSee the [bind_rows.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.html) for more information.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6257,
+      "completion_tokens": 336,
+      "total_tokens": 6593,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 235.6741943359375
+    },
+    "chunks": [
+      {
+        "id": "abddfb9b0f0c6bf5a710479b5423bf5620e1f9b2dfedb5c94c8538884bcb9b8f",
+        "type": "text",
+        "score": 1,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/bind\\_rows.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Bind multiple `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, `[sf](https://r-spatial.github.io/sf/reference/sf.html)`, `sfc` and data frame objects by row\n\nSource: [R/bind-rows-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/main/R/bind-rows-SpatVector.R) \n\n`bind_rows.SpatVector.Rd`\n\nBind any number of `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects, data frames, `[sf](https://r-spatial.github.io/sf/reference/sf.html)` and `sfc` objects by row, making a longer result. This is similar to `do.call(rbind, data_frames)`, but the output will contain all columns that appear in any of the inputs.\n\n## Usage\n\n```\nbind_spat_rows(..., .id = NULL)\n```\n\n## Arguments\n\n...\n\nObjects to combine. The first argument must be a `SpatVector`. Each subsequent argument can be a `SpatVector`, `[sf](https://r-spatial.github.io/sf/reference/sf.html)` or `sfc`object or a data frame. Columns are matched by name and any missing columns are filled with `NA`.\n\n.id\n\nThe name of an optional identifier column. Provide a string to create an output column that identifies each input. The column will use names if available, otherwise it will use positions.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object of the same type as the first element of `...`.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[rbind()](https://rdrr.io/r/base/cbind.html)` method.\n\n## Methods\n\nImplementation of the `[dplyr::bind_rows()](https://dplyr.tidyverse.org/reference/bind%5Frows.html)` function for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\nThe first argument should be a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`. Each subsequent argument can be a `SpatVector`, an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` or `sfc` object or a data frame:\n\n* If subsequent spatial objects have a different CRS from the first element, they are reprojected to the CRS of the first element with a message.\n* If any element of `...` is a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html)/data frame, the rows are column-bound with empty geometries with a message.\n\n## See also\n\n`[dplyr::bind_rows()](https://dplyr.tidyverse.org/reference/bind%5Frows.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on pairs of `SpatVector` and data frame objects: `[bind_cols.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/bind%5Fcols.SpatVector.html)`, `[cross_join.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/cross%5Fjoin.SpatVector.html)`, `[filter-joins.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.html)`, `[mutate-joins.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.html)`, `[nest_join.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/nest%5Fjoin.SpatVector.html)`, `[rows.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\nv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nv1 <- v[1, \"cpro\"]\nv2 <- v[3:5, c(\"name\", \"iso2\")]\n\n# You can supply individual SpatVector objects as arguments.\nbind_spat_rows(v1, v2)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 4, 3  (geometries, attributes)\n#> extent      : 2892687, 3180130, 2017622, 2361600  (xmin, xmax, ymin, ymax)\n#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)\n#> names       :  cpro     name  iso2\n#> type        : <chr>    <chr> <chr>\n#> values      :    05       NA    NA\n#>                  NA     Leon ES-LE\n#>                  NA Palencia  ES-P\n#>               ...\n\n",
+        "item": {
+          "key": "reference/bind_rows.SpatVector.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7401718,
+          "keyword_score": 133.65114622766677,
+          "vector_rank": 6,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b033078ad3f317d359e652ce4d091365d",
+        "type": "text",
+        "score": 0.9888677087304614,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/index.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# tidyterra \n\nThe goal of **tidyterra** is to provide methods from [**tidyverse**](https://tidyverse.org/packages/) packages for `SpatRaster` and `SpatVector` objects created with [**terra**](https://cran.r-project.org/package=terra). It also provides [**ggplot2**](https://ggplot2.tidyverse.org/) geoms and scales for plotting those objects.\n\nPlease cite **tidyterra** as:\n\nHernangómez, D. (2023). Using the tidyverse with terra objects: the tidyterra package. _Journal of Open Source Software_, _8_(91), 5751, <https://doi.org/10.21105/joss.05751>.\n\nA BibTeX entry for LaTeX users is:\n\n```\n@article{Hernangómez2023,\n  doi = {10.21105/joss.05751},\n  url = {https://doi.org/10.21105/joss.05751},\n  year = {2023},\n  publisher = {The Open Journal},\n  volume = {8},\n  number = {91},\n  pages = {5751},\n  author = {Diego Hernangómez},\n  title = {Using the {tidyverse} with {terra} objects: the {tidyterra} package},\n  journal = {Journal of Open Source Software}\n}\n```\n\n## Overview \n\nThe full manual for the latest release of **tidyterra** on **CRAN** is online: <https://dieghernan.github.io/tidyterra/>\n\nMethods implemented in **tidyterra** work differently depending on the type of `Spat*` object:\n\n* `SpatVector`: Methods are implemented using `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)` coercion. Rows correspond to geometries and columns correspond to attributes of each geometry.\n* `SpatRaster`: Methods can be applied to layers or cells. **tidyterra**’s overall approach is to treat the layers as columns of a tibble and the cells as rows. For example, `select(a_spatraster, 1)` selects the first layer of a `SpatRaster` object.\n\nImplemented methods return the same type of object as the input, unless the method is expected to return another type of object. For example, `[as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` returns a tibble.\n\nCurrent methods and functions provided by **tidyterra** are:\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7632416,
+          "keyword_score": 122.4549390103736,
+          "vector_rank": 1,
+          "keyword_rank": 10,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "0280db07d2fafca6cd0018ea486ad43de3c3c6b8add7b8749c1f62626c6d8f11",
+        "type": "text",
+        "score": 0.9698937177733348,
+        "text": "# S3 method for class 'SpatVector'\nas_spatvector(x, ...)\n```\n\n## Arguments\n\nx\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html), data frame or [sf](https://cran.r-project.org/package=sf) object of class `sf` or `[sfc](https://r-spatial.github.io/sf/reference/sfc.html)`.\n\n...\n\nAdditional arguments passed to `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\ngeom\n\nCharacter vector naming the fields that contain the geometry data. Use two names for point coordinates (`x` and `y`) or one name for a column with WKT geometries.\n\ncrs\n\nA CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial object from [sf](https://cran.r-project.org/package=sf) or [terra](https://cran.r-project.org/package=terra) that includes the target coordinate reference system. See `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` and **Details**.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object.\n\n## Details\n\nThis function differs from `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)` in the following ways:\n\n* Rows with geometry values `NA` or `\"\"` are removed before conversion.\n* If `x` is a grouped data frame (see `[dplyr::group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`), the grouping variables are transferred and a grouped `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` is created (see `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`).\n* If no `crs` is provided and the [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) was created with `[as_tibble.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, the `crs` is inferred from `[attr(x, \"crs\")](https://rdrr.io/r/base/attr.html)`.\n* It handles the conversion of `EMPTY` geometries between [sf](https://cran.r-project.org/package=sf) and [terra](https://cran.r-project.org/package=terra).\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n## See also\n\n`[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` for retrieving CRS and the corresponding utilities `[sf::st_crs()](https://r-spatial.github.io/sf/reference/st%5Fcrs.html)` and `[terra::crs()](https://rspatial.github.io/terra/reference/crs.html)`.\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`\n\n## Examples\n\n```\nlibrary(terra)\n\nv <- vect(matrix(1:80, ncol = 2), crs = \"EPSG:3857\")\n\nv$cat <- sample(LETTERS[1:4], size = nrow(v), replace = TRUE)\n\nv\n#> class       : SpatVector\n#> geometry    : points\n#> dimensions  : 40, 1  (geometries, attributes)\n#> extent      : 1, 40, 41, 80  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> names       :   cat\n#> type        : <chr>\n#> values      :     A\n#>                   C\n#>                   D\n#>               ...\n\n# Create tibble\nas_tbl <- as_tibble(v, geom = \"WKT\")\n\n",
+        "item": {
+          "key": "reference/as_spatvector.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.74055314,
+          "keyword_score": 123.57802187419169,
+          "vector_rank": 5,
+          "keyword_rank": 8,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "af7b1a3bc02d3d6b0fe9d49634f29ec8ddcaa46466c0ceee866fdacba0151495",
+        "type": "text",
+        "score": 0.8711502199874294,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/bind\\_cols.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Bind multiple `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, `[sf](https://r-spatial.github.io/sf/reference/sf.html)` and data frame objects by column\n\nSource: [R/bind-cols-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/main/R/bind-cols-SpatVector.R) \n\n`bind_cols.SpatVector.Rd`\n\nBind any number of `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects, data frames and `[sf](https://r-spatial.github.io/sf/reference/sf.html)` objects by column, making a wider result. This is similar to `do.call(cbind, data_frames)`.\n\nWhere possible, prefer using a [join](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.html) to combine `SpatVector` and data frame objects. `bind_spat_cols()`binds rows in the order in which they appear, so it is easy to create meaningless results without realizing it.\n\n## Usage\n\n```\nbind_spat_cols(\n  ...,\n  .name_repair = c(\"unique\", \"universal\", \"check_unique\", \"minimal\")\n)\n```\n\n## Arguments\n\n...\n\nObjects to combine. The first argument must be a `SpatVector`. Each subsequent argument can be a `SpatVector`, `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object or data frame. Inputs are [recycled](https://vctrs.r-lib.org/reference/theory-faq-recycling.html) to the same length, then matched by position.\n\n.name\\_repair\n\nOne of `\"unique\"`, `\"universal\"`, or `\"check_unique\"`. See `[vctrs::vec_as_names()](https://vctrs.r-lib.org/reference/vec%5Fas%5Fnames.html)` for the meaning of these options.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object with the combined columns. Its geometry and CRS come from the first `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` in `...`.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[cbind()](https://rdrr.io/r/base/cbind.html)` method.\n\n## Methods\n\nImplementation of the `[dplyr::bind_cols()](https://dplyr.tidyverse.org/reference/bind%5Fcols.html)` function for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`objects. For the second and subsequent arguments in `...`, the geometry is not `cbind`ed and only the data frame-like columns are kept.\n\n## See also\n\n`[dplyr::bind_cols()](https://dplyr.tidyverse.org/reference/bind%5Fcols.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on pairs of `SpatVector` and data frame objects: `[bind_rows.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/bind%5Frows.SpatVector.html)`, `[cross_join.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/cross%5Fjoin.SpatVector.html)`, `[filter-joins.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/filter-joins.SpatVector.html)`, `[mutate-joins.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/mutate-joins.SpatVector.html)`, `[nest_join.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/nest%5Fjoin.SpatVector.html)`, `[rows.SpatVector](https://dieghernan.github.io/tidyterra/dev/reference/rows.SpatVector.html)`\n\n## Examples\n\n```\nlibrary(terra)\nsv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\ndf2 <- data.frame(letters = letters[seq_len(nrow(sv))])\n\n# Data frame\nbind_spat_cols(sv, df2)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 9, 4  (geometries, attributes)\n#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)\n#> source      : cyl.gpkg\n#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)\n#> names       :  iso2  cpro   name letters\n#> type        : <chr> <chr>  <chr>   <chr>\n#> values      : ES-AV    05  Avila       a\n#>               ES-BU    09 Burgos       b\n#>               ES-LE    24   Leon       c\n#>               ...\n\n",
+        "item": {
+          "key": "reference/bind_cols.SpatVector.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7331585,
+          "keyword_score": 117.72665252875694,
+          "vector_rank": 14,
+          "keyword_rank": 14,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5428297371c638105e7a0af49ec3b952c6a34191b9bbc31b7e3cd29f26c9294e",
+        "type": "text",
+        "score": 0.772730004206478,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/compare\\_spatrasters.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Compare attributes of two `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects\n\nSource: [R/compare-spatrasters.R](https://github.com/dieghernan/tidyterra/blob/main/R/compare-spatrasters.R) \n\n`compare_spatrasters.Rd`\n\nTwo `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects are compatible (in terms of combining layers) if the CRS, extent and resolution are similar. In those cases you can combine the objects simply as `c(x, y)`.\n\nThis function compares those attributes and reports the results. See **Resolving differences** for minimal guidance.\n\n## Usage\n\n```\ncompare_spatrasters(x, y, digits = 6)\n```\n\n## Arguments\n\nx, y\n\n`SpatRaster` objects.\n\ndigits\n\nInteger to set the precision for comparing the extent and the resolution.\n\n## Value\n\nAn invisible logical value indicating whether the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`objects are compatible, plus an informative message flagging any issues found.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::compareGeom()](https://rspatial.github.io/terra/reference/compareGeom.html)`.\n\n## Resolving differences\n\n* For a **different CRS**, try `[terra::project()](https://rspatial.github.io/terra/reference/project.html)`.\n* For a **different extent**, try `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)`.\n* For a **different resolution**, try `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)`, `[terra::aggregate()](https://rspatial.github.io/terra/reference/aggregate.html)` or `[terra::disagg()](https://rspatial.github.io/terra/reference/disaggregate.html)`.\n\n## See also\n\n`[terra::identical()](https://rspatial.github.io/terra/reference/identical.html)`.\n\n## Examples\n\n```\nlibrary(terra)\n\nx <- rast(matrix(1:90, ncol = 3), crs = \"EPSG:3857\")\n\n# Nothing\ncompare_spatrasters(x, x)\n\n# Different CRS\ny_nocrs <- x\ncrs(y_nocrs) <- NA\n\ncompare_spatrasters(x, y_nocrs)\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • CRS\n\n# Different extent\ncompare_spatrasters(x, x[1:10, , drop = FALSE])\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • extent\n\n# Different resolution\ny_newres <- x\n\nres(y_newres) <- res(x) / 2\ncompare_spatrasters(x, y_newres)\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • resolution\n\n# Everything\n\ncompare_spatrasters(x, project(x, \"epsg:3035\"))\n#> ! Results of `tidyterra::compare_spatrasters()`: \n#> The following attributes are not equal:\n#> • CRS\n#> • extent\n#> • resolution\n\n\n```",
+        "item": {
+          "key": "reference/compare_spatrasters.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7140738,
+          "keyword_score": 111.31378970474519,
+          "vector_rank": 26,
+          "keyword_rank": 21,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "0d6a8ea1fb82068a1499128a3fcb16e77330d3c9e5f6888b367ac74090631d5c",
+        "type": "text",
+        "score": 0.713925469319137,
+        "text": "## Methods\n\nImplementation of the **generic** `[generics::tidy()](https://generics.r-lib.org/reference/tidy.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nReturns a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) that can be used with `ggplot2::geom_*`, such as `[ggplot2::geom_point()](https://ggplot2.tidyverse.org/reference/geom%5Fpoint.html)` and `[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`.\n\nThe resulting [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) includes coordinates in the `x` and `y` columns. The values of each layer are added as extra columns using the layer names from the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`.\n\nThe CRS of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` can be retrieved with `attr(tidySpatRaster, \"crs\")`.\n\nYou can convert the tidy object back to a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` with `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`.\n\nWhen `pivot = TRUE`, the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` is returned in long format (see `[tidyr::pivot_longer()](https://tidyr.tidyverse.org/reference/pivot%5Flonger.html)`). The tidy object has the following columns:\n\n* `x`, `y`: Coordinates of the cell center in the corresponding CRS.\n* `lyr`: Name of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` layer associated with `value`.\n* `value`: Cell value for the corresponding `lyr`.\n\nThis option can be useful when combining several `geom_*` layers or when faceting.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, `SpatGraticule` and `SpatExtent`\n\nReturns an `[sf](https://r-spatial.github.io/sf/reference/sf.html)` object that can be used with `[ggplot2::geom_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`.\n\n## See also\n\n`[sf::st_as_sf()](https://r-spatial.github.io/sf/reference/st%5Fas%5Fsf.html)`, `[generics::tidy()](https://generics.r-lib.org/reference/tidy.html)`.\n\nOther [generics](https://cran.r-project.org/package=generics) methods: `[glance.Spat](https://dieghernan.github.io/tidyterra/dev/reference/glance.Spat.html)`, `[required_pkgs.Spat](https://dieghernan.github.io/tidyterra/dev/reference/required%5Fpkgs.Spat.html)`\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatraster.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`\n\n## Examples\n\n```\n# \\donttest{\n\n# Get a SpatRaster\nr <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\") |>\n  terra::rast() |>\n  terra::project(\"EPSG:4326\")\n\nr_tidy <- tidy(r)\n\nr_tidy\n#> # A tibble: 23,166 × 3\n#>        x     y elevation\n#>    <dbl> <dbl>     <dbl>\n#>  1  175. -36.9        NA\n#>  2  175. -36.9        NA\n#>  3  175. -36.9        NA\n#>  4  175. -36.9        NA\n#>  5  175. -36.9        NA\n#>  6  175. -36.9        NA\n#>  7  175. -36.9        NA\n#>  8  175. -36.9        NA\n#>  9  175. -36.9        NA\n#> 10  175. -36.9        NA\n#> # ℹ 23,156 more rows\n\n",
+        "item": {
+          "key": "reference/tidy.Spat.html",
+          "timestamp": 1793826420000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7003884,
+          "keyword_score": 110.56456379621365,
+          "vector_rank": 39,
+          "keyword_rank": 23,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

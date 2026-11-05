@@ -41,6 +41,10 @@ While the \CRANpkg{terra} equivalent is:
 
 Knowing the WKT helps smooth workflows when working with different
 packages and object types.
+Assigning a CRS records how existing coordinates should be interpreted.
+Establish the source CRS from the data provider before assigning it.
+Reprojecting with \code{\link[terra:project]{terra::project()}} or \code{\link[sf:st_transform]{sf::st_transform()}} transforms
+coordinates from a known source CRS to a target CRS.
 }
 \section{Internals}{
 

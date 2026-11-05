@@ -1,0 +1,174 @@
+{
+  "id": "14-pull-values",
+  "question": "For a tiny SpatRaster containing the values 1, NA, 3 and 4 in a layer named elevation, show a self-contained tidyterra example extracting that layer with pull(). Does pull() return a SpatRaster or a vector, and what happens to NA values by default and with na.rm = TRUE? Cite the documentation.",
+  "criteria": "Valid runnable example; pull returns a vector rather than a SpatRaster; default retains four elements including NA; na.rm = TRUE yields three nonmissing values; development source links.",
+  "status": 200,
+  "elapsedMs": 7863,
+  "answer": "Here's a self-contained tidyterra example extracting the \"elevation\" layer from a tiny SpatRaster using `pull()`:\n```r\nlibrary(terra)\nlibrary(tidyterra)\n\n# Create a tiny SpatRaster\nr <- rast(nrows = 2, ncols = 2, vals = c(1, NA, 3, 4))\nnames(r) <- \"elevation\"\n\n# Extract the elevation layer with pull()\nelevation <- r |> pull(elevation)\n\n# Check the class and value of elevation\nclass(elevation)\nelevation\n\n# Extract the elevation layer with na.rm = TRUE\nelevation_na_rm <- r |> pull(elevation, na.rm = TRUE)\n\n# Check the class and value of elevation_na_rm\nclass(elevation_na_rm)\nelevation_na_rm\n```\nAccording to the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html), `pull()` returns a vector. By default, `pull()` keeps missing values (`NA`), but you can remove them by passing `na.rm = TRUE` to the `...` argument. \n\nAs stated in the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html), \"For `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects, the default (`na.rm = FALSE`) keeps missing values. Passing `na.rm = TRUE` to `...` removes cells with missing values and can shorten the result.\" \n\nTherefore, in this example, `elevation` will be a vector containing the values `c(1, NA, 3, 4)`, while `elevation_na_rm` will be a vector containing the values `c(1, 3, 4)`.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 4579,
+    "completion_tokens": 373,
+    "total_tokens": 4952,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 198.50364685058594
+  },
+  "raw": {
+    "id": "id-1793868728274",
+    "object": "chat.completion",
+    "created": 1793868728,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's a self-contained tidyterra example extracting the \"elevation\" layer from a tiny SpatRaster using `pull()`:\n```r\nlibrary(terra)\nlibrary(tidyterra)\n\n# Create a tiny SpatRaster\nr <- rast(nrows = 2, ncols = 2, vals = c(1, NA, 3, 4))\nnames(r) <- \"elevation\"\n\n# Extract the elevation layer with pull()\nelevation <- r |> pull(elevation)\n\n# Check the class and value of elevation\nclass(elevation)\nelevation\n\n# Extract the elevation layer with na.rm = TRUE\nelevation_na_rm <- r |> pull(elevation, na.rm = TRUE)\n\n# Check the class and value of elevation_na_rm\nclass(elevation_na_rm)\nelevation_na_rm\n```\nAccording to the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html), `pull()` returns a vector. By default, `pull()` keeps missing values (`NA`), but you can remove them by passing `na.rm = TRUE` to the `...` argument. \n\nAs stated in the [documentation](https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html), \"For `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects, the default (`na.rm = FALSE`) keeps missing values. Passing `na.rm = TRUE` to `...` removes cells with missing values and can shorten the result.\" \n\nTherefore, in this example, `elevation` will be a vector containing the values `c(1, NA, 3, 4)`, while `elevation_na_rm` will be a vector containing the values `c(1, 3, 4)`.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4579,
+      "completion_tokens": 373,
+      "total_tokens": 4952,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 198.50364685058594
+    },
+    "chunks": [
+      {
+        "id": "82bdb4b047898bf0233f048f7973769071b23815a853401981a86b88fe538355",
+        "type": "text",
+        "score": 1,
+        "text": "# S3 method for class 'SpatVector'\npull(.data, var = -1, name = NULL, ...)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\nvar\n\nA variable specified as:\n\n* a literal layer/attribute name.\n* a positive integer, giving the position counting from the left.\n* a negative integer, giving the position counting from the right.\n\nThe default returns the last layer/attribute (on the assumption that's the column you've created most recently).\n\nThis argument is taken by expression and supports [quasiquotation](https://rlang.r-lib.org/reference/topic-inject.html) (you can unquote column names and column locations).\n\nname\n\nAn optional parameter that specifies the column to be used as names for a named vector. Specified in a similar manner as `var`.\n\n...\n\nArguments passed to `[as_tibble.SpatRaster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)` or `[as_tibble.Spat()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)` methods.\n\n## Value\n\nA vector with one element per cell or geometry in `.data`. For `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects, the default (`na.rm = FALSE`) keeps missing values. Passing `na.rm = TRUE` to `...` removes cells with missing values and can shorten the result. See `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)`.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::values()](https://rspatial.github.io/terra/reference/values.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::pull()](https://dplyr.tidyverse.org/reference/pull.html)` methods. Each method first coerces the `Spat*` object to a [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) (see [as\\_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)) and then applies `[dplyr::pull()](https://dplyr.tidyverse.org/reference/pull.html)` to the tibble.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nWhen passing `na.rm = TRUE` to `...`, only cells with a value other than `NA` are extracted. See `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)`.\n\nIf `xy = TRUE` is passed to `...`, two columns named `x` and `y`(corresponding to the geographic coordinates of each cell) are available in positions `1` and `2`. Therefore, `pull(.data, 1)` and `pull(.data, 1, xy = TRUE)` return different results.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nWhen passing `geom = \"WKT\"` or `geom = \"HEX\"` to `...`, the geometry of the `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` can be extracted with `var = geometry`. Similarly, when using `geom = \"XY\"`, the coordinates can be extracted with `var = x` or `var = y`. See the options in `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)`.\n\n## See also\n\n`[dplyr::pull()](https://dplyr.tidyverse.org/reference/pull.html)`.\n\n",
+        "item": {
+          "key": "reference/pull.Spat.html",
+          "timestamp": 1793825580000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.8075559,
+          "keyword_score": 218.00154098020488,
+          "vector_rank": 1,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "82bdb4b047898bf0233f048f79737690dfaa6a44a018b08280ed460eac4070fd",
+        "type": "text",
+        "score": 0.9077380952380951,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/pull.Spat.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Extract a single layer/attribute\n\nSource: [R/pull-Spat.R](https://github.com/dieghernan/tidyterra/blob/main/R/pull-Spat.R) \n\n`pull.Spat.Rd`\n\n`[pull()](https://dplyr.tidyverse.org/reference/pull.html)` is similar to `$` on a data frame. It is mostly useful because it looks nicer in pipes and can optionally name the output.\n\n**You can extract the geographic coordinates of a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`**. Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names in [terra](https://cran.r-project.org/package=terra), since they refer to cell coordinates.\n\nSee **Examples** and section **Layer and column names** on `[as_tibble.Spat()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`.\n\n## Usage\n\n```\n# S3 method for class 'SpatRaster'\npull(.data, var = -1, name = NULL, ...)\n\n# S3 method for class 'SpatVector'\npull(.data, var = -1, name = NULL, ...)\n```\n\n## Arguments\n\n.data\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\nvar\n\nA variable specified as:\n\n* a literal layer/attribute name.\n* a positive integer, giving the position counting from the left.\n* a negative integer, giving the position counting from the right.\n\n",
+        "item": {
+          "key": "reference/pull.Spat.html",
+          "timestamp": 1793825580000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7792194,
+          "keyword_score": 169.05166913965607,
+          "vector_rank": 3,
+          "keyword_rank": 12,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc029e9677610820b86c9d007acced1deab3f",
+        "type": "text",
+        "score": 0.8008525149190111,
+        "text": "The following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example, we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\nThroughout these steps, core properties of the `SpatRaster`, including the number of cells, rows, columns, extent, resolution and CRS, remain unchanged. Other verbs such as `[filter()](https://dplyr.tidyverse.org/reference/filter.html)`, `[slice()](https://dplyr.tidyverse.org/reference/slice.html)` or `[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` may alter these properties in a manner analogous to row operations on data frames.\n\n### `SpatVector` objects \n\nMost **dplyr** and **tidyr** verbs work with `SpatVector` objects, so you can arrange, group and summarize their attributes.\n\n```\nlux <- system.file(\"ex/lux.shp\", package = \"terra\")\n\nv_lux <- vect(lux)\n\nv_lux |>\n  # Create categories.\n  mutate(gr = cut(POP / 1000, 5)) |>\n  group_by(gr) |>\n  # Summarize by group.\n  summarise(\n    n = n(),\n    tot_pop = sum(POP),\n    mean_area = mean(AREA)\n  ) |>\n  # Arrange groups.\n  arrange(desc(gr))\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 3, 4  (geometries, attributes)\n#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)\n#> coord. ref. : lon/lat WGS 84 (EPSG:4326)\n#> names       :          gr     n tot_pop mean_area\n#> type        :      <fact> <int>   <num>     <num>\n#> values      :   (147,183]     2  359427       244\n#>               (40.7,76.1]     1   48187       185\n#>               (4.99,40.7]     9  194391   209.778\n```\n\nThe CRS is preserved during these operations. By default, `[summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` merges geometries within each group.\n\n## Plotting with ggplot2 \n\n### `SpatRaster` objects \n\nWhen a `SpatRaster` has a CRS defined (`terra::crs(a_rast) != \"\"`), the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` and can reproject the raster to match other spatial layers.\n\n```\nlibrary(ggplot2)\n\n# Facet a SpatRaster object.\n\nggplot() +\n  geom_spatraster(data = temp) +\n  facet_wrap(~lyr) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    na.value = \"white\"\n  )\n```\n\n![Three raster maps of average temperature in Castile and Leon, one each for April, May and June. Fill color encodes degrees Celsius. Temperatures increase across the three months.](https://dieghernan.github.io/tidyterra/dev/articles/fig-faceted-1.png)\n\nFaceted map using a SpatRaster object. \n\n```\n# Contour lines for a specific layer.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6573385,
+          "keyword_score": 177.68537107945792,
+          "vector_rank": 25,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02950deb99dc03df153794774cbe92b5bce",
+        "type": "text",
+        "score": 0.7886198945981554,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nThe following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example, we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7075125,
+          "keyword_score": 156.76106284909392,
+          "vector_rank": 9,
+          "keyword_rank": 28,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "644dab1d05b120d298274a3f836c7cdee8c6e8fafa103cf3df2cf2df37c8f440",
+        "type": "text",
+        "score": 0.7798295454545453,
+        "text": "# S3 method for class 'SpatVector'\nas_tibble(\n  x,\n  ...,\n  geom = NULL,\n  .name_repair = c(\"unique\", \"check_unique\", \"universal\", \"minimal\", \"unique_quiet\",\n    \"universal_quiet\")\n)\n```\n\n## Arguments\n\nx\n\nA `SpatRaster` created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` or a `SpatVector`created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\nArguments passed to `[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)`.\n\nxy\n\nlogical. If `TRUE`, the coordinates of each raster cell are included\n\nna.rm\n\nlogical. If `TRUE`, cells that have a `NA` value in at least one layer are removed. If the argument is set to `NA` only cells that have `NA` values in all layers are removed\n\n.name\\_repair\n\nTreatment of problematic column names:\n\n* `\"minimal\"`: No name repair or checks, beyond basic existence,\n* `\"unique\"`: Make sure names are unique and not empty,\n* `\"check_unique\"`: (default value), no name repair, but check they are `unique`,\n* `\"universal\"`: Make the names `unique` and syntactic\n* `\"unique_quiet\"`: Same as `\"unique\"`, but \"quiet\"\n* `\"universal_quiet\"`: Same as `\"universal\"`, but \"quiet\"\n* a function: apply custom name repair (e.g., `.name_repair = make.names`for names in the style of base R).\n* A purrr-style anonymous function, see `[rlang::as_function()](https://rlang.r-lib.org/reference/as%5Ffunction.html)`\n\nThis argument is passed on as `repair` to `[vctrs::vec_as_names()](https://vctrs.r-lib.org/reference/vec%5Fas%5Fnames.html)`. See there for more details on these terms and the strategies used to enforce them.\n\ngeom\n\ncharacter or NULL. If not NULL, either \"WKT\" or \"HEX\", to get the geometry included in Well-Known-Text or hexadecimal notation. If `x` has point geometry, it can also be \"XY\" to add the coordinates of each point\n\n## Value\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html).\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::as.data.frame()](https://rspatial.github.io/terra/reference/as.data.frame.html)`.\n\n## Methods\n\nImplementation of the **generic** `[tibble::as_tibble()](https://tibble.tidyverse.org/reference/as%5Ftibble.html)` methods for `Spat*`objects.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` and `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nThe returned [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) includes the CRS of the original object as an attribute in WKT format (see `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)`).\n\n## Layer and column names\n\nWhen coercing `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects to data frames, `x` and `y`are reserved names for the geographic coordinates of each cell. [terra](https://cran.r-project.org/package=terra) also allows layers with duplicated names.\n\n",
+        "item": {
+          "key": "reference/as_tibble.Spat.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.64170915,
+          "keyword_score": 179.01452083556356,
+          "vector_rank": 36,
+          "keyword_rank": 6,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d92dd087af46f8a04618c83a754f997fdd3ed374738b4e2d4e77b890a5c3ac25",
+        "type": "text",
+        "score": 0.7733457019171304,
+        "text": "# S3 method for class 'SpatRaster'\ndrop_na(data, ...)\n```\n\n## Arguments\n\ndata\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)` or a `SpatRaster`created with `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`.\n\n...\n\n<`[tidy-select](https://tidyr.tidyverse.org/reference/tidyr%5Ftidy%5Fselect.html)`\\> Attributes to inspect for missing values. If empty, all attributes are used.\n\n## Value\n\nA `Spat*` object of the same class as `data`. See **Methods**.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`.\n\n## Methods\n\nImplementation of the **generic** `[tidyr::drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` methods for `Spat*`objects.\n\n### `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nThis method operates on attributes, meaning that `NA` values are assessed in the attributes (columns) of each geometry (row). The result is a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` with potentially fewer geometries than the input.\n\n### `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\n[![[Questioning]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-questioning.svg)](https://lifecycle.r-lib.org/articles/stages.html#questioning)\n\nThe implementation of `drop_na.SpatRaster()` can be understood as a masking method based on the values of the layers (see `[terra::mask()](https://rspatial.github.io/terra/reference/mask.html)`).\n\n`[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` layers are treated as columns and `SpatRaster`cells as rows, so rows (cells) with any `NA` value on any layer become `NA`. You can also mask the cells (rows) based on the values of specific layers (columns).\n\n`[drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)` effectively removes outer cells that are `NA` (see `[terra::trim()](https://rspatial.github.io/terra/reference/trim.html)`), so the extent of the resulting object may differ from the extent of the input (see `[terra::resample()](https://rspatial.github.io/terra/reference/resample.html)` for more information).\n\nCheck the **Examples** to have a better understanding of this method.\n\n#### Feedback needed!\n\nVisit <https://github.com/dieghernan/tidyterra/issues>. The implementation of this method for `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` may change in the future.\n\n## See also\n\n`[tidyr::drop_na()](https://tidyr.tidyverse.org/reference/drop%5Fna.html)`.\n\nOther [tidyr](https://cran.r-project.org/package=tidyr) verbs for handling missing values: `[complete.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/complete.SpatVector.html)`, `[expand.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/expand.SpatVector.html)`, `[fill.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/fill.SpatVector.html)`, `[replace_na.Spat](https://dieghernan.github.io/tidyterra/dev/reference/replace%5Fna.Spat.html)`\n\n## Examples\n\n```\n\nlibrary(terra)\n\nf <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\n\nv <- terra::vect(f)\n\n# Add missing values.\nv <- v |> mutate(iso2 = ifelse(cpro <= \"09\", NA, cpro))\n\n# Initial plot.\nplot(v, col = \"red\")\n\n\n# Drop geometries with missing values in iso2.\nv |>\n  drop_na(iso2) |>\n  plot(col = \"red\")\n\n# SpatRaster method\n\n# \\donttest{\nr <- rast(\n  crs = \"EPSG:3857\",\n  extent = c(0, 10, 0, 10),\n  nlyr = 3,\n  resolution = c(2.5, 2.5)\n)\nterra::values(r) <- seq_len(ncell(r) * nlyr(r))\n\n# Add missing values.\nr[r > 13 & r < 22 | r > 31 & r < 45] <- NA\n\n# Initial plot.\nplot(r, nc = 3)\n\n\n# Mask with lyr.1.\nr |>\n  drop_na(lyr.1) |>\n  plot(nc = 3)\n\n\n# Mask with lyr.2.\nr |>\n  drop_na(lyr.2) |>\n  plot(nc = 3)\n\n\n# Mask with lyr.3.\nr |>\n  drop_na(lyr.3) |>\n  plot(nc = 3)\n\n\n# Mask all layers.\nr |>\n  drop_na() |>\n  plot(nc = 3)\n\n# }\n\n",
+        "item": {
+          "key": "reference/drop_na.Spat.html",
+          "timestamp": 1793825160000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7229649,
+          "keyword_score": 150.69073182631857,
+          "vector_rank": 6,
+          "keyword_rank": 38,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

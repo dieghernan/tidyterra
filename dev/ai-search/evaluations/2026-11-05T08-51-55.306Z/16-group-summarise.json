@@ -1,0 +1,174 @@
+{
+  "id": "16-group-summarise",
+  "question": "Using the bundled extdata/cyl.gpkg data, give a self-contained R example that groups the SpatVector by iso2 and counts the geometries in each group with tidyterra. Explain the output class and what .dissolve controls in summarise(). Cite the documentation.",
+  "criteria": "Loads a documented file using system.file and terra::vect; valid group_by(iso2) and summarise count; output is a SpatVector with one geometry per group and correct counts; .dissolve controls dissolving boundaries rather than changing the count statistic; development source links.",
+  "status": 200,
+  "elapsedMs": 9195,
+  "answer": "Here's an example using the bundled extdata/cyl.gpkg data:\n\n```r\nlibrary(tidyterra)\nlibrary(terra)\n\n# Load the data\nv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\n# Group the SpatVector by iso2 and count the geometries in each group\nresult <- v |>\n  group_by(iso2) |>\n  summarise(n = n())\n\n# Print the result\nprint(result)\n```\n\nThe output class of `result` will be a `SpatVector` object, as stated in the [summarise.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html).\n\nThe `.dissolve` argument in `summarise()` controls whether the geometries of each group are dissolved into a single geometry or kept separate. If `.dissolve = TRUE`, the geometries are dissolved, and if `.dissolve = FALSE`, they are kept separate as `MULTI` geometries. By default, `.dissolve` is set to `TRUE`. \n\nIn this example, since we're counting the geometries in each group, dissolving the geometries doesn't affect the count. However, if we were to use a different summary function, such as `mean` or `sum`, dissolving the geometries could potentially affect the result. \n\nFor more information on the `summarise()` function and its arguments, see the [summarise.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html) and the [dplyr::summarise documentation](https://dplyr.tidyverse.org/reference/summarise.html). \n\nNote that the `count()` function from tidyterra can also be used to achieve the same result:\n\n```r\nresult <- v |>\n  count(iso2)\n```",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 4833,
+    "completion_tokens": 406,
+    "total_tokens": 5239,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 212.03579711914062
+  },
+  "raw": {
+    "id": "id-1793868748024",
+    "object": "chat.completion",
+    "created": 1793868748,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's an example using the bundled extdata/cyl.gpkg data:\n\n```r\nlibrary(tidyterra)\nlibrary(terra)\n\n# Load the data\nv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\n# Group the SpatVector by iso2 and count the geometries in each group\nresult <- v |>\n  group_by(iso2) |>\n  summarise(n = n())\n\n# Print the result\nprint(result)\n```\n\nThe output class of `result` will be a `SpatVector` object, as stated in the [summarise.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html).\n\nThe `.dissolve` argument in `summarise()` controls whether the geometries of each group are dissolved into a single geometry or kept separate. If `.dissolve = TRUE`, the geometries are dissolved, and if `.dissolve = FALSE`, they are kept separate as `MULTI` geometries. By default, `.dissolve` is set to `TRUE`. \n\nIn this example, since we're counting the geometries in each group, dissolving the geometries doesn't affect the count. However, if we were to use a different summary function, such as `mean` or `sum`, dissolving the geometries could potentially affect the result. \n\nFor more information on the `summarise()` function and its arguments, see the [summarise.SpatVector documentation](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html) and the [dplyr::summarise documentation](https://dplyr.tidyverse.org/reference/summarise.html). \n\nNote that the `count()` function from tidyterra can also be used to achieve the same result:\n\n```r\nresult <- v |>\n  count(iso2)\n```",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4833,
+      "completion_tokens": 406,
+      "total_tokens": 5239,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 212.03579711914062
+    },
+    "chunks": [
+      {
+        "id": "517ca937c16dcdd3a250b7a8d7e38ea96c991d8461b39c60c4034632f2185f08",
+        "type": "text",
+        "score": 1,
+        "text": "# S3 method for class 'SpatVector'\nsummarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)\n```\n\n## Arguments\n\n.data\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Name-value pairs of summary functions. The name will be the name of the variable in the result.\n\nThe value can be:\n\n* A vector of length 1, e.g. `min(x)`, `[n()](https://dplyr.tidyverse.org/reference/context.html)`, or `sum(is.na(y))`.\n* A data frame with 1 row, to add multiple columns from a single expression.\n\n.by\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> Optionally, a selection of columns to group by for just this operation, functioning as an alternative to `[group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`. For details and examples, see [?dplyr\\_by](https://dplyr.tidyverse.org/reference/dplyr%5Fby.html).\n\n.groups\n\n[![[Experimental]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) Grouping structure of the result.\n\n* `\"drop_last\"`: drops the last level of grouping. This was the only supported option before version 1.0.0.\n* `\"drop\"`: All levels of grouping are dropped.\n* `\"keep\"`: Same grouping structure as `.data`.\n* `\"rowwise\"`: Each row is its own group.\n\nWhen `.groups` is not specified, it is set to `\"drop_last\"` for a grouped data frame, and `\"keep\"` for a rowwise data frame. In addition, a message informs you of how the result will be grouped unless the result is ungrouped, the option `\"dplyr.summarise.inform\"` is set to `FALSE`, or when `[summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` is called from a function in a package.\n\n.dissolve\n\nLogical. If `TRUE`, dissolve borders between aggregated geometries.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::aggregate()](https://rspatial.github.io/terra/reference/aggregate.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` method for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\nAs in the [sf](https://cran.r-project.org/package=sf) implementation, this function can dissolve geometries with `.dissolve = TRUE` or create `MULTI` geometries with `.dissolve = FALSE`. See **Examples**.\n\n## See also\n\n`[dplyr::summarise()](https://dplyr.tidyverse.org/reference/summarise.html)`, `[terra::aggregate()](https://rspatial.github.io/terra/reference/aggregate.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on groups of rows: `[count.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.html)`, `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`, `[reframe.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.html)`, `[rowwise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.html)`\n\n## Examples\n\n```\nlibrary(terra)\nlibrary(ggplot2)\n\nv <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\n# Grouped\ngr_v <- v |>\n  mutate(start_with_s = startsWith(name, \"S\")) |>\n  group_by(start_with_s)\n\n# Dissolve geometries.\ndiss <- gr_v |>\n  summarise(n = dplyr::n(), mean = mean(as.double(cpro)))\n\n",
+        "item": {
+          "key": "reference/summarise.SpatVector.html",
+          "timestamp": 1793826420000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.83656365,
+          "keyword_score": 159.10723315162394,
+          "vector_rank": 1,
+          "keyword_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "517ca937c16dcdd3a250b7a8d7e38ea98fec0e7c35606a2a58bedd010f3f6d6e",
+        "type": "text",
+        "score": 0.9921280165182604,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Summarize each group of a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` down to one geometry\n\nSource: [R/summarise-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/main/R/summarise-SpatVector.R) \n\n`summarise.SpatVector.Rd`\n\n`[summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` creates a new `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`. It returns one geometry for each combination of grouping variables. If there are no grouping variables, the output will have a single geometry summarizing all observations in the input and combining all the geometries of the `SpatVector`. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified.\n\n`summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.\n\n## Usage\n\n```\n# S3 method for class 'SpatVector'\nsummarise(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)\n\n# S3 method for class 'SpatVector'\nsummarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)\n```\n\n## Arguments\n\n.data\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Name-value pairs of summary functions. The name will be the name of the variable in the result.\n\nThe value can be:\n\n",
+        "item": {
+          "key": "reference/summarise.SpatVector.html",
+          "timestamp": 1793826420000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.79612553,
+          "keyword_score": 159.2636190734641,
+          "vector_rank": 3,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "6e6b8f31a1a5c1f53402f41ddf016bea5061fd303e5d2a6fc860a2825e1f2178",
+        "type": "text",
+        "score": 0.9463152870165065,
+        "text": "# S3 method for class 'SpatVector'\nadd_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())\n```\n\n## Arguments\n\nx\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Variables to group by.\n\nwt\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Frequency weights. Can be `NULL` or a variable:\n\n* If `NULL` (the default), counts the number of rows in each group.\n* If a variable, computes `sum(wt)` for each group.\n\nsort\n\nIf `TRUE`, will show the largest groups at the top.\n\nname\n\nThe name of the new column in the output.\n\nIf omitted, it will default to `n`. If there's already a column called `n`, it will use `nn`. If there's a column called `n` and `nn`, it'll use `nnn`, and so on, adding `n`s until it gets a new name.\n\n.drop\n\n[![[Deprecated]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-deprecated.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated) Argument no longer supported, empty groups are always removed (see `[dplyr::count()](https://dplyr.tidyverse.org/reference/count.html)`, `.drop = TRUE` argument).\n\n.dissolve\n\nLogical. If `TRUE`, dissolve borders between aggregated geometries.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object with updated grouping metadata.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::aggregate()](https://rspatial.github.io/terra/reference/aggregate.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::count()](https://dplyr.tidyverse.org/reference/count.html)` method family for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\n`[tally()](https://dplyr.tidyverse.org/reference/count.html)` will always return a disaggregated geometry while `[count()](https://dplyr.tidyverse.org/reference/count.html)` can handle this. See also `[summarise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html)`.\n\n## See also\n\n`[dplyr::count()](https://dplyr.tidyverse.org/reference/count.html)`, `[dplyr::tally()](https://dplyr.tidyverse.org/reference/count.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on groups of rows: `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`, `[reframe.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.html)`, `[rowwise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.html)`, `[summarise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html)`\n\n## Examples\n\n```\n# \\donttest{\n\nlibrary(terra)\nf <- system.file(\"ex/lux.shp\", package = \"terra\")\np <- vect(f)\n\np |> count(NAME_1, sort = TRUE)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 3, 2  (geometries, attributes)\n#> extent      : 5.74414, 6.528252, 49.44781, 50.18162  (xmin, xmax, ymin, ymax)\n#> coord. ref. : lon/lat WGS 84 (EPSG:4326)\n#> names       :       NAME_1     n\n#> type        :        <chr> <int>\n#> values      :     Diekirch     5\n#>                 Luxembourg     4\n#>               Grevenmacher     3\n\n",
+        "item": {
+          "key": "reference/count.SpatVector.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.75400144,
+          "keyword_score": 155.53933599944642,
+          "vector_rank": 6,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "56b4824ccc418e0ec9c3ca53f106b4e2e92de17dccde204da96713dae8cf5eec",
+        "type": "text",
+        "score": 0.9211329403703158,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Reframe each group of a `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`\n\nSource: [R/reframe-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/main/R/reframe-SpatVector.R) \n\n`reframe.SpatVector.Rd`\n\n[![[Experimental]](https://dieghernan.github.io/tidyterra/dev/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)\n\n`[reframe()](https://dplyr.tidyverse.org/reference/reframe.html)` can return any number of rows per group. The geometry of each group is aggregated and repeated for each row created for that group.\n\n## Usage\n\n```\n# S3 method for class 'SpatVector'\nreframe(.data, ..., .by = NULL, .dissolve = TRUE)\n```\n\n## Arguments\n\n.data\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Name-value pairs of summary functions. The name will be the name of the variable in the result.\n\nThe value can be:\n\n* A vector of length 1, e.g. `min(x)`, `[n()](https://dplyr.tidyverse.org/reference/context.html)`, or `sum(is.na(y))`.\n* A data frame with 1 row, to add multiple columns from a single expression.\n\n.by\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> Optionally, a selection of columns to group by for just this operation, functioning as an alternative to `[group_by()](https://dplyr.tidyverse.org/reference/group%5Fby.html)`. For details and examples, see [?dplyr\\_by](https://dplyr.tidyverse.org/reference/dplyr%5Fby.html).\n\n.dissolve\n\nLogical. If `TRUE`, dissolve borders between aggregated geometries.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::reframe()](https://dplyr.tidyverse.org/reference/reframe.html)` method for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\nFor grouped inputs and calls using `.by`, geometries are aggregated per group. If a group produces more than one row, the aggregated group geometry is repeated for each output row.\n\n## See also\n\n`[dplyr::reframe()](https://dplyr.tidyverse.org/reference/reframe.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on groups of rows: `[count.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.html)`, `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`, `[rowwise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/rowwise.SpatVector.html)`, `[summarise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html)`\n\n## Examples\n\n```\nv <- terra::vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\nv$grp <- rep(c(\"A\", \"B\"), length.out = nrow(v))\n\nv |>\n  reframe(value = c(min(as.double(cpro)), max(as.double(cpro))), .by = grp)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 4, 2  (geometries, attributes)\n#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)\n#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)\n#> names       :   grp value\n#> type        : <chr> <num>\n#> values      :     A     5\n#>                   A    49\n#>                   B     9\n#>               ...\n\nv |>\n  rowwise() |>\n  reframe(value = 1:2)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 18, 1  (geometries, attributes)\n#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)\n#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)\n#> names       : value\n#> type        : <int>\n#> values      :     1\n#>                   2\n#>                   1\n#>               ...\n\n```",
+        "item": {
+          "key": "reference/reframe.SpatVector.html",
+          "timestamp": 1793825640000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.74542403,
+          "keyword_score": 158.84844737113724,
+          "vector_rank": 11,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "6e6b8f31a1a5c1f53402f41ddf016bea30707c59b99c4f265ac5a68c7c8c9d99",
+        "type": "text",
+        "score": 0.8264705670929388,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Count the observations in each `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` group\n\nSource: [R/count-tally-SpatVector.R](https://github.com/dieghernan/tidyterra/blob/main/R/count-tally-SpatVector.R) \n\n`count.SpatVector.Rd`\n\n`[count()](https://dplyr.tidyverse.org/reference/count.html)` lets you quickly count the unique values of one or more variables: `df |> count(a, b)` is roughly equivalent to `df |> group_by(a, b) |> summarise(n = n())`. `[count()](https://dplyr.tidyverse.org/reference/count.html)` is paired with `[tally()](https://dplyr.tidyverse.org/reference/count.html)`, a lower-level helper that is equivalent to `df |> summarise(n = n())`. Supply `wt` to perform weighted counts, switching the summary from `n = n()` to `n = sum(wt)`.\n\n`[add_count()](https://dplyr.tidyverse.org/reference/count.html)` is equivalent to `[count()](https://dplyr.tidyverse.org/reference/count.html)` but uses `[mutate()](https://dplyr.tidyverse.org/reference/mutate.html)` instead of `[summarise()](https://dplyr.tidyverse.org/reference/summarise.html)` so that it adds a new column with group-wise counts.\n\n## Usage\n\n```\n# S3 method for class 'SpatVector'\ncount(\n  x,\n  ...,\n  wt = NULL,\n  sort = FALSE,\n  name = NULL,\n  .drop = deprecated(),\n  .dissolve = TRUE\n)\n\n# S3 method for class 'SpatVector'\ntally(x, wt = NULL, sort = FALSE, name = NULL)\n\n# S3 method for class 'SpatVector'\nadd_count(x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())\n```\n\n## Arguments\n\nx\n\nA `SpatVector` created with `[terra::vect()](https://rspatial.github.io/terra/reference/vect.html)`.\n\n...\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Variables to group by.\n\nwt\n\n<`[data-masking](https://rlang.r-lib.org/reference/args%5Fdata%5Fmasking.html)`\\> Frequency weights. Can be `NULL` or a variable:\n\n* If `NULL` (the default), counts the number of rows in each group.\n* If a variable, computes `sum(wt)` for each group.\n\nsort\n\n",
+        "item": {
+          "key": "reference/count.SpatVector.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.71493137,
+          "keyword_score": 140.650188924598,
+          "vector_rank": 27,
+          "keyword_rank": 5,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "ffec27b2a5a6f9ecd840179a2bdac15b8012b3d63a8a582f824b4884b65a7f4d",
+        "type": "text",
+        "score": 0.7986485059655791,
+        "text": "# S3 method for class 'SpatVector'\nrowwise(data, ...)\n```\n\n## Arguments\n\ndata\n\nA `SpatVector` object. See **Methods**.\n\n...\n\n<`[tidy-select](https://dplyr.tidyverse.org/reference/dplyr%5Ftidy%5Fselect.html)`\\> Variables to be preserved when calling `[summarise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html)`. This is typically a set of variables whose combination uniquely identifies each row. See `[dplyr::rowwise()](https://dplyr.tidyverse.org/reference/rowwise.html)`.\n\nUnlike `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`, you cannot create new variables here. Instead, you can select multiple variables, for example with `[everything()](https://tidyselect.r-lib.org/reference/everything.html)`.\n\n## Value\n\nA `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` object with updated grouping metadata.\n\n## Details\n\nSee **Details** on `[dplyr::rowwise()](https://dplyr.tidyverse.org/reference/rowwise.html)`.\n\n## Methods\n\nImplementation of the **generic** `[dplyr::rowwise()](https://dplyr.tidyverse.org/reference/rowwise.html)` method for `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)` objects.\n\n## Grouping metadata\n\nMixing [terra](https://cran.r-project.org/package=terra) and [dplyr](https://cran.r-project.org/package=dplyr) syntax on a grouped or row-wise `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`, for example by subsetting with `v[1:3, 1:2]`, can corrupt its grouping metadata. [tidyterra](https://cran.r-project.org/package=tidyterra) attempts to restore this metadata the next time you use a [dplyr](https://cran.r-project.org/package=dplyr) verb on the object.\n\nSome operations, such as `[terra::spatSample()](https://rspatial.github.io/terra/reference/sample.html)`, create a new `[SpatVector](https://rspatial.github.io/terra/reference/vect.html)`without preserving grouping metadata. Call `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)` or `rowwise.SpatVector()` again, as appropriate.\n\n## See also\n\n`[dplyr::rowwise()](https://dplyr.tidyverse.org/reference/rowwise.html)`.\n\nOther [dplyr](https://cran.r-project.org/package=dplyr) verbs that operate on groups of rows: `[count.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/count.SpatVector.html)`, `[group_by.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/group%5Fby.SpatVector.html)`, `[reframe.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/reframe.SpatVector.html)`, `[summarise.SpatVector()](https://dieghernan.github.io/tidyterra/dev/reference/summarise.SpatVector.html)`\n\n## Examples\n\n```\nlibrary(terra)\nlibrary(dplyr)\n\nv <- terra::vect(system.file(\"shape/nc.shp\", package = \"sf\"))\n\n# Select new births\nnb <- v |>\n  select(starts_with(\"NWBIR\")) |>\n  glimpse()\n#> #  A SpatVector 100 x 2\n#> #  Geometry type: Polygons\n#> #  Geodetic CRS: lon/lat NAD27 (EPSG:4267)\n#> #  Extent (x / y): ([84° 19' 25.87\" W / 75° 27' 25.12\" W] , [33° 52' 55.17\" N / 36° 35' 22.74\" N])\n#> \n#> $ NWBIR74 <dbl> 10, 10, 208, 123, 1066, 954, 115, 254, 748, 160, 550, 1243, 93…\n#> $ NWBIR79 <dbl> 19, 12, 260, 145, 1197, 1237, 139, 371, 844, 176, 597, 1369, 1…\n\n# Compute the mean of NWBIR for each geometry.\nnb |>\n  rowwise() |>\n  mutate(nb_mean = mean(c(NWBIR74, NWBIR79)))\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 100, 3  (geometries, attributes)\n#> extent      : -84.32385, -75.45698, 33.88199, 36.58965  (xmin, xmax, ymin, ymax)\n#> source      : nc.shp\n#> coord. ref. : lon/lat NAD27 (EPSG:4267)\n#> names       : NWBIR74 NWBIR79 nb_mean\n#> type        :   <num>   <num>   <num>\n#> values      :      10      19    14.5\n#>                    10      12      11\n#>                   208     260     234\n#>               ...\n\n",
+        "item": {
+          "key": "reference/rowwise.SpatVector.html",
+          "timestamp": 1793825700000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7353348,
+          "keyword_score": 124.72903150832762,
+          "vector_rank": 17,
+          "keyword_rank": 17,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

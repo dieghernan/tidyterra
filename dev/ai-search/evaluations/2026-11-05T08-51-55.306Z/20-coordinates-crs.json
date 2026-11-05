@@ -1,0 +1,174 @@
+{
+  "id": "20-coordinates-crs",
+  "question": "¿Qué diferencia hay entre asignar un CRS a un raster sin CRS conocido y reproyectar sus coordenadas? Explica el papel de coord_sf() al dibujarlo con geom_spatraster(). Si la documentación recuperada no permite justificar un paso, indícalo y no inventes una función de tidyterra. Cita las fuentes.",
+  "criteria": "Spanish; assigning CRS metadata does not transform coordinates and requires knowing the source CRS; reprojection transforms to a target CRS; coord_sf can trigger plotting reprojection when source CRS is known; does not claim maxcell = Inf prevents reprojection or invent a tidyterra reprojection API; acknowledges missing evidence; development source links.",
+  "status": 200,
+  "elapsedMs": 12739,
+  "answer": "La asignación de un CRS a un raster sin CRS conocido y la reproyección de sus coordenadas son dos procesos distintos.\n\nAsignar un CRS a un raster sin CRS conocido implica definir el sistema de coordenadas que se utilizará para representar los datos del raster. Esto se puede hacer utilizando la función `crs()` de la librería `terra`, por ejemplo, `terra::crs(rast) <- \"EPSG:3857\"`. Esto no cambia las coordenadas del raster, solo define el sistema de coordenadas que se utilizará para interpretarlas.\n\nPor otro lado, la reproyección de las coordenadas de un raster implica transformar las coordenadas del raster de un sistema de coordenadas a otro. Esto se puede hacer utilizando la función `project()` de la librería `terra`, por ejemplo, `terra::project(rast, \"EPSG:3857\")`. Esto cambia las coordenadas del raster para que se ajusten al nuevo sistema de coordenadas.\n\nAl dibujar un raster con `geom_spatraster()`, si el raster tiene un CRS definido, `geom_spatraster()` utiliza `coord_sf()` para ajustar las escalas del gráfico. Esto significa que el raster puede ser reproyectado para que se ajuste al sistema de coordenadas del gráfico. Si el raster no tiene un CRS definido, `geom_spatraster()` no hace ninguna suposición sobre las escalas del gráfico.\n\nSegún la [documentación de geom_spatraster](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html), \"When the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales. On `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\"\n\nEn resumen, asignar un CRS a un raster sin CRS conocido define el sistema de coordenadas que se utilizará para interpretar las coordenadas del raster, mientras que la reproyección de las coordenadas cambia las coordenadas del raster para que se ajusten a un nuevo sistema de coordenadas. `coord_sf()` se utiliza en `geom_spatraster()` para ajustar las escalas del gráfico cuando el raster tiene un CRS definido.\n\nFuente: [documentación de geom_spatraster](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html) y [documentación de terra](https://rspatial.github.io/terra/reference/crs.html).",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 5303,
+    "completion_tokens": 628,
+    "total_tokens": 5931,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 270.0364074707031
+  },
+  "raw": {
+    "id": "id-1793868794349",
+    "object": "chat.completion",
+    "created": 1793868794,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "La asignación de un CRS a un raster sin CRS conocido y la reproyección de sus coordenadas son dos procesos distintos.\n\nAsignar un CRS a un raster sin CRS conocido implica definir el sistema de coordenadas que se utilizará para representar los datos del raster. Esto se puede hacer utilizando la función `crs()` de la librería `terra`, por ejemplo, `terra::crs(rast) <- \"EPSG:3857\"`. Esto no cambia las coordenadas del raster, solo define el sistema de coordenadas que se utilizará para interpretarlas.\n\nPor otro lado, la reproyección de las coordenadas de un raster implica transformar las coordenadas del raster de un sistema de coordenadas a otro. Esto se puede hacer utilizando la función `project()` de la librería `terra`, por ejemplo, `terra::project(rast, \"EPSG:3857\")`. Esto cambia las coordenadas del raster para que se ajusten al nuevo sistema de coordenadas.\n\nAl dibujar un raster con `geom_spatraster()`, si el raster tiene un CRS definido, `geom_spatraster()` utiliza `coord_sf()` para ajustar las escalas del gráfico. Esto significa que el raster puede ser reproyectado para que se ajuste al sistema de coordenadas del gráfico. Si el raster no tiene un CRS definido, `geom_spatraster()` no hace ninguna suposición sobre las escalas del gráfico.\n\nSegún la [documentación de geom_spatraster](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html), \"When the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales. On `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\"\n\nEn resumen, asignar un CRS a un raster sin CRS conocido define el sistema de coordenadas que se utilizará para interpretar las coordenadas del raster, mientras que la reproyección de las coordenadas cambia las coordenadas del raster para que se ajusten a un nuevo sistema de coordenadas. `coord_sf()` se utiliza en `geom_spatraster()` para ajustar las escalas del gráfico cuando el raster tiene un CRS definido.\n\nFuente: [documentación de geom_spatraster](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.html) y [documentación de terra](https://rspatial.github.io/terra/reference/crs.html).",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5303,
+      "completion_tokens": 628,
+      "total_tokens": 5931,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 270.0364074707031
+    },
+    "chunks": [
+      {
+        "id": "7e9898f74f922e4e13cc664a44c250d43177686bbdb9b42b2b5e60c9cfa0a345",
+        "type": "text",
+        "score": 1,
+        "text": "## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plotRGB()](https://rspatial.github.io/terra/reference/plotRGB.html)`.\n\n## Aesthetics\n\nNo `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` is required. In fact, `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)` will be ignored.\n\n## Coordinates\n\nWhen the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\nOn `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\n\n## See also\n\n`[ggplot2::geom_raster()](https://ggplot2.tidyverse.org/reference/geom%5Ftile.html)`, `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`, `[grDevices::rgb()](https://rdrr.io/r/grDevices/rgb.html)`.\n\nYou can also get RGB tiles from the [maptiles](https://cran.r-project.org/package=maptiles) package. See `[maptiles::get_tiles()](https://rdrr.io/pkg/maptiles/man/get%5Ftiles.html)`.\n\nOther [ggplot2](https://cran.r-project.org/package=ggplot2) helpers: `[autoplot.Spat](https://dieghernan.github.io/tidyterra/dev/reference/autoplot.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[geom_spat_contour](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspat%5Fcontour.html)`, `[geom_spatraster()](https://dieghernan.github.io/tidyterra/dev/reference/geom%5Fspatraster.html)`, `[ggspatvector](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.html)`, `[stat_spat_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/stat%5Fspat%5Fcoordinates.html)`\n\n## Examples\n\n```\nlibrary(ggplot2)\nlibrary(tidyterra)\n\nrgb <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3, vals = 1:12)\nggplot() + geom_spatraster_rgb(data = rgb, r = 1, g = 2, b = 3)\n\n\n# \\donttest{\n\n# Tile of Castile and Leon (Spain) from OpenStreetMap\nfile_path <- system.file(\"extdata/cyl_tile.tif\", package = \"tidyterra\")\n\nlibrary(terra)\ntile <- rast(file_path)\n\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster_rgb(data = tile) +\n  # You can use coord_sf\n  coord_sf(crs = 3035)\n\n\n# Combine with sf objects\nvect_path <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\n\n",
+        "item": {
+          "key": "reference/geom_spatraster_rgb.html",
+          "timestamp": 1793825220000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.705253,
+          "keyword_score": 53.88050342110046,
+          "vector_rank": 1,
+          "keyword_rank": 3,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "c1864e730139df76fb30d2e9d47e63fb3ad0502ffbeb32ff64a340d0e071b6ce",
+        "type": "text",
+        "score": 0.9133051410198162,
+        "text": "# Coerce a data frame to `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`\n\nSource: [R/as-spatraster.R](https://github.com/dieghernan/tidyterra/blob/main/R/as-spatraster.R) \n\n`as_spatraster.Rd`\n\n`as_spatraster()` converts a data frame or [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) into a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`. It wraps the `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` S4 method for signature `data.frame`.\n\n## Usage\n\n```\nas_spatraster(x, ..., xycols = 1:2, crs = \"\", digits = 6)\n```\n\n## Arguments\n\nx\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) or data frame.\n\n...\n\nAdditional arguments passed to `[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)`.\n\nxycols\n\nA vector of integers of length 2 determining the position of the columns that hold the `x` and `y` coordinates.\n\ncrs\n\nA CRS in several formats (PROJ.4, WKT, EPSG code, etc.) or a spatial object from [sf](https://cran.r-project.org/package=sf) or [terra](https://cran.r-project.org/package=terra) that includes the target coordinate reference system. See `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` and **Details**.\n\ndigits\n\nInteger to set the precision for detecting whether points are on a regular grid (a low number of digits is a low precision).\n\n## Value\n\nA `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` object.\n\n## Details\n\nIf no `crs` is provided and the [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) was created with `[as_tibble.SpatRaster()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, the `crs` is inferred from `[attr(x, \"crs\")](https://rdrr.io/r/base/attr.html)`.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::rast()](https://rspatial.github.io/terra/reference/rast.html)` (see S4 method for signature `data.frame`).\n\n## See also\n\n`[is_regular_grid()](https://dieghernan.github.io/tidyterra/dev/reference/is%5Fregular%5Fgrid.html)` for checking whether coordinates form a regular grid. `[pull_crs()](https://dieghernan.github.io/tidyterra/dev/reference/pull%5Fcrs.html)` retrieves CRS information, as do `[sf::st_crs()](https://r-spatial.github.io/sf/reference/st%5Fcrs.html)` and `[terra::crs()](https://rspatial.github.io/terra/reference/crs.html)`.\n\nCoercing objects: `[as_coordinates()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fcoordinates.html)`, `[as_sf()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fsf.html)`, `[as_spatvector()](https://dieghernan.github.io/tidyterra/dev/reference/as%5Fspatvector.html)`, `[as_tibble.Spat](https://dieghernan.github.io/tidyterra/dev/reference/as%5Ftibble.Spat.html)`, `[fortify.Spat](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.html)`, `[tidy.Spat](https://dieghernan.github.io/tidyterra/dev/reference/tidy.Spat.html)`\n\n## Examples\n\n```\nlibrary(terra)\n\nr <- rast(matrix(1:90, ncol = 3), crs = \"EPSG:3857\")\n\nr\n#> class       : SpatRaster\n#> size        : 30, 3, 1  (nrow, ncol, nlyr)\n#> resolution  : 1, 1  (x, y)\n#> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> name        : lyr.1\n#> min value   :     1\n#> max value   :    90\n\n# Create tibble\nas_tbl <- as_tibble(r, xy = TRUE)\n\nas_tbl\n#> # A tibble: 90 × 3\n#>        x     y lyr.1\n#>    <dbl> <dbl> <int>\n#>  1   0.5  29.5     1\n#>  2   1.5  29.5    31\n#>  3   2.5  29.5    61\n#>  4   0.5  28.5     2\n#>  5   1.5  28.5    32\n#>  6   2.5  28.5    62\n#>  7   0.5  27.5     3\n#>  8   1.5  27.5    33\n#>  9   2.5  27.5    63\n#> 10   0.5  26.5     4\n#> # ℹ 80 more rows\n\n",
+        "item": {
+          "key": "reference/as_spatraster.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.67964697,
+          "keyword_score": 45.66899255657328,
+          "vector_rank": 5,
+          "keyword_rank": 11,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5356e0de9c78e48641da05defccaaa34dd7ac0fc2e6b3be6dd9de2b04b0fc3ce",
+        "type": "text",
+        "score": 0.9115275142314989,
+        "text": "## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) layer.\n\n## [terra](https://cran.r-project.org/package=terra) equivalent\n\n`[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`.\n\n## Coordinates\n\nWhen the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` does not have a CRS, that is, `terra::crs(rast) == \"\"`, the geom does not make any assumption about the scales.\n\nOn `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` objects that have a CRS, the geom uses `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)` to adjust the scales. This means that the **`SpatRaster` may be reprojected**.\n\n## Aesthetics\n\n`geom_spatraster()` understands the following aesthetics:\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nIf `fill` is not provided, `geom_spatraster()` creates a [ggplot2](https://cran.r-project.org/package=ggplot2) layer with all the layers of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`object. Use `facet_wrap(~lyr)` to display its layers. layers.\n\nIf `fill` is used, it should contain the name of one layer that is present on the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` (for example, `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can be retrieved using `names(rast)`.\n\nUsing `geom_spatraster(..., mapping = aes(fill = NULL))` or `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no mapped `fill` aesthetic.\n\n`fill` can use computed variables.\n\nFor `alpha`, use a computed variable or the name of one layer that is present on the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`. When `alpha` is a layer name, it can refer to the same layer as `fill` or to another layer in the `SpatRaster`. See section **Computed variables**.\n\n### `stat_spatraster()`\n\n`stat_spatraster()` understands the same aesthetics as `geom_spatraster()`when `geom = \"raster\"` (the default):\n\n* `[fill](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n* `[alpha](https://ggplot2.tidyverse.org/reference/aes%5Fcolour%5Ffill%5Falpha.html)`\n\nWhen `geom = \"raster\"`, the `fill` and `alpha` arguments behave as in `geom_spatraster()`, so they can be mapped to `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`layer names. If another `geom` is used, `stat_spatraster()` understands the aesthetics required by that `geom`, so `aes(fill = <name_of_lyr>)` and `aes(alpha = <name_of_lyr>)` are not applicable.\n\nThe `x` and `y` aesthetics are mapped by default, so you do not need to add them in `[aes()](https://ggplot2.tidyverse.org/reference/aes.html)`. In every case, aesthetics should be mapped with computed variables. See **Computed variables** and **Examples**.\n\n## Facets\n\nYou can use `facet_wrap(~lyr)` to create a faceted plot for each layer of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` object. See `[ggplot2::facet_wrap()](https://ggplot2.tidyverse.org/reference/facet%5Fwrap.html)` for details.\n\n## Computed variables\n\nThis geom computes variables internally that are available for use as aesthetics, using (for example) `aes(alpha = after_stat(value))` (see `[ggplot2::after_stat()](https://ggplot2.tidyverse.org/reference/aes%5Feval.html)`).\n\n* `after_stat(value)`: Cell values of the `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)`.\n* `after_stat(alpha)`: Cell values of the layer mapped to `alpha`, when `alpha` is the name of a layer.\n* `after_stat(lyr)`: Name of the layer.\n\n## See also\n\n",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1793825220000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.63687503,
+          "keyword_score": 48.00928997299992,
+          "vector_rank": 8,
+          "keyword_rank": 8,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d2d13144b8baadcbda990a53dc43ac8d0b4178d2dbb648379e0764b3650d391f",
+        "type": "text",
+        "score": 0.9013460688670586,
+        "text": "# Use datum.\n\nggplot() +\n  geom_spatraster(data = r) +\n  coord_sf(datum = pull_crs(r)) +\n  labs(\n    title = \"Axis in the units of the SpatRaster\",\n    subtitle = paste(\"EPSG:\", st_crs(r)$epsg)\n  )\n```\n\n![Elevation raster map of Holyrood Park with longitude and latitude labels on the axes, although the raster uses a projected coordinate system.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-modifydatum-1.png) \n\n(a) Automatic longitude/latitude axes. \n\n![Elevation raster map of Holyrood Park with axes labeled in the raster's projected coordinate units. Color encodes surface elevation.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-modifydatum-2.png) \n\n(b) Native coordinate system units. \n\nFigure 7: Degree labels with **ggplot2**. \n\n## Modify the number of axis breaks \n\nUse the **scales** package to change the axis breaks:\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(sf)\n\nholyrood <- \"holyroodpark.tif\"\n\nr <- rast(holyrood)\n\nggplot() +\n  geom_spatraster(data = r) +\n  labs(title = \"Default axis breaks\")\n\n# Modify breaks on x and y.\nggplot() +\n  geom_spatraster(data = r) +\n  scale_y_continuous(breaks = scales::breaks_extended(n = 5)) +\n  scale_x_continuous(breaks = scales::breaks_extended(n = 5)) +\n  labs(title = \"Three breaks on x and y axes with scales::breaks_extended()\")\n```\n\n![Elevation raster map of Holyrood Park with the default number of spatial axis ticks.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-breaks-1.png) \n\n(a) Default axis breaks. \n\n![Elevation raster map of Holyrood Park with fewer, more widely spaced ticks on both spatial axes. Fill color encodes surface elevation.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-breaks-2.png) \n\n(b) Breaks modified using the **scales** package. \n\nFigure 8: Spatial axis breaks with **ggplot2**. \n\n## Plotting a `SpatRaster` with color tables \n\n> **Note**\n> \n> We omitted the legends in this section’s figures to improve readability.\n\n**tidyterra** provides several methods for handling `SpatRaster` objects with color tables. This example uses `clc_edinburgh.tif`, available online in the [data-raw folder](https://github.com/dieghernan/tidyterra/tree/main/data-raw). It contains data from the CORINE Land Cover dataset (2018) for Edinburgh3.\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\n\n# Get a SpatRaster with a color table.\nr_coltab <- rast(\"clc_edinburgh.tif\")\n\nhas.colors(r_coltab)\n#> [1] TRUE\n\nr_coltab\n#> class       : SpatRaster\n#> size        : 196, 311, 1  (nrow, ncol, nlyr)\n#> resolution  : 178.8719, 177.9949  (x, y)\n#> extent      : -380397.3, -324768.1, 7533021, 7567908  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source      : clc_edinburgh.tif\n#> color table : 1\n#> categories  : label\n#> name        :                   label\n#> min value   : Continuous urban fabric\n#> max value   :           Sea and ocean\n\n# Native handling by terra.\nplot(r_coltab, legend = FALSE)\n```\n\n![Categorical land-cover map of Edinburgh using the raster's stored color table. Differently colored areas mark land-cover classes.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-coltab-1.png) \n\nFigure 9: Color tables: native plot with the **terra** package. \n\n```\n# `autoplot()` method.\nautoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +\n  labs(title = \"autoplot() method\")\n\n# `geom_spatraster()` method.\nggplot() +\n  geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +\n  labs(title = \"geom_spatraster() method\")\n\n# `scale_fill_coltab()` method.\nggplot() +\n  geom_spatraster(\n    data = r_coltab,\n    use_coltab = FALSE,\n    maxcell = Inf,\n    show.legend = FALSE\n  ) +\n  scale_fill_coltab(data = r_coltab) +\n  labs(title = \"scale_fill_coltab() method\")\n\n# Extract named colors and use `scale_fill_manual()`.\ncols <- get_coltab_pal(r_coltab)\n\n",
+        "item": {
+          "key": "articles/faqs.html",
+          "timestamp": 1793824980000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.6193182,
+          "keyword_score": 52.14393275765695,
+          "vector_rank": 13,
+          "keyword_rank": 5,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "5356e0de9c78e48641da05defccaaa34713e1429774344ad1da1e2de8e96f789",
+        "type": "text",
+        "score": 0.8906810035842293,
+        "text": "# \\donttest{\n# Average spring temperature in Castile and Leon (Spain)\nfile_path <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\nlibrary(terra)\ntemp_rast <- rast(file_path)\n\nlibrary(ggplot2)\n\n# Display a single layer.\nnames(temp_rast)\n#> [1] \"tavg_04\" \"tavg_05\" \"tavg_06\"\n\nggplot() +\n  geom_spatraster(data = temp_rast, aes(fill = tavg_04)) +\n  # You can use coord_sf().\n  coord_sf(crs = 3857) +\n  scale_fill_grass_c(palette = \"celsius\")\n\n\n# Display facets.\nggplot() +\n  geom_spatraster(data = temp_rast) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_grass_b(palette = \"celsius\", breaks = seq(0, 20, 2.5))\n\n\n# Non-spatial rasters.\n\nno_crs <- rast(crs = NA, extent = c(0, 100, 0, 100), nlyr = 1)\nvalues(no_crs) <- seq_len(ncell(no_crs))\n\nggplot() +\n  geom_spatraster(data = no_crs)\n\n\n# Downsample.\n\nggplot() +\n  geom_spatraster(data = no_crs, maxcell = 25)\n#> <SpatRaster> resampled to 32 cells.\n\n# }\n\n# \\donttest{\n# Using stat_spatraster\n# Default\nggplot() +\n  stat_spatraster(data = temp_rast) +\n  facet_wrap(~lyr)\n\n\n# Using points\nggplot() +\n  stat_spatraster(\n    data = temp_rast,\n    aes(color = after_stat(value)),\n    geom = \"point\", maxcell = 250\n  ) +\n  scale_colour_viridis_c(na.value = \"transparent\") +\n  facet_wrap(~lyr)\n#> <SpatRaster> resampled to 266 cells.\n\n\n# Using points and labels\n\nr_single <- temp_rast |> select(1)\n\nggplot() +\n  stat_spatraster(\n    data = r_single,\n    aes(color = after_stat(value)),\n    geom = \"point\",\n    maxcell = 2000\n  ) +\n  stat_spatraster(\n    data = r_single,\n    aes(label = after_stat(round(value, 2))),\n    geom = \"label\",\n    alpha = 0.85,\n    maxcell = 20\n  ) +\n  scale_colour_viridis_c(na.value = \"transparent\")\n#> <SpatRaster> resampled to 2067 cells.\n#> <SpatRaster> resampled to 24 cells.\n\n# }\n\n```",
+        "item": {
+          "key": "reference/geom_spatraster.html",
+          "timestamp": 1793825220000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.5974098,
+          "keyword_score": 62.24755617780224,
+          "vector_rank": 21,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d2d13144b8baadcbda990a53dc43ac8d73a62800e4f7520d274fc62ec23b9cc9",
+        "type": "text",
+        "score": 0.8757920077034184,
+        "text": "# Restore the previous setting.\noptions(ggplot2.continuous.fill = tmp)\n\np\n```\n\n![Raster map of Holyrood Park elevation using the GRASS color scale as the session default. Color varies with elevation.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-default-1.png) \n\n(a) Use the new default palette through options. \n\n![Raster map of Holyrood Park elevation using the restored default continuous color scale. Color varies with elevation across the terrain.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-default-2.png) \n\n(b) Restoring the default palette. \n\nFigure 5: Changing default **ggplot2** color palettes. \n\n## My map tiles are blurry \n\nBlurriness is typically related to the tile source rather than the package. Most base tiles are usually provided in **EPSG:3857**, so verify that your tile uses this CRS rather than a different one. If your tile is not in **EPSG:3857**, it has likely been reprojected, which involves resampling and causes blurriness. To avoid extra resampling, increase the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(sf)\nlibrary(maptiles)\n\n# Get a tile from a point in sf format.\np <- st_point(c(-3.166011, 55.945235)) |>\n  st_sfc(crs = 4326) |>\n  st_buffer(500)\n\ntile1 <- get_tiles(\n  p,\n  provider = \"OpenStreetMap\",\n  zoom = 14,\n  cachedir = \".\",\n  crop = TRUE\n)\n\nggplot() +\n  geom_spatraster_rgb(data = tile1) +\n  labs(title = \"CRS EPSG:4326\") +\n  theme_void()\n\nst_crs(tile1)$epsg\n#> [1] 4326\n\n# The tile was in EPSG:4326.\n\n# Get the tile in EPSG:3857.\np2 <- st_transform(p, 3857)\n\ntile2 <- get_tiles(\n  p2,\n  provider = \"OpenStreetMap\",\n  zoom = 14,\n  cachedir = \".\",\n  crop = TRUE\n)\n\nst_crs(tile2)$epsg\n#> [1] 3857\n\n# Now the tile is EPSG:3857.\n\nggplot() +\n  geom_spatraster_rgb(data = tile2, maxcell = Inf) +\n  # Force the CRS to EPSG:3857.\n  coord_sf(crs = 3857) +\n  labs(title = \"CRS EPSG:3857\") +\n  theme_void()\n```\n\n![OpenStreetMap tile near Holyrood Park after resampling to EPSG:4326. Roads and labels appear softer than in the native tile.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-blurrytile-1.png) \n\n(a) Plot with resampled raster (EPSG:4326). \n\n![OpenStreetMap tile near Holyrood Park in its native EPSG:3857 projection. Roads and labels appear sharp without extra resampling.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-blurrytile-2.png) \n\n(b) Plot with native CRS, not resampled (EPSG:3857). \n\nFigure 6: Impact of resampling on tile blurriness. \n\n## Avoid degree labels on axes \n\nThis is the default behavior in **ggplot2**, but you can modify it with the `datum` argument in `[ggplot2::coord_sf()](https://ggplot2.tidyverse.org/reference/ggsf.html)`:\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\nlibrary(sf)\n\nholyrood <- \"holyroodpark.tif\"\n\nr <- rast(holyrood)\n\nggplot() +\n  geom_spatraster(data = r) +\n  labs(\n    title = \"Axis auto-converted to lon/lat\",\n    subtitle = paste(\"But SpatRaster is EPSG:\", st_crs(r)$epsg)\n  )\n\n# Use datum.\n\nggplot() +\n  geom_spatraster(data = r) +\n  coord_sf(datum = pull_crs(r)) +\n  labs(\n    title = \"Axis in the units of the SpatRaster\",\n    subtitle = paste(\"EPSG:\", st_crs(r)$epsg)\n  )\n```\n\n![Elevation raster map of Holyrood Park with longitude and latitude labels on the axes, although the raster uses a projected coordinate system.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-modifydatum-1.png) \n\n(a) Automatic longitude/latitude axes. \n\n",
+        "item": {
+          "key": "articles/faqs.html",
+          "timestamp": 1793824980000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.61416674,
+          "keyword_score": 49.50290409010162,
+          "vector_rank": 15,
+          "keyword_rank": 7,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

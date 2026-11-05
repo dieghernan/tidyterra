@@ -59,6 +59,8 @@ masking method based on the values of the layers (see \code{\link[terra:mask]{te
 cells as
 rows, so rows (cells) with any \code{NA} value on any layer become \code{NA}. You can
 also mask the cells (rows) based on the values of specific layers (columns).
+Interior cells remain on the regular raster grid with missing values.
+Masking does not remove individual cells from that grid.
 
 \code{drop_na()} effectively removes outer cells that are \code{NA} (see
 \code{\link[terra:trim]{terra::trim()}}), so the extent of the resulting object may differ from the

@@ -1,0 +1,174 @@
+{
+  "id": "13-select-rename",
+  "question": "Crea un ejemplo autónomo de R con un SpatRaster de dos capas llamadas temperature y rainfall, de 2 por 2 celdas. Usa tidyterra para conservar solo rainfall y renombrarla como rain. Indica la clase y el número de capas del resultado y cita la documentación.",
+  "criteria": "Spanish; valid raster construction and layer names; documented select/rename syntax; result is a one-layer SpatRaster named rain retaining rainfall values; required imports or qualified calls; development source links.",
+  "status": 200,
+  "elapsedMs": 16896,
+  "answer": "Aquí tienes un ejemplo autónomo de R que utiliza tidyterra para manipular un SpatRaster:\n\n```r\n# Carga las bibliotecas necesarias\nlibrary(terra)\nlibrary(tidyterra)\n\n# Crea un SpatRaster de 2x2 celdas con dos capas: temperature y rainfall\nr <- rast(nrow = 2, ncol = 2, vals = c(20, 25, 30, 35, 10, 15, 20, 25))\nnames(r) <- c(\"temperature\", \"rainfall\")\n\n# Utiliza tidyterra para conservar solo la capa rainfall y renombrarla como rain\nr_mod <- r |>\n  select(rain = rainfall) |>\n  rename(rain = rain)\n\n# Imprime la clase y el número de capas del resultado\nprint(paste(\"Clase:\", class(r_mod)))\nprint(paste(\"Número de capas:\", nlayers(r_mod)))\n\n# Verifica que el resultado sea un SpatRaster con una capa llamada rain\nprint(r_mod)\n```\n\nSegún la [documentación de tidyterra](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.html), la función `rename` se utiliza para renombrar las capas de un SpatRaster. En este ejemplo, se utiliza para renombrar la capa \"rainfall\" como \"rain\". La función `select` se utiliza para seleccionar solo la capa \"rainfall\" y renombrarla como \"rain\" en un solo paso.\n\nLa [documentación de terra](https://rspatial.github.io/terra/reference/rast.html) proporciona más información sobre la creación y manipulación de SpatRasters.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 4557,
+    "completion_tokens": 374,
+    "total_tokens": 4931,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 198.12176513671875
+  },
+  "raw": {
+    "id": "id-1793868720362",
+    "object": "chat.completion",
+    "created": 1793868720,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Aquí tienes un ejemplo autónomo de R que utiliza tidyterra para manipular un SpatRaster:\n\n```r\n# Carga las bibliotecas necesarias\nlibrary(terra)\nlibrary(tidyterra)\n\n# Crea un SpatRaster de 2x2 celdas con dos capas: temperature y rainfall\nr <- rast(nrow = 2, ncol = 2, vals = c(20, 25, 30, 35, 10, 15, 20, 25))\nnames(r) <- c(\"temperature\", \"rainfall\")\n\n# Utiliza tidyterra para conservar solo la capa rainfall y renombrarla como rain\nr_mod <- r |>\n  select(rain = rainfall) |>\n  rename(rain = rain)\n\n# Imprime la clase y el número de capas del resultado\nprint(paste(\"Clase:\", class(r_mod)))\nprint(paste(\"Número de capas:\", nlayers(r_mod)))\n\n# Verifica que el resultado sea un SpatRaster con una capa llamada rain\nprint(r_mod)\n```\n\nSegún la [documentación de tidyterra](https://dieghernan.github.io/tidyterra/dev/reference/rename.Spat.html), la función `rename` se utiliza para renombrar las capas de un SpatRaster. En este ejemplo, se utiliza para renombrar la capa \"rainfall\" como \"rain\". La función `select` se utiliza para seleccionar solo la capa \"rainfall\" y renombrarla como \"rain\" en un solo paso.\n\nLa [documentación de terra](https://rspatial.github.io/terra/reference/rast.html) proporciona más información sobre la creación y manipulación de SpatRasters.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4557,
+      "completion_tokens": 374,
+      "total_tokens": 4931,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 198.12176513671875
+    },
+    "chunks": [
+      {
+        "id": "eacf331f0ffc35d4b482f1d15a887d3b00014767ebfab1e3256cff621649f712",
+        "type": "text",
+        "score": 1,
+        "text": "A note on performance \n\n**tidyterra** is a user-friendly wrapper around **terra** that provides **tidyverse**\\-style methods and verbs. This approach has a **performance cost**.\n\nIf you frequently use **terra** or work with large `SpatRaster` objects, **terra** is usually much faster. Whenever possible, each **tidyterra** function refers to its equivalent in **terra**.\n\nAs a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`, **tidyterra** is a good fit.\n\nWhen plotting rasters, resampling is performed automatically (as `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)` does, see the help page). You can adjust this with the `maxcell` argument.\n\n## Installation \n\nCheck the documentation for the development version at <https://dieghernan.github.io/tidyterra/dev/>\n\nYou can install the development version of **tidyterra** with:\n\n```\n# install.packages(\"pak\")\npak::pak(\"dieghernan/tidyterra\")\n```\n\nAlternatively, you can install **tidyterra** using [**r-universe**](https://dieghernan.r-universe.dev/tidyterra):\n\n```\n# Enable this universe\ninstall.packages(\n  \"tidyterra\",\n  repos = c(\n    \"https://dieghernan.r-universe.dev\",\n    \"https://cloud.r-project.org\"\n  )\n)\n```\n\n## Examples \n\n### `SpatRaster` objects \n\nThis basic example shows how to manipulate and plot `SpatRaster` objects:\n\n```\nlibrary(tidyterra)\nlibrary(terra)\n\n# Temperatures\nrastertemp <- rast(system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\"))\n\nrastertemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\n# Rename\nrastertemp <- rastertemp |>\n  rename(April = tavg_04, May = tavg_05, June = tavg_06)\n\n# Facet all layers\nlibrary(ggplot2)\n\nggplot() +\n  geom_spatraster(data = rastertemp) +\n  facet_wrap(~lyr, ncol = 2) +\n  scale_fill_whitebox_c(\n    palette = \"muted\",\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 12,\n    guide = guide_legend(reverse = TRUE)\n  ) +\n  labs(\n    fill = \"\",\n    title = \"Average temperature in Castile and Leon (Spain)\",\n    subtitle = \"Months of April, May and June\"\n  )\n```\n\n![Three raster maps of Castile and Leon, Spain, for April, May and June. Fill color encodes average temperature in degrees Celsius. The mapped temperatures rise across the three months.](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)\n\n```\n# Create the difference between two months.\nvariation <- rastertemp |>\n  mutate(diff = June - May) |>\n  select(variation = diff)\n\n# Add a SpatVector overlay.\nprov <- vect(system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\"))\n\nggplot(prov) +\n  geom_spatraster(data = variation) +\n  geom_spatvector(fill = NA) +\n  scale_fill_whitebox_c(\n    palette = \"deep\",\n    direction = -1,\n    labels = scales::label_number(suffix = \"º\"),\n    n.breaks = 5\n  ) +\n  theme_minimal() +\n  coord_sf(crs = 25830) +\n  labs(\n    fill = \"Variation\",\n    title = \"Temperature variation in Castile and Leon (Spain)\",\n    subtitle = \"Average temperatures: June vs. May\"\n  )\n```\n\n",
+        "item": {
+          "key": "index.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.76613337,
+          "keyword_score": 47.43905521855722,
+          "vector_rank": 2,
+          "keyword_rank": 16,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "1e1510b5d8b6795247431a92ba4fc02950deb99dc03df153794774cbe92b5bce",
+        "type": "text",
+        "score": 0.9630620587142327,
+        "text": "| [generics::required\\_pkgs()](https://generics.r-lib.org/reference/required%5Fpkgs.html)                                                                       | ✔️                                                                                                                                                                                                                    | ✔️                                                                                                                                                                                                                     |\n\nThe following sections show some of these methods in action.\n\n### `SpatRaster` objects \n\nThis example uses a `SpatRaster`:\n\n```\nlibrary(terra)\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\n\ntemp <- rast(f)\n\ntemp\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source      : cyl_temp.tif\n#> names       :   tavg_04,   tavg_05,   tavg_06\n#> min values  :  1.885463,  5.817587, 10.463377\n#> max values  : 13.283829, 16.740898, 21.113781\n\nmod <- temp |>\n  select(-1) |>\n  mutate(newcol = tavg_06 - tavg_05) |>\n  relocate(newcol, .before = 1) |>\n  replace_na(list(newcol = 3)) |>\n  rename(difference = newcol)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 3  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       : difference,   tavg_05,   tavg_06\n#> min values  :   2.817647,  5.817587, 10.463377\n#> max values  :   5.307511, 16.740898, 21.113781\n```\n\nIn this example, we:\n\n* Removed the first layer (`tavg_04`).\n* Created a new layer `newcol` as the difference between `tavg_06` and `tavg_05`.\n* Relocated `newcol` to be the first layer.\n* Replaced `NA` values in `newcol` with `3`.\n* Renamed `newcol` to `difference`.\n\n",
+        "item": {
+          "key": "articles/tidyterra.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.73870313,
+          "keyword_score": 47.16202986059465,
+          "vector_rank": 5,
+          "keyword_rank": 18,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "c733d6fd86de99716ff3a3ec879832e44cb055e31d636fe5069221b9273b191f",
+        "type": "text",
+        "score": 0.9492026187678362,
+        "text": "## Examples\n\n```\n\nlibrary(terra)\nf <- system.file(\"extdata/cyl_tile.tif\", package = \"tidyterra\")\nspatrast <- rast(f) |> mutate(aa = 1, bb = 2, cc = 3)\n\nspatrast\n#> class       : SpatRaster\n#> size        : 212, 261, 6  (nrow, ncol, nlyr)\n#> resolution  : 2445.985, 2445.985  (x, y)\n#> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       : cyl_tile_1, cyl_tile_2, cyl_tile_3, aa, bb, cc\n#> min values  :         35,         35,         35,  1,  2,  3\n#> max values  :        253,        251,        250,  1,  2,  3\n\nspatrast |> rename(\n  this_first = cyl_tile_1,\n  this_second = cyl_tile_2\n)\n#> class       : SpatRaster\n#> size        : 212, 261, 6  (nrow, ncol, nlyr)\n#> resolution  : 2445.985, 2445.985  (x, y)\n#> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       : this_first, this_second, cyl_tile_3, aa, bb, cc\n#> min values  :         35,          35,         35,  1,  2,  3\n#> max values  :        253,         251,        250,  1,  2,  3\n\nspatrast |> rename_with(\n  toupper,\n  .cols = starts_with(\"c\")\n)\n#> class       : SpatRaster\n#> size        : 212, 261, 6  (nrow, ncol, nlyr)\n#> resolution  : 2445.985, 2445.985  (x, y)\n#> extent      : -812067, -173664.9, 4852834, 5371383  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> names       : CYL_TILE_1, CYL_TILE_2, CYL_TILE_3, aa, bb, CC\n#> min values  :         35,         35,         35,  1,  2,  3\n#> max values  :        253,        251,        250,  1,  2,  3\n\n```",
+        "item": {
+          "key": "reference/rename.Spat.html",
+          "timestamp": 1793825640000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.71425885,
+          "keyword_score": 51.75022304356738,
+          "vector_rank": 14,
+          "keyword_rank": 10,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "c1864e730139df76fb30d2e9d47e63fbd251ee4adb295bd359039078447a715e",
+        "type": "text",
+        "score": 0.935477466746079,
+        "text": "# Create tibble\nas_tbl <- as_tibble(r, xy = TRUE)\n\nas_tbl\n#> # A tibble: 90 × 3\n#>        x     y lyr.1\n#>    <dbl> <dbl> <int>\n#>  1   0.5  29.5     1\n#>  2   1.5  29.5    31\n#>  3   2.5  29.5    61\n#>  4   0.5  28.5     2\n#>  5   1.5  28.5    32\n#>  6   2.5  28.5    62\n#>  7   0.5  27.5     3\n#>  8   1.5  27.5    33\n#>  9   2.5  27.5    63\n#> 10   0.5  26.5     4\n#> # ℹ 80 more rows\n\n# From tibble\nnewrast <- as_spatraster(as_tbl, crs = \"EPSG:3857\")\nnewrast\n#> class       : SpatRaster\n#> size        : 30, 3, 1  (nrow, ncol, nlyr)\n#> resolution  : 1, 1  (x, y)\n#> extent      : 0, 3, 0, 30  (xmin, xmax, ymin, ymax)\n#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)\n#> source(s)   : memory\n#> name        : lyr.1\n#> min value   :     1\n#> max value   :    90\n\n\n```",
+        "item": {
+          "key": "reference/as_spatraster.html",
+          "timestamp": 1793825040000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.71440333,
+          "keyword_score": 50.623763219817654,
+          "vector_rank": 13,
+          "keyword_rank": 13,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "66b2395e0eebd4f6c9e9faa078f5a4d0eb2c08d7f1142094c41f0b7b2a3f0e13",
+        "type": "text",
+        "score": 0.934971894344667,
+        "text": "# SpatRaster method\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\nspatrast <- rast(f)\n\nmod <- spatrast |>\n  mutate(exp_lyr1 = exp(tavg_04 / 10)) |>\n  select(tavg_04, exp_lyr1)\n\nmod\n#> class       : SpatRaster\n#> size        : 87, 118, 2  (nrow, ncol, nlyr)\n#> resolution  : 3881.255, 3881.255  (x, y)\n#> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)\n#> coord. ref. : World_Robinson (ESRI:54030)\n#> source(s)   : memory\n#> names       :   tavg_04, exp_lyr1\n#> min values  :  1.885463, 1.207493\n#> max values  : 13.283829, 3.774934\nplot(mod)\n\n\n# SpatVector method\nf <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\nv <- vect(f)\n\nv |>\n  mutate(cpro2 = paste0(cpro, \"-CyL\")) |>\n  select(cpro, cpro2)\n#> class       : SpatVector\n#> geometry    : polygons\n#> dimensions  : 9, 2  (geometries, attributes)\n#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)\n#> source      : cyl.gpkg\n#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)\n#> names       :  cpro  cpro2\n#> type        : <chr>  <chr>\n#> values      :    05 05-CyL\n#>                  09 09-CyL\n#>                  24 24-CyL\n#>               ...\n\n```",
+        "item": {
+          "key": "reference/mutate.Spat.html",
+          "timestamp": 1793825340000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7798628,
+          "keyword_score": 44.050852585044424,
+          "vector_rank": 1,
+          "keyword_rank": 31,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "644dab1d05b120d298274a3f836c7cde8dae9f559abaf625d3a4788816e340ae",
+        "type": "text",
+        "score": 0.9213710605014954,
+        "text": "# SpatRaster\nf <- system.file(\"extdata/cyl_temp.tif\", package = \"tidyterra\")\nr <- rast(f)\n\nas_tibble(r, na.rm = TRUE)\n#> # A tibble: 6,522 × 3\n#>    tavg_04 tavg_05 tavg_06\n#>      <dbl>   <dbl>   <dbl>\n#>  1    3.18    6.79    11.1\n#>  2    5.30    8.73    12.7\n#>  3    4.59    8.05    12.1\n#>  4    6.38    9.72    13.6\n#>  5    4.05    7.58    11.8\n#>  6    2.90    6.54    10.9\n#>  7    5.05    8.49    12.5\n#>  8    2.58    6.17    10.5\n#>  9    9.30   12.5     15.4\n#> 10    9.84   13.0     15.9\n#> # ℹ 6,512 more rows\n\nas_tibble(r, xy = TRUE)\n#> # A tibble: 10,266 × 5\n#>           x        y tavg_04 tavg_05 tavg_06\n#>       <dbl>    <dbl>   <dbl>   <dbl>   <dbl>\n#>  1 -610395. 4618746.      NA      NA      NA\n#>  2 -606513. 4618746.      NA      NA      NA\n#>  3 -602632. 4618746.      NA      NA      NA\n#>  4 -598751. 4618746.      NA      NA      NA\n#>  5 -594870. 4618746.      NA      NA      NA\n#>  6 -590988. 4618746.      NA      NA      NA\n#>  7 -587107. 4618746.      NA      NA      NA\n#>  8 -583226. 4618746.      NA      NA      NA\n#>  9 -579345. 4618746.      NA      NA      NA\n#> 10 -575463. 4618746.      NA      NA      NA\n#> # ℹ 10,256 more rows\n\n# SpatVector\n\nf <- system.file(\"extdata/cyl.gpkg\", package = \"tidyterra\")\nv <- vect(f)\n\nas_tibble(v)\n#> # A tibble: 9 × 3\n#>   iso2  cpro  name      \n#>   <chr> <chr> <chr>     \n#> 1 ES-AV 05    Avila     \n#> 2 ES-BU 09    Burgos    \n#> 3 ES-LE 24    Leon      \n#> 4 ES-P  34    Palencia  \n#> 5 ES-SA 37    Salamanca \n#> 6 ES-SG 40    Segovia   \n#> 7 ES-SO 42    Soria     \n#> 8 ES-VA 47    Valladolid\n#> 9 ES-ZA 49    Zamora    \n\n\n```",
+        "item": {
+          "key": "reference/as_tibble.Spat.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.76104856,
+          "keyword_score": 44.13891884588584,
+          "vector_rank": 3,
+          "keyword_rank": 30,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}

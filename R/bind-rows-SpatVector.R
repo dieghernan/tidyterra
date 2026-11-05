@@ -45,6 +45,11 @@
 #'   are column-bound
 #'   with empty geometries with a message.
 #'
+#' To create an input in another CRS, use [terra::project()] to transform its
+#' coordinates. Assigning `terra::crs(x) <- "EPSG:4326"` changes only the CRS
+#' metadata. It does not transform coordinates and must only be used when that
+#' CRS is known to describe the existing coordinates.
+#'
 #' @encoding UTF-8
 #' @export
 #' @examples

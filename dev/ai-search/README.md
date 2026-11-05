@@ -83,6 +83,15 @@ pass case IDs from `evaluation-cases.json` to select a subset. Follow-up case
 API quota and writes its evidence to a new timestamped directory under
 `evaluations/`.
 
+The suite contains 20 cases. Cases 01–12 retain the original questions for
+comparison with the recorded evaluations. Cases 13–20 add raster layer
+selection and renaming, value extraction, missing values, vector aggregation,
+row binding across CRSs, categorical colors, raster coercion and CRS handling.
+The [extended evaluation](evaluations/2026-11-05-review.md) covers cases 13–20
+with 3 passes, 2 partial answers and 3 failures. Combined with the previous
+12-case evaluation, the latest recorded results total 11 passes, 4 partial
+answers and 5 failures out of 20 across two evaluation dates.
+
 After manually reviewing recorded R blocks, `node validate-examples.mjs` executes
 the selected example cases in isolated R processes, with explicit fixtures for
 the conversation cases. Its process logs include actual R errors and a success

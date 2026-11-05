@@ -74,9 +74,21 @@ Implementation of the \strong{generic} \code{\link[dplyr:summarise]{dplyr::summa
 As in the \CRANpkg{sf} implementation, this function can dissolve geometries
 with \code{.dissolve = TRUE} or create \code{MULTI} geometries with
 \code{.dissolve = FALSE}. See \strong{Examples}.
+Summary expressions operate on the attributes of the input geometries.
+Changing \code{.dissolve} changes how their geometries are combined, while
+attribute summaries such as counts, means and sums use the same input rows.
 }
 
 \examples{
+library(tidyterra)
+
+provinces <- terra::vect(
+  system.file("extdata/cyl.gpkg", package = "tidyterra")
+)
+provinces |>
+  group_by(iso2) |>
+  summarise(n = dplyr::n())
+
 library(terra)
 library(ggplot2)
 

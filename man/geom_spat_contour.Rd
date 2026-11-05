@@ -89,7 +89,9 @@ lists which parameters it can accept.
 }}
 
 \item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to use all cells.}
+use. Use \code{Inf} to remove this sampling limit.
+Reprojection for the plot can still change the grid, so \code{Inf} does not
+guarantee native plot resolution. The input raster is not modified.}
 
 \item{bins}{Number of contour bins. Overridden by \code{breaks}.}
 
