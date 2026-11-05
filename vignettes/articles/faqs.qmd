@@ -332,12 +332,28 @@ p
 
 ## My map tiles are blurry {#blurry-tiles}
 
-Blurriness is typically related to the tile source rather than the package. Most
-base tiles are usually provided in **EPSG:3857**, so verify that your tile uses
+Blurriness is typically related to the tile source rather than the package. 
+
+
+```{=html}
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+```
+
+Most base tiles are usually provided in **EPSG:3857**, so verify that your tile uses
 this CRS rather than a different one. If your tile is not in **EPSG:3857**, it
 has likely been reprojected, which involves resampling and causes blurriness. To
 avoid extra resampling, increase the `maxcell` argument and ensure the
-**ggplot2** map uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+**ggplot2** map uses **EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`.
+
+```{=html}
+</div>
+</div>
+```
 
 ```{r}
 #| label: fig-blurrytile
@@ -483,9 +499,21 @@ ggplot() +
 
 ## Plotting a `SpatRaster` with color tables
 
-::: callout-note
+```{=html}
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Note</div>
+</div>
+<div class="callout-body-container callout-body">
+```
+
 We omitted the legends in this section's figures to improve readability.
-:::
+
+```{=html}
+</div>
+</div>
+```
 
 **tidyterra** provides several methods for handling `SpatRaster` objects with
 color tables. This example uses `clc_edinburgh.tif`, available online in the
