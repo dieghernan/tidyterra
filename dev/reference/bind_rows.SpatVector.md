@@ -61,6 +61,13 @@ or a data frame:
   [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)/data
   frame, the rows are column-bound with empty geometries with a message.
 
+To create an input in another CRS, use
+[`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
+to transform its coordinates. Assigning `terra::crs(x) <- "EPSG:4326"`
+changes only the CRS metadata. It does not transform coordinates and
+must only be used when that CRS is known to describe the existing
+coordinates.
+
 ## See also
 
 [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html).

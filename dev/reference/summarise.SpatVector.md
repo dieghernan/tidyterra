@@ -97,7 +97,10 @@ objects.
 
 As in the [sf](https://CRAN.R-project.org/package=sf) implementation,
 this function can dissolve geometries with `.dissolve = TRUE` or create
-`MULTI` geometries with `.dissolve = FALSE`. See **Examples**.
+`MULTI` geometries with `.dissolve = FALSE`. See **Examples**. Summary
+expressions operate on the attributes of the input geometries. Changing
+`.dissolve` changes how their geometries are combined, while attribute
+summaries such as counts, means and sums use the same input rows.
 
 ## See also
 
@@ -114,6 +117,26 @@ operate on groups of rows:
 ## Examples
 
 ``` r
+library(tidyterra)
+
+provinces <- terra::vect(
+  system.file("extdata/cyl.gpkg", package = "tidyterra")
+)
+provinces |>
+  group_by(iso2) |>
+  summarise(n = dplyr::n())
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2     n
+#> type        : <chr> <int>
+#> values      : ES-AV     1
+#>               ES-BU     1
+#>               ES-LE     1
+#>               ...
+
 library(terra)
 library(ggplot2)
 

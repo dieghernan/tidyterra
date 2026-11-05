@@ -293,7 +293,9 @@ to enforce them.</p></dd>
 
 <dt id="arg-maxcell">maxcell<a class="anchor" aria-label="anchor" href="#arg-maxcell"></a></dt>
 <dd><p>Positive integer or <code>Inf</code>. Maximum number of raster cells to
-use. Use <code>Inf</code> to use all cells.</p></dd>
+use. Use <code>Inf</code> to remove this sampling limit.
+Reprojection for the plot can still change the grid, so <code>Inf</code> does not
+guarantee native plot resolution. The input raster is not modified.</p></dd>
 
 
 <dt id="arg-pivot">pivot<a class="anchor" aria-label="anchor" href="#arg-pivot"></a></dt>

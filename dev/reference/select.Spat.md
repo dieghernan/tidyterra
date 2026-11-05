@@ -1,7 +1,12 @@
 # Subset layers/attributes of `Spat*` objects
 
 Select (and optionally rename) attributes/layers in `Spat*` objects,
-using a concise mini-language. See **Methods**.
+using a concise mini-language. See **Methods**. For a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html),
+`select(r, rain = rainfall)` keeps the `rainfall` layer and names it
+`rain`. To mask cells based on their values, use
+[`filter.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md)
+instead.
 
 ## Usage
 
@@ -74,6 +79,18 @@ operate on columns:
 ## Examples
 
 ``` r
+library(tidyterra)
+
+weather <- terra::rast(
+  nrows = 2, ncols = 2, nlyrs = 2,
+  vals = c(20, 25, 30, 35, 10, 15, 20, 25)
+)
+names(weather) <- c("temperature", "rainfall")
+rain <- select(weather, rain = rainfall)
+terra::nlyr(rain)
+#> [1] 1
+names(rain)
+#> [1] "rain"
 
 library(terra)
 

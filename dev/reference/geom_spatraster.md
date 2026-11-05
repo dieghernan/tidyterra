@@ -12,10 +12,11 @@ For plotting
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 objects as map tiles, such as RGB
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
-objects, objects, use
+objects, use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
 To plot one panel per raster layer in two columns, add
-`ggplot2::facet_wrap(~lyr, ncol = 2)`.
+`ggplot2::facet_wrap(~lyr, ncol = 2)`. The default `maxcell = 500000`
+limits the cells sampled for plotting.
 
 The underlying implementation is based on
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
@@ -100,7 +101,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 - maxcell:
 
   Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to use all cells.
+  `Inf` to remove this sampling limit. Reprojection for the plot can
+  still change the grid, so `Inf` does not guarantee native plot
+  resolution. The input raster is not modified.
 
 - use_coltab:
 

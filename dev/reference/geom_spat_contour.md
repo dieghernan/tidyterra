@@ -115,7 +115,9 @@ geom_spatraster_contour_filled(
 - maxcell:
 
   Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to use all cells.
+  `Inf` to remove this sampling limit. Reprojection for the plot can
+  still change the grid, so `Inf` does not guarantee native plot
+  resolution. The input raster is not modified.
 
 - bins:
 

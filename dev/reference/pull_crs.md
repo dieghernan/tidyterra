@@ -55,7 +55,13 @@ is:
 `terra::project(bb, "epsg:25830")`
 
 Knowing the WKT helps smooth workflows when working with different
-packages and object types.
+packages and object types. Assigning a CRS records how existing
+coordinates should be interpreted. Establish the source CRS from the
+data provider before assigning it. Reprojecting with
+[`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
+or
+[`sf::st_transform()`](https://r-spatial.github.io/sf/reference/st_transform.html)
+transforms coordinates from a known source CRS to a target CRS.
 
 ## Internals
 

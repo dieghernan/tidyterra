@@ -69,6 +69,8 @@ masking method based on the values of the layers (see
 layers are treated as columns and `SpatRaster` cells as rows, so rows
 (cells) with any `NA` value on any layer become `NA`. You can also mask
 the cells (rows) based on the values of specific layers (columns).
+Interior cells remain on the regular raster grid with missing values.
+Masking does not remove individual cells from that grid.
 
 [`drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html)
 effectively removes outer cells that are `NA` (see

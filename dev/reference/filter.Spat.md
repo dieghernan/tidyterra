@@ -116,7 +116,7 @@ also available internally for filtering. See **Examples**.
 
 The result is a
 [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
-containing the geometries whose attributes satiy all conditions.
+containing the geometries whose attributes satisfy all conditions.
 
 ## See also
 
@@ -132,6 +132,24 @@ operate on rows:
 ## Examples
 
 ``` r
+library(tidyterra)
+
+points <- terra::vect(
+  data.frame(x = c(1, 2), y = c(3, 4), value = c(5, 15)),
+  geom = c("x", "y"), crs = "EPSG:3857"
+)
+filtered_points <- filter(points, value > 10)
+filtered_points
+#> class       : SpatVector
+#> geometry    : points
+#> dimensions  : 1, 1  (geometries, attributes)
+#> extent      : 2, 2, 4, 4  (xmin, xmax, ymin, ymax)
+#> coord. ref. : WGS 84 / Pseudo-Mercator (EPSG:3857)
+#> names       : value
+#> type        : <num>
+#> values      :    15
+nrow(filtered_points)
+#> [1] 1
 
 library(terra)
 f <- system.file("extdata/cyl_temp.tif", package = "tidyterra")

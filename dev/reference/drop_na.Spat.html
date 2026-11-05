@@ -303,7 +303,9 @@ masking method based on the values of the layers (see <code><a href="https://rsp
 <p><code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> layers are treated as columns and <code>SpatRaster</code>
 cells as
 rows, so rows (cells) with any <code>NA</code> value on any layer become <code>NA</code>. You can
-also mask the cells (rows) based on the values of specific layers (columns).</p>
+also mask the cells (rows) based on the values of specific layers (columns).
+Interior cells remain on the regular raster grid with missing values.
+Masking does not remove individual cells from that grid.</p>
 <p><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na()</a></code> effectively removes outer cells that are <code>NA</code> (see
 <code><a href="https://rspatial.github.io/terra/reference/trim.html" class="external-link">terra::trim()</a></code>), so the extent of the resulting object may differ from the
 extent of the input (see <code><a href="https://rspatial.github.io/terra/reference/resample.html" class="external-link">terra::resample()</a></code> for more information).</p>

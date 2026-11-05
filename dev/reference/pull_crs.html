@@ -277,7 +277,11 @@ no CRS can be determined.</p>
 <p>While the <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent is:</p>
 <p><code>terra::project(bb, "epsg:25830")</code></p>
 <p>Knowing the WKT helps smooth workflows when working with different
-packages and object types.</p>
+packages and object types.
+Assigning a CRS records how existing coordinates should be interpreted.
+Establish the source CRS from the data provider before assigning it.
+Reprojecting with <code><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">terra::project()</a></code> or <code><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">sf::st_transform()</a></code> transforms
+coordinates from a known source CRS to a target CRS.</p>
     </div>
     <div class="section level2">
     <h2 id="internals">Internals<a class="anchor" aria-label="anchor" href="#internals"></a></h2>
