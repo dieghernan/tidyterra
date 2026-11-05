@@ -9,22 +9,45 @@ function makeLink(label, href) {
   return link;
 }
 
-export function protectLinks(content) {
-  const links = [];
-  let prefix = "TIDYTERRACHATLINK";
+export function protectMarkdown(content) {
+  const tokens = [];
+  let prefix = "TIDYTERRACHATTOKEN";
   while (content.includes(prefix)) prefix += "X";
-
-  // Keep code examples out of the link parser. Protect complete links from
-  // the widget's emphasis replacements, including underscores in their URLs.
-  const text = content.replace(
-    /```[\s\S]*?```|`[^`\n]+`|\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g,
-    (match, label, href) => {
-      if (!href) return match;
-      links.push({ label: label.replaceAll("`", ""), href });
-      return prefix + (links.length - 1) + "END";
+  const protect = token => {
+    tokens.push(token);
+    return prefix + (tokens.length - 1) + "END";
+  };
+  // Extract code before the widget's Markdown substitutions touch its contents.
+  const blocks = content.replace(
+    /^ {0,3}(`{3,}|~{3,})([^\n]*)\r?\n([\s\S]*?)\r?\n {0,3}\1[ \t]*(?=\r?\n|$)/gm,
+    (_, fence, language, code) => protect({ type: "block", text: code })
+  );
+  const text = blocks.replace(
+    /\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)|(`+)([^\n]*?[^\`])\3(?!`)/g,
+    (match, label, href, delimiter, code) => {
+      if (href) return protect({ type: "link", label: label.replaceAll("`", ""), href });
+      return protect({ type: "inline", text: code });
     }
   );
-  return { text, links, prefix };
+  return { text, tokens, prefix };
+}
+
+function renderToken(token) {
+  if (token.type === "link") return makeLink(token.label, token.href).outerHTML;
+  const code = document.createElement("code");
+  code.textContent = token.text;
+  if (token.type === "inline") return code.outerHTML;
+  const block = document.createElement("div");
+  block.className = "tidyterra-chat-code";
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "tidyterra-copy-code";
+  button.textContent = "Copy code";
+  button.setAttribute("aria-live", "polite");
+  const pre = document.createElement("pre");
+  pre.append(code);
+  block.append(button, pre);
+  return block.outerHTML;
 }
 
 export function observeChatSources(stream, onSources) {
@@ -98,11 +121,14 @@ export function enhanceTidyterraChat(chat) {
     if (streaming || message.role !== "assistant" || !message.content) {
       return render(message, streaming);
     }
-    const { text, links, prefix } = protectLinks(message.content);
+    const { text, tokens, prefix } = protectMarkdown(message.content);
     const html = render({ ...message, content: text }, streaming)
+      .replace(new RegExp("<p>(" + prefix + "\\d+END)</p>", "g"), (match, marker) => {
+        const index = Number(marker.slice(prefix.length, -3));
+        return tokens[index].type === "block" ? marker : match;
+      })
       .replace(new RegExp(prefix + "(\\d+)END", "g"), (_, index) => {
-        const { label, href } = links[index];
-        return makeLink(label, href).outerHTML;
+        return renderToken(tokens[index]);
       });
     const details = sourceDisclosure(sources.get(message) ?? []);
     if (!details) return html;
@@ -112,6 +138,19 @@ export function enhanceTidyterraChat(chat) {
     template.content.querySelector(".chat-message-bubble").append(details);
     return template.innerHTML;
   };
+
+  chat.shadowRoot.addEventListener("click", async event => {
+    const button = event.target.closest(".tidyterra-copy-code");
+    if (!button) return;
+    const code = button.closest(".tidyterra-chat-code").querySelector("code").textContent;
+    try {
+      await navigator.clipboard.writeText(code);
+      button.textContent = "Copied";
+    } catch {
+      button.textContent = "Copy failed";
+    }
+    setTimeout(() => { button.textContent = "Copy code"; }, 2000);
+  });
 
   chat.shadowRoot.addEventListener("toggle", event => {
     const details = event.target;
