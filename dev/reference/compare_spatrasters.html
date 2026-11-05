@@ -68,7 +68,7 @@ Resolving differences for minimal guidance."><meta property="og:image" content="
   });
   const style = document.createElement("style");
   style.textContent = `
-    .chat-window { width: min(380px, calc(100vw - 40px)); max-height: calc(100dvh - 40px); box-sizing: border-box; }
+    .chat-window { width: min(520px, calc(100vw - 40px)); height: min(720px, 85dvh); max-height: calc(100dvh - 40px); box-sizing: border-box; }
     .tidyterra-chat-status { padding: 8px 16px; margin: 0; font-size: 0.875rem; color: var(--search-snippet-text-color); }
     .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
     .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
@@ -78,11 +78,46 @@ Resolving differences for minimal guidance."><meta property="og:image" content="
     .tidyterra-chat-sources summary:focus-visible { outline: 2px solid var(--bs-link-color); outline-offset: 2px; }
     .tidyterra-chat-sources ul { margin: 0.4rem 0 0; padding-inline-start: 1.25rem; overflow-wrap: anywhere; }
     button:focus-visible, textarea:focus-visible { outline: 3px solid var(--bs-link-color); outline-offset: 2px; }
+    @media (max-width: 640px) {
+      .chat-window { transition: opacity 0.15s ease; }
+      .chat-window.expanded:not(.minimized) {
+        position: fixed;
+        top: var(--tidyterra-chat-top, 0px);
+        left: var(--tidyterra-chat-left, 0px);
+        right: auto;
+        bottom: auto;
+        width: var(--tidyterra-chat-width, 100vw);
+        height: var(--tidyterra-chat-height, 100dvh);
+        max-height: none;
+        border: 0;
+        border-radius: 0;
+        transform: none;
+      }
+      .chat-window.expanded.minimized { position: fixed; bottom: env(safe-area-inset-bottom, 0px); right: 0; }
+      .chat-header { padding-top: max(16px, env(safe-area-inset-top, 0px)); }
+      .chat-content, .chat-container, .chat-messages { min-height: 0; }
+      .chat-messages { overscroll-behavior: contain; }
+      .chat-input { font-size: 16px; resize: none; }
+      .powered-by { padding-bottom: max(8px, env(safe-area-inset-bottom, 0px)); }
+    }
     @media (prefers-reduced-motion: reduce) {
       .bubble-button, .chat-window { transition: none; }
     }
   `;
   root.append(style);
+  const mobileChat = window.matchMedia("(max-width: 640px)");
+  let previousOverflow;
+  const syncViewport = () => {
+    const viewport = window.visualViewport;
+    chat.style.setProperty("--tidyterra-chat-top", `${viewport?.offsetTop || 0}px`);
+    chat.style.setProperty("--tidyterra-chat-left", `${viewport?.offsetLeft || 0}px`);
+    chat.style.setProperty("--tidyterra-chat-width", `${viewport?.width || window.innerWidth}px`);
+    chat.style.setProperty("--tidyterra-chat-height", `${viewport?.height || window.innerHeight}px`);
+  };
+  window.visualViewport?.addEventListener("resize", syncViewport);
+  window.visualViewport?.addEventListener("scroll", syncViewport);
+  window.addEventListener("resize", syncViewport);
+  syncViewport();
   const syncPanel = () => {
     const open = panel.classList.contains("expanded");
     panel.inert = !open;
@@ -93,16 +128,25 @@ Resolving differences for minimal guidance."><meta property="og:image" content="
     }
     bubble.inert = open;
     bubble.setAttribute("aria-expanded", String(open));
+    const fullScreen = mobileChat.matches && open && !panel.classList.contains("minimized");
+    if (fullScreen && previousOverflow === undefined) {
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+    } else if (!fullScreen && previousOverflow !== undefined) {
+      document.body.style.overflow = previousOverflow;
+      previousOverflow = undefined;
+    }
   };
+  mobileChat.addEventListener("change", syncPanel);
   new MutationObserver(syncPanel).observe(panel, { attributes: true, attributeFilter: ["class"] });
   syncPanel();
   bubble.addEventListener("click", () => {
     syncPanel();
-    root.querySelector("textarea")?.focus();
+    if (!mobileChat.matches) root.querySelector("textarea")?.focus({ preventScroll: true });
   });
   root.querySelector(".close-button").addEventListener("click", () => {
     syncPanel();
-    bubble.focus();
+    bubble.focus({ preventScroll: true });
   });
   chat.addEventListener("keydown", event => {
     if (event.key === "Escape" && panel.classList.contains("expanded")) {
