@@ -1,0 +1,174 @@
+{
+  "id": "08-scales",
+  "question": "Give a self-contained tiny raster plotting example that uses tidyterra's continuous hypsometric tint scale with the gmt_globe palette. Cite the documentation.",
+  "criteria": "scale_fill_hypso_tint_c(palette = 'gmt_globe'); valid raster and plotting code.",
+  "status": 200,
+  "elapsedMs": 9476,
+  "answer": "Here's a self-contained example of plotting a tiny raster using tidyterra's continuous hypsometric tint scale with the gmt_globe palette:\n\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\n\n# Create a tiny raster\nelevation <- terra::rast(nrows = 2, ncols = 2, vals = c(-100, 0, 500, 1000))\n\n# Plot the raster using tidyterra's continuous hypsometric tint scale\nggplot() +\n  geom_spatraster(data = elevation) +\n  scale_fill_hypso_tint_c(palette = \"gmt_globe\")\n```\n\nThis example is based on the [scale_hypso() documentation](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.html), which provides information on using hypsometric tint scales in tidyterra. The `scale_fill_hypso_tint_c()` function is used to create a continuous hypsometric tint scale, and the `palette` argument is set to \"gmt_globe\" to use the gmt_globe palette.",
+  "finishReason": "stop",
+  "usage": {
+    "prompt_tokens": 6264,
+    "completion_tokens": 237,
+    "total_tokens": 6501,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "neurons": 215.58514404296875
+  },
+  "raw": {
+    "id": "id-1793826636349",
+    "object": "chat.completion",
+    "created": 1793826636,
+    "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Here's a self-contained example of plotting a tiny raster using tidyterra's continuous hypsometric tint scale with the gmt_globe palette:\n\n```r\n# Load required libraries\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\n\n# Create a tiny raster\nelevation <- terra::rast(nrows = 2, ncols = 2, vals = c(-100, 0, 500, 1000))\n\n# Plot the raster using tidyterra's continuous hypsometric tint scale\nggplot() +\n  geom_spatraster(data = elevation) +\n  scale_fill_hypso_tint_c(palette = \"gmt_globe\")\n```\n\nThis example is based on the [scale_hypso() documentation](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.html), which provides information on using hypsometric tint scales in tidyterra. The `scale_fill_hypso_tint_c()` function is used to create a continuous hypsometric tint scale, and the `palette` argument is set to \"gmt_globe\" to use the gmt_globe palette.",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": null,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6264,
+      "completion_tokens": 237,
+      "total_tokens": 6501,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 215.58514404296875
+    },
+    "chunks": [
+      {
+        "id": "d4502bdc60e6eb7d044932d27f3397d6155f13fb8fd72509fa47c3f4d02d14ea",
+        "type": "text",
+        "score": 1,
+        "text": "## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) scale for the `fill` or `colour` aesthetic. `hypso.colors()` and `hypso.colors2()` return a character vector of colors.\n\n## Details\n\nOn `scale_*_hypso_tint_*` palettes, the position of the gradients and the limits of the palette are redefined. Instead of treating the color palette as a continuous gradient, they are rescaled to act as a hypsometric tint. These tints roughly correspond to the following values:\n\n* Blue colors: Negative values.\n* Green colors: Values from 0 to 1,000.\n* Browns: Values from 1,000 to 4,000.\n* Whites: Values above 4,000.\n\nThese ranges vary depending on the palette definition (see [hypsometric\\_tints\\_db](https://dieghernan.github.io/tidyterra/dev/reference/hypsometric%5Ftints%5Fdb.html) for an example of how this can be achieved).\n\nThe palette setup may not always be suitable for your specific data. For example, a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` of small parts of the globe (and with a limited range of elevations) may not be well represented. As an example, a `SpatRaster` with values in the range `[100, 200]` appears almost as a uniform color. This can be adjusted using the `limits`/`values`arguments.\n\nWhen passing the `limits` argument to `scale_*_hypso_tint_*`, the colors are restricted to those specified by this argument, keeping the distribution of the tint. You can combine this with `oob`, for example `oob = scales::oob_squish`, to avoid blank pixels in the plot.\n\n`hypso.colors2()` provides a gradient color palette where the distance between colors differs depending on the type of color. In contrast, `hypso.colors()` provides a uniform gradient across colors. See **Examples**.\n\n## See also\n\n[hypsometric\\_tints\\_db](https://dieghernan.github.io/tidyterra/dev/reference/hypsometric%5Ftints%5Fdb.html), `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`, `[terra::minmax()](https://rspatial.github.io/terra/reference/minmax.html)`, `[ggplot2::scale_fill_viridis_c()](https://ggplot2.tidyverse.org/reference/scale%5Fviridis.html)`\n\nSee also [ggplot2](https://cran.r-project.org/package=ggplot2) documentation on additional `...` arguments.\n\nOther color scales, palettes and hypsometric tints: `[scale_coltab](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fcoltab.html)`, `[scale_cross_blended](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fcross%5Fblended.html)`, `[scale_grass](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fgrass.html)`, `[scale_princess](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fprincess.html)`, `[scale_terrain](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fterrain.html)`, `[scale_whitebox](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fwhitebox.html)`, `[scale_wiki](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fwiki.html)`\n\n## Examples\n\n```\nlibrary(ggplot2)\nlibrary(tidyterra)\n\nelevation <- terra::rast(nrows = 2, ncols = 2, vals = c(-100, 0, 500, 1000))\nggplot() +\n  geom_spatraster(data = elevation) +\n  scale_fill_hypso_tint_c(palette = \"gmt_globe\")\n\n\n# \\donttest{\nfilepath <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\")\n\nlibrary(terra)\nvolcano2_rast <- rast(filepath)\n\n# Palette\nplot(volcano2_rast, col = hypso.colors(100, palette = \"wiki-2.0_hypso\"))\n\n\n# Palette with uneven colors\nplot(volcano2_rast, col = hypso.colors2(100, palette = \"wiki-2.0_hypso\"))\n\n\nlibrary(ggplot2)\nggplot() +\n  geom_spatraster(data = volcano2_rast) +\n  scale_fill_hypso_c(palette = \"colombia_hypso\")\n\n\n# Full map with true tints\n\nf_asia <- system.file(\"extdata/asia.tif\", package = \"tidyterra\")\nasia <- rast(f_asia)\n\n",
+        "item": {
+          "key": "reference/scale_hypso.html",
+          "timestamp": 1793825700000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.77387315,
+          "keyword_score": 86.75453889751313,
+          "vector_rank": 4,
+          "keyword_rank": 1,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d4502bdc60e6eb7d044932d27f3397d608d7e253b7df131cf73b84ee85b8bdbd",
+        "type": "text",
+        "score": 0.9917419354838708,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/scale\\_hypso.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Gradient scales for hypsometric and bathymetric tints\n\nSource: [R/scales-hypso.R](https://github.com/dieghernan/tidyterra/blob/main/R/scales-hypso.R) \n\n`scale_hypso.Rd`\n\nImplementation of a selection of gradient palettes available in [cpt-city](https://phillips.shef.ac.uk/pub/cpt-city/).\n\nThe following scales and palettes are provided:\n\n* `scale_*_hypso_d()`: For discrete values.\n* `scale_*_hypso_c()`: For continuous values.\n* `scale_*_hypso_b()`: For binning continuous values.\n* `hypso.colors()`: A gradient color palette. See also `[grDevices::terrain.colors()](https://rdrr.io/r/grDevices/palettes.html)` for details.\n\nAn additional set of scales is provided. These scales can act as [hypsometric (or bathymetric) tints](https://en.wikipedia.org/wiki/Hypsometric%5Ftints).\n\n* `scale_*_hypso_tint_d()`: For discrete values.\n* `scale_*_hypso_tint_c()`: For continuous values.\n* `scale_*_hypso_tint_b()`: For binning continuous values.\n* `hypso.colors2()`: A gradient color palette. See also `[grDevices::terrain.colors()](https://rdrr.io/r/grDevices/palettes.html)` for details.\n\nSee **Details**. Use `scale_fill_hypso_tint_c(palette = \"gmt_globe\")` for continuous hypsometric tints. Use `scale_fill_hypso_c()` for a continuous gradient.\n\nAdditional arguments `...` are passed to:\n\n* Discrete values: `[ggplot2::discrete_scale()](https://ggplot2.tidyverse.org/reference/discrete%5Fscale.html)`.\n* Continuous values: `[ggplot2::continuous_scale()](https://ggplot2.tidyverse.org/reference/continuous%5Fscale.html)`.\n* Binned continuous values: `[ggplot2::binned_scale()](https://ggplot2.tidyverse.org/reference/binned%5Fscale.html)`.\n\n[tidyterra](https://cran.r-project.org/package=tidyterra) documents only a selection of these additional arguments, so check the [ggplot2](https://cran.r-project.org/package=ggplot2) functions listed above to see the full range of arguments accepted by these scales.\n\n## Usage\n\n```\nscale_fill_hypso_d(\n  palette = \"etopo1_hypso\",\n  ...,\n  alpha = 1,\n  direction = 1,\n  na.translate = FALSE,\n  drop = TRUE\n)\n\nscale_colour_hypso_d(\n  palette = \"etopo1_hypso\",\n  ...,\n  alpha = 1,\n  direction = 1,\n  na.translate = FALSE,\n  drop = TRUE\n)\n\nscale_fill_hypso_c(\n  palette = \"etopo1_hypso\",\n  ...,\n  alpha = 1,\n  direction = 1,\n  na.value = \"transparent\",\n  guide = \"colourbar\"\n)\n\nscale_colour_hypso_c(\n  palette = \"etopo1_hypso\",\n  ...,\n  alpha = 1,\n  direction = 1,\n  na.value = \"transparent\",\n  guide = \"colourbar\"\n)\n\n",
+        "item": {
+          "key": "reference/scale_hypso.html",
+          "timestamp": 1793825700000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.77553505,
+          "keyword_score": 75.06709567099865,
+          "vector_rank": 2,
+          "keyword_rank": 4,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d161afd2f844a394feb7122f6fcd37819ce15827ced830fb0cb9941ab9e80c61",
+        "type": "text",
+        "score": 0.9630360531309297,
+        "text": "## Value\n\nA [ggplot2](https://cran.r-project.org/package=ggplot2) scale for the `fill` or `colour` aesthetic. `cross_blended.colors()` and `cross_blended.colors2()` return a character vector of colors.\n\n## Details\n\nOn `scale_*_cross_blended_tint_*` palettes, the position of the gradients and the limits of the palette are redefined. Instead of treating the color palette as a continuous gradient, they are rescaled to act as a hypsometric tint. These tints roughly correspond to the following values:\n\n* Blue colors: Negative values.\n* Green colors: Values from 0 to 1,000.\n* Browns: Values from 1,000 to 4,000.\n* Whites: Values above 4,000.\n\nThese ranges vary depending on the palette definition (see [cross\\_blended\\_hypsometric\\_tints\\_db](https://dieghernan.github.io/tidyterra/dev/reference/cross%5Fblended%5Fhypsometric%5Ftints%5Fdb.html) for an example of how this can be achieved).\n\nThe palette setup may not always be suitable for your specific data. For example, a `[SpatRaster](https://rspatial.github.io/terra/reference/rast.html)` of small parts of the globe (and with a limited range of elevations) may not be well represented. As an example, a `SpatRaster` with values in the range `[100, 200]` appears almost as a uniform color. This can be adjusted using the `limits`/`values`arguments.\n\nWhen passing the `limits` argument to `scale_*_cross_blended_tint_*`, the colors are restricted to those specified by this argument, keeping the distribution of the tint. You can combine this with `oob`, for example `oob = scales::oob_squish`, to avoid blank pixels in the plot.\n\n`cross_blended.colors2()` provides a gradient color palette where the distance between colors differs depending on the type of color. In contrast, `cross_blended.colors()` provides a uniform gradient across colors. See **Examples**.\n\n## See also\n\n[cross\\_blended\\_hypsometric\\_tints\\_db](https://dieghernan.github.io/tidyterra/dev/reference/cross%5Fblended%5Fhypsometric%5Ftints%5Fdb.html), `[terra::plot()](https://rspatial.github.io/terra/reference/plot.html)`, `[terra::minmax()](https://rspatial.github.io/terra/reference/minmax.html)`, `[ggplot2::scale_fill_viridis_c()](https://ggplot2.tidyverse.org/reference/scale%5Fviridis.html)`.\n\nSee also [ggplot2](https://cran.r-project.org/package=ggplot2) documentation on additional `...` arguments.\n\nOther color scales, palettes and hypsometric tints: `[scale_coltab](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fcoltab.html)`, `[scale_grass](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fgrass.html)`, `[scale_hypso](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fhypso.html)`, `[scale_princess](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fprincess.html)`, `[scale_terrain](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fterrain.html)`, `[scale_whitebox](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fwhitebox.html)`, `[scale_wiki](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fwiki.html)`\n\n## Examples\n\n```\n# \\donttest{\nfilepath <- system.file(\"extdata/volcano2.tif\", package = \"tidyterra\")\n\nlibrary(terra)\nvolcano2_rast <- rast(filepath)\n\n# Palette\nplot(volcano2_rast, col = cross_blended.colors(100, palette = \"arid\"))\n\n\n# Palette with uneven colors\nplot(volcano2_rast, col = cross_blended.colors2(100, palette = \"arid\"))\n\n\nlibrary(ggplot2)\nggplot() +\n  geom_spatraster(data = volcano2_rast) +\n  scale_fill_cross_blended_c(palette = \"cold_humid\")\n\n\n# Full map with true tints\n\nf_asia <- system.file(\"extdata/asia.tif\", package = \"tidyterra\")\nasia <- rast(f_asia)\n\n",
+        "item": {
+          "key": "reference/scale_cross_blended.html",
+          "timestamp": 1793825700000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.73828274,
+          "keyword_score": 81.25507872128388,
+          "vector_rank": 8,
+          "keyword_rank": 2,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "d2d13144b8baadcbda990a53dc43ac8d71f17df2d4016e99163e92de02dba7e6",
+        "type": "text",
+        "score": 0.9052753623188404,
+        "text": "# Replicate the previous map with tidyterra and metR.\nggplot(r, aes(x, y)) +\n  geom_spatraster_contour(\n    data = r,\n    aes(\n      linewidth = after_stat(level),\n      color = after_stat(level)\n    ),\n    breaks = br,\n    # Do not inherit fortified aesthetics.\n    inherit.aes = FALSE\n  ) +\n  geom_text_contour(\n    aes(\n      z = elevation,\n      color = after_stat(level),\n      size = after_stat(level)\n    ),\n    breaks = br,\n    # Text options.\n    check_overlap = TRUE,\n    label.placer = label_placer_minmax(),\n    stroke = 0.3,\n    stroke.colour = \"white\",\n    family = \"mono\",\n    fontface = \"bold\",\n    key_glyph = \"path\"\n  ) +\n  scale_linewidth_continuous(range = c(0.1, 0.5), breaks = labs) +\n  scale_color_gradient(low = \"grey50\", high = \"grey10\", breaks = labs) +\n  scale_size_continuous(range = c(2, 3), breaks = labs) +\n  # Integrate scales.\n  guides(\n    linewidth = guide_legend(\"meters\"),\n    size = guide_legend(\"meters\"),\n    color = guide_legend(\"meters\")\n  ) +\n  # Theme and titles.\n  theme_bw() +\n  theme(text = element_text(family = \"mono\")) +\n  labs(\n    title = \"Labeling contours\",\n    subtitle = \"tidyterra and metR: black-and-white plot\",\n    x = \"\",\n    y = \"\"\n  )\n```\n\n![Contour map of Holyrood Park surface elevation. Lines run every 10 meters from 100 to 250 meters, with selected levels labeled and higher elevations shown by darker, thicker lines.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-metr-1.png) \n\nFigure 3: Alternative (**metR**): contour labeling combining **tidyterra** and the **metR** package with customized styling. \n\n## Using a different color scale \n\nSince **tidyterra** builds on **ggplot2**, refer to **ggplot2** documentation on scales:\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\n\nholyrood <- \"holyroodpark.tif\"\n\nr <- rast(holyrood)\n\n# Hillshade with gray colors.\nslope <- terrain(r, \"slope\", unit = \"radians\")\naspect <- terrain(r, \"aspect\", unit = \"radians\")\nhill <- shade(slope, aspect, 10, 340)\n\nggplot() +\n  geom_spatraster(data = hill, show.legend = FALSE) +\n  # Use a grayscale palette.\n  scale_fill_gradientn(\n    colours = grey(0:100 / 100),\n    na.value = \"transparent\"\n  ) +\n  labs(title = \"A hillshade plot with gray colors\")\n```\n\n![Grayscale hillshade map of Holyrood Park. Light and dark shading reveals slopes and relief without a color legend.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-greys-1.png) \n\nFigure 4: Hillshade plot using grayscale colors to enhance terrain relief. \n\n## Can I change the default palette of my maps? \n\nYes, use `options(\"ggplot2.continuous.fill\")` to modify the default colors in your session.\n\n```\nlibrary(terra)\nlibrary(tidyterra)\nlibrary(ggplot2)\n\nholyrood <- \"holyroodpark.tif\"\n\nr <- rast(holyrood)\n\np <- ggplot() +\n  geom_spatraster(data = r)\n\n# Set options.\ntmp <- getOption(\"ggplot2.continuous.fill\") # store current setting\noptions(ggplot2.continuous.fill = scale_fill_grass_c)\n\np\n\n# Restore the previous setting.\noptions(ggplot2.continuous.fill = tmp)\n\np\n```\n\n![Raster map of Holyrood Park elevation using the GRASS color scale as the session default. Color varies with elevation.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-default-1.png) \n\n(a) Use the new default palette through options. \n\n![Raster map of Holyrood Park elevation using the restored default continuous color scale. Color varies with elevation across the terrain.](https://dieghernan.github.io/tidyterra/dev/articles/faqs_files/figure-html/fig-default-2.png) \n\n",
+        "item": {
+          "key": "articles/faqs.html",
+          "timestamp": 1793824980000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7345335,
+          "keyword_score": 66.71295114051848,
+          "vector_rank": 9,
+          "keyword_rank": 9,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "93ad7592451743ea7b5551ddc23c8520645a1edcf186d7be834dc9b65eae2fa6",
+        "type": "text",
+        "score": 0.899927031509121,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/hypsometric\\_tints\\_db.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Hypsometric palettes database\n\nSource: [R/data.R](https://github.com/dieghernan/tidyterra/blob/main/R/data.R) \n\n`hypsometric_tints_db.Rd`\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) including the color map of 34 gradient palettes. Each palette also includes a definition of color limits in terms of elevation (meters) that can be used with `[ggplot2::scale_fill_gradientn()](https://ggplot2.tidyverse.org/reference/scale%5Fgradient.html)`.\n\n## Format\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) of 1223 rows and 6 columns with the following fields:\n\npal\n\nName of the palette.\n\nlimit\n\nRecommended elevation limit (in meters) for each color.\n\nr\n\nValue of the red channel (RGB color mode).\n\ng\n\nValue of the green channel (RGB color mode).\n\nb\n\nValue of the blue channel (RGB color mode).\n\nhex\n\nHex code of the color.\n\n## Source\n\ncpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.\n\n## See also\n\n`[scale_fill_hypso_c()](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fhypso.html)`.\n\nOther datasets: `[cross_blended_hypsometric_tints_db](https://dieghernan.github.io/tidyterra/dev/reference/cross%5Fblended%5Fhypsometric%5Ftints%5Fdb.html)`, `[grass_db](https://dieghernan.github.io/tidyterra/dev/reference/grass%5Fdb.html)`, `[princess_db](https://dieghernan.github.io/tidyterra/dev/reference/princess%5Fdb.html)`, `[volcano2](https://dieghernan.github.io/tidyterra/dev/reference/volcano2.html)`\n\n## Examples\n\n```\n# \\donttest{\ndata(\"hypsometric_tints_db\")\n\nhypsometric_tints_db\n#> # A tibble: 1,223 × 6\n#>    pal    limit     r     g     b hex    \n#>    <chr>  <dbl> <dbl> <dbl> <dbl> <chr>  \n#>  1 arctic -5000    44    53    99 #2C3563\n#>  2 arctic -4900    46    54   100 #2E3664\n#>  3 arctic -4800    48    56   103 #303867\n#>  4 arctic -4700    50    59   106 #323B6A\n#>  5 arctic -4600    52    60   107 #343C6B\n#>  6 arctic -4500    54    61   109 #363D6D\n#>  7 arctic -4400    56    63   111 #383F6F\n#>  8 arctic -4300    57    65   113 #394171\n#>  9 arctic -4200    60    68   116 #3C4474\n#> 10 arctic -4100    62    70   118 #3E4676\n#> # ℹ 1,213 more rows\n\n# Select a palette\nwikicols <- hypsometric_tints_db |>\n  filter(pal == \"wiki-2.0\")\n\nf <- system.file(\"extdata/asia.tif\", package = \"tidyterra\")\nr <- terra::rast(f)\n\nlibrary(ggplot2)\n\np <- ggplot() +\n  geom_spatraster(data = r) +\n  labs(fill = \"elevation\")\n\np +\n  scale_fill_gradientn(colors = wikicols$hex)\n\n\n# Use with limits\np +\n  scale_fill_gradientn(\n    colors = wikicols$hex,\n    values = scales::rescale(wikicols$limit),\n    limit = range(wikicols$limit)\n  )\n\n# }\n\n```",
+        "item": {
+          "key": "reference/hypsometric_tints_db.html",
+          "timestamp": 1793825280000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7440641,
+          "keyword_score": 65.13835603103904,
+          "vector_rank": 7,
+          "keyword_rank": 12,
+          "fusion_method": "rrf"
+        }
+      },
+      {
+        "id": "e3bebbe09d6692d0a0939ceb2b1eb8c64a511e8df06b7e049e9b5eb8673cee19",
+        "type": "text",
+        "score": 0.892342857142857,
+        "text": "Source: https://dieghernan.github.io/tidyterra/dev/reference/cross\\_blended\\_hypsometric\\_tints\\_db.html\n\n![](https://dieghernan.github.io/tidyterra/dev/logo.png)\n\n# Cross-blended hypsometric tints\n\nSource: [R/data.R](https://github.com/dieghernan/tidyterra/blob/main/R/data.R) \n\n`cross_blended_hypsometric_tints_db.Rd`\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) including the color map of 4 gradient palettes. All palettes also include a definition of color limits in terms of elevation (meters) that can be used with `[ggplot2::scale_fill_gradientn()](https://ggplot2.tidyverse.org/reference/scale%5Fgradient.html)`.\n\n## Format\n\nA [tibble](https://tibble.tidyverse.org/reference/tbl%5Fdf-class.html) of 41 rows and 6 columns with the following fields:\n\npal\n\nName of the palette.\n\nlimit\n\nRecommended elevation limit (in meters) for each color.\n\nr\n\nValue of the red channel (RGB color mode).\n\ng\n\nValue of the green channel (RGB color mode).\n\nb\n\nValue of the blue channel (RGB color mode).\n\nhex\n\nHex code of the color.\n\n## Source\n\nDerived from:\n\n* Patterson, T., & Jenny, B. (2011). The Development and Rationale of Cross-blended Hypsometric Tints. _Cartographic Perspectives,_ (69), 31-46\\. [doi:10.14714/CP69.20](https://doi.org/10.14714/CP69.20).\n\n## Details\n\nFrom Patterson & Jenny (2011):\n\n_More recently, the role and design of hypsometric tints have come under scrutiny. One reason for this is the concern that people misread elevation colors as climate or vegetation information. Cross-blended hypsometric tints, introduced in 2009, are a partial solution to this problem. They use variable lowland colors customized to match the differing natural environments of world regions, which merge into one another._\n\n## See also\n\n`[scale_fill_cross_blended_c()](https://dieghernan.github.io/tidyterra/dev/reference/scale%5Fcross%5Fblended.html)`.\n\nOther datasets: `[grass_db](https://dieghernan.github.io/tidyterra/dev/reference/grass%5Fdb.html)`, `[hypsometric_tints_db](https://dieghernan.github.io/tidyterra/dev/reference/hypsometric%5Ftints%5Fdb.html)`, `[princess_db](https://dieghernan.github.io/tidyterra/dev/reference/princess%5Fdb.html)`, `[volcano2](https://dieghernan.github.io/tidyterra/dev/reference/volcano2.html)`\n\n## Examples\n\n```\n# \\donttest{\n\ndata(\"cross_blended_hypsometric_tints_db\")\n\ncross_blended_hypsometric_tints_db\n#> # A tibble: 41 × 6\n#>    pal   limit     r     g     b hex    \n#>    <chr> <int> <int> <int> <int> <chr>  \n#>  1 arid      0   160   152   141 #A0988D\n#>  2 arid     50   170   160   150 #AAA096\n#>  3 arid    200   180   170   158 #B4AA9E\n#>  4 arid    600   202   190   174 #CABEAE\n#>  5 arid   1000   212   201   180 #D4C9B4\n#>  6 arid   2000   212   184   163 #D4B8A3\n#>  7 arid   3000   212   193   179 #D4C1B3\n#>  8 arid   4000   212   207   204 #D4CFCC\n#>  9 arid   5000   220   220   220 #DCDCDC\n#> 10 arid   6000   235   235   237 #EBEBED\n#> # ℹ 31 more rows\n\n# Select a palette\nwarm <- cross_blended_hypsometric_tints_db |>\n  filter(pal == \"warm_humid\")\n\nf <- system.file(\"extdata/asia.tif\", package = \"tidyterra\")\nr <- terra::rast(f)\n\nlibrary(ggplot2)\n\np <- ggplot() +\n  geom_spatraster(data = r) +\n  labs(fill = \"elevation\")\n\np +\n  scale_fill_gradientn(colors = warm$hex)\n\n\n# Use with limits\np +\n  scale_fill_gradientn(\n    colors = warm$hex,\n    values = scales::rescale(warm$limit),\n    limit = range(warm$limit),\n    na.value = \"lightblue\"\n  )\n\n# }\n\n```",
+        "item": {
+          "key": "reference/cross_blended_hypsometric_tints_db.html",
+          "timestamp": 1793825100000,
+          "metadata": {
+            "chunk_modality": "text"
+          }
+        },
+        "scoring_details": {
+          "vector_score": 0.7269724,
+          "keyword_score": 66.43252764569573,
+          "vector_rank": 10,
+          "keyword_rank": 10,
+          "fusion_method": "rrf"
+        }
+      }
+    ]
+  }
+}
