@@ -64,7 +64,9 @@ data.frame."><meta property="og:image" content="https://dieghernan.github.io/tid
   });
   const style = document.createElement("style");
   style.textContent = `
-    .chat-window { width: min(520px, calc(100vw - 40px)); height: min(720px, 85dvh); max-height: calc(100dvh - 40px); box-sizing: border-box; }
+    .chat-window { width: min(570px, calc(100vw - 40px)); height: min(720px, 85dvh); max-height: calc(100dvh - 40px); box-sizing: border-box; }
+    .bubble-button::after { content: "exp."; position: absolute; right: -3px; bottom: -2px; padding: 1px 4px; border: 1px solid var(--bs-border-color); border-radius: 1rem; background: var(--bs-body-bg); color: var(--bs-secondary-color); font-size: 10px; line-height: 1.2; pointer-events: none; }
+    .tidyterra-chat-example { display: block; margin: 0.4rem auto 0; padding: 0.35rem 0.6rem; border: 1px solid var(--bs-border-color); border-radius: var(--bs-border-radius); background: transparent; color: var(--bs-link-color); font: inherit; cursor: pointer; }
     .tidyterra-chat-status { padding: 8px 16px; margin: 0; font-size: 0.875rem; color: var(--search-snippet-text-color); }
     .chat-header-title, .chat-empty-title { font-family: var(--tidyterra-chat-heading-font); }
     .chat-message-bubble a, .powered-by a { color: var(--bs-link-color); }
@@ -79,6 +81,7 @@ data.frame."><meta property="og:image" content="https://dieghernan.github.io/tid
     .tidyterra-chat-code pre { margin: 0; padding: 0.65rem; white-space: pre; overflow-x: auto; }
     button:focus-visible, textarea:focus-visible { outline: 3px solid var(--bs-link-color); outline-offset: 2px; }
     @media (max-width: 640px) {
+      .chat-header .icon-button { min-width: 44px; min-height: 44px; }
       .chat-window { transition: opacity 0.15s ease; }
       .chat-window.expanded:not(.minimized) {
         position: fixed;

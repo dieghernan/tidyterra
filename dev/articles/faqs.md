@@ -40,6 +40,24 @@ The original file has been cropped and downsampled for demonstration
 purposes. `holyroodpark.tif` is available online in the `data-raw`
 folder at <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
+## Can I ask questions about tidyterra documentation?
+
+The experimental **tidyterra** AI assistant answers questions using the
+development documentation. Open the chat button in the lower-right
+corner of the [documentation
+website](https://dieghernan.github.io/tidyterra/dev/). You can ask in
+your preferred language and include the type of spatial object, the
+function you are using and what you want to do.
+
+Each answer can include a **Sources consulted** dropdown linking to the
+documentation retrieved for that question. Open these sources to check
+the answer. Code blocks have a **Copy code** button.
+
+The assistant can give incorrect answers or examples and does not
+execute R code. Check generated code before using it. Questions are sent
+to Cloudflare for processing, so avoid including private data. You can
+also use the FAQs, site search or community support links above.
+
 ## `NA` values are shown in gray
 
 This is the default behavior of **ggplot2**. **tidyterra** color scales,
