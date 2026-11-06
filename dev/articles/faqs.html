@@ -1122,8 +1122,8 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1154,8 +1154,8 @@ Figure 13: Continuous precipitation data blended with an RGB shaded relief tile
 <code class="sourceCode R"><span><span class="co"># Binned legend.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1175,8 +1175,8 @@ Figure 13: Continuous precipitation data blended with an RGB shaded relief tile
 <span><span class="co"># Filled contour.</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, bins <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">rgb_tile</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">clim</span>, bins <span class="op">=</span> <span class="fl">4</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/ggspatvector.html">geom_spatvector</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>

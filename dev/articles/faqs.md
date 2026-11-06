@@ -809,8 +809,8 @@ tit_lab <- "Average precipitation in Switzerland"
 
 ggplot(aoi) +
   list(
-    geom_spatraster_rgb(data = rgb_tile),
-    geom_spatraster(data = clim)
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster(data = clim, maxcell = Inf)
   ) |>
   blend("multiply") +
   geom_spatvector(fill = NA) +
@@ -843,8 +843,8 @@ You can create variations with binned legends and filled contours using
 # Binned legend.
 ggplot(aoi) +
   list(
-    geom_spatraster_rgb(data = rgb_tile),
-    geom_spatraster(data = clim)
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster(data = clim, maxcell = Inf)
   ) |>
   blend("multiply") +
   geom_spatvector(fill = NA) +
@@ -864,8 +864,8 @@ ggplot(aoi) +
 # Filled contour.
 ggplot(aoi) +
   list(
-    geom_spatraster_rgb(data = rgb_tile),
-    geom_spatraster_contour_filled(data = clim, bins = 4)
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster_contour_filled(data = clim, bins = 4, maxcell = Inf)
   ) |>
   blend("multiply") +
   geom_spatvector(fill = NA) +
