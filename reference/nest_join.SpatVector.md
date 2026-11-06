@@ -1,10 +1,12 @@
-# Nest join `SpatVector` objects
+# Nest join [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 **\[experimental\]**
 
 [`nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
-returns a tibble with the attributes and geometry of `x`, plus a
-list-column containing matching rows from `y`.
+returns a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+the attributes and geometry of `x`, plus a list-column containing
+matching rows from `y`.
 
 ## Usage
 
@@ -116,10 +118,14 @@ A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 Implementation of the **generic**
 [`dplyr::nest_join()`](https://dplyr.tidyverse.org/reference/nest_join.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
-The output is a tibble with the attributes and WKT geometry of `x`, plus
-a list-column with matching rows from `y`.
+The output is a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+the attributes and WKT geometry of `x`, plus a list-column with matching
+rows from `y`.
 
 ## See also
 

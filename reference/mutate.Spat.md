@@ -108,16 +108,19 @@ Implementation of the **generic**
 [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 Adds new layers and preserves existing ones. The result is a
-`SpatRaster` with the same extent, resolution and CRS as `.data`. Only
-the values and possibly the number of layers are modified.
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+with the same extent, resolution and CRS as `.data`. Only the values and
+possibly the number of layers are modified.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes modified and possibly
-renamed as specified in the function call.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes modified and possibly renamed as specified in the
+function call.
 
 ## See also
 
@@ -164,7 +167,7 @@ mod
 #> size        : 87, 118, 2  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       :   tavg_04, exp_lyr1
 #> min values  :  1.885463, 1.207493

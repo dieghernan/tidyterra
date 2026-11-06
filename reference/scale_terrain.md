@@ -195,7 +195,7 @@ scale_colour_terrain_b(
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - drop:
 
@@ -217,8 +217,8 @@ scale_colour_terrain_b(
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour` aesthetics.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic.
 
 ## See also
 

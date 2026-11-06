@@ -1,6 +1,7 @@
-# Get cell number, row and column from a `SpatRaster`
+# Get cell number, row and column from a [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-`as_coordinates()` returns the position of each cell in the `SpatRaster`
+`as_coordinates()` returns the position of each cell in the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 matrix.
 
 ## Usage
@@ -23,11 +24,12 @@ as_coordinates(x, as.raster = FALSE)
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) or
-a `SpatRaster` (if `as.raster = TRUE`) with one row (or cell) for each
-cell in `x`.
+a [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+(if `as.raster = TRUE`) with one row (or cell) for each cell in `x`.
 
-When `as.raster = TRUE`, the resulting `SpatRaster` has the same CRS,
-extent and resolution as `x`.
+When `as.raster = TRUE`, the resulting
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) has
+the same CRS, extent and resolution as `x`.
 
 ## See also
 
@@ -71,7 +73,7 @@ as_coordinates(r, as.raster = TRUE)
 #> size        : 87, 118, 3  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       : cellindex, rowindex, colindex
 #> min values  :         1,        1,        1

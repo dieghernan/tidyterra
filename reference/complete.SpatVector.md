@@ -1,8 +1,9 @@
-# Complete missing combinations in a `SpatVector`
+# Complete missing combinations in a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
-turns implicit missing combinations in a `SpatVector` into explicit rows
-while preserving geometry and spatial metadata.
+turns implicit missing combinations in a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+into explicit rows while preserving geometry and spatial metadata.
 
 ## Usage
 
@@ -60,13 +61,16 @@ complete(data, ..., fill = list(), explicit = TRUE)
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 [`complete()`](https://tidyr.tidyverse.org/reference/complete.html)
 preserves the geometry column while expanding missing combinations. New

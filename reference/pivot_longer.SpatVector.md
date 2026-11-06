@@ -1,9 +1,11 @@
-# Pivot `SpatVector` from wide to long
+# Pivot [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) from wide to long
 
 [`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
-"lengthens" data, increasing the number of rows and decreasing the
-number of columns. The inverse transformation is
-[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md)
+"lengthens" a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html),
+increasing the number of rows and decreasing the number of columns. The
+inverse transformation is
+[`pivot_wider.SpatVector()`](https://dieghernan.github.io/tidyterra/reference/pivot_wider.SpatVector.md).
 
 Learn more in
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html).
@@ -157,13 +159,16 @@ pivot_longer(
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column has sticky behavior. This means that the result
 always has the geometry of `data`.
@@ -202,7 +207,7 @@ cyl_temp <- cbind(cyl, temps) |>
   glimpse()
 #> #  A SpatVector 9 x 7
 #> #  Geometry type: Polygons
-#> #  Projected CRS: World_Robinson
+#> #  Projected CRS: World_Robinson (ESRI:54030)
 #> #  CRS projection units: meter <m>
 #> #  Extent (x / y): ([ -607,946.2 /  -153,819.7] , [4,285,436.1 / 4,619,242.7])
 #> 

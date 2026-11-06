@@ -26,8 +26,8 @@ is_regular_grid(xy, digits = 6)
 
 ## Value
 
-Nothing, invisibly, if the coordinates form a regular grid. Otherwise,
-an error.
+`NULL`, returned invisibly if the coordinates form a regular grid.
+Otherwise, the function raises an error.
 
 ## See also
 

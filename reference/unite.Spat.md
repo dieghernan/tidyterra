@@ -17,7 +17,9 @@ unite(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 
 - data:
 
-  A `SpatRaster` or `SpatVector`.
+  A [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  or
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
 
 - col:
 
@@ -51,7 +53,9 @@ unite(data, col, ..., sep = "_", remove = TRUE, na.rm = FALSE)
 
 ## Value
 
-A `SpatRaster` or `SpatVector` object.
+A [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+or [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
@@ -59,14 +63,14 @@ Implementation of the **generic**
 [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
 The selected layers are united cell by cell. The new layer is
 categorical because
 [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html)
 returns a character vector.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 The geometry column has sticky behavior and is never united with
 attributes.
@@ -102,7 +106,7 @@ unite(r, "label", tavg_04, tavg_05, sep = "-", remove = FALSE)
 #> size        : 87, 118, 4  (nrow, ncol, nlyr)
 #> resolution  : 3881.255, 3881.255  (x, y)
 #> extent      : -612335.4, -154347.3, 4283018, 4620687  (xmin, xmax, ymin, ymax)
-#> coord. ref. : World_Robinson
+#> coord. ref. : World_Robinson (ESRI:54030)
 #> source(s)   : memory
 #> names       :                             label,   tavg_04,   tavg_05,   tavg_06
 #> min values  : 1.88546288013458-5.81758737564087,  1.885463,  5.817587, 10.463377

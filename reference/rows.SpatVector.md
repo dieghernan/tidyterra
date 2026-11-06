@@ -1,10 +1,12 @@
-# Row operations for `SpatVector` objects
+# Row operations for [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 **\[experimental\]**
 
 Methods for the
 [`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html)
-family on `SpatVector` objects.
+family on
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Usage
 
@@ -136,13 +138,16 @@ rows_delete(
 
 ## Value
 
-A `SpatVector`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::rows_insert()`](https://dplyr.tidyverse.org/reference/rows.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 Row operations update attributes while preserving the geometry column.
 When inserting data frame rows without geometry, the output contains

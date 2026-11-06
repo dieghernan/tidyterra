@@ -1,11 +1,18 @@
-# Plot `SpatRaster` objects as images
+# Plot [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) objects as images
 
-This geom plots `SpatRaster` objects (see
+This geom plots
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects (see
 [`terra::rast()`](https://rspatial.github.io/terra/reference/rast.html))
 as RGB images. The layers are combined so they represent the red, green
-and blue channels.
+and blue channels. Use
+`geom_spatraster_rgb(data = tile, r = 1, g = 2, b = 3)` to map layers 1,
+2 and 3 to those channels. The package includes `extdata/cyl_tile.tif`
+as an example RGB raster.
 
-For plotting `SpatRaster` objects by layer values use
+For plotting
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects by layer values use
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md).
 
 The underlying implementation is based on
@@ -67,7 +74,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 - maxcell:
 
   Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to use all cells.
+  `Inf` to remove this sampling limit. Reprojection for the plot can
+  still change the grid, so `Inf` does not guarantee native plot
+  resolution. The input raster is not modified.
 
 - max_col_value:
 
@@ -134,7 +143,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
   input extent. For example, to avoid data wrapping around the dateline
   in equal-area projections. This argument is passed to
   [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
-  when reprojecting the `SpatRaster`.
+  when reprojecting the
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
 
 ## Value
 
@@ -153,11 +163,13 @@ ignored.
 
 ## Coordinates
 
-When the `SpatRaster` does not have a CRS, that is,
-`terra::crs(rast) == ""`, the geom does not make any assumption about
-the scales.
+When the
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+does not have a CRS, that is, `terra::crs(rast) == ""`, the geom does
+not make any assumption about the scales.
 
-On `SpatRaster` objects that have a CRS, the geom uses
+On [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects that have a CRS, the geom uses
 [`ggplot2::coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
 to adjust the scales. This means that the **`SpatRaster` may be
 reprojected**.
@@ -183,6 +195,14 @@ Other [ggplot2](https://CRAN.R-project.org/package=ggplot2) helpers:
 ## Examples
 
 ``` r
+library(ggplot2)
+library(tidyterra)
+
+rgb <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3, vals = 1:12)
+ggplot() +
+  geom_spatraster_rgb(data = rgb, r = 1, g = 2, b = 3)
+
+
 # \donttest{
 
 # Tile of Castile and Leon (Spain) from OpenStreetMap

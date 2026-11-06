@@ -1,4 +1,4 @@
-# Cross joins for `SpatVector` objects
+# Cross joins for [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) objects
 
 **\[experimental\]**
 
@@ -25,7 +25,9 @@ cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
 - y:
 
   A data frame or other object coercible to a data frame. If a
-  `SpatVector` or `sf` object is provided, this method returns an error.
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  or [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object is
+  provided, this method returns an error.
 
 - ...:
 
@@ -47,13 +49,16 @@ cross_join(x, y, ..., copy = FALSE, suffix = c(".x", ".y"))
 
 ## Value
 
-A `SpatVector` object.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## Methods
 
 Implementation of the **generic**
 [`dplyr::cross_join()`](https://dplyr.tidyverse.org/reference/cross_join.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column has sticky behavior. The result repeats each
 geometry in `x` once for every row in `y`.

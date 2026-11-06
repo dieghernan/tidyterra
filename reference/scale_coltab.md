@@ -1,8 +1,9 @@
-# Discrete scales based on `SpatRaster` color tables
+# Discrete scales based on [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) color tables
 
-Some categorical `SpatRaster` objects may have an associated color
-table. These functions generate scales and color vectors based on the
-color table from
+Some categorical
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+objects may have an associated color table. These functions generate
+scales and color vectors based on the color table from
 [`terra::coltab()`](https://rspatial.github.io/terra/reference/colors.html)
 associated with a `SpatRaster`.
 
@@ -142,7 +143,7 @@ get_coltab_pal(x)
 - na.translate:
 
   Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `TRUE`.
+  `FALSE`.
 
 - na.value:
 
@@ -158,8 +159,12 @@ get_coltab_pal(x)
 
 ## Value
 
-The corresponding [ggplot2](https://CRAN.R-project.org/package=ggplot2)
-layer with the values applied to the `fill/colour` aesthetics.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) scale for the
+`fill` or `colour` aesthetic. If no color table is available, the scale
+functions return a blank layer. `get_coltab_pal()` returns a named
+character vector of colors, or `NULL` if `x` is not a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+object with a color table.
 
 ## See also
 

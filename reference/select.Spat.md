@@ -1,7 +1,12 @@
 # Subset layers/attributes of `Spat*` objects
 
 Select (and optionally rename) attributes/layers in `Spat*` objects,
-using a concise mini-language. See **Methods**.
+using a concise mini-language. See **Methods**. For a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html),
+`select(r, rain = rainfall)` keeps the `rainfall` layer and names it
+`rain`. To mask cells based on their values, use
+[`filter.Spat()`](https://dieghernan.github.io/tidyterra/reference/filter.Spat.md)
+instead.
 
 ## Usage
 
@@ -44,16 +49,19 @@ Implementation of the **generic**
 [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html)
 methods for `Spat*` objects.
 
-### `SpatRaster`
+### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-Selects and renames layers of a `SpatRaster`. The result is a
-`SpatRaster` with the same extent, resolution and CRS as `.data`. Only
-the number and possibly the names of layers are modified.
+Selects and renames layers of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html).
+The result is a `SpatRaster` with the same extent, resolution and CRS as
+`.data`. Only the number and possibly the names of layers are modified.
 
-### `SpatVector`
+### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
-The result is a `SpatVector` with the attributes selected and possibly
-renamed as specified in the function call.
+The result is a
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+with the attributes selected and possibly renamed as specified in the
+function call.
 
 ## See also
 
@@ -71,6 +79,18 @@ operate on columns:
 ## Examples
 
 ``` r
+library(tidyterra)
+
+weather <- terra::rast(
+  nrows = 2, ncols = 2, nlyrs = 2,
+  vals = c(20, 25, 30, 35, 10, 15, 20, 25)
+)
+names(weather) <- c("temperature", "rainfall")
+rain <- select(weather, rain = rainfall)
+terra::nlyr(rain)
+#> [1] 1
+names(rain)
+#> [1] "rain"
 
 library(terra)
 

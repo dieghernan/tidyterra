@@ -16,10 +16,13 @@
 - **Andrea Manica**. Contributor.
   [](https://orcid.org/0000-0003-1895-450X)
 
+- **[Michael Sumner](https://www.hypertidy.org/)**. Contributor.
+  [](https://orcid.org/0000-0002-2471-7511)
+
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/dieghernan/tidyterra/blob/release/inst/CITATION)
+[`inst/CITATION`](https://github.com/dieghernan/tidyterra/blob/v1.3.1/inst/CITATION)
 
 Hernangómez D (2023). “Using the tidyverse with terra objects: the
 tidyterra package.” *Journal of Open Source Software*, **8**(91), 5751.

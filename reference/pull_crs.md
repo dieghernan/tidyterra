@@ -1,7 +1,8 @@
 # Extract CRS in WKT format
 
 Extract the WKT version of the CRS associated with a string, number,
-`sf` object or `Spat*` object. [Well-known text
+[`sf`](https://r-spatial.github.io/sf/reference/sf.html) object or
+`Spat*` object. [Well-known text
 (WKT)](https://en.wikipedia.org/wiki/Well-known_text_representation_of_coordinate_reference_systems)
 is a character string representation of coordinate reference systems
 (CRS). It identifies the parameters of each CRS precisely and is the
@@ -18,13 +19,17 @@ pull_crs(.data, ...)
 
 - .data:
 
-  Input potentially including or representing a CRS. It could be an `sf`
-  or `sfc` object, a `SpatRaster` or `SpatVector` object, a `crs` object
-  from
+  Input potentially including or representing a CRS. It could be an
+  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) or `sfc`
+  object, a
+  [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
+  or
+  [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+  object, a `crs` object from
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
   a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)) or
-  a integer (representing an [EPSG](https://epsg.io/) code).
+  an integer (representing an [EPSG](https://epsg.io/) code).
 
 - ...:
 
@@ -32,7 +37,8 @@ pull_crs(.data, ...)
 
 ## Value
 
-A WKT representation of the corresponding CRS.
+A character string containing the CRS in WKT format, or `NA` if no CRS
+can be determined.
 
 ## Details
 
@@ -49,7 +55,13 @@ is:
 `terra::project(bb, "epsg:25830")`
 
 Knowing the WKT helps smooth workflows when working with different
-packages and object types.
+packages and object types. Assigning a CRS records how existing
+coordinates should be interpreted. Establish the source CRS from the
+data provider before assigning it. Reprojecting with
+[`terra::project()`](https://rspatial.github.io/terra/reference/project.html)
+or
+[`sf::st_transform()`](https://r-spatial.github.io/sf/reference/st_transform.html)
+transforms coordinates from a known source CRS to a target CRS.
 
 ## Internals
 
@@ -109,6 +121,7 @@ cat(fromsf1)
 #>         MEMBER["World Geodetic System 1984 (G1674)"],
 #>         MEMBER["World Geodetic System 1984 (G1762)"],
 #>         MEMBER["World Geodetic System 1984 (G2139)"],
+#>         MEMBER["World Geodetic System 1984 (G2296)"],
 #>         ELLIPSOID["WGS 84",6378137,298.257223563,
 #>             LENGTHUNIT["metre",1]],
 #>         ENSEMBLEACCURACY[2.0]],

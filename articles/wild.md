@@ -23,14 +23,30 @@ A BibTeX entry for LaTeX users is:
 }
 ```
 
-![](wild_files/figure-html/unnamed-chunk-1-1.png)
+![Bar chart of publications using tidyterra by year. Publication year is
+on the horizontal axis and the number of publications is on the vertical
+axis.](wild_files/figure-html/unnamed-chunk-1-1.png)
 
 ## Publications
+
+Al-Hashimi, A., Darwish, M., Al-farraj, N. S., Al-otaibi, N., Al-otaibi,
+A., Al-majed, M., Al-amri, S. S., & Boug, A. (2026). Escarpment refugia
+under threat: Climate-driven redistribution modeling of four endemic
+succulent species in Saudi Arabia. *BMC Ecology and Evolution*.
+<https://doi.org/10.1186/s12862-026-02582-0>
 
 Aramburu, A., Beltran-Sanz, N., Raggio, J., Divakar, P. K., Pintado, A.,
 de los Ríos, A., & Sancho, L. G. (2026). Islands of biodiversity:
 Characterization of lichen flora in Antarctic Nunataks. *Journal of
 Fungi*, *12*(5), 314. <https://doi.org/10.3390/jof12050314>
+
+Arkell, P., de Neri Machado, F., Vicco, A., Cox, V. M., Tanesi, M. Y.,
+Ximenes, D., Hinsley, W., Bosco, F., Gomes, N., Oakley, T., Solano, V.,
+Sheridan, S. L., David, M., Amaral, S., Freitas, L., Draper, A. D. K.,
+Sarmento, N., Soares da Silva, E., Alves, L., … Martins, N. (2026).
+Sero-catalytic and spatial modeling of dengue virus force of infection
+in Timor-Leste. *Nature Communications*, *17*(1), 10815.
+<https://doi.org/10.1038/s41467-026-76716-9>
 
 Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
 R., McGuire, K., Cooper, B. S., & Shropshire, J. D. (2026).
@@ -45,6 +61,14 @@ air-breathing krill predators using acoustic data from the fishery.
 *Proceedings of the National Academy of Sciences*, *122*(25),
 e2417203122. <https://doi.org/10.1073/pnas.2417203122>
 
+Baudron, F., Sibanda, T., & Falconnier, G. (2025). *Supporting the
+codesign of agronomic innovations with data*. CIRAD and CIMMYT.
+<https://hal.science/hal-05397083v1>
+
+Bausilio, G. (2024). *Urban geology and geohazards: An integrated
+analysis for a resilient urban planning* \[PhD thesis, Università degli
+Studi di Napoli Federico II\]. <https://www.fedoa.unina.it/15371/>
+
 Bausilio, G., Di Martire, D., Allocca, V., Coda, S., De Vita, P.,
 Guerriero, L., & Calcaterra, D. (2026). Integrated analysis for a
 resilient urban planning using ensemble modeling and machine learning
@@ -53,9 +77,9 @@ algorithms. *International Journal of Disaster Risk Reduction*, *138*,
 
 Bionda, A. (2025). *Biodiversity and environmental adaptation in small
 ruminants: Mapping temporal and spatial genomic changes in Italian sheep
-and goats* \[Doctoral thesis, Università degli Studi di Milano,
-Dipartimento di Scienze Agrarie e Ambientali - Produzione, Territorio,
-Agroenergia\]. <https://air.unimi.it/handle/2434/1199177>
+and goats* \[PhD thesis, Università degli Studi di Milano, Dipartimento
+di Scienze Agrarie e Ambientali - Produzione, Territorio, Agroenergia\].
+<https://air.unimi.it/handle/2434/1199177>
 
 Bionda, A., Negro, A., Grande, S., & Crepaldi, P. (2025). Mapping risks
 and landscapes: Conservation insights for Italian small ruminant
@@ -66,6 +90,11 @@ Buma, B. (2024). Including non-growing season emissions of N₂O in US
 maize could raise net CO₂e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
 <https://doi.org/10.1002/ael2.20146>
+
+Chu, J., Yang, Y., Zhou, J., Jones, D. L., Ge, J., Olesen, J. E., Zeng,
+Z., & Zang, H. (2026). Contextual microplastic impacts on croplands from
+field trials and global synthesis. *Global Change Biology*, *32*(10),
+e71139. <https://doi.org/10.1111/gcb.71139>
 
 Coffey, M. L., & Simons, A. M. (2025). The spatial distribution of a
 hummingbird-pollinated plant is not strongly influenced by hummingbird
@@ -89,16 +118,36 @@ extreme overestimation of area of occurrence in an Endangered East
 African songbird. *Bird Conservation International*, *36*, e26.
 <https://doi.org/10.1017/s0959270926100574>
 
+Cordero, E., & Harris, A. (2026). Satellite-based surface water change
+detection and mesohabitat classification at Big Blue—Kansas Rivers
+confluence. *Ecological Informatics*, *99*, 104110.
+<https://doi.org/10.1016/j.ecoinf.2026.104110>
+
 Cordero, E., Ruiz Vélez, R., Huérfano Moreno, V., & Sherman, C. (2025).
 Enhancing tsunami evacuation strategies in Puerto Rico using open-source
 least-cost path analysis. *Journal of Disaster Science and Management*,
 *1*(1), 18. <https://doi.org/10.1007/s44367-025-00018-y>
+
+Cortese, M. R., Canty, S. W. J., Melo-Merino, S. M., & Nowakowski, A. J.
+(2026). Thermal vulnerability of reef fish and implications for
+subsistence fisheries throughout the Caribbean. *Global Change Biology*,
+*32*(10), e71118. <https://doi.org/10.1111/gcb.71118>
 
 Dahl, K., Declet-Barreto, J., Cleetus, R., Spanger, E., Vitale, B.,
 Udvardy, S., Thompson, P., Worth, P., & Caldas, A. (2024). *Looming
 deadlines for coastal resilience: Rising seas, disruptive tides, and
 risks to coastal infrastructure* \[Technical report\]. Union of
 Concerned Scientists. <https://doi.org/10.47923/2024.15502>
+
+Dávalos-Martínez, A., Figueroa, D. S., Brancaccio-Pérez, E. S.,
+Santiago-Pérez, A. L., & Rosas-Espinoza, V. C. (2026). *Silene
+qumsiyehii* (Caryophyllaceae: Physolychnis): una nueva especie del
+centro-occidente de México. *Acta Botanica Mexicana*, (133).
+<https://doi.org/10.21829/abm133.2026.2655>
+
+de Carvalho Alves, M. (2026). *Laboratory manual for environmental
+geocomputation with R* (1st ed.). CRC Press.
+<https://doi.org/10.1201/9781003724438>
 
 Di Fabio, A., Aspalter, S., Chakraborty, D., van Loo, M., Rolke, L. M.,
 Schüler, S., Thiel, R., Veit, C., & Kreyling, J. (2026). Growth
@@ -118,6 +167,11 @@ postzygotic reproductive incompatibilities complement each other in the
 formation of a cryptic amphipod species: The example of a Lake Baikal
 species complex *Eulimnogammarus verrucosus*. *Diversity*, *17*(11),
 781. <https://doi.org/10.3390/d17110781>
+
+Edwards, T. A., Esquerré, D., Johnston, N. P., Galvin, S., Maxwell, N.
+L., Encinas-Viso, F., & Dorey, J. B. (2026). Genomics reveal population
+crash and range contraction in elusive Fijian *Hylaeus* bees. *Ecology
+and Evolution*, *16*(10), e74366. <https://doi.org/10.1002/ece3.74366>
 
 Elio Medina, J., Plathner, F. V., Pastor, E., & Fernandez-Anez, N.
 (2025). How to approach the definition of WUI in Northern Europe. *Fire
@@ -145,7 +199,7 @@ ecological restoration. *Communications Earth & Environment*, *6*(1),
 Gao, Y., Añez, N., & Chaves, L. F. (2026). High spatial resolution
 ensemble species distribution modeling of *Rhodnius prolixus*, vector of
 Chagas disease, in western Venezuela. *GeoHealth*, *10*(5),
-e2025GH001628. <https://doi.org/10.1029/2025GH001628>
+e2025GH001628. <https://doi.org/10.1029/2025gh001628>
 
 García-Alvarado, J. J., Pestano-González, M., González-Montelongo, C.,
 Naranjo-Cigala, A., & Arévalo, J. R. (2025). Assessing the potential
@@ -161,9 +215,15 @@ Monitoring Network (GCRMN), International Coral Reef Initiative (ICRI).
 <https://doi.org/10.59387/lfpr6347>
 
 Grasso, G. (2024). *Soils associated to herbarium plants: A resource to
-address the temporal evolution of plant-associated microbiomes* \[PhD
-thesis, Muséum national d’histoire naturelle and Università di Torino\].
+address the temporal evolution of plant-associated microbiomes*
+(Publication 2024MNHN0029) \[PhD thesis, Muséum national d’histoire
+naturelle and Università di Torino\].
 <https://doi.org/10.70675/19347969z4326z4f23zb1e2za8d2588a835b>
+
+Guindon, L., Correia, D. L. P., Reisi Gahrouei, O., Perbet, P., Smiley,
+B., Stralberg, D., Collins, L., Parisien, M.-A., Wang, X., Manka, F., &
+Boucher, J. (2026). Canadian fractional landcover maps from 1985 onward.
+*Scientific Data*. <https://doi.org/10.1038/s41597-026-08522-3>
 
 Hallet, M. E., Phillips, R. A., Maywar, I. J., & Thorne, L. H. (2026).
 Wind, waves, wing loading and the flight energetics of giant petrels.
@@ -186,6 +246,12 @@ forest fragmentation shaped speciation in tropical Asia’s giant
 squirrels (*Ratufa*). *Molecular Ecology*, *34*(24), e70179.
 <https://doi.org/10.1111/mec.70179>
 
+Horton, T. W., Enever, R., Course, G., Day, T., Godley, B. J., Hooper,
+T., Kibel, P., Thatcher, H., & Doherty, P. D. (2026). Assessing
+variables that affect catch efficiency of king scallops (*Pecten
+maximus*) in illuminated pots. *ICES Journal of Marine Science*,
+*83*(10), fsag183. <https://doi.org/10.1093/icesjms/fsag183>
+
 Jones, M. D., Almeida, R. J., Boratto, R., Talley, B. L., Buchanan, S.
 W., Sevin, J., Karraker, N. E., & Hunter, E. A. (2026). Long lives,
 short futures: Freshwater turtle and tortoise imports to the United
@@ -194,7 +260,7 @@ Conservation*, *321*, 111966.
 <https://doi.org/10.1016/j.biocon.2026.111966>
 
 Jones, M. D. (2025). Saur and decline: Patterns in lizard imports to the
-US (2000-2022). *PLOS ONE*, *20*(10), e0333746.
+US (2000–2022). *PLOS ONE*, *20*(10), e0333746.
 <https://doi.org/10.1371/journal.pone.0333746>
 
 Kassim, Y. B., Pinto, F., MacCarthy, D. S., Bindraban, P., Chirinda, N.,
@@ -218,7 +284,12 @@ optimisation for climate policy: Mapping silvopastoral carbon
 sequestration trade-offs in the Mediterranean. *Sustainability*,
 *18*(1), 439. <https://doi.org/10.3390/su18010439>
 
-Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2026). Endemic and invasion
+Kiziridis, D. A., Koulelis, P. P., & Fotakis, D. (2026). Mapping wood
+mobilization suitability in Greece: A spatial multi-criteria assessment
+from forest potential to eligible area. *Sustainability*, *18*(21),
+11127. <https://doi.org/10.3390/su182111127>
+
+Kutza, A. D., Hert, Z. L., & Moyle, L. C. (2025). Endemic and invasion
 dynamics of wild tomato species on the Galápagos Islands, across two
 centuries of collection records. *New Phytologist*, *251*(2), 737–751.
 <https://doi.org/10.1111/nph.70321>
@@ -244,10 +315,6 @@ Identifying refugia from the synergistic threats of climate change and
 invasive species. *Web Ecology*, *25*(2), 221–239.
 <https://doi.org/10.5194/we-25-221-2025>
 
-Lindgren, F., Bachl, F., Illian, J., Suen, M. H., Rue, H., & Seaton, A.
-E. (2024). *inlabru: Software for fitting latent Gaussian models with
-non-linear predictors*. <https://doi.org/10.48550/arXiv.2407.00791>
-
 Lühken, R., Rauhöft, L., Pluskota, B., Lange, U., Helms, M., Becker, N.,
 Schmidt-Chanasit, J., Kuhn, C., Tannich, E., Jansen, S., & Heitmann, A.
 (2024). High vector competence for chikungunya virus but heavily reduced
@@ -270,14 +337,14 @@ samples. *Ecography*, *2026*(2), e08112.
 Mallory, M. L., MacLean, S., Baak, J. E., Boudreau, M., Priest, J. M.,
 Morrill, A., Provencher, J. F., & O’Driscoll, N. J. (2025). Mercury in
 eastern coyotes from Nova Scotia, Canada: Effects of geography and
-trophic position. *Science of The Total Environment*, *974*, 179186.
+trophic position. *Science of the Total Environment*, *974*, 179186.
 <https://doi.org/10.1016/j.scitotenv.2025.179186>
 
 Maravall-López, J., Motti, J. M. B., Pastor, N., Tavella, M. P., Fabra,
 M., Babot, P., Bonomo, M., Cornero, S. E., Lamenza, G. N., Leon, D. C.,
 Miranda de Zela, P. C., Politis, G. G., Angeletti, S. C., Cattáneo, G.
 R., Dantas, M., Drube, H., Gonzalez Baroni, L. G., Hocsman, S., Izeta,
-A. D., … Nores, R. (2026). Eight millennia of continuity of a previously
+A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
 unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
 <https://doi.org/10.1038/s41586-025-09731-3>
 
@@ -344,8 +411,8 @@ Africa* \[PhD thesis, The University of Edinburgh\].
 <https://doi.org/10.7488/era/7231>
 
 Reis, B. S. dos. (2025). *Avaliação do sequestro de carbono nos
-manguezais da Baixada Santista em diferentes contextos de conservação*.
-Universidade Estadual Paulista (Unesp).
+manguezais da Baixada Santista em diferentes contextos de conservação*
+\[Bachelor's thesis\]. Universidade Estadual Paulista (Unesp).
 <https://hdl.handle.net/11449/318093>
 
 Riley, A. C., Wright, M., Porter, T. M., Maitland, V. C., Baird, D. J.,
@@ -360,13 +427,19 @@ quality and phytoplankton communities in a cyanobacteria-dominated
 reservoir provide management insights. *Environmental Monitoring and
 Assessment*, *197*(7), 795. <https://doi.org/10.1007/s10661-025-14258-1>
 
+Royce, C. (2024). *Tectonic history or climate - which has had the
+biggest influence on the formation of the highly diverse and endemic
+flora of the Western Ghats* \[Unpublished master's thesis, University of
+Edinburgh and Royal Botanic Garden Edinburgh\].
+<https://research-scotland.ac.uk/handle/20.500.12594/28823>
+
 Rustand, D., van Niekerk, J., Krainski, E., & Rue, H. (2026). *Bayesian
-survival, longitudinal, and joint models with INLA*. Chapman & Hall/CRC.
-<https://doi.org/10.1201/9781003646822>
+survival, longitudinal, and joint models with INLA* (1st ed.). Chapman &
+Hall/CRC. <https://doi.org/10.1201/9781003646822>
 
 Salvador Baiges, G. (2024). *Clima, orografia i dinàmiques de poblament
 al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
-d’ocupació del territori durant el Neolı́tic (5700–2100 cal ANE)* \[PhD
+d’ocupació del territori durant el Neolític (5700–2100 cal ANE)* \[PhD
 thesis, Universitat Autònoma de Barcelona\].
 <https://hdl.handle.net/10803/692148>
 
@@ -385,6 +458,12 @@ Schmidt, J., Dashti, S., & Torres-Machi, C. (2026). Next-generation
 probabilistic liquefaction model building at the regional scale.
 *Earthquake Spectra*, *42*(1), e70013.
 <https://doi.org/10.1002/esp4.70013>
+
+Scrivner, C. A. (2025). *Mapping Kirtland’s Warbler (*Setophaga
+kirtlandii*) stationary non-breeding habitat: Characterizing land cover
+within the south-central Bahamas and evaluating the impacts of sea level
+rise* \[Master's thesis, Antioch University New England\].
+<https://aura.antioch.edu/etds/1222/>
 
 Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
 M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
@@ -416,14 +495,19 @@ Sutton, J. T., McDermid, J. L., & Ratelle, S. M. (2026). A framework to
 map fishing activity from incomplete data. *ICES Journal of Marine
 Science*, *83*(5), fsag070. <https://doi.org/10.1093/icesjms/fsag070>
 
-Tanaka, E. (2026). Examining the interface design of Tidyverse.
+Tanaka, E. (2025). Examining the interface design of Tidyverse.
 *Australian & New Zealand Journal of Statistics*, *68*(1), e70031.
 <https://doi.org/10.1111/anzs.70031>
 
+Templeton, M. R. (2026). *Episodic and chronic pollutant loading in a
+mixed land-use watershed: A paired storm event and synoptic monitoring
+approach* \[Master's thesis, University of Missouri–Columbia\].
+<https://doi.org/10.32469/10355/113180>
+
 Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
 du voisinage environnemental pour prédire la répartition des espèces de
-bryophytes en Suisse* \[Unpublished master's thesis\]. Université de
-Liège, Liège, Belgique. <https://matheo.uliege.be/handle/2268.2/25400>
+bryophytes en Suisse* \[Unpublished master's thesis, Université de
+Liège\]. <https://matheo.uliege.be/handle/2268.2/25400>
 
 Triantafillou, S. P. (2024). *A catchment is more than the sum of its
 reaches: Post-fire resilience at multiple spatial scales* \[Master's
@@ -442,7 +526,7 @@ export crop. *Nature Food*, *6*(4), 343–352.
 <https://doi.org/10.1038/s43016-025-01130-1>
 
 Wang, G., Tang, X., Zhang, Q., Li, B., & Li, M. (2025). The relationship
-between soil organic matter composition and soil enzyme activities in
+between soil organic matter composition and soil enzymes activities in
 various land use types in the upper watershed of Danjiangkou reservoir
 in China. *Land Degradation & Development*, *36*(8), 2557–2570.
 <https://doi.org/10.1002/ldr.5516>
@@ -471,7 +555,7 @@ study. *Ecological Solutions and Evidence*, *5*(1), e12315.
 Wong, C. Y. S., Wright, M. C., van Mantgem, P. J., Latimer, A. M., &
 Young, D. J. N. (2025). Sentinel imagery detects the presence of live
 trees following large wildfires in California. *Environmental Research:
-Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664X/add5fd>
+Ecology*, *4*(2), 025006. <https://doi.org/10.1088/2752-664x/add5fd>
 
 Zhou, Y., Ma, S., Li, W., Kurbonova, P., Boboev, M., Li, Y., Hisoriev,
 H., Ma, K., Yang, W., & Zhang, Y. (2026). Vascular plant diversity and
@@ -481,4 +565,4 @@ distribution pattern in Tajikistan: A global hotspot of diversity.
 
 Zhu, Y., Choo, J., Xia, C., & Carrasco, L. R. (2026). The pantropical
 biodiversity footprint of oil palm. *Conservation Science and Practice*,
-e70394. <https://doi.org/10.1111/csp2.70394>
+*8*(9), e70394. <https://doi.org/10.1111/csp2.70394>

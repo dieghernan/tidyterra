@@ -40,6 +40,24 @@ The original file has been cropped and downsampled for demonstration
 purposes. `holyroodpark.tif` is available online in the `data-raw`
 folder at <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 
+## Can I ask questions about tidyterra documentation?
+
+The experimental **tidyterra** AI assistant answers questions using the
+development documentation. Open the chat button in the lower-right
+corner of the [documentation
+website](https://dieghernan.github.io/tidyterra/dev/). You can ask in
+your preferred language and include the type of spatial object, the
+function you are using and what you want to do.
+
+Each answer can include a **Sources consulted** dropdown linking to the
+documentation retrieved for that question. Open these sources to check
+the answer. Code blocks have a **Copy code** button.
+
+The assistant can give incorrect answers or examples and does not
+execute R code. Check generated code before using it. Questions are sent
+to Cloudflare for processing, so avoid including private data. You can
+also use the FAQs, site search or community support links above.
+
 ## `NA` values are shown in gray
 
 This is the default behavior of **ggplot2**. **tidyterra** color scales,
@@ -88,26 +106,31 @@ def +
   )
 ```
 
-![](faqs_files/figure-html/fig-remove_nas-1.png)
+![Raster map of Holyrood Park elevation between 80 and 180 meters. Cells
+outside that range appear gray, the default color for missing
+values.](faqs_files/figure-html/fig-remove_nas-1.png)
 
-\(a\) Default ggplot2 value.
+\(a\) Default **ggplot2** color for `NA` values.
 
-![](faqs_files/figure-html/fig-remove_nas-2.png)
+![Raster map of Holyrood Park elevation between 80 and 180 meters. Cells
+outside that range are transparent, leaving only the selected terrain
+visible.](faqs_files/figure-html/fig-remove_nas-2.png)
 
-\(b\) Plot with transparent NA values.
+\(b\) Plot with transparent `NA` values.
 
-![](faqs_files/figure-html/fig-remove_nas-3.png)
+![Raster map of Holyrood Park elevation between 80 and 180 meters. Cells
+outside that range appear orange, distinguishing missing values from
+mapped elevations.](faqs_files/figure-html/fig-remove_nas-3.png)
 
-\(c\) NA values mapped with another color.
+\(c\) `NA` values mapped with another color.
 
-Figure 1: NA values in ggplot2.
+Figure 1: `NA` values in **ggplot2**.
 
 ## Labeling contours
 
 Use
 [`geom_spatraster_contour_text()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md)
-for contour labels. This function is experimental:
-[![Experimental](https://dieghernan.github.io/tidyterra/reference/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+for contour labels.
 
 ``` r
 
@@ -170,15 +193,20 @@ ggplot(r) +
   )
 ```
 
-![](faqs_files/figure-html/fig-textcontour-1.png)
+![Contour map of Holyrood Park surface elevation. Labeled lines trace
+locations at equal elevation across the
+terrain.](faqs_files/figure-html/fig-textcontour-1.png)
 
 \(a\) Simple contour labels.
 
-![](faqs_files/figure-html/fig-textcontour-2.png)
+![Contour map of Holyrood Park surface elevation with lines every 10
+meters from 100 to 250 meters. Selected lines at 100, 140, 180 and 220
+meters carry labels. Darker, thicker lines mark higher
+elevations.](faqs_files/figure-html/fig-textcontour-2.png)
 
 \(b\) Alternative: labeled contours.
 
-Figure 2: Contour labels with tidyterra.
+Figure 2: Contour labels with **tidyterra**.
 
 ### Other alternatives
 
@@ -242,7 +270,10 @@ ggplot(r, aes(x, y)) +
   )
 ```
 
-![](faqs_files/figure-html/fig-metr-1.png)
+![Contour map of Holyrood Park surface elevation. Lines run every 10
+meters from 100 to 250 meters, with selected levels labeled and higher
+elevations shown by darker, thicker
+lines.](faqs_files/figure-html/fig-metr-1.png)
 
 Figure 3: Alternative (**metR**): contour labeling combining
 **tidyterra** and the **metR** package with customized styling.
@@ -277,7 +308,9 @@ ggplot() +
   labs(title = "A hillshade plot with gray colors")
 ```
 
-![](faqs_files/figure-html/fig-greys-1.png)
+![Grayscale hillshade map of Holyrood Park. Light and dark shading
+reveals slopes and relief without a color
+legend.](faqs_files/figure-html/fig-greys-1.png)
 
 Figure 4: Hillshade plot using grayscale colors to enhance terrain
 relief.
@@ -312,25 +345,33 @@ options(ggplot2.continuous.fill = tmp)
 p
 ```
 
-![](faqs_files/figure-html/fig-default-1.png)
+![Raster map of Holyrood Park elevation using the GRASS color scale as
+the session default. Color varies with
+elevation.](faqs_files/figure-html/fig-default-1.png)
 
 \(a\) Use the new default palette through options.
 
-![](faqs_files/figure-html/fig-default-2.png)
+![Raster map of Holyrood Park elevation using the restored default
+continuous color scale. Color varies with elevation across the
+terrain.](faqs_files/figure-html/fig-default-2.png)
 
 \(b\) Restoring the default palette.
 
-Figure 5: Changing default ggplot2 color palettes.
+Figure 5: Changing default **ggplot2** color palettes.
 
 ## My map tiles are blurry
 
 Blurriness is typically related to the tile source rather than the
-package. Most base tiles are usually provided in **EPSG:3857**, so
-verify that your tile uses this CRS rather than a different one. If your
-tile is not in **EPSG:3857**, it has likely been reprojected, which
-involves resampling and causes blurriness. To avoid extra resampling,
-increase the `maxcell` argument and ensure the **ggplot2** map uses
-**EPSG:3857** with `ggplot2::coord_sf(crs = 3857)`:
+package.
+
+Important
+
+Most base tiles are usually provided in **EPSG:3857**, so verify that
+your tile uses this CRS rather than a different one. If your tile is not
+in **EPSG:3857**, it has likely been reprojected, which involves
+resampling and causes blurriness. To avoid extra resampling, increase
+the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
+with `ggplot2::coord_sf(crs = 3857)`.
 
 ``` r
 
@@ -387,11 +428,15 @@ ggplot() +
   theme_void()
 ```
 
-![](faqs_files/figure-html/fig-blurrytile-1.png)
+![OpenStreetMap tile near Holyrood Park after resampling to EPSG:4326.
+Roads and labels appear softer than in the native
+tile.](faqs_files/figure-html/fig-blurrytile-1.png)
 
 \(a\) Plot with resampled raster (EPSG:4326).
 
-![](faqs_files/figure-html/fig-blurrytile-2.png)
+![OpenStreetMap tile near Holyrood Park in its native EPSG:3857
+projection. Roads and labels appear sharp without extra
+resampling.](faqs_files/figure-html/fig-blurrytile-2.png)
 
 \(b\) Plot with native CRS, not resampled (EPSG:3857).
 
@@ -432,19 +477,23 @@ ggplot() +
   )
 ```
 
-![](faqs_files/figure-html/fig-modifydatum-1.png)
+![Elevation raster map of Holyrood Park with longitude and latitude
+labels on the axes, although the raster uses a projected coordinate
+system.](faqs_files/figure-html/fig-modifydatum-1.png)
 
 \(a\) Automatic longitude/latitude axes.
 
-![](faqs_files/figure-html/fig-modifydatum-2.png)
+![Elevation raster map of Holyrood Park with axes labeled in the
+raster's projected coordinate units. Color encodes surface
+elevation.](faqs_files/figure-html/fig-modifydatum-2.png)
 
 \(b\) Native coordinate system units.
 
-Figure 7: Degree labels with ggplot2.
+Figure 7: Degree labels with **ggplot2**.
 
 ## Modify the number of axis breaks
 
-Yes. Use the **scales** package:
+Use the **scales** package to change the axis breaks:
 
 ``` r
 
@@ -469,22 +518,24 @@ ggplot() +
   labs(title = "Three breaks on x and y axes with scales::breaks_extended()")
 ```
 
-![](faqs_files/figure-html/fig-breaks-1.png)
+![Elevation raster map of Holyrood Park with the default number of
+spatial axis ticks.](faqs_files/figure-html/fig-breaks-1.png)
 
 \(a\) Default axis breaks.
 
-![](faqs_files/figure-html/fig-breaks-2.png)
+![Elevation raster map of Holyrood Park with fewer, more widely spaced
+ticks on both spatial axes. Fill color encodes surface
+elevation.](faqs_files/figure-html/fig-breaks-2.png)
 
 \(b\) Breaks modified using the **scales** package.
 
-Figure 8: Spatial axis breaks with ggplot2.
+Figure 8: Spatial axis breaks with **ggplot2**.
 
 ## Plotting a `SpatRaster` with color tables
 
-> **Note**
->
-> We omitted the legends in this section’s figures to improve
-> readability.
+Note
+
+We omitted the legends in this section’s figures to improve readability.
 
 **tidyterra** provides several methods for handling `SpatRaster` objects
 with color tables. This example uses `clc_edinburgh.tif`, available
@@ -522,7 +573,9 @@ r_coltab
 plot(r_coltab, legend = FALSE)
 ```
 
-![](faqs_files/figure-html/fig-coltab-1.png)
+![Categorical land-cover map of Edinburgh using the raster's stored
+color table. Differently colored areas mark land-cover
+classes.](faqs_files/figure-html/fig-coltab-1.png)
 
 Figure 9: Color tables: native plot with the **terra** package.
 
@@ -581,25 +634,33 @@ ggplot() +
   labs(title = "scale_fill_manual() method")
 ```
 
-![](faqs_files/figure-html/fig-tidyterra-1.png)
+![Categorical land-cover map of Edinburgh using autoplot and the
+raster's stored colors. Colored regions distinguish land-cover
+classes.](faqs_files/figure-html/fig-tidyterra-1.png)
 
 \(a\)
 [`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
 method.
 
-![](faqs_files/figure-html/fig-tidyterra-2.png)
+![Categorical land-cover map of Edinburgh using geom_spatraster and the
+raster's stored colors. Colored regions distinguish land-cover
+classes.](faqs_files/figure-html/fig-tidyterra-2.png)
 
 \(b\)
 [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
 method.
 
-![](faqs_files/figure-html/fig-tidyterra-3.png)
+![Categorical land-cover map of Edinburgh using an explicit color-table
+scale. Colored regions distinguish land-cover
+classes.](faqs_files/figure-html/fig-tidyterra-3.png)
 
 \(c\)
 [`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/reference/scale_coltab.md)
 method.
 
-![](faqs_files/figure-html/fig-tidyterra-4.png)
+![Categorical land-cover map of Edinburgh using extracted named colors.
+Colored regions distinguish land-cover
+classes.](faqs_files/figure-html/fig-tidyterra-4.png)
 
 \(d\) Named colors and
 [`scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
@@ -609,8 +670,8 @@ Figure 10: Color tables: **tidyterra** methods.
 
 ## Use with gganimate
 
-Yes. Here is an example, thanks to
-[@frzambra](https://github.com/frzambra):
+You can animate **tidyterra** maps with **gganimate**, as shown in this
+example from [@frzambra](https://github.com/frzambra):
 
 ``` r
 
@@ -647,7 +708,9 @@ anim <- ggplot() +
 gganimate::animate(anim, duration = 12, device = "ragg_png")
 ```
 
-![](che_temp.gif)
+![Animated raster maps of average monthly temperature across
+Switzerland. Each frame shows one month, with color encoding temperature
+in degrees Celsius.](che_temp.gif)
 
 Figure 11: Animation of average monthly temperatures.
 
@@ -686,7 +749,9 @@ autoplot(r) +
   )
 ```
 
-![](faqs_files/figure-html/fig-northarrow-1.png)
+![Elevation raster map of Holyrood Park with a north arrow in the upper
+right and a distance scale in the lower left. Color encodes surface
+elevation.](faqs_files/figure-html/fig-northarrow-1.png)
 
 Figure 12: Map with north arrow (top right) and scale bar (bottom left)
 annotations added using **ggspatial**.
@@ -696,7 +761,10 @@ annotations added using **ggspatial**.
 Use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster_rgb.md)
 for the RGB `SpatRaster` background tile, then add your data layers on
-top:
+top. Use **ggblend** to blend the layers, as shown below. For more
+examples, see [My ggplot2 blending
+adventure](https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/)
+by Barney Harris.
 
 ``` r
 
@@ -707,6 +775,7 @@ library(sf)
 # Get example data.
 library(maptiles)
 library(geodata)
+library(ggblend)
 
 # Area of interest.
 aoi <- gadm(country = "CHE", path = ".", level = 0) |>
@@ -739,12 +808,14 @@ cap_lab <- paste0(
 tit_lab <- "Average precipitation in Switzerland"
 
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster(data = clim) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster(data = clim, maxcell = Inf)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_c(
     palette = "deep",
-    alpha = 0.5,
     labels = scales::label_number(suffix = " mm.")
   ) +
   coord_sf(expand = FALSE) +
@@ -756,10 +827,13 @@ ggplot(aoi) +
   )
 ```
 
-![](faqs_files/figure-html/fig-overlay_cont-1.png)
+![Map of Switzerland with average precipitation blended with a shaded
+relief background. Fill color encodes precipitation in millimeters, and
+the country boundary outlines the
+data.](faqs_files/figure-html/fig-overlay_cont-1.png)
 
-Figure 13: Continuous precipitation data overlaid as semi-transparent
-layer on RGB satellite imagery.
+Figure 13: Continuous precipitation data blended with an RGB shaded
+relief tile using **ggblend**.
 
 You can create variations with binned legends and filled contours using
 [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/reference/geom_spat_contour.md):
@@ -768,12 +842,14 @@ You can create variations with binned legends and filled contours using
 
 # Binned legend.
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster(data = clim) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster(data = clim, maxcell = Inf)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   scale_fill_whitebox_b(
     palette = "deep",
-    alpha = 0.5,
     n.breaks = 4,
     labels = scales::label_number(suffix = " mm.")
   ) +
@@ -787,13 +863,15 @@ ggplot(aoi) +
 
 # Filled contour.
 ggplot(aoi) +
-  geom_spatraster_rgb(data = rgb_tile, alpha = 1) +
-  geom_spatraster_contour_filled(data = clim, bins = 4) +
+  list(
+    geom_spatraster_rgb(data = rgb_tile, maxcell = Inf),
+    geom_spatraster_contour_filled(data = clim, bins = 4, maxcell = Inf)
+  ) |>
+  blend("multiply") +
   geom_spatvector(fill = NA) +
   coord_sf(expand = FALSE) +
   scale_fill_whitebox_d(
     palette = "deep",
-    alpha = 0.5,
     guide = guide_legend(reverse = TRUE)
   ) +
   labs(
@@ -804,11 +882,15 @@ ggplot(aoi) +
   )
 ```
 
-![](faqs_files/figure-html/fig-overlay_alt-1.png)
+![Map of Switzerland with shaded relief blended with a precipitation
+raster. Fill color groups average precipitation into discrete
+ranges.](faqs_files/figure-html/fig-overlay_alt-1.png)
 
 \(a\) Binned precipitation legend.
 
-![](faqs_files/figure-html/fig-overlay_alt-2.png)
+![Map of Switzerland with shaded relief beneath four filled
+precipitation contour bands. The country boundary outlines the
+bands.](faqs_files/figure-html/fig-overlay_alt-2.png)
 
 \(b\) Contour representation.
 
@@ -852,7 +934,9 @@ ggplot(r, aes(x, y, z = elevation)) +
   )
 ```
 
-![](faqs_files/figure-html/fig-hex_grid-1.png)
+![Hexagonal tile map of Holyrood Park. Each hexagon represents mean
+surface elevation within one of 30 spatial bins along each axis. Fill
+color encodes elevation.](faqs_files/figure-html/fig-hex_grid-1.png)
 
 Figure 15: Elevation data aggregated and visualized as hexagonal grid
 cells.
@@ -886,7 +970,9 @@ ggplot(r, aes(x, y, z = elevation), maxcell = 1000) +
   )
 ```
 
-![](faqs_files/figure-html/fig-alt_points-1.png)
+![Point map of Holyrood Park surface elevation. Larger, less transparent
+points represent higher elevations. Smaller, fainter points represent
+lower elevations.](faqs_files/figure-html/fig-alt_points-1.png)
 
 Figure 16: Elevation data represented as points with size and
 transparency scaled by elevation values.
@@ -923,20 +1009,79 @@ ggplot(r, aes(x, y)) +
   labs(x = "", y = "", title = "tidyterra and metR: reliefs")
 ```
 
-![](faqs_files/figure-html/fig-metrdemo-1.png)
+![Relief map of Holyrood Park with shaded terrain beneath a colored
+elevation raster. Higher elevations are more transparent, exposing more
+of the underlying relief.](faqs_files/figure-html/fig-metrdemo-1.png)
 
 Figure 17: Relief rendering combining **tidyterra** for raster plotting
 and **metR** for terrain relief representation.
 
-[^1]: Digital Surface Model, representing the elevation of the visible
+### tidyterra and ggblend
+
+**ggblend** provides operations for blending, copying, adjusting and
+compositing layers in **ggplot2**. As shown in [How to overlay a
+`SpatRaster` on an RGB tile](#overlay), you can use **ggblend** with
+**tidyterra** to blend raster layers. The following example combines a
+multidirectional hillshade as described by ([Royé
+2022](#ref-roye_hillshade_2022)) with a colored elevation raster to
+highlight terrain relief.
+
+``` r
+
+# Load libraries and files.
+
+# Hillshade with gray colors.
+slope <- terrain(r, "slope", unit = "radians")
+aspect <- terrain(r, "aspect", unit = "radians")
+
+# Multidirectional shadows.
+hill <- shade(slope, aspect, 0, c(270, 15, 60, 330)) |> mean()
+
+hill_plot <- ggplot() +
+  geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
+  scale_fill_gradient2(
+    high = "white",
+    mid = "gray80",
+    low = "gray20",
+    na.value = "transparent"
+  )
+
+# Extract the hillshade colors.
+hill_cols <- layer_data(hill_plot) |>
+  pull(fill)
+
+# Use the extracted colors to blend the hillshade with the elevation raster.
+
+ggplot() +
+  list(
+    geom_spatraster(data = r),
+    scale_fill_cross_blended_c(breaks = seq(0, 250, 25)),
+    geom_spatraster(data = hill, fill = hill_cols)
+  ) |>
+  blend("multiply") +
+  guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
+  labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
+```
+
+![Map of Holyrood Park with a grayscale hillshade blended with a colored
+elevation raster to highlight terrain
+relief.](faqs_files/figure-html/fig-blenddemo-1.png)
+
+Figure 18: Elevation and hillshade layers plotted with **tidyterra** and
+blended using **ggblend**.
+
+Royé, Dominic. 2022. “Hillshade Effects.” July 20.
+<https://dominicroye.github.io/blog/hillshade-effect/>.
+
+[^1]: Digital surface model, representing the elevation of the visible
     surface in the corresponding area.
 
 [^2]: `na.value = NA` can also be used for the same purpose in most
-    cases. However, when the proportion of non-`NA` cells is small it
+    cases. However, when the proportion of non-`NA` cells is small, it
     can produce unwanted results. See
     [\#120](https://github.com/dieghernan/tidyterra/issues/120).
 
 [^3]: The original file has been cropped, the numeric values have been
-    converted to their corresponding labels and factors, and the
+    converted to their corresponding labels and factors and the
     corresponding color table has been added as described in
     <https://collections.sentinel-hub.com/corine-land-cover/readme.html>.

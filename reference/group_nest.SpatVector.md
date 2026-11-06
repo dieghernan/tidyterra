@@ -1,10 +1,14 @@
-# Nest grouped `SpatVector` rows
+# Nest grouped [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) rows
 
 **\[experimental\]**
 
 [`group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html)
 and [`nest_by()`](https://dplyr.tidyverse.org/reference/nest_by.html)
-create tibbles with list-columns containing `SpatVector` objects.
+create
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)s with
+list-columns containing
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Usage
 
@@ -37,7 +41,10 @@ nest_by(.data, ..., .key = "data", .keep = FALSE)
 
 ## Value
 
-A tibble with a list-column of `SpatVector` objects.
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with a list-column of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -47,10 +54,13 @@ A tibble with a list-column of `SpatVector` objects.
 
 Implementation of the **generic**
 [`dplyr::group_nest()`](https://dplyr.tidyverse.org/reference/group_nest.html)
-method family for `SpatVector` objects.
+method family for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
-The nested list-column contains `SpatVector` objects, preserving the
-geometries for each group.
+The nested list-column contains
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects, preserving the geometries for each group.
 
 ## See also
 

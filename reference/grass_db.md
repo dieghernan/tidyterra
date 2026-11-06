@@ -7,7 +7,8 @@ include a definition of color limits that can be used with
 
 ## Format
 
-A tibble of 2920 rows and 6 columns with the following fields:
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) of
+2920 rows and 6 columns with the following fields:
 
 - pal:
 

@@ -1,9 +1,11 @@
-# Nest `SpatVector` rows
+# Nest [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) rows
 
 **\[experimental\]**
 
 [`nest()`](https://tidyr.tidyverse.org/reference/nest.html) creates
-list-columns of `SpatVector` objects.
+list-columns of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## Usage
 
@@ -60,7 +62,10 @@ nest(.data, ..., .by = NULL, .key = NULL, .names_sep = NULL)
 
 ## Value
 
-A tibble with one or more list-columns of `SpatVector` objects.
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with one or more list-columns of
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -70,11 +75,15 @@ A tibble with one or more list-columns of `SpatVector` objects.
 
 Implementation of the **generic**
 [`tidyr::nest()`](https://tidyr.tidyverse.org/reference/nest.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 The geometry column must be nested with the other attributes that form
-each nested `SpatVector`. These nested list-columns contain `SpatVector`
-objects and cannot be passed directly to
+each nested
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
+These nested list-columns contain `SpatVector` objects and cannot be
+passed directly to
 [`tidyr::unnest()`](https://tidyr.tidyverse.org/reference/unnest.html).
 
 ## See also

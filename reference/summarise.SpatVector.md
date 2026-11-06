@@ -1,12 +1,14 @@
-# Summarise each group of a `SpatVector` down to one geometry
+# Summarize each group of a [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html) down to one geometry
 
 [`summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
-creates a new `SpatVector`. It returns one geometry for each combination
-of grouping variables. If there are no grouping variables, the output
-will have a single geometry summarizing all observations in the input
-and combining all the geometries of the `SpatVector`. It will contain
-one column for each grouping variable and one column for each of the
-summary statistics that you have specified.
+creates a new
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html). It
+returns one geometry for each combination of grouping variables. If
+there are no grouping variables, the output will have a single geometry
+summarizing all observations in the input and combining all the
+geometries of the `SpatVector`. It will contain one column for each
+grouping variable and one column for each of the summary statistics that
+you have specified.
 
 `summarise.SpatVector()` and `summarize.SpatVector()` are synonyms.
 
@@ -78,7 +80,8 @@ summarize(.data, ..., .by = NULL, .groups = NULL, .dissolve = TRUE)
 
 ## Value
 
-A `SpatVector`.
+A [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+object.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -88,11 +91,16 @@ A `SpatVector`.
 
 Implementation of the **generic**
 [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html)
-method for `SpatVector` objects.
+method for
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
+objects.
 
 As in the [sf](https://CRAN.R-project.org/package=sf) implementation,
 this function can dissolve geometries with `.dissolve = TRUE` or create
-`MULTI` geometries with `.dissolve = FALSE`. See **Examples**.
+`MULTI` geometries with `.dissolve = FALSE`. See **Examples**. Summary
+expressions operate on the attributes of the input geometries. Changing
+`.dissolve` changes how their geometries are combined, while attribute
+summaries such as counts, means and sums use the same input rows.
 
 ## See also
 
@@ -109,6 +117,26 @@ operate on groups of rows:
 ## Examples
 
 ``` r
+library(tidyterra)
+
+provinces <- terra::vect(
+  system.file("extdata/cyl.gpkg", package = "tidyterra")
+)
+provinces |>
+  group_by(iso2) |>
+  summarise(n = dplyr::n())
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 9, 2  (geometries, attributes)
+#> extent      : 2892687, 3341372, 2017622, 2361600  (xmin, xmax, ymin, ymax)
+#> coord. ref. : ETRS89-extended / LAEA Europe (EPSG:3035)
+#> names       :  iso2     n
+#> type        : <chr> <int>
+#> values      : ES-AV     1
+#>               ES-BU     1
+#>               ES-LE     1
+#>               ...
+
 library(terra)
 library(ggplot2)
 
