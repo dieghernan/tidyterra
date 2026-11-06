@@ -1333,29 +1333,24 @@ Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plo
 </div>
 </section><section class="level3"><h3 id="tidyterra-and-ggblend">tidyterra and ggblend<a class="anchor" aria-label="anchor" href="#tidyterra-and-ggblend"></a>
 </h3>
-<p><strong>ggblend</strong> provides operations for blending, copying, adjusting and compositing layers in <strong>ggplot2</strong>. As shown in <a href="#overlay" style="font-size: 11pt;">How to overlay a <code>SpatRaster</code> on an RGB tile</a>, you can use <strong>ggblend</strong> with <strong>tidyterra</strong> to blend raster layers. The following example combines a grayscale hillshade with a colored elevation raster to highlight terrain relief.</p>
+<p><strong>ggblend</strong> provides operations for blending, copying, adjusting and compositing layers in <strong>ggplot2</strong>. As shown in <a href="#overlay" style="font-size: 11pt;">How to overlay a <code>SpatRaster</code> on an RGB tile</a>, you can use <strong>ggblend</strong> with <strong>tidyterra</strong> to blend raster layers. The following example combines a multidirectional hillshade as described by <span class="citation" data-cites="roye_hillshade_2022">(<a href="#ref-roye_hillshade_2022" role="doc-biblioref">Royé 2022</a>)</span> with a colored elevation raster to highlight terrain relief.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load libraries and files.</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/">tidyterra</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjskay.github.io/ggblend/" class="external-link">ggblend</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">holyrood</span> <span class="op">&lt;-</span> <span class="st">"holyroodpark.tif"</span></span>
-<span></span>
-<span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">holyrood</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Hillshade with gray colors.</span></span>
 <span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
 <span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
-<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">0</span>, <span class="fl">60</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Multidirectional shadows.</span></span>
+<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">270</span>, <span class="fl">15</span>, <span class="fl">60</span>, <span class="fl">330</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">hill_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="co"># Use a grayscale palette.</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradientn</a></span><span class="op">(</span></span>
-<span>    colours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">100</span> <span class="op">/</span> <span class="fl">100</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradient2</a></span><span class="op">(</span></span>
+<span>    high <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>    mid <span class="op">=</span> <span class="st">"gray80"</span>,</span>
+<span>    low <span class="op">=</span> <span class="st">"gray20"</span>,</span>
 <span>    na.value <span class="op">=</span> <span class="st">"transparent"</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
@@ -1368,11 +1363,11 @@ Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plo
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">r</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, fill <span class="op">=</span> <span class="va">hill_cols</span>, alpha <span class="op">=</span> <span class="fl">0.85</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, fill <span class="op">=</span> <span class="va">hill_cols</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://mjskay.github.io/ggblend/reference/blend.html" class="external-link">blend</a></span><span class="op">(</span><span class="st">"multiply"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/scale_cross_blended.html">scale_fill_cross_blended_c</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">250</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>reverse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">""</span>, title <span class="op">=</span> <span class="st">"tidyterra and ggblend: Hillshade"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-blenddemo" class="quarto-float quarto-figure quarto-figure-center" alt="Map of Holyrood Park with a grayscale hillshade blended with a colored elevation raster to highlight terrain relief.">
@@ -1383,6 +1378,11 @@ Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plo
 Figure 18: Elevation and hillshade layers plotted with <strong>tidyterra</strong> and blended using <strong>ggblend</strong>.
 </figcaption></figure>
 </div>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-roye_hillshade_2022" class="csl-entry" role="listitem">
+Royé, Dominic. 2022. <span>“Hillshade Effects.”</span> July 20. <a href="https://dominicroye.github.io/blog/hillshade-effect/" class="external-link">https://dominicroye.github.io/blog/hillshade-effect/</a>.
 </div>
 </div>
 </section></section><script id="quarto-html-after-body" type="application/javascript">

@@ -1022,31 +1022,27 @@ and **metR** for terrain relief representation.
 compositing layers in **ggplot2**. As shown in [How to overlay a
 `SpatRaster` on an RGB tile](#overlay), you can use **ggblend** with
 **tidyterra** to blend raster layers. The following example combines a
-grayscale hillshade with a colored elevation raster to highlight terrain
-relief.
+multidirectional hillshade as described by ([Royé
+2022](#ref-roye_hillshade_2022)) with a colored elevation raster to
+highlight terrain relief.
 
 ``` r
 
 # Load libraries and files.
-library(terra)
-library(tidyterra)
-library(ggplot2)
-library(ggblend)
-
-holyrood <- "holyroodpark.tif"
-
-r <- rast(holyrood)
 
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
-hill <- shade(slope, aspect, 0, 60)
+
+# Multidirectional shadows.
+hill <- shade(slope, aspect, 0, c(270, 15, 60, 330)) |> mean()
 
 hill_plot <- ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
-  # Use a grayscale palette.
-  scale_fill_gradientn(
-    colours = grey(0:100 / 100),
+  scale_fill_gradient2(
+    high = "white",
+    mid = "gray80",
+    low = "gray20",
     na.value = "transparent"
   )
 
@@ -1059,11 +1055,11 @@ hill_cols <- layer_data(hill_plot) |>
 ggplot() +
   list(
     geom_spatraster(data = r),
-    geom_spatraster(data = hill, fill = hill_cols, alpha = 0.85)
+    scale_fill_cross_blended_c(breaks = seq(0, 250, 25)),
+    geom_spatraster(data = hill, fill = hill_cols)
   ) |>
   blend("multiply") +
-  scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
-  guides(fill = guide_legend(reverse = TRUE)) +
+  guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
   labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
 ```
 
@@ -1073,6 +1069,9 @@ relief.](faqs_files/figure-html/fig-blenddemo-1.png)
 
 Figure 18: Elevation and hillshade layers plotted with **tidyterra** and
 blended using **ggblend**.
+
+Royé, Dominic. 2022. “Hillshade Effects.” July 20.
+<https://dominicroye.github.io/blog/hillshade-effect/>.
 
 [^1]: Digital surface model, representing the elevation of the visible
     surface in the corresponding area.
