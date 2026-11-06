@@ -94,8 +94,7 @@ obj_type_friendly <- function(x, value = TRUE) {
   if (!n_dim) {
     if (!is_list(x) && length(x) == 1) {
       if (is_na(x)) {
-        return(switch(
-          typeof(x),
+        return(switch(typeof(x),
           logical = "`NA`",
           integer = "an integer `NA`",
           double = if (is.nan(x)) {
@@ -135,8 +134,7 @@ obj_type_friendly <- function(x, value = TRUE) {
           return(paste(what, number))
         }
 
-        return(switch(
-          typeof(x),
+        return(switch(typeof(x),
           logical = if (x) "`TRUE`" else "`FALSE`",
           character = {
             what <- if (nzchar(x)) "the string" else "the empty string"
@@ -147,8 +145,7 @@ obj_type_friendly <- function(x, value = TRUE) {
         ))
       }
 
-      return(switch(
-        typeof(x),
+      return(switch(typeof(x),
         logical = "a logical value",
         integer = "an integer",
         double = if (is.infinite(x)) show_infinites(x) else "a number",
@@ -160,8 +157,7 @@ obj_type_friendly <- function(x, value = TRUE) {
     }
 
     if (length(x) == 0) {
-      return(switch(
-        typeof(x),
+      return(switch(typeof(x),
         logical = "an empty logical vector",
         integer = "an empty integer vector",
         double = "an empty numeric vector",
@@ -206,8 +202,7 @@ vec_type_friendly <- function(x, length = FALSE) {
     }
   }
 
-  type <- switch(
-    type,
+  type <- switch(type,
     logical = "a logical %s",
     integer = "an integer %s",
     numeric = ,
@@ -235,34 +230,27 @@ vec_type_friendly <- function(x, length = FALSE) {
 }
 
 .rlang_as_friendly_type <- function(type) {
-  switch(
-    type,
-
+  switch(type,
     list = "a list",
-
     NULL = "`NULL`",
     environment = "an environment",
     externalptr = "a pointer",
     weakref = "a weak reference",
     S4 = "an S4 object",
-
     name = ,
     symbol = "a symbol",
     language = "a call",
     pairlist = "a pairlist node",
     expression = "an expression vector",
-
     char = "an internal string",
     promise = "an internal promise",
     ... = "an internal dots object",
     any = "an internal `any` object",
     bytecode = "an internal bytecode object",
-
     primitive = ,
     builtin = ,
     special = "a primitive function",
     closure = "a function",
-
     type
   )
 }

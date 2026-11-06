@@ -131,7 +131,8 @@ library(ggplot2)
 library(tidyterra)
 
 rgb <- terra::rast(nrows = 2, ncols = 2, nlyrs = 3, vals = 1:12)
-ggplot() + geom_spatraster_rgb(data = rgb, r = 1, g = 2, b = 3)
+ggplot() +
+  geom_spatraster_rgb(data = rgb, r = 1, g = 2, b = 3)
 
 \donttest{
 
