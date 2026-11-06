@@ -3,7 +3,7 @@
 - The documentation website now includes an experimental AI assistant powered by Cloudflare AI Search, with answers based on the published documentation.
 - The minimum supported **rlang** version is now 1.2.0, ensuring that the imported input validation functions are available (#224).
 - `geom_spatraster()` and `stat_spatraster()` now repair duplicated layer names, keeping each layer in a separate facet (#220).
-- `geom_spatraster()` and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (#222, #223).
+- `geom_spatraster()` and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (\@mdsumner, #222, #223).
 - `geom_spatvector()` and related vector plotting helpers now ignore Z coordinates when plotting, including missing Z values (#225).
 
 # tidyterra 1.3.0
@@ -80,7 +80,7 @@ The following methods were generated with AI assistance.
 
 # tidyterra 0.7.1
 
-- New argument in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`, it avoids `SpatRaster` wrapping around on some projections (see #115 and #169, by \@dramanica).
+- New argument in `geom_spatraster_*`: `mask_projection`. When set to `TRUE`, it avoids `SpatRaster` wrapping around on some projections (\@dramanica, #115 and #169).
 - Fixed an old bug exposed after **terra** 1.8-42, where plots crashed when using `ggplot2::facet_wrap()` in combination with `coord_sf()` or with an implicit CRS change due to other `sf/Spat*` objects.
 
 # tidyterra 0.7.0
@@ -88,7 +88,7 @@ The following methods were generated with AI assistance.
 - The minimum supported **terra** version is now 1.8-10.
 - **metR** has been removed from Suggests.
 - Factor handling has been improved when several layers have different levels. This uses `terra::combineLevels()` from **terra** >= 1.8-10. See <https://stackoverflow.com/questions/79340152>.
-- `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`, `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`, `scale_*_grass_c()` and `scale_*_grass_b()` now truncate the legend when the `limits` argument is provided (#165 \@Fan-iX).
+- `scale_*_cross_blended_tint_c()`, `scale_*_cross_blended_tint_b()`, `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`, `scale_*_grass_c()` and `scale_*_grass_b()` now truncate the legend when the `limits` argument is provided (\@Fan-iX, #165).
 - `geom_spatraster()` and the overall pivoting of `SpatRaster` are now less strict with different layer classes: if several layers can be defined as numeric (that is, `double`, `integer` and `numeric`), the pivoting (and therefore the plot) can be performed. This is consistent with `tidyr::pivot_longer()` behavior (<https://stackoverflow.com/questions/79292989>).
 
 # tidyterra 0.6.2
@@ -118,7 +118,7 @@ The following methods were generated with AI assistance.
 
 # tidyterra 0.5.2
 
-- Tests have been adapted to **ggplot2** 3.5.0 (#129, @teunbrand).
+- Tests have been adapted to **ggplot2** 3.5.0 (@teunbrand, #129).
 - Package size has been reduced, especially in the external raster `asia.tif`.
 
 # tidyterra 0.5.1
