@@ -47,7 +47,8 @@ function setup({
         throw new Error('POST failed (429)');
       }
     },
-    log: () => {}
+    log: () => {},
+    sleep: async () => {}
   };
 
   return { options, saved, calls };
@@ -204,7 +205,8 @@ test('DELETE succeeds, POST fails, and next run recovers', async () => {
     save: async (_, state) => {
       saved.push(structuredClone(state));
     },
-    log: () => {}
+    log: () => {},
+    sleep: async () => {}
   });
 
   await assert.rejects(
@@ -331,4 +333,28 @@ test('lagging inventory does not replay uploads or trigger early pruning', async
   assert.equal(result.uploaded, 1);
   assert.equal(result.pending, 0);
   assert.deepEqual(operations.at(-1), ['POST', documents[0].key]);
+});
+
+test('waits between document uploads without delaying the first', async () => {
+  const waits = [];
+  const uploaded = [];
+  const docs = [
+    { key: 'reference/a.html', html: '<p>A</p>' },
+    { key: 'reference/b.html', html: '<p>B</p>' },
+    { key: 'reference/c.html', html: '<p>C</p>' }
+  ];
+  await executeSync({
+    cf: async () => {},
+    documents: docs,
+    current: Object.fromEntries(docs.map(doc => [doc.key, doc.key])),
+    previous: {},
+    existing: [],
+    manifestPath: 'test-manifest.json',
+    upload: async (_, doc) => uploaded.push(doc.key),
+    save: async () => {},
+    sleep: async ms => waits.push(ms),
+    log: () => {}
+  });
+  assert.deepEqual(waits, [2000, 2000]);
+  assert.deepEqual(uploaded, docs.map(doc => doc.key));
 });
