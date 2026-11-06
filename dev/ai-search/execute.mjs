@@ -1,4 +1,5 @@
 
+import { setTimeout as delay } from 'node:timers/promises';
 import { planSync } from './plan.mjs';
 import { uploadDocument } from './items.mjs';
 import { writeManifest } from './manifest.mjs';
@@ -17,7 +18,9 @@ export async function executeSync({
   upload = uploadDocument,
   save = writeManifest,
   log = console.log,
-  maxUploads = Infinity
+  maxUploads = Infinity,
+  uploadDelayMs = 2000,
+  sleep = delay
 }) {
   const plan = planSync(
     documents.map(doc => ({
@@ -42,7 +45,10 @@ export async function executeSync({
     ? plan.upload.filter(document => !document.existing)
     : plan.upload;
 
+  let firstUpload = true;
   for (const document of candidates.slice(0, maxUploads)) {
+    if (!firstUpload && uploadDelayMs > 0) await sleep(uploadDelayMs);
+    firstUpload = false;
     // Remove the trusted hash before any remote mutation.
     delete state[document.key];
     await save(manifestPath, state);
