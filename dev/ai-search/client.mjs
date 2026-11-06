@@ -5,11 +5,15 @@ import { setTimeout as delay } from 'node:timers/promises';
 export function createCloudflareClient(base, token, {
   fetchImpl = fetch, sleep = delay, now = Date.now, log = console.warn
 } = {}) {
+  let lastRequest = false;
   return async function cf(path, options = {}, { raw = false } = {}) {
     const method = options.method || 'GET';
     let waitedMs = 0;
     let retryingDelete = false;
     for (let attempt = 0; ; attempt++) {
+      if (lastRequest) await sleep(2000);
+      lastRequest = true;
+
       const response = await fetchImpl(base + path, {
         ...options,
         headers: { Authorization: `Bearer ${token}`, ...options.headers },

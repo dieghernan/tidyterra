@@ -25,6 +25,7 @@ export async function uploadDocument(cf, { key, html }, existing) {
     if (existing.source_id !== 'builtin' || existing.key !== key || !existing.id) {
       throw new Error(`Refusing to replace an unmanaged or unidentified item: ${key}`);
     }
+    console.log(`Replacing ${key} (Cloudflare ID: ${existing.id})`);
     await cf(`/items/${encodeURIComponent(existing.id)}`, { method: 'DELETE' });
   }
   await cf('/items', { method: 'POST', body: form });
