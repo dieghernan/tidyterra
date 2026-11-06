@@ -11,6 +11,7 @@ knitr:
     tidy: "styler"
     dev: "ragg_png"
     out.width: "100%"
+bibliography: faqs.bib
 ---
 
 This article collects [frequently asked
@@ -912,8 +913,9 @@ ggplot(r, aes(x, y)) +
 **ggblend** provides operations for blending, copying, adjusting and compositing
 layers in **ggplot2**. As shown in [How to overlay a `SpatRaster` on an RGB
 tile](#overlay){style="font-size: 11pt;"}, you can use **ggblend** with
-**tidyterra** to blend raster layers. The following example combines a grayscale
-hillshade with a colored elevation raster to highlight terrain relief.
+**tidyterra** to blend raster layers. The following example combines a
+multidirectional hillshade as described by [@roye_hillshade_2022] with a colored
+elevation raster to highlight terrain relief.
 
 ```{r}
 #| label: fig-blenddemo
@@ -922,25 +924,20 @@ hillshade with a colored elevation raster to highlight terrain relief.
 #|   blended using **ggblend**."
 
 # Load libraries and files.
-library(terra)
-library(tidyterra)
-library(ggplot2)
-library(ggblend)
-
-holyrood <- "holyroodpark.tif"
-
-r <- rast(holyrood)
 
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
-hill <- shade(slope, aspect, 0, 60)
+
+# Multidirectional shadows.
+hill <- shade(slope, aspect, 0, c(270, 15, 60, 330)) |> mean()
 
 hill_plot <- ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
-  # Use a grayscale palette.
-  scale_fill_gradientn(
-    colours = grey(0:100 / 100),
+  scale_fill_gradient2(
+    high = "white",
+    mid = "gray80",
+    low = "gray20",
     na.value = "transparent"
   )
 
@@ -953,11 +950,11 @@ hill_cols <- layer_data(hill_plot) |>
 ggplot() +
   list(
     geom_spatraster(data = r),
-    geom_spatraster(data = hill, fill = hill_cols, alpha = 0.85)
+    scale_fill_cross_blended_c(breaks = seq(0, 250, 25)),
+    geom_spatraster(data = hill, fill = hill_cols)
   ) |>
   blend("multiply") +
-  scale_fill_cross_blended_c(breaks = seq(0, 250, 25)) +
-  guides(fill = guide_legend(reverse = TRUE)) +
+  guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
   labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
 ```
 
