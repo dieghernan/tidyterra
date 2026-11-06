@@ -1,6 +1,40 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { test } from 'node:test';
-import { observeChatSources, protectMarkdown } from '../../pkgdown/assets/tidyterra-chat.mjs';
+import { observeChatSources, protectMarkdown, sourceRoot } from '../../pkgdown/assets/tidyterra-chat.mjs';
+
+test('links chat sources to the published documentation', () => {
+  assert.equal(sourceRoot, 'https://dieghernan.github.io/tidyterra/');
+  assert.equal(
+    new URL('reference/geom_spatraster.html', sourceRoot).href,
+    'https://dieghernan.github.io/tidyterra/reference/geom_spatraster.html'
+  );
+});
+
+test('system prompt cites the published documentation, not the dev site', async () => {
+  const settings = JSON.parse(
+    await readFile(new URL('./settings.json', import.meta.url), 'utf8')
+  );
+  assert.match(settings.system_prompt_ai_search, /https:\/\/dieghernan\.github\.io\/tidyterra\//);
+  assert.doesNotMatch(settings.system_prompt_ai_search, /tidyterra\/dev\//);
+});
+
+test('AI Search workflow deploys the published docs and repository prompt', async () => {
+  const workflow = await readFile(
+    new URL('../../.github/workflows/ai-search.yaml', import.meta.url),
+    'utf8'
+  );
+  const workflowRun = workflow.split('  workflow_run:\n')[1]?.split('\n\npermissions:')[0];
+  assert.ok(workflowRun);
+  assert.doesNotMatch(workflowRun, /branches:/);
+  assert.match(workflow, /vars\.AI_SEARCH_AUTO_SYNC == 'true'/);
+  assert.match(workflow, /cf ai-search update tidyterra-ai-search --namespace default --system-prompt-ai-search/);
+  assert.match(workflow, /if: \$\{\{ github\.event_name != 'workflow_dispatch' \|\| inputs\.mode != 'reconcile' \}\}/);
+  assert.ok(workflow.indexOf('      - name: Sync Cloudflare AI Search') < workflow.indexOf('      - name: Update AI Search assistant prompt'));
+  assert.match(workflow, /node sync\.mjs site --reconcile/);
+  assert.match(workflow, /args=\(site --all-batches\)/);
+  assert.doesNotMatch(workflow, /site\/dev|--development/);
+});
 
 test('protects underscores in Markdown links without rewriting code examples', () => {
   const url = 'https://example.test/geom_spatraster.html';

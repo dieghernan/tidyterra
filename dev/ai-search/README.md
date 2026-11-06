@@ -6,16 +6,22 @@ namespace `default`. Its public chat component is pinned to version 0.0.43 in
 
 The ingestion approach is adapted from Chulapa's `scripts/sync-ai-search.mjs`.
 Only the published site's root home page, reference and articles are indexed.
-Development and archived copies, navigation and sidebars are excluded. Source
+The GitHub workflow reads these from the root of the `gh-pages` branch;
+development and archived copies, navigation and sidebars are excluded. Source
 URLs and absolute links are included for citations. The assistant does not run R.
 
 ## Update the index
 
-After a successful `pkgdown-gh-pages` workflow, `ai-search.yaml` reads the
-published `gh-pages` branch and updates the index, including deployments triggered
-by version tags. It can also be run manually.
-Configure these repository secrets before enabling automated indexing:
+After any successful `pkgdown-gh-pages` workflow, `ai-search.yaml` reads the
+published `gh-pages` branch, updates the index and applies the system prompt from
+`settings.json` after a successful sync. This includes deployments triggered by
+version tags. Automatic updates require the repository variable
+`AI_SEARCH_AUTO_SYNC` to be set to `true`; the workflow can also be run manually.
+The `reconcile` mode does not update the remote prompt.
 
+Configure this repository variable and secrets before enabling automated updates:
+
+- `AI_SEARCH_AUTO_SYNC`: set to `true` to enable updates after pkgdown deploys.
 - `CLOUDFLARE_ACCOUNT_ID`: the account containing the tidyterra instance.
 - `CLOUDFLARE_API_TOKEN_SEARCH`: a token with AI Search Edit and Run permissions.
 
@@ -48,9 +54,41 @@ Other failures still stop the sync. Uploads are not automatically replayed.
 complete item listing is available. Indexing is asynchronous; upload completion
 does not establish that every document is searchable yet.
 
+## Migrate from the development index
+
+The manifest stores hashes, not document contents. `sync-from-backup` restores a
+manifest backup; it does not restore or roll back the remote index.
+
+With `AI_SEARCH_AUTO_SYNC=true`, the next successful `pkgdown-gh-pages` run on
+the default branch automatically starts the migration. The workflow reads the
+root of `gh-pages`, synchronizes stable documentation, and prunes stale keys
+only after all upload batches complete. No manual `reconcile` or
+`sync-and-prune` dispatch is required for this transition. A failed deployment
+does not start the sync; an incomplete or failed sync must not be treated as a
+completed migration.
+
+Monitor the first automatic run. After it succeeds, wait until Cloudflare
+reports indexing complete, then verify the expected stable document count,
+zero indexing errors or duplicate keys, absence of `/dev/` sources, and
+published-site citation links. A successful Actions run confirms the sync
+completed, not that asynchronous indexing is searchable or that those checks
+passed.
+
+If the run fails, review its logs and remote inventory before retrying. A
+replacement uses DELETE followed by POST and may temporarily leave a page
+absent; `reconcile` can detect exact content Cloudflare accepted before a
+failure. `sync-from-backup` restores only manifest hashes, not remote content.
+A rollback to development requires explicitly syncing that source and pruning
+stale stable-only keys only after its uploads complete.
+
 ## Cloudflare settings
 
-`settings.json` records the instance settings applied for this prototype.
+`settings.json` records the instance settings for this prototype. The GitHub
+workflow applies its system prompt and syncs documentation; it does not reconcile
+other instance settings. Apply changes to the public endpoint, authorized hosts,
+rate limit and MCP settings in the Cloudflare dashboard or through a supported
+Cloudflare configuration command, then verify the instance settings there.
+Changing `settings.json` alone does not apply those values remotely.
 The public endpoint allows the published site and local preview hosts,
 has a rate limit of 20 requests per minute and disables MCP. CORS is a browser
 restriction, not authentication. Only public documentation belongs in this index.
@@ -76,7 +114,10 @@ The [final evaluation](evaluations/2026-11-04-review.md) found 8 passing,
 facets passed. Raster layer selection, the vector filtering example and
 resolution claims around `maxcell = Inf` remain quality limitations.
 
-`smoke.mjs` runs three public chat checks and saves responses under `preview/`.
+`smoke.mjs` runs three public chat requests and saves responses under `preview/`.
+Run it only after Cloudflare reports indexing complete. It checks HTTP responses
+but does not wait for indexing or automatically validate source URLs, citations
+or answer quality; inspect the saved responses.
 For the full evaluation, run `node evaluate.mjs` from this directory; optionally
 pass case IDs from `evaluation-cases.json` to select a subset. Follow-up case
 `10-followup` requires `09-followup-base` in the same run. Each run consumes live
