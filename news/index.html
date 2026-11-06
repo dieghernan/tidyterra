@@ -220,7 +220,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Changelog</h1>
-      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/v1.3.1/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/dieghernan/tidyterra/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
@@ -230,7 +230,7 @@
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code><a href="../reference/geom_spatraster.html">stat_spatraster()</a></code> now repair duplicated layer names, keeping each layer in a separate facet (<a href="https://github.com/dieghernan/tidyterra/issues/220" class="external-link">#220</a>).</li>
 <li>
-<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (<a href="https://github.com/dieghernan/tidyterra/issues/222" class="external-link">#222</a>, <a href="https://github.com/dieghernan/tidyterra/issues/223" class="external-link">#223</a>).</li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and related raster plotting helpers now avoid reprojecting raster values twice and detect layer classes without expanding raster values into a data frame, improving performance for large rasters and tile servers (<a href="https://github.com/mdsumner" class="external-link">@mdsumner</a>, <a href="https://github.com/dieghernan/tidyterra/issues/222" class="external-link">#222</a>, <a href="https://github.com/dieghernan/tidyterra/issues/223" class="external-link">#223</a>).</li>
 <li>
 <code><a href="../reference/ggspatvector.html">geom_spatvector()</a></code> and related vector plotting helpers now ignore Z coordinates when plotting, including missing Z values (<a href="https://github.com/dieghernan/tidyterra/issues/225" class="external-link">#225</a>).</li>
 </ul></div>
@@ -343,7 +343,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.7.1" id="tidyterra-071">tidyterra 0.7.1<a class="anchor" aria-label="anchor" href="#tidyterra-071"></a></h2><p class="text-muted">CRAN release: 2025-04-07</p>
-<ul><li>New argument in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code>, it avoids <code>SpatRaster</code> wrapping around on some projections (see <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>, by <a href="https://github.com/dramanica" class="external-link">@dramanica</a>).</li>
+<ul><li>New argument in <code>geom_spatraster_*</code>: <code>mask_projection</code>. When set to <code>TRUE</code>, it avoids <code>SpatRaster</code> wrapping around on some projections (<a href="https://github.com/dramanica" class="external-link">@dramanica</a>, <a href="https://github.com/dieghernan/tidyterra/issues/115" class="external-link">#115</a> and <a href="https://github.com/dieghernan/tidyterra/issues/169" class="external-link">#169</a>).</li>
 <li>Fixed an old bug exposed after <strong>terra</strong> 1.8-42, where plots crashed when using <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">ggplot2::facet_wrap()</a></code> in combination with <code><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf()</a></code> or with an implicit CRS change due to other <code>sf/Spat*</code> objects.</li>
 </ul></div>
     <div class="section level2">
@@ -353,7 +353,7 @@
 <strong>metR</strong> has been removed from Suggests.</li>
 <li>Factor handling has been improved when several layers have different levels. This uses <code><a href="https://rspatial.github.io/terra/reference/factors.html" class="external-link">terra::combineLevels()</a></code> from <strong>terra</strong> &gt;= 1.8-10. See <a href="https://stackoverflow.com/questions/79340152" class="external-link uri">https://stackoverflow.com/questions/79340152</a>.</li>
 <li>
-<code>scale_*_cross_blended_tint_c()</code>, <code>scale_*_cross_blended_tint_b()</code>, <code>scale_*_hypso_tint_c()</code>, <code>scale_*_hypso_tint_b()</code>, <code>scale_*_grass_c()</code> and <code>scale_*_grass_b()</code> now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a> <a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>).</li>
+<code>scale_*_cross_blended_tint_c()</code>, <code>scale_*_cross_blended_tint_b()</code>, <code>scale_*_hypso_tint_c()</code>, <code>scale_*_hypso_tint_b()</code>, <code>scale_*_grass_c()</code> and <code>scale_*_grass_b()</code> now truncate the legend when the <code>limits</code> argument is provided (<a href="https://github.com/Fan-iX" class="external-link">@Fan-iX</a>, <a href="https://github.com/dieghernan/tidyterra/issues/165" class="external-link">#165</a>).</li>
 <li>
 <code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and the overall pivoting of <code>SpatRaster</code> are now less strict with different layer classes: if several layers can be defined as numeric (that is, <code>double</code>, <code>integer</code> and <code>numeric</code>), the pivoting (and therefore the plot) can be performed. This is consistent with <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">tidyr::pivot_longer()</a></code> behavior (<a href="https://stackoverflow.com/questions/79292989" class="external-link uri">https://stackoverflow.com/questions/79292989</a>).</li>
 </ul></div>
@@ -394,7 +394,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.5.2" id="tidyterra-052">tidyterra 0.5.2<a class="anchor" aria-label="anchor" href="#tidyterra-052"></a></h2><p class="text-muted">CRAN release: 2024-01-19</p>
-<ul><li>Tests have been adapted to <strong>ggplot2</strong> 3.5.0 (<a href="https://github.com/dieghernan/tidyterra/issues/129" class="external-link">#129</a>, <a href="https://github.com/teunbrand" class="external-link">@teunbrand</a>).</li>
+<ul><li>Tests have been adapted to <strong>ggplot2</strong> 3.5.0 (<a href="https://github.com/teunbrand" class="external-link">@teunbrand</a>, <a href="https://github.com/dieghernan/tidyterra/issues/129" class="external-link">#129</a>).</li>
 <li>Package size has been reduced, especially in the external raster <code>asia.tif</code>.</li>
 </ul></div>
     <div class="section level2">

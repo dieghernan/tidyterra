@@ -19,7 +19,8 @@ CRAN release: 2026-11-06
   and related raster plotting helpers now avoid reprojecting raster
   values twice and detect layer classes without expanding raster values
   into a data frame, improving performance for large rasters and tile
-  servers ([\#222](https://github.com/dieghernan/tidyterra/issues/222),
+  servers ([@mdsumner](https://github.com/mdsumner),
+  [\#222](https://github.com/dieghernan/tidyterra/issues/222),
   [\#223](https://github.com/dieghernan/tidyterra/issues/223)).
 - [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/reference/ggspatvector.md)
   and related vector plotting helpers now ignore Z coordinates when
@@ -211,9 +212,9 @@ CRAN release: 2025-04-07
 
 - New argument in `geom_spatraster_*`: `mask_projection`. When set to
   `TRUE`, it avoids `SpatRaster` wrapping around on some projections
-  (see [\#115](https://github.com/dieghernan/tidyterra/issues/115) and
-  [\#169](https://github.com/dieghernan/tidyterra/issues/169), by
-  [@dramanica](https://github.com/dramanica)).
+  ([@dramanica](https://github.com/dramanica),
+  [\#115](https://github.com/dieghernan/tidyterra/issues/115) and
+  [\#169](https://github.com/dieghernan/tidyterra/issues/169)).
 - Fixed an old bug exposed after **terra** 1.8-42, where plots crashed
   when using
   [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html)
@@ -236,8 +237,8 @@ CRAN release: 2025-02-03
   `scale_*_hypso_tint_c()`, `scale_*_hypso_tint_b()`,
   `scale_*_grass_c()` and `scale_*_grass_b()` now truncate the legend
   when the `limits` argument is provided
-  ([\#165](https://github.com/dieghernan/tidyterra/issues/165)
-  [@Fan-iX](https://github.com/Fan-iX)).
+  ([@Fan-iX](https://github.com/Fan-iX),
+  [\#165](https://github.com/dieghernan/tidyterra/issues/165)).
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/reference/geom_spatraster.md)
   and the overall pivoting of `SpatRaster` are now less strict with
   different layer classes: if several layers can be defined as numeric
@@ -326,8 +327,8 @@ CRAN release: 2024-04-22
 CRAN release: 2024-01-19
 
 - Tests have been adapted to **ggplot2** 3.5.0
-  ([\#129](https://github.com/dieghernan/tidyterra/issues/129),
-  [@teunbrand](https://github.com/teunbrand)).
+  ([@teunbrand](https://github.com/teunbrand),
+  [\#129](https://github.com/dieghernan/tidyterra/issues/129)).
 - Package size has been reduced, especially in the external raster
   `asia.tif`.
 

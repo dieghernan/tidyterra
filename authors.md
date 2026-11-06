@@ -22,7 +22,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/dieghernan/tidyterra/blob/v1.3.1/inst/CITATION)
+[`inst/CITATION`](https://github.com/dieghernan/tidyterra/blob/main/inst/CITATION)
 
 Hernangómez D (2023). “Using the tidyverse with terra objects: the
 tidyterra package.” *Journal of Open Source Software*, **8**(91), 5751.
