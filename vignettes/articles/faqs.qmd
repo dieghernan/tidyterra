@@ -12,6 +12,7 @@ knitr:
     dev: "ragg_png"
     out.width: "100%"
 bibliography: faqs.bib
+nocite: "@*"
 ---
 
 This article collects [frequently asked
@@ -262,7 +263,12 @@ ggplot(r, aes(x, y)) +
 ## Using a different color scale {#use-scale}
 
 Since **tidyterra** builds on **ggplot2**, refer to **ggplot2** documentation on
-scales:
+scales.
+
+
+The following example illustrates hillshading, a terrain visualization technique
+based on simulated illumination of a surface [@horn1981hillshading].
+
 
 ```{r}
 #| label: fig-greys
@@ -280,7 +286,8 @@ r <- rast(holyrood)
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
-hill <- shade(slope, aspect, 10, 340)
+# Multidirectional shadows.
+hill <- shade(slope, aspect, 10, c(270, 15, 60, 330)) |> mean()
 
 ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE) +
@@ -688,6 +695,11 @@ For more examples, see [My ggplot2 blending
 adventure](https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/) by
 Barney Harris.
 
+
+The example uses monthly precipitation data from WorldClim 2 [@fick2017worldclim],
+retrieved with `geodata::worldclim_country()`, and a shaded relief basemap from Esri.
+
+
 ```{r}
 #| label: fig-overlay_cont
 #| fig-alt: "Map of Switzerland with average precipitation blended with a shaded relief background. Fill color encodes precipitation in millimeters, and the country boundary outlines the data."
@@ -930,7 +942,7 @@ slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
 
 # Multidirectional shadows.
-hill <- shade(slope, aspect, 0, c(270, 15, 60, 330)) |> mean()
+hill <- shade(slope, aspect, 10, c(270, 15, 60, 330)) |> mean()
 
 hill_plot <- ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
@@ -957,6 +969,8 @@ ggplot() +
   guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
   labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
 ```
+
+## References
 
 [^1]: Digital surface model, representing the elevation of the visible surface
     in the corresponding area.
