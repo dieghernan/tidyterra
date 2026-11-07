@@ -536,7 +536,8 @@ Figure 3: Alternative (<strong>metR</strong>): contour labeling combining <stro
 </div>
 </section></section><section class="level2"><h2 id="use-scale">Using a different color scale<a class="anchor" aria-label="anchor" href="#use-scale"></a>
 </h2>
-<p>Since <strong>tidyterra</strong> builds on <strong>ggplot2</strong>, refer to <strong>ggplot2</strong> documentation on scales:</p>
+<p>Since <strong>tidyterra</strong> builds on <strong>ggplot2</strong>, refer to <strong>ggplot2</strong> documentation on scales.</p>
+<p>The following example illustrates hillshading, a terrain visualization technique based on simulated illumination of a surface <span class="citation" data-cites="horn1981hillshading">(<a href="#ref-horn1981hillshading" role="doc-biblioref">Horn 1981</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -550,7 +551,8 @@ Figure 3: Alternative (<strong>metR</strong>): contour labeling combining <stro
 <span><span class="co"># Hillshade with gray colors.</span></span>
 <span><span class="va">slope</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"slope"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
 <span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
-<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fl">340</span><span class="op">)</span></span>
+<span><span class="co"># Multidirectional shadows.</span></span>
+<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">270</span>, <span class="fl">15</span>, <span class="fl">60</span>, <span class="fl">330</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1078,6 +1080,7 @@ Figure 12: Map with north arrow (top right) and scale bar (bottom left) annotat
 </section><section class="level2"><h2 id="overlay">How to overlay a <code>SpatRaster</code> on an RGB tile<a class="anchor" aria-label="anchor" href="#overlay"></a>
 </h2>
 <p>Use <code><a href="../reference/geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code> for the RGB <code>SpatRaster</code> background tile, then add your data layers on top. Use <strong>ggblend</strong> to blend the layers, as shown below. For more examples, see <a href="https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/" class="external-link">My ggplot2 blending adventure</a> by Barney Harris.</p>
+<p>The example uses monthly precipitation data from WorldClim 2 <span class="citation" data-cites="fick2017worldclim">(<a href="#ref-fick2017worldclim" role="doc-biblioref">Fick and Hijmans 2017</a>)</span>, retrieved with <code><a href="https://rspatial.github.io/geodata/reference/worldclim.html" class="external-link">geodata::worldclim_country()</a></code>, and a shaded relief basemap from Esri.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1342,7 +1345,7 @@ Figure 17: Relief rendering combining <strong>tidyterra</strong> for raster plo
 <span><span class="va">aspect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/terrain.html" class="external-link">terrain</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"aspect"</span>, unit <span class="op">=</span> <span class="st">"radians"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Multidirectional shadows.</span></span>
-<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">270</span>, <span class="fl">15</span>, <span class="fl">60</span>, <span class="fl">330</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">hill</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/shade.html" class="external-link">shade</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">aspect</span>, <span class="fl">10</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">270</span>, <span class="fl">15</span>, <span class="fl">60</span>, <span class="fl">330</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/summarize-generics.html" class="external-link">mean</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">hill_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_spatraster.html">geom_spatraster</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">hill</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span>, maxcell <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1379,12 +1382,29 @@ Figure 18: Elevation and hillshade layers plotted with <strong>tidyterra</stron
 </div>
 </div>
 </div>
+</section></section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-fick2017worldclim" class="csl-entry" role="listitem">
+Fick, Stephen E., and Robert J. Hijmans. 2017. <span>“<span>WorldClim</span> 2: New 1-Km Spatial Resolution Climate Surfaces for Global Land Areas.”</span> <em>International Journal of Climatology</em> 37 (12): 4302–15. <a href="https://doi.org/10.1002/joc.5086" class="external-link">https://doi.org/10.1002/joc.5086</a>.
+</div>
+<div id="ref-harris2026ggplot2" class="csl-entry" role="listitem">
+Harris, Barney. 2026. <span>“My <span class="nocase">ggplot2</span> Blending Adventure.”</span> January 27. <a href="https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/" class="external-link">https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/</a>.
+</div>
+<div id="ref-hernangomez2022hillshade1" class="csl-entry" role="listitem">
+Hernangómez, Diego. 2022a. <span>“Hillshade, Colors and Marginal Plots with <span class="nocase">tidyterra</span> (<span>I</span>): How to Overlay <span>SpatRasters</span>.”</span> October 17. <a href="https://dieghernan.github.io/202210_tidyterra-hillshade/" class="external-link">https://dieghernan.github.io/202210_tidyterra-hillshade/</a>.
+</div>
+<div id="ref-hernangomez2022hillshade2" class="csl-entry" role="listitem">
+Hernangómez, Diego. 2022b. <span>“Hillshade, Colors and Marginal Plots with <span class="nocase">tidyterra</span> (<span>II</span>): The Rain in <span>Spain</span> Does Not Stay Mainly in the Plain.”</span> December 12. <a href="https://dieghernan.github.io/202212_tidyterra-hillshade-2/" class="external-link">https://dieghernan.github.io/202212_tidyterra-hillshade-2/</a>.
+</div>
+<div id="ref-horn1981hillshading" class="csl-entry" role="listitem">
+Horn, Berthold K. P. 1981. <span>“<span class="nocase">Hill Shading and the Reflectance Map</span>.”</span> <em>Proceedings of the <span>IEEE</span></em> 69 (1): 14–47. <a href="https://doi.org/10.1109/PROC.1981.11918" class="external-link">https://doi.org/10.1109/PROC.1981.11918</a>.
+</div>
 <div id="ref-roye_hillshade_2022" class="csl-entry" role="listitem">
-Royé, Dominic. 2022. <span>“Hillshade Effects.”</span> July 20. <a href="https://dominicroye.github.io/blog/hillshade-effect/" class="external-link">https://dominicroye.github.io/blog/hillshade-effect/</a>.
+Royé, Dominic. 2022. <span>“<span>Hillshade Effects</span>.”</span> July 20. <a href="https://dominicroye.github.io/blog/hillshade-effect/" class="external-link">https://dominicroye.github.io/blog/hillshade-effect/</a>.
 </div>
 </div>
-</section></section><script id="quarto-html-after-body" type="application/javascript">
+</section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
