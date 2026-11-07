@@ -48,6 +48,11 @@ Sero-catalytic and spatial modeling of dengue virus force of infection
 in Timor-Leste. *Nature Communications*, *17*(1), 10815.
 <https://doi.org/10.1038/s41467-026-76716-9>
 
+Athmer, A. N. M. (2026). *The effect of habitat suitability and
+configuration on urban wildlife distribution: A case study of the
+West-European hedgehog (*Erinaceus europaeus*)* \[Master's thesis,
+Wageningen University & Research\]. <https://edepot.wur.nl/726203>
+
 Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
 R., McGuire, K., Cooper, B. S., & Shropshire, J. D. (2026).
 Temperature-sensitive cytoplasmic incompatibility across divergent
