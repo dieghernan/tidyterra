@@ -265,10 +265,8 @@ ggplot(r, aes(x, y)) +
 Since **tidyterra** builds on **ggplot2**, refer to **ggplot2** documentation on
 scales.
 
-
 The following example illustrates hillshading, a terrain visualization technique
 based on simulated illumination of a surface [@horn1981hillshading].
-
 
 ```{r}
 #| label: fig-greys
@@ -695,10 +693,9 @@ For more examples, see [My ggplot2 blending
 adventure](https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/) by
 Barney Harris.
 
-
-The example uses monthly precipitation data from WorldClim 2 [@fick2017worldclim],
-retrieved with `geodata::worldclim_country()`, and a shaded relief basemap from Esri.
-
+The example uses monthly precipitation data from WorldClim 2
+[@fick2017worldclim], retrieved with `geodata::worldclim_country()`, and a
+shaded relief basemap from Esri.
 
 ```{r}
 #| label: fig-overlay_cont
@@ -935,17 +932,31 @@ elevation raster to highlight terrain relief.
 #| fig-cap: "Elevation and hillshade layers plotted with **tidyterra** and
 #|   blended using **ggblend**."
 
-# Load libraries and files.
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(metR)
+
+holyrood <- "holyroodpark.tif"
+
+r <- rast(holyrood)
 
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
 
 # Multidirectional shadows.
-hill <- shade(slope, aspect, 10, c(270, 15, 60, 330)) |> mean()
+hill <- shade(slope, aspect, 45, direction = c(225, 270, 315, 360)) |> mean()
+
+# Additional stretching to increase contrast.
+q <- as.numeric(
+  quantile(values(hill), c(0.25, 0.75), na.rm = TRUE)
+)
+
+hill_stretch <- clamp((hill - q[1]) / diff(q), 0, 1)
 
 hill_plot <- ggplot() +
-  geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
+  geom_spatraster(data = hill_stretch, show.legend = FALSE, maxcell = Inf) +
   scale_fill_gradient2(
     high = "white",
     mid = "gray80",
@@ -963,10 +974,10 @@ ggplot() +
   list(
     geom_spatraster(data = r),
     scale_fill_cross_blended_c(breaks = seq(0, 250, 25)),
-    geom_spatraster(data = hill, fill = hill_cols)
+    geom_spatraster(data = hill_stretch, fill = hill_cols)
   ) |>
   blend("multiply") +
-  guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
+  guides(fill = guide_legend(reverse = TRUE)) +
   labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
 ```
 
