@@ -1042,6 +1042,7 @@ library(terra)
 library(tidyterra)
 library(ggplot2)
 library(metR)
+library(ggblend)
 
 holyrood <- "holyroodpark.tif"
 
@@ -1063,10 +1064,9 @@ hill_stretch <- clamp((hill - q[1]) / diff(q), 0, 1)
 
 hill_plot <- ggplot() +
   geom_spatraster(data = hill_stretch, show.legend = FALSE, maxcell = Inf) +
-  scale_fill_gradient2(
+  scale_fill_gradient(
     high = "white",
-    mid = "gray80",
-    low = "gray20",
+    low = "gray80",
     na.value = "transparent"
   )
 
