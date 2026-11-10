@@ -3,7 +3,6 @@
   "articles/index.html": "7226628b5a06ee50ec05373f97b739fa18fadaef6f0ae8624686b8227c3ab379",
   "articles/palettes.html": "39d75adc252d550dc59b8efe82a81606ada78eaeb4431508a8e586121a486bcb",
   "articles/tidyterra.html": "7004537ac47b0467ee0def01577b72dc5b70a4a46733cf6729210e338eb99ead",
-  "articles/wild.html": "cb6cf8aa80338ce70724f8629eaed5688658f5e77821117c49dc3c46a398ad8d",
   "index.html": "1a5896b3f15f3b45af9b71e050b23632c57108a0768267793bb7a2b6151f0d47",
   "reference/arrange.SpatVector.html": "6869b6ce1e3a105206e9cfe759b20008a1c2ab9307675b68ca194c908f352e19",
   "reference/as_coordinates.html": "ade459b0d812a536c73bea3f9f74a1a4ba81a6e614dd064ad2b3063b9fa15959",
@@ -78,5 +77,6 @@
   "reference/transmute.Spat.html": "9fc0ae523a385d9d98d7fc17aaac3bcbbec04046fbf02b2f85114f36de262d66",
   "reference/uncount.SpatVector.html": "e882c6a590ac9471933205b68994f6192eef97ce32f58d88d23273e2fd1266be",
   "reference/unite.Spat.html": "69d34db8dd6607fb875a65dbc686e86b21018bc03cc79a9cf1fa8471ece4c04c",
-  "reference/volcano2.html": "397e488efe1670cf18941bc5b3ea5b331462ab4a76742fbcf5873d727c81cda2"
+  "reference/volcano2.html": "397e488efe1670cf18941bc5b3ea5b331462ab4a76742fbcf5873d727c81cda2",
+  "articles/wild.html": "5989c7aa7cc15dffa7b0cacff423be581e1d3dded2e9aeb9482363d1f3dd827c"
 }
