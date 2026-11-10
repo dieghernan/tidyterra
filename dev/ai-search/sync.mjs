@@ -22,6 +22,7 @@ const dryRun = args.includes('--dry-run');
 const prune = args.includes('--prune');
 const allBatches = args.includes('--all-batches');
 const reconcile = args.includes('--reconcile');
+const recoverManifest = args.includes('--recover-manifest');
 const development = args.includes('--development');
 const missingOnly = args.includes('--missing-only');
 
@@ -82,7 +83,28 @@ if (
 }
 
 const current = createManifest(documents);
-const previous = await readManifest(manifestPath);
+let previous = reconcile
+  ? null
+  : await readManifest(manifestPath, { recoverInvalid: recoverManifest });
+
+if (!dryRun && (reconcile || (recoverManifest && previous === null))) {
+  if (!account || !token) {
+    throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.');
+  }
+  console.log(`Rebuilding the manifest from ${documents.length} published documents.`);
+  const { manifest, missing, different, ambiguous, unavailable } =
+    await reconcileManifest(cf, documents, current);
+  console.log(
+    `Verified ${Object.keys(manifest).length} exact matches, ` +
+    `${different} different, ${missing} missing, ${ambiguous} ambiguous, ` +
+    `${unavailable} unavailable for download.`
+  );
+  if (ambiguous || unavailable) {
+    throw new Error('Could not verify existing documents. Manifest recovery stopped.');
+  }
+  await writeManifest(manifestPath, manifest);
+  previous = manifest;
+}
 
 if (dryRun) {
   await mkdir('preview', { recursive: true });
@@ -103,20 +125,7 @@ if (dryRun) {
     `${changed.length} documents differ from the local manifest.`
   );
   console.log('No remote changes.');
-} else if (reconcile) {
-  if (!account || !token) {
-    throw new Error('Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.');
-  }
-  console.log(`Comparing ${documents.length} documents with Cloudflare.`);
-  const { manifest, missing, different, ambiguous, unavailable } =
-    await reconcileManifest(cf, documents, current);
-  await writeManifest(manifestPath, manifest);
-  console.log(
-    `Verified ${Object.keys(manifest).length} exact matches, ` +
-    `${different} different, ${missing} missing, ${ambiguous} ambiguous, ` +
-    `${unavailable} unavailable for download.`
-  );
-} else {
+} else if (!reconcile) {
   if (!account || !token) {
     throw new Error(
       'Set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN.'

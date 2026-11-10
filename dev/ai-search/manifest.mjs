@@ -17,7 +17,7 @@ export function createManifest(documents) {
   );
 }
 
-export async function readManifest(path) {
+export async function readManifest(path, { recoverInvalid = false } = {}) {
   try {
     const content = await readFile(path, 'utf8');
     const manifest = JSON.parse(content);
@@ -33,12 +33,13 @@ export async function readManifest(path) {
           /^[a-f0-9]{64}$/.test(hash)
       )
     ) {
-      throw new Error('Invalid AI Search manifest.');
+      throw new SyntaxError('Invalid AI Search manifest.');
     }
 
     return manifest;
   } catch (error) {
     if (error.code === 'ENOENT') return null;
+    if (recoverInvalid && error instanceof SyntaxError) return null;
     throw error;
   }
 }

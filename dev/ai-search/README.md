@@ -54,32 +54,24 @@ Other failures still stop the sync. Uploads are not automatically replayed.
 complete item listing is available. Indexing is asynchronous; upload completion
 does not establish that every document is searchable yet.
 
-## Migrate from the development index
+## Store and recover the manifest
 
-The manifest stores hashes, not document contents. `sync-from-backup` restores a
-manifest backup; it does not restore or roll back the remote index.
+The workflow stores `manifest.json` in the dedicated `ai-search-manifest`
+branch. The branch is created on the first run that writes a manifest. The
+workflow commits changes after synchronization, including recorded progress
+when the sync step fails. GitHub Actions cache cleanup does not affect the
+branch.
 
-With `AI_SEARCH_AUTO_SYNC=true`, the next successful `pkgdown-gh-pages` run on
-the default branch automatically starts the migration. The workflow reads the
-root of `gh-pages`, synchronizes stable documentation, and prunes stale keys
-only after all upload batches complete. No manual `reconcile` or
-`sync-and-prune` dispatch is required for this transition. A failed deployment
-does not start the sync; an incomplete or failed sync must not be treated as a
-completed migration.
+If the branch or manifest is missing, or the manifest is invalid, the workflow
+rebuilds it by comparing the published pages with the files downloaded from
+Cloudflare. It stops before changing the index if an existing document cannot
+be downloaded or matched to a unique key. Otherwise, it proceeds with the
+usual incremental sync. To rebuild only the manifest, dispatch the workflow
+with `reconcile`.
 
-Monitor the first automatic run. After it succeeds, wait until Cloudflare
-reports indexing complete, then verify the expected stable document count,
-zero indexing errors or duplicate keys, absence of `/dev/` sources, and
-published-site citation links. A successful Actions run confirms the sync
-completed, not that asynchronous indexing is searchable or that those checks
-passed.
-
-If the run fails, review its logs and remote inventory before retrying. A
-replacement uses DELETE followed by POST and may temporarily leave a page
-absent; `reconcile` can detect exact content Cloudflare accepted before a
-failure. `sync-from-backup` restores only manifest hashes, not remote content.
-A rollback to development requires explicitly syncing that source and pruning
-stale stable-only keys only after its uploads complete.
+The manifest contains hashes. To restore content, sync from a known-good
+pkgdown build. After a sync, wait for Cloudflare indexing to complete and check
+for indexing errors and links to the published documentation.
 
 ## Cloudflare settings
 

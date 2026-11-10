@@ -32,7 +32,7 @@ test('AI Search workflow deploys the published docs and repository prompt', asyn
   assert.match(workflow, /if: \$\{\{ github\.event_name != 'workflow_dispatch' \|\| inputs\.mode != 'reconcile' \}\}/);
   assert.ok(workflow.indexOf('      - name: Sync Cloudflare AI Search') < workflow.indexOf('      - name: Update AI Search assistant prompt'));
   assert.match(workflow, /node sync\.mjs site --reconcile/);
-  assert.match(workflow, /args=\(site --all-batches\)/);
+  assert.match(workflow, /args=\(site --all-batches --recover-manifest\)/);
   assert.doesNotMatch(workflow, /site\/dev|--development/);
 });
 

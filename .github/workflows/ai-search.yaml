@@ -7,14 +7,13 @@ on:
       mode:
         description: Operation to run
         type: choice
-        default: cache-test
-        options: [cache-test, reconcile, sync, sync-and-prune, sync-from-backup]
+        default: reconcile
+        options: [reconcile, sync, sync-and-prune]
   workflow_run:
     workflows: [pkgdown-gh-pages]
     types: [completed]
 
 permissions:
-  actions: read
   contents: read
 
 concurrency:
@@ -22,43 +21,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  cache-test:
-    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'cache-test'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/cache/restore@v6
-        id: restore
-        with:
-          path: dev/ai-search/manifest.json
-          key: ai-search-cache-test-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: ai-search-cache-test-${{ github.sha }}-
-      - name: Verify restored manifest
-        if: steps.restore.outputs.cache-matched-key != ''
-        run: |
-          test "$(cat dev/ai-search/manifest.json)" = '{"index.html":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"}'
-          echo "Verified the restored manifest."
-      - name: Seed test manifest
-        if: steps.restore.outputs.cache-matched-key == ''
-        run: |
-          mkdir -p dev/ai-search
-          printf '%s\n' '{"index.html":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"}' > dev/ai-search/manifest.json
-      - uses: actions/cache/save@v6
-        if: steps.restore.outputs.cache-matched-key == ''
-        with:
-          path: dev/ai-search/manifest.json
-          key: ${{ steps.restore.outputs.cache-primary-key }}
-
   index:
     if: >-
       github.ref == 'refs/heads/main' &&
-      ((github.event_name == 'workflow_dispatch' &&
-        (inputs.mode == 'reconcile' || inputs.mode == 'sync' || inputs.mode == 'sync-and-prune' ||
-         inputs.mode == 'sync-from-backup')) ||
+      (github.event_name == 'workflow_dispatch' ||
        (github.event_name == 'workflow_run' &&
         vars.AI_SEARCH_AUTO_SYNC == 'true' &&
         github.event.workflow_run.conclusion == 'success'))
 
-    cache-mode: write
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     defaults:
@@ -68,10 +40,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Checkout pkgdown website
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
           ref: gh-pages
           path: dev/ai-search/site
 
@@ -89,40 +64,9 @@ jobs:
         run: npm test
 
       - name: Restore AI Search manifest
-        if: inputs.mode != 'sync-from-backup' && inputs.mode != 'reconcile'
-        uses: actions/cache/restore@v6
-        with:
-          path: dev/ai-search/manifest.json
-          key: ai-search-manifest-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: |
-            ai-search-manifest-
-
-      - name: Restore manifest backup
-        if: hashFiles('dev/ai-search/manifest.json') == ''
-        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-          REQUIRE_BACKUP: ${{ inputs.mode == 'sync-from-backup' }}
-        run: |
-          artifact_id=$(gh api --paginate --slurp \
-            "repos/$GITHUB_REPOSITORY/actions/artifacts?name=tidyterra-ai-search-manifest&per_page=100" |
-            jq -r --argjson repo "$GITHUB_REPOSITORY_ID" '
-              [.[].artifacts[] | select(
-                .expired == false and
-                .workflow_run.head_branch == "main" and
-                .workflow_run.head_repository_id == $repo
-              )] | max_by(.created_at) | .id // empty
-            ')
-          if [[ -z "$artifact_id" ]]; then
-            echo "No manifest backup found."
-            [[ "$REQUIRE_BACKUP" != "true" ]]
-          else
-            archive=$(mktemp)
-            trap 'rm -f "$archive"' EXIT
-            gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > "$archive"
-            unzip -p "$archive" manifest.json > manifest.json
-            echo "Restored manifest backup from artifact $artifact_id."
-          fi
+        run: bash manifest-branch.sh restore
 
       - name: Sync Cloudflare AI Search
         id: sync
@@ -132,7 +76,7 @@ jobs:
             node sync.mjs site --reconcile
             exit $?
           fi
-          args=(site --all-batches)
+          args=(site --all-batches --recover-manifest)
           if [[ "$PRUNE" == "true" ]]; then
             args+=(--prune)
           fi
@@ -143,6 +87,12 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN_SEARCH }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           AI_SEARCH_MAX_UPLOADS: '5'
+
+      - name: Save AI Search manifest
+        if: ${{ !cancelled() && (steps.sync.outcome == 'success' || steps.sync.outcome == 'failure') && hashFiles('dev/ai-search/manifest.json') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash manifest-branch.sh save
 
       - name: Install Cloudflare CLI
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.mode != 'reconcile' }}
@@ -156,19 +106,3 @@ jobs:
         run: |
           prompt="$(node -e 'process.stdout.write(JSON.parse(require("node:fs").readFileSync("settings.json", "utf8")).system_prompt_ai_search)')"
           cf ai-search update tidyterra-ai-search --namespace default --system-prompt-ai-search "$prompt"
-
-      - name: Save AI Search manifest
-        if: ${{ !cancelled() && hashFiles('dev/ai-search/manifest.json') != '' }}
-        uses: actions/cache/save@v6
-        with:
-          path: dev/ai-search/manifest.json
-          key: ai-search-manifest-${{ github.run_id }}-${{ github.run_attempt }}
-
-      - name: Back up AI Search manifest
-        if: ${{ !cancelled() && steps.sync.outcome != 'skipped' && hashFiles('dev/ai-search/manifest.json') != '' }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: tidyterra-ai-search-manifest
-          path: dev/ai-search/manifest.json
-          retention-days: 90
-          overwrite: true
