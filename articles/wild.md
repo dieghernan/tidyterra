@@ -359,6 +359,16 @@ A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
 unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
 <https://doi.org/10.1038/s41586-025-09731-3>
 
+Marengo, G. (2026). *Impact of land-use change on grasslands of the
+Western Italian Alps and management implications: A multidisciplinary
+approach* \[PhD thesis, Università degli Studi di Torino\].
+<https://hdl.handle.net/2318/2150238>
+
+Marques, L. S. K. (2025). *Applying IUCN criteria for endemic species
+from the Cixiidae family (Hemiptera: Fulgoromorpha) in the Madeira
+archipelago* \[Master's thesis, Universidade de Évora\].
+<https://hdl.handle.net/10174/38414>
+
 Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &
 Lanfranco, L. (2025). A systematic scoping review reveals that
 geographic and taxonomic patterns influence the scientific and societal
