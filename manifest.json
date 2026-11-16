@@ -1,6 +1,5 @@
 {
   "articles/index.html": "7226628b5a06ee50ec05373f97b739fa18fadaef6f0ae8624686b8227c3ab379",
-  "articles/palettes.html": "39d75adc252d550dc59b8efe82a81606ada78eaeb4431508a8e586121a486bcb",
   "articles/tidyterra.html": "7004537ac47b0467ee0def01577b72dc5b70a4a46733cf6729210e338eb99ead",
   "index.html": "1a5896b3f15f3b45af9b71e050b23632c57108a0768267793bb7a2b6151f0d47",
   "reference/arrange.SpatVector.html": "6869b6ce1e3a105206e9cfe759b20008a1c2ab9307675b68ca194c908f352e19",
@@ -78,5 +77,6 @@
   "reference/unite.Spat.html": "69d34db8dd6607fb875a65dbc686e86b21018bc03cc79a9cf1fa8471ece4c04c",
   "reference/volcano2.html": "397e488efe1670cf18941bc5b3ea5b331462ab4a76742fbcf5873d727c81cda2",
   "articles/faqs.html": "7344813fbf8b675cd772ccacf170aab0fdb8e9d6fbd9bd445fb4e44dc9f81a66",
-  "articles/wild.html": "860b6a3643e6397582c918a3380948b18ea369ca741e2b4d91534a064a9f7914"
+  "articles/palettes.html": "a1b4d76bed5336ed6fc0e10a973b791e9a7077489ba3ff5261dc0f4589250b3a",
+  "articles/wild.html": "85f9a99331e8cc371d2fc80545768e2ce356613694c3e7dd17c9662fad987c22"
 }
