@@ -405,10 +405,10 @@ range size and ecological dominance globally. *Proceedings of the
 National Academy of Sciences*, *122*(46), e2517585122.
 <https://doi.org/10.1073/pnas.2517585122>
 
-Muniandy, J. M., Mohammad Harmay, N. S., & Alias, N. E. (2026).
+Muniandy, J. M., Harmay, N. S. M., & Alias, N. E. (2026).
 Intensification of heatwave persistence and asymmetric diurnal warming
 in Malaysia: A 31-year terrestrial reanalysis (1995–2025). *Bulletin of
-Atmospheric Science and Technology*, *7*, 35.
+Atmospheric Science and Technology*, *7*(1), 35.
 <https://doi.org/10.1007/s42865-026-00152-2>
 
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
@@ -433,6 +433,12 @@ metrics. *Geoderma*, *475*, 118101.
 Raymond, C. V. (2025). *Patterns, pressures and processes: Exploring
 biodiversity in eelgrass meadows and coral reefs* \[PhD thesis,
 University of British Columbia\]. <https://doi.org/10.14288/1.0449640>
+
+Re, B. C. (2026). *Demographic threats to a trailing-edge population:
+Survival, productivity, and climate vulnerability of Virginia’s
+Saltmarsh Sparrows (*Ammospiza caudacuta*)* \[PhD thesis, Virginia
+Polytechnic Institute and State University\].
+<https://hdl.handle.net/10919/143119>
 
 Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
@@ -475,6 +481,13 @@ al Pirineu Central. Arqueologia, SIG i modelització espacial del patró
 d’ocupació del territori durant el Neolític (5700–2100 cal ANE)* \[PhD
 thesis, Universitat Autònoma de Barcelona\].
 <https://hdl.handle.net/10803/692148>
+
+Sambaya, B. A., Ouru, S. M., He, S.-W., Musila, S., Li, Q., Chen, Z.-Z.,
+Song, W.-Y., Li, X.-Y., Onditi, K. O., & Jiang, X.-L. (2025).
+Integrative phylogeography of African striped grass mice
+(*Lemniscomys*): Cryptic diversity and habitat resilience. *Zoological
+Research: Diversity and Conservation*, *2*(4), 233–249.
+<https://doi.org/10.24272/j.issn.2097-3772.2025.030>
 
 Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
 Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche
