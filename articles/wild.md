@@ -389,7 +389,7 @@ Ecosystems*, *14*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
 NASA Earth observation data products*. National Aeronautics and Space
 Administration, Goddard Space Flight Center.
-<https://github.com/nasa/NASAaccess/releases/tag/v4.0.0>
+<https://doi.org/10.5281/zenodo.10519233>
 
 Moreira, H., Janssen, S. D., Kuipers, K. J. J., Posthuma, L., Hauck, M.,
 Huijbregts, M. A. J., & Schipper, A. M. (2026). Combined threats of land
