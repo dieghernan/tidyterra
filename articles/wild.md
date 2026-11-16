@@ -405,6 +405,12 @@ range size and ecological dominance globally. *Proceedings of the
 National Academy of Sciences*, *122*(46), e2517585122.
 <https://doi.org/10.1073/pnas.2517585122>
 
+Muniandy, J. M., Mohammad Harmay, N. S., & Alias, N. E. (2026).
+Intensification of heatwave persistence and asymmetric diurnal warming
+in Malaysia: A 31-year terrestrial reanalysis (1995–2025). *Bulletin of
+Atmospheric Science and Technology*, *7*, 35.
+<https://doi.org/10.1007/s42865-026-00152-2>
+
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
 Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
 Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
@@ -545,6 +551,14 @@ Templeton, M. R. (2026). *Episodic and chronic pollutant loading in a
 mixed land-use watershed: A paired storm event and synoptic monitoring
 approach* \[Master's thesis, University of Missouri–Columbia\].
 <https://doi.org/10.32469/10355/113180>
+
+Thaxter, C. B., Green, R. M. W., Schwemmer, P., Bocher, P., Düttmann,
+H., Elts, J., Fartmann, T., Fort, J., Garthe, S., Jiguet, F., Kämpfer,
+S., Kruckenberg, H., Marja, R., Piha, M., Bowgen, K. M., Robinson, R.
+A., Rousseau, P., & Franks, S. E. (2026). Flight patterns of a migratory
+wader over the North Sea reveal implications for interactions with
+offshore wind farms. *Movement Ecology*.
+<https://doi.org/10.1186/s40462-026-00719-w>
 
 Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
 du voisinage environnemental pour prédire la répartition des espèces de
