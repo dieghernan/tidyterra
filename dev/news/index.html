@@ -226,6 +226,10 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="tidyterra-development-version">tidyterra (development version)<a class="anchor" aria-label="anchor" href="#tidyterra-development-version"></a></h2>
 <ul><li>The minimum supported <strong>R</strong> version is now 4.2.0 to match the requirements of current <strong>ggplot2</strong> releases.</li>
+<li>
+<code><a href="../reference/geom_spatraster.html">geom_spatraster()</a></code> and <code>stat_spatraster(geom = "raster")</code> now resolve duplicate <code>fill</code> settings before passing them to <strong>ggplot2</strong>, so a fixed <code>fill</code> overrides a mapped <code>fill</code> without a warning.</li>
+<li>
+<code><a href="../reference/geom_spat_contour.html">geom_spatraster_contour_filled()</a></code> now takes its default <code>linetype</code> from the theme’s <code>bordertype</code>, matching <code><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html" class="external-link">ggplot2::geom_polygon()</a></code>.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.3.1" id="tidyterra-131">tidyterra 1.3.1<a class="anchor" aria-label="anchor" href="#tidyterra-131"></a></h2><p class="text-muted">CRAN release: 2026-11-06</p>

@@ -4,6 +4,14 @@
 
 - The minimum supported **R** version is now 4.2.0 to match the
   requirements of current **ggplot2** releases.
+- [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
+  and `stat_spatraster(geom = "raster")` now resolve duplicate `fill`
+  settings before passing them to **ggplot2**, so a fixed `fill`
+  overrides a mapped `fill` without a warning.
+- [`geom_spatraster_contour_filled()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spat_contour.md)
+  now takes its default `linetype` from the theme’s `bordertype`,
+  matching
+  [`ggplot2::geom_polygon()`](https://ggplot2.tidyverse.org/reference/geom_polygon.html).
 
 ## tidyterra 1.3.1
 
