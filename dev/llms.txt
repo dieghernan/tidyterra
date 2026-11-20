@@ -197,7 +197,7 @@ ggplot() +
 ![Three raster maps of Castile and Leon, Spain, for April, May and June.
 Fill color encodes average temperature in degrees Celsius. The mapped
 temperatures rise across the three
-months.](https://dieghernan.github.io/tidyterra/dev/README-example-temp-1.png)
+months.](https://dieghernan.github.io/tidyterra/README-example-temp-1.png)
 
 ``` r
 
@@ -230,7 +230,7 @@ ggplot(prov) +
 ![Raster map of Castile and Leon, Spain, showing the difference between
 June and May average temperatures in degrees Celsius. Province
 boundaries are outlined over the colored
-raster.](https://dieghernan.github.io/tidyterra/dev/README-example-temp2-1.png)
+raster.](https://dieghernan.github.io/tidyterra/README-example-temp2-1.png)
 
 **tidyterra** also provides a geom for plotting RGB `SpatRaster`
 objects, such as map tiles, with **ggplot2**:
@@ -249,7 +249,7 @@ ggplot(prov) +
 
 ![RGB map tile of Castile and Leon, Spain, with province boundaries
 outlined over the
-imagery.](https://dieghernan.github.io/tidyterra/dev/README-example-tile-1.png)
+imagery.](https://dieghernan.github.io/tidyterra/README-example-tile-1.png)
 
 **tidyterra** provides **ggplot2** scales for plotting maps with
 hypsometric tints:
@@ -282,7 +282,7 @@ ggplot() +
 
 ![Hypsometric map of Asia. Fill color encodes elevation in meters, from
 deep seafloor areas through sea level to high
-mountains.](https://dieghernan.github.io/tidyterra/dev/README-hypso-1.png)
+mountains.](https://dieghernan.github.io/tidyterra/README-hypso-1.png)
 
 ### `SpatVector` objects
 
@@ -317,7 +317,7 @@ vect(system.file("ex/lux.shp", package = "terra")) |>
 
 ![Choropleth map of Luxembourg by canton. Fill color encodes population
 density in people per square
-kilometer.](https://dieghernan.github.io/tidyterra/dev/README-spatvec-1.png)
+kilometer.](https://dieghernan.github.io/tidyterra/README-spatvec-1.png)
 
 ## Feedback
 

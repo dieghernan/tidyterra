@@ -172,6 +172,8 @@ desirability:
 
 - Use sentence case for headings.
 - Use US English.
+- Refer to the R language or environment as `\R` in roxygen2 and `**R**`
+  in Markdown, R Markdown and Quarto prose.
 
 ### Proofreading
 

@@ -48,6 +48,17 @@ Sero-catalytic and spatial modeling of dengue virus force of infection
 in Timor-Leste. *Nature Communications*, *17*(1), 10815.
 <https://doi.org/10.1038/s41467-026-76716-9>
 
+Athmer, A. N. M. (2026). *The effect of habitat suitability and
+configuration on urban wildlife distribution: A case study of the
+West-European hedgehog (*Erinaceus europaeus*)* \[Master's thesis,
+Wageningen University & Research\]. <https://edepot.wur.nl/726203>
+
+Atzeni, L., Kamler, J., Ash, E., Kyaw, P. P., Rasphone, A., Pin, C.,
+Tan, C. K. W., Rostro-García, S., Jantz, P., Gonzalez, I., Burnham, D.,
+Cushman, S. A., & Macdonald, D. W. (2026). Mapping leopard conservation
+priorities in Southeast Asia. *Ecology and Evolution*, *16*(11), e74459.
+<https://doi.org/10.1002/ece3.74459>
+
 Bagchi, B., van Vlaenderen, L., Wheeler, T., Provencal, E., Conner, W.
 R., McGuire, K., Cooper, B. S., & Shropshire, J. D. (2026).
 Temperature-sensitive cytoplasmic incompatibility across divergent
@@ -348,6 +359,16 @@ A. D., … Nores, R. (2025). Eight millennia of continuity of a previously
 unknown lineage in Argentina. *Nature*, *649*(8097), 647–656.
 <https://doi.org/10.1038/s41586-025-09731-3>
 
+Marengo, G. (2026). *Impact of land-use change on grasslands of the
+Western Italian Alps and management implications: A multidisciplinary
+approach* \[PhD thesis, Università degli Studi di Torino\].
+<https://hdl.handle.net/2318/2150238>
+
+Marques, L. S. K. (2025). *Applying IUCN criteria for endemic species
+from the Cixiidae family (Hemiptera: Fulgoromorpha) in the Madeira
+archipelago* \[Master's thesis, Universidade de Évora\].
+<https://hdl.handle.net/10174/38414>
+
 Masson, S., Chialva, M., Bongiovanni, D., Adamo, M., Stefanini, I., &
 Lanfranco, L. (2025). A systematic scoping review reveals that
 geographic and taxonomic patterns influence the scientific and societal
@@ -368,7 +389,7 @@ Ecosystems*, *14*, 100361. <https://doi.org/10.1016/j.fecs.2025.100361>
 Mohammed, I. (2024). *NASAaccess: Downloading and reformatting tool for
 NASA Earth observation data products*. National Aeronautics and Space
 Administration, Goddard Space Flight Center.
-<https://github.com/nasa/NASAaccess/releases/tag/v4.0.0>
+<https://doi.org/10.5281/zenodo.10519233>
 
 Moreira, H., Janssen, S. D., Kuipers, K. J. J., Posthuma, L., Hauck, M.,
 Huijbregts, M. A. J., & Schipper, A. M. (2026). Combined threats of land
@@ -384,6 +405,12 @@ range size and ecological dominance globally. *Proceedings of the
 National Academy of Sciences*, *122*(46), e2517585122.
 <https://doi.org/10.1073/pnas.2517585122>
 
+Muniandy, J. M., Harmay, N. S. M., & Alias, N. E. (2026).
+Intensification of heatwave persistence and asymmetric diurnal warming
+in Malaysia: A 31-year terrestrial reanalysis (1995–2025). *Bulletin of
+Atmospheric Science and Technology*, *7*(1), 35.
+<https://doi.org/10.1007/s42865-026-00152-2>
+
 Nityagovsky, N. N., Ananev, A. A., Suprun, A. R., Ogneva, Z. V.,
 Dneprovskaya, A. A., Tyunin, A. P., Dubrovina, A. S., Kiselev, K. V.,
 Sanina, N. M., & Aleynova, O. A. (2024). Distribution of *Plasmopara
@@ -397,9 +424,21 @@ shifts in nut-producing species that are important for bears during
 hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
 <https://doi.org/10.3389/ffgc.2025.1624612>
 
+Poggio, L., Rossiter, D. G., & Batjes, N. H. (2026). When and how to use
+a map: Characterising and assessing fitness for use of global and
+continental Digital Soil Mapping products beyond point-based accuracy
+metrics. *Geoderma*, *475*, 118101.
+<https://doi.org/10.1016/j.geoderma.2026.118101>
+
 Raymond, C. V. (2025). *Patterns, pressures and processes: Exploring
 biodiversity in eelgrass meadows and coral reefs* \[PhD thesis,
 University of British Columbia\]. <https://doi.org/10.14288/1.0449640>
+
+Re, B. C. (2026). *Demographic threats to a trailing-edge population:
+Survival, productivity, and climate vulnerability of Virginia’s
+Saltmarsh Sparrows (*Ammospiza caudacuta*)* \[PhD thesis, Virginia
+Polytechnic Institute and State University\].
+<https://hdl.handle.net/10919/143119>
 
 Read, F. R., Warmington, R. J., & Beale, C. M. (2026). Assessing
 protected areas as climate refugia for threatened plant species in
@@ -443,6 +482,13 @@ d’ocupació del territori durant el Neolític (5700–2100 cal ANE)* \[PhD
 thesis, Universitat Autònoma de Barcelona\].
 <https://hdl.handle.net/10803/692148>
 
+Sambaya, B. A., Ouru, S. M., He, S.-W., Musila, S., Li, Q., Chen, Z.-Z.,
+Song, W.-Y., Li, X.-Y., Onditi, K. O., & Jiang, X.-L. (2025).
+Integrative phylogeography of African striped grass mice
+(*Lemniscomys*): Cryptic diversity and habitat resilience. *Zoological
+Research: Diversity and Conservation*, *2*(4), 233–249.
+<https://doi.org/10.24272/j.issn.2097-3772.2025.030>
+
 Santiago-Sarmiento, A. P., Esparza-Estrada, C. E., Yáñez-Arenas, C. A.,
 Ángeles-González, L. E., & Jardim, L. (2026). Ecological niche
 conservatism and evolutionary dynamics in Octopodidae: A phylogenetic
@@ -465,12 +511,27 @@ within the south-central Bahamas and evaluating the impacts of sea level
 rise* \[Master's thesis, Antioch University New England\].
 <https://aura.antioch.edu/etds/1222/>
 
+Silvestro, D., Goria, S., Rau, E.-P., Lima, R. A. F. de, Groom, B.,
+Jacobsson, P., Sterner, T., & Antonelli, A. (2026). Using artificial
+intelligence to optimize ecological restoration for climate and
+biodiversity. *Global Change Biology*, *32*(11), e71165.
+<https://doi.org/10.1111/gcb.71165>
+
 Simons, D., Harden, C., Imirzian, N., Thompson, K. E. T., Ifebueme, N.
 M., Eziechina, S., Ignatius, H., Marcus, D., Aderibigbe, F., Koninga, J.
 T., Meremikwu, M., Moses, L., Redding, D. W., & Friant, S. (2026). Local
 heterogeneity in Lassa fever serology in rural Nigeria: Implications for
 vaccine trial site selection. *PLOS Neglected Tropical Diseases*,
 *20*(5), e0014379. <https://doi.org/10.1371/journal.pntd.0014379>
+
+Skampardonis, V., Theodosiadis, E., Giannakopoulos, A.,
+Athanasakopoulou, Z., Touloudi, A., Chatzopoulos, D. C., Spyrou, V.,
+Nanas, I., Amiridis, G. S., Billinis, C., & Sofia, M. (2026). From
+environmental predictors to suitability mapping: Integrating factor
+analysis and multivariable logistic regression modelling of herd-level
+seropositivity for *Neospora caninum*, *Toxoplasma gondii*, and
+*Coxiella burnetii* in Greek dairy cattle herds. *Veterinary Sciences*,
+*13*(11), 1202. <https://doi.org/10.3390/vetsci13111202>
 
 Smoot, E. E., Flitcroft, R. L., Chan, S. S., van Deynze, B., Ewen, S., &
 Jardine, S. L. (2026). Projected temperature and precipitation expand
@@ -503,6 +564,14 @@ Templeton, M. R. (2026). *Episodic and chronic pollutant loading in a
 mixed land-use watershed: A paired storm event and synoptic monitoring
 approach* \[Master's thesis, University of Missouri–Columbia\].
 <https://doi.org/10.32469/10355/113180>
+
+Thaxter, C. B., Green, R. M. W., Schwemmer, P., Bocher, P., Düttmann,
+H., Elts, J., Fartmann, T., Fort, J., Garthe, S., Jiguet, F., Kämpfer,
+S., Kruckenberg, H., Marja, R., Piha, M., Bowgen, K. M., Robinson, R.
+A., Rousseau, P., & Franks, S. E. (2026). Flight patterns of a migratory
+wader over the North Sea reveal implications for interactions with
+offshore wind farms. *Movement Ecology*.
+<https://doi.org/10.1186/s40462-026-00719-w>
 
 Toussaint, M. (2026). *Du pixel au paysage : Évaluation de l’importance
 du voisinage environnemental pour prédire la répartition des espèces de

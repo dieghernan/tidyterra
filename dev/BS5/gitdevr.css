@@ -1037,6 +1037,7 @@ footer {
 footer a {
 	color: var(--brand-footer_link);
 	text-decoration: none;
+	font-weight: 700;
 }
 
 footer a:hover,
@@ -1134,10 +1135,7 @@ footer .pkgdown-footer-left {
 }
 
 /* Keep inline links identifiable without relying on color. */
-main a:not(.anchor, .nav-link, .btn),
-footer a,
-#footer a,
-#copyright a {
+main a:not(.anchor, .nav-link, .btn) {
 	text-decoration: underline;
 	text-underline-offset: 0.15em;
 }

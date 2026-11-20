@@ -1,4 +1,4 @@
-const sourceRoot = "https://dieghernan.github.io/tidyterra/dev/";
+export const sourceRoot = "https://dieghernan.github.io/tidyterra/";
 
 function makeLink(label, href) {
   const link = document.createElement("a");

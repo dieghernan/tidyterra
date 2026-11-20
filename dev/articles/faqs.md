@@ -281,7 +281,11 @@ Figure 3: Alternative (**metR**): contour labeling combining
 ## Using a different color scale
 
 Since **tidyterra** builds on **ggplot2**, refer to **ggplot2**
-documentation on scales:
+documentation on scales.
+
+The following example illustrates hillshading, a terrain visualization
+technique based on simulated illumination of a surface ([Horn
+1981](#ref-horn1981hillshading)).
 
 ``` r
 
@@ -296,7 +300,8 @@ r <- rast(holyrood)
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
-hill <- shade(slope, aspect, 10, 340)
+# Multidirectional shadows.
+hill <- shade(slope, aspect, 10, c(270, 15, 60, 330)) |> mean()
 
 ggplot() +
   geom_spatraster(data = hill, show.legend = FALSE) +
@@ -766,6 +771,11 @@ examples, see [My ggplot2 blending
 adventure](https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/)
 by Barney Harris.
 
+The example uses monthly precipitation data from WorldClim 2 ([Fick and
+Hijmans 2017](#ref-fick2017worldclim)), retrieved with
+[`geodata::worldclim_country()`](https://rspatial.github.io/geodata/reference/worldclim.html),
+and a shaded relief basemap from Esri.
+
 ``` r
 
 library(terra)
@@ -1028,21 +1038,35 @@ highlight terrain relief.
 
 ``` r
 
-# Load libraries and files.
+library(terra)
+library(tidyterra)
+library(ggplot2)
+library(metR)
+library(ggblend)
+
+holyrood <- "holyroodpark.tif"
+
+r <- rast(holyrood)
 
 # Hillshade with gray colors.
 slope <- terrain(r, "slope", unit = "radians")
 aspect <- terrain(r, "aspect", unit = "radians")
 
 # Multidirectional shadows.
-hill <- shade(slope, aspect, 0, c(270, 15, 60, 330)) |> mean()
+hill <- shade(slope, aspect, 45, direction = c(225, 270, 315, 360)) |> mean()
+
+# Additional stretching to increase contrast.
+q <- as.numeric(
+  quantile(values(hill), c(0.25, 0.75), na.rm = TRUE)
+)
+
+hill_stretch <- clamp((hill - q[1]) / diff(q), 0, 1)
 
 hill_plot <- ggplot() +
-  geom_spatraster(data = hill, show.legend = FALSE, maxcell = Inf) +
-  scale_fill_gradient2(
+  geom_spatraster(data = hill_stretch, show.legend = FALSE, maxcell = Inf) +
+  scale_fill_gradient(
     high = "white",
-    mid = "gray80",
-    low = "gray20",
+    low = "gray80",
     na.value = "transparent"
   )
 
@@ -1056,10 +1080,10 @@ ggplot() +
   list(
     geom_spatraster(data = r),
     scale_fill_cross_blended_c(breaks = seq(0, 250, 25)),
-    geom_spatraster(data = hill, fill = hill_cols)
+    geom_spatraster(data = hill_stretch, fill = hill_cols)
   ) |>
   blend("multiply") +
-  guides(fill = guide_legend(reverse = TRUE), alpha = "none") +
+  guides(fill = guide_legend(reverse = TRUE)) +
   labs(x = "", y = "", title = "tidyterra and ggblend: Hillshade")
 ```
 
@@ -1069,6 +1093,29 @@ relief.](faqs_files/figure-html/fig-blenddemo-1.png)
 
 Figure 18: Elevation and hillshade layers plotted with **tidyterra** and
 blended using **ggblend**.
+
+## References
+
+Fick, Stephen E., and Robert J. Hijmans. 2017. “WorldClim 2: New 1-Km
+Spatial Resolution Climate Surfaces for Global Land Areas.”
+*International Journal of Climatology* 37 (12): 4302–15.
+<https://doi.org/10.1002/joc.5086>.
+
+Harris, Barney. 2026. “My ggplot2 Blending Adventure.” January 27.
+<https://barney.fly.dev/2026/01/27/ggplot2-blending-adventure/>.
+
+Hernangómez, Diego. 2022a. “Hillshade, Colors and Marginal Plots with
+tidyterra (I): How to Overlay SpatRasters.” October 17.
+<https://dieghernan.github.io/202210_tidyterra-hillshade/>.
+
+Hernangómez, Diego. 2022b. “Hillshade, Colors and Marginal Plots with
+tidyterra (II): The Rain in Spain Does Not Stay Mainly in the Plain.”
+December 12.
+<https://dieghernan.github.io/202212_tidyterra-hillshade-2/>.
+
+Horn, Berthold K. P. 1981. “Hill Shading and the Reflectance Map.”
+*Proceedings of the IEEE* 69 (1): 14–47.
+<https://doi.org/10.1109/PROC.1981.11918>.
 
 Royé, Dominic. 2022. “Hillshade Effects.” July 20.
 <https://dominicroye.github.io/blog/hillshade-effect/>.
