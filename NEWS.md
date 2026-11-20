@@ -1,3 +1,7 @@
+# tidyterra (development version)
+
+- The minimum supported **R** version is now 4.2.0 to match the requirements of current **ggplot2** releases.
+
 # tidyterra 1.3.1
 
 - The documentation website now includes an experimental AI assistant powered by Cloudflare AI Search, with answers based on the published documentation.

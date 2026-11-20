@@ -39,7 +39,7 @@ jobs:
         - {os: ubuntu-latest, r: "release"}
         - {os: ubuntu-latest, r: "devel"}
         - {os: ubuntu-latest, r: "oldrel"}
-        - {os: ubuntu-latest, r: "4.1.0"}
+        - {os: ubuntu-latest, r: "4.2.0"}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
