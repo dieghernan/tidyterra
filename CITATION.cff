@@ -8,7 +8,7 @@ message: 'To cite package "tidyterra" in publications use:'
 type: software
 license: MIT
 title: 'tidyterra: ''tidyverse'' Methods and ''ggplot2'' Helpers for ''terra'' Objects'
-version: 1.3.1
+version: 1.3.1.9000
 doi: 10.21105/joss.05751
 identifiers:
 - type: doi
@@ -73,10 +73,9 @@ references:
     address: Vienna, Austria
   year: '2026'
   doi: 10.32614/R.manuals
-  version: '>= 4.1.0'
+  version: '>= 4.2.0'
 - type: software
-  title: cli
-  abstract: 'cli: Helpers for Developing Command Line Interfaces'
+  title: 'cli: Helpers for Developing Command Line Interfaces'
   notes: Imports
   url: https://cli.r-lib.org
   repository: https://CRAN.R-project.org/package=cli
@@ -88,8 +87,7 @@ references:
   doi: 10.32614/CRAN.package.cli
   version: '>= 3.0.0'
 - type: software
-  title: data.table
-  abstract: 'data.table: Extension of `data.frame`'
+  title: 'data.table: Extension of `data.frame`'
   notes: Imports
   url: https://r-datatable.com
   repository: https://CRAN.R-project.org/package=data.table
@@ -125,8 +123,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.data.table
 - type: software
-  title: dplyr
-  abstract: 'dplyr: A Grammar of Data Manipulation'
+  title: 'dplyr: A Grammar of Data Manipulation'
   notes: Imports
   url: https://dplyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=dplyr
@@ -151,9 +148,8 @@ references:
   doi: 10.32614/CRAN.package.dplyr
   version: '>= 1.2.0'
 - type: software
-  title: generics
-  abstract: 'generics: Common S3 Generics not Provided by Base R Methods Related to
-    Model Fitting'
+  title: 'generics: Common S3 Generics not Provided by Base R Methods Related to Model
+    Fitting'
   notes: Imports
   url: https://generics.r-lib.org
   repository: https://CRAN.R-project.org/package=generics
@@ -168,11 +164,10 @@ references:
   - family-names: Vaughan
     given-names: Davis
     email: davis@posit.co
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.generics
 - type: software
-  title: ggplot2
-  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  title: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
   notes: Imports
   url: https://ggplot2.tidyverse.org
   repository: https://CRAN.R-project.org/package=ggplot2
@@ -212,8 +207,7 @@ references:
   doi: 10.32614/CRAN.package.ggplot2
   version: '>= 4.0.0'
 - type: software
-  title: grDevices
-  abstract: 'R: A Language and Environment for Statistical Computing'
+  title: 'R: A Language and Environment for Statistical Computing'
   notes: Imports
   authors:
   - name: R Core Team
@@ -225,8 +219,7 @@ references:
   year: '2026'
   doi: 10.32614/R.manuals
 - type: software
-  title: isoband
-  abstract: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
+  title: 'isoband: Generate Isolines and Isobands from Regularly Spaced Elevation
     Grids'
   notes: Imports
   url: https://isoband.r-lib.org
@@ -244,11 +237,10 @@ references:
     given-names: Thomas Lin
     email: thomas.pedersen@posit.co
     orcid: https://orcid.org/0000-0002-5147-4711
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.isoband
 - type: software
-  title: lifecycle
-  abstract: 'lifecycle: Manage the Life Cycle of your Package Functions'
+  title: 'lifecycle: Manage the Life Cycle of your Package Functions'
   notes: Imports
   url: https://lifecycle.r-lib.org/
   repository: https://CRAN.R-project.org/package=lifecycle
@@ -263,8 +255,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.lifecycle
 - type: software
-  title: magrittr
-  abstract: 'magrittr: A Forward-Pipe Operator for R'
+  title: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
   url: https://magrittr.tidyverse.org
   repository: https://CRAN.R-project.org/package=magrittr
@@ -278,8 +269,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.magrittr
 - type: software
-  title: rlang
-  abstract: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
+  title: 'rlang: Functions for Base Types and Core R and ''Tidyverse'' Features'
   notes: Imports
   url: https://rlang.r-lib.org
   repository: https://CRAN.R-project.org/package=rlang
@@ -294,8 +284,7 @@ references:
   doi: 10.32614/CRAN.package.rlang
   version: '>= 1.2.0'
 - type: software
-  title: scales
-  abstract: 'scales: Scale Functions for Visualization'
+  title: 'scales: Scale Functions for Visualization'
   notes: Imports
   url: https://scales.r-lib.org
   repository: https://CRAN.R-project.org/package=scales
@@ -309,11 +298,10 @@ references:
     orcid: https://orcid.org/0000-0002-5147-4711
   - family-names: Seidel
     given-names: Dana
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.scales
 - type: software
-  title: sf
-  abstract: 'sf: Simple Features for R'
+  title: 'sf: Simple Features for R'
   notes: Imports
   url: https://r-spatial.github.io/sf/
   repository: https://CRAN.R-project.org/package=sf
@@ -326,8 +314,7 @@ references:
   doi: 10.32614/CRAN.package.sf
   version: '>= 1.0.0'
 - type: software
-  title: terra
-  abstract: 'terra: Spatial Data Analysis'
+  title: 'terra: Spatial Data Analysis'
   notes: Imports
   url: https://rspatial.org/
   repository: https://CRAN.R-project.org/package=terra
@@ -352,8 +339,7 @@ references:
   doi: 10.32614/CRAN.package.terra
   version: '>= 1.8-10'
 - type: software
-  title: tibble
-  abstract: 'tibble: Simple Data Frames'
+  title: 'tibble: Simple Data Frames'
   notes: Imports
   url: https://tibble.tidyverse.org/
   repository: https://CRAN.R-project.org/package=tibble
@@ -369,8 +355,7 @@ references:
   doi: 10.32614/CRAN.package.tibble
   version: '>= 3.0.0'
 - type: software
-  title: tidyr
-  abstract: 'tidyr: Tidy Messy Data'
+  title: 'tidyr: Tidy Messy Data'
   notes: Imports
   url: https://tidyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=tidyr
@@ -383,38 +368,11 @@ references:
     email: davis@posit.co
   - family-names: Girlich
     given-names: Maximilian
-  year: '2026'
+  year: '2025'
   doi: 10.32614/CRAN.package.tidyr
   version: '>= 1.0.0'
 - type: software
-  title: tools
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-    website: https://ror.org/02zz1nj61
-  institution:
-    name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
-    address: Vienna, Austria
-  year: '2026'
-  doi: 10.32614/R.manuals
-- type: software
-  title: utils
-  abstract: 'R: A Language and Environment for Statistical Computing'
-  notes: Imports
-  authors:
-  - name: R Core Team
-    website: https://ror.org/02zz1nj61
-  institution:
-    name: R Foundation for Statistical Computing
-    website: https://ror.org/05qewa988
-    address: Vienna, Austria
-  year: '2026'
-  doi: 10.32614/R.manuals
-- type: software
-  title: vctrs
-  abstract: 'vctrs: Vector Helpers'
+  title: 'vctrs: Vector Helpers'
   notes: Imports
   url: https://vctrs.r-lib.org/
   repository: https://CRAN.R-project.org/package=vctrs
@@ -431,8 +389,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.vctrs
 - type: software
-  title: dtplyr
-  abstract: 'dtplyr: Data Table Back-End for ''dplyr'''
+  title: 'dtplyr: Data Table Back-End for ''dplyr'''
   notes: Suggests
   url: https://dtplyr.tidyverse.org
   repository: https://CRAN.R-project.org/package=dtplyr
@@ -449,8 +406,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.dtplyr
 - type: software
-  title: hexbin
-  abstract: 'hexbin: Hexagonal Binning Routines'
+  title: 'hexbin: Hexagonal Binning Routines'
   notes: Suggests
   url: https://github.com/edzer/hexbin
   repository: https://CRAN.R-project.org/package=hexbin
@@ -469,8 +425,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.hexbin
 - type: software
-  title: knitr
-  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  title: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
   url: https://yihui.org/knitr/
   repository: https://CRAN.R-project.org/package=knitr
@@ -482,8 +437,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
-  title: maptiles
-  abstract: 'maptiles: Download and Display Map Tiles'
+  title: 'maptiles: Download and Display Map Tiles'
   notes: Suggests
   url: https://github.com/riatelab/maptiles/
   repository: https://CRAN.R-project.org/package=maptiles
@@ -495,8 +449,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.maptiles
 - type: software
-  title: quarto
-  abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
+  title: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
   notes: Suggests
   url: https://quarto-dev.github.io/quarto-r/
   repository: https://CRAN.R-project.org/package=quarto
@@ -512,8 +465,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.quarto
 - type: software
-  title: s2
-  abstract: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
+  title: 's2: Spherical Geometry Operators Using the S2 Geometry Library'
   notes: Suggests
   url: https://r-spatial.github.io/s2/
   repository: https://CRAN.R-project.org/package=s2
@@ -532,8 +484,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.s2
 - type: software
-  title: stringi
-  abstract: 'stringi: Fast and Portable Character String Processing Facilities'
+  title: 'stringi: Fast and Portable Character String Processing Facilities'
   notes: Suggests
   url: https://stringi.gagolewski.com/
   repository: https://CRAN.R-project.org/package=stringi
@@ -545,8 +496,7 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.stringi
 - type: software
-  title: testthat
-  abstract: 'testthat: Unit Testing for R'
+  title: 'testthat: Unit Testing for R'
   notes: Suggests
   url: https://testthat.r-lib.org
   repository: https://CRAN.R-project.org/package=testthat
@@ -558,8 +508,7 @@ references:
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 - type: software
-  title: withr
-  abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
+  title: 'withr: Run Code ''With'' Temporarily Modified Global State'
   notes: Suggests
   url: https://withr.r-lib.org
   repository: https://CRAN.R-project.org/package=withr
