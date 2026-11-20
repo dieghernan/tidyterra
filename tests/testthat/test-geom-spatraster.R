@@ -293,14 +293,19 @@ test_that("Coltabs", {
     geom_spatraster(data = r, use_coltab = FALSE, fill = "blue", alpha = 0.3)
 
   expect_identical(unique(ggplot2::get_layer_data(fill_dots)$fill), "blue")
-  fill_dots_override <- ggplot2::ggplot() +
-    geom_spatraster(
-      data = r,
-      aes(fill = lyr.1),
-      use_coltab = FALSE,
-      fill = "blue",
-      alpha = 0.3
-    )
+  expect_silent(
+    fill_dots_override <- ggplot2::ggplot(
+      mapping = aes(fill = after_stat(other))
+    ) +
+      geom_spatraster(
+        data = r,
+        aes(fill = lyr.1),
+        use_coltab = FALSE,
+        fill = "blue",
+        alpha = 0.3,
+        inherit.aes = TRUE
+      )
+  )
 
   expect_identical(
     unique(ggplot2::get_layer_data(fill_dots_override)$fill),

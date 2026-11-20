@@ -73,7 +73,7 @@ GeomSpatRasterContourFilled <- ggplot2::ggproto(
     colour = NA,
     fill = "#E5E5E5",
     linewidth = from_theme(linewidth),
-    linetype = from_theme(linetype),
+    linetype = from_theme(bordertype),
     alpha = NA,
     subgroup = NULL
   )

@@ -35,6 +35,26 @@ test_that("Errors and messages", {
   expect_snapshot(end <- ggplot_build(ff), error = TRUE)
 })
 
+test_that("Filled contours use the polygon border type", {
+  r <- terra::rast(nrows = 3, ncols = 3, vals = 1:9, crs = "")
+  p <- ggplot2::ggplot() +
+    ggplot2::theme(
+      geom.polygon = ggplot2::element_geom(bordertype = "dotted"),
+      geom = ggplot2::element_geom(linetype = "solid")
+    )
+
+  themed <- p + geom_spatraster_contour_filled(data = r, breaks = c(0, 5, 10))
+  explicit <- p +
+    geom_spatraster_contour_filled(
+      data = r,
+      breaks = c(0, 5, 10),
+      linetype = "dashed"
+    )
+
+  expect_identical(unique(ggplot2::get_layer_data(themed)$linetype), "dotted")
+  expect_identical(unique(ggplot2::get_layer_data(explicit)$linetype), "dashed")
+})
+
 test_that("Test plot", {
   suppressWarnings(library(ggplot2))
 

@@ -568,15 +568,16 @@ prepare_aes_spatraster <- function(
     )
   )
 
-  # Create the default result object first, this may be overridden.
-
-  result_obj <- list(namelayer = FALSE, alphalayer = FALSE, map = mapinit)
-
-  # Capture all info
   fill_from_dots <- "fill" %in% names(dots)
   alpha_from_dots <- "alpha" %in% names(dots)
 
-  # Do nothing if fill in dots
+  if (fill_from_dots && "fill" %in% names(mapinit)) {
+    # Keep a NULL entry to prevent inheriting a plot-level fill mapping.
+    mapinit["fill"] <- list(NULL)
+  }
+
+  result_obj <- list(namelayer = FALSE, alphalayer = FALSE, map = mapinit)
+
   if (!isTRUE(fill_from_dots)) {
     # Extract from aes
     fill_from_aes <- unname(vapply(mapinit, rlang::as_label, character(1))[
