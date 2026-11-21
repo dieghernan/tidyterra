@@ -7,13 +7,12 @@ a substantial contribution.
 
 ## Fixing typos
 
-You can fix typos, spelling mistakes or grammatical errors in the
-documentation directly in the GitHub web interface, as long as you make
-the changes in the *source* file. This generally means editing
-[**roxygen2**
-comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`
-file, not an `.Rd` file. You can find the `.R` file that generates the
-`.Rd` file by reading the comment in the first line.
+You can fix typos in the source file directly in the GitHub web
+interface. For reference topics, edit the [**roxygen2**
+comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in the `.R`
+file named at the top of the generated `.Rd` file. Edit `README.qmd` for
+the README, `index.qmd` for the site home page and
+`vignettes/tidyterra.qmd.orig` for the introductory vignette.
 
 ## Bigger changes
 
@@ -39,8 +38,9 @@ great issue](https://code-review.tidyverse.org/issues/) for more advice.
   `usethis::pr_push()` and following the prompts in your browser. The PR
   title should briefly describe the change. The PR body should contain
   `Fixes #issue-number`.
-- For user-facing changes, add a bullet to the top of `NEWS.md`, just
-  below the first heading. Follow the style at
+- For user-facing changes, add a bullet to the development section of
+  `NEWS.md`. Put general entries first and sort the others
+  alphabetically by function name. Follow the style at
   <https://style.tidyverse.org/news.html>.
 
 ### Code style

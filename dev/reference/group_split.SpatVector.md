@@ -46,9 +46,9 @@ group_split(.tbl, ..., .keep = TRUE)
 
 A list of
 [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
-objects. Each object contains the rows of `.tbl` for the associated
-group and all columns. When `.keep = TRUE`, the output includes the
-grouping variables.
+objects, one per group. Each contains the rows of `.tbl` for that group.
+The grouping variables are included with `.keep = TRUE` (the default)
+and dropped with `.keep = FALSE`.
 
 ## Details
 

@@ -228,7 +228,7 @@
 <p>This guide explains how to propose a change to <strong>tidyterra</strong>. Review the <a href="https://rstd.io/tidy-contrib" class="external-link">development contributing guide</a> and <a href="https://code-review.tidyverse.org/" class="external-link">code review principles</a> before submitting a substantial contribution.</p>
 <div class="section level2">
 <h2 id="fixing-typos">Fixing typos<a class="anchor" aria-label="anchor" href="#fixing-typos"></a></h2>
-<p>You can fix typos, spelling mistakes or grammatical errors in the documentation directly in the GitHub web interface, as long as you make the changes in the <em>source</em> file. This generally means editing <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link"><strong>roxygen2</strong> comments</a> in an <code>.R</code> file, not an <code>.Rd</code> file. You can find the <code>.R</code> file that generates the <code>.Rd</code> file by reading the comment in the first line.</p>
+<p>You can fix typos in the source file directly in the GitHub web interface. For reference topics, edit the <a href="https://roxygen2.r-lib.org/articles/roxygen2.html" class="external-link"><strong>roxygen2</strong> comments</a> in the <code>.R</code> file named at the top of the generated <code>.Rd</code> file. Edit <code>README.qmd</code> for the README, <code>index.qmd</code> for the site home page and <code>vignettes/tidyterra.qmd.orig</code> for the introductory vignette.</p>
 </div>
 <div class="section level2">
 <h2 id="bigger-changes">Bigger changes<a class="anchor" aria-label="anchor" href="#bigger-changes"></a></h2>
@@ -239,7 +239,7 @@
 <li>Install all development dependencies with <code>devtools::install_dev_deps()</code>, then make sure the package passes <code>R CMD check</code> by running <code>devtools::check()</code>. If <code>R CMD check</code> does not pass cleanly, ask for help before continuing.</li>
 <li>Create a Git branch for your pull request (PR). Use <code>usethis::pr_init("brief-description-of-change")</code>.</li>
 <li>Make your changes, commit them to Git, then create a PR by running <code>usethis::pr_push()</code> and following the prompts in your browser. The PR title should briefly describe the change. The PR body should contain <code>Fixes #issue-number</code>.</li>
-<li>For user-facing changes, add a bullet to the top of <code>NEWS.md</code>, just below the first heading. Follow the style at <a href="https://style.tidyverse.org/news.html" class="external-link uri">https://style.tidyverse.org/news.html</a>.</li>
+<li>For user-facing changes, add a bullet to the development section of <code>NEWS.md</code>. Put general entries first and sort the others alphabetically by function name. Follow the style at <a href="https://style.tidyverse.org/news.html" class="external-link uri">https://style.tidyverse.org/news.html</a>.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="code-style">Code style<a class="anchor" aria-label="anchor" href="#code-style"></a></h3>

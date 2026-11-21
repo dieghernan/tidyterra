@@ -315,9 +315,9 @@ objects.</p><div class="section">
 <h3 id="spatraster-and-spatvector"><code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> and <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code><a class="anchor" aria-label="anchor" href="#spatraster-and-spatvector"></a></h3>
 
 
-<p>The returned <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> includes the CRS of the original object
-as an attribute
-in WKT format (see <code><a href="pull_crs.html">pull_crs()</a></code>).</p>
+<p>The returned <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> stores the original CRS in the <code>crs</code>
+attribute in WKT format when available (see <code><a href="pull_crs.html">pull_crs()</a></code>). With no CRS,
+the attribute is an empty string for a raster and is absent for a vector.</p>
 </div>
 
     </div>
@@ -327,9 +327,8 @@ in WKT format (see <code><a href="pull_crs.html">pull_crs()</a></code>).</p>
 
 
 <p>When coercing <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> objects to data frames, <code>x</code> and <code>y</code>
-are reserved
-names for the geographic coordinates of each cell. <a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> also
-allows layers with duplicated names.</p>
+are reserved for cell-center coordinates in the raster's CRS.
+<a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> also allows layers with duplicated names.</p>
 <p>When coercing a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> to a <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a>,
 <a href="https://CRAN.R-project.org/package=tidyterra" class="external-link"><span class="pkg">tidyterra</span></a> may rename its
 layers to avoid these issues. Specifically, layers may be renamed in the

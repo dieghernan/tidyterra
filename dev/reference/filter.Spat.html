@@ -8,11 +8,9 @@ combined with the &amp;amp; operator. To combine comma-separated conditions usin
 Both filter() and filter_out() treat NA like FALSE. This subtle
 behavior can affect how you write your conditions when missing values are
 involved. See dplyr::filter().
-You can filter a SpatRaster by its geographic
-coordinates.
-Use filter(.data, x &amp;gt; 42). The names x and y are reserved in
-terra because they refer to the geographic coordinates of the
-layer.
+To filter a SpatRaster by its cell-center coordinates, use
+an expression such as filter(.data, x &amp;gt; 42). The reserved names x and
+y refer to coordinates in the raster's CRS.
 See Examples and section Layer and column names on
 as_tibble.Spat()."><meta property="og:description" content="These functions subset a Spat* object by applying the expressions in ...
 to determine which rows should be kept (for filter()) or dropped (for
@@ -23,11 +21,9 @@ combined with the &amp;amp; operator. To combine comma-separated conditions usin
 Both filter() and filter_out() treat NA like FALSE. This subtle
 behavior can affect how you write your conditions when missing values are
 involved. See dplyr::filter().
-You can filter a SpatRaster by its geographic
-coordinates.
-Use filter(.data, x &amp;gt; 42). The names x and y are reserved in
-terra because they refer to the geographic coordinates of the
-layer.
+To filter a SpatRaster by its cell-center coordinates, use
+an expression such as filter(.data, x &amp;gt; 42). The reserved names x and
+y refer to coordinates in the raster's CRS.
 See Examples and section Layer and column names on
 as_tibble.Spat()."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -264,11 +260,9 @@ combined with the <code>&amp;</code> operator. To combine comma-separated condit
 <p>Both <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter_out()</a></code> treat <code>NA</code> like <code>FALSE</code>. This subtle
 behavior can affect how you write your conditions when missing values are
 involved. See <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>.</p>
-<p><strong>You can filter a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> by its geographic
-coordinates</strong>.
-Use <code>filter(.data, x &gt; 42)</code>. The names <code>x</code> and <code>y</code> are reserved in
-<a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> because they refer to the geographic coordinates of the
-layer.</p>
+<p>To filter a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> by its cell-center coordinates, use
+an expression such as <code>filter(.data, x &gt; 42)</code>. The reserved names <code>x</code> and
+<code>y</code> refer to coordinates in the raster's CRS.</p>
 <p>See <strong>Examples</strong> and section <strong>Layer and column names</strong> on
 <code><a href="as_tibble.Spat.html">as_tibble.Spat()</a></code>.</p>
     </div>
@@ -298,8 +292,9 @@ created with <code><a href="https://rspatial.github.io/terra/reference/vect.html
 <dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Expressions that
 return a logical value and are defined in terms of the layers/attributes
 in <code>.data</code>. If multiple expressions are included, they are combined with
-the <code>&amp;</code> operator. Only cells/geometries for which all conditions evaluate
-to <code>TRUE</code> are kept. See <strong>Methods</strong>.</p></dd>
+the <code>&amp;</code> operator. <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> keeps cells or geometries for which the
+combined condition is <code>TRUE</code>. For vectors, <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter_out()</a></code> drops those
+geometries and keeps the ones for which the condition is <code>FALSE</code> or <code>NA</code>.</p></dd>
 
 
 <dt id="arg--preserve">.preserve<a class="anchor" aria-label="anchor" href="#arg--preserve"></a></dt>
@@ -352,9 +347,8 @@ internally for filtering. See <strong>Examples</strong>.</p>
 <h3 id="spatvector"><code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code><a class="anchor" aria-label="anchor" href="#spatvector"></a></h3>
 
 
-<p>The result is a <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> containing the geometries whose
-attributes
-satisfy all conditions.</p>
+<p>The result is a <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code>. <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter()</a></code> retains matching
+geometries, and <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter_out()</a></code> removes matching geometries.</p>
 </div>
 
     </div>
@@ -411,7 +405,7 @@ satisfy all conditions.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">r_f2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="filter.Spat-3.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Filter by geographic coordinates</span></span></span>
+<span class="r-in"><span><span class="co"># Filter by cell-center coordinates.</span></span></span>
 <span class="r-in"><span><span class="va">r2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">r</span>, <span class="st">"epsg:4326"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">r2</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">)</span></span></span>

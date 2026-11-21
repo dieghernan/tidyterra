@@ -83,7 +83,7 @@ The following methods are available:
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Mask cells with `NA` in any selected layer and trim `NA` borders. |
 | [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
 | [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
@@ -94,7 +94,7 @@ The following methods are available:
 | [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
 | [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ To an `sf` object through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a tibble with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ Convert to a two-dimensional `sf` object. Use [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md) to retain Z and M coordinates. | ✔️ Convert to a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |

@@ -81,7 +81,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`dplyr::add_count()`](https://dplyr.tidyverse.org/reference/count.html) | ✔️ |  |
 | `dplyr::rows_*()` | ✔️ |  |
 | [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) / [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) | ✔️ as [`bind_spat_cols()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_cols.SpatVector.md) / [`bind_spat_rows()`](https://dieghernan.github.io/tidyterra/dev/reference/bind_rows.SpatVector.md) |  |
-| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| [`tidyr::drop_na()`](https://tidyr.tidyverse.org/reference/drop_na.html) | ✔️ | ✔️ Mask cells with `NA` in any selected layer and trim `NA` borders. |
 | [`tidyr::complete()`](https://tidyr.tidyverse.org/reference/complete.html) | ✔️ |  |
 | [`tidyr::expand()`](https://tidyr.tidyverse.org/reference/expand.html) | ✔️ |  |
 | [`tidyr::replace_na()`](https://tidyr.tidyverse.org/reference/replace_na.html) | ✔️ | ✔️ |
@@ -92,7 +92,7 @@ Current methods and functions provided by **tidyterra** are:
 | [`tidyr::uncount()`](https://tidyr.tidyverse.org/reference/uncount.html) | ✔️ |  |
 | [`tidyr::unite()`](https://tidyr.tidyverse.org/reference/unite.html) | ✔️ | ✔️ Create a categorical layer. |
 | [`ggplot2::autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html) | ✔️ | ✔️ |
-| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ To an `sf` object through [`sf::st_as_sf()`](https://r-spatial.github.io/sf/reference/st_as_sf.html) | To a tibble with coordinates. |
+| [`ggplot2::fortify()`](https://ggplot2.tidyverse.org/reference/fortify.html) | ✔️ Convert to a two-dimensional `sf` object. Use [`as_sf()`](https://dieghernan.github.io/tidyterra/dev/reference/as_sf.md) to retain Z and M coordinates. | ✔️ Convert to a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ [`geom_spatvector()`](https://dieghernan.github.io/tidyterra/dev/reference/ggspatvector.md) | ✔️ [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md) and [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md). |
 | [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html) | ✔️ | ✔️ |
 | [`generics::glance()`](https://generics.r-lib.org/reference/glance.html) | ✔️ | ✔️ |
@@ -112,10 +112,9 @@ As a rule of thumb, if your raster has fewer than 10,000,000 data slots,
 for example `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 **tidyterra** is a good fit.
 
-When plotting rasters, resampling is performed automatically (as
-[`terra::plot()`](https://rspatial.github.io/terra/reference/plot.html)
-does, see the help page). You can adjust this with the `maxcell`
-argument.
+When plotting rasters, `maxcell` controls sampling before plotting. Use
+`maxcell = Inf` to skip this step. Reprojecting a raster to the plot’s
+CRS can still resample it.
 
 ## Installation
 
@@ -326,12 +325,12 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
-You can also try the experimental **tidyterra** AI assistant on the
-[development documentation
-website](https://dieghernan.github.io/tidyterra/dev/). Open the chat
-button to ask about **tidyterra** and explore the sources behind its
-answers. See the [assistant
-FAQ](https://dieghernan.github.io/tidyterra/dev/articles/faqs.html#ai-assistant)
+Open the chat button on the [documentation
+website](https://dieghernan.github.io/tidyterra/) or its [development
+version](https://dieghernan.github.io/tidyterra/dev/). The experimental
+**tidyterra** AI assistant uses the published release documentation. See
+the [assistant
+FAQ](https://dieghernan.github.io/tidyterra/articles/faqs.html#ai-assistant)
 for details and limitations.
 
 Check the

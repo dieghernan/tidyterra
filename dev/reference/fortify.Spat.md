@@ -85,10 +85,11 @@ fortify(model, data, ..., crs = "")
 
 - maxcell:
 
-  Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to remove this sampling limit. Reprojection for the plot can
-  still change the grid, so `Inf` does not guarantee native plot
-  resolution. The input raster is not modified.
+  Positive integer or `Inf`. Target number of raster cells for regular
+  sampling. Sampling starts when the raster has more than 1.1 times
+  `maxcell` cells, and the sampled grid can still exceed the target.
+  `Inf` skips this sampling step. Reprojection for plotting can still
+  change the grid. The input raster is not modified.
 
 - pivot:
 

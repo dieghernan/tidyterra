@@ -4,6 +4,9 @@
 
 - The minimum supported **R** version is now 4.2.0 to match the
   requirements of current **ggplot2** releases.
+- [`distinct()`](https://dplyr.tidyverse.org/reference/distinct.html)
+  now supports computed keys for `SpatVector` objects and keeps the
+  geometry of the first matching row.
 - [`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
   and `stat_spatraster(geom = "raster")` now resolve duplicate `fill`
   settings before passing them to **ggplot2**, so a fixed `fill`
@@ -12,6 +15,11 @@
   now takes its default `linetype` from the theme’s `bordertype`,
   matching
   [`ggplot2::geom_polygon()`](https://ggplot2.tidyverse.org/reference/geom_polygon.html).
+- [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)
+  now accepts integer EPSG codes such as `4326L`.
+- [`slice_min()`](https://dplyr.tidyverse.org/reference/slice.html) and
+  [`slice_max()`](https://dplyr.tidyverse.org/reference/slice.html) now
+  mask all layers of raster cells excluded by `na.rm = TRUE`.
 
 ## tidyterra 1.3.1
 
@@ -65,8 +73,8 @@ CRAN release: 2026-08-24
   ([\#154](https://github.com/dieghernan/tidyterra/issues/154),
   [\#211](https://github.com/dieghernan/tidyterra/issues/211)).
 - [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md)
-  no longer emits a warning for rasters with more than three layers,
-  such as RGB rasters with an alpha channel.
+  accepts rasters with more than three layers without warning and uses
+  only the selected red, green and blue layers.
 - `geom_*()` defaults were adjusted to match current **ggplot2**
   defaults.
 - [`hypso.colors()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_hypso.md)

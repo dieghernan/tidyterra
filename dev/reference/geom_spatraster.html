@@ -7,7 +7,7 @@ SpatRaster objects,
 use geom_spatraster_rgb().
 To plot one panel per raster layer in two columns, add
 ggplot2::facet_wrap(~lyr, ncol = 2).
-The default maxcell = 500000 limits the cells sampled for plotting.
+The default sampling target for plotting is maxcell = 500000.
 The underlying implementation is based on ggplot2::geom_raster().
 stat_spatraster() complements geom_spatraster() when you need to change
 the geom."><meta property="og:description" content="This geom plots SpatRaster objects (see terra::rast()). It
@@ -18,7 +18,7 @@ SpatRaster objects,
 use geom_spatraster_rgb().
 To plot one panel per raster layer in two columns, add
 ggplot2::facet_wrap(~lyr, ncol = 2).
-The default maxcell = 500000 limits the cells sampled for plotting.
+The default sampling target for plotting is maxcell = 500000.
 The underlying implementation is based on ggplot2::geom_raster().
 stat_spatraster() complements geom_spatraster() when you need to change
 the geom."><meta property="og:image" content="https://dieghernan.github.io/tidyterra/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-KRDM62G8K4"></script><script>
@@ -255,7 +255,7 @@ to plot the object by layers, as <code><a href="https://rspatial.github.io/terra
 use <code><a href="geom_spatraster_rgb.html">geom_spatraster_rgb()</a></code>.
 To plot one panel per raster layer in two columns, add
 <code>ggplot2::facet_wrap(~lyr, ncol = 2)</code>.
-The default <code>maxcell = 500000</code> limits the cells sampled for plotting.</p>
+The default sampling target for plotting is <code>maxcell = 500000</code>.</p>
 <p>The underlying implementation is based on <code><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">ggplot2::geom_raster()</a></code>.</p>
 <p><code>stat_spatraster()</code> complements <code>geom_spatraster()</code> when you need to change
 the <code>geom</code>.</p>
@@ -308,8 +308,9 @@ with <code><a href="https://rspatial.github.io/terra/reference/rast.html" class=
 
 
 <dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
-<dd><p>If <code>TRUE</code>, the default, missing values are silently removed. If
-<code>FALSE</code>, missing values are removed with a warning.</p></dd>
+<dd><p>If <code>TRUE</code>, the default, suppress warnings when missing values
+are removed. Missing raster cell values mapped to <code>fill</code> use the fill
+scale's <code>na.value</code>.</p></dd>
 
 
 <dt id="arg-show-legend">show.legend<a class="anchor" aria-label="anchor" href="#arg-show-legend"></a></dt>
@@ -323,8 +324,9 @@ but unobserved levels are omitted.</p></dd>
 
 
 <dt id="arg-inherit-aes">inherit.aes<a class="anchor" aria-label="anchor" href="#arg-inherit-aes"></a></dt>
-<dd><p>If <code>FALSE</code>, override the default aesthetics rather than
-combining with them.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, combine the layer's aesthetic
+mappings with those supplied to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot2::ggplot()</a></code>. If <code>FALSE</code>, use
+the layer's mappings alone.</p></dd>
 
 
 <dt id="arg-interpolate">interpolate<a class="anchor" aria-label="anchor" href="#arg-interpolate"></a></dt>
@@ -333,10 +335,11 @@ combining with them.</p></dd>
 
 
 <dt id="arg-maxcell">maxcell<a class="anchor" aria-label="anchor" href="#arg-maxcell"></a></dt>
-<dd><p>Positive integer or <code>Inf</code>. Maximum number of raster cells to
-use. Use <code>Inf</code> to remove this sampling limit.
-Reprojection for the plot can still change the grid, so <code>Inf</code> does not
-guarantee native plot resolution. The input raster is not modified.</p></dd>
+<dd><p>Positive integer or <code>Inf</code>. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+<code>maxcell</code> cells, and the sampled grid can still exceed the target.
+<code>Inf</code> skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.</p></dd>
 
 
 <dt id="arg-use-coltab">use_coltab<a class="anchor" aria-label="anchor" href="#arg-use-coltab"></a></dt>
@@ -389,7 +392,9 @@ and
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer.</p>
+    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer or a list of components to add to a plot.
+A raster with a CRS adds an auxiliary spatial layer. A raster with a
+color table can also add a fill scale.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -417,15 +422,12 @@ scales.</p>
 
 <p><code>geom_spatraster()</code> understands the following aesthetics:</p><ul><li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">fill</a></code></p></li>
 <li><p><code><a href="https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html" class="external-link">alpha</a></code></p></li>
-</ul><p>If <code>fill</code> is not provided, <code>geom_spatraster()</code> creates a
-<a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer with all the layers of the
-<code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code>
-object. Use <code>facet_wrap(~lyr)</code> to display its layers.
-layers.</p>
-<p>If <code>fill</code> is used, it should contain the name of one layer that is present
-on the <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> (for example,
-<code>geom_spatraster(data = rast, aes(fill = &lt;name_of_lyr&gt;))</code>). Layer names can
-be retrieved using <code>names(rast)</code>.</p>
+</ul><p>If <code>fill</code> is omitted, <code>geom_spatraster()</code> uses all raster layers that share
+the class of the first layer. Use <code>facet_wrap(~lyr)</code> to display those layers
+in separate panels.</p>
+<p>To select one raster layer by name, map <code>fill</code> in the geom itself, for
+example <code>geom_spatraster(data = rast, aes(fill = elevation))</code>. Use
+<code>names(rast)</code> to list the available layer names.</p>
 <p>Using <code>geom_spatraster(..., mapping = aes(fill = NULL))</code> or
 <code>geom_spatraster(..., fill = &lt;color value(s)&gt;)</code> creates a layer with no
 mapped <code>fill</code> aesthetic.</p>

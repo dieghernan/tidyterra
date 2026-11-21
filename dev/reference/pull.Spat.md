@@ -4,11 +4,11 @@
 to `$` on a data frame. It is mostly useful because it looks nicer in
 pipes and can optionally name the output.
 
-**You can extract the geographic coordinates of a
-[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)**.
-Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names in
-[terra](https://CRAN.R-project.org/package=terra), since they refer to
-cell coordinates.
+You can extract the cell-center coordinates of a
+[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) in
+its CRS. Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved names
+in [terra](https://CRAN.R-project.org/package=terra), since they refer
+to cell coordinates.
 
 See **Examples** and section **Layer and column names** on
 [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
@@ -67,8 +67,8 @@ pull(.data, var = -1, name = NULL, ...)
 A vector with one element per cell or geometry in `.data`. For
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 objects, the default (`na.rm = FALSE`) keeps missing values. Passing
-`na.rm = TRUE` to `...` removes cells with missing values and can
-shorten the result. See
+`na.rm = TRUE` to `...` omits cells with a missing value in any layer
+and can shorten the result. See
 [`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
@@ -88,14 +88,10 @@ the tibble.
 
 ### [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
 
-When passing `na.rm = TRUE` to `...`, only cells with a value other than
-`NA` are extracted. See
-[`terra::as.data.frame()`](https://rspatial.github.io/terra/reference/as.data.frame.html).
-
-If `xy = TRUE` is passed to `...`, two columns named `x` and `y`
-(corresponding to the geographic coordinates of each cell) are available
-in positions `1` and `2`. Therefore, `pull(.data, 1)` and
-`pull(.data, 1, xy = TRUE)` return different results.
+With `xy = TRUE`, `x` and `y` are the first two columns and give the
+cell-center coordinates in the raster's CRS. For example,
+`pull(.data, 1)` returns the first layer's values, and
+`pull(.data, 1, xy = TRUE)` returns the cells' x coordinates.
 
 ### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
@@ -132,7 +128,7 @@ r |>
   head()
 #> [1] 229 235 229 229 239 153
 
-# With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
+# Extract the y coordinate of each cell in the raster's CRS.
 
 r |>
   pull(2, xy = TRUE) |>

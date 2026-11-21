@@ -17,12 +17,11 @@ treat `NA` like `FALSE`. This subtle behavior can affect how you write
 your conditions when missing values are involved. See
 [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html).
 
-**You can filter a
+To filter a
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html) by
-its geographic coordinates**. Use `filter(.data, x > 42)`. The names `x`
-and `y` are reserved in
-[terra](https://CRAN.R-project.org/package=terra) because they refer to
-the geographic coordinates of the layer.
+its cell-center coordinates, use an expression such as
+`filter(.data, x > 42)`. The reserved names `x` and `y` refer to
+coordinates in the raster's CRS.
 
 See **Examples** and section **Layer and column names** on
 [`as_tibble.Spat()`](https://dieghernan.github.io/tidyterra/dev/reference/as_tibble.Spat.md).
@@ -54,9 +53,13 @@ filter_out(.data, ..., .by = NULL, .preserve = FALSE)
   \<[`data-masking`](https://rlang.r-lib.org/reference/args_data_masking.html)\>
   Expressions that return a logical value and are defined in terms of
   the layers/attributes in `.data`. If multiple expressions are
-  included, they are combined with the `&` operator. Only
-  cells/geometries for which all conditions evaluate to `TRUE` are kept.
-  See **Methods**.
+  included, they are combined with the `&` operator.
+  [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) keeps
+  cells or geometries for which the combined condition is `TRUE`. For
+  vectors,
+  [`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)
+  drops those geometries and keeps the ones for which the condition is
+  `FALSE` or `NA`.
 
 - .preserve:
 
@@ -115,8 +118,11 @@ also available internally for filtering. See **Examples**.
 ### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 
 The result is a
-[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
-containing the geometries whose attributes satisfy all conditions.
+[`SpatVector`](https://rspatial.github.io/terra/reference/vect.html).
+[`filter()`](https://dplyr.tidyverse.org/reference/filter.html) retains
+matching geometries, and
+[`filter_out()`](https://dplyr.tidyverse.org/reference/filter.html)
+removes matching geometries.
 
 ## See also
 
@@ -173,7 +179,7 @@ r_f2 <- r |> filter(tavg_04 > 11.5, .keep_extent = FALSE)
 plot(r_f2)
 
 
-# Filter by geographic coordinates
+# Filter by cell-center coordinates.
 r2 <- project(r, "epsg:4326")
 
 r2 |> plot()

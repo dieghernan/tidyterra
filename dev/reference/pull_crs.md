@@ -29,7 +29,7 @@ pull_crs(.data, ...)
   [`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html),
   a character string (for example a [PROJ
   string](https://proj.org/en/9.3/operations/projections/index.html)) or
-  an integer (representing an [EPSG](https://epsg.io/) code).
+  a numeric [EPSG](https://epsg.io/) code such as `4326` or `4326L`.
 
 - ...:
 
@@ -38,7 +38,8 @@ pull_crs(.data, ...)
 ## Value
 
 A character string containing the CRS in WKT format, or `NA` if no CRS
-can be determined.
+is available. Invalid CRS definitions can raise an error from
+[`sf::st_crs()`](https://r-spatial.github.io/sf/reference/st_crs.html).
 
 ## Details
 
@@ -97,7 +98,7 @@ fromterra1 <- pull_crs(v)
 fromterra2 <- pull_crs(r)
 
 # Integers.
-fromint <- pull_crs(4326)
+fromint <- pull_crs(4326L)
 
 # Characters.
 fromchar <- pull_crs("epsg:4326")

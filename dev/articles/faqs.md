@@ -43,9 +43,10 @@ folder at <https://github.com/dieghernan/tidyterra/tree/main/data-raw>.
 ## Can I ask questions about tidyterra documentation?
 
 The experimental **tidyterra** AI assistant answers questions using the
-development documentation. Open the chat button in the lower-right
+published release documentation. Open the chat button in the lower-right
 corner of the [documentation
-website](https://dieghernan.github.io/tidyterra/dev/). You can ask in
+website](https://dieghernan.github.io/tidyterra/) or its [development
+version](https://dieghernan.github.io/tidyterra/dev/). You can ask in
 your preferred language and include the type of spatial object, the
 function you are using and what you want to do.
 
@@ -208,7 +209,7 @@ elevations.](faqs_files/figure-html/fig-textcontour-2.png)
 
 Figure 2: Contour labels with **tidyterra**.
 
-### Other alternatives
+### Contour labels with metR
 
 With
 [`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md),
@@ -322,8 +323,12 @@ relief.
 
 ## Can I change the default palette of my maps?
 
-Yes, use `options("ggplot2.continuous.fill")` to modify the default
-colors in your session.
+Set the `ggplot2.continuous.fill` option to change the session default
+for continuous fill when the plot uses an implicit scale. For example,
+[`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
+can add its own scale, and
+[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
+can use a raster’s color table.
 
 ``` r
 
@@ -366,17 +371,15 @@ Figure 5: Changing default **ggplot2** color palettes.
 
 ## My map tiles are blurry
 
-Blurriness is typically related to the tile source rather than the
-package.
+Raster tiles can appear blurry after reprojection or downsampling.
 
 Important
 
-Most base tiles are usually provided in **EPSG:3857**, so verify that
-your tile uses this CRS rather than a different one. If your tile is not
-in **EPSG:3857**, it has likely been reprojected, which involves
-resampling and causes blurriness. To avoid extra resampling, increase
-the `maxcell` argument and ensure the **ggplot2** map uses **EPSG:3857**
-with `ggplot2::coord_sf(crs = 3857)`.
+For Web Mercator tiles, keep the provider’s native CRS (EPSG:3857) with
+`maptiles::get_tiles(project = FALSE)` and use the same CRS for the plot
+with `ggplot2::coord_sf(crs = 3857)`. Use `maxcell = Inf` to skip
+**tidyterra**’s sampling step. A change in CRS can still resample the
+tile.
 
 ``` r
 
@@ -400,24 +403,21 @@ tile1 <- get_tiles(
 )
 
 ggplot() +
-  geom_spatraster_rgb(data = tile1) +
+  geom_spatraster_rgb(data = tile1, maxcell = Inf) +
   labs(title = "CRS EPSG:4326") +
   theme_void()
 
 st_crs(tile1)$epsg
 #> [1] 4326
 
-# The tile was in EPSG:4326.
-
-# Get the tile in EPSG:3857.
-p2 <- st_transform(p, 3857)
-
+# Keep the tile in its native CRS (EPSG:3857).
 tile2 <- get_tiles(
-  p2,
+  p,
   provider = "OpenStreetMap",
   zoom = 14,
   cachedir = ".",
-  crop = TRUE
+  crop = TRUE,
+  project = FALSE
 )
 
 st_crs(tile2)$epsg
@@ -498,7 +498,10 @@ Figure 7: Degree labels with **ggplot2**.
 
 ## Modify the number of axis breaks
 
-Use the **scales** package to change the axis breaks:
+Use
+[`scales::breaks_extended()`](https://scales.r-lib.org/reference/breaks_extended.html)
+to request an approximate number of breaks. The final count depends on
+the coordinate range.
 
 ``` r
 
@@ -520,7 +523,7 @@ ggplot() +
   geom_spatraster(data = r) +
   scale_y_continuous(breaks = scales::breaks_extended(n = 5)) +
   scale_x_continuous(breaks = scales::breaks_extended(n = 5)) +
-  labs(title = "Three breaks on x and y axes with scales::breaks_extended()")
+  labs(title = "Fewer breaks with scales::breaks_extended()")
 ```
 
 ![Elevation raster map of Holyrood Park with the default number of
@@ -586,16 +589,16 @@ Figure 9: Color tables: native plot with the **terra** package.
 
 ``` r
 
-# `autoplot()` method.
+# Plot with `autoplot()`.
 autoplot(r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "autoplot() method")
+  labs(title = "autoplot()")
 
-# `geom_spatraster()` method.
+# Plot with `geom_spatraster()`.
 ggplot() +
   geom_spatraster(data = r_coltab, maxcell = Inf, show.legend = FALSE) +
-  labs(title = "geom_spatraster() method")
+  labs(title = "geom_spatraster()")
 
-# `scale_fill_coltab()` method.
+# Add the color table with `scale_fill_coltab()`.
 ggplot() +
   geom_spatraster(
     data = r_coltab,
@@ -604,7 +607,7 @@ ggplot() +
     show.legend = FALSE
   ) +
   scale_fill_coltab(data = r_coltab) +
-  labs(title = "scale_fill_coltab() method")
+  labs(title = "scale_fill_coltab()")
 
 # Extract named colors and use `scale_fill_manual()`.
 cols <- get_coltab_pal(r_coltab)
@@ -644,34 +647,30 @@ raster's stored colors. Colored regions distinguish land-cover
 classes.](faqs_files/figure-html/fig-tidyterra-1.png)
 
 \(a\)
-[`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html)
-method.
+[`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html).
 
 ![Categorical land-cover map of Edinburgh using geom_spatraster and the
 raster's stored colors. Colored regions distinguish land-cover
 classes.](faqs_files/figure-html/fig-tidyterra-2.png)
 
 \(b\)
-[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md)
-method.
+[`geom_spatraster()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster.md).
 
 ![Categorical land-cover map of Edinburgh using an explicit color-table
 scale. Colored regions distinguish land-cover
 classes.](faqs_files/figure-html/fig-tidyterra-3.png)
 
 \(c\)
-[`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md)
-method.
+[`scale_fill_coltab()`](https://dieghernan.github.io/tidyterra/dev/reference/scale_coltab.md).
 
 ![Categorical land-cover map of Edinburgh using extracted named colors.
 Colored regions distinguish land-cover
 classes.](faqs_files/figure-html/fig-tidyterra-4.png)
 
-\(d\) Named colors and
-[`scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
-method.
+\(d\) Named colors with
+[`scale_fill_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html).
 
-Figure 10: Color tables: **tidyterra** methods.
+Figure 10: Plotting with raster color tables.
 
 ## Use with gganimate
 
@@ -740,7 +739,7 @@ r <- rast(holyrood)
 
 autoplot(r) +
   annotation_north_arrow(
-    which_north = TRUE,
+    which_north = "true",
     pad_x = unit(0.8, "npc"),
     pad_y = unit(0.75, "npc"),
     style = north_arrow_fancy_orienteering()
@@ -908,13 +907,12 @@ Figure 14: Alternative overlay approaches.
 
 ## Hexagonal grids and other geoms
 
-While `SpatRaster` cells are inherently rectangular, you can create
-plots with hexagonal cells using
-[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md)
-and
-[`stat_summary_hex()`](https://ggplot2.tidyverse.org/reference/stat_summary_2d.html).
-The final plot requires coordinate adjustment with
-[`coord_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html):
+Use
+[`stat_summary_hex()`](https://ggplot2.tidyverse.org/reference/stat_summary_2d.html)
+to aggregate raster cell centers into hexagonal bins. The plot uses the
+coordinates supplied by
+[`fortify.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/fortify.Spat.md).
+Set `coord_sf(crs = pull_crs(r))` to use the raster’s CRS.
 
 ``` r
 
@@ -932,7 +930,7 @@ ggplot(r, aes(x, y, z = elevation)) +
     fun = mean,
     color = NA,
     linewidth = 0,
-    # Bin size determines the number of cells displayed.
+    # Set the number of bins used to aggregate cell centers.
     bins = 30
   ) +
   coord_sf(crs = pull_crs(r)) +
@@ -944,9 +942,9 @@ ggplot(r, aes(x, y, z = elevation)) +
   )
 ```
 
-![Hexagonal tile map of Holyrood Park. Each hexagon represents mean
-surface elevation within one of 30 spatial bins along each axis. Fill
-color encodes elevation.](faqs_files/figure-html/fig-hex_grid-1.png)
+![Hexagonal tile map of Holyrood Park. Fill color encodes the mean
+surface elevation in each
+hexagon.](faqs_files/figure-html/fig-hex_grid-1.png)
 
 Figure 15: Elevation data aggregated and visualized as hexagonal grid
 cells.

@@ -290,8 +290,8 @@ cross_blended.colors2(n, palette = "cold_humid", alpha = 1, rev = FALSE)
 
 - na.translate:
 
-  Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `FALSE`.
+  Logical. If `TRUE`, include missing values in the discrete scale and
+  legend. The default (`FALSE`) omits them.
 
 - drop:
 

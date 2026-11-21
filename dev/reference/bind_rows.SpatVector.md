@@ -57,9 +57,10 @@ or a data frame:
   element, they are reprojected to the CRS of the first element with a
   message.
 
-- If any element of `...` is a
-  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)/data
-  frame, the rows are column-bound with empty geometries with a message.
+- Rows from a
+  [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) or
+  data frame are appended with empty geometries, and a message is
+  displayed.
 
 To create an input in another CRS, use
 [`terra::project()`](https://rspatial.github.io/terra/reference/project.html)

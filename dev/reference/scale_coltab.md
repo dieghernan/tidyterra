@@ -142,8 +142,8 @@ get_coltab_pal(x)
 
 - na.translate:
 
-  Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `FALSE`.
+  Logical. If `TRUE`, include missing values in the discrete scale and
+  legend. The default (`FALSE`) omits them.
 
 - na.value:
 

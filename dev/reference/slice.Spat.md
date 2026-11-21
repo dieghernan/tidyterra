@@ -5,7 +5,7 @@ let you index cells/rows/columns/geometries by their (integer)
 locations. They allow you to select, remove or duplicate those
 dimensions of a `Spat*` object.
 
-If you want to slice by geographic coordinates, use
+To select cells by their coordinates, use
 [`filter.SpatRaster()`](https://dieghernan.github.io/tidyterra/dev/reference/filter.Spat.md).
 
 It includes helpers for common use cases:
@@ -148,7 +148,9 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - .preserve:
 
-  Ignored for `Spat*` objects.
+  For a grouped `SpatVector`, `TRUE` retains the input grouping
+  structure and `FALSE` (the default) recalculates it from the result.
+  Ignored for `SpatRaster` objects.
 
 - .keep_extent:
 
@@ -194,8 +196,10 @@ slice_colrows(.data, ..., cols, rows, .keep_extent = FALSE, inverse = FALSE)
 
 - na.rm:
 
-  Logical. If `TRUE`, remove cells with `NA` values when computing
-  `slice_min()/slice_max()`. The default is `TRUE`.
+  Logical. If `TRUE` (the default), exclude cells with a missing value
+  in any layer before ranking them with
+  [`slice_min()`](https://dplyr.tidyverse.org/reference/slice.html) or
+  [`slice_max()`](https://dplyr.tidyverse.org/reference/slice.html).
 
 - na_rm:
 
@@ -251,7 +255,11 @@ with the CRS and resolution of the input and the values of the selected
 cells, columns or rows.
 
 Use `.keep_extent = TRUE` to preserve the extent of `.data` on the
-output. The non-selected cells have a value of `NA`.
+output. The non-selected cells have a value of `NA`. If
+[`slice_min()`](https://dplyr.tidyverse.org/reference/slice.html) or
+[`slice_max()`](https://dplyr.tidyverse.org/reference/slice.html)
+selects no cells, the result is an all-`NA` raster with the original
+extent.
 
 ### [`SpatVector`](https://rspatial.github.io/terra/reference/vect.html)
 

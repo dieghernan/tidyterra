@@ -15,8 +15,8 @@ objects as map tiles, such as RGB
 objects, use
 [`geom_spatraster_rgb()`](https://dieghernan.github.io/tidyterra/dev/reference/geom_spatraster_rgb.md).
 To plot one panel per raster layer in two columns, add
-`ggplot2::facet_wrap(~lyr, ncol = 2)`. The default `maxcell = 500000`
-limits the cells sampled for plotting.
+`ggplot2::facet_wrap(~lyr, ncol = 2)`. The default sampling target for
+plotting is `maxcell = 500000`.
 
 The underlying implementation is based on
 [`ggplot2::geom_raster()`](https://ggplot2.tidyverse.org/reference/geom_tile.html).
@@ -76,8 +76,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - na.rm:
 
-  If `TRUE`, the default, missing values are silently removed. If
-  `FALSE`, missing values are removed with a warning.
+  If `TRUE`, the default, suppress warnings when missing values are
+  removed. Missing raster cell values mapped to `fill` use the fill
+  scale's `na.value`.
 
 - show.legend:
 
@@ -90,8 +91,10 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - inherit.aes:
 
-  If `FALSE`, override the default aesthetics rather than combining with
-  them.
+  Logical. If `TRUE`, combine the layer's aesthetic mappings with those
+  supplied to
+  [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
+  If `FALSE`, use the layer's mappings alone.
 
 - interpolate:
 
@@ -100,10 +103,11 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - maxcell:
 
-  Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to remove this sampling limit. Reprojection for the plot can
-  still change the grid, so `Inf` does not guarantee native plot
-  resolution. The input raster is not modified.
+  Positive integer or `Inf`. Target number of raster cells for regular
+  sampling. Sampling starts when the raster has more than 1.1 times
+  `maxcell` cells, and the sampled grid can still exceed the target.
+  `Inf` skips this sampling step. Reprojection for plotting can still
+  change the grid. The input raster is not modified.
 
 - use_coltab:
 
@@ -168,7 +172,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer or a list
+of components to add to a plot. A raster with a CRS adds an auxiliary
+spatial layer. A raster with a color table can also add a fill scale.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -195,18 +201,13 @@ reprojected**.
 
 - [`alpha`](https://ggplot2.tidyverse.org/reference/aes_colour_fill_alpha.html)
 
-If `fill` is not provided, `geom_spatraster()` creates a
-[ggplot2](https://CRAN.R-project.org/package=ggplot2) layer with all the
-layers of the
-[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
-object. Use `facet_wrap(~lyr)` to display its layers. layers.
+If `fill` is omitted, `geom_spatraster()` uses all raster layers that
+share the class of the first layer. Use `facet_wrap(~lyr)` to display
+those layers in separate panels.
 
-If `fill` is used, it should contain the name of one layer that is
-present on the
-[`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
-(for example,
-`geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names
-can be retrieved using `names(rast)`.
+To select one raster layer by name, map `fill` in the geom itself, for
+example `geom_spatraster(data = rast, aes(fill = elevation))`. Use
+`names(rast)` to list the available layer names.
 
 Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
 `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no

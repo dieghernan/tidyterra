@@ -297,8 +297,8 @@ cpt-city: <https://phillips.shef.ac.uk/pub/cpt-city/>.
 
 - na.translate:
 
-  Logical. If `TRUE`, remove `NA` values from the legend. The default is
-  `FALSE`.
+  Logical. If `TRUE`, include missing values in the discrete scale and
+  legend. The default (`FALSE`) omits them.
 
 - drop:
 

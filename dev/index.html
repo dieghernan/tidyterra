@@ -442,7 +442,7 @@
 <tr>
 <td><code><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">tidyr::drop_na()</a></code></td>
 <td>✔️</td>
-<td>✔️ Remove cell values with <code>NA</code> on any layer and outer cells with <code>NA</code>.</td>
+<td>✔️ Mask cells with <code>NA</code> in any selected layer and trim <code>NA</code> borders.</td>
 </tr>
 <tr>
 <td><code><a href="https://tidyr.tidyverse.org/reference/complete.html" class="external-link">tidyr::complete()</a></code></td>
@@ -496,9 +496,8 @@
 </tr>
 <tr>
 <td><code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">ggplot2::fortify()</a></code></td>
-<td>✔️ To an <code>sf</code> object through <code><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">sf::st_as_sf()</a></code>
-</td>
-<td>To a tibble with coordinates.</td>
+<td>✔️ Convert to a two-dimensional <code>sf</code> object. Use <code><a href="reference/as_sf.html">as_sf()</a></code> to retain Z and M coordinates.</td>
+<td>✔️ Convert to a tibble with coordinates.</td>
 </tr>
 <tr>
 <td><code>ggplot2::geom_*()</code></td>
@@ -536,7 +535,7 @@ A note on performance
 <p><strong>tidyterra</strong> is a user-friendly wrapper around <strong>terra</strong> that provides <strong>tidyverse</strong>-style methods and verbs. This approach has a <strong>performance cost</strong>.</p>
 <p>If you frequently use <strong>terra</strong> or work with large <code>SpatRaster</code> objects, <strong>terra</strong> is usually much faster. Whenever possible, each <strong>tidyterra</strong> function refers to its equivalent in <strong>terra</strong>.</p>
 <p>As a rule of thumb, if your raster has fewer than 10,000,000 data slots, for example <code>terra::ncell(your_rast) * terra::nlyr(your_rast) &lt; 1e7</code>, <strong>tidyterra</strong> is a good fit.</p>
-<p>When plotting rasters, resampling is performed automatically (as <code><a href="https://rspatial.github.io/terra/reference/plot.html" class="external-link">terra::plot()</a></code> does, see the help page). You can adjust this with the <code>maxcell</code> argument.</p>
+<p>When plotting rasters, <code>maxcell</code> controls sampling before plotting. Use <code>maxcell = Inf</code> to skip this step. Reprojecting a raster to the plot’s CRS can still resample it.</p>
 </div>
 </div>
 </div>
@@ -712,7 +711,7 @@ A note on performance
 <div class="section level2">
 <h2 id="need-help">Need help?<a class="anchor" aria-label="anchor" href="#need-help"></a>
 </h2>
-<p>You can also try the experimental <strong>tidyterra</strong> AI assistant on the <a href="https://dieghernan.github.io/tidyterra/dev/">development documentation website</a>. Open the chat button to ask about <strong>tidyterra</strong> and explore the sources behind its answers. See the <a href="https://dieghernan.github.io/tidyterra/dev/articles/faqs.html#ai-assistant">assistant FAQ</a> for details and limitations.</p>
+<p>Open the chat button on the <a href="https://dieghernan.github.io/tidyterra/">documentation website</a> or its <a href="https://dieghernan.github.io/tidyterra/dev/">development version</a>. The experimental <strong>tidyterra</strong> AI assistant uses the published release documentation. See the <a href="https://dieghernan.github.io/tidyterra/articles/faqs.html#ai-assistant">assistant FAQ</a> for details and limitations.</p>
 <p>Check the <a href="https://dieghernan.github.io/tidyterra/articles/faqs.html">FAQs</a> or open a new <a href="https://github.com/dieghernan/tidyterra/issues" class="external-link">issue</a>.</p>
 <p>You can also ask on <a href="https://stackoverflow.com/" class="external-link">Stack Overflow</a> using the tag <a href="https://stackoverflow.com/questions/tagged/tidyterra" class="external-link">[tidyterra]</a>.</p>
 </div>

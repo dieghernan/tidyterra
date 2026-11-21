@@ -50,7 +50,9 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - mapping:
 
-  Ignored.
+  Optional layer-specific aesthetic mappings created with
+  [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html).
+  Select RGB channels with `r`, `g` and `b`.
 
 - data:
 
@@ -58,8 +60,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - interpolate:
 
-  If `TRUE` interpolate linearly, if `FALSE` (the default) don't
-  interpolate.
+  Logical. If `TRUE`, the default, interpolate linearly when drawing the
+  raster.
 
 - r, g, b:
 
@@ -73,10 +75,11 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 - maxcell:
 
-  Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to remove this sampling limit. Reprojection for the plot can
-  still change the grid, so `Inf` does not guarantee native plot
-  resolution. The input raster is not modified.
+  Positive integer or `Inf`. Target number of raster cells for regular
+  sampling. Sampling starts when the raster has more than 1.1 times
+  `maxcell` cells, and the sampled grid can still exceed the target.
+  `Inf` skips this sampling step. Reprojection for plotting can still
+  change the grid. The input raster is not modified.
 
 - max_col_value:
 
@@ -148,7 +151,8 @@ contributors](https://github.com/paleolimbot/ggspatial/graphs/contributors).
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer or, for a
+raster with a CRS, a list that also contains an auxiliary spatial layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 
@@ -156,10 +160,8 @@ A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
 
 ## Aesthetics
 
-No [`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) is
-required. In fact,
-[`aes()`](https://ggplot2.tidyverse.org/reference/aes.html) will be
-ignored.
+RGB values come from the three selected raster layers. No aesthetic
+mapping is required to draw them.
 
 ## Coordinates
 

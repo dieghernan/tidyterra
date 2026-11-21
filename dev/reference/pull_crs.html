@@ -259,8 +259,8 @@ by <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span c
 <dd><p>Input potentially including or representing a CRS. It could be
 an <code><a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a></code> or <code>sfc</code> object, a <code><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">SpatRaster</a></code> or
 <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> object, a <code>crs</code> object from <code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>,
-a character string (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">PROJ string</a>) or an
-integer (representing an <a href="https://epsg.io/" class="external-link">EPSG</a> code).</p></dd>
+a character string (for example a <a href="https://proj.org/en/9.3/operations/projections/index.html" class="external-link">PROJ string</a>) or a
+numeric <a href="https://epsg.io/" class="external-link">EPSG</a> code such as <code>4326</code> or <code>4326L</code>.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -270,7 +270,8 @@ integer (representing an <a href="https://epsg.io/" class="external-link">EPSG</
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A character string containing the CRS in WKT format, or <code>NA</code> if
-no CRS can be determined.</p>
+no CRS is available. Invalid CRS definitions can raise an error from
+<code><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">sf::st_crs()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -318,7 +319,7 @@ CRS definitions.</p></div>
 <span class="r-in"><span><span class="va">fromterra2</span> <span class="op">&lt;-</span> <span class="fu">pull_crs</span><span class="op">(</span><span class="va">r</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Integers.</span></span></span>
-<span class="r-in"><span><span class="va">fromint</span> <span class="op">&lt;-</span> <span class="fu">pull_crs</span><span class="op">(</span><span class="fl">4326</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fromint</span> <span class="op">&lt;-</span> <span class="fu">pull_crs</span><span class="op">(</span><span class="fl">4326L</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Characters.</span></span></span>
 <span class="r-in"><span><span class="va">fromchar</span> <span class="op">&lt;-</span> <span class="fu">pull_crs</span><span class="op">(</span><span class="st">"epsg:4326"</span><span class="op">)</span></span></span>

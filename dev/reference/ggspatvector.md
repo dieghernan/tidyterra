@@ -145,7 +145,10 @@ stat_spatvector(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
+A list of [ggplot2](https://CRAN.R-project.org/package=ggplot2)
+components to add to a plot, as returned by the corresponding
+[`ggplot2::geom_sf()`](https://ggplot2.tidyverse.org/reference/ggsf.html)
+function.
 
 ## Details
 

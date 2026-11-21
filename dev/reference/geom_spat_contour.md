@@ -114,10 +114,11 @@ geom_spatraster_contour_filled(
 
 - maxcell:
 
-  Positive integer or `Inf`. Maximum number of raster cells to use. Use
-  `Inf` to remove this sampling limit. Reprojection for the plot can
-  still change the grid, so `Inf` does not guarantee native plot
-  resolution. The input raster is not modified.
+  Positive integer or `Inf`. Target number of raster cells for regular
+  sampling. Sampling starts when the raster has more than 1.1 times
+  `maxcell` cells, and the sampled grid can still exceed the target.
+  `Inf` skips this sampling step. Reprojection for plotting can still
+  change the grid. The input raster is not modified.
 
 - bins:
 
@@ -143,8 +144,8 @@ geom_spatraster_contour_filled(
 
 - na.rm:
 
-  If `TRUE`, the default, missing values are silently removed. If
-  `FALSE`, missing values are removed with a warning.
+  If `TRUE`, the default, suppress warnings when missing values are
+  removed.
 
 - show.legend:
 
@@ -157,8 +158,10 @@ geom_spatraster_contour_filled(
 
 - inherit.aes:
 
-  If `FALSE`, override the default aesthetics rather than combining with
-  them.
+  Logical. If `TRUE`, combine the layer's aesthetic mappings with those
+  supplied to
+  [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html).
+  If `FALSE`, use the layer's mappings alone.
 
 - mask_projection:
 
@@ -182,8 +185,8 @@ geom_spatraster_contour_filled(
   - `NULL` for no labels. This produces the same result as
     `geom_spatraster_contour()`.
 
-  - A character vector giving labels (must have the same length as the
-    breaks produced by `bins`, `binwidth` or `breaks`).
+  - A character vector with one label per contour level drawn in each
+    panel, in the order of the levels.
 
   - A function that takes the breaks as input and returns labels as
     output, as in the default setup
@@ -197,7 +200,8 @@ geom_spatraster_contour_filled(
 
 ## Value
 
-A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer.
+A [ggplot2](https://CRAN.R-project.org/package=ggplot2) layer or, for a
+raster with a CRS, a list that also contains an auxiliary spatial layer.
 
 ## [terra](https://CRAN.R-project.org/package=terra) equivalent
 

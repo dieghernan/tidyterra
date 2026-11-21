@@ -282,7 +282,8 @@ package. Thanks to <a href="https://github.com/paleolimbot" class="external-link
 
 
 <dl><dt id="arg-mapping">mapping<a class="anchor" aria-label="anchor" href="#arg-mapping"></a></dt>
-<dd><p>Ignored.</p></dd>
+<dd><p>Optional layer-specific aesthetic mappings created with
+<code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">ggplot2::aes()</a></code>. Select RGB channels with <code>r</code>, <code>g</code> and <code>b</code>.</p></dd>
 
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
@@ -290,8 +291,8 @@ package. Thanks to <a href="https://github.com/paleolimbot" class="external-link
 
 
 <dt id="arg-interpolate">interpolate<a class="anchor" aria-label="anchor" href="#arg-interpolate"></a></dt>
-<dd><p>If <code>TRUE</code> interpolate linearly, if <code>FALSE</code>
-(the default) don't interpolate.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, the default, interpolate linearly
+when drawing the raster.</p></dd>
 
 
 <dt id="arg-r-g-b">r, g, b<a class="anchor" aria-label="anchor" href="#arg-r-g-b"></a></dt>
@@ -305,10 +306,11 @@ package. Thanks to <a href="https://github.com/paleolimbot" class="external-link
 
 
 <dt id="arg-maxcell">maxcell<a class="anchor" aria-label="anchor" href="#arg-maxcell"></a></dt>
-<dd><p>Positive integer or <code>Inf</code>. Maximum number of raster cells to
-use. Use <code>Inf</code> to remove this sampling limit.
-Reprojection for the plot can still change the grid, so <code>Inf</code> does not
-guarantee native plot resolution. The input raster is not modified.</p></dd>
+<dd><p>Positive integer or <code>Inf</code>. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+<code>maxcell</code> cells, and the sampled grid can still exceed the target.
+<code>Inf</code> skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.</p></dd>
 
 
 <dt id="arg-max-col-value">max_col_value<a class="anchor" aria-label="anchor" href="#arg-max-col-value"></a></dt>
@@ -362,7 +364,8 @@ to <code><a href="https://rspatial.github.io/terra/reference/project.html" class
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer.</p>
+    <p>A <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link"><span class="pkg">ggplot2</span></a> layer or, for a raster with a CRS, a list that
+also contains an auxiliary spatial layer.</p>
     </div>
     <div class="section level2">
     <h2 id="terra-equivalent"><a href="https://CRAN.R-project.org/package=terra" class="external-link"><span class="pkg">terra</span></a> equivalent<a class="anchor" aria-label="anchor" href="#terra-equivalent"></a></h2>
@@ -376,7 +379,8 @@ to <code><a href="https://rspatial.github.io/terra/reference/project.html" class
 
 
 
-<p>No <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> is required. In fact, <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> will be ignored.</p>
+<p>RGB values come from the three selected raster layers. No aesthetic mapping
+is required to draw them.</p>
     </div>
     <div class="section level2">
     <h2 id="coordinates">Coordinates<a class="anchor" aria-label="anchor" href="#coordinates"></a></h2>

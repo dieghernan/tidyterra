@@ -246,11 +246,11 @@ SpatVector."><meta property="og:image" content="https://dieghernan.github.io/tid
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Optional variables
-to use when determining uniqueness. If there are multiple rows for a given
-combination of inputs, only the first row will be preserved. If omitted,
-all variables in the data frame are used. There is a reserved variable
-name, <code>geometry</code>, that removes duplicate geometries. See <strong>Methods</strong>.</p></dd>
+<dd><p>&lt;<code><a href="https://rlang.r-lib.org/reference/args_data_masking.html" class="external-link">data-masking</a></code>&gt; Optional variables or
+expressions used to determine uniqueness, such as <code>parity = id %% 2</code>.
+If multiple rows share the same values, only the first is kept. If omitted,
+all variables are used. Pass the reserved name <code>geometry</code> to compare
+geometries. See <strong>Methods</strong>.</p></dd>
 
 
 <dt id="arg--keep-all">.keep_all<a class="anchor" aria-label="anchor" href="#arg--keep-all"></a></dt>

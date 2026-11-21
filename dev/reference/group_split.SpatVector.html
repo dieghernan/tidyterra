@@ -280,10 +280,10 @@ forwarded to <code><a href="group_by.SpatVector.html">group_by.SpatVector()</a><
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list of <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects. Each object contains
-the rows
-of <code>.tbl</code> for the associated group and all columns. When <code>.keep = TRUE</code>,
-the output includes the grouping variables.</p>
+    <p>A list of <code><a href="https://rspatial.github.io/terra/reference/vect.html" class="external-link">SpatVector</a></code> objects, one per group.
+Each contains the rows of <code>.tbl</code> for that group. The grouping variables
+are included with <code>.keep = TRUE</code> (the default) and dropped with
+<code>.keep = FALSE</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>

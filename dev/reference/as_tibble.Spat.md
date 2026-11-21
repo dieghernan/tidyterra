@@ -106,16 +106,18 @@ methods for `Spat*` objects.
 
 The returned
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-includes the CRS of the original object as an attribute in WKT format
-(see
+stores the original CRS in the `crs` attribute in WKT format when
+available (see
 [`pull_crs()`](https://dieghernan.github.io/tidyterra/dev/reference/pull_crs.md)).
+With no CRS, the attribute is an empty string for a raster and is absent
+for a vector.
 
 ## Layer and column names
 
 When coercing
 [`SpatRaster`](https://rspatial.github.io/terra/reference/rast.html)
-objects to data frames, `x` and `y` are reserved names for the
-geographic coordinates of each cell.
+objects to data frames, `x` and `y` are reserved for cell-center
+coordinates in the raster's CRS.
 [terra](https://CRAN.R-project.org/package=terra) also allows layers
 with duplicated names.
 
