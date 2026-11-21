@@ -1041,7 +1041,7 @@ Figure 11: Animation of average monthly temperatures.
 </div>
 </section><section class="level2"><h2 id="north-arrows-and-scale-bars">North arrows and scale bars<a class="anchor" aria-label="anchor" href="#north-arrows-and-scale-bars"></a>
 </h2>
-<p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots, but you can use <strong>ggspatial</strong> functions (<code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
+<p><strong>tidyterra</strong> does not provide north arrows or scale bars directly for <strong>ggplot2</strong> plots, but you can use <strong>ggspatial</strong> functions (<code><a href="https://rdrr.io/pkg/ggspatial/man/annotation_north_arrow.html" class="external-link">ggspatial::annotation_north_arrow()</a></code> and <code><a href="https://rdrr.io/pkg/ggspatial/man/annotation_scale.html" class="external-link">ggspatial::annotation_scale()</a></code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
@@ -1054,13 +1054,13 @@ Figure 11: Animation of average monthly temperatures.
 <span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rspatial.github.io/terra/reference/rast.html" class="external-link">rast</a></span><span class="op">(</span><span class="va">holyrood</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot</a></span><span class="op">(</span><span class="va">r</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggspatial/man/annotation_north_arrow.html" class="external-link">annotation_north_arrow</a></span><span class="op">(</span></span>
 <span>    which_north <span class="op">=</span> <span class="st">"true"</span>,</span>
 <span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.8</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
 <span>    pad_y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.75</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
-<span>    style <span class="op">=</span> <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/north_arrow_orienteering.html" class="external-link">north_arrow_fancy_orienteering</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    style <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggspatial/man/north_arrow_orienteering.html" class="external-link">north_arrow_fancy_orienteering</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html" class="external-link">annotation_scale</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggspatial/man/annotation_scale.html" class="external-link">annotation_scale</a></span><span class="op">(</span></span>
 <span>    height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.015</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
 <span>    width_hint <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>    pad_x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">0.07</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>

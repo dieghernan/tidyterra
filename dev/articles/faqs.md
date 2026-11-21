@@ -722,9 +722,9 @@ Figure 11: Animation of average monthly temperatures.
 
 **tidyterra** does not provide north arrows or scale bars directly for
 **ggplot2** plots, but you can use **ggspatial** functions
-([`ggspatial::annotation_north_arrow()`](https://paleolimbot.github.io/ggspatial/reference/annotation_north_arrow.html)
+([`ggspatial::annotation_north_arrow()`](https://rdrr.io/pkg/ggspatial/man/annotation_north_arrow.html)
 and
-[`ggspatial::annotation_scale()`](https://paleolimbot.github.io/ggspatial/reference/annotation_scale.html)):
+[`ggspatial::annotation_scale()`](https://rdrr.io/pkg/ggspatial/man/annotation_scale.html)):
 
 ``` r
 
