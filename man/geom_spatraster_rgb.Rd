@@ -27,12 +27,13 @@ geom_spatraster_rgb(
 )
 }
 \arguments{
-\item{mapping}{Ignored.}
+\item{mapping}{Optional layer-specific aesthetic mappings created with
+\code{\link[ggplot2:aes]{ggplot2::aes()}}. Select RGB channels with \code{r}, \code{g} and \code{b}.}
 
 \item{data}{A \code{SpatRaster} object.}
 
-\item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
-(the default) don't interpolate.}
+\item{interpolate}{Logical. If \code{TRUE}, the default, interpolate linearly
+when drawing the raster.}
 
 \item{r, g, b}{Integer giving the layer number in \code{data} used for the red
 (\code{r}), green (\code{g}) and blue (\code{b}) channel.}
@@ -40,10 +41,11 @@ geom_spatraster_rgb(
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
 
-\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to remove this sampling limit.
-Reprojection for the plot can still change the grid, so \code{Inf} does not
-guarantee native plot resolution. The input raster is not modified.}
+\item{maxcell}{Positive integer or \code{Inf}. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+\code{maxcell} cells, and the sampled grid can still exceed the target.
+\code{Inf} skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.}
 
 \item{max_col_value}{Number giving the upper bound of the color value range.
 When this is \code{255} (the default), the result is computed most efficiently.
@@ -87,7 +89,8 @@ around the dateline in equal-area projections. This argument is passed
 to \code{\link[terra:project]{terra::project()}} when reprojecting the \code{\link[terra:rast]{SpatRaster}}.}
 }
 \value{
-A \CRANpkg{ggplot2} layer.
+A \CRANpkg{ggplot2} layer or, for a raster with a CRS, a list that
+also contains an auxiliary spatial layer.
 }
 \description{
 This geom plots \code{\link[terra:rast]{SpatRaster}} objects (see \code{\link[terra:rast]{terra::rast()}}) as
@@ -111,7 +114,8 @@ The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplo
 \section{Aesthetics}{
 
 
-No \code{aes()} is required. In fact, \code{aes()} will be ignored.
+RGB values come from the three selected raster layers. No aesthetic mapping
+is required to draw them.
 }
 
 \section{Coordinates}{

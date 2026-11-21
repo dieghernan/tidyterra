@@ -49,7 +49,7 @@
 #'
 #' volcano2_raster <- terra::rast(volcano2)
 #' terra::crs(volcano2_raster) <- pull_crs(2193)
-#' terra::ext(volcano2_raster) <- c(1756968, 1757576, 5917000, 5917872)
+#' terra::ext(volcano2_raster) <- c(1756969, 1757579, 5917003, 5917873)
 #' names(volcano2_raster) <- "volcano2"
 #'
 #' library(ggplot2)

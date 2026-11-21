@@ -46,13 +46,14 @@
 #'   an [`sf`][sf::st_sf] or `sfc` object, a [`SpatRaster`][terra::rast] or
 #'   [`SpatVector`][terra::vect] object, a `crs` object from [sf::st_crs()],
 #'   a character string (for example a [PROJ
-#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or an
-#'   integer (representing an [EPSG](https://epsg.io/) code).
+#'   string](https://proj.org/en/9.3/operations/projections/index.html)) or a
+#'   numeric [EPSG](https://epsg.io/) code such as `4326` or `4326L`.
 #'
 #' @param ... Ignored.
 #'
 #' @returns A character string containing the CRS in WKT format, or `NA` if
-#' no CRS can be determined.
+#' no CRS is available. Invalid CRS definitions can raise an error from
+#' [sf::st_crs()].
 #'
 #' @section Internals:
 #'
@@ -78,7 +79,7 @@
 #' fromterra2 <- pull_crs(r)
 #'
 #' # Integers.
-#' fromint <- pull_crs(4326)
+#' fromint <- pull_crs(4326L)
 #'
 #' # Characters.
 #' fromchar <- pull_crs("epsg:4326")

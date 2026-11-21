@@ -90,15 +90,16 @@ ggplot(cyl) +
   stat_spat_coordinates()
 
 ggplot(cyl) +
-  geom_errorbarh(
+  geom_errorbar(
     aes(
       geometry = geometry,
       xmin = after_stat(x) - 50000,
       xmax = after_stat(x) + 50000,
-      y = after_stat(y),
-      height = 10000
+      y = after_stat(y)
     ),
-    stat = "sf_coordinates"
+    stat = "sf_coordinates",
+    orientation = "y",
+    width = 10000
   )
 }
 

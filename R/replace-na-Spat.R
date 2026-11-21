@@ -48,7 +48,7 @@ replace_na.SpatRaster <- function(data, replace = list(), ...) {
   }
 
   # Create a template df for assessing results
-  # Use only first cell for speed up
+  # Use the first cell to avoid reading the entire raster.
   df <- data[1]
 
   # Convert factors to chars

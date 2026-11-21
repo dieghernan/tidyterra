@@ -88,10 +88,11 @@ lists which parameters it can accept.
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
 
-\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to remove this sampling limit.
-Reprojection for the plot can still change the grid, so \code{Inf} does not
-guarantee native plot resolution. The input raster is not modified.}
+\item{maxcell}{Positive integer or \code{Inf}. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+\code{maxcell} cells, and the sampled grid can still exceed the target.
+\code{Inf} skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.}
 
 \item{bins}{Number of contour bins. Overridden by \code{breaks}.}
 
@@ -108,8 +109,8 @@ and returns breaks as output. A function can be created from a formula
 Overrides \code{binwidth} and \code{bins}. By default, this is a vector of length
 ten with \code{\link[=pretty]{pretty()}} breaks.}
 
-\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed. If
-\code{FALSE}, missing values are removed with a warning.}
+\item{na.rm}{If \code{TRUE}, the default, suppress warnings when missing values
+are removed.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -119,8 +120,9 @@ display. To include legend keys for all levels, even
 when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
 but unobserved levels are omitted.}
 
-\item{inherit.aes}{If \code{FALSE}, override the default aesthetics rather than
-combining with them.}
+\item{inherit.aes}{Logical. If \code{TRUE}, combine the layer's aesthetic
+mappings with those supplied to \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. If \code{FALSE}, use
+the layer's mappings alone.}
 
 \item{mask_projection}{Logical, defaults to \code{FALSE}. If \code{TRUE}, mask out
 areas outside the input extent. For example, to avoid data wrapping
@@ -135,8 +137,8 @@ or picas (\code{"pc"}).}
 \itemize{
 \item \code{NULL} for no labels. This produces the same result as
 \code{geom_spatraster_contour()}.
-\item A character vector giving labels (must have the same length as the
-breaks produced by \code{bins}, \code{binwidth} or \code{breaks}).
+\item A character vector with one label per contour level drawn in each
+panel, in the order of the levels.
 \item A function that takes the breaks as input and returns labels as output,
 as in the default setup (\code{\link[scales:label_number]{scales::label_number()}}).
 }}
@@ -145,7 +147,8 @@ as in the default setup (\code{\link[scales:label_number]{scales::label_number()
 the isolines. Uses \code{\link[isoband:label_placer_minmax]{label_placer_minmax()}} by default.}
 }
 \value{
-A \CRANpkg{ggplot2} layer.
+A \CRANpkg{ggplot2} layer or, for a raster with a CRS, a list that
+also contains an auxiliary spatial layer.
 }
 \description{
 These geoms create contours from \code{\link[terra:rast]{SpatRaster}} objects. To

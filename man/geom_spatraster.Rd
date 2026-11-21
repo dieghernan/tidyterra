@@ -41,8 +41,9 @@ with \code{\link[terra:rast]{SpatRaster}} layers.}
 
 \item{data}{A \code{SpatRaster} object.}
 
-\item{na.rm}{If \code{TRUE}, the default, missing values are silently removed. If
-\code{FALSE}, missing values are removed with a warning.}
+\item{na.rm}{If \code{TRUE}, the default, suppress warnings when missing values
+are removed. Missing raster cell values mapped to \code{fill} use the fill
+scale's \code{na.value}.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -52,16 +53,18 @@ display. To include legend keys for all levels, even
 when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
 but unobserved levels are omitted.}
 
-\item{inherit.aes}{If \code{FALSE}, override the default aesthetics rather than
-combining with them.}
+\item{inherit.aes}{Logical. If \code{TRUE}, combine the layer's aesthetic
+mappings with those supplied to \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}. If \code{FALSE}, use
+the layer's mappings alone.}
 
 \item{interpolate}{If \code{TRUE} interpolate linearly, if \code{FALSE}
 (the default) don't interpolate.}
 
-\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to remove this sampling limit.
-Reprojection for the plot can still change the grid, so \code{Inf} does not
-guarantee native plot resolution. The input raster is not modified.}
+\item{maxcell}{Positive integer or \code{Inf}. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+\code{maxcell} cells, and the sampled grid can still exceed the target.
+\code{Inf} skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.}
 
 \item{use_coltab}{Logical. Only applicable to \code{SpatRaster} objects that have
 an associated color table from \code{\link[terra:coltab]{terra::coltab()}}. If \code{TRUE}, use that
@@ -106,7 +109,9 @@ and
 \code{"label"}.}
 }
 \value{
-A \CRANpkg{ggplot2} layer.
+A \CRANpkg{ggplot2} layer or a list of components to add to a plot.
+A raster with a CRS adds an auxiliary spatial layer. A raster with a
+color table can also add a fill scale.
 }
 \description{
 This geom plots \code{\link[terra:rast]{SpatRaster}} objects (see \code{\link[terra:rast]{terra::rast()}}). It
@@ -118,7 +123,7 @@ For plotting \code{\link[terra:rast]{SpatRaster}} objects as map tiles, such as 
 use \code{\link[=geom_spatraster_rgb]{geom_spatraster_rgb()}}.
 To plot one panel per raster layer in two columns, add
 \code{ggplot2::facet_wrap(~lyr, ncol = 2)}.
-The default \code{maxcell = 500000} limits the cells sampled for plotting.
+The default sampling target for plotting is \code{maxcell = 500000}.
 
 The underlying implementation is based on \code{\link[ggplot2:geom_raster]{ggplot2::geom_raster()}}.
 
@@ -152,16 +157,13 @@ On \code{\link[terra:rast]{SpatRaster}} objects that have a CRS, the geom uses
 \item \code{\link[ggplot2:aes_colour_fill_alpha]{alpha}}
 }
 
-If \code{fill} is not provided, \code{geom_spatraster()} creates a
-\CRANpkg{ggplot2} layer with all the layers of the
-\code{\link[terra:rast]{SpatRaster}}
-object. Use \code{facet_wrap(~lyr)} to display its layers.
-layers.
+If \code{fill} is omitted, \code{geom_spatraster()} uses all raster layers that share
+the class of the first layer. Use \code{facet_wrap(~lyr)} to display those layers
+in separate panels.
 
-If \code{fill} is used, it should contain the name of one layer that is present
-on the \code{\link[terra:rast]{SpatRaster}} (for example,
-\verb{geom_spatraster(data = rast, aes(fill = <name_of_lyr>))}). Layer names can
-be retrieved using \code{names(rast)}.
+To select one raster layer by name, map \code{fill} in the geom itself, for
+example \code{geom_spatraster(data = rast, aes(fill = elevation))}. Use
+\code{names(rast)} to list the available layer names.
 
 Using \code{geom_spatraster(..., mapping = aes(fill = NULL))} or
 \verb{geom_spatraster(..., fill = <color value(s)>)} creates a layer with no

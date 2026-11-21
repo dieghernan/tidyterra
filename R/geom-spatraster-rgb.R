@@ -32,20 +32,25 @@
 #' @inheritParams geom_spatraster
 #' @inheritParams scale_terrain
 #' @inheritParams terra::plotRGB
-#' @param mapping Ignored.
+#' @param mapping Optional layer-specific aesthetic mappings created with
+#'   [ggplot2::aes()]. Select RGB channels with `r`, `g` and `b`.
+#' @param interpolate Logical. If `TRUE`, the default, interpolate linearly
+#'   when drawing the raster.
 #' @param r,g,b Integer giving the layer number in `data` used for the red
 #'   (`r`), green (`g`) and blue (`b`) channel.
 #' @param max_col_value Number giving the upper bound of the color value range.
 #'   When this is `255` (the default), the result is computed most efficiently.
 #'   See [grDevices::rgb()].
-#' @returns A \CRANpkg{ggplot2} layer.
+#' @returns A \CRANpkg{ggplot2} layer or, for a raster with a CRS, a list that
+#'   also contains an auxiliary spatial layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plotRGB()].
 #'
 #' @section Aesthetics:
 #'
-#' No `aes()` is required. In fact, `aes()` will be ignored.
+#' RGB values come from the three selected raster layers. No aesthetic mapping
+#' is required to draw them.
 #'
 #' @encoding UTF-8
 #' @export

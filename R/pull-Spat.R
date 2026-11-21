@@ -4,8 +4,8 @@
 #' `pull()` is similar to `$` on a data frame. It is mostly useful because it
 #' looks nicer in pipes and can optionally name the output.
 #'
-#' **You can extract the geographic coordinates of a
-#'   [`SpatRaster`][terra::rast]**.
+#' You can extract the cell-center coordinates of a [`SpatRaster`][terra::rast]
+#' in its CRS.
 #' Use `pull(.data, x, xy = TRUE)`. `x` and `y` are reserved
 #' names in \CRANpkg{terra}, since they refer to cell coordinates.
 #'
@@ -42,8 +42,8 @@
 #' @returns A vector with one element per cell or geometry in `.data`. For
 #' [`SpatRaster`][terra::rast] objects, the default (`na.rm = FALSE`) keeps
 #'   missing values.
-#' Passing `na.rm = TRUE` to `...` removes cells with missing values and can
-#' shorten the result. See [terra::as.data.frame()].
+#' Passing `na.rm = TRUE` to `...` omits cells with a missing value in any
+#' layer and can shorten the result. See [terra::as.data.frame()].
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -58,13 +58,10 @@
 #'
 #' ## [`SpatRaster`][terra::rast]
 #'
-#' When passing `na.rm = TRUE` to `...`, only cells with a value other than
-#' `NA` are extracted. See [terra::as.data.frame()].
-#'
-#' If `xy = TRUE` is passed to `...`, two columns named `x` and `y`
-#' (corresponding to the geographic coordinates of each cell) are available
-#' in positions `1` and `2`. Therefore, `pull(.data, 1)` and
-#' `pull(.data, 1, xy = TRUE)` return different results.
+#' With `xy = TRUE`, `x` and `y` are the first two columns and give the
+#' cell-center coordinates in the raster's CRS. For example, `pull(.data, 1)`
+#' returns the first layer's values, and `pull(.data, 1, xy = TRUE)` returns
+#' the cells' x coordinates.
 #'
 #' ## [`SpatVector`][terra::vect]
 #'
@@ -87,7 +84,7 @@
 #'   pull(2) |>
 #'   head()
 #'
-#' # With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
+#' # Extract the y coordinate of each cell in the raster's CRS.
 #'
 #' r |>
 #'   pull(2, xy = TRUE) |>

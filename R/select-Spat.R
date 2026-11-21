@@ -96,7 +96,7 @@
 #' v |> select(iso2, name2 = cpro)
 select.SpatRaster <- function(.data, ...) {
   # Create a template df for assessing results
-  # Use only first cell for speed up
+  # Use the first cell to avoid reading the entire raster.
   df <- as.data.frame(.data[1], na.rm = FALSE)
 
   # Convert factors/chars to nums

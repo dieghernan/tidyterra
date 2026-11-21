@@ -32,7 +32,10 @@
 #' @param mapping Set of aesthetic mappings created by [ggplot2::aes()]. See
 #'   **Aesthetics** for supported contour aesthetics.
 #'
-#' @returns A \CRANpkg{ggplot2} layer.
+#' @param na.rm If `TRUE`, the default, suppress warnings when missing values
+#'   are removed.
+#' @returns A \CRANpkg{ggplot2} layer or, for a raster with a CRS, a list that
+#'   also contains an auxiliary spatial layer.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::contour()].

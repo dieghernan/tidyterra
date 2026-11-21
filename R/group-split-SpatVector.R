@@ -32,10 +32,10 @@
 #' @param ... If `.tbl` is an ungrouped `SpatVector`, a grouping specification,
 #'   forwarded to [group_by.SpatVector()].
 #'
-#' @returns A list of [`SpatVector`][terra::vect] objects. Each object contains
-#' the rows
-#'   of `.tbl` for the associated group and all columns. When `.keep = TRUE`,
-#'   the output includes the grouping variables.
+#' @returns A list of [`SpatVector`][terra::vect] objects, one per group.
+#'   Each contains the rows of `.tbl` for that group. The grouping variables
+#'   are included with `.keep = TRUE` (the default) and dropped with
+#'   `.keep = FALSE`.
 #'
 #' @section Lifecycle:
 #'
