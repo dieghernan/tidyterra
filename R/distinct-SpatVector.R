@@ -16,11 +16,11 @@
 #'
 #' @inheritParams arrange.SpatVector .data
 #' @inheritParams dplyr::distinct
-#' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables
-#'   to use when determining uniqueness. If there are multiple rows for a given
-#'   combination of inputs, only the first row will be preserved. If omitted,
-#'   all variables in the data frame are used. There is a reserved variable
-#'   name, `geometry`, that removes duplicate geometries. See **Methods**.
+#' @param ... <[`data-masking`][rlang::args_data_masking]> Optional variables or
+#'   expressions used to determine uniqueness, such as `parity = id %% 2`.
+#'   If multiple rows share the same values, only the first is kept. If omitted,
+#'   all variables are used. Pass the reserved name `geometry` to compare
+#'   geometries. See **Methods**.
 #'
 #' @returns A [`SpatVector`][terra::vect] object.
 #'
@@ -75,15 +75,11 @@
 #' # Keep information for unique values.
 #' distinct(v, geometry, .keep_all = TRUE)
 distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
-  # Check whether `...` selects the geometry column.
-  # Resolve selected column names with `select()`.
-  dots_labs <- names(select(as_tbl_internal(.data[1, ]), ...))
-
-  # If the call is empty or includes geometry, use the internal path because
-  # the geometry column is needed.
-  if (rlang::dots_n(...) == 0 || "geometry" %in% dots_labs) {
+  dots <- rlang::enquos(...)
+  key_labels <- vapply(dots, rlang::as_label, character(1))
+  if (length(dots) == 0L || "geometry" %in% key_labels) {
     a_tbl <- as_tbl_internal(.data)
-    dist <- dplyr::distinct(a_tbl, ..., .keep_all = .keep_all)
+    dist <- dplyr::distinct(a_tbl, !!!dots, .keep_all = .keep_all)
 
     # Regenerate the `SpatVector`.
     distin <- restore_attr(dist, a_tbl)
@@ -93,29 +89,21 @@ distinct.SpatVector <- function(.data, ..., .keep_all = FALSE) {
     return(vend)
   }
 
-  # Otherwise, use indices on a regular tibble.
   a_tbl <- as_tibble(.data)
-  keepcopy <- a_tbl
+  # As in dplyr, compute keys across the input before comparing within groups.
+  keys <- dplyr::transmute(dplyr::ungroup(a_tbl), !!!dots)
+  key_names <- union(
+    setdiff(dplyr::group_vars(a_tbl), names(keys)),
+    names(keys)
+  )
+  a_tbl <- dplyr::dplyr_col_modify(a_tbl, as.list(keys))
+  row_id <- vctrs::vec_unique_loc(a_tbl[key_names])
 
-  # Add an index for identifying rows to extract.
-  index_var <- make_safe_index("tterra_index", a_tbl)
-
-  a_tbl[[index_var]] <- seq_len(nrow(a_tbl))
-
-  topass <- c(index_var, dots_labs)
-
-  dist <- distinct(a_tbl[, topass], ..., .keep_all = TRUE)
-
-  # Return using indices for subsetting.
-  row_id <- as.integer(dist[[index_var]])
-
-  dist <- dist[, names(dist) != index_var]
-
-  # Add the remaining columns if requested.
+  keep <- key_names
   if (isTRUE(.keep_all)) {
-    misscol <- keepcopy[row_id, !names(keepcopy) %in% dots_labs]
-    dist <- dplyr::bind_cols(dist, misscol)
+    keep <- union(keep, names(a_tbl))
   }
+  dist <- dplyr::dplyr_row_slice(a_tbl[keep], row_id)
 
   vend <- cbind(.data[row_id, 0], dist)
 

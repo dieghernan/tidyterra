@@ -116,8 +116,8 @@ pull_crs <- function(.data, ...) {
     return(NA)
   }
 
-  # Characters and numerics are handled by sf.
-  if (any(inherits(.data, "character"), inherits(.data, "numeric"))) {
+  # Let sf interpret strings and numeric EPSG codes.
+  if (inherits(.data, c("character", "numeric", "integer"))) {
     return(sf::st_crs(.data)$wkt)
   }
 

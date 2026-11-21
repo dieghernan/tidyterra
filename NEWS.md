@@ -1,8 +1,11 @@
 # tidyterra (development version)
 
 - The minimum supported **R** version is now 4.2.0 to match the requirements of current **ggplot2** releases.
+- `distinct()` now supports computed keys for `SpatVector` objects and keeps the geometry of the first matching row.
 - `geom_spatraster()` and `stat_spatraster(geom = "raster")` now resolve duplicate `fill` settings before passing them to **ggplot2**, so a fixed `fill` overrides a mapped `fill` without a warning.
 - `geom_spatraster_contour_filled()` now takes its default `linetype` from the theme's `bordertype`, matching `ggplot2::geom_polygon()`.
+- `pull_crs()` now accepts integer EPSG codes such as `4326L`.
+- `slice_min()` and `slice_max()` now mask all layers of raster cells excluded by `na.rm = TRUE`.
 
 # tidyterra 1.3.1
 

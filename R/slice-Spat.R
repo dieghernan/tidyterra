@@ -71,6 +71,8 @@
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
 #' The non-selected cells have a value of `NA`.
+#' If `slice_min()` or `slice_max()` selects no cells, the result is an
+#' all-`NA` raster with the original extent.
 #'
 #' ## [`SpatVector`][terra::vect]
 #'
@@ -337,16 +339,14 @@ slice_min.SpatRaster <- function(
 
   keepcells <- sliced$cellindex.tidyterra
 
-  # Make NA cells
-
-  # To NA
-  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
+  # Mask all unselected cells, including those excluded before ranking.
+  tonas <- setdiff(seq_len(terra::ncell(.data)), keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
 
-  # With keep_extent we just replaced the cells with NAs
-  if (.keep_extent) {
+  # An empty selection has no extent to crop to.
+  if (.keep_extent || length(keepcells) == 0L) {
     return(newrast)
   }
 
@@ -437,16 +437,14 @@ slice_max.SpatRaster <- function(
 
   keepcells <- sliced$cellindex.tidyterra
 
-  # Make NA cells
-
-  # To NA
-  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
+  # Mask all unselected cells, including those excluded before ranking.
+  tonas <- setdiff(seq_len(terra::ncell(.data)), keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
 
-  # With keep_extent we just replaced the cells with NAs
-  if (.keep_extent) {
+  # An empty selection has no extent to crop to.
+  if (.keep_extent || length(keepcells) == 0L) {
     return(newrast)
   }
 

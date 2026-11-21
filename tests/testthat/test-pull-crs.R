@@ -1,3 +1,7 @@
+test_that("integer and double EPSG codes give the same CRS", {
+  expect_identical(pull_crs(4326L), pull_crs(4326))
+})
+
 test_that("Check crs", {
   expect_snapshot(res <- pull_crs(list(1)))
   expect_true(is.na(res))

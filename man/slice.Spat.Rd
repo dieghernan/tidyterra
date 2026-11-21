@@ -209,6 +209,8 @@ the values of the selected cells, columns or rows.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
 The non-selected cells have a value of \code{NA}.
+If \code{slice_min()} or \code{slice_max()} selects no cells, the result is an
+all-\code{NA} raster with the original extent.
 }
 
 \subsection{\code{\link[terra:vect]{SpatVector}}}{
