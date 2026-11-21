@@ -89,8 +89,8 @@ expand the scale by 5\% on each side for continuous variables, and by
 \item{alpha}{The alpha transparency: could be \code{NA} or a number in [0,1].
 See argument \code{alpha} in \code{\link[=scale_fill_terrain_d]{scale_fill_terrain_d()}}.}
 
-\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{FALSE}.}
+\item{na.translate}{Logical. If \code{TRUE}, include missing values in the
+discrete scale and legend. The default (\code{FALSE}) omits them.}
 
 \item{na.value}{Missing values will be replaced with this value. By default,
 \CRANpkg{tidyterra} uses \code{na.value = "transparent"} so cells with \code{NA} are

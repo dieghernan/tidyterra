@@ -375,6 +375,53 @@ test_that("Slice max", {
 })
 
 
+test_that("slice_min and slice_max mask excluded incomplete cells", {
+  r <- terra::rast(
+    nrows = 2,
+    ncols = 2,
+    nlyrs = 2,
+    vals = cbind(c(1, 2, 3, 4), c(5, NA, 7, 8))
+  )
+  names(r) <- c("rank", "value")
+
+  low <- slice_min(r, rank, n = 2, .keep_extent = TRUE)
+  high <- slice_max(r, rank, n = 2, .keep_extent = TRUE)
+  expect_equal(
+    terra::values(low, mat = FALSE),
+    c(1, NA, 3, NA, 5, NA, 7, NA)
+  )
+  expect_equal(
+    terra::values(high, mat = FALSE),
+    c(NA, NA, 3, 4, NA, NA, 7, 8)
+  )
+  expect_equal(
+    terra::values(slice_min(
+      r,
+      rank,
+      n = 2,
+      .keep_extent = TRUE,
+      na.rm = FALSE
+    )),
+    cbind(rank = c(1, 2, NA, NA), value = c(5, NA, NA, NA))
+  )
+})
+
+test_that("an empty slice_min or slice_max selection masks the full raster", {
+  r <- terra::rast(
+    nrows = 2,
+    ncols = 2,
+    nlyrs = 2,
+    vals = c(rep(1, 4), rep(NA, 4))
+  )
+
+  low <- slice_min(r, lyr.1)
+  high <- slice_max(r, lyr.1)
+  expect_equal(as.vector(terra::ext(low)), as.vector(terra::ext(r)))
+  expect_equal(as.vector(terra::ext(high)), as.vector(terra::ext(r)))
+  expect_equal(is.na(terra::values(low, mat = FALSE)), rep(TRUE, 8))
+  expect_equal(is.na(terra::values(high, mat = FALSE)), rep(TRUE, 8))
+})
+
 test_that("Slice sample", {
   skip_on_cran()
   m <- matrix(1:400, nrow = 20, ncol = 20)

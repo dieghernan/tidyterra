@@ -11,14 +11,15 @@ pull_crs(.data, ...)
 \item{.data}{Input potentially including or representing a CRS. It could be
 an \code{\link[sf:st_sf]{sf}} or \code{sfc} object, a \code{\link[terra:rast]{SpatRaster}} or
 \code{\link[terra:vect]{SpatVector}} object, a \code{crs} object from \code{\link[sf:st_crs]{sf::st_crs()}},
-a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}) or an
-integer (representing an \href{https://epsg.io/}{EPSG} code).}
+a character string (for example a \href{https://proj.org/en/9.3/operations/projections/index.html}{PROJ string}) or a
+numeric \href{https://epsg.io/}{EPSG} code such as \code{4326} or \code{4326L}.}
 
 \item{...}{Ignored.}
 }
 \value{
 A character string containing the CRS in WKT format, or \code{NA} if
-no CRS can be determined.
+no CRS is available. Invalid CRS definitions can raise an error from
+\code{\link[sf:st_crs]{sf::st_crs()}}.
 }
 \description{
 Extract the WKT version of the CRS associated with a string, number,
@@ -70,7 +71,7 @@ fromterra1 <- pull_crs(v)
 fromterra2 <- pull_crs(r)
 
 # Integers.
-fromint <- pull_crs(4326)
+fromint <- pull_crs(4326L)
 
 # Characters.
 fromchar <- pull_crs("epsg:4326")

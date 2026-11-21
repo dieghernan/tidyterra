@@ -39,15 +39,15 @@ as names for a named vector. Specified in a similar manner as \code{var}.}
 A vector with one element per cell or geometry in \code{.data}. For
 \code{\link[terra:rast]{SpatRaster}} objects, the default (\code{na.rm = FALSE}) keeps
 missing values.
-Passing \code{na.rm = TRUE} to \code{...} removes cells with missing values and can
-shorten the result. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
+Passing \code{na.rm = TRUE} to \code{...} omits cells with a missing value in any
+layer and can shorten the result. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
 }
 \description{
 \code{pull()} is similar to \code{$} on a data frame. It is mostly useful because it
 looks nicer in pipes and can optionally name the output.
 
-\strong{You can extract the geographic coordinates of a
-\code{\link[terra:rast]{SpatRaster}}}.
+You can extract the cell-center coordinates of a \code{\link[terra:rast]{SpatRaster}}
+in its CRS.
 Use \code{pull(.data, x, xy = TRUE)}. \code{x} and \code{y} are reserved
 names in \CRANpkg{terra}, since they refer to cell coordinates.
 
@@ -69,13 +69,10 @@ coerces the \verb{Spat*} object to a \link[tibble:tbl_df]{tibble} (see
 applies \code{\link[dplyr:pull]{dplyr::pull()}} to the tibble.
 \subsection{\code{\link[terra:rast]{SpatRaster}}}{
 
-When passing \code{na.rm = TRUE} to \code{...}, only cells with a value other than
-\code{NA} are extracted. See \code{\link[terra:as.data.frame]{terra::as.data.frame()}}.
-
-If \code{xy = TRUE} is passed to \code{...}, two columns named \code{x} and \code{y}
-(corresponding to the geographic coordinates of each cell) are available
-in positions \code{1} and \code{2}. Therefore, \code{pull(.data, 1)} and
-\code{pull(.data, 1, xy = TRUE)} return different results.
+With \code{xy = TRUE}, \code{x} and \code{y} are the first two columns and give the
+cell-center coordinates in the raster's CRS. For example, \code{pull(.data, 1)}
+returns the first layer's values, and \code{pull(.data, 1, xy = TRUE)} returns
+the cells' x coordinates.
 }
 
 \subsection{\code{\link[terra:vect]{SpatVector}}}{
@@ -99,7 +96,7 @@ r |>
   pull(2) |>
   head()
 
-# With `xy`, the first two columns are `x` (longitude) and `y` (latitude).
+# Extract the y coordinate of each cell in the raster's CRS.
 
 r |>
   pull(2, xy = TRUE) |>

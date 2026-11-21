@@ -93,7 +93,7 @@ The following methods are available:
 | `dplyr::add_count()` | ✔️ |  |
 | `dplyr::rows_*()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| `tidyr::drop_na()` | ✔️ | ✔️ Mask cells with `NA` in any selected layer and trim `NA` borders. |
 | `tidyr::complete()` | ✔️ |  |
 | `tidyr::expand()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
@@ -104,7 +104,7 @@ The following methods are available:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ To an `sf` object through `sf::st_as_sf()` | To a tibble with coordinates. |
+| `ggplot2::fortify()` | ✔️ Convert to a two-dimensional `sf` object. Use `as_sf()` to retain Z and M coordinates. | ✔️ Convert to a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |

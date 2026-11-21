@@ -1,8 +1,11 @@
 # tidyterra (development version)
 
 - The minimum supported **R** version is now 4.2.0 to match the requirements of current **ggplot2** releases.
+- `distinct()` now supports computed keys for `SpatVector` objects and keeps the geometry of the first matching row.
 - `geom_spatraster()` and `stat_spatraster(geom = "raster")` now resolve duplicate `fill` settings before passing them to **ggplot2**, so a fixed `fill` overrides a mapped `fill` without a warning.
 - `geom_spatraster_contour_filled()` now takes its default `linetype` from the theme's `bordertype`, matching `ggplot2::geom_polygon()`.
+- `pull_crs()` now accepts integer EPSG codes such as `4326L`.
+- `slice_min()` and `slice_max()` now mask all layers of raster cells excluded by `na.rm = TRUE`.
 
 # tidyterra 1.3.1
 
@@ -18,7 +21,7 @@
 - The **pkgdown** site now links to the JOSS paper as an external article and uses `vignette("tidyterra")` as its introductory article.
 - `geom_spatraster()`, `geom_spatraster_rgb()`, `geom_spatraster_contour()`, `geom_spatraster_contour_text()`, `stat_spatraster()`, `tidy()` and `fortify()` now consistently accept `maxcell = Inf` and validate related arguments earlier.
 - `geom_spatraster()` and `stat_spatraster(geom = "raster")` now support mapping `alpha` to a different `SpatRaster` layer than `fill` (#154, #211).
-- `geom_spatraster_rgb()` no longer emits a warning for rasters with more than three layers, such as RGB rasters with an alpha channel.
+- `geom_spatraster_rgb()` accepts rasters with more than three layers without warning and uses only the selected red, green and blue layers.
 - `geom_*()` defaults were adjusted to match current **ggplot2** defaults.
 - `hypso.colors()` now includes one additional palette: `"xkcd-painbow"`. See <https://xkcd.com/2537/>.
 

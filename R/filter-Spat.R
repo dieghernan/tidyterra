@@ -13,11 +13,9 @@
 #' behavior can affect how you write your conditions when missing values are
 #' involved. See [dplyr::filter()].
 #'
-#' **You can filter a [`SpatRaster`][terra::rast] by its geographic
-#'   coordinates**.
-#' Use `filter(.data, x > 42)`. The names `x` and `y` are reserved in
-#' \CRANpkg{terra} because they refer to the geographic coordinates of the
-#' layer.
+#' To filter a [`SpatRaster`][terra::rast] by its cell-center coordinates, use
+#' an expression such as `filter(.data, x > 42)`. The reserved names `x` and
+#' `y` refer to coordinates in the raster's CRS.
 #'
 #' See **Examples** and section **Layer and column names** on
 #' [as_tibble.Spat()].
@@ -38,8 +36,9 @@
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Expressions that
 #'   return a logical value and are defined in terms of the layers/attributes
 #'   in `.data`. If multiple expressions are included, they are combined with
-#'   the `&` operator. Only cells/geometries for which all conditions evaluate
-#'   to `TRUE` are kept. See **Methods**.
+#'   the `&` operator. `filter()` keeps cells or geometries for which the
+#'   combined condition is `TRUE`. For vectors, `filter_out()` drops those
+#'   geometries and keeps the ones for which the condition is `FALSE` or `NA`.
 #' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
 #' [`SpatRaster`][terra::rast]. If `FALSE`, [terra::trim()] is called so the
 #'   extent may
@@ -69,9 +68,8 @@
 #'
 #' ## [`SpatVector`][terra::vect]
 #'
-#' The result is a [`SpatVector`][terra::vect] containing the geometries whose
-#'   attributes
-#' satisfy all conditions.
+#' The result is a [`SpatVector`][terra::vect]. `filter()` retains matching
+#' geometries, and `filter_out()` removes matching geometries.
 #'
 #' @encoding UTF-8
 #' @export
@@ -105,7 +103,7 @@
 #' # Extent has changed
 #' plot(r_f2)
 #'
-#' # Filter by geographic coordinates
+#' # Filter by cell-center coordinates.
 #' r2 <- project(r, "epsg:4326")
 #'
 #' r2 |> plot()

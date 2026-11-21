@@ -52,10 +52,11 @@ This argument is passed on as \code{repair} to \code{\link[vctrs:vec_as_names]{v
 See there for more details on these terms and the strategies used
 to enforce them.}
 
-\item{maxcell}{Positive integer or \code{Inf}. Maximum number of raster cells to
-use. Use \code{Inf} to remove this sampling limit.
-Reprojection for the plot can still change the grid, so \code{Inf} does not
-guarantee native plot resolution. The input raster is not modified.}
+\item{maxcell}{Positive integer or \code{Inf}. Target number of raster cells for
+regular sampling. Sampling starts when the raster has more than 1.1 times
+\code{maxcell} cells, and the sampled grid can still exceed the target.
+\code{Inf} skips this sampling step. Reprojection for plotting can still
+change the grid. The input raster is not modified.}
 
 \item{pivot}{Logical. When \code{TRUE}, a \code{SpatRaster} is returned in \link[tidyr:pivot_longer]{long format}. When \code{FALSE} (the default), it is returned
 as a data frame with one column per layer. See \strong{Details}.}

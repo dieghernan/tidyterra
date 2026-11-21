@@ -58,6 +58,10 @@ test_that("Remove unique geometries on specific calls", {
 
   expect_equal(ncol(vend2), 0)
   expect_equal(nrow(vend2), 1)
+
+  vend3 <- distinct(v, .data$geometry, parity = z %% 2)
+  expect_named(vend3, "parity")
+  expect_equal(vend3$parity, c(1, 0))
 })
 
 test_that("Name handling", {
@@ -152,4 +156,35 @@ test_that("distinct preserves grouping", {
 
   out <- distinct(gf, y)
   expect_equal(group_vars(out), "x")
+})
+
+test_that("distinct computes keys and keeps the first matching geometries", {
+  v <- terra::vect(cbind(1:4, 1:4), crs = "EPSG:3857")
+  v$key <- 1:4
+
+  out <- distinct(v, parity = key %% 2)
+  expect_named(out, "parity")
+  expect_equal(out$parity, c(1, 0))
+  expect_equal(terra::crds(out), terra::crds(v)[1:2, ])
+  expect_identical(terra::crs(out), terra::crs(v))
+
+  out <- distinct(v, parity = key %% 2, key = key + 1, .keep_all = TRUE)
+  expect_equal(out$key, 2:5)
+  expect_equal(out$parity, c(1, 0, 1, 0))
+})
+
+test_that("distinct computes keys globally and deduplicates within groups", {
+  v <- terra::vect(cbind(1:4, 1:4))
+  v$group <- c("a", "a", "b", "b")
+  v$key <- c(1, 2, 2, 5)
+
+  out <- v |>
+    group_by(group) |>
+    distinct(tterra_index = key > mean(key))
+
+  expect_named(out, c("group", "tterra_index"))
+  expect_identical(group_vars(out), "group")
+  expect_equal(out$group, c("a", "b", "b"))
+  expect_equal(as.logical(out$tterra_index), c(FALSE, FALSE, TRUE))
+  expect_equal(terra::crds(out), terra::crds(v)[c(1, 3, 4), ])
 })

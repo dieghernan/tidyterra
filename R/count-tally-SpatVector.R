@@ -91,7 +91,7 @@ count.SpatVector <- function(
     lifecycle::deprecate_warn(
       when = "1.1.0",
       what = "tidyterra::count.SpatVector(.drop)",
-      details = paste0(
+      details = paste(
         "Argument no longer supported. Empty groups are always removed",
         "(see `dplyr::count()`, `.drop = TRUE` argument)."
       )

@@ -4,8 +4,8 @@
 #' @param label_format One of:
 #'   - `NULL` for no labels. This produces the same result as
 #'     `geom_spatraster_contour()`.
-#'   - A character vector giving labels (must have the same length as the
-#'     breaks produced by `bins`, `binwidth` or `breaks`).
+#'   - A character vector with one label per contour level drawn in each
+#'     panel, in the order of the levels.
 #'   - A function that takes the breaks as input and returns labels as output,
 #'     as in the default setup ([scales::label_number()]).
 #' @order 2

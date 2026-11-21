@@ -107,7 +107,8 @@ to use \code{position_jitter()}, give the position as \code{"jitter"}.
 }}
 }
 \value{
-A \CRANpkg{ggplot2} layer.
+A list of \CRANpkg{ggplot2} components to add to a plot, as returned
+by the corresponding \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} function.
 }
 \description{
 Wrappers of the \code{\link[ggplot2:geom_sf]{ggplot2::geom_sf()}} family used to plot

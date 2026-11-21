@@ -39,16 +39,15 @@
 #'
 #' ## [`SpatRaster`][terra::rast] and [`SpatVector`][terra::vect]
 #'
-#' The returned [tibble][tibble::tbl_df] includes the CRS of the original object
-#'   as an attribute
-#' in WKT format (see [pull_crs()]).
+#' The returned [tibble][tibble::tbl_df] stores the original CRS in the `crs`
+#' attribute in WKT format when available (see [pull_crs()]). With no CRS,
+#' the attribute is an empty string for a raster and is absent for a vector.
 #'
 #' @section Layer and column names:
 #'
 #' When coercing [`SpatRaster`][terra::rast] objects to data frames, `x` and `y`
-#'   are reserved
-#' names for the geographic coordinates of each cell. \CRANpkg{terra} also
-#' allows layers with duplicated names.
+#' are reserved for cell-center coordinates in the raster's CRS.
+#' \CRANpkg{terra} also allows layers with duplicated names.
 #'
 #' When coercing a [`SpatRaster`][terra::rast] to a [tibble][tibble::tbl_df],
 #'   \CRANpkg{tidyterra} may rename its
@@ -282,7 +281,7 @@ make_safe_names <- function(x, geom = NULL, messages = TRUE) {
       paste(
         for_message,
         "with duplicated or reserved names detected.",
-        "See {.strong About layer/column names} section on",
+        "See the {.strong Layer and column names} section in",
         "{.fun tidyterra::as_tibble.SpatRaster}"
       ),
       wrap = TRUE

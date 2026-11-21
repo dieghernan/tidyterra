@@ -26,8 +26,8 @@
     Code
       layer <- stat_spatraster(data = r)
     Message
-      i Layer(s) with duplicated or reserved names detected. See About layer/column
-      names section on `tidyterra::as_tibble.SpatRaster()`
+      i Layer(s) with duplicated or reserved names detected. See the Layer and column
+      names section in `tidyterra::as_tibble.SpatRaster()`
       ! Renaming columns and layers:
     Output
       * `passes` -> `passes.1`
@@ -38,8 +38,8 @@
     Code
       layer <- stat_spatraster(data = r, aes(fill = layer.2, alpha = layer.1))
     Message
-      i Layer(s) with duplicated or reserved names detected. See About layer/column
-      names section on `tidyterra::as_tibble.SpatRaster()`
+      i Layer(s) with duplicated or reserved names detected. See the Layer and column
+      names section in `tidyterra::as_tibble.SpatRaster()`
       ! Renaming columns and layers:
     Output
       * `layer` -> `layer.2`

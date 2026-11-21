@@ -57,8 +57,8 @@
 #' @inheritDotParams ggplot2::discrete_scale breaks:drop
 #' @inheritDotParams ggplot2::continuous_scale breaks:labels
 #' @inheritDotParams ggplot2::binned_scale breaks:limits nice.breaks
-#' @param na.translate Logical. If `TRUE`, remove `NA` values from the legend.
-#'   The default is `FALSE`.
+#' @param na.translate Logical. If `TRUE`, include missing values in the
+#'   discrete scale and legend. The default (`FALSE`) omits them.
 #' @param na.value Missing values will be replaced with this value. By default,
 #'   \CRANpkg{tidyterra} uses `na.value = "transparent"` so cells with `NA` are
 #'   not filled. See also

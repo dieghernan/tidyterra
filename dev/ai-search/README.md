@@ -31,8 +31,7 @@ Local commands, from this directory, using Node.js 24:
 npm ci
 npm test
 node sync.mjs site --dry-run
-node --env-file=.env sync.mjs site --prune
-node smoke.mjs
+node --env-file=.env sync.mjs site --all-batches --prune
 ```
 
 Here `site` is a checkout of the published `gh-pages` branch. Alternatively pass
@@ -51,8 +50,8 @@ A DELETE returning 404 after an overload retry is treated as completed, as
 Cloudflare documents that the earlier delete may already have succeeded.
 Other failures still stop the sync. Uploads are not automatically replayed.
 `--prune` removes stale documentation keys only after all uploads succeed and a
-complete item listing is available. Indexing is asynchronous; upload completion
-does not establish that every document is searchable yet.
+complete item listing is available. Wait for Cloudflare to report that indexing
+is complete before running `node smoke.mjs`.
 
 ## Store and recover the manifest
 

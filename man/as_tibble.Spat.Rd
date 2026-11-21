@@ -75,9 +75,9 @@ Implementation of the \strong{generic} \code{\link[tibble:as_tibble]{tibble::as_
 objects.
 \subsection{\code{\link[terra:rast]{SpatRaster}} and \code{\link[terra:vect]{SpatVector}}}{
 
-The returned \link[tibble:tbl_df]{tibble} includes the CRS of the original object
-as an attribute
-in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
+The returned \link[tibble:tbl_df]{tibble} stores the original CRS in the \code{crs}
+attribute in WKT format when available (see \code{\link[=pull_crs]{pull_crs()}}). With no CRS,
+the attribute is an empty string for a raster and is absent for a vector.
 }
 }
 
@@ -85,9 +85,8 @@ in WKT format (see \code{\link[=pull_crs]{pull_crs()}}).
 
 
 When coercing \code{\link[terra:rast]{SpatRaster}} objects to data frames, \code{x} and \code{y}
-are reserved
-names for the geographic coordinates of each cell. \CRANpkg{terra} also
-allows layers with duplicated names.
+are reserved for cell-center coordinates in the raster's CRS.
+\CRANpkg{terra} also allows layers with duplicated names.
 
 When coercing a \code{\link[terra:rast]{SpatRaster}} to a \link[tibble:tbl_df]{tibble},
 \CRANpkg{tidyterra} may rename its

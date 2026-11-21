@@ -113,7 +113,9 @@ The values provided must be either all positive or all negative. Indices
 beyond the number of rows in the input are silently ignored. See
 \strong{Methods}.}
 
-\item{.preserve}{Ignored for \verb{Spat*} objects.}
+\item{.preserve}{For a grouped \code{SpatVector}, \code{TRUE} retains the input
+grouping structure and \code{FALSE} (the default) recalculates it from the
+result. Ignored for \code{SpatRaster} objects.}
 
 \item{.keep_extent}{Logical. If \code{TRUE}, keep the extent of the resulting
 \code{\link[terra:rast]{SpatRaster}}. See also \code{\link[terra:trim]{terra::trim()}}, \code{\link[terra:extend]{terra::extend()}}.}
@@ -141,8 +143,9 @@ them in a data frame or tibble.}
 may return more rows than you request. Use \code{FALSE} to ignore ties,
 and return the first \code{n} rows.}
 
-\item{na.rm}{Logical. If \code{TRUE}, remove cells with \code{NA} values when
-computing \code{slice_min()/slice_max()}. The default is \code{TRUE}.}
+\item{na.rm}{Logical. If \code{TRUE} (the default), exclude cells with a missing
+value in any layer before ranking them with \code{slice_min()} or
+\code{slice_max()}.}
 
 \item{na_rm}{Should missing values in \code{order_by} be removed from the result?
 If \code{FALSE}, \code{NA} values are sorted to the end (like in \code{\link[dplyr:arrange]{arrange()}}), so
@@ -171,7 +174,7 @@ A \verb{Spat*} object of the same class as \code{.data}. See \strong{Methods}.
 (integer) locations. They allow you to select, remove or duplicate those
 dimensions of a \verb{Spat*} object.
 
-If you want to slice by geographic coordinates, use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
+To select cells by their coordinates, use \code{\link[=filter.SpatRaster]{filter.SpatRaster()}}.
 
 It includes helpers for common use cases:
 \itemize{
@@ -209,6 +212,8 @@ the values of the selected cells, columns or rows.
 
 Use \code{.keep_extent = TRUE} to preserve the extent of \code{.data} on the output.
 The non-selected cells have a value of \code{NA}.
+If \code{slice_min()} or \code{slice_max()} selects no cells, the result is an
+all-\code{NA} raster with the original extent.
 }
 
 \subsection{\code{\link[terra:vect]{SpatVector}}}{

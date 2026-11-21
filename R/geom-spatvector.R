@@ -30,7 +30,8 @@
 #'   These are often aesthetics, used to set an aesthetic to a fixed value,
 #'   like `colour = "red"` or `linewidth = 3`.
 #'
-#' @returns A \CRANpkg{ggplot2} layer.
+#' @returns A list of \CRANpkg{ggplot2} components to add to a plot, as returned
+#'   by the corresponding [ggplot2::geom_sf()] function.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()].

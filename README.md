@@ -111,7 +111,7 @@ Current methods and functions provided by **tidyterra** are:
 | `dplyr::add_count()` | ✔️ |  |
 | `dplyr::rows_*()` | ✔️ |  |
 | `dplyr::bind_cols()` / `dplyr::bind_rows()` | ✔️ as `bind_spat_cols()` / `bind_spat_rows()` |  |
-| `tidyr::drop_na()` | ✔️ | ✔️ Remove cell values with `NA` on any layer and outer cells with `NA`. |
+| `tidyr::drop_na()` | ✔️ | ✔️ Mask cells with `NA` in any selected layer and trim `NA` borders. |
 | `tidyr::complete()` | ✔️ |  |
 | `tidyr::expand()` | ✔️ |  |
 | `tidyr::replace_na()` | ✔️ | ✔️ |
@@ -122,7 +122,7 @@ Current methods and functions provided by **tidyterra** are:
 | `tidyr::uncount()` | ✔️ |  |
 | `tidyr::unite()` | ✔️ | ✔️ Create a categorical layer. |
 | `ggplot2::autoplot()` | ✔️ | ✔️ |
-| `ggplot2::fortify()` | ✔️ To an `sf` object through `sf::st_as_sf()` | To a tibble with coordinates. |
+| `ggplot2::fortify()` | ✔️ Convert to a two-dimensional `sf` object. Use `as_sf()` to retain Z and M coordinates. | ✔️ Convert to a tibble with coordinates. |
 | `ggplot2::geom_*()` | ✔️ `geom_spatvector()` | ✔️ `geom_spatraster()` and `geom_spatraster_rgb()`. |
 | `generics::tidy()` | ✔️ | ✔️ |
 | `generics::glance()` | ✔️ | ✔️ |
@@ -145,9 +145,9 @@ Current methods and functions provided by **tidyterra** are:
 > `terra::ncell(your_rast) * terra::nlyr(your_rast) < 1e7`,
 > **tidyterra** is a good fit.
 >
-> When plotting rasters, resampling is performed automatically (as
-> `terra::plot()` does, see the help page). You can adjust this with the
-> `maxcell` argument.
+> When plotting rasters, `maxcell` controls sampling before plotting.
+> Use `maxcell = Inf` to skip this step. Reprojecting a raster to the
+> plot’s CRS can still resample it.
 
 ## Installation
 
@@ -346,12 +346,12 @@ Please leave your feedback or open an issue on
 
 ## Need help?
 
-You can also try the experimental **tidyterra** AI assistant on the
-[development documentation
-website](https://dieghernan.github.io/tidyterra/dev/). Open the chat
-button to ask about **tidyterra** and explore the sources behind its
-answers. See the [assistant
-FAQ](https://dieghernan.github.io/tidyterra/dev/articles/faqs.html#ai-assistant)
+Open the chat button on the [documentation
+website](https://dieghernan.github.io/tidyterra/) or its [development
+version](https://dieghernan.github.io/tidyterra/dev/). The experimental
+**tidyterra** AI assistant uses the published release documentation. See
+the [assistant
+FAQ](https://dieghernan.github.io/tidyterra/articles/faqs.html#ai-assistant)
 for details and limitations.
 
 Check the

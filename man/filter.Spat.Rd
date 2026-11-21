@@ -21,8 +21,9 @@ created with \code{\link[terra:vect]{terra::vect()}}.}
 \item{...}{<\code{\link[rlang:args_data_masking]{data-masking}}> Expressions that
 return a logical value and are defined in terms of the layers/attributes
 in \code{.data}. If multiple expressions are included, they are combined with
-the \code{&} operator. Only cells/geometries for which all conditions evaluate
-to \code{TRUE} are kept. See \strong{Methods}.}
+the \code{&} operator. \code{filter()} keeps cells or geometries for which the
+combined condition is \code{TRUE}. For vectors, \code{filter_out()} drops those
+geometries and keeps the ones for which the condition is \code{FALSE} or \code{NA}.}
 
 \item{.preserve}{Relevant when the \code{.data} input is grouped. If \code{.preserve = FALSE} (the default), the grouping structure is recalculated based on the
 resulting data, otherwise the grouping is kept as is.}
@@ -52,11 +53,9 @@ Both \code{filter()} and \code{filter_out()} treat \code{NA} like \code{FALSE}. 
 behavior can affect how you write your conditions when missing values are
 involved. See \code{\link[dplyr:filter]{dplyr::filter()}}.
 
-\strong{You can filter a \code{\link[terra:rast]{SpatRaster}} by its geographic
-coordinates}.
-Use \code{filter(.data, x > 42)}. The names \code{x} and \code{y} are reserved in
-\CRANpkg{terra} because they refer to the geographic coordinates of the
-layer.
+To filter a \code{\link[terra:rast]{SpatRaster}} by its cell-center coordinates, use
+an expression such as \code{filter(.data, x > 42)}. The reserved names \code{x} and
+\code{y} refer to coordinates in the raster's CRS.
 
 See \strong{Examples} and section \strong{Layer and column names} on
 \code{\link[=as_tibble.Spat]{as_tibble.Spat()}}.
@@ -86,9 +85,8 @@ internally for filtering. See \strong{Examples}.
 
 \subsection{\code{\link[terra:vect]{SpatVector}}}{
 
-The result is a \code{\link[terra:vect]{SpatVector}} containing the geometries whose
-attributes
-satisfy all conditions.
+The result is a \code{\link[terra:vect]{SpatVector}}. \code{filter()} retains matching
+geometries, and \code{filter_out()} removes matching geometries.
 }
 }
 
@@ -122,7 +120,7 @@ r_f2 <- r |> filter(tavg_04 > 11.5, .keep_extent = FALSE)
 # Extent has changed
 plot(r_f2)
 
-# Filter by geographic coordinates
+# Filter by cell-center coordinates.
 r2 <- project(r, "epsg:4326")
 
 r2 |> plot()

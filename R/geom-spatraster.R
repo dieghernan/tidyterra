@@ -11,7 +11,7 @@
 #' use [geom_spatraster_rgb()].
 #' To plot one panel per raster layer in two columns, add
 #' `ggplot2::facet_wrap(~lyr, ncol = 2)`.
-#' The default `maxcell = 500000` limits the cells sampled for plotting.
+#' The default sampling target for plotting is `maxcell = 500000`.
 #'
 #' The underlying implementation is based on [ggplot2::geom_raster()].
 #'
@@ -32,16 +32,19 @@
 #'   **Aesthetics**, especially the use of the `fill` and `alpha` aesthetics
 #'   with [`SpatRaster`][terra::rast] layers.
 #'
-#' @param na.rm If `TRUE`, the default, missing values are silently removed. If
-#'   `FALSE`, missing values are removed with a warning.
+#' @param na.rm If `TRUE`, the default, suppress warnings when missing values
+#'   are removed. Missing raster cell values mapped to `fill` use the fill
+#'   scale's `na.value`.
 #'
-#' @param inherit.aes If `FALSE`, override the default aesthetics rather than
-#'   combining with them.
+#' @param inherit.aes Logical. If `TRUE`, combine the layer's aesthetic
+#'   mappings with those supplied to [ggplot2::ggplot()]. If `FALSE`, use
+#'   the layer's mappings alone.
 #'
-#' @param maxcell Positive integer or `Inf`. Maximum number of raster cells to
-#'   use. Use `Inf` to remove this sampling limit.
-#'   Reprojection for the plot can still change the grid, so `Inf` does not
-#'   guarantee native plot resolution. The input raster is not modified.
+#' @param maxcell Positive integer or `Inf`. Target number of raster cells for
+#'   regular sampling. Sampling starts when the raster has more than 1.1 times
+#'   `maxcell` cells, and the sampled grid can still exceed the target.
+#'   `Inf` skips this sampling step. Reprojection for plotting can still
+#'   change the grid. The input raster is not modified.
 #'
 #' @param use_coltab Logical. Only applicable to `SpatRaster` objects that have
 #'   an associated color table from [terra::coltab()]. If `TRUE`, use that
@@ -52,7 +55,9 @@
 #'   around the dateline in equal-area projections. This argument is passed
 #'   to [terra::project()] when reprojecting the [`SpatRaster`][terra::rast].
 #'
-#' @returns A \CRANpkg{ggplot2} layer.
+#' @returns A \CRANpkg{ggplot2} layer or a list of components to add to a plot.
+#'   A raster with a CRS adds an auxiliary spatial layer. A raster with a
+#'   color table can also add a fill scale.
 #' @section \CRANpkg{terra} equivalent:
 #'
 #' [terra::plot()].
@@ -74,16 +79,13 @@
 #' - [`fill`][ggplot2::aes_colour_fill_alpha]
 #' - [`alpha`][ggplot2::aes_colour_fill_alpha]
 #'
-#' If `fill` is not provided, `geom_spatraster()` creates a
-#' \CRANpkg{ggplot2} layer with all the layers of the
-#'   [`SpatRaster`][terra::rast]
-#' object. Use `facet_wrap(~lyr)` to display its layers.
-#' layers.
+#' If `fill` is omitted, `geom_spatraster()` uses all raster layers that share
+#' the class of the first layer. Use `facet_wrap(~lyr)` to display those layers
+#' in separate panels.
 #'
-#' If `fill` is used, it should contain the name of one layer that is present
-#' on the [`SpatRaster`][terra::rast] (for example,
-#' `geom_spatraster(data = rast, aes(fill = <name_of_lyr>))`). Layer names can
-#' be retrieved using `names(rast)`.
+#' To select one raster layer by name, map `fill` in the geom itself, for
+#' example `geom_spatraster(data = rast, aes(fill = elevation))`. Use
+#' `names(rast)` to list the available layer names.
 #'
 #' Using `geom_spatraster(..., mapping = aes(fill = NULL))` or
 #' `geom_spatraster(..., fill = <color value(s)>)` creates a layer with no

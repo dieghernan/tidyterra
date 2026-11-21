@@ -215,8 +215,8 @@ breaks are given explicitly.}
 colors are ordered from darkest to lightest. If -1, the order of colors is
 reversed.}
 
-\item{na.translate}{Logical. If \code{TRUE}, remove \code{NA} values from the legend.
-The default is \code{FALSE}.}
+\item{na.translate}{Logical. If \code{TRUE}, include missing values in the
+discrete scale and legend. The default (\code{FALSE}) omits them.}
 
 \item{drop}{Logical. If \code{TRUE}, omit unused factor levels from the scale.
 The default (\code{TRUE}) removes unused factors.}

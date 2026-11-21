@@ -16,10 +16,10 @@ forwarded to \code{\link[=group_by.SpatVector]{group_by.SpatVector()}}.}
 \item{.keep}{Should the grouping columns be kept?}
 }
 \value{
-A list of \code{\link[terra:vect]{SpatVector}} objects. Each object contains
-the rows
-of \code{.tbl} for the associated group and all columns. When \code{.keep = TRUE},
-the output includes the grouping variables.
+A list of \code{\link[terra:vect]{SpatVector}} objects, one per group.
+Each contains the rows of \code{.tbl} for that group. The grouping variables
+are included with \code{.keep = TRUE} (the default) and dropped with
+\code{.keep = FALSE}.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}

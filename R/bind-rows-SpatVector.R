@@ -41,9 +41,8 @@
 #'
 #' - If subsequent spatial objects have a different CRS from the first element,
 #'   they are reprojected to the CRS of the first element with a message.
-#' - If any element of `...` is a [tibble][tibble::tbl_df]/data frame, the rows
-#'   are column-bound
-#'   with empty geometries with a message.
+#' - Rows from a [tibble][tibble::tbl_df] or data frame are appended with empty
+#'   geometries, and a message is displayed.
 #'
 #' To create an input in another CRS, use [terra::project()] to transform its
 #' coordinates. Assigning `terra::crs(x) <- "EPSG:4326"` changes only the CRS

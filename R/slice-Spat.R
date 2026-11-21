@@ -6,7 +6,7 @@
 #' (integer) locations. They allow you to select, remove or duplicate those
 #' dimensions of a `Spat*` object.
 #'
-#' If you want to slice by geographic coordinates, use [filter.SpatRaster()].
+#' To select cells by their coordinates, use [filter.SpatRaster()].
 #'
 #' It includes helpers for common use cases:
 #'
@@ -39,7 +39,9 @@
 #' @inheritParams mutate.Spat
 #' @inheritParams dplyr::slice
 #'
-#' @param .preserve Ignored for `Spat*` objects.
+#' @param .preserve For a grouped `SpatVector`, `TRUE` retains the input
+#'   grouping structure and `FALSE` (the default) recalculates it from the
+#'   result. Ignored for `SpatRaster` objects.
 #' @param .keep_extent Logical. If `TRUE`, keep the extent of the resulting
 #'   [`SpatRaster`][terra::rast]. See also [terra::trim()], [terra::extend()].
 #' @param ... <[`data-masking`][rlang::args_data_masking]> Integer row values.
@@ -51,8 +53,9 @@
 #' @param cols,rows Integer column and row values of the `SpatRaster`.
 #' @param inverse If `TRUE`, `.data` is inverse-masked to the given selection.
 #'   See [terra::mask()].
-#' @param na.rm Logical. If `TRUE`, remove cells with `NA` values when
-#'   computing `slice_min()/slice_max()`. The default is `TRUE`.
+#' @param na.rm Logical. If `TRUE` (the default), exclude cells with a missing
+#'   value in any layer before ranking them with `slice_min()` or
+#'   `slice_max()`.
 #'
 #' @section \CRANpkg{terra} equivalent:
 #'
@@ -71,6 +74,8 @@
 #'
 #' Use `.keep_extent = TRUE` to preserve the extent of `.data` on the output.
 #' The non-selected cells have a value of `NA`.
+#' If `slice_min()` or `slice_max()` selects no cells, the result is an
+#' all-`NA` raster with the original extent.
 #'
 #' ## [`SpatVector`][terra::vect]
 #'
@@ -159,9 +164,7 @@ slice.SpatRaster <- function(
 
   keepcells <- sliced$cellindex
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
 
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
@@ -209,9 +212,7 @@ slice_head.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
   keepcells <- sliced$cellindex
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
   newrast <- .data
@@ -258,9 +259,7 @@ slice_tail.SpatRaster <- function(.data, ..., n, prop, .keep_extent = FALSE) {
 
   keepcells <- sliced$cellindex
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
   newrast <- .data
@@ -337,16 +336,14 @@ slice_min.SpatRaster <- function(
 
   keepcells <- sliced$cellindex.tidyterra
 
-  # Make NA cells
-
-  # To NA
-  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
+  # Mask all unselected cells, including those excluded before ranking.
+  tonas <- setdiff(seq_len(terra::ncell(.data)), keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
 
-  # With keep_extent we just replaced the cells with NAs
-  if (.keep_extent) {
+  # An empty selection has no extent to crop to.
+  if (.keep_extent || length(keepcells) == 0L) {
     return(newrast)
   }
 
@@ -437,16 +434,14 @@ slice_max.SpatRaster <- function(
 
   keepcells <- sliced$cellindex.tidyterra
 
-  # Make NA cells
-
-  # To NA
-  tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
+  # Mask all unselected cells, including those excluded before ranking.
+  tonas <- setdiff(seq_len(terra::ncell(.data)), keepcells)
 
   newrast <- .data
   newrast[tonas] <- NA
 
-  # With keep_extent we just replaced the cells with NAs
-  if (.keep_extent) {
+  # An empty selection has no extent to crop to.
+  if (.keep_extent || length(keepcells) == 0L) {
     return(newrast)
   }
 
@@ -531,9 +526,7 @@ slice_sample.SpatRaster <- function(
 
   keepcells <- sliced$cellindex.tidyterra
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex.tidyterra, keepcells)
 
   newrast <- .data
@@ -610,9 +603,7 @@ slice_rows.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 
   keepcells <- sliced$cellindex
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
   newrast <- .data
@@ -656,9 +647,7 @@ slice_cols.SpatRaster <- function(.data, ..., .keep_extent = FALSE) {
 
   keepcells <- sliced$cellindex
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
   newrast <- .data
@@ -725,9 +714,7 @@ slice_colrows.SpatRaster <- function(
     selected_cells
   }
 
-  # Make NA cells
-
-  # To NA
+  # Mask cells outside the selection.
   tonas <- setdiff(skeleton$cellindex, keepcells)
 
   newrast <- .data

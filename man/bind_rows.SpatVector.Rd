@@ -51,9 +51,8 @@ a \code{SpatVector}, an \code{\link[sf:st_sf]{sf}} or \code{sfc} object or a dat
 \itemize{
 \item If subsequent spatial objects have a different CRS from the first element,
 they are reprojected to the CRS of the first element with a message.
-\item If any element of \code{...} is a \link[tibble:tbl_df]{tibble}/data frame, the rows
-are column-bound
-with empty geometries with a message.
+\item Rows from a \link[tibble:tbl_df]{tibble} or data frame are appended with empty
+geometries, and a message is displayed.
 }
 
 To create an input in another CRS, use \code{\link[terra:project]{terra::project()}} to transform its
