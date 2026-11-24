@@ -97,6 +97,13 @@ and landscapes: Conservation insights for Italian small ruminant
 populations. *Pastoralism: Research, Policy and Practice*, *15*, 14997.
 <https://doi.org/10.3389/past.2025.14997>
 
+Breure, T. S., Fahl, F., Panagos, P., Liakos, L., Meijninger, W.,
+Sabetizadeh, M., Wijmer, T., Zhou, Y., De Rosa, D., Muraro, D., &
+Lugato, E. (2026). Towards a standardised baseline methodology to
+support the EU carbon farming certification in agricultural mineral
+soils. *Carbon Management*, *18*(1), 2763863.
+<https://doi.org/10.1080/17583004.2026.2763863>
+
 Buma, B. (2024). Including non-growing season emissions of N₂O in US
 maize could raise net CO₂e emissions by 31% annually. *Agricultural &
 Environmental Letters*, *9*(2), e20146.
@@ -397,6 +404,11 @@ use, climate change and nitrogen deposition to global vascular plant
 diversity. *Global Ecology and Conservation*, *69*, e04307.
 <https://doi.org/10.1016/j.gecco.2026.e04307>
 
+Mostert, P. S. (2025). *Advances and applications of integrated species
+distribution models in large-scale ecological analyses* \[PhD thesis,
+Norwegian University of Science and Technology\].
+<https://hdl.handle.net/11250/3187773>
+
 Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier,
 A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L.,
 Villalobos, F., Marquet, P. A., Svenning, J.-C., & Enquist, B. J.
@@ -423,6 +435,11 @@ Pérez-Girón, J. C., López-Bao, J. V., Díaz-Varela, E., &
 shifts in nut-producing species that are important for bears during
 hyperphagia. *Frontiers in Forests and Global Change*, *8*, 1624612.
 <https://doi.org/10.3389/ffgc.2025.1624612>
+
+Piovesani, W. S., Ferreira, P. P. A., & Seger, G. D. dos S. (2025). A
+comprehensive description and range extension of the formerly Bolivian
+endemic *Clematis uruboensis* (Ranunculaceae) to Brazil. *Phytotaxa*,
+*706*(3), 281–288. <https://doi.org/10.11646/phytotaxa.706.3.6>
 
 Poggio, L., Rossiter, D. G., & Batjes, N. H. (2026). When and how to use
 a map: Characterising and assessing fitness for use of global and
